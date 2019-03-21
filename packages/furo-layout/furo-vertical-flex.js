@@ -19,7 +19,7 @@ import {FBP} from "@furo/fbp";
  *  Tags: layout
  *
  * @customElement
- * @demo demo/index.html
+ * @demo demo/furo-vertical-flex.html
  * @appliesMixin FBP
  */
 class FuroVerticalFlex extends FBP(LitElement) {
@@ -28,15 +28,11 @@ class FuroVerticalFlex extends FBP(LitElement) {
     super();
   }
 
-  static get properties() {
-    return {
-      message: {type: String},
-      myArray: {type: Array},
-      myBool: {type: Boolean}
-    };
-  }
 
-
+  /**
+   * @private
+   * @returns {TemplateResult}
+   */
   render() {
     // language=HTML
     return html`

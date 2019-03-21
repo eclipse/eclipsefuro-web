@@ -19,7 +19,7 @@ import {FBP} from "@furo/fbp";
  *  Tags: layout
  *
  * @customElement
- * @demo demo/index.html
+ * @demo demo/furo-horizontal-flex.html
  * @appliesMixin FBP
  */
 class FuroHorizontalFlex extends FBP(LitElement) {
@@ -28,15 +28,10 @@ class FuroHorizontalFlex extends FBP(LitElement) {
     super();
   }
 
-  static get properties() {
-    return {
-      message: {type: String},
-      myArray: {type: Array},
-      myBool: {type: Boolean}
-    };
-  }
-
-
+  /**
+   * @private
+   * @returns {TemplateResult}
+   */
   render() {
     // language=HTML
     return html`
@@ -49,7 +44,7 @@ class FuroHorizontalFlex extends FBP(LitElement) {
             display: -webkit-flex;
             display: flex;
           };
-
+          
           --layout-horizontal: {
             @apply --layout;
             -ms-flex-direction: row;
@@ -74,6 +69,11 @@ class FuroHorizontalFlex extends FBP(LitElement) {
           };
 
           @apply --layout-horizontal;
+        }
+
+
+        :host([reverse]) {
+          @apply --layout-horizontal-reverse;
         }
 
         ::slotted(*[flex]) {

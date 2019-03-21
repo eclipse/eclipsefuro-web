@@ -4,7 +4,8 @@ import {LitElement, html} from 'lit-element';
  * `furo-empty-spacer`
  *
  * @customElement
- * @demo demo/index.html
+ * @demo demo/furo-vertical-flex.html
+ * @demo demo/furo-horizontal-flex.html
  * @appliesMixin FBP
  */
 class FuroEmptySpacer extends LitElement {
