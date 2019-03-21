@@ -3,5 +3,7 @@
   "private": true,
   "devDependencies": {
     "lerna": "^3.10.7"
-  }
+  },
+  "author": "veith",
+  "license": "MIT"
 }
