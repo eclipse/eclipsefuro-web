@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.13.1...@furo/layout@0.14.0) (2019-03-21)
+
+
+### Features
+
+* Polymer dependencies removed for furo-empty-space ([5c5fd1b](https://github.com/veith/FuroBaseComponents/commit/5c5fd1b))
+* Polymer dependencies removed for furo-horiontal-flex ([42330f4](https://github.com/veith/FuroBaseComponents/commit/42330f4))
+* Polymer dependencies removed for furo-vertical-flex ([58de491](https://github.com/veith/FuroBaseComponents/commit/58de491))
+* Polymer dependencies removed for furo-vertical-scroller ([7b166df](https://github.com/veith/FuroBaseComponents/commit/7b166df))
+
+
+
+
+
 ## 0.13.1 (2019-03-21)
 
 
