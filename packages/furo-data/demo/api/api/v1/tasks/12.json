@@ -1,0 +1,99 @@
+{
+  "data": {
+    "zeitunddatum": {
+      "date": "2011-04-22",
+      "repstring": [
+        "avvvvaa",
+        "bbbbbbb"
+      ],
+      "time": "22:37"
+    },
+    "repstring": [
+      "rtzfghj",
+      "bbbbbbb"
+    ],
+    "taskId": 12,
+    "title": "erster Versuch",
+    "repdate": [
+      {
+        "date": "0000-05-22",
+        "repstring": [
+          "ok",
+          "Fehler"
+        ],
+        "time": "13:37"
+      },
+      {
+        "date": "2011-06-22",
+        "repstring": [
+          "dfg",
+          "bbbbbbb"
+        ],
+        "time": "14:37"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel": "self",
+      "method": "GET",
+      "href": "/demo/api/v1/tasks/12.json",
+      "type": "vnd.com.acme.task"
+    },
+    {
+      "rel": "update",
+      "method": "PATCH",
+      "href": "/demo/api/v1/tasks/12.json",
+      "type": "vnd.com.acme.task"
+    }
+  ],
+  "error": {
+    "code": 401,
+    "message": "Request had invalid credentials.",
+    "status": "UNAUTHENTICATED",
+    "fields": [{
+      "code" : 5432,
+      "field" : "title.dd",
+      "message" : "First name cannot have fancy characters",
+      "developerMessage" : "Check this field, before sending. Give a hint to theuser."
+    },{
+      "code" : 5432,
+      "field" : "repdate.0.repstring.1",
+      "message" : "Bitte kein B",
+      "developerMessage" : "Check this field, before sending. Give a hint to theuser."
+    }],
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.RetryInfo"
+      }
+    ]
+  },
+  "meta": {
+    "fields": {
+      "title": {
+        "meta": {
+          "label": "VOM SERVEEEER"
+        },
+        "constraints": {
+          "min": {
+            "value": 5,
+            "message": "Fuenf Zeichen sind zwingend"
+          },
+          "max": {
+            "value": 14,
+            "message": "Vierzehn sind genug"
+          }
+        }
+      },
+      "repdate": {
+        "fields": {
+          "date": {
+            "meta": {
+              "label": "LabelRepdateDynamic"
+            }
+          }
+        }
+      }
+    }
+  }
+}

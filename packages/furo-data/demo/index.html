@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>furo-data demo</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <script src="environment.js"></script>
+
+    <script type="module">
+      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+      import '@polymer/iron-demo-helpers/demo-snippet';
+      import '@furo/fbp/flow-bind.js';
+      import '@furo/input/furo-catalog.js';
+      import '../furo-catalog';
+      import './produce-qp';
+      import './repeated-data';
+      import './repeated-string';
+
+    </script>
+    <script type="module" src="./produce-qp.js"></script>
+    <script type="module" src="./repeated-data.js"></script>
+    <script type="module" src="./repeated-string.js"></script>
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic furo-catalog demo</h3>
+      <demo-snippet>
+        <template>
+          <flow-bind>
+            <template>
+
+              <furo-button @-click="--relClk" label="release" ></furo-button>
+              <custom-method service="tasks"  method="release" ƒ-bind-request-object="--data" ƒ-hts-in="--hts" ƒ-trigger="--relClk"></custom-method>
+              <produce-qp @-qp="--qp"></produce-qp>
+              <deep-link auto  ƒ-.qp='--qp' service="tasks" @-hts-out="--hts"></deep-link>
+              <entity-agent service="tasks" ƒ-save="--saveClicked" ƒ-bind-request-object="--data" ƒ-hts-in="--hts" ƒ-load="--loadClicked" @-save="--saveClicked" @-response="--entityResponse"></entity-agent>
+
+
+              <entity-object type="vnd.com.acme.task" ƒ-inject-raw="--entityResponse"  @-object-ready="--data">
+                <entity-field field="zeitunddatum.date" ƒ-set=""></entity-field>
+              </entity-object>
+
+
+              <furo-button @-click="--loadClicked, --focus" label="load record 12"></furo-button>
+              <furo-button @-click="--saveClicked, --focus" label="SAVE"></furo-button>
+
+
+
+              <entity-validator ƒ-bind-data="--data(*.fields)"></entity-validator>
+              <furo-number-input ƒ-bind-data="--data(*.fields.taskId)"></furo-number-input>
+              <furo-range-input ƒ-bind-data="--data(*.fields.taskId)"></furo-range-input>
+
+              <furo-text-input autofocus ƒ-bind-data="--data(*.fields.title)"></furo-text-input>
+              <furo-text-input  label="Wichtiger" ƒ-focus="--focus" ƒ-bind-data="--data(*.fields.description)"></furo-text-input>
+              <furo-text-input  ƒ-bind-data="--data(*.fields.description)"></furo-text-input>
+              <furo-text-input ƒ-bind-data="--data(*.fields.title)"></furo-text-input>
+              <furo-password-input ƒ-bind-data="--data(*.fields.title)"></furo-password-input>
+
+              <furo-date-input ƒ-bind-data="--data(*.fields.zeitunddatum.date)"></furo-date-input>
+              <furo-text-input ƒ-bind-data="--data(*.fields.zeitunddatum.date)"></furo-text-input>
+              <furo-time-input ƒ-bind-data="--data(*.fields.zeitunddatum.time)"></furo-time-input>
+              <furo-text-input ƒ-bind-data="--data(*.fields.zeitunddatum.date)"></furo-text-input>
+              <furo-search-input ƒ-bind-data="--data(*.fields.title)"></furo-search-input>
+
+              <furo-textarea-input ƒ-bind-data="--data(*.fields.title)"></furo-textarea-input>
+              <hr>
+              <furo-textarea-input style="width: 100%" label="Wichtiger" rows="5" ƒ-bind-data="--data(*.fields.title)"></furo-textarea-input>
+
+
+              <hr>
+              <repeated-data ƒ-bind-data="--data(*.fields.repdate)"></repeated-data>
+              <hr>
+              <repeated-string ƒ-bind-data="--data(*.fields.repstring)"></repeated-string>
+              <repeated-string ƒ-bind-data="--data(*.fields.repstring)"></repeated-string>
+
+
+            </template>
+          </flow-bind>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

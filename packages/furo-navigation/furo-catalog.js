@@ -1,0 +1,1 @@
+import "./fd-mini-tabs"

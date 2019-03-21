@@ -1,0 +1,89 @@
+import { LitElement, html } from 'lit-element';
+import {FBP} from "@furo/fbp";
+import   "@furo/fbp/flow-repeat";
+
+/**
+ * `repeated-data`
+ *
+ * @customElement
+ * @demo demo/index.html
+ * @appliesMixin FBP
+ */
+class RepeatedData extends FBP(LitElement) {
+
+  constructor() {
+    super();
+    this._FBPAddWireHook("--add",(e)=>{
+      this.field.add()
+    })
+  }
+
+  static get properties() {
+    return {
+      message: {type: String},
+      myArray: {type: Array},
+      myBool: {type: Boolean}
+    };
+  }
+
+
+  render() {
+    // language=HTML
+    return html`
+      <!-- Add a style block here -->
+      <style>
+        :host {
+          display: block;
+
+        }
+        .box{
+          border: 2px solid #e2e2e2;
+          margin: 8px;
+          padding: 8px;
+        }
+      </style>
+      <h4>Repeated Zeitunddatum</h4>
+      <flow-repeat ƒ-inject-items="--data">
+        <template>
+          <div class="box">
+          <furo-date-input ƒ-bind-data="--itemInjected(*.item.date)"></furo-date-input>
+          <furo-time-input ƒ-bind-data="--itemInjected(*.item.time)"></furo-time-input>
+          <hr>
+          <div style="background-color: #e2e2e2">
+            <repeated-string ƒ-bind-data="--itemInjected(*.item.repstring)"></repeated-string>
+          </div>
+          <hr>
+
+          </div>
+        </template>
+      </flow-repeat>
+
+      <button @-click="--add">add</button>
+    `;
+  }
+
+
+  bindData(d) {
+    if (d === undefined) {
+      console.warn("Invalid binding ");
+      console.log(this);
+      return
+    }
+
+    this.field = d;
+
+
+    this.field.addEventListener('repeated-fields-changed', (e) => {
+      // updates wieder einspielen
+      this._FBPTriggerWire('--data', e.detail);
+
+    });
+
+
+    // init
+    this._FBPTriggerWire('--data', this.field.repeats);
+
+  }
+}
+
+window.customElements.define('repeated-data', RepeatedData);

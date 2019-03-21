@@ -1,0 +1,24 @@
+{
+  "name": "@furo/collection",
+  "version": "0.13.0",
+  "description": "Collection of furo base components",
+  "main": "index.js",
+  "dependencies": {
+    "@furo/config": "0.13.0",
+    "@furo/data": "0.13.0",
+    "@furo/fbp": "0.13.0",
+    "@furo/form": "0.13.0",
+    "@furo/input": "0.13.0",
+    "@furo/layout": "0.13.0",
+    "@furo/mixins": "0.13.0",
+    "@furo/navigation": "0.13.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "veith",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^3.10.7"
+  }
+}
