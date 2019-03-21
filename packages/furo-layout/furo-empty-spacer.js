@@ -1,51 +1,56 @@
-import {PolymerElement, html} from '@polymer/polymer';
-import {FBP} from "@furo/fbp";
+import {LitElement, html} from 'lit-element';
 
 /**
- * `empty-spacer`
- * Use this component as a spacer in flex layouts.
- * Set the attribute hidden to hide the spacer
+ * `furo-empty-spacer`
  *
- * @summary empty flex spacer
  * @customElement
- * @polymer
- * @mixes FBP
+ * @demo demo/index.html
+ * @appliesMixin FBP
  */
-class FuroEmptySpacer extends FBP(PolymerElement) {
-    static get template() {
+class FuroEmptySpacer extends LitElement {
+
+  constructor() {
+    super();
+    this.flex = true;
+    this.hidden = false;
+  }
+
+  static get properties() {
+    return {
+      /**
+       * Attribute flex for furo-horizontal-flex and furo-vertical-flex
+       */
+      flex: {
+        type: Boolean,
+        reflect: true
+      },
+      /**
+       * Set to true to hide the spacer
+       */
+      hidden: {
+        type: Boolean,
+        reflect: true
+      }
+    };
+  }
+
+  /**
+   * @private
+   * @returns {*}
+   */
+  render() {
     // language=HTML
     return html`
       <style>
         :host {
           display: block;
         }
-        :host([hidden]){
+
+        :host([hidden]) {
           display: none;
         }
       </style>
-
     `;
-  }
-
-  static get properties() {
-    return {
-      /**
-      * Default class flex for furo-horizontal-flex and furo-vertical-flex
-      */
-      class : {
-          type:String,
-          reflectToAttribute: true,
-          value : "flex" ,
-      },
-      /**
-      * Set to true to hide the spacer
-      */
-      hidden : {
-          type:Boolean,
-          reflectToAttribute: true,
-          value : false ,
-      },
-    };
   }
 
 }
