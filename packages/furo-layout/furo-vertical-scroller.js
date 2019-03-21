@@ -1,17 +1,26 @@
-import {PolymerElement, html} from '@polymer/polymer';
+import { LitElement, html } from 'lit-element';
 import {FBP} from "@furo/fbp";
 
 /**
  * `furo-vertical-scroller`
  *
- *
- * @summary verticales scrollen
+ * @summary vertical scroll
  * @customElement
- * @polymer
- * @mixes FBP
+ * @demo demo/index.html
+ * @appliesMixin FBP
  */
-class FuroVerticalScroller extends FBP(PolymerElement) {
-  static get template() {
+class FuroVerticalScroller extends FBP(LitElement) {
+
+  constructor() {
+    super();
+  }
+
+
+  /**
+   * @private
+   * @returns {TemplateResult}
+   */
+  render() {
     // language=HTML
     return html`
       <style>
@@ -23,10 +32,6 @@ class FuroVerticalScroller extends FBP(PolymerElement) {
       </style>
       <slot></slot>
     `;
-  }
-
-  static get properties() {
-    return {};
   }
 
 }
