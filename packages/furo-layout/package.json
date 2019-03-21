@@ -5,10 +5,10 @@
   "version": "0.15.0",
   "dependencies": {
     "@furo/fbp": "^4.9.0",
-    "@polymer/polymer": "^3.0.0",
     "lit-element": "^2.0.1"
   },
   "devDependencies": {
+    "@polymer/polymer": "^3.0.0",
     "@polymer/iron-component-page": "^4.0.1",
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
     "@polymer/test-fixture": "^4.0.2",

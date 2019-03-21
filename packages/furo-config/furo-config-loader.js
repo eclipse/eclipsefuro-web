@@ -33,7 +33,6 @@ class FuroConfigLoader extends FuroStateMixin(FBP(PolymerElement)) {
       <style>
         :host {
           display: none;
-          height: 100%;
         }
       </style>
       <iron-ajax ƒ-generate-request="--componentReady" url="[[src]]" handle-as="json"
