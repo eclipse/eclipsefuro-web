@@ -6,7 +6,7 @@
   "dependencies": {
     "@furo/config": "^0.13.1",
     "@furo/data": "^0.13.1",
-    "@furo/fbp": "0.13.0",
+    "@furo/fbp": "^4.9.0",
     "@furo/form": "^0.13.1",
     "@furo/input": "^0.13.1",
     "@furo/layout": "^0.13.1",
