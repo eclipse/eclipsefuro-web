@@ -1,46 +1,90 @@
-import {PolymerElement, html} from '@polymer/polymer';
+import { LitElement, html } from 'lit-element';
 import {FBP} from "@furo/fbp";
-import '@polymer/iron-flex-layout/iron-flex-layout.js';
 
 /**
  * `furo-vertical-flex`
- * Für vertikales anordnen von Komponenten. Die Höhe ist automatisch auf 100% gesetzt.
- * Setze auf dem flexiblen Element die Klasse **flex**
+ *
+ *  Für vertikales anordnen von Komponenten. Die Breite ist automatisch auf 100% gesetzt (display block).
+ *
+ *  Setze auf dem flexiblen Element das Attribut **flex**
+ *
  *
  * ```
  * <furo-vertical-flex>
  *   <div>small</div>
- *   <div class="flex">full height</div>
+ *   <div flex>full width</div>
  *   <div>small</div>
  * </furo-vertical-flex>
  * ```
+ *  Tags: layout
  *
- * Tags: layout
- *
- * @summary vertikales anordnen
  * @customElement
- * @polymer
- * @mixes FBP
+ * @demo demo/index.html
+ * @appliesMixin FBP
  */
-class FuroVerticalFlex extends FBP(PolymerElement) {
-  static get template() {
+class FuroVerticalFlex extends FBP(LitElement) {
+
+  constructor() {
+    super();
+  }
+
+  static get properties() {
+    return {
+      message: {type: String},
+      myArray: {type: Array},
+      myBool: {type: Boolean}
+    };
+  }
+
+
+  render() {
     // language=HTML
     return html`
       <style>
         :host {
           display: block;
-          height: 100%;
+
+          --layout: {
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+          };
+
+          --layout-vertical: {
+            @apply --layout;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+          };
+
+          --layout-vertical: {
+            @apply --layout;
+
+            -ms-flex-direction: column;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+          };
+
+          --layout-vertical-reverse: {
+            @apply --layout;
+
+            -ms-flex-direction: column-reverse;
+            -webkit-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+          };
+          
           @apply --layout-vertical;
         }
 
-        ::slotted(.flex),::slotted(*[flex]) {
+        ::slotted(*[flex]) {
           @apply --layout-flex;
         }
       </style>
 
       <slot></slot>
-    `
+    `;
   }
+
 }
 
 window.customElements.define('furo-vertical-flex', FuroVerticalFlex);
