@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.14.0...@furo/layout@0.15.0) (2019-03-21)
+
+
+### Features
+
+* furo-split-view without polymer, demo, doc ([f4abad5](https://github.com/veith/FuroBaseComponents/commit/f4abad5))
+
+
+
+
+
 # [0.14.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.13.1...@furo/layout@0.14.0) (2019-03-21)
 
 
