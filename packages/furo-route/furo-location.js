@@ -41,16 +41,22 @@ class FuroLocation extends HTMLElement {
      *
      * This is to prevent large numbers of entries from clogging up the user's
      * browser history. Disable by setting to a negative number.
+     * @type {number} in milliseconds
      */
-    this._dwellTime = this.getAttribute("dwell-time") || 2000;
+    this.dwellTime = this.getAttribute("dwell-time") || 2000;
+
 
     this._registerHandler();
+
   }
 
+  /**
+   * @private
+   */
   connectedCallback() {
     document.body.addEventListener("click", this._clickHandler, true);
     document.body.addEventListener("__furoLocationChanged", this._locationChangeNotyfier, true);
-    this._lastChangedAt = window.performance.now() - (this._dwellTime - 200);
+    this._lastChangedAt = window.performance.now() - (this.dwellTime - 200);
 
     // initial notyfier
     this._locationChangeNotyfier({"detail": this._lastChangedAt});
@@ -58,6 +64,9 @@ class FuroLocation extends HTMLElement {
   }
 
 
+  /**
+   * @private
+   */
   disconnectedCallback() {
     document.body.removeEventListener("click", this._clickHandler, true);
     document.body.removeEventListener("__furoLocationChanged", this._locationChangeNotyfier, true);
@@ -66,7 +75,8 @@ class FuroLocation extends HTMLElement {
 
   /**
    * Set Query Params via Object
-   * @param queryObject
+   *
+   * @type {object} queryParams
    */
   set query(queryObject) {
     // make query string from QueryObject
@@ -199,7 +209,7 @@ class FuroLocation extends HTMLElement {
 
 
         let now = window.performance.now();
-        let shouldReplace = this._lastChangedAt + this._dwellTime > now;
+        let shouldReplace = this._lastChangedAt + this.dwellTime > now;
         this._lastChangedAt = now;
 
         if (shouldReplace) {

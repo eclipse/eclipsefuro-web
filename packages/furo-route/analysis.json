@@ -8074,36 +8074,59 @@
             }
           },
           "defaultValue": "this.getAttribute(\"url-space-regex\") || \"\""
+        },
+        {
+          "name": "dwellTime",
+          "type": "number",
+          "description": "If the user was on a URL for less than `dwellTime` milliseconds, it\nwon't be added to the browser's history, but instead will be replaced\nby the next entry.\n\nThis is to prevent large numbers of entries from clogging up the user's\nbrowser history. Disable by setting to a negative number.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 45,
+              "column": 4
+            },
+            "end": {
+              "line": 45,
+              "column": 18
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "this.getAttribute(\"dwell-time\") || 2000"
+        },
+        {
+          "name": "query",
+          "type": "?",
+          "description": "Set Query Params via Object",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 80,
+              "column": 2
+            },
+            "end": {
+              "line": 92,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
         }
       ],
       "methods": [
         {
           "name": "connectedCallback",
           "description": "",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 49,
-              "column": 2
-            },
-            "end": {
-              "line": 57,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "disconnectedCallback",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 60,
+              "line": 55,
               "column": 2
             },
             "end": {
@@ -8118,16 +8141,73 @@
           }
         },
         {
+          "name": "disconnectedCallback",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 2
+            },
+            "end": {
+              "line": 72,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_getHrefFromLocation",
+          "description": "create a valid href string from this._location",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 95,
+              "column": 2
+            },
+            "end": {
+              "line": 105,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
           "name": "_registerHandler",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 108,
               "column": 2
             },
             "end": {
-              "line": 178,
+              "line": 226,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_notifyFuroLocationChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 229,
+              "column": 2
+            },
+            "end": {
+              "line": 234,
               "column": 3
             }
           },
@@ -8148,11 +8228,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 12,
+          "line": 11,
           "column": 0
         },
         "end": {
-          "line": 181,
+          "line": 235,
           "column": 1
         }
       },
@@ -8182,7 +8262,7 @@
         {
           "type": "CustomEvent",
           "name": "location-query-changed",
-          "description": "location-query-changed\nFired when Query portion of the location changed\ndetail payload: {string} query",
+          "description": "location-query-changed\nFired when Query portion of the location changed\ndetail payload: {Object} queryParams",
           "metadata": {}
         }
       ],
