@@ -2,6 +2,7 @@
   "name": "@furo/navigation",
   "description": "Furo navigation components",
   "main": "furo-catalog.js",
+  "license": "MIT",
   "version": "0.14.0",
   "dependencies": {
     "@furo/fbp": "^4.9.0",
@@ -15,5 +16,5 @@
     "mocha": "^5.2.0",
     "wct-mocha": "^1.0.0"
   },
-  "gitHead": "fe1b94280b81bfa8c13c4a0eba65e06ec7b202f2"
+  "gitHead": "0a63033530b4aea3198596953fc7561065807a22"
 }
