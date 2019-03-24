@@ -11,7 +11,8 @@
     "@furo/input": "^0.13.4",
     "@furo/layout": "^0.15.1",
     "@furo/mixins": "^0.13.2",
-    "@furo/navigation": "^0.13.2"
+    "@furo/navigation": "^0.13.2",
+    "@furo/route": "^0.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,5 +21,6 @@
   "license": "MIT",
   "devDependencies": {
     "lerna": "^3.10.7"
-  }
+  },
+  "gitHead": "fe1b94280b81bfa8c13c4a0eba65e06ec7b202f2"
 }
