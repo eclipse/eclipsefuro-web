@@ -1,0 +1,183 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>app-flow test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+
+  <script type="module" src="../test_helper.js"></script>
+</head>
+
+<body>
+<test-fixture id="basic">
+  <template>
+    <test-helper></test-helper>
+  </template>
+</test-fixture>
+
+
+<script type="module">
+
+suite('app-flow', function () {
+
+
+  var someElement, element, button, theFlow, wiredButton;
+
+
+  test('instantiating the element works', function () {
+    element = fixture('basic');
+
+    button = element.shadowRoot.querySelector('button');
+    wiredButton = element.$.wiredButton;
+    theFlow = element.shadowRoot.querySelector('app-flow');
+
+    assert.equal(element.localName, 'test-helper');
+  });
+
+
+  test('app-flow fires app-flow ', function (done) {
+    element = fixture('basic');
+
+    button = element.shadowRoot.querySelector('button');
+    wiredButton = element.$.wiredButton;
+    theFlow = element.shadowRoot.querySelector('app-flow');
+
+    var handler = function (e) {
+      assert.equal(e.type, 'app-flow');
+      element.removeEventListener('app-flow', handler);
+      done();
+    };
+
+    element.addEventListener('app-flow', handler);
+    console.log(button)
+    console.log(element)
+    button.click();
+
+  });
+
+  test('app-flow fires app-flow event with app-flow object', function (done) {
+    element = fixture('basic');
+
+    button = element.shadowRoot.querySelector('button');
+    wiredButton = element.$.wiredButton;
+    theFlow = element.shadowRoot.querySelector('app-flow');
+
+    var handler = function (e) {
+      assert.equal(e.detail.data.a, 'a string');
+      element.removeEventListener('app-flow', handler);
+      done();
+    };
+
+    element.addEventListener('app-flow', handler);
+    button.click();
+
+  });
+
+  test('data is instance of AppFlow', function (done) {
+    element = fixture('basic');
+
+    button = element.shadowRoot.querySelector('button');
+    wiredButton = element.$.wiredButton;
+    theFlow = element.shadowRoot.querySelector('app-flow');
+
+    var handler = function (e) {
+
+
+      element.removeEventListener('app-flow', handler);
+      done();
+    };
+
+    element.addEventListener('app-flow', handler);
+    button.click();
+
+  });
+
+
+  test('send selected props only', function (done) {
+    element = fixture('basic');
+
+    button = element.shadowRoot.querySelector('button');
+    wiredButton = element.$.wiredButton;
+    theFlow = element.shadowRoot.querySelector('app-flow');
+
+    var handler = function (e) {
+      assert.equal(e.detail.data.a, undefined);
+      assert.deepEqual(e.detail.data.barray, [1, 2, 3, 4]);
+      assert.equal(e.detail.some, undefined);
+      assert.equal(e.detail.data._privateProp, 'secret');
+      element.removeEventListener('app-flow', handler);
+      done();
+    };
+
+    theFlow.propertiesToSend = '_privateProp, barray, some';
+    element.addEventListener('app-flow', handler);
+    button.click();
+
+  });
+
+  test('app-flow fires with eventname', function (done) {
+    element = fixture('basic');
+
+    button = element.shadowRoot.querySelector('button');
+    wiredButton = element.$.wiredButton;
+    theFlow = element.shadowRoot.querySelector('app-flow');
+
+    var handler = function (e) {
+      assert.equal(e.type, 'app-flow');
+      assert.equal(e.detail.event, 'button-tapped');
+      element.removeEventListener('app-flow', handler);
+      done();
+    };
+
+    element.addEventListener('app-flow', handler);
+    button.click();
+
+  });
+
+  test('check if __wiredData is set properly', function (done) {
+    element = fixture('basic');
+
+    button = element.shadowRoot.querySelector('button');
+    wiredButton = element.$.wiredButton;
+    theFlow = element.shadowRoot.querySelector('app-flow');
+
+    var handler = function (e) {
+      assert.equal(e.detail.data.__wiredData, 'some data to pass');
+      element.removeEventListener('app-flow', handler);
+      done();
+    };
+    element.addEventListener('app-flow', handler);
+    wiredButton.click();
+
+  });
+
+
+  test('check if argument name for __wiredData is set properly', function (done) {
+    element = fixture('basic');
+
+    button = element.shadowRoot.querySelector('button');
+    wiredButton = element.$.wiredButton;
+    theFlow = element.shadowRoot.querySelector('app-flow');
+
+    var handler = function (e) {
+      assert.equal(e.detail.data.argument, 'some data to pass');
+      element.removeEventListener('app-flow', handler);
+      done();
+    };
+
+    element.$.wiredDataFlow.set('argName','argument');
+    element.addEventListener('app-flow', handler);
+    wiredButton.click();
+
+  });
+
+});
+</script>
+</body>
+</html>

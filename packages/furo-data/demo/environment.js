@@ -148,9 +148,8 @@ window.Env = {
   },
   specs: {
     "vnd.acme.zeitunddatum": {
-      "name": "vnd.acme.zeitunddatum",
-      "type": "vnd.acme.zeitunddatum",
       "description": "Task komposit",
+      "type": "vnd.acme.zeitunddatum",
       "fields": {
         "date": {
           "description": "Beschreibung",
@@ -216,8 +215,8 @@ window.Env = {
           "description": "ulid des Taskes",
           "type": "int",
           "meta": {
-            "label": "Tasks ID",
-            "default": 4,
+            "label": "Task ID",
+            "default": 443343,
             "hint": ""
           },
           "constraints": {
