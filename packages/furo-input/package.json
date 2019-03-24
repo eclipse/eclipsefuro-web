@@ -2,10 +2,10 @@
   "name": "@furo/input",
   "description": "Input components",
   "main": "furo-catalog.js",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "dependencies": {
     "@furo/fbp": "^4.9.0",
-    "@furo/layout": "^0.16.0",
+    "@furo/layout": "^0.16.1",
     "@polymer/iron-icons": "^3.0.1",
     "@polymer/paper-ripple": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
