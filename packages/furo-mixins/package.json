@@ -1,7 +1,7 @@
 {
   "name": "@furo/mixins",
   "main": "shared-state.js",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "dependencies": {
     "@furo/fbp": "^4.9.0"
   },
