@@ -13,20 +13,16 @@ class DeepLink extends FBP(LitElement) {
   constructor() {
     super();
     this._servicedefinitions = window.Env.services;
-    this.auto = false;
+
 
   }
 
   static get properties() {
     return {
       /**
-       * Query Param
+       * @type {object|QueryParams} Query Params
        */
       qp: {type: Object},
-      /**
-       * fire hts on qp change
-       */
-      auto: {type: Boolean, attribute: true},
 
       /**
        * Name des Services

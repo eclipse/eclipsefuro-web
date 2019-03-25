@@ -13,8 +13,8 @@ class FuroLocation extends HTMLElement {
 
   constructor() {
     super();
+    this.style.display = "none";
     this._location = {
-
       "host": window.location.host
     };
 
@@ -56,10 +56,15 @@ class FuroLocation extends HTMLElement {
   connectedCallback() {
     document.body.addEventListener("click", this._clickHandler, true);
     document.body.addEventListener("__furoLocationChanged", this._locationChangeNotyfier, true);
+    window.addEventListener("popstate", this._locationChangeNotyfier, true);
+    window.addEventListener("popstate", this._locationChangeNotyfier, true);
     this._lastChangedAt = window.performance.now() - (this.dwellTime - 200);
 
     // initial notyfier
+        setTimeout(() => {
     this._locationChangeNotyfier({"detail": this._lastChangedAt});
+        }, 0)
+
 
   }
 
@@ -70,27 +75,10 @@ class FuroLocation extends HTMLElement {
   disconnectedCallback() {
     document.body.removeEventListener("click", this._clickHandler, true);
     document.body.removeEventListener("__furoLocationChanged", this._locationChangeNotyfier, true);
+    window.removeEventListener("popstate", this._locationChangeNotyfier, true);
+    window.removeEventListener("popstate", this._locationChangeNotyfier, true);
   }
 
-
-  /**
-   * Set Query Params via Object
-   *
-   * @type {object} queryParams
-   */
-  set query(queryObject) {
-    // make query string from QueryObject
-    let qa = [];
-    for(let prop  in queryObject){
-      qa.push(prop + "=" + queryObject[prop]);
-    }
-
-    // set this._location.query to new string
-    this._location.query = qa.join("&");
-
-    window.history.pushState({}, '', this._getHrefFromLocation());
-    this._notifyFuroLocationChanged();
-  }
 
   // create a valid href string from this._location
   _getHrefFromLocation() {
@@ -117,13 +105,20 @@ class FuroLocation extends HTMLElement {
         }
       }
 
-
-      // location-changed
-
       // path-changed
       let newPath = window.decodeURIComponent(window.location.pathname);
       if (this._location.path !== newPath) {
         this._location.path = newPath;
+
+        // path segments
+        this._location.pathSegments = [];
+        let m;
+        let rgx = new RegExp(/\/([^/]*)/gi);
+        while ((m = rgx.exec(newPath)) !== null) {
+          this._location.pathSegments.push(m[1]);
+        }
+
+
         /**
          * @event location-path-changed
          * Fired when Path portion of the location changed
@@ -135,8 +130,15 @@ class FuroLocation extends HTMLElement {
       }
       // hash-changed
       let newHash = window.decodeURIComponent(window.location.hash.slice(1));
-      if (this._location.hash !== newHash) {
-        this._location.hash = newHash;
+      if (this._location.hashstring !== newHash) {
+        this._location.hashstring = newHash;
+        this._location.hash = {};
+        if (newHash.length > 0) {
+          newHash.split("&").forEach((qstr) => {
+            let p = qstr.split("=");
+            this._location.hash[p[0]] = p[1];
+          });
+        }
         /**
          * @event location-hash-changed
          * Fired when Hash portion of the location changed
@@ -149,13 +151,13 @@ class FuroLocation extends HTMLElement {
 
       // query-changed
       let newQuery = window.location.search.slice(1);
-      if (this._location.query !== newQuery) {
-        this._location.query = newQuery;
-        let qp = {};
-        if(newQuery.length > 0){
-          newQuery.split("&").forEach((qstr)=>{
+      if (this._location.querystring !== newQuery) {
+        this._location.querystring = newQuery;
+        this._location.query = {};
+        if (newQuery.length > 0) {
+          newQuery.split("&").forEach((qstr) => {
             let p = qstr.split("=");
-            qp[p[0]] = p[1];
+            this._location.query[p[0]] = p[1];
           });
         }
         /**
@@ -164,11 +166,12 @@ class FuroLocation extends HTMLElement {
          * detail payload: {Object} queryParams
          */
         let customEvent = new Event('location-query-changed', {composed: true, bubbles: false});
-        customEvent.detail = qp;
+        customEvent.detail = this._location.query;
 
         this.dispatchEvent(customEvent)
       }
 
+      // location-changed
       /**
        * @event location-changed
        * Fired when something in the location changed
@@ -185,7 +188,9 @@ class FuroLocation extends HTMLElement {
      * @private
      */
     this._clickHandler = (e) => {
-      let target = e.target;
+
+      let target = e.path[0];
+
       // only handle clicks on <a href="..
       if (target.tagName !== "A") {
         return
@@ -221,12 +226,16 @@ class FuroLocation extends HTMLElement {
         this._notifyFuroLocationChanged();
 
       }
-
+      // prevent from full reload
       e.preventDefault()
     }
   }
 
 
+  /**
+   * Internal notyfication
+   * @private
+   */
   _notifyFuroLocationChanged() {
     let now = window.performance.now();
     let customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});

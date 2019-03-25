@@ -13,4 +13,5 @@ This collection contains
  @furo/math
  @furo/mixins
  @furo/navigation
+ @furo/route
 ```

@@ -30,18 +30,24 @@
       <flow-bind>
         <template>
           <furo-location  @-location-changed="--lc" ></furo-location>
-          <furo-location  url-space-regex="^/other" ></furo-location>
 
-          <a href="#xx">hash xx</a>
-          <a href="#yy">hash yy</a>
-          <a href="/components/@furo/route/demo/location.html?a=4&b=23#haha=34">relative</a>
-          <a href="/other">relative</a>
-          <div ƒ-.inner-text="--lc(*.hash)"></div>
+          <furo-pages ƒ-location-update="--lc" default="viewA" >
+            <view-a name="viewA"></view-a>
+            <view-b active>
+              <template>
+                <page-title ƒ-.title="--page-activated(*.firstSegment)"></page-title>
+                <deep-link ƒ-qp="--page-activated(*.qp)"></deep-link>
+              </template>
+            </view-b>
+            <view-c></view-c>
+          </furo-pages>
         </template>
       </flow-bind>
     </template>
   </demo-snippet>
 </div>
+
+
 
 </body>
 </html>
