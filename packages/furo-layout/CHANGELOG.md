@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.3](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.16.2...@furo/layout@0.16.3) (2019-03-25)
+
+
+### Bug Fixes
+
+* timeout ([d769a1a](https://github.com/veith/FuroBaseComponents/commit/d769a1a))
+
+
+
+
+
 ## [0.16.2](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.16.1...@furo/layout@0.16.2) (2019-03-24)
 
 **Note:** Version bump only for package @furo/layout
