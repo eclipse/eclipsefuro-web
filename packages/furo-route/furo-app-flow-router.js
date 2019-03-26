@@ -18,7 +18,7 @@ import {PolymerElement} from '@polymer/polymer';
  * @polymer
  * @demo demo/index.html
  */
-class AppFlowRouter extends PolymerElement {
+class FuroAppFlowRouter extends PolymerElement {
 
 
   constructor(){
@@ -155,4 +155,4 @@ class AppFlowRouter extends PolymerElement {
   };
 }
 
-window.customElements.define('app-flow-router', AppFlowRouter);
+window.customElements.define('furo-app-flow-router', FuroAppFlowRouter);

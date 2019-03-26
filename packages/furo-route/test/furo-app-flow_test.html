@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>furo-catalog test</title>
+
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+   <script type="module" src="../furo-catalog.js"></script>
+</head>
+<body>
+
+
+<test-fixture id="Basic">
+  <template>
+    <furo-app-flow></furo-app-flow>
+  </template>
+</test-fixture>
+
+<script type="module">
+  describe('reverse-deep-link', () => {
+    let flow;
+    beforeEach(function (done) {
+      // makeRequest is a utility function
+      flow = fixture('Basic');
+      done()
+    });
+
+    it('should fire an app-flow and ignore array', function (done) {
+      flow.event = "test";
+      flow.addEventListener("app-flow",(e)=>{
+        expect(e.detail.data.a).to.equal(undefined);
+        done();
+      });
+      flow.emit([1])
+    });
+
+    it('should fire an app-flow and ignore skalar', function (done) {
+      flow.event = "test";
+      flow.addEventListener("app-flow",(e)=>{
+        expect(e.detail.data.a).to.equal(undefined);
+        done();
+      });
+      flow.emit(1)
+    });
+    it('should fire an app-flow event with data', function (done) {
+      flow.event = "test";
+      flow.addEventListener("app-flow",(e)=>{
+        expect(e.detail.data.a).to.equal(123);
+        done();
+      });
+      flow.emit({a:123})
+    });
+    it('should fire an app-flow event without data', function (done) {
+      flow.event = "test";
+      flow.addEventListener("app-flow",(e)=>{
+         done();
+      });
+      flow.emit()
+    });
+
+    it('instantiating the element with default properties works', () => {
+
+      assert.equal(flow.tagName.toLowerCase(), 'furo-app-flow');
+
+    });
+
+
+  });
+</script>
+
+</body>
+</html>
