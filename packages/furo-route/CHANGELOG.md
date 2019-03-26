@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.2.3...@furo/route@0.2.4) (2019-03-26)
+
+
+### Bug Fixes
+
+* typos ([95a00ab](https://github.com/veith/FuroBaseComponents/commit/95a00ab))
+
+
+
+
+
 ## [0.2.3](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.2.2...@furo/route@0.2.3) (2019-03-25)
 
 
