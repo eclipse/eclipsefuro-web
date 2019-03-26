@@ -48,8 +48,9 @@ class FuroSplitView extends FBP(LitElement) {
           @apply --split-master;       
         }
         
-        furo-vertical-scroller.detail{
+        .detail{
           @apply --split-detail;
+           height: 100%;
         }
         
         furo-horizontal-flex{
@@ -58,12 +59,12 @@ class FuroSplitView extends FBP(LitElement) {
       </style>
       
       <furo-horizontal-flex ?reverse="${this.reverse}">
-        <furo-vertical-scroller class="master">
+        <div class="master">
           <slot name="master"></slot>
-        </furo-vertical-scroller>
-        <furo-vertical-scroller flex class="detail">
+        </div>
+        <div flex class="detail">
           <slot></slot>
-        </furo-vertical-scroller> 
+        </div> 
       </furo-horizontal-flex>     
     `;
   }

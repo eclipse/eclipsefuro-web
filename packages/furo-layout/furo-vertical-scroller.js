@@ -34,7 +34,7 @@ class FuroVerticalScroller extends FBP(LitElement) {
         :host {
           display: block;
           height: 100%;
-          overflow-y: scroll;
+          overflow-y: auto;
         }
       </style>
       <slot></slot>
