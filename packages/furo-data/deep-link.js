@@ -75,6 +75,16 @@ class DeepLink extends FBP(LitElement) {
   }
 
   /**
+   * Inject a QueryParams (key value) Object
+   * @param {object|QueryParams} qp
+   */
+  injectQueryParams(qp) {
+    // zwischenspeichern für einen ev. ƒ-trigger
+    this._qp = qp;
+    this.trigger();
+  }
+
+  /**
    * Setze den Service
    * @param service
    */
