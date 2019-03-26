@@ -1,57 +1,60 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>furo-layout-components demo</title>
+  <title>furo-layout-components demo</title>
 
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
-    <script type="module">
-      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-      import '@polymer/iron-demo-helpers/demo-snippet';
-      import '../furo-catalog';
-    </script>
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
+    import '../furo-catalog';
+  </script>
 
 
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-      </style>
-    </custom-style>
-  </head>
-  <body>
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
 
-    <div class="vertical-section-container centered">
-      <h3>Basic furo-split-view</h3>
-      <demo-snippet>
-        <template>
-          <div style="height: 280px">
-           <furo-split-view>
-             <div slot="master" style="height: 100%; background-image: linear-gradient(blue, violet);">Master</div>
-             <furo-vertical-scroller>
-             <div style="height: 420px;background-image: linear-gradient(red, yellow);">
-               Detail... <br> should be on flex side</div>
-             </furo-vertical-scroller>
-          </furo-split-view>
-          </div>
-         </template>
-      </demo-snippet>
-    </div>
+</head>
+<body>
 
-    <div class="vertical-section-container centered">
-      <h3>Basic furo-split-view</h3>
-      <demo-snippet>
-        <template>
-          <div style="height: 280px">
-           <furo-split-view reverse>
-             <div slot="master">Master</div>
-             <div>Detail... <br> should be on flex side</div>
-          </furo-split-view>
-          </div>
-         </template>
-      </demo-snippet>
-    </div>
+<div class="vertical-section-container centered">
+  <h3>Basic furo-split-view</h3>
+  <demo-snippet>
+    <template>
+      <div style="height: 280px">
 
-  </body>
+        <furo-split-view>
+          <div slot="master" style="height: 100%; background-image: linear-gradient(blue, violet);">Master</div>
+          <furo-vertical-scroller>
+            <div style="height: 420px;background-image: linear-gradient(red, yellow);">
+              Detail... <br> should be on flex side
+            </div>
+          </furo-vertical-scroller>
+        </furo-split-view>
+      </div>
+    </template>
+  </demo-snippet>
+</div>
+
+<div class="vertical-section-container centered">
+  <h3>Basic furo-split-view</h3>
+  <demo-snippet>
+    <template>
+      <div style="height: 280px">
+        <furo-split-view reverse>
+          <div slot="master">Master</div>
+          <div>Detail... <br> should be on flex side</div>
+        </furo-split-view>
+      </div>
+    </template>
+  </demo-snippet>
+</div>
+
+</body>
 </html>

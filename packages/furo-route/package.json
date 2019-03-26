@@ -8,7 +8,8 @@
   "main": "furo-catalog.js",
   "license": "MIT",
   "dependencies": {
-    "@polymer/polymer": "^3.0.0"
+    "@polymer/polymer": "^3.0.0",
+    "lit-element": "^2.0.1"
   },
   "devDependencies": {
     "@furo/fbp": "^4.9.0",

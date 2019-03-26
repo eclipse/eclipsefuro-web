@@ -20,11 +20,23 @@ class FuroPages extends FBP(LitElement) {
         this._lastPageName = "";
     }
 
+    /**
+     * set location via attribute
+     * will forward to ƒ-inject-location
+     * @param location
+     */
+    set location(location) {
+        this.injectLocation(location);
+    }
 
+    /**
+     * Inject the location Object from furo-location
+     *
+     * @param location
+     */
+    injectLocation(location) {
 
-    loationUpdate(location) {
-
-        let page = location.pathSegments[0] || this._fallback
+        let page = location.pathSegments[0] || this._fallback;
 
         if (this._lastPage && page !== this._lastPageName) {
             if(this._lastPage._FBPTriggerWire !== undefined){
@@ -55,24 +67,24 @@ class FuroPages extends FBP(LitElement) {
 
             // QP
             if(this._lastQP[page] !== location.querystring){
-                this._lastQP[page] = location.querystring
+                this._lastQP[page] = location.querystring;
                 // fire --pageParamsChanged if we have a fbp component
                 if(this._lastPage._FBPTriggerWire !== undefined){
                     this._lastPage._FBPTriggerWire('--pageQueryChanged',location);
                 }
-            };
-    
+            }
+
             // Hash
             if(this._lastHash[page] !== location.hashstring){
-                this._lastHash[page] = location.hashstring
+                this._lastHash[page] = location.hashstring;
                 // fire --pageParamsChanged if we have a fbp component
                 if(this._lastPage._FBPTriggerWire !== undefined){
                     this._lastPage._FBPTriggerWire('--pageHashChanged',location);
                 }
-            };
+            }
 
         }else{
-            console.warn("default page not found and 404 page not found")
+            console.warn("default page not found and 404 page not found");
         }
     }
 
