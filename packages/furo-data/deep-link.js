@@ -13,8 +13,6 @@ class DeepLink extends FBP(LitElement) {
   constructor() {
     super();
     this._servicedefinitions = window.Env.services;
-
-
   }
 
   static get properties() {

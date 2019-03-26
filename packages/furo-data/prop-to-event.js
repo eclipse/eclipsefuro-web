@@ -2,7 +2,8 @@ import {PolymerElement, html} from '@polymer/polymer';
 
 /**
  * `prop-to-event`
- * is a compatibility component for p3 to furo/fbp
+ * is a compatibility component for p3 to furo/fbp. It converts a property to an event (`update`).
+ *
  *
  * ```
  * <prop-to-event property="[[item.links]]" @-update="--hts"></prop-to-event>

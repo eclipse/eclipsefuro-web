@@ -45,6 +45,7 @@ class FuroSplitView extends FBP(LitElement) {
         .master{
           height: 100%;
           width: var(--split-master-width, 270px);       
+          min-width: var(--split-master-width, 270px);       
           @apply --split-master;       
         }
         
