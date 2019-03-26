@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.14.6...@furo/data@0.15.0) (2019-03-26)
+
+
+### Features
+
+* reverse-deep-link ([b049103](https://github.com/veith/FuroBaseComponents/commit/b049103))
+
+
+
+
+
 ## [0.14.6](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.14.5...@furo/data@0.14.6) (2019-03-26)
 
 **Note:** Version bump only for package @furo/data

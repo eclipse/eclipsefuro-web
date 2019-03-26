@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.16.5...@furo/layout@0.17.0) (2019-03-26)
+
+
+### Features
+
+* reverse-deep-link ([b049103](https://github.com/veith/FuroBaseComponents/commit/b049103))
+
+
+
+
+
 ## [0.16.5](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.16.4...@furo/layout@0.16.5) (2019-03-26)
 
 
