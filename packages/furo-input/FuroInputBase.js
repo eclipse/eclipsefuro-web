@@ -13,7 +13,7 @@ export const FuroInputBase = (superClass) => {
           margin: 0 0 14px 0;
           padding: 8px 0 2px 0;
           height: 28px;      
-           
+          @apply --input-base-mixin; 
         }
         :host *{
         font-family: "Roboto", "Noto", sans-serif;
@@ -35,6 +35,7 @@ export const FuroInputBase = (superClass) => {
           text-align: left;
           color: inherit;
           outline: none;
+          @apply input-base-input-mixin;
         }
  
  
@@ -74,6 +75,7 @@ export const FuroInputBase = (superClass) => {
           overflow: hidden;
           white-space: nowrap;
           text-align: left;
+          @apply input-base-label-mixin;
         }
 
         label[float="true"] {
@@ -94,7 +96,7 @@ export const FuroInputBase = (superClass) => {
           color:transparent;
           white-space: nowrap;         
           pointer-events: none;
-
+          @apply input-base-hint-mixin;
         }
         :host(:focus-within) .hint{
           color: var(--app-hint-color);

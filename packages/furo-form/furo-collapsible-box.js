@@ -29,6 +29,7 @@ class FuroCollapsibleBox extends FBP(PolymerElement) {
           margin: 24px;
 
           box-sizing: border-box;
+          @apply --furo-collapsible-mixin;
 
         }
 
@@ -48,6 +49,7 @@ class FuroCollapsibleBox extends FBP(PolymerElement) {
         
         .head{
           border-bottom:1px solid gainsboro;
+          @apply --furo-collapsible-head-mixin;
          
         }
       </style>
