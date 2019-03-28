@@ -29,7 +29,7 @@
 </test-fixture>
 
 <script type="module">
-  describe('reverse-deep-link', () => {
+  describe('app-flow-router', () => {
     let flow;
     let router;
     let host;
@@ -49,6 +49,20 @@
       done();
     });
 
+    it('should work witout regex', function () {
+      router.urlSpaceRegex = "/";
+      flow.event = "exit";
+      flow.emit({});
+      assert.equal(window.location.pathname, "/viewB");
+
+      flow.emit({});
+      assert.equal(window.location.pathname, "/viewBexit");
+
+      flow.emit({});
+      assert.equal(window.location.pathname, "/viewB");
+
+
+    });
     it('should follow named config first', function () {
       flow.event = "exit";
       flow.emit({});
@@ -70,6 +84,9 @@
 
       flow.event = "login-successfull";
       flow.emit(2);
+      assert.equal(window.location.pathname, "/app/profile");
+      router.back();
+      router.forward();
       assert.equal(window.location.pathname, "/app/profile");
 
     });
