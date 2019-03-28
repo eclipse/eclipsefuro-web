@@ -39,7 +39,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
   /**
    * trigger a history back
    */
-  back(){
+  back() {
 
     window.history.back();
 
@@ -48,7 +48,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
   /**
    * trigger a history forward
    */
-  forward(){
+  forward() {
     window.history.forward();
   }
 
@@ -83,35 +83,42 @@ class FuroAppFlowRouter extends FBP(LitElement) {
    * @return {boolean}
    */
   trigger(flowEvent) {
-    let prefix = "/";
+
     let currentPath = window.location.pathname.replace(new RegExp(this.urlSpaceRegex), "");
     let match = window.location.pathname.match(new RegExp(this.urlSpaceRegex));
-    if (match) {
-      prefix = match[0];
-    }
+    let prefix = match[0] || "/";
     let selection = (this._configObject[currentPath + flowEvent.event] || this._configObject["*" + flowEvent.event]);
     if (selection) {
       let search = "";
       let sa = [];
-      for (let k in  flowEvent.data){
+      for (let k in  flowEvent.data) {
         sa.push(k + "=" + flowEvent.data[k]);
       }
       // todo: implement mapper
-      if(sa.length > 0){
+      if (sa.length > 0) {
         search = "?" + sa.join("&");
       }
-      if(selection.target==="HISTORY-BACK"){
+      if (selection.target === "HISTORY-BACK") {
         this.back();
-      }else{
+      } else {
         window.history.pushState({}, '', prefix + selection.target + search);
+        /**
+         * Internal notyfication
+         * @private
+         */
+
+        let now = window.performance.now();
+        let customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});
+        customEvent.detail = now;
+        this.dispatchEvent(customEvent)
       }
 
       /**
-      * @event view-changed
-      * Fired when page was changed
-      * detail payload: flowEvent
-      */
-      let customEvent = new Event('view-changed', {composed:true, bubbles: true});
+       * @event view-changed
+       * Fired when page was changed
+       * detail payload: flowEvent
+       */
+      let customEvent = new Event('view-changed', {composed: true, bubbles: true});
       customEvent.detail = flowEvent;
       this.dispatchEvent(customEvent);
       return true;
@@ -122,7 +129,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
      * Fired when view not
      * detail payload: flowEvent
      */
-    let customEvent = new Event('event-not-found', {composed:true, bubbles: true});
+    let customEvent = new Event('event-not-found', {composed: true, bubbles: true});
     customEvent.detail = flowEvent;
     this.dispatchEvent(customEvent);
     return false;
@@ -132,14 +139,12 @@ class FuroAppFlowRouter extends FBP(LitElement) {
    * build internal config for faster access
    */
   set config(configArray) {
-    if (Array.isArray(configArray)) {
-      this._configObject = {};
-      let self = this;
-      // build config object for faster checks
-      configArray.forEach((config) => {
-        this._configObject[config[0] + config[1]] = {target: config[2], mapping: config[3]};
-      });
-    }
+    this._configObject = {};
+    let self = this;
+    // build config object for faster checks
+    configArray.forEach((config) => {
+      this._configObject[config[0] + config[1]] = {target: config[2], mapping: config[3]};
+    });
   };
 
 }
