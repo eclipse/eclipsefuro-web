@@ -1,33 +1,59 @@
-import {PolymerElement} from '@polymer/polymer';
+import {LitElement, html} from 'lit-element';
+import {FBP} from "@furo/fbp";
+
 /**
- * `app-flow-router`
+ * `furo-app-flow-router`
+ *
+ * Use this component with app-flow and furo-pages to implement application flow
  *
  *
- * `app-flow`
- *
- * Use this component with iron-page to implement application flow
- *
- * <app-flow-router id="flow" current="{{page}}" config="[[conf]]" data="{{qp}}"></app-flow-router>
- * <iron-pages selected="[[page]]" ...
- *
- * this.$.flow.check(eventDataFromAppFlow) ...script
+ *    <app-flow-router config="[[conf]]" ƒ-trigger="--flowEvent" ƒ-back="--wire" ƒ-forward="--wire"></app-flow-router>
  *
  *
  *
  * @customElement
- * @polymer
- * @demo demo/index.html
+ * @appliesMixin FBP
  */
-class FuroAppFlowRouter extends PolymerElement {
+class FuroAppFlowRouter extends FBP(LitElement) {
 
+  constructor() {
+    super();
+    this.style.display = "none";
+    /**
+     * A regexp that defines the set of URLs that should be considered part
+     * of this web app.
+     *
+     * Clicking on a link that matches this regex won't result in a full page
+     * navigation, but will instead just update the URL state in place.
+     *
+     * This regexp is given everything after the origin in an absolute
+     * URL. So to match just URLs that start with /app/ do:
+     *     url-space-regex="^/app/"
+     *
+     * @type {string|RegExp}
+     */
+    this.urlSpaceRegex = this.getAttribute("url-space-regex") || "/";
 
-  constructor(){
-    super()
+  }
+
+  /**
+   * trigger a history back
+   */
+  back(){
+
+    window.history.back();
+
+  }
+
+  /**
+   * trigger a history forward
+   */
+  forward(){
+    window.history.forward();
   }
 
   static get properties() {
     return {
-
       /**
        *Configuration Array
        *
@@ -43,116 +69,79 @@ class FuroAppFlowRouter extends PolymerElement {
        *
        *  Special configurations:
        *
-       *  if target is set to HISTORY-BACK the app-flow-event will allways set the current to the lastCurrent
-       *
-       *  [['view-detail', 'button-tap', 'HISTORY-BACK',  'task => id]] will route you back to view-main
        *
        *  You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
        */
-
-      config: {
-        type: Array,
-        observer: '_initConf'
-      },
-
-      /**
-       * Name of the current selection
-       */
-      current: {
-        type: String,
-        notify: true
-      },
-      /**
-       * mapped or raw data from app-flow event.
-       *
-       */
-      data: {
-        type: Object,
-        notify: true
-      },
-
-      /**
-       * List of current selections
-       * is needed to automate the history-back app-flow
-       * @private
-       */
-      _lastCurrents: {
-        type: Array,
-        value: function () {
-          return [];
-        }
-      }
+      config: {type: Array}
     };
+  }
+
+
+  /**
+   * Trigger the router
+   * @param flowEvent
+   * @return {boolean}
+   */
+  trigger(flowEvent) {
+    let prefix = "/";
+    let currentPath = window.location.pathname.replace(new RegExp(this.urlSpaceRegex), "");
+    let match = window.location.pathname.match(new RegExp(this.urlSpaceRegex));
+    if (match) {
+      prefix = match[0];
+    }
+    let selection = (this._configObject[currentPath + flowEvent.event] || this._configObject["*" + flowEvent.event]);
+    if (selection) {
+      let search = "";
+      let sa = [];
+      for (let k in  flowEvent.data){
+        sa.push(k + "=" + flowEvent.data[k]);
+      }
+      // todo: implement mapper
+      if(sa.length > 0){
+        search = "?" + sa.join("&");
+      }
+      if(selection.target==="HISTORY-BACK"){
+        this.back();
+      }else{
+        window.history.pushState({}, '', prefix + selection.target + search);
+      }
+
+      /**
+      * @event view-changed
+      * Fired when page was changed
+      * detail payload: flowEvent
+      */
+      let customEvent = new Event('view-changed', {composed:true, bubbles: true});
+      customEvent.detail = flowEvent;
+      this.dispatchEvent(customEvent);
+      return true;
+    }
+
+    /**
+     * @event event-not-found
+     * Fired when view not
+     * detail payload: flowEvent
+     */
+    let customEvent = new Event('event-not-found', {composed:true, bubbles: true});
+    customEvent.detail = flowEvent;
+    this.dispatchEvent(customEvent);
+    return false;
   }
 
   /**
    * build internal config for faster access
    */
-  _initConf(configArray) {
-    if (configArray) {
+  set config(configArray) {
+    if (Array.isArray(configArray)) {
       this._configObject = {};
       let self = this;
       // build config object for faster checks
-      configArray.forEach(function (config) {
-        self._configObject[config[0] + config[1]] = {target: config[2], mapping: config[3]};
+      configArray.forEach((config) => {
+        this._configObject[config[0] + config[1]] = {target: config[2], mapping: config[3]};
       });
     }
   };
 
-  /**
-   * Process a flow event
-   * @param flowEvent
-   */
-  check(flowEvent) {
-    let current = this.current;
-    let self = this;
-    if (!this._configObject) {
-      throw new TypeError('Attribute config for app-flow-router used in "' + this.dataHost.is + '" is not set ');
-    } else {
-      let conf = this._configObject[this.current + flowEvent.event];
-      if (!conf) {
-        //try with wildcard as current
-        conf = this._configObject['*' + flowEvent.event];
-      }
-      if (conf) {
-
-        // set new target
-        if (conf.target === 'HISTORY-BACK') {
-          if (this._lastCurrents.length >= 1) {
-            this.set('current', this._lastCurrents[this._lastCurrents.length - 1]);
-            this.pop('_lastCurrents');
-          }
-        } else {
-          this.push('_lastCurrents', this.current);
-          this.set('current', conf.target);
-        }
-
-        // compute mappings
-        if (conf.mapping !== false) {
-          if (conf.mapping == undefined || conf.mapping == '') {
-            this.set('data', flowEvent.data);
-          } else {
-            // map event data to mappings
-            let mappings = conf.mapping.split(',').map(function (cnf) {
-              return cnf.split('=>').map(function (c) {
-                return c.trim();
-              })
-            });
-            let data = {};
-            mappings.forEach(function (mapping) {
-              let source = mapping[0];
-              let target = mapping[1];
-              data[target] = flowEvent.data[source];
-
-            });
-            this.set('data', data);
-          }
-        }
-      } else {
-        console.warn('no route config found for source: * | ' + this.current + ' and event:' + flowEvent.event);
-      }
-    }
-  };
 }
 
 window.customElements.define('furo-app-flow-router', FuroAppFlowRouter);

@@ -47,7 +47,7 @@ export class CollectionNode extends EventTreeNode {
                         field.value = r.data[f];
                     }
 
-                    if (this._spec.fields[f].type.startsWith('vnd.')) {
+                    if (this._spec.fields[f] && this._spec.fields[f].type.startsWith('vnd.')) {
                         if (this._spec.fields[f].toString && this._spec.fields[f].toString.template) {
 
                             const template = this._spec.fields[f].toString.template;

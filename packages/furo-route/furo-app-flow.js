@@ -20,7 +20,6 @@ class FuroAppFlow extends FBP(LitElement) {
   constructor() {
     super();
     this.style.display = "none";
-
   }
 
   static get properties() {
@@ -55,6 +54,7 @@ class FuroAppFlow extends FBP(LitElement) {
     let customEvent = new Event('app-flow', {composed: true, bubbles: true});
     customEvent.detail = data;
     this.dispatchEvent(customEvent);
+    return customEvent;
   }
 }
 
