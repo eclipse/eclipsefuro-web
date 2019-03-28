@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.15.0...@furo/data@0.16.0) (2019-03-28)
+
+
+### Features
+
+* furo-app-flow-router ([eed5a29](https://github.com/veith/FuroBaseComponents/commit/eed5a29))
+
+
+
+
+
 # [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.14.6...@furo/data@0.15.0) (2019-03-26)
 
 
