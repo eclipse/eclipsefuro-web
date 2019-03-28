@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.3.0...@furo/route@0.3.1) (2019-03-28)
+
+
+### Bug Fixes
+
+* furo-app-flow-router notificaton ([e0d5398](https://github.com/veith/FuroBaseComponents/commit/e0d5398))
+* furo-app-flow-router notificaton ([b8bb6dd](https://github.com/veith/FuroBaseComponents/commit/b8bb6dd))
+
+
+
+
+
 # [0.3.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.2.4...@furo/route@0.3.0) (2019-03-28)
 
 
