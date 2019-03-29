@@ -16,12 +16,12 @@ export const FuroInputBase = (superClass) => {
           @apply --input-base-mixin; 
         }
         :host *{
-        font-family: "Roboto", "Noto", sans-serif;
-        line-height: 1.5;
+          font-family: "Roboto", "Noto", sans-serif;
+          line-height: 1.5;
         }
         
         :host([error]) .border{
-         border-color: red;
+          border-color: red;
           border-width: 1px;
         }
         
@@ -35,28 +35,27 @@ export const FuroInputBase = (superClass) => {
           text-align: left;
           color: inherit;
           outline: none;
-          @apply input-base-input-mixin;
         }
  
- 
-
         .border{
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        top:28px;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top:28px;
           border: none;
           border-bottom: 1px solid rgba(0, 0, 0, .12);
+          @apply --input-base-border-mixin;
         }
         
 
         .borderBig{
-        position: absolute;
-        width: 100%;
-        height: 1px;
-        top:29px;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top:29px;
           border: none;
           border-bottom: 1px solid rgba(0, 0, 0, .12);
+          @apply --input-base-border-mixin;
         }
         
         :host(:focus-within) .border{
@@ -75,7 +74,7 @@ export const FuroInputBase = (superClass) => {
           overflow: hidden;
           white-space: nowrap;
           text-align: left;
-          @apply input-base-label-mixin;
+          @apply --input-base-label-mixin;
         }
 
         label[float="true"] {
@@ -96,7 +95,7 @@ export const FuroInputBase = (superClass) => {
           color:transparent;
           white-space: nowrap;         
           pointer-events: none;
-          @apply input-base-hint-mixin;
+          @apply --input-base-hint-mixin;
         }
         :host(:focus-within) .hint{
           color: var(--app-hint-color);
