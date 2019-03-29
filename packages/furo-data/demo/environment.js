@@ -57,15 +57,15 @@ window.Env = {
             "filter": {
               "enabled": true,
               "fields": [
-                "taskNummer",
-                "zustand"
+                "taskId",
+                "title"
               ]
             },
             "sort": {
               "enabled": true,
               "fields": [
-                "taskNummer",
-                "zustand"
+                "taskId",
+                "title"
               ]
             },
             "pagination": {

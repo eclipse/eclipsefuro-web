@@ -17,7 +17,12 @@ class EntityAgent extends FBP(LitElement) {
     this._servicedefinitions = window.Env.services;
     this._ApiEnvironment = window.Env.api;
 
-
+    // HTS aus response anwenden
+    this._FBPAddWireHook("--responseParsed", (r)=>{
+      if(Array.isArray(r.links)){
+        this.htsIn(r.Links);
+      }
+    });
   }
 
   static get properties() {
@@ -153,7 +158,7 @@ class EntityAgent extends FBP(LitElement) {
        * detail payload:
        */
       let customEvent = new Event('hts-updated', {composed:true, bubbles: false});
-      customEvent.detail = this._hts;
+      customEvent.detail = hts;
       this.dispatchEvent(customEvent);
     }
   }
