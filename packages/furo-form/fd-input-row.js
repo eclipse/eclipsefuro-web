@@ -23,7 +23,7 @@ class FdInputRow extends FBP(PolymerElement) {
         div{
          line-height: 40px;
           width: 120px;
-          @apply --input-row-label;
+          @apply --input-row-label-mixin;
         }
         ::slotted(*){
           resize: ;
