@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.17.0...@furo/data@0.17.1) (2019-03-30)
+
+
+### Bug Fixes
+
+* deep link Api Prefix from environment prepend ([ef387e7](https://github.com/veith/FuroBaseComponents/commit/ef387e7))
+* deep link objects ([5c84808](https://github.com/veith/FuroBaseComponents/commit/5c84808))
+* deep-link hts-out ([598c04c](https://github.com/veith/FuroBaseComponents/commit/598c04c))
+* deep-link prefix removed ([82ccf1c](https://github.com/veith/FuroBaseComponents/commit/82ccf1c))
+* reverse-deep-link matches ([b17e181](https://github.com/veith/FuroBaseComponents/commit/b17e181))
+
+
+
+
+
 # [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.16.2...@furo/data@0.17.0) (2019-03-30)
 
 

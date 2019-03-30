@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.17.0...@furo/layout@0.17.1) (2019-03-30)
+
+
+### Bug Fixes
+
+* reverse-deep-link matches ([b17e181](https://github.com/veith/FuroBaseComponents/commit/b17e181))
+
+
+
+
+
 # [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.16.5...@furo/layout@0.17.0) (2019-03-26)
 
 
