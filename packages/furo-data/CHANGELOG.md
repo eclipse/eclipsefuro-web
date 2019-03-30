@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.16.2...@furo/data@0.17.0) (2019-03-30)
+
+
+### Features
+
+* notify config changes via config-updated event ([cfea34c](https://github.com/veith/FuroBaseComponents/commit/cfea34c))
+
+
+
+
+
 ## [0.16.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.16.1...@furo/data@0.16.2) (2019-03-29)
 
 
