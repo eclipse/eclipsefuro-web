@@ -50,7 +50,8 @@ class DeepLink extends FBP(LitElement) {
       }
       //wenn es keine {xx} mehr hat, ist es ein treffer
       if (candidate.href.indexOf("{") === -1) {
-        this._hts.push("application/" + candidate + "+json");
+        //candidate.type = "application/" + candidate.type + "+json"
+        this._hts.push(candidate);
       }
     }
     if (this._hts.length) {
