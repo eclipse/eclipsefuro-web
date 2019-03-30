@@ -54,7 +54,7 @@ class ReverseDeepLink extends (LitElement) {
       } else {
         // is entity
         if (!this.rel) {
-          this.rel = "Get"
+          this.rel = "self"
         }
       }
 
@@ -87,7 +87,14 @@ class ReverseDeepLink extends (LitElement) {
   }
 
 
-  _convert(linkObject) {
+  _convert(link) {
+    let linkObject = {
+      rel : link.rel,
+      href : link.href,
+      method : link.method,
+      type : link.type
+    };
+
     if (linkObject.rel === "self") {
       linkObject.rel = "Get";
     }
