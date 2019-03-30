@@ -76,7 +76,6 @@ class EntityAgent extends FBP(LitElement) {
   _checkServiceAndHateoasLinkError(rel,serviceName){
       // check Service Get
       if (!this._service.services[serviceName]) {
-        // todo fehler werfen ???
         console.warn("Restlet " + serviceName + " is not specified", this._service, this);
         return true;
       }

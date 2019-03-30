@@ -58,6 +58,17 @@ class FuroConfig extends FuroStateMixin(PolymerElement) {
 
     if(section!==undefined && conf !== undefined){
       this._setConfig(Path.get(this._state, section));
+
+      /**
+       * @event config-updated
+       * Fired when section changed
+       * detail payload: section config
+       */
+      if (this.config !== undefined) {
+        let customEvent = new Event('config-updated', {composed: true, bubbles: true});
+        customEvent.detail = this.config;
+        this.dispatchEvent(customEvent);
+      }
     }
   }
 }

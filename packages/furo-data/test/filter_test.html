@@ -22,8 +22,10 @@
   <template>
     <flow-bind>
       <template>
-        <collection-agent service="tasks"></collection-agent>
-        <collection-filter field="taskId" term="gt" ƒ-set-value=""></collection-filter>
+        <collection-agent service="tasks">
+          <collection-filter field="taskId" term="gt" ƒ-set-value=""></collection-filter>
+        </collection-agent>
+
 
       </template>
     </flow-bind>
@@ -34,14 +36,15 @@
   describe('Filter on Collection-Agent', () => {
 
     let agent;
-    let filter;
+    let filters;
     let host;
     beforeEach(function (done) {
       // makeRequest is a utility function
       let tpl = fixture('Basic');
       host = tpl[0];
       agent = tpl[1];
-      filter = tpl[2];
+
+      filters = agent.querySelectorAll("collection-filter");
 
 
       done()
