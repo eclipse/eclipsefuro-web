@@ -13,6 +13,7 @@ class DeepLink extends FBP(LitElement) {
   constructor() {
     super();
     this._servicedefinitions = window.Env.services;
+    this._prefix = window.Env.api.prefix || "";
   }
 
   static get properties() {
@@ -51,6 +52,7 @@ class DeepLink extends FBP(LitElement) {
       //wenn es keine {xx} mehr hat, ist es ein treffer
       if (candidate.href.indexOf("{") === -1) {
         //candidate.type = "application/" + candidate.type + "+json"
+        candidate.href = this._prefix + candidate.href;
         this._hts.push(candidate);
       }
     }
