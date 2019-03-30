@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.17.1...@furo/data@0.18.0) (2019-03-30)
+
+
+### Bug Fixes
+
+* deep-link defensive copy ([304914f](https://github.com/veith/FuroBaseComponents/commit/304914f))
+
+
+### Features
+
+* append-object ([9956121](https://github.com/veith/FuroBaseComponents/commit/9956121))
+
+
+
+
+
 ## [0.17.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.17.0...@furo/data@0.17.1) (2019-03-30)
 
 
