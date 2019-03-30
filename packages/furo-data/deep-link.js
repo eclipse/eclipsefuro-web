@@ -41,7 +41,12 @@ class DeepLink extends FBP(LitElement) {
 
     // loop services
     for (let serviceName in service.services) {
-      let candidate = service.services[serviceName].deeplink;
+      let candidate = {
+        "rel": service.services[serviceName].deeplink.rel,
+        "href": service.services[serviceName].deeplink.href,
+        "method": service.services[serviceName].deeplink.method
+      };
+
 
       candidate.type = service.services[serviceName].request;
 
