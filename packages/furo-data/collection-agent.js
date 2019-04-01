@@ -43,15 +43,15 @@ class collectionAgent extends FBP(LitElement) {
     this._ApiEnvironment = window.Env.api;
 
     // HTS aus response anwenden
-    this._FBPAddWireHook("--responseParsed", (r)=>{
-      if(Array.isArray(r.links)){
+    this._FBPAddWireHook("--responseParsed", (r) => {
+      if (Array.isArray(r.links)) {
         this.htsIn(r.links);
         /**
          * @event response-hts-updated
          * Fired when hateoas is updated from response
          * detail payload: {Array|HATEOAS}
          */
-        let customEvent = new Event('response-hts-updated', {composed:true, bubbles: false});
+        let customEvent = new Event('response-hts-updated', {composed: true, bubbles: false});
         customEvent.detail = r.links;
         this.dispatchEvent(customEvent);
       }
@@ -67,6 +67,7 @@ class collectionAgent extends FBP(LitElement) {
 
       pageSize: {type: Number, attribute: "page-size"},
       fields: {type: String, attribute: true},
+      orderBy: {type: String, attribute: "order-by"},
       filter: {type: Array, attribute: true},
       view: {type: String, attribute: true},
     };
@@ -99,21 +100,26 @@ class collectionAgent extends FBP(LitElement) {
    * etwas seltsam, aber google sieht hier $fields vor
    *
    */
-    setFields(fields){
-        this.fields = fields;
-    }
+  setFields(fields) {
+    this.fields = fields;
+  }
 
   /**
    * Sortierreihenfolge
    * https://cloud.google.com/apis/design/design_patterns#sorting_order
    *
-   * order_by = "foo,bar desc"
+   * To avoid sql injection errors we do not send sql like syntax!
+   *
+   * order-by="foo,-bar"  means foo asc and bar desc
    */
+  setOrderBy(order) {
+    this.orderBy = order;
+  }
 
 
-    // Filtern  [["user","eq","12345"], ["abgeschlossen","eq", true]]
-  setFilter(filterstring){
-    if(Array.isArray(filterstring)){
+  // Filtern  [["user","eq","12345"], ["abgeschlossen","eq", true]]
+  setFilter(filterstring) {
+    if (Array.isArray(filterstring)) {
       this.filter = filterstring
     }
   }
@@ -133,7 +139,6 @@ class collectionAgent extends FBP(LitElement) {
    * view=smallcards
    *
    */
-
 
 
   /**
@@ -168,25 +173,42 @@ class collectionAgent extends FBP(LitElement) {
     headers.append('Content-Type', 'application/' + link.type + '+json');
     headers.append('Content-Type', 'application/json');
 
-        let params = [];
+    let params = {};
+    let r = link.href.split("?")
+    let req = r[0];
+    // add existing params
+    if (r[1]) {
+      r[1].split("&").forEach((p) => {
+        let s = p.split("=");
+        params[s[0]] = s[1];
+      });
+    }
 
-        // Fields
-        if(this.fields){
-            params.push("$fields=" + this.fields.split(' ').join(''));
-        }
+    // Fields
+    if (this.fields) {
+      params.$fields = this.fields.split(' ').join('');
+    }
 
-        // Filter
-        if (this.filter) {
-            params.push("$filter=" + JSON.stringify(this.filter));
-        }
+    // Sort
+    if (this.orderBy) {
+      params.$order_by = this.orderBy.split(' ').join('');
+    }
 
-        let req = link.href;
-        if (params.length > 0) {
+    // Filter
+    if (this.filter) {
+      params.$filter = JSON.stringify(this.filter);
+    }
 
-            req = req + "?" + params.join("&");
-        }
-    //todo: order,filter,... queryparams
-        return new Request(req, {
+    // rebuild req
+    let qp = [];
+    for (let key in params) {
+      qp.push(key + "=" + params[key]);
+    }
+    if (qp.length > 0) {
+      req = req + "?" + qp.join("&");
+    }
+
+    return new Request(req, {
       method: link.method,
       headers: headers,
       body: data
