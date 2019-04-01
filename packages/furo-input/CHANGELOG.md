@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.14.8...@furo/input@0.15.0) (2019-04-01)
+
+
+### Features
+
+* collection-filter ([71d855b](https://github.com/veith/FuroBaseComponents/commit/71d855b))
+
+
+
+
+
 ## [0.14.8](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.14.7...@furo/input@0.14.8) (2019-03-30)
 
 **Note:** Version bump only for package @furo/input
