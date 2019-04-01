@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.19.0...@furo/data@0.19.1) (2019-04-01)
+
+
+### Bug Fixes
+
+* hts update event ([77a5e19](https://github.com/veith/FuroBaseComponents/commit/77a5e19))
+* hts update event ([fb36622](https://github.com/veith/FuroBaseComponents/commit/fb36622))
+
+
+
+
+
 # [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.18.0...@furo/data@0.19.0) (2019-03-31)
 
 
