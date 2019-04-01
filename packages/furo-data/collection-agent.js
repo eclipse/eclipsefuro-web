@@ -64,8 +64,10 @@ class collectionAgent extends FBP(LitElement) {
        * Name des Services
        */
       service: {type: String, attribute: true},
+
       pageSize: {type: Number, attribute: "page-size"},
       fields: {type: String, attribute: true},
+      filter: {type: Array, attribute: true},
       view: {type: String, attribute: true},
     };
   }
@@ -84,6 +86,55 @@ class collectionAgent extends FBP(LitElement) {
       this.dispatchEvent(customEvent);
     }, 0);
   }
+
+
+  /**
+   * https://cloud.google.com/apis/design/design_patterns
+   */
+
+  /**
+   * Partielle Repräsentation
+   * https://cloud.google.com/apis/design/design_patterns#partial_response
+   *
+   * etwas seltsam, aber google sieht hier $fields vor
+   *
+   */
+    setFields(fields){
+        this.fields = fields;
+    }
+
+  /**
+   * Sortierreihenfolge
+   * https://cloud.google.com/apis/design/design_patterns#sorting_order
+   *
+   * order_by = "foo,bar desc"
+   */
+
+
+    // Filtern  [["user","eq","12345"], ["abgeschlossen","eq", true]]
+  setFilter(filterstring){
+    if(Array.isArray(filterstring)){
+      this.filter = filterstring
+    }
+  }
+
+  // Gewünschte Seite. Tipp: Folge dem HATEOAS
+
+  // Seitengrösse  page_size
+
+  // Meta für die Anzahl der Elemente der Resource
+
+
+  /**
+   * contextbezogene Darstellung
+   *
+   * https://cloud.google.com/apis/design/design_patterns#resource_view
+   *
+   * view=smallcards
+   *
+   */
+
+
 
   /**
    * Setze den Service
@@ -117,8 +168,25 @@ class collectionAgent extends FBP(LitElement) {
     headers.append('Content-Type', 'application/' + link.type + '+json');
     headers.append('Content-Type', 'application/json');
 
+        let params = [];
+
+        // Fields
+        if(this.fields){
+            params.push("$fields=" + this.fields.split(' ').join(''));
+        }
+
+        // Filter
+        if (this.filter) {
+            params.push("$filter=" + JSON.stringify(this.filter));
+        }
+
+        let req = link.href;
+        if (params.length > 0) {
+
+            req = req + "?" + params.join("&");
+        }
     //todo: order,filter,... queryparams
-    return new Request(link.href, {
+        return new Request(req, {
       method: link.method,
       headers: headers,
       body: data
