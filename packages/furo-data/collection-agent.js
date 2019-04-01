@@ -122,6 +122,19 @@ class collectionAgent extends FBP(LitElement) {
     if (Array.isArray(filterstring)) {
       this.filter = filterstring
     }
+
+  }
+
+  set filter(f){
+    this._filter = f;
+    /**
+     * @event filter-updated
+     * Fired when filter was updated with ƒ-set-filter
+     * detail payload:
+     */
+    let customEvent = new Event('filter-changed', {composed:true, bubbles: true});
+    customEvent.detail = this;
+    this.dispatchEvent(customEvent)
   }
 
   // Gewünschte Seite. Tipp: Folge dem HATEOAS
@@ -195,8 +208,8 @@ class collectionAgent extends FBP(LitElement) {
     }
 
     // Filter
-    if (this.filter) {
-      params.$filter = JSON.stringify(this.filter);
+    if (this._filter) {
+      params.$filter = JSON.stringify(this._filter);
     }
 
     // rebuild req

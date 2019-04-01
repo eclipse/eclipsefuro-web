@@ -154,7 +154,6 @@ export const FuroInputBase = (superClass) => {
         if (this.field) {
           this.field.set(e.value);
         }
-
         this.value = e.value;
       });
     }
@@ -162,6 +161,16 @@ export const FuroInputBase = (superClass) => {
     set value(v) {
       this._float = !!v;
       this._value = v;
+
+
+      /**
+       * @event value-changed
+       * Fired when field value changed
+       * detail payload: value
+       */
+      let customEvent = new Event('value-changed', {composed:true, bubbles: true});
+      customEvent.detail = v;
+      this.dispatchEvent(customEvent);
     };
 
     get value() {
@@ -177,7 +186,7 @@ export const FuroInputBase = (superClass) => {
 
     bindData(d) {
       if (d === undefined) {
-        console.warn("Invalid binding ")
+        console.warn("Invalid binding ");
         console.log(this);
         return
       }

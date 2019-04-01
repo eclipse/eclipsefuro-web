@@ -15,4 +15,6 @@ import "./entity-agent"
 import "./entity-validator"
 import "./entity-field"
 import "./append-object"
+import "./collection-filter-object"
+import "./simple-filter-field"
 
