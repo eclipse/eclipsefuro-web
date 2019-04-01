@@ -86,7 +86,7 @@ class EntityObject extends (LitElement) {
 
     // data objects
     this._entityFields = this.querySelectorAll("entity-field");
-    console.log("todo",this._entityFields);
+   // console.log("todo",this._entityFields);
 
   }
 

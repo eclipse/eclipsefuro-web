@@ -38,7 +38,7 @@
         "rel": "self",
         "method": "GET",
         "href": "/demo/api/v1/tasks/31337.json",
-        "type": "vnd.com.acme.task"
+        "type": "application/vnd.com.acme.task+json"
       });
 
       expect(res).to.equal(undefined);
@@ -61,13 +61,13 @@
           "rel": "list",
           "method": "GET",
           "href": "/deeemmmo/api/v1/tasks/LIST.json",
-          "type": "vnd.com.acme.task"
+          "type": "application/vnd.com.acme.task+json"
         },
           {
             "rel": "next",
             "method": "GET",
             "href": "/deeemmmo/api/v1/tasks/NEXT:release",
-            "type": "vnd.com.acme.task"
+            "type": "application/vnd.com.acme.task+json"
           }]
       });
     });
@@ -86,13 +86,13 @@
           "rel": "self",
           "method": "GET",
           "href": "/demo/api/v1/tasks/31337.json",
-          "type": "vnd.com.acme.task"
+          "type": "application/vnd.com.acme.task+json"
         },
           {
             "rel": "release",
             "method": "GET",
             "href": "/api/v1/tasks/THISONE:release",
-            "type": "vnd.com.acme.task"
+            "type": "application/vnd.com.acme.task+json"
           }]
       });
     });
@@ -111,13 +111,13 @@
         "rel": "self",
         "method": "GET",
         "href": "/demo/api/v1/tasks/31337.json",
-        "type": "vnd.com.acme.task"
+        "type": "application/vnd.com.acme.task+json"
       },
         {
           "rel": "release",
           "method": "GET",
           "href": "/api/v1/tasks/THISONE:release",
-          "type": "vnd.com.acme.task"
+          "type": "application/vnd.com.acme.task+json"
         }]);
     });
 
@@ -134,7 +134,7 @@
         "rel": "self",
         "method": "GET",
         "href": "/demo/api/v1/tasks/31337.json",
-        "type": "vnd.com.acme.task"
+        "type": "application/vnd.com.acme.task+json"
       })
     });
     it('instantiating the element with default properties works', () => {

@@ -52,6 +52,10 @@ class CustomMethod extends FBP(LitElement) {
         this._entityTree = entityTree;
     }
 
+    bindData(entityTree) {
+        this._entityTree = entityTree;
+    }
+
 
 
     _makeRequest(link, body) {
@@ -128,6 +132,15 @@ class CustomMethod extends FBP(LitElement) {
             hts.forEach((link) => {
                 this._hts[link.rel] = link
             });
+
+            /**
+            * @event hts-updated
+            * Fired when
+            * detail payload:
+            */
+            let customEvent = new Event('hts-updated', {composed:true, bubbles: true});
+            customEvent.detail = hts;
+            this.dispatchEvent(customEvent)
         }
     }
 

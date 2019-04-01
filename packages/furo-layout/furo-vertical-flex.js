@@ -1,5 +1,4 @@
-import { LitElement, html } from 'lit-element';
-import {FBP} from "@furo/fbp";
+import {LitElement, html, css} from 'lit-element';
 
 /**
  * `furo-vertical-flex`
@@ -22,10 +21,51 @@ import {FBP} from "@furo/fbp";
  * @demo demo/furo-vertical-flex.html
  * @appliesMixin FBP
  */
-class FuroVerticalFlex extends FBP(LitElement) {
+class FuroVerticalFlex extends LitElement {
 
   constructor() {
     super();
+  }
+
+  /**
+   *
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return css`
+        :host {
+            --layout: {
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+            };
+
+            --layout-vertical: {
+                @apply --layout;
+                -ms-flex-direction: row;
+                -webkit-flex-direction: row;
+                flex-direction: row;
+            };
+
+            --layout-vertical: {
+                @apply --layout;
+
+                -ms-flex-direction: column;
+                -webkit-flex-direction: column;
+                flex-direction: column;
+            };
+
+            --layout-vertical-reverse: {
+                @apply --layout;
+
+                -ms-flex-direction: column-reverse;
+                -webkit-flex-direction: column-reverse;
+                flex-direction: column-reverse;
+            };
+        }
+    `
   }
 
 
@@ -35,48 +75,17 @@ class FuroVerticalFlex extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html`
-      <style>
-        :host {
-          display: block;
-
-          --layout: {
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-          };
-
-          --layout-vertical: {
-            @apply --layout;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-          };
-
-          --layout-vertical: {
-            @apply --layout;
-
-            -ms-flex-direction: column;
-            -webkit-flex-direction: column;
-            flex-direction: column;
-          };
-
-          --layout-vertical-reverse: {
-            @apply --layout;
-
-            -ms-flex-direction: column-reverse;
-            -webkit-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-          };
-          
-          @apply --layout-vertical;
-        }
-
-        ::slotted(*[flex]) {
-          @apply --layout-flex;
-        }
-      </style>
-
+    return html`  
+        <style>
+          :host{
+            display: block;
+            height: 100%;
+            @apply --layout-vertical;
+          }
+          ::slotted(*[flex]) {
+            @apply --layout-flex;
+          }
+        </style>
       <slot></slot>
     `;
   }

@@ -18,6 +18,20 @@ class EntityAgent extends FBP(LitElement) {
     this._ApiEnvironment = window.Env.api;
 
 
+    // HTS aus response anwenden
+    this._FBPAddWireHook("--responseParsed", (r)=>{
+      if(Array.isArray(r.links)){
+        this.htsIn(r.links);
+        /**
+         * @event response-hts-updated
+         * Fired when hateoas is updated from response
+         * detail payload: {Array|HATEOAS}
+         */
+        let customEvent = new Event('response-hts-updated', {composed:true, bubbles: false});
+        customEvent.detail = r.links;
+        this.dispatchEvent(customEvent);
+      }
+    });
   }
 
   static get properties() {
@@ -71,7 +85,6 @@ class EntityAgent extends FBP(LitElement) {
   _checkServiceAndHateoasLinkError(rel,serviceName){
       // check Service Get
       if (!this._service.services[serviceName]) {
-        // todo fehler werfen ???
         console.warn("Restlet " + serviceName + " is not specified", this._service, this);
         return true;
       }
@@ -153,7 +166,7 @@ class EntityAgent extends FBP(LitElement) {
        * detail payload:
        */
       let customEvent = new Event('hts-updated', {composed:true, bubbles: false});
-      customEvent.detail = this._hts;
+      customEvent.detail = hts;
       this.dispatchEvent(customEvent);
     }
   }

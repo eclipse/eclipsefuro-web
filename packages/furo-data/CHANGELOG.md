@@ -3,6 +3,101 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.19.1...@furo/data@0.19.2) (2019-04-01)
+
+
+### Bug Fixes
+
+* hts update event ([d07fbf7](https://github.com/veith/FuroBaseComponents/commit/d07fbf7))
+
+
+
+
+
+## [0.19.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.19.0...@furo/data@0.19.1) (2019-04-01)
+
+
+### Bug Fixes
+
+* hts update event ([77a5e19](https://github.com/veith/FuroBaseComponents/commit/77a5e19))
+* hts update event ([fb36622](https://github.com/veith/FuroBaseComponents/commit/fb36622))
+
+
+
+
+
+# [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.18.0...@furo/data@0.19.0) (2019-03-31)
+
+
+### Features
+
+* custom-method fires event hts-updated, so you can rewire it to ƒ-trigger ([ce9f769](https://github.com/veith/FuroBaseComponents/commit/ce9f769))
+
+
+
+
+
+# [0.18.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.17.1...@furo/data@0.18.0) (2019-03-30)
+
+
+### Bug Fixes
+
+* deep-link defensive copy ([304914f](https://github.com/veith/FuroBaseComponents/commit/304914f))
+
+
+### Features
+
+* append-object ([9956121](https://github.com/veith/FuroBaseComponents/commit/9956121))
+
+
+
+
+
+## [0.17.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.17.0...@furo/data@0.17.1) (2019-03-30)
+
+
+### Bug Fixes
+
+* deep link Api Prefix from environment prepend ([ef387e7](https://github.com/veith/FuroBaseComponents/commit/ef387e7))
+* deep link objects ([5c84808](https://github.com/veith/FuroBaseComponents/commit/5c84808))
+* deep-link hts-out ([598c04c](https://github.com/veith/FuroBaseComponents/commit/598c04c))
+* deep-link prefix removed ([82ccf1c](https://github.com/veith/FuroBaseComponents/commit/82ccf1c))
+* reverse-deep-link matches ([b17e181](https://github.com/veith/FuroBaseComponents/commit/b17e181))
+
+
+
+
+
+# [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.16.2...@furo/data@0.17.0) (2019-03-30)
+
+
+### Features
+
+* notify config changes via config-updated event ([cfea34c](https://github.com/veith/FuroBaseComponents/commit/cfea34c))
+
+
+
+
+
+## [0.16.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.16.1...@furo/data@0.16.2) (2019-03-29)
+
+
+### Bug Fixes
+
+* hts-updated ([8013b4e](https://github.com/veith/FuroBaseComponents/commit/8013b4e))
+
+
+
+
+
+## [0.16.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.16.0...@furo/data@0.16.1) (2019-03-29)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
 # [0.16.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.15.0...@furo/data@0.16.0) (2019-03-28)
 
 

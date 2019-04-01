@@ -14,4 +14,5 @@ import "./entity-object"
 import "./entity-agent"
 import "./entity-validator"
 import "./entity-field"
+import "./append-object"
 

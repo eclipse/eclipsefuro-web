@@ -49,12 +49,12 @@ class ReverseDeepLink extends (LitElement) {
         // is collection
         // default rel if not set
         if (!this.rel) {
-          this.rel = "list"
+          this.rel = "List"
         }
       } else {
         // is entity
         if (!this.rel) {
-          this.rel = "get"
+          this.rel = "self"
         }
       }
 
@@ -87,7 +87,14 @@ class ReverseDeepLink extends (LitElement) {
   }
 
 
-  _convert(linkObject) {
+  _convert(link) {
+    let linkObject = {
+      rel : link.rel,
+      href : link.href,
+      method : link.method,
+      type : link.type
+    };
+
     if (linkObject.rel === "self") {
       linkObject.rel = "Get";
     }
@@ -103,7 +110,7 @@ class ReverseDeepLink extends (LitElement) {
       keys.push(m[1]);
     }
 
-    let srgx = new RegExp("^" + pattern + "$");
+    let srgx = new RegExp( pattern + "$");
     let qp = {};
     let matches = srgx.exec(linkObject.href);
     if (matches) {

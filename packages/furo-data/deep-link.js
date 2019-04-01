@@ -41,7 +41,12 @@ class DeepLink extends FBP(LitElement) {
 
     // loop services
     for (let serviceName in service.services) {
-      let candidate = service.services[serviceName].deeplink;
+      let candidate = {
+        "rel": service.services[serviceName].deeplink.rel,
+        "href": service.services[serviceName].deeplink.href,
+        "method": service.services[serviceName].deeplink.method
+      };
+
 
       candidate.type = service.services[serviceName].request;
 
@@ -50,6 +55,7 @@ class DeepLink extends FBP(LitElement) {
       }
       //wenn es keine {xx} mehr hat, ist es ein treffer
       if (candidate.href.indexOf("{") === -1) {
+        //candidate.type = "application/" + candidate.type + "+json"
         this._hts.push(candidate);
       }
     }

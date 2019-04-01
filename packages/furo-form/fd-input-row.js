@@ -19,6 +19,7 @@ class FdInputRow extends FBP(PolymerElement) {
           display: block;
           margin-bottom: 16px;
           margin-top: 8px;
+          @apply --input-row-mixin;
         }
         div{
          line-height: 40px;
