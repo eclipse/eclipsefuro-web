@@ -21,14 +21,14 @@ class EntityAgent extends FBP(LitElement) {
     // HTS aus response anwenden
     this._FBPAddWireHook("--responseParsed", (r)=>{
       if(Array.isArray(r.links)){
-        this.htsIn(r.Links);
+        this.htsIn(r.links);
         /**
          * @event response-hts-updated
          * Fired when hateoas is updated from response
          * detail payload: {Array|HATEOAS}
          */
         let customEvent = new Event('response-hts-updated', {composed:true, bubbles: false});
-        customEvent.detail = r.Links;
+        customEvent.detail = r.links;
         this.dispatchEvent(customEvent);
       }
     });
