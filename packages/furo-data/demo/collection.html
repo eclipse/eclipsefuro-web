@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>furo-data demo</title>
+
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <script src="environment.js"></script>
+
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
+    import '@furo/fbp/flow-bind.js';
+    import '@furo/fbp/flow-repeat.js';
+    import '@furo/input/furo-catalog.js';
+    import '../furo-catalog';
+    import './produce-qp';
+    import './repeated-data';
+    import './repeated-string';
+
+  </script>
+  <script type="module" src="./produce-qp.js"></script>
+  <script type="module" src="./repeated-data.js"></script>
+  <script type="module" src="./repeated-string.js"></script>
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+</head>
+<body>
+<div class="vertical-section-container centered">
+  <h3>Basic furo-catalog demo</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+
+          <produce-qp @-qp="--qp"></produce-qp>
+          <deep-link auto ƒ-.qp='--qp' service="tasks" @-hts-out="--hts"></deep-link>
+
+          <collection-agent fields="produktId,title" service="tasks"
+                            ƒ-bind-request-object="--data" ƒ-hts-in="--hts"
+                            ƒ-set-filter="--cfChanged" @-filter-changed="--filterApplied"
+                            ƒ-list="--loadClicked, --filterApplied"
+                            @-response="--collectionResponse"></collection-agent>
+
+
+          <collection-filter-object type="vnd.com.acme.task" @-filter-changed="--cfChanged">
+
+            <simple-filter-field field="title" is="sw" ƒ-.value="--filterTitleValue">
+              <!-- AND -->
+              <simple-filter-field field="title"  is="sw" ƒ-.value="--filterTitleValue"></simple-filter-field>
+            </simple-filter-field>
+            <!-- OR -->
+            <simple-filter-field field="taskId" is="gt" ƒ-.value="--filterTaskId"></simple-filter-field>
+          </collection-filter-object>
+
+
+
+          <furo-number-input label="filterTaskId"  @-value-changed="--filterTaskId"></furo-number-input>
+          <furo-text-input label="filter title" value="Neu" @-value-changed="--filterTitleValue"></furo-text-input>
+
+
+
+
+          <collection-object type="vnd.com.acme.task" ƒ-inject-raw="--collectionResponse" ƒ-clear="--clearClicked"
+                             @-data-changed="--data"></collection-object>
+          <ul>
+            <template is="flow-repeat" ƒ-inject-items="--data(*.data)">
+              <li>ll</li>
+            </template>
+          </ul>
+          <furo-button @-click="--loadClicked, --focus" label="load record 12"></furo-button>
+          <furo-button @-click="--clearClicked, --focus" label="clear"></furo-button>
+
+
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+</body>
+</html>
