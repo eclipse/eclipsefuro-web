@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.19.2...@furo/data@0.19.3) (2019-04-01)
+
+
+### Bug Fixes
+
+* data collection ([f47f2c9](https://github.com/veith/FuroBaseComponents/commit/f47f2c9))
+* dataAsArray removed. Wrong place. ([7366454](https://github.com/veith/FuroBaseComponents/commit/7366454))
+
+
+
+
+
 ## [0.19.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.19.1...@furo/data@0.19.2) (2019-04-01)
 
 
