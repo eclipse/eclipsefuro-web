@@ -46,6 +46,14 @@ class collectionAgent extends FBP(LitElement) {
     this._FBPAddWireHook("--responseParsed", (r)=>{
       if(Array.isArray(r.links)){
         this.htsIn(r.Links);
+        /**
+         * @event response-hts-updated
+         * Fired when hateoas is updated from response
+         * detail payload: {Array|HATEOAS}
+         */
+        let customEvent = new Event('response-hts-updated', {composed:true, bubbles: false});
+        customEvent.detail = r.Links;
+        this.dispatchEvent(customEvent);
       }
     });
   }
