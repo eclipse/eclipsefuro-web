@@ -1,6 +1,4 @@
 import {LitElement, html} from 'lit-element';
-import {FBP} from "@furo/fbp";
-
 
 // to ensure that data is of type FuroAppFlow
 function TypeAppFlow(name) {
@@ -15,7 +13,7 @@ function TypeAppFlow(name) {
  * @demo demo/furo-app-flow.html
  * @appliesMixin FBP
  */
-class FuroAppFlow extends FBP(LitElement) {
+class FuroAppFlow extends (LitElement) {
 
   constructor() {
     super();
@@ -31,6 +29,18 @@ class FuroAppFlow extends FBP(LitElement) {
        */
       event: {type: String}
     };
+  }
+
+  setQp(qp){
+    this._qp = qp;
+  }
+
+  static set qp(qp) {
+    this._qp = qp;
+  }
+
+  trigger(){
+    this.emit(this._qp);
   }
 
   /**
