@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.20.0...@furo/data@0.21.0) (2019-04-02)
+
+
+### Features
+
+* call collection-agent before hts waits for hts ([edce82f](https://github.com/veith/FuroBaseComponents/commit/edce82f))
+* collection-agent ƒ-clear-filter ([4f504f5](https://github.com/veith/FuroBaseComponents/commit/4f504f5))
+
+
+
+
+
 # [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.19.3...@furo/data@0.20.0) (2019-04-01)
 
 
