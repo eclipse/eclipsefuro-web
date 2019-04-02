@@ -146,7 +146,7 @@ export const FuroInputBase = (superClass) => {
     }
 
     _init() {
-      this._float = false;
+      this._float = !!this._value;
       this.noTypecheck = false;
       this._label = this.label;
 
@@ -156,6 +156,7 @@ export const FuroInputBase = (superClass) => {
         }
         this.value = e.value;
       });
+      this._FBPTriggerWire('--value', this._value);
     }
 
     set value(v) {
