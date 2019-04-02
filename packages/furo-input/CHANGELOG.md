@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.15.0...@furo/input@0.16.0) (2019-04-02)
+
+
+### Features
+
+* furo-input initial values from attribute ([df9519f](https://github.com/veith/FuroBaseComponents/commit/df9519f))
+
+
+
+
+
 # [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.14.8...@furo/input@0.15.0) (2019-04-01)
 
 
