@@ -30,11 +30,14 @@ class CollectionFilterObject extends FBP(HTMLElement) {
 
     // register changes
     this.addEventListener("simple-filter-changed", (e) => {
+
       // baum für filter aufbauen
       let simplefilter = [];
       this._scanSimpleFilters(this, simplefilter);
       if (simplefilter.length > 0) {
-       setTimeout(()=>{
+        // debounce filters for 16ms
+        clearTimeout(this._debounce);
+        this._debounce = setTimeout(()=>{
          /**
           * @event filter-changed
           * Fired when filter changed
@@ -43,7 +46,7 @@ class CollectionFilterObject extends FBP(HTMLElement) {
          let customEvent = new Event('filter-changed', {composed: true, bubbles: true});
          customEvent.detail = simplefilter;
          this.dispatchEvent(customEvent)
-       },0)
+       },16);
 
       }
 

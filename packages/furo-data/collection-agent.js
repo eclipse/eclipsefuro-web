@@ -56,6 +56,8 @@ class collectionAgent extends FBP(LitElement) {
         this.dispatchEvent(customEvent);
       }
     });
+
+    this._singleElementQueue = []; //queue for calls, before hts is set
   }
 
   static get properties() {
@@ -236,6 +238,11 @@ class collectionAgent extends FBP(LitElement) {
       return true;
     }
 
+    //queue if no hts is set, queue it
+    if(!this._hts){
+      this._singleElementQueue.push([rel,serviceName]);
+      return true;
+    }
     // check Hateoas
     if (!this._hts[rel]) {
       console.warn("No HATEOAS for rel self", this._hts, this);
@@ -304,6 +311,13 @@ class collectionAgent extends FBP(LitElement) {
       let customEvent = new Event('hts-updated', {composed: true, bubbles: false});
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
+
+      // there was a list,last,next call before the hts was set
+      if(this._singleElementQueue.length > 0){
+        let q = this._singleElementQueue.pop();
+        this._followRelService(q[0], q[1]);
+      }
+
     }
   }
 

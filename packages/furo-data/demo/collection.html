@@ -50,7 +50,7 @@
 
           <collection-filter-object type="vnd.com.acme.task" @-filter-changed="--cfChanged">
 
-            <simple-filter-field field="title" is="sw" ƒ-.value="--filterTitleValue">
+            <simple-filter-field field="other" is="sw" ƒ-.value="--filterOtherValue">
               <!-- AND -->
               <simple-filter-field field="title"  is="sw" ƒ-.value="--filterTitleValue"></simple-filter-field>
             </simple-filter-field>
@@ -62,7 +62,7 @@
 
           <furo-number-input label="filterTaskId"  @-value-changed="--filterTaskId"></furo-number-input>
           <furo-text-input label="filter title" value="Neu" @-value-changed="--filterTitleValue"></furo-text-input>
-
+          <furo-text-input label="filter other" value="other" @-value-changed="--filterOtherValue"></furo-text-input>
 
 
 
