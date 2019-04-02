@@ -118,6 +118,12 @@ class collectionAgent extends FBP(LitElement) {
     this.orderBy = order;
   }
 
+  /**
+   * clear filter
+   */
+  clearFilter(){
+    this._filter = undefined;
+  }
 
   // Filtern  [["user","eq","12345"], ["abgeschlossen","eq", true]]
   setFilter(filterstring) {
@@ -127,14 +133,14 @@ class collectionAgent extends FBP(LitElement) {
 
   }
 
-  set filter(f){
+  set filter(f) {
     this._filter = f;
     /**
      * @event filter-updated
      * Fired when filter was updated with ƒ-set-filter
      * detail payload:
      */
-    let customEvent = new Event('filter-changed', {composed:true, bubbles: true});
+    let customEvent = new Event('filter-changed', {composed: true, bubbles: true});
     customEvent.detail = this;
     this.dispatchEvent(customEvent)
   }
@@ -239,8 +245,8 @@ class collectionAgent extends FBP(LitElement) {
     }
 
     //queue if no hts is set, queue it
-    if(!this._hts){
-      this._singleElementQueue.push([rel,serviceName]);
+    if (!this._hts) {
+      this._singleElementQueue = [[rel, serviceName]];
       return true;
     }
     // check Hateoas
@@ -313,7 +319,7 @@ class collectionAgent extends FBP(LitElement) {
       this.dispatchEvent(customEvent);
 
       // there was a list,last,next call before the hts was set
-      if(this._singleElementQueue.length > 0){
+      if (this._singleElementQueue.length > 0) {
         let q = this._singleElementQueue.pop();
         this._followRelService(q[0], q[1]);
       }

@@ -44,6 +44,7 @@
           <collection-agent fields="produktId,title" service="tasks"
                             ƒ-bind-request-object="--data" ƒ-hts-in="--hts"
                             ƒ-set-filter="--cfChanged" @-filter-changed="--filterApplied"
+                            ƒ-clear-filter="--clearFilterReq"
                             ƒ-list="--loadClicked, --filterApplied"
                             @-response="--collectionResponse"></collection-agent>
 
@@ -75,6 +76,7 @@
           </ul>
           <furo-button @-click="--loadClicked, --focus" label="load record 12"></furo-button>
           <furo-button @-click="--clearClicked, --focus" label="clear"></furo-button>
+          <furo-button @-click="--clearFilterReq" label="clear filter"></furo-button>
 
 
         </template>

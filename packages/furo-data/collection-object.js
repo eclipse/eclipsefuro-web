@@ -21,6 +21,11 @@ class CollectionObject extends (LitElement) {
     this.collection.injectRaw(jsonObj);
   }
 
+  // make the collection Object empty
+  clear(){
+    this.collection.injectRaw({data:[]});
+  }
+
   set type(type) {
     if (this._type) {
       this._checkType(type);
