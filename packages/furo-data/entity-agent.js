@@ -20,17 +20,7 @@ class EntityAgent extends FBP(LitElement) {
 
     // HTS aus response anwenden
     this._FBPAddWireHook("--responseParsed", (r)=>{
-      if(Array.isArray(r.links)){
-        this.htsIn(r.links);
-        /**
-         * @event response-hts-updated
-         * Fired when hateoas is updated from response
-         * detail payload: {Array|HATEOAS}
-         */
-        let customEvent = new Event('response-hts-updated', {composed:true, bubbles: false});
-        customEvent.detail = r.links;
-        this.dispatchEvent(customEvent);
-      }
+        this._updateInternalHTS(r.links);
     });
   }
 
@@ -148,13 +138,12 @@ class EntityAgent extends FBP(LitElement) {
       return
     }
 
-    // TODO nur delta senden
     this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.create,this._entityTree.rawData));
 
   }
 
 
-  htsIn(hts) {
+  _updateInternalHTS(hts){
     if (hts && hts[0] && hts[0].rel) {
       this._hts = {};
       hts.forEach((link) => {
@@ -162,12 +151,33 @@ class EntityAgent extends FBP(LitElement) {
       });
       /**
        * @event hts-updated
-       * Fired when hateoas is updated
-       * detail payload:
+       * Fired when hateoas is updated from response
+       * detail payload: {Array|HATEOAS}
        */
-      let customEvent = new Event('hts-updated', {composed:true, bubbles: false});
+      let customEvent = new Event('hts-updated', {composed: true, bubbles: false});
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
+      return true;
+    }
+    return false;
+  }
+  htsIn(hts) {
+    if (this._updateInternalHTS(hts)) {
+      /**
+       * @event hts-updated
+       * Fired when hateoas is updated
+       * detail payload: Hateoas links
+       */
+      let customEvent = new Event('hts-injected', {composed: true, bubbles: false});
+      customEvent.detail = hts;
+      this.dispatchEvent(customEvent);
+
+      // there was a list,last,next call before the hts was set
+      if (this._singleElementQueue.length > 0) {
+        let q = this._singleElementQueue.pop();
+        this._followRelService(q[0], q[1]);
+      }
+
     }
   }
 

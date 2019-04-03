@@ -48,23 +48,20 @@
                             ƒ-list="--loadClicked, --filterApplied"
                             @-response="--collectionResponse"></collection-agent>
 
-
-          <collection-filter-object type="vnd.com.acme.task" @-filter-changed="--cfChanged">
-
-            <simple-filter-field field="other" is="sw" ƒ-.value="--filterOtherValue">
-              <!-- AND -->
-              <simple-filter-field field="title"  is="sw" ƒ-.value="--filterTitleValue"></simple-filter-field>
-            </simple-filter-field>
-            <!-- OR -->
-            <simple-filter-field field="taskId" is="gt" ƒ-.value="--filterTaskId"></simple-filter-field>
-          </collection-filter-object>
-
+          <furo-filter-container type="vnd.com.acme.task" @-filter-changed="--cfChanged">
+            <furo-filter-and>
+              <furo-filter-field field="ccccc" is="sw" ƒ-.value="--filterTaskId"></furo-filter-field>
+              <furo-filter-or>
+                <furo-filter-field field="oder" is="sw" ƒ-.value="--filterTitleValue"></furo-filter-field>
+                <furo-filter-field field="ddddd" is="sw" ƒ-.value="--filterOtherValue"></furo-filter-field>
+              </furo-filter-or>
+            </furo-filter-and>
+          </furo-filter-container>
 
 
-          <furo-number-input label="filterTaskId"  @-value-changed="--filterTaskId"></furo-number-input>
+          <furo-number-input label="filterTaskId" @-value-changed="--filterTaskId"></furo-number-input>
           <furo-text-input label="filter title" value="Neu" @-value-changed="--filterTitleValue"></furo-text-input>
           <furo-text-input label="filter other" value="other" @-value-changed="--filterOtherValue"></furo-text-input>
-
 
 
           <collection-object type="vnd.com.acme.task" ƒ-inject-raw="--collectionResponse" ƒ-clear="--clearClicked"

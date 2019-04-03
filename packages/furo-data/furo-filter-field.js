@@ -2,15 +2,15 @@ import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 
 /**
- * `simple-filter-field`
+ * `furo-filter-field`
  * Describe your element
  *
  * @summary shortdescription
  * @customElement
- * @demo demo/simple-filter-field.html
+ * @demo demo/furo-filter-field.html
  * @appliesMixin FBP
  */
-class SimpleFilterField extends FBP(LitElement) {
+class FuroFilterField extends FBP(LitElement) {
 
   constructor() {
     super();
@@ -43,17 +43,18 @@ class SimpleFilterField extends FBP(LitElement) {
 
   set value(val) {
     this._value = val;
+
     this._notifyChanges();
   }
 
   _notifyChanges() {
     if (this._field && this._value && this._is) {
       /**
-       * @event simple-filter-changed
+       * @event furo-filter-changed
        * Fired when something changed
        * detail payload:
        */
-      let customEvent = new Event('simple-filter-changed', {composed: true, bubbles: true});
+      let customEvent = new Event('furo-filter-field-changed', {composed: true, bubbles: true});
       customEvent.detail = this;
       this.dispatchEvent(customEvent);
     }
@@ -76,4 +77,4 @@ class SimpleFilterField extends FBP(LitElement) {
 
 }
 
-window.customElements.define('simple-filter-field', SimpleFilterField);
+window.customElements.define('furo-filter-field', FuroFilterField);

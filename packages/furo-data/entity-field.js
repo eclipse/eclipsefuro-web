@@ -30,7 +30,7 @@ class EntityField extends LitElement {
 
   bindData(d) {
     if (d === undefined) {
-      console.warn("Invalid binding ")
+      console.warn("Invalid binding ");
       console.log(this);
       return
     }
