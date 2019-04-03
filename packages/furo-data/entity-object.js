@@ -69,7 +69,8 @@ class EntityObject extends (LitElement) {
        * detail payload: {Object|CollectionNode}
        */
       let customEvent = new Event('data-changed', {composed:true, bubbles: true});
-      customEvent.detail = this.collection;
+      customEvent.detail = this.entity.rawData;
+
       this.dispatchEvent(customEvent)
     });
   }
