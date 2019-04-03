@@ -22,6 +22,9 @@ class EntityAgent extends FBP(LitElement) {
     this._FBPAddWireHook("--responseParsed", (r)=>{
         this._updateInternalHTS(r.links);
     });
+
+    this._singleElementQueue = []; //queue for calls, before hts is set
+
   }
 
   static get properties() {
@@ -78,6 +81,12 @@ class EntityAgent extends FBP(LitElement) {
         console.warn("Restlet " + serviceName + " is not specified", this._service, this);
         return true;
       }
+
+    //queue if no hts is set, queue it
+    if (!this._hts) {
+      this._singleElementQueue = [[rel, serviceName]];
+      return true;
+    }
 
       // check Hateoas
       if (!this._hts[rel]) {
