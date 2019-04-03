@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.23.0...@furo/data@0.24.0) (2019-04-03)
+
+
+### Bug Fixes
+
+* entity-object notify data changes ([c064df5](https://github.com/veith/FuroBaseComponents/commit/c064df5))
+
+
+### Features
+
+* entity-field ([71bc178](https://github.com/veith/FuroBaseComponents/commit/71bc178))
+* entity-object notify data changes ([8ab2422](https://github.com/veith/FuroBaseComponents/commit/8ab2422))
+
+
+
+
+
 # [0.23.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.22.0...@furo/data@0.23.0) (2019-04-03)
 
 
