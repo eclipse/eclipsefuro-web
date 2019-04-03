@@ -61,6 +61,17 @@ class EntityObject extends (LitElement) {
     setTimeout(() => {
       this.dispatchEvent(customEvent);
     }, 0);
+
+    this.entity.addEventListener("field-value-changed",(e)=>{
+      /**
+       * @event data-changed
+       * Fired when data in collection has changed
+       * detail payload: {Object|CollectionNode}
+       */
+      let customEvent = new Event('data-changed', {composed:true, bubbles: true});
+      customEvent.detail = this.collection;
+      this.dispatchEvent(customEvent)
+    });
   }
 
   static get properties() {
