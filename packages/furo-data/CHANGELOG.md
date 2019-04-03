@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.22.0...@furo/data@0.23.0) (2019-04-03)
+
+
+### Features
+
+* furo-filter ([2fc6889](https://github.com/veith/FuroBaseComponents/commit/2fc6889))
+
+
+
+
+
 # [0.22.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.21.0...@furo/data@0.22.0) (2019-04-02)
 
 
