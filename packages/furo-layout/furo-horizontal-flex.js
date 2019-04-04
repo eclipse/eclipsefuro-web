@@ -82,7 +82,7 @@ class FuroHorizontalFlex extends (LitElement) {
       <style>
         :host {
           display: block;
-          @apply --layout-horizontal-reverse;
+          @apply --layout-horizontal;
         }
 
         :host([reverse]) {
