@@ -1,5 +1,4 @@
-import { LitElement, html } from 'lit-element';
-import {FBP} from "@furo/fbp";
+import {LitElement, html, css} from 'lit-element';
 
 /**
  * `furo-horizontal-flex`
@@ -22,11 +21,56 @@ import {FBP} from "@furo/fbp";
  * @demo demo/furo-horizontal-flex.html
  * @appliesMixin FBP
  */
-class FuroHorizontalFlex extends FBP(LitElement) {
+class FuroHorizontalFlex extends (LitElement) {
 
   constructor() {
     super();
   }
+
+
+  /**
+   *
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return css`
+
+        :host {
+            --layout: {
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+            };
+
+            --layout-horizontal: {
+                @apply --layout;
+                -ms-flex-direction: row;
+                -webkit-flex-direction: row;
+                flex-direction: row;
+            };
+
+            --layout-flex: {
+                -ms-flex: 1 1 0.000000001px;
+                -webkit-flex: 1;
+                flex: 1;
+                -webkit-flex-basis: 0.000000001px;
+                flex-basis: 0.000000001px;
+            };
+
+            --layout-horizontal-reverse: {
+                @apply --layout;
+
+                -ms-flex-direction: row-reverse;
+                -webkit-flex-direction: row-reverse;
+                flex-direction: row-reverse;
+            };
+
+            @apply --layout-horizontal;
+        }`
+  }
+
 
   /**
    * @private
@@ -38,39 +82,8 @@ class FuroHorizontalFlex extends FBP(LitElement) {
       <style>
         :host {
           display: block;
-
-          --layout: {
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-          };
-          
-          --layout-horizontal: {
-            @apply --layout;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-          };
-
-          --layout-flex: {
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-          };
-          
-          --layout-horizontal-reverse: {
-            @apply --layout;
-
-            -ms-flex-direction: row-reverse;
-            -webkit-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-          };
-
-          @apply --layout-horizontal;
+          @apply --layout-horizontal-reverse;
         }
-
 
         :host([reverse]) {
           @apply --layout-horizontal-reverse;
@@ -80,7 +93,6 @@ class FuroHorizontalFlex extends FBP(LitElement) {
           @apply --layout-flex;
         }
       </style>
-
       <slot></slot>
     `;
   }
