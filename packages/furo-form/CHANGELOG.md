@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.13](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.14.12...@furo/form@0.14.13) (2019-04-04)
+
+
+### Bug Fixes
+
+* furo-collapsible default set to false ([58f931a](https://github.com/veith/FuroBaseComponents/commit/58f931a))
+
+
+
+
+
 ## [0.14.12](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.14.11...@furo/form@0.14.12) (2019-04-04)
 
 
