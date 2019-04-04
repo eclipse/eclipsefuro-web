@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.24.1...@furo/data@0.25.0) (2019-04-04)
+
+
+### Features
+
+* [@event](https://github.com/event) response-hts-updated ([820a540](https://github.com/veith/FuroBaseComponents/commit/820a540))
+
+
+
+
+
 ## [0.24.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.24.0...@furo/data@0.24.1) (2019-04-04)
 
 
