@@ -36,16 +36,7 @@ class EntityObject extends (LitElement) {
   _checkType(type) {
 
     if (this._specs[type] === undefined) {
-      /**
-       * @event spec-error
-       * Fired when spec could not be loaded
-       * detail payload: {string} spec name
-       */
-      let customEvent = new Event('spec-error', {composed: true, bubbles: true});
-      customEvent.detail = type;
-      setTimeout(() => {
-        this.dispatchEvent(customEvent);
-      }, 0);
+
       console.warn("Type does not exist.", type, this, this._specs)
       return
     }
