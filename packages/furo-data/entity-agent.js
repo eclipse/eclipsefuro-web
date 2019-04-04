@@ -20,7 +20,16 @@ class EntityAgent extends FBP(LitElement) {
 
     // HTS aus response anwenden
     this._FBPAddWireHook("--responseParsed", (r)=>{
-        this._updateInternalHTS(r.links);
+        if(this._updateInternalHTS(r.links)){
+          /**
+          * @event response-hts-updated
+          * Fired when
+          * detail payload: hts
+          */
+          let customEvent = new Event('response-hts-updated', {composed:true, bubbles: true});
+          customEvent.detail = r.links;
+          this.dispatchEvent(customEvent);
+        }
     });
 
     this._singleElementQueue = []; //queue for calls, before hts is set
