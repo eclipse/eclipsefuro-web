@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.14](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.14.13...@furo/form@0.14.14) (2019-04-04)
+
+
+### Bug Fixes
+
+* update readme ([70266b0](https://github.com/veith/FuroBaseComponents/commit/70266b0))
+
+
+
+
+
 ## [0.14.13](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.14.12...@furo/form@0.14.13) (2019-04-04)
 
 
