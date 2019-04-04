@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.1](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.15.0...@furo/form@0.15.1) (2019-04-04)
+
+
+### Bug Fixes
+
+* button-bar margin ([ac92f4f](https://github.com/veith/FuroBaseComponents/commit/ac92f4f))
+
+
+
+
+
 # [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.14.17...@furo/form@0.15.0) (2019-04-04)
 
 

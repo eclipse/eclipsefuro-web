@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.17.4...@furo/layout@0.18.0) (2019-04-04)
+
+
+### Features
+
+* checkbox-input init ([1684d39](https://github.com/veith/FuroBaseComponents/commit/1684d39))
+
+
+
+
+
 ## [0.17.4](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.17.3...@furo/layout@0.17.4) (2019-04-04)
 
 

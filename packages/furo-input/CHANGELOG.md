@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.16.3...@furo/input@0.17.0) (2019-04-04)
+
+
+### Bug Fixes
+
+* input-mixin ([24e8351](https://github.com/veith/FuroBaseComponents/commit/24e8351))
+
+
+### Features
+
+* checkbox-input init ([1684d39](https://github.com/veith/FuroBaseComponents/commit/1684d39))
+
+
+
+
+
 ## [0.16.3](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.16.2...@furo/input@0.16.3) (2019-04-04)
 
 **Note:** Version bump only for package @furo/input
