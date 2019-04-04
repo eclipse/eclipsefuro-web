@@ -35,6 +35,7 @@ export const FuroInputBase = (superClass) => {
           text-align: left;
           color: inherit;
           outline: none;
+          @apply --input-base-input-mixin; 
         }
  
         .border{
