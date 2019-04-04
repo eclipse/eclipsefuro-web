@@ -39,7 +39,7 @@ class FuroSplitView extends FBP(LitElement) {
       <style>
         :host {
           display: block;
-          height: 100%;
+          height: inherit;
         }
         
         .master{
