@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.2](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.17.1...@furo/layout@0.17.2) (2019-04-04)
+
+
+### Bug Fixes
+
+* horizontal-flex styling ([5d0b1dc](https://github.com/veith/FuroBaseComponents/commit/5d0b1dc))
+
+
+
+
+
 ## [0.17.1](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.17.0...@furo/layout@0.17.1) (2019-03-30)
 
 
