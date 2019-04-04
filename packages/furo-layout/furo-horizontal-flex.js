@@ -22,12 +22,6 @@ import {LitElement, html, css} from 'lit-element';
  * @appliesMixin FBP
  */
 class FuroHorizontalFlex extends (LitElement) {
-
-  constructor() {
-    super();
-  }
-
-
   /**
    *
    * @private
@@ -36,39 +30,38 @@ class FuroHorizontalFlex extends (LitElement) {
   static get styles() {
     // language=CSS
     return css`
+            :host {
+                width: 100%;
+                
+                --layout: {
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+                };
 
-        :host {
-            --layout: {
-                display: -ms-flexbox;
-                display: -webkit-flex;
-                display: flex;
-            };
+                --layout-horizontal: {
+                    @apply --layout;
+                    -ms-flex-direction: row;
+                    -webkit-flex-direction: row;
+                    flex-direction: row;
+                };
 
-            --layout-horizontal: {
-                @apply --layout;
-                -ms-flex-direction: row;
-                -webkit-flex-direction: row;
-                flex-direction: row;
-            };
+                --layout-flex: {
+                    -ms-flex: 1 1 0.000000001px;
+                    -webkit-flex: 1;
+                    flex: 1;
+                    -webkit-flex-basis: 0.000000001px;
+                    flex-basis: 0.000000001px;
+                };
 
-            --layout-flex: {
-                -ms-flex: 1 1 0.000000001px;
-                -webkit-flex: 1;
-                flex: 1;
-                -webkit-flex-basis: 0.000000001px;
-                flex-basis: 0.000000001px;
-            };
+                --layout-horizontal-reverse: {
+                    @apply --layout;
+                    -ms-flex-direction: row-reverse;
+                    -webkit-flex-direction: row-reverse;
+                    flex-direction: row-reverse;
+                };
 
-            --layout-horizontal-reverse: {
-                @apply --layout;
-
-                -ms-flex-direction: row-reverse;
-                -webkit-flex-direction: row-reverse;
-                flex-direction: row-reverse;
-            };
-
-            @apply --layout-horizontal;
-        }`
+            }`
   }
 
 
@@ -79,24 +72,22 @@ class FuroHorizontalFlex extends (LitElement) {
   render() {
     // language=HTML
     return html`
-      <style>
-        :host {
-          display: block;
-          @apply --layout-horizontal;
-        }
+            <style>
+                :host {
+                    @apply --layout-horizontal;
+                }
 
-        :host([reverse]) {
-          @apply --layout-horizontal-reverse;
-        }
+                :host([reverse]) {
+                    @apply --layout-horizontal-reverse;
+                }
 
-        ::slotted(*[flex]) {
-          @apply --layout-flex;
-        }
-      </style>
-      <slot></slot>
-    `;
+                ::slotted(*[flex]) {
+                    @apply --layout-flex;
+                }
+            </style>
+            <slot></slot>
+        `;
   }
-
 }
 
 window.customElements.define('furo-horizontal-flex', FuroHorizontalFlex);
