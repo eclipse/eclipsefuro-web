@@ -84,7 +84,7 @@ class FuroCollapsibleBox extends FBP(PolymerElement) {
         type: Boolean,
         notify: true,
         reflectToAttribute: true,
-        value: true,
+        value: false,
       },
       /**
        * //todo remember componente einbauen
