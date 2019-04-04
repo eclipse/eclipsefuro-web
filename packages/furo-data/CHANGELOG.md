@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.24.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.24.0...@furo/data@0.24.1) (2019-04-04)
+
+
+### Bug Fixes
+
+* mixin for label ([ffc316d](https://github.com/veith/FuroBaseComponents/commit/ffc316d))
+
+
+
+
+
 # [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.23.0...@furo/data@0.24.0) (2019-04-03)
 
 

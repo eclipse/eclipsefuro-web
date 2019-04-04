@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.12](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.14.11...@furo/form@0.14.12) (2019-04-04)
+
+
+### Bug Fixes
+
+* mixin for label ([ffc316d](https://github.com/veith/FuroBaseComponents/commit/ffc316d))
+
+
+
+
+
 ## [0.14.11](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.14.10...@furo/form@0.14.11) (2019-04-02)
 
 **Note:** Version bump only for package @furo/form
