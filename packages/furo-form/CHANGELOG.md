@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.14.17...@furo/form@0.15.0) (2019-04-04)
+
+
+### Features
+
+* button-bar themeable ([0be9a4a](https://github.com/veith/FuroBaseComponents/commit/0be9a4a))
+
+
+
+
+
 ## [0.14.17](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.14.16...@furo/form@0.14.17) (2019-04-04)
 
 **Note:** Version bump only for package @furo/form
