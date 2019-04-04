@@ -20,7 +20,7 @@ class FuroButtonBar extends (PolymerElement) {
         }
 
         ::slotted(*) {
-          margin: var(--furo-button-bar-margin, 0 8px);
+          margin: 0 8px;
           @apply --furo-button-bar-slot-mixin;
         }
 
