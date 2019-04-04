@@ -16,10 +16,12 @@ class FuroButtonBar extends (PolymerElement) {
       <style>
         :host {
           display: block;
+          @apply --furo-button-bar-mixin;
         }
 
         ::slotted(*) {
-          margin: 0 8px;
+          margin: var(--furo-button-bar-margin, 0 8px);
+          @apply --furo-button-bar-slot-mixin;
         }
 
         ::slotted(*:first-child) {
