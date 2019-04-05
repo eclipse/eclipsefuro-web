@@ -1,8 +1,10 @@
-import {LitElement, html} from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 
 /**
  * `furo-pages`
+ *
+ * You have to implement a `:host([hidden]){display:none}` in your views
  *
  * @customElement
  * @demo demo/furo-pages.html
@@ -15,9 +17,16 @@ class FuroPages extends FBP(LitElement) {
         this._fallback = this.getAttribute("default");
 
         this._default = this.querySelector("*[name=" + this._fallback + "]");
+        this._attrForSelected = this.getAttribute("attr-for-selected") || "selected";
         this._lastQP = [];
         this._lastHash = [];
         this._lastPageName = "";
+
+        // set all to hidden
+        let l = this.children.length - 1;
+        for (l; l >= 0; l--) {
+            this.children[l].setAttribute("hidden", '');
+        }
     }
 
     /**
@@ -42,7 +51,8 @@ class FuroPages extends FBP(LitElement) {
             if(this._lastPage._FBPTriggerWire !== undefined){
                 this._lastPage._FBPTriggerWire('--pageDeActivated');
             }
-            this._lastPage.removeAttribute("f-p-active")
+            this._lastPage.setAttribute("hidden", '');
+            this._lastPage.removeAttribute(this._attrForSelected)
         }
 
         this._lastPage = this.querySelector("*[name=" + page + "]");
@@ -62,7 +72,8 @@ class FuroPages extends FBP(LitElement) {
                 if(this._lastPage._FBPTriggerWire !== undefined){
                     this._lastPage._FBPTriggerWire('--pageActivated',location);
                 }
-                this._lastPage.setAttribute("f-p-active", '');
+                this._lastPage.removeAttribute("hidden")
+                this._lastPage.setAttribute(this._attrForSelected, '');
             }
 
             // QP
@@ -90,21 +101,26 @@ class FuroPages extends FBP(LitElement) {
 
 
     /**
+     *
+     * @private
+     * @return {CSSResult}
+     */
+    static get styles() {
+        // language=CSS
+        return css`
+                :host {
+                    display: block;
+                }
+            `
+    }
+
+    /**
      * @private
      * @returns {TemplateResult}
      */
     render() {
         // language=HTML
         return html`
-            <style>
-                :host {
-                    display: block;
-                }
-
-                ::slotted(*:not([f-p-active])) {
-                    display: none;
-                }
-            </style>
             <slot></slot>
         `;
     }
