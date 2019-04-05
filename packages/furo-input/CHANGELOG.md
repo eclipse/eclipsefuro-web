@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.17.0...@furo/input@0.17.1) (2019-04-05)
+
+
+### Bug Fixes
+
+* button is focusable ([fbc5bf9](https://github.com/veith/FuroBaseComponents/commit/fbc5bf9))
+* checkbox-input style ([973a2d0](https://github.com/veith/FuroBaseComponents/commit/973a2d0))
+
+
+
+
+
 # [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.16.3...@furo/input@0.17.0) (2019-04-04)
 
 

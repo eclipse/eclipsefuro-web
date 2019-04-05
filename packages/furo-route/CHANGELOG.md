@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.0...@furo/route@0.4.1) (2019-04-05)
+
+
+### Bug Fixes
+
+* timing for --pageActivated changed ([a522661](https://github.com/veith/FuroBaseComponents/commit/a522661))
+
+
+
+
+
 # [0.4.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.3.1...@furo/route@0.4.0) (2019-04-02)
 
 

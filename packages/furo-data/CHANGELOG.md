@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.25.4...@furo/data@0.25.5) (2019-04-05)
+
+
+### Bug Fixes
+
+* timing for --pageActivated changed ([a522661](https://github.com/veith/FuroBaseComponents/commit/a522661))
+
+
+
+
+
 ## [0.25.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.25.3...@furo/data@0.25.4) (2019-04-04)
 
 **Note:** Version bump only for package @furo/data
