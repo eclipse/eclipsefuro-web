@@ -3,7 +3,6 @@ export const FuroInputBase = (superClass) => {
   return class extends superClass {
     constructor(props) {
       super(props);
-
       this._sharedStyle = `
         :host {
           display: inline-block;
@@ -150,17 +149,19 @@ export const FuroInputBase = (superClass) => {
       this._float = !!this._value;
       this.noTypecheck = false;
       this._label = this.label;
-
       this._FBPAddWireHook("--inputInput", (e) => {
         if (this.field) {
           this.field.set(e.value);
         }
         this.value = e.value;
       });
-      this._FBPTriggerWire('--value', this._value);
+      if(this.value != undefined){
+        this._FBPTriggerWire('--value', this._value);
+      }
     }
 
     set value(v) {
+
       this._float = !!v;
       this._value = v;
 
