@@ -95,8 +95,9 @@ export class EntityNode extends EventTreeNode {
 
     for (let fieldName in data) {
       let fieldNode = node[fieldName];
-
-
+      if (!fieldNode) {
+        console.warn("unspecified field", fieldName)
+      } else {
       if (fieldNode._isRepeater) {
         fieldNode.removeAllChildren();
         data[fieldName].forEach((repdata, i) => {
@@ -165,6 +166,7 @@ export class EntityNode extends EventTreeNode {
 
 
     }
+  }
   }
 
 
