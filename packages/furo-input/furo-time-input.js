@@ -23,7 +23,7 @@ ${this._sharedStyle}
 </style>
      
       
-      <input id="input" type="time" list="datalist" ƒ-.value="--value" @-input="--inputInput(*.path.0)"   ƒ-focus="--focusReceived">
+      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="time" list="datalist" ƒ-.value="--value" @-input="--inputInput(*.path.0)"   ƒ-focus="--focusReceived">
       <div class="borderBig"></div>
       <label float="true" for="input">${this._label}</label>  
       <div class="hint">${this.hint}</div>

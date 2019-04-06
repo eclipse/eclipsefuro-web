@@ -44,7 +44,7 @@ ${this._sharedStyle}
 </style>
      
      
-      <textarea id="input" type="text" list="datalist" ƒ-.value="--value" @-input="--inputInput(*.path.0)" rows="${this.rows}"  ƒ-focus="--focusReceived"></textarea>
+      <textarea id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="text" list="datalist" ƒ-.value="--value" @-input="--inputInput(*.path.0)" rows="${this.rows}"  ƒ-focus="--focusReceived"></textarea>
       <div class="border"></div>
       <label float="${this._float}" for="input">${this.label}</label>   
       <div class="hint">${this.hint}</div>

@@ -130,6 +130,12 @@ export const FuroInputBase = (superClass) => {
           type: Boolean
         },
         /**
+         * Setze disabled
+         */
+        disabled: {
+          type: Boolean
+        },
+        /**
          * helper für das label
          */
         _float: {
@@ -261,11 +267,7 @@ export const FuroInputBase = (superClass) => {
       this._FBPTriggerWire('--focusReceived')
     }
 
-    set autofocus(v) {
 
-      this.focus()
-
-    }
 
   }
 };

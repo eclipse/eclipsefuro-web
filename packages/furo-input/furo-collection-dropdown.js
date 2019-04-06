@@ -26,7 +26,7 @@ outline: none;
 }
 </style>
      
-      <select @-change="--inputInput(*.path.0)" ƒ-.value="--value">
+      <select ?autofocus=${this.autofocus} ?disabled=${this.disabled} @-change="--inputInput(*.path.0)" ƒ-.value="--value">
             <template is="flow-repeat" ƒ-inject-items="--selection">
               <option ƒ-.value="--item(*.id)" ƒ-.selected="--item(*.selected)" ƒ-.inner-text="--item(*.label)">
               </option>
