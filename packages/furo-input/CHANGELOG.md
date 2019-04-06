@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.18.0...@furo/input@0.19.0) (2019-04-06)
+
+
+### Bug Fixes
+
+* floating labels on time and date ([50f8891](https://github.com/veith/FuroBaseComponents/commit/50f8891))
+
+
+### Features
+
+* Autofocus and disabled ([517eef0](https://github.com/veith/FuroBaseComponents/commit/517eef0))
+* furo-collection-dropdown inital value ([5abfe5e](https://github.com/veith/FuroBaseComponents/commit/5abfe5e))
+
+
+
+
+
 # [0.18.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.17.1...@furo/input@0.18.0) (2019-04-06)
 
 
