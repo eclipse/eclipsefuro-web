@@ -25,7 +25,7 @@ ${this._sharedStyle}
       
       <input id="input" type="time" list="datalist" ƒ-.value="--value" @-input="--inputInput(*.path.0)"   ƒ-focus="--focusReceived">
       <div class="borderBig"></div>
-      <label float="${this._float}" for="input">${this._label}</label>  
+      <label float="true" for="input">${this._label}</label>  
       <div class="hint">${this.hint}</div>
  
     `;
