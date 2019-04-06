@@ -125,7 +125,7 @@ class EntityAgent extends FBP(LitElement) {
       return;
     }
 
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.self));
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.delete));
 
   }
 
