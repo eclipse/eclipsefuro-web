@@ -44,7 +44,7 @@ class FuroButton extends FBP(PolymerElement) {
         
       </style>
 
-      <button ?autofocus=${this.autofocus} ?disabled=${this.disabled} ƒ-focus="--focus" danger$="[[danger]]">[[label]]
+      <button  ƒ-focus="--focus" danger$="[[danger]]">[[label]]
         <slot></slot>
         <paper-ripple></paper-ripple>
       </button>
