@@ -56,7 +56,11 @@ outline: none;
     // map
     let arr = collection.data.map((e) => {
       return {"id": e.data[val], "label": e.data[label], "selected": (this.value == e.data[val])}
-    })
+    });
+
+    if(!this.value){
+      this.field.set(arr[0].id);
+    }
 
     this._FBPTriggerWire("--selection", arr);
   }
