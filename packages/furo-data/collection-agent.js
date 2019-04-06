@@ -70,6 +70,7 @@ class collectionAgent extends FBP(LitElement) {
       orderBy: {type: String, attribute: "order-by"},
       filter: {type: Array, attribute: true},
       view: {type: String, attribute: true},
+      listOnHtsIn: {type: Boolean, attribute: "list-on-hts-in"},
     };
   }
 
@@ -331,6 +332,9 @@ class collectionAgent extends FBP(LitElement) {
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
 
+      if(this.listOnHtsIn){
+        this.list();
+      }
       // there was a list,last,next call before the hts was set
       if (this._singleElementQueue.length > 0) {
         let q = this._singleElementQueue.pop();
