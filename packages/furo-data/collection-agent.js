@@ -25,6 +25,8 @@ import {CollectionControls} from "./lib/CollectionControls.js"
  *                      ƒ-last-page=""
  *                      ƒ-first-page=""
  *                      ƒ-list="--triggerGetCollection"
+ *                      ƒ-hts-in="--hts"
+ *                      list-on-hts-in
  *                      @-hts-out="--x"
  *                    >
  * </data-collection>
