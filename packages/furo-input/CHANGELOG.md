@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.19.0...@furo/input@0.19.1) (2019-04-06)
+
+
+### Bug Fixes
+
+* button ([f14453c](https://github.com/veith/FuroBaseComponents/commit/f14453c))
+
+
+
+
+
 # [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.18.0...@furo/input@0.19.0) (2019-04-06)
 
 
