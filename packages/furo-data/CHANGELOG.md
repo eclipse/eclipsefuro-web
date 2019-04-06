@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.26.1...@furo/data@0.27.0) (2019-04-06)
+
+
+### Features
+
+* collection-agent list-on-hts-in ([9c9eb50](https://github.com/veith/FuroBaseComponents/commit/9c9eb50))
+* furo-collection-dropdown ([d761a1f](https://github.com/veith/FuroBaseComponents/commit/d761a1f))
+
+
+
+
+
 ## [0.26.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.26.0...@furo/data@0.26.1) (2019-04-06)
 
 
