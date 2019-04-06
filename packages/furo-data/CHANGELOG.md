@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.26.0...@furo/data@0.26.1) (2019-04-06)
+
+
+### Bug Fixes
+
+* entity-agent delete follows rel delete ([45b9349](https://github.com/veith/FuroBaseComponents/commit/45b9349))
+
+
+
+
+
 # [0.26.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.25.5...@furo/data@0.26.0) (2019-04-05)
 
 
