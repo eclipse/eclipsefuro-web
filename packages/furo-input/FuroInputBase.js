@@ -59,7 +59,7 @@ export const FuroInputBase = (superClass) => {
         }
         
         :host(:focus-within) .border{
-          border-color: var(--app-primary-color,#3f51b5);
+          border-color: var(--primary-color,#3f51b5);
           border-width: 1px;
         }
         
@@ -78,10 +78,11 @@ export const FuroInputBase = (superClass) => {
         }
 
         label[float="true"] {
-          color: #3f51b5;
+          color: var(--primary-color,#3f51b5);
           font-size: 10px;
           top: -4px;
           visibility: visible;
+          @apply --input-base-label-float-mixin;
         }
 
         * {
