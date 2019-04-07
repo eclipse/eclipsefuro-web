@@ -36,9 +36,10 @@ class FuroButton extends FBP(PolymerElement) {
         }
 
         :host([danger]) button:focus {
-          background-color: red;
-          border-color: red;
-          color: white;
+          @apply --furo-button-danger-focus-mixin;
+        }
+        
+        :host([danger]) button {
           @apply --furo-button-danger-mixin;
         }
         
