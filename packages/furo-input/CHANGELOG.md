@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.19.1...@furo/input@0.20.0) (2019-04-07)
+
+
+### Features
+
+* [@apply](https://github.com/apply) --input-base-label-float-mixin; ([45acd0f](https://github.com/veith/FuroBaseComponents/commit/45acd0f))
+* furo-button  --furo-button-danger-focus-mixin and --furo-button-danger-mixin ([aac8233](https://github.com/veith/FuroBaseComponents/commit/aac8233))
+
+
+
+
+
 ## [0.19.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.19.0...@furo/input@0.19.1) (2019-04-06)
 
 
