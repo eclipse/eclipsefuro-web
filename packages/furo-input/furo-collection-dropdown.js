@@ -23,6 +23,7 @@ ${this._sharedStyle}
 select{
 width: 100%;
 outline: none;
+@apply --collection-dropdown-select-mixin;
 }
 </style>
      
