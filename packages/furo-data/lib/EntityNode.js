@@ -70,6 +70,14 @@ export class EntityNode extends EventTreeNode {
     }
   }
 
+  /**
+   * Inits the EntityNode without breaking the reference
+   */
+  init(){
+    this._initFieldsFromSpec(this.fields, this._spec.fields);
+    this._pristine = true;
+    this._isValid = true;
+  }
 
   get rawEntity() {
     return this._rawEntity;

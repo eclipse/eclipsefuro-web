@@ -79,6 +79,19 @@ class EntityObject extends (LitElement) {
     };
   }
 
+  /**
+   * Inits internal entity
+   * References will still be valid
+   */
+  init() {
+    this.entity.init();
+    let customEvent = new Event('object-ready', {composed: true, bubbles: true});
+    customEvent.detail = this.entity;
+    setTimeout(() => {
+      this.dispatchEvent(customEvent);
+    }, 0);
+  }
+
   firstUpdated() {
     super.firstUpdated();
 
