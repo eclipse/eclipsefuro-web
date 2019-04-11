@@ -1,3 +1,3 @@
 # @furo/form
 
-Set of Furo form elements
+Set of Furo form elements.
