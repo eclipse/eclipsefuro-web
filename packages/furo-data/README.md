@@ -1,3 +1,3 @@
 # @furo/data
 
-Furo data components
+Set of Furo data components.
