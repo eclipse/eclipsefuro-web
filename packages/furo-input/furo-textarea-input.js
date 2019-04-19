@@ -39,6 +39,7 @@ ${this._sharedStyle}
           text-align: left;
           color: inherit;
           outline: none;
+          @apply --textarea-mixin;
         }
 
 </style>
