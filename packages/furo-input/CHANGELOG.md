@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.22.0...@furo/input@0.23.0) (2019-04-19)
+
+
+### Features
+
+* furo-date-input with default for "today" ([21d107a](https://github.com/veith/FuroBaseComponents/commit/21d107a))
+
+
+
+
+
 # [0.22.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.21.2...@furo/input@0.22.0) (2019-04-19)
 
 
