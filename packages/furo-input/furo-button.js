@@ -41,6 +41,9 @@ class FuroButton extends FBP(PolymerElement) {
         
         :host([danger]) button {
           @apply --furo-button-danger-mixin;
+        } 
+        :host([hidden]) button {
+          display: none;
         }
         
       </style>
