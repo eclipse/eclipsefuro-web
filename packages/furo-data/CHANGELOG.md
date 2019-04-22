@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.10...@furo/data@0.28.0) (2019-04-22)
+
+
+### Features
+
+* entity-agent dispatches detailed events for load, save, create and delete ([0f42969](https://github.com/veith/FuroBaseComponents/commit/0f42969))
+
+
+
+
+
 ## [0.27.10](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.9...@furo/data@0.27.10) (2019-04-19)
 
 **Note:** Version bump only for package @furo/data

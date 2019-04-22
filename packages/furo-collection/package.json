@@ -1,14 +1,14 @@
 {
   "name": "@furo/collection",
-  "version": "0.14.48",
+  "version": "0.14.49",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
     "@furo/config": "^0.15.0",
-    "@furo/data": "^0.27.10",
+    "@furo/data": "^0.28.0",
     "@furo/fbp": "^4.9.0",
-    "@furo/form": "^0.15.13",
-    "@furo/input": "^0.23.0",
+    "@furo/form": "^0.15.14",
+    "@furo/input": "^0.23.1",
     "@furo/layout": "^0.19.0",
     "@furo/mixins": "^0.14.2",
     "@furo/navigation": "^0.15.0",
