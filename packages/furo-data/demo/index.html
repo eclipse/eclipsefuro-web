@@ -42,7 +42,7 @@
               <custom-method service="tasks"  method="release" ƒ-bind-request-object="--data" ƒ-hts-in="--hts" ƒ-trigger="--relClk"></custom-method>
               <produce-qp @-qp="--qp"></produce-qp>
               <deep-link auto  ƒ-.qp='--qp' service="tasks" @-hts-out="--hts"></deep-link>
-              <entity-agent service="tasks" ƒ-save="--saveClicked" ƒ-bind-request-object="--data" ƒ-hts-in="--hts" ƒ-load="--loadClicked" @-save="--saveClicked" @-response="--entityResponse"></entity-agent>
+              <entity-agent service="tasks" ƒ-save="--saveClicked" ƒ-bind-request-object="--data" ƒ-hts-in="--hts" ƒ-load="--loadClicked" @-save="--saveClicked" @-response="--entityResponse" @-load-success="--ls"></entity-agent>
 
 
               <entity-object type="vnd.com.acme.task" ƒ-inject-raw="--entityResponse"  @-object-ready="--data">

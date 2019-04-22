@@ -46,13 +46,13 @@ class collectionAgent extends FBP(LitElement) {
 
     // HTS aus response anwenden
     this._FBPAddWireHook("--responseParsed", (r) => {
-      if(this._updateInternalHTS(r.links)){
+      if (this._updateInternalHTS(r.links)) {
         /**
          * @event response-hts-updated
          * Fired when
          * detail payload: hts
          */
-        let customEvent = new Event('response-hts-updated', {composed:true, bubbles: true});
+        let customEvent = new Event('response-hts-updated', {composed: true, bubbles: true});
         customEvent.detail = r.links;
         this.dispatchEvent(customEvent);
       }
@@ -196,7 +196,7 @@ class collectionAgent extends FBP(LitElement) {
     headers.append('Content-Type', 'application/json');
 
     let params = {};
-    let r = link.href.split("?")
+    let r = link.href.split("?");
     let req = r[0];
     // add existing params
     if (r[1]) {
@@ -224,7 +224,9 @@ class collectionAgent extends FBP(LitElement) {
     // rebuild req
     let qp = [];
     for (let key in params) {
-      qp.push(key + "=" + params[key]);
+      if (params.hasOwnProperty(key)) {
+        qp.push(key + "=" + params[key]);
+      }
     }
     if (qp.length > 0) {
       req = req + "?" + qp.join("&");
@@ -334,7 +336,7 @@ class collectionAgent extends FBP(LitElement) {
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
 
-      if(this.listOnHtsIn){
+      if (this.listOnHtsIn) {
         this.list();
       }
       // there was a list,last,next call before the hts was set

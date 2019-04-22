@@ -19,17 +19,17 @@ class EntityAgent extends FBP(LitElement) {
 
 
     // HTS aus response anwenden
-    this._FBPAddWireHook("--responseParsed", (r)=>{
-        if(this._updateInternalHTS(r.links)){
-          /**
-          * @event response-hts-updated
-          * Fired when
-          * detail payload: hts
-          */
-          let customEvent = new Event('response-hts-updated', {composed:true, bubbles: true});
-          customEvent.detail = r.links;
-          this.dispatchEvent(customEvent);
-        }
+    this._FBPAddWireHook("--responseParsed", (r) => {
+      if (this._updateInternalHTS(r.links)) {
+        /**
+         * @event response-hts-updated
+         * Fired when
+         * detail payload: hts
+         */
+        let customEvent = new Event('response-hts-updated', {composed: true, bubbles: true});
+        customEvent.detail = r.links;
+        this.dispatchEvent(customEvent);
+      }
     });
 
     this._singleElementQueue = []; //queue for calls, before hts is set
@@ -66,10 +66,9 @@ class EntityAgent extends FBP(LitElement) {
   }
 
 
-
   _makeRequest(link, body) {
-    let data ;
-    if(body){
+    let data;
+    if (body) {
       data = JSON.stringify(body)
     }
     // Daten
@@ -80,16 +79,16 @@ class EntityAgent extends FBP(LitElement) {
     return new Request(link.href, {
       method: link.method,
       headers: headers,
-      body:data
+      body: data
     })
   }
 
-  _checkServiceAndHateoasLinkError(rel,serviceName){
-      // check Service Get
-      if (!this._service.services[serviceName]) {
-        console.warn("Restlet " + serviceName + " is not specified", this._service, this);
-        return true;
-      }
+  _checkServiceAndHateoasLinkError(rel, serviceName) {
+    // check Service Get
+    if (!this._service.services[serviceName]) {
+      console.warn("Restlet " + serviceName + " is not specified", this._service, this);
+      return true;
+    }
 
     //queue if no hts is set, queue it
     if (!this._hts) {
@@ -97,37 +96,73 @@ class EntityAgent extends FBP(LitElement) {
       return true;
     }
 
-      // check Hateoas
-      if (!this._hts[rel]) {
-        console.warn("No HATEOAS for rel self", this._hts, this);
-        return true;
-      }
-      return false;
+    // check Hateoas
+    if (!this._hts[rel]) {
+      console.warn("No HATEOAS for rel self", this._hts, this);
+      return true;
+    }
+    return false;
   }
+
+  /**
+   * @event load-success
+   * Fired when load was successful
+   * detail payload: response
+   */
+
+  /**
+   * @event load-failed
+   * Fired when load was not successful
+   * detail payload: response
+   */
 
   /**
    * loads the entity if hts is available
    */
   load() {
-    if(this._checkServiceAndHateoasLinkError("self","Get")){
+    if (this._checkServiceAndHateoasLinkError("self", "Get")) {
       return;
     }
-
+    this._attachListeners("load");
     this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.self));
 
   }
+
+
+  /**
+   * @event delete-success
+   * Fired when load was successful
+   * detail payload: response
+   */
+
+  /**
+   * @event delete-failed
+   * Fired when load was not successful
+   * detail payload: response
+   */
 
   /**
    * delete the entity if hts is available
    */
   delete() {
-    if(this._checkServiceAndHateoasLinkError("delete","Delete")){
+    if (this._checkServiceAndHateoasLinkError("delete", "Delete")) {
       return;
     }
-
+    this._attachListeners("delete");
     this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.delete));
 
   }
+  /**
+   * @event save-success
+   * Fired when load was successful
+   * detail payload: response
+   */
+
+  /**
+   * @event save-failed
+   * Fired when load was not successful
+   * detail payload: response
+   */
 
   /**
    * loads the entity if hts is available
@@ -139,29 +174,71 @@ class EntityAgent extends FBP(LitElement) {
       this.create();
       return;
     }
-    if(this._checkServiceAndHateoasLinkError("update","Update")){
+    if (this._checkServiceAndHateoasLinkError("update", "Update")) {
       return;
     }
-
+    this._attachListeners("save");
     // TODO nur delta senden
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update,this._entityTree.rawData));
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._entityTree.rawData));
 
   }
+  /**
+   * @event create-success
+   * Fired when load was successful
+   * detail payload: response
+   */
+
+  /**
+   * @event create-failed
+   * Fired when load was not successful
+   * detail payload: response
+   */
 
   /**
    * loads the entity if hts is available
    */
   create() {
-    if(this._checkServiceAndHateoasLinkError("create","Create")){
+    if (this._checkServiceAndHateoasLinkError("create", "Create")) {
       return
     }
-
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.create,this._entityTree.rawData));
+    this._attachListeners("create");
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.create, this._entityTree.rawData));
 
   }
 
+  /**
+   * Attaches temporary listeners to fire load-success, load-fail, delete-success,...
+   * @param eventPrefix
+   * @private
+   */
+  _attachListeners(eventPrefix) {
+    let success = (e) => {
 
-  _updateInternalHTS(hts){
+      let customEvent = new Event(eventPrefix + '-success', {composed: true, bubbles: true});
+      customEvent.detail = e.detail;
+      this.dispatchEvent(customEvent);
+
+      // remove listeners
+      this.removeEventListener("response", success,true);
+      this.removeEventListener("error", failed,true);
+
+    };
+
+    let failed = (e) => {
+
+      let customEvent = new Event(eventPrefix + '-failed', {composed: true, bubbles: true});
+      customEvent.detail = e.detail;
+      this.dispatchEvent(customEvent);
+
+      // remove listeners
+      this.removeEventListener("response", success,true);
+      this.removeEventListener("error", failed,true);
+    };
+
+    this.addEventListener("response", success, true);
+    this.addEventListener("error", failed, true);
+  }
+  _updateInternalHTS(hts) {
     if (hts && hts[0] && hts[0].rel) {
       this._hts = {};
       hts.forEach((link) => {
@@ -179,6 +256,7 @@ class EntityAgent extends FBP(LitElement) {
     }
     return false;
   }
+
   htsIn(hts) {
     if (this._updateInternalHTS(hts)) {
       /**
