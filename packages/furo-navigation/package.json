@@ -3,7 +3,7 @@
   "description": "Furo navigation components",
   "main": "furo-catalog.js",
   "license": "MIT",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "dependencies": {
     "@furo/fbp": "^4.11.1",
     "@polymer/polymer": "^3.0.0"

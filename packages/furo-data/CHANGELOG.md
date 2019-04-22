@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.28.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.28.0...@furo/data@0.28.1) (2019-04-22)
+
+
+### Bug Fixes
+
+* entity-agent response-error ([36dd396](https://github.com/veith/FuroBaseComponents/commit/36dd396))
+
+
+
+
+
 # [0.28.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.27.10...@furo/data@0.28.0) (2019-04-22)
 
 
