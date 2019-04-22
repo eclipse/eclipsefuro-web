@@ -3,7 +3,7 @@
   "main": "furo-catalog.js",
   "version": "0.15.14",
   "dependencies": {
-    "@furo/fbp": "^4.9.0",
+    "@furo/fbp": "^4.11.1",
     "@furo/input": "^0.23.1",
     "@furo/layout": "^0.19.0",
     "@polymer/polymer": "^3.0.0"
