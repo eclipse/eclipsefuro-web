@@ -220,7 +220,7 @@ class EntityAgent extends FBP(LitElement) {
 
       // remove listeners
       this.removeEventListener("response", success,true);
-      this.removeEventListener("error", failed,true);
+      this.removeEventListener("response-error", failed,true);
 
     };
 
@@ -232,11 +232,11 @@ class EntityAgent extends FBP(LitElement) {
 
       // remove listeners
       this.removeEventListener("response", success,true);
-      this.removeEventListener("error", failed,true);
+      this.removeEventListener("response-error", failed,true);
     };
 
     this.addEventListener("response", success, true);
-    this.addEventListener("error", failed, true);
+    this.addEventListener("response-error", failed, true);
   }
   _updateInternalHTS(hts) {
     if (hts && hts[0] && hts[0].rel) {
