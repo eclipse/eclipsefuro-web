@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.28.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.28.1...@furo/data@0.28.2) (2019-04-25)
+
+
+### Bug Fixes
+
+* response error ([6269a3e](https://github.com/veith/FuroBaseComponents/commit/6269a3e))
+
+
+
+
+
 ## [0.28.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.28.0...@furo/data@0.28.1) (2019-04-22)
 
 
