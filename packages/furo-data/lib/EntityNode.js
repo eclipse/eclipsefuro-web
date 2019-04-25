@@ -188,7 +188,7 @@ export class EntityNode extends EventTreeNode {
       if (fields[path[0]]) {
         fields[path[0]]._setInvalid(error);
       }else{
-        console.warn("Unknown field", path[0])
+        console.warn("Unknown field", path)
       }
     });
   }

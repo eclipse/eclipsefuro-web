@@ -26,10 +26,10 @@ class ProduceQp extends FBP(LitElement) {
       <!-- Add a style block here -->
       <style>
         :host {
-          display: block;
+          display: inline;
         }
       </style>
-      <p ƒ-click="--autoclick" @-click="^^qp(qp)">make qp</p>
+      <button ƒ-click="--autoclick" @-click="^^qp(qp)">make qp</button>
     `;
   }
 

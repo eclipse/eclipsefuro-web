@@ -1,4 +1,4 @@
-import {LitElement, html} from 'lit-element';
+import {LitElement, html,css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 import "./api-fetch"
 
@@ -277,15 +277,28 @@ class EntityAgent extends FBP(LitElement) {
     }
   }
 
+
+  /**
+   *
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return css`
+              :host {
+                  display: none;
+              }
+          `
+  }
+
+  /**
+   * @private
+   * @return {TemplateResult}
+   */
   render() {
     // language=HTML
-    return html`
-      <!-- Add a style block here -->
-      <style>
-        :host {
-          display: none;
-        }
-      </style>
+    return html`        
       <api-fetch
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"
