@@ -267,7 +267,7 @@ class ApiFetch extends HTMLElement {
             response.json().then((error) => {
                 if (error) {
 
-                    response.error = error;
+                    response.error = error.error;
 
                     this.dispatchEvent(new CustomEvent('response-error-' + response.status, {
                         detail: response, bubbles: true, composed: true
