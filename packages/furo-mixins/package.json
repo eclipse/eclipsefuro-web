@@ -1,9 +1,9 @@
 {
   "name": "@furo/mixins",
   "main": "shared-state.js",
-  "version": "0.14.2",
+  "version": "0.14.3",
   "dependencies": {
-    "@furo/fbp": "^4.9.0"
+    "@furo/fbp": "^4.12.0"
   },
   "devDependencies": {
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",

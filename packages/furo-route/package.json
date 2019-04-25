@@ -4,7 +4,7 @@
   "keywords": [
     "routing"
   ],
-  "version": "0.4.3",
+  "version": "0.4.4",
   "main": "furo-catalog.js",
   "license": "MIT",
   "dependencies": {
@@ -12,7 +12,7 @@
     "lit-element": "^2.0.1"
   },
   "devDependencies": {
-    "@furo/fbp": "^4.11.1",
+    "@furo/fbp": "^4.12.0",
     "@polymer/iron-component-page": "^4.0.1",
     "@polymer/iron-demo-helpers": "^3.0.2",
     "@polymer/iron-test-helpers": "^3.0.0",

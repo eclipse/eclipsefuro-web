@@ -2,15 +2,15 @@
   "name": "@furo/data",
   "description": "Furo data components",
   "main": "furo-catalog.js",
-  "version": "0.28.2",
+  "version": "0.28.3",
   "dependencies": {
-    "@furo/fbp": "^4.11.1",
+    "@furo/fbp": "^4.12.0",
     "@polymer/iron-ajax": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
     "lit-element": "^2.0.1"
   },
   "devDependencies": {
-    "@furo/input": "^0.23.3",
+    "@furo/input": "^0.23.4",
     "@polymer/iron-component-page": "^4.0.1",
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
     "@polymer/polymer": "^3.0.0",
