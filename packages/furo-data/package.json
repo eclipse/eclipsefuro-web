@@ -2,7 +2,7 @@
   "name": "@furo/data",
   "description": "Furo data components",
   "main": "furo-catalog.js",
-  "version": "0.28.3",
+  "version": "0.29.0",
   "dependencies": {
     "@furo/fbp": "^4.12.0",
     "@polymer/iron-ajax": "^3.0.1",

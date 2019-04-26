@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.28.3...@furo/data@0.29.0) (2019-04-26)
+
+
+### Features
+
+* error handling ([a7f50e0](https://github.com/veith/FuroBaseComponents/commit/a7f50e0))
+
+
+
+
+
 ## [0.28.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.28.2...@furo/data@0.28.3) (2019-04-25)
 
 **Note:** Version bump only for package @furo/data
