@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.23.4...@furo/input@0.24.0) (2019-04-26)
+
+
+### Features
+
+* display error border in time-input ([f266ea3](https://github.com/veith/FuroBaseComponents/commit/f266ea3))
+
+
+
+
+
 ## [0.23.4](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.23.3...@furo/input@0.23.4) (2019-04-25)
 
 **Note:** Version bump only for package @furo/input

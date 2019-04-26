@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.29.1...@furo/data@0.29.2) (2019-04-26)
+
+
+### Bug Fixes
+
+* dispatch error detail body with event response-failed ([3cce53b](https://github.com/veith/FuroBaseComponents/commit/3cce53b))
+
+
+
+
+
 ## [0.29.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.29.0...@furo/data@0.29.1) (2019-04-26)
 
 
