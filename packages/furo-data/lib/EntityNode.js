@@ -191,7 +191,9 @@ export class EntityNode extends EventTreeNode {
 
   _handleErrorsFromRawEntity(fields, fieldErrors) {
     fieldErrors && fieldErrors.map((error) => {
-      error.message = error.description;
+      if (error.description) {
+        error.message = error.description;
+      }
       let path = error.field.split(".");
       if (path.length > 0) {
         // rest wieder in error reinwerfen
