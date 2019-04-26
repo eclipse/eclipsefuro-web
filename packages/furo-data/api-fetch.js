@@ -273,11 +273,18 @@ class ApiFetch extends HTMLElement {
                         detail: response, bubbles: true, composed: true
                     }));
 
-                    this.dispatchEvent(new CustomEvent('response-error', {
+                    this.dispatchEvent(new CustomEvent('response-error-raw', {
                         detail: response, bubbles: true, composed: true
                     }));
 
-                    console.error('Looks like there was a problem. Status Code: ', response.status);
+
+                    this.dispatchEvent(new CustomEvent('response-error', {
+                        detail: error, bubbles: true, composed: true
+                    }));
+
+
+
+                    //console.error('Looks like there was a problem. Status Code: ', response.status);
                 }
             }).catch(() => {
 
@@ -285,7 +292,7 @@ class ApiFetch extends HTMLElement {
                     detail: response, bubbles: true, composed: true
                 }));
 
-                this.dispatchEvent(new CustomEvent('response-error', {
+                this.dispatchEvent(new CustomEvent('response-error-raw', {
                     detail: response, bubbles: true, composed: true
                 }));
 

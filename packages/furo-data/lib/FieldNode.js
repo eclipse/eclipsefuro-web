@@ -102,8 +102,6 @@ export class FieldNode extends EventTreeNode {
     // set field empty, if not defined
     error.field = error.field || "";
 
-    this._isValid = false;
-
     let path = error.field.split(".");
     if (path.length > 0 && path[0]!=="") {
       // rest wieder in error reinwerfen
