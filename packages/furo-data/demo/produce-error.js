@@ -23,20 +23,31 @@ class ProduceError extends FBP(LitElement) {
       let customEvent = new Event('response-error', {composed:true, bubbles: true});
       customEvent.detail = {
         error: {
-          "code": 401,
-          "message": "Request had invalid credentials.",
-          "status": "UNAUTHENTICATED",
-          "fields": [{
-            "code": 5432,
-            "field": "title",
-            "message": "Sollte den titel erroren",
-            "developerMessage": "Check this field, before sending. Give a hint to theuser."
-          }],
+          "error": "invalid username",
+          "message": "invalid username",
+          "code": 3,
           "details": [
             {
-              "@type": "type.googleapis.com/google.rpc.RetryInfo"
+              "@type": "type.googleapis.com/google.rpc.BadRequest",
+              "field_violations": [{
+                "code" : 5432,
+                "field" : "title.dd",
+                "description" : " have fancy characters"
+              },{
+                "code" : 5432,
+                "field" : "repdate.0.repstring.1",
+                "description" : "Bitte kein B"
+              },{
+                "code" : 5432,
+                "field" : "zeitunddatum.date",
+                "description" : "Deeeep"
+              },{
+                "code" : 5432,
+                "field" : "unknown_field",
+                "description" : "unknown"
+              }],
             }
-          ]
+          ],
         }
       };
       this.dispatchEvent(customEvent)

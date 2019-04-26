@@ -57,7 +57,18 @@ export class EntityNode extends EventTreeNode {
     this._updateFieldValuesAndMetaFromRawEntity(this.fields, rawEntity.data, meta);
     this._pristine = true;
     this._isValid = true;
-    this._handleErrorsFromRawEntity(this.fields, rawEntity.error);
+    if (rawEntity.error && rawEntity.error.details) {
+      let requestErrors = rawEntity.error.details.filter((errorTypes) => {
+        return errorTypes["@type"] === "type.googleapis.com/google.rpc.BadRequest";
+      });
+
+      requestErrors.forEach((errorSet) => {
+        this._handleErrorsFromRawEntity(this.fields, errorSet["field_violations"]);
+      });
+
+    }
+
+
     this.dispatchNodeEvent(new NodeEvent("data-injected", this));
   }
 
@@ -73,7 +84,7 @@ export class EntityNode extends EventTreeNode {
   /**
    * Inits the EntityNode without breaking the reference
    */
-  init(){
+  init() {
     this._initFieldsFromSpec(this.fields, this._spec.fields);
     this._pristine = true;
     this._isValid = true;
@@ -106,89 +117,90 @@ export class EntityNode extends EventTreeNode {
       if (!fieldNode) {
         console.warn("unspecified field", fieldName)
       } else {
-      if (fieldNode._isRepeater) {
-        fieldNode.removeAllChildren();
-        data[fieldName].forEach((repdata, i) => {
-          if (!fieldNode.repeats[i]) {
-            fieldNode._addSilent();
-          }
-          let repMeta = {}
-          if (dynamicFieldMeta[fieldName]) {
-            if (dynamicFieldMeta[fieldName].fields) {
-              repMeta = dynamicFieldMeta[fieldName].fields;
+        if (fieldNode._isRepeater) {
+          fieldNode.removeAllChildren();
+          data[fieldName].forEach((repdata, i) => {
+            if (!fieldNode.repeats[i]) {
+              fieldNode._addSilent();
             }
-          }
-
-          // Werte aktualisieren
-          fieldNode.repeats[i].value = repdata;
-          fieldNode.repeats[i]._pristine = true;
-
-
-        });
-        fieldNode._pristine = true;
-        fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", fieldNode.repeats, false))
-
-      } else {
-        if (fieldNode) {
-          fieldNode._clearInvalidity();
-
-          let meta = {};
-          let submeta = {};
-
-
-          // Kommen neue metas von draussen rein
-          if (dynamicFieldMeta[fieldName]) {
-            meta = dynamicFieldMeta[fieldName];
-            // setze node Meta wenn neue metas gekommen sind
-            // TODO @veith Metas mischen und nicht überklatschen, ev immer von spec meta aus und nicht von runtime meta
-
-            if (meta.constraints) {
-              for (let key in meta.constraints) {
-                fieldNode._constraints[key] = meta.constraints[key];
+            let repMeta = {}
+            if (dynamicFieldMeta[fieldName]) {
+              if (dynamicFieldMeta[fieldName].fields) {
+                repMeta = dynamicFieldMeta[fieldName].fields;
               }
             }
 
-            if (meta.meta) {
-              for (let key in meta.meta) {
-                fieldNode._meta[key] = meta.meta[key];
-              }
-            }
-            if (meta.options) {
-              for (let key in meta.options) {
-                fieldNode._options[key] = meta.options[key];
-              }
-            }
-
-            // hat es meta für subfelder
-            if (meta.fields) {
-              submeta = meta.fields
-            }
-          }
+            // Werte aktualisieren
+            fieldNode.repeats[i].value = repdata;
+            fieldNode.repeats[i]._pristine = true;
 
 
-          // Werte aktualisieren
-          fieldNode.value = data[fieldName];
+          });
           fieldNode._pristine = true;
+          fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", fieldNode.repeats, false))
+
+        } else {
+          if (fieldNode) {
+            fieldNode._clearInvalidity();
+
+            let meta = {};
+            let submeta = {};
+
+
+            // Kommen neue metas von draussen rein
+            if (dynamicFieldMeta[fieldName]) {
+              meta = dynamicFieldMeta[fieldName];
+              // setze node Meta wenn neue metas gekommen sind
+              // TODO @veith Metas mischen und nicht überklatschen, ev immer von spec meta aus und nicht von runtime meta
+
+              if (meta.constraints) {
+                for (let key in meta.constraints) {
+                  fieldNode._constraints[key] = meta.constraints[key];
+                }
+              }
+
+              if (meta.meta) {
+                for (let key in meta.meta) {
+                  fieldNode._meta[key] = meta.meta[key];
+                }
+              }
+              if (meta.options) {
+                for (let key in meta.options) {
+                  fieldNode._options[key] = meta.options[key];
+                }
+              }
+
+              // hat es meta für subfelder
+              if (meta.fields) {
+                submeta = meta.fields
+              }
+            }
+
+
+            // Werte aktualisieren
+            fieldNode.value = data[fieldName];
+            fieldNode._pristine = true;
+          }
         }
+
+
       }
-
-
     }
-  }
   }
 
 
   _handleErrorsFromRawEntity(fields, fieldErrors) {
-    fieldErrors && fieldErrors.fields.map((error) => {
+    fieldErrors && fieldErrors.map((error) => {
+      error.message = error.description;
       let path = error.field.split(".");
       if (path.length > 0) {
         // rest wieder in error reinwerfen
         error.field = path.slice(1).join(".");
-      }
-      if (fields[path[0]]) {
-        fields[path[0]]._setInvalid(error);
-      }else{
-        console.warn("Unknown field", path)
+        if (fields[path[0]]) {
+          fields[path[0]]._setInvalid(error);
+        } else {
+          console.warn("Unknown field", path)
+        }
       }
     });
   }

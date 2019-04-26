@@ -48,23 +48,21 @@
     }
   ],
   "error": {
-    "code": 401,
-    "message": "Request had invalid credentials.",
-    "status": "UNAUTHENTICATED",
-    "fields": [{
-      "code" : 5432,
-      "field" : "title.dd",
-      "message" : "First name cannot have fancy characters",
-      "developerMessage" : "Check this field, before sending. Give a hint to theuser."
-    },{
-      "code" : 5432,
-      "field" : "repdate.0.repstring.1",
-      "message" : "Bitte kein B",
-      "developerMessage" : "Check this field, before sending. Give a hint to theuser."
-    }],
+    "error": "invalid username",
+    "message": "invalid username",
+    "code": 3,
     "details": [
       {
-        "@type": "type.googleapis.com/google.rpc.RetryInfo"
+        "@type": "type.googleapis.com/google.rpc.BadRequest",
+        "field_violations": [{
+          "code" : 5432,
+          "field" : "title",
+          "description" : "fancy characters"
+        },{
+          "code" : 5432,
+          "field" : "repdate.0.repstring.1",
+          "description" : "Bitte kein B"
+        }]
       }
     ]
   },

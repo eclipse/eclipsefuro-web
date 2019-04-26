@@ -103,13 +103,20 @@ export class FieldNode extends EventTreeNode {
     error.field = error.field || "";
 
     this._isValid = false;
+
     let path = error.field.split(".");
-    if (path.length > 1) {
+    if (path.length > 0 && path[0]!=="") {
       // rest wieder in error reinwerfen
       error.field = path.slice(1).join(".");
-      this[path[0]]._setInvalid(error);
-    } else {
+      if (this[path[0]]) {
+        this[path[0]]._setInvalid(error);
+      } else {
+        console.warn("Unknown field", path, this._name)
+      }
+    }
 
+
+   else {
       this._isValid = false;
       this._validity = error;
       this.dispatchNodeEvent(new NodeEvent("field-became-invalid", this));
