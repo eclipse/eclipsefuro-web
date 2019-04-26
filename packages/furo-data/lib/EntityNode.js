@@ -57,13 +57,15 @@ export class EntityNode extends EventTreeNode {
     this._updateFieldValuesAndMetaFromRawEntity(this.fields, rawEntity.data, meta);
     this._pristine = true;
     this._isValid = true;
-    if (rawEntity.error && rawEntity.details) {
-      let requestErrors = rawEntity.details.filter((errorTypes) => {
-        return errorTypes["@type"] === "type.googleapis.com/google.rpc.BadRequest";
-      });
 
-      requestErrors.forEach((errorSet) => {
-        this._handleErrorsFromRawEntity(this.fields, errorSet["field_violations"]);
+    if (rawEntity.error && rawEntity.details) {
+
+
+
+      rawEntity.details.forEach((errorSet) => {
+        if(errorSet["field_violations"]){
+          this._handleErrorsFromRawEntity(this.fields, errorSet["field_violations"]);
+        }
       });
     }
 

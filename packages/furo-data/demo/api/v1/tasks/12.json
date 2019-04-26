@@ -47,25 +47,7 @@
       "type": "vnd.com.acme.task"
     }
   ],
-  "error": {
-    "error": "invalid username",
-    "message": "invalid username",
-    "code": 3,
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.BadRequest",
-        "field_violations": [{
-          "code" : 5432,
-          "field" : "title",
-          "description" : "fancy characters"
-        },{
-          "code" : 5432,
-          "field" : "repdate.0.repstring.1",
-          "description" : "Bitte kein B"
-        }]
-      }
-    ]
-  },
+
   "meta": {
     "fields": {
       "title": {
