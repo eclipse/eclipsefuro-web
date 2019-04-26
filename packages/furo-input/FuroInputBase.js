@@ -24,6 +24,12 @@ export const FuroInputBase = (superClass) => {
           border-width: 1px;
         }
         
+        
+        :host([error]) .borderBig{
+          border-color: red;
+          border-width: 1px;
+        }
+        
         input {
           border: none;  
           background: 0 0;
