@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.29.2...@furo/data@0.29.3) (2019-05-02)
+
+
+### Bug Fixes
+
+* default value deep props ([c0b4e73](https://github.com/veith/FuroBaseComponents/commit/c0b4e73))
+* field_violations array on errors can have any type ([22d2d26](https://github.com/veith/FuroBaseComponents/commit/22d2d26))
+
+
+
+
+
 ## [0.29.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.29.1...@furo/data@0.29.2) (2019-04-26)
 
 

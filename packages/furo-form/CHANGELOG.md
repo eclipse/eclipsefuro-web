@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.19](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.15.18...@furo/form@0.15.19) (2019-05-02)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
 ## [0.15.18](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.15.17...@furo/form@0.15.18) (2019-04-26)
 
 **Note:** Version bump only for package @furo/form
