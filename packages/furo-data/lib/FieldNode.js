@@ -16,11 +16,7 @@ export class FieldNode extends EventTreeNode {
     this._pristine = true;
     this._isValid = true;
 
-    // set default value from meta
-    if (this._meta && this._meta.default) {
-      this._value = this._meta.default;
-      this._pristine = false;
-    }
+
 
     // custom type fields aufbauen
     if (this._spec.type.startsWith("vnd.")) {
@@ -37,6 +33,12 @@ export class FieldNode extends EventTreeNode {
       }
     }
 
+    // set default value from meta
+    if (this._meta && this._meta.default) {
+
+      this.defaultvalue = this._meta.default;
+      this._pristine = false;
+    }
 
     /**
      * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
@@ -69,6 +71,20 @@ export class FieldNode extends EventTreeNode {
       if (JSON.stringify(this.oldvalue) !== JSON.stringify(this._value)) {
         this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
       }
+    }
+  }
+  set defaultvalue(val) {
+
+    if (this.__childNodes.length > 0) {
+      for (let index in this.__childNodes) {
+        let field = this.__childNodes[index];
+        field.defaultvalue = val[field._name];
+      }
+    } else {
+      this.oldvalue = this.value;
+      this._value = val;
+      this._pristine = true;
+
     }
   }
 
