@@ -12,6 +12,7 @@
     "lit-element": "^2.0.1"
   },
   "devDependencies": {
+    "@furo/data": "^0.29.2",
     "@polymer/iron-component-page": "^4.0.1",
     "@polymer/iron-demo-helpers": "^3.1.0",
     "@polymer/polymer": "^3.0.0",

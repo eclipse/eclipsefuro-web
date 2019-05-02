@@ -158,17 +158,40 @@ export const FuroInputBase = (superClass) => {
       };
     }
 
+    attributeChangedCallback(name, oldval, newval) {
+      switch (name) {
+        case "label":
+          this._label = newval;
+          break;
+
+          case "autofocus":
+            this.autofocus = newval !== null;
+
+          break;
+
+          case "disabled":
+          this.disabled = newval !== null;
+          break;
+        default:
+          break;
+
+
+      }
+      this.requestUpdate();
+
+    }
+
     _init() {
       this._float = !!this._value;
       this.noTypecheck = false;
-      this._label = this.label;
+
       this._FBPAddWireHook("--inputInput", (e) => {
         if (this.field) {
           this.field.set(e.value);
         }
         this.value = e.value;
       });
-      if(this.value != undefined){
+      if (this.value != undefined) {
         this._FBPTriggerWire('--value', this._value);
       }
     }
@@ -184,7 +207,7 @@ export const FuroInputBase = (superClass) => {
        * Fired when field value changed
        * detail payload: value
        */
-      let customEvent = new Event('value-changed', {composed:true, bubbles: true});
+      let customEvent = new Event('value-changed', {composed: true, bubbles: true});
       customEvent.detail = v;
       this.dispatchEvent(customEvent);
     };
@@ -216,6 +239,7 @@ export const FuroInputBase = (superClass) => {
         this._label = this.label;
       }
 
+
       this.hint = this.field._meta.hint;
       this.value = this.field.value;
 
@@ -241,6 +265,7 @@ export const FuroInputBase = (superClass) => {
 
         this.hint = this.field._meta.hint;
         this.value = this.field.value;
+
         this.requestUpdate()
       });
 
@@ -273,7 +298,6 @@ export const FuroInputBase = (superClass) => {
     focus() {
       this._FBPTriggerWire('--focusReceived')
     }
-
 
 
   }

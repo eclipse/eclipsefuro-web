@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>furo-catalog.js demo</title>
+
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="environment.js"></script>
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
+    import '@furo/data/collection-agent';
+    import '@furo/data/entity-object';
+    import '@furo/fbp/flow-bind.js';
+    import '@furo/fbp/flow-repeat.js';
+  </script>
+
+  <script type="module" src="../furo-catalog.js"></script>
+
+  <style>
+    :root {
+      /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
+      /* SYRIUS Theme */
+
+      --primary-color: #0e5e9f;
+    }
+  </style>
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+</head>
+<body>
+<div class="vertical-section-container centered">
+  <h3>Basic furo-catalog.js demo</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <hr>
+          <entity-object type="vnd.com.acme.task" ƒ-inject-raw="--entityResponse, --errorResponse"
+                         @-object-ready="--entityReady"></entity-object>
+
+          <furo-reference-search autofocus   style="width: 50%" ƒ-bind-data="--entityReady(*.fields.ref)"
+                                 @-search="--term"></furo-reference-search>
+          <collection-agent service="tasks" ƒ-search="--term"></collection-agent>
+
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+</body>
+</html>
