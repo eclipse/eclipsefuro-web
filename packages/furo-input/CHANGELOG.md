@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.0...@furo/input@0.26.1) (2019-05-03)
+
+
+### Bug Fixes
+
+* hover and blur behaviour ([9f8aa32](https://github.com/veith/FuroBaseComponents/commit/9f8aa32))
+* hover behaviour ([689d886](https://github.com/veith/FuroBaseComponents/commit/689d886))
+
+
+
+
+
 # [0.26.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.25.0...@furo/input@0.26.0) (2019-05-03)
 
 
