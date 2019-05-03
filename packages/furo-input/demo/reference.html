@@ -43,9 +43,9 @@
           <entity-object type="vnd.com.acme.task" ƒ-inject-raw="--entityResponse, --errorResponse"
                          @-object-ready="--entityReady"></entity-object>
 
-          <furo-reference-search autofocus   style="width: 50%" ƒ-bind-data="--entityReady(*.fields.ref)"
-                                 @-search="--term"></furo-reference-search>
-          <collection-agent service="tasks" ƒ-search="--term"></collection-agent>
+          <furo-reference-search autofocus   style="width: 50%" ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2"
+                                 @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+          <collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></collection-agent>
 
         </template>
       </flow-bind>

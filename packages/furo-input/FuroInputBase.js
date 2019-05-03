@@ -244,6 +244,7 @@ export const FuroInputBase = (superClass) => {
       this.value = this.field.value;
 
       this._FBPTriggerWire('--value', this.field.value);
+      this._FBPTriggerWire('--field', this.field);
 
       //mark incomming error
       if (!this.field._isValid) {
