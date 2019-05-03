@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.29.3...@furo/data@0.30.0) (2019-05-03)
+
+
+### Features
+
+* collection-agent accepts link object on ƒ-hts-in ([e83a0ca](https://github.com/veith/FuroBaseComponents/commit/e83a0ca))
+
+
+
+
+
 ## [0.29.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.29.2...@furo/data@0.29.3) (2019-05-02)
 
 

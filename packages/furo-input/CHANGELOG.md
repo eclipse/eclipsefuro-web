@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.24.1...@furo/input@0.25.0) (2019-05-03)
+
+
+### Features
+
+* furo-reference-search (mouse only) initial release ([06b7398](https://github.com/veith/FuroBaseComponents/commit/06b7398))
+
+
+
+
+
 ## [0.24.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.24.0...@furo/input@0.24.1) (2019-05-02)
 
 
