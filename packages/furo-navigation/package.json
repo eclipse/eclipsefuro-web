@@ -3,9 +3,9 @@
   "description": "Furo navigation components",
   "main": "furo-catalog.js",
   "license": "MIT",
-  "version": "0.15.2",
+  "version": "0.15.3",
   "dependencies": {
-    "@furo/fbp": "^4.12.0",
+    "@furo/fbp": "^4.13.0",
     "@polymer/polymer": "^3.0.0"
   },
   "devDependencies": {
