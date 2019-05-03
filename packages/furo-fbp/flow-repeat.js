@@ -26,52 +26,78 @@ class FlowRepeat extends FBP(HTMLElement) {
     /**
      * Clear the list
      */
-    clear(){
+    clear() {
         this.injectItems([])
     }
 
-  /**
-   * Triggers the wire --itemSelected on selected item and --itemDeSelected on last selected Item
-   * @param index
-   */
-  select(index) {
-    if (this._insertedItems[index]) {
+    /**
+     * Triggers the wire --itemSelected on selected item and --itemDeSelected on last selected Item
+     * @param index
+     */
+    select(index) {
+        if (this._insertedItems[index]) {
 
-      // deselect the last selected
-      if (this.selectedIndex !== undefined) {
-        this.deselect(this.selectedIndex);
-      }
+            // deselect the last selected
+            if (this.selectedIndex !== undefined) {
+                this.deselect(this.selectedIndex);
+            }
 
-      this._insertedItems[index].virtualElement._FBPTriggerWire("--itemSelected");
-      this.selectedIndex = index;
+            this._insertedItems[index].virtualElement._FBPTriggerWire("--itemSelected");
+            this.selectedIndex = index;
+        }
     }
 
-  }
-
-  /**
-   * Triggers the wire --itemDeSelected on last selected item
-   */
-  deselect() {
-    if (this.selectedIndex !== undefined && this._insertedItems[this.selectedIndex]) {
-      this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire("--itemDeSelected");
-        this.selectedIndex = undefined;
+    /**
+     * select Next index
+     *
+     */
+    selectNextIndex() {
+        let i = this.selectedIndex + 1;
+        // loop around
+        if (!this._insertedItems[i]) {
+            i = 0;
+        }
+        this.select(i);
     }
-  }
+
+    selectPreviousIndex() {
+        let i = this.selectedIndex - 1;
+        // loop around
+        if (i < 0) {
+            i = this._insertedItems.length - 1;
+        }
+        this.select(i);
+    }
+
+    triggerSelected(data) {
+        this.triggerIndex(this.selectedIndex, data)
+    }
+
+    /**
+     * Triggers the wire --itemDeSelected on last selected item
+     */
+    deselect() {
+        if (this.selectedIndex !== undefined && this._insertedItems[this.selectedIndex]) {
+            this._insertedItems[this.selectedIndex].virtualElement._FBPTriggerWire("--itemDeSelected");
+            this.selectedIndex = undefined;
+        }
+    }
 
 
-    _findFirstHost(parent){
-        if(parent.host){
+    _findFirstHost(parent) {
+        if (parent.host) {
             return parent.host;
         }
 
         return this._findFirstHost(parent.parentNode);
 
     }
+
     injectItems(items) {
         if (!Array.isArray(items)) {
             console.warn("Items is not an array ", items, this);
             // make the list empty
-            items =[];
+            items = [];
         }
 
         this._firstHost = this._findFirstHost(this.parentNode);
@@ -104,7 +130,7 @@ class FlowRepeat extends FBP(HTMLElement) {
                 elem._FBPTriggerWire("--firstItem", e);
             }
 
-            if (i === a.length-1) {
+            if (i === a.length - 1) {
                 elem._FBPTriggerWire("--lastItem", e);
             }
 
@@ -137,20 +163,21 @@ class FlowRepeat extends FBP(HTMLElement) {
     }
 
 
-    triggerFirst(e){
-        this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger",e);
-        this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst",e);
+    triggerFirst(e) {
+        this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger", e);
+        this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst", e);
     }
 
-    triggerLast(e){
-        this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--trigger",e);
-        this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--triggerLast",e);
+    triggerLast(e) {
+        this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire("--trigger", e);
+        this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire("--triggerLast", e);
     }
-    triggerIndex(i, data){
-        if(this._insertedItems[i]){
-            this._insertedItems[i].virtualElement._FBPTriggerWire("--trigger",data);
-            this._insertedItems[i].virtualElement._FBPTriggerWire("--triggerIndex",data);
-        }else{
+
+    triggerIndex(i, data) {
+        if (this._insertedItems[i]) {
+            this._insertedItems[i].virtualElement._FBPTriggerWire("--trigger", data);
+            this._insertedItems[i].virtualElement._FBPTriggerWire("--triggerIndex", data);
+        } else {
             console.warn("Out of index", this)
         }
 
