@@ -59,6 +59,7 @@ class collectionAgent extends FBP(LitElement) {
     });
 
     this._singleElementQueue = []; //queue for calls, before hts is set
+    this._queryParams = {};
   }
 
   static get properties() {
@@ -198,13 +199,24 @@ class collectionAgent extends FBP(LitElement) {
     let params = {};
     let r = link.href.split("?");
     let req = r[0];
-    // add existing params
+    // add existing params from href
     if (r[1]) {
       r[1].split("&").forEach((p) => {
         let s = p.split("=");
         params[s[0]] = s[1];
       });
     }
+
+    // append query params
+
+    // query params
+
+    for (let key in this._queryParams) {
+      if (this._queryParams.hasOwnProperty(key)) {
+        params[key] = this._queryParams[key];
+      }
+    }
+
 
     // Fields
     if (this.fields) {
@@ -274,6 +286,15 @@ class collectionAgent extends FBP(LitElement) {
     this._followRelService("list", "List");
   }
 
+  search(term) {
+    if(term !== ""){
+      this._queryParams.q = term;
+      this.list();
+    }else{
+      delete this._queryParams.q;
+    }
+
+  }
 
   /**
    * loads the entity if hts is available
@@ -307,6 +328,11 @@ class collectionAgent extends FBP(LitElement) {
 
 
   _updateInternalHTS(hts) {
+    // convert link object to hts array
+    if (hts && hts.rel && hts.method && hts.type && hts.href) {
+      hts = [hts];
+    }
+
     if (hts && hts[0] && hts[0].rel) {
       this._hts = {};
       hts.forEach((link) => {
