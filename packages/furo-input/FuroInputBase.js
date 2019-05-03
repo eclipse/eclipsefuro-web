@@ -3,6 +3,8 @@ export const FuroInputBase = (superClass) => {
   return class extends superClass {
     constructor(props) {
       super(props);
+      this._displayOnly = false;
+
       this._sharedStyle = `
         :host {
           display: inline-block;
@@ -155,6 +157,7 @@ export const FuroInputBase = (superClass) => {
         hint: {
           type: String,
         },
+        _displayOnly:{type:Boolean, attribute: 'display-only'}
       };
     }
 
@@ -172,6 +175,12 @@ export const FuroInputBase = (superClass) => {
           case "disabled":
           this.disabled = newval !== null;
           break;
+
+          case "display-only":
+          this._displayOnly = newval !== null;
+          break;
+
+
         default:
           break;
 
@@ -186,7 +195,7 @@ export const FuroInputBase = (superClass) => {
       this.noTypecheck = false;
 
       this._FBPAddWireHook("--inputInput", (e) => {
-        if (this.field) {
+        if (this.field && !this._displayOnly) {
           this.field.set(e.value);
         }
         this.value = e.value;
@@ -200,7 +209,6 @@ export const FuroInputBase = (superClass) => {
 
       this._float = !!v;
       this._value = v;
-
 
       /**
        * @event value-changed

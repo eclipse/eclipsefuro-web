@@ -44,7 +44,48 @@
     {
       "data": {
         "id": 12,
-        "display_name": "erster Versuch",
+        "display_name": "zweiter Versuch",
+        "zeitunddatum": {
+          "date": "2011-04-22",
+          "time": 1337
+        },
+        "produktId": "PRO-232312"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "method": "GET",
+          "href": "/demo/api/v1/tasks/12.json",
+          "type": "vnd.com.acme.task"
+        },
+        {
+          "rel": "update",
+          "method": "PATCH",
+          "href": "/demo/api/v1/tasks/12.json",
+          "type": "vnd.com.acme.task"
+        }
+      ],
+      "error": {},
+      "meta": {
+        "fields": {
+          "display_name": {
+            "meta": {
+              "label": "VOM SERVEEEER"
+            },
+            "constraints": {
+              "min": {
+                "value": 5,
+                "message": "Fuenf Zeichen sind zwingend"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "id": "XXXXX",
+        "display_name": "dritter Versuch",
         "zeitunddatum": {
           "date": "2011-04-22",
           "time": 1337

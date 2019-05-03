@@ -15,6 +15,7 @@
     import '@furo/data/entity-object';
     import '@furo/fbp/flow-bind.js';
     import '@furo/fbp/flow-repeat.js';
+    import '@furo/layout/furo-horizontal-flex.js';
   </script>
 
   <script type="module" src="../furo-catalog.js"></script>
@@ -43,9 +44,19 @@
           <entity-object type="vnd.com.acme.task" ƒ-inject-raw="--entityResponse, --errorResponse"
                          @-object-ready="--entityReady"></entity-object>
 
-          <furo-reference-search autofocus   style="width: 50%" ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2"
-                                 @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
-          <collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></collection-agent>
+          <furo-horizontal-flex>
+
+            <furo-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)"
+                                   @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+
+            <furo-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2"
+                                   @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+
+          </furo-horizontal-flex>
+
+
+           <collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></collection-agent>
+           <collection-agent service="tasks" ƒ-search="--termB" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refColB"></collection-agent>
 
         </template>
       </flow-bind>
