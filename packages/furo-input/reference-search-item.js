@@ -15,17 +15,8 @@ class ReferenceSearchItem extends FBP(LitElement) {
   constructor() {
     super();
     this._item = {};
-    this.addEventListener("mouseenter",(e)=>{
-      /**
-      * @event mouse-over-select
-      * Fired when mouseenter
-      * detail payload: index
-      */
-      let customEvent = new Event('mouse-over-selected', {composed:true, bubbles: true});
-      customEvent.detail = this.index;
-      this.dispatchEvent(customEvent)
 
-    })
+
   }
 
   /**
@@ -58,38 +49,45 @@ class ReferenceSearchItem extends FBP(LitElement) {
             display: block;
 
         }
-        
+
         :host([hover]) div {
             background-color: lightgray;
+        }
+
+        :host(:hover) div {
+            background-color: #f0f0f0;
         }
 
         div {
             border-bottom: 1px solid var(--primary-color);
             padding: 8px;
             cursor: pointer;
+            box-sizing: border-box;
         }
     `
   }
 
-  deselect(){
+  deselect() {
     this.removeAttribute("hover");
 
   }
-  preselect(){
-    this.setAttribute("hover","");
 
+  preselect() {
+    this.setAttribute("hover", "");
+    this.scrollIntoView({block: "start", behavior: "smooth"});
   }
 
- select(){
+  select() {
     /**
-    * @event item-selected
-    * Fired when item is selected
-    * detail payload: item
-    */
-    let customEvent = new Event('item-selected', {composed:true, bubbles: true});
+     * @event item-selected
+     * Fired when item is selected
+     * detail payload: item
+     */
+    let customEvent = new Event('item-selected', {composed: true, bubbles: true});
     customEvent.detail = this._item;
     this.dispatchEvent(customEvent)
   }
+
   /**
    * @private
    * @returns {TemplateResult}
