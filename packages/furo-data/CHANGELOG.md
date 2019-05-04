@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.30.2...@furo/data@0.30.3) (2019-05-04)
+
+
+### Bug Fixes
+
+* entity-agent microtiming issues fixed ([947881d](https://github.com/veith/FuroBaseComponents/commit/947881d))
+
+
+
+
+
 ## [0.30.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.30.1...@furo/data@0.30.2) (2019-05-03)
 
 **Note:** Version bump only for package @furo/data
