@@ -213,30 +213,35 @@ class EntityAgent extends FBP(LitElement) {
    */
   _attachListeners(eventPrefix) {
     let success = (e) => {
-
+      // we do not want req-success and req-failed outside of this component
+      e.stopPropagation();
       let customEvent = new Event(eventPrefix + '-success', {composed: true, bubbles: true});
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent);
 
       // remove listeners
-      this.removeEventListener("response", success,true);
-      this.removeEventListener("response-error", failed,true);
+      this.removeEventListener("req-success", success,true);
+      this.removeEventListener("req-failed", failed,true);
 
     };
 
     let failed = (e) => {
-
+      // we do not want req-success and req-failed outside of this component
+      e.stopPropagation();
       let customEvent = new Event(eventPrefix + '-failed', {composed: true, bubbles: true});
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent);
 
       // remove listeners
-      this.removeEventListener("response", success,true);
-      this.removeEventListener("response-error", failed,true);
+      this.removeEventListener("req-success", success,true);
+      this.removeEventListener("req-failed", failed,true);
     };
-
-    this.addEventListener("response", success, true);
-    this.addEventListener("response-error", failed, true);
+    /**
+     * do not add the listener directly to response, otherwise it kicks in before hts is updated
+     * This extra "loop" is to guarante the order of handling the events
+     */
+    this.addEventListener("req-success", success, true);
+    this.addEventListener("req-failed", failed, true);
   }
   _updateInternalHTS(hts) {
     if (hts && hts[0] && hts[0].rel) {
@@ -302,7 +307,8 @@ class EntityAgent extends FBP(LitElement) {
       <api-fetch
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"
-              @-response="--responseParsed">
+              @-response="--responseParsed,^^req-success"
+              @-response-error="^^req-failed">
       </api-fetch>
     `;
   }
