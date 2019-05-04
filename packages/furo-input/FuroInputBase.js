@@ -164,6 +164,7 @@ export const FuroInputBase = (superClass) => {
     attributeChangedCallback(name, oldval, newval) {
       switch (name) {
         case "label":
+          this.label = newval;
           this._label = newval;
           break;
 

@@ -38,14 +38,15 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
 
     this.addEventListener("searchInput", (e) => {
-      if (e.path[0].value.length > this.minTermLength) {
+      this._searchTerm = e.path[0].value;
+      if (this._searchTerm.length > this.minTermLength) {
         /**
          * @event search
          * Fired when term is entered and bigger then min-term-length
          * detail payload: {String} term
          */
         let customEvent = new Event('search', {composed: true, bubbles: true});
-        customEvent.detail = e.path[0].value;
+        customEvent.detail = this._searchTerm;
         this.dispatchEvent(customEvent);
       }
     });
@@ -63,29 +64,34 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
       let key = event.key || event.keyCode;
 
       if (key === 'Escape' || key === 'Esc' || key === 27) {
-        if(this._listIsOpen){
-          // close list and then clear search
+        if (this._listIsOpen) {
+          // close list if open and  then clear search
           event.preventDefault();
         }
         this._closeList();
+        if(this._searchTerm === ""){
+          event.preventDefault();
+          // re set display_name
+
+        }
       }
 
-      if(this._listIsOpen){
-
-        if(key === "Enter"){
+      // keyboard navigation
+      if (this._listIsOpen) {
+        if (key === "Enter") {
           event.preventDefault();
           this._FBPTriggerWire("--enterPressed");
         }
-        if(key === "ArrowDown"){
+        if (key === "ArrowDown") {
           event.preventDefault();
           this._FBPTriggerWire("--arrowDownPressed");
         }
-        if(key === "ArrowUp"){
+        if (key === "ArrowUp") {
           event.preventDefault();
           this._FBPTriggerWire("--arrowUpPressed");
         }
-      }else{
-        if(key === "ArrowDown"){
+      } else {
+        if (key === "ArrowDown") {
           this._showList();
         }
 
@@ -94,21 +100,25 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
     });
 
 
+    // lock blur for slow clickers
     this.addEventListener("mousedown", (event) => {
       this._lockBlur = true;
     });
+    // unlock after long click
     this.addEventListener("mouseup", (event) => {
       this._lockBlur = false;
     });
 
+    // close list on blur
     this._FBPAddWireHook("--blured", (item) => {
-      if(!this._lockBlur ){
+      if (!this._lockBlur) {
         this._closeList();
       }
     });
 
+    // opens the list on focus
     this._FBPAddWireHook("--focused", (item) => {
-      if(this._hasCollection){
+      if (this._hasCollection) {
         this._showList();
       }
     });
@@ -117,14 +127,15 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
   }
 
-  _showList(){
+  _showList() {
     this._listIsOpen = true;
     this.setAttribute("show-list", "");
-    this._FBPTriggerWire("--listOpened",0);
+    this._FBPTriggerWire("--listOpened", 0);
   }
+
   _closeList() {
     this._listIsOpen = false;
-      this.removeAttribute("show-list");
+    this.removeAttribute("show-list");
   }
 
   /**
@@ -195,16 +206,17 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
   render() {
     // language=HTML
     return html`
-<furo-search-input ?autofocus=${this.autofocus} ?disabled=${this.disabled} display-only label="${this._label}" 
-ƒ-bind-data="--field(*.display_name)" @-input="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"
-></furo-search-input>
-<div class="list" @-item-selected="--itemSelected"   >
-  <flow-repeat ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressed">
-    <template>
-      <reference-search-item ƒ-.index="--index" ƒ-deselect="--itemDeSelected" ƒ-select="--trigger" ƒ-preselect="--itemSelected" ƒ-inject-item="--item"></reference-search-item>
-    </template>
-  </flow-repeat>       
-</div>                                
+    <furo-search-input ?autofocus=${this.autofocus} ?disabled=${this.disabled} display-only 
+    label="${this._label}" 
+    ƒ-bind-data="--field(*.display_name)" @-input="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"
+    ></furo-search-input>
+    <div class="list" @-item-selected="--itemSelected"   >
+      <flow-repeat ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressed">
+        <template>
+          <reference-search-item ƒ-.index="--index" ƒ-deselect="--itemDeSelected" ƒ-select="--trigger" ƒ-preselect="--itemSelected" ƒ-inject-item="--item"></reference-search-item>
+        </template>
+      </flow-repeat>       
+    </div>                                
 `;
   }
 
