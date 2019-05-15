@@ -56,7 +56,7 @@ class FuroCollapsibleBox extends FBP(PolymerElement) {
       </style>
       <furo-horizontal-flex class="head">
         <furo-toggle-icon value="{{open}}" ƒ-toggle="--lblClicked"></furo-toggle-icon>
-        <label class="flex" @-click="--lblClicked">[[label]]</label>
+        <label flex @-click="--lblClicked">[[label]]</label>
         <slot name="context"></slot>
       </furo-horizontal-flex>
       <div class="content">
