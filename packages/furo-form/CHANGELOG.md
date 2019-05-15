@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.24](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.15.23...@furo/form@0.15.24) (2019-05-15)
+
+
+### Bug Fixes
+
+* changed class to attribute ([0d89978](https://github.com/veith/FuroBaseComponents/commit/0d89978))
+
+
+
+
+
 ## [0.15.23](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.15.22...@furo/form@0.15.23) (2019-05-04)
 
 **Note:** Version bump only for package @furo/form
