@@ -49,14 +49,14 @@ class FuroCollapsibleBox extends FBP(PolymerElement) {
         }
         
         .head{
-          border-bottom:1px solid gainsboro;
+          border-bottom: 1px solid gainsboro;
           @apply --furo-collapsible-head-mixin;
          
         }
       </style>
       <furo-horizontal-flex class="head">
         <furo-toggle-icon value="{{open}}" ƒ-toggle="--lblClicked"></furo-toggle-icon>
-        <label class="flex" @-click="--lblClicked">[[label]]</label>
+        <label flex @-click="--lblClicked">[[label]]</label>
         <slot name="context"></slot>
       </furo-horizontal-flex>
       <div class="content">
