@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.4](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.3...@furo/input@0.26.4) (2019-05-19)
+
+
+### Bug Fixes
+
+* reference-search focused check in shadow dom ([59dd376](https://github.com/veith/FuroBaseComponents/commit/59dd376))
+
+
+
+
+
 ## [0.26.3](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.2...@furo/input@0.26.3) (2019-05-19)
 
 **Note:** Version bump only for package @furo/input
