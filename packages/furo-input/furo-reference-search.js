@@ -111,6 +111,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
     // close list on blur
     this._FBPAddWireHook("--blured", (item) => {
+      this._focused = false;
       if (!this._lockBlur) {
         this._closeList();
       }
@@ -118,6 +119,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
     // opens the list on focus
     this._FBPAddWireHook("--focused", (item) => {
+      this._focused = true;
       if (this._hasCollection) {
         this._showList();
       }
@@ -157,7 +159,8 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
     this._FBPTriggerWire("--listItemsIjnected", collection.data);
     this._hasCollection = true;
-    if (this.contains(document.activeElement)) {
+
+    if (this._focused) {
       this._showList();
     }
 
