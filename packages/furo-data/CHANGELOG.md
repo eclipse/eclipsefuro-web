@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.30.3...@furo/data@0.31.0) (2019-05-19)
+
+
+### Features
+
+* set and update query params on collection agent ([26376c5](https://github.com/veith/FuroBaseComponents/commit/26376c5))
+
+
+
+
+
 ## [0.30.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.30.2...@furo/data@0.30.3) (2019-05-04)
 
 
