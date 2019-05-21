@@ -42,15 +42,12 @@ class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
           width: unset;        
           overflow: unset;        
           
+          
+          padding-left: 12px;
           @apply --input-base-label-mixin;
+          @apply --checkbox-label-mixin;
         }
-
-        label.text[float="true"] {
-          color: unset;        
-          font-size: unset;        
-          top: unset;        
-          visibility: unset;        
-        }
+ 
         
         
         
@@ -58,9 +55,9 @@ class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
 </style>
      
       
-      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="checkbox" list="datalist" ƒ-.value="--value" @-input="--inputInput(*.path.0)"   ƒ-focus="--focusReceived">     
-      <label for="input" class="text">${this.text}</label>
-      <label float="true">${this._label}</label>  
+      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="checkbox" list="datalist" ƒ-.value="--value" @-input="--inputCheckbox(*.path.0)"   ƒ-focus="--focusReceived">     
+      <label for="input" class="text">${this._label}</label>
+      
       <div class="border"></div>  
       <div class="hint">${this.hint}</div>
  
