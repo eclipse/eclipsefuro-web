@@ -2,7 +2,7 @@
   "name": "@furo/input",
   "description": "Input components",
   "main": "furo-catalog.js",
-  "version": "0.26.4",
+  "version": "0.26.5",
   "dependencies": {
     "@furo/fbp": "^4.13.0",
     "@furo/layout": "^0.19.3",
@@ -12,7 +12,7 @@
     "lit-element": "^2.0.1"
   },
   "devDependencies": {
-    "@furo/data": "^0.31.1",
+    "@furo/data": "^0.32.0",
     "@polymer/iron-component-page": "^4.0.1",
     "@polymer/iron-demo-helpers": "^3.1.0",
     "@polymer/polymer": "^3.0.0",

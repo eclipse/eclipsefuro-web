@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.5](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.4...@furo/input@0.26.5) (2019-05-21)
+
+
+### Bug Fixes
+
+* checkbox input delivers true/false ([306219b](https://github.com/veith/FuroBaseComponents/commit/306219b))
+
+
+
+
+
 ## [0.26.4](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.3...@furo/input@0.26.4) (2019-05-19)
 
 
