@@ -14,13 +14,22 @@ class EntityObject extends (LitElement) {
   constructor() {
     super();
     this._specs = window.Env.specs;
+  }
 
+
+  static get properties() {
+    return {
+      /**
+       * Name der Spec
+       */
+      type: {type: String}
+    };
   }
 
   injectRaw(jsonObj) {
     // queue inject bis entity bereit ist
     if(!this.entity){
-      setTimeout(()=>{this.injectRaw(jsonObj)},0)
+      setTimeout(()=>{this.injectRaw(jsonObj)},0);
     }else{
       this.entity.injectRaw(jsonObj);
     }
@@ -36,12 +45,16 @@ class EntityObject extends (LitElement) {
   _checkType(type) {
 
     if (this._specs[type] === undefined) {
-
-      console.warn("Type does not exist.", type, this, this._specs)
+      console.warn("Type does not exist.", type, this, this._specs);
       return
     }
 
+    /**
+     * create the entity node
+     * @type {EntityNode}
+     */
     this.entity = new EntityNode(null, type, this._specs);
+
     /**
      * @event entity-ready
      * Fired when
@@ -52,6 +65,19 @@ class EntityObject extends (LitElement) {
     setTimeout(() => {
       this.dispatchEvent(customEvent);
     }, 0);
+
+
+    this.entity.addEventListener("data-injected",(e)=>{
+        /**
+        * @event data-injected
+        * Fired when injected data was processed.
+        * detail payload: {Object|EntityNode} reference to entity
+        */
+        let customEvent = new Event('data-injected', {composed:true, bubbles: true});
+        customEvent.detail = e;
+        this.dispatchEvent(customEvent)
+    });
+
 
     this.entity.addEventListener("field-value-changed",(e)=>{
       /**
@@ -64,19 +90,6 @@ class EntityObject extends (LitElement) {
 
       this.dispatchEvent(customEvent)
     });
-  }
-
-  static get properties() {
-    return {
-      /**
-       * Ein Entitätenbaum mit allen Feldern
-       */
-      entity: {type: Object},
-      /**
-       * Name der Spec
-       */
-      type: {type: String}
-    };
   }
 
   /**
