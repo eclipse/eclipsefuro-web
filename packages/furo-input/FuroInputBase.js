@@ -66,7 +66,7 @@ export const FuroInputBase = (superClass) => {
           @apply --input-base-border-mixin;
         }
         
-        :host(:focus-within) .border{
+        :host(:focus-within) .border, :host(:focus-within) .borderBig{
           border-color: var(--primary-color,#3f51b5);
           border-width: 1px;
         }
