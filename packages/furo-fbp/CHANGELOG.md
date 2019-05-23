@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.13.3](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.13.2...@furo/fbp@4.13.3) (2019-05-23)
+
+
+### Bug Fixes
+
+* publish error ([0e10b0b](https://github.com/veith/flowbased-polymer/commit/0e10b0b))
+
+
+
+
+
 ## [4.13.2](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.13.1...@furo/fbp@4.13.2) (2019-05-23)
 
 
