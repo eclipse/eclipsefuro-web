@@ -14,13 +14,13 @@
         {
           "rel": "self",
           "method": "GET",
-          "href": "/demo/api/v1/tasks/12.json",
+          "href": "./api/v1/tasks/12.json",
           "type": "vnd.com.acme.task"
         },
         {
           "rel": "update",
           "method": "PATCH",
-          "href": "/demo/api/v1/tasks/12.json",
+          "href": "./api/v1/tasks/12.json",
           "type": "vnd.com.acme.task"
         }
       ],
@@ -55,13 +55,13 @@
         {
           "rel": "self",
           "method": "GET",
-          "href": "/demo/api/v1/tasks/12.json",
+          "href": "./api/v1/tasks/12.json",
           "type": "vnd.com.acme.task"
         },
         {
           "rel": "update",
           "method": "PATCH",
-          "href": "/demo/api/v1/tasks/12.json",
+          "href": "./api/v1/tasks/12.json",
           "type": "vnd.com.acme.task"
         }
       ],
@@ -87,7 +87,7 @@
     {
       "rel": "list",
       "method": "GET",
-      "href": "/demo/api/v1/tasks/list.json",
+      "href": "./api/v1/tasks/list.json",
       "type": "vnd.com.acme.task"
     }
   ]

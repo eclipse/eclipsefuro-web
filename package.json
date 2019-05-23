@@ -20,7 +20,7 @@
   "scripts": {
     "lint:imports": "node scripts/check-imports.js",
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
-    "doc" : "./scripts/generate-analysis.sh"
+    "doc": "./scripts/generate-analysis.sh"
   },
   "author": "veith",
   "license": "MIT"

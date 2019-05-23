@@ -1,9 +1,10 @@
 import {LitElement, html} from 'lit-element';
 import {EntityNode} from "./lib/EntityNode.js"
+import {Env} from "@furo/framework"
 
 
 /**
- * `mora-entity`
+ * `entity-object`
  *
  * @customElement
  * @demo demo/form.html
@@ -13,7 +14,7 @@ class EntityObject extends (LitElement) {
 
   constructor() {
     super();
-    this._specs = window.Env.specs;
+    this._specs = Env.api.specs;
   }
 
 

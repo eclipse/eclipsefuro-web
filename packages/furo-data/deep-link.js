@@ -1,5 +1,6 @@
 import {LitElement, html} from 'lit-element';
 import {FBP} from "@furo/fbp";
+import {Env} from "@furo/framework"
 
 /**
  * `deep-link`
@@ -12,7 +13,7 @@ class DeepLink extends FBP(LitElement) {
 
   constructor() {
     super();
-    this._servicedefinitions = window.Env.services;
+    this._servicedefinitions = Env.api.services;
   }
 
   static get properties() {

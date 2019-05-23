@@ -17615,7 +17615,7 @@
       "tagname": "collection-agent"
     },
     {
-      "description": "`mora-collection`",
+      "description": "`collection-object`",
       "summary": "",
       "path": "packages/furo-data/collection-object.js",
       "properties": [
@@ -20069,7 +20069,7 @@
       "tagname": "reverse-deep-link"
     },
     {
-      "description": "`mora-entity`",
+      "description": "`entity-object`",
       "summary": "",
       "path": "packages/furo-data/entity-object.js",
       "properties": [

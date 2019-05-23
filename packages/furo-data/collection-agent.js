@@ -2,6 +2,7 @@ import {LitElement, html} from 'lit-element';
 import {FBP} from '@furo/fbp';
 import './api-fetch.js';
 import {CollectionControls} from "./lib/CollectionControls.js"
+import {Env} from "@furo/framework"
 
 /**
  * `data-collection`
@@ -41,8 +42,8 @@ class collectionAgent extends FBP(LitElement) {
 
   constructor() {
     super();
-    this._servicedefinitions = window.Env.services;
-    this._ApiEnvironment = window.Env.api;
+    this._servicedefinitions = Env.api.services;
+    this._ApiEnvironment = Env.api;
 
     // HTS aus response anwenden
     this._FBPAddWireHook("--responseParsed", (r) => {

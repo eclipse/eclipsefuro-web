@@ -11,6 +11,7 @@
   <script src="../node_modules/mocha/mocha.js"></script>
   <script src="../node_modules/chai/chai.js"></script>
   <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+  <script type="module" src="../node_modules/@furo/framework/environment"></script>
   <script src="../demo/environment.js"></script>
   <script type="module" src="../furo-catalog.js"></script>
 </head>
@@ -53,8 +54,8 @@
         done();
       });
 
-      window.Env.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
-      window.Env.services.tasks.services.List.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      Env.api.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      Env.api.services.tasks.services.List.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
       rdl.convert({
         "data": [{"data": ""}],
         "links": [{
@@ -80,7 +81,7 @@
         done();
       });
 
-      window.Env.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      Env.api.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
       rdl.convert({
         "data": 32, "links": [{
           "rel": "self",
@@ -106,7 +107,7 @@
         done();
       });
 
-      window.Env.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      Env.api.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
       rdl.convert([{
         "rel": "self",
         "method": "GET",
@@ -129,7 +130,7 @@
         done();
       });
 
-      window.Env.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      Env.api.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
       rdl.convert({
         "rel": "self",
         "method": "GET",

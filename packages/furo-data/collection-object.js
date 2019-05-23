@@ -1,9 +1,9 @@
 import {LitElement, html} from 'lit-element';
 import {CollectionNode} from "./lib/CollectionNode.js"
-
+import {Env} from "@furo/framework"
 
 /**
- * `mora-collection`
+ * `collection-object`
  *
  * @customElement
  * @demo demo/form.html
@@ -13,7 +13,7 @@ class CollectionObject extends (LitElement) {
 
   constructor() {
     super();
-    this._specs = window.Env.specs;
+    this._specs = Env.api.specs;
 
   }
 

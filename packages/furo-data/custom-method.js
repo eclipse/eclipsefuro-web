@@ -1,6 +1,7 @@
 import {LitElement, html} from 'lit-element';
 import {FBP} from "@furo/fbp";
 import "./api-fetch"
+import {Env} from "@furo/framework"
 
 /**
  * `entity-agent`
@@ -14,8 +15,8 @@ class CustomMethod extends FBP(LitElement) {
 
     constructor() {
         super();
-        this._servicedefinitions = window.Env.services;
-        this._ApiEnvironment = window.Env.api;
+        this._servicedefinitions = Env.api.services;
+        this._ApiEnvironment = Env.api;
 
     }
 
