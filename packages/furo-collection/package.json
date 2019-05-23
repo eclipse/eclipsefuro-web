@@ -19,8 +19,8 @@
   },
   "author": "veith",
   "license": "MIT",
-  "devDependencies": {
-    "lerna": "^3.10.7"
-  },
-  "gitHead": "2f60c3091cb4c94bf79dc92c09e9314e39947e4a"
+  "gitHead": "2f60c3091cb4c94bf79dc92c09e9314e39947e4a",
+  "publishConfig": {
+    "access": "public"
+  }
 }

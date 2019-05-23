@@ -18,14 +18,21 @@
 
 set -e
 
+packages=(`find packages -name "package.json" -maxdepth 2 | xargs -I '{}' dirname '{}'`)
+for package in ${packages[@]}; do
+     rm -r ${package}/node_modules
+done
+
 `npm bin`/lerna bootstrap
 `npm bin`/lerna clean --yes
 
-packages=(`find packages -name "package.json" -maxdepth 2 | xargs -I '{}' dirname '{}'`)
+mkdir node_modules/@furo
+
 
 for package in ${packages[@]}; do
   npmname=`node -e "console.log(require(\"${INIT_CWD}/${package}/package.json\").name)"`
   if [ ! -L ${INIT_CWD}/node_modules/${npmname} ]; then
     ln -sfv ${INIT_CWD}/${package} ${INIT_CWD}/node_modules/${npmname}
+
   fi
 done

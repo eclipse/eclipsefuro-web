@@ -18,20 +18,6 @@
     },
     "main": "fbp.js",
     "license": "MIT",
-    "devDependencies": {
-        "@polymer/iron-component-page": "^3.0.0-pre.20",
-        "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
-        "@polymer/polymer": "^3.0.0",
-        "@polymer/test-fixture": "^4.0.2",
-        "@webcomponents/webcomponentsjs": "^2.0.0",
-        "chai": "^4.2.0",
-        "lit-element": "^2.0.1",
-        "mocha": "^5.2.0",
-        "polymer-cli": "^1.9.5",
-        "wct-browser-legacy": "^1.0.2",
-        "wct-istanbub": "^0.2.9",
-        "wct-mocha": "^1.0.0"
-    },
     "directories": {
         "doc": "docs",
         "test": "test"
@@ -46,5 +32,8 @@
     "author": "veith",
     "bugs": {
         "url": "https://github.com/veith/flowbased-polymer/issues"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

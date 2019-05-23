@@ -9,19 +9,10 @@
   "license": "MIT",
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
-    "lit-element": "^2.0.1"
+    "lit-element": "^2.1.0"
   },
-  "devDependencies": {
-    "@furo/fbp": "^4.13.0",
-    "@polymer/iron-component-page": "^4.0.1",
-    "@polymer/iron-demo-helpers": "^3.0.2",
-    "@polymer/iron-test-helpers": "^3.0.0",
-    "@polymer/test-fixture": "^4.0.2",
-    "@webcomponents/webcomponentsjs": "^2.2.1",
-    "chai": "^4.2.0",
-    "mocha": "^5.2.0",
-    "wct-browser-legacy": "^1.0.2",
-    "wct-mocha": "^1.0.0"
-  },
-  "gitHead": "2f60c3091cb4c94bf79dc92c09e9314e39947e4a"
+  "gitHead": "2f60c3091cb4c94bf79dc92c09e9314e39947e4a",
+  "publishConfig": {
+    "access": "public"
+  }
 }
