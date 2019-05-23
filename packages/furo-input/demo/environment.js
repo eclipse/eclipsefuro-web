@@ -51,7 +51,7 @@ window.Env = {
           "deeplink": {
             "rel": "list",
             "method": "GET",
-            "href": "/demo/api/v1/tasks/list.json"
+            "href": "./api/v1/tasks/list.json"
           },
           "options": {
             "filter": {
@@ -92,7 +92,7 @@ window.Env = {
           "deeplink": {
             "rel": "update",
             "method": "PATCH",
-            "href": "/demo/api/v1/tasks/{vtr}.json"
+            "href": "./api/v1/tasks/{vtr}.json"
           },
           "caching": {
             "no-cache": false,
@@ -112,7 +112,7 @@ window.Env = {
           "deeplink": {
             "rel": "self",
             "method": "GET",
-            "href": "/demo/api/v1/tasks/{vtr}.json"
+            "href": "./api/v1/tasks/{vtr}.json"
           },
           "caching": {
             "no-cache": false,
@@ -267,7 +267,7 @@ window.Env = {
           "type": "vnd.com.acme.reference",
           "meta": {
             "label": "REFsrch",
-            "default": {"display_name":"Hampel","id":"0003","href":"/demo/api/v1/tasks/list.json","rel":"list","method":"get", "type":"vnd.com.acme.task"},
+            "default": {"display_name":"Hampel","id":"0003","href":"./api/v1/tasks/list.json","rel":"list","method":"get", "type":"vnd.com.acme.task"},
             "hint": ""
           }
         },

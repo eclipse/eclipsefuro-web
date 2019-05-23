@@ -7,7 +7,30 @@ import "./reference-search-item";
 
 /**
  * `furo-reference-search`
- * Describe your element
+ *  Sucht eine Referenz
+ *
+ *
+ *```
+ * <!--  entity-object will eine Referenz auflösen -->
+ * <entity-object type="vnd.com.acme.task" @-object-ready="--entityReady"></entity-object>
+ *
+ *<furo-horizontal-flex>
+ *    <!--  furo-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
+ *    Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den collection-agent.
+ *    Wenn collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->
+ *    <furo-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+ *
+ *    <furo-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+ *
+ *</furo-horizontal-flex>
+ *
+ *<!-- Der collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.
+ *Die Resultate werden an furo-reference-search zurück gegeben. -->
+ *<collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></collection-agent>
+ *
+ * ```
+ *
+ *![alt text](demo/assets/ref-search.png "Logo Title Text 1")
  *
  * @summary shortdescription
  * @customElement
