@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "`fd-mini-tabs`",
+      "summary": "kleine Tabs",
+      "path": "packages/furo-navigation/fd-mini-tabs.js",
+      "properties": [
+        {
+          "name": "items",
+          "type": "Array | null | undefined",
+          "description": "items\nTab items in folgendem Format\n```\n[\n {label: \"Visual\", selected: false, value: \"visual\"},\n {label: \"Flow\", selected: false, value: \"flow\"},\n {label: \"Source\", selected: false, value: \"src\"}\n]\n       ```",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 6
+            },
+            "end": {
+              "line": 70,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Array"
+            }
+          }
+        },
+        {
+          "name": "selectedValue",
+          "type": "string | null | undefined",
+          "description": "selectedValue\nWert des ausgewählten Tabs",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 6
+            },
+            "end": {
+              "line": 79,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "observer": "\"_setActive\"",
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_setActive",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 83,
+              "column": 2
+            },
+            "end": {
+              "line": 92,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "value"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_selectItem",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 94,
+              "column": 2
+            },
+            "end": {
+              "line": 98,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_disableAll",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 100,
+              "column": 2
+            },
+            "end": {
+              "line": 104,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 12,
+          "column": 0
+        },
+        "end": {
+          "line": 105,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FdMiniTabs",
+      "attributes": [
+        {
+          "name": "items",
+          "description": "items\nTab items in folgendem Format\n```\n[\n {label: \"Visual\", selected: false, value: \"visual\"},\n {label: \"Flow\", selected: false, value: \"flow\"},\n {label: \"Source\", selected: false, value: \"src\"}\n]\n       ```",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 6
+            },
+            "end": {
+              "line": 70,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "Array | null | undefined"
+        },
+        {
+          "name": "selected-value",
+          "description": "selectedValue\nWert des ausgewählten Tabs",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 6
+            },
+            "end": {
+              "line": 79,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "selected-value-changed",
+          "description": "Fired when the `selectedValue` property changes.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "fd-mini-tabs",
+      "mixins": [
+        "FBP"
+      ]
+    }
+  ]
+}

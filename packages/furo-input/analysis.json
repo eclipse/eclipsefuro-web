@@ -4,7 +4,7 @@
     {
       "description": "`furo-input-password`\nSimple password input element which uses a native `<input type=\"password\">` tag\n\nTags: input",
       "summary": "password input element",
-      "path": "furo-password-input.js",
+      "path": "packages/furo-input/furo-password-input.js",
       "properties": [],
       "methods": [
         {
@@ -57,7 +57,7 @@
     {
       "description": "`furo-input-date`\nSimple date input element which uses a native `<input type=\"date\">` tag\n\nTags: input",
       "summary": "date input element",
-      "path": "furo-date-input.js",
+      "path": "packages/furo-input/furo-date-input.js",
       "properties": [],
       "methods": [
         {
@@ -154,7 +154,7 @@
     {
       "description": "`furo-button`\n\nSimple button element which uses a native `<button>` tag with paper-ripple\n\nTags: input",
       "summary": "button element",
-      "path": "furo-button.js",
+      "path": "packages/furo-input/furo-button.js",
       "properties": [
         {
           "name": "label",
@@ -291,7 +291,7 @@
     {
       "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\nTags: input",
       "summary": "text input element",
-      "path": "furo-text-input.js",
+      "path": "packages/furo-input/furo-text-input.js",
       "properties": [],
       "methods": [
         {
@@ -344,7 +344,7 @@
     {
       "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\nTags: input",
       "summary": "text input element",
-      "path": "furo-textarea-input.js",
+      "path": "packages/furo-input/furo-textarea-input.js",
       "properties": [
         {
           "name": "rows",
@@ -436,7 +436,7 @@
     {
       "description": "`furo-input-search`\nSimple search input element which uses a native `<input type=\"search\">` tag\n\nTags: input",
       "summary": "search input element",
-      "path": "furo-search-input.js",
+      "path": "packages/furo-input/furo-search-input.js",
       "properties": [],
       "methods": [
         {
@@ -489,7 +489,7 @@
     {
       "description": "`furo-input-color`\nSimple color input element which uses a native `<input type=\"color\">` tag\n\nTags: input",
       "summary": "color input element",
-      "path": "furo-color-input.js",
+      "path": "packages/furo-input/furo-color-input.js",
       "properties": [],
       "methods": [
         {
@@ -562,7 +562,7 @@
     {
       "description": "`furo-input-number`\nSimple number input element which uses a native `<input type=\"number\">` tag\n\nTags: input",
       "summary": "number input element",
-      "path": "furo-number-input.js",
+      "path": "packages/furo-input/furo-number-input.js",
       "properties": [
         {
           "name": "max",
@@ -654,7 +654,7 @@
     {
       "description": "`furo-input-range`\nSimple range input element which uses a native `<input type=\"range\">` tag\n\nTags: input",
       "summary": "range input element",
-      "path": "furo-range-input.js",
+      "path": "packages/furo-input/furo-range-input.js",
       "properties": [],
       "methods": [
         {
@@ -727,7 +727,7 @@
     {
       "description": "`furo-input-time`\nSimple time input element which uses a native `<input type=\"time\">` tag\n\nTags: input",
       "summary": "time input element",
-      "path": "furo-time-input.js",
+      "path": "packages/furo-input/furo-time-input.js",
       "properties": [],
       "methods": [
         {
@@ -800,7 +800,7 @@
     {
       "description": "`furo-input-checkbox`\nSimple checkbox input element which uses a native `<input type=\"checkbox\">` tag\n\nTags: input",
       "summary": "checkbox input element",
-      "path": "furo-checkbox-input.js",
+      "path": "packages/furo-input/furo-checkbox-input.js",
       "properties": [
         {
           "name": "text",
@@ -892,7 +892,7 @@
     {
       "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\nTags: input",
       "summary": "text input element",
-      "path": "furo-collection-dropdown.js",
+      "path": "packages/furo-input/furo-collection-dropdown.js",
       "properties": [],
       "methods": [
         {
@@ -969,7 +969,7 @@
     {
       "description": "`reference-search-item`\nDescribe your element",
       "summary": "shortdescription",
-      "path": "reference-search-item.js",
+      "path": "packages/furo-input/reference-search-item.js",
       "properties": [
         {
           "name": "myBool",
@@ -1159,7 +1159,7 @@
     {
       "description": "`furo-reference-search`\n Sucht eine Referenz\n\n\n```\n<!--  entity-object will eine Referenz auflösen -->\n<entity-object type=\"vnd.com.acme.task\" @-object-ready=\"--entityReady\"></entity-object>\n\n<furo-horizontal-flex>\n   <!--  furo-reference-search kann eine Referenz die entity-objekt besitzt darstellen.\n   Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den collection-agent.\n   Wenn collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->\n   <furo-reference-search autofocus  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-reference-search>\n\n   <furo-reference-search  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" min-term-length=\"2\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-reference-search>\n\n</furo-horizontal-flex>\n\n<!-- Der collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.\nDie Resultate werden an furo-reference-search zurück gegeben. -->\n<collection-agent service=\"tasks\" ƒ-search=\"--term\" ƒ-hts-in=\"--entityReady(*.fields.ref.value)\" @-response=\"--refCol\"></collection-agent>\n\n```\n\n![alt text](demo/assets/ref-search.png \"Logo Title Text 1\")",
       "summary": "shortdescription",
-      "path": "furo-reference-search.js",
+      "path": "packages/furo-input/furo-reference-search.js",
       "properties": [
         {
           "name": "minTermLength",
@@ -1379,7 +1379,7 @@
     {
       "description": "`furo-toggle-icon`\n\nTags: input",
       "summary": "toggles a boolean",
-      "path": "furo-toggle-icon.js",
+      "path": "packages/furo-input/furo-toggle-icon.js",
       "properties": [
         {
           "name": "value",
@@ -1608,7 +1608,7 @@
       "description": "",
       "summary": "",
       "sourceRange": {
-        "file": "FuroInputBase.js",
+        "file": "packages/furo-input/FuroInputBase.js",
         "start": {
           "line": 0,
           "column": 29
@@ -1626,7 +1626,7 @@
     {
       "description": "",
       "summary": "",
-      "path": "FuroInputBase.js",
+      "path": "packages/furo-input/FuroInputBase.js",
       "properties": [
         {
           "name": "value",
