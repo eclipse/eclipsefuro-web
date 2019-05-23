@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0.0",
+  "classes": [
+    {
+      "description": "",
+      "summary": "",
+      "path": "packages/framework/environment.js",
+      "properties": [],
+      "methods": [],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 1,
+          "column": 7
+        },
+        "end": {
+          "line": 3,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "name": "Env"
+    },
+    {
+      "description": "",
+      "summary": "",
+      "path": "packages/framework/i18n.js",
+      "properties": [],
+      "methods": [],
+      "staticMethods": [
+        {
+          "name": "registerResBundle",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 3,
+              "column": 2
+            },
+            "end": {
+              "line": 5,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "bundle"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "t",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 7,
+              "column": 2
+            },
+            "end": {
+              "line": 9,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "key"
+            }
+          ]
+        },
+        {
+          "name": "n",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 12,
+              "column": 2
+            },
+            "end": {
+              "line": 15,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "key"
+            },
+            {
+              "name": "num"
+            }
+          ]
+        }
+      ],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 1,
+          "column": 7
+        },
+        "end": {
+          "line": 16,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "name": "i18n"
+    },
+    {
+      "description": "",
+      "summary": "",
+      "path": "packages/framework/system.js",
+      "properties": [],
+      "methods": [],
+      "staticMethods": [
+        {
+          "name": "registerEnv",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 4,
+              "column": 2
+            },
+            "end": {
+              "line": 6,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "section"
+            },
+            {
+              "name": "data"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "registerApiServices",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 8,
+              "column": 2
+            },
+            "end": {
+              "line": 10,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "services"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "registerApiTypes",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 12,
+              "column": 2
+            },
+            "end": {
+              "line": 14,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "types"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "getThemeForComponent",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 16,
+              "column": 2
+            },
+            "end": {
+              "line": 18,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "registerThemeset",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 20,
+              "column": 2
+            },
+            "end": {
+              "line": 22,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "theme"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "setLocale",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 24,
+              "column": 2
+            },
+            "end": {
+              "line": 27,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "locale"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 2,
+          "column": 7
+        },
+        "end": {
+          "line": 29,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "name": "Init"
+    }
+  ]
+}
