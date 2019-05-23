@@ -19,14 +19,10 @@
 set -e
 
 packages=(`find packages -name "package.json" -maxdepth 2 | xargs -I '{}' dirname '{}'`)
-for package in ${packages[@]}; do
-     rm -r ${package}/node_modules
-done
+
 
 `npm bin`/lerna bootstrap
 `npm bin`/lerna clean --yes
-
-mkdir node_modules/@furo
 
 
 for package in ${packages[@]}; do
