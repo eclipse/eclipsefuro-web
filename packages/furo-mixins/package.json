@@ -5,7 +5,7 @@
   "dependencies": {
     "@furo/fbp": "^4.13.2"
   },
-  "gitHead": "2f60c3091cb4c94bf79dc92c09e9314e39947e4a",
+  "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",
   "publishConfig": {
     "access": "public"
   }
