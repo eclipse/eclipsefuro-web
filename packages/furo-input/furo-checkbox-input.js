@@ -55,7 +55,7 @@ class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
 </style>
      
       
-      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="checkbox" list="datalist" ƒ-.checked="--value" @-input="--inputCheckbox(*.path.0)"   ƒ-focus="--focusReceived">     
+      <input id="input"  aria-label="${this._label}" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="checkbox" list="datalist" ƒ-.checked="--value" @-input="--inputCheckbox(*.path.0)"   ƒ-focus="--focusReceived">     
       <label for="input" class="text">${this._label}</label>
       
       <div class="border"></div>  
