@@ -85,12 +85,13 @@ class FlowRepeat extends FBP(HTMLElement) {
 
 
     _findFirstHost(parent) {
-        if (parent.host) {
+        if (parent && parent.host) {
             return parent.host;
         }
-
+        if(parent === null){
+            return null
+        }
         return this._findFirstHost(parent.parentNode);
-
     }
 
     injectItems(items) {
@@ -100,7 +101,7 @@ class FlowRepeat extends FBP(HTMLElement) {
             items = [];
         }
 
-        this._firstHost = this._findFirstHost(this.parentNode);
+        this._firstHost = this._findFirstHost(this.parentNode) ;
         items.forEach((e, i, a) => {
             // build hidden elem
             let elem = document.createElement('empty-fbp-node');
