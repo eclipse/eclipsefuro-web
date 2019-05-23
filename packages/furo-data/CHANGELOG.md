@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.33.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.32.3...@furo/data@0.33.0) (2019-05-23)
+
+
+### Features
+
+* framework init ([8c638b1](https://github.com/veith/FuroBaseComponents/commit/8c638b1))
+
+
+
+
+
 ## [0.32.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.32.2...@furo/data@0.32.3) (2019-05-23)
 
 **Note:** Version bump only for package @furo/data

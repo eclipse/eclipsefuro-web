@@ -1,11 +1,11 @@
 {
   "name": "@furo/form",
   "main": "furo-catalog.js",
-  "version": "0.15.31",
+  "version": "0.15.32",
   "dependencies": {
-    "@furo/fbp": "^4.13.1",
-    "@furo/input": "^0.26.8",
-    "@furo/layout": "^0.19.4",
+    "@furo/fbp": "^4.13.2",
+    "@furo/input": "^0.26.9",
+    "@furo/layout": "^0.19.5",
     "@polymer/polymer": "^3.0.0"
   },
   "gitHead": "2f60c3091cb4c94bf79dc92c09e9314e39947e4a",
