@@ -1,3 +1,4 @@
+import {Env} from "./environment"
 
 export class i18n {
 
@@ -6,7 +7,7 @@ export class i18n {
   }
 
   static t(key) {
-    return this.resbundle[Furo.env.locale][key] || key + "**"
+    return this.resbundle[Env.locale][key] || key + "**"
   }
 
 

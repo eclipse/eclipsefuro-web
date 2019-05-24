@@ -14,17 +14,13 @@ export class Init {
     Env.api.specs = types
   }
 
-  static getThemeForComponent() {
-    return false
-  }
+}
 
-  static registerThemeset(theme) {
-
-  }
-
+export class Sys {
   static setLocale(locale) {
     //todo: checks
-    this.env.locale = locale;
+    console.log("Set locale from", Env.locale)
+    Env.locale = locale;
+    console.log("to", Env.locale)
   }
-
 }
