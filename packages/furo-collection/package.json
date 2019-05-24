@@ -12,7 +12,8 @@
     "@furo/layout": "^0.19.7",
     "@furo/mixins": "^0.14.8",
     "@furo/navigation": "^0.15.7",
-    "@furo/route": "^0.4.10"
+    "@furo/route": "^0.4.10",
+    "@furo/framework": "^0.1.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
