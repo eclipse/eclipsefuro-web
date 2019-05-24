@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.11...@furo/input@0.27.0) (2019-05-24)
+
+
+### Features
+
+* furo-***-input shared styles removed ([0e8587e](https://github.com/veith/FuroBaseComponents/commit/0e8587e))
+* furo-***-input themeable ([c243512](https://github.com/veith/FuroBaseComponents/commit/c243512))
+* furo-checkbox-input themeable ([82247be](https://github.com/veith/FuroBaseComponents/commit/82247be))
+* furo-text-input themeable ([476ce37](https://github.com/veith/FuroBaseComponents/commit/476ce37))
+
+
+
+
+
 ## [0.26.11](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.10...@furo/input@0.26.11) (2019-05-24)
 
 **Note:** Version bump only for package @furo/input
