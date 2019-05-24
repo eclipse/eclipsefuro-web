@@ -1,5 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
+import {Theme} from "@furo/framework/theme"
 
 /**
  * `loading-indicator`
@@ -26,7 +27,7 @@ class FuroLoadingIndicatorBar extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return css`
+    return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
             width: 100%;
@@ -34,7 +35,7 @@ class FuroLoadingIndicatorBar extends FBP(LitElement) {
             pointer-events: none;
             opacity: 0.8;
             background-color: var(--secondary-color);
-            animation: colorchange 5s;
+            animation: colorchange 5s infinite;
             @apply --loading-indicator-mixin;
         }
 
@@ -42,16 +43,26 @@ class FuroLoadingIndicatorBar extends FBP(LitElement) {
             display: none;
         }
 
-        @keyframes colorchange
-        {
-            0%   {background: red;}
-            25%  {background: yellow;}
-            50%  {background: blue;}
-            75%  {background: green;}
-            100% {background: red;}
+        @keyframes colorchange {
+            0% {
+                background: red;
+            }
+            25% {
+                background: yellow;
+            }
+            50% {
+                background: blue;
+            }
+            75% {
+                background: green;
+            }
+            100% {
+                background: red;
+            }
         }
     `
   }
+
 
   start() {
     this.removeAttribute("hidden");

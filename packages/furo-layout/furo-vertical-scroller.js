@@ -1,4 +1,5 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
+import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 
 /**
@@ -23,22 +24,34 @@ class FuroVerticalScroller extends FBP(LitElement) {
   }
 
 
+    /**
+     *
+     * @private
+     * @return {CSSResult}
+     */
+    static get styles() {
+      // language=CSS
+      return Theme.getThemeForComponent(this.name) || css`
+          :host {
+              display: block;
+              height: 100%;
+              overflow-y: auto;
+          }
+  
+          :host([hidden]) {
+              display: none;
+          }
+      `
+    }
+
+
   /**
    * @private
    * @returns {TemplateResult}
    */
   render() {
     // language=HTML
-    return html`
-      <style>
-        :host {
-          display: block;
-          height: 100%;
-          overflow-y: auto;
-        }
-      </style>
-      <slot></slot>
-    `;
+    return html`<slot></slot>`;
   }
 
 }

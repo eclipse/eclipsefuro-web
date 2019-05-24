@@ -1,4 +1,4 @@
-import {css} from 'lit-element/lib/css-tag.js';
+import {css} from 'lit-element/lib/css-tag';
 
 export class Theme {
 
@@ -10,3 +10,4 @@ export class Theme {
     this.theme = theme;
   }
 }
+Theme.theme = {};

@@ -1,4 +1,5 @@
 import {LitElement, html, css} from 'lit-element';
+import {Theme} from "@furo/framework/theme"
 
 /**
  * `furo-vertical-flex`
@@ -27,46 +28,51 @@ class FuroVerticalFlex extends LitElement {
     super();
   }
 
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return css`
-        :host {
-            --layout: {
-                display: -ms-flexbox;
-                display: -webkit-flex;
-                display: flex;
-            };
 
-            --layout-vertical: {
-                @apply --layout;
-                -ms-flex-direction: row;
-                -webkit-flex-direction: row;
-                flex-direction: row;
-            };
+    /**
+     *
+     * @private
+     * @return {CSSResult}
+     */
+    static get styles() {
+      // language=CSS
+      return Theme.getThemeForComponent(this.name) || css`
+          :host {
+              --layout: {
+                  display: -ms-flexbox;
+                  display: -webkit-flex;
+                  display: flex;
+              };
 
-            --layout-vertical: {
-                @apply --layout;
+              --layout-vertical: {
+                  @apply --layout;
+                  -ms-flex-direction: row;
+                  -webkit-flex-direction: row;
+                  flex-direction: row;
+              };
 
-                -ms-flex-direction: column;
-                -webkit-flex-direction: column;
-                flex-direction: column;
-            };
+              --layout-vertical: {
+                  @apply --layout;
 
-            --layout-vertical-reverse: {
-                @apply --layout;
+                  -ms-flex-direction: column;
+                  -webkit-flex-direction: column;
+                  flex-direction: column;
+              };
 
-                -ms-flex-direction: column-reverse;
-                -webkit-flex-direction: column-reverse;
-                flex-direction: column-reverse;
-            };
-        }
-    `
-  }
+              --layout-vertical-reverse: {
+                  @apply --layout;
+
+                  -ms-flex-direction: column-reverse;
+                  -webkit-flex-direction: column-reverse;
+                  flex-direction: column-reverse;
+              };
+          }
+          :host([hidden]) {
+              display: none;
+          }
+      `
+    }
+
 
 
   /**

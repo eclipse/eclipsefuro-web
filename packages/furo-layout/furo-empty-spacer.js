@@ -1,4 +1,5 @@
-import {LitElement, html} from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
+import {Theme} from "@furo/framework/theme"
 
 /**
  * `furo-empty-spacer`
@@ -36,22 +37,30 @@ class FuroEmptySpacer extends LitElement {
   }
 
   /**
+   *
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return Theme.getThemeForComponent(this.name) || css`
+        :host {
+            display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `
+  }
+
+  /**
    * @private
    * @returns {*}
    */
   render() {
     // language=HTML
-    return html`
-      <style>
-        :host {
-          display: block;
-        }
-
-        :host([hidden]) {
-          display: none;
-        }
-      </style>
-    `;
+    return html``;
   }
 
 }

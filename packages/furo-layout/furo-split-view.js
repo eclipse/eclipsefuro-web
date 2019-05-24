@@ -1,5 +1,7 @@
-import {LitElement, html} from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import {FBP} from "@furo/fbp";
+import {Theme} from "@furo/framework/theme"
+
 import "./furo-horizontal-flex"
 import "./furo-vertical-scroller"
 
@@ -29,36 +31,46 @@ class FuroSplitView extends FBP(LitElement) {
     };
   }
 
+
+  /**
+   *
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return Theme.getThemeForComponent(this.name) || css`
+        :host {
+            display: block;
+            height: inherit;
+        }
+        :host([hidden]) {
+            display: none;
+        }
+        .master {
+            height: 100%;
+            width: var(--split-master-width, 270px);
+            min-width: var(--split-master-width, 270px);
+            
+        }
+
+        .detail {
+            height: 100%;
+        }
+
+        furo-horizontal-flex {
+            height: 100%;
+        }
+    `
+  }
+
   /**
    * @private
    * @returns {TemplateResult}
    */
   render() {
     // language=HTML
-    return html`    
-      <style>
-        :host {
-          display: block;
-          height: inherit;
-        }
-        
-        .master{
-          height: 100%;
-          width: var(--split-master-width, 270px);       
-          min-width: var(--split-master-width, 270px);       
-          @apply --split-master;       
-        }
-        
-        .detail{
-          @apply --split-detail;
-           height: 100%;
-        }
-        
-        furo-horizontal-flex{
-          height: 100%;      
-        }
-      </style>
-      
+    return html`             
       <furo-horizontal-flex ?reverse="${this.reverse}">
         <div class="master">
           <slot name="master"></slot>

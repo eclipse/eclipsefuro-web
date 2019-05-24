@@ -1,4 +1,5 @@
 import {LitElement, html, css} from 'lit-element';
+import {Theme} from "@furo/framework/theme"
 
 /**
  * `furo-horizontal-flex`
@@ -22,6 +23,7 @@ import {LitElement, html, css} from 'lit-element';
  * @appliesMixin FBP
  */
 class FuroHorizontalFlex extends (LitElement) {
+
   /**
    *
    * @private
@@ -29,40 +31,44 @@ class FuroHorizontalFlex extends (LitElement) {
    */
   static get styles() {
     // language=CSS
-    return css`
-            :host {
-                width: 100%;
-                
-                --layout: {
-                    display: -ms-flexbox;
-                    display: -webkit-flex;
-                    display: flex;
-                };
+    return Theme.getThemeForComponent(this.name) || css`
+        :host {
+            width: 100%;
+            --layout: {
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+            };
 
-                --layout-horizontal: {
-                    @apply --layout;
-                    -ms-flex-direction: row;
-                    -webkit-flex-direction: row;
-                    flex-direction: row;
-                };
+            --layout-horizontal: {
+                -ms-flex-direction: row;
+                -webkit-flex-direction: row;
+                flex-direction: row;
+            };
 
-                --layout-flex: {
-                    -ms-flex: 1 1 0.000000001px;
-                    -webkit-flex: 1;
-                    flex: 1;
-                    -webkit-flex-basis: 0.000000001px;
-                    flex-basis: 0.000000001px;
-                };
+            --layout-flex: {
+                -ms-flex: 1 1 0.000000001px;
+                -webkit-flex: 1;
+                flex: 1;
+                -webkit-flex-basis: 0.000000001px;
+                flex-basis: 0.000000001px;
+            };
 
-                --layout-horizontal-reverse: {
-                    @apply --layout;
-                    -ms-flex-direction: row-reverse;
-                    -webkit-flex-direction: row-reverse;
-                    flex-direction: row-reverse;
-                };
+            --layout-horizontal-reverse: {
+                -ms-flex-direction: row-reverse;
+                -webkit-flex-direction: row-reverse;
+                flex-direction: row-reverse;
+            };
 
-            }`
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+    `
   }
+
 
 
   /**
