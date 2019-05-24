@@ -247,7 +247,7 @@ class FuroLocation extends HTMLElement {
       return path[0];
     }
     const [head, ...tail] = path;
-    return this._checkForAtagInPath(tail);
+    return this._findAtagInPath(tail);
   }
 
   /**
