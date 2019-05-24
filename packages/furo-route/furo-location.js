@@ -61,9 +61,9 @@ class FuroLocation extends HTMLElement {
     this._lastChangedAt = window.performance.now() - (this.dwellTime - 200);
 
     // initial notyfier
-        setTimeout(() => {
-    this._locationChangeNotyfier({"detail": this._lastChangedAt});
-        }, 0)
+    setTimeout(() => {
+      this._locationChangeNotyfier({"detail": this._lastChangedAt});
+    }, 0)
 
 
   }
@@ -189,7 +189,7 @@ class FuroLocation extends HTMLElement {
      */
     this._clickHandler = (e) => {
 
-      let target = e.path[0];
+      let target = this._findAtagInPath(e.path) || e.path[0];
 
       // only handle clicks on <a href="..
       if (target.tagName !== "A") {
@@ -231,6 +231,24 @@ class FuroLocation extends HTMLElement {
     }
   }
 
+  /**
+   * look for A tags in a path array from click events
+   * @param path
+   * @return {boolean|*}
+   * @private
+   */
+  _findAtagInPath(path) {
+
+    // if we reach body, we are to deep
+    if (path[0].tagName === "BODY") {
+      return false;
+    }
+    if (path[0].tagName === "A") {
+      return path[0];
+    }
+    const [head, ...tail] = path;
+    return this._checkForAtagInPath(tail);
+  }
 
   /**
    * Internal notyfication
