@@ -611,7 +611,12 @@
         }
       ],
       "staticMethods": [],
-      "demos": [],
+      "demos": [
+        {
+          "url": "demo/furo-number-input.html",
+          "description": ""
+        }
+      ],
       "metadata": {},
       "sourceRange": {
         "start": {
@@ -803,7 +808,7 @@
       ]
     },
     {
-      "description": "`furo-input-checkbox`\nSimple checkbox input element which uses a native `<input type=\"checkbox\">` tag\n\nTags: input",
+      "description": "`furo-input-checkbox`\nCheckbox input element which uses a native `<input type=\"checkbox\">` tag. Works best with furo-data components.\n\nTags: input",
       "summary": "checkbox input element",
       "path": "packages/furo-input/furo-checkbox-input.js",
       "properties": [

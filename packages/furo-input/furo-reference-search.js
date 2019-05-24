@@ -1,4 +1,5 @@
 import {LitElement, html, css} from 'lit-element';
+import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat";
 import "./furo-search-input"

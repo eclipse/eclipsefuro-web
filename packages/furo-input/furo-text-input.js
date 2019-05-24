@@ -57,7 +57,6 @@ class FuroTextInput extends FBP(FuroInputBase(LitElement)) {
             text-align: left;
             color: inherit;
             outline: none;
-            @apply --input-base-input-mixin;
         }
 
         .border {

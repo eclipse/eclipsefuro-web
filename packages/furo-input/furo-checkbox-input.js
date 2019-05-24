@@ -5,7 +5,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
 
 /**
  * `furo-input-checkbox`
- * Simple checkbox input element which uses a native `<input type="checkbox">` tag
+ * Checkbox input element which uses a native `<input type="checkbox">` tag. Works best with furo-data components.
  *
  * Tags: input
  * @summary checkbox input element
@@ -64,7 +64,6 @@ class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
             top:28px;
             border: none;
             border-bottom: 1px solid rgba(0, 0, 0, .12);
-            @apply --input-base-border-mixin;
         }
 
         :host(:focus-within) .border, :host(:focus-within) .borderBig{
@@ -93,7 +92,6 @@ class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
             color:transparent;
             white-space: nowrap;
             pointer-events: none;
-            @apply --input-base-hint-mixin;
         }
         :host(:focus-within) .hint{
             color: var(--app-hint-color);
@@ -103,19 +101,7 @@ class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
   }
 
   render() {
-    return html`
-    <style>
-    ${this._sharedStyle}
-    
-       
- 
-        
-        
-        
-        
-</style>
-     
-      
+    return html` 
       <input id="input"  aria-label="${this._label}" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="checkbox" list="datalist" ƒ-.checked="--value" @-input="--inputCheckbox(*.path.0)"   ƒ-focus="--focusReceived">     
       <label for="input" class="text">${this._label}</label>
       
