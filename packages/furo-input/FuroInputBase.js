@@ -18,17 +18,16 @@ export const FuroInputBase = (superClass) => {
           line-height: 1.5;          
         }
         
+        :host([hidden]) {
+            display: none;
+        }
+        
         :host([error]) .border{
           border-color: red;
           border-width: 1px;
         }
         
-        
-        :host([error]) .borderBig{
-          border-color: red;
-          border-width: 1px;
-        }
-        
+       
         input {
           border: none;  
           background: 0 0;
@@ -51,23 +50,6 @@ export const FuroInputBase = (superClass) => {
           border-bottom: 1px solid rgba(0, 0, 0, .12);
           @apply --input-base-border-mixin;
         }
-        
-
-        .borderBig{
-          position: absolute;
-          width: 100%;
-          height: 1px;
-          top:29px;
-          border: none;
-          border-bottom: 1px solid rgba(0, 0, 0, .12);
-          @apply --input-base-border-mixin;
-        }
-        
-        :host(:focus-within) .border, :host(:focus-within) .borderBig{
-          border-color: var(--primary-color,#3f51b5);
-          border-width: 1px;
-        }
-        
         label {
           position: absolute;        
           top: 8px;
@@ -107,6 +89,33 @@ export const FuroInputBase = (superClass) => {
           color: var(--app-hint-color);
           transition: all 550ms ease-in;
         }
+ 
+        :host([error]) .borderBig{
+          border-color: red;
+          border-width: 1px;
+        }
+        :host(:focus-within) .border{
+          border-color: var(--primary-color,#3f51b5);
+          border-width: 1px;
+        }
+        
+        :host(:focus-within) .borderBig{
+          border-color: var(--primary-color,#3f51b5);
+          border-width: 1px;
+        }
+        .borderBig{
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          top:29px;
+          border: none;
+          border-bottom: 1px solid rgba(0, 0, 0, .12);
+          @apply --input-base-border-mixin;
+        }
+        
+        
+        
+        
 `;
 
     }
