@@ -233,9 +233,9 @@ class FuroLocation extends HTMLElement {
 
   /**
    * look for A tags in a path array from click events
+   * @private
    * @param path
    * @return {boolean|*}
-   * @private
    */
   _findAtagInPath(path) {
 

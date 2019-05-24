@@ -8,8 +8,8 @@ import {FuroInputBase} from "./FuroInputBase.js";
  *
  * Tags: input
  * @summary checkbox input element
+ * @demo demo/checkbox.html
  * @customElement
- * @polymer
  * @mixes FBP
  * @mixes FuroInputBase
  */

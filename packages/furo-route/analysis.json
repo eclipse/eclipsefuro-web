@@ -130,16 +130,40 @@
           }
         },
         {
+          "name": "_findAtagInPath",
+          "description": "look for A tags in a path array from click events",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 239,
+              "column": 2
+            },
+            "end": {
+              "line": 250,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "path"
+            }
+          ],
+          "return": {
+            "type": "(boolean | *)"
+          }
+        },
+        {
           "name": "_notifyFuroLocationChanged",
           "description": "Internal notyfication",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 256,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 261,
               "column": 3
             }
           },
@@ -164,7 +188,7 @@
           "column": 0
         },
         "end": {
-          "line": 244,
+          "line": 262,
           "column": 1
         }
       },
