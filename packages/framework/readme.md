@@ -1,6 +1,9 @@
 #furo Framework
 
+We differ themeing and styling. *Themes* are in regular a rewrite of the components css and can contain style vars. We do not use mixins as long they are not "standard". *Styles* are used to set style vars like `--primary-color`. They give you the possibility to configure your themes in a simple way. Components which are using theming, give you *full control* over the css. 
 
+It is recommended to keep the original style vars when writing a theme set, this gives you the possibility to change themes, without the need to style them again.    
+  
 ## register a themeset
 You have to register the desired themeset, before your app starts. Otherwise the default themeset will be applied. 
 The best way is to do it in your `index.html`.
@@ -72,4 +75,4 @@ static get styles() {
 ```
 
 ##Writing a themeset
-Just watch at the example in [themeset.js](./examples/themeset.js).
+Just watch at the example in [themeset.js](./themes/default_theme.js).
