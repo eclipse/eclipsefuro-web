@@ -14,11 +14,8 @@ export const FuroInputBase = (superClass) => {
           margin: 0 0 14px 0;
           padding: 8px 0 2px 0;
           height: 28px;      
-          @apply --input-base-mixin; 
-        }
-        :host *{
           font-family: "Roboto", "Noto", sans-serif;
-          line-height: 1.5;
+          line-height: 1.5;          
         }
         
         :host([error]) .border{

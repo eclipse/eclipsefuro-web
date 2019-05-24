@@ -1,4 +1,5 @@
-import {LitElement, html} from 'lit-element';
+import {LitElement, html,css} from 'lit-element';
+import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {FuroInputBase} from "./FuroInputBase.js";
 
@@ -15,38 +16,98 @@ import {FuroInputBase} from "./FuroInputBase.js";
  */
 class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
 
+  /**
+   *
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return Theme.getThemeForComponent(this.name) || css`
+        :host {
+            display: inline-block;
+            position: relative;
+            font-size: 12px;
+            box-sizing: border-box;
+            margin: 0 0 14px 0;
+            padding: 8px 0 2px 0;
+            height: 28px;
+            font-family: "Roboto", "Noto", sans-serif;
+            line-height: 1.5;
+        }
+
+        :host([error]) .border {
+            border-color: red;
+            border-width: 1px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        input {
+            border: none;
+            background: 0 0;
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            width: unset;
+            text-align: left;
+            color: inherit;
+            outline: none;
+        }
+        
+        .border{
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top:28px;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, .12);
+            @apply --input-base-border-mixin;
+        }
+
+        :host(:focus-within) .border, :host(:focus-within) .borderBig{
+            border-color: var(--primary-color,#3f51b5);
+            border-width: 1px;
+        }
+        
+        label {
+            position: unset;
+            top: unset;
+            color: unset;
+            pointer-events: unset;
+            display: unset;
+            width: unset;
+            overflow: unset;
+            padding-left: 12px;
+        }
+        * {
+            transition: all 150ms ease-out;
+        }
+
+        .hint{
+            position: absolute;
+            top: 30px;
+            font-size: 10px;
+            color:transparent;
+            white-space: nowrap;
+            pointer-events: none;
+            @apply --input-base-hint-mixin;
+        }
+        :host(:focus-within) .hint{
+            color: var(--app-hint-color);
+            transition: all 550ms ease-in;
+        }
+    `
+  }
+
   render() {
     return html`
     <style>
     ${this._sharedStyle}
     
-        input {
-          border: none;  
-          background: 0 0;
-          font-size: 12px;
-          margin: 0;
-          padding: 0;
-          width: unset;
-          text-align: left;
-          color: inherit;
-          outline: none;
-          @apply --input-base-input-mixin; 
-        }
-  
-        label.text {
-          position: unset;        
-          top: unset;        
-          color: unset;                 
-          pointer-events: unset;        
-          display: unset;        
-          width: unset;        
-          overflow: unset;        
-          
-          
-          padding-left: 12px;
-          @apply --input-base-label-mixin;
-          @apply --checkbox-label-mixin;
-        }
+       
  
         
         
