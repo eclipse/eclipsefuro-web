@@ -4,7 +4,7 @@
   "keywords": [
     "routing"
   ],
-  "version": "0.4.8",
+  "version": "0.4.9",
   "main": "furo-catalog.js",
   "license": "MIT",
   "dependencies": {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.9](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.8...@furo/route@0.4.9) (2019-05-24)
+
+
+### Bug Fixes
+
+* furo-location check for clicks in nested elements ([86a2f54](https://github.com/veith/FuroBaseComponents/commit/86a2f54))
+
+
+
+
+
 ## [0.4.8](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.7...@furo/route@0.4.8) (2019-05-23)
 
 
