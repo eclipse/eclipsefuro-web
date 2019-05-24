@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.10](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.9...@furo/route@0.4.10) (2019-05-24)
+
+
+### Bug Fixes
+
+* _findAtagInPath ([703d2c1](https://github.com/veith/FuroBaseComponents/commit/703d2c1))
+
+
+
+
+
 ## [0.4.9](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.8...@furo/route@0.4.9) (2019-05-24)
 
 
