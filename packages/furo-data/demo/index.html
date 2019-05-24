@@ -8,9 +8,12 @@
 
   <script src="../../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
-  <script type="module" src="environment.js"></script>
-
   <script type="module">
+    import {Init} from "@furo/framework";
+    import {Services,Types} from "./environment"
+    Init.registerApiServices(Services);
+    Init.registerApiTypes(Types);
+
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
     import '@polymer/iron-demo-helpers/demo-snippet';
     import '@furo/fbp/flow-bind.js';
@@ -19,6 +22,7 @@
     import './produce-qp';
     import './repeated-data';
     import './repeated-string';
+
 
   </script>
   <script type="module" src="./produce-error.js"></script>
