@@ -160,11 +160,11 @@ class SideNavigation extends FBP(LitElement) {
                     <div class="label">Fundamentals</div>
                     <ul>
                         <a tabindex="-1" href="./_doc/welcome.html" @-click=":STOP, ^^navigation-clicked">
-                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:visibility"></iron-icon>Overview</span>
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:home"></iron-icon>Overview</span>
                             </li>
                         </a>
                         <a tabindex="-1" href="https://veith.github.io/flowbased-polymer/" @-click=":STOP, ^^navigation-clicked">
-                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:track-changes"></iron-icon>Develop Process</span>
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:track-changes"></iron-icon>Development Process</span>
                             </li>
                         </a>
                         
@@ -173,14 +173,25 @@ class SideNavigation extends FBP(LitElement) {
                             </li>
                         </a>
                         <a tabindex="-1" href="/components/@furo/framework/readme.md" @-click=":STOP, ^^navigation-clicked">
-                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:get-app"></iron-icon>Setup Web App</span>
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:toc"></iron-icon>The Framework</span>
                             </li>
                         </a>
                     </ul>
                     <hr>
                     <div class="label">Components</div>
                     <ul flex>
-                        
+                        <a tabindex="-1" href="/components/@furo/input" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:input"></iron-icon>Getting input</span>
+                            </li>
+                        </a>
+                        <a tabindex="-1" href="/components/@furo/data" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:cloud"></iron-icon>Dealing with data</span>
+                            </li>
+                        </a>
+                        <a tabindex="-1" href="/components/@furo/layout" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:dashboard"></iron-icon>Layouts helper</span>
+                            </li>
+                        </a>
                         <a tabindex="-1" href="/components/@furo/config" @-click=":STOP, ^^navigation-clicked">
                             <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:settings"></iron-icon>App Config</span>
                             </li>
@@ -191,25 +202,22 @@ class SideNavigation extends FBP(LitElement) {
                         </a>
                         <a tabindex="-1" href="/components/@furo/navigation/" @-click=":STOP, ^^navigation-clicked">
                             <li role="menuitem" tabindex="0"><span><iron-icon
-                                icon="icons:list"></iron-icon>Navigation</span></li>
+                                icon="icons:tab"></iron-icon>Navigation</span></li>
                         </a>
                         
-                        <a tabindex="-1" href="/components/@furo/layout" @-click=":STOP, ^^navigation-clicked">
-                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:dashboard"></iron-icon>Layouts helper</span>
-                            </li>
-                        </a>
+                       
                      
                         
                         <a tabindex="-1" href="/components/@furo/route/" @-click=":STOP, ^^navigation-clicked">
                             <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:arrow-forward"></iron-icon>Routing</span>
                             </li>
                         </a>
-                        <a tabindex="-1" href="/components/@furo/input" @-click=":STOP, ^^navigation-clicked">
-                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:input"></iron-icon>Getting input</span>
-                            </li>
-                        </a>
-                        <a tabindex="-1" href="/components/@furo/data" @-click=":STOP, ^^navigation-clicked">
-                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:cloud"></iron-icon>Dealing with data</span>
+                       
+                    </ul>
+                    <div class="label">License</div>
+                    <ul flex>
+                        <a tabindex="-1" href="./_doc/LICENSE.html" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:account-balance"></iron-icon>License</span>
                             </li>
                         </a>
                     </ul>
