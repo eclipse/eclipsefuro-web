@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>furo-button demo</title>
+
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
+    import '../furo-catalog';
+    import "@furo/fbp/flow-bind"
+
+  </script>
+
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+       furo-button{
+         --primary-color: #cc883a;
+         --on-primary: #FFFFFF;
+         --secondary-color: #FEA234;
+         --on-secondary:#FFF;
+       }
+    </style>
+  </custom-style>
+
+</head>
+<body>
+
+<div class="vertical-section-container centered">
+  <h3>furo-button</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <furo-button></furo-button>
+          <furo-button label="autofocus" autofocus></furo-button>
+          <furo-button label="other"></furo-button>
+          <furo-button disabled label="disabled"></furo-button>
+          <furo-button danger label="danger"></furo-button>
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+
+</body>
+</html>
