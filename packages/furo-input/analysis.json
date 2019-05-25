@@ -163,11 +163,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 35,
+              "line": 36,
               "column": 6
             },
             "end": {
-              "line": 37,
+              "line": 38,
               "column": 7
             }
           },
@@ -184,11 +184,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 42,
               "column": 6
             },
             "end": {
-              "line": 44,
+              "line": 45,
               "column": 7
             }
           },
@@ -201,15 +201,36 @@
         {
           "name": "disabled",
           "type": "boolean | null | undefined",
-          "description": "Set danger to true if it is dangerous to press this button",
+          "description": "Set disabled to disable the button",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 48,
+              "line": 49,
               "column": 6
             },
             "end": {
-              "line": 51,
+              "line": 52,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean | null | undefined",
+          "description": "Focus the element automatically",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 56,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
               "column": 7
             }
           },
@@ -227,11 +248,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 22,
+              "line": 23,
               "column": 2
             },
             "end": {
-              "line": 24,
+              "line": 25,
               "column": 3
             }
           },
@@ -251,11 +272,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 135,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 143,
+              "line": 147,
               "column": 3
             }
           },
@@ -276,11 +297,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 0
         },
         "end": {
-          "line": 144,
+          "line": 148,
           "column": 1
         }
       },
@@ -293,11 +314,11 @@
           "description": "Beschriftung des buttons",
           "sourceRange": {
             "start": {
-              "line": 35,
+              "line": 36,
               "column": 6
             },
             "end": {
-              "line": 37,
+              "line": 38,
               "column": 7
             }
           },
@@ -309,11 +330,11 @@
           "description": "Set danger to true if it is dangerous to press this button",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 42,
               "column": 6
             },
             "end": {
-              "line": 44,
+              "line": 45,
               "column": 7
             }
           },
@@ -322,14 +343,30 @@
         },
         {
           "name": "disabled",
-          "description": "Set danger to true if it is dangerous to press this button",
+          "description": "Set disabled to disable the button",
           "sourceRange": {
             "start": {
-              "line": 48,
+              "line": 49,
               "column": 6
             },
             "end": {
-              "line": 51,
+              "line": 52,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "autofocus",
+          "description": "Focus the element automatically",
+          "sourceRange": {
+            "start": {
+              "line": 56,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
               "column": 7
             }
           },
