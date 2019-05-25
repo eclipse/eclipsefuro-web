@@ -40,23 +40,28 @@
 
 <script type="module">
 
+    import '/node_modules/axe-core/axe.min.js';
+    import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
     describe('property tests ', function () {
 
 
         let element = {};
 
-        beforeEach(() => {
+        beforeEach(async () => {
             let fix = fixture('basic');
             element.$ = {
                 receiver: fix[1].querySelector("#receiver"),
                 sender: fix[1].querySelector("#sender")
             };
-
+            await element.updateComplete;
 
         });
 
 
+        it('a11y', () => {
+            return axeReport(fixture('basic'));
+        });
         it('should set the property prop of receiver to e.detail', (done) => {
 
 
