@@ -4,13 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-  <title>furo-layout-components demo</title>
+  <title>Furo BaseComponents</title>
 
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
   <script type="module">
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-    import '@polymer/iron-demo-helpers/demo-snippet';
     import "@furo/fbp/flow-bind"
     import "@furo/layout/furo-catalog"
     import "@furo/input/furo-button"
@@ -26,29 +25,6 @@
       line-height: 1.5;
     }
 
-    side-navigation {
-      --primary-color: #eaddfd;
-      --primary-variant-color: #eff5fa;
-      --secondary-color: #f4f4f4;
-      --secondary-variant-color: #edeeed;
-      --background: #ffffff;
-      --surface: #ffffff;
-      --error: #C51162;
-      --success: #129991;
-      --llm-color: #ffffff;
-      --llm-variant-color: #f0f1f4;
-      --disabled-color: #B4B5B4;
-
-      --on-primary: #691eee;
-      --on-secondary: #212121;
-      --on-background: #212121;
-      --on-surface: #212121;
-
-      --on-error: #ffffff;
-      --on-success: #202124;
-      --on-llm: #2c2c2c;
-      --gap-size: 12px;
-    }
 
     furo-split-view {
       display: block;
@@ -71,7 +47,6 @@
     <furo-split-view>
       <side-navigation slot="master" @-navigation-clicked="--nav-clicked(*)"></side-navigation>
       <iframe ƒ-.src="--nav-clicked(*.path.0.href)" src="_doc/welcome.html" frameborder="0"></iframe>
-
     </furo-split-view>
 
   </template>
