@@ -52,7 +52,7 @@ class FuroButton extends FBP(LitElement) {
         reflect: true
       },
       /**
-       * Set danger to true if it is dangerous to press this button
+       * Focus the element automatically
        */
       autofocus: {
         type: Boolean,
