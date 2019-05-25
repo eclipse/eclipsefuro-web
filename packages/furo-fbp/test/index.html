@@ -13,18 +13,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-
+    <script>
+        WCT = {
+            environmentScripts: [
+                // Mocha and Stacky are required dependencies
+                'stacky/lib/parsing.js',
+                'stacky/lib/formatting.js',
+                'stacky/lib/normalization.js',
+                'mocha/mocha.js',
+                // Include anything else that you like!
+            ],
+        };
+    </script>
     <title>Tests</title>
 
-    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+    <script src="/node_modules/wct-browser-legacy/browser.js"></script>
 </head>
 <body>
 <script>
     WCT.loadSuites([
 
-        'wire-hooks_test.html',
-        'property-setting_test.html',
-        'flow-bind_test.html',
+        'flow-bind_test.html'
 
     ]);
 </script>

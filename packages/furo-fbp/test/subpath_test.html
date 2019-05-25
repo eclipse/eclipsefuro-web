@@ -6,8 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
 
     <script type="module" src="../flow-bind.js"></script>
@@ -33,10 +38,17 @@
 
     describe('property tests ', function () {
 
-        let element;
+
+        let element = {};
 
         beforeEach(() => {
-            element = fixture('basic');
+            let fix = fixture('basic');
+            element.$ = {
+                receiver: fix[1].querySelector("#receiver"),
+                sender: fix[1].querySelector("#sender")
+            };
+
+
         });
 
 

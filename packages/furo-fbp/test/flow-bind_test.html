@@ -4,9 +4,16 @@
 <head>
     <title>flowbased-polymer test</title>
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+
 
     <script type="module" src="../flow-bind.js"></script>
 </head>
@@ -16,11 +23,9 @@
     <template>
         <flow-bind id="elem">
             <template >
-                <button id="btn" @-click="--clk"></button>
-                <div id="dd"   ƒ-done="--clk">x</div>
-                <script>
-                    console.dir(elem.$.dd)
-                </script>
+                <button @-click="--clk"></button>
+                <div ƒ-done="--clk">x</div>
+
             </template>
         </flow-bind>
 
@@ -32,13 +37,13 @@
 
 suite('flowbased-polymer ', function () {
     test('click should call done on div', (done) => {
-        const element = fixture('basic');
-        console.dir(element)
-        assert.equal(element.$.dd.innerText,"x");
-        element.$.dd.done = function () {
+        const elements = fixture('basic');
+        console.dir(elements)
+        assert.equal(elements[2].innerText,"x");
+        elements[2].done = function () {
             done()
         };
-        element.$.btn.click();
+        elements[1].click();
     });
 });
 </script>
