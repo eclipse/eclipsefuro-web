@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.27.0...@furo/input@0.28.0) (2019-05-25)
+
+
+### Features
+
+* furo-button as lit element, with disabled, autofocus and danger ([a6a70d3](https://github.com/veith/FuroBaseComponents/commit/a6a70d3))
+
+
+
+
+
 # [0.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.26.11...@furo/input@0.27.0) (2019-05-24)
 
 
