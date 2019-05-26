@@ -261,7 +261,7 @@
       "name": "Sys"
     },
     {
-      "description": "Todo Describe and explain",
+      "description": "We differ themeing and styling. *Themes* are in regular a rewrite of the components css and can contain style vars. We do not use mixins as long they are not \"standard\". *Styles* are used to set style vars like `--primary-color`. They give you the possibility to configure your themes in a simple way. Components which are using theming, give you *full control* over the css.\n\nIt is recommended to keep the original style vars when writing a theme set, this gives you the possibility to change themes, without the need to style them again.\n\n## register a themeset\nYou have to register the desired themeset, before your app starts. Otherwise the default themeset will be applied.\nThe best way is to do it in your `index.html`.\n\n```\n<script type=\"module\">\nimport {Init,Sys, Theme} from \"@furo/framework\";\nimport {MyThemeset} from \"./custom/themeset\"\nTheme.registerThemeset(MyThemeset);\n...\n```\n\n\n## Apply themeing your components\nApplying a theme to a component can be achieved by:\n\n```\nimport {Theme} from \"@furo/framework/theme\"\n\n\n// @private\n// @return {CSSResult}\nstatic get styles() {\n\nreturn Theme.getThemeForComponent(this.name) || css`\n   :host {\n       height: 100%;\n   }\n   side-navigation {\n       background-color: var(--nav-color);\n   }\n`\n}\n\n```\n\nto apply theming to your main app:\n\n```js\nimport {Theme} from \"@furo/framework/theme\"\n\n\n\n// @private\n// @return {CSSResult}\nstatic get styles() {\n   let theme = Theme.getThemeForComponent(this.name);\n   if (theme) {\n       return [theme, Styling.theme]\n   } else {\n       // language=CSS\n       return [css`\n           :host {\n               display: block;\n               height: 100vh;\n               overflow: hidden;\n           }\n       `, Styling.theme]\n   }\n}\n\n```\n\n##Writing a themeset\nJust watch at the example in [themeset.js](./themes/default_theme.js).",
       "summary": "",
       "path": "packages/framework/theme.js",
       "properties": [],
@@ -269,16 +269,16 @@
       "staticMethods": [
         {
           "name": "getThemeForComponent",
-          "description": "",
+          "description": "Get the theme for the component if it exists",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 8,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 10,
-              "column": 3
+              "line": 84,
+              "column": 1
             }
           },
           "metadata": {},
@@ -286,20 +286,23 @@
             {
               "name": "componentName"
             }
-          ]
+          ],
+          "return": {
+            "type": "*"
+          }
         },
         {
           "name": "registerThemeset",
-          "description": "",
+          "description": "Register a themeset",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 12,
+              "line": 90,
               "column": 2
             },
             "end": {
-              "line": 14,
-              "column": 3
+              "line": 92,
+              "column": 1
             }
           },
           "metadata": {},
@@ -317,11 +320,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 6,
+          "line": 75,
           "column": 7
         },
         "end": {
-          "line": 15,
+          "line": 93,
           "column": 1
         }
       },

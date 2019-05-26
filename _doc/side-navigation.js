@@ -3,6 +3,7 @@ import {FBP} from '@furo/fbp';
 import '@furo/layout';
 import "@polymer/iron-icons/iron-icons";
 import "@polymer/iron-icons/image-icons";
+import "@polymer/iron-icons/editor-icons";
 import "@polymer/iron-icons/av-icons";
 import "@polymer/iron-icons/notification-icons";
 
@@ -217,6 +218,10 @@ class SideNavigation extends FBP(LitElement) {
                         </a>
                         <a tabindex="-1" href="/components/@furo/config" @-click=":STOP, ^^navigation-clicked">
                             <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:settings"></iron-icon>App Config</span>
+                            </li>
+                        </a>
+                        <a tabindex="-1" href="/components/@furo/framework/#/classes/Theme" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="editor:format-paint"></iron-icon>Themes</span>
                             </li>
                         </a>
                         <a tabindex="-1" href="/components/@furo/framework/#/classes/i18n" @-click=":STOP, ^^navigation-clicked">
