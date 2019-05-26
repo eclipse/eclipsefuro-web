@@ -1,11 +1,11 @@
 {
     "suites": ["node_modules/@furo/fbp/test/*_test.html"],
+    "root": "",
     "npm": true,
     "moduleResolution": "node",
     "verbose": true,
     "plugins": {
         "istanbub": {
-            "dir": "./coverage",
             "reporters": ["text-summary", "lcov"],
             "include": [
                 "node_modules/@furo/fbp/*.js"

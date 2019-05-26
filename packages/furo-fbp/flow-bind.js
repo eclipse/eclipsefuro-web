@@ -20,6 +20,7 @@ class FlowBind extends FBP(HTMLElement) {
         elem.attachShadow({mode: 'open'});
         elem.shadowRoot.appendChild(this.template.cloneNode(true));
         elem._appendFBP(elem.shadowRoot);
+        this._host = elem;
         this.parentNode.appendChild(elem.shadowRoot);
     }
 }

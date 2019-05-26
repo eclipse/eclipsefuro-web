@@ -17,12 +17,14 @@
     "pwa-helpers": "^0.9.1",
     "wct-browser-legacy": "^1.0.2",
     "wct-istanbub": "^0.2.9",
-    "wct-mocha": "^1.0.0"
+    "wct-mocha": "^1.0.0",
+    "wct-test-reporter": "0.0.1"
   },
   "scripts": {
     "lint:imports": "node scripts/check-imports.js",
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
-    "doc": "./scripts/generate-analysis.sh"
+    "doc": "./scripts/generate-analysis.sh",
+    "test": "echo \"run polymer test from your terminal\""
   },
   "author": "veith",
   "license": "MIT"
