@@ -180,7 +180,7 @@ class SideNavigation extends FBP(LitElement) {
                             <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:home"></iron-icon>Overview</span>
                             </li>
                         </a>
-                        <a tabindex="-1" href="https://veith.github.io/flowbased-polymer/" @-click=":STOP, ^^navigation-clicked">
+                        <a tabindex="-1" href="https://veith.github.io/flowbased-polymer/wireing/overview/" @-click=":STOP, ^^navigation-clicked">
                             <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:track-changes"></iron-icon>Development Process</span>
                             </li>
                         </a>

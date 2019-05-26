@@ -2,6 +2,7 @@
   "name": "furoBaseComponents",
   "description": "Collection of furo base components",
   "devDependencies": {
+    "@google-web-components/google-youtube": "^3.0.1",
     "@polymer/iron-component-page": "^4.0.1",
     "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
     "@polymer/polymer": "^3.0.0",

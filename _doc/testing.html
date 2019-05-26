@@ -36,16 +36,21 @@
       to
       the includes for the istanbub plugin.</p>
 
-    <h3>Testing during development</h3>
+    <h3>Testing during development aka TDD</h3>
     <p>After starting <code>npm run serve</code>, just go to the test page which you want to see. The URL for the
       testsuites
       is composed as following<br>
-      <code>/packages/furo-fbp/test/</code><br>
-      This link will run the suite for <a href="/packages/furo-fbp/test/" target="_blank">@furo/fbp</a>. <br>
-      You can also run the tests individually, by adding the name of the test to the url: <a
-              href="/packages/furo-fbp/test/wire-hooks_test.html" target="_blank">wire-hooks_test.html</a>. Open the
-      console
-      for the detailed results, when testing individually.
+
+    <pre>
+    http://127.0.0.1:8000/packages/furo-fbp/test/wire-hooks_test.html
+    |         host       |      package   |suite|
+    |         host       |      package   |      component test     |
+   </pre>
+    This link will run the suite for <a href="/packages/furo-fbp/test/" target="_blank">@furo/fbp</a>. <br>
+    You can also run the tests individually, by adding the name of the test to the url: <a
+          href="/packages/furo-fbp/test/wire-hooks_test.html" target="_blank">wire-hooks_test.html</a>. Open the
+    console
+    for the detailed results, when testing individually.
     <h4>Adding Tests to the suite</h4>
     <p>To add a test to the suite, you have to register it in the <b>index.html</b> file, which is located in the test
       folder.</p>
