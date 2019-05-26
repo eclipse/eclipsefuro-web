@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.20.0...@furo/layout@0.21.0) (2019-05-26)
+
+
+### Bug Fixes
+
+* minor Layout problems ([747bd4e](https://github.com/veith/FuroBaseComponents/commit/747bd4e))
+
+
+### Features
+
+* Documentation works in Chrome, Firefox and Safari ([5235217](https://github.com/veith/FuroBaseComponents/commit/5235217))
+* Dokumentation ([c10c969](https://github.com/veith/FuroBaseComponents/commit/c10c969))
+* vertical-flex with user agent style only ([92607ca](https://github.com/veith/FuroBaseComponents/commit/92607ca))
+
+
+
+
+
 # [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.19.7...@furo/layout@0.20.0) (2019-05-24)
 
 
