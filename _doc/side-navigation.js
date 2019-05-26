@@ -29,6 +29,7 @@ class SideNavigation extends FBP(LitElement) {
                     display: block;
                     height: 100%;
                     background-color: var(--background);
+                    
                     --primary-color: #eaddfd;
                     --primary-variant-color: #eff5fa;
                     --secondary-color: #f4f4f4;

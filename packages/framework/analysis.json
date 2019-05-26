@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "classes": [
     {
-      "description": "",
+      "description": "Todo Describe and explain env",
       "summary": "",
       "path": "packages/framework/environment.js",
       "properties": [],
@@ -12,11 +12,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 1,
+          "line": 4,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 1
         }
       },
@@ -24,7 +24,7 @@
       "name": "Env"
     },
     {
-      "description": "",
+      "description": "Todo Describe and explain",
       "summary": "",
       "path": "packages/framework/i18n.js",
       "properties": [],
@@ -36,11 +36,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 4,
+              "line": 8,
               "column": 2
             },
             "end": {
-              "line": 6,
+              "line": 10,
               "column": 3
             }
           },
@@ -60,11 +60,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 8,
+              "line": 12,
               "column": 2
             },
             "end": {
-              "line": 10,
+              "line": 14,
               "column": 3
             }
           },
@@ -81,11 +81,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 13,
+              "line": 17,
               "column": 2
             },
             "end": {
-              "line": 16,
+              "line": 20,
               "column": 3
             }
           },
@@ -104,11 +104,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 2,
+          "line": 6,
           "column": 7
         },
         "end": {
-          "line": 17,
+          "line": 21,
           "column": 1
         }
       },
@@ -116,7 +116,7 @@
       "name": "i18n"
     },
     {
-      "description": "",
+      "description": "Todo Describe and explain",
       "summary": "",
       "path": "packages/framework/system.js",
       "properties": [],
@@ -128,11 +128,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 4,
+              "line": 8,
               "column": 2
             },
             "end": {
-              "line": 6,
+              "line": 10,
               "column": 3
             }
           },
@@ -155,11 +155,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 8,
+              "line": 12,
               "column": 2
             },
             "end": {
-              "line": 10,
+              "line": 14,
               "column": 3
             }
           },
@@ -179,11 +179,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 12,
+              "line": 16,
               "column": 2
             },
             "end": {
-              "line": 14,
+              "line": 18,
               "column": 3
             }
           },
@@ -202,11 +202,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 2,
+          "line": 6,
           "column": 7
         },
         "end": {
-          "line": 16,
+          "line": 20,
           "column": 1
         }
       },
@@ -214,7 +214,7 @@
       "name": "Init"
     },
     {
-      "description": "",
+      "description": "Todo Describe and explain SYS",
       "summary": "",
       "path": "packages/framework/system.js",
       "properties": [],
@@ -226,11 +226,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 19,
+              "line": 27,
               "column": 2
             },
             "end": {
-              "line": 24,
+              "line": 32,
               "column": 3
             }
           },
@@ -249,11 +249,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 18,
+          "line": 26,
           "column": 7
         },
         "end": {
-          "line": 25,
+          "line": 33,
           "column": 1
         }
       },
@@ -261,7 +261,7 @@
       "name": "Sys"
     },
     {
-      "description": "",
+      "description": "Todo Describe and explain",
       "summary": "",
       "path": "packages/framework/theme.js",
       "properties": [],
@@ -273,11 +273,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 4,
+              "line": 8,
               "column": 2
             },
             "end": {
-              "line": 6,
+              "line": 10,
               "column": 3
             }
           },
@@ -294,11 +294,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 8,
+              "line": 12,
               "column": 2
             },
             "end": {
-              "line": 10,
+              "line": 14,
               "column": 3
             }
           },
@@ -317,11 +317,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 2,
+          "line": 6,
           "column": 7
         },
         "end": {
-          "line": 11,
+          "line": 15,
           "column": 1
         }
       },

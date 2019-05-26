@@ -1,5 +1,9 @@
 import {Env} from "./environment";
 
+/**
+ * Todo Describe and explain
+ *
+ */
 export class Init {
 
   static registerEnv(section, data) {
@@ -16,6 +20,10 @@ export class Init {
 
 }
 
+/**
+ * Todo Describe and explain SYS
+ *
+ */
 export class Sys {
   static setLocale(locale) {
     //todo: checks
