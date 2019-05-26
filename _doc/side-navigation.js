@@ -54,6 +54,18 @@ class SideNavigation extends FBP(LitElement) {
                     --gap-size: 12px;
                 }
 
+
+                h1{
+                    margin: 0;
+                    color: white;
+                    background-color: #947b36;
+                    line-height: 64px;
+                    font-size:20px;
+                    font-weight:400;
+                    padding-left: 12px;
+                }
+
+                
                 ul {
                     list-style: none;
                     margin: 0 8px 0 8px;
@@ -158,6 +170,7 @@ class SideNavigation extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
+            <h1>フロー Furo</h1>
             <furo-vertical-flex>
                 <furo-vertical-scroller>
                     <div class="label">Fundamentals</div>

@@ -7,12 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>フロー PAGETITLE</title>
   <link rel="stylesheet" href="./doc.css">
-
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script type="module">
+    import '@furo/layout';
+  </script>
 </head>
 <body>
-<h1>フロー PAGETITLE</h1>
-<p>Intro text here</p>
-
+<furo-vertical-flex>
+  <h1>フロー PAGETITLE</h1>
+  <furo-vertical-scroller>
+    <p>Intro text here</p>
+  </furo-vertical-scroller>
+</furo-vertical-flex>
 
 </body>
 </html>
