@@ -36,7 +36,6 @@
     body {
       margin: 0;
       min-height: 100vh;
-
       background-color: #ffffff;
       font-family: "Roboto", "Noto", sans-serif;
       line-height: 1.5;
@@ -44,13 +43,7 @@
 
 
     furo-split-view {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      overflow: hidden;
+      height: 100vh;
     }
 
     iframe {
@@ -69,6 +62,7 @@
     <script>
       //
       flow._host._FBPAddWireHook("--nav-clicked", (e) => {
+
 
         /**
          * event.path is not standard :-( method composedPath is...

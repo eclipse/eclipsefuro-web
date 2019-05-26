@@ -170,8 +170,9 @@ class SideNavigation extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-            <h1>フロー Furo</h1>
+           
             <furo-vertical-flex>
+                <h1>フロー Furo</h1>
                 <furo-vertical-scroller>
                     <div class="label">Fundamentals</div>
                     <ul>

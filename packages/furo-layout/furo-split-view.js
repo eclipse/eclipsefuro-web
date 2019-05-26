@@ -56,6 +56,7 @@ class FuroSplitView extends FBP(LitElement) {
 
         .detail {
             height: 100%;
+            position: relative;
         }
 
         furo-horizontal-flex {
