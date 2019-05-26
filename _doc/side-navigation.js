@@ -211,6 +211,10 @@ class SideNavigation extends FBP(LitElement) {
                             <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:dashboard"></iron-icon>Layouts helper</span>
                             </li>
                         </a>
+                        <a tabindex="-1" href="/components/@furo/form" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:dashboard"></iron-icon>Forms helper</span>
+                            </li>
+                        </a>
                         <a tabindex="-1" href="/components/@furo/config" @-click=":STOP, ^^navigation-clicked">
                             <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:settings"></iron-icon>App Config</span>
                             </li>
@@ -224,11 +228,24 @@ class SideNavigation extends FBP(LitElement) {
                                 icon="icons:tab"></iron-icon>Navigation</span></li>
                         </a>
                         
-                       
-                     
                         
                         <a tabindex="-1" href="/components/@furo/route/" @-click=":STOP, ^^navigation-clicked">
                             <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:arrow-forward"></iron-icon>Routing</span>
+                            </li>
+                        </a>
+                       
+                        <a tabindex="-1" href="/components/@furo/timing/" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:alarm"></iron-icon>Timing</span>
+                            </li>
+                        </a>
+                       
+                        <a tabindex="-1" href="/components/@furo/math/" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:timeline"></iron-icon>Math</span>
+                            </li>
+                        </a>
+                       
+                        <a tabindex="-1" href="/components/@furo/util/" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:star-border"></iron-icon>Util</span>
                             </li>
                         </a>
                        
