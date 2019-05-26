@@ -1,8 +1,9 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from '@furo/fbp';
 import '@furo/layout';
-import "@polymer/iron-icons/iron-icons.js";
-import "@polymer/iron-icons/image-icons.js";
+import "@polymer/iron-icons/iron-icons";
+import "@polymer/iron-icons/image-icons";
+import "@polymer/iron-icons/notification-icons";
 
 /**
  * `side-navigation`
@@ -214,8 +215,13 @@ class SideNavigation extends FBP(LitElement) {
                         </a>
                        
                     </ul>
-                    <div class="label">License</div>
+                    <div class="label">Misc.</div>
                     <ul flex>
+                        <a tabindex="-1" href="./coverage/lcov-report/index.html" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="notification:network-check"></iron-icon>Test Coverage</span>
+                            </li>
+                        </a>
+                   
                         <a tabindex="-1" href="./_doc/LICENSE.html" @-click=":STOP, ^^navigation-clicked">
                             <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:account-balance"></iron-icon>License</span>
                             </li>
