@@ -180,10 +180,7 @@ class SideNavigation extends FBP(LitElement) {
                             </li>
                         </a>                       
                         
-                        <a tabindex="-1" href="./_doc/testing.html" @-click=":STOP, ^^navigation-clicked">
-                            <li role="menuitem" tabindex="0"><span><iron-icon icon="av:playlist-add-check"></iron-icon>Testing</span>
-                            </li>
-                        </a>
+
                     </ul>
                     <hr>
                     <div class="label">Components</div>
@@ -224,6 +221,10 @@ class SideNavigation extends FBP(LitElement) {
                     </ul>
                     <div class="label">Misc.</div>
                     <ul flex>
+                        <a tabindex="-1" href="./_doc/testing.html" @-click=":STOP, ^^navigation-clicked">
+                            <li role="menuitem" tabindex="0"><span><iron-icon icon="av:playlist-add-check"></iron-icon>Testing</span>
+                            </li>
+                        </a>
                         <a tabindex="-1" href="./coverage/lcov-report/index.html" @-click=":STOP, ^^navigation-clicked">
                             <li role="menuitem" tabindex="0"><span><iron-icon icon="notification:network-check"></iron-icon>Test Coverage</span>
                             </li>
