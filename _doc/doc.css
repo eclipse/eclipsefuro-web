@@ -4,14 +4,91 @@ body {
     background-color: #ffffff;
     font-family: "Roboto", "Noto", sans-serif;
     line-height: 1.5;
+    --split-master-width:300px;
 }
 
-h1{
+h1 {
     margin: 0;
     color: white;
     background-color: #947b36;
     line-height: 64px;
-    font-size:20px;
-    font-weight:400;
+    font-size: 20px;
+    font-weight: 400;
     padding-left: 12px;
 }
+
+furo-split-view furo-vertical-scroller {
+    padding-left: 12px;
+}
+
+furo-split-view > div[slot="master"] li {
+    align-content: normal;
+    align-items: normal;
+    align-self: auto;
+    color: rgb(51, 51, 51);
+    cursor: pointer;
+    display: block;
+    flex-basis: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-family: Roboto, Noto, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    height: 30px;
+    justify-content: normal;
+    line-height: 30px;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    padding-bottom: 0px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 0px;
+    text-align: left;
+    text-decoration-color: rgb(51, 51, 51);
+    text-decoration-line: none;
+    text-decoration-style: solid;
+    width: 252px;
+    -webkit-font-smoothing: antialiased;
+}
+
+furo-split-view > div[slot="master"] ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+furo-split-view > div[slot="master"] h2 {
+    align-content: normal;
+    align-items: normal;
+    align-self: auto;
+    color: rgb(113, 113, 113);
+    display: block;
+    flex-basis: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-family: Roboto, Noto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    height: 24px;
+    justify-content: normal;
+    line-height: 24px;
+    margin-block-end: 16px;
+    margin-block-start: 16px;
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
+    padding-bottom: 0px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 0px;
+    width: 252px;
+    -webkit-font-smoothing: antialiased;
+}
+
+furo-split-view > div[slot="master"] {
+    height: 100%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    background-color: #fbfbfb;
+    overflow-y: scroll;
+}
+

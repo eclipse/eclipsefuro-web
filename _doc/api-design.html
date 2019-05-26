@@ -13,14 +13,26 @@
   </script>
 </head>
 <body>
-<furo-vertical-flex>
-  <h1>API Design</h1>
-  <furo-vertical-scroller flex>
-    <p>We follow the <a href="https://cloud.google.com/apis/design/" target="_blank">Google API Design guidelines</a> for the API Design for the data components. A detailed description for the specs will <follow></follow>
+<furo-split-view>
+  <div slot="master">
+    <h2>API Design</h2>
+    <ul>
+      <li>Main</li>
+      <li>Second</li>
 
-    </p>
-  </furo-vertical-scroller>
-</furo-vertical-flex>
+    </ul>
+  </div>
 
+  <furo-vertical-flex>
+    <h1>Our prefered API Design rules</h1>
+    <furo-vertical-scroller flex>
+      <p>We follow the <a href="https://cloud.google.com/apis/design/" target="_blank">Google API Design guidelines</a>
+        for the API Design for the data components. A detailed description for the specs will
+        <follow></follow>
+
+      </p>
+    </furo-vertical-scroller>
+  </furo-vertical-flex>
+</furo-split-view>
 </body>
 </html>
