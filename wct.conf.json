@@ -3,12 +3,13 @@
         "node_modules/@furo/fbp/test/index.html",
         "node_modules/@furo/route/test/index.html"
     ],
-    "root": "",
+    "root": "./",
     "npm": true,
     "moduleResolution": "node",
     "verbose": true,
     "plugins": {
         "istanbub": {
+
             "reporters": ["text-summary", "lcov"],
             "include": [
                 "node_modules/@furo/fbp/*.js",

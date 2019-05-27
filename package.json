@@ -16,6 +16,7 @@
     "mocha": "^5.2.0",
     "polymer-cli": "^1.9.5",
     "pwa-helpers": "^0.9.1",
+    "web-component-tester": "6.9.2",
     "wct-browser-legacy": "^1.0.2",
     "wct-istanbub": "^0.2.9",
     "wct-mocha": "^1.0.0",
@@ -26,7 +27,7 @@
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
     "doc": "./scripts/generate-analysis.sh",
     "serve": "polymer serve",
-    "test": "echo \"run polymer test from your terminal\""
+    "test": "echo run polymer test please"
   },
   "author": "veith",
   "license": "MIT"
