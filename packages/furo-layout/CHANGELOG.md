@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.21.0...@furo/layout@0.22.0) (2019-05-27)
+
+
+### Features
+
+* furo-card ([088a081](https://github.com/veith/FuroBaseComponents/commit/088a081))
+
+
+
+
+
 # [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.20.0...@furo/layout@0.21.0) (2019-05-26)
 
 
