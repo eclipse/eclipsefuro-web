@@ -208,7 +208,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
             top: 32px;
             left: 0;
             right: 0;
-            overflow: scroll;
+            overflow: auto;
             max-height: 300px;
             background-color: white;
             z-index: 1;

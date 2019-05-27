@@ -66,7 +66,7 @@ class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
             border-bottom: 1px solid rgba(0, 0, 0, .12);
         }
 
-        :host(:focus-within) .border, :host(:focus-within) .borderBig{
+        :host(:focus-within) .border{
             border-color: var(--primary-color,#3f51b5);
             border-width: 1px;
         }

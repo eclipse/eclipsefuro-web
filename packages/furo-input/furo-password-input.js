@@ -107,7 +107,7 @@ class FuroPasswordInput extends FBP(FuroInputBase(LitElement)) {
             transition: all 550ms ease-in;
         }
 
-        :host([error]) .borderBig {
+        :host([error]) .border {
             border-color: red;
             border-width: 1px;
         }
