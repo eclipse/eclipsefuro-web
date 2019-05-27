@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.1](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.22.0...@furo/layout@0.22.1) (2019-05-27)
+
+
+### Bug Fixes
+
+* furo-card import ([9510e23](https://github.com/veith/FuroBaseComponents/commit/9510e23))
+
+
+
+
+
 # [0.22.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.21.0...@furo/layout@0.22.0) (2019-05-27)
 
 
