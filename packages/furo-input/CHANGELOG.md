@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.3](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.2...@furo/input@0.29.3) (2019-05-28)
+
+
+### Bug Fixes
+
+* idField exposed as property and used for mapping. Default value is still id ([7dfc94d](https://github.com/veith/FuroBaseComponents/commit/7dfc94d))
+
+
+
+
+
 ## [0.29.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.1...@furo/input@0.29.2) (2019-05-27)
 
 **Note:** Version bump only for package @furo/input
