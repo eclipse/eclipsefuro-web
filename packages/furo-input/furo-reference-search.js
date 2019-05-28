@@ -52,10 +52,12 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
       case "min-term-length":
         this.minTermLength = Number(newval);
         break;
+      case "id-field":
+        this.idField = newval;
+        break;
     }
 
   }
-
 
   _init() {
     super._init();
@@ -76,7 +78,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
     });
 
     this._FBPAddWireHook("--itemSelected", (item) => {
-      this.field.id.set(item.id);
+      this.field.id.set(item[this.idField]);
       this.field.display_name.set(item.display_name);
       this._closeList();
     });
@@ -174,7 +176,8 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
       /**
        * min-term-length before fire the search event
        */
-      minTermLength: {type: Number, attribute: 'min-term-length'}
+      minTermLength: {type: Number, attribute: 'min-term-length'},
+      idField: {type: String, attribute: 'id-field'}
 
     };
   }
