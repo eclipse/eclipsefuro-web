@@ -27,6 +27,17 @@ class FuroPages extends FBP(LitElement) {
         for (l; l >= 0; l--) {
             this.children[l].setAttribute("hidden", '');
         }
+    // Activate Default
+    this.activatePage(this._fallback)
+    }
+
+
+    /**
+     * Activate a page by name
+     * @param String pageName
+     */
+    activatePage(pageName){
+        this.injectLocation({"pathSegments":[pageName]})
     }
 
     /**
