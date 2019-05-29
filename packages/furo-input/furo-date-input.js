@@ -70,23 +70,19 @@ class FuroDateInput extends FBP(FuroInputBase(LitElement)) {
 
         label {
             position: absolute;
-            top: 8px;
-            color: rgba(0, 0, 0, .26);
-            font-size: 12px;
             pointer-events: none;
             display: block;
             width: 100%;
             overflow: hidden;
             white-space: nowrap;
             text-align: left;
-         }
-
-        label[float="true"] {
             color: var(--primary-color, #3f51b5);
             font-size: 10px;
             top: -4px;
             visibility: visible;
          }
+
+       
 
         * {
             transition: all 150ms ease-out;
@@ -128,7 +124,7 @@ ${this._sharedStyle}
       
       <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled} type="date" list="datalist" ƒ-.value="--value" @-input="--inputInput(*.path.0)"   ƒ-focus="--focusReceived">
       <div class="border"></div>
-      <label float="true" for="input">${this._label}</label>  
+      <label for="input">${this._label}</label>  
       <div class="hint">${this.hint}</div>
  
     `;
