@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.5.0...@furo/route@0.6.0) (2019-05-29)
+
+
+### Features
+
+* furo-pages activatePage(name) by name ([c8bda9a](https://github.com/veith/FuroBaseComponents/commit/c8bda9a))
+
+
+
+
+
 # [0.5.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.4.11...@furo/route@0.5.0) (2019-05-26)
 
 
