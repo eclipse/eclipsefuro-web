@@ -37,6 +37,9 @@ class FuroPages extends (LitElement) {
    */
   activatePage(pageName) {
 
+    if (!pageName) {
+      pageName = this._fallback;
+    }
     if (this._lastPage && pageName !== this._lastPageName) {
       if (this._lastPage._FBPTriggerWire !== undefined) {
         this._lastPage._FBPTriggerWire('--pageDeActivated');
