@@ -119,14 +119,39 @@ class FuroLocation extends HTMLElement {
         }
 
 
+
         /**
          * @event location-path-changed
          * Fired when Path portion of the location changed
-         * detail payload: {string} path
+         * detail payload: {Array} pathSegments
          */
         let customEvent = new Event('location-path-changed', {composed: true, bubbles: false});
-        customEvent.detail = newPath;
-        this.dispatchEvent(customEvent)
+
+        customEvent.detail = this._location.pathSegments;
+        this.dispatchEvent(customEvent);
+
+        // notify with masked location (strip rgx part from path segments)
+        if (this.urlSpaceRegex) {
+          let maskedPath = newPath.replace(new RegExp(this.urlSpaceRegex),"");
+          this._location.maskedPathSegments = [];
+
+          let m;
+          while ((m = rgx.exec(maskedPath)) !== null) {
+            this._location.maskedPathSegments.push(m[1]);
+          }
+
+
+          /**
+           * @event masked-path-changed
+           * Fired when Path portion of the location changed, but without the urlSpaceRegex part.
+           *
+           * detail payload: {Array}  with path segments minus the urlSpaceRegex
+           */
+          let maskePathEvent = new Event('masked-path-changed', {composed: true, bubbles: true});
+          maskePathEvent.detail = this._location.maskedPathSegments;
+          this.dispatchEvent(maskePathEvent);
+        }
+
       }
       // hash-changed
       let newHash = window.decodeURIComponent(window.location.hash.slice(1));
@@ -180,6 +205,7 @@ class FuroLocation extends HTMLElement {
       let customEvent = new Event('location-changed', {composed: true, bubbles: false});
       customEvent.detail = this._location;
       this.dispatchEvent(customEvent);
+
     };
 
     /**

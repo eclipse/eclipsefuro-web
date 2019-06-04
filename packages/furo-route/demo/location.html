@@ -31,11 +31,11 @@
         <template>
           <furo-location  @-location-changed="--lc" ></furo-location>
           <furo-location  url-space-regex="^/other" ></furo-location>
-
           <a href="#xx">hash xx</a>
           <a href="#yy">hash yy</a>
           <a href="/components/@furo/route/demo/location.html?a=4&b=23#haha=34">relative</a>
-          <a href="/other">relative</a>
+          <a href="/other/xx">other x</a>
+          <a href="/other/yy">other y</a>
           <div ƒ-.inner-text="--lc(*.hash)"></div>
         </template>
       </flow-bind>
