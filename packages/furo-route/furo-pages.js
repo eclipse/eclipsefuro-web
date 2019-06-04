@@ -8,9 +8,8 @@ import {FBP} from "@furo/fbp";
  *
  * @customElement
  * @demo demo/furo-pages.html
- * @appliesMixin FBP
  */
-class FuroPages extends FBP(LitElement) {
+class FuroPages extends (LitElement) {
 
   constructor() {
     super();
