@@ -26,7 +26,7 @@
     "lint:imports": "node scripts/check-imports.js",
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
     "doc": "./scripts/generate-analysis.sh",
-    "serve": "polymer serve",
+    "serve": "polymer serve -p 7777",
     "test": "echo run polymer test please"
   },
   "author": "veith",

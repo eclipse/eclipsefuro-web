@@ -41,7 +41,7 @@ let exitCode = 0;
 main();
 
 function main() {
-  globSync('packages/**/*.js')
+  globSync('packages/*/*.js')
     .filter((p) => !(/\/node_modules\/|\/dist\//).test(p))
     .forEach(check);
   process.exit(exitCode);

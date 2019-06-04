@@ -8,6 +8,7 @@
     "@furo/mixins": "^0.15.0",
     "@polymer/iron-ajax": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
+    "@furo/framework": "^0.4.1",
     "lit-element": "^2.1.0"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",

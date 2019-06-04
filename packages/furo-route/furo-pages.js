@@ -110,7 +110,7 @@ class FuroPages extends FBP(LitElement) {
 
     let page = location.pathSegments[0] || this._fallback;
     this.activatePage(page);
-    console.warn("Derpecated method: inject-location \n please use activate-page with the head-tail component.")
+    console.warn("Deprecated method: inject-location \n please use activate-page with the head-tail component.")
 
   }
 
