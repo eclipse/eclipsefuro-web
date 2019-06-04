@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.0...@furo/route@0.7.1) (2019-06-04)
+
+
+### Bug Fixes
+
+* imports linted ([0d62b33](https://github.com/veith/FuroBaseComponents/commit/0d62b33))
+* use default on empty name ([7b0fc4f](https://github.com/veith/FuroBaseComponents/commit/7b0fc4f))
+
+
+
+
+
 # [0.7.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.6.0...@furo/route@0.7.0) (2019-06-04)
 
 

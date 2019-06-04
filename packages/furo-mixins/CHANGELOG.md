@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.1](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.0...@furo/mixins@0.15.1) (2019-06-04)
+
+
+### Bug Fixes
+
+* imports linted ([0d62b33](https://github.com/veith/FuroBaseComponents/commit/0d62b33))
+
+
+
+
+
 # [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.14.8...@furo/mixins@0.15.0) (2019-05-26)
 
 

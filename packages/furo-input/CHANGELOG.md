@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.6](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.5...@furo/input@0.29.6) (2019-06-04)
+
+
+### Bug Fixes
+
+* imports linted ([0d62b33](https://github.com/veith/FuroBaseComponents/commit/0d62b33))
+
+
+
+
+
 ## [0.29.5](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.4...@furo/input@0.29.5) (2019-06-04)
 
 **Note:** Version bump only for package @furo/input
