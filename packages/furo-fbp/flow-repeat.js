@@ -135,6 +135,9 @@ class FlowRepeat extends FBP(HTMLElement) {
                 elem._FBPTriggerWire("--lastItem", e);
             }
 
+            // set item to host
+            elem.item = e;
+            elem.index = i;
             elem._FBPTriggerWire("--item", e);
             elem._FBPTriggerWire("--host", this._firstHost);
             elem._FBPTriggerWire("--index", i);
