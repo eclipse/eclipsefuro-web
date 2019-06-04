@@ -1,3 +1,74 @@
 {
-  "schema_version": "1.0.0"
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "`furo-head-tail`\n Splits an iterable (i.e. Array) in its head and tail part.\n\n```\n <furo-location @-location-path-changed=\"--pathChanged\"></furo-location>\n <furo-head-tail ƒ-split=\"--pathChanged\" @-head=\"--page\"></furo-head-tail>\n <furo-pages ƒ-activate-page=\"--page\" default=\"overview\">\n   ...\n```",
+      "summary": "",
+      "path": "packages/furo-util/furo-head-tail.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "split",
+          "description": "Splits an iterable to its head (first item) and its tail (the rest) parts.\n\n```\n[\"a\", \"b\", \"c\", \"d\"]\n |_|  |___________|\n  ^      ^\n  |      |\n  |     TAIL\n HEAD\n```",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 29,
+              "column": 2
+            },
+            "end": {
+              "line": 52,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "iterable"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 53,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroHeadTail",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "head",
+          "description": "head\nFired when Array was splitted\ndetail payload: {Any} first element of array",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "tail",
+          "description": "tail\nFired when Array was splitted\ndetail payload: {Array || Any} the tail from the injected array (e1 - 1n)",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-head-tail"
+    }
+  ]
 }

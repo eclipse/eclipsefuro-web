@@ -2,6 +2,136 @@
   "schema_version": "1.0.0",
   "elements": [
     {
+      "description": "`furo-pages`\n\nYou have to implement a `:host([hidden]){display:none}` in your views",
+      "summary": "",
+      "path": "packages/furo-route/furo-pages.js",
+      "properties": [
+        {
+          "name": "location",
+          "type": "?",
+          "description": "set location via attribute\nwill forward to ƒ-inject-location",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 99,
+              "column": 2
+            },
+            "end": {
+              "line": 101,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "activatePage",
+          "description": "Activate a page by name",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 2
+            },
+            "end": {
+              "line": 92,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "pageName"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "injectLocation",
+          "description": "Inject the location Object from furo-location",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 108,
+              "column": 2
+            },
+            "end": {
+              "line": 114,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "location"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 135,
+              "column": 2
+            },
+            "end": {
+              "line": 140,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-pages.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 12,
+          "column": 0
+        },
+        "end": {
+          "line": 142,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroPages",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-pages",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
       "description": "",
       "summary": "",
       "path": "packages/furo-route/furo-location.js",
@@ -119,7 +249,7 @@
               "column": 2
             },
             "end": {
-              "line": 231,
+              "line": 257,
               "column": 3
             }
           },
@@ -135,11 +265,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 265,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 276,
               "column": 3
             }
           },
@@ -159,11 +289,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 261,
+              "line": 287,
               "column": 3
             }
           },
@@ -188,7 +318,7 @@
           "column": 0
         },
         "end": {
-          "line": 262,
+          "line": 288,
           "column": 1
         }
       },
@@ -212,13 +342,19 @@
         {
           "type": "CustomEvent",
           "name": "location-path-changed",
-          "description": "location-path-changed\nFired when Path portion of the location changed\ndetail payload: {string} path",
+          "description": "location-path-changed\nFired when Path portion of the location changed\ndetail payload: {Array} pathSegments",
           "metadata": {}
         },
         {
           "type": "CustomEvent",
           "name": "location-query-changed",
           "description": "location-query-changed\nFired when Query portion of the location changed\ndetail payload: {Object} queryParams",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "masked-path-changed",
+          "description": "masked-path-changed\nFired when Path portion of the location changed, but without the urlSpaceRegex part.\n\ndetail payload: {Array}  with path segments minus the urlSpaceRegex",
           "metadata": {}
         }
       ],
@@ -1337,112 +1473,6 @@
       },
       "slots": [],
       "tagname": "furo-app-flow-router",
-      "mixins": [
-        "FBP"
-      ]
-    },
-    {
-      "description": "`furo-pages`\n\nYou have to implement a `:host([hidden]){display:none}` in your views",
-      "summary": "",
-      "path": "packages/furo-route/furo-pages.js",
-      "properties": [
-        {
-          "name": "location",
-          "type": "?",
-          "description": "set location via attribute\nwill forward to ƒ-inject-location",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 36,
-              "column": 4
-            },
-            "end": {
-              "line": 38,
-              "column": 5
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "injectLocation",
-          "description": "Inject the location Object from furo-location",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 45,
-              "column": 4
-            },
-            "end": {
-              "line": 101,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "location"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "render",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 122,
-              "column": 4
-            },
-            "end": {
-              "line": 127,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "TemplateResult"
-          }
-        }
-      ],
-      "staticMethods": [],
-      "demos": [
-        {
-          "url": "demo/furo-pages.html",
-          "description": ""
-        }
-      ],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 12,
-          "column": 0
-        },
-        "end": {
-          "line": 129,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "HTMLElement",
-      "name": "FuroPages",
-      "attributes": [],
-      "events": [],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "furo-pages",
       "mixins": [
         "FBP"
       ]

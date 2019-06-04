@@ -2825,6 +2825,66 @@
       "mixins": [
         "FBP"
       ]
+    },
+    {
+      "description": "`furo-card`\ntodo Describe your element",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-layout/furo-card.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 2
+            },
+            "end": {
+              "line": 67,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-card.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 68,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroCard",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-card",
+      "mixins": [
+        "FBP"
+      ]
     }
   ]
 }

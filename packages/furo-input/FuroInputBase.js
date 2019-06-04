@@ -1,3 +1,7 @@
+/**
+ *
+ * @mixinFunction FuroInputBase
+ */
 export const FuroInputBase = (superClass) => {
 
   return class extends superClass {
