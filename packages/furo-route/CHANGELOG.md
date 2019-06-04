@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.6.0...@furo/route@0.7.0) (2019-06-04)
+
+
+### Features
+
+* furo-location, furo-pages interaction with furo-head-tail ([d14e706](https://github.com/veith/FuroBaseComponents/commit/d14e706))
+
+
+
+
+
 # [0.6.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.5.0...@furo/route@0.6.0) (2019-05-29)
 
 
