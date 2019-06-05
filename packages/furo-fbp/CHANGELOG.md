@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.15.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.14.0...@furo/fbp@4.15.0) (2019-06-05)
+
+
+### Features
+
+* index and item on flow-repeat item available as property ([4e32105](https://github.com/veith/flowbased-polymer/commit/4e32105))
+
+
+
+
+
 # [4.14.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.13.4...@furo/fbp@4.14.0) (2019-05-26)
 
 

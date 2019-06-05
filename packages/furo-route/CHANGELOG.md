@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.1...@furo/route@0.7.2) (2019-06-05)
+
+
+### Bug Fixes
+
+* furo-location cuts of urlSpaceRegex part of url ([600b739](https://github.com/veith/FuroBaseComponents/commit/600b739))
+* furo-pages works with location object from furo-location ([e69b6e2](https://github.com/veith/FuroBaseComponents/commit/e69b6e2))
+
+
+
+
+
 ## [0.7.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.0...@furo/route@0.7.1) (2019-06-04)
 
 
