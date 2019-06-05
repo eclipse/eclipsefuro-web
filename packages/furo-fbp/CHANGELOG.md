@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.16.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.15.0...@furo/fbp@4.16.0) (2019-06-05)
+
+
+### Features
+
+* fbp with _FBPDebug and _FBPTraceWires ([24dfdef](https://github.com/veith/flowbased-polymer/commit/24dfdef))
+
+
+
+
+
 # [4.15.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.14.0...@furo/fbp@4.15.0) (2019-06-05)
 
 
