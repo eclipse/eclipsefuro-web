@@ -8,12 +8,12 @@
     "_assets/**/*",
     "custom/**/*",
     "_doc/**/*",
-    "coverage/**/*",
-    "node_modules/@furo/**/*"
+    "coverage/**/*"
   ],
   "extraDependencies": [
     "manifest.json",
-    "node_modules/@webcomponents/webcomponentsjs/*.js"
+    "node_modules/@webcomponents/webcomponentsjs/*.js",
+    "node_modules/@polymer/iron-component-page/iron-component-page.js"
   ],
   "builds": [
     {
