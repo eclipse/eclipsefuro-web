@@ -100,6 +100,69 @@ const FBPMixin = (superClass) => {
 
         }
 
+        /**
+         * Log all triggered wires for this component. This function may help you at debugging.
+         * Select your element in the dev console and call `$0._FBPTraceWires()`
+         * @private
+         */
+        _FBPTraceWires() {
+            for (let wire in this.__wirebundle) {
+                this._FBPAddWireHook(wire, (e) => {
+                    console.group("Trace for", this.nodeName + ": " + wire);
+                    console.table([{"host": self, "wire": wire, "data": e}]);
+
+                    console.groupCollapsed("Data");
+                    console.log(e);
+                    console.groupEnd();
+
+                    let stack = new Error().stack.split('\n');
+                    stack.splice(0, 5);
+
+                    console.groupCollapsed("Call Stack (" + stack.length + ")");
+                    console.log(stack.join('\n'));
+                    console.groupEnd();
+                    console.groupEnd();
+                }, true)
+            }
+
+        }
+
+        /**
+         * Get information for the triggered wire. This function may help you at debugging.
+         * Select your element in the dev console and call `$0._FBPDebug('--dataReceived')`
+         *
+         * @param wire
+         * @param openDebugger opens the debugger console, so you can inspect your component.
+         * @private
+         */
+        _FBPDebug(wire, openDebugger) {
+            let self = this;
+            this._FBPAddWireHook(wire, (e) => {
+                if (openDebugger) {
+                    debugger
+                } else {
+                    console.group("Debug", this.nodeName + ": " + wire);
+                    console.group("Target Elements");
+                    console.table(self.__wirebundle[wire]);
+                    console.groupEnd();
+
+                    console.groupCollapsed("Data");
+                    console.log(e);
+                    console.groupEnd();
+
+                    let stack = new Error().stack.split('\n');
+                    stack.splice(0, 6);
+
+                    console.groupCollapsed("Call Stack (" + stack.length + ")");
+                    console.log(stack.join('\n'));
+                    console.groupEnd();
+
+                    console.groupEnd();
+
+                }
+            }, true)
+        }
+
         __toCamelCase(str) {
             return str.replace(/-([a-z])/g, function (g) {
                 return g[1].toUpperCase();
@@ -139,8 +202,8 @@ const FBPMixin = (superClass) => {
                         // Persist contents
                         let tpl = document.createElement("template");
                         tpl._templateInfo = original._templateInfo;
-                        if(tpl._templateInfo === undefined){
-                            tpl._templateInfo = {content : original.content};
+                        if (tpl._templateInfo === undefined) {
+                            tpl._templateInfo = {content: original.content};
                         }
 
                         replacement.appendChild(tpl);
@@ -155,7 +218,7 @@ const FBPMixin = (superClass) => {
 
                     // collect data receiver
                     if (element.attributes[i].name.startsWith('ƒ-.') || element.attributes[i].name.startsWith('ƒ-$')) {
-                        if(element.attributes[i].name[2] === "$"){
+                        if (element.attributes[i].name[2] === "$") {
                             console.warn("ƒ-$ is deprecated, use ƒ-. to set properties instead", this);
                         }
                         // split multiple wires
@@ -409,7 +472,7 @@ const FBPMixin = (superClass) => {
         }
 
         disconnectedCallback() {
-            if(super.disconnectedCallback){
+            if (super.disconnectedCallback) {
                 super.disconnectedCallback();
             }
 
