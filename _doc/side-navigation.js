@@ -177,17 +177,9 @@ class SideNavigation extends FBP(LitElement) {
         <furo-vertical-scroller>
           <div class="label">Fundamentals</div>
           <ul>
-            <a tabindex="-1" href="./_doc/welcome.html" @-click=":STOP, ^^navigation-clicked">
-              <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:home"></iron-icon>Overview</span>
-              </li>
-            </a>
+           
+         
             
-          
-            <a tabindex="-1" href="https://veith.github.io/flowbased-polymer/wireing/overview/"
-               @-click=":STOP, ^^navigation-clicked">
-              <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:track-changes"></iron-icon>Development Process</span>
-              </li>
-            </a>
 
             <a tabindex="-1" href="./_doc/api-design.html" @-click=":STOP, ^^navigation-clicked">
               <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:create"></iron-icon>API Design</span>
@@ -197,6 +189,11 @@ class SideNavigation extends FBP(LitElement) {
           <hr>
           <div class="label">Furo Flowbased Programming</div>
           <ul flex>
+            <a tabindex="-1" href="./_doc/welcome.html" @-click=":STOP, ^^navigation-clicked">
+              <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:track-changes"></iron-icon>Overview</span>
+              </li>
+            </a>
+
             <a tabindex="-1" href="./_doc/gettingstarted.html" @-click=":STOP, ^^navigation-clicked">
               <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:toc"></iron-icon>FBP Wireing</span>
               </li>
@@ -226,7 +223,7 @@ class SideNavigation extends FBP(LitElement) {
           <div class="label">The Framework</div>
           <ul flex>
             <a tabindex="-1" href="/node_modules/@furo/framework/readme.md" @-click=":STOP, ^^navigation-clicked">
-              <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:toc"></iron-icon>Overview</span>
+              <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:track-changes"></iron-icon>Overview</span>
               </li>
             </a>
             <a tabindex="-1" href="/node_modules/@furo/framework/#/classes/Theme" @-click=":STOP, ^^navigation-clicked">

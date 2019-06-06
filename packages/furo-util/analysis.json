@@ -4,7 +4,7 @@
     {
       "description": "`furo-head-tail`\n Splits an iterable (i.e. Array) in its head and tail part.\n\n```\n <furo-location @-location-path-changed=\"--pathChanged\"></furo-location>\n <furo-head-tail ƒ-split=\"--pathChanged\" @-head=\"--page\"></furo-head-tail>\n <furo-pages ƒ-activate-page=\"--page\" default=\"overview\">\n   ...\n```",
       "summary": "",
-      "path": "packages/furo-util/furo-head-tail.js",
+      "path": "furo-head-tail.js",
       "properties": [],
       "methods": [
         {
@@ -13,11 +13,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 29,
+              "line": 30,
               "column": 2
             },
             "end": {
-              "line": 52,
+              "line": 53,
               "column": 3
             }
           },
@@ -37,11 +37,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 0
         },
         "end": {
-          "line": 53,
+          "line": 54,
           "column": 1
         }
       },

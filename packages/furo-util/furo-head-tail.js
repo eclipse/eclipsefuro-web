@@ -1,14 +1,13 @@
 /**
+ *
  * `furo-head-tail`
  *  Splits an iterable (i.e. Array) in its head and tail part.
  *
  *```
- *  <furo-location @-location-path-changed="--pathChanged"></furo-location>
- *  <furo-head-tail ƒ-split="--pathChanged" @-head="--page"></furo-head-tail>
- *  <furo-pages ƒ-activate-page="--page" default="overview">
- *    ...
+ *  <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
  *```
  *
+ * @summary was kleines
  * @customElement
  */
 class FuroHeadTail extends HTMLElement {
@@ -21,8 +20,8 @@ class FuroHeadTail extends HTMLElement {
    *  |_|  |___________|
    *   ^      ^
    *   |      |
-   *   |     TAIL
-   *  HEAD
+   *   |     TAIL   => ["b", "c", "d"]
+   *  HEAD          => "a"
    * ```
    *
    * @param iterable
