@@ -2,9 +2,9 @@
   "name": "@furo/util",
   "description": "Furo util components",
   "main": "furo-catalog.js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "dependencies": {
-    "@furo/fbp": "^4.16.0"
+    "@furo/fbp": "^4.16.1"
   },
   "publishConfig": {
     "access": "public"
