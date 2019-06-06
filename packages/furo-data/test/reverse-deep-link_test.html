@@ -1,19 +1,21 @@
 <!doctype html>
-<html lang="en">
+
+<html>
 <head>
+  <title>test for reverse-deep-link</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
-  <title>furo-catalog test</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
-  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
-  <script src="../node_modules/mocha/mocha.js"></script>
-  <script src="../node_modules/chai/chai.js"></script>
-  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
-  <script type="module" src="../node_modules/@furo/framework/environment"></script>
-  <script src="../demo/environment.js"></script>
   <script type="module" src="../furo-catalog.js"></script>
+
 </head>
 <body>
 
@@ -25,37 +27,38 @@
 </test-fixture>
 
 <script type="module">
+  import {Init} from "@furo/framework";
+  import {Services,Types} from "../demo/apiConfig.js"
+  Init.registerApiServices(Services);
+  Init.registerApiTypes(Types);
+
   describe('reverse-deep-link', () => {
+
     let rdl;
-    beforeEach(function (done) {
+
+    beforeEach(async ( ) => {
       // makeRequest is a utility function
       rdl = fixture('Basic');
-      done()
+      await rdl.updateComplete;
+
     });
 
-    it('should return void on unspecified service', function () {
-      rdl.service = "unknown";
-      let res = rdl.convert({
-        "rel": "self",
-        "method": "GET",
-        "href": "/demo/api/v1/tasks/31337.json",
-        "type": "application/vnd.com.acme.task+json"
-      });
 
-      expect(res).to.equal(undefined);
-    });
 
     it('should convert a Collection', function (done) {
 
-      //rdl.rel = "release";
+      rdl._services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      rdl._services.tasks.services.List.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+
 
       rdl.addEventListener("converted", (d) => {
+
         expect(d.detail.vtr).to.equal("LIST");
         done();
       });
 
-      Env.api.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
-      Env.api.services.tasks.services.List.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+
+
       rdl.convert({
         "data": [{"data": ""}],
         "links": [{
@@ -72,6 +75,20 @@
           }]
       });
     });
+
+
+    it('should return void on unspecified service', function () {
+      rdl.service = "unknown";
+      let res = rdl.convert({
+        "rel": "self",
+        "method": "GET",
+        "href": "/demo/api/v1/tasks/31337.json",
+        "type": "application/vnd.com.acme.task+json"
+      });
+
+      expect(res).to.equal(undefined);
+    });
+
     it('should convert a Entity', function (done) {
 
       rdl.rel = "release";
@@ -81,7 +98,7 @@
         done();
       });
 
-      Env.api.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      rdl._services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
       rdl.convert({
         "data": 32, "links": [{
           "rel": "self",
@@ -107,7 +124,7 @@
         done();
       });
 
-      Env.api.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      rdl._services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
       rdl.convert([{
         "rel": "self",
         "method": "GET",
@@ -130,7 +147,7 @@
         done();
       });
 
-      Env.api.services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      rdl._services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
       rdl.convert({
         "rel": "self",
         "method": "GET",

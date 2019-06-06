@@ -1,0 +1,125 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for rel-exists</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+  <script type="module" src="../furo-catalog.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <rel-exists rel="update"></rel-exists>
+  </template>
+</test-fixture>
+
+<script type="module">
+
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+  describe('rel-exists tests ', function () {
+
+
+    let element;
+    let linkArray = [
+      {
+        "rel": "self",
+        "method": "GET",
+        "href": "./api/v1/tasks/12.json",
+        "type": "vnd.com.acme.task"
+      },
+      {
+        "rel": "update",
+        "method": "PATCH",
+        "href": "./api/v1/tasks/12.json",
+        "type": "vnd.com.acme.task"
+      }
+    ];
+
+    beforeEach(async ( ) => {
+      element = fixture('basic');
+      await element.updateComplete;
+
+    });
+
+    it('should fire rel-dont-exist if the type doesnt match', (done) => {
+
+      element.setAttribute("type", "some");
+      element.addEventListener("rel-dont-exist", (e) => {
+        done();
+      });
+      element.inject(linkArray);
+
+    });
+
+    it('should fire rel-exist if the type  match', (done) => {
+      element.setAttribute("type", "vnd.com.acme.task");
+      element.addEventListener("rel-exists", (e) => {
+        assert.equal(e.detail.type, "vnd.com.acme.task");
+        done();
+      });
+      element.inject(linkArray);
+    });
+
+
+    it('should retun rel-dont-exist for non existent links', (done) => {
+      element.setAttribute("rel", "turbo");
+      element.addEventListener("rel-dont-exist", () => {
+        done();
+      });
+      element.inject(linkArray);
+    });
+
+
+    it('should fire exist after injecting', (done) => {
+      element.addEventListener("rel-exists", (e) => {
+        assert.equal(e.type, "rel-exists");
+        done();
+      });
+      element.inject(linkArray);
+
+    });
+
+    it('should return a hateoas link', (done) => {
+
+      element.addEventListener("rel-exists", (e) => {
+        assert.equal(e.detail.type, "vnd.com.acme.task");
+        done();
+      });
+      element.inject(linkArray);
+
+    });
+
+    it('should read the attribute rel', () => {
+      assert.equal(element.rel, "update");
+    });
+
+    it('should update changes to the attribute rel', () => {
+      element.setAttribute("rel", "save");
+      assert.equal(element.rel, "save");
+    });
+
+    it('should be a rel-exists', (done) => {
+
+      assert.equal(element.nodeName, "REL-EXISTS");
+      done()
+    });
+
+
+  });
+</script>
+</body>
+</html>
+

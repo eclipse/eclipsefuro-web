@@ -50,7 +50,7 @@ class ReverseDeepLink extends (LitElement) {
         // is collection
         // default rel if not set
         if (!this.rel) {
-          this.rel = "List"
+          this.rel = "list"
         }
       } else {
         // is entity
@@ -60,7 +60,7 @@ class ReverseDeepLink extends (LitElement) {
       }
 
       linkObject = data.links.filter((e) => {
-        return e.rel === this.rel;
+        return e.rel.toLowerCase() === this.rel.toLowerCase();
       })[0]
     }
 
