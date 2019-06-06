@@ -447,7 +447,8 @@ const FBPMixin = (superClass) => {
 
             // queueing for _FBPTriggerWire
             if (!this.__fbp_ready) {
-                this.__fbp_ready = true;
+                this.__fbpReady();
+
                 let l = this.__wireQueue.length;
                 for (let i = 0; i < l; i++) {
                     let t = this.__wireQueue.shift();
@@ -457,6 +458,14 @@ const FBPMixin = (superClass) => {
 
         }
 
+        /**
+         * Livecycle method
+         * This method is called, when the wires are ready
+         * @private
+         */
+        __fbpReady(){
+            this.__fbp_ready = true;
+        }
         __enqueueTrigger(wire, detailData) {
             this.__wireQueue.push({"w": wire, "d": detailData});
         }

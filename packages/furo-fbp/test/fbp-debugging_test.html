@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>test for fbp-debugging_test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+
+    <script type="module" src="../flow-bind.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+    <template>
+        <flow-bind id="elem">
+            <template>
+                <div id="hull">
+                    <div id="sender" @-click="--data-received">sender</div>
+                    <div id="receiver" ƒ-click="--data-received">receiver</div>
+                </div>
+            </template>
+        </flow-bind>
+    </template>
+</test-fixture>
+
+<script type="module">
+
+
+    describe('fbp-debugging_test tests ', function () {
+
+
+        let element;
+        let receiver;
+        let sender;
+        let host;
+
+        beforeEach(async () => {
+            element = fixture('basic');
+            host = element[0]._host;
+            receiver = element[1].querySelector("#receiver");
+            sender = element[1].querySelector("#sender");
+            await element.updateComplete;
+
+        });
+
+
+        it('should debug a wire', (done) => {
+            host._FBPDebug('--data-received');
+
+            // "spy" on `console.log()`
+            let spy = sinon.spy(console, 'log');
+            sender.click(9);
+            assert(spy.calledWith(0));
+
+            host._FBPTriggerWire("--data-received", "data");
+            assert(spy.calledWith("data"));
+
+            // restore the original function
+            spy.restore();
+            done();
+        });
+
+        it('should debug a wire', (done) => {
+            host._FBPTraceWires();
+
+            // "spy" on `console.log()`
+            let spy = sinon.spy(console, 'log');
+            sender.click(9);
+            assert(spy.calledWith(0));
+
+            host._FBPTriggerWire("--data-received", "data");
+            assert(spy.calledWith("data"));
+
+            // restore the original function
+            spy.restore();
+            done();
+        });
+
+    });
+</script>
+</body>
+</html>
