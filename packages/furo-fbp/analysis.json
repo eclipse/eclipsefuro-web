@@ -33,8 +33,8 @@
       "tagname": "empty-fbp-node"
     },
     {
-      "description": "`flow-bind`",
-      "summary": "Custom element to allow using Flowbased-Polymer's template features (data\n  binding, declarative event listeners, etc.) in the main document.",
+      "description": "`flow-bind`\n\n Custom element to allow using furo-fbp's template features in a html document.\n\n```\n<test-fixture id=\"basic\">\n<template>\n <flow-bind id=\"elem\">\n   <template>\n     <div id=\"sender\" @-click=\"--data-received\">sender</div>\n     <div id=\"receiver\" ƒ-render=\"--data-received\">receiver</div>\n   </template>\n </flow-bind>\n</template>\n</test-fixture>\n```",
+      "summary": "Custom element to allow using furo-fbp's template features in a html document.",
       "path": "packages/furo-fbp/flow-bind.js",
       "properties": [],
       "methods": [],
@@ -48,11 +48,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 12,
+          "line": 26,
           "column": 0
         },
         "end": {
-          "line": 25,
+          "line": 39,
           "column": 1
         }
       },
@@ -392,11 +392,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 611,
+          "line": 620,
           "column": 7
         },
         "end": {
-          "line": 611,
+          "line": 620,
           "column": 28
         }
       },
@@ -603,7 +603,7 @@
               "column": 8
             },
             "end": {
-              "line": 457,
+              "line": 458,
               "column": 9
             }
           },
@@ -619,16 +619,36 @@
           }
         },
         {
+          "name": "__fbpReady",
+          "description": "Livecycle method\nThis method is called, when the wires are ready",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 465,
+              "column": 8
+            },
+            "end": {
+              "line": 467,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "__enqueueTrigger",
           "description": "",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 459,
+              "line": 468,
               "column": 8
             },
             "end": {
-              "line": 461,
+              "line": 470,
               "column": 9
             }
           },
@@ -651,11 +671,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 463,
+              "line": 472,
               "column": 8
             },
             "end": {
-              "line": 471,
+              "line": 480,
               "column": 9
             }
           },
@@ -672,11 +692,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 473,
+              "line": 482,
               "column": 8
             },
             "end": {
-              "line": 482,
+              "line": 491,
               "column": 9
             }
           },
@@ -692,11 +712,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 493,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 506,
+              "line": 515,
               "column": 9
             }
           },
@@ -724,11 +744,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 517,
+              "line": 526,
               "column": 8
             },
             "end": {
-              "line": 541,
+              "line": 550,
               "column": 9
             }
           },
@@ -761,11 +781,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 559,
+              "line": 568,
               "column": 8
             },
             "end": {
-              "line": 561,
+              "line": 570,
               "column": 9
             }
           },
@@ -792,7 +812,7 @@
           "column": 11
         },
         "end": {
-          "line": 563,
+          "line": 572,
           "column": 5
         }
       },

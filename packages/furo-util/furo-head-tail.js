@@ -7,7 +7,7 @@
  *  <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
  *```
  *
- * @summary was kleines
+ * @summary split an array
  * @customElement
  */
 class FuroHeadTail extends HTMLElement {
