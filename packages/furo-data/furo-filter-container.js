@@ -51,6 +51,14 @@ class FuroFilterContainer extends FBP(HTMLElement) {
           this.dispatchEvent(customEvent)
         }, 16);
 
+      }else {
+        /**
+         * @event filter-cleared
+         * Fired when filter is empty
+         * detail payload: none
+         */
+        let customEvent = new Event('filter-cleared', {composed: true, bubbles: true});
+        this.dispatchEvent(customEvent);
       }
 
     }, true)

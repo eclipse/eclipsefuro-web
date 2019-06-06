@@ -48,7 +48,7 @@ class FuroFilterField extends FBP(LitElement) {
   }
 
   _notifyChanges() {
-    if (this._field && this._value && this._is) {
+    if (this._field && this._value !== undefined && this._is) {
       /**
        * @event furo-filter-changed
        * Fired when something changed
