@@ -26,9 +26,17 @@ class FuroPages extends (LitElement) {
     for (l; l >= 0; l--) {
       this.children[l].setAttribute("hidden", '');
     }
-    // Activate Default
-    this.activatePage(this._fallback)
+
   }
+
+  firstUpdated(_changedProperties) {
+    super.firstUpdated(_changedProperties);
+    setTimeout(()=>{
+      // Activate Default
+      this.activatePage(this._fallback);
+    },1)
+  }
+
 
 
   /**
