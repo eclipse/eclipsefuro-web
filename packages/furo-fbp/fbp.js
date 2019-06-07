@@ -115,11 +115,8 @@ const FBPMixin = (superClass) => {
                     console.log(e);
                     console.groupEnd();
 
-                    let stack = new Error().stack.split('\n');
-                    stack.splice(0, 5);
-
-                    console.groupCollapsed("Call Stack (" + stack.length + ")");
-                    console.log(stack.join('\n'));
+                    console.groupCollapsed("Call Stack");
+                    console.log(new Error().stack);
                     console.groupEnd();
                     console.groupEnd();
                 }, true)
@@ -150,11 +147,9 @@ const FBPMixin = (superClass) => {
                     console.log(e);
                     console.groupEnd();
 
-                    let stack = new Error().stack.split('\n');
-                    stack.splice(0, 6);
 
-                    console.groupCollapsed("Call Stack (" + stack.length + ")");
-                    console.log(stack.join('\n'));
+                    console.groupCollapsed("Call Stack");
+                    console.log(new Error().stack);
                     console.groupEnd();
 
                     console.groupEnd();
