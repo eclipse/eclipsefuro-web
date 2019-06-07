@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.16.2](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.16.1...@furo/fbp@4.16.2) (2019-06-07)
+
+
+### Bug Fixes
+
+* correct host for tracing ([51f4ca3](https://github.com/veith/flowbased-polymer/commit/51f4ca3))
+* debug and trace with call stack with more readable output ([7ff9335](https://github.com/veith/flowbased-polymer/commit/7ff9335))
+
+
+
+
+
 ## [4.16.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.16.0...@furo/fbp@4.16.1) (2019-06-06)
 
 **Note:** Version bump only for package @furo/fbp

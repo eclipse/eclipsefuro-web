@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.29.10](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.9...@furo/input@0.29.10) (2019-06-07)
+
+
+### Bug Fixes
+
+* correct label position for dates ([5b2c43e](https://github.com/veith/FuroBaseComponents/commit/5b2c43e))
+
+
+
+
+
 ## [0.29.9](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.8...@furo/input@0.29.9) (2019-06-06)
 
 **Note:** Version bump only for package @furo/input

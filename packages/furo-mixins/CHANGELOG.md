@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.5](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.4...@furo/mixins@0.15.5) (2019-06-07)
+
+**Note:** Version bump only for package @furo/mixins
+
+
+
+
+
 ## [0.15.4](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.3...@furo/mixins@0.15.4) (2019-06-06)
 
 **Note:** Version bump only for package @furo/mixins
