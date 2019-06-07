@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.34.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.4...@furo/data@0.34.5) (2019-06-06)
+
+
+### Bug Fixes
+
+* active filter should be cleared, if the filter array is empty ([365341e](https://github.com/veith/FuroBaseComponents/commit/365341e))
+
+
+
+
+
 ## [0.34.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.3...@furo/data@0.34.4) (2019-06-06)
 
 **Note:** Version bump only for package @furo/data
