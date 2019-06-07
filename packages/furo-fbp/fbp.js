@@ -106,6 +106,7 @@ const FBPMixin = (superClass) => {
          * @private
          */
         _FBPTraceWires() {
+            let self = this;
             for (let wire in this.__wirebundle) {
                 this._FBPAddWireHook(wire, (e) => {
                     console.group("Trace for", this.nodeName + ": " + wire);
