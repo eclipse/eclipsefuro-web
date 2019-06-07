@@ -33,10 +33,11 @@ class FuroPages extends (LitElement) {
     super.firstUpdated(_changedProperties);
     setTimeout(()=>{
       // Activate Default
-      this.activatePage(this._fallback);
+      if(!this._lastPageName){
+        this.activatePage(this._fallback);
+      }
     },1)
   }
-
 
 
   /**
