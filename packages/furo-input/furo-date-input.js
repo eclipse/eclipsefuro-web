@@ -116,12 +116,7 @@ class FuroDateInput extends FBP(FuroInputBase(LitElement)) {
 
   render() {
     // language=HTML
-    return html`
-<style>
-${this._sharedStyle}
-</style>
-     
-      
+    return html`     
       <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled} type="date" list="datalist" ƒ-.value="--value" @-input="--inputInput(*.path.0)"   ƒ-focus="--focusReceived">
       <div class="border"></div>
       <label for="input">${this._label}</label>  
