@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.6](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.5...@furo/route@0.7.6) (2019-06-07)
+
+
+### Bug Fixes
+
+* trigger initial page-activated only if no page was activated before ([65029ef](https://github.com/veith/FuroBaseComponents/commit/65029ef))
+* trigger page-activated on init with 1ms timeout ([3a2bc83](https://github.com/veith/FuroBaseComponents/commit/3a2bc83))
+
+
+
+
+
 ## [0.7.5](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.4...@furo/route@0.7.5) (2019-06-07)
 
 **Note:** Version bump only for package @furo/route

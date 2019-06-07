@@ -1,6 +1,6 @@
 {
   "name": "@furo/collection",
-  "version": "0.16.15",
+  "version": "0.16.16",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
@@ -13,7 +13,7 @@
     "@furo/layout": "^0.22.7",
     "@furo/mixins": "^0.15.5",
     "@furo/navigation": "^0.16.4",
-    "@furo/route": "^0.7.5"
+    "@furo/route": "^0.7.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
