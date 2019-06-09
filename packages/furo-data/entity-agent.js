@@ -266,7 +266,7 @@ class EntityAgent extends FBP(LitElement) {
   htsIn(hts) {
     if (this._updateInternalHTS(hts)) {
       /**
-       * @event hts-updated
+       * @event hts-injected
        * Fired when hateoas is updated
        * detail payload: Hateoas links
        */
