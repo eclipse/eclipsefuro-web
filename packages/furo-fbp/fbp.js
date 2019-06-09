@@ -116,6 +116,10 @@ const FBPMixin = (superClass) => {
                     console.log(e);
                     console.groupEnd();
 
+                    console.groupCollapsed("Target Elements");
+                    console.table(self.__wirebundle[wire]);
+                    console.groupEnd();
+
                     console.groupCollapsed("Call Stack");
                     console.log(new Error().stack);
                     console.groupEnd();
