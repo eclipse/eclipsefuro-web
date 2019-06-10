@@ -3,7 +3,7 @@
   "elements": [
     {
       "description": "`furo-head-tail`\n Splits an iterable (i.e. Array) in its head and tail part.\n\n```\n <furo-head-tail ƒ-split=\"--arrayData\" @-head=\"--firstElement\" @-tail=\"--restOfArray\"></furo-head-tail>\n```",
-      "summary": "was kleines",
+      "summary": "split an array",
       "path": "packages/furo-util/furo-head-tail.js",
       "properties": [],
       "methods": [

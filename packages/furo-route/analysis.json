@@ -105,11 +105,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 46,
+              "line": 55,
               "column": 2
             },
             "end": {
-              "line": 48,
+              "line": 57,
               "column": 3
             }
           },
@@ -526,17 +526,16 @@
         },
         {
           "name": "firstUpdated",
-          "description": "Invoked when the element is first updated. Implement to perform one time\nwork on the element after update.\n\nSetting properties inside this method will trigger the element to update\nagain after this update cycle completes.\n\n* @param _changedProperties Map of changed properties with old values",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../lit-element/lib/updating-element.js",
             "start": {
-              "line": 592,
-              "column": 4
+              "line": 31,
+              "column": 2
             },
             "end": {
-              "line": 593,
-              "column": 5
+              "line": 39,
+              "column": 3
             }
           },
           "metadata": {},
@@ -547,8 +546,7 @@
           ],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "UpdatingElement"
+          }
         },
         {
           "name": "createRenderRoot",
@@ -601,11 +599,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 146,
               "column": 3
             }
           },
@@ -621,11 +619,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 46,
               "column": 2
             },
             "end": {
-              "line": 39,
+              "line": 48,
               "column": 3
             }
           },
@@ -645,11 +643,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 64,
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 120,
               "column": 3
             }
           },
@@ -880,7 +878,7 @@
           "column": 0
         },
         "end": {
-          "line": 139,
+          "line": 148,
           "column": 1
         }
       },
