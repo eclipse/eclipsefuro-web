@@ -13,6 +13,7 @@ class DeepLink extends LitElement {
   constructor() {
     super();
     this._servicedefinitions = Env.api.services;
+    this._qp = {};
   }
 
   static get properties() {
@@ -92,7 +93,7 @@ class DeepLink extends LitElement {
   set qp(qp) {
     // zwischenspeichern für einen ev. ƒ-trigger
     console.warn("setting the qp via attribute is deprecated, use ƒ-qp-in instead");
-    console.warn("This feature will be removed in Q3-2019");
+    console.warn("This feature will be removed in Q3-2019",this);
     this._qp = qp;
     this.trigger();
   }
@@ -107,7 +108,7 @@ class DeepLink extends LitElement {
    */
   injectQueryParams(qp) {
     console.warn("injectQueryParams is deprecated, use ƒ-qp-in instead");
-    console.warn("This feature will be removed in Q3-2019");
+    console.warn("This feature will be removed in Q3-2019",this);
     // zwischenspeichern für einen ev. ƒ-trigger
     this._qp = qp;
     this.trigger();
