@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.17.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.16.2...@furo/fbp@4.17.0) (2019-06-10)
+
+
+### Features
+
+* target elements list on traceWires ([a92dc75](https://github.com/veith/flowbased-polymer/commit/a92dc75))
+
+
+
+
+
 ## [4.16.2](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.16.1...@furo/fbp@4.16.2) (2019-06-07)
 
 

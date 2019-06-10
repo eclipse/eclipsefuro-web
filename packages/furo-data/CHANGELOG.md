@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.35.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.6...@furo/data@0.35.0) (2019-06-10)
+
+
+### Bug Fixes
+
+* correct event name in doc ([ed0a466](https://github.com/veith/FuroBaseComponents/commit/ed0a466))
+
+
+### Features
+
+* deep-link usable without attributes and full test coverage ([37388c0](https://github.com/veith/FuroBaseComponents/commit/37388c0))
+
+
+
+
+
 ## [0.34.6](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.5...@furo/data@0.34.6) (2019-06-07)
 
 **Note:** Version bump only for package @furo/data
