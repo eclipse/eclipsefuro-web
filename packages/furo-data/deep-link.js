@@ -1,5 +1,4 @@
 import {LitElement, html} from 'lit-element';
-import {FBP} from "@furo/fbp";
 import {Env} from "@furo/framework"
 
 /**
@@ -9,7 +8,7 @@ import {Env} from "@furo/framework"
  * @demo demo/form.html
  * @appliesMixin FBP
  */
-class DeepLink extends FBP(LitElement) {
+class DeepLink extends LitElement {
 
   constructor() {
     super();
@@ -30,7 +29,9 @@ class DeepLink extends FBP(LitElement) {
     };
   }
 
-
+  /**
+   * Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail
+   */
   trigger() {
     if (this._qp && this._service) {
       this._buildHTS(this._qp, this._service)
@@ -73,20 +74,61 @@ class DeepLink extends FBP(LitElement) {
 
   }
 
+  /**
+   * set queryParams and evaluate for hateoas
+   * @param queryParams
+   */
+  qpIn(queryParams) {
+    this._qp = queryParams;
+    this.trigger();
+  }
+
+  /**
+   * Deprecated
+   *
+   * Set QP via attribute (for polymer 3 compatibility), use ƒ-qp-in (qpIn) instead
+   * @param qp
+   */
   set qp(qp) {
+    // zwischenspeichern für einen ev. ƒ-trigger
+    console.warn("setting the qp via attribute is deprecated, use ƒ-qp-in instead");
+    console.warn("This feature will be removed in Q3-2019");
+    this._qp = qp;
+    this.trigger();
+  }
+
+  /**
+   * Deprecated
+   *
+   * use ƒ-qp-in instead
+   *
+   * Inject a QueryParams (key value) Object
+   * @param {object|QueryParams} qp
+   */
+  injectQueryParams(qp) {
+    console.warn("injectQueryParams is deprecated, use ƒ-qp-in instead");
+    console.warn("This feature will be removed in Q3-2019");
     // zwischenspeichern für einen ev. ƒ-trigger
     this._qp = qp;
     this.trigger();
   }
 
   /**
-   * Inject a QueryParams (key value) Object
-   * @param {object|QueryParams} qp
+   * Sets the service
+   *
+   * Services must be registered like:
+   *
+   * ```
+   * import {Services,Types} from "./apiConfig.js"
+   * Init.registerApiServices(Services);
+   * Init.registerApiTypes(Types);
+   * ```
+   * Usually this is done in your main-app.js
+   *
+   * @param serviceName
    */
-  injectQueryParams(qp) {
-    // zwischenspeichern für einen ev. ƒ-trigger
-    this._qp = qp;
-    this.trigger();
+  setService(serviceName) {
+    this.service = serviceName;
   }
 
   /**
