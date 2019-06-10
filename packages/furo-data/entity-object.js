@@ -57,7 +57,7 @@ class EntityObject extends (LitElement) {
     this.entity = new EntityNode(null, type, this._specs);
 
     /**
-     * @event entity-ready
+     * @event object-ready
      * Fired when
      * detail payload:
      */
