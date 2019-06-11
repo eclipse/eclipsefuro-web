@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.17.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.17.0...@furo/fbp@4.17.1) (2019-06-11)
+
+
+### Bug Fixes
+
+* flow-repeat logs *info* instead *warn* on lists without Arrays ([51ca84c](https://github.com/veith/flowbased-polymer/commit/51ca84c))
+
+
+
+
+
 # [4.17.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.16.2...@furo/fbp@4.17.0) (2019-06-10)
 
 

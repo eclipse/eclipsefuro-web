@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.36.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.35.0...@furo/data@0.36.0) (2019-06-11)
+
+
+### Features
+
+* deep-link without qp (for root elements,...) ([d92d599](https://github.com/veith/FuroBaseComponents/commit/d92d599))
+
+
+
+
+
 # [0.35.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.34.6...@furo/data@0.35.0) (2019-06-10)
 
 
