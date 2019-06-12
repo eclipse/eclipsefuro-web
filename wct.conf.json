@@ -1,6 +1,7 @@
 {
     "suites": [
         "node_modules/@furo/fbp/test/index.html",
+        "node_modules/@furo/form/test/index.html",
         "node_modules/@furo/route/test/index.html",
         "node_modules/@furo/data/test/index.html"
     ],
@@ -15,7 +16,8 @@
             "include": [
                 "node_modules/@furo/data/*.js",
                 "node_modules/@furo/fbp/*.js",
-                "node_modules/@furo/route/*.js"
+                "node_modules/@furo/route/*.js",
+                "node_modules/@furo/form/*.js"
             ],
             "exclude": ["**/furo-catalog.js"]
         },
