@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.30.0...@furo/input@0.31.0) (2019-06-12)
+
+
+### Features
+
+* furo-reference-search themeable ([2e0f7ae](https://github.com/veith/FuroBaseComponents/commit/2e0f7ae))
+
+
+
+
+
 # [0.30.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.12...@furo/input@0.30.0) (2019-06-12)
 
 
