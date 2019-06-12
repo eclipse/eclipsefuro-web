@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.12...@furo/input@0.30.0) (2019-06-12)
+
+
+### Features
+
+* furo-toggle-icon with keyboard nav ([e93f01d](https://github.com/veith/FuroBaseComponents/commit/e93f01d))
+
+
+
+
+
 ## [0.29.12](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.29.11...@furo/input@0.29.12) (2019-06-11)
 
 **Note:** Version bump only for package @furo/input
