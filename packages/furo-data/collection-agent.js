@@ -34,7 +34,6 @@ import {Env} from "@furo/framework"
  * ```
  *
  * @customElement
- * @polymer
  * @appliesMixin FBP
  * @demo demo/collection.html
  */
