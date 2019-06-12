@@ -12,7 +12,7 @@ import "@polymer/iron-icons/iron-icons"
  * @polymer
  * @mixes FBP
  */
-class FuroToggleIcon extends FBP(PolymerElement) {
+class FuroBoolIcon extends FBP(PolymerElement) {
   static get template() {
     // language=HTML
     return html`
@@ -72,10 +72,26 @@ class FuroToggleIcon extends FBP(PolymerElement) {
   _updateIcon(state) {
     if (state) {
       this.set('_icon', this.iconTrue);
+      /**
+      * @event value-changed
+      * Fired when
+      * detail payload:
+      */
+      let customEvent = new Event('value-changed', {composed:true, bubbles: true});
+      customEvent.detail = true;
+      this.dispatchEvent(customEvent)
     } else {
       this.set('_icon', this.iconFalse);
+      /**
+       * @event value-changed
+       * Fired when
+       * detail payload:
+       */
+      let customEvent = new Event('value-changed', {composed:true, bubbles: true});
+      customEvent.detail = false;
+      this.dispatchEvent(customEvent)
     }
   }
 }
 
-window.customElements.define('furo-toggle-icon', FuroToggleIcon);
+window.customElements.define('furo-toggle-icon', FuroBoolIcon);

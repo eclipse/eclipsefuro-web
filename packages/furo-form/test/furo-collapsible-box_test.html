@@ -1,0 +1,151 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-collapsible-box</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+  <script type="module" src="../furo-catalog.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <furo-collapsible-box label="label">
+      <div>content</div>
+      <div slot="context">CTX</div>
+    </furo-collapsible-box>
+  </template>
+</test-fixture>
+
+<script type="module">
+
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+
+  function keydown(TargetElement, key) {
+    let customEvent = new Event('keydown', {composed:true, bubbles: true});
+    customEvent.code = key; // Deprecated, prefer .key instead.
+    customEvent.key = key;
+    TargetElement.dispatchEvent(customEvent);
+
+  }
+
+  describe('furo-collapsible-box tests ', function () {
+
+
+    let collapsibleBox = {};
+    let label, icon, context, content;
+    beforeEach(async () => {
+      collapsibleBox = fixture('basic');
+      await collapsibleBox.updateComplete;
+      /**
+       * 0: furo-horizontal-flex.head
+       * 1: iron-icon
+       * 2: label
+       * 3: slot
+       * 4: div.content
+       * 5: slot
+       */
+      let c = collapsibleBox.shadowRoot.querySelectorAll("*");
+      label = c[2];
+      icon = c[1];
+      context = c[3];
+      content = c[4];
+    });
+
+    it('should accept keyboard navigation', (done) => {
+      assert.equal(collapsibleBox.icon, "expand-less");
+      collapsibleBox.focus();
+      keydown(icon,"Enter");
+      assert.equal(collapsibleBox.icon, "expand-more");
+      keydown(icon,"Space");
+      assert.equal(collapsibleBox.icon, "expand-less");
+      done();
+    });
+
+
+    it('should be focusable', (done) => {
+      collapsibleBox.focus();
+      assert.equal(document.activeElement, collapsibleBox);
+      done();
+    });
+
+    it('should fire toggled', (done) => {
+      //open
+      icon.click();
+      collapsibleBox.addEventListener("toggled", (e) => {
+        assert.equal(e.detail, false);
+        done();
+      });
+      icon.click();
+    });
+
+    it('should close on click', (done) => {
+      icon.click();
+
+      collapsibleBox.addEventListener("closed", () => {
+        assert.equal(collapsibleBox.icon, "expand-less");
+        done();
+      });
+
+      assert.equal(collapsibleBox.icon, "expand-more");
+      icon.click();
+
+    });
+
+    it('should start with icon expand-less', (done) => {
+      collapsibleBox.addEventListener("opened", () => {
+        assert.equal(collapsibleBox.icon, "expand-more");
+        done();
+      });
+
+      assert.equal(collapsibleBox.icon, "expand-less");
+      assert.equal(icon.getAttribute("icon"), "expand-less");
+      icon.click();
+
+    });
+
+    it('should display the content when clicked on icon', (done) => {
+      icon.click();
+      assert.equal(collapsibleBox.open, true);
+
+      done();
+    });
+
+    it('should display the content when clicked on label', (done) => {
+      label.click();
+      assert.equal(collapsibleBox.open, true);
+      done();
+    });
+
+    it('should start with closed content area', (done) => {
+      assert.equal(collapsibleBox.open, false);
+      done();
+    });
+
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(collapsibleBox);
+    });
+
+    it('should be a furo-collapsible-box', (done) => {
+      assert.equal(collapsibleBox.nodeName, "FURO-COLLAPSIBLE-BOX");
+      done()
+    });
+
+
+  });
+</script>
+</body>
+</html>

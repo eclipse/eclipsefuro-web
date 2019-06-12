@@ -4,7 +4,7 @@
     {
       "description": "",
       "summary": "",
-      "path": "empty-fbp-node.js",
+      "path": "packages/furo-fbp/empty-fbp-node.js",
       "properties": [],
       "methods": [],
       "staticMethods": [],
@@ -35,7 +35,7 @@
     {
       "description": "`flow-bind`\n\n Custom element to allow using furo-fbp's template features in a html document.\n It comes very handy, when you want write tests or make some demos.\n\n```\n<test-fixture id=\"basic\">\n  <template>\n   <flow-bind id=\"elem\">\n     <template>\n       <div id=\"sender\" @-click=\"--data-received\">sender</div>\n       <div id=\"receiver\" ƒ-render=\"--data-received\">receiver</div>\n     </template>\n   </flow-bind>\n  </template>\n</test-fixture>\n```",
       "summary": "Custom element to allow using furo-fbp's template features in a html document.",
-      "path": "flow-bind.js",
+      "path": "packages/furo-fbp/flow-bind.js",
       "properties": [],
       "methods": [],
       "staticMethods": [],
@@ -74,7 +74,7 @@
     {
       "description": "`flow-repeat`\n\nCustom element to repeat Arrays",
       "summary": "Custom element to allow using FBPs template features in repeated template",
-      "path": "flow-repeat.js",
+      "path": "packages/furo-fbp/flow-repeat.js",
       "properties": [],
       "methods": [
         {
@@ -382,9 +382,9 @@
   ],
   "mixins": [
     {
-      "description": "furo-fbp base class\n\n## Tracing all wires in a component\n\nLog all triggered wires for this component. This function may help you at debugging.\n**Hint** This works only with wires with at least 1 receiver.\n\nSelect your element in the dev console and call `$0._FBPTraceWires()`\n\nTo trace your element immediately after fbp is ready, use this snippet\n\n```\n__fbpReady(){\n  super.__fbpReady();\n  this._FBPTraceWires()\n}\n```\n## Debuging a wire\n\nGet information for the triggered wire. This function may help you at debugging.\n\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
+      "description": "furo-fbp base class\n\n## Tracing all wires in a component\n\nLog all triggered wires for this component. This function may help you at debugging.\n**Attention** This works only with wires with at least 1 receiver.\n\nSelect your element in the dev console and call `$0._FBPTraceWires()`\n\nTo trace your element immediately after fbp is ready, use this snippet\n\n```\n__fbpReady(){\n  super.__fbpReady();\n  this._FBPTraceWires()\n}\n```\n## Debuging a wire\n\nGet information for the triggered wire. This function may help you at debugging.\n\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
       "summary": "",
-      "path": "fbp.js",
+      "path": "packages/furo-fbp/fbp.js",
       "properties": [],
       "methods": [],
       "staticMethods": [],
@@ -415,7 +415,7 @@
     {
       "description": "",
       "summary": "",
-      "path": "fbp.js",
+      "path": "packages/furo-fbp/fbp.js",
       "properties": [],
       "methods": [
         {

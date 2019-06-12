@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>furo-collapsible-box demo</title>
+
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
+    import '../furo-catalog';
+    import "@furo/fbp/flow-bind"
+
+  </script>
+
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+
+</head>
+<body>
+
+<div class="vertical-section-container centered">
+  <h3>furo-collapsible-box opened</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <button @-click="--focus">f</button>
+          <furo-collapsible-box ƒ-focus="--focus" label="label" open>
+            <div>content</div>
+            <div slot="context">CTX</div>
+          </furo-collapsible-box>
+
+          <furo-collapsible-box label="label" open>
+            <div>content</div>
+            <div slot="context">CTX</div>
+          </furo-collapsible-box>
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+
+<div class="vertical-section-container centered">
+  <h3>furo-collapsible-box closed</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <furo-collapsible-box label="label">
+            <div>content</div>
+            <div slot="context">CTX</div>
+          </furo-collapsible-box>
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+
+</body>
+</html>

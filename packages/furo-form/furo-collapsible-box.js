@@ -1,103 +1,241 @@
-import {PolymerElement, html} from '@polymer/polymer';
-import {FBP} from "@furo/fbp";
+import {LitElement, html, css} from 'lit-element';
+import {Theme} from "@furo/framework/theme"
 import "@furo/layout/furo-horizontal-flex"
-import "@furo/input/furo-toggle-icon"
+import "@polymer/iron-icon/iron-icon"
+import "@polymer/iron-icons/iron-icons"
+import {FBP} from "@furo/fbp";
 
 /**
- * `furo-collapsible-box`
- *  Collapsible box with head bar, content slot and icon slot
+ * `furo-collapsible-box` is a card which can be toggled to be open and closed
  *
- *
+ *```
+ * <furo-collapsible-box label="label" open>
+ *  <div>flex content in default slot</div>
+ *  <div slot="context">CTX on right side</div>
+ * </furo-collapsible-box>
+ *```
  *
  * @summary collapsible box with head
  * @customElement
- * @polymer
- * @mixes FBP
+ * @demo demo/furo-collapsible-box.html
+ * @appliesMixin FBP
  */
-class FuroCollapsibleBox extends FBP(PolymerElement) {
-  static get template() {
-    // language=HTML
-    return html`
-      <style>
-        :host {
-          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-          0 1px 5px 0 rgba(0, 0, 0, 0.12),
-          0 3px 1px -2px rgba(0, 0, 0, 0.2);
-          padding: 20px;
-          background: white;
-          display: block;
-          margin: 24px;
+class FuroCollapsibleBox extends FBP(LitElement) {
 
-          box-sizing: border-box;
-          @apply --furo-collapsible-mixin;
+  constructor() {
+    super();
+    /**
+     * @type {boolean}
+     */
+    this.open = false;
+    /**
+     * @type {string}
+     */
+    this.iconOpen = "expand-more";
+    /**
+     *
+     * @type {string}
+     */
+    this.iconClosed = "expand-less";
+    this.icon = this.open ? this.iconOpen : this.iconClosed;
 
-        }
+    // toggle method
+    this._FBPAddWireHook("--toggleClicked", ()=>{this.toggle()});
 
-        label {
-          display: block;
-          font-weight: 700;
-          line-height: 24px;
-          padding-left: 8px;
-          @apply --furo-collapsible-label-mixin
-        }
 
-        .content{
-          display: none;
-        }
-        :host([open]) .content {
-          display: block;
-        }
-        
-        .head{
-          border-bottom: 1px solid gainsboro;
-          @apply --furo-collapsible-head-mixin;
-         
-        }
-      </style>
-      <furo-horizontal-flex class="head">
-        <furo-toggle-icon value="{{open}}" ƒ-toggle="--lblClicked"></furo-toggle-icon>
-        <label flex @-click="--lblClicked">[[label]]</label>
-        <slot name="context"></slot>
-      </furo-horizontal-flex>
-      <div class="content">
-        <slot></slot>
-      </div>
+    /**
+     * minimal keyboard navigation
+     */
+    this.addEventListener("keydown", (e) => {
+      switch (e.code) {
+        case "Enter":
+        case "Space":
+          this.toggle();
+          break
+      }
+    });
 
-    `;
+
+  }
+
+  /**
+   * Toggles the box
+   */
+  toggle() {
+    this.open = !this.open;
+    this.icon = this.open ? this.iconOpen : this.iconClosed;
+    this.requestUpdate();
+
+    if (this.open) {
+      /**
+       * @event opened
+       * Fired when collapsible box was opened
+       *
+       * detail payload: void
+       */
+      let customEvent = new Event('opened', {composed: true, bubbles: false});
+      this.dispatchEvent(customEvent)
+    } else {
+      /**
+       * @event closed
+       * Fired when collapsible box was closed
+       *
+       * detail payload: void
+       */
+      let customEvent = new Event('closed', {composed: true, bubbles: false});
+      this.dispatchEvent(customEvent)
+    }
+
+    /**
+     * @event toggled
+     * Fired when collapsible-box was toggled
+     * detail payload: Boolean true for open, false for closed
+     * @param Boolean true for open, false for closed
+     */
+    let customEvent = new Event('toggled', {composed: true, bubbles: false});
+    customEvent.detail = this.open;
+    this.dispatchEvent(customEvent)
   }
 
 
+
+  firstUpdated(changedProperties) {
+    super.firstUpdated(changedProperties);
+    this.icon = this.open ? this.iconOpen : this.iconClosed;
+    this.requestUpdate();
+  }
+
+  /**
+   * focus the box (focuses the icon)
+   */
+  focus() {
+    this._FBPTriggerWire("--focus");
+  }
+
+  /**
+   * @private
+   * @return {Object}
+   */
   static get properties() {
     return {
       /**
        * Label der Collapsible
        */
       label: {
-        type: String,
-        notify: true
-
+        type: String
       },
       /**
        * Indicates the collapse state, set the collapse state
        */
       open: {
         type: Boolean,
-        notify: true,
-        reflectToAttribute: true,
-        value: false,
+        reflect: true
       },
       /**
-       * //todo remember componente einbauen
+       * The icon for the open state.
+       *
+       * default expand-less
+       */
+      iconOpen: {
+        type: String,
+        attribute: 'icon-open'
+      },
+      /**
+       * The icon for the closed state.
+       *
+       * defaults to `expand-less`
+       */
+      iconClosed: {
+        type: String,
+        attribute: 'icon-closed'
+      },
+      /**
+       * reserved flag
+       * todo implement remember component
        */
       rememberState: {
-        type: Boolean,
-        notify: true,
-        value: false,
+        type: Boolean
       },
 
     };
   }
 
+
+  /**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return Theme.getThemeForComponent(this.name) || css`
+
+        :host {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 1px 5px 0 rgba(0, 0, 0, 0.12),
+            0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            padding: var(--furo-collapsible-box-padding, 16px);
+            background: var(--furo-collapsible-box-background, white);
+            display: block;
+            margin: var(--furo-collapsible-box-margin, 16px);
+            box-sizing: border-box;
+
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            line-height: 24px;
+            padding-left: 8px;
+            cursor: pointer;
+        }
+
+        .content {
+            display: none;
+        }
+
+        :host([open]) .content {
+            display: block;
+        }
+
+        .head {
+            border-bottom: 1px solid var(--separator-color, gainsboro);;
+
+        }
+
+        iron-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            outline: none;
+        }
+        iron-icon:focus {
+            color:var(--primary-color,#CDCDCD)
+        }
+
+    `
+  }
+
+
+  /**
+   * @private
+   * @returns {TemplateResult}
+   */
+  render() {
+    // language=HTML
+    return html`
+<furo-horizontal-flex class="head">
+  <iron-icon tabindex="1" ƒ-focus="--focus" icon="${this.icon}" @-click="--toggleClicked"></iron-icon>     
+  <label flex  @-click="--toggleClicked">${this.label}</label>
+  <slot name="context"></slot>
+</furo-horizontal-flex>
+<div class="content"><slot></slot></div>
+    `;
+  }
 }
 
 window.customElements.define('furo-collapsible-box', FuroCollapsibleBox);
