@@ -37,7 +37,25 @@
             <div slot="context">CTX</div>
           </furo-collapsible-box>
 
-          <furo-collapsible-box label="label" open>
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+
+<div class="vertical-section-container centered">
+  <h3>furo-collapsible-box criss cross</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <button @-click="--focus">f</button>
+          <furo-collapsible-box ƒ-focus="--focus" label="label" open ƒ-close="-bOp" @-opened="-aOp"  ƒ-open="-bClosed" @-closed="-aClosed">
+            <div>content</div>
+            <div slot="context">CTX</div>
+          </furo-collapsible-box>
+
+          <furo-collapsible-box label="label"  @-opened="-bOp" ƒ-close="-aOp" ƒ-open="-aClosed" @-closed="-bClosed">
             <div>content</div>
             <div slot="context">CTX</div>
           </furo-collapsible-box>

@@ -27,7 +27,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     /**
      * @type {boolean}
      */
-    this.open = false;
+    this._open = false;
     /**
      * @type {string}
      */
@@ -37,7 +37,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
      * @type {string}
      */
     this.iconClosed = "expand-less";
-    this.icon = this.open ? this.iconOpen : this.iconClosed;
+    this.icon = this._open ? this.iconOpen : this.iconClosed;
 
     // toggle method
     this._FBPAddWireHook("--toggleClicked", ()=>{this.toggle()});
@@ -46,27 +46,43 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     /**
      * minimal keyboard navigation
      */
-    this.addEventListener("keydown", (e) => {
+    this._FBPAddWireHook("--keystrokes", (e) => {
       switch (e.code) {
+        case "ArrowRight":
+          this.open();
+          break;
+        case "ArrowLeft":
+          this.close()  ;
+          break;
         case "Enter":
-        case "Space":
           this.toggle();
-          break
+          break;
       }
     });
+  }
 
+  open(){
+    this._open = true;
+    this.icon = this._open ? this.iconOpen : this.iconClosed;
+    this.requestUpdate();
 
   }
 
+  close(){
+    this._open = false;
+    this.icon = this._open ? this.iconOpen : this.iconClosed;
+    this.requestUpdate();
+
+  }
   /**
    * Toggles the box
    */
   toggle() {
-    this.open = !this.open;
-    this.icon = this.open ? this.iconOpen : this.iconClosed;
+    this._open = !this._open;
+    this.icon = this._open ? this.iconOpen : this.iconClosed;
     this.requestUpdate();
 
-    if (this.open) {
+    if (this._open == true) {
       /**
        * @event opened
        * Fired when collapsible box was opened
@@ -93,7 +109,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
      * @param Boolean true for open, false for closed
      */
     let customEvent = new Event('toggled', {composed: true, bubbles: false});
-    customEvent.detail = this.open;
+    customEvent.detail = this._open;
     this.dispatchEvent(customEvent)
   }
 
@@ -101,7 +117,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
 
   firstUpdated(changedProperties) {
     super.firstUpdated(changedProperties);
-    this.icon = this.open ? this.iconOpen : this.iconClosed;
+    this.icon = this._open ? this.iconOpen : this.iconClosed;
     this.requestUpdate();
   }
 
@@ -127,9 +143,10 @@ class FuroCollapsibleBox extends FBP(LitElement) {
       /**
        * Indicates the collapse state, set the collapse state
        */
-      open: {
+      _open: {
         type: Boolean,
-        reflect: true
+        reflect: true,
+        attribute:"open"
       },
       /**
        * The icon for the open state.
@@ -229,7 +246,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     // language=HTML
     return html`
 <furo-horizontal-flex class="head">
-  <iron-icon tabindex="1" ƒ-focus="--focus" icon="${this.icon}" @-click="--toggleClicked"></iron-icon>     
+  <iron-icon tabindex="1" ƒ-focus="--focus" icon="${this.icon}" @-keydown="--keystrokes(*)" @-click="--toggleClicked"></iron-icon>     
   <label flex  @-click="--toggleClicked">${this.label}</label>
   <slot name="context"></slot>
 </furo-horizontal-flex>

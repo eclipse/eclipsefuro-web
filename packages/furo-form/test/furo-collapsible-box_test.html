@@ -69,8 +69,12 @@
       collapsibleBox.focus();
       keydown(icon,"Enter");
       assert.equal(collapsibleBox.icon, "expand-more");
-      keydown(icon,"Space");
+      keydown(icon,"ArrowLeft");
       assert.equal(collapsibleBox.icon, "expand-less");
+      keydown(icon,"ArrowRight");
+      assert.equal(collapsibleBox.icon, "expand-more");
+
+
       done();
     });
 
@@ -118,19 +122,19 @@
 
     it('should display the content when clicked on icon', (done) => {
       icon.click();
-      assert.equal(collapsibleBox.open, true);
+      assert.equal(collapsibleBox._open, true);
 
       done();
     });
 
     it('should display the content when clicked on label', (done) => {
       label.click();
-      assert.equal(collapsibleBox.open, true);
+      assert.equal(collapsibleBox._open, true);
       done();
     });
 
     it('should start with closed content area', (done) => {
-      assert.equal(collapsibleBox.open, false);
+      assert.equal(collapsibleBox._open, false);
       done();
     });
 
