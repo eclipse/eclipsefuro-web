@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.2](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.17.1...@furo/form@0.17.2) (2019-06-12)
+
+
+### Bug Fixes
+
+* keyboard events on furo-collapsible-box only for the icon ([edaec9d](https://github.com/veith/FuroBaseComponents/commit/edaec9d))
+
+
+
+
+
 ## [0.17.1](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.17.0...@furo/form@0.17.1) (2019-06-12)
 
 **Note:** Version bump only for package @furo/form
