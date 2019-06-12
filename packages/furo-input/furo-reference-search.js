@@ -194,13 +194,13 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
   }
 
   /**
-   *
+   * Themable Styles
    * @private
    * @return {CSSResult}
    */
   static get styles() {
     // language=CSS
-    return css`
+    return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: inline-block;
             position: relative;
@@ -229,6 +229,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
     `
   }
 
+
   /**
    * @private
    * @returns {TemplateResult}
@@ -253,4 +254,3 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 }
 
 window.customElements.define('furo-reference-search', FuroReferenceSearch);
-
