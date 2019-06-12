@@ -46,6 +46,7 @@
 
     let collapsibleBox = {};
     let label, icon, context, content;
+
     beforeEach(async () => {
       collapsibleBox = fixture('basic');
       await collapsibleBox.updateComplete;
@@ -63,6 +64,19 @@
       context = c[3];
       content = c[4];
     });
+
+    it('should close on blur', (done) => {
+      collapsibleBox.setAttribute("open-on-focus","");
+      collapsibleBox.setAttribute("close-on-blur","");
+      assert.equal(collapsibleBox._open, false);
+      collapsibleBox.focus();
+      assert.equal(collapsibleBox._open, true);
+      collapsibleBox._FBPTriggerWire('--blured');
+        assert.equal(collapsibleBox._open, false);
+      done()
+
+    });
+
 
     it('should accept keyboard navigation', (done) => {
       assert.equal(collapsibleBox.icon, "expand-less");
