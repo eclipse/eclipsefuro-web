@@ -3,7 +3,8 @@
         "node_modules/@furo/fbp/test/index.html",
         "node_modules/@furo/form/test/index.html",
         "node_modules/@furo/route/test/index.html",
-        "node_modules/@furo/data/test/index.html"
+        "node_modules/@furo/data/test/index.html",
+        "node_modules/@furo/util/test/index.html"
     ],
     "root": "./",
     "npm": true,
@@ -17,7 +18,8 @@
                 "node_modules/@furo/data/*.js",
                 "node_modules/@furo/fbp/*.js",
                 "node_modules/@furo/route/*.js",
-                "node_modules/@furo/form/*.js"
+                "node_modules/@furo/form/*.js",
+                "node_modules/@furo/util/*.js"
             ],
             "exclude": ["**/furo-catalog.js"]
         },

@@ -27,11 +27,13 @@ class FuroHeadTail extends HTMLElement {
    * @param iterable
    */
   split(iterable) {
+
     if(!Array.isArray(iterable)){
-      console.warn("input is not iterable", arr);
+      console.warn("input is not iterable", iterable);
       return;
     }
     const [head, ...tail] = iterable;
+
     /**
     * @event head
     * Fired when Array was splitted
