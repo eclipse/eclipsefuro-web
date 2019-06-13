@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.32.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.31.0...@furo/input@0.32.0) (2019-06-13)
+
+
+### Bug Fixes
+
+* flow-repeat => template is="flow-repeat" ([56b9f27](https://github.com/veith/FuroBaseComponents/commit/56b9f27))
+
+
+### Features
+
+* furo-collapsible-box open-on-focus, close-on-blur ([3993016](https://github.com/veith/FuroBaseComponents/commit/3993016))
+
+
+
+
+
 # [0.31.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.30.0...@furo/input@0.31.0) (2019-06-12)
 
 

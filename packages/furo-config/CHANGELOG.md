@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.9](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.8...@furo/config@0.16.9) (2019-06-13)
+
+
+### Bug Fixes
+
+* flow-repeat => template is="flow-repeat" ([56b9f27](https://github.com/veith/FuroBaseComponents/commit/56b9f27))
+
+
+
+
+
 ## [0.16.8](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.7...@furo/config@0.16.8) (2019-06-12)
 
 **Note:** Version bump only for package @furo/config
