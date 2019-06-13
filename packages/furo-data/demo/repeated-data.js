@@ -43,9 +43,8 @@ class RepeatedData extends FBP(LitElement) {
         }
       </style>
       <h4>Repeated Zeitunddatum</h4>
-      <flow-repeat ƒ-inject-items="--data">
-        <template>
-          <div class="box">
+      <template is="flow-repeat" ƒ-inject-items="--data">
+           <div class="box">
           <furo-date-input ƒ-bind-data="--itemInjected(*.item.date)"></furo-date-input>
           <furo-time-input ƒ-bind-data="--itemInjected(*.item.time)"></furo-time-input>
           <hr>
@@ -55,8 +54,7 @@ class RepeatedData extends FBP(LitElement) {
           <hr>
 
           </div>
-        </template>
-      </flow-repeat>
+       </template>
 
       <button @-click="--add">add</button>
     `;

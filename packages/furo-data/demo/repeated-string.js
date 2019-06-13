@@ -48,11 +48,9 @@ class RepeatedString extends FBP(LitElement) {
       <button @-click="--last">last</button>
       <button @-click="--index">index</button>
       <div>
-      <flow-repeat ƒ-inject-items="--data" ƒ-trigger-first="--first" ƒ-trigger-last="--last" ƒ-trigger-index="--index">
-        <template>
+      <template is="flow-repeat" ƒ-inject-items="--data" ƒ-trigger-first="--first" ƒ-trigger-last="--last" ƒ-trigger-index="--index">
           <furo-text-input ƒ-bind-data="--itemInjected(*.item)" ƒ-focus="--lastItem, --trigger"></furo-text-input><span @-click="^^delete-item(item)">X</span>
-        </template>
-      </flow-repeat>
+      </template>
       </div>
         <button @-click="--add">add</button>
         <button @-click="--first">first</button>

@@ -71,11 +71,9 @@ class MarkdownMenu extends FBP(LitElement) {
     // language=HTML
     return html`
       <ul>
-        <flow-repeat ƒ-inject-items="--listReceived">
-          <template>
+        <template is="flow-repeat" ƒ-inject-items="--listReceived">
             <li ƒ-.inner-text="--item(*.display_name)" @-click="^^navigate-clicked(item.id)"></li>
-          </template>
-        </flow-repeat>
+        </template>
       </ul>
     `;
   }

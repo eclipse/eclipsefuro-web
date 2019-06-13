@@ -42,19 +42,10 @@ class FuroButtonBar extends (LitElement) {
 
   render() {
     // language=HTML
-    return html`
-      <furo-horizontal-flex>
-        <div flex>
+    return html`        
         <furo-horizontal-flex>
           <slot></slot>
         </furo-horizontal-flex>
-        </div>
-        <div>
-        <furo-horizontal-flex>
-          <slot name="secondary"></slot>
-        </furo-horizontal-flex>
-        </div>
-      </furo-horizontal-flex>
     `;
   }
 

@@ -14,8 +14,7 @@ import "./empty-fbp-node"
  * @demo demo/flow-bind.html
  * @mixes FBP
  */
-class FlowRepeat extends FBP(HTMLElement) {
-
+class FlowRepeat extends HTMLTemplateElement {
     constructor() {
         super();
         this.template;
@@ -154,12 +153,11 @@ class FlowRepeat extends FBP(HTMLElement) {
     connectedCallback() {
         this.style.display = "none";
         // Create a shadow root to the element.
-        this.attachShadow({mode: 'open'});
-        let t = this.querySelector('template');
-        if (t.content.children.length > 0) {
-            this.template = t.content;
+
+    if (this.content.children.length > 0) {
+      this.template = this.content;
         } else {
-            this.template = t._templateInfo.content;
+      this.template = this._templateInfo.content;
         }
 
 
@@ -189,4 +187,5 @@ class FlowRepeat extends FBP(HTMLElement) {
 
 }
 
-window.customElements.define('flow-repeat', FlowRepeat);
+
+window.customElements.define('flow-repeat', FlowRepeat, {extends:"template"});

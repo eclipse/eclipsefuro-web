@@ -59,17 +59,15 @@ class RepeatHelp extends FBP(PolymerElement) {
                 </tr>
             </table>
             <ul>
-            <flow-repeat style="display: table-cell;" items="[[data]]" ƒ-inject-items="--newData"
+            <template is="flow-repeat" style="display: table-cell;" items="[[data]]" ƒ-inject-items="--newData"
                          internal-wire="--itemInjected">
-                <template>
-
+ 
                     <li>
                         <b>neu</b>
                         <rep-item ƒ-raw="--itemInjected" @-click="--xx">fddf</rep-item>
                         <rep-item ƒ-index="--itemInjected(*.index)" ƒ-yy="--xx">fdfd</rep-item>
                     </li>
-                </template>
-            </flow-repeat>
+            </template>
             </ul>
         `;
     }

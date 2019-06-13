@@ -4,11 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-  <title>furo-catalog.js demo</title>
+  <title>furo-reference-search demo</title>
 
   <script src="../../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="environment.js"></script>
+
   <script type="module">
+
+    import "@furo/data/test/initEnv"
+
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
     import '@polymer/iron-demo-helpers/demo-snippet';
     import '@furo/data/collection-agent';
@@ -22,9 +25,6 @@
 
   <style>
     :root {
-      /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
-      /* SYRIUS Theme */
-
       --primary-color: #0e5e9f;
     }
   </style>

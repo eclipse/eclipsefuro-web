@@ -140,6 +140,148 @@ export const Services = {
         }
       }
     }
+  },
+  "tasksDeprecated": {
+    "general": {
+      "name": "tasks",
+      "description": "Task Services",
+      "version": "1.0.0",
+      "lifecycle": {
+        "deprecated": true,
+        "info": "Please change to service tasks until Q3-2033"
+      }
+    },
+    "services": {
+      "Create": {
+        "description": "creates a new contract composite",
+        "data": {
+          "request": "vnd.com.acme.task",
+          "response": "vnd.com.acme.task"
+        },
+        "query": [],
+        "deeplink": {
+          "rel": "create",
+          "method": "POST",
+          "href": "/api/v1/tasks"
+        },
+        "caching": {
+          "no-cache": false,
+          "private": true,
+          "max-age": 10,
+          "Expires": 10,
+          "ETag": true
+        }
+      },
+      "List": {
+        "description": "The List method takes a collection name and zero or more parameters as input, and returns a list of resources (response type definition) that match the input.",
+        "data": {
+          "request": null,
+          "response": "vnd.com.acme.task"
+        },
+        "query": {
+          "parameters": {
+            "opt": {
+              "description": "Option des Taskes",
+              "value": "",
+              "type": "string"
+            }
+          }
+        },
+        "deeplink": {
+          "rel": "list",
+          "method": "GET",
+          "href": "./api/v1/tasks/list.json"
+        },
+        "options": {
+          "filter": {
+            "enabled": true,
+            "fields": [
+              "taskId",
+              "title"
+            ]
+          },
+          "sort": {
+            "enabled": true,
+            "fields": [
+              "taskId",
+              "title"
+            ]
+          },
+          "pagination": {
+            "enabled": true,
+            "default": 19,
+            "max": 42
+          }
+        },
+        "caching": {
+          "no-cache": false,
+          "private": true,
+          "max-age": 10,
+          "Expires": 10,
+          "ETag": true
+        }
+      },
+      "Update": {
+        "description": "The Update method takes a Body.",
+        "data": {
+          "request": "vnd.com.acme.task",
+          "response": "vnd.com.acme.task"
+        },
+        "query": [],
+        "deeplink": {
+          "rel": "update",
+          "method": "PATCH",
+          "href": "./api/v1/tasks/{vtr}.json"
+        },
+        "caching": {
+          "no-cache": false,
+          "private": true,
+          "max-age": 10,
+          "Expires": 10,
+          "ETag": true
+        }
+      },
+      "Get": {
+        "description": "The Get method takes a resource name, zero or more parameters, and returns the specified resource (response type definition).",
+        "data": {
+          "request": null,
+          "response": "vnd.com.acme.task"
+        },
+        "query": [],
+        "deeplink": {
+          "rel": "self",
+          "method": "GET",
+          "href": "./api/v1/tasks/{vtr}.json"
+        },
+        "caching": {
+          "no-cache": false,
+          "private": true,
+          "max-age": 10,
+          "Expires": 10,
+          "ETag": true
+        }
+      },
+      "Release": {
+        "description": "Releases the pending contract",
+        "data": {
+          "request": null,
+          "response": "vnd.com.acme.task"
+        },
+        "query": [],
+        "deeplink": {
+          "rel": "release",
+          "method": "POST",
+          "href": "/api/v1/tasks/{vtr}:release"
+        },
+        "caching": {
+          "no-cache": false,
+          "private": true,
+          "max-age": 10,
+          "Expires": 10,
+          "ETag": true
+        }
+      }
+    }
   }
 };
 
@@ -200,7 +342,56 @@ export const Types = {
         }
       }
     }
+  },"vnd.com.acme.reference": {
+    "name": "Reference",
+    "type": "vnd.com.acme.reference",
+    "description": "reference",
+    "fields": {
+      "display_name": {
+        "description": "String representation of the reference",
+        "type": "string",
+        "__proto": {
+          "number": 1
+        }
+      },
+      "id": {
+        "description": "Value of the reference",
+        "type": "string",
+        "__proto": {
+          "number": 2
+        }
+      },
+      "rel": {
+        "description": "the relationship",
+        "type": "string",
+        "__proto": {
+          "number": 3
+        }
+      },
+      "method": {
+        "description": "method of curl GET, POST, PUT, PATCH, DELETE",
+        "type": "string",
+        "__proto": {
+          "number": 4
+        }
+      },
+      "href": {
+        "description": "link",
+        "type": "string",
+        "__proto": {
+          "number": 5
+        }
+      },
+      "type": {
+        "description": "mime type",
+        "type": "string",
+        "__proto": {
+          "number": 6
+        }
+      }
+    }
   },
+
   "vnd.com.acme.task": {
     "name": "Task",
     "type": "vnd.com.acme.task",
@@ -208,7 +399,17 @@ export const Types = {
     "description": "Task komposit",
 
     "fields": {
-      "taskId": {
+
+      "ref": {
+        "description": "ref",
+        "type": "vnd.com.acme.reference",
+        "meta": {
+          "label": "REFsrch",
+          "default": {"display_name":"Hampel","id":"0003","href":"./api/v1/tasks/list.json","rel":"list","method":"get", "type":"vnd.com.acme.task"},
+          "hint": ""
+        }
+      },
+      "id": {
         "description": "ulid des Taskes",
         "type": "int",
         "meta": {
@@ -224,7 +425,7 @@ export const Types = {
         }
       },
 
-      "title": {
+      "display_name": {
         "description": "Nummer des Taskes",
         "type": "string",
         "meta": {

@@ -41,14 +41,48 @@
 
     });
 
+    it('should warn on use of a deprecated service', (done) => {
+
+      let spy = sinon.spy(console, 'warn');
+      element.setAttribute("service", "tasksDeprecated");
+      assert.equal(spy.args[0][0],"You are using a deprecated service (tasksDeprecated) Please change to service tasks until Q3-2033");
+      // restore the original function
+      spy.restore();
+
+      done();
+    });
+
+    it('should trigger()  when setting qp ', (done) => {
+      element.setService("tasks");
+      element.addEventListener("hts-out",(e)=>{
+        let detail = e.detail;
+        assert.equal(detail[0].rel,"create");
+        done();
+      });
+
+      element.qp={"vtr":12, "tfag":233};
+
+
+    });
     it('should accept and trigger qp via ƒ-qp-in', (done) => {
+      element.setService("tasks");
+      element.addEventListener("hts-out",(e)=>{
+        let detail = e.detail;
+        assert.equal(detail[0].rel,"create");
+        done();
+      });
+      element.qpIn({"vtr":12, "tfag":233});
+
+    });
+
+    it('DEPRECATED should accept and trigger qp via ƒ-inject-query-params', (done) => {
       element.setService("tasks");
       element.addEventListener("hts-out",(e)=>{
         let detail = e.detail;
         assert.equal(detail[0].rel,"create")
         done();
       });
-      element.qpIn({"vtr":12, "tfag":233});
+      element.injectQueryParams({"vtr":12, "tfag":233});
 
     });
 
