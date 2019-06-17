@@ -27,10 +27,7 @@
 </test-fixture>
 
 <script type="module">
-  import {Init} from "@furo/framework";
-  import {Services,Types} from "./apiConfig.js"
-  Init.registerApiServices(Services);
-  Init.registerApiTypes(Types);
+  import "@furo/data/test/initEnv"
 
   describe('reverse-deep-link', () => {
 

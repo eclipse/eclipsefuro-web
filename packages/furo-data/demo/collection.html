@@ -19,7 +19,7 @@
     import './produce-qp';
     import './repeated-data';
     import './repeated-string';
-    import "../test/apiConfig"
+    import "../test/initEnv"
 
   </script>
   <script type="module" src="./produce-qp.js"></script>
@@ -39,7 +39,7 @@
         <template>
 
           <produce-qp @-qp="--qp"></produce-qp>
-          <deep-link auto ƒ-.qp='--qp' service="tasks" @-hts-out="--hts"></deep-link>
+          <deep-link auto ƒ-qp-in='--qp' service="tasks" @-hts-out="--hts"></deep-link>
 
           <collection-agent fields="produktId,title" service="tasks"
                             ƒ-bind-request-object="--data" ƒ-hts-in="--hts"
@@ -51,6 +51,7 @@
           <furo-filter-container type="vnd.com.acme.task" @-filter-changed="--cfChanged">
             <furo-filter-and>
               <furo-filter-field field="ccccc" is="sw" ƒ-.value="--filterTaskId"></furo-filter-field>
+              <furo-filter-field field="ccccc" is="sw" value="new"></furo-filter-field>
               <furo-filter-or>
                 <furo-filter-field field="oder" is="sw" ƒ-.value="--filterTitleValue"></furo-filter-field>
                 <furo-filter-field field="ddddd" is="sw" ƒ-.value="--filterOtherValue"></furo-filter-field>

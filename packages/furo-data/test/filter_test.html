@@ -1,69 +1,58 @@
 <!doctype html>
-<html lang="en">
+
+<html>
 <head>
+  <title>test for filter</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
-  <title>furo-catalog test</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
-  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
-  <script src="../node_modules/mocha/mocha.js"></script>
-  <script src="../node_modules/chai/chai.js"></script>
-  <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
-  <script src="apiConfig.js"></script>
   <script type="module" src="../furo-catalog.js"></script>
-  <script type="module" src="../node_modules/@furo/fbp/flow-bind.js"></script>
 </head>
 <body>
 
-
-<test-fixture id="Basic">
+<test-fixture id="basic">
   <template>
-    <flow-bind>
-      <template>
-        <collection-agent service="tasks">
-          <collection-filter field="taskId" term="gt" ƒ-set-value=""></collection-filter>
-        </collection-agent>
-
-
-      </template>
-    </flow-bind>
+    <filter></filter>
   </template>
 </test-fixture>
 
 <script type="module">
-  describe('Filter on Collection-Agent', () => {
 
-    let agent;
-    let filters;
-    let host;
-    beforeEach(function (done) {
-      // makeRequest is a utility function
-      let tpl = fixture('Basic');
-      host = tpl[0];
-      agent = tpl[1];
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
-      filters = agent.querySelectorAll("collection-filter");
+  describe('filter tests ', function () {
 
 
+    let element = {};
+
+    beforeEach(async () => {
+      element = fixture('basic');
+      await element.updateComplete;
+
+    });
+
+
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+    it('should be a filter', (done) => {
+      assert.equal(element.nodeName, "FURO-FILTER-FIELD");
       done()
     });
 
 
-
-    it('instantiating the element with default properties works', () => {
-
-      assert.equal(agent.tagName.toLowerCase(), 'collection-agent');
-      assert.equal(filter.tagName.toLowerCase(), 'collection-filter');
-
-    });
-
-
   });
-
-
 </script>
-
 </body>
 </html>
