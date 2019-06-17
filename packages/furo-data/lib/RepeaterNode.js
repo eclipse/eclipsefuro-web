@@ -55,10 +55,10 @@ export class RepeaterNode extends EventTreeNode {
 
 
   set value(val) {
+
     val.forEach((repdata, i) => {
       if (!this.repeats[i]) {
         this._addSilent();
-
       }
       // Werte aktualisieren
       this.repeats[i].value = repdata;
@@ -104,11 +104,19 @@ export class RepeaterNode extends EventTreeNode {
   }
 
 
-  add() {
+  add(data) {
     let index = this._addSilent();
     this._pristine = false;
+    // set data if given
+    if(data){
+      let child = this.repeats[index];
+      child.value = data;
+    }
     this.dispatchNodeEvent(new NodeEvent("repeated-field-added", this.repeats[index], false))
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, false))
+
+    // return field for chainabilty
+    return this.repeats[index];
   };
 
 

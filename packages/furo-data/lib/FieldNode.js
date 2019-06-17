@@ -62,7 +62,10 @@ export class FieldNode extends EventTreeNode {
     if (this.__childNodes.length > 0) {
       for (let index in this.__childNodes) {
         let field = this.__childNodes[index];
-        field.value = val[field._name];
+        if(val.hasOwnProperty(field._name)){
+          field.value = val[field._name];
+        }
+
       }
     } else {
       this.oldvalue = this.value;
