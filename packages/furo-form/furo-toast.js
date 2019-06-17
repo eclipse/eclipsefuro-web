@@ -3,7 +3,7 @@ import {FBP} from "@furo/fbp";
 
 /**
  * `furo-toast`
- * Describe your element
+ * Not implemented yet.
  *
  * @summary shortdescription
  * @customElement
