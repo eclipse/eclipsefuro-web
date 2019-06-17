@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>furo-tree demo</title>
+
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
+    import '../furo-catalog';
+    import "@furo/fbp/flow-bind"
+    import "../test/initEnv"
+    import "@furo/data"
+    import "./produce-data"
+  </script>
+
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+
+</head>
+<body>
+
+<div class="vertical-section-container centered">
+  <h3>furo-tree</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <produce-data @-data="--data"></produce-data>
+          <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+          <furo-tree ƒ-bind-data="--entityObj(*.fields)" open></furo-tree>
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+
+</body>
+</html>
