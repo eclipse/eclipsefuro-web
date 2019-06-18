@@ -2,8 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat"
-import {FieldNode} from "@furo/data/lib/FieldNode";
 import "@furo/layout/furo-horizontal-flex";
+import {FuroTree} from "./furo-tree"
 /**
  * `furo-tree`
  * Displays a recursive entity field as a tree
@@ -13,35 +13,7 @@ import "@furo/layout/furo-horizontal-flex";
  * @demo demo/furo-tree.html
  * @appliesMixin FBP
  */
-export class FuroTree extends FBP(LitElement) {
-
-  constructor() {
-    super();
-    this.deepOpen = false;
-    this.depth = 0;
-    this._open = false;
-    this.field = {};
-    this._ocSymbol = "▶";
-    this._FBPAddWireHook("--openclose", () => {
-      this.field.open.value = !this.field.open.value;
-    });
-  }
-
-
-  /**
-   * @private
-   * @return {Object}
-   */
-  static get properties() {
-    return {
-      /**
-       * Open children of tree item
-       */
-      _open: {type: Boolean, reflect: true, attribute: "open"},
-      deepOpen: {type: Boolean, attribute: "deep-open"},
-      depth: {type: Number}
-    };
-  }
+class FuroTreeX extends FuroTree {
 
   /**
    * @private
@@ -148,66 +120,8 @@ export class FuroTree extends FBP(LitElement) {
   }
 
 
-  bindData(d) {
-    if (d === undefined) {
-      return
-    }
-
-    this.field = d;
-
-    // open field if entity contains a field open with true
-    if (!this.field.open) {
-      this.field.addChildProperty("open", new FieldNode(this.field, {type: "Boolean"}, "open"))
-    }
-    this.field.open.addEventListener("field-value-changed", (e) => {
-      e.cancelBubble = true;
-      this._open = !!this.field.open.value;
-      this._updateSymbol();
-
-    });
-
-    // connect the dom node with the entity object
-    this.field._treeNode = this;
-
-    // render on changed data
-    this.field.addEventListener("field-value-changed", (e) => {
-      e.cancelBubble = true;
-      this.requestUpdate();
-    });
-
-    // forward changed children
-    this.field.children.addEventListener('repeated-fields-changed', (e) => {
-
-      this._updateSymbol();
-
-      // updates wieder einspielen
-      this._FBPTriggerWire('--subTreeChanged', e.detail);
-
-    });
-
-
-    // init
-    this._FBPTriggerWire('--subTreeChanged', this.field.children.repeats);
-    this._updateSymbol();
-
-    // check if this node is the root node
-    if (this.field.__parentNode.__parentNode === null) {
-      this.classList.add("rootnode")
-
-
-    }
-  }
-
-
-  _updateSymbol() {
-    if (this.field.children.repeats.length === 0) {
-      this._ocSymbol = " "
-    } else {
-      this._ocSymbol = this.deepOpen || this._open ? "▼" : "▶";
-    }
-  }
 
 
 }
 
-window.customElements.define('furo-tree', FuroTree);
+window.customElements.define('furo-tree-x', FuroTreeX);

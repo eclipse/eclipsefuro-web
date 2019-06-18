@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">93.58% </span>
+        <span class="strong">93.64% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>204/218</span>
+        <span class='fraction'>206/220</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">84.78% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>31/32</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">93.58% </span>
+        <span class="strong">93.64% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>204/218</span>
+        <span class='fraction'>206/220</span>
       </div>
     </div>
     <p class="quiet">
@@ -625,7 +625,13 @@
 <a name='L577'></a><a href='#L577'>577</a>
 <a name='L578'></a><a href='#L578'>578</a>
 <a name='L579'></a><a href='#L579'>579</a>
-<a name='L580'></a><a href='#L580'>580</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">15x</span>
+<a name='L580'></a><a href='#L580'>580</a>
+<a name='L581'></a><a href='#L581'>581</a>
+<a name='L582'></a><a href='#L582'>582</a>
+<a name='L583'></a><a href='#L583'>583</a>
+<a name='L584'></a><a href='#L584'>584</a>
+<a name='L585'></a><a href='#L585'>585</a>
+<a name='L586'></a><a href='#L586'>586</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -680,6 +686,7 @@
 <span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-yes">12x</span>
@@ -853,6 +860,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">68x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -914,7 +922,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">175x</span>
 <span class="cline-any cline-yes">655x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">175x</span>
@@ -1079,13 +1086,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">48x</span>
+<span class="cline-any cline-yes">45x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">48x</span>
 <span class="cline-any cline-yes">27x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-yes">45x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1256,9 +1268,10 @@
                                     response = receiver.element[receiver.method](data);
                                 }
                                 // @-ƒ-function auslösen
-                                let customEvent = new Event('ƒ-' + receiver.method, {composed: true, bubbles: false});
+                                let customEvent = new Event('ƒ-' + receiver.attrName, {composed: false, bubbles: false});
                                 customEvent.detail = response;
                                 receiver.element.dispatchEvent(customEvent);
+&nbsp;
 &nbsp;
                             } else if (receiver.property) {
                                 let data = detailData;
@@ -1267,7 +1280,7 @@
                                 }
                                 receiver.element[receiver.property] = data
                             } else {
-                                console.warn(receiver.method + ' is neither a listener nor a function of ' + receiver.element.nodeName)
+                                console.warn(receiver.method + ' is neither a listener nor a function of ' + receiver.element.nodeName, receiver.element)
                             }
                         }
 &nbsp;
@@ -1428,6 +1441,7 @@
                             wirebundle[r.receivingWire].push({
                                 "element": element,
                                 "method": this.__toCamelCase(element.attributes[i].name.substr(2)),
+                                "attrName":element.attributes[i].name.substr(2),
                                 "path": r.path
                             });
 &nbsp;
@@ -1494,7 +1508,6 @@
                 for (let i = 0; i &lt; element.attributes.length; i++) {
                     element.__atf[element.attributes[i].name] = true;
                 }
-&nbsp;
 &nbsp;
                 let handler = {
                     // prevent default and stop propagation
@@ -1658,14 +1671,19 @@
         }
 &nbsp;
         disconnectedCallback() {
+            // clear wires first
+            this.__wirebundle = {};
+            this.__wireQueue = [];
+            /* remove event listeners*/
+            this.__FBPEventlistener.forEach(function (e) {
+                e.element.removeEventListener(e.event, e.handler);
+            });
+&nbsp;
             if (super.disconnectedCallback) {
                 super.disconnectedCallback();
             }
 &nbsp;
-            /* remove event listeners*/
-            this.__FBPEventlistener.forEach(function (e) {
-                e.element.removeEventListener(e.event, e.handler);
-            })
+&nbsp;
         }
 &nbsp;
         /**
@@ -1789,7 +1807,7 @@ export const FBP = FBPMixin;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 13 2019 17:38:34 GMT+0200 (CEST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 18 2019 22:35:50 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../prettify.js"></script>

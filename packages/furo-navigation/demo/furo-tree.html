@@ -12,6 +12,7 @@
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
     import '@polymer/iron-demo-helpers/demo-snippet';
     import '../furo-catalog';
+    import '../furo-tree-x';
     import "@furo/fbp/flow-bind"
     import "../test/initEnv"
     import "@furo/data"
@@ -21,7 +22,7 @@
 
   <custom-style>
     <style is="custom-style" include="demo-pages-shared-styles">
-      furo-tree{
+      furo-tree, furo-tree-x{
         border: 1px solid saddlebrown;
         width:  205px;
         height:  155px;
@@ -32,6 +33,28 @@
 
 </head>
 <body>
+
+
+<div class="vertical-section-container centered">
+  <h3>furo-tree-x</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <produce-data @-data="--data"></produce-data>
+          <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+
+          <furo-tree-x ƒ-bind-data="--entityObj(*.fields)" ></furo-tree-x>
+
+          </table>
+
+
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+
 
 
 <div class="vertical-section-container centered">
@@ -53,6 +76,8 @@
     </template>
   </demo-snippet>
 </div>
+
+
 <div class="vertical-section-container centered">
   <h3>furo-tree</h3>
   <demo-snippet>
