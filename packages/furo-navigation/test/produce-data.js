@@ -24,22 +24,42 @@ class ProduceData extends FBP(LitElement) {
           {
             id: 2,
             display_name: "A",
-            description: "first sub",
+            description: "first with veery big title sub",
             children: [{
               id: 4,
               display_name: "C",
-              description: "sub sub",
+              description: "sub sirst with veery big titleub",
               children: []
             }]
           }, {
             id: 3,
             display_name: "B",
-            description: "second sub",
+            description: "second sirst with veery big titleub",
             children: [{
               id: 4,
               display_name: "D",
-              description: "sub sub",
-              children: []
+              description: "sub suirst with veery big titleb",
+              children: [{
+                id: 4,
+                display_name: "E",
+                description: "sub suirst with veery big titleb",
+                children: [{
+                  id: 4,
+                  display_name: "E",
+                  description: "sub sub",
+                  children: [{
+                    id: 4,
+                    display_name: "E",
+                    description: "sub sub",
+                    children: [{
+                      id: 4,
+                      display_name: "E",
+                      description: "sub sub",
+                      children: []
+                    }]
+                  }]
+                }]
+              }]
             },{
               id: 4,
               display_name: "E",
@@ -53,6 +73,16 @@ class ProduceData extends FBP(LitElement) {
   }
 
 
+  produce(){
+    /**
+    * @event data
+    * Fired when
+    * detail payload:
+    */
+    let customEvent = new Event('data', {composed:true, bubbles: true});
+    customEvent.detail = this.data;
+    this.dispatchEvent(customEvent)
+  }
   /**
    * Themable Styles
    * @private

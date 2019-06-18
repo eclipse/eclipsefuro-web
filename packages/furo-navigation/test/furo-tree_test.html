@@ -14,7 +14,14 @@
   <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
   <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
-  <script type="module" src="../furo-catalog.js"></script>
+  <script type="module">
+
+    import "../furo-catalog.js"
+    import "./produce-data"
+    import "./initEnv"
+    import "@furo/data"
+    import "@furo/fbp/flow-bind"
+  </script>
 </head>
 <body>
 
@@ -23,8 +30,8 @@
     <flow-bind>
       <template>
         <produce-data @-data="--data"></produce-data>
-        <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data"></entity-object>
-        <furo-tree></furo-tree>
+        <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+        <furo-tree ƒ-bind-data="--entityObj(*.fields)" ></furo-tree>
       </template>
     </flow-bind>
   </template>
@@ -37,13 +44,36 @@
 
   describe('furo-tree tests ', function () {
 
-
-    let element = {};
-
+    let tree, entity, dataprocuder, host;
     beforeEach(async () => {
-      element = fixture('basic');
-      await element.updateComplete;
+      let fix = fixture('basic');
+      host = fix[0]._host;
+      entity = fix[2];
+      await entity.updateComplete;
+      dataprocuder = fix[1];
+      await dataprocuder.updateComplete;
+      tree = fix[3];
+      await tree.updateComplete;
 
+    });
+
+    it('should render root node only', (done) => {
+      dataprocuder.produce();
+      console.log(tree.querySelectorAll("*"))
+      done();
+    });
+
+
+    it('should render a full tree', (done) => {
+      tree.setAttribute("deep-open","");
+      dataprocuder.produce();
+      setTimeout(() => {
+        console.log(tree.shadowRoot.querySelectorAll("*"))
+        expect(tree.scrollHeight).be.gt(100);
+        expect(entity.entity.fields.children.repeats.length).be.eq(2);
+        expect(entity.entity.fields.children.value[0].display_name).be.eq("A");
+        done();
+      }, 10);
     });
 
 
@@ -53,12 +83,13 @@
     });
 
     it('should be a furo-tree', (done) => {
-      assert.equal(element.nodeName, "furo-tree");
+      assert.equal(tree.nodeName, "FURO-TREE");
       done()
     });
 
 
-  });
+  })
+  ;
 </script>
 </body>
 </html>

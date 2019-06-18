@@ -15,17 +15,24 @@
     import "@furo/fbp/flow-bind"
     import "../test/initEnv"
     import "@furo/data"
-    import "./produce-data"
+    import "../test/produce-data"
   </script>
 
 
   <custom-style>
     <style is="custom-style" include="demo-pages-shared-styles">
+      furo-tree{
+        border: 1px solid saddlebrown;
+        width:  205px;
+        height:  155px;
+
+      }
     </style>
   </custom-style>
 
 </head>
 <body>
+
 
 <div class="vertical-section-container centered">
   <h3>furo-tree</h3>
@@ -35,7 +42,31 @@
         <template>
           <produce-data @-data="--data"></produce-data>
           <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
-          <furo-tree ƒ-bind-data="--entityObj(*.fields)" open></furo-tree>
+
+          <furo-tree ƒ-bind-data="--entityObj(*.fields)" deep-open></furo-tree>
+
+          </table>
+
+
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+<div class="vertical-section-container centered">
+  <h3>furo-tree</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <produce-data @-data="--data"></produce-data>
+          <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+
+              <furo-tree ƒ-bind-data="--entityObj(*.fields)"></furo-tree>
+
+          </table>
+
+
         </template>
       </flow-bind>
     </template>
