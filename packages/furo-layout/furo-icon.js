@@ -19,7 +19,7 @@ import {Iconset} from "@furo/framework/iconset";
  * Iconset.registerIconset( "iconSetName", iconSetName);
  *
  * after registering you can use those icons in furo-icon in any other component
- * <furo-icon icon="iconSetName:iconName" ></furo-icon>
+ * <furo-icon icon="iconSetName:iconName"></furo-icon>
  *
  * use css variable '--furo-icon-width' and '--furo-icon-height' to define the size
  * use '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors

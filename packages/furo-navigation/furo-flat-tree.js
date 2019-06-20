@@ -14,7 +14,7 @@ import "./furo-tree-item"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-flat-tree.html
+ * @demo demo/furo-tree.html
  * @appliesMixin FBP
  */
 class FuroFlatTree extends FBP(LitElement) {
