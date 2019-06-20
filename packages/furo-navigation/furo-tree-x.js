@@ -2,8 +2,10 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat"
+import "@furo/input/furo-bool-icon";
 import "@furo/layout/furo-horizontal-flex";
 import {FuroTree} from "./furo-tree"
+
 /**
  * `furo-tree`
  * Displays a recursive entity field as a tree
@@ -23,13 +25,18 @@ class FuroTreeX extends FuroTree {
     // language=HTML
     return html`
 
-  <furo-horizontal-flex class="label" @-dblclick=":STOP, --openclose">   
-    <span class="oc oc${this.depth}" @-click="--openclose">${this._ocSymbol}</span>    
-    <div flex class="name" title="${this.field.description}">${this.field.display_name}</div>          
-  </furo-horizontal-flex> 
+  <div class="label" @-click="--labelClicked" @-dblclick=":STOP, --dblclicked">   
+  <span class="oc">
+    <furo-bool-icon ?hidden="${!this.field.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon>
+    </span>       
+    <span class="name">${this.field.display_name}</span>          
+    <span class="desc">${this.field.description}</span>             
+  </div> 
+  <div class="children">
     <template is="flow-repeat" ƒ-inject-items="--subTreeChanged">
-        <furo-tree ƒ-bind-data="--itemInjected(*.item)" ?open="${this._open}" depth="${this.depth + 1}" ?deep-open="${this.deepOpen}"></furo-tree>
+        <furo-tree-x ƒ-bind-data="--itemInjected(*.item)" ?open="${this._open}" depth="${this.depth + 1}"></furo-tree-x>
    </template>
+   </div>
   
 `;
   };
@@ -45,81 +52,68 @@ class FuroTreeX extends FuroTree {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+            padding-left: 8px;
         }
 
         :host([hidden]) {
             display: none;
         }
 
-        :host([open]) furo-tree, :host([deep-open]) furo-tree {
+        :host([open]) furo-tree-x {
             display: block;
         }
 
 
-        furo-tree {
+        furo-tree-x {
             display: none;
         }
 
-        :host(.rootnode) {
+        :host([rootnode]) {
             overflow: auto;
             position: relative;
+            box-sizing: border-box;
         }
 
         .label {
             line-height: 24px;
             cursor: pointer;
+            white-space: nowrap;
+            user-select: none;
         }
 
         .name {
+
+        }
+
+        .desc {
+            font-size: smaller;
             white-space: nowrap;
         }
- 
+
+
+        :host([selected]) .label {
+            background-color: var(--hover-color, #eeeeee);
+        }
 
         .label:hover {
             background-color: #eeeeee;
         }
-
+        
         .oc {
             color: var(--separator-color, #b5b5b5);
-            display: inline-block;
             width: 16px;
+            font-size: 8px;
+            display: inline-block;
         }
 
-        .oc0 {
-            padding-left: 1em;
+        .children {
+            border-left: 1px solid lightgray;
+            margin-left: 3px;
         }
-
-        .oc1 {
-            padding-left: 2em;
-        }
-
-        .oc2 {
-            padding-left: 3em;
-        }
-
-        .oc3 {
-            padding-left: 4em;
-        }
-
-        .oc4 {
-            padding-left: 5em;
-        }
-
-        .oc5 {
-            padding-left: 5.5em;
-        }
-
-        .oc6 {
-            padding-left: 6em;
-        }
-
-
 
 
     `
   }
-
-
 
 
 }

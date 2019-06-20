@@ -13,16 +13,17 @@ export const Types = {
 
       "display_name": {
         "description": "Label",
-        "type": "string",
-        "meta": {
-          "label": "TITEL"
-        }
+        "type": "string"
       },
       "description": {
         "description": "description",
-        "type": "string",
+        "type": "string"
+      },
+      "open": {
+        "description": "open close",
+        "type": "bool",
         "meta": {
-          "label": "description"
+          "default": false,
         }
       },
       "children": {

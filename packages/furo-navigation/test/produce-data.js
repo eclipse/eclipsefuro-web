@@ -20,6 +20,7 @@ class ProduceData extends FBP(LitElement) {
         id: 1,
         display_name: "root",
         description: "root",
+        open:true,
         children: [
           {
             id: 2,
@@ -35,6 +36,7 @@ class ProduceData extends FBP(LitElement) {
             id: 3,
             display_name: "B",
             description: "second sirst with veery big titleub",
+            open:true,
             children: [{
               id: 4,
               display_name: "D",
@@ -69,7 +71,30 @@ class ProduceData extends FBP(LitElement) {
           }
         ]
       }
+    };
+
+
+    this.addEventListener("click", this.produce)
+  }
+
+  __fbpReady(){
+    super.__fbpReady();
+    if(this.auto){
+      this.produce();
     }
+  }
+
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Description
+       */
+      auto: {type: Boolean}
+    };
   }
 
 
@@ -109,7 +134,7 @@ class ProduceData extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <button @-click="^^data(data)">make data</button>
+      <button>make data</button>
     `;
   }
 }

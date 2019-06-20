@@ -13,16 +13,18 @@
     import '@polymer/iron-demo-helpers/demo-snippet';
     import '../furo-catalog';
     import '../furo-tree-x';
+    import '../furo-flat-tree';
     import "@furo/fbp/flow-bind"
     import "../test/initEnv"
     import "@furo/data"
     import "../test/produce-data"
+    import "@furo/input"
   </script>
 
 
   <custom-style>
     <style is="custom-style" include="demo-pages-shared-styles">
-      furo-tree, furo-tree-x{
+      furo-tree, furo-tree-x, furo-flat-tree{
         border: 1px solid saddlebrown;
         width:  205px;
         height:  155px;
@@ -41,14 +43,18 @@
     <template>
       <flow-bind>
         <template>
-          <produce-data @-data="--data"></produce-data>
-          <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
-
-          <furo-tree-x ƒ-bind-data="--entityObj(*.fields)" ></furo-tree-x>
-
-          </table>
+          <produce-data auto  @-data="--data"></produce-data>
+          <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj" ></entity-object>
 
 
+
+
+          <furo-flat-tree ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--leaf"></furo-flat-tree>
+
+          <!-- furo-tree ƒ-bind-data="--entityObj(*.fields)" @-leaf-selected="--leaf"></furo-tree>
+          <furo-tree-x ƒ-bind-data="--entityObj(*.fields)"></furo-tree-x -->
+          <furo-text-input ƒ-bind-data="--leaf(*.display_name)"></furo-text-input>
+          <furo-textarea-input ƒ-bind-data="--leaf(*.description)"></furo-textarea-input>
         </template>
       </flow-bind>
     </template>
@@ -66,9 +72,9 @@
           <produce-data @-data="--data"></produce-data>
           <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
 
-          <furo-tree ƒ-bind-data="--entityObj(*.fields)" deep-open></furo-tree>
+          <furo-tree ƒ-bind-data="--entityObj(*.fields)" open></furo-tree>
 
-          </table>
+
 
 
         </template>
@@ -89,7 +95,7 @@
 
               <furo-tree ƒ-bind-data="--entityObj(*.fields)"></furo-tree>
 
-          </table>
+
 
 
         </template>

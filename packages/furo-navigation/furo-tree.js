@@ -4,6 +4,9 @@ import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat"
 import {FieldNode} from "@furo/data/lib/FieldNode";
 import "@furo/layout/furo-horizontal-flex";
+import "@furo/input/furo-bool-icon";
+import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
+
 /**
  * `furo-tree`
  * Displays a recursive entity field as a tree
@@ -17,14 +20,9 @@ export class FuroTree extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.deepOpen = false;
     this.depth = 0;
-    this._open = false;
+    this._open = this.getAttribute("open") !== null;
     this.field = {};
-    this._ocSymbol = "▶";
-    this._FBPAddWireHook("--openclose", () => {
-      this.field.open.value = !this.field.open.value;
-    });
   }
 
 
@@ -38,7 +36,7 @@ export class FuroTree extends FBP(LitElement) {
        * Open children of tree item
        */
       _open: {type: Boolean, reflect: true, attribute: "open"},
-      deepOpen: {type: Boolean, attribute: "deep-open"},
+      selected: {type: Boolean, reflect: true},
       depth: {type: Number}
     };
   }
@@ -51,12 +49,15 @@ export class FuroTree extends FBP(LitElement) {
     // language=HTML
     return html`
 
-  <furo-horizontal-flex class="label" @-dblclick=":STOP, --openclose">   
-    <span class="oc oc${this.depth}" @-click="--openclose">${this._ocSymbol}</span>    
+  <furo-horizontal-flex class="label" @-click="--labelClicked" @-dblclick=":STOP, --dblclicked">   
+        
+    <span class="oc oc${this.depth}">
+    <furo-bool-icon ?hidden="${!this.field.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon>
+    </span> 
     <div flex class="name" title="${this.field.description}">${this.field.display_name}</div>          
   </furo-horizontal-flex> 
     <template is="flow-repeat" ƒ-inject-items="--subTreeChanged">
-        <furo-tree ƒ-bind-data="--itemInjected(*.item)" ?open="${this._open}" depth="${this.depth + 1}" ?deep-open="${this.deepOpen}"></furo-tree>
+        <furo-tree ƒ-bind-data="--itemInjected(*.item)" ?open="${this._open}" depth="${this.depth + 1}"></furo-tree>
    </template>
   
 `;
@@ -79,7 +80,7 @@ export class FuroTree extends FBP(LitElement) {
             display: none;
         }
 
-        :host([open]) furo-tree, :host([deep-open]) furo-tree {
+        :host([open]) furo-tree {
             display: block;
         }
 
@@ -88,23 +89,29 @@ export class FuroTree extends FBP(LitElement) {
             display: none;
         }
 
-        :host(.rootnode) {
+        :host([rootnode]) {
             overflow: auto;
             position: relative;
+            box-sizing: border-box;
         }
 
         .label {
             line-height: 24px;
             cursor: pointer;
+            user-select: none;
         }
 
         .name {
             white-space: nowrap;
         }
- 
+
+
+        :host([selected]) .label {
+            background-color: var(--hover-color, #eeeeee);
+        }
 
         .label:hover {
-            background-color: #eeeeee;
+            background-color: var(--hover-color, #eeeeee);
         }
 
         .oc {
@@ -148,6 +155,22 @@ export class FuroTree extends FBP(LitElement) {
   }
 
 
+  /**
+   * flow is ready lifecycle method
+   */
+  __fbpReady() {
+    super.__fbpReady();
+    //this._FBPTraceWires()
+
+    this._FBPAddWireHook("--labelClicked", (e) => {
+      // dispatch a selection
+      this.field.dispatchNodeEvent(new NodeEvent('tree-node-selected', this, true));
+      this.field._isSelected.value = true;
+    });
+
+  }
+
+
   bindData(d) {
     if (d === undefined) {
       return
@@ -157,54 +180,130 @@ export class FuroTree extends FBP(LitElement) {
 
     // open field if entity contains a field open with true
     if (!this.field.open) {
-      this.field.addChildProperty("open", new FieldNode(this.field, {type: "Boolean"}, "open"))
+      this.field.addChildProperty("open", new FieldNode(this.field, {type: "Boolean"}, "open"));
+      this.field.open.value = this._open;
     }
-    this.field.open.addEventListener("field-value-changed", (e) => {
-      e.cancelBubble = true;
-      this._open = !!this.field.open.value;
-      this._updateSymbol();
 
+    // _isSelected
+    if (!this.field._isSelected) {
+      this.field.addChildProperty("_isSelected", new FieldNode(this.field, {type: "Boolean"}, "_isSelected"));
+    }
+
+    this._FBPTriggerWire("--fieldOpen", this.field.open);
+
+
+    this.field.open.addEventListener("field-value-changed", (e) => {
+
+      this._open = !!this.field.open.value;
+    });
+
+    this.field._isSelected.addEventListener("field-value-changed", (e) => {
+
+      this.selected = !!this.field._isSelected.value;
+
+      //Notify about selection
+      /**
+       * @event node-selected
+       * Fired when
+       * detail payload:
+       */
+      let customEvent = new Event('node-selected', {composed: true, bubbles: true});
+      customEvent.detail = this.field;
+      this.dispatchEvent(customEvent);
+      if (this.field.children.repeats.length === 0) {
+        /**
+         * @event branch-selected
+         * Fired when
+         * detail payload:
+         */
+        let customEvent = new Event('branch-selected', {composed: true, bubbles: true});
+        customEvent.detail = this.field;
+        this.dispatchEvent(customEvent);
+      } else {
+        /**
+         * @event leaf-selected
+         * Fired when
+         * detail payload:
+         */
+        let customEvent = new Event('leaf-selected', {composed: true, bubbles: true});
+        customEvent.detail = this.field;
+        this.dispatchEvent(customEvent);
+      }
     });
 
     // connect the dom node with the entity object
     this.field._treeNode = this;
-
-    // render on changed data
+    // Just update element itself, do not bubble
     this.field.addEventListener("field-value-changed", (e) => {
-      e.cancelBubble = true;
-      this.requestUpdate();
+      // track changes on this field only
+      if (e.target.__parentNode === this.field) {
+        this.requestUpdate();
+      }
+
     });
+
 
     // forward changed children
     this.field.children.addEventListener('repeated-fields-changed', (e) => {
-
-      this._updateSymbol();
-
       // updates wieder einspielen
       this._FBPTriggerWire('--subTreeChanged', e.detail);
-
     });
 
 
     // init
     this._FBPTriggerWire('--subTreeChanged', this.field.children.repeats);
-    this._updateSymbol();
 
     // check if this node is the root node
     if (this.field.__parentNode.__parentNode === null) {
-      this.classList.add("rootnode")
+      this.setAttribute("rootnode", "");
+      this.setAttribute("tabindex", 0);
+
+      // Internal Event, when a node gets selected
+      this.field.addEventListener("tree-node-selected", (e) => {
+        // broadcast deselect
+        this.field.broadcastEvent(new NodeEvent('tree-node-unselection-requested', this));
+        this._selectedField = this.field;
+      });
+
+      // keyboard navigation on top node only
+      this.addEventListener("keydown", (event) => {
+        let key = event.key || event.keyCode;
+
+        switch (key) {
+          case "Enter":
+            event.preventDefault();
+
+            break;
+          case "ArrowDown":
+            event.preventDefault();
+            console.log("ArrowDown")
+            break;
+          case "ArrowUp":
+            event.preventDefault();
+            console.log("ArrowUp")
+            break;
+
+          case "ArrowLeft":
+            event.preventDefault();
+            console.log("ArrowLeft")
+            break;
+          case "ArrowRight":
+            event.preventDefault();
+            console.log("ArrowRight")
+            break;
+        }
 
 
+      });
     }
-  }
+
+    this.field.addEventListener("tree-node-unselection-requested", (e) => {
+      this.field._isSelected.value = false;
+    });
 
 
-  _updateSymbol() {
-    if (this.field.children.repeats.length === 0) {
-      this._ocSymbol = " "
-    } else {
-      this._ocSymbol = this.deepOpen || this._open ? "▼" : "▶";
-    }
+    this._open = !!this.field.open.value;
+    this.requestUpdate();
   }
 
 
