@@ -104,7 +104,7 @@ class FuroIcon extends LitElement {
      */
     updated(changedProperties) {
 
-        if(this.icon !== 'undefined') {
+        if(this.icon !== undefined) {
 
             let w = this.icon.split(":");
             this.shadowRoot.getElementById("furo-icon-svg").innerHTML = Iconset.get(w[0],w[1]);
