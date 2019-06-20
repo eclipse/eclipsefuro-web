@@ -156,7 +156,7 @@ class FuroTreeItem extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-<furo-horizontal-flex @-dblclick="--dblclicked">
+<furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${(e) => this.hoverItem()}">
       <div style="width: ${this.fieldNode.depth * 8}px"></div>
       <div class="oc"><furo-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon></div>
       

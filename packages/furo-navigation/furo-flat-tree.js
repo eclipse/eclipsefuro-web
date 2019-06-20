@@ -43,25 +43,15 @@ class FuroFlatTree extends FBP(LitElement) {
           } else {
             // open the hovered field
             this._hoveredField.treeItem.selectItem();
-
           }
-
           break;
         case "ArrowDown":
           event.preventDefault();
-          let next = this._hoveredField.nextElement();
-          if (next) {
-            next.treeItem.hoverItem();
-          }
+          this._hoverNext();
           break;
         case "ArrowUp":
           event.preventDefault();
-          let prev = this._hoveredField.prevElement();
-
-          if (prev) {
-            prev.treeItem.hoverItem();
-          }
-
+          this._hoverPrevious();
           break;
 
         case "ArrowLeft":
@@ -70,10 +60,7 @@ class FuroFlatTree extends FBP(LitElement) {
           if (!this._hoveredField.isBranch() && this._hoveredField.open.value) {
             this._hoveredField.toggleOpenClose();
           } else {
-            let parent = this._hoveredField.getParent();
-            if (parent) {
-              parent.treeItem.hoverItem();
-            }
+            this._hoverHome();
           }
           break;
         case "ArrowRight":
@@ -82,16 +69,78 @@ class FuroFlatTree extends FBP(LitElement) {
           if (!this._hoveredField.isBranch() && !this._hoveredField.open.value) {
             this._hoveredField.toggleOpenClose();
           } else {
-            let next = this._hoveredField.nextElement();
-            if (next) {
-              next.treeItem.hoverItem();
-            }
+            this._hoverNext();
           }
           break;
       }
 
 
     });
+  }
+
+  _hoverHome() {
+    let parent = this._hoveredField.getParentElement();
+    if (parent) {
+      parent.treeItem.hoverItem();
+    }
+  }
+
+  /**
+   * hovers the previous item
+   */
+  _hoverPrevious() {
+    let prev = this._hoveredField.getPrevElement();
+    if (prev) {
+      prev.treeItem.hoverItem();
+    }
+  }
+
+  /**
+   * select the previous visible item
+   */
+  selectPrev(){
+    this._hoveredField = this._selectedField || this._hoveredField;
+    this._hoverPrevious();
+    // open the hovered field
+    this._hoveredField.treeItem.selectItem();
+  }
+
+  /**
+   * toggles the selectes node
+   */
+  toggle(){
+    this._selectedField.toggleOpenClose();
+  }
+
+  addSubNode(rawNode){
+    let newnode = this._selectedField.children.add();
+    newnode.value=rawNode;
+    setTimeout(()=>{
+      newnode.treeItem.selectItem();
+    },10)
+
+
+  }
+  deleteNode(){
+    this._selectedField.__parentNode.deleteChild(this._selectedField.__index);
+  }
+  /**
+   * select the next visible item
+   */
+  selectNext(){
+    this._hoveredField = this._selectedField || this._hoveredField;
+    this._hoverNext();
+    // open the hovered field
+    this._hoveredField.treeItem.selectItem();
+  }
+  /**
+   * hovers the next item
+   */
+  _hoverNext() {
+    let next = this._hoveredField.getNextElement();
+    if (next) {
+      next.treeItem.hoverItem();
+    }
   }
 
   /**
@@ -128,6 +177,7 @@ class FuroFlatTree extends FBP(LitElement) {
             display: block;
             box-sizing: border-box;
             overflow: auto;
+            outline: none;
         }
 
         :host([hidden]) {
@@ -152,9 +202,8 @@ class FuroFlatTree extends FBP(LitElement) {
             background: var(--primary-color, #429cff);
         }
 
-
         furo-tree-item[hovered] {
-            background-color: var(--hover-color, #f38666);
+            background-color: var(--hover-color, #eeeeee);
         }
 
         furo-tree-item[selected], :host(:not(:focus-within)) furo-tree-item[selected] {
@@ -162,8 +211,8 @@ class FuroFlatTree extends FBP(LitElement) {
         }
 
 
-        furo-tree-item:hover {
-            background-color: #eeeeee;
+        :host(:hover) furo-tree-item:hover {
+            background-color: var(--hover-color, #eeeeee);
         }
 
     `
@@ -317,7 +366,7 @@ class FuroFlatTree extends FBP(LitElement) {
 
       // Traverse the flat tree, it is simpler then the nested tree
       // next active element
-      node.nextElement = () => {
+      node.getNextElement = () => {
         for (let i = index + 1; i < this._flatTree.length; i++) {
           if (!this._flatTree[i].treeItem.hidden) {
             return this._flatTree[i];
@@ -326,7 +375,7 @@ class FuroFlatTree extends FBP(LitElement) {
         return false;
       };
       // prev active element
-      node.prevElement = () => {
+      node.getPrevElement = () => {
         for (let i = index - 1; i >= 0; i--) {
           if (!this._flatTree[i].treeItem.hidden) {
             return this._flatTree[i];
@@ -341,7 +390,7 @@ class FuroFlatTree extends FBP(LitElement) {
       };
 
       // get Parent
-      node.getParent = () => {
+      node.getParentElement = () => {
         return node.__parentNode.__parentNode;
       };
 
@@ -349,6 +398,7 @@ class FuroFlatTree extends FBP(LitElement) {
       node.toggleOpenClose = () => {
         node.open.value = !node.open.value;
       };
+
     }
 
     tree.open.value = true;

@@ -19,16 +19,21 @@
     import "@furo/data"
     import "../test/produce-data"
     import "@furo/input"
+    import "@furo/layout"
+    import "@furo/form"
   </script>
 
 
   <custom-style>
     <style is="custom-style" include="demo-pages-shared-styles">
-      furo-tree, furo-tree-x, furo-flat-tree{
+      furo-tree, furo-tree-x {
         border: 1px solid saddlebrown;
-        width:  205px;
-        height:  155px;
+        width: 205px;
+        height: 155px;
 
+      }
+      furo-flat-tree{
+        height: 100%;
       }
     </style>
   </custom-style>
@@ -43,24 +48,48 @@
     <template>
       <flow-bind>
         <template>
-          <produce-data auto  @-data="--data"></produce-data>
-          <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj" ></entity-object>
+          <produce-data auto @-data="--data"></produce-data>
+          <button @-click="--focusClicked">focus</button>
+          <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
 
 
+          <furo-split-view style="height: 500px;">
+            <furo-flat-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--nodeSelected"
+                            ƒ-select-next="--next"
+                            ƒ-select-prev="--prev"
+                            ƒ-add-sub-node="--addSub"
+                            ƒ-delete-node="--deleteNode"
+                            @-node-hovered="--nodeHovered"></furo-flat-tree>
+            <furo-card flex>
+              <h4>Hovered</h4>
+              <furo-input-row label="title" @-click="--thcl">
+                <furo-text-input flex ƒ-focus="--thcl" ƒ-bind-data="--nodeHovered(*.display_name)"></furo-text-input>
+              </furo-input-row>
+              <furo-input-row label="description">
+                <furo-textarea-input flex ƒ-bind-data="--nodeHovered(*.description)"></furo-textarea-input>
+              </furo-input-row>
 
+              <h4>Selected</h4>
+              <furo-input-row label="title">
+                <furo-text-input flex
+                                 ƒ-bind-data="--nodeSelected(*.display_name)"></furo-text-input>
+              </furo-input-row>
+              <furo-input-row label="description">
+                <furo-textarea-input flex ƒ-bind-data="--nodeSelected(*.description)"></furo-textarea-input>
+              </furo-input-row>
+              <button @-click="--prev">prev</button>
+              <button @-click="--next">next</button>
+              <button @-click="--addSub">add sub</button>
+              <button @-click="--deleteNode">deleteNode</button>
+            </furo-card>
 
-          <furo-flat-tree ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--leaf"></furo-flat-tree>
+          </furo-split-view>
 
-          <!-- furo-tree ƒ-bind-data="--entityObj(*.fields)" @-leaf-selected="--leaf"></furo-tree>
-          <furo-tree-x ƒ-bind-data="--entityObj(*.fields)"></furo-tree-x -->
-          <furo-text-input ƒ-bind-data="--leaf(*.display_name)"></furo-text-input>
-          <furo-textarea-input ƒ-bind-data="--leaf(*.description)"></furo-textarea-input>
         </template>
       </flow-bind>
     </template>
   </demo-snippet>
 </div>
-
 
 
 <div class="vertical-section-container centered">
@@ -75,8 +104,6 @@
           <furo-tree ƒ-bind-data="--entityObj(*.fields)" open></furo-tree>
 
 
-
-
         </template>
       </flow-bind>
     </template>
@@ -93,9 +120,7 @@
           <produce-data @-data="--data"></produce-data>
           <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
 
-              <furo-tree ƒ-bind-data="--entityObj(*.fields)"></furo-tree>
-
-
+          <furo-tree ƒ-bind-data="--entityObj(*.fields)"></furo-tree>
 
 
         </template>
