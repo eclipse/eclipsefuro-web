@@ -24,7 +24,7 @@ export class Iconset {
     static registerIconset(setName, icons) {
 
         this[setName] = icons;
-        console.info("iconset `"+setName+"` registed");
+        console.info("iconset is `"+setName+"` registered.");
     }
 
     // get icon svg via icon set name and icon name
@@ -35,11 +35,11 @@ export class Iconset {
 
         if(this[setName] === undefined ) {
 
-            console.warn("iconset `"+setName+"` not exist");
+            console.warn("iconset `"+setName+"` does not exist");
         }
         else if( this[setName][iconName] === undefined) {
 
-            console.warn("icon `"+iconName+"` in iconset `"+setName+"` not exist");
+            console.warn("icon `"+iconName+"` in iconset `"+setName+"` does not exist");
         }
         else {
 

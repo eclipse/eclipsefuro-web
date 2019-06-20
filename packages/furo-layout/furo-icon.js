@@ -50,7 +50,6 @@ class FuroIcon extends LitElement {
     static get styles() {
         return css`
             :host {
-                margin-right: var(--gap-size);
                 display: inline-block;
                 vertical-align: middle;
                 fill: var(--furo-icon-fill-color, black);
@@ -108,6 +107,9 @@ class FuroIcon extends LitElement {
 
             let w = this.icon.split(":");
             this.shadowRoot.getElementById("furo-icon-svg").innerHTML = Iconset.get(w[0],w[1]);
+        }
+        else {
+            console.warn("icon name is not defined.")
         }
 
     }
