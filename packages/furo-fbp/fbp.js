@@ -50,9 +50,10 @@ const FBPMixin = (superClass) => {
                                     response = receiver.element[receiver.method](data);
                                 }
                                 // @-ƒ-function auslösen
-                                let customEvent = new Event('ƒ-' + receiver.method, {composed: true, bubbles: false});
+                                let customEvent = new Event('ƒ-' + receiver.attrName, {composed: false, bubbles: false});
                                 customEvent.detail = response;
                                 receiver.element.dispatchEvent(customEvent);
+
 
                             } else if (receiver.property) {
                                 let data = detailData;
@@ -61,7 +62,7 @@ const FBPMixin = (superClass) => {
                                 }
                                 receiver.element[receiver.property] = data
                             } else {
-                                console.warn(receiver.method + ' is neither a listener nor a function of ' + receiver.element.nodeName)
+                                console.warn(receiver.method + ' is neither a listener nor a function of ' + receiver.element.nodeName, receiver.element)
                             }
                         }
 
@@ -222,6 +223,7 @@ const FBPMixin = (superClass) => {
                             wirebundle[r.receivingWire].push({
                                 "element": element,
                                 "method": this.__toCamelCase(element.attributes[i].name.substr(2)),
+                                "attrName":element.attributes[i].name.substr(2),
                                 "path": r.path
                             });
 
@@ -288,7 +290,6 @@ const FBPMixin = (superClass) => {
                 for (let i = 0; i < element.attributes.length; i++) {
                     element.__atf[element.attributes[i].name] = true;
                 }
-
 
                 let handler = {
                     // prevent default and stop propagation
@@ -452,14 +453,19 @@ const FBPMixin = (superClass) => {
         }
 
         disconnectedCallback() {
+            // clear wires first
+            this.__wirebundle = {};
+            this.__wireQueue = [];
+            /* remove event listeners*/
+            this.__FBPEventlistener.forEach(function (e) {
+                e.element.removeEventListener(e.event, e.handler);
+            });
+
             if (super.disconnectedCallback) {
                 super.disconnectedCallback();
             }
 
-            /* remove event listeners*/
-            this.__FBPEventlistener.forEach(function (e) {
-                e.element.removeEventListener(e.event, e.handler);
-            })
+
         }
 
         /**

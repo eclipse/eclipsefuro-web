@@ -188,6 +188,1214 @@
       "mixins": [
         "FBP"
       ]
+    },
+    {
+      "description": "`furo-tree`\nDisplays a recursive entity field as a tree",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-navigation/furo-tree.js",
+      "properties": [
+        {
+          "name": "_open",
+          "type": "boolean | null | undefined",
+          "description": "Open children of tree item",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 37,
+              "column": 6
+            },
+            "end": {
+              "line": 37,
+              "column": 62
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "selected",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 46
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "depth",
+          "type": "number | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 39,
+              "column": 6
+            },
+            "end": {
+              "line": 39,
+              "column": 27
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 47,
+              "column": 2
+            },
+            "end": {
+              "line": 63,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        },
+        {
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 160,
+              "column": 2
+            },
+            "end": {
+              "line": 170,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 173,
+              "column": 2
+            },
+            "end": {
+              "line": 306,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "d"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-tree.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 18,
+          "column": 7
+        },
+        "end": {
+          "line": 309,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroTree",
+      "attributes": [
+        {
+          "name": "selected",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 46
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "depth",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 39,
+              "column": 6
+            },
+            "end": {
+              "line": 39,
+              "column": 27
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "branch-selected",
+          "description": "branch-selected\nFired when\ndetail payload:",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "leaf-selected",
+          "description": "leaf-selected\nFired when\ndetail payload:",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "node-selected",
+          "description": "node-selected\nFired when\ndetail payload:",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-tree",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-tree-item`\ntodo Describe your element",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-navigation/furo-tree-item.js",
+      "properties": [
+        {
+          "name": "hidden",
+          "type": "boolean | null | undefined",
+          "description": "Description",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 6
+            },
+            "end": {
+              "line": 32,
+              "column": 44
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "hovered",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 33,
+              "column": 6
+            },
+            "end": {
+              "line": 33,
+              "column": 45
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "selected",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 6
+            },
+            "end": {
+              "line": 34,
+              "column": 46
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "bindData",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 2
+            },
+            "end": {
+              "line": 79,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 2
+            },
+            "end": {
+              "line": 99,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "selectItem",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 101,
+              "column": 2
+            },
+            "end": {
+              "line": 106,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "hoverItem",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 107,
+              "column": 2
+            },
+            "end": {
+              "line": 111,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 155,
+              "column": 2
+            },
+            "end": {
+              "line": 166,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-tree-item.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 16,
+          "column": 0
+        },
+        "end": {
+          "line": 167,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroTreeItem",
+      "attributes": [
+        {
+          "name": "hidden",
+          "description": "Description",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 6
+            },
+            "end": {
+              "line": 32,
+              "column": 44
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "hovered",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 33,
+              "column": 6
+            },
+            "end": {
+              "line": 33,
+              "column": 45
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "selected",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 6
+            },
+            "end": {
+              "line": 34,
+              "column": 46
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-tree-item",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-flat-tree`\ntodo Describe your element",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-navigation/furo-flat-tree.js",
+      "properties": [
+        {
+          "name": "_flatTree",
+          "type": "Array",
+          "description": "Flat list representation of the tree",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 28,
+              "column": 4
+            },
+            "end": {
+              "line": 28,
+              "column": 18
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "[]"
+        },
+        {
+          "name": "myBool",
+          "type": "boolean | null | undefined",
+          "description": "Description",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 154,
+              "column": 6
+            },
+            "end": {
+              "line": 154,
+              "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "tabindex",
+          "type": "number | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 155,
+              "column": 6
+            },
+            "end": {
+              "line": 155,
+              "column": 45
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_hoverHome",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 80,
+              "column": 2
+            },
+            "end": {
+              "line": 85,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_hoverPrevious",
+          "description": "hovers the previous item",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 90,
+              "column": 2
+            },
+            "end": {
+              "line": 95,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "selectPrev",
+          "description": "select the previous visible item",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 100,
+              "column": 2
+            },
+            "end": {
+              "line": 105,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "toggle",
+          "description": "toggles the selectes node",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 110,
+              "column": 2
+            },
+            "end": {
+              "line": 112,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "addSubNode",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 114,
+              "column": 2
+            },
+            "end": {
+              "line": 122,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "rawNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "deleteNode",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 123,
+              "column": 2
+            },
+            "end": {
+              "line": 125,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "selectNext",
+          "description": "select the next visible item",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 129,
+              "column": 2
+            },
+            "end": {
+              "line": 134,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_hoverNext",
+          "description": "hovers the next item",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 138,
+              "column": 2
+            },
+            "end": {
+              "line": 143,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 162,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 225,
+              "column": 2
+            },
+            "end": {
+              "line": 238,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 241,
+              "column": 2
+            },
+            "end": {
+              "line": 258,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "treeNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_init",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 260,
+              "column": 2
+            },
+            "end": {
+              "line": 272,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_initHoverAndSelectEvents",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 274,
+              "column": 2
+            },
+            "end": {
+              "line": 348,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_buildFlatTree",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 350,
+              "column": 2
+            },
+            "end": {
+              "line": 406,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "tree"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_parseTreeRecursive",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 409,
+              "column": 2
+            },
+            "end": {
+              "line": 419,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "tree"
+            },
+            {
+              "name": "depth"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-tree.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 420,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroFlatTree",
+      "attributes": [
+        {
+          "name": "my-bool",
+          "description": "Description",
+          "sourceRange": {
+            "start": {
+              "line": 154,
+              "column": 6
+            },
+            "end": {
+              "line": 154,
+              "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "tabindex",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 155,
+              "column": 6
+            },
+            "end": {
+              "line": 155,
+              "column": 45
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "branch-hovered",
+          "description": "branch-hovered\nFired when\ndetail payload:",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "branch-selected",
+          "description": "branch-selected\nFired when\ndetail payload:",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "leaf-hovered",
+          "description": "leaf-hovered\nFired when\ndetail payload:",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "leaf-selected",
+          "description": "leaf-selected\nFired when\ndetail payload:",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "node-hovered",
+          "description": "node-hovered\nFired when\ndetail payload:",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "node-selected",
+          "description": "node-selected\nFired when\ndetail payload:",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-flat-tree",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-tree`\nDisplays a recursive entity field as a tree",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-navigation/furo-tree-x.js",
+      "properties": [
+        {
+          "name": "_open",
+          "type": "boolean | null | undefined",
+          "description": "Open children of tree item",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "furo-tree.js",
+            "start": {
+              "line": 37,
+              "column": 6
+            },
+            "end": {
+              "line": 37,
+              "column": 62
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "inheritedFrom": "FuroTree"
+        },
+        {
+          "name": "selected",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-tree.js",
+            "start": {
+              "line": 38,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 46
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          },
+          "inheritedFrom": "FuroTree"
+        },
+        {
+          "name": "depth",
+          "type": "number | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-tree.js",
+            "start": {
+              "line": 39,
+              "column": 6
+            },
+            "end": {
+              "line": 39,
+              "column": 27
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          },
+          "inheritedFrom": "FuroTree"
+        }
+      ],
+      "methods": [
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 23,
+              "column": 2
+            },
+            "end": {
+              "line": 41,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        },
+        {
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "furo-tree.js",
+            "start": {
+              "line": 160,
+              "column": 2
+            },
+            "end": {
+              "line": 170,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroTree"
+        },
+        {
+          "name": "bindData",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "furo-tree.js",
+            "start": {
+              "line": 173,
+              "column": 2
+            },
+            "end": {
+              "line": 306,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "d"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FuroTree"
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-tree.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 17,
+          "column": 0
+        },
+        "end": {
+          "line": 118,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "FuroTree",
+      "name": "FuroTreeX",
+      "attributes": [
+        {
+          "name": "selected",
+          "description": "",
+          "sourceRange": {
+            "file": "furo-tree.js",
+            "start": {
+              "line": 38,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 46
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined",
+          "inheritedFrom": "FuroTree"
+        },
+        {
+          "name": "depth",
+          "description": "",
+          "sourceRange": {
+            "file": "furo-tree.js",
+            "start": {
+              "line": 39,
+              "column": 6
+            },
+            "end": {
+              "line": 39,
+              "column": 27
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined",
+          "inheritedFrom": "FuroTree"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "branch-selected",
+          "description": "branch-selected\nFired when\ndetail payload:",
+          "metadata": {},
+          "inheritedFrom": "FuroTree"
+        },
+        {
+          "type": "CustomEvent",
+          "name": "leaf-selected",
+          "description": "leaf-selected\nFired when\ndetail payload:",
+          "metadata": {},
+          "inheritedFrom": "FuroTree"
+        },
+        {
+          "type": "CustomEvent",
+          "name": "node-selected",
+          "description": "node-selected\nFired when\ndetail payload:",
+          "metadata": {},
+          "inheritedFrom": "FuroTree"
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-tree-x",
+      "mixins": [
+        "FBP"
+      ]
     }
   ]
 }

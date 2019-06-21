@@ -17,6 +17,7 @@
   <script type="module">
 
     import "../furo-catalog.js"
+    import "../furo-flat-tree"
     import "./produce-data"
     import "./initEnv"
     import "@furo/data"
@@ -32,7 +33,7 @@
       <template>
         <produce-data @-data="--data"></produce-data>
         <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
-        <furo-tree ƒ-bind-data="--entityObj(*.fields)" ></furo-tree>
+        <furo-flat-tree ƒ-bind-data="--entityObj" ></furo-flat-tree>
 
       </template>
     </flow-bind>
@@ -57,25 +58,30 @@
       tree = fix[3];
       await tree.updateComplete;
 
+      tree.__tmp = tree._buildFlatTree;
+      tree._buildFlatTree = (node)=>{
+        tree.__tmp(node);
+        /**
+         * @event tree-parsed
+         * Fired when
+         * detail payload:
+         */
+        let customEvent = new Event('tree-parsed', {composed:true, bubbles: true});
+        customEvent.detail = this._flatTree;
+        tree.dispatchEvent(customEvent)
+
+      }
     });
 
-    it('should render root node only', (done) => {
-      dataprocuder.produce();
-      console.log(tree.querySelectorAll("*"))
-      done();
-    });
 
-
-    it('should render a full tree', (done) => {
-      tree.setAttribute("deep-open","");
-      dataprocuder.produce();
-      setTimeout(() => {
-        console.log(tree.shadowRoot.querySelectorAll("*"))
-        expect(tree.scrollHeight).be.gt(100);
-        expect(entity.entity.fields.children.repeats.length).be.eq(2);
-        expect(entity.entity.fields.children.value[0].display_name).be.eq("A");
+    it('should build flat tree', (done) => {
+      tree.addEventListener("tree-parsed",(e)=>{
+        assert.equal(tree._flatTree.length,9);
         done();
-      }, 10);
+      });
+      dataprocuder.produce();
+
+
     });
 
 
@@ -85,7 +91,7 @@
     });
 
     it('should be a furo-tree', (done) => {
-      assert.equal(tree.nodeName, "FURO-TREE");
+      assert.equal(tree.nodeName, "FURO-FLAT-TREE");
       done()
     });
 

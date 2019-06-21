@@ -1381,7 +1381,7 @@
       "tagname": "furo-button-bar"
     },
     {
-      "description": "`furo-toast`\nDescribe your element",
+      "description": "`furo-toast`\nNot implemented yet.",
       "summary": "shortdescription",
       "path": "packages/furo-form/furo-toast.js",
       "properties": [

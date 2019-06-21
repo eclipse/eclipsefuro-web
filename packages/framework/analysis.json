@@ -330,6 +330,80 @@
       },
       "privacy": "public",
       "name": "Theme"
+    },
+    {
+      "description": "`Iconset` class , works together with `furo-icon`\n\nto use furo-icon you should\nfirst import a svg set of icons and register it to Iconset\n\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n\nafter registering you can use those icons in furo-icon in any other component\n<furo-icon icon=\"iconSetName:iconName\" ></furo-icon>",
+      "summary": "",
+      "path": "packages/framework/iconset.js",
+      "properties": [],
+      "methods": [],
+      "staticMethods": [
+        {
+          "name": "registerIconset",
+          "description": "register an icon set",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 23,
+              "column": 4
+            },
+            "end": {
+              "line": 27,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "setName"
+            },
+            {
+              "name": "icons"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "get",
+          "description": "get icon svg via icon set name and icon name",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 30,
+              "column": 4
+            },
+            "end": {
+              "line": 49,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "setName"
+            },
+            {
+              "name": "iconName"
+            }
+          ]
+        }
+      ],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 20,
+          "column": 7
+        },
+        "end": {
+          "line": 51,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "name": "Iconset"
     }
   ]
 }

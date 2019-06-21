@@ -19,7 +19,6 @@ class FlowRepeat extends HTMLTemplateElement {
         super();
         this.template;
         this._insertedItems = [];
-
     }
 
     /**
@@ -108,10 +107,6 @@ class FlowRepeat extends HTMLTemplateElement {
             elem.shadowRoot.appendChild(this.template.cloneNode(true));
             elem._appendFBP(elem.shadowRoot);
 
-
-            elem.item = e;
-            elem.index = i;
-
             let handle = {virtualElement: elem, children: [].slice.call(elem.shadowRoot.children)};
 
             // remove old entries
@@ -120,9 +115,15 @@ class FlowRepeat extends HTMLTemplateElement {
                     attachedElem.remove()
                 })
             }
+
             this._insertedItems[i] = handle;
 
             this.parentNode.insertBefore(elem.shadowRoot, this);
+
+            // set item and index value on created element
+            elem.item = e;
+            elem.index = i;
+
 
             // trigger wires
             elem._FBPTriggerWire(this._internalWire, {item: e, index: i});
@@ -134,9 +135,6 @@ class FlowRepeat extends HTMLTemplateElement {
                 elem._FBPTriggerWire("--lastItem", e);
             }
 
-            // set item to host
-            elem.item = e;
-            elem.index = i;
             elem._FBPTriggerWire("--item", e);
             elem._FBPTriggerWire("--host", this._firstHost);
             elem._FBPTriggerWire("--index", i);
