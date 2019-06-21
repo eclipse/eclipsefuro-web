@@ -144,6 +144,12 @@ class FuroTreeItem extends FBP(LitElement) {
             color: var(--separator-color, #b5b5b5);
             width: 16px;
             font-size: 8px;
+            box-sizing: border-box;
+            padding-left: 4px;
+        }
+        
+        :host([selected]) .oc {
+            color: var(--on-primary, white);
         }
     `
   }

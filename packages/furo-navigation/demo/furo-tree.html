@@ -12,8 +12,6 @@
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
     import '@polymer/iron-demo-helpers/demo-snippet';
     import '../furo-catalog';
-    import '../furo-tree-x';
-    import '../furo-flat-tree';
     import "@furo/fbp/flow-bind"
     import "../test/initEnv"
     import "@furo/data"
@@ -26,14 +24,11 @@
 
   <custom-style>
     <style is="custom-style" include="demo-pages-shared-styles">
-      furo-tree, furo-tree-x {
-        border: 1px solid saddlebrown;
-        width: 205px;
-        height: 155px;
 
-      }
-      furo-flat-tree{
+      furo-tree{
         height: 100%;
+        --primary-color: #429cff;
+        --on-primary: #f0f0f0;
       }
     </style>
   </custom-style>
@@ -58,7 +53,7 @@
 
 
           <furo-split-view style="height: 500px;">
-            <furo-flat-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--nodeSelected"
+            <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--nodeSelected"
                             ƒ-select-next="--next"
                             ƒ-select-prev="--prev"
                             ƒ-add-sub-node="--addSub"
@@ -66,7 +61,7 @@
                             ƒ-expand-all="--expandAll"
                             ƒ-collapse-all="--collapseAll"
                             ƒ-delete-node="--deleteNode"
-                            @-node-hovered="--nodeHovered"></furo-flat-tree>
+                            @-node-hovered="--nodeHovered"></furo-tree>
             <furo-card flex>
               <h4>Hovered</h4>
               <furo-input-row label="title" @-click="--thcl">
@@ -99,7 +94,7 @@
 </div>
 
 
-<!--div class="vertical-section-container centered">
+<div class="vertical-section-container centered">
   <h3>furo-tree joined togehter</h3>
   <demo-snippet>
     <template>
@@ -112,9 +107,9 @@
           <entity-object type="vnd.com.acme.tree" ƒ-inject-plain-data="--nodeSelected(*.value)" @-object-ready="--subR"></entity-object>
 
           <furo-horizontal-flex style="height: 500px;">
-            <furo-flat-tree flex ƒ-focus="--focusClicked"  ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--nodeSelected"></furo-flat-tree>
+            <furo-tree flex ƒ-focus="--focusClicked"  ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--nodeSelected"></furo-tree>
 
-            <furo-flat-tree flex ƒ-bind-data="--subR(*.fields)" depth="1"></furo-flat-tree>
+            <furo-tree flex ƒ-bind-data="--subR(*.fields)" depth="1"></furo-tree>
 
           </furo-horizontal-flex>
 
@@ -124,6 +119,8 @@
   </demo-snippet>
 </div>
 
+
+<!-- in stock
 <div class="vertical-section-container centered">
   <h3>furo-tree</h3>
   <demo-snippet>
@@ -133,7 +130,7 @@
           <produce-data @-data="--data"></produce-data>
           <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
 
-          <furo-tree ƒ-bind-data="--entityObj(*.fields)" open></furo-tree>
+          <furo-recursive-tree ƒ-bind-data="--entityObj(*.fields)" open></furo-recursive-tree>
 
 
         </template>
@@ -152,7 +149,7 @@
           <produce-data @-data="--data"></produce-data>
           <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
 
-          <furo-tree ƒ-bind-data="--entityObj(*.fields)"></furo-tree>
+          <furo-recursive-tree-b ƒ-bind-data="--entityObj(*.fields)"></furo-recursive-tree-b>
 
 
         </template>
@@ -161,5 +158,6 @@
   </demo-snippet>
 </div>
 -->
+
 </body>
 </html>

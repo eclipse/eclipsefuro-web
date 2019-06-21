@@ -86,7 +86,7 @@ class FlowRepeat extends HTMLTemplateElement {
         if (parent && parent.host) {
             return parent.host;
         }
-        if(parent === null){
+        if (parent === null) {
             return null
         }
         return this._findFirstHost(parent.parentNode);
@@ -99,7 +99,7 @@ class FlowRepeat extends HTMLTemplateElement {
             items = [];
         }
 
-        this._firstHost = this._findFirstHost(this.parentNode) ;
+        this._firstHost = this._findFirstHost(this.parentNode);
         items.forEach((e, i, a) => {
             // build hidden elem
             let elem = document.createElement('empty-fbp-node');
@@ -138,6 +138,7 @@ class FlowRepeat extends HTMLTemplateElement {
             elem._FBPTriggerWire("--item", e);
             elem._FBPTriggerWire("--host", this._firstHost);
             elem._FBPTriggerWire("--index", i);
+
         });
 
         // remove entries in old array if items is smaller
@@ -145,17 +146,31 @@ class FlowRepeat extends HTMLTemplateElement {
             handle.children.map((attachedElem) => {
                 attachedElem.remove()
             })
-        })
+        });
+
+        if (items.length > 0) {
+            /**
+             * @event items-in-dom
+             * Fired when items are attached to the dom
+             * detail payload: {Number} Number of items
+             */
+            setTimeout(()=>{
+                let customEvent = new Event('items-in-dom', {composed: true, bubbles: false});
+                customEvent.detail = items.length;
+                this.dispatchEvent(customEvent);
+            },0);
+
+        }
     }
 
     connectedCallback() {
         this.style.display = "none";
         // Create a shadow root to the element.
 
-    if (this.content.children.length > 0) {
-      this.template = this.content;
+        if (this.content.children.length > 0) {
+            this.template = this.content;
         } else {
-      this.template = this._templateInfo.content;
+            this.template = this._templateInfo.content;
         }
 
 
@@ -186,4 +201,4 @@ class FlowRepeat extends HTMLTemplateElement {
 }
 
 
-window.customElements.define('flow-repeat', FlowRepeat, {extends:"template"});
+window.customElements.define('flow-repeat', FlowRepeat, {extends: "template"});
