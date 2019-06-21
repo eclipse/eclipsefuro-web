@@ -2887,7 +2887,7 @@
       ]
     },
     {
-      "description": "`furo-icon`\nLit element\nto use furo icon you should\nfirst import a svg set of icons and register it to @furo/framework/iconset\n\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n\nafter registering you can use those icons in furo-icon in any other component\n<furo-icon icon=\"iconSetName:iconName\"></furo-icon>\n\nif you has default iconset imported, you can use icon without set name:\n<furo-icon icon=\"iconName\" ></furo-icon>\n\nuse css variable '--furo-icon-width' and '--furo-icon-height' to define the size\nuse '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors\n\nyou can also define other properties lik viewport ,preserveAspectRatio...",
+      "description": "`furo-icon`\n\nto use furo icon you should\nfirst import a svg set of icons and register it to @furo/framework/iconset\n\n\n\n```\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n```\n\nYou can find some set in ./iconsets/...\n\nafter registering you can use those icons in furo-icon in any other component\n<furo-icon icon=\"iconSetName:iconName\"></furo-icon>\n\nif you have imported an iconset with the name **default**, you can use the icon without set name:\n\n```\n<furo-icon icon=\"iconName\" ></furo-icon>\n```\n\nuse css variable '--furo-icon-width' and '--furo-icon-height' to define the size\nuse '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors\n\nyou can also define other properties lik viewport ,preserveAspectRatio...",
       "summary": "furo icon",
       "path": "packages/furo-layout/furo-icon.js",
       "properties": [
@@ -2990,11 +2990,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 85,
               "column": 12
             },
             "end": {
-              "line": 78,
+              "line": 87,
               "column": 13
             }
           },
@@ -3006,48 +3006,6 @@
         },
         {
           "name": "viewBox",
-          "type": "string | null | undefined",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 80,
-              "column": 12
-            },
-            "end": {
-              "line": 83,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "focusable",
-          "type": "boolean | null | undefined",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 85,
-              "column": 12
-            },
-            "end": {
-              "line": 87,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "preserveAspectRatio",
           "type": "string | null | undefined",
           "description": "",
           "privacy": "public",
@@ -3068,8 +3026,8 @@
           }
         },
         {
-          "name": "style",
-          "type": "string | null | undefined",
+          "name": "focusable",
+          "type": "boolean | null | undefined",
           "description": "",
           "privacy": "public",
           "sourceRange": {
@@ -3079,6 +3037,48 @@
             },
             "end": {
               "line": 96,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "preserveAspectRatio",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 98,
+              "column": 12
+            },
+            "end": {
+              "line": 101,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "style",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 103,
+              "column": 12
+            },
+            "end": {
+              "line": 105,
               "column": 13
             }
           },
@@ -3473,11 +3473,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 115,
               "column": 4
             },
             "end": {
-              "line": 125,
+              "line": 134,
               "column": 5
             }
           },
@@ -3568,11 +3568,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 141,
               "column": 4
             },
             "end": {
-              "line": 134,
+              "line": 143,
               "column": 5
             }
           },
@@ -3795,11 +3795,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 34,
+          "line": 43,
           "column": 0
         },
         "end": {
-          "line": 136,
+          "line": 145,
           "column": 1
         }
       },
@@ -3812,38 +3812,6 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 76,
-              "column": 12
-            },
-            "end": {
-              "line": 78,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "view-box",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 80,
-              "column": 12
-            },
-            "end": {
-              "line": 83,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "focusable",
-          "description": "",
-          "sourceRange": {
-            "start": {
               "line": 85,
               "column": 12
             },
@@ -3853,10 +3821,10 @@
             }
           },
           "metadata": {},
-          "type": "boolean | null | undefined"
+          "type": "string | null | undefined"
         },
         {
-          "name": "preserve-aspect-ratio",
+          "name": "view-box",
           "description": "",
           "sourceRange": {
             "start": {
@@ -3872,7 +3840,7 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "style",
+          "name": "focusable",
           "description": "",
           "sourceRange": {
             "start": {
@@ -3881,6 +3849,38 @@
             },
             "end": {
               "line": 96,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "preserve-aspect-ratio",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 98,
+              "column": 12
+            },
+            "end": {
+              "line": 101,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "style",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 103,
+              "column": 12
+            },
+            "end": {
+              "line": 105,
               "column": 13
             }
           },
