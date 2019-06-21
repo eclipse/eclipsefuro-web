@@ -2887,7 +2887,7 @@
       ]
     },
     {
-      "description": "`furo-icon`\nLit element\nto use furo icon you should\nfirst import a svg set of icons and register it to @furo/framework/iconset\n\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n\nafter registering you can use those icons in furo-icon in any other component\n<furo-icon icon=\"iconSetName:iconName\"></furo-icon>\n\nuse css variable '--furo-icon-width' and '--furo-icon-height' to define the size\nuse '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors\n\nyou can also define other properties lik viewport ,preserveAspectRatio...",
+      "description": "`furo-icon`\nLit element\nto use furo icon you should\nfirst import a svg set of icons and register it to @furo/framework/iconset\n\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n\nafter registering you can use those icons in furo-icon in any other component\n<furo-icon icon=\"iconSetName:iconName\"></furo-icon>\n\nif you has default iconset imported, you can use icon without set name:\n<furo-icon icon=\"iconName\" ></furo-icon>\n\nuse css variable '--furo-icon-width' and '--furo-icon-height' to define the size\nuse '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors\n\nyou can also define other properties lik viewport ,preserveAspectRatio...",
       "summary": "furo icon",
       "path": "packages/furo-layout/furo-icon.js",
       "properties": [
@@ -2990,11 +2990,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 76,
               "column": 12
             },
             "end": {
-              "line": 75,
+              "line": 78,
               "column": 13
             }
           },
@@ -3011,11 +3011,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 77,
+              "line": 80,
               "column": 12
             },
             "end": {
-              "line": 80,
+              "line": 83,
               "column": 13
             }
           },
@@ -3032,11 +3032,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 82,
+              "line": 85,
               "column": 12
             },
             "end": {
-              "line": 84,
+              "line": 87,
               "column": 13
             }
           },
@@ -3053,11 +3053,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 86,
+              "line": 89,
               "column": 12
             },
             "end": {
-              "line": 89,
+              "line": 92,
               "column": 13
             }
           },
@@ -3074,11 +3074,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 12
             },
             "end": {
-              "line": 93,
+              "line": 96,
               "column": 13
             }
           },
@@ -3473,11 +3473,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 103,
+              "line": 106,
               "column": 4
             },
             "end": {
-              "line": 114,
+              "line": 125,
               "column": 5
             }
           },
@@ -3568,11 +3568,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 121,
+              "line": 132,
               "column": 4
             },
             "end": {
-              "line": 123,
+              "line": 134,
               "column": 5
             }
           },
@@ -3788,18 +3788,18 @@
       ],
       "demos": [
         {
-          "url": "demo/index.html",
+          "url": "demo/furo-icon.html",
           "description": ""
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 31,
+          "line": 34,
           "column": 0
         },
         "end": {
-          "line": 125,
+          "line": 136,
           "column": 1
         }
       },
@@ -3812,11 +3812,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 76,
               "column": 12
             },
             "end": {
-              "line": 75,
+              "line": 78,
               "column": 13
             }
           },
@@ -3828,11 +3828,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 77,
+              "line": 80,
               "column": 12
             },
             "end": {
-              "line": 80,
+              "line": 83,
               "column": 13
             }
           },
@@ -3844,11 +3844,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 82,
+              "line": 85,
               "column": 12
             },
             "end": {
-              "line": 84,
+              "line": 87,
               "column": 13
             }
           },
@@ -3860,11 +3860,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 86,
+              "line": 89,
               "column": 12
             },
             "end": {
-              "line": 89,
+              "line": 92,
               "column": 13
             }
           },
@@ -3876,11 +3876,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 12
             },
             "end": {
-              "line": 93,
+              "line": 96,
               "column": 13
             }
           },

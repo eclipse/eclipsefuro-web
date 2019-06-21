@@ -30,7 +30,7 @@ import {Iconset} from "@furo/framework/iconset";
  * you can also define other properties lik viewport ,preserveAspectRatio...
  * @summary furo icon
  * @customElement
- * @demo demo/index.html
+ * @demo demo/furo-icon.html
  */
 class FuroIcon extends LitElement {
 
