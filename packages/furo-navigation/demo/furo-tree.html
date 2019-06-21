@@ -42,6 +42,8 @@
 <body>
 
 
+
+
 <div class="vertical-section-container centered">
   <h3>furo-tree-x</h3>
   <demo-snippet>
@@ -50,7 +52,8 @@
         <template>
           <produce-data auto @-data="--data"></produce-data>
           <button @-click="--focusClicked">focus</button>
-
+          <button @-click="--expandAll">expand all</button>
+          <button @-click="--collapseAll">collapse all</button>
           <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
 
 
@@ -59,6 +62,9 @@
                             ƒ-select-next="--next"
                             ƒ-select-prev="--prev"
                             ƒ-add-sub-node="--addSub"
+                            ƒ-expand-node-recursive="--expandNode"
+                            ƒ-expand-all="--expandAll"
+                            ƒ-collapse-all="--collapseAll"
                             ƒ-delete-node="--deleteNode"
                             @-node-hovered="--nodeHovered"></furo-flat-tree>
             <furo-card flex>
@@ -82,8 +88,8 @@
               <button @-click="--next">next</button>
               <button @-click="--addSub">add sub</button>
               <button @-click="--deleteNode">deleteNode</button>
+              <button @-click="--expandNode">expand</button>
             </furo-card>
-
           </furo-split-view>
 
         </template>
@@ -92,6 +98,31 @@
   </demo-snippet>
 </div>
 
+
+<div class="vertical-section-container centered">
+  <h3>furo-tree joined togehter</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <produce-data auto @-data="--data"></produce-data>
+          <button @-click="--focusClicked">focus</button>
+
+          <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+          <entity-object type="vnd.com.acme.tree" ƒ-inject-plain-data="--nodeSelected(*.value)" @-object-ready="--subR"></entity-object>
+
+          <furo-horizontal-flex style="height: 500px;">
+            <furo-flat-tree flex ƒ-focus="--focusClicked"  ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--nodeSelected"></furo-flat-tree>
+
+            <furo-flat-tree flex ƒ-bind-data="--subR(*.fields)" depth="1"></furo-flat-tree>
+
+          </furo-horizontal-flex>
+
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
 
 <div class="vertical-section-container centered">
   <h3>furo-tree</h3>

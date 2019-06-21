@@ -38,7 +38,7 @@ class FuroTreeItem extends FBP(LitElement) {
 
   bindData(fieldNode) {
     this.fieldNode = fieldNode;
-
+    this.fieldNode._isHidden = true;
 
     // reflect visible close state to attr
     this.fieldNode.addEventListener("ancestor-invisible", (e) => {

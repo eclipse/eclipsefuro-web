@@ -106,7 +106,27 @@ class FuroFlatTree extends FBP(LitElement) {
   }
 
   /**
-   * toggles the selectes node
+   * expands the currently selected node recursive
+   */
+  expandNodeRecursive() {
+    this._selectedField.expandRecursive();
+  }
+
+  expandAll(){
+    this._flatTree[0].expandRecursive();
+  }
+  collapseAll(){
+    this._flatTree[0].collapseRecursive();
+  }
+  /**
+   * expands the currently selected node recursive
+   */
+  collapseNodeRecursive() {
+    this._selectedField.collapseRecursive();
+  }
+
+  /**
+   * toggles the currently selected node
    */
   toggle() {
     this._selectedField.toggleOpenClose();
@@ -140,7 +160,7 @@ class FuroFlatTree extends FBP(LitElement) {
    * hovers the next item
    */
   _hoverNext() {
-    let next = this._hoveredField.getNextElement();
+    let next = this._hoveredField.getNextVisibleElement();
     if (next) {
       next.triggerHover();
     }
@@ -153,9 +173,12 @@ class FuroFlatTree extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Description
+       * Maximal depth for the tree. Default is infinite.
        */
-      myBool: {type: Boolean},
+      depth: {type: Number},
+      /**
+       * Sets the tabindex
+       */
       tabindex: {type: Number, reflect: true}
     };
   }
@@ -172,7 +195,6 @@ class FuroFlatTree extends FBP(LitElement) {
    */
   __fbpReady() {
     super.__fbpReady();
-    //this._FBPTraceWires()
   }
 
   /**
@@ -359,8 +381,9 @@ class FuroFlatTree extends FBP(LitElement) {
   }
 
   _buildFlatTree(tree) {
+
     this._flatTree = [tree];
-    this._parseTreeRecursive(tree, 0);
+    this._parseTreeRecursive(tree, 0, this.depth);
 
 
     for (let len = this._flatTree.length; len > 0; len--) {
@@ -376,7 +399,7 @@ class FuroFlatTree extends FBP(LitElement) {
 
       // Traverse the flat tree, it is simpler then the nested tree
       // next active element
-      node.getNextElement = () => {
+      node.getNextVisibleElement = () => {
         for (let i = index + 1; i < this._flatTree.length; i++) {
           if (!this._flatTree[i]._isHidden) {
             return this._flatTree[i];
@@ -421,30 +444,52 @@ class FuroFlatTree extends FBP(LitElement) {
         node.dispatchNodeEvent(new NodeEvent('this-node-selected', this, false));
 
         // used to open the paths upwards from the selected node
-        node.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
+        node.__parentNode.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
         node.triggerHover()
       };
 
+      // if a descendant was selected, we ensure to open the path
       node.addEventListener("descendant-selected", (e) => {
+         node.open.value = true;
+      });
+
+      // expand recursive
+      node.expandRecursive = () => {
+        node.broadcastEvent(new NodeEvent('recursive-expand-requested', node));
+      };
+
+      node.addEventListener("recursive-expand-requested", (e) => {
         node.open.value = true;
       });
 
+      // collapse recursive
+      node.collapseRecursive = () => {
+        node.broadcastEvent(new NodeEvent('recursive-collapse-requested', node));
+      };
+
+      node.addEventListener("recursive-collapse-requested", (e) => {
+        node.open.value = false;
+      });
     }
 
+    // open the root ode
     tree.open.value = true;
 
     this._FBPTriggerWire("--treeChanged", this._flatTree);
   }
 
 
-  _parseTreeRecursive(tree, depth) {
-    depth++;
+  _parseTreeRecursive(tree, level, maxdepth) {
+    if (maxdepth > 0 && !(level < maxdepth)) {
+      return
+    }
+    level++;
 
     tree.children.repeats.forEach((node) => {
-      node.depth = depth;
+      node.depth = level;
       this._flatTree.push(node);
       if (node.children.repeats.length > 0) {
-        this._parseTreeRecursive(node, depth)
+        this._parseTreeRecursive(node, level, maxdepth)
       }
     });
   }
