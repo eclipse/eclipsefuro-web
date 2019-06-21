@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.33.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.32.0...@furo/input@0.33.0) (2019-06-21)
+
+
+### Features
+
+* furo-tree ([56445af](https://github.com/veith/FuroBaseComponents/commit/56445af))
+
+
+
+
+
 # [0.32.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.31.0...@furo/input@0.32.0) (2019-06-13)
 
 
