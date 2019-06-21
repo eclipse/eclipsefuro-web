@@ -21,6 +21,9 @@ import {Iconset} from "@furo/framework/iconset";
  * after registering you can use those icons in furo-icon in any other component
  * <furo-icon icon="iconSetName:iconName"></furo-icon>
  *
+ * if you has default iconset imported, you can use icon without set name:
+ * <furo-icon icon="iconName" ></furo-icon>
+ *
  * use css variable '--furo-icon-width' and '--furo-icon-height' to define the size
  * use '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors
  *
@@ -106,6 +109,14 @@ class FuroIcon extends LitElement {
         if(this.icon !== undefined) {
 
             let w = this.icon.split(":");
+
+            // set iconset to default when no iconset name is given
+            if(w[1] === undefined) {
+
+                w[1] = w[0];
+                w[0] = 'default';
+            }
+
             this.shadowRoot.getElementById("furo-icon-svg").innerHTML = Iconset.get(w[0],w[1]);
         }
         else {
