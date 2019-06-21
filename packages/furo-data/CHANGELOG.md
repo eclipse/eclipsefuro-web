@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.38.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.37.0...@furo/data@0.38.0) (2019-06-21)
+
+
+### Features
+
+* FuroBaseIcons ([1df13b1](https://github.com/veith/FuroBaseComponents/commit/1df13b1))
+
+
+
+
+
 # [0.37.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.36.2...@furo/data@0.37.0) (2019-06-21)
 
 

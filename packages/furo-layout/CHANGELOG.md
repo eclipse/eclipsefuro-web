@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.23.0...@furo/layout@0.24.0) (2019-06-21)
+
+
+### Features
+
+* furo iconset AvIcons ([62fd90e](https://github.com/veith/FuroBaseComponents/commit/62fd90e))
+* furo iconset DeviceIcons ([927eb8e](https://github.com/veith/FuroBaseComponents/commit/927eb8e))
+* furo iconset EditorIcons ([d51081f](https://github.com/veith/FuroBaseComponents/commit/d51081f))
+* furo iconset hardwareIcons ([b2cec59](https://github.com/veith/FuroBaseComponents/commit/b2cec59))
+* FuroBaseIcons ([1df13b1](https://github.com/veith/FuroBaseComponents/commit/1df13b1))
+
+
+
+
+
 # [0.23.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.22.11...@furo/layout@0.23.0) (2019-06-21)
 
 
