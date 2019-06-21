@@ -42,7 +42,7 @@ class FuroFlatTree extends FBP(LitElement) {
             this._hoveredField.toggleOpenClose();
           } else {
             // open the hovered field
-            this._hoveredField.treeItem.selectItem();
+            this._hoveredField.selectItem();
           }
           break;
         case "ArrowDown":
@@ -81,7 +81,7 @@ class FuroFlatTree extends FBP(LitElement) {
   _hoverHome() {
     let parent = this._hoveredField.getParentElement();
     if (parent) {
-      parent.treeItem.hoverItem();
+      parent.triggerHover();
     }
   }
 
@@ -91,55 +91,58 @@ class FuroFlatTree extends FBP(LitElement) {
   _hoverPrevious() {
     let prev = this._hoveredField.getPrevElement();
     if (prev) {
-      prev.treeItem.hoverItem();
+      prev.triggerHover();
     }
   }
 
   /**
    * select the previous visible item
    */
-  selectPrev(){
+  selectPrev() {
     this._hoveredField = this._selectedField || this._hoveredField;
     this._hoverPrevious();
     // open the hovered field
-    this._hoveredField.treeItem.selectItem();
+    this._hoveredField.selectItem();
   }
 
   /**
    * toggles the selectes node
    */
-  toggle(){
+  toggle() {
     this._selectedField.toggleOpenClose();
   }
 
-  addSubNode(rawNode){
+  addSubNode(rawNode) {
     let newnode = this._selectedField.children.add();
-    newnode.value=rawNode;
-    setTimeout(()=>{
-      newnode.treeItem.selectItem();
-    },10)
+    newnode.value = rawNode;
+    setTimeout(() => {
+      newnode.selectItem();
+    }, 10)
 
 
   }
-  deleteNode(){
+
+  deleteNode() {
     this._selectedField.__parentNode.deleteChild(this._selectedField.__index);
   }
+
   /**
    * select the next visible item
    */
-  selectNext(){
+  selectNext() {
     this._hoveredField = this._selectedField || this._hoveredField;
     this._hoverNext();
     // open the hovered field
-    this._hoveredField.treeItem.selectItem();
+    this._hoveredField.selectItem();
   }
+
   /**
    * hovers the next item
    */
   _hoverNext() {
     let next = this._hoveredField.getNextElement();
     if (next) {
-      next.treeItem.hoverItem();
+      next.triggerHover();
     }
   }
 
@@ -155,6 +158,13 @@ class FuroFlatTree extends FBP(LitElement) {
       myBool: {type: Boolean},
       tabindex: {type: Number, reflect: true}
     };
+  }
+
+  /**
+   * focuses the element
+   */
+  focus() {
+    super.focus();
   }
 
   /**
@@ -398,6 +408,25 @@ class FuroFlatTree extends FBP(LitElement) {
       node.toggleOpenClose = () => {
         node.open.value = !node.open.value;
       };
+
+      // hovers the current node
+      node.triggerHover = () => {
+        node.dispatchNodeEvent(new NodeEvent('tree-node-hovered', this, true));
+        node.dispatchNodeEvent(new NodeEvent('this-node-hovered', this, false));
+      };
+
+      // selects the current item
+      node.selectItem = () => {
+        node.dispatchNodeEvent(new NodeEvent('tree-node-selected', this, true));
+        node.dispatchNodeEvent(new NodeEvent('this-node-selected', this, false));
+        // used to open the paths upwards from the selected node
+        node.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
+        node.triggerHover()
+      };
+
+      node.addEventListener("descendant-selected", (e) => {
+        node.open.value = true;
+      });
 
     }
 

@@ -19,6 +19,7 @@ class FuroTreeItem extends FBP(LitElement) {
   constructor() {
     super();
     this.hidden = true;
+
   }
 
   /**
@@ -87,7 +88,7 @@ class FuroTreeItem extends FBP(LitElement) {
     //this._FBPTraceWires()
 
     this._FBPAddWireHook("--labelClicked", (e) => {
-      this.selectItem();
+      this.fieldNode.selectItem();
     });
 
     this.fieldNode.addEventListener("tree-node-unselection-requested", (e) => {
@@ -97,19 +98,16 @@ class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode.addEventListener("tree-node-blur-requested", (e) => {
       this.hovered = false;
     });
+
+    this.fieldNode.addEventListener("this-node-hovered", (e) => {
+      this.hovered = true;
+    });
+
+    this.fieldNode.addEventListener("this-node-selected", (e) => {
+      this.selected = true;
+    });
   }
 
-  selectItem() {
-    // dispatch a selection
-    this.fieldNode.dispatchNodeEvent(new NodeEvent('tree-node-selected', this, true));
-    this.selected = true;
-    this.hoverItem()
-  }
-  hoverItem() {
-    // dispatch a selection
-    this.fieldNode.dispatchNodeEvent(new NodeEvent('tree-node-hovered', this, true));
-    this.hovered = true;
-  }
 
   /**
    * Themable Styles
@@ -156,7 +154,7 @@ class FuroTreeItem extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-<furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${(e) => this.hoverItem()}">
+<furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${(e) => this.fieldNode.triggerHover()}">
       <div style="width: ${this.fieldNode.depth * 8}px"></div>
       <div class="oc"><furo-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon></div>
       
