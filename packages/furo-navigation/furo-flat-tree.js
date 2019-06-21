@@ -444,7 +444,7 @@ class FuroFlatTree extends FBP(LitElement) {
         node.dispatchNodeEvent(new NodeEvent('this-node-selected', this, false));
 
         // used to open the paths upwards from the selected node
-        node.__parentNode.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
+        node.children.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
         node.triggerHover()
       };
 

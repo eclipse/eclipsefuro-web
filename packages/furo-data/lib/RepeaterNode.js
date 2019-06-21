@@ -49,7 +49,7 @@ export class RepeaterNode extends EventTreeNode {
   removeAllChildren() {
     this.__childNodes = [];
     this.repeats = [];
-    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, true));
+    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, false));
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed", this.repeats, false));
   }
 
