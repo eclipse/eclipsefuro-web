@@ -6,7 +6,9 @@ import {DeviceIcons} from "../iconsets/deviceIcons";
 import {AvIcons} from "../iconsets/avIcons";
 import {CommunicationIcons} from "../iconsets/communicationIcons"
 import {Iconset} from "@furo/framework/furo.js";
+import {EditorIcons} from "../iconsets/editorIcons";
 Iconset.registerIconset("default", FuroBaseIcons);
 Iconset.registerIconset("av", AvIcons);
 Iconset.registerIconset("com", CommunicationIcons);
 Iconset.registerIconset("device", DeviceIcons);
+Iconset.registerIconset("editor", EditorIcons);

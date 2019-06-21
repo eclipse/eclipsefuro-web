@@ -2,7 +2,7 @@
  * Device Icons
  * This is a set of the 24x24 icons from https://github.com/google/material-design-icons.
  *
- * The set correspondents with the set of @polymer/device-icons
+ * The set correspondents with the set of @polymer/iron-icons/device-icons
  *
  */
 export const DeviceIcons = {
