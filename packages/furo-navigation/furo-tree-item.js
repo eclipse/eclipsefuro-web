@@ -19,7 +19,6 @@ class FuroTreeItem extends FBP(LitElement) {
   constructor() {
     super();
     this.hidden = true;
-
   }
 
   /**
@@ -40,12 +39,11 @@ class FuroTreeItem extends FBP(LitElement) {
   bindData(fieldNode) {
     this.fieldNode = fieldNode;
 
-    // bind this item to field node
-    fieldNode.treeItem = this;
 
     // reflect visible close state to attr
     this.fieldNode.addEventListener("ancestor-invisible", (e) => {
       this.hidden = true;
+      this.fieldNode._isHidden = true;
     });
 
     // reflect visible close state to attr
@@ -53,6 +51,7 @@ class FuroTreeItem extends FBP(LitElement) {
 
       if (this.fieldNode.__parentNode.__parentNode.open.value) {
         this.hidden = false;
+        this.fieldNode._isHidden = false;
       }
     });
 
@@ -75,6 +74,7 @@ class FuroTreeItem extends FBP(LitElement) {
     // make first node visible
     if (this.fieldNode.__parentNode.__parentNode === null) {
       this.hidden = false;
+      this.fieldNode._isHidden = false;
     }
 
     this._FBPTriggerWire("--fieldOpen", this.fieldNode.open);
@@ -93,6 +93,7 @@ class FuroTreeItem extends FBP(LitElement) {
 
     this.fieldNode.addEventListener("tree-node-unselection-requested", (e) => {
       this.selected = false;
+      this.fieldNode._isSelected = false;
     });
 
     this.fieldNode.addEventListener("tree-node-blur-requested", (e) => {
@@ -105,6 +106,7 @@ class FuroTreeItem extends FBP(LitElement) {
 
     this.fieldNode.addEventListener("this-node-selected", (e) => {
       this.selected = true;
+      this.fieldNode._isSelected = true;
     });
   }
 

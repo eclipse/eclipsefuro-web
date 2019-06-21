@@ -37,7 +37,7 @@ class FuroFlatTree extends FBP(LitElement) {
       switch (key) {
         case "Enter":
           event.preventDefault();
-          if (this._hoveredField.treeItem.selected) {
+          if (this._hoveredField._isSelected) {
             // openclose
             this._hoveredField.toggleOpenClose();
           } else {
@@ -378,7 +378,7 @@ class FuroFlatTree extends FBP(LitElement) {
       // next active element
       node.getNextElement = () => {
         for (let i = index + 1; i < this._flatTree.length; i++) {
-          if (!this._flatTree[i].treeItem.hidden) {
+          if (!this._flatTree[i]._isHidden) {
             return this._flatTree[i];
           }
         }
@@ -387,7 +387,7 @@ class FuroFlatTree extends FBP(LitElement) {
       // prev active element
       node.getPrevElement = () => {
         for (let i = index - 1; i >= 0; i--) {
-          if (!this._flatTree[i].treeItem.hidden) {
+          if (!this._flatTree[i]._isHidden) {
             return this._flatTree[i];
           }
         }
@@ -419,6 +419,7 @@ class FuroFlatTree extends FBP(LitElement) {
       node.selectItem = () => {
         node.dispatchNodeEvent(new NodeEvent('tree-node-selected', this, true));
         node.dispatchNodeEvent(new NodeEvent('this-node-selected', this, false));
+
         // used to open the paths upwards from the selected node
         node.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
         node.triggerHover()
