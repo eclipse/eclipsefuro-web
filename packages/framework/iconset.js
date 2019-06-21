@@ -17,6 +17,10 @@
  *
  * after registering you can use those icons in furo-icon in any other component
  * <furo-icon icon="iconSetName:iconName" ></furo-icon>
+ *
+ * if you has default iconset imported, you can use icon without set name:
+ * <furo-icon icon="iconName" ></furo-icon>
+ *
  */
 export class Iconset {
 
