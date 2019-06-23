@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.24.0...@furo/layout@0.25.0) (2019-06-23)
+
+
+### Features
+
+* Autoregister base icon set if no set was defined. ([26c28fd](https://github.com/veith/FuroBaseComponents/commit/26c28fd))
+
+
+
+
+
 # [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.23.0...@furo/layout@0.24.0) (2019-06-21)
 
 

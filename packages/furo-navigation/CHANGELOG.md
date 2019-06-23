@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.18.0...@furo/navigation@0.19.0) (2019-06-23)
+
+
+### Features
+
+* set custom tree-item component for the tree ([f204460](https://github.com/veith/FuroBaseComponents/commit/f204460))
+
+
+
+
+
 # [0.18.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.17.0...@furo/navigation@0.18.0) (2019-06-21)
 
 
