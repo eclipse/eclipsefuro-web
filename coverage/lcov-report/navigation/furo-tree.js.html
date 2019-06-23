@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">96.62% </span>
+        <span class="strong">96.67% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>143/148</span>
+        <span class='fraction'>145/150</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80.85% </span>
+        <span class="strong">81.63% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>38/47</span>
+        <span class='fraction'>40/49</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>42/42</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">96.62% </span>
+        <span class="strong">96.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>143/148</span>
+        <span class='fraction'>145/150</span>
       </div>
     </div>
     <p class="quiet">
@@ -552,7 +552,17 @@
 <a name='L504'></a><a href='#L504'>504</a>
 <a name='L505'></a><a href='#L505'>505</a>
 <a name='L506'></a><a href='#L506'>506</a>
-<a name='L507'></a><a href='#L507'>507</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L507'></a><a href='#L507'>507</a>
+<a name='L508'></a><a href='#L508'>508</a>
+<a name='L509'></a><a href='#L509'>509</a>
+<a name='L510'></a><a href='#L510'>510</a>
+<a name='L511'></a><a href='#L511'>511</a>
+<a name='L512'></a><a href='#L512'>512</a>
+<a name='L513'></a><a href='#L513'>513</a>
+<a name='L514'></a><a href='#L514'>514</a>
+<a name='L515'></a><a href='#L515'>515</a>
+<a name='L516'></a><a href='#L516'>516</a>
+<a name='L517'></a><a href='#L517'>517</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -581,8 +591,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19x</span>
@@ -670,7 +688,9 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1087,8 +1107,16 @@ class FuroTree extends FBP(LitElement) {
      * @private
      */
     this._flatTree = [];
-&nbsp;
     this.tabindex = 0;
+    /**
+     * If you want to use a custom component for the tree-item, set this attribute.
+     * The default item component is **furo-tree-item**.
+     *
+     * @type {*|string|string}
+     */
+    this.treeItemComponent = this.getAttribute("tree-item-component") ||  "furo-tree-item";
+    this._treeItemTepmplate = html([['&lt;',this.treeItemComponent,' ƒ-bind-data="--itemInjected(*.item)"&gt;&lt;/',this.treeItemComponent,'&gt;'].join('')]);
+&nbsp;
 &nbsp;
     // keyboard navigation on top node only
     this.addEventListener("keydown", (event) =&gt; {
@@ -1172,12 +1200,14 @@ class FuroTree extends FBP(LitElement) {
     this._selectedField.expandRecursive();
   }
 &nbsp;
-  expandAll(){
+  expandAll() {
     this._flatTree[0].expandRecursive();
   }
-  collapseAll(){
+&nbsp;
+  collapseAll() {
     this._flatTree[0].collapseRecursive();
   }
+&nbsp;
   /**
    * expands the currently selected node recursive
    */
@@ -1286,29 +1316,29 @@ class FuroTree extends FBP(LitElement) {
         }
 &nbsp;
 &nbsp;
-        :host(:not(:focus-within)) furo-tree-item[hovered] {
+        :host(:not(:focus-within)) td &gt; *[hovered] {
             background: unset;
         }
 &nbsp;
-        :host(:focus-within) furo-tree-item[selected] {
+        :host(:focus-within) td &gt; *[selected] {
             background: var(--primary-color, #429cff);
             color: var(--on-primary, white);
         }
 &nbsp;
-        furo-tree-item[hovered] {
+        td &gt; *[hovered] {
             background-color: var(--hover-color, #eeeeee);
         }
 &nbsp;
-        furo-tree-item[selected], :host(:not(:focus-within)) furo-tree-item[selected] {
+        td &gt; *[selected], :host(:not(:focus-within)) td &gt; *[selected] {
             background-color: var(--selected-color, #999999);
         }
 &nbsp;
 &nbsp;
-        :host(:focus-within) furo-tree-item[selected]:hover {
+        :host(:focus-within) td &gt; *[selected]:hover {
             background: var(--primary-color, #57a9ff);
         }
 &nbsp;
-        :host(:hover) furo-tree-item:hover {
+        :host(:hover) td &gt; *:hover {
             background-color: var(--mouse-hover-color, #f8f8f8);
         }
 &nbsp;
@@ -1327,7 +1357,7 @@ class FuroTree extends FBP(LitElement) {
         &lt;template is="flow-repeat" ƒ-inject-items="--treeChanged"&gt;
           &lt;tr&gt;
             &lt;td&gt;
-              &lt;furo-tree-item ƒ-bind-data="--itemInjected(*.item)"&gt;&lt;/furo-tree-item&gt;
+              ${this._treeItemTepmplate}
             &lt;/td&gt;
           &lt;/tr&gt;
         &lt;/template&gt;
@@ -1366,9 +1396,9 @@ class FuroTree extends FBP(LitElement) {
 &nbsp;
     // initial hover on first element
     this._hoveredField = this._flatTree[0];
-    setTimeout(()=&gt;{
+    setTimeout(() =&gt; {
       this._hoveredField.triggerHover();
-    },0)
+    }, 0)
 &nbsp;
   }
 &nbsp;
@@ -1518,7 +1548,7 @@ class FuroTree extends FBP(LitElement) {
 &nbsp;
       // if a descendant was selected, we ensure to open the path
       node.addEventListener("descendant-selected", (e) =&gt; {
-         node.open.value = true;
+        node.open.value = true;
       });
 &nbsp;
       // expand recursive
@@ -1570,7 +1600,7 @@ window.customElements.define('furo-tree', FuroTree);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 21 2019 21:46:39 GMT+0200 (CEST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jun 23 2019 11:47:21 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../prettify.js"></script>
