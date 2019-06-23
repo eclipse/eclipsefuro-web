@@ -1,5 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
 import {Iconset} from "@furo/framework/iconset";
+import {FuroBaseIcons} from "./iconsets/baseIcons";
+
+// Autoregister default set with FuroBaseIcons if no iconset was registered
+if(!Iconset.default){
+    Iconset.registerIconset("default",FuroBaseIcons);
+}
 
 /**
  * `furo-icon`
