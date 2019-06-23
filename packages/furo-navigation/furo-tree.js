@@ -27,8 +27,16 @@ class FuroTree extends FBP(LitElement) {
      * @private
      */
     this._flatTree = [];
-
     this.tabindex = 0;
+    /**
+     * If you want to use a custom component for the tree-item, set this attribute.
+     * The default item component is **furo-tree-item**.
+     *
+     * @type {*|string|string}
+     */
+    this.treeItemComponent = this.getAttribute("tree-item-component") ||  "furo-tree-item";
+    this._treeItemTepmplate = html([['<',this.treeItemComponent,' ƒ-bind-data="--itemInjected(*.item)"></',this.treeItemComponent,'>'].join('')]);
+
 
     // keyboard navigation on top node only
     this.addEventListener("keydown", (event) => {
@@ -112,12 +120,14 @@ class FuroTree extends FBP(LitElement) {
     this._selectedField.expandRecursive();
   }
 
-  expandAll(){
+  expandAll() {
     this._flatTree[0].expandRecursive();
   }
-  collapseAll(){
+
+  collapseAll() {
     this._flatTree[0].collapseRecursive();
   }
+
   /**
    * expands the currently selected node recursive
    */
@@ -226,29 +236,29 @@ class FuroTree extends FBP(LitElement) {
         }
 
 
-        :host(:not(:focus-within)) furo-tree-item[hovered] {
+        :host(:not(:focus-within)) td > *[hovered] {
             background: unset;
         }
 
-        :host(:focus-within) furo-tree-item[selected] {
+        :host(:focus-within) td > *[selected] {
             background: var(--primary-color, #429cff);
             color: var(--on-primary, white);
         }
 
-        furo-tree-item[hovered] {
+        td > *[hovered] {
             background-color: var(--hover-color, #eeeeee);
         }
 
-        furo-tree-item[selected], :host(:not(:focus-within)) furo-tree-item[selected] {
+        td > *[selected], :host(:not(:focus-within)) td > *[selected] {
             background-color: var(--selected-color, #999999);
         }
 
 
-        :host(:focus-within) furo-tree-item[selected]:hover {
+        :host(:focus-within) td > *[selected]:hover {
             background: var(--primary-color, #57a9ff);
         }
 
-        :host(:hover) furo-tree-item:hover {
+        :host(:hover) td > *:hover {
             background-color: var(--mouse-hover-color, #f8f8f8);
         }
 
@@ -267,7 +277,7 @@ class FuroTree extends FBP(LitElement) {
         <template is="flow-repeat" ƒ-inject-items="--treeChanged">
           <tr>
             <td>
-              <furo-tree-item ƒ-bind-data="--itemInjected(*.item)"></furo-tree-item>
+              ${this._treeItemTepmplate}
             </td>
           </tr>
         </template>
@@ -306,9 +316,9 @@ class FuroTree extends FBP(LitElement) {
 
     // initial hover on first element
     this._hoveredField = this._flatTree[0];
-    setTimeout(()=>{
+    setTimeout(() => {
       this._hoveredField.triggerHover();
-    },0)
+    }, 0)
 
   }
 
@@ -458,7 +468,7 @@ class FuroTree extends FBP(LitElement) {
 
       // if a descendant was selected, we ensure to open the path
       node.addEventListener("descendant-selected", (e) => {
-         node.open.value = true;
+        node.open.value = true;
       });
 
       // expand recursive

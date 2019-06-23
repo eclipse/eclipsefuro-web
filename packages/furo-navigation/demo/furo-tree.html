@@ -19,6 +19,7 @@
     import "@furo/input"
     import "@furo/layout"
     import "@furo/form"
+    import "./demo-tree-item"
   </script>
 
 
@@ -85,6 +86,41 @@
               <button @-click="--deleteNode">deleteNode</button>
               <button @-click="--expandNode">expand</button>
             </furo-card>
+          </furo-split-view>
+
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+
+
+<div class="vertical-section-container centered">
+  <h3>furo-tree with custom item component</h3>
+  <p>do not forget to import the custom component for the tree-item</p>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <produce-data auto @-data="--data"></produce-data>
+          <button @-click="--focusClicked">focus</button>
+          <button @-click="--expandAll">expand all</button>
+          <button @-click="--collapseAll">collapse all</button>
+          <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+
+
+          <furo-split-view style="height: 500px;">
+            <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--nodeSelected"
+                       tree-item-component="demo-tree-item"
+                            ƒ-select-next="--next"
+                            ƒ-select-prev="--prev"
+                            ƒ-add-sub-node="--addSub"
+                            ƒ-expand-node-recursive="--expandNode"
+                            ƒ-expand-all="--expandAll"
+                            ƒ-collapse-all="--collapseAll"
+                            ƒ-delete-node="--deleteNode"
+                            @-node-hovered="--nodeHovered"></furo-tree>
+
           </furo-split-view>
 
         </template>

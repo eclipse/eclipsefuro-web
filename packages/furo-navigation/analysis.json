@@ -313,7 +313,7 @@
               "column": 2
             },
             "end": {
-              "line": 172,
+              "line": 171,
               "column": 3
             }
           },
@@ -335,10 +335,10 @@
       "sourceRange": {
         "start": {
           "line": 16,
-          "column": 0
+          "column": 7
         },
         "end": {
-          "line": 173,
+          "line": 172,
           "column": 1
         }
       },
@@ -434,17 +434,39 @@
           "defaultValue": "[]"
         },
         {
+          "name": "treeItemComponent",
+          "type": "(* | string | string)",
+          "description": "If you want to use a custom component for the tree-item, set this attribute.\nThe default item component is **furo-tree-item**.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 36,
+              "column": 4
+            },
+            "end": {
+              "line": 36,
+              "column": 26
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "this.getAttribute(\"tree-item-component\") || \"furo-tree-item\""
+        },
+        {
           "name": "depth",
           "type": "number | null | undefined",
           "description": "Maximal depth for the tree. Default is infinite.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 187,
               "column": 6
             },
             "end": {
-              "line": 177,
+              "line": 187,
               "column": 27
             }
           },
@@ -461,11 +483,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 191,
               "column": 6
             },
             "end": {
-              "line": 181,
+              "line": 191,
               "column": 45
             }
           },
@@ -483,11 +505,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 88,
               "column": 2
             },
             "end": {
-              "line": 85,
+              "line": 93,
               "column": 3
             }
           },
@@ -503,11 +525,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 98,
               "column": 2
             },
             "end": {
-              "line": 95,
+              "line": 103,
               "column": 3
             }
           },
@@ -523,11 +545,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 100,
+              "line": 108,
               "column": 2
             },
             "end": {
-              "line": 105,
+              "line": 113,
               "column": 3
             }
           },
@@ -543,11 +565,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 110,
+              "line": 118,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 120,
               "column": 3
             }
           },
@@ -563,11 +585,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 122,
               "column": 2
             },
             "end": {
-              "line": 116,
+              "line": 124,
               "column": 3
             }
           },
@@ -583,11 +605,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 117,
+              "line": 126,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 128,
               "column": 3
             }
           },
@@ -603,11 +625,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 133,
               "column": 2
             },
             "end": {
-              "line": 125,
+              "line": 135,
               "column": 3
             }
           },
@@ -623,11 +645,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 140,
               "column": 2
             },
             "end": {
-              "line": 132,
+              "line": 142,
               "column": 3
             }
           },
@@ -643,11 +665,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 134,
+              "line": 144,
               "column": 2
             },
             "end": {
-              "line": 142,
+              "line": 152,
               "column": 3
             }
           },
@@ -667,27 +689,7 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 144,
-              "column": 2
-            },
-            "end": {
-              "line": 146,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "selectNext",
-          "description": "select the next visible item",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 151,
+              "line": 154,
               "column": 2
             },
             "end": {
@@ -702,9 +704,9 @@
           }
         },
         {
-          "name": "_hoverNext",
-          "description": "hovers the next item",
-          "privacy": "protected",
+          "name": "selectNext",
+          "description": "select the next visible item",
+          "privacy": "public",
           "sourceRange": {
             "start": {
               "line": 161,
@@ -722,16 +724,36 @@
           }
         },
         {
+          "name": "_hoverNext",
+          "description": "hovers the next item",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 171,
+              "column": 2
+            },
+            "end": {
+              "line": 176,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "focus",
           "description": "focuses the element",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 198,
               "column": 2
             },
             "end": {
-              "line": 190,
+              "line": 200,
               "column": 3
             }
           },
@@ -747,11 +769,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 205,
               "column": 2
             },
             "end": {
-              "line": 197,
+              "line": 207,
               "column": 3
             }
           },
@@ -767,11 +789,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 262,
+              "line": 272,
               "column": 2
             },
             "end": {
-              "line": 275,
+              "line": 285,
               "column": 3
             }
           },
@@ -787,11 +809,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 278,
+              "line": 288,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 305,
               "column": 3
             }
           },
@@ -811,11 +833,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 297,
+              "line": 307,
               "column": 2
             },
             "end": {
-              "line": 312,
+              "line": 322,
               "column": 3
             }
           },
@@ -831,11 +853,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 314,
+              "line": 324,
               "column": 2
             },
             "end": {
-              "line": 388,
+              "line": 398,
               "column": 3
             }
           },
@@ -851,11 +873,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 390,
+              "line": 400,
               "column": 2
             },
             "end": {
-              "line": 486,
+              "line": 496,
               "column": 3
             }
           },
@@ -875,11 +897,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 489,
+              "line": 499,
               "column": 2
             },
             "end": {
-              "line": 502,
+              "line": 512,
               "column": 3
             }
           },
@@ -914,7 +936,7 @@
           "column": 0
         },
         "end": {
-          "line": 503,
+          "line": 513,
           "column": 1
         }
       },
@@ -927,11 +949,11 @@
           "description": "Maximal depth for the tree. Default is infinite.",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 187,
               "column": 6
             },
             "end": {
-              "line": 177,
+              "line": 187,
               "column": 27
             }
           },
@@ -943,11 +965,11 @@
           "description": "Sets the tabindex",
           "sourceRange": {
             "start": {
-              "line": 181,
+              "line": 191,
               "column": 6
             },
             "end": {
-              "line": 181,
+              "line": 191,
               "column": 45
             }
           },
