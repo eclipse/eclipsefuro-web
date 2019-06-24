@@ -2,9 +2,9 @@
   "name": "@furo/experiments",
   "description": "Experimental furo components",
   "main": "furo-catalog.js",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "dependencies": {
-    "@furo/fbp": "^4.18.1"
+    "@furo/fbp": "^4.20.0"
   },
   "publishConfig": {
     "access": "public"

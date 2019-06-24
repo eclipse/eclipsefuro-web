@@ -4,7 +4,7 @@ import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat"
 import "@furo/input/furo-bool-icon";
 import "@furo/layout/furo-horizontal-flex";
-import {FuroTree} from "./furo-tree"
+import {FuroRecursiveTree} from "./furo-recursive-tree"
 
 /**
  * `furo-tree`
@@ -15,7 +15,7 @@ import {FuroTree} from "./furo-tree"
  * @demo demo/furo-tree.html
  * @appliesMixin FBP
  */
-class FuroTreeX extends FuroTree {
+class FuroRecursiveTreeB extends FuroRecursiveTree {
 
   /**
    * @private
@@ -34,7 +34,7 @@ class FuroTreeX extends FuroTree {
   </div> 
   <div class="children">
     <template is="flow-repeat" ƒ-inject-items="--subTreeChanged">
-        <furo-tree-x ƒ-bind-data="--itemInjected(*.item)" ?open="${this._open}" depth="${this.depth + 1}"></furo-tree-x>
+        <furo-recursive-tree-b ƒ-bind-data="--itemInjected(*.item)" ?open="${this._open}" depth="${this.depth + 1}"></furo-recursive-tree-b>
    </template>
    </div>
   
@@ -59,12 +59,12 @@ class FuroTreeX extends FuroTree {
             display: none;
         }
 
-        :host([open]) furo-tree-x {
+        :host([open]) furo-recursive-tree-b {
             display: block;
         }
 
 
-        furo-tree-x {
+        furo-recursive-tree-b {
             display: none;
         }
 
@@ -118,4 +118,4 @@ class FuroTreeX extends FuroTree {
 
 }
 
-window.customElements.define('furo-tree-x', FuroTreeX);
+window.customElements.define('furo-recursive-tree-b', FuroRecursiveTreeB);

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.5.0...@furo/framework@0.6.0) (2019-06-21)
+
+
+### Features
+
+* FuroBaseIcons ([1df13b1](https://github.com/veith/FuroBaseComponents/commit/1df13b1))
+
+
+
+
+
+# [0.5.0](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.4.2...@furo/framework@0.5.0) (2019-06-21)
+
+
+### Features
+
+* add furo-icon ([da5e6c7](https://github.com/veith/FuroBaseComponents/commit/da5e6c7))
+
+
+
+
+
 ## [0.4.2](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.4.1...@furo/framework@0.4.2) (2019-06-06)
 
 **Note:** Version bump only for package @furo/framework

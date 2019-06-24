@@ -14,7 +14,7 @@ import {NodeEvent} from "@furo/data/lib/EventTreeNode";
  * @demo demo/furo-tree-item.html
  * @appliesMixin FBP
  */
-class FuroTreeItem extends FBP(LitElement) {
+export class FuroTreeItem extends FBP(LitElement) {
 
   constructor() {
     super();
@@ -38,7 +38,7 @@ class FuroTreeItem extends FBP(LitElement) {
 
   bindData(fieldNode) {
     this.fieldNode = fieldNode;
-
+    this.fieldNode._isHidden = true;
 
     // reflect visible close state to attr
     this.fieldNode.addEventListener("ancestor-invisible", (e) => {
@@ -144,6 +144,12 @@ class FuroTreeItem extends FBP(LitElement) {
             color: var(--separator-color, #b5b5b5);
             width: 16px;
             font-size: 8px;
+            box-sizing: border-box;
+            padding-left: 4px;
+        }
+        
+        :host([selected]) .oc {
+            color: var(--on-primary, white);
         }
     `
   }
@@ -158,8 +164,7 @@ class FuroTreeItem extends FBP(LitElement) {
     return html`
 <furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${(e) => this.fieldNode.triggerHover()}">
       <div style="width: ${this.fieldNode.depth * 8}px"></div>
-      <div class="oc"><furo-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon></div>
-      
+      <div class="oc"><furo-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon></div>      
       <div flex class="label" @-click="--labelClicked" >${this.fieldNode.display_name} <span class="desc">${this.fieldNode.description}</span></div>
 </furo-horizontal-flex>
 

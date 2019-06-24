@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.38.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.37.0...@furo/data@0.38.0) (2019-06-21)
+
+
+### Features
+
+* FuroBaseIcons ([1df13b1](https://github.com/veith/FuroBaseComponents/commit/1df13b1))
+
+
+
+
+
+# [0.37.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.36.2...@furo/data@0.37.0) (2019-06-21)
+
+
+### Bug Fixes
+
+*  expand behaviour ([1a45f27](https://github.com/veith/FuroBaseComponents/commit/1a45f27))
+*  select root node ([2c203a6](https://github.com/veith/FuroBaseComponents/commit/2c203a6))
+
+
+### Features
+
+* add repeated node with optional data, check for existing keys ([20a6de0](https://github.com/veith/FuroBaseComponents/commit/20a6de0))
+* furo-tree ([56445af](https://github.com/veith/FuroBaseComponents/commit/56445af))
+
+
+
+
+
 ## [0.36.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.36.1...@furo/data@0.36.2) (2019-06-13)
 
 

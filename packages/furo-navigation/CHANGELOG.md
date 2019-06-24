@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.18.0...@furo/navigation@0.19.0) (2019-06-23)
+
+
+### Features
+
+* set custom tree-item component for the tree ([f204460](https://github.com/veith/FuroBaseComponents/commit/f204460))
+
+
+
+
+
+# [0.18.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.17.0...@furo/navigation@0.18.0) (2019-06-21)
+
+
+### Features
+
+* FuroBaseIcons ([1df13b1](https://github.com/veith/FuroBaseComponents/commit/1df13b1))
+
+
+
+
+
+# [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.16.8...@furo/navigation@0.17.0) (2019-06-21)
+
+
+### Bug Fixes
+
+*  expand behaviour ([1a45f27](https://github.com/veith/FuroBaseComponents/commit/1a45f27))
+*  select root node ([2c203a6](https://github.com/veith/FuroBaseComponents/commit/2c203a6))
+
+
+### Features
+
+* furo-tree ([5a44726](https://github.com/veith/FuroBaseComponents/commit/5a44726))
+* furo-tree ([5663a7f](https://github.com/veith/FuroBaseComponents/commit/5663a7f))
+* furo-tree ([56445af](https://github.com/veith/FuroBaseComponents/commit/56445af))
+* furo-tree ([faf018d](https://github.com/veith/FuroBaseComponents/commit/faf018d))
+* furo-tree ([604e65b](https://github.com/veith/FuroBaseComponents/commit/604e65b))
+* furo-tree init ([843f605](https://github.com/veith/FuroBaseComponents/commit/843f605))
+
+
+
+
+
 ## [0.16.8](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.16.7...@furo/navigation@0.16.8) (2019-06-13)
 
 **Note:** Version bump only for package @furo/navigation

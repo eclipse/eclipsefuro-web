@@ -236,7 +236,7 @@
               "column": 4
             },
             "end": {
-              "line": 148,
+              "line": 163,
               "column": 5
             }
           },
@@ -256,11 +256,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 150,
+              "line": 165,
               "column": 4
             },
             "end": {
-              "line": 162,
+              "line": 177,
               "column": 5
             }
           },
@@ -276,11 +276,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 165,
+              "line": 180,
               "column": 4
             },
             "end": {
-              "line": 168,
+              "line": 183,
               "column": 5
             }
           },
@@ -300,11 +300,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 185,
               "column": 4
             },
             "end": {
-              "line": 173,
+              "line": 188,
               "column": 5
             }
           },
@@ -324,11 +324,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 175,
+              "line": 190,
               "column": 4
             },
             "end": {
-              "line": 183,
+              "line": 198,
               "column": 5
             }
           },
@@ -360,7 +360,7 @@
           "column": 0
         },
         "end": {
-          "line": 185,
+          "line": 200,
           "column": 1
         }
       },
@@ -368,7 +368,14 @@
       "superclass": "HTMLTemplateElement",
       "name": "FlowRepeat",
       "attributes": [],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "items-in-dom",
+          "description": "items-in-dom\nFired when items are attached to the dom\ndetail payload: {Number} Number of items",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []

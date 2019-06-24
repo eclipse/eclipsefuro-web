@@ -3,28 +3,178 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat"
 import {FieldNode} from "@furo/data/lib/FieldNode";
-import "@furo/layout/furo-horizontal-flex";
+import "@furo/layout/furo-vertical-flex";
 import "@furo/input/furo-bool-icon";
 import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
+import "./furo-tree-item"
 
 /**
  * `furo-tree`
- * Displays a recursive entity field as a tree
+ * todo Describe your element
  *
  * @summary todo shortdescription
  * @customElement
  * @demo demo/furo-tree.html
  * @appliesMixin FBP
  */
-export class FuroTree extends FBP(LitElement) {
+class FuroTree extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.depth = 0;
-    this._open = this.getAttribute("open") !== null;
-    this.field = {};
+    /**
+     * Flat list representation of the tree
+     * @type {Array}
+     * @private
+     */
+    this._flatTree = [];
+    this.tabindex = 0;
+    /**
+     * If you want to use a custom component for the tree-item, set this attribute.
+     * The default item component is **furo-tree-item**.
+     *
+     * @type {*|string|string}
+     */
+    this.treeItemComponent = this.getAttribute("tree-item-component") ||  "furo-tree-item";
+    this._treeItemTepmplate = html([['<',this.treeItemComponent,' ƒ-bind-data="--itemInjected(*.item)"></',this.treeItemComponent,'>'].join('')]);
+
+
+    // keyboard navigation on top node only
+    this.addEventListener("keydown", (event) => {
+      let key = event.key || event.keyCode;
+
+      switch (key) {
+        case "Enter":
+          event.preventDefault();
+          if (this._hoveredField._isSelected) {
+            // openclose
+            this._hoveredField.toggleOpenClose();
+          } else {
+            // open the hovered field
+            this._hoveredField.selectItem();
+          }
+          break;
+        case "ArrowDown":
+          event.preventDefault();
+          this._hoverNext();
+          break;
+        case "ArrowUp":
+          event.preventDefault();
+          this._hoverPrevious();
+          break;
+
+        case "ArrowLeft":
+          event.preventDefault();
+          // close when opened, parent when closed
+          if (!this._hoveredField.isBranch() && this._hoveredField.open.value) {
+            this._hoveredField.toggleOpenClose();
+          } else {
+            this._hoverHome();
+          }
+          break;
+        case "ArrowRight":
+          event.preventDefault();
+          // open when closed, next when opened
+          if (!this._hoveredField.isBranch() && !this._hoveredField.open.value) {
+            this._hoveredField.toggleOpenClose();
+          } else {
+            this._hoverNext();
+          }
+          break;
+      }
+
+
+    });
   }
 
+  _hoverHome() {
+    let parent = this._hoveredField.getParentElement();
+    if (parent) {
+      parent.triggerHover();
+    }
+  }
+
+  /**
+   * hovers the previous item
+   */
+  _hoverPrevious() {
+    let prev = this._hoveredField.getPrevElement();
+    if (prev) {
+      prev.triggerHover();
+    }
+  }
+
+  /**
+   * select the previous visible item
+   */
+  selectPrev() {
+    this._hoveredField = this._selectedField || this._hoveredField;
+    this._hoverPrevious();
+    // open the hovered field
+    this._hoveredField.selectItem();
+  }
+
+  /**
+   * expands the currently selected node recursive
+   */
+  expandNodeRecursive() {
+    this._selectedField.expandRecursive();
+  }
+
+  expandAll() {
+    this._flatTree[0].expandRecursive();
+  }
+
+  collapseAll() {
+    this._flatTree[0].collapseRecursive();
+  }
+
+  /**
+   * expands the currently selected node recursive
+   */
+  collapseNodeRecursive() {
+    this._selectedField.collapseRecursive();
+  }
+
+  /**
+   * toggles the currently selected node
+   */
+  toggle() {
+    this._selectedField.toggleOpenClose();
+  }
+
+  addSubNode(rawNode) {
+    let newnode = this._selectedField.children.add();
+    newnode.value = rawNode;
+    setTimeout(() => {
+      newnode.selectItem();
+    }, 10)
+
+
+  }
+
+  deleteNode() {
+    this._selectedField.__parentNode.deleteChild(this._selectedField.__index);
+  }
+
+  /**
+   * select the next visible item
+   */
+  selectNext() {
+    this._hoveredField = this._selectedField || this._hoveredField;
+    this._hoverNext();
+    // open the hovered field
+    this._hoveredField.selectItem();
+  }
+
+  /**
+   * hovers the next item
+   */
+  _hoverNext() {
+    let next = this._hoveredField.getNextVisibleElement();
+    if (next) {
+      next.triggerHover();
+    }
+  }
 
   /**
    * @private
@@ -33,36 +183,29 @@ export class FuroTree extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Open children of tree item
+       * Maximal depth for the tree. Default is infinite.
        */
-      _open: {type: Boolean, reflect: true, attribute: "open"},
-      selected: {type: Boolean, reflect: true},
-      depth: {type: Number}
+      depth: {type: Number},
+      /**
+       * Sets the tabindex
+       */
+      tabindex: {type: Number, reflect: true}
     };
   }
 
   /**
-   * @private
-   * @returns {TemplateResult}
+   * focuses the element
    */
-  render() {
-    // language=HTML
-    return html`
+  focus() {
+    super.focus();
+  }
 
-  <furo-horizontal-flex class="label" @-click="--labelClicked" @-dblclick=":STOP, --dblclicked">   
-        
-    <span class="oc oc${this.depth}">
-    <furo-bool-icon ?hidden="${!this.field.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon>
-    </span> 
-    <div flex class="name" title="${this.field.description}">${this.field.display_name}</div>          
-  </furo-horizontal-flex> 
-    <template is="flow-repeat" ƒ-inject-items="--subTreeChanged">
-        <furo-tree ƒ-bind-data="--itemInjected(*.item)" ?open="${this._open}" depth="${this.depth + 1}"></furo-tree>
-   </template>
-  
-`;
-  };
-
+  /**
+   * flow is ready lifecycle method
+   */
+  __fbpReady() {
+    super.__fbpReady();
+  }
 
   /**
    * Themable Styles
@@ -74,150 +217,172 @@ export class FuroTree extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+            box-sizing: border-box;
+            overflow: auto;
+            outline: none;
         }
 
         :host([hidden]) {
             display: none;
         }
 
-        :host([open]) furo-tree {
-            display: block;
+        td {
+            padding: 0;
+        }
+
+        table {
+            border-spacing: 0;
+            min-width: 100%;
         }
 
 
-        furo-tree {
-            display: none;
+        :host(:not(:focus-within)) td > *[hovered] {
+            background: unset;
         }
 
-        :host([rootnode]) {
-            overflow: auto;
-            position: relative;
-            box-sizing: border-box;
+        :host(:focus-within) td > *[selected] {
+            background: var(--primary-color, #429cff);
+            color: var(--on-primary, white);
         }
 
-        .label {
-            line-height: 24px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .name {
-            white-space: nowrap;
-        }
-
-
-        :host([selected]) .label {
+        td > *[hovered] {
             background-color: var(--hover-color, #eeeeee);
         }
 
-        .label:hover {
-            background-color: var(--hover-color, #eeeeee);
-        }
-
-        .oc {
-            color: var(--separator-color, #b5b5b5);
-            display: inline-block;
-            width: 16px;
-        }
-
-        .oc0 {
-            padding-left: 1em;
-        }
-
-        .oc1 {
-            padding-left: 2em;
-        }
-
-        .oc2 {
-            padding-left: 3em;
-        }
-
-        .oc3 {
-            padding-left: 4em;
-        }
-
-        .oc4 {
-            padding-left: 5em;
-        }
-
-        .oc5 {
-            padding-left: 5.5em;
-        }
-
-        .oc6 {
-            padding-left: 6em;
+        td > *[selected], :host(:not(:focus-within)) td > *[selected] {
+            background-color: var(--selected-color, #999999);
         }
 
 
+        :host(:focus-within) td > *[selected]:hover {
+            background: var(--primary-color, #57a9ff);
+        }
 
+        :host(:hover) td > *:hover {
+            background-color: var(--mouse-hover-color, #f8f8f8);
+        }
 
     `
   }
 
 
   /**
-   * flow is ready lifecycle method
+   * @private
+   * @returns {TemplateResult}
    */
-  __fbpReady() {
-    super.__fbpReady();
-    //this._FBPTraceWires()
-
-    this._FBPAddWireHook("--labelClicked", (e) => {
-      // dispatch a selection
-      this.field.dispatchNodeEvent(new NodeEvent('tree-node-selected', this, true));
-      this.field._isSelected.value = true;
-    });
-
+  render() {
+    // language=HTML
+    return html`
+      <table>
+        <template is="flow-repeat" ƒ-inject-items="--treeChanged">
+          <tr>
+            <td>
+              ${this._treeItemTepmplate}
+            </td>
+          </tr>
+        </template>
+      </table>
+    `;
   }
 
 
-  bindData(d) {
-    if (d === undefined) {
+  bindData(treeNode) {
+    if (treeNode === undefined) {
       return
     }
 
-    this.field = d;
+    /**
+     *
+     * @type {Type[] | Types.vnd.com.acme.tree.fields | {children, description, id, display_name, open}  *}
+     * @private
+     */
+    this._tree = treeNode;
 
-    // open field if entity contains a field open with true
-    if (!this.field.open) {
-      this.field.addChildProperty("open", new FieldNode(this.field, {type: "Boolean"}, "open"));
-      this.field.open.value = this._open;
-    }
-
-    // _isSelected
-    if (!this.field._isSelected) {
-      this.field.addChildProperty("_isSelected", new FieldNode(this.field, {type: "Boolean"}, "_isSelected"));
-    }
-
-    this._FBPTriggerWire("--fieldOpen", this.field.open);
-
-
-    this.field.open.addEventListener("field-value-changed", (e) => {
-
-      this._open = !!this.field.open.value;
+    this._tree.addEventListener("repeated-fields-changed", (e) => {
+      this._init()
     });
 
-    this.field._isSelected.addEventListener("field-value-changed", (e) => {
+    this._init()
+  }
 
-      this.selected = !!this.field._isSelected.value;
+  _init() {
 
-      //Notify about selection
+    this._buildFlatTree(this._tree);
+
+    // set visible on root node
+    this._tree.children.broadcastEvent(new NodeEvent('ancestor-visible', this._tree));
+
+    this._initHoverAndSelectEvents();
+
+    // initial hover on first element
+    this._hoveredField = this._flatTree[0];
+    setTimeout(() => {
+      this._hoveredField.triggerHover();
+    }, 0)
+
+  }
+
+  _initHoverAndSelectEvents() {
+    // Internal Event, when a node gets selected
+    this._tree.addEventListener("tree-node-hovered", (e) => {
+
+
+      // broadcast blur
+      this._tree.broadcastEvent(new NodeEvent('tree-node-blur-requested'));
+      this._hoveredField = e.target;
+
+      /**
+       * @event node-hovered
+       * Fired when
+       * detail payload:
+       */
+      let customEvent = new Event('node-hovered', {composed: true, bubbles: true});
+      customEvent.detail = this._hoveredField;
+      this.dispatchEvent(customEvent);
+      if (this._hoveredField.isBranch()) {
+        /**
+         * @event branch-hovered
+         * Fired when
+         * detail payload:
+         */
+        let customEvent = new Event('branch-hovered', {composed: true, bubbles: true});
+        customEvent.detail = this._hoveredField;
+        this.dispatchEvent(customEvent);
+      } else {
+        /**
+         * @event leaf-hovered
+         * Fired when
+         * detail payload:
+         */
+        let customEvent = new Event('leaf-hovered', {composed: true, bubbles: true});
+        customEvent.detail = this._hoveredField;
+        this.dispatchEvent(customEvent);
+      }
+
+    });
+
+    // Internal Event, when a node gets selected
+    this._tree.addEventListener("tree-node-selected", (e) => {
+      // broadcast deselect
+      this._tree.broadcastEvent(new NodeEvent('tree-node-unselection-requested'));
+      this._selectedField = e.target;
+
       /**
        * @event node-selected
        * Fired when
        * detail payload:
        */
       let customEvent = new Event('node-selected', {composed: true, bubbles: true});
-      customEvent.detail = this.field;
+      customEvent.detail = this._selectedField;
       this.dispatchEvent(customEvent);
-      if (this.field.children.repeats.length === 0) {
+      if (this._selectedField.isBranch()) {
         /**
          * @event branch-selected
          * Fired when
          * detail payload:
          */
         let customEvent = new Event('branch-selected', {composed: true, bubbles: true});
-        customEvent.detail = this.field;
+        customEvent.detail = this._selectedField;
         this.dispatchEvent(customEvent);
       } else {
         /**
@@ -226,87 +391,126 @@ export class FuroTree extends FBP(LitElement) {
          * detail payload:
          */
         let customEvent = new Event('leaf-selected', {composed: true, bubbles: true});
-        customEvent.detail = this.field;
+        customEvent.detail = this._selectedField;
         this.dispatchEvent(customEvent);
       }
-    });
 
-    // connect the dom node with the entity object
-    this.field._treeNode = this;
-    // Just update element itself, do not bubble
-    this.field.addEventListener("field-value-changed", (e) => {
-      // track changes on this field only
-      if (e.target.__parentNode === this.field) {
-        this.requestUpdate();
+    });
+  }
+
+  _buildFlatTree(tree) {
+
+    this._flatTree = [tree];
+    this._parseTreeRecursive(tree, 0, this.depth);
+
+
+    for (let len = this._flatTree.length; len > 0; len--) {
+      let index = len - 1;
+      let node = this._flatTree[index];
+
+      // open field if entity contains a field open with true
+      if (!node.open) {
+        node.addChildProperty("open", new FieldNode(node, {type: "bool"}, "open"));
+        node.open.value = false;
       }
 
-    });
 
+      // Traverse the flat tree, it is simpler then the nested tree
+      // next active element
+      node.getNextVisibleElement = () => {
+        for (let i = index + 1; i < this._flatTree.length; i++) {
+          if (!this._flatTree[i]._isHidden) {
+            return this._flatTree[i];
+          }
+        }
+        return false;
+      };
+      // prev active element
+      node.getPrevElement = () => {
+        for (let i = index - 1; i >= 0; i--) {
+          if (!this._flatTree[i]._isHidden) {
+            return this._flatTree[i];
+          }
+        }
+        return false;
+      };
 
-    // forward changed children
-    this.field.children.addEventListener('repeated-fields-changed', (e) => {
-      // updates wieder einspielen
-      this._FBPTriggerWire('--subTreeChanged', e.detail);
-    });
+      // is branch
+      node.isBranch = () => {
+        return node.children.repeats.length === 0
+      };
 
+      // get Parent
+      node.getParentElement = () => {
+        return node.__parentNode.__parentNode;
+      };
 
-    // init
-    this._FBPTriggerWire('--subTreeChanged', this.field.children.repeats);
+      // add openclose method to treeNode
+      node.toggleOpenClose = () => {
+        node.open.value = !node.open.value;
+      };
 
-    // check if this node is the root node
-    if (this.field.__parentNode.__parentNode === null) {
-      this.setAttribute("rootnode", "");
-      this.setAttribute("tabindex", 0);
+      // hovers the current node
+      node.triggerHover = () => {
+        node.dispatchNodeEvent(new NodeEvent('tree-node-hovered', this, true));
+        node.dispatchNodeEvent(new NodeEvent('this-node-hovered', this, false));
+      };
 
-      // Internal Event, when a node gets selected
-      this.field.addEventListener("tree-node-selected", (e) => {
-        // broadcast deselect
-        this.field.broadcastEvent(new NodeEvent('tree-node-unselection-requested', this));
-        this._selectedField = this.field;
+      // selects the current item
+      node.selectItem = () => {
+        node.dispatchNodeEvent(new NodeEvent('tree-node-selected', this, true));
+        node.dispatchNodeEvent(new NodeEvent('this-node-selected', this, false));
+
+        // used to open the paths upwards from the selected node
+        node.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
+        node.triggerHover()
+      };
+
+      // if a descendant was selected, we ensure to open the path
+      node.addEventListener("descendant-selected", (e) => {
+        node.open.value = true;
       });
 
-      // keyboard navigation on top node only
-      this.addEventListener("keydown", (event) => {
-        let key = event.key || event.keyCode;
+      // expand recursive
+      node.expandRecursive = () => {
+        node.broadcastEvent(new NodeEvent('recursive-expand-requested', node));
+      };
 
-        switch (key) {
-          case "Enter":
-            event.preventDefault();
+      node.addEventListener("recursive-expand-requested", (e) => {
+        node.open.value = true;
+      });
 
-            break;
-          case "ArrowDown":
-            event.preventDefault();
-            console.log("ArrowDown")
-            break;
-          case "ArrowUp":
-            event.preventDefault();
-            console.log("ArrowUp")
-            break;
+      // collapse recursive
+      node.collapseRecursive = () => {
+        node.broadcastEvent(new NodeEvent('recursive-collapse-requested', node));
+      };
 
-          case "ArrowLeft":
-            event.preventDefault();
-            console.log("ArrowLeft")
-            break;
-          case "ArrowRight":
-            event.preventDefault();
-            console.log("ArrowRight")
-            break;
-        }
-
-
+      node.addEventListener("recursive-collapse-requested", (e) => {
+        node.open.value = false;
       });
     }
 
-    this.field.addEventListener("tree-node-unselection-requested", (e) => {
-      this.field._isSelected.value = false;
-    });
+    // open the root ode
+    tree.open.value = true;
 
-
-    this._open = !!this.field.open.value;
-    this.requestUpdate();
+    this._FBPTriggerWire("--treeChanged", this._flatTree);
   }
 
 
+  _parseTreeRecursive(tree, level, maxdepth) {
+    if (maxdepth > 0 && !(level < maxdepth)) {
+      return
+    }
+    level++;
+
+    tree.children.repeats.forEach((node) => {
+      node.depth = level;
+      this._flatTree.push(node);
+      if (node.children.repeats.length > 0) {
+        this._parseTreeRecursive(node, level, maxdepth)
+      }
+    });
+  }
 }
 
 window.customElements.define('furo-tree', FuroTree);

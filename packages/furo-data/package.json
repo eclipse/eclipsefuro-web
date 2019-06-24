@@ -1,12 +1,12 @@
 {
   "name": "@furo/data",
-  "version": "0.36.2",
+  "version": "0.38.0",
   "description": "Furo data components",
   "main": "furo-catalog.js",
   "dependencies": {
-    "@furo/fbp": "^4.18.1",
-    "@furo/framework": "^0.4.2",
-    "@furo/mixins": "^0.15.9",
+    "@furo/fbp": "^4.20.0",
+    "@furo/framework": "^0.6.0",
+    "@furo/mixins": "^0.15.11",
     "@polymer/iron-ajax": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
     "lit-element": "^2.1.0"

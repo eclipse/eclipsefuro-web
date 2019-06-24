@@ -1,12 +1,21 @@
 import { LitElement, html, css } from 'lit-element';
 import {Iconset} from "@furo/framework/iconset";
+import {FuroBaseIcons} from "./iconsets/baseIcons";
+
+// Autoregister default set with FuroBaseIcons if no iconset was registered
+if(!Iconset.default){
+    Iconset.registerIconset("default",FuroBaseIcons);
+}
 
 /**
  * `furo-icon`
- * Lit element
+ *
  * to use furo icon you should
  * first import a svg set of icons and register it to @furo/framework/iconset
  *
+ *
+ *
+ *```
  * the set of icons can be defined in a iconSetName.js file which has content like this:
  *     export const iconSetName = {
  *          "iconName":"<g><path d='M12 xx.... z'></path></g>",
@@ -17,12 +26,18 @@ import {Iconset} from "@furo/framework/iconset";
  * import {iconSetName} from "./iconSetName";
  * import {Iconset} from "@furo/framework/furo.js";
  * Iconset.registerIconset( "iconSetName", iconSetName);
+ *```
+ *
+ * You can find some set in ./iconsets/...
  *
  * after registering you can use those icons in furo-icon in any other component
  * <furo-icon icon="iconSetName:iconName"></furo-icon>
  *
- * if you has default iconset imported, you can use icon without set name:
+ * if you have imported an iconset with the name **default**, you can use the icon without set name:
+ *
+ * ```
  * <furo-icon icon="iconName" ></furo-icon>
+ *```
  *
  * use css variable '--furo-icon-width' and '--furo-icon-height' to define the size
  * use '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors
@@ -30,7 +45,7 @@ import {Iconset} from "@furo/framework/iconset";
  * you can also define other properties lik viewport ,preserveAspectRatio...
  * @summary furo icon
  * @customElement
- * @demo demo/index.html
+ * @demo demo/furo-icon.html
  */
 class FuroIcon extends LitElement {
 
