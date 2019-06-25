@@ -8,7 +8,8 @@
     "_assets/**/*",
     "custom/**/*",
     "_doc/**/*",
-    "coverage/**/*"
+    "coverage/**/*",
+    "node_modules/@furo/input/**/*"
   ],
   "extraDependencies": [
     "manifest.json",
