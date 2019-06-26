@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">1% </span>
+        <span class="strong">1.01% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/100</span>
+        <span class='fraction'>1/99</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/33</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">1% </span>
+        <span class="strong">1.01% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/100</span>
+        <span class='fraction'>1/99</span>
       </div>
     </div>
     <p class="quiet">
@@ -454,11 +454,7 @@
 <a name='L406'></a><a href='#L406'>406</a>
 <a name='L407'></a><a href='#L407'>407</a>
 <a name='L408'></a><a href='#L408'>408</a>
-<a name='L409'></a><a href='#L409'>409</a>
-<a name='L410'></a><a href='#L410'>410</a>
-<a name='L411'></a><a href='#L411'>411</a>
-<a name='L412'></a><a href='#L412'>412</a>
-<a name='L413'></a><a href='#L413'>413</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L409'></a><a href='#L409'>409</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -725,26 +721,17 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -752,7 +739,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1136,37 +1128,33 @@ class ApiFetch extends HTMLElement {
              */
 <span class="cstat-no" title="statement not covered" >            this.lastResponse = undefined;</span>
 &nbsp;
+<span class="cstat-no" title="statement not covered" >            this.dispatchEvent(new CustomEvent('response-error-raw', {</span>
+                detail: response, bubbles: true, composed: true
+            }));
+&nbsp;
+&nbsp;
 <span class="cstat-no" title="statement not covered" >            response.json().then(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >                if (error) {</span>
+&nbsp;
 &nbsp;
 <span class="cstat-no" title="statement not covered" >                    response.error = error.error;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >                    this.dispatchEvent(new CustomEvent('response-error-' + response.status, {</span>
-                        detail: response, bubbles: true, composed: true
+                        detail: error, bubbles: true, composed: true
                     }));
-&nbsp;
-<span class="cstat-no" title="statement not covered" >                    this.dispatchEvent(new CustomEvent('response-error-raw', {</span>
-                        detail: response, bubbles: true, composed: true
-                    }));
-&nbsp;
 &nbsp;
 <span class="cstat-no" title="statement not covered" >                    this.dispatchEvent(new CustomEvent('response-error', {</span>
                         detail: error, bubbles: true, composed: true
                     }));
 &nbsp;
-&nbsp;
-&nbsp;
                     //console.error('Looks like there was a problem. Status Code: ', response.status);
                 }
             }).catch(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                this.dispatchEvent(new CustomEvent('response-error-' + response.status, {</span>
+<span class="cstat-no" title="statement not covered" >                this.dispatchEvent(new CustomEvent('parse-error' , {</span>
                     detail: response, bubbles: true, composed: true
                 }));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                this.dispatchEvent(new CustomEvent('response-error-raw', {</span>
-                    detail: response, bubbles: true, composed: true
-                }));
 &nbsp;
             });
         }
@@ -1288,7 +1276,7 @@ customElements.define('api-fetch', ApiFetch);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jun 23 2019 11:47:21 GMT+0200 (CEST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 26 2019 15:35:00 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../prettify.js"></script>

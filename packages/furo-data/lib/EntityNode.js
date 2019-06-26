@@ -60,9 +60,6 @@ export class EntityNode extends EventTreeNode {
     this._isValid = true;
 
     if (rawEntity.error && rawEntity.details) {
-
-
-
       rawEntity.details.forEach((errorSet) => {
         if(errorSet["field_violations"]){
           this._handleErrorsFromRawEntity(this.fields, errorSet["field_violations"]);

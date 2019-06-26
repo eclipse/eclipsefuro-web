@@ -56,9 +56,8 @@
 
           <deep-link auto ƒ-.qp='--qp' service="tasks" @-hts-out="--hts"></deep-link>
           <entity-agent service="tasks" ƒ-save="--saveClicked" ƒ-bind-request-object="--data" ƒ-hts-in="--hts"
-                        ƒ-load="--loadClicked" @-save="--saveClicked" @-response="--entityResponse"
+                        ƒ-load="--loadClicked" @-save="--saveClicked" @-response="--entityResponse"  @-response-error="--errorResponse"
                         @-load-success="--ls"></entity-agent>
-
 
           <entity-object type="vnd.com.acme.task" ƒ-inject-raw="--entityResponse, --errorResponse"
                          @-object-ready="--data">
