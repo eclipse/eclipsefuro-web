@@ -20,14 +20,15 @@
     "wct-browser-legacy": "^1.0.2",
     "wct-istanbub": "^0.2.9",
     "wct-mocha": "^1.0.0",
-    "wct-test-reporter": "0.0.1"
+    "wct-test-reporter": "0.0.1",
+    "web-component-tester-istanbul": "0.10.0"
   },
   "scripts": {
     "lint:imports": "node scripts/check-imports.js",
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
     "doc": "./scripts/generate-analysis.sh",
     "serve": "polymer serve -p 7777",
-    "test": "echo run polymer test please"
+    "test": "polymer test"
   },
   "author": "veith",
   "license": "MIT",
