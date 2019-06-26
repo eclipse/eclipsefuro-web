@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>test for furo-data-table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+    <script type="module" src="../furo-catalog.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+    <template>
+        <furo-data-table></furo-data-table>
+    </template>
+</test-fixture>
+
+<script type="module">
+
+    let expect = chai.expect;
+
+    import '/node_modules/axe-core/axe.min.js';
+    import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+    import {Init} from "@furo/framework";
+    import {Services,Types} from "./apiConfig.js"
+    Init.registerApiServices(Services);
+    Init.registerApiTypes(Types);
+
+    describe('furo-data-table tests ', function () {
+
+        let dataTable = {};
+
+        beforeEach(async () => {
+            dataTable = fixture('basic');
+
+            dataTable.type = "vnd.com.acme.task";
+            await dataTable.updateComplete;
+
+        });
+
+        it('should have the correct type information', (done) => {
+            assert.equal(dataTable._type, "vnd.com.acme.task");
+            assert.equal(dataTable.cols.length, 8);
+            done()
+        });
+
+        it('should assign the correct meta information', (done) => {
+            assert.equal(dataTable.cols[0].meta.datatable.row_width, "width-l");
+            assert.equal(dataTable.cols[1].meta.datatable.row_width, "width-s");
+            assert.equal(dataTable.cols[2].meta.datatable.row_width, "width-xl");
+
+            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('tbody').querySelector('template').content.querySelector('tr').childElementCount, 10);
+            done()
+        });
+
+
+    });
+</script>
+</body>
+</html>

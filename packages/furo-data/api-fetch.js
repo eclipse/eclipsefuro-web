@@ -264,37 +264,33 @@ class ApiFetch extends HTMLElement {
              */
             this.lastResponse = undefined;
 
+            this.dispatchEvent(new CustomEvent('response-error-raw', {
+                detail: response, bubbles: true, composed: true
+            }));
+
+
             response.json().then((error) => {
                 if (error) {
+
 
                     response.error = error.error;
 
                     this.dispatchEvent(new CustomEvent('response-error-' + response.status, {
-                        detail: response, bubbles: true, composed: true
+                        detail: error, bubbles: true, composed: true
                     }));
-
-                    this.dispatchEvent(new CustomEvent('response-error-raw', {
-                        detail: response, bubbles: true, composed: true
-                    }));
-
 
                     this.dispatchEvent(new CustomEvent('response-error', {
                         detail: error, bubbles: true, composed: true
                     }));
 
-
-
                     //console.error('Looks like there was a problem. Status Code: ', response.status);
                 }
             }).catch(() => {
 
-                this.dispatchEvent(new CustomEvent('response-error-' + response.status, {
+                this.dispatchEvent(new CustomEvent('parse-error' , {
                     detail: response, bubbles: true, composed: true
                 }));
 
-                this.dispatchEvent(new CustomEvent('response-error-raw', {
-                    detail: response, bubbles: true, composed: true
-                }));
 
             });
         }

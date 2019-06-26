@@ -1,0 +1,79 @@
+{
+  "data": {
+    "zeitunddatum": {
+      "date": "2011-04-22",
+      "repstring": [
+        "avvvvaa",
+        "bbbbbbb"
+      ],
+      "time": "22:37"
+    },
+    "repstring": [
+      "rtzfghj",
+      "bbbbbbb"
+    ],
+    "id": 12,
+    "display_name": "erster Versuch",
+    "repdate": [
+      {
+        "date": "0000-05-22",
+        "repstring": [
+          "ok",
+          "Fehler"
+        ],
+        "time": "13:37"
+      },
+      {
+        "date": "2011-06-22",
+        "repstring": [
+          "dfg",
+          "bbbbbbb"
+        ],
+        "time": "14:37"
+      }
+    ]
+  },
+  "links": [
+    {
+      "rel": "self",
+      "method": "GET",
+      "href": "/demo/api/v1/tasks/12.json",
+      "type": "vnd.com.acme.task"
+    },
+    {
+      "rel": "update",
+      "method": "PATCH",
+      "href": "/demo/api/v1/tasks/12.json",
+      "type": "vnd.com.acme.task"
+    }
+  ],
+
+  "meta": {
+    "fields": {
+      "display_name": {
+        "meta": {
+          "label": "VOM SERVEEEER"
+        },
+        "constraints": {
+          "min": {
+            "value": 5,
+            "message": "Fuenf Zeichen sind zwingend"
+          },
+          "max": {
+            "value": 14,
+            "message": "Vierzehn sind genug"
+          }
+        }
+      },
+      "repdate": {
+        "fields": {
+          "date": {
+            "meta": {
+              "label": "LabelRepdateDynamic"
+            }
+          }
+        }
+      }
+    }
+  }
+}
