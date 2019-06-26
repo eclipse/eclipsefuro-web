@@ -30,5 +30,10 @@
     "test": "echo run polymer test please"
   },
   "author": "veith",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "npm": "^6.9.0",
+    "run": "^1.4.0"
+  }
 }

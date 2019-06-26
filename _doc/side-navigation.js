@@ -253,6 +253,10 @@ class SideNavigation extends FBP(LitElement) {
               <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:cloud"></iron-icon>Dealing with data</span>
               </li>
             </a>
+            <a tabindex="-1" href="/node_modules/@furo/data-ui" @-click=":STOP, ^^navigation-clicked">
+              <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:view-column"></iron-icon>Data UI</span>
+              </li>
+            </a>
             <a tabindex="-1" href="/node_modules/@furo/layout" @-click=":STOP, ^^navigation-clicked">
               <li role="menuitem" tabindex="0"><span><iron-icon icon="icons:dashboard"></iron-icon>Layouts helper</span>
               </li>
