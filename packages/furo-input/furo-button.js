@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@polymer/paper-ripple"
+import "./furo-ripple";
 
 /**
  * `furo-button`
@@ -140,9 +140,9 @@ class FuroButton extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <button ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>${this.label}
+      <button @-click="--click" ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>${this.label}
         <slot></slot>
-        <paper-ripple></paper-ripple>
+        <furo-ripple ƒ-animate="--click"></furo-ripple>
       </button>
     `;
   }
