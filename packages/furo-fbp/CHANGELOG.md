@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.21.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.20.1...@furo/fbp@4.21.0) (2019-06-27)
+
+
+### Features
+
+* trigger-all, but should be renamed to message-all ([f21d059](https://github.com/veith/flowbased-polymer/commit/f21d059))
+
+
+
+
+
 ## [4.20.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.20.0...@furo/fbp@4.20.1) (2019-06-27)
 
 **Note:** Version bump only for package @furo/fbp
