@@ -74,8 +74,12 @@ class EntityAgent extends FBP(LitElement) {
     }
     // Daten
     let headers = new Headers(this._ApiEnvironment.headers);
+
     headers.append('Content-Type', 'application/' + link.type + '+json');
-    headers.append('Content-Type', 'application/json');
+
+    if (link.method.toLowerCase() !== 'put'){
+      headers.append('Content-Type', 'application/json');
+    }
 
     return new Request(link.href, {
       method: link.method,
