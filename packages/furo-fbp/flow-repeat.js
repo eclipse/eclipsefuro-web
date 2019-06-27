@@ -71,6 +71,12 @@ class FlowRepeat extends HTMLTemplateElement {
         this.triggerIndex(this.selectedIndex, data)
     }
 
+    // trigger all nodes
+    triggerAll(data){
+        for(let i = 0; i < this._insertedItems.length;i++){
+            this.triggerIndex(i,data);
+        }
+    }
     /**
      * Triggers the wire --itemDeSelected on last selected item
      */
