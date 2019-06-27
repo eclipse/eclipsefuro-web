@@ -28,14 +28,16 @@ class FuroTree extends FBP(LitElement) {
      */
     this._flatTree = [];
     this.tabindex = 0;
+    this._searchTerm = "";
+    this._searchIsActive = false;
     /**
      * If you want to use a custom component for the tree-item, set this attribute.
      * The default item component is **furo-tree-item**.
      *
      * @type {*|string|string}
      */
-    this.treeItemComponent = this.getAttribute("tree-item-component") ||  "furo-tree-item";
-    this._treeItemTepmplate = html([['<',this.treeItemComponent,' ƒ-bind-data="--itemInjected(*.item)"></',this.treeItemComponent,'>'].join('')]);
+    this.treeItemComponent = this.getAttribute("tree-item-component") || "furo-tree-item";
+    this._treeItemTepmplate = html([['<', this.treeItemComponent, ' ƒ-bind-data="--itemInjected(*.item)" ƒ-search="--trigger"></', this.treeItemComponent, '>'].join('')]);
 
 
     // keyboard navigation on top node only
@@ -64,6 +66,8 @@ class FuroTree extends FBP(LitElement) {
 
         case "ArrowLeft":
           event.preventDefault();
+
+          this._resetSearch();
           // close when opened, parent when closed
           if (!this._hoveredField.isBranch() && this._hoveredField.open.value) {
             this._hoveredField.toggleOpenClose();
@@ -73,6 +77,8 @@ class FuroTree extends FBP(LitElement) {
           break;
         case "ArrowRight":
           event.preventDefault();
+
+          this._resetSearch();
           // open when closed, next when opened
           if (!this._hoveredField.isBranch() && !this._hoveredField.open.value) {
             this._hoveredField.toggleOpenClose();
@@ -80,10 +86,65 @@ class FuroTree extends FBP(LitElement) {
             this._hoverNext();
           }
           break;
+
+
+        case"Escape":
+          this._resetSearch();
+          break;
+        case"Backspace":
+          this._removeLastSymbofFromSearch();
+          break;
       }
 
-
     });
+
+
+    // keyboard navigation on top node only
+    this.addEventListener("keypress", (event) => {
+      let key = event.key || event.keyCode;
+
+      switch (key) {
+        default:
+
+          if(!event.ctrlKey){
+            event.preventDefault();
+            this._addSymbolToSearch(key);
+          }
+
+      }
+    })
+  }
+
+  _removeLastSymbofFromSearch() {
+    this._searchTerm = this._searchTerm.substr(0, this._searchTerm.length - 1);
+    if (this._searchTerm.length === 0) {
+      this._resetSearch();
+    } else {
+      this.searchOpenTree(this._searchTerm);
+    }
+
+  }
+
+  _addSymbolToSearch(key) {
+    this._searchTerm += key;
+    this.searchOpenTree(this._searchTerm);
+  }
+
+  searchOpenTree() {
+    this._searchIsActive = true;
+    let d = {term: this._searchTerm, results: []};
+    this._foundSearchItems = d.results;
+    this._FBPTriggerWire("--searchRequested", d);
+    // select first result
+    if (d.results.length > 0) {
+      d.results[0].triggerHover();
+    }
+    this.requestUpdate();
+  }
+
+  _resetSearch() {
+    this._searchIsActive = false;
+    this._searchTerm = "";
   }
 
   _hoverHome() {
@@ -97,7 +158,23 @@ class FuroTree extends FBP(LitElement) {
    * hovers the previous item
    */
   _hoverPrevious() {
-    let prev = this._hoveredField.getPrevElement();
+    let prev;
+    if (this._searchIsActive) {
+      for (let i = 0; i < this._foundSearchItems.length; i++) {
+        if (this._foundSearchItems[i].__flatTreeIndex >= this._hoveredField.__flatTreeIndex) {
+          prev = this._foundSearchItems[i - 1];
+          break;
+        }
+
+      }
+      // select last
+      if(!prev){
+        prev = this._foundSearchItems[this._foundSearchItems.length -1];
+      }
+    } else {
+        prev = this._hoveredField.getPrevElement();
+    }
+
     if (prev) {
       prev.triggerHover();
     }
@@ -170,7 +247,22 @@ class FuroTree extends FBP(LitElement) {
    * hovers the next item
    */
   _hoverNext() {
-    let next = this._hoveredField.getNextVisibleElement();
+    let next;
+    if (this._searchIsActive) {
+      for (let i = this._foundSearchItems.length - 1; i >= 0; i--) {
+        if (this._foundSearchItems[i].__flatTreeIndex <= this._hoveredField.__flatTreeIndex) {
+          next = this._foundSearchItems[i + 1];
+          break;
+        }
+      }
+      // select first
+      if(!next){
+        next = this._foundSearchItems[0];
+      }
+    } else {
+      next = this._hoveredField.getNextVisibleElement();
+    }
+
     if (next) {
       next.triggerHover();
     }
@@ -189,7 +281,11 @@ class FuroTree extends FBP(LitElement) {
       /**
        * Sets the tabindex
        */
-      tabindex: {type: Number, reflect: true}
+      tabindex: {type: Number, reflect: true},
+      /**
+       * indicator for searching. Maybe you want style your item depending on this attribute
+       */
+      _searchIsActive: {type: Boolean, attribute: "searching", reflect: true}
     };
   }
 
@@ -220,6 +316,7 @@ class FuroTree extends FBP(LitElement) {
             box-sizing: border-box;
             overflow: auto;
             outline: none;
+            position: relative;
         }
 
         :host([hidden]) {
@@ -258,10 +355,21 @@ class FuroTree extends FBP(LitElement) {
             background: var(--primary-color, #57a9ff);
         }
 
-        :host(:hover) td > *:hover {
-            background-color: var(--mouse-hover-color, #f8f8f8);
+
+        .srch {
+            display: none;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: inherit;
+            border: 1px solid #DEDEDE;
+            padding: 2px;
+            font-size: 11px;
         }
 
+        :host([searching]:focus-within) .srch {
+            display: block;
+        }
     `
   }
 
@@ -273,8 +381,9 @@ class FuroTree extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
+<div class="srch">${this._searchTerm}</div>
       <table>
-        <template is="flow-repeat" ƒ-inject-items="--treeChanged">
+        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested">
           <tr>
             <td>
               ${this._treeItemTepmplate}
@@ -505,7 +614,8 @@ class FuroTree extends FBP(LitElement) {
 
     tree.children.repeats.forEach((node) => {
       node.depth = level;
-      this._flatTree.push(node);
+      let i = this._flatTree.push(node);
+      node.__flatTreeIndex = i-1;
       if (node.children.repeats.length > 0) {
         this._parseTreeRecursive(node, level, maxdepth)
       }

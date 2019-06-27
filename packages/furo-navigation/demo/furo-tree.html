@@ -51,7 +51,8 @@
           <button @-click="--expandAll">expand all</button>
           <button @-click="--collapseAll">collapse all</button>
           <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
-
+          <br>
+          <hr>
 
           <furo-split-view style="height: 500px;">
             <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--nodeSelected"

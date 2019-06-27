@@ -56,7 +56,7 @@ class ProduceData extends FBP(LitElement) {
                     children: [{
                       id: 4,
                       display_name: "E",
-                      description: "sub sub",
+                      description: "Berlin",
                       children: []
                     }]
                   }]

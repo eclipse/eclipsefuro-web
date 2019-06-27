@@ -21,6 +21,19 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.hidden = true;
   }
 
+  search(event){
+
+    if(!this.hidden){
+
+      // append fieldnode to result set (used in furo-tree.js)
+      if(this.fieldNode.display_name.value.search(event.term) != -1 || this.fieldNode.description.value.search(event.term) != -1){
+        event.results.push(this.fieldNode);
+
+      }
+
+    }
+  }
+
   /**
    * @private
    * @return {Object}
