@@ -103,15 +103,20 @@ class FuroTree extends FBP(LitElement) {
     this.addEventListener("keypress", (event) => {
       let key = event.key || event.keyCode;
 
-      switch (key) {
-        default:
-
-          if(!event.ctrlKey){
+      if (!event.ctrlKey) {
+        event.preventDefault();
+        this._addSymbolToSearch(key);
+      }else{
+        switch (key) {
+          // expand recursive with ctrl-e
+          case "e":
             event.preventDefault();
-            this._addSymbolToSearch(key);
-          }
-
+            this._hoveredField.expandRecursive();
+            break
+        }
       }
+
+
     })
   }
 
@@ -168,11 +173,11 @@ class FuroTree extends FBP(LitElement) {
 
       }
       // select last
-      if(!prev){
-        prev = this._foundSearchItems[this._foundSearchItems.length -1];
+      if (!prev) {
+        prev = this._foundSearchItems[this._foundSearchItems.length - 1];
       }
     } else {
-        prev = this._hoveredField.getPrevElement();
+      prev = this._hoveredField.getPrevElement();
     }
 
     if (prev) {
@@ -256,7 +261,7 @@ class FuroTree extends FBP(LitElement) {
         }
       }
       // select first
-      if(!next){
+      if (!next) {
         next = this._foundSearchItems[0];
       }
     } else {
@@ -615,7 +620,7 @@ class FuroTree extends FBP(LitElement) {
     tree.children.repeats.forEach((node) => {
       node.depth = level;
       let i = this._flatTree.push(node);
-      node.__flatTreeIndex = i-1;
+      node.__flatTreeIndex = i - 1;
       if (node.children.repeats.length > 0) {
         this._parseTreeRecursive(node, level, maxdepth)
       }
