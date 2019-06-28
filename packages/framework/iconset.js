@@ -28,7 +28,6 @@ export class Iconset {
     static registerIconset(setName, icons) {
 
         this[setName] = icons;
-        console.info("iconset is `"+setName+"` registered.");
     }
 
     // get icon svg via icon set name and icon name
