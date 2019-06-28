@@ -45,6 +45,7 @@ export class FuroTreeItem extends FBP(LitElement) {
        */
       hidden: {type: Boolean, reflect: true},
       hovered: {type: Boolean, reflect: true},
+      searchmatch: {type: Boolean, reflect: true},
       selected: {type: Boolean, reflect: true}
     };
   }
@@ -121,6 +122,17 @@ export class FuroTreeItem extends FBP(LitElement) {
       this.selected = true;
       this.fieldNode._isSelected = true;
     });
+
+    // This item is not or no more in the search results
+    this.fieldNode.addEventListener("search-didnt-match", (e) => {
+      this.searchmatch = false;
+    });
+
+    // This item is  in the search results
+    this.fieldNode.addEventListener("search-matched", (e) => {
+      this.searchmatch = true;
+    });
+
   }
 
 
@@ -161,9 +173,15 @@ export class FuroTreeItem extends FBP(LitElement) {
             padding-left: 4px;
         }
         
+        :host([searchmatch])  {
+            border-left: 1px solid orange;
+        }
+        
         :host([selected]) .oc {
             color: var(--on-primary, white);
         }
+        
+       
     `
   }
 

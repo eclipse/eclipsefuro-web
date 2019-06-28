@@ -47,6 +47,7 @@ class FuroTree extends FBP(LitElement) {
       switch (key) {
         case "Enter":
           event.preventDefault();
+          // not reseting the search at this position is by intention.
           if (this._hoveredField._isSelected) {
             // openclose
             this._hoveredField.toggleOpenClose();
@@ -140,16 +141,27 @@ class FuroTree extends FBP(LitElement) {
     let d = {term: this._searchTerm, results: []};
     this._foundSearchItems = d.results;
     this._FBPTriggerWire("--searchRequested", d);
+
     // select first result
     if (d.results.length > 0) {
       d.results[0].triggerHover();
     }
+    this._updateSearchmatchAttributesOnItems();
     this.requestUpdate();
   }
 
   _resetSearch() {
     this._searchIsActive = false;
     this._searchTerm = "";
+    this._foundSearchItems = [];
+    this._updateSearchmatchAttributesOnItems();
+  }
+
+  _updateSearchmatchAttributesOnItems(){
+    this._tree.children.broadcastEvent(new NodeEvent('search-didnt-match', this._tree, true));
+    this._foundSearchItems.map((node)=>{
+      node.dispatchNodeEvent(new NodeEvent('search-matched', this._tree, false));
+    })
   }
 
   _hoverHome() {
@@ -584,6 +596,7 @@ class FuroTree extends FBP(LitElement) {
       node.addEventListener("descendant-selected", (e) => {
         node.open.value = true;
       });
+
 
       // expand recursive
       node.expandRecursive = () => {
