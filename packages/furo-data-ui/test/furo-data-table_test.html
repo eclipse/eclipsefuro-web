@@ -14,13 +14,34 @@
     <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
     <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
-    <script type="module" src="../furo-catalog.js"></script>
+    <script type="module">
+        import '../furo-catalog.js';
+        import '@furo/framework';
+        import '@furo/data';
+        import "@furo/fbp/flow-bind";
+    </script>
 </head>
 <body>
 
 <test-fixture id="basic">
     <template>
-        <furo-data-table></furo-data-table>
+        <flow-bind>
+            <template>
+                <deep-link service="tasks"
+                           @-hts-out="--hts">
+                </deep-link>
+
+                <collection-agent service="tasks"
+                                  ƒ-hts-in="--hts"
+                                  list-on-hts-in
+                                  @-response="--colResponded">
+                </collection-agent>
+                <collection-object type="vnd.com.acme.task" ƒ-inject-raw="--colResponded"
+                                   @-object-ready="--data"></collection-object>
+                <furo-data-table ƒ-bind-data="--data"></furo-data-table>
+            </template>
+        </flow-bind>
+
     </template>
 </test-fixture>
 
@@ -32,19 +53,32 @@
     import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
     import {Init} from "@furo/framework";
-    import {Services,Types} from "./apiConfig.js"
+    import {Services, Types} from "./apiConfig.js"
+
     Init.registerApiServices(Services);
     Init.registerApiTypes(Types);
 
+    function keydown(TargetElement, key) {
+        let customEvent = new Event('keydown', {composed: true, bubbles: true});
+        customEvent.code = key; // Deprecated, prefer .key instead.
+        customEvent.key = key;
+        TargetElement.dispatchEvent(customEvent);
+
+    }
+
     describe('furo-data-table tests ', function () {
 
-        let dataTable = {};
+        let fix, linker, dataTable;
 
         beforeEach(async () => {
-            dataTable = fixture('basic');
+            fix = fixture('basic');
 
+
+            dataTable = fix[4];
             dataTable.type = "vnd.com.acme.task";
             await dataTable.updateComplete;
+            linker = fix[1];
+            await linker.updateComplete;
 
         });
 
@@ -52,6 +86,7 @@
             assert.equal(dataTable._type, "vnd.com.acme.task");
             assert.equal(dataTable.cols.length, 8);
             done()
+
         });
 
         it('should assign the correct meta information', (done) => {
@@ -63,6 +98,90 @@
             done()
         });
 
+        it('empty or invalid type should fire spec-error', (done) => {
+
+            dataTable.addEventListener('spec-error', (e) => {
+
+                assert.equal(e.detail, "vnd.com.acme.invalid");
+                done();
+            });
+            dataTable.type = "vnd.com.acme.invalid";
+
+        });
+
+        it('should focus first row', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-changed', () => {
+                    dataTable.focus();
+                    assert.equal(dataTable._selectedIndex, 0);
+
+                    done();
+                });
+            });
+            linker.trigger();
+        });
+
+        it('should select a specific row', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-changed', () => {
+                    dataTable.focus();
+                    let body = dataTable.shadowRoot.querySelector('tbody');
+                    keydown(body, 'ArrowDown');
+                    assert.equal(dataTable._selectedIndex, 1);
+
+                    done();
+                });
+            });
+            linker.trigger();
+        });
+
+        // it('enter should select the table row', (done) => {
+        //
+        //     dataTable.addEventListener('data-loaded', () => {
+        //         dataTable._collection.addEventListener('data-changed', () => {
+        //             dataTable.focus();
+        //             let body = dataTable.shadowRoot.querySelector('tbody');
+        //             keydown(body, 'ArrowDown');
+        //             keydown(dataTable, 'Enter');
+        //             dataTable.addEventListener('tablerow-selected', (r) =>{
+        //                 console.log(r);
+        //                 done();
+        //             });
+        //
+        //         });
+        //     });
+        //     linker.trigger();
+        // });
+
+        it('should have 3 entity items', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-changed', () => {
+                    dataTable.focus();
+                    assert.equal(dataTable._collection.data.length, 3);
+
+                    done();
+                });
+
+            });
+            linker.trigger();
+        });
+
+        it('should render 3 table rows', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-changed', () => {
+                    dataTable.focus();
+
+                    assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('tbody').children.length, 10);
+                    done();
+                });
+
+            });
+            linker.trigger();
+        });
 
     });
 </script>

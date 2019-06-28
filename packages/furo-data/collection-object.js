@@ -62,7 +62,7 @@ class CollectionObject extends (LitElement) {
       this.dispatchEvent(customEvent)
     });
     /**
-     * @event collection-ready
+     * @event object-ready
      * Fired when
      * detail payload:
      */

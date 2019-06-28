@@ -278,7 +278,7 @@ class FuroDataTable extends FBP(LitElement) {
         this.shadowRoot.querySelector('tbody').onclick = (e) => {
             this._selectRow(e);
         };
-        this.shadowRoot.querySelector('tbody').onkeyup = (e) => {
+        this.shadowRoot.querySelector('tbody').onkeydown = (e) => {
             this._navigate(e);
         };
         this.shadowRoot.querySelector('tbody').onkeypress = (e) => {
