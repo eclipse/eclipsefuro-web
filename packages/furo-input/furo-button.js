@@ -142,7 +142,7 @@ class FuroButton extends FBP(LitElement) {
     return html`
       <button @-click="--click" ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>${this.label}
         <slot></slot>
-        <furo-ripple ƒ-animate="--click"></furo-ripple>
+        <furo-ripple ƒ-trigger="--click"></furo-ripple>
       </button>
     `;
   }

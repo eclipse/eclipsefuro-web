@@ -1,21 +1,26 @@
 import { LitElement, html, css } from 'lit-element';
-import {FBP} from '@furo/fbp';
 
 /**
- * `furo-ripple` gives the ripple effect to a element like a button:
+ * `furo-ripple` gives the ripple effect to a element
+ *  use it directly in an element:
+ *  <button>
+ *       click here
+ *      <furo-ripple></furo-ripple>
+ *  </button>
  *
+ *  or you can also trigger the ripple effect via wire
  *  <button @-click="--click" >
  *      ...
- *      <furo-ripple ƒ-animate="--click"></furo-ripple>
+ *      <furo-ripple ƒ-trigger="--click"></furo-ripple>
  *  </button>
  *  with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect
  *
  * Lit element
  *
  * @customElement
- * @demo demo/index.html
+ * @demo demo/furo-button.html
  */
-class FuroRipple extends FBP(LitElement) {
+class FuroRipple extends LitElement {
 
 
     constructor(){
@@ -87,7 +92,7 @@ class FuroRipple extends FBP(LitElement) {
     /**
      * animate the ripple effect
      */
-    animate() {
+    trigger() {
 
         this.shadowRoot.getElementById("ripple").classList.add("active");
 
