@@ -114,7 +114,7 @@ class FuroCollectionDropdown extends FBP(FuroInputBase(LitElement)) {
     render() {
       // language=HTML
       return html`
-      <select ?autofocus=${this.autofocus} ?disabled=${this.disabled} @-change="--inputInput(*.path.0)" ƒ-.value="--value">
+      <select ?autofocus=${this.autofocus} ?disabled=${this.disabled} @-change="--inputInput(*)" ƒ-.value="--value">
             <template is="flow-repeat" ƒ-inject-items="--selection">
                 <option ƒ-.value="--item(*.id)" ƒ-.selected="--item(*.selected)" ƒ-.inner-text="--item(*.label)"></option>
             </template>

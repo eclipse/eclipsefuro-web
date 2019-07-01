@@ -121,7 +121,7 @@ class FuroRangeInput extends FBP(FuroInputBase(LitElement)) {
   render() {
     // language=HTML
     return html`     
-      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="range" list="datalist" ƒ-.value="--value" @-input="--inputInput(*.path.0)"   ƒ-focus="--focusReceived">
+      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="range" list="datalist" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focusReceived">
       <div class="border"></div>     
       <label float="${this._float}" for="input">${this._label}</label>  
       <div class="hint">${this.hint}</div>

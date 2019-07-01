@@ -92,18 +92,20 @@ export const FuroInputBase = (superClass) => {
       this.noTypecheck = false;
 
       this._FBPAddWireHook("--inputInput", (e) => {
+        let input = e.composedPath()[0];
         if (this.field && !this._displayOnly) {
-          this.field.value = e.value;
+          this.field.value = input.value;
         }
-        this.value = e.value;
+        this.value = input.value;
       });
 
       // input changes for checkboxes
       this._FBPAddWireHook("--inputCheckbox", (e) => {
+        let checkbox = e.composedPath()[0];
         if (this.field && !this._displayOnly) {
-          this.field.value = e.checked;
+          this.field.value = checkbox.checked;
         }
-        this.value = e.checked;
+        this.value = checkbox.checked;
       });
       if (this.value != undefined) {
         this._FBPTriggerWire('--value', this._value);
