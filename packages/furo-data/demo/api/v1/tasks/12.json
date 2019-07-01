@@ -13,7 +13,7 @@
       "bbbbbbb"
     ],
     "taskId": 12,
-    "title": "erster Versuch",
+    "display_name": "erster Versuch",
     "repdate": [
       {
         "date": "0000-05-22",
@@ -50,9 +50,10 @@
 
   "meta": {
     "fields": {
-      "title": {
+      "display_name": {
         "meta": {
-          "label": "VOM SERVEEEER"
+          "label": "VOM SERVEEEER",
+          "readonly": false
         },
         "constraints": {
           "min": {

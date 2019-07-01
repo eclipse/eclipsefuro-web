@@ -431,7 +431,8 @@ export const Types = {
         "meta": {
           "label": "TITEL",
           "default": "Tit",
-          "hint": "dsfdfs"
+          "hint": "dsfdfs",
+          "readonly": true
         },
         "constraints": {
           "min": {"value": 3, "message": "Drei Zeichen sind zwingend"},

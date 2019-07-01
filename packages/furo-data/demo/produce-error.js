@@ -47,7 +47,7 @@ class ProduceError extends FBP(LitElement) {
               "description": "unknown"
             }],
           }
-        ],
+        ]
       };
       this.dispatchEvent(customEvent)
     })

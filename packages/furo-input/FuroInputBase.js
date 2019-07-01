@@ -38,7 +38,7 @@ export const FuroInputBase = (superClass) => {
          * Setze disabled
          */
         disabled: {
-          type: Boolean
+          type: Boolean, reflect: true
         },
         /**
          * helper für das label
@@ -151,7 +151,7 @@ export const FuroInputBase = (superClass) => {
         this._label = this.label;
       }
 
-
+      this.disabled = this.field._meta.readonly;
       this.hint = this.field._meta.hint;
       this.value = this.field.value;
 
@@ -176,6 +176,7 @@ export const FuroInputBase = (superClass) => {
         }
 
 
+        this.disabled = this.field._meta.readonly;
         this.hint = this.field._meta.hint;
         this.value = this.field.value;
 
