@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.20.0...@furo/navigation@0.21.0) (2019-07-01)
+
+
+### Features
+
+* expand subnodes recursive via keyboard ([908bd81](https://github.com/veith/FuroBaseComponents/commit/908bd81))
+* searchable items in furo-tree ([c572ed1](https://github.com/veith/FuroBaseComponents/commit/c572ed1))
+
+
+
+
+
 # [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.19.1...@furo/navigation@0.20.0) (2019-06-27)
 
 

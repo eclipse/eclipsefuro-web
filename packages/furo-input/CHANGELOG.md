@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.34.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.33.4...@furo/input@0.34.0) (2019-07-01)
+
+
+### Features
+
+* add furo-ripple for ripple effect ([3536d1b](https://github.com/veith/FuroBaseComponents/commit/3536d1b))
+
+
+
+
+
 ## [0.33.4](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.33.3...@furo/input@0.33.4) (2019-06-27)
 
 **Note:** Version bump only for package @furo/input
