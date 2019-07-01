@@ -31,7 +31,7 @@ class ProduceError extends FBP(LitElement) {
             "@type": "type.googleapis.com/google.rpc.BadRequest",
             "field_violations": [{
               "code": 5432,
-              "field": "title.dd",
+              "field": "display_name",
               "description": " have fancy characters"
             }, {
               "code": 5432,

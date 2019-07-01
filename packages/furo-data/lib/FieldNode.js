@@ -65,7 +65,6 @@ export class FieldNode extends EventTreeNode {
         if(val.hasOwnProperty(field._name)){
           field.value = val[field._name];
         }
-
       }
     } else {
       this.oldvalue = this.value;
@@ -102,12 +101,6 @@ export class FieldNode extends EventTreeNode {
     }
     return this._value;
   }
-
-  set(val) {
-    this.oldvalue = this.value;
-    this.value = val;
-
-  };
 
   _clearInvalidity() {
     if (!this._isValid) {

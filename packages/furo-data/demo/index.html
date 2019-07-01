@@ -9,10 +9,6 @@
   <script src="../../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
   <script type="module">
-    import {Init} from "@furo/framework";
-    import {Services,Types} from "../test/apiConfig"
-    Init.registerApiServices(Services);
-    Init.registerApiTypes(Types);
 
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
     import '@polymer/iron-demo-helpers/demo-snippet';
@@ -22,6 +18,7 @@
     import './produce-qp';
     import './repeated-data';
     import './repeated-string';
+    import "../test/initEnv"
 
 
   </script>
@@ -54,7 +51,7 @@
           <custom-method service="tasks" method="release" ƒ-bind-request-object="--data" ƒ-hts-in="--hts"
                          ƒ-trigger="--relClk"></custom-method>
 
-          <deep-link auto ƒ-.qp='--qp' service="tasks" @-hts-out="--hts"></deep-link>
+          <deep-link auto ƒ-qp-in='--qp' service="tasks" @-hts-out="--hts"></deep-link>
           <entity-agent service="tasks" ƒ-save="--saveClicked" ƒ-bind-request-object="--data" ƒ-hts-in="--hts"
                         ƒ-load="--loadClicked" @-save="--saveClicked" @-response="--entityResponse"  @-response-error="--errorResponse"
                         @-load-success="--ls"></entity-agent>
@@ -66,26 +63,26 @@
 
 
           <entity-validator ƒ-bind-data="--data(*.fields)"></entity-validator>
-          <furo-number-input ƒ-bind-data="--data(*.fields.taskId)"></furo-number-input>
-          <furo-range-input ƒ-bind-data="--data(*.fields.taskId)"></furo-range-input>
+          <furo-number-input ƒ-bind-data="--data(*.fields.id)"></furo-number-input>
+          <furo-range-input ƒ-bind-data="--data(*.fields.id)"></furo-range-input>
 
-          <furo-text-input autofocus ƒ-bind-data="--data(*.fields.title)"></furo-text-input>
+          <furo-text-input autofocus ƒ-bind-data="--data(*.fields.display_name)"></furo-text-input>
           <furo-text-input label="Wichtiger" ƒ-focus="--focus"
                            ƒ-bind-data="--data(*.fields.description)"></furo-text-input>
           <furo-text-input ƒ-bind-data="--data(*.fields.description)"></furo-text-input>
-          <furo-text-input ƒ-bind-data="--data(*.fields.title)"></furo-text-input>
-          <furo-password-input ƒ-bind-data="--data(*.fields.title)"></furo-password-input>
+          <furo-text-input ƒ-bind-data="--data(*.fields.display_name)"></furo-text-input>
+          <furo-password-input ƒ-bind-data="--data(*.fields.display_name)"></furo-password-input>
 
           <furo-date-input ƒ-bind-data="--data(*.fields.zeitunddatum.date)"></furo-date-input>
           <furo-text-input ƒ-bind-data="--data(*.fields.zeitunddatum.date)"></furo-text-input>
           <furo-time-input ƒ-bind-data="--data(*.fields.zeitunddatum.time)"></furo-time-input>
           <furo-text-input ƒ-bind-data="--data(*.fields.zeitunddatum.date)"></furo-text-input>
-          <furo-search-input ƒ-bind-data="--data(*.fields.title)"></furo-search-input>
+          <furo-search-input ƒ-bind-data="--data(*.fields.display_name)"></furo-search-input>
 
-          <furo-textarea-input ƒ-bind-data="--data(*.fields.title)"></furo-textarea-input>
+          <furo-textarea-input ƒ-bind-data="--data(*.fields.display_name)"></furo-textarea-input>
           <hr>
           <furo-textarea-input style="width: 100%" label="Wichtiger" rows="5"
-                               ƒ-bind-data="--data(*.fields.title)"></furo-textarea-input>
+                               ƒ-bind-data="--data(*.fields.display_name)"></furo-textarea-input>
 
 
           <hr>
@@ -93,6 +90,8 @@
           <hr>
           <repeated-string ƒ-bind-data="--data(*.fields.repstring)"></repeated-string>
           <repeated-string ƒ-bind-data="--data(*.fields.repstring)"></repeated-string>
+
+
 
 
         </template>

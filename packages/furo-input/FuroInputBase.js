@@ -53,7 +53,7 @@ export const FuroInputBase = (superClass) => {
         hint: {
           type: String,
         },
-        _displayOnly:{type:Boolean, attribute: 'display-only'}
+        _displayOnly: {type: Boolean, attribute: 'display-only'}
       };
     }
 
@@ -64,16 +64,16 @@ export const FuroInputBase = (superClass) => {
           this._label = newval;
           break;
 
-          case "autofocus":
-            this.autofocus = newval !== null;
+        case "autofocus":
+          this.autofocus = newval !== null;
 
           break;
 
-          case "disabled":
+        case "disabled":
           this.disabled = newval !== null;
           break;
 
-          case "display-only":
+        case "display-only":
           this._displayOnly = newval !== null;
           break;
 
@@ -93,7 +93,7 @@ export const FuroInputBase = (superClass) => {
 
       this._FBPAddWireHook("--inputInput", (e) => {
         if (this.field && !this._displayOnly) {
-          this.field.set(e.value);
+          this.field.value = e.value;
         }
         this.value = e.value;
       });
@@ -101,7 +101,7 @@ export const FuroInputBase = (superClass) => {
       // input changes for checkboxes
       this._FBPAddWireHook("--inputCheckbox", (e) => {
         if (this.field && !this._displayOnly) {
-          this.field.set(e.checked);
+          this.field.value = e.checked;
         }
         this.value = e.checked;
       });
@@ -111,7 +111,6 @@ export const FuroInputBase = (superClass) => {
     }
 
     set value(v) {
-
       this._float = !!v;
       this._value = v;
 
