@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.16](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.15...@furo/route@0.7.16) (2019-07-01)
+
+
+### Bug Fixes
+
+* browser compatibility ([1179e85](https://github.com/veith/FuroBaseComponents/commit/1179e85))
+
+
+
+
+
 ## [0.7.15](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.14...@furo/route@0.7.15) (2019-07-01)
 
 **Note:** Version bump only for package @furo/route
