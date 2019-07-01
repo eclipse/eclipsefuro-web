@@ -6,6 +6,7 @@
   "dependencies": {
     "@furo/config": "^0.16.14",
     "@furo/data": "^0.38.5",
+    "@furo/data-ui": "^0.0.4",
     "@furo/data-util": "^0.0.7",
     "@furo/fbp": "^4.21.1",
     "@furo/form": "^0.18.8",
