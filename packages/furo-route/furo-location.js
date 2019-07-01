@@ -192,7 +192,7 @@ class FuroLocation extends HTMLElement {
      */
     this._clickHandler = (e) => {
 
-      let target = this._findAtagInPath(e.path) || e.path[0];
+      let target = this._findAtagInPath(e.composedPath());
 
       // only handle clicks on <a href="..
       if (target.tagName !== "A") {
