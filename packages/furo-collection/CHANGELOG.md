@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.16.31...@furo/collection@0.17.0) (2019-07-01)
+
+
+### Features
+
+* data-ui added ([f425539](https://github.com/veith/FuroBaseComponents/commit/f425539))
+
+
+
+
+
 ## [0.16.31](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.16.30...@furo/collection@0.16.31) (2019-07-01)
 
 **Note:** Version bump only for package @furo/collection
