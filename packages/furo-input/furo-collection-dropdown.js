@@ -145,7 +145,7 @@ class FuroCollectionDropdown extends FBP(FuroInputBase(LitElement)) {
         });
 
         if (!this.value) {
-            this.field.set(arr[0].id);
+            this.field.value = arr[0].id;
         }
 
         this._FBPTriggerWire("--selection", arr);
