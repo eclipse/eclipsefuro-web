@@ -73,7 +73,6 @@
         beforeEach(async () => {
             fix = fixture('basic');
 
-
             dataTable = fix[4];
             dataTable.type = "vnd.com.acme.task";
             await dataTable.updateComplete;
@@ -137,23 +136,24 @@
             linker.trigger();
         });
 
-        // it('enter should select the table row', (done) => {
-        //
-        //     dataTable.addEventListener('data-loaded', () => {
-        //         dataTable._collection.addEventListener('data-changed', () => {
-        //             dataTable.focus();
-        //             let body = dataTable.shadowRoot.querySelector('tbody');
-        //             keydown(body, 'ArrowDown');
-        //             keydown(dataTable, 'Enter');
-        //             dataTable.addEventListener('tablerow-selected', (r) =>{
-        //                 console.log(r);
-        //                 done();
-        //             });
-        //
-        //         });
-        //     });
-        //     linker.trigger();
-        // });
+        it('enter should select the table row', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-changed', () => {
+                    dataTable.focus();
+                    let body = dataTable.shadowRoot.querySelector('tbody');
+                    keydown(body, 'ArrowDown');
+                    keydown(body, 'Enter');
+
+
+                });
+            });
+            dataTable.addEventListener('tablerow-selected', (r) =>{
+                assert.equal(r.detail.data.description, "Super Pursuit Mode");
+                done();
+            });
+            linker.trigger();
+        });
 
         it('should have 3 entity items', (done) => {
 
@@ -164,7 +164,23 @@
 
                     done();
                 });
+            });
+            linker.trigger();
+        });
 
+        it('checking a table row should send all checked rows as an array', (done) => {
+
+            dataTable.addEventListener('data-loaded', () => {
+                dataTable._collection.addEventListener('data-changed', () => {
+                    dataTable.focus();
+                    let cb = dataTable.shadowRoot.querySelector('tbody').querySelector('tr').querySelectorAll(".fx")[1].querySelector('input');
+                    cb.click();
+                });
+
+            });
+            dataTable.addEventListener('checkstate-changed', (r) =>{
+                assert.equal(r.detail[0].data.description, "Beispiel Task");
+                done();
             });
             linker.trigger();
         });
