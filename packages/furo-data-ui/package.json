@@ -1,6 +1,6 @@
 {
   "name": "@furo/data-ui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Visual furo-data compatible components",
   "main": "furo-catalog.js",
   "dependencies": {
