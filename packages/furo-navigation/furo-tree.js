@@ -107,9 +107,9 @@ class FuroTree extends FBP(LitElement) {
       if (!event.ctrlKey) {
         event.preventDefault();
         this._addSymbolToSearch(key);
-      }else{
+      } else {
         switch (key) {
-          // expand recursive with ctrl-e
+            // expand recursive with ctrl-e
           case "e":
             event.preventDefault();
             this._hoveredField.expandRecursive();
@@ -157,9 +157,9 @@ class FuroTree extends FBP(LitElement) {
     this._updateSearchmatchAttributesOnItems();
   }
 
-  _updateSearchmatchAttributesOnItems(){
+  _updateSearchmatchAttributesOnItems() {
     this._tree.children.broadcastEvent(new NodeEvent('search-didnt-match', this._tree, true));
-    this._foundSearchItems.map((node)=>{
+    this._foundSearchItems.map((node) => {
       node.dispatchNodeEvent(new NodeEvent('search-matched', this._tree, false));
     })
   }
@@ -584,8 +584,8 @@ class FuroTree extends FBP(LitElement) {
 
       // selects the current item
       node.selectItem = () => {
-        node.dispatchNodeEvent(new NodeEvent('tree-node-selected', this, true));
-        node.dispatchNodeEvent(new NodeEvent('this-node-selected', this, false));
+        node.dispatchNodeEvent(new NodeEvent('tree-node-selected', node, true));
+        node.dispatchNodeEvent(new NodeEvent('this-node-selected', node, false));
 
         // used to open the paths upwards from the selected node
         node.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));

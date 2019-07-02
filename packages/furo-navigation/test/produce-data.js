@@ -21,40 +21,88 @@ class ProduceData extends FBP(LitElement) {
         display_name: "root",
         description: "root",
         open:true,
+        link:{
+          "rel": "self",
+          "method": "GET",
+          "href": "./api/v1/tasks/12.json",
+          "type": "vnd.com.acme.task"
+        },
         children: [
           {
             id: 2,
             display_name: "A",
             description: "first with veery big title sub",
+            link:{
+              "rel": "self",
+              "method": "GET",
+              "href": "./api/v1/tasks/A.json",
+              "type": "vnd.com.acme.task"
+            },
             children: [{
-              id: 4,
+              id: 3,
               display_name: "C",
               description: "sub sirst with veery big titleub",
+              link:{
+                "rel": "self",
+                "method": "GET",
+                "href": "./api/v1/tasks/c4.json",
+                "type": "vnd.com.acme.task"
+              },
               children: []
             }]
           }, {
-            id: 3,
+            id: 4,
             display_name: "B",
             description: "second sirst with veery big titleub",
             open:true,
+            link:{
+              "rel": "self",
+              "method": "GET",
+              "href": "./api/v1/tasks/12.json",
+              "type": "vnd.com.acme.task-b"
+            },
             children: [{
-              id: 4,
+              id: 5,
               display_name: "D",
               description: "sub suirst with veery big titleb",
+              link:{
+                "rel": "self",
+                "method": "GET",
+                "href": "./api/v1/tasks/12.json",
+                "type": "vnd.com.acme.task"
+              },
               children: [{
-                id: 4,
+                id: 6,
                 display_name: "E",
                 description: "sub suirst with veery big titleb",
+                link:{
+                  "rel": "self",
+                  "method": "GET",
+                  "href": "./api/v1/tasks/12.json",
+                  "type": "vnd.com.acme.task"
+                },
                 children: [{
-                  id: 4,
+                  id: 7,
                   display_name: "E",
                   description: "sub sub",
+                  link:{
+                    "rel": "self",
+                    "method": "GET",
+                    "href": "./api/v1/tasks/12.json",
+                    "type": "vnd.com.acme.task"
+                  },
                   children: [{
-                    id: 4,
+                    id: 8,
                     display_name: "E",
                     description: "sub sub",
+                    link:{
+                      "rel": "self",
+                      "method": "GET",
+                      "href": "./api/v1/tasks/12.json",
+                      "type": "vnd.com.acme.task"
+                    },
                     children: [{
-                      id: 4,
+                      id: 455,
                       display_name: "E",
                       description: "Berlin",
                       children: []
@@ -63,9 +111,15 @@ class ProduceData extends FBP(LitElement) {
                 }]
               }]
             },{
-              id: 4,
+              id: 234,
               display_name: "E",
-              description: "sub sub",
+              description: "sub unknown type",
+              link:{
+                "rel": "self",
+                "method": "GET",
+                "href": "./api/v1/tasks/12.json",
+                "type": "vnd.com.acme.unknown"
+              },
               children: []
             }]
           }

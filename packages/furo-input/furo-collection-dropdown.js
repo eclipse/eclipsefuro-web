@@ -150,8 +150,6 @@ class FuroCollectionDropdown extends FBP(FuroInputBase(LitElement)) {
 
         this._FBPTriggerWire("--selection", arr);
     }
-
-
 }
 
 customElements.define('furo-collection-dropdown', FuroCollectionDropdown);

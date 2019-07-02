@@ -19,6 +19,10 @@ export const Types = {
         "description": "description",
         "type": "string"
       },
+      "link":{
+        "description":"self Link",
+        "type":"vnd.furo.link",
+      },
       "open": {
         "description": "open close",
         "type": "bool",
@@ -34,5 +38,42 @@ export const Types = {
         }
       }
     }
+  },
+  "vnd.furo.link":{
+    "name": "Link",
+    "type": "vnd.furo.link",
+    "mime": "application/vnd.furo.link+json",
+    "description": "link",
+    "fields": {
+      "rel": {
+        "description": "the relationship",
+        "type": "string",
+        "__proto": {
+          "number": 1
+        }
+      },
+      "method": {
+        "description": "method of curl",
+        "type": "string",
+        "__proto": {
+          "number": 2
+        }
+      },
+      "href": {
+        "description": "link",
+        "type": "string",
+        "__proto": {
+          "number": 3
+        }
+      },
+      "type": {
+        "description": "mime type",
+        "type": "string",
+        "__proto": {
+          "number": 4
+        }
+      }
+    }
   }
+
 };

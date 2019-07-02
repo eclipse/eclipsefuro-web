@@ -31,12 +31,12 @@ class FuroPages extends (LitElement) {
 
   firstUpdated(_changedProperties) {
     super.firstUpdated(_changedProperties);
-    setTimeout(()=>{
+    setTimeout(() => {
       // Activate Default
-      if(!this._lastPageName){
+      if (!this._lastPageName) {
         this.activatePage(this._fallback);
       }
-    },1)
+    }, 1)
   }
 
 
@@ -45,7 +45,7 @@ class FuroPages extends (LitElement) {
    * @param String pageName
    */
   activatePage(pageName) {
-    this.injectLocation({"pathSegments": [pageName]})
+    return  this.injectLocation({"pathSegments": [pageName]})
   }
 
   /**
@@ -54,7 +54,7 @@ class FuroPages extends (LitElement) {
    * @param location
    */
   set location(location) {
-    this.injectLocation(location);
+    return this.injectLocation(location);
   }
 
   /**
@@ -115,6 +115,7 @@ class FuroPages extends (LitElement) {
         }
       }
 
+      return this._lastPage;
     } else {
       console.warn("default page not found and 404 page not found");
     }
