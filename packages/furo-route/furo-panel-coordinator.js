@@ -116,13 +116,11 @@ class FuroPanelCoordinator extends FBP(LitElement) {
    * @private
    */
   _removeNodeByName(nodeName) {
-
-    this._activatePanelForNode(this._openPanels[0]);
     // remove from dom
     let e = this._furoPage.querySelector("*[name="+nodeName+"]");
     e.remove();
     // remove from flat tree
-    this._openPanels =  this._openPanels.filter((node)=>{
+    this._openPanels =  this._openPanels.filter((node, index)=>{
       return "P" + node.id.value !== nodeName;
     });
 
