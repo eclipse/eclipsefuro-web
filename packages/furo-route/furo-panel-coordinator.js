@@ -18,6 +18,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     super();
     this._openPanels = [];
     this._furoPage = this.parentNode;
+    this._flatTree = [];
     this._furoPage.addEventListener("close-panel-requested", (e) => {
       let nodeName = e.detail;
       this._removeNodeByName(nodeName);
@@ -59,7 +60,8 @@ class FuroPanelCoordinator extends FBP(LitElement) {
         }
       }
       // notify furo location
-      window.history.pushState({}, '', "?" + qp.join("&") + window.location.hash);
+      window.history.pushState({}, '',  window.location.pathname + "?" + qp.join("&") + window.location.hash);
+
       let now = window.performance.now();
       let customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});
       customEvent.detail = now;
@@ -76,10 +78,13 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
   _initTree() {
     this._flatTree = [this._tree.fields];
+    if(this._tree.fields.children.repeats.length > 0){
     this._parseTreeRecursive(this._tree.fields);
+
     if (this._flatTree.length > 0 && this._queueLocation) {
       this._handleDeepLink(this._queueLocation);
       this._queueLocation = undefined;
+    }
     }
   }
 
@@ -124,6 +129,23 @@ class FuroPanelCoordinator extends FBP(LitElement) {
       return "P" + node.id.value !== nodeName;
     });
 
+    /**
+     * @event panel-changed
+     * Fired when a panel was opened or is closed
+     * detail payload: array with open panels
+     */
+    let customEvent = new Event('panel-changed', {composed:true, bubbles: false});
+    customEvent.detail = this._openPanels;
+    this.dispatchEvent(customEvent);
+
+    /**
+     * @event panel-opened
+     * Fired when a panel was  closed
+     * detail payload: array with open panels
+     */
+    let closedEvent = new Event('panel-closed', {composed:true, bubbles: false});
+    closedEvent.detail = this._openPanels;
+    this.dispatchEvent(closedEvent);
   }
 
   _activatePanelForNode(node) {
@@ -139,6 +161,25 @@ class FuroPanelCoordinator extends FBP(LitElement) {
         panel._TreeNode = node;
         this._openPanels.push(node);
         this._furoPage.appendChild(panel);
+
+        /**
+        * @event panel-changed
+        * Fired when a panel was opened or is closed
+        * detail payload: array with open panels
+        */
+        let customEvent = new Event('panel-changed', {composed:true, bubbles: false});
+        customEvent.detail = this._openPanels;
+        this.dispatchEvent(customEvent);
+
+        /**
+        * @event panel-opened
+        * Fired when a panel was opened
+        * detail payload: array with open panels
+        */
+        let openedEvent = new Event('panel-opened', {composed:true, bubbles: false});
+        openedEvent.detail = this._openPanels;
+        this.dispatchEvent(openedEvent);
+
 
       } else {
         console.warn(node.link.type.value, "is not in the registry", this);

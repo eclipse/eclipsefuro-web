@@ -11,11 +11,13 @@
   <script type="module">
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
     import '@polymer/iron-demo-helpers/demo-snippet';
+    import "@furo/util/furo-pretty-json"
     import '../furo-catalog';
     import '../test/example-panel';
     import '../test/example-panel-b';
     import "@furo/fbp/flow-bind"
     import "@furo/navigation";
+    import "@furo/navigation/furo-mini-tabs";
     import "@furo/fbp/flow-bind"
     import "@furo/navigation/test/initEnv"
     import "@furo/data"
@@ -43,7 +45,7 @@
           <a href="?ap=P5&b=23#haha=34">Page5</a>
           <produce-data auto @-data="--data"></produce-data>
 
-
+          <furo-mini-tabs ƒ-inject-items="--panelChanged"></furo-mini-tabs>
 
           <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
 
@@ -51,9 +53,9 @@
           <furo-split-view style="height: 500px;">
             <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.fields)" @-node-selected="--nodeSelected"></furo-tree>
 
-            <furo-pages ƒ-activate-page="--panelReady" default="welcome">
+            <furo-pages ƒ-activate-page="--panelReady" default="welcome" >
               <div name="welcome">Welcome</div>
-              <furo-panel-coordinator ƒ-bind-tree-entity="--entityObj"   ƒ-load-panel="--htsLink"></furo-panel-coordinator>
+              <furo-panel-coordinator ƒ-bind-tree-entity="--entityObj"  @-panel-changed="--panelChanged" ></furo-panel-coordinator>
             </furo-pages>
           </furo-split-view>
 
