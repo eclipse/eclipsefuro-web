@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">87.88% </span>
+        <span class="strong">84.06% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>58/66</span>
+        <span class='fraction'>58/69</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">77.27% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>17/22</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">82.35% </span>
+        <span class="strong">77.78% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>14/17</span>
+        <span class='fraction'>14/18</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">87.88% </span>
+        <span class="strong">84.06% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>58/66</span>
+        <span class='fraction'>58/69</span>
       </div>
     </div>
     <p class="quiet">
@@ -224,7 +224,11 @@
 <a name='L176'></a><a href='#L176'>176</a>
 <a name='L177'></a><a href='#L177'>177</a>
 <a name='L178'></a><a href='#L178'>178</a>
-<a name='L179'></a><a href='#L179'>179</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -269,7 +273,6 @@
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -286,13 +289,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -345,7 +346,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -447,7 +455,6 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     this._tree.addEventListener("tree-node-selected", (e) =&gt; {
 &nbsp;
       let nodeID = e.detail.id.value;
-&nbsp;
       let newQuery = window.location.search.slice(1);
       let queryObject = {};
       if (newQuery.length &gt; 0) {
@@ -463,14 +470,12 @@ class FuroPanelCoordinator extends FBP(LitElement) {
           qp.push(segment + "=" + queryObject[segment])
         }
       }
-&nbsp;
       // notify furo location
       window.history.pushState({}, '', "?" + qp.join("&amp;") + window.location.hash);
       let now = window.performance.now();
       let customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});
       customEvent.detail = now;
       this.dispatchEvent(customEvent)
-&nbsp;
 &nbsp;
     });
 &nbsp;
@@ -523,7 +528,14 @@ class FuroPanelCoordinator extends FBP(LitElement) {
    * @private
    */
 <span class="fstat-no" title="function not covered" >  _r</span>emoveNodeByName(nodeName) {
-<span class="cstat-no" title="statement not covered" >    this._activatePanelForNode(this._openPanels[0]);</span>
+    // remove from dom
+    let e = <span class="cstat-no" title="statement not covered" >this._furoPage.querySelector("*[name="+nodeName+"]");</span>
+<span class="cstat-no" title="statement not covered" >    e.remove();</span>
+    // remove from flat tree
+<span class="cstat-no" title="statement not covered" >    this._openPanels =  this._openPanels.filter(<span class="fstat-no" title="function not covered" >(n</span>ode, index)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >      return "P" + node.id.value !== nodeName;</span>
+    });
+&nbsp;
   }
 &nbsp;
   _activatePanelForNode(node) {
@@ -586,7 +598,7 @@ window.customElements.define('furo-panel-coordinator', FuroPanelCoordinator);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 02 2019 13:11:28 GMT+0200 (CEST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 02 2019 13:30:02 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../prettify.js"></script>

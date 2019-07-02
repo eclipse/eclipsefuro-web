@@ -69,7 +69,7 @@ class ExamplePanelB extends FBP(LitElement) {
       <p>I am a example-panel-b component with name ${this.name}</p>
       
       <furo-pretty-json ƒ-inject-data="--panelActivated"></furo-pretty-json>
-      <button @-click="^^close-panel-requested(name)">close</button>
+      <button @-click="-^close-panel-requested(name)">close</button>
     `;
   }
 }
