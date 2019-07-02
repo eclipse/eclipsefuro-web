@@ -485,6 +485,7 @@ export const Types = {
             "repdate": {
                 "type": "vnd.acme.zeitunddatum",
                 "meta": {
+                    "label": "RepDate",
                     "default": {"date": "2019-12-12", "time": "11:44"},
                     "datatable": {"row_width": "width-xl"}
                 }
@@ -492,7 +493,9 @@ export const Types = {
             },
             "repstring": {
                 "type": "string",
-                "meta": {},
+                "meta": {
+                    "label": "RepString",
+                },
                 "constraints": {
                     "min": {
                         "value": 3, "message": "Kleinster wert ist 3"
@@ -506,6 +509,7 @@ export const Types = {
             "zeitunddatum": {
                 "type": "vnd.acme.zeitunddatum",
                 "meta": {
+                    "label": "ZeitDate",
                     "datatable": {"row_width": "width-xl"}
                 }
 

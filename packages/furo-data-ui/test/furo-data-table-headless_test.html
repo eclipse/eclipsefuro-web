@@ -38,7 +38,7 @@
                 </collection-agent>
                 <collection-object type="vnd.com.acme.task" ƒ-inject-raw="--colResponded"
                                    @-object-ready="--data"></collection-object>
-                <furo-data-table ƒ-bind-data="--data"></furo-data-table>
+                <furo-data-table ƒ-bind-data="--data" hide-header></furo-data-table>
             </template>
         </flow-bind>
 
@@ -97,10 +97,8 @@
             done()
         });
 
-        it('should show a table header', (done) => {
-            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').childElementCount, 10);
-            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').querySelectorAll('th')[2].innerText, 'REFsrch');
-            assert.notEqual(dataTable.shadowRoot.querySelector('table').querySelector('thead').offsetHeight, 0);
+        it('the table header should be hidden', (done) => {
+            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').offsetHeight, 0);
 
             done();
         });
