@@ -17,7 +17,7 @@ export class i18n {
             return key;
         }
 
-        let b = i18n.resbundle[Env.locale.toLowerCase().replace("-", "_")];
+        let b = i18n.resbundle[Env.locale];
 
         if (b === undefined) {
             console.warn('No resource bundle with locale ' + Env.locale + ' exists.');
