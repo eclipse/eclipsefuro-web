@@ -1,5 +1,6 @@
 {
     "suites": [
+        "node_modules/@furo/framework/test/index.html",
         "node_modules/@furo/fbp/test/index.html",
         "node_modules/@furo/form/test/index.html",
         "node_modules/@furo/route/test/index.html",
@@ -16,6 +17,7 @@
         "istanbub": {
             "reporters": ["text-summary", "lcov"],
             "include": [
+                "node_modules/@furo/framework/*.js",
                 "node_modules/@furo/data/*.js",
                 "node_modules/@furo/data-ui/*.js",
                 "node_modules/@furo/fbp/*.js",
