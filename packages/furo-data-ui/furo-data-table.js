@@ -17,6 +17,9 @@ const tableDetails = (fields) => html`${fields.map(f => html`<td row-width="${f.
  * <furo-data-table ƒ-bind-data="--data" type="vnd.com.abc" @-tablerow-selected="--rowSelected" @-checkstate-changed="--checkStateChanged"></furo-data-table>
  * ```
  *
+ * Configuration:
+ * Attribute: hide-header | hides the table header row
+ *
  * Tags: data-ui
  *
  * @summary datatable
@@ -134,7 +137,7 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             th {
-                background-color: var(--on-primary, white);
+                background-color: var(--on-primary, transparent);
                 color: var(--primary-color, #035CA1);
                 white-space: nowrap;
                 font-weight: bold;
