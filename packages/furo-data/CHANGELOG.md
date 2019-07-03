@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.39.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.6...@furo/data@0.39.0) (2019-07-03)
+
+
+### Features
+
+* entity-agents accepts plain link object in hts-in ([beec62e](https://github.com/veith/FuroBaseComponents/commit/beec62e))
+
+
+
+
+
 ## [0.38.6](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.5...@furo/data@0.38.6) (2019-07-02)
 
 **Note:** Version bump only for package @furo/data

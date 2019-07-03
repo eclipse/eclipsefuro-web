@@ -4,12 +4,12 @@
   "keywords": [
     "routing"
   ],
-  "version": "0.8.0",
+  "version": "0.8.1",
   "main": "furo-catalog.js",
   "license": "MIT",
   "dependencies": {
-    "@furo/fbp": "^4.21.1",
-    "@furo/util": "^0.1.13",
+    "@furo/fbp": "^4.21.2",
+    "@furo/util": "^0.1.14",
     "lit-element": "^2.1.0"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",

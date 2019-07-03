@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.8.0...@furo/route@0.8.1) (2019-07-03)
+
+
+### Bug Fixes
+
+* init empty tree ([1783f15](https://github.com/veith/FuroBaseComponents/commit/1783f15))
+
+
+
+
+
 # [0.8.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.7.16...@furo/route@0.8.0) (2019-07-02)
 
 
