@@ -518,8 +518,6 @@ const FBPMixin = (superClass) => {
                 }
                 // Set value to object at end of path
                 prop[last] = value;
-                // todo: check if something like requestUpdate is useful
-                //this.requestUpdate()
             } else {
                 // Simple property set
                 prop[path] = value;
