@@ -249,6 +249,11 @@ class EntityAgent extends FBP(LitElement) {
     this.addEventListener("req-failed", failed, true);
   }
   _updateInternalHTS(hts) {
+    // convert link object to hts array
+    if (hts && hts.rel && hts.method && hts.type && hts.href) {
+      hts = [hts];
+    }
+
     if (hts && hts[0] && hts[0].rel) {
       this._hts = {};
       hts.forEach((link) => {
