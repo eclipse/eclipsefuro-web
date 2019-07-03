@@ -23,11 +23,29 @@ class FuroPanelCoordinator extends FBP(LitElement) {
       let nodeName = e.detail;
       this._removeNodeByName(nodeName);
     });
+
+
     /**
-     * ap stands for active panel. If it conflicts with your naming, change this property
+     * the Query param you use for the active page. ap stands for active panel. If it conflicts with your naming, change this property
      * @type {string}
      */
-    this.queryTag = "ap";
+    this.queryTag = this.getAttribute("query-tag") || "ap";
+
+    /**
+     * A regexp that defines the set of URLs that should be considered part
+     * of this web app.
+     *
+     * Clicking on a link that matches this regex won't result in a full page
+     * navigation, but will instead just update the URL state in place.
+     *
+     * This regexp is given everything after the origin in an absolute
+     * URL. So to match just URLs that start with /app/ do:
+     *     url-space-regex="^/app/"
+     *
+     * @type {string|RegExp}
+     */
+    this.urlSpaceRegex = this.getAttribute("url-space-regex") || "";
+
 
     this._FBPAddWireHook("--locationChanged", (e) => {
       this._handleDeepLink(e);
@@ -190,7 +208,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     // microtask
     setTimeout(() => {
       let currentPanel = this._furoPage.activatePage("P" + name);
-      if (currentPanel._FBPTriggerWire !== undefined) {
+      if (currentPanel && currentPanel._FBPTriggerWire !== undefined) {
         currentPanel._FBPTriggerWire('--treeNode', node);
         currentPanel._FBPTriggerWire('--panelActivated', node.link.value);
       }
@@ -207,7 +225,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-location @-location-changed="--locationChanged"></furo-location>
+      <furo-location @-location-changed="--locationChanged"  url-space-regex="${this.urlSpaceRegex}"></furo-location>
     `;
   }
 
