@@ -24,9 +24,10 @@ export class FuroTreeItem extends FBP(LitElement) {
   search(event){
 
     if(!this.hidden){
+      // check index
 
       // append fieldnode to result set (used in furo-tree.js)
-      if(this.fieldNode.display_name.value.search(event.term) != -1 || this.fieldNode.description.value.search(event.term) != -1){
+      if(this.fieldNode.display_name.value.search(event.term) != -1 || (this.fieldNode.description && this.fieldNode.description.value.search(event.term) != -1)){
         event.results.push(this.fieldNode);
 
       }
@@ -149,6 +150,7 @@ export class FuroTreeItem extends FBP(LitElement) {
             line-height: 24px;
             cursor: pointer;
             user-select: none;
+            padding-left: var(--spacing-xs, 16px);
         }
 
         :host([hidden]) {

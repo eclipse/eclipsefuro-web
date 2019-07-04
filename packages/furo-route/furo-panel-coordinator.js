@@ -87,7 +87,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
     });
 
-    this._tree.addEventListener("repeated-fields-changed", (e) => {
+    this._tree.addEventListener("data-injected", (e) => {
       this._initTree()
     });
 
