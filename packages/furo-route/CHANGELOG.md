@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.8.2...@furo/route@0.9.0) (2019-07-04)
+
+
+### Features
+
+* tree marker ([9076c1b](https://github.com/veith/FuroBaseComponents/commit/9076c1b))
+
+
+
+
+
 ## [0.8.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.8.1...@furo/route@0.8.2) (2019-07-04)
 
 
