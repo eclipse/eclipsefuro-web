@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {panelRegistry} from "./lib/panelRegistry";
+import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
 
 /**
  * `furo-panel-coordinator`
@@ -79,12 +80,10 @@ class FuroPanelCoordinator extends FBP(LitElement) {
       }
       // notify furo location
       window.history.pushState({}, '',  window.location.pathname + "?" + qp.join("&") + window.location.hash);
-
       let now = window.performance.now();
       let customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});
       customEvent.detail = now;
       this.dispatchEvent(customEvent)
-
     });
 
     this._tree.addEventListener("data-injected", (e) => {
@@ -97,12 +96,12 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   _initTree() {
     this._flatTree = [this._tree.fields];
     if(this._tree.fields.children.repeats.length > 0){
-    this._parseTreeRecursive(this._tree.fields);
+      this._parseTreeRecursive(this._tree.fields);
 
-    if (this._flatTree.length > 0 && this._queueLocation) {
-      this._handleDeepLink(this._queueLocation);
-      this._queueLocation = undefined;
-    }
+      if (this._flatTree.length > 0 && this._queueLocation) {
+        this._handleDeepLink(this._queueLocation);
+        this._queueLocation = undefined;
+      }
     }
   }
 
@@ -124,7 +123,19 @@ class FuroPanelCoordinator extends FBP(LitElement) {
           return ("P" + n.id.value === location.query.ap)
         });
         if (nodes[0].link) {
+          // Mark Tree node
+          setTimeout(()=>{
+            let node = nodes[0];
+            node.dispatchNodeEvent(new NodeEvent('this-node-selected', node, false));
+            // used to open the paths upwards from the selected node
+            node.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
+            if(node.triggerHover){
+              node.triggerHover();
+            }
+
+          },150);
           this._activatePanelForNode(nodes[0]);
+
         }
       } else {
         this._queueLocation = location;
@@ -181,19 +192,19 @@ class FuroPanelCoordinator extends FBP(LitElement) {
         this._furoPage.appendChild(panel);
 
         /**
-        * @event panel-changed
-        * Fired when a panel was opened or is closed
-        * detail payload: array with open panels
-        */
+         * @event panel-changed
+         * Fired when a panel was opened or is closed
+         * detail payload: array with open panels
+         */
         let customEvent = new Event('panel-changed', {composed:true, bubbles: false});
         customEvent.detail = this._openPanels;
         this.dispatchEvent(customEvent);
 
         /**
-        * @event panel-opened
-        * Fired when a panel was opened
-        * detail payload: array with open panels
-        */
+         * @event panel-opened
+         * Fired when a panel was opened
+         * detail payload: array with open panels
+         */
         let openedEvent = new Event('panel-opened', {composed:true, bubbles: false});
         openedEvent.detail = this._openPanels;
         this.dispatchEvent(openedEvent);
