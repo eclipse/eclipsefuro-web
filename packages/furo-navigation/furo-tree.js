@@ -328,67 +328,73 @@ class FuroTree extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: block;
-            box-sizing: border-box;
-            overflow: auto;
-            outline: none;
-            position: relative;
-        }
+            :host {
+                display: block;
+                box-sizing: border-box;
 
-        :host([hidden]) {
-            display: none;
-        }
+                outline: none;
+                position: relative;
+            }
 
-        td {
-            padding: 0;
-        }
+            .tablewrapper {
+                overflow: auto;
+                height: 100%;
+            }
 
-        table {
-            border-spacing: 0;
-            min-width: 100%;
-        }
+            :host([hidden]) {
+                display: none;
+            }
 
+            td {
+                padding: 0;
+            }
 
-        :host(:not(:focus-within)) td > *[hovered] {
-            background: unset;
-        }
-
-        :host(:focus-within) td > *[selected] {
-            background: var(--primary-color, #429cff);
-            color: var(--on-primary, white);
-        }
-
-        td > *[hovered] {
-            background-color: var(--hover-color, #eeeeee);
-        }
-
-        td > *[selected], :host(:not(:focus-within)) td > *[selected] {
-            background-color: var(--primary-variant-color, #429cff);
-            color: var(--on-primary, #FFFFFF);
-        }
+            table {
+                border-spacing: 0;
+                min-width: 100%;
+            }
 
 
-        :host(:focus-within) td > *[selected]:hover {
-            background: var(--primary-color, #57a9ff);
-        }
+            :host(:not(:focus-within)) td > *[hovered] {
+                background: unset;
+            }
+
+            :host(:focus-within) td > *[selected] {
+                background: var(--primary-color, #429cff);
+                color: var(--on-primary, white);
+            }
+
+            td > *[hovered] {
+                background-color: var(--hover-color, #eeeeee);
+            }
+
+            td > *[selected], :host(:not(:focus-within)) td > *[selected] {
+                background-color: var(--primary-variant-color, #429cff);
+                color: var(--on-primary, #FFFFFF);
+            }
 
 
-        .srch {
-            display: none;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: inherit;
-            border: 1px solid #DEDEDE;
-            padding: 2px;
-            font-size: 11px;
-        }
+            :host(:focus-within) td > *[selected]:hover {
+                background: var(--primary-color, #57a9ff);
+            }
 
-        :host([searching]:focus-within) .srch {
-            display: block;
-        }
-    `
+
+            .srch {
+                display: none;
+                position: absolute;
+                left: var(--spacing-xs, 8px);
+                bottom: var(--spacing-xs, 8px);
+                width: inherit;
+                border: 1px solid var(--primary-color, #57a9ff);
+                padding: 2px;
+                font-size: 11px;
+                z-index: 2;
+            }
+
+            :host([searching]:focus-within) .srch {
+                display: block;
+            }
+        `
   }
 
 
@@ -400,6 +406,7 @@ class FuroTree extends FBP(LitElement) {
     // language=HTML
     return html`
 <div class="srch">${this._searchTerm}</div>
+      <div class="tablewrapper">
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested">
           <tr>
@@ -409,6 +416,7 @@ class FuroTree extends FBP(LitElement) {
           </tr>
         </template>
       </table>
+      </div>
     `;
   }
 
@@ -439,7 +447,11 @@ class FuroTree extends FBP(LitElement) {
     // set visible on root node
     this._tree.children.broadcastEvent(new NodeEvent('ancestor-visible', this._tree));
 
-    this._initHoverAndSelectEvents();
+    if (!this.__listenersInitialized) {
+      this._initHoverAndSelectEvents();
+    }
+    this.__listenersInitialized = true;
+
 
     // initial hover on first element
     this._hoveredField = this._flatTree[0];
@@ -450,7 +462,7 @@ class FuroTree extends FBP(LitElement) {
   }
 
   _initHoverAndSelectEvents() {
-    // Internal Event, when a node gets selected
+    // Internal Event, when a node gets hovered
     this._tree.addEventListener("tree-node-hovered", (e) => {
 
 
@@ -458,34 +470,36 @@ class FuroTree extends FBP(LitElement) {
       this._tree.broadcastEvent(new NodeEvent('tree-node-blur-requested'));
       this._hoveredField = e.target;
 
-      /**
-       * @event node-hovered
-       * Fired when
-       * detail payload:
-       */
-      let customEvent = new Event('node-hovered', {composed: true, bubbles: true});
-      customEvent.detail = this._hoveredField;
-      this.dispatchEvent(customEvent);
-      if (this._hoveredField.isBranch()) {
+      // only dispatch when the element contains a name
+      if (this._hoveredField.display_name.value != null){
         /**
-         * @event branch-hovered
+         * @event node-hovered
          * Fired when
          * detail payload:
          */
-        let customEvent = new Event('branch-hovered', {composed: true, bubbles: true});
+        let customEvent = new Event('node-hovered', {composed: true, bubbles: true});
         customEvent.detail = this._hoveredField;
         this.dispatchEvent(customEvent);
-      } else {
-        /**
-         * @event leaf-hovered
-         * Fired when
-         * detail payload:
-         */
-        let customEvent = new Event('leaf-hovered', {composed: true, bubbles: true});
-        customEvent.detail = this._hoveredField;
-        this.dispatchEvent(customEvent);
+        if (this._hoveredField.isBranch()) {
+          /**
+           * @event branch-hovered
+           * Fired when
+           * detail payload:
+           */
+          let customEvent = new Event('branch-hovered', {composed: true, bubbles: true});
+          customEvent.detail = this._hoveredField;
+          this.dispatchEvent(customEvent);
+        } else {
+          /**
+           * @event leaf-hovered
+           * Fired when
+           * detail payload:
+           */
+          let customEvent = new Event('leaf-hovered', {composed: true, bubbles: true});
+          customEvent.detail = this._hoveredField;
+          this.dispatchEvent(customEvent);
+        }
       }
-
     });
 
     // Internal Event, when a node gets selected
@@ -590,7 +604,7 @@ class FuroTree extends FBP(LitElement) {
 
         // used to open the paths upwards from the selected node
         node.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
-        node.triggerHover()
+        //node.triggerHover()
       };
 
       // if a descendant was selected, we ensure to open the path

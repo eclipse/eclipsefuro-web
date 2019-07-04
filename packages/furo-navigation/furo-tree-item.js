@@ -176,7 +176,7 @@ export class FuroTreeItem extends FBP(LitElement) {
         }
         
         :host([searchmatch])  {
-            border-left: 1px solid orange;
+            border-left: 2px solid orange;
         }
         
         :host([selected]) .oc {
