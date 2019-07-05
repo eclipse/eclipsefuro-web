@@ -90,7 +90,11 @@ class FuroTree extends FBP(LitElement) {
 
 
         case"Escape":
-          this._resetSearch();
+          if(this._searchIsActive){
+            event.stopPropagation();
+            this._resetSearch();
+          }
+
           break;
         case"Backspace":
           this._removeLastSymbofFromSearch();
@@ -265,8 +269,11 @@ class FuroTree extends FBP(LitElement) {
    */
   _hoverNext() {
     let next;
+
     if (this._searchIsActive) {
+
       for (let i = this._foundSearchItems.length - 1; i >= 0; i--) {
+
         if (this._foundSearchItems[i].__flatTreeIndex <= this._hoveredField.__flatTreeIndex) {
           next = this._foundSearchItems[i + 1];
           break;
@@ -542,6 +549,7 @@ class FuroTree extends FBP(LitElement) {
   _buildFlatTree(tree) {
 
     this._flatTree = [tree];
+    tree.__flatTreeIndex = 0;
     this._parseTreeRecursive(tree, 0, this.depth);
 
 
