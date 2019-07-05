@@ -162,7 +162,7 @@ class FuroTree extends FBP(LitElement) {
   }
 
   _updateSearchmatchAttributesOnItems() {
-    this._tree.children.broadcastEvent(new NodeEvent('search-didnt-match', this._tree, true));
+    this._tree.broadcastEvent(new NodeEvent('search-didnt-match', this._tree, true));
     this._foundSearchItems.map((node) => {
       node.dispatchNodeEvent(new NodeEvent('search-matched', this._tree, false));
     })
@@ -335,73 +335,86 @@ class FuroTree extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-            :host {
-                display: block;
-                box-sizing: border-box;
+        :host {
+            display: block;
+            box-sizing: border-box;
 
-                outline: none;
-                position: relative;
+            outline: none;
+            position: relative;
+        }
+
+        .tablewrapper {
+            overflow: auto;
+            height: 100%;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        table {
+            border-spacing: 0;
+            min-width: 100%;
+        }
+
+
+        :host(:not(:focus-within)) td > *[hovered] {
+            background: unset;
+        }
+
+        :host(:focus-within) td > *[selected] {
+            background: var(--primary-color, #429cff);
+            color: var(--on-primary, white);
+        }
+
+        td > *[hovered] {
+            background-color: var(--hover-color, #eeeeee);
+        }
+
+        td > *[selected], :host(:not(:focus-within)) td > *[selected] {
+            background-color: var(--primary-variant-color, #429cff);
+            color: var(--on-primary, #FFFFFF);
+        }
+
+
+        :host(:focus-within) td > *[selected]:hover {
+            background: var(--primary-color, #57a9ff);
+        }
+
+
+        .srch {
+            display: none;
+            position: absolute;
+            left: var(--spacing-xs, 8px);
+            bottom: var(--spacing-xs, 8px);
+            width: inherit;
+            border: 1px solid var(--primary-color, #57a9ff);
+            padding: 2px;
+            font-size: 11px;
+            z-index: 2;
+            animation: border-pulsate 2s;
+        }
+
+        @keyframes border-pulsate {
+            0% {
+                border-color: var(--primary-color, #57a9ff);
             }
-
-            .tablewrapper {
-                overflow: auto;
-                height: 100%;
+            50% {
+                border-color: var(--surface, #999999);
             }
-
-            :host([hidden]) {
-                display: none;
+            100% {
+                border-color: var(--primary-color, #57a9ff);
             }
+        }
 
-            td {
-                padding: 0;
-            }
-
-            table {
-                border-spacing: 0;
-                min-width: 100%;
-            }
-
-
-            :host(:not(:focus-within)) td > *[hovered] {
-                background: unset;
-            }
-
-            :host(:focus-within) td > *[selected] {
-                background: var(--primary-color, #429cff);
-                color: var(--on-primary, white);
-            }
-
-            td > *[hovered] {
-                background-color: var(--hover-color, #eeeeee);
-            }
-
-            td > *[selected], :host(:not(:focus-within)) td > *[selected] {
-                background-color: var(--primary-variant-color, #429cff);
-                color: var(--on-primary, #FFFFFF);
-            }
-
-
-            :host(:focus-within) td > *[selected]:hover {
-                background: var(--primary-color, #57a9ff);
-            }
-
-
-            .srch {
-                display: none;
-                position: absolute;
-                left: var(--spacing-xs, 8px);
-                bottom: var(--spacing-xs, 8px);
-                width: inherit;
-                border: 1px solid var(--primary-color, #57a9ff);
-                padding: 2px;
-                font-size: 11px;
-                z-index: 2;
-            }
-
-            :host([searching]:focus-within) .srch {
-                display: block;
-            }
-        `
+        :host([searching]:focus-within) .srch {
+            display: block;
+        }
+    `
   }
 
 
@@ -412,7 +425,7 @@ class FuroTree extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-<div class="srch">${this._searchTerm}</div>
+    <div class="srch">🔍 ${this._searchTerm}</div>
       <div class="tablewrapper">
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested">

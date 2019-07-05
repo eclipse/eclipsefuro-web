@@ -31,15 +31,15 @@ export class FuroTreeItem extends FBP(LitElement) {
       let searchTokens = term.split(" ");
 
       // do not search empty searchTerm
-      if(term.length === 0){
+      if (term.length === 0) {
         return;
       }
       let hasResults = true;
-      searchTokens.forEach((t)=>{
+      searchTokens.forEach((t) => {
         hasResults = hasResults && this._searchTokens.has(t);
       })
 
-      if(hasResults){
+      if (hasResults) {
         // append fieldnode to result set (used in furo-tree.js)
         event.results.push(this.fieldNode);
       }
@@ -196,22 +196,28 @@ export class FuroTreeItem extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent(  this.name) || css`            
             :host {
                 display: block;
                 line-height: 24px;
                 cursor: pointer;
                 user-select: none;
+                padding-top: 8px;
+                padding-bottom: 8px;
                 padding-left: var(--spacing-xs, 16px);
+                border-radius: 2px;
+                position: relative;
             }
 
             :host([hidden]) {
                 display: none;
             }
 
-
             .label {
                 white-space: nowrap;
+                font-size: 0.875rem;
+                letter-spacing: 0.2px;
+                margin-left: 8px;
             }
 
             .desc {
@@ -222,20 +228,21 @@ export class FuroTreeItem extends FBP(LitElement) {
             .oc {
                 color: var(--separator-color, #b5b5b5);
                 width: 16px;
-                font-size: 8px;
                 box-sizing: border-box;
                 padding-left: 4px;
-            }
-
-            :host([searchmatch]) {
-                border-left: 2px solid orange;
             }
 
             :host([selected]) .oc {
                 color: var(--on-primary, white);
             }
 
-
+            :host([searchmatch])::before {
+                position: absolute;
+                top: 8px;
+                content: "🔍";
+                right: 2px;
+                font-size: 12px;
+            }
         `
   }
 
