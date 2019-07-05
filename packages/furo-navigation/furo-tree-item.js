@@ -30,7 +30,6 @@ export class FuroTreeItem extends FBP(LitElement) {
       let term = event.term.toLowerCase();
       let searchTokens = term.split(" ");
 
-      console.log(searchTokens)
       // do not search empty searchTerm
       if(term.length === 0){
         return;
