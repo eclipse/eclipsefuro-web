@@ -21,15 +21,28 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.hidden = true;
   }
 
-  search(event){
 
-    if(!this.hidden){
+  search(event) {
+
+    if (!this.hidden) {
       // check index
 
-      // append fieldnode to result set (used in furo-tree.js)
-      if(this.fieldNode.display_name.value.search(event.term) != -1 || (this.fieldNode.description && this.fieldNode.description.value.search(event.term) != -1)){
-        event.results.push(this.fieldNode);
+      let term = event.term.toLowerCase();
+      let searchTokens = term.split(" ");
 
+      console.log(searchTokens)
+      // do not search empty searchTerm
+      if(term.length === 0){
+        return;
+      }
+      let hasResults = true;
+      searchTokens.forEach((t)=>{
+        hasResults = hasResults && this._searchTokens.has(t);
+      })
+
+      if(hasResults){
+        // append fieldnode to result set (used in furo-tree.js)
+        event.results.push(this.fieldNode);
       }
 
     }
@@ -51,6 +64,40 @@ export class FuroTreeItem extends FBP(LitElement) {
     };
   }
 
+  // re render, build search tokens
+  _updateItem() {
+    this.requestUpdate();
+
+    // build index later (100ms), a human user can not react earlyer
+    setTimeout(() => {
+      let tmpArr = []
+      this.fieldNode.__childNodes.filter((field) => {
+        // maybe change to fields-to-index list
+        if (typeof field._value === "string") {
+          return true
+        }
+      }).map((field) => {
+        tmpArr = tmpArr.concat(field._value.toLowerCase().split(/\W+/));
+      });
+      let s = new Set(tmpArr);
+      // tokenize
+      tmpArr = [];
+      s.forEach((word) => {
+        let l;
+        for (let tokenLength = 1; tokenLength < word.length; tokenLength++) {
+          l = word.length - tokenLength + 1;
+          for (let i = 0; i < l; i++) {
+            tmpArr.push(word.substr(i, tokenLength));
+          }
+        }
+      });
+      this._searchTokens = new Set((Array.from(s).concat(tmpArr)));
+
+
+    }, 100);
+  }
+
+
   bindData(fieldNode) {
     this.fieldNode = fieldNode;
     this.fieldNode._isHidden = true;
@@ -70,8 +117,14 @@ export class FuroTreeItem extends FBP(LitElement) {
       }
     });
 
-    this.fieldNode.addEventListener("field-value-changed", (e) => {
-      this.requestUpdate();
+    // for elements that are already ready
+    this._updateItem();
+
+    this.fieldNode.addEventListener("branch-value-changed", (e) => {
+      // for elements that are updated later
+      if (e.detail.__parentNode === this.fieldNode) {
+        this._updateItem();
+      }
     });
 
 
@@ -145,46 +198,46 @@ export class FuroTreeItem extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: block;
-            line-height: 24px;
-            cursor: pointer;
-            user-select: none;
-            padding-left: var(--spacing-xs, 16px);
-        }
+            :host {
+                display: block;
+                line-height: 24px;
+                cursor: pointer;
+                user-select: none;
+                padding-left: var(--spacing-xs, 16px);
+            }
 
-        :host([hidden]) {
-            display: none;
-        }
+            :host([hidden]) {
+                display: none;
+            }
 
 
-        .label {
-            white-space: nowrap;
-        }
+            .label {
+                white-space: nowrap;
+            }
 
-        .desc {
-            font-size: smaller;
-            white-space: nowrap;
-        }
+            .desc {
+                font-size: smaller;
+                white-space: nowrap;
+            }
 
-        .oc {
-            color: var(--separator-color, #b5b5b5);
-            width: 16px;
-            font-size: 8px;
-            box-sizing: border-box;
-            padding-left: 4px;
-        }
-        
-        :host([searchmatch])  {
-            border-left: 2px solid orange;
-        }
-        
-        :host([selected]) .oc {
-            color: var(--on-primary, white);
-        }
-        
-       
-    `
+            .oc {
+                color: var(--separator-color, #b5b5b5);
+                width: 16px;
+                font-size: 8px;
+                box-sizing: border-box;
+                padding-left: 4px;
+            }
+
+            :host([searchmatch]) {
+                border-left: 2px solid orange;
+            }
+
+            :host([selected]) .oc {
+                color: var(--on-primary, white);
+            }
+
+
+        `
   }
 
 

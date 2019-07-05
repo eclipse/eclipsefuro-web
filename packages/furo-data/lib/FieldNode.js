@@ -66,6 +66,7 @@ export class FieldNode extends EventTreeNode {
           field.value = val[field._name];
         }
       }
+        this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
     } else {
       this.oldvalue = this.value;
       this._value = val;
