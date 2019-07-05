@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.22.0...@furo/navigation@0.23.0) (2019-07-05)
+
+
+### Bug Fixes
+
+* keyboard Navigation ([fdf1a8c](https://github.com/veith/FuroBaseComponents/commit/fdf1a8c))
+
+
+### Features
+
+* searchmarker ([ff54aca](https://github.com/veith/FuroBaseComponents/commit/ff54aca))
+
+
+
+
+
 # [0.22.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.21.3...@furo/navigation@0.22.0) (2019-07-05)
 
 
