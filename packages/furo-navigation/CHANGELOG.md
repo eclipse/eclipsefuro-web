@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.21.3...@furo/navigation@0.22.0) (2019-07-05)
+
+
+### Bug Fixes
+
+* console.log removed ([bddf375](https://github.com/veith/FuroBaseComponents/commit/bddf375))
+
+
+### Features
+
+* mini search engine in tree ([62d9d52](https://github.com/veith/FuroBaseComponents/commit/62d9d52))
+* search marker ([5628ae7](https://github.com/veith/FuroBaseComponents/commit/5628ae7))
+
+
+
+
+
 ## [0.21.3](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.21.2...@furo/navigation@0.21.3) (2019-07-04)
 
 **Note:** Version bump only for package @furo/navigation

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.39.0...@furo/data@0.40.0) (2019-07-05)
+
+
+### Features
+
+* mini search engine in tree ([62d9d52](https://github.com/veith/FuroBaseComponents/commit/62d9d52))
+
+
+
+
+
 # [0.39.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.38.6...@furo/data@0.39.0) (2019-07-03)
 
 

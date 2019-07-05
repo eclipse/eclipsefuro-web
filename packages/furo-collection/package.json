@@ -1,11 +1,11 @@
 {
   "name": "@furo/collection",
-  "version": "0.17.6",
+  "version": "0.17.7",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
     "@furo/config": "^0.16.15",
-    "@furo/data": "^0.39.0",
+    "@furo/data": "^0.40.0",
     "@furo/data-ui": "^0.0.6",
     "@furo/data-util": "^0.0.9",
     "@furo/fbp": "^4.21.2",
@@ -14,7 +14,7 @@
     "@furo/input": "^0.34.6",
     "@furo/layout": "^0.25.5",
     "@furo/mixins": "^0.15.15",
-    "@furo/navigation": "^0.21.3",
+    "@furo/navigation": "^0.22.0",
     "@furo/route": "^0.9.0"
   },
   "scripts": {
