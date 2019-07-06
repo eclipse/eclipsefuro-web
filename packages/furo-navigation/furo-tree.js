@@ -108,6 +108,9 @@ class FuroTree extends FBP(LitElement) {
     this.addEventListener("keypress", (event) => {
       let key = event.key || event.keyCode;
 
+            if(key ==="Enter"){
+                return
+            }
       if (!event.ctrlKey) {
         event.preventDefault();
         this._addSymbolToSearch(key);
