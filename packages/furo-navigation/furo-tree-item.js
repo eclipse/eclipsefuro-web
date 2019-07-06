@@ -59,7 +59,9 @@ export class FuroTreeItem extends FBP(LitElement) {
       hidden: {type: Boolean, reflect: true},
       hovered: {type: Boolean, reflect: true},
       searchmatch: {type: Boolean, reflect: true},
-      selected: {type: Boolean, reflect: true}
+      selected: {type: Boolean, reflect: true},
+      noicon: {type: Boolean}
+
     };
   }
 
@@ -196,7 +198,7 @@ export class FuroTreeItem extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(  this.name) || css`            
+    return Theme.getThemeForComponent(  this.name) || css`
             :host {
                 display: block;
                 line-height: 24px;
@@ -227,9 +229,10 @@ export class FuroTreeItem extends FBP(LitElement) {
 
             .oc {
                 color: var(--separator-color, #b5b5b5);
-                width: 16px;
+                width: 12px;
                 box-sizing: border-box;
                 padding-left: 4px;
+                font-size: 8px;
             }
 
             :host([selected]) .oc {
@@ -243,6 +246,38 @@ export class FuroTreeItem extends FBP(LitElement) {
                 right: 2px;
                 font-size: 12px;
             }
+
+            furo-icon[error] {
+                
+                animation: error-pulse 4s infinite;
+            }
+
+            furo-icon {
+                transition: all 0.4s;
+                width: 20px;
+                height: 20px;
+                padding: 2px 0 2px 8px;
+            }
+
+            @keyframes error-pulse {
+                0% {
+                    fill: var(--on-primary, #46150f);
+                } 
+                12% {
+                    fill: var(--error-color, #fc4d34);
+                }
+                24% {
+                    fill: var(--on-primary, #46150f);
+                }
+                36% {
+                    fill: var(--error-color, #fc4d34);
+                }
+                48% {
+                    fill: var(--on-primary, #46150f);
+                }
+               
+            }
+
         `
   }
 
@@ -257,6 +292,7 @@ export class FuroTreeItem extends FBP(LitElement) {
 <furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${(e) => this.fieldNode.triggerHover()}">
       <div style="width: ${this.fieldNode.depth * 8}px"></div>
       <div class="oc"><furo-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon></div>      
+      <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error.value}"></furo-icon>      
       <div flex class="label" @-click="--labelClicked" >${this.fieldNode.display_name} <span class="desc">${this.fieldNode.description}</span></div>
 </furo-horizontal-flex>
 
