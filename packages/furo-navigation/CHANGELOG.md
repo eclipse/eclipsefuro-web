@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.1](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.23.0...@furo/navigation@0.23.1) (2019-07-06)
+
+
+### Bug Fixes
+
+* furo-tree ignores Enter keypress ([08ffd5c](https://github.com/veith/FuroBaseComponents/commit/08ffd5c))
+
+
+
+
+
 # [0.23.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.22.0...@furo/navigation@0.23.0) (2019-07-05)
 
 
