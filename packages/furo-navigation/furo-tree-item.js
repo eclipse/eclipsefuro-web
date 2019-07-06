@@ -263,16 +263,16 @@ export class FuroTreeItem extends FBP(LitElement) {
                 0% {
                     fill: var(--on-primary, #46150f);
                 } 
+                6% {
+                    fill: var(--error-color, #fc4d34);
+                }
                 12% {
+                    fill: var(--on-primary, #46150f);
+                }
+                18% {
                     fill: var(--error-color, #fc4d34);
                 }
                 24% {
-                    fill: var(--on-primary, #46150f);
-                }
-                36% {
-                    fill: var(--error-color, #fc4d34);
-                }
-                48% {
                     fill: var(--on-primary, #46150f);
                 }
                
