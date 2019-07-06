@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-key-filter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+  <script type="module" src="/node_modules/@furo/fbp/flow-bind.js"></script>
+  <script type="module" src="../furo-catalog.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <furo-key-filter></furo-key-filter>
+  </template>
+</test-fixture>
+
+<script type="module">
+
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+  describe('furo-key-filter tests ', function () {
+
+
+    let element = {};
+
+    beforeEach(async () => {
+      element = fixture('basic');
+      await element.updateComplete;
+
+    });
+
+
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+    it('should be a furo-key-filter', (done) => {
+      assert.equal(element.nodeName, "FURO-KEY-FILTER");
+      done()
+    });
+
+
+  });
+</script>
+</body>
+</html>
