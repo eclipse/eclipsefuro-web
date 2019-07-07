@@ -25,19 +25,28 @@ export class FuroTreeItem extends FBP(LitElement) {
   search(event) {
 
     if (!this.hidden) {
-      // check index
 
       let term = event.term.toLowerCase();
-      let searchTokens = term.split(" ");
-
       // do not search empty searchTerm
       if (term.length === 0) {
         return;
       }
+
+
+            let searchTokens = term.split(" ");
+
+
+
       let hasResults = true;
       searchTokens.forEach((t) => {
+                if (t.length > 0) {
+                    if (t.length === 1) {
+                        // single letter search first letter of word
+                        t = t + ".*$";
+                    }
         hasResults = hasResults && this._searchTokens.has(t);
-      })
+                }
+      });
 
       if (hasResults) {
         // append fieldnode to result set (used in furo-tree.js)
@@ -69,7 +78,7 @@ export class FuroTreeItem extends FBP(LitElement) {
   _updateItem() {
     this.requestUpdate();
 
-    // build index later (100ms), a human user can not react earlyer
+        // build index later (50ms), a human user can not react earlyer
     setTimeout(() => {
       let tmpArr = []
       this.fieldNode.__childNodes.filter((field) => {
@@ -84,8 +93,10 @@ export class FuroTreeItem extends FBP(LitElement) {
       // tokenize
       tmpArr = [];
       s.forEach((word) => {
+                //first letter
+                tmpArr.push(word.substr(0, 1) + ".*$");
         let l;
-        for (let tokenLength = 1; tokenLength < word.length; tokenLength++) {
+                for (let tokenLength = 2; tokenLength < word.length; tokenLength++) {
           l = word.length - tokenLength + 1;
           for (let i = 0; i < l; i++) {
             tmpArr.push(word.substr(i, tokenLength));
@@ -95,7 +106,7 @@ export class FuroTreeItem extends FBP(LitElement) {
       this._searchTokens = new Set((Array.from(s).concat(tmpArr)));
 
 
-    }, 100);
+        }, 50);
   }
 
 
@@ -199,86 +210,91 @@ export class FuroTreeItem extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(  this.name) || css`
-            :host {
-                display: block;
-                line-height: 24px;
-                cursor: pointer;
-                user-select: none;
-                padding-top: 8px;
-                padding-bottom: 8px;
-                padding-left: var(--spacing-xs, 16px);
-                border-radius: 2px;
-                position: relative;
-            }
+        :host {
+            display: block;
+            line-height: 24px;
+            cursor: pointer;
+            user-select: none;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: var(--spacing-xs, 16px);
+            border-radius: 2px;
+            position: relative;
+        }
 
-            :host([hidden]) {
-                display: none;
-            }
+        :host([hidden]) {
+            display: none;
+        }
 
-            .label {
-                white-space: nowrap;
-                font-size: 0.875rem;
-                letter-spacing: 0.2px;
-                margin-left: 8px;
-            }
+        .label {
+            white-space: nowrap;
+            font-size: 0.875rem;
+            letter-spacing: 0.2px;
+            margin-left: 8px;
+        }
 
-            .desc {
-                font-size: smaller;
-                white-space: nowrap;
-            }
+        .desc {
+            font-size: smaller;
+            white-space: nowrap;
+        }
 
-            .oc {
-                color: var(--separator-color, #b5b5b5);
-                width: 12px;
-                box-sizing: border-box;
-                padding-left: 4px;
-                font-size: 8px;
-            }
+        .oc {
+            color: var(--separator-color, #b5b5b5);
+            width: 12px;
+            box-sizing: border-box;
+            padding-left: 4px;
+            font-size: 8px;
+        }
 
-            :host([selected]) .oc {
-                color: var(--on-primary, white);
-            }
+        :host([selected]) .oc {
+            color: var(--on-primary, white);
+        }
 
-            :host([searchmatch])::before {
-                position: absolute;
-                top: 8px;
-                content: "🔍";
-                right: 2px;
-                font-size: 12px;
-            }
+        :host([searchmatch])::before {
+            position: absolute;
+            top: 8px;
+            content: "🔍";
+            right: 2px;
+            font-size: 12px;
+        }
 
-            furo-icon[error] {
-                
-                animation: error-pulse 4s infinite;
-            }
+        furo-icon[error] {
+            animation: error-pulse 4s infinite;
+        }
 
-            furo-icon {
+        :host([selected]) furo-icon {
+            fill: var(--on-primary, white);;
+        }
+
+
+        furo-icon {
                 transition: all 0.4s;
-                width: 20px;
-                height: 20px;
-                padding: 2px 0 2px 8px;
+            width: 20px;
+            height: 20px;
+            padding: 2px 0 2px 8px;
+
+        }
+
+        @keyframes error-pulse {
+            0% {
+                fill: var(--on-primary, #46150f);
+            }
+            12% {
+                fill: var(--error-color, #fc4d34);
+            }
+            24% {
+                fill: var(--on-primary, #46150f);
+            }
+            36% {
+                fill: var(--error-color, #fc4d34);
+            }
+            48% {
+                fill: var(--on-primary, #46150f);
             }
 
-            @keyframes error-pulse {
-                0% {
-                    fill: var(--on-primary, #46150f);
-                } 
-                6% {
-                    fill: var(--error-color, #fc4d34);
-                }
-                12% {
-                    fill: var(--on-primary, #46150f);
-                }
-                18% {
-                    fill: var(--error-color, #fc4d34);
-                }
-                24% {
-                    fill: var(--on-primary, #46150f);
-                }
-               
-            }
+        }
 
-        `
+    `
   }
 
 
