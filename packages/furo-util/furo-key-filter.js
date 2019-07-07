@@ -74,27 +74,28 @@ class FuroKeyFilter extends FBP(LitElement) {
              */
             keys: {type: String},
             /**
-             * Modifier key **shift** musst be pressed too to match
+             * Modifier key **shift** must be pressed too to match
              */
             shift: {type: Boolean},
             /**
-             * Modifier key **alt** musst be pressed too to match
+             * Modifier key **alt** must be pressed too to match
              */
             alt: {type: Boolean},
             /**
              * Alias for meta.
              *
-             * Modifier key **meta** musst be pressed too to match.
+             * Modifier key **meta** must be pressed too to match.
              */
             command: {type: Boolean},
             /**
-             * Modifier key **meta** musst be pressed too to match
+             * Modifier key **meta** must be pressed too to match
              */
             meta: {type: Boolean},
             /**
-             * Modifier key **control** musst be pressed too to match
+             * Modifier key **control** must be pressed too to match
              */
             control: {type: Boolean}
+            // stopPropagation, disableDefault??
         };
     }
 
