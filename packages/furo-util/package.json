@@ -2,7 +2,7 @@
   "name": "@furo/util",
   "description": "Furo util components",
   "main": "furo-catalog.js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "dependencies": {
     "@furo/fbp": "^4.21.2"
   },

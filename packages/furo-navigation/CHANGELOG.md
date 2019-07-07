@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.24.0...@furo/navigation@0.25.0) (2019-07-07)
+
+
+### Bug Fixes
+
+* animation duration ([cb4430e](https://github.com/veith/FuroBaseComponents/commit/cb4430e))
+
+
+### Features
+
+* search first letter on single letter ([17a5de2](https://github.com/veith/FuroBaseComponents/commit/17a5de2))
+
+
+
+
+
 # [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.23.1...@furo/navigation@0.24.0) (2019-07-06)
 
 
