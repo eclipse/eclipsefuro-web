@@ -158,8 +158,8 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     });
 
     if(this._openPanels.length>0){
-      // select first item after close
-      this._openPanels[indexOfPanelToRemove].selectItem();
+      // select item with same index
+      this._openPanels[Math.min(indexOfPanelToRemove, (this._openPanels.length - 1)) ].selectItem();
     }else{
       //enable default page
       this._furoPage.activatePage("overview");
