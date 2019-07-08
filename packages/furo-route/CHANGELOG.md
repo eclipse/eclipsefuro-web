@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.9.2...@furo/route@0.10.0) (2019-07-08)
+
+
+### Features
+
+* panelInit wire ([e6d89c9](https://github.com/veith/FuroBaseComponents/commit/e6d89c9))
+
+
+
+
+
 ## [0.9.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.9.1...@furo/route@0.9.2) (2019-07-07)
 
 **Note:** Version bump only for package @furo/route
