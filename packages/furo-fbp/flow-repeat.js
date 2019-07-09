@@ -185,13 +185,18 @@ class FlowRepeat extends HTMLTemplateElement {
 
 
     triggerFirst(e) {
+        if(this._insertedItems[0]){
         this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger", e);
         this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst", e);
     }
 
+    }
+
     triggerLast(e) {
+        if(this._insertedItems[this._insertedItems.length - 1]){
         this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire("--trigger", e);
         this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire("--triggerLast", e);
+    }
     }
 
     triggerIndex(i, data) {
