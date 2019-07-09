@@ -26,7 +26,6 @@ class FuroRipple extends LitElement {
 
     constructor() {
         super();
-        this._active = true;
         this.noink = false;
     }
 
@@ -91,7 +90,6 @@ class FuroRipple extends LitElement {
      */
     static get properties() {
         return {
-
             /**
              * Disables the click, only ripples with `trigger()`
              */
@@ -105,7 +103,6 @@ class FuroRipple extends LitElement {
      */
     trigger() {
         this.setAttribute("_active", "");
-        this._active = true;
         setTimeout(() => {
             this.removeAttribute("_active");
         }, 50);

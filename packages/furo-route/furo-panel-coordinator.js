@@ -57,7 +57,6 @@ class FuroPanelCoordinator extends FBP(LitElement) {
      * set the query param for the active page.
      */
     this._tree.addEventListener("tree-node-selected", (e) => {
-
       let nodeID = e.detail.id.value;
       let newQuery = window.location.search.slice(1);
       let queryObject = {};
@@ -149,7 +148,6 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     // remove from dom
     let e = this._furoPage.querySelector("*[name=" + nodeName + "]");
 
-    let indexOfPanelToRemove = e.__panelIndex;
     e.remove();
 
     // remove from flat tree
@@ -157,10 +155,10 @@ class FuroPanelCoordinator extends FBP(LitElement) {
       return "P" + node.id.value !== nodeName;
     });
 
-    if(this._openPanels.length>0){
+    if (this._openPanels.length > 0) {
       // select item with same index
-      this._openPanels[Math.min(indexOfPanelToRemove, (this._openPanels.length - 1)) ].selectItem();
-    }else{
+      this._openPanels[this._openPanels.length - 1].selectItem();
+    } else {
       //enable default page
       this._furoPage.activatePage("overview");
     }
@@ -195,13 +193,12 @@ class FuroPanelCoordinator extends FBP(LitElement) {
         let panelName = "P" + name;
         panel.setAttribute("name", panelName);
         panel._TreeNode = node;
-        let i = this._openPanels.push(node);
-        panel.__panelIndex = i-1;
+        panel.removePanel = () => {
+          this._removeNodeByName(panelName);
+        }
+        this._openPanels.push(node);
         this._furoPage.appendChild(panel);
 
-        panel.addEventListener("detach-panel-requested", (e) => {
-          this._removeNodeByName(panelName);
-        });
 
         /**
          * @event panel-changed
@@ -232,10 +229,11 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     setTimeout(() => {
       let currentPanel = this._furoPage.activatePage("P" + name);
       if (currentPanel && currentPanel._FBPTriggerWire !== undefined) {
-        currentPanel._FBPTriggerWire('--treeNode', node);
+
 
         if (!currentPanel.__panelInitSent) {
           currentPanel._FBPTriggerWire('--panelInit', node.link.value);
+          currentPanel._FBPTriggerWire('--treeNode', node);
           currentPanel.__panelInitSent = true;
         }
         currentPanel._FBPTriggerWire('--panelActivated', node.link.value);
