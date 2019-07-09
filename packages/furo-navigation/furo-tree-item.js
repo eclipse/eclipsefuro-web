@@ -33,19 +33,18 @@ export class FuroTreeItem extends FBP(LitElement) {
       }
 
 
-            let searchTokens = term.split(" ");
-
+      let searchTokens = term.split(" ");
 
 
       let hasResults = true;
       searchTokens.forEach((t) => {
-                if (t.length > 0) {
-                    if (t.length === 1) {
-                        // single letter search first letter of word
-                        t = t + ".*$";
-                    }
-        hasResults = hasResults && this._searchTokens.has(t);
-                }
+        if (t.length > 0) {
+          if (t.length === 1) {
+            // single letter search first letter of word
+            t = t + ".*$";
+          }
+          hasResults = hasResults && this._searchTokens.has(t);
+        }
       });
 
       if (hasResults) {
@@ -68,6 +67,8 @@ export class FuroTreeItem extends FBP(LitElement) {
       hidden: {type: Boolean, reflect: true},
       hovered: {type: Boolean, reflect: true},
       searchmatch: {type: Boolean, reflect: true},
+      inedit: {type: Boolean, reflect: true},
+      haserror: {type: Boolean, reflect: true},
       selected: {type: Boolean, reflect: true},
       noicon: {type: Boolean}
 
@@ -78,7 +79,7 @@ export class FuroTreeItem extends FBP(LitElement) {
   _updateItem() {
     this.requestUpdate();
 
-        // build index later (50ms), a human user can not react earlyer
+    // build index later (50ms), a human user can not react earlyer
     setTimeout(() => {
       let tmpArr = []
       this.fieldNode.__childNodes.filter((field) => {
@@ -93,10 +94,10 @@ export class FuroTreeItem extends FBP(LitElement) {
       // tokenize
       tmpArr = [];
       s.forEach((word) => {
-                //first letter
-                tmpArr.push(word.substr(0, 1) + ".*$");
+        //first letter
+        tmpArr.push(word.substr(0, 1) + ".*$");
         let l;
-                for (let tokenLength = 2; tokenLength < word.length; tokenLength++) {
+        for (let tokenLength = 2; tokenLength < word.length; tokenLength++) {
           l = word.length - tokenLength + 1;
           for (let i = 0; i < l; i++) {
             tmpArr.push(word.substr(i, tokenLength));
@@ -106,7 +107,7 @@ export class FuroTreeItem extends FBP(LitElement) {
       this._searchTokens = new Set((Array.from(s).concat(tmpArr)));
 
 
-        }, 50);
+    }, 50);
   }
 
 
@@ -139,6 +140,12 @@ export class FuroTreeItem extends FBP(LitElement) {
       }
     });
 
+    this.fieldNode.addEventListener("modified", (n) => {
+      this.inedit = true;
+    });
+    this.fieldNode.addEventListener("has-error", (n) => {
+      this.haserror = true;
+    });
 
     // listen to open close state
     this.fieldNode.open.addEventListener("field-value-changed", (e) => {
@@ -209,92 +216,104 @@ export class FuroTreeItem extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(  this.name) || css`
-        :host {
-            display: block;
-            line-height: 24px;
-            cursor: pointer;
-            user-select: none;
-            padding-top: 8px;
-            padding-bottom: 8px;
-            padding-left: var(--spacing-xs, 16px);
-            border-radius: 2px;
-            position: relative;
-        }
+    return Theme.getThemeForComponent(this.name) || css`
+            :host {
+                display: block;
+                line-height: 40px;
+                cursor: pointer;
+                user-select: none;
+                padding-left: var(--spacing-xs, 16px);
+                border-radius: 2px;
+                position: relative;
+            }
 
-        :host([hidden]) {
-            display: none;
-        }
+            :host([hidden]) {
+                display: none;
+            }
 
-        .label {
-            white-space: nowrap;
-            font-size: 0.875rem;
-            letter-spacing: 0.2px;
-            margin-left: 8px;
-        }
+            :host([inedit]) {
+                font-style: italic;
+            }
 
-        .desc {
-            font-size: smaller;
-            white-space: nowrap;
-        }
+            :host([haserror]) ,
+            :host([selected][haserror]) {
+                color: var(--error, red);
+            }
 
-        .oc {
-            color: var(--separator-color, #b5b5b5);
-            width: 12px;
-            box-sizing: border-box;
-            padding-left: 4px;
-            font-size: 8px;
-        }
+            :host([haserror]) furo-icon {
+                animation: error-pulse 3s infinite;
+            }
 
-        :host([selected]) .oc {
-            color: var(--on-primary, white);
-        }
+            .label {
+                white-space: nowrap;
+                font-size: 0.875rem;
+                letter-spacing: 0.2px;
+                margin-left: 8px;
+            }
 
-        :host([searchmatch])::before {
-            position: absolute;
-            top: 8px;
-            content: "🔍";
-            right: 2px;
-            font-size: 12px;
-        }
+            .desc {
+                font-size: smaller;
+                white-space: nowrap;
+            }
 
-        furo-icon[error] {
-            animation: error-pulse 4s infinite;
-        }
+            .oc {
+                color: var(--separator-color, #b5b5b5);
+                width: 12px;
+                box-sizing: border-box;
+                padding-left: 4px;
+                font-size: 8px;
+            }
 
-        :host([selected]) furo-icon {
-            fill: var(--on-primary, white);;
-        }
+            :host([selected]) .oc {
+                color: var(--on-primary, white);
+            }
+
+            :host([searchmatch])::before {
+                position: absolute;
+                top: 8px;
+                content: "🔍";
+                right: 2px;
+                font-size: 12px;
+            }
+
+            furo-icon[error] {
+                animation: error-pulse 2s infinite;
+            }
+
+            :host([selected]) furo-icon {
+                fill: var(--on-primary, white);;
+            }
 
 
-        furo-icon {
+            furo-icon {
+
                 transition: all 0.4s;
-            width: 20px;
-            height: 20px;
-            padding: 2px 0 2px 8px;
+                width: 20px;
+                height: 20px;
+                margin-right: 4px;
 
-        }
-
-        @keyframes error-pulse {
-            0% {
-                fill: var(--on-primary, #46150f);
-            }
-            12% {
-                fill: var(--error-color, #fc4d34);
-            }
-            24% {
-                fill: var(--on-primary, #46150f);
-            }
-            36% {
-                fill: var(--error-color, #fc4d34);
-            }
-            48% {
-                fill: var(--on-primary, #46150f);
             }
 
-        }
+            @keyframes error-pulse {
+                0% {
+                    fill: var(--on-primary, #46150f);
+                }
+                12% {
+                    fill: var(--error-color, #fc4d34);
+                }
+                24% {
+                    fill: var(--on-primary, #46150f);
+                }
+                36% {
+                    fill: var(--error-color, #fc4d34);
+                }
+                48% {
+                    fill: var(--on-primary, #46150f);
+                }
 
-    `
+            }
+
+        `
   }
 
 
@@ -308,8 +327,8 @@ export class FuroTreeItem extends FBP(LitElement) {
 <furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${(e) => this.fieldNode.triggerHover()}">
       <div style="width: ${this.fieldNode.depth * 8}px"></div>
       <div class="oc"><furo-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon></div>      
-      <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error.value}"></furo-icon>      
-      <div flex class="label" @-click="--labelClicked" >${this.fieldNode.display_name} <span class="desc">${this.fieldNode.description}</span></div>
+            
+      <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error.value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.description}</span></div>
 </furo-horizontal-flex>
 
     `;

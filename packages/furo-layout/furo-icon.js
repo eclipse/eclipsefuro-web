@@ -1,10 +1,10 @@
-import { LitElement, html, css } from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {Iconset} from "@furo/framework/iconset";
 import {FuroBaseIcons} from "./iconsets/baseIcons";
 
 // Autoregister default set with FuroBaseIcons if no iconset was registered
-if(!Iconset.default){
-    Iconset.registerIconset("default",FuroBaseIcons);
+if (!Iconset.default) {
+    Iconset.registerIconset("default", FuroBaseIcons);
 }
 
 /**
@@ -50,33 +50,38 @@ if(!Iconset.default){
 class FuroIcon extends LitElement {
 
 
-    constructor(){
+    constructor() {
 
-      super();
+        super();
 
-      this.viewBox = '0 0 24 24';
-      this.preserveAspectRatio = 'xMidYMid meet';
-      this.focusable = 'false';
-      this.style = 'pointer-events: none; display: block; width: 100%; height: 100%;';
+        this.viewBox = '0 0 24 24';
+        this.preserveAspectRatio = 'xMidYMid meet';
+        this.focusable = 'false';
+        this.svgstyle = 'pointer-events: none; display: block; width: 100%; height: 100%;';
     }
 
 
     /**
      * @private
      * @returns {CSSResult}
+     *
      */
     static get styles() {
+        // language=CSS
         return css`
             :host {
                 display: inline-block;
                 vertical-align: middle;
-                fill: var(--furo-icon-fill-color, black);
+                fill: var(--furo-icon-fill-color, currentcolor);
                 stroke: var(--furo-icon-stroke-color, none);
                 width: var(--furo-icon-width, 24px);
                 height: var(--furo-icon-height, 24px);
+                vertical-align: center;
+                position: relative;
+                justify-content: center;
             }
-    
-           :host([hidden]) {
+
+            :host([hidden]) {
                 display: none;
             }
         `;
@@ -85,7 +90,7 @@ class FuroIcon extends LitElement {
     /**
      *@private
      */
-    static get properties(){
+    static get properties() {
 
         return {
 
@@ -121,20 +126,19 @@ class FuroIcon extends LitElement {
      */
     updated(changedProperties) {
 
-        if(this.icon !== undefined) {
+        if (this.icon !== undefined) {
 
             let w = this.icon.split(":");
 
             // set iconset to default when no iconset name is given
-            if(w[1] === undefined) {
+            if (w[1] === undefined) {
 
                 w[1] = w[0];
                 w[0] = 'default';
             }
 
-            this.shadowRoot.getElementById("furo-icon-svg").innerHTML = Iconset.get(w[0],w[1]);
-        }
-        else {
+            this.shadowRoot.getElementById("furo-icon-svg").innerHTML = Iconset.get(w[0], w[1]);
+        } else {
             console.warn("icon name is not defined.")
         }
 
@@ -145,8 +149,8 @@ class FuroIcon extends LitElement {
      * @private
      * @returns {TemplateResult}
      */
-    render(){
-        return html`<svg id="furo-icon-svg" viewBox=${this.viewBox} preserveAspectRatio=${this.preserveAspectRatio} focusable=${this.focusable} style=${this.style}></svg>`;
+    render() {
+        return html`<svg id="furo-icon-svg" viewBox=${this.viewBox} preserveAspectRatio=${this.preserveAspectRatio} focusable=${this.focusable} style=${this.svgstyle}></svg>`;
     }
 
 }
