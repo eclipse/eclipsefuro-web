@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.21.3](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.21.2...@furo/fbp@4.21.3) (2019-07-09)
+
+
+### Bug Fixes
+
+* trigger first on repeat before elements exists ([8cd47a6](https://github.com/veith/flowbased-polymer/commit/8cd47a6))
+
+
+
+
+
 ## [4.21.2](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.21.1...@furo/fbp@4.21.2) (2019-07-03)
 
 **Note:** Version bump only for package @furo/fbp
