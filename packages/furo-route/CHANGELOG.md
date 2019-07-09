@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.10.1...@furo/route@0.11.0) (2019-07-09)
+
+
+### Features
+
+* panel-coordinator close all panels ([a2daf9c](https://github.com/veith/FuroBaseComponents/commit/a2daf9c))
+
+
+
+
+
 ## [0.10.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.10.0...@furo/route@0.10.1) (2019-07-09)
 
 
