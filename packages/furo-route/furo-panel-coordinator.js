@@ -140,6 +140,16 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   }
 
   /**
+   * closes all open panels
+   */
+  closeAll(event) {
+    this._openPanels.forEach((panel) => {
+      panel.dispatchNodeEvent(new NodeEvent('close-requested', this, false));
+    })
+
+  }
+
+  /**
    * removes a panel from the view
    * @param nodeName
    * @private
@@ -161,6 +171,33 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     } else {
       //enable default page
       this._furoPage.activatePage("overview");
+
+      // update query params by removing the queryTag
+      let newQuery = window.location.search.slice(1);
+      let queryObject = {};
+      if (newQuery.length > 0) {
+        newQuery.split("&").forEach((qstr, i, a) => {
+          let p = qstr.split("=");
+          queryObject[p[0]] = p[1];
+        });
+      }
+
+      delete (queryObject[this.queryTag]);
+      let qp = [];
+      for (let segment in queryObject) {
+        if (queryObject.hasOwnProperty(segment)) {
+          qp.push(segment + "=" + queryObject[segment])
+        }
+      }
+      // notify furo location
+      window.history.pushState({}, '', window.location.pathname + "?" + qp.join("&") + window.location.hash);
+      let now = window.performance.now();
+      let customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});
+      customEvent.detail = now;
+      this.dispatchEvent(customEvent)
+      // -- update query params
+
+
     }
 
     /**
