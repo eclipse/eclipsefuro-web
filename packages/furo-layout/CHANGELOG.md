@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.6](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.25.5...@furo/layout@0.25.6) (2019-07-09)
+
+
+### Bug Fixes
+
+* ripple moved to layout ([3ef53cf](https://github.com/veith/FuroBaseComponents/commit/3ef53cf))
+
+
+
+
+
 ## [0.25.5](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.25.4...@furo/layout@0.25.5) (2019-07-03)
 
 **Note:** Version bump only for package @furo/layout

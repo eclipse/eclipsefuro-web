@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.34.7](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.6...@furo/input@0.34.7) (2019-07-09)
+
+
+### Bug Fixes
+
+* last tab ([dc2fdc7](https://github.com/veith/FuroBaseComponents/commit/dc2fdc7))
+* last tab ([93ce40e](https://github.com/veith/FuroBaseComponents/commit/93ce40e))
+* ripple moved to layout ([3ef53cf](https://github.com/veith/FuroBaseComponents/commit/3ef53cf))
+
+
+
+
+
 ## [0.34.6](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.5...@furo/input@0.34.6) (2019-07-03)
 
 **Note:** Version bump only for package @furo/input

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.10.0...@furo/route@0.10.1) (2019-07-09)
+
+
+### Bug Fixes
+
+* last tab ([dc2fdc7](https://github.com/veith/FuroBaseComponents/commit/dc2fdc7))
+* last tab ([93ce40e](https://github.com/veith/FuroBaseComponents/commit/93ce40e))
+
+
+
+
+
 # [0.10.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.9.2...@furo/route@0.10.0) (2019-07-08)
 
 
