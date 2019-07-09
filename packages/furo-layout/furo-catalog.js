@@ -7,3 +7,5 @@ import "./furo-vertical-scroller"
 import "./furo-loading-indicator-bar"
 import "./furo-card"
 import "./furo-icon"
+import "./furo-ripple"
+
