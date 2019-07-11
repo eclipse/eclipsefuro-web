@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.21.4](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.21.3...@furo/fbp@4.21.4) (2019-07-11)
+
+
+### Bug Fixes
+
+* flow-repeat safari ([35c1740](https://github.com/veith/flowbased-polymer/commit/35c1740))
+
+
+
+
+
 ## [4.21.3](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.21.2...@furo/fbp@4.21.3) (2019-07-09)
 
 
