@@ -64,7 +64,7 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
 
     this.addEventListener("searchInput", (e) => {
-      this._searchTerm = e.path[0].value;
+      this._searchTerm = e.composedPath()[0].value;
       if (this._searchTerm.length > this.minTermLength) {
         /**
          * @event search
