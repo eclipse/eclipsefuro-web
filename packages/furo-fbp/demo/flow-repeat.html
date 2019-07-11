@@ -31,21 +31,24 @@
 
 
                     <ul>
-                        <template is="flow-repeat"  ƒ-inject-items="--newData"
-                                     internal-wire="--itemInjected">
-
+                        <flow-repeat  ƒ-inject-items="--newData"
+                                      internal-wire="--inject">
+                        <template>
+                                <li>other node</li>
                                 <li>
                                     <b>neu</b>
-                                    <rep-item ƒ-raw="--itemInjected" @-click="--xx"></rep-item>
-                                    <rep-item ƒ-index="--itemInjected(*.index)" ƒ-yy="--xx" ></rep-item>
-
-                                    <template is="flow-repeat" ƒ-inject-items="--itemInjected(*.item.arr)" internal-wire="--item">
-                                            <div ƒ-.inner-text="--item(*.item)"></div>
-                                        </template>
+                                    <rep-item ƒ-raw="--inject" @-click="--xx"></rep-item>
+                                    <rep-item ƒ-index="--inject(*.index)" ƒ-yy="--xx" ></rep-item>
+                                    <hr>
+                                    <template is="flow-repeat" ƒ-inject-items="--inject(*.item.arr)">
+                                            <div ƒ-.inner-text="--item"></div>
+                                    </template>
+                                    <hr>
 
                                 </li>
 
                         </template>
+                        </flow-repeat>
                     </ul>
                 </template>
             </flow-bind>
@@ -73,8 +76,8 @@
                                     <td>
                                         <rep-item ƒ-raw="--itemInjected" @-click="--xx"></rep-item>
                                         <rep-item ƒ-index="--itemInjected(*.index)" ƒ-yy="--xx"></rep-item>
-                                        <template is="flow-repeat" ƒ-inject-items="--itemInjected(*.item.arr)" internal-wire="--item">
-                                                <span ƒ-.inner-text="--item(*.item)"></span>
+                                        <template is="flow-repeat" ƒ-inject-items="--itemInjected(*.item.arr)" >
+                                                <span ƒ-.inner-text="--item">---</span>
                                         </template>
                                     </td>
                                 </template>
