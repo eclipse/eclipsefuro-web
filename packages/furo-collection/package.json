@@ -1,6 +1,6 @@
 {
   "name": "@furo/collection",
-  "version": "0.17.17",
+  "version": "0.17.18",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
@@ -9,13 +9,13 @@
     "@furo/data-ui": "^0.0.8",
     "@furo/data-util": "^0.0.11",
     "@furo/fbp": "^4.21.4",
-    "@furo/form": "^0.18.16",
+    "@furo/form": "^0.18.17",
     "@furo/framework": "^0.6.3",
-    "@furo/input": "^0.34.10",
+    "@furo/input": "^0.34.11",
     "@furo/layout": "^0.26.2",
     "@furo/mixins": "^0.15.17",
     "@furo/navigation": "^0.26.2",
-    "@furo/route": "^0.11.2"
+    "@furo/route": "^0.11.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
