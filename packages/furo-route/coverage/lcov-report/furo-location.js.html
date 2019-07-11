@@ -731,7 +731,7 @@ class FuroLocation extends HTMLElement {
      */
 <span class="cstat-no" title="statement not covered" >    this._clickHandler = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
 &nbsp;
-      let target = <span class="cstat-no" title="statement not covered" >e.path[0];</span>
+      let target = <span class="cstat-no" title="statement not covered" >e.composedPath()[0];</span>
 &nbsp;
       // only handle clicks on &lt;a href="..
 <span class="cstat-no" title="statement not covered" >      if (target.tagName !== "A") {</span>
