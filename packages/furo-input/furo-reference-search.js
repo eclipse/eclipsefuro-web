@@ -78,8 +78,8 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
     });
 
     this._FBPAddWireHook("--itemSelected", (item) => {
-      this.field.id = item[this.idField];
-      this.field.display_name = item.display_name;
+      this.field.id.value = item[this.idField];
+      this.field.display_name.value = item.display_name;
       this._closeList();
     });
 
