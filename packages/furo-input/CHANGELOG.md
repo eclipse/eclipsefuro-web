@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.34.12](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.11...@furo/input@0.34.12) (2019-07-11)
+
+
+### Bug Fixes
+
+* remove set method in furo-reference-search ([cfb335d](https://github.com/veith/FuroBaseComponents/commit/cfb335d))
+* remove set method in furo-reference-search ([a377832](https://github.com/veith/FuroBaseComponents/commit/a377832))
+
+
+
+
+
 ## [0.34.11](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.10...@furo/input@0.34.11) (2019-07-11)
 
 
