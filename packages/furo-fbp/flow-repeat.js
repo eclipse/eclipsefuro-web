@@ -123,8 +123,14 @@ class FlowRepeat extends FBP(HTMLElement) {
                 // wenn die identität abweicht
                 if (!this._insertedItems[i].identity || this._insertedItems[i].identity !== identity) {
                     elem = this._buildDomNode(identity, i);
-                    // verschieben Schiebe alle elemente des Knotens vor das erste kind des nächsten knoten
-                    let reference = this._insertedItems[i + 1].children[0] || this
+
+                    // Schiebe alle elemente des Knotens vor das erste kind des nächsten möglichen knoten
+                    let reference = this;
+                    if(this._insertedItems[i + 1] && this._insertedItems[i + 1].children[0] ){
+                        reference = this._insertedItems[i + 1].children[0];
+                    }
+
+                    // move the nodes
                     this._insertedItems[i].children.map((attachedElem) => {
                         this.parentNode.insertBefore(attachedElem, reference);
                     });
