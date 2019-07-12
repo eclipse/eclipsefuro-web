@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.41.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.40.2...@furo/data@0.41.0) (2019-07-12)
+
+
+### Features
+
+* repeats with identity do not need a redraw ([9f44402](https://github.com/veith/FuroBaseComponents/commit/9f44402))
+* repeats with identity do not need a redraw ([4841cb3](https://github.com/veith/FuroBaseComponents/commit/4841cb3))
+
+
+
+
+
 ## [0.40.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.40.1...@furo/data@0.40.2) (2019-07-11)
 
 **Note:** Version bump only for package @furo/data

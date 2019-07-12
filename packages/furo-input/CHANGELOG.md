@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.35.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.12...@furo/input@0.35.0) (2019-07-12)
+
+
+### Features
+
+* repeats with identity do not need a redraw ([4841cb3](https://github.com/veith/FuroBaseComponents/commit/4841cb3))
+
+
+
+
+
 ## [0.34.12](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.11...@furo/input@0.34.12) (2019-07-11)
 
 

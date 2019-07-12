@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.22.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.21.4...@furo/fbp@4.22.0) (2019-07-12)
+
+
+### Features
+
+* repeats with identity do not need a redraw ([9f44402](https://github.com/veith/flowbased-polymer/commit/9f44402))
+* repeats with identity do not need a redraw ([4841cb3](https://github.com/veith/flowbased-polymer/commit/4841cb3))
+
+
+
+
+
 ## [4.21.4](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.21.3...@furo/fbp@4.21.4) (2019-07-11)
 
 
