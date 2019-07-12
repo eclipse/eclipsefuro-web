@@ -163,12 +163,14 @@ class FlowRepeat extends FBP(HTMLElement) {
 
         });
 
-        // remove entries in old array if items is smaller
+        // überzählige elemente aus dem dom entfernen
         this._insertedItems.slice(items.length, this._insertedItems.length).map((handle) => {
             handle.children.map((attachedElem) => {
                 attachedElem.remove()
             })
         });
+        // überzählige elemente aus dem array entfernen
+        this._insertedItems.splice(items.length);
 
         if (items.length > 0) {
             /**
