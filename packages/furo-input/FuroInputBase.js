@@ -77,10 +77,8 @@ export const FuroInputBase = (superClass) => {
           this._displayOnly = newval !== null;
           break;
 
-
         default:
           break;
-
 
       }
       this.requestUpdate();

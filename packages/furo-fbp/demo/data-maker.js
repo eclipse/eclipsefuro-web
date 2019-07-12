@@ -12,7 +12,19 @@ class DataMaker extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.data = [{a:2,arr:[1,2,3]},{a:1,arr:[12,2,3]},{a:3,arr:[41,2,3]},{a:23,arr:[71,2,3]},{a:14,arr:[1,42,3]},{a:35,arr:[13,2,3]}];
+    this.data = [
+        {node:"AAA", data:{id:"111"}, total:3},
+        {node:"Peramnently changed on pos 2", data:{id:"222"}},
+        {node:"CCC", data:{id:"333"}},
+        {node:"DDD", data:{id:"444"}},
+        ];
+
+    this.addEventListener("click",()=>{
+        let l = this.data.length;
+        this.data[0].total = l +1;
+        this.data[1].data.id = "222-" +l;
+        this.data.push({node: l+ "-auto", data:{id:l}})
+    });
   }
 
     static get properties() {
@@ -35,6 +47,7 @@ class DataMaker extends FBP(LitElement) {
         }
       </style>
       <span @-click="^^data(data)">Make ${this.data.length} Data</span>
+      
     `;
   }
 
