@@ -145,8 +145,7 @@ class FuroDataTable extends FBP(LitElement) {
 
             tr {
                 outline: none;
-                padding-bottom: 10px;
-                padding-top: 10px;
+                line-height: 40px;
                 -webkit-box-shadow: inset 0 -1px 0 0 rgba(100, 121, 143, 0.122);
                 box-shadow: inset 0 -1px 0 0 rgba(100, 121, 143, 0.122);
                 display: -webkit-box;
@@ -162,7 +161,7 @@ class FuroDataTable extends FBP(LitElement) {
 
             td, th {
                 padding-left: 0;
-                padding-right: var(--gap-size, 8px);
+                margin-right: var(--gap-size, 8px);
                 -webkit-font-smoothing: antialiased;
                 font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
                 font-size: .875rem;
@@ -433,7 +432,7 @@ class FuroDataTable extends FBP(LitElement) {
                     detail: this._collection.data[this._selectedIndex], bubbles: true, composed: true
                 }));
             }
-        } else if (e.target.parentNode.parentElement.parentElement.rowIndex >= 0 && e.target.nodeName === 'INPUT') {
+        } else if (e.target.nodeName === 'INPUT' && e.target.parentNode.parentElement.parentElement.rowIndex >= 0 ) {
             this._selectedIndex = e.target.parentNode.parentElement.parentElement.rowIndex - 1;
         }
 

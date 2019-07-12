@@ -1,0 +1,166 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>flow-repeat test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+
+    <script type="module">
+        import "@furo/fbp/flow-bind";
+        import '@furo/fbp/flow-repeat';
+        import '../demo/rep-item';
+
+    </script>
+</head>
+<body>
+
+<test-fixture id="basic">
+    <template>
+        <flow-bind id="elem">
+            <template>
+                <ul>
+                    <flow-repeat internal-wire="--inject">
+                        <template>
+                            <li>other node</li>
+                            <li>
+                                <b>neu</b>
+                                <rep-item ƒ-raw="--inject" ƒ.-innerHTML="--itemSelected" @-click="--xx"></rep-item>
+                                <rep-item ƒ-index="--inject(*.index)" ƒ-yy="--xx"></rep-item>
+                                <hr>
+                                <template is="flow-repeat" ƒ-inject-items="--inject(*.item.arr)">
+                                    <div ƒ-.inner-text="--item"></div>
+                                </template>
+                                <hr>
+
+                            </li>
+
+                        </template>
+                    </flow-repeat>
+                </ul>
+            </template>
+        </flow-bind>
+    </template>
+</test-fixture>
+
+<script type="module">
+
+    let expect = chai.expect;
+
+    describe('flow-repeat tests ', function () {
+
+
+        let fix, repeat, data;
+
+        beforeEach(async () => {
+            fix = fixture('basic');
+
+            data = [{a: 2, arr: [1, 2, 3]}, {a: 1, arr: [12, 2, 3]}, {a: 3, arr: [41, 2, 3]}, {
+                a: 23,
+                arr: [71, 2, 3]
+            }, {a: 14, arr: [1, 42, 3]}, {a: 35, arr: [13, 2, 3]}];
+
+            repeat = fix[1].children[0];
+            await repeat.updateComplete;
+
+        });
+
+        it('should render the template x times', (done) => {
+
+            repeat.addEventListener('items-in-dom', (e)=>{
+                expect(e.detail).to.equal(6);
+                done();
+            });
+            repeat.injectItems(data);
+
+        });
+
+        it('should only accept arrays in injectItems', () => {
+
+            repeat.injectItems('I am a String');
+            expect (repeat._insertedItems.length).to.equal(0);
+
+        });
+
+        it('select with index should trigger wires for select/deselect', (done) => {
+            repeat.addEventListener('items-in-dom', (e)=>{
+
+                repeat._insertedItems[1].virtualElement._FBPAddWireHook('--itemSelected', () =>{
+                    expect(repeat._insertedItems[1].virtualElement.nodeName).to.equal('EMPTY-FBP-NODE');
+                });
+                repeat._insertedItems[1].virtualElement._FBPAddWireHook('--itemDeSelected', () =>{
+                    done();
+                });
+
+                repeat.select(1);
+                expect(repeat.selectedIndex).to.equal(1);
+                repeat.selectNextIndex();
+                expect(repeat.selectedIndex).to.equal(2);
+
+            });
+
+
+            repeat.injectItems(data);
+
+        });
+
+        it('should be possible to navigate trough the items', (done) => {
+            repeat.addEventListener('items-in-dom', ()=>{
+
+                repeat.select(1);
+                expect(repeat.selectedIndex).to.equal(1);
+                repeat.selectNextIndex();
+                expect(repeat.selectedIndex).to.equal(2);
+                repeat.selectPreviousIndex();
+                expect(repeat.selectedIndex).to.equal(1);
+
+                done();
+            });
+
+
+            repeat.injectItems(data);
+
+        });
+
+        it('should trigger selected element/all elements with data', (done) => {
+            repeat.addEventListener('items-in-dom', (e)=>{
+
+                repeat._insertedItems[0].virtualElement._FBPAddWireHook('--trigger', (w) =>{
+                    expect(w).to.equal('First');
+
+                });
+                repeat._insertedItems[5].virtualElement._FBPAddWireHook('--trigger', (w) =>{
+                    expect(w).to.equal('Last');
+                    done();
+
+                });
+                repeat._insertedItems[1].virtualElement._FBPAddWireHook('--trigger', (w) =>{
+                    expect(w).to.equal('Payload');
+
+                });
+                repeat._insertedItems[1].virtualElement._FBPAddWireHook('--triggerIndex', (w) =>{
+                    expect(w).to.equal('Payload');
+                });
+
+                repeat.select(1);
+                repeat.triggerSelected('Payload');
+                repeat.triggerFirst('First');
+                repeat.triggerLast('Last');
+            });
+            repeat.injectItems(data);
+
+        });
+
+
+    });
+</script>
+</body>
+</html>
