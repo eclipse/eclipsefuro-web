@@ -8,7 +8,6 @@
  * ```
  *
  * @customElement
- * @polymer
  * @demo demo/api-fetch_demo.html
  */
 class ApiFetch extends HTMLElement {
