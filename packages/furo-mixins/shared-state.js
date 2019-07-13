@@ -1,4 +1,3 @@
-import {dedupingMixin} from "@polymer/polymer/lib/utils/mixin";
 import * as Path from '@polymer/polymer/lib/utils/path.js';
 
 let FuroStateImpl;
@@ -145,5 +144,5 @@ let FuroStateImpl;
  *
  * @polymerMixin FuroStateMixin
  */
-export const FuroStateMixin = dedupingMixin(FuroStateImpl);
+export const FuroStateMixin = FuroStateImpl;
 
