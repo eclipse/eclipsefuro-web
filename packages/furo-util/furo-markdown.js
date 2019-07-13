@@ -54,7 +54,7 @@ class FuroMarkdown extends (LitElement) {
 
   set mdsrc(src) {
     this.fetchMd(src).then(markdown => {
-      this.markdownRendered = this.parseMarkdown(markdown);
+      this.markdownRendered = this._parseMarkdown(markdown);
       this.requestUpdate();
     }).catch(err => err);
   }
@@ -104,17 +104,23 @@ class FuroMarkdown extends (LitElement) {
   }
 
 
+  parseMarkdown(markdown){
+
+    this.markdownRendered = this._parseMarkdown(markdown);
+    this.requestUpdate();
+  }
   /**
    * parse markdown string to html content
    * @param markdown
    * @return {TemplateResult | TemplateResult}
    */
-  parseMarkdown(markdown) {
+  _parseMarkdown(markdown) {
     return html`${unsafeHTML(this.__writer.render(this.__reader.parse(markdown)))}`;
   }
 
   updated() {
     // code highlighter
+
     Prism.highlightAllUnder(this.shadowRoot);
   }
 
