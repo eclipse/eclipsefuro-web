@@ -64,6 +64,7 @@ class FuroMarkdown extends (LitElement) {
     body.customtheme = src;
     this.fetchStyles(body).then(styles => {
       this.__styles = html`${unsafeHTML(styles)}`;
+
     });
   }
 
@@ -73,6 +74,7 @@ class FuroMarkdown extends (LitElement) {
     this.fetchStyles(body).then(styles => {
       this.__styles = html`${unsafeHTML(styles)}`;
     });
+
   }
 
 
@@ -105,9 +107,8 @@ class FuroMarkdown extends (LitElement) {
 
 
   parseMarkdown(markdown){
-
-    this.markdownRendered = this._parseMarkdown(markdown);
-    this.requestUpdate();
+  this.markdownRendered = this._parseMarkdown(markdown);
+  this.requestUpdate();
   }
   /**
    * parse markdown string to html content
@@ -120,7 +121,6 @@ class FuroMarkdown extends (LitElement) {
 
   updated() {
     // code highlighter
-
     Prism.highlightAllUnder(this.shadowRoot);
   }
 

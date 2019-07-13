@@ -894,7 +894,8 @@ class FuroDocElement extends FBP(LitElement) {
 
     return html`
       <h1>${this.element.name}</h1>
-      <furo-markdown ƒ-parse-markdown="--data(*.description)" theme="coy"></furo-markdown>
+      
+      <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
     `;
   }
 }
