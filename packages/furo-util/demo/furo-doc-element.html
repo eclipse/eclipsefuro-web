@@ -12,6 +12,7 @@
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
     import '@polymer/iron-demo-helpers/demo-snippet';
     import '../furo-catalog';
+    import './read-analysis';
     import "@furo/fbp/flow-bind"
 
   </script>
@@ -32,7 +33,8 @@
       <flow-bind>
         <template>
           Insert demo here
-          <furo-doc-element></furo-doc-element>
+          <read-analysis @-data="--analysis"></read-analysis>
+          <furo-doc-element ƒ-print="--analysis"></furo-doc-element>
         </template>
       </flow-bind>
     </template>
