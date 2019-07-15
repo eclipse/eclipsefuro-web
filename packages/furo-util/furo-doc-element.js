@@ -3,6 +3,8 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "./furo-markdown"
 import "./furo-doc/furo-doc-properties"
+import "./furo-doc/furo-doc-methods"
+import "./furo-doc/furo-doc-events"
 
 /**
  * `furo-doc-element`
@@ -48,6 +50,8 @@ class FuroDocElement extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+            font-weight: 400;
+            font-size: 14px;
         }
 
         :host([hidden]) {
@@ -69,6 +73,8 @@ class FuroDocElement extends FBP(LitElement) {
       
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
+      <furo-doc-methods ƒ-data="--data(*.methods)"></furo-doc-methods>
+      <furo-doc-events ƒ-data="--data(*.events)"></furo-doc-events>
     `;
   }
 }

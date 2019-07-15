@@ -5,9 +5,6 @@ import 'prismjs/prism.js';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 
 
-const ALLOWED_THEMES = ['coy', 'dark', 'funky', 'okaidia', 'solarizedlight', 'tomorrow', 'twilight'];
-
-
 /**
  * `furo-markdown`
  * todo Describe your element
@@ -22,11 +19,9 @@ class FuroMarkdown extends (LitElement) {
 
   constructor() {
     super();
-    this.theme = "default";
     this.__reader = new commonmark.Parser();
     this.__writer = new commonmark.HtmlRenderer({safe: true});
     this.markdownRendered = undefined;
-    this.__styles = undefined;
   }
 
 
@@ -41,41 +36,23 @@ class FuroMarkdown extends (LitElement) {
        */
       mdsrc: {type: String},
       /**
-       * prism theme
+       * markdown string
        */
-      theme: {type: String},
-      /**
-       * prism theme url
-       */
-      customtheme: {type: String}
+      markdown: {type: String}
     };
   }
 
 
   set mdsrc(src) {
     this.fetchMd(src).then(markdown => {
-      this.markdownRendered = this._parseMarkdown(markdown);
-      this.requestUpdate();
+      this.markdown = markdown;
     }).catch(err => err);
   }
 
-  set customtheme(src) {
-    let body = {};
-    body.customtheme = src;
-    this.fetchStyles(body).then(styles => {
-      this.__styles = html`${unsafeHTML(styles)}`;
-      this.requestUpdate();
-    });
-  }
 
-  set theme(src) {
-    let body = {};
-    body.theme = src;
-    this.fetchStyles(body).then(styles => {
-      this.__styles = html`${unsafeHTML(styles)}`;
-      this.requestUpdate();
-    });
-
+  set markdown(markdown) {
+    this.markdownRendered = this._parseMarkdown(markdown);
+    this.requestUpdate();
   }
 
 
@@ -88,33 +65,16 @@ class FuroMarkdown extends (LitElement) {
     return fetch(src).then(res => res.text()).then(markdown => markdown);
   }
 
-
   /**
-   * method to fetch styles from a url or path
-   * @param customtheme
-   * @param theme
-   * @return {Promise<string>}
+   * Parse markdown string to html content
+   * @param markdown
    */
-  async fetchStyles({customtheme, theme}) {
-
-    const theme_file = (ALLOWED_THEMES.includes(theme)) ? `prism-${theme}.css` : 'prism.css';
-    const resource = customtheme !== undefined ? customtheme : `/node_modules/prismjs/themes/${theme_file}`;
-
-    const fetchedStyles = await fetch(resource).then(async response => await response.text()).catch(e => '');
-
-    return `<style>
-    ${fetchedStyles}
-    </style>`;
-  }
-
-
-  parseMarkdown(markdown){
-    if(typeof markdown == "string"){
-
-      this.markdownRendered = this._parseMarkdown(markdown);
-      this.requestUpdate();
+  parseMarkdown(markdown) {
+    if (typeof markdown == "string") {
+      this.markdown = markdown;
     }
   }
+
   /**
    * parse markdown string to html content
    * @param markdown
@@ -151,12 +111,153 @@ class FuroMarkdown extends (LitElement) {
         }
 
 
+        /**
+     * prism.js default theme for JavaScript, CSS and HTML
+     * Based on dabblet (http://dabblet.com)
+     * @author Lea Verou
+     */
+        code[class*="language-"],
+        pre[class*="language-"] {
+            color: black;
+            background: none;
+            text-shadow: 0 1px white;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 1em;
+            text-align: left;
+            white-space: pre;
+            word-spacing: normal;
+            word-break: normal;
+            word-wrap: normal;
+            line-height: 1.5;
+
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4;
+
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+        }
+
+        pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+        code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+            text-shadow: none;
+            background: #b3d4fc;
+        }
+
+        pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+        code[class*="language-"]::selection, code[class*="language-"] ::selection {
+            text-shadow: none;
+            background: #b3d4fc;
+        }
+
+        @media print {
+            code[class*="language-"],
+            pre[class*="language-"] {
+                text-shadow: none;
+            }
+        }
+
+        /* Code blocks */
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: .5em 0;
+            overflow: auto;
+        }
+
+        :not(pre) > code[class*="language-"],
+        pre[class*="language-"] {
+            background: #f5f2f0;
+        }
+
+        /* Inline code */
+        :not(pre) > code[class*="language-"] {
+            padding: .1em;
+            border-radius: .3em;
+            white-space: normal;
+        }
+
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: slategray;
+        }
+
+        .token.punctuation {
+            color: #999;
+        }
+
+        .namespace {
+            opacity: .7;
+        }
+
+        .token.property,
+        .token.tag,
+        .token.boolean,
+        .token.number,
+        .token.constant,
+        .token.symbol,
+        .token.deleted {
+            color: #905;
+        }
+
+        .token.selector,
+        .token.attr-name,
+        .token.string,
+        .token.char,
+        .token.builtin,
+        .token.inserted {
+            color: #690;
+        }
+
+        .token.operator,
+        .token.entity,
+        .token.url,
+        .language-css .token.string,
+        .style .token.string {
+            color: #9a6e3a;
+            background: hsla(0, 0%, 100%, .5);
+        }
+
+        .token.atrule,
+        .token.attr-value,
+        .token.keyword {
+            color: #07a;
+        }
+
+        .token.function,
+        .token.class-name {
+            color: #DD4A68;
+        }
+
+        .token.regex,
+        .token.important,
+        .token.variable {
+            color: #e90;
+        }
+
+        .token.important,
+        .token.bold {
+            font-weight: bold;
+        }
+
+        .token.italic {
+            font-style: italic;
+        }
+
+        .token.entity {
+            cursor: help;
+        }
+
+
+
     `
   }
 
   render() {
-    return html`
-      ${this.__styles}
+    return html`    
       ${this.markdownRendered}`
   }
 }

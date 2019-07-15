@@ -4,15 +4,15 @@ import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat.js";
 
 /**
- * `furo-doc-properties`
+ * `furo-doc-events`
  * todo Describe your element
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-doc-properties.html
+ * @demo demo/furo-doc-events.html
  * @appliesMixin FBP
  */
-class FuroDocProperties extends FBP(LitElement) {
+class FuroDocEvents extends FBP(LitElement) {
 
   constructor() {
     super();
@@ -24,7 +24,7 @@ class FuroDocProperties extends FBP(LitElement) {
    * @private
    * @return {Object}
    */
-  static get properties() {
+  static get events() {
     return {
       /**
        * hide props if empty
@@ -76,28 +76,28 @@ class FuroDocProperties extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Attributes & Properties</h2>
+      <h2>Events</h2>
       <template is="flow-repeat" ƒ-inject-items="--data">
-        <furo-doc-properties-item ƒ-data="--item"></furo-doc-properties-item>
+        <furo-doc-events-item ƒ-data="--item"></furo-doc-events-item>
 
       </template>
     `;
   }
 }
 
-window.customElements.define('furo-doc-properties', FuroDocProperties);
+window.customElements.define('furo-doc-events', FuroDocEvents);
 
 
 /**
- * `furo-doc-properties-item`
+ * `furo-doc-events-item`
  * todo Describe your element
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-doc-properties-item.html
+ * @demo demo/furo-doc-events-item.html
  * @appliesMixin FBP
  */
-class FuroDocPropertiesItem extends FBP(LitElement) {
+class FuroDocEventsItem extends FBP(LitElement) {
 
   constructor() {
     super();
@@ -144,10 +144,6 @@ class FuroDocPropertiesItem extends FBP(LitElement) {
         span.default{
             color:green;
         }
-        span.propname{
-            font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
-            font-weight: 900;
-        }
     `
   }
 
@@ -159,11 +155,11 @@ class FuroDocPropertiesItem extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <span class="propname">${this.prop.name}:</span>  ${this.prop.type} = <span class="default">${this.prop.defaultValue}</span>  <i>${this.prop.inheritedFrom}</i>
+      <strong>${this.prop.name}:</strong>  ${this.prop.type} = <span class="default">${this.prop.defaultValue}</span>  <i>${this.prop.inheritedFrom}</i>
       <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
       
     `;
   }
 }
 
-window.customElements.define('furo-doc-properties-item', FuroDocPropertiesItem);
+window.customElements.define('furo-doc-events-item', FuroDocEventsItem);
