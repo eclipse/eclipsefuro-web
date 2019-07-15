@@ -159,6 +159,18 @@
 
         });
 
+        it('should clear the list', (done) => {
+
+            repeat.addEventListener('items-in-dom', (e)=>{
+                expect(e.detail).to.equal(6);
+                repeat.clear();
+                expect(repeat._insertedItems.length).to.equal(0);
+                done();
+            });
+            repeat.injectItems(data);
+
+        });
+
 
     });
 </script>
