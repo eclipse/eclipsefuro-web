@@ -17,7 +17,6 @@ export class FieldNode extends EventTreeNode {
     this._isValid = true;
 
 
-
     // custom type fields aufbauen
     if (this._spec.type.startsWith("vnd.")) {
       if (this.__specdefinitions[this._spec.type]) {
@@ -62,20 +61,40 @@ export class FieldNode extends EventTreeNode {
     if (this.__childNodes.length > 0) {
       for (let index in this.__childNodes) {
         let field = this.__childNodes[index];
-        if(val.hasOwnProperty(field._name)){
+        if (val.hasOwnProperty(field._name)) {
           field.value = val[field._name];
         }
       }
-        this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
+      this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
     } else {
-      this.oldvalue = this.value;
-      this._value = val;
-      this._pristine = false;
-      if (JSON.stringify(this.oldvalue) !== JSON.stringify(this._value)) {
-        this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
+
+      if (this._spec.type.startsWith("map<")) {
+        this._addKVMap(val, this._spec.type)
+      } else {
+        this.oldvalue = this.value;
+        this._value = val;
+        this._pristine = false;
+        if (JSON.stringify(this.oldvalue) !== JSON.stringify(this._value)) {
+          this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
+        }
       }
+
     }
   }
+
+
+  _addKVMap(val, spec) {
+    let vType = spec.match(/,\s*(.*)>/)[1];
+    let fieldSpec = {type: vType};
+
+    for (let fieldName in val) {
+      if (this[fieldName] == undefined) {
+        this[fieldName] = new FieldNode(this, fieldSpec, fieldName);
+      }
+      this[fieldName].value = val[fieldName];
+    }
+  }
+
   set defaultvalue(val) {
 
     if (this.__childNodes.length > 0) {
@@ -84,9 +103,16 @@ export class FieldNode extends EventTreeNode {
         field.defaultvalue = val[field._name];
       }
     } else {
-      this.oldvalue = this.value;
-      this._value = val;
-      this._pristine = true;
+
+      if (this._spec.type.startsWith("map<")) {
+        this._addKVMap(val, this._spec.type)
+      } else {
+
+        this.oldvalue = this.value;
+        this._value = val;
+        this._pristine = true;
+      }
+
 
     }
   }
@@ -116,7 +142,7 @@ export class FieldNode extends EventTreeNode {
     error.field = error.field || "";
 
     let path = error.field.split(".");
-    if (path.length > 0 && path[0]!=="") {
+    if (path.length > 0 && path[0] !== "") {
       // rest wieder in error reinwerfen
       error.field = path.slice(1).join(".");
       if (this[path[0]]) {
@@ -124,10 +150,7 @@ export class FieldNode extends EventTreeNode {
       } else {
         console.warn("Unknown field", path, this._name)
       }
-    }
-
-
-   else {
+    } else {
       this._isValid = false;
       this._validity = error;
       this.dispatchNodeEvent(new NodeEvent("field-became-invalid", this));
