@@ -65,6 +65,12 @@ class FuroDocProperties extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+        h2{
+            font-weight: 400;
+            line-height: 28px;
+            font-size: 20px;
+            margin-top: 48px;
+        }
     `
   }
 
@@ -133,10 +139,9 @@ class FuroDocPropertiesItem extends FBP(LitElement) {
         :host {
             display: block;
             font-size: 13px;
-            border-bottom: 1px solid var(--separator-color,#DEDEDE);
-            margin-bottom: 16px;
-            
+            margin-bottom: 24px;
         }
+
 
         :host([hidden]) {
             display: none;
@@ -148,6 +153,7 @@ class FuroDocPropertiesItem extends FBP(LitElement) {
             font-family: 'Roboto Mono', 'Courier New', 'Courier', monospace;
             font-weight: 900;
         }
+       
     `
   }
 

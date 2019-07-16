@@ -62,8 +62,17 @@ class FuroDocEvents extends FBP(LitElement) {
             display: block;
         }
 
+        
+
         :host([hidden]) {
             display: none;
+        }
+
+        h2 {
+            font-weight: 400;
+            line-height: 28px;
+            font-size: 20px;
+            margin-top: 48px;
         }
     `
   }
@@ -76,7 +85,7 @@ class FuroDocEvents extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Events</h2>
+      <h2>@-Events</h2>
       <template is="flow-repeat" ƒ-inject-items="--data">
         <furo-doc-events-item ƒ-data="--item"></furo-doc-events-item>
 
@@ -133,16 +142,18 @@ class FuroDocEventsItem extends FBP(LitElement) {
         :host {
             display: block;
             font-size: 13px;
-            border-bottom: 1px solid var(--separator-color,#DEDEDE);
-            margin-bottom: 16px;
+            margin-bottom: 24px;
+        }
+        strong {
+            font-weight: 700;
+            font-family: "Roboto Mono";
             
         }
-
         :host([hidden]) {
             display: none;
         }
-        span.default{
-            color:green;
+        span.type, span.return {
+            color: #717171;
         }
     `
   }
@@ -155,7 +166,7 @@ class FuroDocEventsItem extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <strong>${this.prop.name}:</strong>  ${this.prop.type} = <span class="default">${this.prop.defaultValue}</span>  <i>${this.prop.inheritedFrom}</i>
+      <strong>${this.prop.name}:</strong>  <span class="type">${this.prop.type}</span> 
       <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
       
     `;

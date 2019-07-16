@@ -110,7 +110,7 @@ class FuroMarkdown extends (LitElement) {
             max-width: 100%;
         }
 
-
+        
         /**
      * prism.js default theme for JavaScript, CSS and HTML
      * Based on dabblet (http://dabblet.com)

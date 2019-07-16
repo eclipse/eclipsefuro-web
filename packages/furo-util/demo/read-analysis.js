@@ -87,6 +87,10 @@ class ReadAnalysis extends FBP(LitElement) {
                 "name": "request",
                 "type": "Request",
                 "description": "(The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request"
+              }, {
+                "name": "request",
+                "type": "Request",
+                "description": "(The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request"
               }
             ],
             "return": {

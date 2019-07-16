@@ -35,6 +35,10 @@ class FuroDocMethods extends FBP(LitElement) {
 
   data(data) {
     if (Array.isArray(data)) {
+      // show public fields only
+      data = data.filter((m) => {
+        return m.privacy === "public";
+      });
       this._FBPTriggerWire("--data", data);
       this.removeAttribute("hidden");
     } else {
@@ -65,6 +69,13 @@ class FuroDocMethods extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+
+        h2 {
+            font-weight: 400;
+            line-height: 28px;
+            font-size: 20px;
+            margin-top: 48px;
+        }
     `
   }
 
@@ -76,7 +87,7 @@ class FuroDocMethods extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Methods</h2>
+      <h2>ƒ-Methods</h2>
       <template is="flow-repeat" ƒ-inject-items="--data">
         <furo-doc-methods-item ƒ-data="--item"></furo-doc-methods-item>
 
@@ -107,8 +118,8 @@ class FuroDocMethodsItem extends FBP(LitElement) {
   data(data) {
     this.method = data;
 
-    if(data.privacy === "protected"){
-      this.setAttribute("hidden","")
+    if (data.privacy === "protected") {
+      this.setAttribute("hidden", "")
     }
     this._FBPTriggerWire("--data", data);
 
@@ -134,17 +145,36 @@ class FuroDocMethodsItem extends FBP(LitElement) {
         :host {
             display: block;
             font-size: 13px;
-            border-bottom: 1px solid var(--separator-color,#DEDEDE);
-            margin-bottom: 16px;
-            
+            margin-bottom: 24px;
+        }
+
+        strong {
+            font-weight: 700;
+            font-family: "Roboto Mono";
+           
         }
 
         :host([hidden]) {
             display: none;
         }
-        span.default{
-            color:green;
+
+        span.name {
+            color: green;
         }
+
+        span.paramname {
+            font-family: "Roboto Mono";
+            color: #717171;
+        }
+
+        span.type, span.return {
+            color: #717171;
+        }
+
+        span.type:after {
+            content: ","
+        }
+
     `
   }
 
@@ -155,10 +185,21 @@ class FuroDocMethodsItem extends FBP(LitElement) {
    */
   render() {
     // language=HTML
+    if (!this.method.return) {
+      this.method.return = {};
+
+    }
     return html`
-      <strong>${this.method.name}</strong>  ( ${this.method.type}) : ${this.method.return.type}
-      <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
+      <strong>${this.method.name}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+      <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
+      <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) => <span class="return">${this.method.return.type}</span>
       
+      <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
+      <ul>
+      <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+    <li><span class="paramname" ƒ-.inner-text="--item(*.name)">fd</span> <br>
+    <furo-markdown ƒ-parse-markdown="--item(*.description)">></furo-markdown></li>   
+</template></ul> 
     `;
   }
 }
