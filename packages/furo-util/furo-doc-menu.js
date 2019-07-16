@@ -21,6 +21,7 @@ class FuroDocMenu extends FBP(LitElement) {
 
   analysis(analysis) {
     this._FBPTriggerWire("--elements", analysis.elements);
+    this._FBPTriggerWire("--classes", analysis.classes);
   }
 
   /**
@@ -76,6 +77,12 @@ class FuroDocMenu extends FBP(LitElement) {
         <ul>
           <template is="flow-repeat" ƒ-inject-items="--elements">
             <li @-click="^^element(item)">&lt;<span ƒ-.inner-text="--item(*.tagname)"></span>&gt;</li>
+          </template>
+        </ul>     
+        <h3>Classes</h3>
+        <ul>
+          <template is="flow-repeat" ƒ-inject-items="--classes">
+            <li @-click="^^class(item)"><span ƒ-.inner-text="--item(*.name)"></span></li>
           </template>
         </ul>
       

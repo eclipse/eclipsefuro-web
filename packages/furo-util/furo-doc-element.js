@@ -24,9 +24,14 @@ class FuroDocElement extends FBP(LitElement) {
 
   }
 
+  hide(){
+    this.setAttribute("hidden","");
+
+  }
   print(analysisElement) {
     this.element = analysisElement;
     this._FBPTriggerWire("--data", this.element);
+    this.removeAttribute("hidden");
     this.requestUpdate();
   }
 
