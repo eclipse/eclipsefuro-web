@@ -5329,7 +5329,7 @@
       ],
       "demos": [
         {
-          "url": "demo/form.html",
+          "url": "demo/entity-object.html",
           "description": ""
         }
       ],
@@ -9075,11 +9075,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 144,
               "column": 2
             },
             "end": {
-              "line": 103,
+              "line": 154,
               "column": 3
             }
           },
@@ -9092,11 +9092,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 78,
+              "line": 122,
               "column": 2
             },
             "end": {
-              "line": 91,
+              "line": 142,
               "column": 3
             }
           },
@@ -9276,16 +9276,63 @@
           "inheritedFrom": "EventTreeNode"
         },
         {
+          "name": "_updateKeyValueMap",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 86,
+              "column": 2
+            },
+            "end": {
+              "line": 106,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val"
+            },
+            {
+              "name": "spec"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "deleteNode",
+          "description": "deletes the fieldnode",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 111,
+              "column": 2
+            },
+            "end": {
+              "line": 120,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "_clearInvalidity",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 156,
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 162,
               "column": 3
             }
           },
@@ -9301,11 +9348,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 164,
               "column": 2
             },
             "end": {
-              "line": 136,
+              "line": 184,
               "column": 3
             }
           },
@@ -9325,11 +9372,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 186,
               "column": 2
             },
             "end": {
-              "line": 141,
+              "line": 189,
               "column": 3
             }
           },
@@ -9346,7 +9393,7 @@
           "column": 7
         },
         "end": {
-          "line": 142,
+          "line": 190,
           "column": 1
         }
       },
