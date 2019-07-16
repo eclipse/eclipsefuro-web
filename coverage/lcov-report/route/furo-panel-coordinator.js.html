@@ -707,12 +707,12 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 &nbsp;
 &nbsp;
   bindTreeEntity(entityNode) {
-    this._tree = entityNode;
+    this._rootNode = entityNode;
 &nbsp;
     /**
      * set the query param for the active page.
      */
-    this._tree.addEventListener("tree-node-selected", (e) =&gt; {
+    this._rootNode.addEventListener("tree-node-selected", (e) =&gt; {
       let nodeID = e.detail.id.value;
       let newQuery = window.location.search.slice(1);
       let queryObject = {};
@@ -737,7 +737,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
       this.dispatchEvent(customEvent)
     });
 &nbsp;
-    this._tree.addEventListener("data-injected", <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
+    this._rootNode.addEventListener("data-injected", <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
 <span class="cstat-no" title="statement not covered" >      this._initTree()</span>
     });
 &nbsp;
@@ -745,9 +745,9 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   }
 &nbsp;
   _initTree() {
-    this._flatTree = [this._tree.fields];
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (this._tree.fields.children.repeats.length &gt; 0) {
-      this._parseTreeRecursive(this._tree.fields);
+    this._flatTree = [this._rootNode.fields];
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (this._rootNode.fields.children.repeats.length &gt; 0) {
+      this._parseTreeRecursive(this._rootNode.fields);
 &nbsp;
       <span class="missing-if-branch" title="if path not taken" >I</span>if (this._flatTree.length &gt; 0 &amp;&amp; this._queueLocation) {
 <span class="cstat-no" title="statement not covered" >        this._handleDeepLink(this._queueLocation);</span>

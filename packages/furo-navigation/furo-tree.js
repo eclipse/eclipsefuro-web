@@ -165,9 +165,9 @@ class FuroTree extends FBP(LitElement) {
   }
 
   _updateSearchmatchAttributesOnItems() {
-    this._tree.broadcastEvent(new NodeEvent('search-didnt-match', this._tree, true));
+    this._rootNode.broadcastEvent(new NodeEvent('search-didnt-match', this._rootNode, true));
     this._foundSearchItems.map((node) => {
-      node.dispatchNodeEvent(new NodeEvent('search-matched', this._tree, false));
+      node.dispatchNodeEvent(new NodeEvent('search-matched', this._rootNode, false));
     })
   }
 
@@ -455,8 +455,9 @@ class FuroTree extends FBP(LitElement) {
      * @private
      */
     this._tree = treeNode;
+    this._rootNode = treeNode.root;
 
-    this._tree.addEventListener("repeated-fields-changed", (e) => {
+    this._rootNode.addEventListener("repeated-fields-changed", (e) => {
       this._init()
     });
 
@@ -465,10 +466,10 @@ class FuroTree extends FBP(LitElement) {
 
   _init() {
 
-    this._buildFlatTree(this._tree);
+    this._buildFlatTree(this._rootNode);
 
     // set visible on root node
-    this._tree.children.broadcastEvent(new NodeEvent('ancestor-visible', this._tree));
+    this._rootNode.children.broadcastEvent(new NodeEvent('ancestor-visible', this._rootNode));
 
     if (!this.__listenersInitialized) {
       this._initHoverAndSelectEvents();
@@ -486,11 +487,11 @@ class FuroTree extends FBP(LitElement) {
 
   _initHoverAndSelectEvents() {
     // Internal Event, when a node gets hovered
-    this._tree.addEventListener("tree-node-hovered", (e) => {
+    this._rootNode.addEventListener("tree-node-hovered", (e) => {
 
 
       // broadcast blur
-      this._tree.broadcastEvent(new NodeEvent('tree-node-blur-requested'));
+      this._rootNode.broadcastEvent(new NodeEvent('tree-node-blur-requested'));
       this._hoveredField = e.target;
 
       // only dispatch when the element contains a name
@@ -526,9 +527,9 @@ class FuroTree extends FBP(LitElement) {
     });
 
     // Internal Event, when a node gets selected
-    this._tree.addEventListener("tree-node-selected", (e) => {
+    this._rootNode.addEventListener("tree-node-selected", (e) => {
       // broadcast deselect
-      this._tree.broadcastEvent(new NodeEvent('tree-node-unselection-requested'));
+      this._rootNode.broadcastEvent(new NodeEvent('tree-node-unselection-requested'));
       this._selectedField = e.target;
 
       /**
@@ -563,7 +564,6 @@ class FuroTree extends FBP(LitElement) {
   }
 
   _buildFlatTree(tree) {
-
     this._flatTree = [tree];
     tree.__flatTreeIndex = 0;
     this._parseTreeRecursive(tree, 0, this.depth);
@@ -667,6 +667,7 @@ class FuroTree extends FBP(LitElement) {
     if (maxdepth > 0 && !(level < maxdepth)) {
       return
     }
+    tree.depth = level;
     level++;
 
     tree.children.repeats.forEach((node) => {

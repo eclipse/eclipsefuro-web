@@ -1579,9 +1579,9 @@ class FuroTree extends FBP(LitElement) {
   }
 &nbsp;
   _updateSearchmatchAttributesOnItems() {
-    this._tree.broadcastEvent(new NodeEvent('search-didnt-match', this._tree, true));
+    this._rootNode.broadcastEvent(new NodeEvent('search-didnt-match', this._rootNode, true));
     this._foundSearchItems.map(<span class="fstat-no" title="function not covered" >(n</span>ode) =&gt; {
-<span class="cstat-no" title="statement not covered" >      node.dispatchNodeEvent(new NodeEvent('search-matched', this._tree, false));</span>
+<span class="cstat-no" title="statement not covered" >      node.dispatchNodeEvent(new NodeEvent('search-matched', this._rootNode, false));</span>
     })
   }
 &nbsp;
@@ -1868,9 +1868,9 @@ class FuroTree extends FBP(LitElement) {
      * @type {Type[] | Types.vnd.com.acme.tree.fields | {children, description, id, display_name, open}  *}
      * @private
      */
-    this._tree = treeNode;
+    this._rootNode = treeNode;
 &nbsp;
-    this._tree.addEventListener("repeated-fields-changed", (e) =&gt; {
+    this._rootNode.addEventListener("repeated-fields-changed", (e) =&gt; {
       this._init()
     });
 &nbsp;
@@ -1879,10 +1879,10 @@ class FuroTree extends FBP(LitElement) {
 &nbsp;
   _init() {
 &nbsp;
-    this._buildFlatTree(this._tree);
+    this._buildFlatTree(this._rootNode);
 &nbsp;
     // set visible on root node
-    this._tree.children.broadcastEvent(new NodeEvent('ancestor-visible', this._tree));
+    this._rootNode.children.broadcastEvent(new NodeEvent('ancestor-visible', this._rootNode));
 &nbsp;
     if (!this.__listenersInitialized) {
       this._initHoverAndSelectEvents();
@@ -1900,11 +1900,11 @@ class FuroTree extends FBP(LitElement) {
 &nbsp;
   _initHoverAndSelectEvents() {
     // Internal Event, when a node gets hovered
-    this._tree.addEventListener("tree-node-hovered", (e) =&gt; {
+    this._rootNode.addEventListener("tree-node-hovered", (e) =&gt; {
 &nbsp;
 &nbsp;
       // broadcast blur
-      this._tree.broadcastEvent(new NodeEvent('tree-node-blur-requested'));
+      this._rootNode.broadcastEvent(new NodeEvent('tree-node-blur-requested'));
       this._hoveredField = e.target;
 &nbsp;
       // only dispatch when the element contains a name
@@ -1940,9 +1940,9 @@ class FuroTree extends FBP(LitElement) {
     });
 &nbsp;
     // Internal Event, when a node gets selected
-    this._tree.addEventListener("tree-node-selected", (e) =&gt; {
+    this._rootNode.addEventListener("tree-node-selected", (e) =&gt; {
       // broadcast deselect
-      this._tree.broadcastEvent(new NodeEvent('tree-node-unselection-requested'));
+      this._rootNode.broadcastEvent(new NodeEvent('tree-node-unselection-requested'));
       this._selectedField = e.target;
 &nbsp;
       /**

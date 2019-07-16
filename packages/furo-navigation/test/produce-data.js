@@ -17,113 +17,117 @@ class ProduceData extends FBP(LitElement) {
     super();
     this.data = {
       data: {
-        id: 1,
-        display_name: "root",
-        description: "root",
-        open:true,
-        link:{
-          "rel": "self",
-          "method": "GET",
-          "href": "./api/v1/tasks/12.json",
-          "type": "vnd.com.acme.task"
-        },
-        children: [
-          {
-            id: 2,
-            display_name: "A",
-            description: "first with veery big title sub",
-            link:{
-              "rel": "self",
-              "method": "GET",
-              "href": "./api/v1/tasks/A.json",
-              "type": "vnd.com.acme.task"
-            },
-            children: [{
-              id: 3,
-              display_name: "C",
-              description: "sub sirst with veery big titleub",
-              link:{
+        panel: "view",
+        root: {
+          id: 1,
+          display_name: "root",
+          description: "root",
+          icon:"mail",
+          open: true,
+          link: {
+            "rel": "self",
+            "method": "GET",
+            "href": "./api/v1/tasks/12.json",
+            "type": "vnd.com.acme.task"
+          },
+          children: [
+            {
+              id: 2,
+              display_name: "A",
+              description: "first with veery big title sub",
+              link: {
                 "rel": "self",
                 "method": "GET",
-                "href": "./api/v1/tasks/c4.json",
-                "type": "vnd.com.acme.task"
-              },
-              children: []
-            }]
-          }, {
-            id: 4,
-            display_name: "B",
-            description: "second sirst with veery big titleub",
-            open:true,
-            link:{
-              "rel": "self",
-              "method": "GET",
-              "href": "./api/v1/tasks/12.json",
-              "type": "vnd.com.acme.task-b"
-            },
-            children: [{
-              id: 5,
-              display_name: "D",
-              description: "sub suirst with veery big titleb",
-              link:{
-                "rel": "self",
-                "method": "GET",
-                "href": "./api/v1/tasks/12.json",
+                "href": "./api/v1/tasks/A.json",
                 "type": "vnd.com.acme.task"
               },
               children: [{
-                id: 6,
-                display_name: "E",
+                id: 3,
+                display_name: "C",
+                description: "sub sirst with veery big titleub",
+                link: {
+                  "rel": "self",
+                  "method": "GET",
+                  "href": "./api/v1/tasks/c4.json",
+                  "type": "vnd.com.acme.task"
+                },
+                children: []
+              }]
+            }, {
+              id: 4,
+              display_name: "B",
+              description: "second sirst with veery big titleub",
+              open: true,
+              link: {
+                "rel": "self",
+                "method": "GET",
+                "href": "./api/v1/tasks/12.json",
+                "type": "vnd.com.acme.task-b"
+              },
+              children: [{
+                id: 5,
+                display_name: "D",
                 description: "sub suirst with veery big titleb",
-                link:{
+                link: {
                   "rel": "self",
                   "method": "GET",
                   "href": "./api/v1/tasks/12.json",
                   "type": "vnd.com.acme.task"
                 },
                 children: [{
-                  id: 7,
+                  id: 6,
                   display_name: "E",
-                  description: "sub sub",
-                  link:{
+                  description: "sub suirst with veery big titleb",
+                  link: {
                     "rel": "self",
                     "method": "GET",
                     "href": "./api/v1/tasks/12.json",
                     "type": "vnd.com.acme.task"
                   },
                   children: [{
-                    id: 8,
+                    id: 7,
                     display_name: "E",
                     description: "sub sub",
-                    link:{
+                    link: {
                       "rel": "self",
                       "method": "GET",
                       "href": "./api/v1/tasks/12.json",
                       "type": "vnd.com.acme.task"
                     },
                     children: [{
-                      id: 455,
+                      id: 8,
                       display_name: "E",
-                      description: "Berlin",
-                      children: []
+                      description: "sub sub",
+                      link: {
+                        "rel": "self",
+                        "method": "GET",
+                        "href": "./api/v1/tasks/12.json",
+                        "type": "vnd.com.acme.task"
+                      },
+                      children: [{
+                        id: 455,
+                        display_name: "E",
+                        description: "Berlin",
+                        children: []
+                      }]
                     }]
                   }]
                 }]
+              }, {
+                id: 234,
+                display_name: "E",
+                description: "sub unknown type",
+                link: {
+                  "rel": "self",
+                  "method": "GET",
+                  "href": "./api/v1/tasks/12.json",
+                  "type": "vnd.com.acme.unknown"
+                },
+                children: []
               }]
-            },{
-              id: 234,
-              display_name: "E",
-              description: "sub unknown type",
-              link:{
-                "rel": "self",
-                "method": "GET",
-                "href": "./api/v1/tasks/12.json",
-                "type": "vnd.com.acme.unknown"
-              },
-              children: []
-            }]
-          }
-        ]
+            }
+          ]
+        }
       }
     };
 
@@ -131,9 +135,9 @@ class ProduceData extends FBP(LitElement) {
     this.addEventListener("click", this.produce)
   }
 
-  __fbpReady(){
+  __fbpReady() {
     super.__fbpReady();
-    if(this.auto){
+    if (this.auto) {
       this.produce();
     }
   }
@@ -152,16 +156,17 @@ class ProduceData extends FBP(LitElement) {
   }
 
 
-  produce(){
+  produce() {
     /**
-    * @event data
-    * Fired when
-    * detail payload:
-    */
-    let customEvent = new Event('data', {composed:true, bubbles: true});
+     * @event data
+     * Fired when
+     * detail payload:
+     */
+    let customEvent = new Event('data', {composed: true, bubbles: true});
     customEvent.detail = this.data;
     this.dispatchEvent(customEvent)
   }
+
   /**
    * Themable Styles
    * @private

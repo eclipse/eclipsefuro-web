@@ -232,7 +232,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
         panel._TreeNode = node;
         panel.removePanel = () => {
           this._removeNodeByName(panelName);
-        }
+        };
         this._openPanels.push(node);
         this._furoPage.appendChild(panel);
 

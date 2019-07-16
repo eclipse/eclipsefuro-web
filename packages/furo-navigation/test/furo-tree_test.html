@@ -307,8 +307,8 @@
       setTimeout(() => {
 
         expect(tree.scrollHeight).be.gt(100);
-        expect(entity.entity.fields.children.repeats.length).be.eq(2);
-        expect(entity.entity.fields.children.value[0].display_name).be.eq("A");
+        expect(entity.entity.fields.root.children.repeats.length).be.eq(2);
+        expect(entity.entity.fields.root.children.value[0].display_name).be.eq("A");
         done();
       }, 10);
     });
