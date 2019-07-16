@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.3.0...@furo/util@0.4.0) (2019-07-16)
+
+
+### Features
+
+* doc viewer ([1396650](https://github.com/veith/FuroBaseComponents/commit/1396650))
+* doc viewer ([fc1efda](https://github.com/veith/FuroBaseComponents/commit/fc1efda))
+* doc viewer dash-cased names ([4ce9bdb](https://github.com/veith/FuroBaseComponents/commit/4ce9bdb))
+* simple doc menu ([8d1b3ec](https://github.com/veith/FuroBaseComponents/commit/8d1b3ec))
+* simple doc menu classes ([ff9dd6d](https://github.com/veith/FuroBaseComponents/commit/ff9dd6d))
+
+
+
+
+
 # [0.3.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.2.5...@furo/util@0.3.0) (2019-07-16)
 
 
