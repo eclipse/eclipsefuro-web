@@ -343,16 +343,7 @@ class ReadAnalysis extends FBP(LitElement) {
   }
 
 
-  /**
-   * @private
-   * @returns {TemplateResult}
-   */
-  render() {
-    // language=HTML
-    return html`
-      <p>Hej, welcome</p>
-    `;
-  }
+
 }
 
 window.customElements.define('read-analysis', ReadAnalysis);

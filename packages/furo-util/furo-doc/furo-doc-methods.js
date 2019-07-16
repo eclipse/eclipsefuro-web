@@ -87,7 +87,7 @@ class FuroDocMethods extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>ƒ-Methods</h2>
+      <h2>Methods</h2>
       <template is="flow-repeat" ƒ-inject-items="--data">
         <furo-doc-methods-item ƒ-data="--item"></furo-doc-methods-item>
 
@@ -190,7 +190,7 @@ class FuroDocMethodsItem extends FBP(LitElement) {
 
     }
     return html`
-      <strong>${this.method.name}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+      <strong>ƒ-${this.method.name}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
       <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
       <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) => <span class="return">${this.method.return.type}</span>
       

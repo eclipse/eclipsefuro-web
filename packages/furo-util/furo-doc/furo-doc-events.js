@@ -85,7 +85,7 @@ class FuroDocEvents extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>@-Events</h2>
+      <h2>Events</h2>
       <template is="flow-repeat" ƒ-inject-items="--data">
         <furo-doc-events-item ƒ-data="--item"></furo-doc-events-item>
 
@@ -166,7 +166,7 @@ class FuroDocEventsItem extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <strong>${this.prop.name}:</strong>  <span class="type">${this.prop.type}</span> 
+      <strong>@-${this.prop.name}</strong> : <span class="type">${this.prop.type}</span> 
       <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
       
     `;

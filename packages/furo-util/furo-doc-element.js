@@ -70,8 +70,9 @@ class FuroDocElement extends FBP(LitElement) {
     // language=HTML
 
     return html`
-      <h1>${this.element.name}</h1>
-      
+      <h1><${this.element.tagname}&gt;</h1>
+      <p>${this.element.summary}</p>
+     
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
       <furo-doc-events ƒ-data="--data(*.events)"></furo-doc-events>
