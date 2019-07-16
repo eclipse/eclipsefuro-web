@@ -58,19 +58,20 @@ export class FieldNode extends EventTreeNode {
   }
 
   set value(val) {
-    if (this.__childNodes.length > 0) {
-      for (let index in this.__childNodes) {
-        let field = this.__childNodes[index];
-        if (val.hasOwnProperty(field._name)) {
-          field.value = val[field._name];
-        }
-      }
-      this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
+    if (this._spec.type.startsWith("map<")) {
+      this._updateKeyValueMap(val, this._spec.type)
     } else {
-
-      if (this._spec.type.startsWith("map<")) {
-        this._addKVMap(val, this._spec.type)
+      if (this.__childNodes.length > 0) {
+        for (let index in this.__childNodes) {
+          let field = this.__childNodes[index];
+          if (val.hasOwnProperty(field._name)) {
+            field.value = val[field._name];
+          }
+        }
+        this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
       } else {
+
+
         this.oldvalue = this.value;
         this._value = val;
         this._pristine = false;
@@ -83,16 +84,40 @@ export class FieldNode extends EventTreeNode {
   }
 
 
-  _addKVMap(val, spec) {
+  _updateKeyValueMap(val, spec) {
     let vType = spec.match(/,\s*(.*)>/)[1];
     let fieldSpec = {type: vType};
 
+    // create if not exist
     for (let fieldName in val) {
       if (this[fieldName] == undefined) {
         this[fieldName] = new FieldNode(this, fieldSpec, fieldName);
       }
+      //update data
       this[fieldName].value = val[fieldName];
     }
+    //remove unseted
+    for (let i = this.__childNodes.length - 1; i >= 0; i--) {
+      let field = this.__childNodes[i];
+      if (!val[field._name]) {
+        field.deleteNode();
+      }
+    }
+
+  }
+
+  /**
+   * deletes the fieldnode
+   */
+  deleteNode() {
+
+    let index = this.__parentNode.__childNodes.indexOf(this);
+    this.__parentNode.__childNodes.splice(index, 1);
+    delete (this.__parentNode[this._name]);
+
+    //notify
+    this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted", this._name, false));
+    this.dispatchNodeEvent(new NodeEvent("node-field-deleted", this._name, true));
   }
 
   set defaultvalue(val) {
@@ -105,7 +130,7 @@ export class FieldNode extends EventTreeNode {
     } else {
 
       if (this._spec.type.startsWith("map<")) {
-        this._addKVMap(val, this._spec.type)
+        this._updateKeyValueMap(val, this._spec.type)
       } else {
 
         this.oldvalue = this.value;
