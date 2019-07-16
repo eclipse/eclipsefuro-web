@@ -145,7 +145,7 @@ class FuroDocMethodsItem extends FBP(LitElement) {
         :host {
             display: block;
             font-size: 13px;
-            margin-bottom: 24px;
+            margin-bottom: 36px;
         }
 
         strong {
