@@ -1634,7 +1634,7 @@
       "properties": [],
       "methods": [
         {
-          "name": "print",
+          "name": "hide",
           "description": "",
           "privacy": "public",
           "sourceRange": {
@@ -1643,7 +1643,27 @@
               "column": 2
             },
             "end": {
+              "line": 29,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "print",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
               "line": 30,
+              "column": 2
+            },
+            "end": {
+              "line": 35,
               "column": 3
             }
           },
@@ -1663,11 +1683,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 36,
+              "line": 41,
               "column": 2
             },
             "end": {
-              "line": 40,
+              "line": 45,
               "column": 3
             }
           },
@@ -1683,11 +1703,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 85,
               "column": 2
             },
             "end": {
-              "line": 85,
+              "line": 97,
               "column": 3
             }
           },
@@ -1712,7 +1732,7 @@
           "column": 0
         },
         "end": {
-          "line": 86,
+          "line": 98,
           "column": 1
         }
       },
@@ -1727,6 +1747,90 @@
       },
       "slots": [],
       "tagname": "furo-doc-element",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-doc-menu`\ntodo Describe your element",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-util/furo-doc-menu.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "analysis",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 21,
+              "column": 2
+            },
+            "end": {
+              "line": 24,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "analysis"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 71,
+              "column": 2
+            },
+            "end": {
+              "line": 89,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-doc-menu.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 14,
+          "column": 0
+        },
+        "end": {
+          "line": 90,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroDocMenu",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-doc-menu",
       "mixins": [
         "FBP"
       ]

@@ -3,7 +3,7 @@
  *
  * api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
  *
- * ```
+ * ```html
  * <api-fetch ƒ-invoke-request="" ƒ-abort-request=""></api-fetch>
  * ```
  *

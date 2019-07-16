@@ -121,7 +121,7 @@
       ]
     },
     {
-      "description": "`api-fetch`\n\napi-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest\n\n```\n<api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></api-fetch>\n```",
+      "description": "`api-fetch`\n\napi-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest\n\n```html\n<api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></api-fetch>\n```",
       "summary": "",
       "path": "packages/furo-data/api-fetch.js",
       "properties": [
@@ -391,7 +391,7 @@
       "tagname": "api-fetch"
     },
     {
-      "description": "`data-collection`\n\nan interface component to get collection requests\ngive this component a mime type of a resource and the hateoas. other additionally options like order-by filter could\nalso be added. based on those information the component generate a request and update the result to the collection\n\nHow a hateoasIn likes:\n{\n {rel: \"self\", method: \"GET\", type: \"application/vnd.com.acme.task\", href: \"/api/v1/task\"}\n {rel: \"subresource\", method: \"GET\", type: \"application/vnd.com.acme.tag\", href: \"/api/v1/tag\"}\n}\n\nHow to use:\n```\n<data-collection ƒ-hts-in=\"--x\"\n                     service=\"\"\n                     ƒ-prev-page=\"\"\n                     ƒ-next-page=\"\"\n                     ƒ-last-page=\"\"\n                     ƒ-first-page=\"\"\n                     ƒ-list=\"--triggerGetCollection\"\n                     ƒ-hts-in=\"--hts\"\n                     list-on-hts-in",
+      "description": "`data-collection`\n\nan interface component to get collection requests\ngive this component a mime type of a resource and the hateoas. other additionally options like order-by filter could\nalso be added. based on those information the component generate a request and update the result to the collection\n\nHow a hateoasIn likes:\n{\n {rel: \"self\", method: \"GET\", type: \"application/vnd.com.acme.task\", href: \"/api/v1/task\"}\n {rel: \"subresource\", method: \"GET\", type: \"application/vnd.com.acme.tag\", href: \"/api/v1/tag\"}\n}\n\nHow to use:\n```html\n<data-collection ƒ-hts-in=\"--x\"\n                     service=\"\"\n                     ƒ-prev-page=\"\"\n                     ƒ-next-page=\"\"\n                     ƒ-last-page=\"\"\n                     ƒ-first-page=\"\"\n                     ƒ-list=\"--triggerGetCollection\"\n                     ƒ-hts-in=\"--hts\"\n                     list-on-hts-in",
       "summary": "",
       "path": "packages/furo-data/collection-agent.js",
       "properties": [
@@ -3169,7 +3169,7 @@
         },
         {
           "name": "setService",
-          "description": "Sets the service\n\nServices must be registered like:\n\n```\nimport {Services,Types} from \"./apiConfig.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n```\nUsually this is done in your main-app.js",
+          "description": "Sets the service\n\nServices must be registered like:\n\n```html\nimport {Services,Types} from \"./apiConfig.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n```\nUsually this is done in your main-app.js",
           "privacy": "public",
           "sourceRange": {
             "start": {

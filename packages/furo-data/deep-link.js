@@ -119,7 +119,7 @@ class DeepLink extends LitElement {
    *
    * Services must be registered like:
    *
-   * ```
+   * ```html
    * import {Services,Types} from "./apiConfig.js"
    * Init.registerApiServices(Services);
    * Init.registerApiTypes(Types);
