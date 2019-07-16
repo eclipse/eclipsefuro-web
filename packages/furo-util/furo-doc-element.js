@@ -57,6 +57,13 @@ class FuroDocElement extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+        h1 {
+            font-weight: 400;
+            line-height: 28px;
+            font-size: 20px;
+            margin-top: 48px;
+            margin: 16px 0;
+        }
         h2 {
             font-weight: 400;
             line-height: 28px;

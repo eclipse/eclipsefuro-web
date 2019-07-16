@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>furo-doc-menu demo</title>
+
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
+    import '../furo-catalog';
+    import './fetch-analysis';
+    import "@furo/fbp/flow-bind"
+    import "@furo/layout"
+
+  </script>
+
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+
+</head>
+<body>
+
+<div class="vertical-section-container">
+  <h3>furo-doc-menu</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <furo-split-view style="height: 300px">
+            <furo-vertical-scroller slot="master">
+            <furo-doc-menu ƒ-analysis="--analysis" @-element="--element"></furo-doc-menu>
+            </furo-vertical-scroller>
+            <furo-vertical-scroller>
+
+            <furo-doc-element ƒ-print="--element"></furo-doc-element>
+            </furo-vertical-scroller>
+          </furo-split-view>
+
+          <fetch-analysis @-data="--analysis"></fetch-analysis>
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+
+</body>
+</html>
