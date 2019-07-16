@@ -1,9 +1,9 @@
 {
   "name": "@furo/mixins",
   "main": "shared-state.js",
-  "version": "0.15.19",
+  "version": "0.16.0",
   "dependencies": {
-    "@furo/fbp": "^4.22.1",
+    "@furo/fbp": "^4.23.0",
     "@polymer/polymer": "^3.0.0"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",

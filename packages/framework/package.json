@@ -1,6 +1,6 @@
 {
   "name": "@furo/framework",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "description": "Furo framework libs",
   "main": "furo.js",
   "dependencies": {

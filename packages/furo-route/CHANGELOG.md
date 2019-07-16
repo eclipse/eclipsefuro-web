@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.11.5...@furo/route@0.12.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+* new spec for tree ([c0aef5a](https://github.com/veith/FuroBaseComponents/commit/c0aef5a))
+* new spec panel coordinator ([1b67bc4](https://github.com/veith/FuroBaseComponents/commit/1b67bc4))
+
+
+
+
+
 ## [0.11.5](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.11.4...@furo/route@0.11.5) (2019-07-12)
 
 **Note:** Version bump only for package @furo/route

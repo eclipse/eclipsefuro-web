@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.41.1...@furo/data@0.42.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+* Nodes removable ([6d3fc01](https://github.com/veith/FuroBaseComponents/commit/6d3fc01))
+* remove polymer deps ([5b7272e](https://github.com/veith/FuroBaseComponents/commit/5b7272e))
+* type any and map ([a017e51](https://github.com/veith/FuroBaseComponents/commit/a017e51))
+
+
+
+
+
 ## [0.41.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.41.0...@furo/data@0.41.1) (2019-07-12)
 
 **Note:** Version bump only for package @furo/data

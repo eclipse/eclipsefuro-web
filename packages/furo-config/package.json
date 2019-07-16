@@ -2,10 +2,10 @@
   "name": "@furo/config",
   "description": "Furo config components",
   "main": "furo-catalog.js",
-  "version": "0.16.19",
+  "version": "0.16.20",
   "dependencies": {
-    "@furo/fbp": "^4.22.1",
-    "@furo/mixins": "^0.15.19",
+    "@furo/fbp": "^4.23.0",
+    "@furo/mixins": "^0.16.0",
     "@polymer/iron-ajax": "^3.0.1",
     "@polymer/polymer": "^3.0.0"
   },

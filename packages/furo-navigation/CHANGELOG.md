@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.26.4...@furo/navigation@0.27.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+* new spec for tree ([c0aef5a](https://github.com/veith/FuroBaseComponents/commit/c0aef5a))
+
+
+
+
+
 ## [0.26.4](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.26.3...@furo/navigation@0.26.4) (2019-07-12)
 
 **Note:** Version bump only for package @furo/navigation

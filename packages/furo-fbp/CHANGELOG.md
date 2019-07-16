@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.23.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.22.1...@furo/fbp@4.23.0) (2019-07-16)
+
+
+### Bug Fixes
+
+* fix test assertion ([b4cd5d8](https://github.com/veith/flowbased-polymer/commit/b4cd5d8))
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/flowbased-polymer/commit/15b5774))
+
+
+
+
+
 ## [4.22.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.22.0...@furo/fbp@4.22.1) (2019-07-12)
 
 
