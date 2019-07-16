@@ -187,10 +187,10 @@ class FuroDocMethodsItem extends FBP(LitElement) {
     // language=HTML
     if (!this.method.return) {
       this.method.return = {};
-
     }
+    this.cname =  this.method.name.replace( /([a-z])([A-Z])/g, '$1-$2' ).toLowerCase();
     return html`
-      <strong>ƒ-${this.method.name}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+      <strong>ƒ-${this.cname}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
       <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
       <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) => <span class="return">${this.method.return.type}</span>
       

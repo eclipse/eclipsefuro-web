@@ -163,9 +163,10 @@ class FuroDocPropertiesItem extends FBP(LitElement) {
    * @returns {TemplateResult}
    */
   render() {
+    this.cname =  this.prop.name.replace( /([a-z])([A-Z])/g, '$1-$2' ).toLowerCase();
     // language=HTML
     return html`
-      <span class="propname">${this.prop.name}:</span>  ${this.prop.type} = <span class="default">${this.prop.defaultValue}</span>  <i>${this.prop.inheritedFrom}</i>
+      <span class="propname">${this.cname}</span>   <span class="propname">(${this.prop.name}):</span>  ${this.prop.type} = <span class="default">${this.prop.defaultValue}</span>  <i>${this.prop.inheritedFrom}</i>
       <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
       
     `;
