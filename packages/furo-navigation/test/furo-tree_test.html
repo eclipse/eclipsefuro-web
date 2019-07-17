@@ -31,7 +31,7 @@
       <template>
         <produce-data @-data="--data"></produce-data>
         <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
-        <furo-tree ƒ-bind-data="--entityObj(*.fields)"></furo-tree>
+        <furo-tree ƒ-bind-data="--entityObj"></furo-tree>
 
       </template>
     </flow-bind>
@@ -327,7 +327,7 @@
     it('should add a node', (done) => {
       let handler = () => {
         keydown(tree, "Enter");
-        tree.addSubNode(1);
+        tree.addSubNode({"display_name":"test"});
         keydown(tree, "Enter");
         setTimeout(() => {
           let items = tree.shadowRoot.querySelectorAll("furo-tree-item");

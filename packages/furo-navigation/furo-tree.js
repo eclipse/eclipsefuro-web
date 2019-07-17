@@ -90,7 +90,7 @@ class FuroTree extends FBP(LitElement) {
 
 
         case"Escape":
-          if(this._searchIsActive){
+          if (this._searchIsActive) {
             event.stopPropagation();
             this._resetSearch();
           }
@@ -108,9 +108,9 @@ class FuroTree extends FBP(LitElement) {
     this.addEventListener("keypress", (event) => {
       let key = event.key || event.keyCode;
 
-            if(key ==="Enter"){
-                return
-            }
+      if (key === "Enter") {
+        return
+      }
       if (!event.ctrlKey) {
         event.preventDefault();
         this._addSymbolToSearch(key);
@@ -246,15 +246,15 @@ class FuroTree extends FBP(LitElement) {
   addSubNode(rawNode) {
     let newnode = this._selectedField.children.add();
     newnode.value = rawNode;
+    this._buildFlatTree(this._rootNode);
     setTimeout(() => {
       newnode.selectItem();
     }, 10)
-
-
   }
 
   deleteNode() {
     this._selectedField.__parentNode.deleteChild(this._selectedField.__index);
+    this._buildFlatTree(this._rootNode);
   }
 
   /**
@@ -445,15 +445,15 @@ class FuroTree extends FBP(LitElement) {
 
 
   bindData(treeNode) {
-    if (treeNode === undefined) {
+    if (treeNode.fields === undefined) {
       return
     }
 
-        this._tree = treeNode.fields;
-        this._rootNode = this._tree.root;
+    this._tree = treeNode.fields;
+    this._rootNode = this._tree.root;
 
-        treeNode.addEventListener("data-injected", (e) => {
-            this._init();
+    treeNode.addEventListener("data-injected", (e) => {
+      this._init();
     });
 
     this._init()
@@ -490,7 +490,7 @@ class FuroTree extends FBP(LitElement) {
       this._hoveredField = e.target;
 
       // only dispatch when the element contains a name
-      if (this._hoveredField.display_name.value != null){
+      if (this._hoveredField.display_name.value != null) {
         /**
          * @event node-hovered
          * Fired when
