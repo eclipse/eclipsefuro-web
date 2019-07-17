@@ -37,7 +37,6 @@ class FuroDemoSnippet extends FBP(LitElement) {
   }
 
 
-
   /**
    * @private
    * @return {Object}
@@ -47,17 +46,17 @@ class FuroDemoSnippet extends FBP(LitElement) {
       /**
        * Description
        */
-      source: {type: Boolean,reflect:true},
-      demo: {type: Boolean,reflect:true}
+      source: {type: Boolean, reflect: true},
+      demo: {type: Boolean, reflect: true}
     };
   }
 
   /**
    * flow is ready lifecycle method
    */
-  __fbpReady(){
+  __fbpReady() {
     super.__fbpReady();
-    this._FBPTraceWires();
+
 
     let bind = this.shadowRoot.querySelector("#bind");
 
@@ -65,7 +64,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
     elem.attachShadow({mode: 'open'});
     elem.shadowRoot.appendChild(this.template.cloneNode(true));
     elem._appendFBP(elem.shadowRoot);
-
+    elem._FBPTraceWires();
     bind.appendChild(elem.shadowRoot);
   }
 
@@ -80,7 +79,6 @@ class FuroDemoSnippet extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
-            height: 100%;
         }
 
         :host([hidden]) {
@@ -90,16 +88,23 @@ class FuroDemoSnippet extends FBP(LitElement) {
         furo-markdown {
             height: 100%;
             overflow: auto;
+            background-color: rgb(245, 242, 240);
         }
 
         #bind {
             height: 100%;
         }
-        :host([source]) #bind{
+
+        :host([source]) #bind {
             display: none;
         }
-        :host([demo]) furo-markdown{
+
+        :host([demo]) furo-markdown {
             display: none;
+        }
+        div.flexbody{
+            height: inherit;
+            overflow: hidden;
         }
     `
   }
@@ -112,13 +117,13 @@ class FuroDemoSnippet extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      
+
       <furo-vertical-flex>
-        <div><span @-click="-^demo">demo</span>  |  <span @-click="-^source">source</span> </div>
-
-        <div flex id="bind" flex></div>
-        <furo-markdown flex ƒ-parse-markdown="--tpl"></furo-markdown>
-
+        <div><span @-click="-^demo">demo</span> | <span @-click="-^source">source</span></div>
+        <div flex class="flexbody">
+          <div id="bind" flex></div>
+          <furo-markdown  ƒ-parse-markdown="--tpl"></furo-markdown>
+        </div>
       </furo-vertical-flex>
     `;
   }
