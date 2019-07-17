@@ -122,6 +122,10 @@ class FuroDemoSnippet extends FBP(LitElement) {
         span{
             cursor: pointer;
         }
+        .nav{
+            border-bottom: 1px solid gainsboro;
+            padding-bottom: 8px;
+        }
     `
   }
 
@@ -135,7 +139,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
     return html`
 
       <furo-vertical-flex>
-        <div><span @-click="-^demo">demo</span> | <span @-click="-^source">source</span> | <span @-click="-^flow">flow</span></div>
+        <div class="nav"><span @-click="-^demo">demo</span> | <span @-click="-^source">source</span> | <span @-click="-^flow">flow</span></div>
         <div flex class="flexbody">
           <div id="demo" flex></div>
           <div  id="flow">Comming soon</div>
