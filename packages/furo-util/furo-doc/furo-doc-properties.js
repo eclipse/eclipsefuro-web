@@ -10,7 +10,6 @@ import "./furo-doc-properties-item"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-doc-properties.html
  * @appliesMixin FBP
  */
 class FuroDocProperties extends FBP(LitElement) {
