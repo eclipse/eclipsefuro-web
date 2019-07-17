@@ -28,11 +28,19 @@ class FuroDemoSnippet extends FBP(LitElement) {
     this.addEventListener("source", (e) => {
       this.source = true;
       this.demo = false;
+      this.flow = false;
     });
 
     this.addEventListener("demo", (e) => {
       this.source = false;
       this.demo = true;
+      this.flow = false;
+    });
+
+    this.addEventListener("flow", (e) => {
+      this.source = false;
+      this.demo = false;
+      this.flow = true;
     });
   }
 
@@ -47,7 +55,8 @@ class FuroDemoSnippet extends FBP(LitElement) {
        * Description
        */
       source: {type: Boolean, reflect: true},
-      demo: {type: Boolean, reflect: true}
+      demo: {type: Boolean, reflect: true},
+      flow: {type: Boolean, reflect: true}
     };
   }
 
@@ -58,14 +67,14 @@ class FuroDemoSnippet extends FBP(LitElement) {
     super.__fbpReady();
 
 
-    let bind = this.shadowRoot.querySelector("#bind");
+    let demo = this.shadowRoot.querySelector("#demo");
 
     let elem = document.createElement("empty-fbp-node");
     elem.attachShadow({mode: 'open'});
     elem.shadowRoot.appendChild(this.template.cloneNode(true));
     elem._appendFBP(elem.shadowRoot);
     elem._FBPTraceWires();
-    bind.appendChild(elem.shadowRoot);
+    demo.appendChild(elem.shadowRoot);
   }
 
 
@@ -91,20 +100,27 @@ class FuroDemoSnippet extends FBP(LitElement) {
             background-color: rgb(245, 242, 240);
         }
 
-        #bind {
+        #demo, #flow {
             height: 100%;
         }
 
-        :host([source]) #bind {
+        :host(:not([demo])) #demo {
+            display: none;
+        } 
+        
+        :host(:not([flow])) #flow {
             display: none;
         }
 
-        :host([demo]) furo-markdown {
+        :host(:not([source])) furo-markdown {
             display: none;
         }
         div.flexbody{
             height: inherit;
             overflow: hidden;
+        }
+        span{
+            cursor: pointer;
         }
     `
   }
@@ -119,9 +135,10 @@ class FuroDemoSnippet extends FBP(LitElement) {
     return html`
 
       <furo-vertical-flex>
-        <div><span @-click="-^demo">demo</span> | <span @-click="-^source">source</span></div>
+        <div><span @-click="-^demo">demo</span> | <span @-click="-^source">source</span> | <span @-click="-^flow">flow</span></div>
         <div flex class="flexbody">
-          <div id="bind" flex></div>
+          <div id="demo" flex></div>
+          <div  id="flow">Comming soon</div>
           <furo-markdown  ƒ-parse-markdown="--tpl"></furo-markdown>
         </div>
       </furo-vertical-flex>
