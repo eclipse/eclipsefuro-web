@@ -347,31 +347,11 @@ export const Types = {
         "meta":{
           "default":{
 
-            "error": "invalid username",
-            "message": "invalid username",
-            "code": 3,
-            "details": [
-              {
-                "@type": "type.googleapis.com/google.rpc.BadRequest",
-                "field_violations": [{
-                  "code": 5432,
-                  "field": "display_name",
-                  "description": " have fancy characters"
-                }, {
-                  "code": 5432,
-                  "field": "repdate.0.repstring.1",
-                  "description": "Bitte kein B"
-                }, {
-                  "code": 5432,
-                  "field": "zeitunddatum.date",
-                  "description": "Deeeep"
-                }, {
-                  "code": 5432,
-                  "field": "unknown_field",
-                  "description": "unknown"
-                }],
-              }
-            ]
+
+                "@type": "vnd.com.acme.reference",
+                "display_name": "Any default ref",
+                "id":3223
+
           }
         }
       },
@@ -386,7 +366,8 @@ export const Types = {
         }
       }
     }
-  },"vnd.com.acme.reference": {
+  },
+  "vnd.com.acme.reference": {
     "name": "Reference",
     "type": "vnd.com.acme.reference",
     "description": "reference",
