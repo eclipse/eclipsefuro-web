@@ -64,6 +64,7 @@ export class RepeaterNode extends EventTreeNode {
       this.repeats[i]._pristine = true;
 
     });
+    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, true));
   }
 
 

@@ -449,16 +449,11 @@ class FuroTree extends FBP(LitElement) {
       return
     }
 
-    /**
-     *
-     * @type {Type[] | Types.vnd.com.acme.tree.fields | {children, description, id, display_name, open}  *}
-     * @private
-     */
-    this._tree = treeNode;
-    this._rootNode = treeNode.root;
+        this._tree = treeNode.fields;
+        this._rootNode = this._tree.root;
 
-    this._rootNode.addEventListener("repeated-fields-changed", (e) => {
-      this._init()
+        treeNode.addEventListener("data-injected", (e) => {
+            this._init();
     });
 
     this._init()
