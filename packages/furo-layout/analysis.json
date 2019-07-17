@@ -1720,7 +1720,7 @@
       ]
     },
     {
-      "description": "`furo-split-view`\n\n\nLeft right layout for master detail views",
+      "description": "`furo-split-view`\n\n```html\n<furo-split-view>\n  <div slot=\"master\" style=\"height: 100%; background-image: linear-gradient(blue, violet);\">Master</div>\n  <big-component scroll> </big-component scroll>\n</furo-split-view>\n```\n\n\nLeft right layout for master detail views",
       "summary": "splitted layout",
       "path": "packages/furo-layout/furo-split-view.js",
       "properties": [
@@ -1731,11 +1731,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 29,
+              "line": 36,
               "column": 6
             },
             "end": {
-              "line": 29,
+              "line": 36,
               "column": 30
             }
           },
@@ -1753,11 +1753,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 83,
+              "line": 94,
               "column": 3
             }
           },
@@ -1778,11 +1778,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 18,
+          "line": 25,
           "column": 0
         },
         "end": {
-          "line": 85,
+          "line": 96,
           "column": 1
         }
       },
@@ -1795,11 +1795,11 @@
           "description": "flip the left and right side",
           "sourceRange": {
             "start": {
-              "line": 29,
+              "line": 36,
               "column": 6
             },
             "end": {
-              "line": 29,
+              "line": 36,
               "column": 30
             }
           },

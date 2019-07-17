@@ -34,15 +34,14 @@
       <flow-bind>
         <template>
           <furo-split-view style="height: 300px">
-            <furo-vertical-scroller slot="master">
-              <!-- the doc menu -->
-              <furo-doc-menu ƒ-analysis="--analysis" @-element="--element" @-class="--class"></furo-doc-menu>
-            </furo-vertical-scroller>
 
-            <furo-vertical-scroller>
-              <furo-doc-element ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
-              <furo-doc-class ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
-            </furo-vertical-scroller>
+            <!-- the doc menu -->
+            <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element"
+                           @-class="--class"></furo-doc-menu>
+
+            <furo-doc-element scroll ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
+            <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
+
           </furo-split-view>
 
           <fetch-analysis @-data="--analysis"></fetch-analysis>
