@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.26](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.17.25...@furo/collection@0.17.26) (2019-07-18)
+
+**Note:** Version bump only for package @furo/collection
+
+
+
+
+
 ## [0.17.25](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.17.24...@furo/collection@0.17.25) (2019-07-18)
 
 **Note:** Version bump only for package @furo/collection
