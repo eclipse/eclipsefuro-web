@@ -2,6 +2,9 @@ import {EventTreeNode, NodeEvent} from "./EventTreeNode";
 import {FieldNode} from "./FieldNode";
 import {RepeaterNode} from "./RepeaterNode";
 
+/**
+ * EntityNode is usually the root node of an eventTree
+ */
 export class EntityNode extends EventTreeNode {
 
   constructor(parentNode, type, specs) {

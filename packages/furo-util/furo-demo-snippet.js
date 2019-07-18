@@ -66,7 +66,6 @@ class FuroDemoSnippet extends FBP(LitElement) {
   __fbpReady() {
     super.__fbpReady();
 
-
     let demo = this.shadowRoot.querySelector("#demo");
 
     let elem = document.createElement("empty-fbp-node");
