@@ -69,8 +69,8 @@ class FuroDataTable extends FBP(LitElement) {
         this._collection = [];
 
         this._FBPAddWireHook("--rowCheckChanged", (r) => {
-            if (r.path[0].nodeName === 'INPUT') {
-                if (r.path[0].checked) {
+            if (r.composedPath()[0].nodeName === 'INPUT') {
+                if (r.composedPath()[0].checked) {
                     this._checkedRows.push(this._collection.data[this._selectedIndex]);
                 } else {
                     this._checkedRows.pop(this._collection.data[this._selectedIndex]);
