@@ -41,7 +41,7 @@
       }
     },
     "__proto": {
-      "description": "information for the proto generator",
+      "description": "information for the proto generator, should be removed for the client spec",
       "type": "any",
       "__proto": {
         "number": 5
