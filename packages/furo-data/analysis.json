@@ -2,82 +2,81 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`server-check`\nPrüft verbindung zum Server und wirft entsprechende Meldungen wie `unauthorized` aus",
-      "summary": "Prüft Serververbindung",
-      "path": "packages/furo-data/server-status.js",
+      "description": "`furo-auth-check`\nPrüft verbindung zum Server und wirft entsprechende Meldungen wie `unauthorized` aus",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-data/furo-auth-check.js",
       "properties": [
         {
-          "name": "auto",
+          "name": "myBool",
           "type": "boolean | null | undefined",
-          "description": "If true, automatically performs an Ajax request when url changes",
+          "description": "Description",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 49,
-              "column": 6
+              "line": 28,
+              "column": 12
             },
             "end": {
-              "line": 49,
-              "column": 40
+              "line": 28,
+              "column": 35
             }
           },
           "metadata": {
             "polymer": {
               "attributeType": "Boolean"
             }
-          },
-          "defaultValue": "true"
-        },
-        {
-          "name": "url",
-          "type": "string | null | undefined",
-          "description": "The URL target of the request.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 54,
-              "column": 6
-            },
-            "end": {
-              "line": 56,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
           }
         }
       ],
       "methods": [
         {
-          "name": "_err",
-          "description": "",
-          "privacy": "protected",
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 27,
+              "line": 35,
               "column": 2
             },
             "end": {
-              "line": 42,
+              "line": 38,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [
-            {
-              "name": "e"
-            }
-          ],
+          "params": [],
           "return": {
             "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 2
+            },
+            "end": {
+              "line": 68,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
           }
         }
       ],
       "staticMethods": [],
-      "demos": [],
+      "demos": [
+        {
+          "url": "demo/furo-auth-check.html",
+          "description": ""
+        }
+      ],
       "metadata": {},
       "sourceRange": {
         "start": {
@@ -85,67 +84,44 @@
           "column": 0
         },
         "end": {
-          "line": 60,
+          "line": 69,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "ServerStatus",
+      "name": "FuroAuthCheck",
       "attributes": [
         {
-          "name": "auto",
-          "description": "If true, automatically performs an Ajax request when url changes",
+          "name": "my-bool",
+          "description": "Description",
           "sourceRange": {
             "start": {
-              "line": 49,
-              "column": 6
+              "line": 28,
+              "column": 12
             },
             "end": {
-              "line": 49,
-              "column": 40
+              "line": 28,
+              "column": 35
             }
           },
           "metadata": {},
           "type": "boolean | null | undefined"
-        },
-        {
-          "name": "url",
-          "description": "The URL target of the request.",
-          "sourceRange": {
-            "start": {
-              "line": 54,
-              "column": 6
-            },
-            "end": {
-              "line": 56,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
         }
       ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "unauthorized",
-          "description": "unauthorized\nFired when server responds with 401\ndetail payload: response",
-          "metadata": {}
-        }
-      ],
+      "events": [],
       "styling": {
         "cssVariables": [],
         "selectors": []
       },
       "slots": [],
-      "tagname": "server-status",
+      "tagname": "furo-auth-check",
       "mixins": [
         "FBP"
       ]
     },
     {
-      "description": "`api-fetch`\n\napi-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest\n\n```\n<api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></api-fetch>\n```",
+      "description": "`api-fetch`\n\napi-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest\n\n```html\n<api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></api-fetch>\n```",
       "summary": "",
       "path": "packages/furo-data/api-fetch.js",
       "properties": [
@@ -156,11 +132,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 69,
               "column": 8
             },
             "end": {
-              "line": 70,
+              "line": 69,
               "column": 24
             }
           },
@@ -178,11 +154,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 79,
               "column": 8
             },
             "end": {
-              "line": 80,
+              "line": 79,
               "column": 24
             }
           },
@@ -201,11 +177,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 88,
+              "line": 87,
               "column": 4
             },
             "end": {
-              "line": 91,
+              "line": 90,
               "column": 5
             }
           },
@@ -227,11 +203,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 98,
               "column": 4
             },
             "end": {
-              "line": 102,
+              "line": 101,
               "column": 5
             }
           },
@@ -253,11 +229,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 110,
               "column": 4
             },
             "end": {
-              "line": 160,
+              "line": 159,
               "column": 5
             }
           },
@@ -277,11 +253,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 167,
+              "line": 166,
               "column": 4
             },
             "end": {
-              "line": 215,
+              "line": 214,
               "column": 5
             }
           },
@@ -298,11 +274,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 234,
+              "line": 233,
               "column": 4
             },
             "end": {
-              "line": 297,
+              "line": 296,
               "column": 5
             }
           },
@@ -322,11 +298,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 306,
+              "line": 305,
               "column": 4
             },
             "end": {
-              "line": 403,
+              "line": 402,
               "column": 5
             }
           },
@@ -351,11 +327,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 13,
+          "line": 12,
           "column": 0
         },
         "end": {
-          "line": 405,
+          "line": 404,
           "column": 1
         }
       },
@@ -415,7 +391,7 @@
       "tagname": "api-fetch"
     },
     {
-      "description": "`data-collection`\n\nan interface component to get collection requests\ngive this component a mime type of a resource and the hateoas. other additionally options like order-by filter could\nalso be added. based on those information the component generate a request and update the result to the collection\n\nHow a hateoasIn likes:\n{\n {rel: \"self\", method: \"GET\", type: \"application/vnd.com.acme.task\", href: \"/api/v1/task\"}\n {rel: \"subresource\", method: \"GET\", type: \"application/vnd.com.acme.tag\", href: \"/api/v1/tag\"}\n}\n\nHow to use:\n```\n<data-collection ƒ-hts-in=\"--x\"\n                     service=\"\"\n                     ƒ-prev-page=\"\"\n                     ƒ-next-page=\"\"\n                     ƒ-last-page=\"\"\n                     ƒ-first-page=\"\"\n                     ƒ-list=\"--triggerGetCollection\"\n                     ƒ-hts-in=\"--hts\"\n                     list-on-hts-in",
+      "description": "`data-collection`\n\nan interface component to get collection requests\ngive this component a mime type of a resource and the hateoas. other additionally options like order-by filter could\nalso be added. based on those information the component generate a request and update the result to the collection\n\nHow a hateoasIn likes:\n{\n {rel: \"self\", method: \"GET\", type: \"application/vnd.com.acme.task\", href: \"/api/v1/task\"}\n {rel: \"subresource\", method: \"GET\", type: \"application/vnd.com.acme.tag\", href: \"/api/v1/tag\"}\n}\n\nHow to use:\n```html\n<data-collection ƒ-hts-in=\"--x\"\n                     service=\"\"\n                     ƒ-prev-page=\"\"\n                     ƒ-next-page=\"\"\n                     ƒ-last-page=\"\"\n                     ƒ-first-page=\"\"\n                     ƒ-list=\"--triggerGetCollection\"\n                     ƒ-hts-in=\"--hts\"\n                     list-on-hts-in",
       "summary": "",
       "path": "packages/furo-data/collection-agent.js",
       "properties": [
@@ -3193,7 +3169,7 @@
         },
         {
           "name": "setService",
-          "description": "Sets the service\n\nServices must be registered like:\n\n```\nimport {Services,Types} from \"./apiConfig.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n```\nUsually this is done in your main-app.js",
+          "description": "Sets the service\n\nServices must be registered like:\n\n```html\nimport {Services,Types} from \"./apiConfig.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n```\nUsually this is done in your main-app.js",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -5353,7 +5329,7 @@
       ],
       "demos": [
         {
-          "url": "demo/form.html",
+          "url": "demo/entity-object.html",
           "description": ""
         }
       ],
@@ -5631,7 +5607,7 @@
               "column": 2
             },
             "end": {
-              "line": 267,
+              "line": 272,
               "column": 3
             }
           },
@@ -5648,11 +5624,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 269,
+              "line": 274,
               "column": 2
             },
             "end": {
-              "line": 287,
+              "line": 292,
               "column": 3
             }
           },
@@ -5672,11 +5648,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 308,
+              "line": 313,
               "column": 2
             },
             "end": {
-              "line": 318,
+              "line": 323,
               "column": 3
             }
           },
@@ -5701,7 +5677,7 @@
           "column": 0
         },
         "end": {
-          "line": 321,
+          "line": 326,
           "column": 1
         }
       },
@@ -8089,7 +8065,116 @@
       "description": "",
       "summary": "",
       "path": "packages/furo-data/lib/EventTreeNode.js",
-      "properties": [],
+      "properties": [
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Event type / name",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 6,
+              "column": 4
+            },
+            "end": {
+              "line": 6,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "defaultValue": "type"
+        },
+        {
+          "name": "target",
+          "type": "undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 12,
+              "column": 4
+            },
+            "end": {
+              "line": 12,
+              "column": 15
+            }
+          },
+          "metadata": {},
+          "defaultValue": "undefined"
+        },
+        {
+          "name": "bubbles",
+          "type": "boolean",
+          "description": "should the Event bubble",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 17,
+              "column": 4
+            },
+            "end": {
+              "line": 17,
+              "column": 16
+            }
+          },
+          "metadata": {},
+          "defaultValue": "bubbles"
+        },
+        {
+          "name": "detail",
+          "type": "*",
+          "description": "Event details",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 22,
+              "column": 4
+            },
+            "end": {
+              "line": 22,
+              "column": 15
+            }
+          },
+          "metadata": {},
+          "defaultValue": "detail"
+        },
+        {
+          "name": "cancelBubble",
+          "type": "boolean",
+          "description": "If you are in a parent element and set this to true it will not bubble",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 27,
+              "column": 4
+            },
+            "end": {
+              "line": 27,
+              "column": 21
+            }
+          },
+          "metadata": {},
+          "defaultValue": "false"
+        },
+        {
+          "name": "cancelBroadcast",
+          "type": "boolean",
+          "description": "if you are in a child element and set this to true, the event will not broadcast downwards",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 4
+            },
+            "end": {
+              "line": 32,
+              "column": 24
+            }
+          },
+          "metadata": {},
+          "defaultValue": "false"
+        }
+      ],
       "methods": [
         {
           "name": "stopPropagation",
@@ -8097,11 +8182,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 11,
+              "line": 36,
               "column": 2
             },
             "end": {
-              "line": 13,
+              "line": 38,
               "column": 3
             }
           },
@@ -8117,11 +8202,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 15,
+              "line": 40,
               "column": 2
             },
             "end": {
-              "line": 18,
+              "line": 43,
               "column": 3
             }
           },
@@ -8141,7 +8226,7 @@
           "column": 7
         },
         "end": {
-          "line": 20,
+          "line": 45,
           "column": 1
         }
       },
@@ -8160,11 +8245,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 43,
+              "line": 68,
               "column": 2
             },
             "end": {
-              "line": 46,
+              "line": 71,
               "column": 3
             }
           },
@@ -8187,11 +8272,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 59,
+              "line": 84,
               "column": 3
             }
           },
@@ -8219,11 +8304,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 97,
               "column": 3
             }
           },
@@ -8246,11 +8331,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 79,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 119,
               "column": 3
             }
           },
@@ -8271,11 +8356,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 137,
               "column": 3
             }
           },
@@ -8295,11 +8380,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 148,
               "column": 3
             }
           },
@@ -8319,11 +8404,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 26,
+          "line": 51,
           "column": 7
         },
         "end": {
-          "line": 124,
+          "line": 149,
           "column": 1
         }
       },
@@ -8343,11 +8428,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 43,
+              "line": 68,
               "column": 2
             },
             "end": {
-              "line": 46,
+              "line": 71,
               "column": 3
             }
           },
@@ -8372,11 +8457,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 54,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 59,
+              "line": 84,
               "column": 3
             }
           },
@@ -8406,11 +8491,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 66,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 97,
               "column": 3
             }
           },
@@ -8435,11 +8520,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 79,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 119,
               "column": 3
             }
           },
@@ -8462,11 +8547,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 102,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 137,
               "column": 3
             }
           },
@@ -8488,11 +8573,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 114,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 148,
               "column": 3
             }
           },
@@ -8538,11 +8623,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 43,
+              "line": 68,
               "column": 2
             },
             "end": {
-              "line": 46,
+              "line": 71,
               "column": 3
             }
           },
@@ -8567,11 +8652,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 54,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 59,
+              "line": 84,
               "column": 3
             }
           },
@@ -8601,11 +8686,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 66,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 97,
               "column": 3
             }
           },
@@ -8630,11 +8715,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 79,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 119,
               "column": 3
             }
           },
@@ -8657,11 +8742,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 102,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 137,
               "column": 3
             }
           },
@@ -8683,11 +8768,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 114,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 148,
               "column": 3
             }
           },
@@ -8799,11 +8884,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 43,
+              "line": 68,
               "column": 2
             },
             "end": {
-              "line": 46,
+              "line": 71,
               "column": 3
             }
           },
@@ -8828,11 +8913,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 54,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 59,
+              "line": 84,
               "column": 3
             }
           },
@@ -8862,11 +8947,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 66,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 97,
               "column": 3
             }
           },
@@ -8891,11 +8976,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 79,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 119,
               "column": 3
             }
           },
@@ -8918,11 +9003,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 102,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 137,
               "column": 3
             }
           },
@@ -8944,11 +9029,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 114,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 148,
               "column": 3
             }
           },
@@ -8973,7 +9058,7 @@
               "column": 2
             },
             "end": {
-              "line": 53,
+              "line": 52,
               "column": 3
             }
           },
@@ -8993,7 +9078,7 @@
               "column": 2
             },
             "end": {
-              "line": 80,
+              "line": 81,
               "column": 3
             }
           },
@@ -9013,11 +9098,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 82,
+              "line": 83,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 98,
               "column": 3
             }
           },
@@ -9030,11 +9115,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 100,
+              "line": 101,
               "column": 2
             },
             "end": {
-              "line": 108,
+              "line": 109,
               "column": 3
             }
           },
@@ -9054,11 +9139,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 112,
               "column": 2
             },
             "end": {
-              "line": 124,
+              "line": 126,
               "column": 3
             }
           },
@@ -9079,7 +9164,7 @@
           "column": 7
         },
         "end": {
-          "line": 127,
+          "line": 129,
           "column": 1
         }
       },
@@ -9099,11 +9184,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 174,
               "column": 2
             },
             "end": {
-              "line": 103,
+              "line": 184,
               "column": 3
             }
           },
@@ -9116,11 +9201,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 78,
+              "line": 150,
               "column": 2
             },
             "end": {
-              "line": 91,
+              "line": 172,
               "column": 3
             }
           },
@@ -9135,11 +9220,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 43,
+              "line": 68,
               "column": 2
             },
             "end": {
-              "line": 46,
+              "line": 71,
               "column": 3
             }
           },
@@ -9164,11 +9249,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 54,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 59,
+              "line": 84,
               "column": 3
             }
           },
@@ -9198,11 +9283,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 66,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 97,
               "column": 3
             }
           },
@@ -9227,11 +9312,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 79,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 119,
               "column": 3
             }
           },
@@ -9254,11 +9339,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 102,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 137,
               "column": 3
             }
           },
@@ -9280,11 +9365,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 114,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 148,
               "column": 3
             }
           },
@@ -9300,16 +9385,40 @@
           "inheritedFrom": "EventTreeNode"
         },
         {
-          "name": "set",
+          "name": "_createVendorType",
           "description": "",
-          "privacy": "public",
+          "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 49,
               "column": 2
             },
             "end": {
-              "line": 109,
+              "line": 61,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "type"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_createAnyType",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 93,
+              "column": 2
+            },
+            "end": {
+              "line": 111,
               "column": 3
             }
           },
@@ -9324,16 +9433,63 @@
           }
         },
         {
+          "name": "_updateKeyValueMap",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 114,
+              "column": 2
+            },
+            "end": {
+              "line": 134,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "val"
+            },
+            {
+              "name": "spec"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "deleteNode",
+          "description": "deletes the fieldnode",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 139,
+              "column": 2
+            },
+            "end": {
+              "line": 148,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "_clearInvalidity",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 186,
               "column": 2
             },
             "end": {
-              "line": 117,
+              "line": 192,
               "column": 3
             }
           },
@@ -9349,11 +9505,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 194,
               "column": 2
             },
             "end": {
-              "line": 142,
+              "line": 214,
               "column": 3
             }
           },
@@ -9373,11 +9529,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 144,
+              "line": 216,
               "column": 2
             },
             "end": {
-              "line": 147,
+              "line": 219,
               "column": 3
             }
           },
@@ -9394,7 +9550,7 @@
           "column": 7
         },
         "end": {
-          "line": 148,
+          "line": 220,
           "column": 1
         }
       },
@@ -9403,7 +9559,7 @@
       "name": "FieldNode"
     },
     {
-      "description": "",
+      "description": "EntityNode is usually the root node of an eventTree",
       "summary": "",
       "path": "packages/furo-data/lib/EntityNode.js",
       "properties": [
@@ -9414,11 +9570,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 92,
+              "line": 95,
               "column": 3
             }
           },
@@ -9431,11 +9587,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 97,
               "column": 2
             },
             "end": {
-              "line": 96,
+              "line": 99,
               "column": 3
             }
           },
@@ -9450,11 +9606,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 43,
+              "line": 68,
               "column": 2
             },
             "end": {
-              "line": 46,
+              "line": 71,
               "column": 3
             }
           },
@@ -9479,11 +9635,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 54,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 59,
+              "line": 84,
               "column": 3
             }
           },
@@ -9513,11 +9669,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 66,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 97,
               "column": 3
             }
           },
@@ -9542,11 +9698,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 79,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 119,
               "column": 3
             }
           },
@@ -9569,11 +9725,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 102,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 137,
               "column": 3
             }
           },
@@ -9595,11 +9751,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 114,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 148,
               "column": 3
             }
           },
@@ -9620,11 +9776,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 49,
+              "line": 52,
               "column": 2
             },
             "end": {
-              "line": 70,
+              "line": 73,
               "column": 3
             }
           },
@@ -9644,11 +9800,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 75,
+              "line": 78,
               "column": 2
             },
             "end": {
-              "line": 79,
+              "line": 82,
               "column": 3
             }
           },
@@ -9664,11 +9820,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 87,
               "column": 2
             },
             "end": {
-              "line": 88,
+              "line": 91,
               "column": 3
             }
           },
@@ -9684,11 +9840,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 102,
               "column": 2
             },
             "end": {
-              "line": 107,
+              "line": 110,
               "column": 3
             }
           },
@@ -9701,11 +9857,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 110,
+              "line": 115,
               "column": 2
             },
             "end": {
-              "line": 188,
+              "line": 205,
               "column": 3
             }
           },
@@ -9731,11 +9887,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 191,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 207,
+              "line": 224,
               "column": 3
             }
           },
@@ -9758,11 +9914,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 215,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 224,
+              "line": 241,
               "column": 3
             }
           },
@@ -9785,11 +9941,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 227,
+              "line": 244,
               "column": 2
             },
             "end": {
-              "line": 229,
+              "line": 246,
               "column": 3
             }
           },
@@ -9802,11 +9958,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 4,
+          "line": 7,
           "column": 7
         },
         "end": {
-          "line": 230,
+          "line": 247,
           "column": 1
         }
       },

@@ -51,12 +51,20 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
 
   bindTreeEntity(entityNode) {
+
     this._tree = entityNode;
+    this._rootNode = entityNode.fields.root;
+    // set view as default panel
+    if (this._tree.fields.panel && this._tree.fields.panel.value) {
+      this._panel = this._tree.fields.panel.value;
+    } else {
+      this._panel = "view";
+    }
 
     /**
      * set the query param for the active page.
      */
-    this._tree.addEventListener("tree-node-selected", (e) => {
+    this._rootNode.addEventListener("tree-node-selected", (e) => {
       let nodeID = e.detail.id.value;
       let newQuery = window.location.search.slice(1);
       let queryObject = {};
@@ -81,7 +89,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
       this.dispatchEvent(customEvent)
     });
 
-    this._tree.addEventListener("data-injected", (e) => {
+    this._rootNode.addEventListener("data-injected", (e) => {
       this._initTree()
     });
 
@@ -89,9 +97,9 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   }
 
   _initTree() {
-    this._flatTree = [this._tree.fields];
-    if (this._tree.fields.children.repeats.length > 0) {
-      this._parseTreeRecursive(this._tree.fields);
+    this._flatTree = [this._rootNode];
+    if (this._rootNode.children.repeats.length > 0) {
+      this._parseTreeRecursive(this._rootNode);
 
       if (this._flatTree.length > 0 && this._queueLocation) {
         this._handleDeepLink(this._queueLocation);
@@ -223,7 +231,8 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     let name = node.id.value;
     // register node
     if (this._openPanels.indexOf(node) === -1) {
-      let panelComponent = panelRegistry.getPanelName(node.link.type.value);
+
+      let panelComponent = panelRegistry.getPanelName(node.link.type.value, this._panel);
       if (panelComponent) {
         //create element and set name,...
         let panel = document.createElement(panelComponent);
@@ -232,7 +241,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
         panel._TreeNode = node;
         panel.removePanel = () => {
           this._removeNodeByName(panelName);
-        }
+        };
         this._openPanels.push(node);
         this._furoPage.appendChild(panel);
 

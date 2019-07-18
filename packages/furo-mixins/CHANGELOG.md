@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.19...@furo/mixins@0.16.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+
+
+
+
+
+## [0.15.19](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.18...@furo/mixins@0.15.19) (2019-07-12)
+
+**Note:** Version bump only for package @furo/mixins
+
+
+
+
+
+## [0.15.18](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.17...@furo/mixins@0.15.18) (2019-07-12)
+
+**Note:** Version bump only for package @furo/mixins
+
+
+
+
+
 ## [0.15.17](https://github.com/veith/FuroBaseComponents/compare/@furo/mixins@0.15.16...@furo/mixins@0.15.17) (2019-07-11)
 
 **Note:** Version bump only for package @furo/mixins

@@ -4,7 +4,10 @@ export class panelRegistry {
     this._registry[type] = panel;
   }
 
-  static getPanelName(type) {
+  static getPanelName(type, suffix) {
+    if(suffix){
+      return this._registry[type][suffix];
+    }
     return this._registry[type];
   }
 

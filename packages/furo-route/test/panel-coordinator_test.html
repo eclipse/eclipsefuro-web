@@ -39,7 +39,7 @@
 
 
 
-          <furo-tree  ƒ-bind-data="--entityObj(*.fields)"></furo-tree>
+          <furo-tree  ƒ-bind-data="--entityObj"></furo-tree>
 
           <furo-pages ƒ-activate-page="--panelReady" default="welcome">
             <div name="welcome">Welcome</div>
@@ -120,7 +120,10 @@
     });
 
     it('should bind the Tree', (done) => {
-      expect(panelCoordinator._tree).to.have.a.property('fields');
+      expect(panelCoordinator._rootNode).to.have.a.property('children');
+      assert.equal(panelCoordinator._rootNode._spec.type, 'vnd.com.acme.treeitem');
+      assert.equal(panelCoordinator._tree._spec.type, 'vnd.com.acme.tree');
+
       done();
     });
 

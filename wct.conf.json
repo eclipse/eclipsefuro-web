@@ -12,7 +12,7 @@
     "root": "./",
     "npm": true,
     "moduleResolution": "node",
-    "verbose": true,
+    "verbose": false,
     "plugins": {
         "istanbub": {
             "reporters": ["text-summary", "lcov"],

@@ -17,20 +17,9 @@ export class FieldNode extends EventTreeNode {
     this._isValid = true;
 
 
-
     // custom type fields aufbauen
     if (this._spec.type.startsWith("vnd.")) {
-      if (this.__specdefinitions[this._spec.type]) {
-        for (let fieldName in this.__specdefinitions[this._spec.type].fields) {
-          if (this.__specdefinitions[this._spec.type].fields[fieldName].meta && this.__specdefinitions[this._spec.type].fields[fieldName].meta.repeated) {
-            this[fieldName] = new RepeaterNode(this, this.__specdefinitions[this._spec.type].fields[fieldName], fieldName);
-          } else {
-            this[fieldName] = new FieldNode(this, this.__specdefinitions[this._spec.type].fields[fieldName], fieldName);
-          }
-        }
-      } else {
-        console.warn(this._spec.type + " does not exist")
-      }
+      this._createVendorType(this._spec.type);
     }
 
     // set default value from meta
@@ -58,25 +47,110 @@ export class FieldNode extends EventTreeNode {
     });
   }
 
-  set value(val) {
-    if (this.__childNodes.length > 0) {
-      for (let index in this.__childNodes) {
-        let field = this.__childNodes[index];
-        if(val.hasOwnProperty(field._name)){
-          field.value = val[field._name];
+  _createVendorType(type) {
+    if (this.__specdefinitions[type]) {
+      for (let fieldName in this.__specdefinitions[type].fields) {
+        if (this.__specdefinitions[type].fields[fieldName].meta && this.__specdefinitions[type].fields[fieldName].meta.repeated) {
+          this[fieldName] = new RepeaterNode(this, this.__specdefinitions[type].fields[fieldName], fieldName);
+        } else {
+          this[fieldName] = new FieldNode(this, this.__specdefinitions[type].fields[fieldName], fieldName);
         }
       }
-        this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
     } else {
-      this.oldvalue = this.value;
-      this._value = val;
-      this._pristine = false;
-      if (JSON.stringify(this.oldvalue) !== JSON.stringify(this._value)) {
-        this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
-      }
+      console.warn(type + " does not exist")
     }
   }
+
+  set value(val) {
+    // type any
+    this._createAnyType(val);
+
+    // map<string, something> typ
+    if (this._spec.type.startsWith("map<")) {
+      this._updateKeyValueMap(val, this._spec.type)
+    } else {
+      if (this.__childNodes.length > 0) {
+        for (let index in this.__childNodes) {
+          let field = this.__childNodes[index];
+          if (val.hasOwnProperty(field._name)) {
+            field.value = val[field._name];
+          }
+        }
+        this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
+      } else {
+        // update the primitive type
+        this.oldvalue = this.value;
+        this._value = val;
+        this._pristine = false;
+        if (JSON.stringify(this.oldvalue) !== JSON.stringify(this._value)) {
+          this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
+        }
+      }
+
+    }
+  }
+
+
+  _createAnyType(val) {
+    // remove if type changes
+    if(this.__anyCreated && this["@type"] !== val["@type"]){
+      for (let i = this.__childNodes.length - 1; i >= 0; i--) {
+        let field = this.__childNodes[i];
+        if (!val[field._name]) {
+          field.deleteNode();
+        }
+      }
+      this.__anyCreated = false;
+    }
+    if (this._spec.type === "any" && val["@type"] && !this.__anyCreated) {
+      // create custom type if not exist
+      // any can only be a complex type
+      this._createVendorType(val["@type"]);
+      this.__anyCreated = true;
+      this["@type"] = val["@type"];
+    }
+  }
+
+
+  _updateKeyValueMap(val, spec) {
+    let vType = spec.match(/,\s*(.*)>/)[1];
+    let fieldSpec = {type: vType};
+
+    // create if not exist
+    for (let fieldName in val) {
+      if (this[fieldName] == undefined) {
+        this[fieldName] = new FieldNode(this, fieldSpec, fieldName);
+      }
+      //update data
+      this[fieldName].value = val[fieldName];
+    }
+    //remove unseted
+    for (let i = this.__childNodes.length - 1; i >= 0; i--) {
+      let field = this.__childNodes[i];
+      if (!val[field._name]) {
+        field.deleteNode();
+      }
+    }
+
+  }
+
+  /**
+   * deletes the fieldnode
+   */
+  deleteNode() {
+
+    let index = this.__parentNode.__childNodes.indexOf(this);
+    this.__parentNode.__childNodes.splice(index, 1);
+    delete (this.__parentNode[this._name]);
+
+    //notify
+    this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted", this._name, false));
+    this.dispatchNodeEvent(new NodeEvent("node-field-deleted", this._name, true));
+  }
+
   set defaultvalue(val) {
+    // type any
+    this._createAnyType(val);
 
     if (this.__childNodes.length > 0) {
       for (let index in this.__childNodes) {
@@ -84,9 +158,16 @@ export class FieldNode extends EventTreeNode {
         field.defaultvalue = val[field._name];
       }
     } else {
-      this.oldvalue = this.value;
-      this._value = val;
-      this._pristine = true;
+
+      if (this._spec.type.startsWith("map<")) {
+        this._updateKeyValueMap(val, this._spec.type)
+      } else {
+
+        this.oldvalue = this.value;
+        this._value = val;
+        this._pristine = true;
+      }
+
 
     }
   }
@@ -116,7 +197,7 @@ export class FieldNode extends EventTreeNode {
     error.field = error.field || "";
 
     let path = error.field.split(".");
-    if (path.length > 0 && path[0]!=="") {
+    if (path.length > 0 && path[0] !== "") {
       // rest wieder in error reinwerfen
       error.field = path.slice(1).join(".");
       if (this[path[0]]) {
@@ -124,10 +205,7 @@ export class FieldNode extends EventTreeNode {
       } else {
         console.warn("Unknown field", path, this._name)
       }
-    }
-
-
-   else {
+    } else {
       this._isValid = false;
       this._validity = error;
       this.dispatchNodeEvent(new NodeEvent("field-became-invalid", this));

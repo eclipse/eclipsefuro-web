@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.1](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.19.0...@furo/form@0.19.1) (2019-07-18)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+# [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.20...@furo/form@0.19.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+
+
+
+
+
+## [0.18.20](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.19...@furo/form@0.18.20) (2019-07-12)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.18.19](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.18...@furo/form@0.18.19) (2019-07-12)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
+## [0.18.18](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.17...@furo/form@0.18.18) (2019-07-11)
+
+**Note:** Version bump only for package @furo/form
+
+
+
+
+
 ## [0.18.17](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.18.16...@furo/form@0.18.17) (2019-07-11)
 
 **Note:** Version bump only for package @furo/form

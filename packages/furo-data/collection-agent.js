@@ -18,7 +18,7 @@ import {Env} from "@furo/framework"
  * }
  *
  * How to use:
- * ```
+ * ```html
  * <data-collection ƒ-hts-in="--x"
  *                      service=""
  *                      ƒ-prev-page=""

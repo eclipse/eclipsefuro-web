@@ -599,11 +599,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 142,
               "column": 2
             },
             "end": {
-              "line": 146,
+              "line": 147,
               "column": 3
             }
           },
@@ -632,10 +632,7 @@
             {
               "name": "pageName"
             }
-          ],
-          "return": {
-            "type": "void"
-          }
+          ]
         },
         {
           "name": "injectLocation",
@@ -647,7 +644,7 @@
               "column": 2
             },
             "end": {
-              "line": 120,
+              "line": 121,
               "column": 3
             }
           },
@@ -656,10 +653,7 @@
             {
               "name": "location"
             }
-          ],
-          "return": {
-            "type": "void"
-          }
+          ]
         }
       ],
       "staticMethods": [
@@ -878,7 +872,7 @@
           "column": 0
         },
         "end": {
-          "line": 148,
+          "line": 149,
           "column": 1
         }
       },
@@ -2233,6 +2227,384 @@
       "mixins": [
         "FBP"
       ]
+    },
+    {
+      "description": "`furo-panel-coordinator`\ntodo Describe your element",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-route/furo-panel-coordinator.js",
+      "properties": [
+        {
+          "name": "queryTag",
+          "type": "string",
+          "description": "the Query param you use for the active page. ap stands for active panel. If it conflicts with your naming, change this property",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 28,
+              "column": 4
+            },
+            "end": {
+              "line": 28,
+              "column": 17
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "this.getAttribute(\"query-tag\") || \"ap\""
+        },
+        {
+          "name": "urlSpaceRegex",
+          "type": "(string | RegExp)",
+          "description": "A regexp that defines the set of URLs that should be considered part\nof this web app.\n\nClicking on a link that matches this regex won't result in a full page\nnavigation, but will instead just update the URL state in place.\n\nThis regexp is given everything after the origin in an absolute\nURL. So to match just URLs that start with /app/ do:\n    url-space-regex=\"^/app/\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 43,
+              "column": 4
+            },
+            "end": {
+              "line": 43,
+              "column": 22
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "this.getAttribute(\"url-space-regex\") || \"\""
+        }
+      ],
+      "methods": [
+        {
+          "name": "bindTreeEntity",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 52,
+              "column": 2
+            },
+            "end": {
+              "line": 96,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "entityNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_initTree",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 98,
+              "column": 2
+            },
+            "end": {
+              "line": 108,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_parseTreeRecursive",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 110,
+              "column": 2
+            },
+            "end": {
+              "line": 119,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "tree"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_handleDeepLink",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 121,
+              "column": 2
+            },
+            "end": {
+              "line": 147,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "location"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "closeAll",
+          "description": "closes all open panels",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 152,
+              "column": 2
+            },
+            "end": {
+              "line": 157,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_removeNodeByName",
+          "description": "removes a panel from the view",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 164,
+              "column": 2
+            },
+            "end": {
+              "line": 227,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "nodeName"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_activatePanelForNode",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 229,
+              "column": 2
+            },
+            "end": {
+              "line": 289,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "node"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 296,
+              "column": 2
+            },
+            "end": {
+              "line": 301,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        },
+        {
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 306,
+              "column": 2
+            },
+            "end": {
+              "line": 309,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/panel-coordinator.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 310,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroPanelCoordinator",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "panel-changed",
+          "description": "panel-changed\nFired when a panel was opened or is closed\ndetail payload: array with open panels",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "panel-opened",
+          "description": "panel-opened\nFired when a panel was opened\ndetail payload: array with open panels",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-panel-coordinator",
+      "mixins": [
+        "FBP"
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "description": "",
+      "summary": "",
+      "path": "packages/furo-route/lib/panelRegistry.js",
+      "properties": [],
+      "methods": [],
+      "staticMethods": [
+        {
+          "name": "registerType",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 2,
+              "column": 2
+            },
+            "end": {
+              "line": 4,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "type"
+            },
+            {
+              "name": "panel"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "getPanelName",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 6,
+              "column": 2
+            },
+            "end": {
+              "line": 11,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "type"
+            },
+            {
+              "name": "suffix"
+            }
+          ]
+        }
+      ],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 0,
+          "column": 7
+        },
+        "end": {
+          "line": 13,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "name": "panelRegistry"
     }
   ]
 }

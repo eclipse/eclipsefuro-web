@@ -32,19 +32,12 @@
 
                     <ul>
                         <flow-repeat  ƒ-inject-items="--newData"
-                                      internal-wire="--inject">
+                                      internal-wire="--inject" identity-path="data.id">
                         <template>
-                                <li>other node</li>
                                 <li>
-                                    <b>neu</b>
-                                    <rep-item ƒ-raw="--inject" @-click="--xx"></rep-item>
-                                    <rep-item ƒ-index="--inject(*.index)" ƒ-yy="--xx" ></rep-item>
-                                    <hr>
-                                    <template is="flow-repeat" ƒ-inject-items="--inject(*.item.arr)">
-                                            <div ƒ-.inner-text="--item"></div>
-                                    </template>
-                                    <hr>
-
+                                    <input type="text">
+                                    <span ƒ-.inner-text="--item(*.node)"></span>
+                                    <span ƒ-.inner-text="--item(*.total)"></span>
                                 </li>
 
                         </template>

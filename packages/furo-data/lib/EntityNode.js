@@ -2,6 +2,9 @@ import {EventTreeNode, NodeEvent} from "./EventTreeNode";
 import {FieldNode} from "./FieldNode";
 import {RepeaterNode} from "./RepeaterNode";
 
+/**
+ * EntityNode is usually the root node of an eventTree
+ */
 export class EntityNode extends EventTreeNode {
 
   constructor(parentNode, type, specs) {
@@ -61,7 +64,7 @@ export class EntityNode extends EventTreeNode {
 
     if (rawEntity.error && rawEntity.details) {
       rawEntity.details.forEach((errorSet) => {
-        if(errorSet["field_violations"]){
+        if (errorSet["field_violations"]) {
           this._handleErrorsFromRawEntity(this.fields, errorSet["field_violations"]);
         }
       });
@@ -108,6 +111,8 @@ export class EntityNode extends EventTreeNode {
   }
 
 
+
+
   _updateFieldValuesAndMetaFromRawEntity(node, data, dynamicFieldMeta) {
 
     for (let fieldName in data) {
@@ -117,12 +122,17 @@ export class EntityNode extends EventTreeNode {
         console.warn("unspecified field", fieldName)
       } else {
         if (fieldNode._isRepeater) {
-          fieldNode.removeAllChildren();
+          let initialSize = fieldNode.repeats.length;
+
+          //fieldNode.removeAllChildren();
+
+          // update records
           data[fieldName].forEach((repdata, i) => {
+            // create if record index do not exist
             if (!fieldNode.repeats[i]) {
               fieldNode._addSilent();
             }
-            let repMeta = {}
+            let repMeta = {};
             if (dynamicFieldMeta[fieldName]) {
               if (dynamicFieldMeta[fieldName].fields) {
                 repMeta = dynamicFieldMeta[fieldName].fields;
@@ -132,11 +142,18 @@ export class EntityNode extends EventTreeNode {
             // Werte aktualisieren
             fieldNode.repeats[i].value = repdata;
             fieldNode.repeats[i]._pristine = true;
-
+            fieldNode.repeats[i].__index = i;
 
           });
-          fieldNode._pristine = true;
 
+
+          // entferne überzählige nodes
+          let newSize = data[fieldName].length;
+          if (newSize < fieldNode.repeats.length) {
+            fieldNode.repeats.splice(newSize);
+          }
+
+          fieldNode._pristine = true;
           fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", fieldNode.repeats, true))
 
         } else {

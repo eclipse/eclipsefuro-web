@@ -7,7 +7,7 @@ import {Env} from "@furo/framework"
  * `entity-object`
  *
  * @customElement
- * @demo demo/form.html
+ * @demo demo/entity-object.html
  * @appliesMixin FBP
  */
 class EntityObject extends (LitElement) {

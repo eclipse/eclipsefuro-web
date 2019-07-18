@@ -72,11 +72,12 @@ class FlowRepeat extends FBP(HTMLElement) {
     }
 
     // trigger all nodes
-    triggerAll(data){
-        for(let i = 0; i < this._insertedItems.length;i++){
-            this.triggerIndex(i,data);
+    triggerAll(data) {
+        for (let i = 0; i < this._insertedItems.length; i++) {
+            this.triggerIndex(i, data);
         }
     }
+
     /**
      * Triggers the wire --itemDeSelected on last selected item
      */
@@ -107,24 +108,38 @@ class FlowRepeat extends FBP(HTMLElement) {
 
         this._firstHost = this._findFirstHost(this.parentNode);
         items.forEach((e, i, a) => {
-            // build hidden elem
-            let elem = document.createElement('empty-fbp-node');
-            elem.attachShadow({mode: 'open'});
-            elem.shadowRoot.appendChild(this.template.cloneNode(true));
-            elem._appendFBP(elem.shadowRoot);
 
-            let handle = {virtualElement: elem, children: [].slice.call(elem.shadowRoot.children)};
-
-            // remove old entries
-            if (this._insertedItems[i]) {
-                this._insertedItems[i].children.map((attachedElem) => {
-                    attachedElem.remove()
-                })
+            let identity = false;
+            if (this.identityPath) {
+                identity = this.identityPath.split('.').reduce((acc, part) => acc && acc[part], e);
             }
 
-            this._insertedItems[i] = handle;
+            let elem;
+            // wenn das element noch nicht existiert
+            if (!this._insertedItems[i]) {
+                elem = this._buildDomNode(identity, i);
+                elem._FBPTriggerWire("--init", e);
+            } else {
+                // wenn die identität abweicht
+                if (!this._insertedItems[i].identity || this._insertedItems[i].identity !== identity) {
+                    elem = this._buildDomNode(identity, i);
 
-            this.parentNode.insertBefore(elem.shadowRoot, this);
+                    // Schiebe alle elemente des Knotens vor das erste kind des nächsten möglichen knoten
+                    let reference = this;
+                    if(this._insertedItems[i + 1] && this._insertedItems[i + 1].children[0] ){
+                        reference = this._insertedItems[i + 1].children[0];
+                    }
+
+                    // move the nodes
+                    this._insertedItems[i].children.map((attachedElem) => {
+                        this.parentNode.insertBefore(attachedElem, reference);
+                    });
+                    elem._FBPTriggerWire("--init", e);
+                } else {
+                    elem = this._insertedItems[i].virtualElement;
+                }
+            }
+
 
             // set item and index value on created element
             elem.item = e;
@@ -142,17 +157,20 @@ class FlowRepeat extends FBP(HTMLElement) {
             }
 
             elem._FBPTriggerWire("--item", e);
+
             elem._FBPTriggerWire("--host", this._firstHost);
             elem._FBPTriggerWire("--index", i);
 
         });
 
-        // remove entries in old array if items is smaller
+        // überzählige elemente aus dem dom entfernen
         this._insertedItems.slice(items.length, this._insertedItems.length).map((handle) => {
             handle.children.map((attachedElem) => {
                 attachedElem.remove()
             })
         });
+        // überzählige elemente aus dem array entfernen
+        this._insertedItems.splice(items.length);
 
         if (items.length > 0) {
             /**
@@ -160,13 +178,42 @@ class FlowRepeat extends FBP(HTMLElement) {
              * Fired when items are attached to the dom
              * detail payload: {Number} Number of items
              */
-            setTimeout(()=>{
+            setTimeout(() => {
                 let customEvent = new Event('items-in-dom', {composed: true, bubbles: false});
                 customEvent.detail = items.length;
                 this.dispatchEvent(customEvent);
-            },0);
+            }, 0);
 
         }
+    }
+
+    _buildDomNode(identity, i) {
+// build hidden elem
+        let elem;
+        elem = document.createElement('empty-fbp-node');
+        elem.attachShadow({mode: 'open'});
+        elem.shadowRoot.appendChild(this.template.cloneNode(true));
+        elem._appendFBP(elem.shadowRoot);
+
+
+        let handle = {
+            virtualElement: elem,
+            children: [].slice.call(elem.shadowRoot.children),
+            "identity": identity
+        };
+
+
+        // remove old entries
+        if (this._insertedItems[i]) {
+            this._insertedItems[i].children.map((attachedElem) => {
+                attachedElem.remove()
+            })
+        }
+
+        this._insertedItems[i] = handle;
+
+        this.parentNode.insertBefore(elem.shadowRoot, this);
+        return elem;
     }
 
     connectedCallback() {
@@ -178,23 +225,30 @@ class FlowRepeat extends FBP(HTMLElement) {
             this.template = t.content;
         }
 
+        /**
+         * Identity path of a single item.
+         * Use this if you have a field which identifies the item.
+         * @type {*string}
+         */
+        this.identityPath = this.getAttribute("identity-path") || false;
+
         this._internalWire = this.getAttribute("internal-wire") || "--itemInjected";
     }
 
 
     triggerFirst(e) {
-        if(this._insertedItems[0]){
-        this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger", e);
-        this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst", e);
-    }
+        if (this._insertedItems[0]) {
+            this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger", e);
+            this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst", e);
+        }
 
     }
 
     triggerLast(e) {
-        if(this._insertedItems[this._insertedItems.length - 1]){
-        this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire("--trigger", e);
-        this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire("--triggerLast", e);
-    }
+        if (this._insertedItems[this._insertedItems.length - 1]) {
+            this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire("--trigger", e);
+            this._insertedItems[this._insertedItems.length - 1].virtualElement._FBPTriggerWire("--triggerLast", e);
+        }
     }
 
     triggerIndex(i, data) {

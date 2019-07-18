@@ -158,8 +158,10 @@ export class FuroTreeItem extends FBP(LitElement) {
 
     });
 
+
+
     // make first node visible
-    if (this.fieldNode.__parentNode.__parentNode === null) {
+    if (this.fieldNode.depth === 0) {
       this.hidden = false;
       this.fieldNode._isHidden = false;
     }

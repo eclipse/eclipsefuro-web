@@ -1,13 +1,38 @@
 export class NodeEvent {
   constructor(type, detail, bubbles = true) {
+    /**
+     * Event type / name
+     * @type {string}
+     */
     this.type = type;
     this.path = [];
+    /**
+     *
+     * @type {undefined}
+     */
     this.target = undefined;
+    /**
+     * should the Event bubble
+     * @type {boolean}
+     */
     this.bubbles = bubbles;
+    /**
+     * Event details
+     * @type {*}
+     */
     this.detail = detail;
+    /**
+     * If you are in a parent element and set this to true it will not bubble
+     * @type {boolean}
+     */
     this.cancelBubble = false;
+    /**
+     * if you are in a child element and set this to true, the event will not broadcast downwards
+     * @type {boolean}
+     */
     this.cancelBroadcast = false;
   }
+
 
   stopPropagation() {
     this.cancelBubble = true;

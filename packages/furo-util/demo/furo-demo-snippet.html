@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>furo-demo-snippet demo</title>
+
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <script type="module">
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+    import '@polymer/iron-demo-helpers/demo-snippet';
+    import '../furo-catalog';
+    import "../furo-demo-snippet"
+    import "./fetch-analysis"
+    import "@furo/fbp/flow-bind"
+
+  </script>
+
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+
+</head>
+<body>
+
+<div class="vertical-section-container">
+  <h3>furo-demo-snippet</h3>
+  <demo-snippet>
+    <template>
+      <flow-bind>
+        <template>
+          <furo-demo-snippet style="height: 400px;">
+            <template>
+              <style>
+                furo-split-view{
+                  --split-master-width:200px;
+                }
+              </style>
+
+              <furo-split-view style="height:100%">
+
+              <!-- the doc menu -->
+              <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element"
+                             @-class="--class"></furo-doc-menu>
+
+              <furo-doc-element scroll ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
+              <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
+              <fetch-analysis @-data="--analysis"></fetch-analysis>
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+              <!-- the doc menu -->
+
+            </furo-split-view>
+              </template>
+          </furo-demo-snippet>
+        </template>
+      </flow-bind>
+    </template>
+  </demo-snippet>
+</div>
+
+</body>
+</html>

@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.42.1...@furo/data@0.43.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* events on nested entities (trees) ([e30d98c](https://github.com/veith/FuroBaseComponents/commit/e30d98c))
+* tests ([77d8141](https://github.com/veith/FuroBaseComponents/commit/77d8141))
+
+
+### Features
+
+* type any with type creation ([740e4b8](https://github.com/veith/FuroBaseComponents/commit/740e4b8))
+
+
+
+
+
+## [0.42.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.42.0...@furo/data@0.42.1) (2019-07-16)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.42.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.41.1...@furo/data@0.42.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+* Nodes removable ([6d3fc01](https://github.com/veith/FuroBaseComponents/commit/6d3fc01))
+* remove polymer deps ([5b7272e](https://github.com/veith/FuroBaseComponents/commit/5b7272e))
+* type any and map ([a017e51](https://github.com/veith/FuroBaseComponents/commit/a017e51))
+
+
+
+
+
+## [0.41.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.41.0...@furo/data@0.41.1) (2019-07-12)
+
+**Note:** Version bump only for package @furo/data
+
+
+
+
+
+# [0.41.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.40.2...@furo/data@0.41.0) (2019-07-12)
+
+
+### Features
+
+* repeats with identity do not need a redraw ([9f44402](https://github.com/veith/FuroBaseComponents/commit/9f44402))
+* repeats with identity do not need a redraw ([4841cb3](https://github.com/veith/FuroBaseComponents/commit/4841cb3))
+
+
+
+
+
 ## [0.40.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.40.1...@furo/data@0.40.2) (2019-07-11)
 
 **Note:** Version bump only for package @furo/data

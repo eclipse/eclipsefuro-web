@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-data-table`\nRead only data table based on the response type from the rest api spec.\n\n```\n<furo-data-table ƒ-bind-data=\"--data\" type=\"vnd.com.abc\" @-tablerow-selected=\"--rowSelected\" @-checkstate-changed=\"--checkStateChanged\"></furo-data-table>\n```\n\nTags: data-ui",
+      "description": "`furo-data-table`\nRead only data table based on the response type from the rest api spec.\n\n```\n<furo-data-table ƒ-bind-data=\"--data\" type=\"vnd.com.abc\" @-tablerow-selected=\"--rowSelected\" @-checkstate-changed=\"--checkStateChanged\"></furo-data-table>\n```\n\nConfiguration:\nAttribute: hide-header | hides the table header row\n\nTags: data-ui",
       "summary": "datatable",
       "path": "packages/furo-data-ui/furo-data-table.js",
       "properties": [
@@ -13,16 +13,37 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 231,
               "column": 4
             },
             "end": {
-              "line": 217,
+              "line": 236,
               "column": 5
             }
           },
           "metadata": {
             "polymer": {}
+          }
+        },
+        {
+          "name": "hideHeader",
+          "type": "boolean | null | undefined",
+          "description": "Flag to show table header information\nTRUE => shows header",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 99,
+              "column": 12
+            },
+            "end": {
+              "line": 101,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
           }
         }
       ],
@@ -33,11 +54,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 244,
               "column": 4
             },
             "end": {
-              "line": 263,
+              "line": 288,
               "column": 5
             }
           },
@@ -57,11 +78,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 269,
+              "line": 294,
               "column": 4
             },
             "end": {
-              "line": 295,
+              "line": 320,
               "column": 5
             }
           },
@@ -81,11 +102,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 297,
+              "line": 322,
               "column": 4
             },
             "end": {
-              "line": 300,
+              "line": 325,
               "column": 5
             }
           },
@@ -101,11 +122,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 306,
+              "line": 331,
               "column": 4
             },
             "end": {
-              "line": 320,
+              "line": 345,
               "column": 5
             }
           },
@@ -126,11 +147,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 326,
+              "line": 351,
               "column": 4
             },
             "end": {
-              "line": 351,
+              "line": 383,
               "column": 5
             }
           },
@@ -146,11 +167,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 358,
+              "line": 390,
               "column": 4
             },
             "end": {
-              "line": 380,
+              "line": 412,
               "column": 5
             }
           },
@@ -170,11 +191,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 386,
+              "line": 418,
               "column": 4
             },
             "end": {
-              "line": 406,
+              "line": 438,
               "column": 5
             }
           },
@@ -194,11 +215,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 414,
+              "line": 446,
               "column": 4
             },
             "end": {
-              "line": 426,
+              "line": 458,
               "column": 5
             }
           },
@@ -223,11 +244,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 25,
+          "line": 29,
           "column": 0
         },
         "end": {
-          "line": 428,
+          "line": 460,
           "column": 1
         }
       },
@@ -240,16 +261,32 @@
           "description": "Typedefinition of incoming collection items\nREST SPEC Type\ne.g. vnd.com.abc.[type]",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 231,
               "column": 4
             },
             "end": {
-              "line": 217,
+              "line": 236,
               "column": 5
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
+        },
+        {
+          "name": "hide-header",
+          "description": "Flag to show table header information\nTRUE => shows header",
+          "sourceRange": {
+            "start": {
+              "line": 99,
+              "column": 12
+            },
+            "end": {
+              "line": 101,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
         }
       ],
       "events": [

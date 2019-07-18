@@ -340,9 +340,34 @@ export const Types = {
           ],
           "fmt": "%1"
         }
+      },
+      "anytype":{
+        "description":"kann alles sein, kommt als JSON",
+        "type":"any",
+        "meta":{
+          "default":{
+
+
+                "@type": "vnd.com.acme.reference",
+                "display_name": "Any default ref",
+                "id":3223
+
+          }
+        }
+      },
+      "keyvaluetype":{
+        "description":"key value map",
+        "type":"map<string, string>",
+        "meta":{
+          "default":{
+            "error": "invalid username",
+            "message": "invalid username"
+          }
+        }
       }
     }
-  },"vnd.com.acme.reference": {
+  },
+  "vnd.com.acme.reference": {
     "name": "Reference",
     "type": "vnd.com.acme.reference",
     "description": "reference",

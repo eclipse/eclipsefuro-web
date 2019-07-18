@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.36.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.36.0...@furo/input@0.36.1) (2019-07-18)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+# [0.36.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.35.1...@furo/input@0.36.0) (2019-07-16)
+
+
+### Features
+
+* furo markdown with prism highlighter ([15b5774](https://github.com/veith/FuroBaseComponents/commit/15b5774))
+
+
+
+
+
+## [0.35.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.35.0...@furo/input@0.35.1) (2019-07-12)
+
+**Note:** Version bump only for package @furo/input
+
+
+
+
+
+# [0.35.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.12...@furo/input@0.35.0) (2019-07-12)
+
+
+### Features
+
+* repeats with identity do not need a redraw ([4841cb3](https://github.com/veith/FuroBaseComponents/commit/4841cb3))
+
+
+
+
+
+## [0.34.12](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.11...@furo/input@0.34.12) (2019-07-11)
+
+
+### Bug Fixes
+
+* remove set method in furo-reference-search ([cfb335d](https://github.com/veith/FuroBaseComponents/commit/cfb335d))
+* remove set method in furo-reference-search ([a377832](https://github.com/veith/FuroBaseComponents/commit/a377832))
+
+
+
+
+
 ## [0.34.11](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.34.10...@furo/input@0.34.11) (2019-07-11)
 
 

@@ -21,7 +21,8 @@
     "wct-istanbub": "^0.2.9",
     "wct-mocha": "^1.0.0",
     "wct-test-reporter": "0.0.1",
-    "web-component-tester-istanbul": "0.10.0"
+    "web-component-tester-istanbul": "0.10.0",
+    "nyc": "^14.1.1"
   },
   "scripts": {
     "lint:imports": "node scripts/check-imports.js",

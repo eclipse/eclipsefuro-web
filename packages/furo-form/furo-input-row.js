@@ -9,7 +9,6 @@ import {FBP} from "@furo/fbp";
  * @summary Zweigespaltene Formularzeile
  * @customElement
  * @demo demo/furo-input-row.html
- * @polymer
  * @mixes FBP
  */
 class FuroInputRow extends FBP(LitElement) {
