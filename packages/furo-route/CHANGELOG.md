@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.3](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.2...@furo/route@0.12.3) (2019-07-18)
+
+
+### Bug Fixes
+
+* panel-coordinator update ([b8559f8](https://github.com/veith/FuroBaseComponents/commit/b8559f8))
+
+
+
+
+
 ## [0.12.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.12.1...@furo/route@0.12.2) (2019-07-18)
 
 

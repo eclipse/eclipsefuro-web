@@ -3,6 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/layout/furo-vertical-scroller";
 
+
 /**
  * `furo-doc-menu`
  * todo Describe your element
@@ -22,6 +23,12 @@ class FuroDocMenu extends FBP(LitElement) {
   analysis(analysis) {
     this._FBPTriggerWire("--elements", analysis.elements);
     this._FBPTriggerWire("--classes", analysis.classes);
+
+    // trigger first item
+    let firstItem = this.shadowRoot.querySelector("li")
+    if(firstItem){
+      firstItem.click();
+    }
   }
 
   /**

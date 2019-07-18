@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.5.0...@furo/util@0.6.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* panel-coordinator update ([b8559f8](https://github.com/veith/FuroBaseComponents/commit/b8559f8))
+
+
+### Features
+
+* furo demo viewer class viewer ([ce6755f](https://github.com/veith/FuroBaseComponents/commit/ce6755f))
+* furo demo viewer class viewer init ([9760015](https://github.com/veith/FuroBaseComponents/commit/9760015))
+
+
+
+
+
 # [0.5.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.4.0...@furo/util@0.5.0) (2019-07-18)
 
 

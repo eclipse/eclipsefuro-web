@@ -8062,7 +8062,7 @@
   ],
   "classes": [
     {
-      "description": "",
+      "description": "Custom event type for the AST",
       "summary": "",
       "path": "packages/furo-data/lib/EventTreeNode.js",
       "properties": [
@@ -8073,11 +8073,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 6,
+              "line": 9,
               "column": 4
             },
             "end": {
-              "line": 6,
+              "line": 9,
               "column": 13
             }
           },
@@ -8091,11 +8091,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 12,
+              "line": 15,
               "column": 4
             },
             "end": {
-              "line": 12,
+              "line": 15,
               "column": 15
             }
           },
@@ -8109,11 +8109,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 17,
+              "line": 20,
               "column": 4
             },
             "end": {
-              "line": 17,
+              "line": 20,
               "column": 16
             }
           },
@@ -8127,11 +8127,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 22,
+              "line": 25,
               "column": 4
             },
             "end": {
-              "line": 22,
+              "line": 25,
               "column": 15
             }
           },
@@ -8145,11 +8145,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 27,
+              "line": 30,
               "column": 4
             },
             "end": {
-              "line": 27,
+              "line": 30,
               "column": 21
             }
           },
@@ -8163,11 +8163,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 35,
               "column": 4
             },
             "end": {
-              "line": 32,
+              "line": 35,
               "column": 24
             }
           },
@@ -8182,11 +8182,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 36,
+              "line": 39,
               "column": 2
             },
             "end": {
-              "line": 38,
+              "line": 41,
               "column": 3
             }
           },
@@ -8202,11 +8202,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 40,
+              "line": 43,
               "column": 2
             },
             "end": {
-              "line": 43,
+              "line": 46,
               "column": 3
             }
           },
@@ -8222,11 +8222,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 0,
+          "line": 3,
           "column": 7
         },
         "end": {
-          "line": 45,
+          "line": 48,
           "column": 1
         }
       },
@@ -8245,11 +8245,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 71,
+              "line": 74,
               "column": 3
             }
           },
@@ -8272,11 +8272,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 79,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 84,
+              "line": 87,
               "column": 3
             }
           },
@@ -8304,11 +8304,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 100,
               "column": 3
             }
           },
@@ -8331,11 +8331,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 104,
+              "line": 107,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 122,
               "column": 3
             }
           },
@@ -8356,11 +8356,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 140,
               "column": 3
             }
           },
@@ -8380,11 +8380,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 142,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 151,
               "column": 3
             }
           },
@@ -8404,11 +8404,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 51,
+          "line": 54,
           "column": 7
         },
         "end": {
-          "line": 149,
+          "line": 152,
           "column": 1
         }
       },
@@ -8428,11 +8428,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 68,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 71,
+              "line": 74,
               "column": 3
             }
           },
@@ -8457,11 +8457,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 79,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 84,
+              "line": 87,
               "column": 3
             }
           },
@@ -8491,11 +8491,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 100,
               "column": 3
             }
           },
@@ -8520,11 +8520,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 104,
+              "line": 107,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 122,
               "column": 3
             }
           },
@@ -8547,11 +8547,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 127,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 140,
               "column": 3
             }
           },
@@ -8573,11 +8573,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 139,
+              "line": 142,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 151,
               "column": 3
             }
           },
@@ -8623,11 +8623,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 68,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 71,
+              "line": 74,
               "column": 3
             }
           },
@@ -8652,11 +8652,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 79,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 84,
+              "line": 87,
               "column": 3
             }
           },
@@ -8686,11 +8686,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 100,
               "column": 3
             }
           },
@@ -8715,11 +8715,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 104,
+              "line": 107,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 122,
               "column": 3
             }
           },
@@ -8742,11 +8742,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 127,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 140,
               "column": 3
             }
           },
@@ -8768,11 +8768,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 139,
+              "line": 142,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 151,
               "column": 3
             }
           },
@@ -8884,11 +8884,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 68,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 71,
+              "line": 74,
               "column": 3
             }
           },
@@ -8913,11 +8913,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 79,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 84,
+              "line": 87,
               "column": 3
             }
           },
@@ -8947,11 +8947,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 100,
               "column": 3
             }
           },
@@ -8976,11 +8976,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 104,
+              "line": 107,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 122,
               "column": 3
             }
           },
@@ -9003,11 +9003,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 127,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 140,
               "column": 3
             }
           },
@@ -9029,11 +9029,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 139,
+              "line": 142,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 151,
               "column": 3
             }
           },
@@ -9220,11 +9220,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 68,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 71,
+              "line": 74,
               "column": 3
             }
           },
@@ -9249,11 +9249,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 79,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 84,
+              "line": 87,
               "column": 3
             }
           },
@@ -9283,11 +9283,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 100,
               "column": 3
             }
           },
@@ -9312,11 +9312,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 104,
+              "line": 107,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 122,
               "column": 3
             }
           },
@@ -9339,11 +9339,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 127,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 140,
               "column": 3
             }
           },
@@ -9365,11 +9365,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 139,
+              "line": 142,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 151,
               "column": 3
             }
           },
@@ -9606,11 +9606,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 68,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 71,
+              "line": 74,
               "column": 3
             }
           },
@@ -9635,11 +9635,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 79,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 84,
+              "line": 87,
               "column": 3
             }
           },
@@ -9669,11 +9669,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 91,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 100,
               "column": 3
             }
           },
@@ -9698,11 +9698,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 104,
+              "line": 107,
               "column": 2
             },
             "end": {
-              "line": 119,
+              "line": 122,
               "column": 3
             }
           },
@@ -9725,11 +9725,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 127,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 140,
               "column": 3
             }
           },
@@ -9751,11 +9751,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 139,
+              "line": 142,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 151,
               "column": 3
             }
           },

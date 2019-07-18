@@ -24,15 +24,17 @@ class FuroDocElement extends FBP(LitElement) {
 
   }
 
-  hide(){
-    this.setAttribute("hidden","");
+  hide() {
+    this.setAttribute("hidden", "");
 
   }
+
   print(analysisElement) {
     this.element = analysisElement;
     this._FBPTriggerWire("--data", this.element);
     this.removeAttribute("hidden");
     this.requestUpdate();
+    this.scrollTop = 0;
   }
 
 
@@ -62,6 +64,7 @@ class FuroDocElement extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+
         h1 {
             font-weight: 400;
             line-height: 28px;
@@ -69,6 +72,7 @@ class FuroDocElement extends FBP(LitElement) {
             margin-top: 48px;
             margin: 16px 0;
         }
+
         h2 {
             font-weight: 400;
             line-height: 28px;
