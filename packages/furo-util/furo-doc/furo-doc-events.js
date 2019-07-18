@@ -37,6 +37,13 @@ class FuroDocEvents extends FBP(LitElement) {
   data(data) {
     if (Array.isArray(data)) {
       this._FBPTriggerWire("--data", data);
+
+      data = data.sort((a, b) => {
+        var textA = a.name.toUpperCase();
+        var textB = b.name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      });
+
       this.removeAttribute("hidden");
     } else {
       this.setAttribute("hidden", "");

@@ -35,6 +35,13 @@ class FuroDocProperties extends FBP(LitElement) {
 
   data(data) {
     if (Array.isArray(data)) {
+
+      data = data.sort((a, b) => {
+        var textA = a.name.toUpperCase();
+        var textB = b.name.toUpperCase();
+        return textA < textB ? -1 : textA > textB ? 1 : 0;
+      });
+
       this._FBPTriggerWire("--data", data);
       this.removeAttribute("hidden");
     } else {
@@ -65,7 +72,8 @@ class FuroDocProperties extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        h2{
+
+        h2 {
             font-weight: 400;
             line-height: 28px;
             font-size: 20px;

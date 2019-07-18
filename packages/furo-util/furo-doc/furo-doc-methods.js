@@ -3,6 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat.js";
 import "./furo-doc-methods-item"
+
 /**
  * `furo-doc-methods`
  * todo Describe your element
@@ -39,6 +40,14 @@ class FuroDocMethods extends FBP(LitElement) {
       data = data.filter((m) => {
         return m.privacy === "public";
       });
+
+      data = data.sort((a, b) => {
+        var textA = a.name.toUpperCase();
+        var textB = b.name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      });
+
+
       this._FBPTriggerWire("--data", data);
       this.removeAttribute("hidden");
     } else {
