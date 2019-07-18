@@ -6,6 +6,7 @@ import {Env} from "@furo/framework"
 /**
  * `entity-object`
  *
+ * @summary Typed entity object
  * @customElement
  * @demo demo/entity-object.html
  * @appliesMixin FBP
@@ -95,8 +96,40 @@ class EntityObject extends (LitElement) {
        */
       let customEvent = new Event('data-changed', {composed:true, bubbles: true});
       customEvent.detail = this.entity.rawData;
+      this.dispatchEvent(customEvent);
 
-      this.dispatchEvent(customEvent)
+      /**
+       * @event (field-value-changed)
+       *
+       * ✋ Internal Event!
+       *
+       * Fired when a value on a field node changes. This event **bubbles** by default. Can be used on any node.
+       *
+       * detail payload: **{NodeEvent}** with reference to the FieldNode
+       */
+
+      /**
+       * @event (this-field-value-changed)
+       *
+       * ✋ Internal Event!
+       *
+       * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
+       *
+       * detail payload: **{NodeEvent}** with reference to the FieldNode
+       */
+
+      /**
+       * @event (data-injected)
+       *
+       * ✋ Internal Event!
+       *
+       * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
+       *
+       * This event **bubbles**.
+       *
+       * detail payload: **{NodeEvent}**
+       */
+
     });
   }
 

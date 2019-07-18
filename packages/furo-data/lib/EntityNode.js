@@ -70,7 +70,7 @@ export class EntityNode extends EventTreeNode {
       });
     }
 
-    this.dispatchNodeEvent(new NodeEvent("data-injected", this));
+    this.dispatchNodeEvent(new NodeEvent("data-injected", this,true));
   }
 
   /**

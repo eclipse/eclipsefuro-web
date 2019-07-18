@@ -1262,11 +1262,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 97,
               "column": 2
             },
             "end": {
-              "line": 108,
+              "line": 115,
               "column": 3
             }
           },
@@ -1291,7 +1291,7 @@
           "column": 0
         },
         "end": {
-          "line": 109,
+          "line": 116,
           "column": 1
         }
       },
@@ -1654,11 +1654,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 30,
+              "line": 31,
               "column": 2
             },
             "end": {
-              "line": 35,
+              "line": 37,
               "column": 3
             }
           },
@@ -1678,11 +1678,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 43,
               "column": 2
             },
             "end": {
-              "line": 45,
+              "line": 47,
               "column": 3
             }
           },
@@ -1698,11 +1698,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 89,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 101,
               "column": 3
             }
           },
@@ -1727,7 +1727,7 @@
           "column": 0
         },
         "end": {
-          "line": 98,
+          "line": 102,
           "column": 1
         }
       },
@@ -1802,11 +1802,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 97,
               "column": 2
             },
             "end": {
-              "line": 108,
+              "line": 115,
               "column": 3
             }
           },
@@ -1831,13 +1831,13 @@
           "column": 0
         },
         "end": {
-          "line": 109,
+          "line": 116,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "FuroDocMethodsItem",
+      "name": "FuroDocClassMethodsItem",
       "attributes": [],
       "events": [],
       "styling": {
@@ -1845,7 +1845,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-doc-methods-item",
+      "tagname": "furo-doc-class-methods-item",
       "mixins": [
         "FBP"
       ]
@@ -1990,7 +1990,7 @@
               "column": 2
             },
             "end": {
-              "line": 35,
+              "line": 36,
               "column": 3
             }
           },
@@ -2010,11 +2010,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 42,
               "column": 2
             },
             "end": {
-              "line": 45,
+              "line": 46,
               "column": 3
             }
           },
@@ -2030,11 +2030,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 86,
               "column": 2
             },
             "end": {
-              "line": 96,
+              "line": 97,
               "column": 3
             }
           },
@@ -2059,7 +2059,7 @@
           "column": 0
         },
         "end": {
-          "line": 97,
+          "line": 98,
           "column": 1
         }
       },
@@ -2090,11 +2090,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 21,
+              "line": 22,
               "column": 2
             },
             "end": {
-              "line": 24,
+              "line": 31,
               "column": 3
             }
           },
@@ -2114,11 +2114,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 78,
               "column": 2
             },
             "end": {
-              "line": 89,
+              "line": 96,
               "column": 3
             }
           },
@@ -2139,11 +2139,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 90,
+          "line": 97,
           "column": 1
         }
       },
