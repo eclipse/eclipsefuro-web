@@ -1,3 +1,6 @@
+/**
+ * Custom event type for the AST
+ */
 export class NodeEvent {
   constructor(type, detail, bubbles = true) {
     /**

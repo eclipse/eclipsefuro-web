@@ -13,7 +13,7 @@ import {FBP} from "@furo/fbp";
  * @demo demo/furo-doc-methods-item.html
  * @appliesMixin FBP
  */
-class FuroDocMethodsItem extends FBP(LitElement) {
+class FuroDocClassMethodsItem extends FBP(LitElement) {
 
   constructor() {
     super();
@@ -56,7 +56,7 @@ class FuroDocMethodsItem extends FBP(LitElement) {
         strong {
             font-weight: 700;
             font-family: "Roboto Mono";
-
+           
         }
 
         :host([hidden]) {
@@ -76,7 +76,7 @@ class FuroDocMethodsItem extends FBP(LitElement) {
             color: #717171;
             font-weight: 900;
         }
-
+        
 
         span.type:after {
             content: ","
@@ -100,12 +100,12 @@ class FuroDocMethodsItem extends FBP(LitElement) {
     if (!this.method.return) {
       this.method.return = {};
     }
-    this.cname =  this.method.name.replace( /([a-z])([A-Z])/g, '$1-$2' ).toLowerCase();
+
     return html`
-      <strong>ƒ-${this.cname}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+      <strong>${this.method.name}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
       <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
       <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) ⟹ <span class="return">${this.method.return.type}</span>
-      
+       <span class="inherited"> Inherited from ${this.method.inheritedFrom}</span>
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <ul>
       <template is="flow-repeat" ƒ-inject-items="--data(*.params)">
@@ -116,4 +116,4 @@ class FuroDocMethodsItem extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('furo-doc-methods-item', FuroDocMethodsItem);
+window.customElements.define('furo-doc-class-methods-item', FuroDocClassMethodsItem);

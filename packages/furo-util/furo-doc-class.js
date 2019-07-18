@@ -3,7 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "./furo-markdown"
 import "./furo-doc/furo-doc-properties"
-import "./furo-doc/furo-doc-methods"
+import "./furo-doc/furo-doc-class-methods"
 import "./furo-doc/furo-doc-events"
 
 /**
@@ -91,9 +91,8 @@ class FuroDocClass extends FBP(LitElement) {
       <p>${this.class.summary}</p>
       <h2>Description</h2>
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
-      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
-      <furo-doc-events ƒ-data="--data(*.events)"></furo-doc-events>
-      <furo-doc-methods ƒ-data="--data(*.methods)"></furo-doc-methods>
+      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>     
+      <furo-doc-class-methods ƒ-data="--data(*.methods)"></furo-doc-class-methods>
     `;
   }
 }
