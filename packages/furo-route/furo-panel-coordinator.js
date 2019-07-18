@@ -89,7 +89,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
       this.dispatchEvent(customEvent)
     });
 
-    this._rootNode.addEventListener("data-injected", (e) => {
+    this._tree.addEventListener("data-injected", (e) => {
       this._initTree()
     });
 

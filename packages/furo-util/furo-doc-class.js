@@ -33,6 +33,7 @@ class FuroDocClass extends FBP(LitElement) {
     this._FBPTriggerWire("--data", this.class);
     this.removeAttribute("hidden");
     this.requestUpdate();
+    this.scrollTop = 0;
   }
 
 

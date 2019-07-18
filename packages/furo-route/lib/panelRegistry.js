@@ -5,10 +5,21 @@ export class panelRegistry {
   }
 
   static getPanelName(type, suffix) {
-    if(suffix){
-      return this._registry[type][suffix];
+    if (suffix) {
+      if (this._registry[type]) {
+        return this._registry[type][suffix];
+      } else {
+        console.warn("type is not registred:", type);
+        return;
+      }
+
     }
-    return this._registry[type];
+    if (this._registry[type]) {
+      return this._registry[type];
+    } else {
+      console.warn("type is not registred:", type);
+      return;
+    }
   }
 
 }
