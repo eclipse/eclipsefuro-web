@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.2](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.27.1...@furo/navigation@0.27.2) (2019-07-18)
+
+
+### Bug Fixes
+
+* events on nested entities (trees) ([e30d98c](https://github.com/veith/FuroBaseComponents/commit/e30d98c))
+* tests ([77d8141](https://github.com/veith/FuroBaseComponents/commit/77d8141))
+
+
+
+
+
 ## [0.27.1](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.27.0...@furo/navigation@0.27.1) (2019-07-16)
 
 **Note:** Version bump only for package @furo/navigation

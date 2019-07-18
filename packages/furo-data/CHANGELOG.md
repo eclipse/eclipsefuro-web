@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.42.1...@furo/data@0.43.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* events on nested entities (trees) ([e30d98c](https://github.com/veith/FuroBaseComponents/commit/e30d98c))
+* tests ([77d8141](https://github.com/veith/FuroBaseComponents/commit/77d8141))
+
+
+### Features
+
+* type any with type creation ([740e4b8](https://github.com/veith/FuroBaseComponents/commit/740e4b8))
+
+
+
+
+
 ## [0.42.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.42.0...@furo/data@0.42.1) (2019-07-16)
 
 **Note:** Version bump only for package @furo/data

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.4.0...@furo/util@0.5.0) (2019-07-18)
+
+
+### Features
+
+* furo demo viewer ([fb543ee](https://github.com/veith/FuroBaseComponents/commit/fb543ee))
+* furo demo viewer ([7c5ca88](https://github.com/veith/FuroBaseComponents/commit/7c5ca88))
+* furo demo viewer flow part ([61d1dbc](https://github.com/veith/FuroBaseComponents/commit/61d1dbc))
+* furo demo viewer styling ([21e6e26](https://github.com/veith/FuroBaseComponents/commit/21e6e26))
+
+
+
+
+
 # [0.4.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.3.0...@furo/util@0.4.0) (2019-07-16)
 
 
