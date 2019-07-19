@@ -67,6 +67,7 @@ class HeaderToolbar extends FBP(LitElement) {
         a {
             padding: 0 var(--spacing-s);
             text-decoration: none;
+            color: unset;
             border-bottom: 2px solid var(--primary);
         }
 

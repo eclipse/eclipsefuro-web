@@ -12,7 +12,7 @@ export class Styling {
                 --secondary: #f4f4f4;
                 --secondary-variant: #edeeed;
                 --background: #ffffff;
-                --surface: #ffffff;
+                --surface: #eeeeee;
                 --error: #C51162;
                 --success: #129991;
                 --llm-color: #ffffff;

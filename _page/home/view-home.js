@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import "../components/footer-bar"
 
 /**
  * `view-home`
@@ -50,7 +51,7 @@ class ViewHome extends FBP(LitElement) {
             display: block;
             height: 100%;
             overflow: auto;
-            padding: var(--spacing);
+            box-sizing: border-box;
         }
 
         :host([hidden]) {
@@ -118,9 +119,15 @@ class ViewHome extends FBP(LitElement) {
 
         furo-horizontal-flex[padded] > div {
             padding-right: var(--spacing);
-            max-width: 300px;
+            max-width: 350px;
         }
 
+        .content {
+            padding: var(--spacing);
+        }
+        h2.with-footnote{
+            margin-bottom: 0;
+        }
     `
   }
 
@@ -132,102 +139,113 @@ class ViewHome extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <p class="hero-title">フロー</p>
-      <p class="hero-caption">A simple framework for creating fast, lightweight web apps with web components</p>
-      <a class="hero-link" href="/guide">Get Started</a>
+      <div class="content">
+        <p class="hero-title">フロー</p>
+        <p class="hero-caption">A simple framework for creating fast, lightweight web apps with web components</p>
+        <a class="hero-link" href="/guide">Get Started</a>
 
-      <h1 class="title">Why use furo?</h1>
-      <furo-horizontal-flex padded>
-        <div flex>
+        <h1 class="title">Why use furo?</h1>
+        <furo-horizontal-flex padded>
+          <div flex>
 
-          <h2 class="caption">Fully declarative</h2>
-          <p>Express your UI declaratively, as a function of state. No need to learn a custom templating language – you
-            can use the full power of web-components in your components. </p>
+            <h2 class="caption">Fully declarative</h2>
+            <p>Express your UI declaratively, as a function of state. No need to learn a custom templating language –
+              you
+              can use the full power of web-components in your components. </p>
 
-        </div>
-        <div flex>
+          </div>
+          <div flex>
 
-          <h2 class="caption">Themable</h2>
-          <p>Furo Base Components are themeable. The <strong>Material</strong> theme is the default. You can apply the
-            <strong>Carbon</strong>
-            <small>(comming soon)</small>
-            themeset or even your own.
-          </p>
+            <h2 class="caption">Themable</h2>
+            <p>Furo Base Components are themeable. The <strong>Material</strong> theme is the default. You can apply the
+              <strong>Carbon</strong>
+              <small>(comming soon)</small>
+              themeset or even your own.
+            </p>
 
-        </div>
-        <div flex>
+          </div>
+          <div flex>
 
-          <h2 class="caption">Styleable</h2>
-          <p>Styling is not the same like themeing. Apply your style set to the theme you use. Styling is done with
-            <strong>--style-vars</strong>. Maybe you want switch your app to <i>dark</i>?</p>
+            <h2 class="caption">Styleable</h2>
+            <p>Styling is not the same like themeing. Apply your style set to the theme you use. Styling is done with
+              <strong>--style-vars</strong>. Maybe you want switch your app to <i>dark</i>?</p>
 
-        </div>
-       
-      </furo-horizontal-flex>
-      <furo-horizontal-flex padded>
-        <div flex>
+          </div>
 
-          <h2 class="caption">Standards</h2>
+        </furo-horizontal-flex>
+        <furo-horizontal-flex padded>
+          <div flex>
 
-          <p>Furo Base Components rely hardly on web standards as much as possible. This gives you speed, robustness and compatibility</p>
+            <h2 class="caption">Standards</h2>
 
-          <p>You are free to add <strong>shims</strong> or <strong>polyfills</strong> to your application. </p>
+            <p>Furo Base Components rely hardly on web standards as much as possible. This gives you speed, robustness
+              and compatibility</p>
 
-        </div>
-      
-      </furo-horizontal-flex>
+            <p>You are free to add <strong>shims</strong> or <strong>polyfills</strong> to your application. But do not
+              forget to <strong> "Use the Platform" </strong></p>
 
-      <h1 class="title">APIs and generators</h1>
-      <h2 class="description">Furo comes with a strong data API specification</h2>
-      <furo-horizontal-flex padded>
-        <div flex>
-          <h2 class="caption">Generators</h2>
+          </div>
 
-          <p>The default generator works fine with <strong>grpc</strong>.</p>
-          <p>Generate the <strong>protos</strong> with the delivered generators and use the backend language you want,
-            like <strong><i>=GO</i></strong> or so. </p>
-        </div>
+        </furo-horizontal-flex>
 
-        <div class="flex">
-          <h2 class="caption">Open Api</h2>
-          <p>You can also generate a swagger documentation if you want.</p>
-          <p>And from there you can generate much more...</p>
-        </div>
-        <div class="flex">
-          <h2 class="caption">Data agents</h2>
-          <p>The data fetching agents are working with REST APIs.</p>
-          <p>Swap the existing data fetching agents to one that fits your needs better.</p>
-        </div>
-      </furo-horizontal-flex>
-      
-      <h1 class="title">Flow Based Programming</h1>
-      <h2 class="description">With Furo-fbp, components can be written fully declarative and
-        without any Javascript.</h2>
-      <furo-horizontal-flex padded>
-        <div flex>
-          <h2 class="caption">Declarative</h2>
-          <p>Furo comes with furo-fbp, a <a href="http://jpaulmorrison.com/fbp/"><strong>F</strong>low <strong>B</strong>ased <strong>P</strong>rogramming</a>
-            language created by <a href="http://jpaulmorrison.com/">J. Paul Rodker Morrison</a>. Components can be written fully declarative and without any code.</p>
-        </div>
-        <div flex>
-          <h2 class="caption">Visual</h2>
-          <p> </p>
-        </div>
-        <div flex>
-          <h2 class="caption">Testable</h2>
-          <p>Components built with furo are trivial to test. Trigger the wires or listen to data on a wire. No monster querySelectors needed.</p>
-        </div>
-      </furo-horizontal-flex>
+        <h1 class="title">APIs and generators</h1>
+        <h2 class="description">Furo comes with a strong data API specification</h2>
+        <furo-horizontal-flex padded>
+          <div flex>
+            <h2 class="caption">Generators</h2>
 
-    
+            <p>The default generator works fine with <strong>grpc</strong>.</p>
+            <p>Generate the <strong>protos</strong> with the delivered generators and use the backend language you want,
+              like <strong><i>=GO</i></strong> or so. </p>
+          </div>
+
+          <div class="flex">
+            <h2 class="caption">Open Api</h2>
+            <p>You can also generate a swagger documentation if you want.</p>
+            <p>And from there you can generate much more...</p>
+          </div>
+          <div class="flex">
+            <h2 class="caption">Data agents</h2>
+            <p>The data fetching agents are working with REST APIs.</p>
+            <p>Swap the existing data fetching agents to one that fits your needs better.</p>
+          </div>
+        </furo-horizontal-flex>
+
+        <h1 class="title">Flow Based Programming</h1>
+        <h2 class="description">With Furo-fbp, components can be written fully declarative and
+          without any Javascript.</h2>
+        <furo-horizontal-flex padded>
+          <div flex>
+            <h2 class="caption">Declarative</h2>
+            <p>Furo comes with furo-fbp, a <a href="http://jpaulmorrison.com/fbp/"><strong>F</strong>low
+              <strong>B</strong>ased <strong>P</strong>rogramming</a>
+              language created by <a href="http://jpaulmorrison.com/">J. Paul Rodker Morrison</a>. Components can be
+              written fully declarative and without any code.</p>
+          </div>
+          <div flex>
+            <h2 class="caption">Visual</h2>
+            <p></p>
+          </div>
+          <div flex>
+            <h2 class="caption">Testable</h2>
+            <p>Components built with furo are trivial to test. Trigger the wires or listen to data on a wire. No monster
+              querySelectors needed.</p>
+          </div>
+        </furo-horizontal-flex>
 
 
-      <h1 class="title">General Compatibility</h1>
-      <h2 class="description">Furo-fbp has no dependencies and works with LitElement, native web-components or
-        Polymer,... </h2>
-
-      <h1 class="title">Browser Compatibility</h1>
-      <h2 class="description">Furo works in all major browsers (Chrome, Firefox, Edge, Safari, and Opera). </h2>
+        <h1 class="title">General Compatibility </h1>
+        
+        <h2 class="description with-footnote">Furo-fbp has no dependencies and works with LitElement, native web-components or
+          Polymer,...</h2>
+        <small>*1</small>
+        
+        <h1 class="title">Browser Compatibility</h1>
+        <h2 class="description">Furo works in all major browsers (Chrome, Firefox, Edge, Safari, and Opera). </h2>
+        <hr>
+        <small>[1] furo-fbp has no dependencies, furoBaseComponets relies mostly on LitElement</small>
+      </div>
+      <footer-bar></footer-bar>
     `;
   }
 }

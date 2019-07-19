@@ -48,9 +48,9 @@ class ViewGuide extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
-
             height: 100%;
-            overflow: hidden;
+            overflow: auto;
+            box-sizing: border-box;
         }
 
         :host([hidden]) {
@@ -67,7 +67,15 @@ class ViewGuide extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <p>Hej, welcome</p>
+        <furo-split-view>
+          <div slot="master">
+          <a href="/guide/sub">sub</a>
+          </div>
+          <div scroll> <p>Hej, welcome</p>
+            <div style="height: 900px"></div>
+          dsfd
+          </div>
+        </furo-split-view>
     `;
   }
 }

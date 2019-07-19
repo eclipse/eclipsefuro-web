@@ -15,6 +15,7 @@ import '@furo/route/furo-pages';
 import '@furo/route/furo-app-flow';
 import '@furo/fbp/flow-bind';
 
+
 /**
  * `main-stage`
  *
@@ -45,7 +46,7 @@ class MainStage extends FBP(LitElement) {
               display: block;
               margin: 0;
               color: var(--on-primary, #212121);
-              background-color: var(--surface);
+              background-color: var(--background);
               font-family: "Roboto", "Noto", sans-serif;
               line-height: 1.5;
               overflow-x: hidden;
@@ -73,13 +74,13 @@ class MainStage extends FBP(LitElement) {
 
       <furo-vertical-flex>
         <header-toolbar></header-toolbar>
+        
         <furo-pages flex ƒ-inject-location="--locationChanged" default="home">
           <view-home name="home"></view-home>
           <view-guide name="guide"></view-guide>
           <view-api name="api"></view-api>
-              
-
         </furo-pages>
+        
       </furo-vertical-flex>
       <furo-location @-location-changed="--locationChanged"></furo-location>
     `;

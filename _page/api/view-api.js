@@ -1,6 +1,8 @@
 import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import {nav} from "./nav_config";
+import "../components/side-navigation"
 
 /**
  * `view-api`
@@ -13,29 +15,14 @@ import {FBP} from "@furo/fbp";
  */
 class ViewApi extends FBP(LitElement) {
 
-    constructor() {
-        super();
-    }
-
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            myBool: {type: Boolean}
-        };
-    }
 
   /**
-  * flow is ready lifecycle method
-  */
+   * flow is ready lifecycle method
+   */
   __fbpReady(){
     super.__fbpReady();
     //this._FBPTraceWires()
+    this._FBPTriggerWire("--nav",nav);
   }
 
   /**
@@ -49,7 +36,9 @@ class ViewApi extends FBP(LitElement) {
         :host {
             display: block;
             height: 100%;
-            overflow: hidden;
+            overflow: auto;
+            box-sizing: border-box;
+            padding: var(--spacing);
         }
 
         :host([hidden]) {
@@ -66,7 +55,15 @@ class ViewApi extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <p>Hej, welcome</p>
+      <furo-split-view>
+        <div slot="master" scroll>
+          <side-navigation ƒ-inject-nav-config="--nav"></side-navigation>
+        </div>
+        <div scroll> <p>Hej, welcome</p>
+          <div style="height: 900px"></div>
+          dsfd
+        </div>
+      </furo-split-view>
     `;
   }
 }

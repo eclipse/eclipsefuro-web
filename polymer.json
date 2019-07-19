@@ -2,14 +2,11 @@
   "entrypoint": "index.html",
   "shell": "_page/furo-shell.js",
   "fragments": [
-    "_doc/*.html"
+
   ],
   "sources": [
     "_assets/**/*",
-    "custom/**/*",
-    "_doc/**/*",
-    "coverage/**/*",
-    "node_modules/@furo/input/**/*"
+    "coverage/**/*"
   ],
   "extraDependencies": [
     "manifest.json",
