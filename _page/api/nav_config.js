@@ -1,9 +1,6 @@
 export const nav = [
-  {
-    "group": "Fundamentals", "items": [
-      {"label": "Api Design", "icon": "mail", "href": "md/api-design"},
-    ]
-  },
+
+
   {
     "group": "Flowbased Programming", "items": [
       {"label": "Overview", "icon": "mail", "href": "md/api-design"},
@@ -13,17 +10,7 @@ export const nav = [
       {"label": "Livecycle", "icon": "mail", "href": "md/api-design"},
       {"label": "Best Practice", "icon": "mail", "href": "md/api-design"},
     ]
-  },
-  {
-    "group": "The Framework", "items": [
-      {"label": "Overview", "icon": "create", "href": "md/api-design"},
-      {"label": "Styling", "icon": "create", "href": "md/api-design"},
-      {"label": "Theming", "icon": "create", "href": "doc/furo-config"},
-      {"label": "Internationalisation", "icon": "create", "href": "md/api-design"},
-      {"label": "Configuration", "icon": "create", "href": "md/api-design"}
-    ]
-  },
-  {
+  },{
     "group": "Components", "items": [
       {"label": "Getting input", "icon": "input", "href": "doc/"},
       {"label": "Dealing with data", "icon": "cloud", "href": "doc/"},
@@ -38,6 +25,16 @@ export const nav = [
       {"label": "Util", "icon": "star-border", "href": "doc/"},
     ]
   },
+  {
+    "group": "The Framework", "items": [
+      {"label": "Overview", "icon": "create", "href": "md/api-design"},
+      {"label": "Styling", "icon": "create", "href": "md/api-design"},
+      {"label": "Theming", "icon": "create", "href": "doc/furo-config"},
+      {"label": "Internationalisation", "icon": "create", "href": "md/api-design"},
+      {"label": "Configuration", "icon": "create", "href": "md/api-design"}
+    ]
+  },
+
   {
     "group": "Misc", "items": [
       {"label": "Testing", "icon": "create", "href": "md/api-design"},

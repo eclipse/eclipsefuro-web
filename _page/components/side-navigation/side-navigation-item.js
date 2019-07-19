@@ -15,6 +15,7 @@ class SideNavigationItem extends FBP(LitElement) {
 
   constructor() {
     super();
+    this.basePath = this.getAttribute("base-path");
   }
 
   injectItem(item) {
@@ -122,7 +123,7 @@ class SideNavigationItem extends FBP(LitElement) {
     // language=HTML
     return html`        
       
-        <a tabindex="-1" href="${this.item.href}" @-click=":^^navigation-clicked(item)">
+        <a tabindex="-1" href="${this.basePath}${this.item.href}" @-click=":^^navigation-clicked(item)">
           <furo-icon icon="${this.item.icon}"></furo-icon>${this.item.label}
         </a>
       

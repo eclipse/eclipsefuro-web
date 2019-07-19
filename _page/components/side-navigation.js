@@ -17,7 +17,7 @@ class SideNavigation extends FBP(LitElement) {
 
   constructor() {
     super();
-
+    this.basePath = this.getAttribute("base-path");
   }
 
   injectNavConfig(items) {
@@ -51,7 +51,7 @@ class SideNavigation extends FBP(LitElement) {
     // language=HTML
     return html`
       <template is="flow-repeat" ƒ-inject-items="--groups">
-        <side-navigation-group ƒ-inject-item="--item"></side-navigation-group>
+        <side-navigation-group base-path="${this.basePath}" ƒ-inject-item="--item"></side-navigation-group>
       </template>
     `;
   }

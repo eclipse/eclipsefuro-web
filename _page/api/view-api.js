@@ -57,7 +57,7 @@ class ViewApi extends FBP(LitElement) {
     return html`
       <furo-split-view>
         <div slot="master" scroll>
-          <side-navigation ƒ-inject-nav-config="--nav"></side-navigation>
+          <side-navigation ƒ-inject-nav-config="--nav" base-path="/api/"></side-navigation>
         </div>
         <div scroll> <p>Hej, welcome</p>
           <div style="height: 900px"></div>
