@@ -1,6 +1,6 @@
 {
   "entrypoint": "index.html",
-  "shell": "_doc/main-app.js",
+  "shell": "_page/furo-shell.js",
   "fragments": [
     "_doc/*.html"
   ],

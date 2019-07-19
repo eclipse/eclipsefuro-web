@@ -1,5 +1,5 @@
 import {LitElement, html, css} from 'lit-element';
-import {Iconset} from "@furo/framework/iconset";
+import {Iconset} from "@furo/framework/furo.js";
 import {FuroBaseIcons} from "./iconsets/baseIcons";
 
 // Autoregister default set with FuroBaseIcons if no iconset was registered
