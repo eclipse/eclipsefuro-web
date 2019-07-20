@@ -50,6 +50,11 @@ class SideNavigationGroup extends FBP(LitElement) {
         }
         
         div.label {
+
+            position: sticky;
+            top:0;
+            background-color: white;
+            z-index: 1;
             color: var(--on-background);
             letter-spacing: .07272727em;
             font-size: 12px;   

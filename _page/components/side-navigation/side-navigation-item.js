@@ -16,6 +16,10 @@ class SideNavigationItem extends FBP(LitElement) {
   constructor() {
     super();
     this.basePath = this.getAttribute("base-path");
+    //forward click to a
+    this.addEventListener("click", (e) => {
+      this._FBPTriggerWire("--click", e);
+    })
   }
 
   injectItem(item) {
@@ -70,7 +74,6 @@ class SideNavigationItem extends FBP(LitElement) {
         }
 
 
-
         :host(:hover) {
             background-color: var(--secondary);
             border-radius: 4px;
@@ -78,8 +81,6 @@ class SideNavigationItem extends FBP(LitElement) {
             cursor: pointer;
         }
 
-      
-        
 
         a[disabled], a[disabled] li {
             color: var(--disabled-color);
@@ -95,7 +96,7 @@ class SideNavigationItem extends FBP(LitElement) {
 
         span {
             display: inline-block;
-            
+
             vertical-align: top;
             width: 176px;
             white-space: nowrap;
@@ -123,11 +124,8 @@ class SideNavigationItem extends FBP(LitElement) {
     // language=HTML
     return html`        
       
-        <a tabindex="-1" href="${this.basePath}${this.item.href}" @-click=":^^navigation-clicked(item)">
-          <furo-icon icon="${this.item.icon}"></furo-icon>${this.item.label}
-        </a>
-      
-
+        <a tabindex="-1" href="${this.basePath}${this.item.href}" ƒ-click=":STOP,--click"></a>     
+<furo-icon icon="${this.item.icon}"></furo-icon>${this.item.label}
     `;
   }
 }

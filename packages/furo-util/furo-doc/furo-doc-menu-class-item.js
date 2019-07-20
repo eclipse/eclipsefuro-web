@@ -26,8 +26,10 @@ class FuroDocMenuClassItem extends FBP(LitElement) {
 
     if(this.selected){
       setTimeout(()=>{
-        this.scrollIntoView()
-      },10);
+        if(this.scrollIntoViewIfNeeded){
+          this.scrollIntoViewIfNeeded();
+        }
+      },16);
 
     }
   // remove classes without names (ie superclasses)

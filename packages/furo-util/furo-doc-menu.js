@@ -22,6 +22,7 @@ class FuroDocMenu extends FBP(LitElement) {
 
 
   analysis(analysis) {
+
     this._FBPTriggerWire("--elements", analysis.elements);
     if (analysis.classes) {
       this._FBPTriggerWire("--classes", analysis.classes);
@@ -72,6 +73,10 @@ class FuroDocMenu extends FBP(LitElement) {
         }
 
         h3 {
+            position: sticky;
+            top:0;
+            background-color: white;
+            z-index: 1;
             margin-top: 0;
             color: var(--on-background);
             letter-spacing: .07272727em;
@@ -102,7 +107,7 @@ class FuroDocMenu extends FBP(LitElement) {
 
       <h3>Elements</h3>
       <ul>
-        <template is="flow-repeat" ƒ-inject-items="--elements">
+        <template is="flow-repeat" ƒ-inject-items="--elements" identity-path="name">
           <furo-doc-menu-element-item ƒ-set-item="--item"></furo-doc-menu-element-item>
         </template>
       </ul>
@@ -110,7 +115,7 @@ class FuroDocMenu extends FBP(LitElement) {
        
       <h3>Classes</h3>
       <ul>
-        <template is="flow-repeat" ƒ-inject-items="--classes">
+        <template is="flow-repeat" ƒ-inject-items="--classes" identity-path="name">
           <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
         </template>
       </ul>

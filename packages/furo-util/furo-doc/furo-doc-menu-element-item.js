@@ -26,8 +26,10 @@ class FuroDocMenuElementItem extends FBP(LitElement) {
     this.selected = item.__selected;
     if(this.selected){
       setTimeout(()=>{
-        this.scrollIntoView()
-      },10);
+        if(this.scrollIntoViewIfNeeded){
+          this.scrollIntoViewIfNeeded();
+        }
+      },16);
   }
   }
 

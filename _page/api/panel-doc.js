@@ -35,7 +35,9 @@ class PanelDoc extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        
+        furo-doc-element{
+            max-width: 800px;
+        }
     `
   }
   /**
@@ -58,7 +60,7 @@ class PanelDoc extends FBP(LitElement) {
       <furo-location url-space-regex="^/api/doc" @-location-changed="--pathChanged"></furo-location>
       <!-- load analysis based on --pathChanged.pathSegments[0] -->
       <furo-doc-fetch-analysis ƒ-fetch-location="--pathChanged" @-data="--analysis"></furo-doc-fetch-analysis>
-      <furo-split-view>
+      <furo-split-view reverse>
 
         <!-- the doc menu -->
         <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element" 
