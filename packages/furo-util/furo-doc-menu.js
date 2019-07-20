@@ -66,6 +66,7 @@ class FuroDocMenu extends FBP(LitElement) {
             display: block;
             height: 100%;
             padding-right: var(--spacing-s);
+            background-color: var(--background);
         }
 
         :host([hidden]) {
@@ -75,7 +76,7 @@ class FuroDocMenu extends FBP(LitElement) {
         h3 {
             position: sticky;
             top:0;
-            background-color: white;
+            background-color: var(--background);
             z-index: 1;
             margin-top: 0;
             color: var(--on-background);

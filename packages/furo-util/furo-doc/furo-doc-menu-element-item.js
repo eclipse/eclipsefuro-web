@@ -64,13 +64,13 @@ class FuroDocMenuElementItem extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: list-item;
-            padding: 0 var(--spacing-s);
+            padding-left: var(--spacing-s);
             line-height: 30px;
             margin-bottom: 4px;
             color: var(--on-background);
             letter-spacing: 0.0178571em;
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 300;
             transition: all 0.2s ease 0s;
             cursor: pointer;
         }

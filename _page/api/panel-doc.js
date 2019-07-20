@@ -30,6 +30,8 @@ class PanelDoc extends FBP(LitElement) {
             padding-left: var(--spacing-s);
             overflow: hidden;
             box-sizing: border-box;
+            background-color: var(--background);
+            --split-master-width: 212px;
         }
 
         :host([hidden]) {
@@ -37,7 +39,9 @@ class PanelDoc extends FBP(LitElement) {
         }
         furo-doc-element{
             max-width: 800px;
+            min-width: 500px;
         }
+       
     `
   }
   /**
@@ -60,7 +64,7 @@ class PanelDoc extends FBP(LitElement) {
       <furo-location url-space-regex="^/api/doc" @-location-changed="--pathChanged"></furo-location>
       <!-- load analysis based on --pathChanged.pathSegments[0] -->
       <furo-doc-fetch-analysis ƒ-fetch-location="--pathChanged" @-data="--analysis"></furo-doc-fetch-analysis>
-      <furo-split-view reverse>
+      <furo-split-view >
 
         <!-- the doc menu -->
         <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element" 

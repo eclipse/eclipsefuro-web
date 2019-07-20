@@ -76,7 +76,7 @@ class FuroDocMenuClassItem extends FBP(LitElement) {
             color: var(--on-background);
             letter-spacing: 0.0178571em;
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 300;
             transition: all 0.2s ease 0s;
             cursor: pointer;
         }
