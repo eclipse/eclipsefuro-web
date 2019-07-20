@@ -12,17 +12,17 @@ export const nav = [
     ]
   },{
     "group": "Components", "items": [
-      {"label": "Getting input", "icon": "input", "href": "doc/"},
-      {"label": "Dealing with data", "icon": "cloud", "href": "doc/"},
-      {"label": "Data UI", "icon": "view-column", "href": "doc/"},
-      {"label": "Layouts helper", "icon": "dashboard", "href": "doc/"},
-      {"label": "Forms helper", "icon": "dashboard", "href": "doc/"},
-      {"label": "App Config", "icon": "settings", "href": "doc/"},
-      {"label": "Navigation", "icon": "tab", "href": "doc/"},
-      {"label": "Routing", "icon": "arrow-forward", "href": "doc/"},
-      {"label": "Timing", "icon": "alarm", "href": "doc/"},
-      {"label": "Math", "icon": "timeline", "href": "doc/"},
-      {"label": "Util", "icon": "star-border", "href": "doc/"},
+      {"label": "Getting input", "icon": "input", "href": "doc/input"},
+      {"label": "Dealing with data", "icon": "cloud", "href": "doc/data"},
+      {"label": "Data UI", "icon": "view-column", "href": "doc/data-ui"},
+      {"label": "Layouts helper", "icon": "dashboard", "href": "doc/layout"},
+      {"label": "Forms helper", "icon": "dashboard", "href": "doc/form"},
+      {"label": "App Config", "icon": "settings", "href": "doc/config"},
+      {"label": "Navigation", "icon": "tab", "href": "doc/navigation"},
+      {"label": "Routing", "icon": "arrow-forward", "href": "doc/route"},
+      {"label": "Timing", "icon": "alarm", "href": "doc/timing"},
+      {"label": "Math", "icon": "timeline", "href": "doc/math"},
+      {"label": "Util", "icon": "star-border", "href": "doc/util"},
     ]
   },
   {
