@@ -41,6 +41,7 @@ class ViewApi extends FBP(LitElement) {
             overflow: hidden;
             box-sizing: border-box;
             padding: var(--spacing);
+            --split-master-width: 250px;
         }
 
         :host([hidden]) {

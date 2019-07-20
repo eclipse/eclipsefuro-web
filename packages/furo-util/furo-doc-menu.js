@@ -2,7 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/layout/furo-vertical-scroller";
-
+import "./furo-doc/furo-doc-menu-element-item"
+import "./furo-doc/furo-doc-menu-class-item"
 
 /**
  * `furo-doc-menu`
@@ -22,13 +23,34 @@ class FuroDocMenu extends FBP(LitElement) {
 
   analysis(analysis) {
     this._FBPTriggerWire("--elements", analysis.elements);
-    this._FBPTriggerWire("--classes", analysis.classes);
-
-    // trigger first item
-    let firstItem = this.shadowRoot.querySelector("li")
-    if(firstItem){
-      firstItem.click();
+    if (analysis.classes) {
+      this._FBPTriggerWire("--classes", analysis.classes);
     }
+
+
+    // send selected
+    if (analysis.__selectedElement) {
+      /**
+       * @event element
+       * Fired when element is selected
+       * detail payload: element analysis data
+       */
+      let customEvent = new Event('element', {composed: true, bubbles: true});
+      customEvent.detail = analysis.__selectedElement;
+      this.dispatchEvent(customEvent)
+    }
+    // send selected class
+    if (analysis.__selectedClass) {
+      /**
+       * @event element
+       * Fired when element is selected
+       * detail payload: element analysis data
+       */
+      let customEvent = new Event('class', {composed: true, bubbles: true});
+      customEvent.detail = analysis.__selectedClass;
+      this.dispatchEvent(customEvent)
+    }
+
   }
 
   /**
@@ -42,6 +64,7 @@ class FuroDocMenu extends FBP(LitElement) {
         :host {
             display: block;
             height: 100%;
+            padding-right: var(--spacing-s);
         }
 
         :host([hidden]) {
@@ -49,25 +72,22 @@ class FuroDocMenu extends FBP(LitElement) {
         }
 
         h3 {
-
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 24px;
-            color: #717171;
+            margin-top: 0;
+            color: var(--on-background);
+            letter-spacing: .07272727em;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
         }
+
 
         ul {
             list-style: none;
             padding: 0;
         }
 
-        li {
-            line-height: 30px;
-            cursor: pointer;
-        }
-        li:hover {
-             color: rgb(12, 107, 22);
-        }
+        
+
     `
   }
 
@@ -79,20 +99,22 @@ class FuroDocMenu extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
+
+      <h3>Elements</h3>
+      <ul>
+        <template is="flow-repeat" ƒ-inject-items="--elements">
+          <furo-doc-menu-element-item ƒ-set-item="--item"></furo-doc-menu-element-item>
+        </template>
+      </ul>
       
-        <h3>Elements</h3>
-        <ul>
-          <template is="flow-repeat" ƒ-inject-items="--elements">
-            <li @-click="^^element(item)">&lt;<span ƒ-.inner-text="--item(*.tagname)"></span>&gt;</li>
-          </template>
-        </ul>     
-        <h3>Classes</h3>
-        <ul>
-          <template is="flow-repeat" ƒ-inject-items="--classes">
-            <li @-click="^^class(item)"><span ƒ-.inner-text="--item(*.name)"></span></li>
-          </template>
-        </ul>
-      
+       
+      <h3>Classes</h3>
+      <ul>
+        <template is="flow-repeat" ƒ-inject-items="--classes">
+          <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
+        </template>
+      </ul>
+       
     `;
   }
 }

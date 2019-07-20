@@ -19,19 +19,62 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
 
 
   fetchLocation(location) {
-    let p = location.pathSegments[0];
-    fetch("/node_modules/@furo/" + p + "/analysis.json").then(res => res.json()).then(analysis => {
+    // fetch only if location segment 0 changes
 
-      /**
-       * @event data
-       * Fired when analysis loaded
-       * detail payload: analysis
-       */
-      let customEvent = new Event('data', {composed: true, bubbles: true});
-      customEvent.detail = analysis;
-      this.dispatchEvent(customEvent);
 
-    }).catch(err => err);
+    if (this._path !== location.pathSegments[0]) {
+      this._path = location.pathSegments[0];
+
+      fetch("/node_modules/@furo/" + this._path + "/analysis.json").then(res => res.json()).then(analysis => {
+        this._analysis = analysis;
+        this._checkSubroute(location);
+      }).catch(err => err);
+    } else {
+      this._checkSubroute(location);
+    }
+  }
+
+  _checkSubroute(location) {
+    // Subelement deep linking
+    // on ../input/component-name we want to select component-name
+    if (location.pathSegments[1]) {
+      let subElement = location.pathSegments[1];
+      this._analysis.elements.forEach((e) => {
+        if (e.tagname === subElement) {
+          this._analysis.__selectedElement = e;
+          //disable class
+          this._analysis.__selectedClass = undefined;
+          e.__selected = true;
+        }else{
+          e.__selected = false;
+        }
+      });
+      // check classes if available
+      if (this._analysis.classes) {
+        this._analysis.classes.forEach((e, i) => {
+          if (e.name === subElement) {
+            this._analysis.__selectedClass = e;
+            //disable element
+            this._analysis.__selectedElement = undefined;
+            e.__selected = true;
+          }else{
+            e.__selected = false;
+          }
+        });
+      }
+    } else {
+      // select first on default
+      this._analysis.__selectedElement = this._analysis.elements[0];
+    }
+
+    /**
+     * @event data
+     * Fired when analysis loaded
+     * detail payload: analysis
+     */
+    let customEvent = new Event('data', {composed: true, bubbles: true});
+    customEvent.detail = this._analysis;
+    this.dispatchEvent(customEvent);
   }
 
   /**

@@ -27,6 +27,7 @@ class PanelDoc extends FBP(LitElement) {
         :host {
             display: block;
             height: 100%;
+            padding-left: var(--spacing-s);
             overflow: hidden;
             box-sizing: border-box;
         }
@@ -36,6 +37,13 @@ class PanelDoc extends FBP(LitElement) {
         }
         
     `
+  }
+  /**
+   * flow is ready lifecycle method
+   */
+  __fbpReady(){
+    super.__fbpReady();
+    this._FBPTraceWires()
   }
 
 
@@ -53,7 +61,7 @@ class PanelDoc extends FBP(LitElement) {
       <furo-split-view>
 
         <!-- the doc menu -->
-        <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element"
+        <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element" 
                        @-class="--class"></furo-doc-menu>
 
         <furo-doc-element scroll ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
