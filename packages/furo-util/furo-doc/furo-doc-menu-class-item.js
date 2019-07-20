@@ -70,7 +70,7 @@ class FuroDocMenuClassItem extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: list-item;
-            padding: 0 var(--spacing-s);
+            padding-left: var(--spacing-s);
             line-height: 30px;
             margin-bottom: 4px;
             color: var(--on-background);
