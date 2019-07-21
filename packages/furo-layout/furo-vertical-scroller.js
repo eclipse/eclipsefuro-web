@@ -5,7 +5,7 @@ import {FBP} from "@furo/fbp";
 /**
  * `furo-vertical-scroller`
  *
- * ```
+ * ```html
  * <furo-vertical-scroller>
  *   <your-content></your-content>
  * </furo-vertical-scroller>

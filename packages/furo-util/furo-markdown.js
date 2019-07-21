@@ -20,7 +20,7 @@ class FuroMarkdown extends (LitElement) {
   constructor() {
     super();
     this.__reader = new commonmark.Parser();
-    this.__writer = new commonmark.HtmlRenderer({safe: true});
+    this.__writer = new commonmark.HtmlRenderer({safe: false});
     this.markdownRendered = undefined;
   }
 

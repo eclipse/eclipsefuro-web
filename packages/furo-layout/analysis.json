@@ -1660,7 +1660,7 @@
       ]
     },
     {
-      "description": "`furo-vertical-scroller`\n\n```\n<furo-vertical-scroller>\n  <your-content></your-content>\n</furo-vertical-scroller>\n```",
+      "description": "`furo-vertical-scroller`\n\n```html\n<furo-vertical-scroller>\n  <your-content></your-content>\n</furo-vertical-scroller>\n```",
       "summary": "vertical scroll",
       "path": "packages/furo-layout/furo-vertical-scroller.js",
       "properties": [],
@@ -2856,7 +2856,7 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/furo-card.html",
+          "url": "demo-furo-card",
           "description": ""
         }
       ],

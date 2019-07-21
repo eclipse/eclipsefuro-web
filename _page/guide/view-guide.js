@@ -1,6 +1,13 @@
 import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import {nav} from "./nav_config";
+
+
+
+import "./pages/page-icons"
+import "../components/topic-title"
+import "../components/topic-intro"
 
 /**
  * `view-guide`
@@ -13,29 +20,13 @@ import {FBP} from "@furo/fbp";
  */
 class ViewGuide extends FBP(LitElement) {
 
-    constructor() {
-        super();
-    }
-
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            myBool: {type: Boolean}
-        };
-    }
-
   /**
-  * flow is ready lifecycle method
-  */
-  __fbpReady(){
+   * flow is ready lifecycle method
+   */
+  __fbpReady() {
     super.__fbpReady();
     //this._FBPTraceWires()
+    this._FBPTriggerWire("--nav", nav);
   }
 
   /**
@@ -49,12 +40,17 @@ class ViewGuide extends FBP(LitElement) {
         :host {
             display: block;
             height: 100%;
-            overflow: auto;
+            overflow: hidden;
             box-sizing: border-box;
+            padding: var(--spacing) 0  var(--spacing)  var(--spacing);
+            --split-master-width: 250px;
         }
 
         :host([hidden]) {
             display: none;
+        }
+        furo-pages{
+            height: 100%;
         }
     `
   }
@@ -67,17 +63,22 @@ class ViewGuide extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-        <furo-split-view>
-          <div slot="master">
-          <a href="/guide/sub">sub</a>
-          </div>
-          <div scroll> <p>Hej, welcome</p>
-            <div style="height: 900px"></div>
-          dsfd
-          </div>
-        </furo-split-view>
+      <furo-location url-space-regex="^/guide" @-location-changed="--pathChanged"></furo-location>
+
+      <furo-split-view>
+        <div slot="master" scroll>
+          <side-navigation ƒ-inject-nav-config="--nav" base-path="/guide/"></side-navigation>
+        </div>
+        <furo-pages ƒ-inject-location="--pathChanged" default="default">
+          <panel-guide name="pages"></panel-guide>
+          <page-icons name="icons"></page-icons>
+          <div name="default">welcome to the guide</div>
+        </furo-pages>
+      </furo-split-view>
     `;
   }
+
+
 }
 
 window.customElements.define('view-guide', ViewGuide);

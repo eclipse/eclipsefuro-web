@@ -175,15 +175,16 @@ class ViewHome extends FBP(LitElement) {
         </furo-horizontal-flex>
         <furo-horizontal-flex padded>
           <div flex>
-
             <h2 class="caption">Standards</h2>
-
             <p>Furo Base Components rely hardly on web standards as much as possible. This gives you speed, robustness
               and compatibility</p>
-
             <p>You are free to add <strong>shims</strong> or <strong>polyfills</strong> to your application. But do not
               forget to <strong> "Use the Platform" </strong></p>
-
+          </div>
+          <div flex>
+            <h2 class="caption">Tool Chain</h2>
+            <p>Furo itself uses the <a href="https://polymer-library.polymer-project.org/3.0/docs/tools/polymer-cli">polymer-cli</a> toolchain by default. </p>
+            <p>If you like <a href="https://webpack.js.org/">webpack</a> or <a href="https://open-wc.org/">open-wc</a>, feel free to change it.</p>
           </div>
 
         </furo-horizontal-flex>
