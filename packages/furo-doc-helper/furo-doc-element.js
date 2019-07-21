@@ -1,10 +1,11 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "./furo-markdown"
+import "@furo/util/furo-markdown"
 import "./furo-doc/furo-doc-properties"
-import "./furo-doc/furo-doc-class-methods"
+import "./furo-doc/furo-doc-methods"
 import "./furo-doc/furo-doc-events"
+import "./furo-doc/furo-demo-link"
 
 /**
  * `furo-doc-element`
@@ -15,22 +16,33 @@ import "./furo-doc/furo-doc-events"
  * @demo demo/furo-doc-element.html
  * @appliesMixin FBP
  */
-class FuroDocClass extends FBP(LitElement) {
+class FuroDocElement extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.class = {};
+    this.element = {};
 
 
   }
 
-  hide(){
-    this.setAttribute("hidden","");
+  hide() {
+    this.setAttribute("hidden", "");
 
   }
+
   print(analysisElement) {
-    this.class = analysisElement;
-    this._FBPTriggerWire("--data", this.class);
+    this.element = analysisElement;
+    this._FBPTriggerWire("--data", this.element);
+
+    if(this.element.demos){
+      this.element.demos.forEach((d)=>{
+        d.package = this.element.__package;
+      });
+
+      this._FBPTriggerWire("--demos", this.element.demos);
+
+    }
+
     this.removeAttribute("hidden");
     this.requestUpdate();
     this.scrollTop = 0;
@@ -63,13 +75,14 @@ class FuroDocClass extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+
         h1 {
             font-weight: 400;
-            line-height: 28px;
-            font-size: 20px;
-            margin-top: 48px;
-            margin: 16px 0;
+
+            font-size: 24px;
+            margin: 0 0 16px 0;
         }
+
         h2 {
             font-weight: 400;
             line-height: 28px;
@@ -88,14 +101,20 @@ class FuroDocClass extends FBP(LitElement) {
     // language=HTML
 
     return html`
-      <h1>${this.class.name}</h1>
-      <p>${this.class.summary}</p>
+      <h1><${this.element.tagname}&gt;</h1>
+      <p>${this.element.summary}</p>
+      <h2>Demos</h2>
+      <template is="flow-repeat" ƒ-inject-items="--demos">
+          <furo-demo-link ƒ-inject-data="--item"></furo-demo-link>
+      </template>
+      
       <h2>Description</h2>
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
-      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>     
-      <furo-doc-class-methods ƒ-data="--data(*.methods)"></furo-doc-class-methods>
+      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
+      <furo-doc-events ƒ-data="--data(*.events)"></furo-doc-events>
+      <furo-doc-methods ƒ-data="--data(*.methods)"></furo-doc-methods>
     `;
   }
 }
 
-window.customElements.define('furo-doc-class', FuroDocClass);
+window.customElements.define('furo-doc-element', FuroDocElement);

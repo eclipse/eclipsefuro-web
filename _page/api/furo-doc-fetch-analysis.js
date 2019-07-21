@@ -40,6 +40,9 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
     if (location.pathSegments[1]) {
       let subElement = location.pathSegments[1];
       this._analysis.elements.forEach((e) => {
+        // needed for linking to the demos
+        e.__package = this._path;
+
         if (e.tagname === subElement) {
           this._analysis.__selectedElement = e;
           //disable class

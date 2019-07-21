@@ -19,7 +19,7 @@ import {Theme} from "@furo/framework/theme"
  *  Tags: layout
  *
  * @customElement
- * @demo demo/furo-horizontal-flex.html
+ * @demo demo-furo-horizontal-flex
  * @appliesMixin FBP
  */
 class FuroHorizontalFlex extends (LitElement) {

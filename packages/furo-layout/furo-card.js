@@ -8,7 +8,7 @@ import {FBP} from "@furo/fbp";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-card.html
+ * @demo demo-furo-card
  * @appliesMixin FBP
  */
 class FuroCard extends FBP(LitElement) {

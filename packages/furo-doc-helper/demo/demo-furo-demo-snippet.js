@@ -69,10 +69,15 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
+      
       <furo-demo-snippet style="height: 100%;">
         <template>
-
-          <furo-split-view style="height:100%">
+          <a href="./util">util</a>
+          <a href="./data">data</a>
+          <furo-location url-space-regex="^/api/demo/util/demo-furo-demo-snippet" @-location-changed="--pathChanged"></furo-location>
+          <!-- load analysis based on --pathChanged.pathSegments[0] -->
+          <furo-doc-fetch-analysis ƒ-fetch-location="--pathChanged" @-data="--analysis"></furo-doc-fetch-analysis>
+          <furo-split-view >
 
             <!-- the doc menu -->
             <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element"
@@ -80,19 +85,6 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
 
             <furo-doc-element scroll ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
             <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
-            <fetch-analysis @-data="--analysis"></fetch-analysis>
-            <!-- the doc menu -->
-            <!-- the doc menu -->
-            <!-- the doc menu -->
-            <!-- the doc menu -->
-            <!-- the doc menu -->
-            <!-- the doc menu -->
-            <!-- the doc menu -->
-            <!-- the doc menu -->
-            <!-- the doc menu -->
-            <!-- the doc menu -->
-            <!-- the doc menu -->
-            <!-- the doc menu -->
 
           </furo-split-view>
         </template>

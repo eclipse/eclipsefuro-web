@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/layout"
-import "./furo-markdown"
+import "@furo/util/furo-markdown"
 
 /**
  * `furo-demo-snippet`
@@ -87,6 +87,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+            height: 300px;
         }
 
         :host([hidden]) {
@@ -124,6 +125,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
         .nav{
             border-bottom: 1px solid gainsboro;
             padding-bottom: 8px;
+            margin-bottom: 24px;
         }
     `
   }

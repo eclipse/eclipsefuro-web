@@ -3,9 +3,10 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {nav} from "./nav_config";
 import '@furo/route';
-import "../components/side-navigation"
+import "@furo/doc-helper/side-navigation"
 import "./panel-doc"
 import "./panel-demo"
+import "./demoimports"
 
 /**
  * `view-api`

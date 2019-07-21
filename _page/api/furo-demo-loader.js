@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 
-import "@furo/util/demo/demo-furo-demo-snippet"
+
 
 /**
  * `furo-demo-loader`
@@ -96,7 +96,7 @@ class FuroDemoLoader extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <a class="goback" href="/api/doc/${this.packageName}">Back to package ${this.packageName}</a>
+      <a class="goback" href="/api/doc/${this.packageName}/">Back to package ${this.packageName}</a>
         <div id="demo"></div>
     `;
   }

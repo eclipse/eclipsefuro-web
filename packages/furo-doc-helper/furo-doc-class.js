@@ -1,9 +1,9 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "./furo-markdown"
+import "@furo/util/furo-markdown"
 import "./furo-doc/furo-doc-properties"
-import "./furo-doc/furo-doc-methods"
+import "./furo-doc/furo-doc-class-methods"
 import "./furo-doc/furo-doc-events"
 
 /**
@@ -15,23 +15,22 @@ import "./furo-doc/furo-doc-events"
  * @demo demo/furo-doc-element.html
  * @appliesMixin FBP
  */
-class FuroDocElement extends FBP(LitElement) {
+class FuroDocClass extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.element = {};
+    this.class = {};
 
 
   }
 
-  hide() {
-    this.setAttribute("hidden", "");
+  hide(){
+    this.setAttribute("hidden","");
 
   }
-
   print(analysisElement) {
-    this.element = analysisElement;
-    this._FBPTriggerWire("--data", this.element);
+    this.class = analysisElement;
+    this._FBPTriggerWire("--data", this.class);
     this.removeAttribute("hidden");
     this.requestUpdate();
     this.scrollTop = 0;
@@ -64,14 +63,13 @@ class FuroDocElement extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-
         h1 {
             font-weight: 400;
-            
-            font-size: 24px;
-            margin: 0 0 16px 0;
+            line-height: 28px;
+            font-size: 20px;
+            margin-top: 48px;
+            margin: 16px 0;
         }
-
         h2 {
             font-weight: 400;
             line-height: 28px;
@@ -90,15 +88,14 @@ class FuroDocElement extends FBP(LitElement) {
     // language=HTML
 
     return html`
-      <h1><${this.element.tagname}&gt;</h1>
-      <p>${this.element.summary}</p>
+      <h1>${this.class.name}</h1>
+      <p>${this.class.summary}</p>
       <h2>Description</h2>
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
-      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
-      <furo-doc-events ƒ-data="--data(*.events)"></furo-doc-events>
-      <furo-doc-methods ƒ-data="--data(*.methods)"></furo-doc-methods>
+      <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>     
+      <furo-doc-class-methods ƒ-data="--data(*.methods)"></furo-doc-class-methods>
     `;
   }
 }
 
-window.customElements.define('furo-doc-element', FuroDocElement);
+window.customElements.define('furo-doc-class', FuroDocClass);

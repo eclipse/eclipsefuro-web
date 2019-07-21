@@ -5,8 +5,8 @@ import {Theme} from "@furo/framework/theme"
  * `furo-empty-spacer`
  *
  * @customElement
- * @demo demo/furo-vertical-flex.html
- * @demo demo/furo-horizontal-flex.html
+ * @demo demo-furo-vertical-flex
+ * @demo demo-furo-horizontal-flex
  * @appliesMixin FBP
  */
 class FuroEmptySpacer extends LitElement {

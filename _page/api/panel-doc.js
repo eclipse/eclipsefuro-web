@@ -4,6 +4,7 @@ import {FBP} from "@furo/fbp";
 import "@furo/util"
 import "@furo/layout"
 import "./furo-doc-fetch-analysis"
+import "@furo/doc-helper"
 
 /**
  * `panel-doc`

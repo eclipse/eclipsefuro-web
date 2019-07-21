@@ -20,7 +20,7 @@ import "./furo-vertical-scroller"
  *
  * @summary splitted layout
  * @customElement
- * @demo demo/furo-split-view.html
+ * @demo demo-furo-split-view
  * @appliesMixin FBP
  */
 class FuroSplitView extends FBP(LitElement) {
