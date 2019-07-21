@@ -5369,7 +5369,7 @@
         {
           "type": "CustomEvent",
           "name": "(data-injected)",
-          "description": "(data-injected)\n\n✋ Internal Event!`\n\nFired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.\n\nThis event **bubbles**.\n\ndetail payload: **{NodeEvent}**",
+          "description": "(data-injected)\n\n✋ Internal Event!\n\nFired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.\n\nThis event **bubbles**.\n\ndetail payload: **{NodeEvent}**",
           "metadata": {}
         },
         {

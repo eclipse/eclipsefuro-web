@@ -10,7 +10,7 @@ import "./furo-markdown"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-demo-snippet.html
+ * @demo demo-furo-demo-snippet
  * @appliesMixin FBP
  */
 class FuroDemoSnippet extends FBP(LitElement) {

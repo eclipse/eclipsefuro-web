@@ -1106,7 +1106,7 @@
               "column": 2
             },
             "end": {
-              "line": 42,
+              "line": 49,
               "column": 3
             }
           },
@@ -1126,11 +1126,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 47,
+              "line": 54,
               "column": 2
             },
             "end": {
-              "line": 50,
+              "line": 57,
               "column": 3
             }
           },
@@ -1146,11 +1146,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 81,
+              "line": 89,
               "column": 2
             },
             "end": {
-              "line": 90,
+              "line": 98,
               "column": 3
             }
           },
@@ -1170,7 +1170,7 @@
           "column": 0
         },
         "end": {
-          "line": 91,
+          "line": 99,
           "column": 1
         }
       },
@@ -1322,11 +1322,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 35,
+              "line": 36,
               "column": 2
             },
             "end": {
-              "line": 46,
+              "line": 55,
               "column": 3
             }
           },
@@ -1346,11 +1346,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 60,
               "column": 2
             },
             "end": {
-              "line": 54,
+              "line": 63,
               "column": 3
             }
           },
@@ -1366,11 +1366,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 86,
+              "line": 95,
               "column": 2
             },
             "end": {
-              "line": 95,
+              "line": 104,
               "column": 3
             }
           },
@@ -1391,11 +1391,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 14,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 96,
+          "line": 105,
           "column": 1
         }
       },
@@ -1534,7 +1534,7 @@
               "column": 2
             },
             "end": {
-              "line": 43,
+              "line": 50,
               "column": 3
             }
           },
@@ -1554,11 +1554,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 48,
+              "line": 55,
               "column": 2
             },
             "end": {
-              "line": 51,
+              "line": 58,
               "column": 3
             }
           },
@@ -1574,11 +1574,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 92,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 101,
               "column": 3
             }
           },
@@ -1603,7 +1603,7 @@
           "column": 0
         },
         "end": {
-          "line": 95,
+          "line": 102,
           "column": 1
         }
       },
@@ -1698,11 +1698,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 89,
+              "line": 88,
               "column": 2
             },
             "end": {
-              "line": 101,
+              "line": 100,
               "column": 3
             }
           },
@@ -1727,7 +1727,7 @@
           "column": 0
         },
         "end": {
-          "line": 102,
+          "line": 101,
           "column": 1
         }
       },
@@ -2079,6 +2079,292 @@
       ]
     },
     {
+      "description": "`furo-doc-menu-element-item`\ntodo Describe your element",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-util/furo-doc/furo-doc-menu-element-item.js",
+      "properties": [
+        {
+          "name": "selected",
+          "type": "boolean | null | undefined",
+          "description": "Description",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 44,
+              "column": 6
+            },
+            "end": {
+              "line": 44,
+              "column": 45
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "setItem",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 23,
+              "column": 2
+            },
+            "end": {
+              "line": 33,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "item"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 51,
+              "column": 2
+            },
+            "end": {
+              "line": 54,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 95,
+              "column": 2
+            },
+            "end": {
+              "line": 101,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-doc-menu-element-item.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 102,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroDocMenuElementItem",
+      "attributes": [
+        {
+          "name": "selected",
+          "description": "Description",
+          "sourceRange": {
+            "start": {
+              "line": 44,
+              "column": 6
+            },
+            "end": {
+              "line": 44,
+              "column": 45
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-doc-menu-element-item",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-doc-menu-element-item`\ntodo Describe your element",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-util/furo-doc/furo-doc-menu-class-item.js",
+      "properties": [
+        {
+          "name": "selected",
+          "type": "boolean | null | undefined",
+          "description": "Description",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 6
+            },
+            "end": {
+              "line": 50,
+              "column": 46
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "setItem",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 22,
+              "column": 2
+            },
+            "end": {
+              "line": 39,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "item"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 57,
+              "column": 2
+            },
+            "end": {
+              "line": 60,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 101,
+              "column": 2
+            },
+            "end": {
+              "line": 106,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-doc-menu-element-item.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 107,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroDocMenuClassItem",
+      "attributes": [
+        {
+          "name": "selected",
+          "description": "Description",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 6
+            },
+            "end": {
+              "line": 50,
+              "column": 46
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-doc-menu-class-item",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
       "description": "`furo-doc-menu`\ntodo Describe your element",
       "summary": "todo shortdescription",
       "path": "packages/furo-util/furo-doc-menu.js",
@@ -2090,11 +2376,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 22,
+              "line": 23,
               "column": 2
             },
             "end": {
-              "line": 31,
+              "line": 54,
               "column": 3
             }
           },
@@ -2114,11 +2400,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 78,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 96,
+              "line": 124,
               "column": 3
             }
           },
@@ -2139,11 +2425,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 97,
+          "line": 125,
           "column": 1
         }
       },
@@ -2151,7 +2437,14 @@
       "superclass": "HTMLElement",
       "name": "FuroDocMenu",
       "attributes": [],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "element",
+          "description": "element\nFired when element is selected\ndetail payload: element analysis data",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
@@ -2439,7 +2732,7 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/furo-demo-snippet.html",
+          "url": "demo-furo-demo-snippet",
           "description": ""
         }
       ],

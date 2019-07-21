@@ -60,6 +60,7 @@ class PanelDemo extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+        
     `
   }
 

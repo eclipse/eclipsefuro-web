@@ -52,6 +52,7 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+            height: 100%;
         }
 
         :host([hidden]) {
@@ -68,7 +69,7 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-demo-snippet style="height: 400px;">
+      <furo-demo-snippet style="height: 100%;">
         <template>
 
           <furo-split-view style="height:100%">
