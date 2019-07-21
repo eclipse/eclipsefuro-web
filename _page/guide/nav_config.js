@@ -3,9 +3,9 @@ export const nav = [
 
   {
     "group": "Fundamentals", "items": [
-      {"label": "Overview", "icon": "mail", "href": "md/api-design/"},
-      {"label": "Installation", "icon": "mail", "href": "md/api-design/"},
-      {"label": "Starterpacks", "icon": "mail", "href": "md/api-design/"}
+      {"label": "Overview", "icon": "mail", "href": "icons/"},
+      {"label": "Installation", "icon": "mail", "href": "icons/"},
+      {"label": "Starterpacks", "icon": "mail", "href": "icons/"}
     ]
   },{
     "group": "Patterns", "items": [
@@ -26,7 +26,7 @@ export const nav = [
     "group": "Credits", "items": [
       {"label": "Polymer", "icon": "polymer", "href": "page/api-design/"},
       {"label": "Lit Element", "icon": "polymer", "href": "page/api-design/"},
-      {"label": "Events", "icon": "mail", "href": "md/api-design/"}
+      {"label": "Events", "icon": "mail", "href": "icons/"}
     ]
   }
 ];
