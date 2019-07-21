@@ -16,7 +16,7 @@ class FetchAnalysis extends FBP(LitElement) {
     constructor() {
         super();
 
-      fetch("../../data/analysis.json").then(res => res.json()).then(analysis => {
+      fetch("/node_modules/@furo/data/analysis.json").then(res => res.json()).then(analysis => {
 
         /**
          * @event data

@@ -5,6 +5,7 @@ import {nav} from "./nav_config";
 import '@furo/route';
 import "../components/side-navigation"
 import "./panel-doc"
+import "./panel-demo"
 
 /**
  * `view-api`
@@ -69,6 +70,7 @@ class ViewApi extends FBP(LitElement) {
         </div>
         <furo-pages ƒ-inject-location="--pathChanged" default="default">
           <panel-doc name="doc"></panel-doc>
+          <panel-demo name="demo"></panel-demo>
           <div name="md">a</div>
           <div name="default">welcome ....</div>
         </furo-pages>
