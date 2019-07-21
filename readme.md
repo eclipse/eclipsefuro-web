@@ -13,6 +13,7 @@ First run `npm run bootstrap`
 
 Then run `npm run serve`, this will start a server  http://127.0.0.1:7777
 
+> Warning **! do never run** `npm install`
 
 ## Commands
 
