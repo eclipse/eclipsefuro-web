@@ -69,10 +69,10 @@ class ViewGuide extends FBP(LitElement) {
         <div slot="master" scroll>
           <side-navigation ƒ-inject-nav-config="--nav" base-path="/guide/"></side-navigation>
         </div>
-        <furo-pages ƒ-inject-location="--pathChanged" default="default">
+        <furo-pages ƒ-inject-location="--pathChanged" default="welcome">
           <panel-guide name="pages"></panel-guide>
           <page-icons name="icons"></page-icons>
-          <div name="default">welcome to the guide</div>
+          <div name="welcome">welcome to the guide</div>
         </furo-pages>
       </furo-split-view>
     `;

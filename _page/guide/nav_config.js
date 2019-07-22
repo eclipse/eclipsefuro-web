@@ -3,9 +3,19 @@ export const nav = [
 
   {
     "group": "Fundamentals", "items": [
-      {"label": "Overview", "icon": "mail", "href": "icons/"},
-      {"label": "Installation", "icon": "mail", "href": "icons/"},
-      {"label": "Starterpacks", "icon": "mail", "href": "icons/"}
+      {"label": "Overview", "icon": "dashboard", "href": "icons/"},
+      {"label": "Installation", "icon": "flight-takeoff", "href": "icons/"},
+      {"label": "Starterpacks", "icon": "next-week", "href": "icons/"}
+    ]
+  },
+  {
+    "group": "Flowbased Programming", "items": [
+      {"label": "Overview", "icon": "dashboard", "href": "fbp-overview/"},
+      {"label": "Wires", "icon": "compare-arrows", "href": "fbp-wires/"},
+      {"label": "Events", "icon": "open-in-new", "href":"fbp-events/"},
+      {"label": "Data", "icon": "input", "href": "fbp-data/"},
+      {"label": "Lifecycle", "icon": "restore", "href": "fbp-lifecycle/"},
+      {"label": "Best Practice", "icon": "pan-tool", "href": "fbp-bestpractice/"},
     ]
   },{
     "group": "Patterns", "items": [
@@ -23,10 +33,16 @@ export const nav = [
     ]
   },
   {
+    "group": "Advanced Topics", "items": [
+      {"label": "build", "icon": "build", "href": "icons/"},
+      {"label": "Testing", "icon": "create", "href": "md/api-design/"},
+    ]
+  },
+  {
     "group": "Credits", "items": [
       {"label": "Polymer", "icon": "polymer", "href": "page/api-design/"},
       {"label": "Lit Element", "icon": "polymer", "href": "page/api-design/"},
-      {"label": "Events", "icon": "mail", "href": "icons/"}
+      {"label": "webcomponents.org", "icon": "polymer", "href": "icons/"}
     ]
   }
 ];

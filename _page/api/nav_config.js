@@ -1,17 +1,8 @@
 export const nav = [
 
 
-  {
-    "group": "Flowbased Programming", "items": [
-      {"label": "Overview", "icon": "mail", "href": "md/api-design/"},
-      {"label": "Wires", "icon": "mail", "href": "md/api-design/"},
-      {"label": "Events", "icon": "mail", "href": "md/api-design/"},
-      {"label": "Properties", "icon": "mail", "href": "md/api-design/"},
-      {"label": "Livecycle", "icon": "mail", "href": "md/api-design/"},
-      {"label": "Best Practice", "icon": "mail", "href": "md/api-design/"},
-    ]
-  },{
-    "group": "Components", "items": [
+ {
+    "group": "Packages", "items": [
       {"label": "Getting input", "icon": "input", "href": "doc/input/"},
       {"label": "Dealing with data", "icon": "cloud", "href": "doc/data/"},
       {"label": "Data UI", "icon": "view-column", "href": "doc/data-ui/"},
@@ -37,7 +28,6 @@ export const nav = [
 
   {
     "group": "Misc", "items": [
-      {"label": "Testing", "icon": "create", "href": "md/api-design/"},
       {"label": "Test Coverage", "icon": "create", "href": "md/api-design/"},
       {"label": "Licence", "icon": "create", "href": "doc/furo-config/"}
     ]

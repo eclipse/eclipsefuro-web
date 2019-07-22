@@ -49,9 +49,9 @@ class PageIcons extends FBP(LitElement) {
                 <icons-demo></icons-demo>
             </topic-intro>
     
-            <topic-title title="default icons"></topic-title>
+            
             <furo-markdown unsafe ƒ-fetch="--pageActivated"  mdsrc="/_page/markdown/default-icons.md"></furo-markdown>
-            <furo-default-icons-list></furo-default-icons-list>
+            <demo-furo-icon-list></demo-furo-icon-list>
             
             <topic-title title="custom icons"></topic-title>
             <furo-markdown ƒ-fetch="--pageActivated" mdsrc="/_page/markdown/custom-icons.md"></furo-markdown>

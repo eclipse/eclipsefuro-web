@@ -8,6 +8,3 @@ import '@furo/layout/furo-icon';
 <furo-icon icon="left-arrow"></furo-icon>
 
 ```
-<demo-furo-icon></demo-furo-icon>
-
-#### you can find the lists of default furo icons with name below:
