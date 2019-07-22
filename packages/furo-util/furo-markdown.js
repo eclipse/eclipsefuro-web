@@ -134,6 +134,12 @@ class FuroMarkdown extends (LitElement) {
             border-bottom: 1px solid rgba(0, 0, 0, 0.87);
         }
         
+        blockquote{
+            border-left: 3px solid var(--blockquote);
+            margin-left: 0;
+            padding-left: var(--spacing);
+        }
+        
         /**
      * prism.js default theme for JavaScript, CSS and HTML
      * Based on dabblet (http://dabblet.com)

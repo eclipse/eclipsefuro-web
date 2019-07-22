@@ -2,8 +2,20 @@ import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 
 /**
- * `furo-empty-spacer`
+ * `furo-empty-spacer` Takes the place in furo-horizontal-flex or a furo-vertical-flex.
  *
+ *<furo-demo-snippet source>
+ * <template>
+ *  <furo-horizontal-flex>
+ *   <div>small</div>
+ *   <!-- A furo-empty-spacer will fill the available space. -->
+ *   <furo-empty-spacer style="border: 1px dashed lightgray;"></furo-empty-spacer>
+ *   <div>small</div>
+ *  </furo-horizontal-flex>
+ * </template>
+ *</furo-demo-snippet>
+ *
+ * @summary fill the space in a furo-xxxx-flex
  * @customElement
  * @demo demo-furo-vertical-flex
  * @demo demo-furo-horizontal-flex

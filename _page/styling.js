@@ -13,6 +13,8 @@ export class Styling {
                 --secondary-variant: #edeeed;
                 --background: #ffffff;
                 --surface: #eeeeee;
+                --blockquote: #ffc247;
+                --separator: #c3c4c3;
                 --error: #C51162;
                 --success: #129991;
                 --llm-color: #ffffff;

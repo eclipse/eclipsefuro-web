@@ -17,8 +17,6 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.source = false;
-    this.demo = true;
 
     let t = this.querySelector('template');
     this.template = t.content;
@@ -74,6 +72,10 @@ class FuroDemoSnippet extends FBP(LitElement) {
     elem._appendFBP(elem.shadowRoot);
     elem._FBPTraceWires();
     demo.appendChild(elem.shadowRoot);
+
+    if(!this.source && !this.flow){
+      this.demo = true;
+    }
   }
 
 

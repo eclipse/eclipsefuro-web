@@ -76,18 +76,28 @@ class FuroDocElement extends FBP(LitElement) {
             display: none;
         }
 
-        h1 {
+        h1{
+            font-size: 2.8rem;
             font-weight: 400;
-
-            font-size: 24px;
-            margin: 0 0 16px 0;
+            line-height: 3.5rem;
+            margin-top: 0;
+            letter-spacing: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
+        h2.description {
+            margin-top: 20px;
+            margin-bottom: 24px;
+            max-width: 600px;
+            color: #999;
+            border-bottom: none;
+        }
         h2 {
-            font-weight: 400;
-            line-height: 28px;
-            font-size: 20px;
-            margin-top: 48px;
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.0125em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
         }
     `
   }
@@ -102,14 +112,14 @@ class FuroDocElement extends FBP(LitElement) {
 
     return html`
       <h1><${this.element.tagname}&gt;</h1>
-      <p>${this.element.summary}</p>
+      <h2 class="description">${this.element.summary}</h2>
       <h2>Demos</h2>
       <template is="flow-repeat" ƒ-inject-items="--demos">
           <furo-demo-link ƒ-inject-data="--item"></furo-demo-link>
       </template>
       
       <h2>Description</h2>
-      <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
+      <furo-markdown unsafe ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
       <furo-doc-events ƒ-data="--data(*.events)"></furo-doc-events>
       <furo-doc-methods ƒ-data="--data(*.methods)"></furo-doc-methods>

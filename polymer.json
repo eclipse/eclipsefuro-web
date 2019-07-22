@@ -6,7 +6,10 @@
   ],
   "sources": [
     "_assets/**/*",
-    "coverage/**/*"
+    "coverage/**/*",
+    "_page/markdown/**/*",
+    "_page/images/**/*",
+    "_page/assets/**/*"
   ],
   "extraDependencies": [
     "manifest.json",

@@ -1819,8 +1819,8 @@
       ]
     },
     {
-      "description": "`furo-empty-spacer`",
-      "summary": "",
+      "description": "`furo-empty-spacer` Takes the place in furo-horizontal-flex or a furo-vertical-flex.\n\n<furo-demo-snippet source>\n<template>\n <furo-horizontal-flex>\n  <div>small</div>\n  <!-- A furo-empty-spacer will fill the available space. -->\n  <furo-empty-spacer style=\"border: 1px dashed lightgray;\"></furo-empty-spacer>\n  <div>small</div>\n </furo-horizontal-flex>\n</template>\n</furo-demo-snippet>",
+      "summary": "fill the space in a furo-xxxx-flex",
       "path": "packages/furo-layout/furo-empty-spacer.js",
       "properties": [
         {
@@ -1922,11 +1922,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 24,
+              "line": 36,
               "column": 6
             },
             "end": {
-              "line": 27,
+              "line": 39,
               "column": 7
             }
           },
@@ -1943,11 +1943,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 31,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 46,
               "column": 7
             }
           },
@@ -2439,11 +2439,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 72,
               "column": 2
             },
             "end": {
-              "line": 63,
+              "line": 75,
               "column": 3
             }
           },
@@ -2670,11 +2670,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 11,
+          "line": 23,
           "column": 0
         },
         "end": {
-          "line": 65,
+          "line": 77,
           "column": 1
         }
       },
@@ -2687,11 +2687,11 @@
           "description": "Attribute flex for furo-horizontal-flex and furo-vertical-flex",
           "sourceRange": {
             "start": {
-              "line": 24,
+              "line": 36,
               "column": 6
             },
             "end": {
-              "line": 27,
+              "line": 39,
               "column": 7
             }
           },
@@ -2703,11 +2703,11 @@
           "description": "Set to true to hide the spacer",
           "sourceRange": {
             "start": {
-              "line": 31,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 46,
               "column": 7
             }
           },
@@ -3901,7 +3901,7 @@
       "tagname": "furo-icon"
     },
     {
-      "description": "`furo-ripple` gives the ripple effect to a element\n use it directly in an element:\n <button>\n      click here\n     <furo-ripple></furo-ripple>\n </button>\n\n or you can also trigger the ripple effect via wire\n <button @-click=\"--click\" >\n     ...\n     <furo-ripple ƒ-trigger=\"--click\"></furo-ripple>\n </button>\n with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect\n\nLit element",
+      "description": "`furo-ripple` gives the ripple effect to a element\n\n > Note: Add a `position:relative` to the parent element.\n\n use it directly in an element:\n<furo-demo-snippet source>\n<template>\n <button>\n      click here\n     <furo-ripple></furo-ripple>\n </button>\n</template>\n</furo-demo-snippet>\n\n## trigger the ripple effect via wire\n<furo-demo-snippet source>\n<template>\n <!-- without position relative -->\n <button @-click=\"--actionClicked\">\n      click here\n </button>\n<div style=\"position:relative; width:80px;height:80px; border:1px solid black;\">\n  <furo-ripple ƒ-trigger=\"--actionClicked\"></furo-ripple>\n  Ripple here\n</div>\n</template>\n</furo-demo-snippet>\n\n\n## style vars\n with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect",
       "summary": "",
       "path": "packages/furo-layout/furo-ripple.js",
       "properties": [
@@ -4004,11 +4004,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 111,
               "column": 12
             },
             "end": {
-              "line": 95,
+              "line": 111,
               "column": 49
             }
           },
@@ -4092,11 +4092,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 48,
               "column": 4
             },
             "end": {
-              "line": 38,
+              "line": 54,
               "column": 5
             }
           },
@@ -4520,11 +4520,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 103,
+              "line": 119,
               "column": 4
             },
             "end": {
-              "line": 108,
+              "line": 124,
               "column": 5
             }
           },
@@ -4738,20 +4738,15 @@
           "inheritedFrom": "LitElement"
         }
       ],
-      "demos": [
-        {
-          "url": "demo/furo-button.html",
-          "description": ""
-        }
-      ],
+      "demos": [],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 23,
+          "line": 39,
           "column": 0
         },
         "end": {
-          "line": 109,
+          "line": 125,
           "column": 1
         }
       },
@@ -4764,11 +4759,11 @@
           "description": "Disables the click, only ripples with `trigger()`",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 111,
               "column": 12
             },
             "end": {
-              "line": 95,
+              "line": 111,
               "column": 49
             }
           },

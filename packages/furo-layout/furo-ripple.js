@@ -3,23 +3,40 @@ import {Theme} from "@furo/framework/theme"
 
 /**
  * `furo-ripple` gives the ripple effect to a element
+ *
+ *  > Note: Add a `position:relative` to the parent element.
+ *
  *  use it directly in an element:
+ *<furo-demo-snippet source>
+ * <template>
+ * <!-- without position relative -->
  *  <button>
  *       click here
  *      <furo-ripple></furo-ripple>
  *  </button>
+ * </template>
+ *</furo-demo-snippet>
  *
- *  or you can also trigger the ripple effect via wire
- *  <button @-click="--click" >
- *      ...
- *      <furo-ripple ƒ-trigger="--click"></furo-ripple>
- *  </button>
+ * ## trigger the ripple effect via wire
+ *<furo-demo-snippet source>
+ * <template>
+ * <button @-click="--actionClicked">
+ *       click here
+ * </button>
+ *
+ * <div style="position:relative; width:80px;height:80px; border:1px solid black;">
+ *   <furo-ripple noink ƒ-trigger="--actionClicked"></furo-ripple>
+ *   Ripple here
+ * </div>
+ * </template>
+ *</furo-demo-snippet>
+ *
+ *
+ * ## style vars
  *  with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect
  *
- * Lit element
  *
  * @customElement
- * @demo demo/furo-button.html
  */
 class FuroRipple extends LitElement {
 
