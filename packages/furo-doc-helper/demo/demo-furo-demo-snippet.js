@@ -72,8 +72,8 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
       
       <furo-demo-snippet style="height: 100%;">
         <template>
-          <a href="./util">util</a>
-          <a href="./data">data</a>
+          <a href="/api/demo/util/demo-furo-demo-snippet/util/">util</a>
+          <a href="/api/demo/util/demo-furo-demo-snippet/data/">data</a>
           <furo-location url-space-regex="^/api/demo/util/demo-furo-demo-snippet" @-location-changed="--pathChanged"></furo-location>
           <!-- load analysis based on --pathChanged.pathSegments[0] -->
           <furo-doc-fetch-analysis ƒ-fetch-location="--pathChanged" @-data="--analysis"></furo-doc-fetch-analysis>
