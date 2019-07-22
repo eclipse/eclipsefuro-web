@@ -28,8 +28,7 @@ export const nav = [
 
   {
     "group": "Misc", "items": [
-      {"label": "Test Coverage", "icon": "create", "href": "md/api-design/"},
-      {"label": "Licence", "icon": "create", "href": "doc/furo-config/"}
+      {"label": "Test Coverage", "icon": "create", "href": "md/api-design/"}
     ]
   }
 ];

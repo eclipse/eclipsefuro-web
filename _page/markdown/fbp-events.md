@@ -12,7 +12,7 @@ On the first view, it does not make a lot sense to *rename* events. But imagine 
 ## Non bubbling events
 Non bubbling events will stop at the next dom parent.
 
-![fire non bubbling event](/_doc/images/nonBubbling.png)
+![fire non bubbling event](/_page/images/nonBubbling.png)
 **non bubbling example**
 ```html
   <paper-button @-tap="--searchClicked">Search</paper-button>
@@ -32,7 +32,7 @@ Non bubbling events will stop at the next dom parent.
 ## Bubbling events
 To fire a bubbling-event use **^^event-name**.
 
-![fire non bubbling event](/_doc/images/bubblingEvent.png)
+![fire non bubbling event](/_page/images/bubblingEvent.png)
 ```html
   <paper-button @-tap="--searchClicked">Search</paper-button>
     <iron-ajax

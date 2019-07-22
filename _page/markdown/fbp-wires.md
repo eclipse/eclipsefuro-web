@@ -7,7 +7,7 @@ With FBP you mostly connect the the output of a component (event) with the funct
 We have a button and an elements which we want to hide after the button is clicked.
  
 
-![hide example](/_doc/images/hideExample.png)
+![hide example](/_page/images/hideExample.png)
 
 
 ```html
@@ -29,7 +29,7 @@ More on this you can read in section  [passing data](#passing-data)
 ## Multiple targets
 A wire can have multiple targets. The **--hideClicked** wire from above can trigger multiple elements if you want.
 
-![Multiple targets](/_doc/images/multipleTargets.png)
+![Multiple targets](/_page/images/multipleTargets.png)
 
 ```html
 <template>
@@ -43,7 +43,7 @@ if you press the button, all elements which are connected to the wire will trigg
 
 ## Multiple sources
 A wire can also have multiple sources. 
-![Multiple sources](/_doc/images/multipleSources.png)
+![Multiple sources](/_page/images/multipleSources.png)
 ```html
 <template>
   <button @-click="--hideClicked">hide</button>
@@ -56,7 +56,7 @@ It doesn't matter if you press the first or the second hide button. Both will tr
 ## Multiple sources and targets 
 A wire can also have multiple sources and targets.
 
-![Multiple sources and targets](/_doc/images/multiSourceAndTarget.png)
+![Multiple sources and targets](/_page/images/multiSourceAndTarget.png)
 ```html
   <template>
     <button @-click="--hideClicked">hide</button>
@@ -72,7 +72,7 @@ A wire can also have multiple sources and targets.
 ## Multiple wires from source
 You can trigger multiple wires from one source by comma separating them.
 
-![Multiple wires from source](/_doc/images/multiWireFromSource.png)
+![Multiple wires from source](/_page/images/multiWireFromSource.png)
 
 *the black wire is --otherIntention*
 
@@ -89,7 +89,7 @@ If you press the button, it will trigger the **--hideClicked** and **--otherInte
 ## Multiple wires to target
 You can receive from multiple wires by comma separating them.
 
-![Multiple wires to target](/_doc/images/mwTarget.png)
+![Multiple wires to target](/_page/images/mwTarget.png)
 
 ```html
 <template>
@@ -116,7 +116,7 @@ _myProp is a normal polymer property.
 
 **using a component to replace event.detail with a property**
 
-![replace data](/_doc/images/replaceData.png)
+![replace data](/_page/images/replaceData.png)
 
 ```html
    <paper-button @-tap="--buttonPressed"> Press this </paper-button>

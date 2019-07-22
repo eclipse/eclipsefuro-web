@@ -1,34 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>フロー Testing</title>
-  <link rel="stylesheet" href="./doc.css">
-
-  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script type="module">
-    import '@furo/layout';
-  </script>
-</head>
-<body>
-
-<furo-split-view>
-  <div slot="master">
-    <h2>Testing</h2>
-    <ul>
-      <li>Overview</li>
-      <li>- Add Test to the automate suite</li>
-      <li>- Testing during development aka TDD</li>
-      <li>- Adding Tests to the suite</li>
-      <li>Acessibility Tests</li>
-
-    </ul>
-  </div>
-  <furo-vertical-flex>
-    <h1>Component Testing</h1>
+ <h1>Component Testing</h1>
     <furo-vertical-scroller>
       <h2>Overview</h2>
       <p>The tests in FuroBaseComponents can be run directly in the browser (during development) and automated. <br>
@@ -94,11 +64,3 @@
         });
     }
 </pre>
-
-    </furo-vertical-scroller>
-
-  </furo-vertical-flex>
-
-</furo-split-view>
-</body>
-</html>

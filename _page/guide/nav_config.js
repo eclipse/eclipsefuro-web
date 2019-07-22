@@ -10,14 +10,14 @@ export const nav = [
   },
   {
     "group": "Flowbased Programming", "items": [
-      {"label": "Overview", "icon": "dashboard", "href": "fbp-overview/"},
-      {"label": "Wires", "icon": "compare-arrows", "href": "fbp-wires/"},
-      {"label": "Events", "icon": "open-in-new", "href":"fbp-events/"},
-      {"label": "Data", "icon": "input", "href": "fbp-data/"},
-      {"label": "Lifecycle", "icon": "restore", "href": "fbp-lifecycle/"},
-      {"label": "Best Practice", "icon": "pan-tool", "href": "fbp-bestpractice/"},
+      {"label": "Overview", "icon": "dashboard", "href": "md/fbp-overview/"},
+      {"label": "Wires", "icon": "compare-arrows", "href": "md/fbp-wires/"},
+      {"label": "Events", "icon": "open-in-new", "href": "md/fbp-events/"},
+      {"label": "Data", "icon": "input", "href": "md/fbp-data/"},
+      {"label": "Lifecycle", "icon": "restore", "href": "md/fbp-lifecycle/"},
+      {"label": "Debugging", "icon": "pan-tool", "href": "md/fbp-debugging/"},
     ]
-  },{
+  }, {
     "group": "Patterns", "items": [
       {"label": "Icons", "icon": "gesture", "href": "icons/"},
       {"label": "Dealing with data", "icon": "cloud", "href": "doc/data/"},
@@ -39,10 +39,15 @@ export const nav = [
     ]
   },
   {
+    "group": "Misc", "items": [
+      {"label": "License", "icon": "create", "href": "md/license/"}]
+  },
+  {
     "group": "Credits", "items": [
       {"label": "Polymer", "icon": "polymer", "href": "page/api-design/"},
       {"label": "Lit Element", "icon": "polymer", "href": "page/api-design/"},
-      {"label": "webcomponents.org", "icon": "polymer", "href": "icons/"}
+      {"label": "webcomponents.org", "icon": "polymer", "href": "icons/"},
+      {"label": "J.P Morrison", "icon": "arrow-right", "href": "icons/"}
     ]
   }
 ];

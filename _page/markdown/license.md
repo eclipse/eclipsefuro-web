@@ -1,9 +1,3 @@
----
-date: 2016-03-09T20:10:46+01:00
-title: License
-weight: 800
----
-
 ## MIT license
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to

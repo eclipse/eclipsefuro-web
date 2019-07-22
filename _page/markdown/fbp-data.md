@@ -12,7 +12,7 @@ But it is not a problem to wire the payload of an event (**e.details**) to a pro
 ## Storing event-data to properties
 To store data from an event (**event.detail**) just use the @-event="**((property))**" syntax. You have to use two brackets because the **\[** and the **\{** are used in polymer itself.
 
-![Multiple targets](/_doc/images/eventToProperties.png)
+![Multiple targets](/_page/images/eventToProperties.png)
 ```html
 <paper-button @-tap="--searchClicked">Search</paper-button>
     <iron-ajax

@@ -3,11 +3,14 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {nav} from "./nav_config";
 
-
-
-import "./pages/page-icons"
+import "@google-web-components/google-youtube"
 import "../components/topic-title"
 import "../components/topic-intro"
+//pages
+import "./pages/page-icons"
+import "./panel-md-loader"
+
+
 
 /**
  * `view-guide`
@@ -72,6 +75,7 @@ class ViewGuide extends FBP(LitElement) {
         <furo-pages ƒ-inject-location="--pathChanged" default="welcome">
           <panel-guide name="pages"></panel-guide>
           <page-icons name="icons"></page-icons>
+          <panel-md-loader name="md"></panel-md-loader>
           <div name="welcome">welcome to the guide</div>
         </furo-pages>
       </furo-split-view>
