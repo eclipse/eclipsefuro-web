@@ -15,31 +15,6 @@ import "../furo-catalog"
  */
 class DemoFuroHorizontalFlex extends FBP(LitElement) {
 
-  constructor() {
-    super();
-  }
-
-  /**
-   * @private
-   * @return {Object}
-   */
-  static get properties() {
-    return {
-      /**
-       * Description
-       */
-      myBool: {type: Boolean}
-    };
-  }
-
-  /**
-   * flow is ready lifecycle method
-   */
-  __fbpReady() {
-    super.__fbpReady();
-    //this._FBPTraceWires()
-  }
-
   /**
    * Themable Styles
    * @private
