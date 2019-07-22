@@ -19,8 +19,7 @@ class FuroMarkdown extends (LitElement) {
 
   constructor() {
     super();
-    this.__reader = new commonmark.Parser();
-    this.__writer = new commonmark.HtmlRenderer({safe: false});
+
     this.markdownRendered = undefined;
   }
 
@@ -31,6 +30,10 @@ class FuroMarkdown extends (LitElement) {
    */
   static get properties() {
     return {
+      /**
+       * allow unsafe md. (writing html, components,...)
+       */
+      unsafe:{type:Boolean},
       /**
        * source of the md
        */
@@ -81,6 +84,9 @@ class FuroMarkdown extends (LitElement) {
    * @return {TemplateResult | TemplateResult}
    */
   _parseMarkdown(markdown) {
+
+    this.__reader = new commonmark.Parser();
+    this.__writer = new commonmark.HtmlRenderer({safe: !this.unsafe});
     return html`${unsafeHTML(this.__writer.render(this.__reader.parse(markdown)))}`;
   }
 

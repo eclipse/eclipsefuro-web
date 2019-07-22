@@ -105,11 +105,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 48,
               "column": 2
             },
             "end": {
-              "line": 49,
+              "line": 52,
               "column": 3
             }
           },
@@ -124,16 +124,37 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 55,
               "column": 2
             },
             "end": {
-              "line": 55,
+              "line": 58,
               "column": 3
             }
           },
           "metadata": {
             "polymer": {}
+          }
+        },
+        {
+          "name": "unsafe",
+          "type": "boolean | null | undefined",
+          "description": "allow unsafe md. (writing html, components,...)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 35,
+              "column": 6
+            },
+            "end": {
+              "line": 35,
+              "column": 27
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
           }
         }
       ],
@@ -521,11 +542,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 86,
+              "line": 92,
               "column": 2
             },
             "end": {
-              "line": 89,
+              "line": 95,
               "column": 3
             }
           },
@@ -612,11 +633,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 258,
+              "line": 264,
               "column": 2
             },
             "end": {
-              "line": 261,
+              "line": 267,
               "column": 3
             }
           },
@@ -629,11 +650,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 65,
+              "line": 68,
               "column": 3
             }
           },
@@ -653,11 +674,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 75,
+              "line": 78,
               "column": 3
             }
           },
@@ -677,11 +698,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 82,
+              "line": 85,
               "column": 2
             },
             "end": {
-              "line": 84,
+              "line": 90,
               "column": 3
             }
           },
@@ -912,7 +933,7 @@
           "column": 0
         },
         "end": {
-          "line": 262,
+          "line": 268,
           "column": 1
         }
       },
@@ -925,11 +946,11 @@
           "description": "source of the md",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 48,
               "column": 2
             },
             "end": {
-              "line": 49,
+              "line": 52,
               "column": 3
             }
           },
@@ -941,16 +962,32 @@
           "description": "markdown string",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 55,
               "column": 2
             },
             "end": {
-              "line": 55,
+              "line": 58,
               "column": 3
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
+        },
+        {
+          "name": "unsafe",
+          "description": "allow unsafe md. (writing html, components,...)",
+          "sourceRange": {
+            "start": {
+              "line": 35,
+              "column": 6
+            },
+            "end": {
+              "line": 35,
+              "column": 27
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
         }
       ],
       "events": [],

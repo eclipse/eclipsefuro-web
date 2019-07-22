@@ -46,6 +46,7 @@ if (!Iconset.default) {
  * @summary furo icon
  * @customElement
  * @demo demo-furo-icon
+ * @demo demo-furo-icon-list
  */
 class FuroIcon extends LitElement {
 

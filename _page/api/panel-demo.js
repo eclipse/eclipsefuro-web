@@ -36,7 +36,7 @@ class PanelDemo extends FBP(LitElement) {
   */
   __fbpReady(){
     super.__fbpReady();
-    this._FBPTraceWires()
+   // this._FBPTraceWires()
   }
 
   /**
