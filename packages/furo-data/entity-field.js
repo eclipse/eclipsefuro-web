@@ -25,7 +25,7 @@ class EntityField extends LitElement {
 
   set value(v) {
     this._value = v;
-    this.field.set(v)
+    this.field.value=v;
   };
 
   get value() {
