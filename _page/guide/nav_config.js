@@ -35,7 +35,8 @@ export const nav = [
   {
     "group": "Advanced Topics", "items": [
       {"label": "build", "icon": "build", "href": "icons/"},
-      {"label": "Testing", "icon": "create", "href": "md/api-design/"},
+      {"label": "Testing", "icon": "create", "href": "md/testing/"},
+      {"label": "Writing Demos", "icon": "create", "href": "md/demo/"},
     ]
   },
   {

@@ -45,7 +45,7 @@ class PanelMdLoader extends FBP(LitElement) {
             height: 100%;
             overflow-y: auto;
             padding: 0 var(--spacing);
-            max-width: 900px;
+            max-width: 100%;
             box-sizing: border-box;
         }
 

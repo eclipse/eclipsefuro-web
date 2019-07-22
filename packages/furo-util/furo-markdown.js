@@ -117,6 +117,22 @@ class FuroMarkdown extends (LitElement) {
             max-width: 100%;
         }
 
+
+        h1{
+            font-size: 2.8rem;
+            font-weight: 400;
+            line-height: 3.5rem;
+            letter-spacing: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.0125em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+        }
         
         /**
      * prism.js default theme for JavaScript, CSS and HTML

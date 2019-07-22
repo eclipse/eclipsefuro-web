@@ -1,8 +1,5 @@
----
-date: 2017-04-14T16:39:52+02:00
-title: Properties
-weight: 400
----
+# Passing data
+
 Sometimes people want to store data in variables/properties. 
 It is not necessarily needed for FBP, when the components you are using are designed appropriately.
 But it is not a problem to wire the payload of an event (**e.details**) to a property.
