@@ -11,9 +11,6 @@ import {FBP} from "@furo/fbp";
  */
 class EntityField extends LitElement {
 
-
-
-
   constructor() {
     super();
   }

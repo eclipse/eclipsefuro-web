@@ -15,7 +15,8 @@
     "manifest.json",
     "node_modules/@webcomponents/webcomponentsjs/*.js",
     "node_modules/@polymer/iron-component-page/iron-component-page.js",
-    "node_modules/@furo/**/analysis.json"
+    "node_modules/@furo/**/analysis.json",
+    "node_modules/@furo/**/CHANGELOG.md"
   ],
   "builds": [
     {

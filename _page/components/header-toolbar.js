@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/layout"
+import {nav} from "../api/nav_config";
 
 /**
  * `header-toolbar`
@@ -16,6 +17,22 @@ class HeaderToolbar extends FBP(LitElement) {
 
   constructor() {
     super();
+    this.selected = "home"
+  }
+
+
+  /**
+   * flow is ready lifecycle method
+   */
+  __fbpReady() {
+    super.__fbpReady();
+    //this._FBPTraceWires()
+    this._FBPAddWireHook("--pathChanged", (e) => {
+      if(e.pathSegments[0]){
+        this.selected = e.pathSegments[0];
+      }
+
+    });
   }
 
   /**
@@ -27,16 +44,8 @@ class HeaderToolbar extends FBP(LitElement) {
       /**
        * Description
        */
-      myBool: {type: Boolean}
+      selected: {type: String, reflect: true}
     };
-  }
-
-  /**
-   * flow is ready lifecycle method
-   */
-  __fbpReady() {
-    super.__fbpReady();
-    //this._FBPTraceWires()
   }
 
   /**
@@ -59,8 +68,8 @@ class HeaderToolbar extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        
-        a:visited{
+
+        a:visited {
             color: unset;
         }
 
@@ -71,9 +80,14 @@ class HeaderToolbar extends FBP(LitElement) {
             border-bottom: 2px solid var(--primary);
         }
 
-        a[selected]{
+        :host([selected="home"]) a[name="home"],
+        :host([selected="api"]) a[name="api"],
+        :host([selected="guide"]) a[name="guide"]
+        {
             border-bottom: 2px solid var(--on-secondary);
         }
+       
+
         a:hover {
             color: var(--on-primary-variant);
         }
@@ -89,15 +103,15 @@ class HeaderToolbar extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-horizontal-flex>
-        <a href="/home" selected>フロー Furo BaseComponents</a>
+        <a name="home" href="/home">フロー Furo BaseComponents</a>
         <furo-empty-spacer></furo-empty-spacer>
-        <a href="/guide">Guide</a>
-        <a href="/api">API</a>
+        <a name="guide" href="/guide/md/fbp-overview/">Guide</a>
+        <a name="api" href="/api/doc/input/">API</a>
         <a href="https://github.com/veith/FuroBaseComponents">
           <furo-icon icon="furo:github"></furo-icon>
         </a>
       </furo-horizontal-flex>
-
+      <furo-location @-location-changed="--pathChanged"></furo-location>
     `;
   }
 }
