@@ -15,7 +15,7 @@ if (!Iconset.default) {
  *
  *
  *
- *```
+ *```js
  * the set of icons can be defined in a iconSetName.js file which has content like this:
  *     export const iconSetName = {
  *          "iconName":"<g><path d='M12 xx.... z'></path></g>",
@@ -31,11 +31,14 @@ if (!Iconset.default) {
  * You can find some set in ./iconsets/...
  *
  * after registering you can use those icons in furo-icon in any other component
+ *
+ * ```html
  * <furo-icon icon="iconSetName:iconName"></furo-icon>
+ * ```
  *
  * if you have imported an iconset with the name **default**, you can use the icon without set name:
  *
- * ```
+ * ```html
  * <furo-icon icon="iconName" ></furo-icon>
  *```
  *

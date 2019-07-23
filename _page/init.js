@@ -5,7 +5,6 @@
 //import {Services, Types} from "@furo/spec/baseTypes.js"
 
 
-
 import {Iconset} from "@furo/framework/furo.js";
 import {FuroBaseIcons} from "@furo/layout/iconsets/baseIcons";
 import {MapsIcons} from "@furo/layout/iconsets/mapsIcons";
@@ -19,7 +18,4 @@ Iconset.registerIconset("maps", MapsIcons);
 Iconset.registerIconset("places", PlacesIcons);
 Iconset.registerIconset("furo", FuroDocIcons);
 Iconset.registerIconset("communication", CommunicationIcons);
-
-
-
 Iconset.registerIconset("notification", NotificationIcons);

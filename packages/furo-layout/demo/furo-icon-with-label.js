@@ -42,6 +42,7 @@ class FuroIconWithLabel extends FBP(LitElement) {
                 furo-icon{
                     margin: auto;
                     display: block;
+                    
                 }
 
             `

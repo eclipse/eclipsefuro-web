@@ -2887,7 +2887,7 @@
       ]
     },
     {
-      "description": "`furo-icon`\n\nto use furo icon you should\nfirst import a svg set of icons and register it to @furo/framework/iconset\n\n\n\n```\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n```\n\nYou can find some set in ./iconsets/...\n\nafter registering you can use those icons in furo-icon in any other component\n<furo-icon icon=\"iconSetName:iconName\"></furo-icon>\n\nif you have imported an iconset with the name **default**, you can use the icon without set name:\n\n```\n<furo-icon icon=\"iconName\" ></furo-icon>\n```\n\nuse css variable '--furo-icon-width' and '--furo-icon-height' to define the size\nuse '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors\n\nyou can also define other properties lik viewport ,preserveAspectRatio...",
+      "description": "`furo-icon`\n\nto use furo icon you should\nfirst import a svg set of icons and register it to @furo/framework/iconset\n\n\n\n```js\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n```\n\nYou can find some set in ./iconsets/...\n\nafter registering you can use those icons in furo-icon in any other component\n\n```html\n<furo-icon icon=\"iconSetName:iconName\"></furo-icon>\n```\n\nif you have imported an iconset with the name **default**, you can use the icon without set name:\n\n```html\n<furo-icon icon=\"iconName\" ></furo-icon>\n```\n\nuse css variable '--furo-icon-width' and '--furo-icon-height' to define the size\nuse '--furo-icon-fill-color' and '--furo-icon-stroke-color'  to define the fill and stroke colors\n\nyou can also define other properties lik viewport ,preserveAspectRatio...",
       "summary": "furo icon",
       "path": "packages/furo-layout/furo-icon.js",
       "properties": [
@@ -2990,11 +2990,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 100,
               "column": 12
             },
             "end": {
-              "line": 99,
+              "line": 102,
               "column": 13
             }
           },
@@ -3011,11 +3011,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 101,
+              "line": 104,
               "column": 12
             },
             "end": {
-              "line": 104,
+              "line": 107,
               "column": 13
             }
           },
@@ -3032,11 +3032,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 109,
               "column": 12
             },
             "end": {
-              "line": 108,
+              "line": 111,
               "column": 13
             }
           },
@@ -3053,11 +3053,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 110,
+              "line": 113,
               "column": 12
             },
             "end": {
-              "line": 113,
+              "line": 116,
               "column": 13
             }
           },
@@ -3074,11 +3074,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 115,
+              "line": 118,
               "column": 12
             },
             "end": {
-              "line": 117,
+              "line": 120,
               "column": 13
             }
           },
@@ -3473,11 +3473,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 130,
               "column": 4
             },
             "end": {
-              "line": 145,
+              "line": 148,
               "column": 5
             }
           },
@@ -3568,11 +3568,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 155,
               "column": 4
             },
             "end": {
-              "line": 154,
+              "line": 157,
               "column": 5
             }
           },
@@ -3799,11 +3799,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 50,
+          "line": 53,
           "column": 0
         },
         "end": {
-          "line": 156,
+          "line": 159,
           "column": 1
         }
       },
@@ -3816,11 +3816,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 100,
               "column": 12
             },
             "end": {
-              "line": 99,
+              "line": 102,
               "column": 13
             }
           },
@@ -3832,11 +3832,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 101,
+              "line": 104,
               "column": 12
             },
             "end": {
-              "line": 104,
+              "line": 107,
               "column": 13
             }
           },
@@ -3848,11 +3848,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 109,
               "column": 12
             },
             "end": {
-              "line": 108,
+              "line": 111,
               "column": 13
             }
           },
@@ -3864,11 +3864,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 110,
+              "line": 113,
               "column": 12
             },
             "end": {
-              "line": 113,
+              "line": 116,
               "column": 13
             }
           },
@@ -3880,11 +3880,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 115,
+              "line": 118,
               "column": 12
             },
             "end": {
-              "line": 117,
+              "line": 120,
               "column": 13
             }
           },
@@ -3901,7 +3901,7 @@
       "tagname": "furo-icon"
     },
     {
-      "description": "`furo-ripple` gives the ripple effect to a element\n\n > Note: Add a `position:relative` to the parent element.\n\n use it directly in an element:\n<furo-demo-snippet source>\n<template>\n <button>\n      click here\n     <furo-ripple></furo-ripple>\n </button>\n</template>\n</furo-demo-snippet>\n\n## trigger the ripple effect via wire\n<furo-demo-snippet source>\n<template>\n <!-- without position relative -->\n <button @-click=\"--actionClicked\">\n      click here\n </button>\n<div style=\"position:relative; width:80px;height:80px; border:1px solid black;\">\n  <furo-ripple ƒ-trigger=\"--actionClicked\"></furo-ripple>\n  Ripple here\n</div>\n</template>\n</furo-demo-snippet>\n\n\n## style vars\n with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect",
+      "description": "`furo-ripple` gives the ripple effect to a element\n\n > Note: Add a `position:relative` to the parent element.\n\n use it directly in an element:\n<furo-demo-snippet source>\n<template>\n<!-- without position relative -->\n <button>\n      click here\n     <furo-ripple></furo-ripple>\n </button>\n</template>\n</furo-demo-snippet>\n\n## trigger the ripple effect via wire\n<furo-demo-snippet source>\n<template>\n<button @-click=\"--actionClicked\">\n      click here\n</button>\n\n<div style=\"position:relative; width:80px;height:80px; border:1px solid black;\">\n  <furo-ripple noink ƒ-trigger=\"--actionClicked\"></furo-ripple>\n  Ripple here\n</div>\n</template>\n</furo-demo-snippet>\n\n\n## style vars\n with variable `--furo-ripple-bg-color` you can modify the backgroud color of the ripple effect",
       "summary": "",
       "path": "packages/furo-layout/furo-ripple.js",
       "properties": [
@@ -4004,11 +4004,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 112,
               "column": 12
             },
             "end": {
-              "line": 111,
+              "line": 112,
               "column": 49
             }
           },
@@ -4092,11 +4092,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 48,
+              "line": 49,
               "column": 4
             },
             "end": {
-              "line": 54,
+              "line": 55,
               "column": 5
             }
           },
@@ -4520,11 +4520,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 120,
               "column": 4
             },
             "end": {
-              "line": 124,
+              "line": 125,
               "column": 5
             }
           },
@@ -4742,11 +4742,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 39,
+          "line": 40,
           "column": 0
         },
         "end": {
-          "line": 125,
+          "line": 126,
           "column": 1
         }
       },
@@ -4759,11 +4759,11 @@
           "description": "Disables the click, only ripples with `trigger()`",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 112,
               "column": 12
             },
             "end": {
-              "line": 111,
+              "line": 112,
               "column": 49
             }
           },
