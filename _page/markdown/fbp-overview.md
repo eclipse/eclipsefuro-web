@@ -1,6 +1,6 @@
 # Introduction to Furo Flowbased Programming
 
-**TL/DR**: Furo™ - FBP is a shorthand notation for adding eventlisteners and invoking methods on elements without writing any javascript. Thats it.
+**TL/DR**: Furo-FBP is a shorthand notation for adding eventlisteners and invoking methods on elements without writing any javascript. Thats it.
 
 Inspired by the work of J Paul Morrison
 

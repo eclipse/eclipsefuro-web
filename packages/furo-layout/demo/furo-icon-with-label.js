@@ -29,7 +29,9 @@ class FuroIconWithLabel extends FBP(LitElement) {
                 :host {
                     height: 48px;
                     display: inline-block;
-                    margin-right: 5px;
+                    width: 7em;
+                    margin: 1em 0.5em;
+                    text-align: center;
                 }
 
                 span{
