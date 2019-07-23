@@ -2,6 +2,7 @@
 
 import {Init} from "@furo/framework/furo.js";
 import {Iconset} from "@furo/framework/furo.js";
+
 import {FuroBaseIcons} from "../iconsets/baseIcons";
 import {DeviceIcons} from "../iconsets/deviceIcons";
 import {AvIcons} from "../iconsets/avIcons";
