@@ -58,6 +58,9 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+        furo-demo-snippet{
+            height:100%;
+        }
     `
   }
 
@@ -70,7 +73,7 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
     // language=HTML
     return html`
       
-      <furo-demo-snippet style="height: 100%;">
+      <furo-demo-snippet flow>
         <template>
           <a href="/api/demo/util/demo-furo-demo-snippet/util/">util</a>
           <a href="/api/demo/util/demo-furo-demo-snippet/data/">data</a>
@@ -87,6 +90,8 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
             <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
 
           </furo-split-view>
+          
+          <dummy-element ƒ-remove="--class(*.path), --element, --analysis(*.path)" @-done="--analysis(*),((hostattribute)),notarget"></dummy-element>
         </template>
       </furo-demo-snippet>
     `;

@@ -3,6 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/layout"
 import "@furo/util/furo-markdown"
+import "./furo-show-flow"
 
 /**
  * `furo-demo-snippet`
@@ -21,7 +22,9 @@ class FuroDemoSnippet extends FBP(LitElement) {
     let t = this.querySelector('template');
     this.template = t.content;
     this.markdown = "```html\n" + t.innerHTML + "\n```";
-    this._FBPTriggerWire("--tpl", this.markdown);
+
+    this._FBPTriggerWire("--markdown", this.markdown);
+    this._FBPTriggerWire("--template", this.template);
 
     this.addEventListener("source", (e) => {
       this.source = true;
@@ -145,8 +148,8 @@ class FuroDemoSnippet extends FBP(LitElement) {
         <div class="nav"><span @-click="-^demo">demo</span> | <span @-click="-^source">source</span> | <span @-click="-^flow">flow</span></div>
         <div flex class="flexbody">
           <div id="demo" flex></div>
-          <div  id="flow">Comming soon</div>
-          <furo-markdown  ƒ-parse-markdown="--tpl"></furo-markdown>
+          <furo-show-flow id="flow" ƒ-parse-template="--template"></furo-show-flow>
+          <furo-markdown id="source" ƒ-parse-markdown="--markdown"></furo-markdown>
         </div>
       </furo-vertical-flex>
     `;
