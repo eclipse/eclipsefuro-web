@@ -4,68 +4,71 @@ With FBP you mostly connect the the output of a component (event) with the funct
 
 ## Connecting things
 
-We have a button and an elements which we want to hide after the button is clicked.
+We have a button and an elements which we want to remove after the button is clicked.
  
+  
 
-![hide example](/_page/images/hideExample.png)
-
-
-```html
-
+<furo-demo-snippet flow>
 <template>
-  <button @-click="--hideClicked">hide</button>
-  <element-to-hide ƒ-hide="--hideClicked">First element to hide</element-to-hide>
+  <button @-click="--removeClicked">remove</button>
+  <element-to-hide ƒ-remove="--removeClicked">First element to remove</element-to-hide>
 </template>
+</furo-demo-snippet>
 
-```
+
+
 This doesnt look very impressive in the first moment. But like you can see, there is no scripting involved and there are no id's assigned to the components. This will be more useful if you have more then 2 components. 
 
 {{<note title="Note">}}
-The ƒ-hide method from `element-to-hide` will be called with **event.detail** from the click event as an argument. 
+The ƒ-remove method from `element-to-hide` will be called with **event.detail** from the click event as an argument. 
 More on this you can read in section  [passing data](#passing-data)
 {{</note >}}
 
 
 ## Multiple targets
-A wire can have multiple targets. The **--hideClicked** wire from above can trigger multiple elements if you want.
+A wire can have multiple targets. The **--removeClicked** wire from above can trigger multiple elements if you want.
 
-![Multiple targets](/_page/images/multipleTargets.png)
 
-```html
+<furo-demo-snippet flow>
 <template>
-  <button @-click="--hideClicked">hide</button>
-  <element-to-hide ƒ-hide="--hideClicked">element to hide</element-to-hide>
-  <element-to-hide ƒ-hide="--hideClicked">other element to hide</element-to-hide>
-  <element-to-show ƒ-show="--hideClicked">other element to hide</element-to-show>
+  <button @-click="--removeClicked">remove</button>
+  <div ƒ-remove="--removeClicked">element to remove</div>
+  <div ƒ-remove="--removeClicked">other element to remove</div>
+  <div ƒ-remove="--removeClicked">other element to remove</div>
 </template>
-```
+</furo-demo-snippet>
+
+
 if you press the button, all elements which are connected to the wire will trigger the defined function. In this example the first to will call the hide and the third element will call the show function.
 
 ## Multiple sources
 A wire can also have multiple sources. 
-![Multiple sources](/_page/images/multipleSources.png)
-```html
+
+<furo-demo-snippet flow>
 <template>
-  <button @-click="--hideClicked">hide</button>
-  <element-to-hide ƒ-hide="--hideClicked">element to hide</element-to-hide> 
-  <button @-click="--hideClicked">other hide</button>
+  <button @-click="--removeClicked">hide</button>
+  <element-to-hide ƒ-remove="--removeClicked">element to remove</element-to-hide> 
+  <button @-click="--removeClicked">other hide</button>
 </template>
-```
-It doesn't matter if you press the first or the second hide button. Both will trigger the wire **--hideClicked**.
+</furo-demo-snippet>
+
+
+It doesn't matter if you press the first or the second hide button. Both will trigger the wire **--removeClicked**.
 
 ## Multiple sources and targets 
 A wire can also have multiple sources and targets.
 
 ![Multiple sources and targets](/_page/images/multiSourceAndTarget.png)
-```html
-  <template>
-    <button @-click="--hideClicked">hide</button>
-    <element-to-hide ƒ-hide="--hideClicked">element to hide</element-to-hide>
-    <element-to-hide ƒ-hide="--hideClicked">other element to hide</element-to-hide>
-    <element-to-show ƒ-show="--hideClicked">other element to hide</element-to-show>
-    <button @-click="--hideClicked">other hide</button>
-  </template>
-```
+
+<furo-demo-snippet flow>
+<template>
+    <button @-click="--removeClicked">hide</button>
+    <element-to-hide ƒ-remove="--removeClicked">element to remove</element-to-hide>
+    <element-to-hide ƒ-remove="--removeClicked">other element to remove</element-to-hide>
+    <element-to-show ƒ-show="--removeClicked">other element to remove</element-to-show>
+    <button @-click="--removeClicked">other hide</button>
+</template>
+</furo-demo-snippet>
 
   
   
@@ -76,30 +79,34 @@ You can trigger multiple wires from one source by comma separating them.
 
 *the black wire is --otherIntention*
 
-```html
+<furo-demo-snippet flow>
 <template>
-  <button @-click="--hideClicked,--otherIntention">hide</button>
-  <element-to-hide ƒ-hide="--hideClicked">element to hide</element-to-hide>
-  <element-to-hide ƒ-hide="--hideClicked">other element to hide</element-to-hide>
+  <button @-click="--removeClicked,--otherIntention">hide</button>
+  <element-to-hide ƒ-remove="--removeClicked">element to remove</element-to-hide>
+  <element-to-hide ƒ-remove="--removeClicked">other element to remove</element-to-hide>
   <element-to-show ƒ-show="--otherIntention"> element to show</element-to-show>
 </template>
-```
-If you press the button, it will trigger the **--hideClicked** and **--otherIntention** wire *(in black)*.
+</furo-demo-snippet>
+
+
+If you press the button, it will trigger the **--removeClicked** and **--otherIntention** wire *(in black)*.
  
 ## Multiple wires to target
 You can receive from multiple wires by comma separating them.
 
 ![Multiple wires to target](/_page/images/mwTarget.png)
 
-```html
+<furo-demo-snippet flow>
 <template>
-  <button @-click="--hideClicked">hide</button>
-  <placeholder-element ƒ-hide="--hideClicked,--contentLoaded">element to hide</placeholder-element>
-  <element-to-hide ƒ-hide="--hideClicked">other element to hide</element-to-hide>
+  <button @-click="--removeClicked">hide</button>
+  <placeholder-element ƒ-remove="--removeClicked,--contentLoaded">element to remove</placeholder-element>
+  <element-to-hide ƒ-remove="--removeClicked">other element to remove</element-to-hide>
   <main-content @-ready="--contentLoaded" data="[[_content]]"></main-content>
 </template>
-```
-The hide function of the placeholder-element will be triggered when --hideClicked or --contentLoaded will be fired. 
+</furo-demo-snippet>
+
+
+The hide function of the placeholder-element will be triggered when --removeClicked or --contentLoaded will be fired. 
  
 
 ## Passing data
@@ -108,21 +115,29 @@ You have several ways to accomplish this task.
  
  **inject the property at the wire source**
 
-```html
+<furo-demo-snippet flow>
+<template>
    <paper-button @-tap="--wireWithProerty(_myProp)"> Press this </paper-button>
    <other-component ƒ-demo="--wireWithProerty"></other-component>
-```
+</template>
+</furo-demo-snippet>
+
+
 _myProp is a normal polymer property.
 
 **using a component to replace event.detail with a property**
 
 ![replace data](/_page/images/replaceData.png)
 
-```html
+<furo-demo-snippet flow>
+<template>
    <paper-button @-tap="--buttonPressed"> Press this </paper-button>
-   <replace-detail data="[[_myProp]]" ƒ-in="--buttonPressed" @-out="--wireWithProerty"></replace-detail>
+   <replace-detail data="${this.prop}" ƒ-in="--buttonPressed" @-out="--wireWithProerty"></replace-detail>
    <other-component ƒ-demo="--wireWithProerty"></other-component>
-```
+</template>
+</furo-demo-snippet>
+
+
 
 ## Send the raw *event* instead of *event.detail*
 
