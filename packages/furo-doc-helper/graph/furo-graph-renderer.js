@@ -6,7 +6,7 @@ import '@svgdotjs/svg.panzoom.js'
 
 /**
  * `furo-graph-renderer`
- * todo Describe your element
+ * Paint a SVG from the received graph data
  *
  * @summary todo shortdescription
  * @customElement
@@ -25,10 +25,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
     var graphWidth = sizes.width;
     var graphHeight = sizes.height;
 
-    //https://github.com/svgdotjs/svg.panzoom.js
-
-
-    var canvas = SVG().addTo(this.shadowRoot).panZoom({zoomMin: 0.1, zoomMax: 3, zoomFactor:0.02});
+    var canvas = SVG().addTo(this.shadowRoot).panZoom({zoomMin: 0.1, zoomMax: 10, zoomFactor:0.015});
 
     canvas.viewbox(0,0,graphWidth,graphHeight);
     this.canvas = canvas;
@@ -39,10 +36,10 @@ class FuroGraphRenderer extends FBP(LitElement) {
       if (node.type === "component") {
 
         let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2)).fill('none');
-
+        box.radius(5);
         box.addClass(node.type);
         if (node.label) {
-          let text = canvas.text(node.label).move((node.x - node.width / 2) + 4, (node.y - node.height / 2));
+          let text = canvas.text(node.label).move((node.x - node.width / 2) + 25, (node.y - node.height / 2) +5);
         }
       }
     });
@@ -52,7 +49,9 @@ class FuroGraphRenderer extends FBP(LitElement) {
         let points = edge.points.map((p) => {
           return [p.x, p.y]
         });
-        canvas.polyline(points).addClass("line");
+       let line = canvas.polyline(points).addClass("line");
+        let tootltip = line.element('title');
+        tootltip.words(edge.wirename);
       }
     });
 
@@ -61,15 +60,36 @@ class FuroGraphRenderer extends FBP(LitElement) {
       if (node.type === "attribute") {
 
         let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2)).fill('none');
-
+        box.radius(3);
         box.addClass(node.type);
         box.addClass(node.attr._type);
 
-        if (node.label) {
-          //canvas.group("label")
-          let text = canvas.text(node.label).move((node.x - node.width / 2) + 4, (node.y - node.height / 2));
+
+
+        // add classes for ^^bubbling, -^host, ^nonbubbling, ƒ-.property
+        // for bool like flex
+        if(!node.attr.value){
+          box.addClass("flag");
+        }else{
+          let tootltip = box.element('title');
+          tootltip.words(node.attr.value);
 
         }
+
+        if (node.label) {
+          //canvas.group("label")
+          let text = canvas.text(node.label).move((node.x - node.width / 2) + 10, (node.y - node.height / 2)+5);
+        }
+      }
+      if (node.type === "notarget") {
+        let circle = canvas.circle(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2)).fill('red');
+        let tootltip = circle.element('title');
+        tootltip.words(node.wirename);
+      }
+      if (node.type === "nosource") {
+        let circle = canvas.circle(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2)).fill('orange');
+        let tootltip = circle.element('title');
+        tootltip.words(node.wirename);
       }
     });
 
@@ -127,11 +147,21 @@ class FuroGraphRenderer extends FBP(LitElement) {
         .attribute.event {
             stroke: blue;
         }
-        .line{
-            stroke:brown;
-            fill: none;
-            stroke-width: 3;
+
+        .attribute.flag {
+            stroke: #070707;
         }
+
+        .line {
+            stroke: #02a8f4;
+            fill: none;
+            stroke-width: 4;
+        }
+
+        .line:hover {
+            stroke: #f4c633;
+        }
+
     `
   }
 

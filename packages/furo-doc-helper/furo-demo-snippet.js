@@ -3,7 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/layout"
 import "@furo/util/furo-markdown"
-import "./furo-show-flow"
+import "./graph/furo-show-flow"
 
 /**
  * `furo-demo-snippet`
@@ -23,13 +23,11 @@ class FuroDemoSnippet extends FBP(LitElement) {
     this.template = t.content;
     this.markdown = "```html\n" + t.innerHTML + "\n```";
 
-    this._FBPTriggerWire("--markdown", this.markdown);
-    this._FBPTriggerWire("--template", this.template);
-
     this.addEventListener("source", (e) => {
       this.source = true;
       this.demo = false;
       this.flow = false;
+      this._FBPTriggerWire("--markdown", this.markdown);
     });
 
     this.addEventListener("demo", (e) => {
@@ -42,6 +40,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
       this.source = false;
       this.demo = false;
       this.flow = true;
+      this._FBPTriggerWire("--template", this.template);
     });
   }
 
@@ -79,6 +78,14 @@ class FuroDemoSnippet extends FBP(LitElement) {
     if(!this.source && !this.flow){
       this.demo = true;
     }
+
+    if(this.source){
+      this._FBPTriggerWire("--markdown", this.markdown);
+    }
+    if(this.flow){
+      this._FBPTriggerWire("--template", this.template);
+    }
+
   }
 
 

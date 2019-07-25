@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "dagre/dist/dagre.min"
-import "./graph/furo-graph-renderer"
+import "./furo-graph-renderer"
 
 /**
  * `furo-show-flow`
@@ -23,14 +23,21 @@ class FuroShowFlow extends FBP(LitElement) {
   parseTemplate(template) {
     this.graph = new dagre.graphlib.Graph({multigraph: false, compound: true});
     // graph settings
-    this.graph.setGraph({"rankdir": "LR", "align": "UL", ranksep: 50, nodesep: 20, edgesep: 20,  marginx:20, marginy:20});
-
+    this.graph.setGraph({
+      "rankdir": "LR",
+      "align": "UL",
+      ranksep: 50,
+      nodesep: 20,
+      edgesep: 40,
+      marginx: 40,
+      marginy: 40
+    });
     this._collectedWires = {methods: [], events: []};
     this._recursiveParse(template, "");
     this._setWireEdges();
     dagre.layout(this.graph);
 
-    this._FBPTriggerWire("--graph",this.graph);
+    this._FBPTriggerWire("--graph", this.graph);
 
 
   }
@@ -66,17 +73,63 @@ class FuroShowFlow extends FBP(LitElement) {
       })
     });
 
+
     // setEdges for every sendingWire element with receivingWire element
-    for(let wire in sendingWires){
-      sendingWires[wire].forEach((source)=>{
-        if(receivingWires[wire]){
-          receivingWires[wire].forEach((target)=>{
-            this.graph.setEdge(source._graphID,target._graphID,{weight: 1,source:source,target:target})
+    for (let wire in sendingWires) {
+      sendingWires[wire].forEach((source) => {
+        if (receivingWires[wire]) {
+          receivingWires[wire].forEach((target) => {
+            this.graph.setEdge(source._graphID, target._graphID, {
+              weight: 1,
+              source: source,
+              target: target,
+              wirename: wire
+            })
+          })
+        } else {
+          // no target element
+          // add node and set edge
+          this.graph.setNode(source._graphID + "-notarget", {
+            width: 30,
+            height: 30,
+            type: "notarget",
+            source: source,
+            wirename: wire
+          });
+          this.graph.setEdge(source._graphID, source._graphID + "-notarget", {
+            weight: 1,
+            source: source,
+            wirename: wire
           })
         }
       });
-
     }
+
+    // find edges without source (for things like --pageActivated)
+    for (let wire in receivingWires) {
+      receivingWires[wire].forEach((source) => {
+        if (!sendingWires[wire]) {
+          // no target element
+          // add node and set edge
+          this.graph.setNode(source._graphID + "-nosource", {
+            width: 30,
+            height: 30,
+            type: "nosource",
+            source: source,
+            wirename: wire
+          });
+          this.graph.setParent(source._graphID + "-nosource", source.parentComponentID);
+          this.graph.setEdge(source._graphID + "-nosource", source._graphID, {
+            weight: 1,
+            source: source,
+            wirename: wire
+          });
+          // "inherit" parent
+
+        }
+      });
+    }
+
   }
 
   _recursiveParse(node, parentNode) {
@@ -95,11 +148,11 @@ class FuroShowFlow extends FBP(LitElement) {
         Array.from(e.attributes).forEach((attr) => {
           let attrNodeID = nodeID + "-" + attr.name;
           attr._graphID = attrNodeID;
-
+          attr.parentComponentID = nodeID;
           this.graph.setNode(attrNodeID, {
             label: attr.name,
             width: 200,
-            height: 20,
+            height: 30,
             type: "attribute",
             attr: attr,
             value: attr.value
@@ -110,20 +163,20 @@ class FuroShowFlow extends FBP(LitElement) {
 
 
           // add center node
-          this.graph.setNode(nodeID + "-center",{type:"center"});
+          this.graph.setNode(nodeID + "-center", {type: "center"});
           this.graph.setParent(nodeID + "-center", nodeID);
 
           // collect the event wires
           if (attr.name.startsWith("@-")) {
             this._collectedWires.events.push(attr);
             attr._type = "event";
-            this.graph.setEdge(nodeID + "-center",attrNodeID, {type:"center",weight: 15});
+            this.graph.setEdge(nodeID + "-center", attrNodeID, {type: "center", weight: 15});
           }
           // collect the method wires
           if (attr.name.startsWith("ƒ-")) {
             this._collectedWires.methods.push(attr);
             attr._type = "method";
-            this.graph.setEdge(attrNodeID, nodeID + "-center", {type:"center",weight: 15});
+            this.graph.setEdge(attrNodeID, nodeID + "-center", {type: "center", weight: 15});
           }
         });
         this._recursiveParse(e, nodeID)
