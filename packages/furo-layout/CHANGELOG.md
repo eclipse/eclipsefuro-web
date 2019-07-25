@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.4](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.27.3...@furo/layout@0.27.4) (2019-07-25)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
 ## [0.27.3](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.27.2...@furo/layout@0.27.3) (2019-07-22)
 
 **Note:** Version bump only for package @furo/layout
