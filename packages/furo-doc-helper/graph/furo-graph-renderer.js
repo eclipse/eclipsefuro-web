@@ -59,11 +59,16 @@ class FuroGraphRenderer extends FBP(LitElement) {
       let node = graph.node(v);
       if (node.type === "attribute") {
 
+
+        // add receiving circle
+        //if(node.attr._type === "method"){
+        //  let r = canvas.circle(12, 12).move((node.x - node.width / 2) -6, (node.y - node.height / 2)+6).addClass('line');
+        //}
+
         let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2)).fill('none');
         box.radius(3);
         box.addClass(node.type);
         box.addClass(node.attr._type);
-
 
 
         // add classes for ^^bubbling, -^host, ^nonbubbling, ƒ-.property
@@ -73,7 +78,6 @@ class FuroGraphRenderer extends FBP(LitElement) {
         }else{
           let tootltip = box.element('title');
           tootltip.words(node.attr.value);
-
         }
 
         if (node.label) {
