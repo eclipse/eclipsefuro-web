@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.1.0...@furo/doc-helper@0.2.0) (2019-07-25)
+
+
+### Features
+
+* the flow ([a266c80](https://github.com/veith/FuroBaseComponents/commit/a266c80))
+
+
+
+
+
 # [0.1.0](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.0.2...@furo/doc-helper@0.1.0) (2019-07-25)
 
 
