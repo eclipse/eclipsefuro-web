@@ -56,7 +56,8 @@ class FuroDemoSnippet extends FBP(LitElement) {
        */
       source: {type: Boolean, reflect: true},
       demo: {type: Boolean, reflect: true},
-      flow: {type: Boolean, reflect: true}
+      flow: {type: Boolean, reflect: true},
+      noDemo: {type: String, reflect: true, attribute:"no-demo"}
     };
   }
 
@@ -65,15 +66,18 @@ class FuroDemoSnippet extends FBP(LitElement) {
    */
   __fbpReady() {
     super.__fbpReady();
-
+    // check if demo is disabled
     let demo = this.shadowRoot.querySelector("#demo");
-
-    let elem = document.createElement("empty-fbp-node");
-    elem.attachShadow({mode: 'open'});
-    elem.shadowRoot.appendChild(this.template.cloneNode(true));
-    elem._appendFBP(elem.shadowRoot);
-    elem._FBPTraceWires();
-    demo.appendChild(elem.shadowRoot);
+    if(!this.noDemo){
+      let elem = document.createElement("empty-fbp-node");
+      elem.attachShadow({mode: 'open'});
+      elem.shadowRoot.appendChild(this.template.cloneNode(true));
+      elem._appendFBP(elem.shadowRoot);
+      elem._FBPTraceWires();
+      demo.appendChild(elem.shadowRoot);
+    }else{
+      demo.innerText = "Demo is disabled";
+    }
 
     if (!this.source && !this.flow) {
       this.demo = true;
@@ -100,6 +104,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
         :host {
             display: block;
             height: 300px;
+            box-sizing: border-box;
         }
 
         :host([hidden]) {
@@ -138,21 +143,28 @@ class FuroDemoSnippet extends FBP(LitElement) {
         }
 
         .nav {
-            border-bottom: 1px solid gainsboro;
-            padding-bottom: 8px;
+            background-color: var(--demo-header);
+            color:var(--on-primary);
             margin-bottom: 24px;
         }
 
+        .nav span{
+            display: inline-block;
+            border-bottom: 1px solid var(--demo-header, white);
+        }
         :host([flow]) .flow {
             font-weight: 800;
+            border-bottom: 1px solid var(--on-primary);
         }
 
         :host([demo]) .demo {
             font-weight: 800;
+            border-bottom: 1px solid var(--on-primary);
         }
 
         :host([source]) .source {
             font-weight: 800;
+            border-bottom: 1px solid var(--on-primary);
         }
 
     `

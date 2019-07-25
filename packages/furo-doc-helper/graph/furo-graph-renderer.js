@@ -165,12 +165,12 @@ class FuroGraphRenderer extends FBP(LitElement) {
         }
 
         .attribute.method {
-            stroke: green;
+            stroke: #4caf50;
         }
 
         .methodindicator {
-            stroke: green;
-            fill: green;
+            stroke: #4caf50;
+            fill: #4caf50;
         }
 
         .eventindicator {

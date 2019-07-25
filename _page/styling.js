@@ -7,7 +7,7 @@ export class Styling {
         return css`
             :host {
                 /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
-                --primary-color: #ececec;
+                --primary: #ececec;
                 --primary-variant: #f4f4f4;
                 --secondary: #f4f4f4;
                 --secondary-variant: #edeeed;

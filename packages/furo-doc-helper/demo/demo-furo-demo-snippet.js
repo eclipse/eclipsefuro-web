@@ -72,11 +72,12 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      
-      <furo-demo-snippet flow>
+      <p>Demo is flickering, because it gets completly re rendered on each change</p>
+      <furo-demo-snippet demo>
         <template>
-          <a href="/api/demo/util/demo-furo-demo-snippet/util/">util</a>
-          <a href="/api/demo/util/demo-furo-demo-snippet/data/">data</a>
+          <a href="/api/demo/util/demo-furo-demo-snippet/util/">Package util</a>
+          <a href="/api/demo/util/demo-furo-demo-snippet/data/">Package data</a>
+          
           <furo-location url-space-regex="^/api/demo/util/demo-furo-demo-snippet" @-location-changed="--pathChanged"></furo-location>
           <!-- load analysis based on --pathChanged.pathSegments[0] -->
           <furo-doc-fetch-analysis ƒ-fetch-location="--pathChanged" ƒ-activate="--pageActivated" @-data="--analysis"></furo-doc-fetch-analysis>
