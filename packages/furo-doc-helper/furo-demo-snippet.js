@@ -75,14 +75,14 @@ class FuroDemoSnippet extends FBP(LitElement) {
     elem._FBPTraceWires();
     demo.appendChild(elem.shadowRoot);
 
-    if(!this.source && !this.flow){
+    if (!this.source && !this.flow) {
       this.demo = true;
     }
 
-    if(this.source){
+    if (this.source) {
       this._FBPTriggerWire("--markdown", this.markdown);
     }
-    if(this.flow){
+    if (this.flow) {
       this._FBPTriggerWire("--template", this.template);
     }
 
@@ -118,8 +118,8 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
         :host(:not([demo])) #demo {
             display: none;
-        } 
-        
+        }
+
         :host(:not([flow])) #flow {
             display: none;
         }
@@ -127,18 +127,34 @@ class FuroDemoSnippet extends FBP(LitElement) {
         :host(:not([source])) furo-markdown {
             display: none;
         }
-        div.flexbody{
+
+        div.flexbody {
             height: inherit;
             overflow: hidden;
         }
-        span{
+
+        span {
             cursor: pointer;
         }
-        .nav{
+
+        .nav {
             border-bottom: 1px solid gainsboro;
             padding-bottom: 8px;
             margin-bottom: 24px;
         }
+
+        :host([flow]) .flow {
+            font-weight: 800;
+        }
+
+        :host([demo]) .demo {
+            font-weight: 800;
+        }
+
+        :host([source]) .source {
+            font-weight: 800;
+        }
+
     `
   }
 
@@ -152,7 +168,8 @@ class FuroDemoSnippet extends FBP(LitElement) {
     return html`
 
       <furo-vertical-flex>
-        <div class="nav"><span @-click="-^demo">demo</span> | <span @-click="-^source">source</span> | <span @-click="-^flow">flow</span></div>
+        <div class="nav"><span class="demo" @-click="-^demo">demo</span> | <span class="source" @-click="-^source">source</span>
+          | <span class="flow" @-click="-^flow">flow</span></div>
         <div flex class="flexbody">
           <div id="demo" flex></div>
           <furo-show-flow id="flow" ƒ-parse-template="--template"></furo-show-flow>

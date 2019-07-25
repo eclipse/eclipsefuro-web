@@ -25,9 +25,9 @@ class FuroGraphRenderer extends FBP(LitElement) {
     var graphWidth = sizes.width;
     var graphHeight = sizes.height;
 
-    var canvas = SVG().addTo(this.shadowRoot).panZoom({zoomMin: 0.1, zoomMax: 10, zoomFactor:0.015});
+    var canvas = SVG().addTo(this.shadowRoot).panZoom({zoomMin: 0.1, zoomMax: 10, zoomFactor: 0.015});
 
-    canvas.viewbox(0,0,graphWidth,graphHeight);
+    canvas.viewbox(0, 0, graphWidth, graphHeight);
     this.canvas = canvas;
 
     let nodes = graph.nodes();
@@ -39,7 +39,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
         box.radius(5);
         box.addClass(node.type);
         if (node.label) {
-          let text = canvas.text(node.label).move((node.x - node.width / 2) + 25, (node.y - node.height / 2) +5);
+          let text = canvas.text(node.label).move((node.x - node.width / 2) + 25, (node.y - node.height / 2) + 5);
         }
       }
     });
@@ -49,7 +49,8 @@ class FuroGraphRenderer extends FBP(LitElement) {
         let points = edge.points.map((p) => {
           return [p.x, p.y]
         });
-       let line = canvas.polyline(points).addClass("line");
+        let line = canvas.polyline(points).addClass("line");
+
         let tootltip = line.element('title');
         tootltip.words(edge.wirename);
       }
@@ -65,24 +66,43 @@ class FuroGraphRenderer extends FBP(LitElement) {
         //  let r = canvas.circle(12, 12).move((node.x - node.width / 2) -6, (node.y - node.height / 2)+6).addClass('line');
         //}
 
-        let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2)).fill('none');
+        let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2));
         box.radius(3);
         box.addClass(node.type);
         box.addClass(node.attr._type);
 
+        // add green bar to the left
+        if (node.attr._type === "method") {
+          let box = canvas.rect(10, node.height).move((node.x - node.width / 2), (node.y - node.height / 2));
+          box.radius(3);
+          box.addClass("methodindicator");
+        }
+
+        // add blue bar to the right
+        if (node.attr._type === "event") {
+          let box = canvas.rect(10, node.height).move((node.x + node.width / 2) - 10, (node.y - node.height / 2));
+          box.radius(3);
+          box.addClass("eventindicator");
+
+        }
 
         // add classes for ^^bubbling, -^host, ^nonbubbling, ƒ-.property
         // for bool like flex
-        if(!node.attr.value){
+        if (!node.attr.value) {
           box.addClass("flag");
-        }else{
+          // add black bar to the left
+
+          let indicator = canvas.rect(10, node.height).move((node.x - node.width / 2), (node.y - node.height / 2));
+          indicator.radius(3);
+          indicator.addClass("flagindicator");
+
+        } else {
           let tootltip = box.element('title');
           tootltip.words(node.attr.value);
         }
 
         if (node.label) {
-          //canvas.group("label")
-          let text = canvas.text(node.label).move((node.x - node.width / 2) + 10, (node.y - node.height / 2)+5);
+          let text = canvas.text(node.label).move((node.x - node.width / 2) + 15, (node.y - node.height / 2) + 5);
         }
       }
       if (node.type === "notarget") {
@@ -133,14 +153,14 @@ class FuroGraphRenderer extends FBP(LitElement) {
         }
 
         .component {
-            fill: #f5f6f6;
+            fill: #f6f6f6;
             stroke: #67686a;
-            stroke-width: 2;
+            stroke-width: 1;
         }
 
         .attribute {
             fill: white;
-            stroke: #ffc247;
+            stroke: #ffb65b;
             stroke-width: 1;
         }
 
@@ -148,13 +168,30 @@ class FuroGraphRenderer extends FBP(LitElement) {
             stroke: green;
         }
 
+        .methodindicator {
+            stroke: green;
+            fill: green;
+        }
+
+        .eventindicator {
+            stroke: #02a8f4;
+            fill: #02a8f4;
+        }
+
+
         .attribute.event {
-            stroke: blue;
+            stroke: #02a8f4;
         }
 
         .attribute.flag {
-            stroke: #070707;
+            stroke: #686868;
         }
+
+        .flagindicator {
+            stroke: #686868;
+            fill: #686868;
+        }
+
 
         .line {
             stroke: #02a8f4;

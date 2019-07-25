@@ -133,7 +133,8 @@ class FuroShowFlow extends FBP(LitElement) {
   }
 
   _recursiveParse(node, parentNode) {
-
+// todo switch to childNodes ignore TEXT_NODE and store COMMENT_NODE to the next ELEMENT_NODE
+// https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
     if (node.children.length > 0) {
       Array.from(node.children).forEach((e, i) => {
         let nodeID = parentNode + "." + e.tagName + "-" + i;
@@ -157,10 +158,8 @@ class FuroShowFlow extends FBP(LitElement) {
             attr: attr,
             value: attr.value
           });
-          //eventuell noch einen edge setzen um @ immer rechts zu haben?
 
           this.graph.setParent(attrNodeID, nodeID);
-
 
           // add center node
           this.graph.setNode(nodeID + "-center", {type: "center"});
@@ -170,14 +169,20 @@ class FuroShowFlow extends FBP(LitElement) {
           if (attr.name.startsWith("@-")) {
             this._collectedWires.events.push(attr);
             attr._type = "event";
+            //einen edge setzen um @ immer rechts zu haben
             this.graph.setEdge(nodeID + "-center", attrNodeID, {type: "center", weight: 15});
+          }else{
+            //einen edge setzen um ƒ und alle anderen immer links zu haben
+            this.graph.setEdge(attrNodeID, nodeID + "-center", {type: "center", weight: 15});
           }
           // collect the method wires
           if (attr.name.startsWith("ƒ-")) {
             this._collectedWires.methods.push(attr);
             attr._type = "method";
-            this.graph.setEdge(attrNodeID, nodeID + "-center", {type: "center", weight: 15});
+
           }
+
+
         });
         this._recursiveParse(e, nodeID)
       })

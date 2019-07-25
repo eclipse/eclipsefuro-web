@@ -79,7 +79,7 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
           <a href="/api/demo/util/demo-furo-demo-snippet/data/">data</a>
           <furo-location url-space-regex="^/api/demo/util/demo-furo-demo-snippet" @-location-changed="--pathChanged"></furo-location>
           <!-- load analysis based on --pathChanged.pathSegments[0] -->
-          <furo-doc-fetch-analysis ƒ-fetch-location="--pathChanged, --pageActivated" @-data="--analysis"></furo-doc-fetch-analysis>
+          <furo-doc-fetch-analysis ƒ-fetch-location="--pathChanged" ƒ-activate="--pageActivated" @-data="--analysis"></furo-doc-fetch-analysis>
           <furo-split-view >
 
             <!-- the doc menu -->
