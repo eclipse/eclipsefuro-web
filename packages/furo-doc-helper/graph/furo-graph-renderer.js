@@ -50,7 +50,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
           return [p.x, p.y]
         });
         let line = canvas.polyline(points).addClass("line");
-
+        line.addClass(edge.type);
         let tootltip = line.element('title');
         tootltip.words(edge.wirename);
       }
@@ -115,6 +115,40 @@ class FuroGraphRenderer extends FBP(LitElement) {
         let tootltip = circle.element('title');
         tootltip.words(node.wirename);
       }
+
+      if (node.type === "park") {
+        let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2));
+        box.radius(3);
+        box.addClass("park");
+        if (node.label) {
+          let text = canvas.text(node.label).move((node.x - node.width / 2) + 15, (node.y - node.height / 2) + 5);
+        }
+      }
+      if (node.type === "bubbling") {
+        let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2));
+        box.radius(3);
+        box.addClass("bubbling");
+        if (node.label) {
+          let text = canvas.text(node.label).move((node.x - node.width / 2) + 15, (node.y - node.height / 2) + 5);
+        }
+      }
+      if (node.type === "nonbubbling") {
+        let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2));
+        box.radius(3);
+        box.addClass("nonbubbling");
+        if (node.label) {
+          let text = canvas.text(node.label).move((node.x - node.width / 2) + 15, (node.y - node.height / 2) + 5);
+        }
+      }
+      if (node.type === "hostevent") {
+        let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2));
+        box.radius(3);
+        box.addClass("hostevent");
+        if (node.label) {
+          let text = canvas.text(node.label).move((node.x - node.width / 2) + 15, (node.y - node.height / 2) + 5);
+        }
+      }
+
     });
 
   }
@@ -161,7 +195,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
         .attribute {
             fill: white;
             stroke: #ffb65b;
-            stroke-width: 1;
+            stroke-width: 2;
         }
 
         .attribute.method {
@@ -192,12 +226,36 @@ class FuroGraphRenderer extends FBP(LitElement) {
             fill: #686868;
         }
 
+        .park {
+            stroke: #686868;
+            fill: none;
+            stroke-width: 3;
+        }
 
+        .bubbling, .hostevent, .nonbubbling {
+            stroke: #fa4600;
+            fill: none;
+            stroke-width: 3;
+        }
+
+
+        .line.event {
+            stroke: #fa4600;
+            fill: none;
+            stroke-width: 4;
+        }
         .line {
             stroke: #02a8f4;
             fill: none;
             stroke-width: 4;
         }
+
+        .line.park {
+            stroke: #070707;
+            fill: none;
+            stroke-width: 4;
+        }
+
 
         .line:hover {
             stroke: #f4c633;

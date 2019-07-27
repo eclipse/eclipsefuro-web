@@ -73,9 +73,9 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
     // language=HTML
     return html`
       <p>Demo is flickering, because it gets completly re rendered on each change</p>
-      <furo-demo-snippet demo>
+      <furo-demo-snippet flow>
         <template>
-          <a href="/api/demo/util/demo-furo-demo-snippet/util/">Package util</a>
+          <a href="/api/demo/util/demo-furo-demo-snippet/util/"  @-park="((park)),((other))" @-event="^event,((other))" @-bubble="^^bubble,((other))" @-hostevent="-^hostevent">Package util</a>
           <a href="/api/demo/util/demo-furo-demo-snippet/data/">Package data</a>
           
           <furo-location url-space-regex="^/api/demo/util/demo-furo-demo-snippet" @-location-changed="--pathChanged"></furo-location>

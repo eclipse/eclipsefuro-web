@@ -49,12 +49,59 @@ class FuroShowFlow extends FBP(LitElement) {
     this._collectedWires.events.forEach((attr) => {
       let rawwires = attr.value.split(",");
       rawwires.forEach((w) => {
-        let match = w.trim().match(/^([^\(\(][a-z\-_]+)/gi);
+        let match = w.trim().match(/^([^\(\^][a-z\-_]+)/gi);
         if (match !== null) {
           if (sendingWires[match[0]] === undefined) {
             sendingWires[match[0]] = []
           }
           sendingWires[match[0]].push(attr);
+        }
+
+        // park a value
+        if (w.trim().startsWith("((")) {
+          this.graph.setNode("park-" + w.trim(), {
+            width: 200,
+            height: 30,
+            type: "park",
+            label: w.trim()
+          });
+          this.graph.setEdge(attr._graphID, "park-" + w.trim(), {
+            weight: 1,
+            type: "park"
+          });
+        }
+
+
+        // bubbling nonbubbling a value
+        if (w.trim().startsWith("^")) {
+          let eventtype = w.trim().startsWith("^^") ? "bubbling" : "nonbubbling";
+
+
+          this.graph.setNode(attr._graphID + "-" + w.trim(), {
+            width: 200,
+            height: 30,
+            type: eventtype,
+            label: w.trim()
+          });
+          this.graph.setEdge(attr._graphID, attr._graphID + "-" + w.trim(), {
+            weight: 1,
+            type: "event"
+
+          });
+        }
+
+        // bubbling nonbubbling a value
+        if (w.trim().startsWith("-^")) {
+          this.graph.setNode(attr._graphID + "-" + w.trim(), {
+            width: 200,
+            height: 30,
+            type: "hostevent",
+            label: w.trim()
+          });
+          this.graph.setEdge(attr._graphID, attr._graphID + "-" + w.trim(), {
+            weight: 1,
+            type: "event"
+          });
         }
 
       })
@@ -124,8 +171,6 @@ class FuroShowFlow extends FBP(LitElement) {
             source: source,
             wirename: wire
           });
-          // "inherit" parent
-
         }
       });
     }
@@ -171,7 +216,7 @@ class FuroShowFlow extends FBP(LitElement) {
             attr._type = "event";
             //einen edge setzen um @ immer rechts zu haben
             this.graph.setEdge(nodeID + "-center", attrNodeID, {type: "center", weight: 15});
-          }else{
+          } else {
             //einen edge setzen um ƒ und alle anderen immer links zu haben
             this.graph.setEdge(attrNodeID, nodeID + "-center", {type: "center", weight: 15});
           }
@@ -179,7 +224,6 @@ class FuroShowFlow extends FBP(LitElement) {
           if (attr.name.startsWith("ƒ-")) {
             this._collectedWires.methods.push(attr);
             attr._type = "method";
-
           }
 
 

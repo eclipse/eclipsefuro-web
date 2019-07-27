@@ -91,7 +91,7 @@ class ViewHome extends FBP(LitElement) {
         }
 
         h1.title {
-            color: var(--primary);
+            color: var(--on-primary);
             max-width: 560px;
             margin-bottom: 20px;
         }
@@ -141,7 +141,7 @@ class ViewHome extends FBP(LitElement) {
     return html`
       <div class="content">
         <p class="hero-title">フロー</p>
-        <p class="hero-caption">A simple framework for creating fast, lightweight web apps with web components</p>
+        <p class="hero-caption">A enterprise grade and simple framework for creating fast, lightweight web apps with web components</p>
         <a class="hero-link" href="/guide">Get Started</a>
 
         <h1 class="title">Why use furo?</h1>
