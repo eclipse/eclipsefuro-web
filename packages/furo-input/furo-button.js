@@ -4,12 +4,15 @@ import {FBP} from "@furo/fbp";
 import "@furo/layout/furo-ripple";
 
 /**
- * `furo-button`
- * todo Describe your element
+ * `furo-button` displays a button.
  *
- * @summary todo shortdescription
+ *
+ * <sample-furo-button></sample-furo-button>
+ *
+ *
+ * @summary a button
  * @customElement
- * @demo demo/furo-button.html
+ * @demo demo-furo-button basic usage
  * @appliesMixin FBP
  */
 class FuroButton extends FBP(LitElement) {
@@ -21,6 +24,10 @@ class FuroButton extends FBP(LitElement) {
     this.danger = false;
   }
 
+  /**
+   * Set the focus to the button
+   * @param e
+   */
   focus(e) {
     this._FBPTriggerWire("--focus", e);
   }

@@ -389,8 +389,8 @@
       ]
     },
     {
-      "description": "`furo-button`\ntodo Describe your element",
-      "summary": "todo shortdescription",
+      "description": "`furo-button` displays a button.\n\n\n<sample-furo-button></sample-furo-button>",
+      "summary": "a button",
       "path": "packages/furo-input/furo-button.js",
       "properties": [
         {
@@ -400,11 +400,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 36,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 38,
+              "line": 45,
               "column": 7
             }
           },
@@ -418,27 +418,6 @@
           "name": "danger",
           "type": "boolean | null | undefined",
           "description": "Set danger to true if it is dangerous to press this button",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 42,
-              "column": 6
-            },
-            "end": {
-              "line": 45,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "disabled",
-          "type": "boolean | null | undefined",
-          "description": "Set disabled to disable the button",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -457,9 +436,9 @@
           }
         },
         {
-          "name": "autofocus",
+          "name": "disabled",
           "type": "boolean | null | undefined",
-          "description": "Focus the element automatically",
+          "description": "Set disabled to disable the button",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -476,20 +455,41 @@
               "attributeType": "Boolean"
             }
           }
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean | null | undefined",
+          "description": "Focus the element automatically",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 6
+            },
+            "end": {
+              "line": 66,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
         }
       ],
       "methods": [
         {
           "name": "focus",
-          "description": "",
+          "description": "Set the focus to the button",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 23,
+              "line": 30,
               "column": 2
             },
             "end": {
-              "line": 25,
+              "line": 32,
               "column": 3
             }
           },
@@ -509,11 +509,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 146,
               "column": 2
             },
             "end": {
-              "line": 147,
+              "line": 154,
               "column": 3
             }
           },
@@ -527,18 +527,18 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/furo-button.html",
-          "description": ""
+          "url": "demo-furo-button",
+          "description": "drer"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 14,
+          "line": 17,
           "column": 0
         },
         "end": {
-          "line": 148,
+          "line": 155,
           "column": 1
         }
       },
@@ -551,11 +551,11 @@
           "description": "Beschriftung des buttons",
           "sourceRange": {
             "start": {
-              "line": 36,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 38,
+              "line": 45,
               "column": 7
             }
           },
@@ -565,22 +565,6 @@
         {
           "name": "danger",
           "description": "Set danger to true if it is dangerous to press this button",
-          "sourceRange": {
-            "start": {
-              "line": 42,
-              "column": 6
-            },
-            "end": {
-              "line": 45,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "disabled",
-          "description": "Set disabled to disable the button",
           "sourceRange": {
             "start": {
               "line": 49,
@@ -595,8 +579,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "autofocus",
-          "description": "Focus the element automatically",
+          "name": "disabled",
+          "description": "Set disabled to disable the button",
           "sourceRange": {
             "start": {
               "line": 56,
@@ -604,6 +588,22 @@
             },
             "end": {
               "line": 59,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "autofocus",
+          "description": "Focus the element automatically",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 6
+            },
+            "end": {
+              "line": 66,
               "column": 7
             }
           },

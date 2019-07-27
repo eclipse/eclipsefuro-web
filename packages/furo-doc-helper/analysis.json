@@ -1597,6 +1597,280 @@
       ]
     },
     {
+      "description": "`furo-graph-renderer`\nPaint a SVG from the received graph data",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-doc-helper/graph/furo-graph-renderer.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "draw",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 21,
+              "column": 2
+            },
+            "end": {
+              "line": 153,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "graph"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 158,
+              "column": 2
+            },
+            "end": {
+              "line": 161,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-graph-renderer.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 267,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroGraphRenderer",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-graph-renderer",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-show-flow`\ntodo Describe your element",
+      "summary": "todo shortdescription",
+      "path": "packages/furo-doc-helper/graph/furo-show-flow.js",
+      "properties": [
+        {
+          "name": "myBool",
+          "type": "boolean | null | undefined",
+          "description": "Description",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 244,
+              "column": 6
+            },
+            "end": {
+              "line": 244,
+              "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "parseTemplate",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 22,
+              "column": 2
+            },
+            "end": {
+              "line": 42,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "template"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setWireEdges",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 44,
+              "column": 2
+            },
+            "end": {
+              "line": 177,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_recursiveParse",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 179,
+              "column": 2
+            },
+            "end": {
+              "line": 233,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "node"
+            },
+            {
+              "name": "parentNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 251,
+              "column": 2
+            },
+            "end": {
+              "line": 254,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 280,
+              "column": 2
+            },
+            "end": {
+              "line": 285,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "TemplateResult"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-show-flow.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 286,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroShowFlow",
+      "attributes": [
+        {
+          "name": "my-bool",
+          "description": "Description",
+          "sourceRange": {
+            "start": {
+              "line": 244,
+              "column": 6
+            },
+            "end": {
+              "line": 244,
+              "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-show-flow",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
       "description": "`furo-demo-snippet`\ntodo Describe your element",
       "summary": "todo shortdescription",
       "path": "packages/furo-doc-helper/furo-demo-snippet.js",
@@ -1608,11 +1882,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 56,
               "column": 6
             },
             "end": {
-              "line": 54,
+              "line": 56,
               "column": 44
             }
           },
@@ -1629,11 +1903,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 57,
               "column": 6
             },
             "end": {
-              "line": 55,
+              "line": 57,
               "column": 42
             }
           },
@@ -1650,12 +1924,33 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 56,
+              "line": 58,
               "column": 6
             },
             "end": {
-              "line": 56,
+              "line": 58,
               "column": 42
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "noDemo",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 65
             }
           },
           "metadata": {
@@ -1672,11 +1967,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 66,
               "column": 2
             },
             "end": {
-              "line": 78,
+              "line": 92,
               "column": 3
             }
           },
@@ -1692,11 +1987,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 181,
               "column": 2
             },
             "end": {
-              "line": 152,
+              "line": 195,
               "column": 3
             }
           },
@@ -1717,11 +2012,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 153,
+          "line": 196,
           "column": 1
         }
       },
@@ -1734,11 +2029,11 @@
           "description": "Description",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 56,
               "column": 6
             },
             "end": {
-              "line": 54,
+              "line": 56,
               "column": 44
             }
           },
@@ -1750,11 +2045,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 57,
               "column": 6
             },
             "end": {
-              "line": 55,
+              "line": 57,
               "column": 42
             }
           },
@@ -1766,12 +2061,28 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 56,
+              "line": 58,
               "column": 6
             },
             "end": {
-              "line": 56,
+              "line": 58,
               "column": 42
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "no-demo",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 65
             }
           },
           "metadata": {},
@@ -1889,11 +2200,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 92,
+              "line": 98,
               "column": 3
             }
           },
@@ -1918,7 +2229,7 @@
           "column": 0
         },
         "end": {
-          "line": 93,
+          "line": 99,
           "column": 1
         }
       },
