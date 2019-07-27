@@ -11,7 +11,7 @@ To store data from an event (**event.detail**) just use the @-event="**((propert
 
 ![Multiple targets](/_page/images/eventToProperties.png)
 ```html
-<paper-button @-tap="--searchClicked">Search</paper-button>
+<paper-button @-click="--searchClicked">Search</paper-button>
     <iron-ajax
             ƒ-generate-request="--searchClicked"
             url="https://www.googleapis.com/youtube/v3/search"
@@ -29,6 +29,6 @@ More about sending data with events [here..](/events/overview/#sending-host-data
 
 
 
-{{<note title="Note">}}
+> Note
 Properties can be viewed as a special form of a wire.  
-{{</note >}}
+

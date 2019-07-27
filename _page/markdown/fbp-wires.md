@@ -19,10 +19,10 @@ We have a button and an elements which we want to remove after the button is cli
 
 This doesnt look very impressive in the first moment. But like you can see, there is no scripting involved and there are no id's assigned to the components. This will be more useful if you have more then 2 components. 
 
-{{<note title="Note">}}
+> Note
 The ƒ-remove method from `element-to-hide` will be called with **event.detail** from the click event as an argument. 
 More on this you can read in section  [passing data](#passing-data)
-{{</note >}}
+
 
 
 ## Multiple targets
@@ -117,7 +117,7 @@ You have several ways to accomplish this task.
 
 <furo-demo-snippet flow>
 <template>
-   <paper-button @-tap="--wireWithProerty(_myProp)"> Press this </paper-button>
+   <paper-button @-click="--wireWithProerty(_myProp)"> Press this </paper-button>
    <other-component ƒ-demo="--wireWithProerty"></other-component>
 </template>
 </furo-demo-snippet>
@@ -131,7 +131,7 @@ _myProp is a normal polymer property.
 
 <furo-demo-snippet flow>
 <template>
-   <paper-button @-tap="--buttonPressed"> Press this </paper-button>
+   <paper-button @-click="--buttonPressed"> Press this </paper-button>
    <replace-detail data="${this.prop}" ƒ-in="--buttonPressed" @-out="--wireWithProerty"></replace-detail>
    <other-component ƒ-demo="--wireWithProerty"></other-component>
 </template>
@@ -141,9 +141,9 @@ _myProp is a normal polymer property.
 
 ## Send the raw *event* instead of *event.detail*
 
-{{<note title="Note">}}
+> Note
 This is only implemented in the mixin.html for Polymer 2+ 
-{{</note >}}
+
 
 
 
@@ -157,7 +157,7 @@ In some rare conditions, the functions you want to call, need more then one argu
 ```html
   ...
    <multiply-values ƒ-calculate="--wireWithArray" result="{{_result}}"></multiply-values>
-   <paper-button @-tap="--wireWithArray(_values)"> calculate </paper-button> 
+   <paper-button @-click="--wireWithArray(_values)"> calculate </paper-button> 
   ...
   ...
   ,properties:{
@@ -175,7 +175,7 @@ There is no difference to another fired event. You can fire another event, which
 You can receive and rewire the response from a function with **@-ƒ-functionname="...""**. 
 ```html
   ...
-   <paper-button @-tap="--wireWithArray(_values)"> calculate </paper-button>
+   <paper-button @-click="--wireWithArray(_values)"> calculate </paper-button>
     
    <multiply-values ƒ-calculate="--wireWithArray" @-ƒ-calculate="--calculated"></multiply-values>
    <multiply-values ƒ-calculate="--wireWithArray" @-ƒ-calculate="((_result))"></multiply-values>

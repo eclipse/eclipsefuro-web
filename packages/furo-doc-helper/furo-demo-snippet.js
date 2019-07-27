@@ -57,7 +57,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
       source: {type: Boolean, reflect: true},
       demo: {type: Boolean, reflect: true},
       flow: {type: Boolean, reflect: true},
-      noDemo: {type: String, reflect: true, attribute:"no-demo"}
+      noDemo: {type: Boolean, reflect: true, attribute:"no-demo"}
     };
   }
 
@@ -160,6 +160,10 @@ class FuroDemoSnippet extends FBP(LitElement) {
         :host([demo]) .demo {
             font-weight: 800;
             border-bottom: 1px solid var(--on-primary);
+        }
+
+        :host([no-demo]) .demo {
+           display: none;
         }
 
         :host([source]) .source {
