@@ -7,10 +7,12 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * `furo-input-text`
  * Simple text input element which uses a native `<input type="text">` tag
  *
+ * <sample-furo-text-input></sample-furo-text-input>
+ *
  * Tags: input
  * @summary text input element
  * @customElement
- * @demo demo/furo-text-input.html
+ * @demo demo-furo-text-input Data binding
  * @mixes FBP
  * @mixes FuroInputBase
  */

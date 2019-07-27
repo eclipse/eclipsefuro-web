@@ -47,14 +47,15 @@ class DemoFuroButton extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Demo demo-furo-button</h2>
+      <h2>Demo furo-button</h2>
       <p>description</p>
       <furo-demo-snippet>
         <template>
-          <furo-button label="Label"></furo-button>
-          <furo-button label="Label" disabled></furo-button>
-          <furo-button label="Label" danger></furo-button>
-          <furo-button label="Label" autofocus></furo-button>
+          <furo-button></furo-button>
+          <furo-button label="autofocus" autofocus></furo-button>
+          <furo-button label="other"></furo-button>
+          <furo-button disabled label="disabled"></furo-button>
+          <furo-button danger label="danger"></furo-button>
         </template>
       </furo-demo-snippet>
     `;

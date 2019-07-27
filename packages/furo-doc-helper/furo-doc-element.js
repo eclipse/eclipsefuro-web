@@ -112,14 +112,13 @@ class FuroDocElement extends FBP(LitElement) {
 
     return html`
       <h1><${this.element.tagname}&gt;</h1>
-      <h2 class="description">${this.element.summary}</h2>
+      <h2 class="description">${this.element.summary}</h2>         
+      <h2>Description</h2>
+      <furo-markdown unsafe ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <h2>Demos</h2>
       <template is="flow-repeat" ƒ-inject-items="--demos">
           <furo-demo-link ƒ-inject-data="--item"></furo-demo-link>
       </template>
-      
-      <h2>Description</h2>
-      <furo-markdown unsafe ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>
       <furo-doc-events ƒ-data="--data(*.events)"></furo-doc-events>
       <furo-doc-methods ƒ-data="--data(*.methods)"></furo-doc-methods>

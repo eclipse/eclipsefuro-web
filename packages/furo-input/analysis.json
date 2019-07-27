@@ -623,7 +623,7 @@
       ]
     },
     {
-      "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\nTags: input",
+      "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\n<sample-furo-text-input></sample-furo-text-input>\n\nTags: input",
       "summary": "text input element",
       "path": "packages/furo-input/furo-text-input.js",
       "properties": [],
@@ -634,11 +634,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 120,
+              "line": 122,
               "column": 2
             },
             "end": {
-              "line": 129,
+              "line": 131,
               "column": 3
             }
           },
@@ -649,18 +649,18 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/furo-text-input.html",
-          "description": ""
+          "url": "demo-furo-text-input",
+          "description": "Data binding"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 18,
           "column": 0
         },
         "end": {
-          "line": 135,
+          "line": 137,
           "column": 1
         }
       },

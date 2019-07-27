@@ -1,16 +1,15 @@
-import {LitElement, html, css} from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog"
-
 /**
- * `demo-furo-button`
+ * `sample-furo-text-input`
  *
  * @customElement
  * @appliesMixin FBP
  */
-class SampleFuroButton extends FBP(LitElement) {
+class SampleFuroTextInput extends FBP(LitElement) {
 
   /**
    * Themable Styles
@@ -27,11 +26,10 @@ class SampleFuroButton extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        
         furo-demo-snippet {
             height: 130px;
         }
-
+       
     `
   }
 
@@ -43,17 +41,15 @@ class SampleFuroButton extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h3>Sample</h3>
-      <furo-demo-snippet>
+      <h2>Sample</h2>
+      
+      <furo-demo-snippet >
         <template>
-          <furo-button label="Label"></furo-button>
-          <furo-button label="Label" disabled></furo-button>
-          <furo-button label="Label" danger></furo-button>
-          <furo-button label="Label" autofocus></furo-button>
+          <furo-text-input hint="Hint text" label="label"></furo-text-input>
         </template>
       </furo-demo-snippet>
     `;
   }
 }
 
-window.customElements.define('sample-furo-button', SampleFuroButton);
+window.customElements.define('sample-furo-text-input', SampleFuroTextInput );
