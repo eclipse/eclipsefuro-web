@@ -7,11 +7,12 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 
 /**
  * `furo-markdown`
- * todo Describe your element
+ *  Renders given md data with parseMarkdown or loads a md file with `mdsrc="source.md"`
  *
- * @summary todo shortdescription
+ *
+ * @summary renders md data
  * @customElement
- * @demo demo/furo-markdown.html
+ * @demo demo-furo-markdown
  * @appliesMixin FBP
  */
 class FuroMarkdown extends (LitElement) {
@@ -33,7 +34,7 @@ class FuroMarkdown extends (LitElement) {
       /**
        * allow unsafe md. (writing html, components,...)
        */
-      unsafe:{type:Boolean},
+      unsafe: {type: Boolean},
       /**
        * source of the md
        */
@@ -48,6 +49,7 @@ class FuroMarkdown extends (LitElement) {
 
   set mdsrc(src) {
     this.fetchMd(src);
+
   }
 
 
@@ -63,7 +65,7 @@ class FuroMarkdown extends (LitElement) {
    * @return {Promise<string | never>}
    */
   fetchMd(src) {
-     fetch(src).then(res => res.text()).then(markdown => {
+    fetch(src).then(res => res.text()).then(markdown => {
       this.markdown = markdown;
     });
   }
@@ -117,7 +119,7 @@ class FuroMarkdown extends (LitElement) {
         }
 
 
-        h1{
+        h1 {
             font-size: 2.8rem;
             font-weight: 400;
             line-height: 3.5rem;
@@ -125,20 +127,20 @@ class FuroMarkdown extends (LitElement) {
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         h2 {
             font-size: 1.25rem;
             font-weight: 500;
             letter-spacing: 0.0125em;
             border-bottom: 1px solid rgba(0, 0, 0, 0.87);
         }
-        
-        blockquote{
+
+        blockquote {
             border-left: 3px solid var(--blockquote);
             margin-left: 0;
             padding-left: var(--spacing);
         }
-        
+
         /**
      * prism.js default theme for JavaScript, CSS and HTML
      * Based on dabblet (http://dabblet.com)

@@ -136,7 +136,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
             display: none;
         }
 
-        :host(:not([source])) furo-markdown {
+        :host(:not([source])) > furo-markdown {
             display: none;
         }
 

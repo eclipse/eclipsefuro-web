@@ -4,7 +4,7 @@ import {FBP} from "@furo/fbp";
 
 /**
  * `furo-key-filter`
- * Allows only defined key events to pass through
+ * Allows only defined keyboard events to pass through
  *
  * ```
  * <!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->
