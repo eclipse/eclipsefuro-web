@@ -33,14 +33,12 @@ class FuroGraphRenderer extends FBP(LitElement) {
     let nodes = graph.nodes();
     nodes.forEach((v) => {
       let node = graph.node(v);
+      // boxes for the components
       if (node.type === "component") {
 
         let box = canvas.rect(node.width, node.height).move((node.x - node.width / 2), (node.y - node.height / 2)).fill('none');
         box.radius(5);
         box.addClass(node.type);
-        if (node.label) {
-          let text = canvas.text(node.label).move((node.x - node.width / 2) + 25, (node.y - node.height / 2) + 5);
-        }
 
         // set tooltip if exist
         if (node.node.description !== "") {
@@ -49,11 +47,17 @@ class FuroGraphRenderer extends FBP(LitElement) {
           //add info
           box.addClass("withdescription")
         }
+
+        box.click((e) => {
+          console.log(node.node)
+        })
       }
     });
+
+    // draw the lines
     graph.edges().forEach((e) => {
       let edge = graph.edge(e);
-      if (edge.type != "center") {
+      if (edge.type !== "center") {
         let points = edge.points.map((p) => {
           return [p.x, p.y]
         });
@@ -61,6 +65,20 @@ class FuroGraphRenderer extends FBP(LitElement) {
         line.addClass(edge.type);
         let tootltip = line.element('title');
         tootltip.words(edge.wirename);
+      }
+    });
+
+    // component Labels over the edges
+    nodes.forEach((v) => {
+      let node = graph.node(v);
+      if (node.type === "component") {
+        let background = canvas.rect(10, 25).move((node.x - node.width / 2), (node.y - node.height / 2)).addClass('boxlabelbg');
+        background.radius(5);
+        if (node.label) {
+          let text = canvas.text(node.label).move((node.x - node.width / 2) + 25, (node.y - node.height / 2) + 2);
+          background.width( text.length() + 50);
+        }
+
       }
     });
 
@@ -196,6 +214,12 @@ class FuroGraphRenderer extends FBP(LitElement) {
 
         .component {
             fill: #f6f6f6;
+            stroke: #67686a;
+            stroke-width: 2;
+        }
+
+        .boxlabelbg {
+            fill: white;
             stroke: #67686a;
             stroke-width: 2;
         }
