@@ -2,7 +2,7 @@
   "name": "@furo/timing",
   "description": "Furo timing components",
   "main": "furo-catalog.js",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "dependencies": {
     "@furo/fbp": "^4.23.0",
     "lit-element": "^2.2.1"

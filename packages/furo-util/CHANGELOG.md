@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.7.4...@furo/util@0.8.0) (2019-07-28)
+
+
+### Features
+
+* switch from commonmark to markdown-it ([bf80c48](https://github.com/veith/FuroBaseComponents/commit/bf80c48))
+
+
+
+
+
 ## [0.7.4](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.7.3...@furo/util@0.7.4) (2019-07-28)
 
 
