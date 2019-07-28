@@ -13,7 +13,7 @@ Feel free to give us your feedback.
 For the events they use the dashed-case notation, because the behavior does not convert the camelCase for the event to dash-case notation, which you will need to wire the event in another component.
 
 ```html
-<paper-button @-click="--buttonTapped, ^^fired-event"></paper-button>
+<furo-button @-click="--buttonTapped, ^^fired-event"></furo-button>
 ```
 With this notation they can see the difference between a **wire** to an **event** they fire directly.
 
@@ -24,14 +24,14 @@ When you use declarative names, it would be easier to read and modify a wired pr
 
 **bad example**
 ```html
-<paper-button @-click="--closeView"></paper-button>
+<furo-button @-click="--closeView"></furo-button>
 <my-view ƒ-close="--closeView"></my-view>
 <data-component ƒ-save="--closeView"></data-component>
 ```
 
 **good example**
 ```html
-<paper-button @-click="--closeButtonTapped"></paper-button>
+<furo-button @-click="--closeButtonTapped"></furo-button>
 <my-view ƒ-close="--closeButtonTapped"></my-view>
 <data-component ƒ-save="--closeButtonTapped"></data-component>
 ```

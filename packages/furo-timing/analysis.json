@@ -99,18 +99,63 @@
           "inheritedFrom": "UpdatingElement"
         },
         {
-          "name": "myBool",
-          "type": "boolean | null | undefined",
-          "description": "Description",
+          "name": "interval",
+          "type": "number | null | undefined",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 30,
-              "column": 12
+              "line": 24,
+              "column": 6
             },
             "end": {
-              "line": 30,
-              "column": 35
+              "line": 24,
+              "column": 65
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_interval\"",
+              "attributeType": "Number"
+            }
+          },
+          "defaultValue": "200"
+        },
+        {
+          "name": "takt",
+          "type": "number | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 25,
+              "column": 6
+            },
+            "end": {
+              "line": 25,
+              "column": 36
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          },
+          "defaultValue": "4"
+        },
+        {
+          "name": "auto",
+          "type": "boolean | null | undefined",
+          "description": "Starts interval automatically",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 29,
+              "column": 6
+            },
+            "end": {
+              "line": 29,
+              "column": 18
             }
           },
           "metadata": {
@@ -618,16 +663,16 @@
           "inheritedFrom": "LitElement"
         },
         {
-          "name": "_interval",
+          "name": "start",
           "description": "",
-          "privacy": "protected",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 33,
               "column": 2
             },
             "end": {
-              "line": 73,
+              "line": 62,
               "column": 3
             }
           },
@@ -643,11 +688,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 75,
+              "line": 64,
               "column": 2
             },
             "end": {
-              "line": 77,
+              "line": 66,
               "column": 3
             }
           },
@@ -870,11 +915,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 13,
+          "line": 11,
           "column": 0
         },
         "end": {
-          "line": 78,
+          "line": 67,
           "column": 1
         }
       },
@@ -883,16 +928,48 @@
       "name": "IntervalPulse",
       "attributes": [
         {
-          "name": "my-bool",
-          "description": "Description",
+          "name": "interval",
+          "description": "",
           "sourceRange": {
             "start": {
-              "line": 30,
-              "column": 12
+              "line": 24,
+              "column": 6
             },
             "end": {
-              "line": 30,
-              "column": 35
+              "line": 24,
+              "column": 65
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "takt",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 25,
+              "column": 6
+            },
+            "end": {
+              "line": 25,
+              "column": 36
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "auto",
+          "description": "Starts interval automatically",
+          "sourceRange": {
+            "start": {
+              "line": 29,
+              "column": 6
+            },
+            "end": {
+              "line": 29,
+              "column": 18
             }
           },
           "metadata": {},

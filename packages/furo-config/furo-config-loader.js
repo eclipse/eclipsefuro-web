@@ -1,5 +1,5 @@
 import {PolymerElement, html} from '@polymer/polymer';
-import {FuroStateMixin} from "@furo/mixins/shared-state"
+import {FuroStateMixin} from "./shared-state"
 import "@polymer/iron-ajax/iron-ajax"
 import {FBP} from "@furo/fbp";
 

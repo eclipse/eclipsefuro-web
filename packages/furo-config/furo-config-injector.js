@@ -1,5 +1,5 @@
 import {PolymerElement} from '@polymer/polymer';
-import {FuroStateMixin} from "@furo/mixins/shared-state"
+import {FuroStateMixin} from "./shared-state"
 
 /**
  * `furo-config-injector`

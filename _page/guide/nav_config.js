@@ -3,19 +3,9 @@ export const nav = [
 
   {
     "group": "Fundamentals", "items": [
-      {"label": "Overview", "icon": "dashboard", "href": "icons/"},
-      {"label": "Installation", "icon": "flight-takeoff", "href": "icons/"},
-      {"label": "Starterpacks", "icon": "next-week", "href": "icons/"}
-    ]
-  },
-  {
-    "group": "Flowbased Programming", "items": [
-      {"label": "Overview", "icon": "dashboard", "href": "md/fbp-overview/"},
-      {"label": "Wires", "icon": "compare-arrows", "href": "md/fbp-wires/"},
-      {"label": "Events", "icon": "open-in-new", "href": "md/fbp-events/"},
-      {"label": "Data", "icon": "input", "href": "md/fbp-data/"},
-      {"label": "Lifecycle", "icon": "restore", "href": "md/fbp-lifecycle/"},
-      {"label": "Debugging", "icon": "pan-tool", "href": "md/fbp-debugging/"},
+      {"label": "Overview", "icon": "dashboard", "href": "md/overview/"},
+      {"label": "Installation", "icon": "flight-takeoff", "href": "md/installation/"},
+      {"label": "Starterpacks", "icon": "next-week", "href": "md/starterpacks/"},
     ]
   }, {
     "group": "Patterns", "items": [
@@ -33,10 +23,21 @@ export const nav = [
     ]
   },
   {
+    "group": "フロー Furo FBP", "items": [
+      {"label": "Wires", "icon": "compare-arrows", "href": "md/fbp-wires/"},
+      {"label": "Events", "icon": "open-in-new", "href": "md/fbp-events/"},
+      {"label": "Data", "icon": "input", "href": "md/fbp-data/"},
+      {"label": "Advanced topics", "icon": "restore", "href": "md/fbp-advanced/"},
+      {"label": "Scripting", "icon": "chaos", "href": "md/fbp-scripting/"},
+      {"label": "Lifecycle", "icon": "restore", "href": "md/fbp-lifecycle/"},
+      {"label": "Debugging", "icon": "pan-tool", "href": "md/fbp-debugging/"},
+    ]
+  },
+  {
     "group": "Advanced Topics", "items": [
-      {"label": "build", "icon": "build", "href": "icons/"},
-      {"label": "Testing", "icon": "create", "href": "md/testing/"},
-      {"label": "Writing Demos", "icon": "create", "href": "md/demo/"},
+      {"label": "build", "icon": "build", "href": "md/build/"},
+      {"label": "Testing", "icon": "favorite", "href": "md/testing/"},
+      {"label": "Writing Demos", "icon": "picture-in-picture", "href": "md/demo/"},
     ]
   },
   {
@@ -45,7 +46,7 @@ export const nav = [
   },
   {
     "group": "Credits", "items": [
-      {"label": "Polymer", "icon": "polymer", "href": "page/api-design/"},
+      {"label": "The Polymer Project", "icon": "polymer", "href": "page/api-design/"},
       {"label": "Lit Element", "icon": "polymer", "href": "page/api-design/"},
       {"label": "webcomponents.org", "icon": "polymer", "href": "icons/"},
       {"label": "J.P Morrison", "icon": "arrow-right", "href": "icons/"}

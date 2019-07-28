@@ -1,8 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import "@furo/layout/furo-horizontal-flex"
-import "@polymer/iron-icon/iron-icon"
-import "@polymer/iron-icons/iron-icons"
 import {FBP} from "@furo/fbp";
 
 /**
@@ -17,7 +15,7 @@ import {FBP} from "@furo/fbp";
  *
  * @summary collapsible box with head
  * @customElement
- * @demo demo/furo-collapsible-box.html
+ * @demo demo-furo-collapsible-box
  * @appliesMixin FBP
  */
 class FuroCollapsibleBox extends FBP(LitElement) {
@@ -265,14 +263,14 @@ class FuroCollapsibleBox extends FBP(LitElement) {
 
         }
 
-        iron-icon {
+        furo-icon {
             width: 24px;
             height: 24px;
             cursor: pointer;
             outline: none;
         }
 
-        iron-icon:focus {
+        furo-icon:focus {
             color: var(--primary-color, #CDCDCD)
         }
 
@@ -288,7 +286,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     // language=HTML
     return html`
 <furo-horizontal-flex class="head">
-  <iron-icon tabindex="${this.tabindex}" ƒ-focus="--focus" icon="${this.icon}" @-keydown="--keystrokes(*)" @-click="--toggleClicked" @-blur="--blured"></iron-icon>     
+  <furo-icon tabindex="${this.tabindex}" ƒ-focus="--focus" icon="${this.icon}" @-keydown="--keystrokes(*)" @-click="--toggleClicked" @-blur="--blured"></furo-icon>     
   <label flex  @-click="--toggleClicked">${this.label}</label>
   <slot name="context"></slot>
 </furo-horizontal-flex>

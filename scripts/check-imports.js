@@ -41,13 +41,16 @@ let exitCode = 0;
 main();
 
 function main() {
-  globSync('packages/*/*.js')
+  globSync('packages/furo-*/*.js')
     .filter((p) => !(/\/node_modules\/|\/dist\//).test(p))
     .forEach(check);
   process.exit(exitCode);
 }
 
 function check(srcFile) {
+
+
+
   const pkgRoot = findPkgRoot(srcFile);
   const src = fs.readFileSync(srcFile, 'utf8');
   const ast = babylon.parse(src, {sourceType: 'module'});

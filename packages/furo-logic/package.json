@@ -1,10 +1,11 @@
 {
-  "name": "@furo/timing",
-  "description": "Furo timing components",
+  "name": "@furo/logic",
+  "description": "logic components for furo",
   "main": "furo-catalog.js",
-  "version": "0.0.20",
+  "version": "0.0.1",
   "dependencies": {
     "@furo/fbp": "^4.23.0",
+    "@furo/framework": "^0.7.2",
     "lit-element": "^2.1.0"
   },
   "publishConfig": {

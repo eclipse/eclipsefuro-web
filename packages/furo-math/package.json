@@ -4,7 +4,8 @@
   "main": "furo-catalog.js",
   "version": "0.1.19",
   "dependencies": {
-    "@furo/fbp": "^4.23.0"
+    "@furo/fbp": "^4.23.0",
+    "@furo/logic": "^0.0.0"
   },
   "publishConfig": {
     "access": "public"

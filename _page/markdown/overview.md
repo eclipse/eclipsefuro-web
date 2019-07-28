@@ -1,16 +1,27 @@
 # Introduction to Furo Flowbased Programming
 
+Write your applications like you make the concept for your application. 
+Normaly you draw a few components and some arrows to connect the components, to describe your intention. 
+Why you don’t do the same to write your app or component? Use existing web-components and wire them to build your application.
+
 **TL/DR**: Furo-FBP is a shorthand notation for adding eventlisteners and invoking methods on elements without writing any javascript. Thats it.
 
-Inspired by the work of J Paul Morrison
+But there is more then just eventlisteners in Furo-FBP. 
+Watch the video below for a short introduction or read more in the [Flowbased Programming](/guide/md/fbp-wires/) section.
 
-Write your applications like you make the concept for your application. Normaly you draw a few components and some arrows to connect the components to describe your intention. Why you don’t do the same to write your app or component? Use existing web-components and wire them to build your application.
+We also recommended the [Patterns] section, to get a better understanding how to wire the [components](/api/doc/input/) 
+from the different packages to something useful.
 
-But there is more then just eventlisteners in Furo-FBP. Watch the video for a short introduction or read more in the "Development Process" section.
+### FBP 101
 
+
+### The introduction video
+The video is a little bit old, but it gives you a short impression of the underlying concepts. There is not so much to learn.
+ 
 <google-youtube video-id="vbMqbL5q9h0" height="270px" width="480px" rel="0"></google-youtube>
 
 
+Inspired by the work of J Paul Morrison
 
 ### Some words from the discoverer of Flow Based Programming
         

@@ -10,7 +10,9 @@
   "dependencies": {
     "@furo/fbp": "^4.23.0",
     "@furo/util": "^0.7.3",
-    "lit-element": "^2.1.0"
+    "@furo/data": "^0.45.2",
+    "lit-element": "^2.1.0",
+    "@furo/framework": "^0.7.2"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",
   "publishConfig": {

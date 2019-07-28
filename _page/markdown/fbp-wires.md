@@ -1,4 +1,4 @@
-# Getting started with Flowbased Programming
+# Getting started with Furo Flowbased Programming
 
 With FBP you mostly connect the the output of a component (event) with the functions of an ohter element.
 
@@ -133,16 +133,3 @@ If the data on the wire is an object you can use a sub property.
 With   `ƒ-something="--wireName(*.page.2.title)"` you will send the property title of the index 2 of the property page (which is an array in this case).
 
 
-
-## Trigger a wire imperatively (from javascript)
-
-In some rare conditions you have to trigger a wire from the sources. 
-If you have applied the mixin, you can call the **_FBPTriggerWire** method.
- 
-```
-ready(){
-  super.ready();
-  this._FBPTriggerWire('--wireName', this.dataYouWantToPass);
-}
-``` 
-*this will trigger the wire **--wireName** on all components who receive this wire i.e. `<load-data ƒ-start="--wireName"></load-data>`).*
