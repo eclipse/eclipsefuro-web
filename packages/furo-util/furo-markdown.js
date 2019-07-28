@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
-import 'commonmark/dist/commonmark.js';
-import "markdown-it"
+import "markdown-it/dist/markdown-it.js"
+
 import 'prismjs/prism.js';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 
@@ -87,10 +87,14 @@ class FuroMarkdown extends (LitElement) {
    * @return {TemplateResult | TemplateResult}
    */
   _parseMarkdown(markdown) {
+    let md = window.markdownit({
+      html: this.unsafe,
+      linkify: true,
+      typographer: true
+    });
 
-    this.__reader = new commonmark.Parser();
-    this.__writer = new commonmark.HtmlRenderer({safe: !this.unsafe});
-    return html`${unsafeHTML(this.__writer.render(this.__reader.parse(markdown)))}`;
+
+    return html`${unsafeHTML(md.render(markdown))}`;
   }
 
   updated() {
@@ -127,6 +131,7 @@ class FuroMarkdown extends (LitElement) {
             letter-spacing: normal;
             overflow: hidden;
             text-overflow: ellipsis;
+            margin-top: 0;
         }
 
         h2 {
