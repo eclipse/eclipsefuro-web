@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.12](https://github.com/veith/FuroBaseComponents/compare/@furo/experiments@0.0.11...@furo/experiments@0.0.12) (2019-07-28)
+
+
+### Bug Fixes
+
+* imports ([a51ec93](https://github.com/veith/FuroBaseComponents/commit/a51ec93))
+
+
+
+
+
 ## [0.0.11](https://github.com/veith/FuroBaseComponents/compare/@furo/experiments@0.0.10...@furo/experiments@0.0.11) (2019-07-16)
 
 **Note:** Version bump only for package @furo/experiments

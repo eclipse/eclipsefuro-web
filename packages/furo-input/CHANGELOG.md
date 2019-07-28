@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.37.0...@furo/input@0.37.1) (2019-07-28)
+
+
+### Bug Fixes
+
+* imports ([a51ec93](https://github.com/veith/FuroBaseComponents/commit/a51ec93))
+
+
+
+
+
 # [0.37.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.36.4...@furo/input@0.37.0) (2019-07-28)
 
 

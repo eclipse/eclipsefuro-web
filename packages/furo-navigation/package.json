@@ -3,16 +3,16 @@
   "description": "Furo navigation components",
   "main": "furo-catalog.js",
   "license": "MIT",
-  "version": "0.27.2",
+  "version": "0.27.3",
   "dependencies": {
+    "@furo/data": "^0.45.3",
     "@furo/fbp": "^4.23.0",
-    "@polymer/polymer": "^3.0.0",
-    "@furo/input": "^0.37.0",
-    "@furo/data": "^0.45.2",
+    "@furo/framework": "^0.7.2",
+    "@furo/input": "^0.37.1",
     "@furo/layout": "^0.27.4",
-    "@furo/framework":"^0.7.2",
-    "lit-html": "^1.1.1",
-    "lit-element": "^2.1.0"
+    "@polymer/polymer": "^3.0.0",
+    "lit-element": "^2.1.0",
+    "lit-html": "^1.1.1"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",
   "publishConfig": {

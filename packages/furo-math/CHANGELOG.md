@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.20](https://github.com/veith/FuroBaseComponents/compare/@furo/math@0.1.19...@furo/math@0.1.20) (2019-07-28)
+
+
+### Bug Fixes
+
+* imports ([890bf1e](https://github.com/veith/FuroBaseComponents/commit/890bf1e))
+* imports ([a51ec93](https://github.com/veith/FuroBaseComponents/commit/a51ec93))
+
+
+
+
+
 ## [0.1.19](https://github.com/veith/FuroBaseComponents/compare/@furo/math@0.1.18...@furo/math@0.1.19) (2019-07-16)
 
 **Note:** Version bump only for package @furo/math
