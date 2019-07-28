@@ -1,6 +1,4 @@
 import { LitElement, html, css } from 'lit-element';
-import {Theme} from "@furo/framework/theme"
-import {FBP} from "@furo/fbp";
 
 /**
  * `interval-pulse`
@@ -16,21 +14,11 @@ class IntervalPulse extends (LitElement) {
     constructor() {
         super();
         this.interval = 200;
-
+        if(this.auto){
+          this.start();
+        }
     }
 
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            myBool: {type: Boolean}
-        };
-    }
 
   static get properties() {
     return {
@@ -43,13 +31,14 @@ class IntervalPulse extends (LitElement) {
     }
   }
 
-  _interval() {
+  start() {
 
-    let self = this;
+
     let cnt = 0;
     let tick = 'tick';
+    clearInterval(this._intervalObject);
     this._intervalObject = setInterval(() => {
-      let pos = cnt++ % self.takt;
+      let pos = cnt++ % this.takt;
       /**
        * Fired when interval is
        * detail payload: position

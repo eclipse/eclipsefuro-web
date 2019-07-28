@@ -10,7 +10,7 @@ import "../components/topic-intro"
 import "./pages/page-icons"
 import "./panel-md-loader"
 
-
+import "./components/all-imports"
 
 /**
  * `view-guide`

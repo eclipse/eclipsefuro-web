@@ -8,10 +8,10 @@ We have a button and an elements which we want to remove after the button is cli
  
   
 
-<furo-demo-snippet flow>
+<furo-demo-snippet demo>
 <template>
-  <button @-click="--removeClicked">remove</button>
-  <element-to-hide ƒ-remove="--removeClicked">First element to remove</element-to-hide>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
+  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button> 
 </template>
 </furo-demo-snippet>
 
@@ -19,181 +19,119 @@ We have a button and an elements which we want to remove after the button is cli
 
 This doesnt look very impressive in the first moment. But like you can see, there is no scripting involved and there are no id's assigned to the components. This will be more useful if you have more then 2 components. 
 
-> Note
-The ƒ-remove method from `element-to-hide` will be called with **event.detail** from the click event as an argument. 
-More on this you can read in section  [passing data](#passing-data)
-
 
 
 ## Multiple targets
-A wire can have multiple targets. The **--removeClicked** wire from above can trigger multiple elements if you want.
+A wire can have multiple targets. The **--lightSwitchClicked** wire from above can trigger multiple elements if you want.
 
 
-<furo-demo-snippet flow>
+<furo-demo-snippet demo>
 <template>
-  <button @-click="--removeClicked">remove</button>
-  <div ƒ-remove="--removeClicked">element to remove</div>
-  <div ƒ-remove="--removeClicked">other element to remove</div>
-  <div ƒ-remove="--removeClicked">other element to remove</div>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
+  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button> 
+  <light-bulb ƒ-toggle="--otherLightSwitchClicked"></light-bulb>
 </template>
 </furo-demo-snippet>
 
 
-if you press the button, all elements which are connected to the wire will trigger the defined function. In this example the first to will call the hide and the third element will call the show function.
+if you press the button, all elements which are connected to the wire will trigger the defined function. In this example the last light-bulb is not connected.
 
 ## Multiple sources
 A wire can also have multiple sources. 
 
-<furo-demo-snippet flow>
+<furo-demo-snippet demo>
 <template>
-  <button @-click="--removeClicked">hide</button>
-  <element-to-hide ƒ-remove="--removeClicked">element to remove</element-to-hide> 
-  <button @-click="--removeClicked">other hide</button>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
+  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button> 
+  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch too"></furo-button>  
+ 
 </template>
 </furo-demo-snippet>
 
 
-It doesn't matter if you press the first or the second hide button. Both will trigger the wire **--removeClicked**.
+It doesn't matter if you press the first or the second hide switch. Both will trigger the wire **--lightSwitchClicked**.
 
 ## Multiple sources and targets 
 A wire can also have multiple sources and targets.
 
-![Multiple sources and targets](/_page/images/multiSourceAndTarget.png)
-
-<furo-demo-snippet flow>
+<furo-demo-snippet demo>
 <template>
-    <button @-click="--removeClicked">hide</button>
-    <element-to-hide ƒ-remove="--removeClicked">element to remove</element-to-hide>
-    <element-to-hide ƒ-remove="--removeClicked">other element to remove</element-to-hide>
-    <element-to-show ƒ-show="--removeClicked">other element to remove</element-to-show>
-    <button @-click="--removeClicked">other hide</button>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
+  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button> 
+  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch too"></furo-button>  
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
 </template>
 </furo-demo-snippet>
+
+  
 
   
   
 ## Multiple wires from source
 You can trigger multiple wires from one source by comma separating them.
 
-![Multiple wires from source](/_page/images/multiWireFromSource.png)
-
-*the black wire is --otherIntention*
-
-<furo-demo-snippet flow>
+<furo-demo-snippet demo>
 <template>
-  <button @-click="--removeClicked,--otherIntention">hide</button>
-  <element-to-hide ƒ-remove="--removeClicked">element to remove</element-to-hide>
-  <element-to-hide ƒ-remove="--removeClicked">other element to remove</element-to-hide>
-  <element-to-show ƒ-show="--otherIntention"> element to show</element-to-show>
+  <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse"></light-bulb>  
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
+  <furo-button @-click="--lightSwitchClicked, --blinkerClicked" label="i am a lightswitch"></furo-button>   
+  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="1500"></interval-pulse>
+  <furo-button danger  @-click="--stopBlinkerClicked" label="Stop the blinking"></furo-button>   
 </template>
 </furo-demo-snippet>
 
 
-If you press the button, it will trigger the **--removeClicked** and **--otherIntention** wire *(in black)*.
+If you press the button, it will trigger the **--lightSwitchClicked, --blinkerClicked**.
  
 ## Multiple wires to target
 You can receive from multiple wires by comma separating them.
 
-![Multiple wires to target](/_page/images/mwTarget.png)
-
-<furo-demo-snippet flow>
+<furo-demo-snippet demo>
 <template>
-  <button @-click="--removeClicked">hide</button>
-  <placeholder-element ƒ-remove="--removeClicked,--contentLoaded">element to remove</placeholder-element>
-  <element-to-hide ƒ-remove="--removeClicked">other element to remove</element-to-hide>
-  <main-content @-ready="--contentLoaded" data="[[_content]]"></main-content>
+  <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse"></light-bulb>  
+  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button>   
+  <furo-button @-click="--blinkerClicked" label="i am a blinkswitch"></furo-button>   
+  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="1500"></interval-pulse>
+  <furo-button danger  @-click="--stopBlinkerClicked" label="Stop the blinking"></furo-button>   
+  <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse"></light-bulb>  
 </template>
 </furo-demo-snippet>
+  
+## Passing useful data to target
+By default the **event.detail** is passed to the function you wire. 
 
-
-The hide function of the placeholder-element will be triggered when --removeClicked or --contentLoaded will be fired. 
- 
-
-## Passing data
-Normally the **event.detail** is passed to the function you wire. But sometimes you want an event as trigger and another property then event.detail as payload. 
+<furo-demo-snippet demo>
+<template>
+  <furo-color-input label="choose a color"  @-value-changed="--newColor"></furo-color-input>
+  <hr />
+  <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse" ƒ-set-color="--newColor"></light-bulb>  
+  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button>   
+  <furo-button @-click="--blinkerClicked" label="i am a blinkswitch"></furo-button>   
+  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="1500"></interval-pulse>
+  <furo-button danger  @-click="--stopBlinkerClicked" label="Stop the blinking"></furo-button>   
+  <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse" ƒ-set-color="--newColor"></light-bulb>
+    
+</template>
+</furo-demo-snippet>
+  
+But sometimes you want an event as trigger and another property then event.detail as payload. 
 You have several ways to accomplish this task.
  
- **inject the property at the wire source**
-
-<furo-demo-snippet flow>
-<template>
-   <paper-button @-click="--wireWithProerty(_myProp)"> Press this </paper-button>
-   <other-component ƒ-demo="--wireWithProerty"></other-component>
-</template>
-</furo-demo-snippet>
-
-
-_myProp is a normal polymer property.
-
-**using a component to replace event.detail with a property**
-
-![replace data](/_page/images/replaceData.png)
-
-<furo-demo-snippet flow>
-<template>
-   <paper-button @-click="--buttonPressed"> Press this </paper-button>
-   <replace-detail data="${this.prop}" ƒ-in="--buttonPressed" @-out="--wireWithProerty"></replace-detail>
-   <other-component ƒ-demo="--wireWithProerty"></other-component>
-</template>
-</furo-demo-snippet>
-
-
 
 ## Send the raw *event* instead of *event.detail*
 
-> Note
-This is only implemented in the mixin.html for Polymer 2+ 
+With an asterix as argument at the producer `@-event="--wireName(*)"` you will send the raw event.
 
+## Use a sub property of the event
+If the data on the wire is an object you can use a sub property.
 
+With   `ƒ-something="--wireName(*.page.2.title)"` you will send the property title of the index 2 of the property page (which is an array in this case).
 
-
-Sometimes the e.detail is not useful or you need the event itself (for a `e.preventDefault();`). 
-
-With an asterix as argument `--wireName(*)` you will send the raw event. 
-
-## Multiple arguments
-In some rare conditions, the functions you want to call, need more then one argument. In this case you can pass in an array of arguments to the function.  
-
-```html
-  ...
-   <multiply-values ƒ-calculate="--wireWithArray" result="{{_result}}"></multiply-values>
-   <paper-button @-click="--wireWithArray(_values)"> calculate </paper-button> 
-  ...
-  ...
-  ,properties:{
-      _values:{
-      type:Array,
-      value:[3,2]
-      }
-  }
-```
-
-## Handling responses from functions
-When you wire a ƒ-function, a non bubbling event *ƒ-function* with the response value in event.detail will be fired. 
-There is no difference to another fired event. You can fire another event, which eventually bubbles, store the response to a property, wire it,...   
-  
-You can receive and rewire the response from a function with **@-ƒ-functionname="...""**. 
-```html
-  ...
-   <paper-button @-click="--wireWithArray(_values)"> calculate </paper-button>
-    
-   <multiply-values ƒ-calculate="--wireWithArray" @-ƒ-calculate="--calculated"></multiply-values>
-   <multiply-values ƒ-calculate="--wireWithArray" @-ƒ-calculate="((_result))"></multiply-values>
-  ...
-  ...
-  ,properties:{
-      _values:{
-      type:Array,
-      value:[3,2]
-      },
-      _result:{
-      type:Number
-      }
-  }
-```
-
-*When you press the button, both multiply-values.calculate functions are called. The first one will trigger the wire --calculated, the second one will
-write the response to the property _result.*
 
 
 ## Trigger a wire imperatively (from javascript)
