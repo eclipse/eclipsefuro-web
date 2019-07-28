@@ -83,7 +83,10 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
           <furo-doc-fetch-analysis ƒ-fetch-location="--pathChanged" ƒ-activate="--pageActivated" @-data="--analysis"></furo-doc-fetch-analysis>
           <furo-split-view >
 
-            <!-- the doc menu -->
+            <!-- the doc menu 
+            Multiline comment
+            on furo-doc-menu
+            -->
             <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element"
                            @-class="--class"></furo-doc-menu>
 

@@ -178,57 +178,67 @@ class FuroShowFlow extends FBP(LitElement) {
   }
 
   _recursiveParse(node, parentNode) {
-// todo switch to childNodes ignore TEXT_NODE and store COMMENT_NODE to the next ELEMENT_NODE
+// todo switch to childNodes ignore TEXT_NODE and store COMMENT_NODE (8) to the next ELEMENT_NODE (1)
 // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
-    if (node.children.length > 0) {
-      Array.from(node.children).forEach((e, i) => {
-        let nodeID = parentNode + "." + e.tagName + "-" + i;
-
-        e._graphID = nodeID;
-        this.graph.setNode(nodeID, {label: e.tagName, width: 440, height: 100, type: "component", node: e});
-        if (parentNode !== "") {
-          //set parent
-          this.graph.setParent(nodeID, parentNode)
+    if (node.childNodes.length > 0) {
+      // start with empty
+      let description = "";
+      Array.from(node.childNodes).forEach((e, i) => {
+        if (e.nodeType === 8) {
+          description = e.textContent
         }
-        // Attributes
-        Array.from(e.attributes).forEach((attr) => {
-          let attrNodeID = nodeID + "-" + attr.name;
-          attr._graphID = attrNodeID;
-          attr.parentComponentID = nodeID;
-          this.graph.setNode(attrNodeID, {
-            label: attr.name,
-            width: 200,
-            height: 30,
-            type: "attribute",
-            attr: attr,
-            value: attr.value
+        if (e.nodeType === 1) {
+          let nodeID = parentNode + "." + e.tagName + "-" + i;
+          e._graphID = nodeID;
+          e.description = description;
+          // clear description for next loop
+          description = "";
+          this.graph.setNode(nodeID, {label: e.tagName, width: 440, height: 100, type: "component", node: e});
+
+          if (parentNode !== "") {
+            //set parent
+            this.graph.setParent(nodeID, parentNode)
+          }
+          // Attributes
+          Array.from(e.attributes).forEach((attr) => {
+            let attrNodeID = nodeID + "-" + attr.name;
+            attr._graphID = attrNodeID;
+            attr.parentComponentID = nodeID;
+            this.graph.setNode(attrNodeID, {
+              label: attr.name,
+              width: 200,
+              height: 30,
+              type: "attribute",
+              attr: attr,
+              value: attr.value
+            });
+
+            this.graph.setParent(attrNodeID, nodeID);
+
+            // add center node
+            this.graph.setNode(nodeID + "-center", {type: "center"});
+            this.graph.setParent(nodeID + "-center", nodeID);
+
+            // collect the event wires
+            if (attr.name.startsWith("@-")) {
+              this._collectedWires.events.push(attr);
+              attr._type = "event";
+              //einen edge setzen um @ immer rechts zu haben
+              this.graph.setEdge(nodeID + "-center", attrNodeID, {type: "center", weight: 15});
+            } else {
+              //einen edge setzen um ƒ und alle anderen immer links zu haben
+              this.graph.setEdge(attrNodeID, nodeID + "-center", {type: "center", weight: 15});
+            }
+            // collect the method wires
+            if (attr.name.startsWith("ƒ-")) {
+              this._collectedWires.methods.push(attr);
+              attr._type = "method";
+            }
+
+
           });
-
-          this.graph.setParent(attrNodeID, nodeID);
-
-          // add center node
-          this.graph.setNode(nodeID + "-center", {type: "center"});
-          this.graph.setParent(nodeID + "-center", nodeID);
-
-          // collect the event wires
-          if (attr.name.startsWith("@-")) {
-            this._collectedWires.events.push(attr);
-            attr._type = "event";
-            //einen edge setzen um @ immer rechts zu haben
-            this.graph.setEdge(nodeID + "-center", attrNodeID, {type: "center", weight: 15});
-          } else {
-            //einen edge setzen um ƒ und alle anderen immer links zu haben
-            this.graph.setEdge(attrNodeID, nodeID + "-center", {type: "center", weight: 15});
-          }
-          // collect the method wires
-          if (attr.name.startsWith("ƒ-")) {
-            this._collectedWires.methods.push(attr);
-            attr._type = "method";
-          }
-
-
-        });
-        this._recursiveParse(e, nodeID)
+          this._recursiveParse(e, nodeID)
+        }
       })
     }
   }

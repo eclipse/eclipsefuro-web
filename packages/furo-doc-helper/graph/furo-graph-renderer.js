@@ -41,6 +41,14 @@ class FuroGraphRenderer extends FBP(LitElement) {
         if (node.label) {
           let text = canvas.text(node.label).move((node.x - node.width / 2) + 25, (node.y - node.height / 2) + 5);
         }
+
+        // set tooltip if exist
+        if (node.node.description !== "") {
+          let tootltip = box.element('title');
+          tootltip.words(node.node.description);
+          //add info
+          box.addClass("withdescription")
+        }
       }
     });
     graph.edges().forEach((e) => {
@@ -189,7 +197,11 @@ class FuroGraphRenderer extends FBP(LitElement) {
         .component {
             fill: #f6f6f6;
             stroke: #67686a;
-            stroke-width: 1;
+            stroke-width: 2;
+        }
+
+        .component.withdescription {
+            stroke-dasharray: 20 4;
         }
 
         .attribute {
@@ -244,6 +256,7 @@ class FuroGraphRenderer extends FBP(LitElement) {
             fill: none;
             stroke-width: 4;
         }
+
         .line {
             stroke: #02a8f4;
             fill: none;
