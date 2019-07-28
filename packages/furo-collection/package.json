@@ -13,7 +13,6 @@
     "@furo/framework": "^0.7.2",
     "@furo/input": "^0.37.0",
     "@furo/layout": "^0.27.4",
-    "@furo/mixins": "^0.16.0",
     "@furo/navigation": "^0.27.2",
     "@furo/route": "^0.12.7"
   },

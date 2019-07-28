@@ -11,7 +11,6 @@ This collection contains
  @furo/input
  @furo/layout
  @furo/math
- @furo/mixins
  @furo/navigation
  @furo/route
 ```

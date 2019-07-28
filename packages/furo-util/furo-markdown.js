@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import 'commonmark/dist/commonmark.js';
+import "markdown-it"
 import 'prismjs/prism.js';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 
