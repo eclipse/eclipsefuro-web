@@ -121,6 +121,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
         furo-markdown {
             height: 100%;
+            overflow: auto;
         }
 
         #demo, #flow {

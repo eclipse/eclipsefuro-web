@@ -73,7 +73,7 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <p>Demo is flickering, because it gets completly re rendered on each change</p>
-        <furo-demo-snippet flex source>
+        <furo-demo-snippet flex demo>
           <template>
             <a href="/api/demo/util/demo-furo-demo-snippet/util/" @-park="((park)),((other))" @-event="^event,((other))"
                @-bubble="^^bubble,((other))" @-hostevent="-^hostevent">Package util</a>
