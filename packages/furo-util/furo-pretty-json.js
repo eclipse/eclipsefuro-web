@@ -7,6 +7,8 @@ import {Theme} from "@furo/framework/theme"
  * `furo-pretty-json`
  * Pretty json with highlighting
  *
+ * @demo demo-furo-pretty-json Simple data display
+ * @summary pretty prints json data
  * @customElement
  */
 class FuroPrettyJson extends FBP(LitElement) {
