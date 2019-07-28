@@ -18,7 +18,7 @@ export const nav = [
   },
   {
     "group": "The Framework", "items": [
-      {"label": "Overview", "icon": "create", "href": "md/api-design/"},
+      {"label": "Overview", "icon": "create", "href": "doc/framework/"},
       {"label": "Styling", "icon": "create", "href": "md/api-design/"},
       {"label": "Theming", "icon": "create", "href": "doc/furo-config/"},
       {"label": "Internationalisation", "icon": "create", "href": "md/api-design/"},

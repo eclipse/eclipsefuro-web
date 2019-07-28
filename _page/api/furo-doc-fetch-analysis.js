@@ -21,7 +21,6 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
   fetchLocation(location) {
     // fetch only if location segment 0 changes
 
-
     if (this._path !== location.pathSegments[0]) {
       this._path = location.pathSegments[0];
 
@@ -39,19 +38,21 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
     // on ../input/component-name we want to select component-name
     if (location.pathSegments[1]) {
       let subElement = location.pathSegments[1];
-      this._analysis.elements.forEach((e) => {
-        // needed for linking to the demos
-        e.__package = this._path;
+      if (this._analysis.elements) {
+        this._analysis.elements.forEach((e) => {
+          // needed for linking to the demos
+          e.__package = this._path;
 
-        if (e.tagname === subElement) {
-          this._analysis.__selectedElement = e;
-          //disable class
-          this._analysis.__selectedClass = undefined;
-          e.__selected = true;
-        }else{
-          e.__selected = false;
-        }
-      });
+          if (e.tagname === subElement) {
+            this._analysis.__selectedElement = e;
+            //disable class
+            this._analysis.__selectedClass = undefined;
+            e.__selected = true;
+          } else {
+            e.__selected = false;
+          }
+        });
+      }
       // check classes if available
       if (this._analysis.classes) {
         this._analysis.classes.forEach((e, i) => {
