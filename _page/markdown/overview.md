@@ -14,11 +14,17 @@ from the different packages to something useful.
 
 ### FBP 101
 
+In furo-fbp you connect events from one component to methods of an ohter component. If you get this concept, you have understand
+already 90% of the thing you need to write a program.
+
+![101](/_page/images/fbp101.jpg)
+
 
 ### The introduction video
 The video is a little bit old, but it gives you a short impression of the underlying concepts. There is not so much to learn.
  
 <google-youtube video-id="vbMqbL5q9h0" height="270px" width="480px" rel="0"></google-youtube>
+
 
 
 Inspired by the work of J Paul Morrison
