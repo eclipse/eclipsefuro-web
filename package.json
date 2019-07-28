@@ -12,7 +12,7 @@
     "babel-traverse": "^6.24.1",
     "chai": "^4.2.0",
     "lerna": "^3.13.1",
-    "lit-element": "^2.1.0",
+    "lit-element": "^2.2.1",
     "mocha": "^5.2.0",
     "polymer-cli": "^1.9.10",
     "pwa-helpers": "^0.9.1",

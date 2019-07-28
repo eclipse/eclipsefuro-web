@@ -6,10 +6,10 @@
   "dependencies": {
     "@furo/fbp": "^4.23.0",
     "@furo/framework": "^0.7.2",
-    "commonmark": "^0.29.0",
-    "lit-element": "^2.1.0",
+    "lit-element": "^2.2.1",
     "lit-html": "^1.1.1",
     "markdown-it": "^9.0.1",
+
     "prismjs": "^1.17.1"
   },
   "publishConfig": {

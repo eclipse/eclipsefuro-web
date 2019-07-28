@@ -6,7 +6,7 @@
   "dependencies": {
     "@furo/fbp": "^4.23.0",
     "@furo/framework": "^0.7.2",
-    "lit-element": "^2.1.0"
+    "lit-element": "^2.2.1"
   },
   "publishConfig": {
     "access": "public"

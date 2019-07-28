@@ -11,7 +11,7 @@
     "@furo/input": "^0.37.1",
     "@furo/layout": "^0.27.4",
     "@polymer/polymer": "^3.0.0",
-    "lit-element": "^2.1.0",
+    "lit-element": "^2.2.1",
     "lit-html": "^1.1.1"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",
