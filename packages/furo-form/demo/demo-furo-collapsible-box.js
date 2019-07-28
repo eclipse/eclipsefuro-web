@@ -44,8 +44,9 @@ class DemoFuroCollapsibleBox extends FBP(LitElement) {
       <p>description</p>
       <furo-demo-snippet >
         <template>
-          <furo-collapsible-box>
-            <div>Content comes here</div>
+          <furo-collapsible-box label="label" open>
+            <div>flex content in default slot</div>
+            <div slot="context">CTX on right side</div>
           </furo-collapsible-box>
         </template>
       </furo-demo-snippet>
