@@ -61,14 +61,21 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
             //disable element
             this._analysis.__selectedElement = undefined;
             e.__selected = true;
-          }else{
+          } else {
             e.__selected = false;
           }
         });
       }
     } else {
-      // select first on default
-      this._analysis.__selectedElement = this._analysis.elements[0];
+      // select first element on default
+      if (this._analysis.elements) {
+        this._analysis.__selectedElement = this._analysis.elements[0];
+      } else {
+        // try with classes
+        if (this._analysis.classes) {
+          this._analysis.__selectedClass = this._analysis.classes[0];
+        }
+      }
     }
 
     /**
