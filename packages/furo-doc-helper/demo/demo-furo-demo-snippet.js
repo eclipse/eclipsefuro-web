@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 // demo imports
@@ -17,27 +17,27 @@ import "./fetch-analysis"
  */
 class DemoFuroDemoSnippet extends FBP(LitElement) {
 
-    constructor() {
-        super();
-    }
-
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            myBool: {type: Boolean}
-        };
-    }
+  constructor() {
+    super();
+  }
 
   /**
-  * flow is ready lifecycle method
-  */
-  __fbpReady(){
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Description
+       */
+      myBool: {type: Boolean}
+    };
+  }
+
+  /**
+   * flow is ready lifecycle method
+   */
+  __fbpReady() {
     super.__fbpReady();
     //this._FBPTraceWires()
   }
@@ -58,9 +58,8 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        furo-demo-snippet{
-            height:100%;
-        }
+
+      
     `
   }
 
@@ -72,32 +71,38 @@ class DemoFuroDemoSnippet extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <p>Demo is flickering, because it gets completly re rendered on each change</p>
-      <furo-demo-snippet flow>
-        <template>
-          <a href="/api/demo/util/demo-furo-demo-snippet/util/"  @-park="((park)),((other))" @-event="^event,((other))" @-bubble="^^bubble,((other))" @-hostevent="-^hostevent">Package util</a>
-          <a href="/api/demo/util/demo-furo-demo-snippet/data/">Package data</a>
-          
-          <furo-location url-space-regex="^/api/demo/util/demo-furo-demo-snippet" @-location-changed="--pathChanged"></furo-location>
-          <!-- load analysis based on --pathChanged.pathSegments[0] -->
-          <furo-doc-fetch-analysis ƒ-fetch-location="--pathChanged" ƒ-activate="--pageActivated" @-data="--analysis"></furo-doc-fetch-analysis>
-          <furo-split-view >
+      <furo-vertical-flex>
+        <p>Demo is flickering, because it gets completly re rendered on each change</p>
+        <furo-demo-snippet flex source>
+          <template>
+            <a href="/api/demo/util/demo-furo-demo-snippet/util/" @-park="((park)),((other))" @-event="^event,((other))"
+               @-bubble="^^bubble,((other))" @-hostevent="-^hostevent">Package util</a>
+            <a href="/api/demo/util/demo-furo-demo-snippet/data/">Package data</a>
 
-            <!-- the doc menu 
-            Multiline comment
-            on furo-doc-menu
-            -->
-            <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element"
-                           @-class="--class"></furo-doc-menu>
+            <furo-location url-space-regex="^/api/demo/util/demo-furo-demo-snippet"
+                           @-location-changed="--pathChanged"></furo-location>
+            <!-- load analysis based on --pathChanged.pathSegments[0] -->
+            <furo-doc-fetch-analysis ƒ-fetch-location="--pathChanged" ƒ-activate="--pageActivated"
+                                     @-data="--analysis"></furo-doc-fetch-analysis>
+            <furo-split-view>
 
-            <furo-doc-element scroll ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
-            <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
+              <!-- the doc menu 
+              Multiline comment
+              on furo-doc-menu
+              -->
+              <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element"
+                             @-class="--class"></furo-doc-menu>
 
-          </furo-split-view>
-          
-          <dummy-element ƒ-remove="--class(*.path), --element, --analysis(*.path)" ƒ-.prop="--analysis" @-done="((hostattribute)),notarget"></dummy-element>
-        </template>
-      </furo-demo-snippet>
+              <furo-doc-element scroll ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
+              <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
+
+            </furo-split-view>
+
+            <dummy-element ƒ-remove="--class(*.path), --element, --analysis(*.path)" ƒ-.prop="--analysis"
+                           @-done="((hostattribute)),notarget"></dummy-element>
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
     `;
   }
 }

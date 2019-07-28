@@ -28,6 +28,8 @@ class FuroDemoSnippet extends FBP(LitElement) {
       this.demo = false;
       this.flow = false;
       this._FBPTriggerWire("--markdown", this.markdown);
+      let md = this.shadowRoot.querySelector("furo-markdown");
+      md.style.width = this.offsetWidth + "px";
     });
 
     this.addEventListener("demo", (e) => {
@@ -44,6 +46,11 @@ class FuroDemoSnippet extends FBP(LitElement) {
     });
   }
 
+  firstUpdated(v){
+    super.firstUpdated(v);
+    let md = this.shadowRoot.querySelector("furo-markdown");
+    md.style.width = this.offsetWidth + "px";
+  }
 
   /**
    * @private
@@ -105,6 +112,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
             display: block;
             height: 300px;
             box-sizing: border-box;
+            overflow: hidden;
         }
 
         :host([hidden]) {
@@ -113,8 +121,6 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
         furo-markdown {
             height: 100%;
-            overflow: auto;
-            background-color: rgb(245, 242, 240);
         }
 
         #demo, #flow {
@@ -144,14 +150,15 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
         .nav {
             background-color: var(--demo-header);
-            color:var(--on-primary);
+            color: var(--on-primary);
             margin-bottom: 24px;
         }
 
-        .nav span{
+        .nav span {
             display: inline-block;
             border-bottom: 1px solid var(--demo-header, white);
         }
+
         :host([flow]) .flow {
             font-weight: 800;
             border-bottom: 1px solid var(--on-primary);
@@ -163,7 +170,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
         }
 
         :host([no-demo]) .demo {
-           display: none;
+            display: none;
         }
 
         :host([source]) .source {

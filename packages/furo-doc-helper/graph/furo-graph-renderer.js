@@ -76,7 +76,12 @@ class FuroGraphRenderer extends FBP(LitElement) {
         background.radius(5);
         if (node.label) {
           let text = canvas.text(node.label).move((node.x - node.width / 2) + 25, (node.y - node.height / 2) + 2);
-          background.width( text.length() + 50);
+          // width is taken from the image, so wait a moment.
+          setTimeout(()=>{
+            background.width( text.length() + 50);
+          },90)
+
+
         }
 
       }

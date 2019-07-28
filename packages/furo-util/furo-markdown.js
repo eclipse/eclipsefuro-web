@@ -106,7 +106,6 @@ class FuroMarkdown extends (LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
-            width: inherit;
         }
 
         :host([hidden]) {
@@ -191,7 +190,7 @@ class FuroMarkdown extends (LitElement) {
         /* Code blocks */
         pre[class*="language-"] {
             padding: 1em;
-            margin: .5em 0;
+            margin: 0;
             overflow: auto;
         }
 
