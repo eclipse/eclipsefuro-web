@@ -4,23 +4,23 @@ The eventListeners from furo-fbp are the same eventListeners you have had before
 
 <style> img[src*="#max"]{max-width:600px}</style>
 
-> `$0` is the selected element from the elements tab.
-
-> `getEventListeners($0)` shows you the attached eventListeners 
+`$0` is the selected element from the elements tab.
+ 
 
 ![debug](/_page/images/debug.png#max) 
 
+> `getEventListeners($0)` shows you the attached eventListeners
 
 
 ## Show the fbp listeners on a host
 
-> Use `$0.__FBPEventlistener` to show all listeners on the host component
+Use `$0.__FBPEventlistener` to show all listeners on the host component
 
 ![debug](/_page/images/fbpEventListeners.png#max) 
 
 ## Show the wires on a host
 
-> Use `$0.__wirebundle` to show all registered wires.
+Use `$0.__wirebundle` to show all registered wires.
 
 ![debug](/_page/images/wirebundle.png#max)
 
@@ -28,7 +28,7 @@ The eventListeners from furo-fbp are the same eventListeners you have had before
 
 ## Debugging a single wire
 
-> To debug a single wire write `$0._FBPDebug("--markdown")`.  
+To debug a single wire write `$0._FBPDebug("--markdown")`.  
 
 ![debug](/_page/images/fbpDebug.png#max)
 
@@ -36,8 +36,9 @@ The eventListeners from furo-fbp are the same eventListeners you have had before
 
 ## Tracing
 
-> To trace all wires in a host use `$0._FBPTraceWires()`. This will log every wire which triggers in the console.
-In most of the cases, the problems you have are typos in wires or wires with unexpected data.
+To trace all wires in a host use `$0._FBPTraceWires()`. 
 
 ![debug](/_page/images/tracer.png#max)
 
+> This will log every wire which triggers in the console.
+In most of the cases, the problems you have are typos in wires or wires with unexpected data.
