@@ -4,19 +4,13 @@ import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog"
 /**
- * `demo-furo-horizontal-flex`
- * todo Describe your element
+ * `demo-furo-vertical-flex`
  *
- * @summary todo shortdescription
+ * @summary demo for furo-vertical-flex
  * @customElement
- * @demo demo/demo-furo-horizontal-flex.html
  * @appliesMixin FBP
  */
 class DemoFuroVerticalFlex extends FBP(LitElement) {
-
-    constructor() {
-        super();
-    }
 
   /**
    * Themable Styles
@@ -38,7 +32,6 @@ class DemoFuroVerticalFlex extends FBP(LitElement) {
        
     `
   }
-
 
   /**
    * @private
