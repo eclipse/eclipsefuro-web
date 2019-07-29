@@ -3,15 +3,61 @@
 
 ## Trigger a wire imperatively
 
-In some rare conditions you have to trigger a wire from the sources. 
-If you have applied the mixin, you can call the **_FBPTriggerWire** method.
+To trigger a wire from the javascript part of your component or from a test, call the **_FBPTriggerWire** method.
+You can also trigger the wire in the constructor, then the wire will be queued until the flow is parsed and ready.
  
-```
-ready(){
-  super.ready();
-  this._FBPTriggerWire('--wireName', this.dataYouWantToPass);
+```js
+class TriggerSample extends FBP(LitElement) {
+    constructor(){
+      super();
+      this.data = "Test";
+      // this wire will be queued
+      this._FBPTriggerWire("--wireName", this.data);
+    }
+    
+    /**
+     * __fbpReady triggers when the flow is ready
+     */
+    __fbpReady(){
+      super.__fbpReady();
+      this._FBPTriggerWire('--wireName', this.data);
+    }
+    
+    /**
+     * To pass data from outside to a wire, use this._FBPTriggerWire()
+     * 
+     */
+    fetchRecord(src){
+      this._FBPTriggerWire('--fetchRequested', src);
+    }
 }
 ``` 
-*this will trigger the wire **--wireName** on all components who receive this wire i.e. `<load-data ƒ-start="--wireName"></load-data>`).*
+
 
 ## Add a wire hook
+To hook on a wire use `this._FBPAddWireHook("--wirename")`. This comes very handy at testing, or if you have to manipulate some 
+data, because the component doesnt send it like an other component needs it.
+
+```javascript
+class HookSample extends FBP(LitElement) {
+
+    constructor() {
+        super();
+        // the md-fetcher can only work with urls
+        this._FBPAddWireHook("--pathChanged",(d)=>{
+          this._FBPTriggerWire("--fetchMD","/_page/markdown/"+ d.pathSegments[0] + ".md");         
+      })
+    }
+}
+```
+
+> The most @-events of the furo base components will fit the ƒ-methods of the corresponding components.
+It is like playing domino. Read the api guide to learn what which component sends or expects.
+
+
+
+<furo-horizontal-flex>
+<a href="../fbp-wires-more/">More wireing</a>
+<furo-empty-spacer></furo-empty-spacer>
+<a href="../fbp-lifecycle/">Lifecycle</a>
+</furo-horizontal-flex>

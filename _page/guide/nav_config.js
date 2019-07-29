@@ -7,7 +7,19 @@ export const nav = [
       {"label": "Installation", "icon": "flight-takeoff", "href": "md/installation/"},
       {"label": "Starterpacks", "icon": "next-week", "href": "md/starterpacks/"},
     ]
-  }, {
+  },
+  {
+    "group": "フロー Furo FBP", "items": [
+      {"label": "Wires", "icon": "compare-arrows", "href": "md/fbp-wires/"},
+      {"label": "Events", "icon": "open-in-new", "href": "md/fbp-events/"},
+      {"label": "Data", "icon": "input", "href": "md/fbp-data/"},
+      {"label": "More wireing", "icon": "compare-arrows", "href": "md/fbp-wires-more/"},
+      {"label": "Scripting", "icon": "chaos", "href": "md/fbp-scripting/"},
+      {"label": "Lifecycle", "icon": "restore", "href": "md/fbp-lifecycle/"},
+      {"label": "Debugging", "icon": "pan-tool", "href": "md/fbp-debugging/"},
+    ]
+  },
+  {
     "group": "Patterns", "items": [
       {"label": "Icons", "icon": "gesture", "href": "icons/"},
       {"label": "Dealing with data", "icon": "cloud", "href": "doc/data/"},
@@ -22,17 +34,7 @@ export const nav = [
       {"label": "Util", "icon": "star-border", "href": "doc/util/"},
     ]
   },
-  {
-    "group": "フロー Furo FBP", "items": [
-      {"label": "Wires", "icon": "compare-arrows", "href": "md/fbp-wires/"},
-      {"label": "Events", "icon": "open-in-new", "href": "md/fbp-events/"},
-      {"label": "Data", "icon": "input", "href": "md/fbp-data/"},
-      {"label": "Advanced topics", "icon": "restore", "href": "md/fbp-advanced/"},
-      {"label": "Scripting", "icon": "chaos", "href": "md/fbp-scripting/"},
-      {"label": "Lifecycle", "icon": "restore", "href": "md/fbp-lifecycle/"},
-      {"label": "Debugging", "icon": "pan-tool", "href": "md/fbp-debugging/"},
-    ]
-  },
+
   {
     "group": "Advanced Topics", "items": [
       {"label": "build", "icon": "build", "href": "md/build/"},

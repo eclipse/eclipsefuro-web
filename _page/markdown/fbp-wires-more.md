@@ -23,3 +23,10 @@ You can receive and rewire the response from a methodname with **@-ƒ-methodname
 Todo @veith write documentation asap.
 
 
+
+
+<furo-horizontal-flex>
+<a href="../fbp-data/">Parking Data</a>
+<furo-empty-spacer></furo-empty-spacer>
+<a href="../fbp-scripting/">Scripting</a>
+</furo-horizontal-flex>

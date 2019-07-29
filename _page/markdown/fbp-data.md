@@ -38,3 +38,10 @@ the value of **color1** on the wire `--newColor` instead the click event.
 </template>
 </furo-demo-snippet>
 
+
+
+<furo-horizontal-flex>
+<a href="../fbp-events/">Fireing events</a>
+<furo-empty-spacer></furo-empty-spacer>
+<a href="../fbp-wires-more/">More wireing</a>
+</furo-horizontal-flex>

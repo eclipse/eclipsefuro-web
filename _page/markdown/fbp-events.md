@@ -71,3 +71,11 @@ The wires in this event-chain will be triggered. But the propagation will be sto
 
 ## Prevent Default
 Prevent default is not implemented, write an issue on the project page if you need it. 
+
+
+
+<furo-horizontal-flex>
+<a href="../fbp-wires/">Wireing</a>
+<furo-empty-spacer></furo-empty-spacer>
+<a href="../fbp-data/">Parking Data</a>
+</furo-horizontal-flex>

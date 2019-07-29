@@ -2,6 +2,8 @@
 
 With FBP you mostly connect the the output of a component (event) with the functions of an ohter element.
 
+
+
 ## Connecting things
 
 We have a button and an elements which we want to remove after the button is clicked.
@@ -133,3 +135,8 @@ If the data on the wire is an object you can use a sub property.
 With   `ƒ-something="--wireName(*.page.2.title)"` you will send the property title of the index 2 of the property page (which is an array in this case).
 
 
+<furo-horizontal-flex>
+<furo-empty-spacer>
+</furo-empty-spacer>
+<a href="../fbp-events/">Fireing events</a>
+</furo-horizontal-flex>

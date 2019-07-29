@@ -18,7 +18,8 @@ class PanelMdLoader extends FBP(LitElement) {
         super();
         this._FBPAddWireHook("--pathChanged",(e)=>{
           let md = e.pathSegments[0];
-          this._FBPTriggerWire("--fetchMD","/_page/markdown/"+ md + ".md")
+          this._FBPTriggerWire("--fetchMD","/_page/markdown/"+ md + ".md");
+          this.scrollTop = 0;
       })
     }
 
