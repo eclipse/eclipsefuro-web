@@ -55,7 +55,7 @@ class FuroDemoLink extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <a href="/api/demo/${this.data.package}/${this.data.url}">${this.data.url}</a> <i>${this.data.description}</i>
+      <a href="../demo/${this.data.url}">${this.data.url}</a> <i>${this.data.description}</i>
     `;
   }
 }

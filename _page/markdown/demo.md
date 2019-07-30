@@ -1,9 +1,11 @@
 # Writing demos for your component
 Write your demos like you write your components. Use the `furo-demo-snippet` component to show the source, demo and flow of your components.
-The tracer for the wires is always enabled in the furo-demo-snippet. So you can watch your console   
+The tracer for the wires is always enabled in the furo-demo-snippet. 
+You will see the trace results in your console.   
 
 ## furo-demo-snippet
-If you write this in your markdown:
+Use furo-demo-snippet to add a demo with source view.
+
 ```html
 <furo-demo-snippet >
     <template>

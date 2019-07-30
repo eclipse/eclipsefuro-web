@@ -15,25 +15,27 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
 
   constructor() {
     super();
+
   }
 
 
-  fetchLocation(location) {
-    // fetch only if location segment 0 changes
 
-    if (this._path !== location.pathSegments[0]) {
-      this._path = location.pathSegments[0];
-
-      fetch("/node_modules/@furo/" + this._path + "/analysis.json").then(res => res.json()).then(analysis => {
+  fetchSrc(src) {
+      fetch(src).then(res => res.json()).then(analysis => {
         this._analysis = analysis;
-        this._checkSubroute(location);
+        if(this.__location){
+          this.checkSubroute(this.__location);
+        }
       }).catch(err => err);
-    } else {
-      this._checkSubroute(location);
-    }
   }
 
-  _checkSubroute(location) {
+
+  checkSubroute(location) {
+    // enqueue when analysis is not
+    if(!this._analysis){
+      this.__location = location;
+      return
+    }
     // Subelement deep linking
     // on ../input/component-name we want to select component-name
     if (location.pathSegments[1]) {

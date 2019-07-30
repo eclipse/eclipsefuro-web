@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/route/furo-location"
-import "@furo/doc-helper/furo-demo-loader"
+import "./furo-demo-loader"
 /**
  * `panel-demo`
  * todo Describe your element
@@ -12,31 +12,31 @@ import "@furo/doc-helper/furo-demo-loader"
  * @demo demo/panel-demo.html
  * @appliesMixin FBP
  */
-class PanelDemo extends FBP(LitElement) {
+class FuroDemoPage extends FBP(LitElement) {
 
-    constructor() {
-        super();
-    }
-
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            myBool: {type: Boolean}
-        };
-    }
+  constructor() {
+    super();
+  }
 
   /**
-  * flow is ready lifecycle method
-  */
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Description
+       */
+      myBool: {type: Boolean}
+    };
+  }
+
+  /**
+   * flow is ready lifecycle method
+   */
   __fbpReady(){
     super.__fbpReady();
-   // this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
   /**
@@ -72,11 +72,11 @@ class PanelDemo extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      
-      <furo-location url-space-regex="^/api/[^@][^/]*" @-location-changed="--pathChanged"></furo-location>
+      <furo-location url-space-regex="^/components/@[^/]*/[^/]*" @-location-changed="--pathChanged"></furo-location>
+      <furo-location url-space-regex="^/components/[^@][^/]*" @-location-changed="--pathChanged"></furo-location>
       <furo-demo-loader ƒ-load="--pathChanged"></furo-demo-loader>
     `;
   }
 }
 
-window.customElements.define('panel-demo', PanelDemo);
+window.customElements.define('furo-demo-page', FuroDemoPage);

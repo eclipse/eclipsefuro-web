@@ -26,7 +26,6 @@ class FuroDemoLoader extends FBP(LitElement) {
       let lastDemo = this.shadowRoot.querySelector("#demo");
       lastDemo.remove();
 
-      this.packageName = location.pathSegments[0];
       this.demoComponent = location.pathSegments[1];
 
       // if the element is registered append the new
@@ -96,7 +95,7 @@ class FuroDemoLoader extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <a class="goback" href="/api/doc/${this.packageName}/">Back to package ${this.packageName}</a>
+      <a class="goback" href="../doc/">Back to package</a>
         <div id="demo"></div>
     `;
   }

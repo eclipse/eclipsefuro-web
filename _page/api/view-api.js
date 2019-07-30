@@ -63,7 +63,7 @@ class ViewApi extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-location url-space-regex="^/api" @-location-changed="--pathChanged"></furo-location>
+      <furo-location url-space-regex="^/api/[^/]*" @-location-changed="--pathChanged"></furo-location>
 
       <furo-split-view>
         <div slot="master" scroll>
