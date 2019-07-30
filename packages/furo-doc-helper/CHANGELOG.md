@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.4.0...@furo/doc-helper@0.4.1) (2019-07-30)
+
+
+### Bug Fixes
+
+* furo-component-page in non furo projects ([ebbec37](https://github.com/veith/FuroBaseComponents/commit/ebbec37))
+
+
+
+
+
 # [0.4.0](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.3.3...@furo/doc-helper@0.4.0) (2019-07-30)
 
 
