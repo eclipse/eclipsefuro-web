@@ -14,7 +14,8 @@
     "@furo/input": "^0.37.3",
     "@furo/layout": "^0.27.6",
     "@furo/navigation": "^0.27.5",
-    "@furo/route": "^0.12.10"
+    "@furo/route": "^0.12.10",
+    "@furo/doc-helper": "^0.3.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
