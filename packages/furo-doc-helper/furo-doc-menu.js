@@ -20,16 +20,30 @@ class FuroDocMenu extends FBP(LitElement) {
     super();
   }
 
-
   analysis(analysis) {
+    if (analysis.elements) {
+      this._FBPTriggerWire("--elements", analysis.elements);
+    }else{
+      //clear
+      this._FBPTriggerWire("--elements", []);
+    }
 
-    this._FBPTriggerWire("--elements", analysis.elements);
     if (analysis.classes) {
       this._FBPTriggerWire("--classes", analysis.classes);
+    } else {
+      //clear
+      this._FBPTriggerWire("--classes", []);
+    }
+
+    if (analysis.mixins) {
+      this._FBPTriggerWire("--mixins", analysis.mixins);
+    } else {
+      //clear
+      this._FBPTriggerWire("--mixins", []);
     }
 
 
-    // send selected
+    // send selected, analysis.__selectedElement is set from furo-doc-fetch-analysis
     if (analysis.__selectedElement) {
       /**
        * @event element
@@ -49,6 +63,18 @@ class FuroDocMenu extends FBP(LitElement) {
        */
       let customEvent = new Event('class', {composed: true, bubbles: true});
       customEvent.detail = analysis.__selectedClass;
+      this.dispatchEvent(customEvent)
+    }
+
+    // send selected mixin
+    if (analysis.__selectedMixin) {
+      /**
+       * @event element
+       * Fired when element is selected
+       * detail payload: element analysis data
+       */
+      let customEvent = new Event('mixin', {composed: true, bubbles: true});
+      customEvent.detail = analysis.__selectedMixin;
       this.dispatchEvent(customEvent)
     }
 
@@ -75,7 +101,7 @@ class FuroDocMenu extends FBP(LitElement) {
 
         h3 {
             position: sticky;
-            top:0;
+            top: 0;
             background-color: var(--background);
             z-index: 1;
             margin-top: 0;
@@ -92,7 +118,7 @@ class FuroDocMenu extends FBP(LitElement) {
             padding: 0;
         }
 
-        
+
 
     `
   }
@@ -112,15 +138,22 @@ class FuroDocMenu extends FBP(LitElement) {
           <furo-doc-menu-element-item ƒ-set-item="--item"></furo-doc-menu-element-item>
         </template>
       </ul>
-      
-       
+
+
+      <h3>Mixins</h3>
+      <ul>
+        <template is="flow-repeat" ƒ-inject-items="--mixins" identity-path="name">
+          <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
+        </template>
+      </ul>
+
       <h3>Classes</h3>
       <ul>
         <template is="flow-repeat" ƒ-inject-items="--classes" identity-path="name">
           <furo-doc-menu-class-item ƒ-set-item="--item"></furo-doc-menu-class-item>
         </template>
       </ul>
-       
+
     `;
   }
 }

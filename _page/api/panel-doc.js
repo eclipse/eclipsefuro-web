@@ -3,7 +3,6 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/util"
 import "@furo/layout"
-import "./furo-doc-fetch-analysis"
 import "@furo/doc-helper"
 
 /**
@@ -50,7 +49,7 @@ class PanelDoc extends FBP(LitElement) {
    */
   __fbpReady(){
     super.__fbpReady();
-    //this._FBPTraceWires()
+    this._FBPTraceWires()
   }
 
 
@@ -69,7 +68,7 @@ class PanelDoc extends FBP(LitElement) {
 
         <!-- the doc menu -->
         <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element" 
-                       @-class="--class"></furo-doc-menu>
+                       @-class="--class" @-mixin="--class"></furo-doc-menu>
 
         <furo-doc-element scroll ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
         <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>

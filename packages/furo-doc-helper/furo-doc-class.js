@@ -63,12 +63,21 @@ class FuroDocClass extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        h1 {
+        h1{
+            font-size: 2.8rem;
             font-weight: 400;
-            line-height: 28px;
-            font-size: 20px;
-            margin-top: 48px;
-            margin: 16px 0;
+            line-height: 3.5rem;
+            margin-top: 0;
+            letter-spacing: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        h2.description {
+            margin-top: 20px;
+            margin-bottom: 24px;
+            max-width: 600px;
+            color: #999;
+            border-bottom: none;
         }
         h2 {
             font-weight: 400;
@@ -89,7 +98,7 @@ class FuroDocClass extends FBP(LitElement) {
 
     return html`
       <h1>${this.class.name}</h1>
-      <p>${this.class.summary}</p>
+      <h2 class="description">${this.class.summary}</h2>  
       <h2>Description</h2>
       <furo-markdown ƒ-parse-markdown="--data(*.description)"></furo-markdown>
       <furo-doc-properties ƒ-data="--data(*.properties)"></furo-doc-properties>     

@@ -1,4 +1,38 @@
-const FBPMixin = (superClass) => {
+
+/**
+ * furo-fbp base class
+ *
+ * [read the guide](/guide/md/fbp-wires/)
+ *
+ * ## Tracing all wires in a component
+ *
+ * Log all triggered wires for this component. This function may help you at debugging.
+ * **Attention** This works only with wires with at least 1 receiver.
+ *
+ * Select your element in the dev console and call `$0._FBPTraceWires()`
+ *
+ * To trace your element immediately after fbp is ready, use this snippet
+ *
+ * ```
+ * __fbpReady(){
+ *   super.__fbpReady();
+ *   this._FBPTraceWires()
+ *}
+ * ```
+ * ## Debuging a wire
+ *
+ * Get information for the triggered wire. This function may help you at debugging.
+ *
+ * Select your element in the dev console and call `$0._FBPDebug('--dataReceived')`
+ *
+ *
+ *
+ *
+ * @summary Please read the guide for a better understanding
+ * @polymer
+ * @mixinFunction FBP
+ */
+export const FBP = (superClass) => {
     /**
      * @polymerMixinClass
      */
@@ -578,35 +612,3 @@ const FBPMixin = (superClass) => {
 
 
 };
-
-/**
- * furo-fbp base class
- *
- * ## Tracing all wires in a component
- *
- * Log all triggered wires for this component. This function may help you at debugging.
- * **Attention** This works only with wires with at least 1 receiver.
- *
- * Select your element in the dev console and call `$0._FBPTraceWires()`
- *
- * To trace your element immediately after fbp is ready, use this snippet
- *
- * ```
- * __fbpReady(){
- *   super.__fbpReady();
- *   this._FBPTraceWires()
- *}
- * ```
- * ## Debuging a wire
- *
- * Get information for the triggered wire. This function may help you at debugging.
- *
- * Select your element in the dev console and call `$0._FBPDebug('--dataReceived')`
- *
- *
- *
- *
- * @polymer
- * @mixinFunction FBP
- */
-export const FBP = FBPMixin;

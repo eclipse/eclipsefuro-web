@@ -36,9 +36,9 @@ To debug a single wire write `$0._FBPDebug("--markdown")`.
 
 ## Tracing
 
-To trace all wires in a host use `$0._FBPTraceWires()`. 
+To trace all wires in a host use `$0._FBPTraceWires()`.  
 
-![debug](/_page/images/tracer.png#max)
+![debug](/_page/images/fbpTrace.png#max)
 
-> This will log every wire which triggers in the console.
-In most of the cases, the problems you have are typos in wires or wires with unexpected data.
+> This will log every triggering wire to the console.
+In most of the cases, the problems you have solve, are typos in wire names.

@@ -47,6 +47,7 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
             this._analysis.__selectedElement = e;
             //disable class
             this._analysis.__selectedClass = undefined;
+            this._analysis.__selectedMixin = undefined;
             e.__selected = true;
           } else {
             e.__selected = false;
@@ -59,6 +60,20 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
           if (e.name === subElement) {
             this._analysis.__selectedClass = e;
             //disable element
+            this._analysis.__selectedMixin = undefined;
+            this._analysis.__selectedElement = undefined;
+            e.__selected = true;
+          } else {
+            e.__selected = false;
+          }
+        });
+      }// check mixins if available
+      if (this._analysis.mixins) {
+        this._analysis.mixins.forEach((e, i) => {
+          if (e.name === subElement) {
+            this._analysis.__selectedMixin = e;
+            //disable element
+            this._analysis.__selectedClass = undefined;
             this._analysis.__selectedElement = undefined;
             e.__selected = true;
           } else {
@@ -88,26 +103,6 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
     this.dispatchEvent(customEvent);
   }
 
-  /**
-   * @private
-   * @return {Object}
-   */
-  static get properties() {
-    return {
-      /**
-       * Description
-       */
-      myBool: {type: Boolean}
-    };
-  }
-
-  /**
-   * flow is ready lifecycle method
-   */
-  __fbpReady() {
-    super.__fbpReady();
-    //this._FBPTraceWires()
-  }
 
   /**
    * Themable Styles
