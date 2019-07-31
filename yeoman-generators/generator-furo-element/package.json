@@ -1,6 +1,6 @@
 {
   "name": "generator-furo-element",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "buildable webcomponent project with doc, demo and tests",
   "homepage": "",
   "author": {
