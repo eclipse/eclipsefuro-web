@@ -60,7 +60,7 @@ The generator installs all dependencies and creates your initial component.
 
 ```
 
-### Run the documentation
+### Run the documentation system
 ```bash
 npm run start
 
@@ -76,6 +76,7 @@ This will create the analysis.json and start the server (polymer-cli).
 ### Running the tests
 Open `http://127.0.0.1:8000/test/` to run your tests direct in the browser. 
 
+or just run `polymer test`
 
 ### Getting To Know Yeoman
 

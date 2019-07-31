@@ -28,7 +28,11 @@
     "mocha": "^6.1.4",
     "pwa-helpers": "^0.9.1",
     "sinon": "^7.3.2",
-    "wct-mocha": "^1.0.1"
+    "wct-mocha": "^1.0.1",
+    "polymer-cli": "^1.9.10",
+    "web-component-tester": "6.9.2",
+    "wct-istanbub": "^0.2.9",
+    "wct-test-reporter": "0.0.1"
   },
   "publishConfig": {
     "access": "public"
