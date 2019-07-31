@@ -76,15 +76,28 @@ This will create the analysis.json and start the server (polymer-cli).
 ### Running the tests
 Open `http://127.0.0.1:8000/test/` to run your tests direct in the browser. 
 
-or just run `polymer test`
+To run the automated test use `npm run test` 
 
-### Getting To Know Yeoman
+```bash
+npm run test
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+Installing and starting Selenium server for local browsers
+Selenium server running on port 50615
+chrome 75                Beginning tests via http://localhost:8001/components/mypack/generated-index.html?cli_browser_id=0
+chrome failed to maximize
+chrome 75                Tests passed
+Test run ended with great success
 
+chrome 75 (9/0/0)                     
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 6/6 )
+Branches     : 100% ( 2/2 )
+Functions    : 100% ( 5/5 )
+Lines        : 100% ( 6/6 )
+================================================================================
+
+```
 
 
 
