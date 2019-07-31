@@ -9,7 +9,7 @@ import {Theme} from "@furo/framework/theme"
  *  Setze auf dem flexiblen Element das Attribut **flex**
  *
  *
- * ```
+ * ```html
  * <furo-horizontal-flex>
  *   <div>small</div>
  *   <div flex>full width</div>

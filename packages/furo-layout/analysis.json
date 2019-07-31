@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-vertical-flex`\n\n Für vertikales anordnen von Komponenten. Die Breite ist automatisch auf 100% gesetzt (display block).\n\n Setze auf dem flexiblen Element das Attribut **flex**\n\n\n```\n<furo-vertical-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-vertical-flex>\n```\n Tags: layout",
+      "description": "`furo-vertical-flex`\n\n Für vertikales anordnen von Komponenten. Die Breite ist automatisch auf 100% gesetzt (display block).\n\n Setze auf dem flexiblen Element das Attribut **flex**\n\n\n```html\n<furo-vertical-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-vertical-flex>\n```\n Tags: layout",
       "summary": "",
       "path": "packages/furo-layout/furo-vertical-flex.js",
       "properties": [
@@ -850,7 +850,7 @@
       ]
     },
     {
-      "description": "`furo-horizontal-flex`\n\n Für vertikales anordnen von Komponenten. Die Breite ist automatisch auf 100% gesetzt (display block).\n\n Setze auf dem flexiblen Element das Attribut **flex**\n\n\n```\n<furo-horizontal-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-horizontal-flex>\n```\n Tags: layout",
+      "description": "`furo-horizontal-flex`\n\n Für vertikales anordnen von Komponenten. Die Breite ist automatisch auf 100% gesetzt (display block).\n\n Setze auf dem flexiblen Element das Attribut **flex**\n\n\n```html\n<furo-horizontal-flex>\n  <div>small</div>\n  <div flex>full width</div>\n  <div>small</div>\n</furo-horizontal-flex>\n```\n Tags: layout",
       "summary": "",
       "path": "packages/furo-layout/furo-horizontal-flex.js",
       "properties": [

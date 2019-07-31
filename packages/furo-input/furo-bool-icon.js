@@ -9,7 +9,7 @@ import {FieldNode} from "@furo/data/lib/FieldNode";
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/furo-bool-icon.html
+ * @demo demo-furo-bool-icon
  * @appliesMixin FBP
  */
 class FuroBoolIcon extends FBP(LitElement) {
@@ -20,7 +20,9 @@ class FuroBoolIcon extends FBP(LitElement) {
           this.toggle();
         });
       this.symboltrue = "▼";
-      this.symbolfalse = "▶"
+      this.symbolfalse = "▶";
+      this.field = {};
+      this._updateSymbol();
     }
 
     toggle(){

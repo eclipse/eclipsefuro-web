@@ -8,8 +8,11 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * `furo-input-password`
  * Simple password input element which uses a native `<input type="password">` tag
  *
+ * <sample-furo-password-input></sample-furo-password-input>
+ *
  * Tags: input
  * @summary password input element
+ * @demo demo-furo-password-input
  * @customElement
  * @polymer
  * @mixes FBP

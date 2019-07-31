@@ -4,12 +4,12 @@ import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog"
 /**
- * `sample-furo-text-input`
+ * `demo-furo-bool-icon`
  *
  * @customElement
  * @appliesMixin FBP
  */
-class SampleFuroTextInput extends FBP(LitElement) {
+class DemoFuroBoolIcon extends FBP(LitElement) {
 
   /**
    * Themable Styles
@@ -21,13 +21,12 @@ class SampleFuroTextInput extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+            height: 100%;
+            padding-right: var(--spacing);
         }
 
         :host([hidden]) {
             display: none;
-        }
-        furo-demo-snippet {
-            height: 130px;
         }
        
     `
@@ -41,15 +40,15 @@ class SampleFuroTextInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h3>Sample</h3>
-      
+      <h2>Demo demo-furo-bool-icon</h2>
+      <p>description</p>
       <furo-demo-snippet >
         <template>
-          <furo-text-input hint="Hint text" label="label"></furo-text-input>
+          <furo-bool-icon ></furo-bool-icon>
         </template>
       </furo-demo-snippet>
     `;
   }
 }
 
-window.customElements.define('sample-furo-text-input', SampleFuroTextInput );
+window.customElements.define('demo-furo-bool-icon', DemoFuroBoolIcon );
