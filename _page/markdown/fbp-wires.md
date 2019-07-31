@@ -27,7 +27,7 @@ This doesnt look very impressive in the first moment. But like you can see, ther
 A wire can have multiple targets. The **--lightSwitchClicked** wire from above can trigger multiple elements if you want.
 
 
-<furo-demo-snippet demo>
+<furo-demo-snippet demo style="height:400px">
 <template>
   <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
   <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
@@ -43,7 +43,7 @@ if you press the button, all elements which are connected to the wire will trigg
 ## Multiple sources
 A wire can also have multiple sources. 
 
-<furo-demo-snippet demo>
+<furo-demo-snippet demo style="height:400px">
 <template>
   <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
   <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button> 
@@ -58,7 +58,7 @@ It doesn't matter if you press the first or the second hide switch. Both will tr
 ## Multiple sources and targets 
 A wire can also have multiple sources and targets.
 
-<furo-demo-snippet demo>
+<furo-demo-snippet demo style="height:500px">
 <template>
   <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
   <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
@@ -76,7 +76,7 @@ A wire can also have multiple sources and targets.
 ## Multiple wires from source
 You can trigger multiple wires from one source by comma separating them.
 
-<furo-demo-snippet demo>
+<furo-demo-snippet demo style="height:500px">
 <template>
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse"></light-bulb>  
   <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
@@ -93,7 +93,7 @@ If you press the button, it will trigger the **--lightSwitchClicked, --blinkerCl
 ## Multiple wires to target
 You can receive from multiple wires by comma separating them.
 
-<furo-demo-snippet demo>
+<furo-demo-snippet demo style="height:400px">
 <template>
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse"></light-bulb>  
   <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button>   
@@ -107,7 +107,7 @@ You can receive from multiple wires by comma separating them.
 ## Passing useful data to target
 By default the **event.detail** is passed to the function you wire. 
 
-<furo-demo-snippet demo>
+<furo-demo-snippet demo style="height:550px">
 <template>
   <furo-color-input label="choose a color"  @-value-changed="--newColor"></furo-color-input>
   <hr />

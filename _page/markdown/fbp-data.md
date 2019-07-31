@@ -23,7 +23,7 @@ the value of **color1** on the wire `--newColor` instead the click event.
 
 ## Simple example
 
-<furo-demo-snippet demo>
+<furo-demo-snippet demo style="height:600px">
 <template>
   <furo-color-input label="choose color 1"  @-value-changed="((color1)), --newColor"></furo-color-input>
   <furo-color-input label="choose color 2"  @-value-changed="((color2)), --newColor"></furo-color-input>
