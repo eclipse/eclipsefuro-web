@@ -76,7 +76,7 @@ This will create the analysis.json and start the server (polymer-cli).
 ### Running the tests
 Open `http://127.0.0.1:8000/test/` to run your tests direct in the browser. 
 
-To run the automated test use `npm run test` 
+To run the automated test use `npm run test`. This will take some time...
 
 ```bash
 npm run test
@@ -85,7 +85,12 @@ Installing and starting Selenium server for local browsers
 Selenium server running on port 50615
 chrome 75                Beginning tests via http://localhost:8001/components/mypack/generated-index.html?cli_browser_id=0
 chrome failed to maximize
+safari 12.1.1            Beginning tests via http://localhost:8001/components/mypack/generated-index.html?cli_browser_id=1
+firefox 67               Beginning tests via http://localhost:8001/components/mypack/generated-index.html?cli_browser_id=2
+safari 12.1.1            Tests passed
+firefox 67               Tests passed
 chrome 75                Tests passed
+
 Test run ended with great success
 
 chrome 75 (9/0/0)                     
