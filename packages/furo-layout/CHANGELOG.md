@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.28.0...@furo/layout@0.29.0) (2019-07-31)
+
+
+### Features
+
+* furo-component-page element project ([f0ca850](https://github.com/veith/FuroBaseComponents/commit/f0ca850))
+
+
+
+
+
 # [0.28.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.27.6...@furo/layout@0.28.0) (2019-07-30)
 
 
