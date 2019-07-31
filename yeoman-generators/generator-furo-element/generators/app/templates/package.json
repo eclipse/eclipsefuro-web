@@ -1,6 +1,6 @@
 {
   "name": "<%= packageName %>",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "<%= packageDescription %>",
   "homepage": "",
   "author": {
@@ -26,6 +26,9 @@
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
     "wct-mocha": "^1.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "engines": {
     "node": ">=8.0"

@@ -26,7 +26,7 @@
 </test-fixture>
 
 <script type="module">
-  describe('reverse-deep-link', () => {
+  describe('<%= componentName %>', () => {
     let component;
     beforeEach(function (done) {
       // makeRequest is a utility function
@@ -35,7 +35,7 @@
     });
 
 
-    it('instantiating the element with default properties works', () => {
+    it('instantiating <%= componentName %> with default properties works', () => {
 
       assert.equal(component.tagName.toLowerCase(), '<%= componentName %>');
 
