@@ -11,7 +11,7 @@
   "license": "MIT",
   "main": "furo-catalog.js",
   "scripts": {
-    "start": "polymer serve",
+    "start": "npm run doc && polymer serve",
     "doc": "polymer analyze *.js > analysis.json",
     "build": "polymer build",
     "lint": "polymer lint */**.js",
