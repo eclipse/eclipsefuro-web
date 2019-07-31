@@ -1,0 +1,33 @@
+{
+  "name": "<%= packageName %>",
+  "version": "0.0.1",
+  "description": "<%= packageDescription %>",
+  "homepage": "",
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  "license": "MIT",
+  "main": "furo-catalog.js",
+  "scripts": {
+    "start": "polymer serve",
+    "doc": "polymer analyze *.js > analysis.json",
+    "build": "polymer build",
+    "lint": "polymer lint */**.js",
+    "test": "polymer test"
+  },
+  "dependencies": {
+    "@furo/collection": "^0.18.2"
+  },
+  "devDependencies": {
+    "@polymer/test-fixture": "^4.0.2",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "wct-mocha": "^1.0.1"
+  },
+  "engines": {
+    "node": ">=8.0"
+  }
+}
