@@ -1,0 +1,22 @@
+{
+    "suites": [
+        "/test/index.html"
+    ],
+    "root": "./",
+    "npm": true,
+    "moduleResolution": "node",
+    "verbose": false,
+    "plugins": {
+        "istanbub": {
+            "reporters": ["text-summary", "lcov"],
+            "include": [
+                "/*.js"
+            ],
+            "exclude": ["furo-catalog.js"]
+        },
+        "local": {
+            "browsers": ["chrome"]
+        }
+    }
+
+}

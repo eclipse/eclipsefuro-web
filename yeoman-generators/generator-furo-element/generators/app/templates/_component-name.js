@@ -35,7 +35,7 @@ class <%= className %> extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    */
-  fbpReady(){
+  __fbpReady(){
     super.__fbpReady();
     //this._FBPTraceWires()
   }

@@ -26,12 +26,22 @@
 </test-fixture>
 
 <script type="module">
+
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+
+
   describe('<%= componentName %>', () => {
     let component;
-    beforeEach(function (done) {
-      // makeRequest is a utility function
+    beforeEach(async () => {
       component = fixture('Basic');
-      done()
+      await component.updateComplete;
+    });
+
+
+    it('a11y', () => {
+      return axeReport(fixture('Basic'));
     });
 
 
