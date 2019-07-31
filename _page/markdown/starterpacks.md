@@ -104,7 +104,7 @@ Lines        : 100% ( 6/6 )
 
 ```
 
-
+> If you are on a windows systems, do not forget to remove safari and add **edge** in the *wct.conf.json*.
 
 [npm-image]: https://badge.fury.io/js/generator-furo-element.svg
 [npm-url]: https://npmjs.org/package/generator-furo-element
