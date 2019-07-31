@@ -15,7 +15,7 @@
             "exclude": ["furo-catalog.js"]
         },
         "local": {
-            "browsers": ["chrome"]
+          "browsers": ["chrome","safari","firefox"]
         }
     }
 
