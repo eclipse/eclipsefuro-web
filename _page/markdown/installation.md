@@ -1,11 +1,5 @@
 # Installation
 
-If you work with your own components and just want to have the fbp capability, install [furo-fbp](/api/fbp/doc/FBP).
-
-```bash
-    npm install --save furo-fbp
-```
-
 ## furo-collection
 
 The furo-collection package contains all packages from [furoBaseComponents](/api/input/doc/). 
@@ -16,6 +10,12 @@ The installed versions of the sub packages are cross checked for compatibility.
 ```
 
 
+## furo-fbp
+If you work with your own components and just want to have the fbp capability, install [furo-fbp](/api/fbp/doc/FBP).
+
+```bash
+    npm install --save furo-fbp
+```
 
 
 ## Basic Usage
