@@ -73,7 +73,7 @@ class PanelDemo extends FBP(LitElement) {
     // language=HTML
     return html`
       
-      <furo-location url-space-regex="^/api/[^@][^/]*" @-location-changed="--pathChanged"></furo-location>
+      <furo-location url-space-regex="^/api/[^/]*/demo" @-location-changed="--pathChanged"></furo-location>
       <furo-demo-loader ƒ-load="--pathChanged"></furo-demo-loader>
     `;
   }

@@ -75,8 +75,8 @@ class FuroComponentPage extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-location url-space-regex="^/components/@[^/]*/[^/]*" @-location-changed="--pathChanged"></furo-location>
-      <furo-location url-space-regex="^/components/[^@][^/]*" @-location-changed="--pathChanged"></furo-location>
+      <furo-location @-location-changed="--pathChanged"></furo-location>
+      
       <furo-pages ƒ-inject-location="--pathChanged" default="doc">
           <furo-doc-page name="doc"></furo-doc-page>
           <furo-demo-page name="demo"></furo-demo-page>

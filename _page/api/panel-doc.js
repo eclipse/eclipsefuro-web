@@ -67,7 +67,7 @@ class PanelDoc extends FBP(LitElement) {
 
         <!-- find the package -->
       <furo-location url-space-regex="^/api" @-location-changed="--packageChanged"></furo-location>
-      <furo-location url-space-regex="^/api/[^/]*" @-location-changed="--pathChanged"></furo-location>
+      <furo-location url-space-regex="^/api/[^/]*/doc" @-location-changed="--pathChanged"></furo-location>
       <furo-doc-fetch-analysis ƒ-fetch-src="--src" ƒ-check-subroute="--pathChanged" @-data="--analysis"></furo-doc-fetch-analysis>
 
       <furo-split-view >

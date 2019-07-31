@@ -38,8 +38,8 @@ class FuroDocFetchAnalysis extends FBP(LitElement) {
     }
     // Subelement deep linking
     // on ../input/component-name we want to select component-name
-    if (location.pathSegments[1]) {
-      let subElement = location.pathSegments[1];
+    if (location.pathSegments[0]) {
+      let subElement = location.pathSegments[0];
       if (this._analysis.elements) {
         this._analysis.elements.forEach((e) => {
           // needed for linking to the demos

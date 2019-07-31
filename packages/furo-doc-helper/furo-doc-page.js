@@ -54,8 +54,11 @@ class FuroDocPage extends FBP(LitElement) {
    */
   __fbpReady(){
     super.__fbpReady();
-    this._FBPTraceWires();
+    //this._FBPTraceWires();
     this._FBPTriggerWire("--src","../analysis.json")
+    if(window.location.pathname === "/"){
+      history.pushState(null,"Doc","/doc/")
+    }
   }
 
 
@@ -68,9 +71,7 @@ class FuroDocPage extends FBP(LitElement) {
     return html`
         
       
-        
-      <furo-location url-space-regex="^/components/@[^/]*/[^/]*" @-location-changed="--pathChanged"></furo-location>
-      <furo-location url-space-regex="^/components/[^@][^/]*" @-location-changed="--pathChanged"></furo-location>
+      <furo-location url-space-regex="/doc" @-location-changed="--pathChanged"></furo-location>
       <furo-doc-fetch-analysis ƒ-fetch-src="--src" ƒ-check-subroute="--pathChanged" @-data="--analysis"></furo-doc-fetch-analysis>
       
       <furo-split-view >

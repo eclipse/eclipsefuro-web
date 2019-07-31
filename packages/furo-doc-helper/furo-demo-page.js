@@ -72,8 +72,8 @@ class FuroDemoPage extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-location url-space-regex="^/components/@[^/]*/[^/]*" @-location-changed="--pathChanged"></furo-location>
-      <furo-location url-space-regex="^/components/[^@][^/]*" @-location-changed="--pathChanged"></furo-location>
+      
+      <furo-location url-space-regex="/demo" @-location-changed="--pathChanged"></furo-location>
       <furo-demo-loader ƒ-load="--pathChanged"></furo-demo-loader>
     `;
   }
