@@ -98,17 +98,6 @@
       done();
     });
 
-    it('should give console warning for dev is service does not exist', (done) => {
-      let spy = sinon.spy(console, 'error');
-      element.setAttribute("service", "nospec");
-
-
-      assert.equal(spy.args[0][0],"service nospec does not exist");
-
-      // restore the original function
-      spy.restore();
-      done();
-    });
 
     it('should be a deep-link element', (done) => {
       assert.equal(element.nodeName, "DEEP-LINK");
