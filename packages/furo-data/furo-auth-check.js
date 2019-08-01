@@ -33,8 +33,8 @@ class FuroAuthCheck extends FBP(LitElement) {
   /**
   * flow is ready lifecycle method
   */
-  __fbpReady(){
-    super.__fbpReady();
+  _FBPReady(){
+    super._FBPReady();
     //this._FBPTraceWires()
   }
 

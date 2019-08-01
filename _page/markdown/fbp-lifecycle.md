@@ -1,16 +1,18 @@
 # FBP Lifecycle
 
-## this.__fbpReady()
-__fbpReady() is called, when the wires are registered and the components are able to receive wire data.
+## _FBPReady()
+_FBPReady() is called, when the wires are registered and the components are able to receive wire data.
 This is also the earliest point to enable the tracing.
 
 ```javascript
-  
+class MyComponent extends FBP(LitElement) {  
   // trace all wires
-  __fbpReady(){
-    super.__fbpReady();
+  _FBPReady(){
+    super._FBPReady();
     this._FBPTraceWires();
   }
+}
+window.customElements.define('my-component', MyComponent);
 
 ```
 

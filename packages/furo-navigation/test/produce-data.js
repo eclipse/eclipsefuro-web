@@ -135,8 +135,8 @@ class ProduceData extends FBP(LitElement) {
     this.addEventListener("click", this.produce)
   }
 
-  __fbpReady() {
-    super.__fbpReady();
+  _FBPReady() {
+    super._FBPReady();
     if (this.auto) {
       this.produce();
     }

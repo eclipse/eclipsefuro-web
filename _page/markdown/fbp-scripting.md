@@ -16,10 +16,10 @@ class TriggerSample extends FBP(LitElement) {
     }
     
     /**
-     * __fbpReady triggers when the flow is ready
+     * _FBPReady triggers when the flow is ready
      */
-    __fbpReady(){
-      super.__fbpReady();
+    _FBPReady(){
+      super._FBPReady();
       this._FBPTriggerWire('--wireName', this.data);
     }
     

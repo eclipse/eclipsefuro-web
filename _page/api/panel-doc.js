@@ -47,8 +47,8 @@ class PanelDoc extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    */
-  __fbpReady(){
-    super.__fbpReady();
+  _FBPReady(){
+    super._FBPReady();
     //this._FBPTraceWires()
     this._FBPAddWireHook("--packageChanged",e=>{
       this._FBPTriggerWire("--src","/node_modules/@furo/" + e.pathSegments[0] + "/analysis.json")

@@ -1290,8 +1290,8 @@
  * To trace your element immediately after fbp is ready, use this snippet
  *
  * ```
- * __fbpReady(){
- *   super.__fbpReady();
+ * _FBPReady(){
+ *   super._FBPReady();
  *   this._FBPTraceWires()
  *}
  * ```
@@ -1758,7 +1758,7 @@ export const FBP = (superClass) =&gt; {
 &nbsp;
             // queueing for _FBPTriggerWire
             <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.__fbp_ready) {
-                this.__fbpReady();
+                this._FBPReady();
 &nbsp;
                 let l = this.__wireQueue.length;
                 for (let i = 0; i &lt; l; i++) {
@@ -1774,7 +1774,7 @@ export const FBP = (superClass) =&gt; {
          * This method is called, when the wires are ready
          * @private
          */
-        __fbpReady(){
+        _FBPReady(){
             this.__fbp_ready = true;
         }
         __enqueueTrigger(wire, detailData) {

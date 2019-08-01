@@ -2360,7 +2360,7 @@
           "inheritedFrom": "FBP"
         },
         {
-          "name": "__fbpReady",
+          "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
           "privacy": "private",
           "sourceRange": {
@@ -2948,9 +2948,9 @@
           "inheritedFrom": "FBP"
         },
         {
-          "name": "__fbpReady",
+          "name": "_FBPReady",
           "description": "flow is ready lifecycle method",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "start": {
               "line": 306,

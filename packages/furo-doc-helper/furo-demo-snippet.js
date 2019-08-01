@@ -71,8 +71,8 @@ class FuroDemoSnippet extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    */
-  __fbpReady() {
-    super.__fbpReady();
+  _FBPReady() {
+    super._FBPReady();
     // check if demo is disabled
     let demo = this.shadowRoot.querySelector("#demo");
     if(!this.noDemo){

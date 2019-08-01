@@ -14,8 +14,8 @@
  * To trace your element immediately after fbp is ready, use this snippet
  *
  * ```
- * __fbpReady(){
- *   super.__fbpReady();
+ * _FBPReady(){
+ *   super._FBPReady();
  *   this._FBPTraceWires()
  *}
  * ```
@@ -61,7 +61,7 @@ export const FBP = (superClass) => {
          * Triggers a wire
          * @param wire (String) Name of the wire like --buttonClicked
          * @param detailData (*) data to pass
-         * @private
+         * @public
          */
         _FBPTriggerWire(wire, detailData) {
             if (this.__fbp_ready) {
@@ -114,7 +114,7 @@ export const FBP = (superClass) => {
          * @param cb (function) Callback function cb(detailData)
          * @param [before] (Boolean) append before the components are triggered, default is false
          * @returns {number} Index of hook
-         * @private
+         * @public
          */
         _FBPAddWireHook(wire, cb, before) {
             before = before || false;
@@ -140,7 +140,7 @@ export const FBP = (superClass) => {
          * Select your element in the dev console and call `$0._FBPTraceWires()`
          *
          *
-         * @private
+         * @public
          */
         _FBPTraceWires() {
             let self = this;
@@ -172,7 +172,7 @@ export const FBP = (superClass) => {
          *
          * @param wire
          * @param openDebugger opens the debugger console, so you can inspect your component.
-         * @private
+         * @public
          */
         _FBPDebug(wire, openDebugger) {
             let self = this;
@@ -482,7 +482,7 @@ export const FBP = (superClass) => {
 
             // queueing for _FBPTriggerWire
             if (!this.__fbp_ready) {
-                this.__fbpReady();
+                this._FBPReady();
 
                 let l = this.__wireQueue.length;
                 for (let i = 0; i < l; i++) {
@@ -496,9 +496,8 @@ export const FBP = (superClass) => {
         /**
          * Livecycle method
          * This method is called, when the wires are ready
-         * @private
          */
-        __fbpReady(){
+        _FBPReady(){
             this.__fbp_ready = true;
         }
         __enqueueTrigger(wire, detailData) {

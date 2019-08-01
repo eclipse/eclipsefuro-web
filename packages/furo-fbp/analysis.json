@@ -255,7 +255,7 @@
           "inheritedFrom": "FBP"
         },
         {
-          "name": "__fbpReady",
+          "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
           "privacy": "private",
           "sourceRange": {
@@ -709,7 +709,7 @@
           "inheritedFrom": "FBP"
         },
         {
-          "name": "__fbpReady",
+          "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
           "privacy": "private",
           "sourceRange": {
@@ -1266,7 +1266,7 @@
   ],
   "mixins": [
     {
-      "description": "furo-fbp base class\n\n[read the guide](/guide/md/fbp-wires/)\n\n## Tracing all wires in a component\n\nLog all triggered wires for this component. This function may help you at debugging.\n**Attention** This works only with wires with at least 1 receiver.\n\nSelect your element in the dev console and call `$0._FBPTraceWires()`\n\nTo trace your element immediately after fbp is ready, use this snippet\n\n```\n__fbpReady(){\n  super.__fbpReady();\n  this._FBPTraceWires()\n}\n```\n## Debuging a wire\n\nGet information for the triggered wire. This function may help you at debugging.\n\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
+      "description": "furo-fbp base class\n\n[read the guide](/guide/md/fbp-wires/)\n\n## Tracing all wires in a component\n\nLog all triggered wires for this component. This function may help you at debugging.\n**Attention** This works only with wires with at least 1 receiver.\n\nSelect your element in the dev console and call `$0._FBPTraceWires()`\n\nTo trace your element immediately after fbp is ready, use this snippet\n\n```\n_FBPReady(){\n  super._FBPReady();\n  this._FBPTraceWires()\n}\n```\n## Debuging a wire\n\nGet information for the triggered wire. This function may help you at debugging.\n\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
       "summary": "Please read the guide for a better understanding",
       "path": "packages/furo-fbp/fbp.js",
       "properties": [],
@@ -1472,7 +1472,7 @@
           }
         },
         {
-          "name": "__fbpReady",
+          "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
           "privacy": "private",
           "sourceRange": {

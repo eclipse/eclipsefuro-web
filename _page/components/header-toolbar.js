@@ -24,8 +24,8 @@ class HeaderToolbar extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    */
-  __fbpReady() {
-    super.__fbpReady();
+  _FBPReady() {
+    super._FBPReady();
     //this._FBPTraceWires()
     this._FBPAddWireHook("--pathChanged", (e) => {
       if(e.pathSegments[0]){

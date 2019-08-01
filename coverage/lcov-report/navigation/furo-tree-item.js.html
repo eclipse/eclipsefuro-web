@@ -900,8 +900,8 @@ export class FuroTreeItem extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    */
-  __fbpReady() {
-    super.__fbpReady();
+  _FBPReady() {
+    super._FBPReady();
     //this._FBPTraceWires()
 &nbsp;
     this._FBPAddWireHook("--labelClicked", <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
@@ -1056,8 +1056,8 @@ export class FuroTreeItem extends FBP(LitElement) {
     return html`
 &lt;furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >this.fieldNode.triggerHover()}</span>"&gt;
       &lt;div style="width: ${this.fieldNode.depth * 8}px"&gt;&lt;/div&gt;
-      &lt;div class="oc"&gt;&lt;furo-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"&gt;&lt;/furo-bool-icon&gt;&lt;/div&gt;      
-            
+      &lt;div class="oc"&gt;&lt;furo-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"&gt;&lt;/furo-bool-icon&gt;&lt;/div&gt;
+
       &lt;div flex class="label" @-click="--labelClicked" &gt; &lt;furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error.value}"&gt;&lt;/furo-icon&gt; ${this.fieldNode.display_name} &lt;span class="desc"&gt;${this.fieldNode.description}&lt;/span&gt;&lt;/div&gt;
 &lt;/furo-horizontal-flex&gt;
 &nbsp;
