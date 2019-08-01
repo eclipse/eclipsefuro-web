@@ -7,14 +7,15 @@ export class Styling {
         return css`
             :host {
                 /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
-                /* SYRIUS Theme */
-
-                --primary-color: #ececec;
-                --primary-variant-color: #f4f4f4;
-                --secondary-color: #f4f4f4;
-                --secondary-variant-color: #edeeed;
+                --primary: #ececec;
+                --accent: #3f83e3;
+                --primary-variant: #f4f4f4;
+                --secondary: #f4f4f4;
+                --secondary-variant: #edeeed;
                 --background: #ffffff;
-                --surface: #ffffff;
+                --surface: #eeeeee;
+                --blockquote: #ffc247;
+                --separator: #c3c4c3;
                 --error: #C51162;
                 --success: #129991;
                 --llm-color: #ffffff;
@@ -23,6 +24,7 @@ export class Styling {
                 --header-color: #212121;
 
                 --on-primary: #212121;
+                --on-primary-variant: #585858;
                 --on-secondary: #212121;
                 --on-background: #212121;
                 --on-surface: #212121;
@@ -32,21 +34,24 @@ export class Styling {
                 --on-success: #202124;
                 --on-llm: #2c2c2c;
                 --gap-size: 24px;
-                
+
                 /* Spacing */
+                --spacing-xxs: 4px;
                 --spacing-xs: 8px;
-                --spacing-s: 24px;
-                --spacing-m: 72px;
-                --spacing-l: 96px;
-                --spacing-xl: 120px;
-                
+                --spacing-s: 16px;
+                --spacing: 24px;
+                --spacing-m: 24px;
+                --spacing-l: 32px;
+                --spacing-xl: 48px;
+                --spacing-xxl: 96px;
+
                 /* Apply your theme here */
                 --demo-color-one: #6200ee;
                 --demo-color-two: #212121;
                 --demo-color-three: #eaddfd;
                 --on-demo: #fff;
                 --on-demo-three: #212121;
-                
+
                 --border-radius: 4px;
             }
 

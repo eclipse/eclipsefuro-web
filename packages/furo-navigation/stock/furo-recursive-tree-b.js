@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat"
-import "@furo/input/furo-bool-icon";
+import "@furo/data-input/furo-bool-icon";
 import "@furo/layout/furo-horizontal-flex";
 import {FuroRecursiveTree} from "./furo-recursive-tree"
 

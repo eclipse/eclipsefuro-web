@@ -8,7 +8,7 @@ This collection contains
  @furo/config
  @furo/data
  @furo/form
- @furo/input
+ @furo/data-input
  @furo/layout
  @furo/math
  @furo/navigation

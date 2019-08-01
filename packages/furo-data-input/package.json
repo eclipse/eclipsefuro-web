@@ -1,5 +1,5 @@
 {
-  "name": "@furo/input",
+  "name": "@furo/data-input",
   "description": "Input components",
   "main": "furo-catalog.js",
   "version": "0.38.2",

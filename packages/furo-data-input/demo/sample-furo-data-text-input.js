@@ -9,7 +9,7 @@ import "../furo-catalog"
  * @customElement
  * @appliesMixin FBP
  */
-class SampleFuroTextInput extends FBP(LitElement) {
+class SampleFuroDataTextInput extends FBP(LitElement) {
 
   /**
    * Themable Styles
@@ -42,17 +42,14 @@ class SampleFuroTextInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <h3>Sample</h3>
-
+      
       <furo-demo-snippet >
         <template>
-          <furo-text-input ƒ-set-value="--text" autofocus value="some text" hint="With autofocus" label="Text input field" @-value-changed="--text"></furo-text-input>
-          <furo-text-input ƒ-set-value="--text" hint="Type in some text" label="Text input field" @-value-changed="--text"></furo-text-input>
-          <furo-text-input error errortext="something went wrong" ƒ-set-value="--text" hint="Type in some text" label="With error" @-value-changed="--text"></furo-text-input>
+          <furo-text-input hint="Hint text" label="label"></furo-text-input>
         </template>
       </furo-demo-snippet>
-      
     `;
   }
 }
 
-window.customElements.define('sample-furo-text-input', SampleFuroTextInput );
+window.customElements.define('sample-furo-data-text-input', SampleFuroDataTextInput );

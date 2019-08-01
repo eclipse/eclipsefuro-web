@@ -8,6 +8,7 @@ export class Styling {
             :host {
                 /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
                 --primary: #ececec;
+                --accent: #3f83e3;
                 --primary-variant: #f4f4f4;
                 --secondary: #f4f4f4;
                 --secondary-variant: #edeeed;

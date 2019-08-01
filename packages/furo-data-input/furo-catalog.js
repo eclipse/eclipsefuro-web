@@ -2,7 +2,7 @@
 import "./furo-password-input"
 import "./furo-date-input"
 import "./furo-button"
-import "./furo-text-input"
+import "./furo-data-text-input"
 import "./furo-textarea-input"
 import "./furo-search-input"
 import "./furo-color-input"

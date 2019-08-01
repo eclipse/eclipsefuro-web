@@ -4,7 +4,7 @@
     {
       "description": "`furo-input-password`\nSimple password input element which uses a native `<input type=\"password\">` tag\n\n<sample-furo-password-input></sample-furo-password-input>\n\nTags: input",
       "summary": "password input element",
-      "path": "packages/furo-input/furo-password-input.js",
+      "path": "packages/furo-data-input/furo-password-input.js",
       "properties": [],
       "methods": [
         {
@@ -62,7 +62,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -124,7 +124,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -146,7 +146,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -226,15 +226,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -252,11 +252,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -281,11 +281,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -304,11 +304,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -326,11 +326,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -360,11 +360,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -399,11 +399,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -476,7 +476,7 @@
     {
       "description": "`furo-input-date`\nSimple date input element which uses a native `<input type=\"date\">` tag\n\nTags: input",
       "summary": "date input element",
-      "path": "packages/furo-input/furo-date-input.js",
+      "path": "packages/furo-data-input/furo-date-input.js",
       "properties": [],
       "methods": [
         {
@@ -534,7 +534,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -596,7 +596,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -618,7 +618,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -698,15 +698,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -724,11 +724,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -753,11 +753,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -776,11 +776,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -798,11 +798,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -832,11 +832,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -871,11 +871,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -987,7 +987,7 @@
     {
       "description": "`furo-button` displays a button.\n\n\n<sample-furo-button></sample-furo-button>",
       "summary": "a button",
-      "path": "packages/furo-input/furo-button.js",
+      "path": "packages/furo-data-input/furo-button.js",
       "properties": [
         {
           "name": "label",
@@ -1130,7 +1130,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -1192,7 +1192,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -1214,7 +1214,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -1294,15 +1294,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -1320,11 +1320,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -1349,11 +1349,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -1372,11 +1372,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -1394,11 +1394,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -1428,11 +1428,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -1467,11 +1467,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -1635,7 +1635,7 @@
     {
       "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\n<sample-furo-text-input></sample-furo-text-input>\n\nTags: input",
       "summary": "text input element",
-      "path": "packages/furo-input/furo-text-input.js",
+      "path": "packages/furo-data-input/furo-data-text-input.js",
       "properties": [],
       "methods": [
         {
@@ -1693,7 +1693,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -1755,7 +1755,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -1777,7 +1777,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -1857,15 +1857,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -1883,11 +1883,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -1912,11 +1912,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -1935,11 +1935,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -1957,11 +1957,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -1991,11 +1991,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -2030,11 +2030,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -2090,7 +2090,7 @@
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "FuroTextInput",
+      "name": "FuroDataTextInput",
       "attributes": [],
       "events": [],
       "styling": {
@@ -2098,7 +2098,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-text-input",
+      "tagname": "furo-data-text-input",
       "mixins": [
         "FBP",
         "FuroInputBase"
@@ -2107,7 +2107,7 @@
     {
       "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\nTags: input",
       "summary": "text input element",
-      "path": "packages/furo-input/furo-textarea-input.js",
+      "path": "packages/furo-data-input/furo-textarea-input.js",
       "properties": [
         {
           "name": "rows",
@@ -2187,7 +2187,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -2249,7 +2249,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -2271,7 +2271,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -2351,15 +2351,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -2377,11 +2377,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -2406,11 +2406,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -2429,11 +2429,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -2451,11 +2451,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -2485,11 +2485,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -2524,11 +2524,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -2613,7 +2613,7 @@
     {
       "description": "`furo-input-search`\nSimple search input element which uses a native `<input type=\"search\">` tag\n\nTags: input",
       "summary": "search input element",
-      "path": "packages/furo-input/furo-search-input.js",
+      "path": "packages/furo-data-input/furo-search-input.js",
       "properties": [],
       "methods": [
         {
@@ -2671,7 +2671,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -2733,7 +2733,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -2755,7 +2755,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -2835,15 +2835,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -2861,11 +2861,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -2890,11 +2890,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -2913,11 +2913,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -2935,11 +2935,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -2969,11 +2969,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -3008,11 +3008,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -3080,7 +3080,7 @@
     {
       "description": "`furo-input-color`\nSimple color input element which uses a native `<input type=\"color\">` tag\n\nTags: input",
       "summary": "color input element",
-      "path": "packages/furo-input/furo-color-input.js",
+      "path": "packages/furo-data-input/furo-color-input.js",
       "properties": [],
       "methods": [
         {
@@ -3138,7 +3138,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -3200,7 +3200,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -3222,7 +3222,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -3302,15 +3302,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -3328,11 +3328,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -3357,11 +3357,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -3380,11 +3380,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -3402,11 +3402,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -3436,11 +3436,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -3475,11 +3475,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -3567,7 +3567,7 @@
     {
       "description": "`furo-input-number`\nSimple number input element which uses a native `<input type=\"number\">` tag\n\nTags: input",
       "summary": "number input element",
-      "path": "packages/furo-input/furo-number-input.js",
+      "path": "packages/furo-data-input/furo-number-input.js",
       "properties": [
         {
           "name": "max",
@@ -3647,7 +3647,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -3709,7 +3709,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -3731,7 +3731,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -3811,15 +3811,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -3837,11 +3837,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -3866,11 +3866,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -3889,11 +3889,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -3911,11 +3911,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -3945,11 +3945,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -3984,11 +3984,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -4078,7 +4078,7 @@
     {
       "description": "`furo-input-range`\nSimple range input element which uses a native `<input type=\"range\">` tag\n\nTags: input",
       "summary": "range input element",
-      "path": "packages/furo-input/furo-range-input.js",
+      "path": "packages/furo-data-input/furo-range-input.js",
       "properties": [],
       "methods": [
         {
@@ -4136,7 +4136,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -4198,7 +4198,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -4220,7 +4220,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -4300,15 +4300,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -4326,11 +4326,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -4355,11 +4355,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -4378,11 +4378,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -4400,11 +4400,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -4434,11 +4434,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -4473,11 +4473,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -4565,7 +4565,7 @@
     {
       "description": "`furo-input-time`\nSimple time input element which uses a native `<input type=\"time\">` tag\n\nTags: input",
       "summary": "time input element",
-      "path": "packages/furo-input/furo-time-input.js",
+      "path": "packages/furo-data-input/furo-time-input.js",
       "properties": [],
       "methods": [
         {
@@ -4623,7 +4623,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -4685,7 +4685,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -4707,7 +4707,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -4787,15 +4787,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -4813,11 +4813,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -4842,11 +4842,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -4865,11 +4865,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -4887,11 +4887,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -4921,11 +4921,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -4960,11 +4960,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -5052,7 +5052,7 @@
     {
       "description": "`furo-input-checkbox`\nCheckbox input element which uses a native `<input type=\"checkbox\">` tag. Works best with furo-data components.\n\nTags: input",
       "summary": "checkbox input element",
-      "path": "packages/furo-input/furo-checkbox-input.js",
+      "path": "packages/furo-data-input/furo-checkbox-input.js",
       "properties": [
         {
           "name": "text",
@@ -5132,7 +5132,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -5194,7 +5194,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -5216,7 +5216,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -5296,15 +5296,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -5322,11 +5322,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -5351,11 +5351,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -5374,11 +5374,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -5396,11 +5396,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -5430,11 +5430,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -5469,11 +5469,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -5563,7 +5563,7 @@
     {
       "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\nTags: input",
       "summary": "text input element",
-      "path": "packages/furo-input/furo-collection-dropdown.js",
+      "path": "packages/furo-data-input/furo-collection-dropdown.js",
       "properties": [],
       "methods": [
         {
@@ -5621,7 +5621,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -5683,7 +5683,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -5705,7 +5705,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -5785,15 +5785,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -5811,11 +5811,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -5840,11 +5840,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -5863,11 +5863,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -5885,11 +5885,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -5919,11 +5919,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -5958,11 +5958,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -6054,7 +6054,7 @@
     {
       "description": "`reference-search-item`\nDescribe your element",
       "summary": "shortdescription",
-      "path": "packages/furo-input/reference-search-item.js",
+      "path": "packages/furo-data-input/reference-search-item.js",
       "properties": [
         {
           "name": "myBool",
@@ -6134,7 +6134,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -6196,7 +6196,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -6218,7 +6218,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -6298,15 +6298,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -6324,11 +6324,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -6353,11 +6353,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -6376,11 +6376,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -6398,11 +6398,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -6432,11 +6432,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -6471,11 +6471,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -6658,7 +6658,7 @@
     {
       "description": "`furo-reference-search`\n Sucht eine Referenz\n\n\n```\n<!--  entity-object will eine Referenz auflösen -->\n<entity-object type=\"vnd.com.acme.task\" @-object-ready=\"--entityReady\"></entity-object>\n\n<furo-horizontal-flex>\n   <!--  furo-reference-search kann eine Referenz die entity-objekt besitzt darstellen.\n   Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den collection-agent.\n   Wenn collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->\n   <furo-reference-search autofocus  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-reference-search>\n\n   <furo-reference-search  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" min-term-length=\"2\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-reference-search>\n\n</furo-horizontal-flex>\n\n<!-- Der collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.\nDie Resultate werden an furo-reference-search zurück gegeben. -->\n<collection-agent service=\"tasks\" ƒ-search=\"--term\" ƒ-hts-in=\"--entityReady(*.fields.ref.value)\" @-response=\"--refCol\"></collection-agent>\n\n```\n\n![alt text](demo/assets/ref-search.png \"Logo Title Text 1\")",
       "summary": "shortdescription",
-      "path": "packages/furo-input/furo-reference-search.js",
+      "path": "packages/furo-data-input/furo-reference-search.js",
       "properties": [
         {
           "name": "minTermLength",
@@ -6759,7 +6759,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -6821,7 +6821,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -6843,7 +6843,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -6923,15 +6923,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -6949,11 +6949,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -6978,11 +6978,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -7001,11 +7001,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -7023,11 +7023,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -7057,11 +7057,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -7096,11 +7096,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -7329,7 +7329,7 @@
     {
       "description": "`furo-bool-icon`\ntodo Describe your element",
       "summary": "todo shortdescription",
-      "path": "packages/furo-input/furo-bool-icon.js",
+      "path": "packages/furo-data-input/furo-bool-icon.js",
       "properties": [
         {
           "name": "myBool",
@@ -7451,7 +7451,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -7513,7 +7513,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -7535,7 +7535,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -7615,15 +7615,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -7641,11 +7641,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -7670,11 +7670,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -7693,11 +7693,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -7715,11 +7715,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -7749,11 +7749,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -7788,11 +7788,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
@@ -7982,7 +7982,7 @@
     {
       "description": "",
       "summary": "",
-      "path": "packages/furo-input/FuroInputBase.js",
+      "path": "packages/furo-data-input/FuroInputBase.js",
       "properties": [
         {
           "name": "value",

@@ -101,7 +101,7 @@
         {
           "name": "_FBPTriggerWire",
           "description": "Triggers a wire",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -163,7 +163,7 @@
         {
           "name": "_FBPTraceWires",
           "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -185,7 +185,7 @@
         {
           "name": "_FBPDebug",
           "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "private",
+          "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
@@ -265,15 +265,15 @@
         {
           "name": "_FBPReady",
           "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "private",
+          "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 500,
+              "line": 499,
               "column": 8
             },
             "end": {
-              "line": 502,
+              "line": 501,
               "column": 9
             }
           },
@@ -291,11 +291,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 503,
+              "line": 502,
               "column": 8
             },
             "end": {
-              "line": 505,
+              "line": 504,
               "column": 9
             }
           },
@@ -320,11 +320,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 506,
               "column": 8
             },
             "end": {
-              "line": 515,
+              "line": 514,
               "column": 9
             }
           },
@@ -343,11 +343,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 517,
+              "line": 516,
               "column": 8
             },
             "end": {
-              "line": 531,
+              "line": 530,
               "column": 9
             }
           },
@@ -365,11 +365,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 542,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 555,
+              "line": 554,
               "column": 9
             }
           },
@@ -399,11 +399,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 566,
+              "line": 565,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 587,
               "column": 9
             }
           },
@@ -438,11 +438,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 606,
+              "line": 605,
               "column": 8
             },
             "end": {
-              "line": 608,
+              "line": 607,
               "column": 9
             }
           },
