@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-  <title>furo-reference-search demo</title>
+  <title>furo-data-reference-search demo</title>
 
   <script src="../../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
@@ -45,20 +45,20 @@
           <entity-object type="vnd.com.acme.task" @-object-ready="--entityReady"></entity-object>
 
           <furo-horizontal-flex>
-            <!--  furo-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
+            <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
                   Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den collection-agent.
                   Wenn collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf.
              -->
-            <furo-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)"
-                                   @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+            <furo-data-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)"
+                                   @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
 
-            <furo-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2"
-                                   @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+            <furo-data-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2"
+                                   @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
 
           </furo-horizontal-flex>
 
             <!-- Der collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.
-                Die Resultate werden an furo-reference-search zurück gegeben.
+                Die Resultate werden an furo-data-reference-search zurück gegeben.
             -->
            <collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></collection-agent>
 

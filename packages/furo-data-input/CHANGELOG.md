@@ -139,8 +139,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* remove set method in furo-reference-search ([cfb335d](https://github.com/veith/FuroBaseComponents/commit/cfb335d))
-* remove set method in furo-reference-search ([a377832](https://github.com/veith/FuroBaseComponents/commit/a377832))
+* remove set method in furo-data-reference-search ([cfb335d](https://github.com/veith/FuroBaseComponents/commit/cfb335d))
+* remove set method in furo-data-reference-search ([a377832](https://github.com/veith/FuroBaseComponents/commit/a377832))
 
 
 
@@ -329,7 +329,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* furo-reference-search themeable ([2e0f7ae](https://github.com/veith/FuroBaseComponents/commit/2e0f7ae))
+* furo-data-reference-search themeable ([2e0f7ae](https://github.com/veith/FuroBaseComponents/commit/2e0f7ae))
 
 
 
@@ -616,7 +616,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* furo-reference-search (mouse only) initial release ([06b7398](https://github.com/veith/FuroBaseComponents/commit/06b7398))
+* furo-data-reference-search (mouse only) initial release ([06b7398](https://github.com/veith/FuroBaseComponents/commit/06b7398))
 
 
 

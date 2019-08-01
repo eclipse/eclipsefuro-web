@@ -7,7 +7,7 @@ import {FuroInputBase} from "./FuroInputBase";
 import "./reference-search-item";
 
 /**
- * `furo-reference-search`
+ * `furo-data-reference-search`
  *  Sucht eine Referenz
  *
  *
@@ -16,17 +16,17 @@ import "./reference-search-item";
  * <entity-object type="vnd.com.acme.task" @-object-ready="--entityReady"></entity-object>
  *
  *<furo-horizontal-flex>
- *    <!--  furo-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
+ *    <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
  *    Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den collection-agent.
  *    Wenn collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->
- *    <furo-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+ *    <furo-data-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
  *
- *    <furo-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-reference-search>
+ *    <furo-data-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
  *
  *</furo-horizontal-flex>
  *
  *<!-- Der collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.
- *Die Resultate werden an furo-reference-search zurück gegeben. -->
+ *Die Resultate werden an furo-data-reference-search zurück gegeben. -->
  *<collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></collection-agent>
  *
  * ```
@@ -35,10 +35,10 @@ import "./reference-search-item";
  *
  * @summary shortdescription
  * @customElement
- * @demo demo/furo-reference-search.html
+ * @demo demo/furo-data-reference-search.html
  * @appliesMixin FBP
  */
-class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
+class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
   constructor() {
     super();
@@ -252,4 +252,4 @@ class FuroReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
 }
 
-window.customElements.define('furo-reference-search', FuroReferenceSearch);
+window.customElements.define('furo-data-reference-search', FuroDataReferenceSearch);
