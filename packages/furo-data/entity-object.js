@@ -83,7 +83,7 @@ class EntityObject extends (LitElement) {
         * detail payload: {Object|EntityNode} reference to entity
         */
         let customEvent = new Event('data-injected', {composed:true, bubbles: true});
-        customEvent.detail = e;
+        customEvent.detail = e.detail;
         this.dispatchEvent(customEvent)
     });
 
