@@ -1323,7 +1323,7 @@
       "methods": [
         {
           "name": "_attachDom",
-          "description": "für Polymer",
+          "description": "Auto append fbp for Polymer",
           "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
@@ -1349,7 +1349,7 @@
         },
         {
           "name": "firstUpdated",
-          "description": "for lit elements",
+          "description": "Auto append fbp for lit elements",
           "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
@@ -1358,7 +1358,7 @@
               "column": 8
             },
             "end": {
-              "line": 57,
+              "line": 62,
               "column": 9
             }
           },
@@ -1380,11 +1380,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 65,
+              "line": 70,
               "column": 8
             },
             "end": {
-              "line": 108,
+              "line": 113,
               "column": 9
             }
           },
@@ -1411,11 +1411,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 118,
+              "line": 123,
               "column": 8
             },
             "end": {
-              "line": 135,
+              "line": 140,
               "column": 9
             }
           },
@@ -1442,11 +1442,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 144,
+              "line": 149,
               "column": 8
             },
             "end": {
-              "line": 166,
+              "line": 171,
               "column": 9
             }
           },
@@ -1464,11 +1464,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 176,
+              "line": 181,
               "column": 8
             },
             "end": {
-              "line": 200,
+              "line": 205,
               "column": 9
             }
           },
@@ -1494,11 +1494,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 202,
+              "line": 207,
               "column": 8
             },
             "end": {
-              "line": 206,
+              "line": 211,
               "column": 9
             }
           },
@@ -1517,11 +1517,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 213,
+              "line": 218,
               "column": 8
             },
             "end": {
-              "line": 493,
+              "line": 498,
               "column": 9
             }
           },
@@ -1544,11 +1544,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 499,
+              "line": 504,
               "column": 8
             },
             "end": {
-              "line": 501,
+              "line": 506,
               "column": 9
             }
           },
@@ -1566,11 +1566,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 502,
+              "line": 507,
               "column": 8
             },
             "end": {
-              "line": 504,
+              "line": 509,
               "column": 9
             }
           },
@@ -1595,11 +1595,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 506,
+              "line": 511,
               "column": 8
             },
             "end": {
-              "line": 514,
+              "line": 519,
               "column": 9
             }
           },
@@ -1618,11 +1618,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 516,
+              "line": 521,
               "column": 8
             },
             "end": {
-              "line": 530,
+              "line": 535,
               "column": 9
             }
           },
@@ -1640,11 +1640,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 541,
+              "line": 546,
               "column": 8
             },
             "end": {
-              "line": 554,
+              "line": 559,
               "column": 9
             }
           },
@@ -1674,11 +1674,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 565,
+              "line": 570,
               "column": 8
             },
             "end": {
-              "line": 587,
+              "line": 592,
               "column": 9
             }
           },
@@ -1713,11 +1713,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 605,
+              "line": 610,
               "column": 8
             },
             "end": {
-              "line": 607,
+              "line": 612,
               "column": 9
             }
           },

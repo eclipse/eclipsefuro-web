@@ -9,7 +9,7 @@ import "../furo-catalog"
  * @customElement
  * @appliesMixin FBP
  */
-class SampleFuroPasswordInput extends FBP(LitElement) {
+class SampleFuroDataPasswordInput extends FBP(LitElement) {
 
   /**
    * Themable Styles
@@ -43,7 +43,7 @@ class SampleFuroPasswordInput extends FBP(LitElement) {
     return html`
       <h3>Sample</h3>
       
-      <furo-demo-snippet >
+      <furo-demo-snippet>
         <template>
           <furo-data-password-input hint="Hint text for password" label="Password"></furo-data-password-input>
         </template>
@@ -52,4 +52,4 @@ class SampleFuroPasswordInput extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('sample-furo-data-password-input', SampleFuroPasswordInput );
+window.customElements.define('sample-furo-data-password-input', SampleFuroDataPasswordInput );

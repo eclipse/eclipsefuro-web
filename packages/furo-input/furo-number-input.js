@@ -38,7 +38,7 @@ class FuroNumberInput extends FBP(LitElement) {
         /**
          * @event value-changed
          * Fired when value has changed from inside the component
-         * detail payload: {String} the number value
+         * detail payload: {Number} the number value
          */
         let customEvent = new Event('value-changed', {composed: true, bubbles: true});
         customEvent.detail = this.value;

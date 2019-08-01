@@ -39,7 +39,7 @@ class FuroDocMethods extends FBP(LitElement) {
       // show public fields only hide inhterite from inheritedFrom: "LitElement"
       data = data.filter((m) => {
         // todo: filter out inherited stuff like connectedCallback and so
-        return m.privacy === "public" && m.inheritedFrom !== "LitElement";
+        return m.privacy === "public" && !m.inheritedFrom;
       });
 
       data = data.sort((a, b) => {
