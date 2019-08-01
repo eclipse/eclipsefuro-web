@@ -14,7 +14,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataCheckboxInput extends FBP(FuroInputBase(LitElement)) {
 
   /**
    *
@@ -127,4 +127,4 @@ class FuroCheckboxInput extends FBP(FuroInputBase(LitElement)) {
   }
 }
 
-customElements.define('furo-checkbox-input', FuroCheckboxInput);
+customElements.define('furo-data-checkbox-input', FuroDataCheckboxInput);

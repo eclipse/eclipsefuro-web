@@ -5218,7 +5218,7 @@
     {
       "description": "`furo-input-checkbox`\nCheckbox input element which uses a native `<input type=\"checkbox\">` tag. Works best with furo-data components.\n\nTags: input",
       "summary": "checkbox input element",
-      "path": "packages/furo-data-input/furo-checkbox-input.js",
+      "path": "packages/furo-data-input/furo-data-checkbox-input.js",
       "properties": [
         {
           "name": "text",
@@ -5695,7 +5695,7 @@
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "FuroCheckboxInput",
+      "name": "FuroDataCheckboxInput",
       "attributes": [
         {
           "name": "text",
@@ -5720,7 +5720,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-checkbox-input",
+      "tagname": "furo-data-checkbox-input",
       "mixins": [
         "FBP",
         "FuroInputBase"
@@ -7493,7 +7493,7 @@
       ]
     },
     {
-      "description": "`furo-bool-icon`\ntodo Describe your element",
+      "description": "`furo-data-bool-icon`\ntodo Describe your element",
       "summary": "todo shortdescription",
       "path": "packages/furo-data-input/furo-data-bool-icon.js",
       "properties": [
@@ -8064,7 +8064,7 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-bool-icon",
+          "url": "demo-furo-data-bool-icon",
           "description": ""
         }
       ],
@@ -8138,7 +8138,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-bool-icon",
+      "tagname": "furo-data-bool-icon",
       "mixins": [
         "FBP"
       ]

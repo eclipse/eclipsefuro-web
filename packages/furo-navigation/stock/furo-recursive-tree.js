@@ -4,7 +4,7 @@ import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat"
 import {FieldNode} from "@furo/data/lib/FieldNode";
 import "@furo/layout/furo-horizontal-flex";
-import "@furo/data-input/furo-bool-icon";
+import "@furo/data-input/furo-data-bool-icon";
 import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
 
 /**
@@ -52,7 +52,7 @@ export class FuroRecursiveTree extends FBP(LitElement) {
   <furo-horizontal-flex class="label" @-click="--labelClicked" @-dblclick=":STOP, --dblclicked">   
         
     <span class="oc oc${this.depth}">
-    <furo-bool-icon ?hidden="${!this.field.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-bool-icon>
+    <furo-data-bool-icon ?hidden="${!this.field.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon>
     </span> 
     <div flex class="name" title="${this.field.description}">${this.field.display_name}</div>          
   </furo-horizontal-flex> 

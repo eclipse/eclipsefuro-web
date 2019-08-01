@@ -4,12 +4,12 @@ import {FBP} from "@furo/fbp";
 import {FieldNode} from "@furo/data/lib/FieldNode";
 
 /**
- * `furo-bool-icon`
+ * `furo-data-bool-icon`
  * todo Describe your element
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo-furo-bool-icon
+ * @demo demo-furo-data-bool-icon
  * @appliesMixin FBP
  */
 class FuroDataBoolIcon extends FBP(LitElement) {

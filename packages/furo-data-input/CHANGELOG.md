@@ -486,7 +486,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * furo-***-input shared styles removed ([0e8587e](https://github.com/veith/FuroBaseComponents/commit/0e8587e))
 * furo-***-input themeable ([c243512](https://github.com/veith/FuroBaseComponents/commit/c243512))
-* furo-checkbox-input themeable ([82247be](https://github.com/veith/FuroBaseComponents/commit/82247be))
+* furo-data-checkbox-input themeable ([82247be](https://github.com/veith/FuroBaseComponents/commit/82247be))
 * furo-text-input themeable ([476ce37](https://github.com/veith/FuroBaseComponents/commit/476ce37))
 
 

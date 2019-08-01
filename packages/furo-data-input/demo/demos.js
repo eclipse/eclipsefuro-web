@@ -1,4 +1,4 @@
-import "./demo-furo-bool-icon";
+import "./demo-furo-data-bool-icon";
 import "./demo-furo-button";
 import "./sample-furo-button";
 import "./sample-furo-data-text-input";
