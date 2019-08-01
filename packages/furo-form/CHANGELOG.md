@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.2](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.20.1...@furo/form@0.20.2) (2019-08-01)
+
+
+### Bug Fixes
+
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/veith/FuroBaseComponents/commit/042155c))
+
+
+
+
+
 ## [0.20.1](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.20.0...@furo/form@0.20.1) (2019-07-31)
 
 **Note:** Version bump only for package @furo/form

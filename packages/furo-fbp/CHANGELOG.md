@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.24.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.24.0...@furo/fbp@4.24.1) (2019-08-01)
+
+
+### Bug Fixes
+
+* make __fbpReady non private => _FBPReady ([042155c](https://github.com/veith/flowbased-polymer/commit/042155c))
+
+
+
+
+
 # [4.24.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.23.1...@furo/fbp@4.24.0) (2019-07-30)
 
 
