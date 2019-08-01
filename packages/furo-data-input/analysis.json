@@ -2779,7 +2779,7 @@
     {
       "description": "`furo-input-search`\nSimple search input element which uses a native `<input type=\"search\">` tag\n\nTags: input",
       "summary": "search input element",
-      "path": "packages/furo-data-input/furo-search-input.js",
+      "path": "packages/furo-data-input/furo-data-search-input.js",
       "properties": [],
       "methods": [
         {
@@ -3237,7 +3237,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-search-input",
+      "tagname": "furo-data-search-input",
       "mixins": [
         "FBP",
         "FuroInputBase"

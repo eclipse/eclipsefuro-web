@@ -15,7 +15,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroSearchInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataSearchInput extends FBP(FuroInputBase(LitElement)) {
   /**
    *
    * @private
@@ -134,4 +134,4 @@ class FuroSearchInput extends FBP(FuroInputBase(LitElement)) {
 
 }
 
-customElements.define('furo-search-input', FuroSearchInput);
+customElements.define('furo-data-search-input', FuroDataSearchInput);

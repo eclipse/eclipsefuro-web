@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat";
-import "./furo-search-input"
+import "./furo-data-search-input"
 import {FuroInputBase} from "./FuroInputBase";
 import "./reference-search-item";
 
@@ -223,7 +223,7 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
             display: block;
         }
 
-        furo-search-input {
+        furo-data-search-input {
             width: 100%;
         }
     `
@@ -237,9 +237,9 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
   render() {
     // language=HTML
     return html`
-    <furo-search-input ?autofocus=${this.autofocus} ?disabled=${this.disabled} display-only 
+    <furo-data-search-input ?autofocus=${this.autofocus} ?disabled=${this.disabled} display-only 
     label="${this._label}" 
-    ƒ-bind-data="--field(*.display_name)" @-input="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"></furo-search-input>
+    ƒ-bind-data="--field(*.display_name)" @-input="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"></furo-data-search-input>
     <div class="list" @-item-selected="--itemSelected"   >
        
         <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressed">
