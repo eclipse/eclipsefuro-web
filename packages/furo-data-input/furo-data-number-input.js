@@ -15,7 +15,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroNumberInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataNumberInput extends FBP(FuroInputBase(LitElement)) {
   static get properties() {
     return {
       max: {type: Number, attribute: true},
@@ -139,4 +139,4 @@ class FuroNumberInput extends FBP(FuroInputBase(LitElement)) {
 
 }
 
-customElements.define('furo-number-input', FuroNumberInput);
+customElements.define('furo-data-number-input', FuroDataNumberInput);

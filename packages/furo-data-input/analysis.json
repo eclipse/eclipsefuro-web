@@ -3733,7 +3733,7 @@
     {
       "description": "`furo-input-number`\nSimple number input element which uses a native `<input type=\"number\">` tag\n\nTags: input",
       "summary": "number input element",
-      "path": "packages/furo-data-input/furo-number-input.js",
+      "path": "packages/furo-data-input/furo-data-number-input.js",
       "properties": [
         {
           "name": "max",
@@ -4210,7 +4210,7 @@
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "FuroNumberInput",
+      "name": "FuroDataNumberInput",
       "attributes": [
         {
           "name": "max",
@@ -4235,7 +4235,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-number-input",
+      "tagname": "furo-data-number-input",
       "mixins": [
         "FBP",
         "FuroInputBase"
@@ -7495,7 +7495,7 @@
     {
       "description": "`furo-bool-icon`\ntodo Describe your element",
       "summary": "todo shortdescription",
-      "path": "packages/furo-data-input/furo-bool-icon.js",
+      "path": "packages/furo-data-input/furo-data-bool-icon.js",
       "properties": [
         {
           "name": "myBool",
@@ -8081,7 +8081,7 @@
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "FuroBoolIcon",
+      "name": "FuroDataBoolIcon",
       "attributes": [
         {
           "name": "my-bool",

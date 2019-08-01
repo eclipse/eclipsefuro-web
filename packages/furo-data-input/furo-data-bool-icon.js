@@ -12,7 +12,7 @@ import {FieldNode} from "@furo/data/lib/FieldNode";
  * @demo demo-furo-bool-icon
  * @appliesMixin FBP
  */
-class FuroBoolIcon extends FBP(LitElement) {
+class FuroDataBoolIcon extends FBP(LitElement) {
 
     constructor() {
         super();
@@ -104,4 +104,4 @@ class FuroBoolIcon extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('furo-bool-icon', FuroBoolIcon);
+window.customElements.define('furo-data-bool-icon', FuroDataBoolIcon);
