@@ -15,7 +15,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroRangeInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataRangeInput extends FBP(FuroInputBase(LitElement)) {
 
   /**
    *
@@ -142,4 +142,4 @@ class FuroRangeInput extends FBP(FuroInputBase(LitElement)) {
 
 }
 
-customElements.define('furo-range-input', FuroRangeInput);
+customElements.define('furo-data-range-input', FuroDataRangeInput);

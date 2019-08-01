@@ -4244,7 +4244,7 @@
     {
       "description": "`furo-input-range`\nSimple range input element which uses a native `<input type=\"range\">` tag\n\nTags: input",
       "summary": "range input element",
-      "path": "packages/furo-data-input/furo-range-input.js",
+      "path": "packages/furo-data-input/furo-data-range-input.js",
       "properties": [],
       "methods": [
         {
@@ -4722,7 +4722,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-range-input",
+      "tagname": "furo-data-range-input",
       "mixins": [
         "FBP",
         "FuroInputBase"
