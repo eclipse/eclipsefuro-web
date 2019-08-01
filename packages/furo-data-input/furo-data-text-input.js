@@ -19,6 +19,15 @@ import "@furo/input/furo-text-input";
  */
 class FuroDataTextInput extends FBP(LitElement) {
 
+  /**
+   * @event value-changed
+   * Fired when value has changed from inside the input field.
+   *
+   * detail payload: {String} the text value
+   *
+   * Comes from underlying component furo-text-input. **bubbles**
+   */
+
   constructor() {
     super();
     this.error = false;
@@ -31,22 +40,20 @@ class FuroDataTextInput extends FBP(LitElement) {
         this.field.value = val;
       }
     });
-
-
   }
 
   static get properties() {
     return {
 
       /**
-       * The label
+       * Overrides the label text from the **specs**
        */
       label: {
         type: String,
         attribute: true
       },
       /**
-       * The hint text for the field.
+       * Overrides the hint text from the **specs**
        */
       hint: {
         type: String,
@@ -60,14 +67,19 @@ class FuroDataTextInput extends FBP(LitElement) {
     }
   }
 
-  bindData(d) {
-    if (d === undefined) {
+  /**
+   * Bind a entity field to the text-input. You can use the entity even when no data was received.
+   * When you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * @param {Object|FieldNode} fieldNode a Field object
+   */
+  bindData(fieldNode) {
+    if (fieldNode === undefined) {
       console.warn("Invalid binding ");
       console.log(this);
       return
     }
 
-    this.field = d;
+    this.field = fieldNode;
     this._updateField();
 
     this.field.addEventListener('field-value-changed', (e) => {

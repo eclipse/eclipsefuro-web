@@ -1,0 +1,5 @@
+.furo
+.idea
+coverage/
+build/
+node_modules/

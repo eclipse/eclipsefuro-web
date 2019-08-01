@@ -478,7 +478,7 @@ export const Types = {
         "type": "string",
         "meta": {
           "label": "Beschreibung",
-          "default": "...",
+          "default": "",
           "hint": "short text"
         },
         "constraints": {

@@ -2,16 +2,14 @@ import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
-import "@furo/data"
-import "@furo/data/test/initEnv"
 import "../furo-catalog"
 /**
- * `sample-furo-text-input`
+ * `demo-furo-data-text-input`
  *
  * @customElement
  * @appliesMixin FBP
  */
-class SampleFuroDataTextInput extends FBP(LitElement) {
+class DemoFuroDataTextInput extends FBP(LitElement) {
 
   /**
    * Themable Styles
@@ -23,13 +21,12 @@ class SampleFuroDataTextInput extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+            height: 100%;
+            padding-right: var(--spacing);
         }
 
         :host([hidden]) {
             display: none;
-        }
-        furo-demo-snippet {
-            height: 230px;
         }
        
     `
@@ -43,17 +40,19 @@ class SampleFuroDataTextInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h3>Sample</h3>
-      
+      <h2>Demo furo-data-text-input</h2>
+      <p>Bind the field from entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the entity-object specs.</p>
       <furo-demo-snippet >
         <template>
           <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
           <furo-data-text-input autofocus ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
-          <furo-data-text-input  hint="Hint text" label="label" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
+          <furo-data-text-input autofocus ƒ-bind-data="--entity(*.fields.description)" @-value-changed="--textChanged"></furo-data-text-input>
+          <!-- --textChanged only comes when data was typed in. -->
+          <span ƒ-.inner-text="--textChanged"></span>
         </template>
       </furo-demo-snippet>
     `;
   }
 }
 
-window.customElements.define('sample-furo-data-text-input', SampleFuroDataTextInput );
+window.customElements.define('demo-furo-data-text-input', DemoFuroDataTextInput );
