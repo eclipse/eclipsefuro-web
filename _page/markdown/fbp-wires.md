@@ -109,7 +109,7 @@ By default the **event.detail** is passed to the function you wire.
 
 <furo-demo-snippet demo style="height:550px">
 <template>
-  <furo-color-input label="choose a color"  @-value-changed="--newColor"></furo-color-input>
+  <furo-data-color-input label="choose a color"  @-value-changed="--newColor"></furo-data-color-input>
   <hr />
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse" ƒ-set-color="--newColor"></light-bulb>  
   <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button>   

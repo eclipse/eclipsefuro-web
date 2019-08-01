@@ -15,7 +15,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroColorInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataColorInput extends FBP(FuroInputBase(LitElement)) {
 
   /**
    *
@@ -129,4 +129,4 @@ class FuroColorInput extends FBP(FuroInputBase(LitElement)) {
   }
 }
 
-customElements.define('furo-color-input', FuroColorInput);
+customElements.define('furo-data-color-input', FuroDataColorInput);

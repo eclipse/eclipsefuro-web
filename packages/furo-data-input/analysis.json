@@ -3246,7 +3246,7 @@
     {
       "description": "`furo-input-color`\nSimple color input element which uses a native `<input type=\"color\">` tag\n\nTags: input",
       "summary": "color input element",
-      "path": "packages/furo-data-input/furo-color-input.js",
+      "path": "packages/furo-data-input/furo-data-color-input.js",
       "properties": [],
       "methods": [
         {
@@ -3724,7 +3724,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-color-input",
+      "tagname": "furo-data-color-input",
       "mixins": [
         "FBP",
         "FuroInputBase"
