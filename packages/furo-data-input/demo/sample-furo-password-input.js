@@ -4,7 +4,7 @@ import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog"
 /**
- * `sample-furo-password-input`
+ * `sample-furo-data-password-input`
  *
  * @customElement
  * @appliesMixin FBP
@@ -45,11 +45,11 @@ class SampleFuroPasswordInput extends FBP(LitElement) {
       
       <furo-demo-snippet >
         <template>
-          <furo-password-input hint="Hint text for password" label="Password"></furo-password-input>
+          <furo-data-password-input hint="Hint text for password" label="Password"></furo-data-password-input>
         </template>
       </furo-demo-snippet>
     `;
   }
 }
 
-window.customElements.define('sample-furo-password-input', SampleFuroPasswordInput );
+window.customElements.define('sample-furo-data-password-input', SampleFuroPasswordInput );

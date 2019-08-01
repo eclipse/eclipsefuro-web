@@ -2,9 +2,9 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-input-password`\nSimple password input element which uses a native `<input type=\"password\">` tag\n\n<sample-furo-password-input></sample-furo-password-input>\n\nTags: input",
+      "description": "`furo-input-password`\nSimple password input element which uses a native `<input type=\"password\">` tag\n\n<sample-furo-data-password-input></sample-furo-data-password-input>\n\nTags: input",
       "summary": "password input element",
-      "path": "packages/furo-data-input/furo-password-input.js",
+      "path": "packages/furo-data-input/furo-data-password-input.js",
       "properties": [],
       "methods": [
         {
@@ -442,7 +442,7 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-password-input",
+          "url": "demo-furo-data-password-input",
           "description": ""
         }
       ],
@@ -467,7 +467,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-password-input",
+      "tagname": "furo-data-password-input",
       "mixins": [
         "FBP",
         "FuroInputBase"

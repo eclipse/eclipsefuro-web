@@ -1,5 +1,5 @@
 
-import "./furo-password-input"
+import "./furo-data-password-input"
 import "./furo-date-input"
 import "./furo-button"
 import "./furo-data-text-input"

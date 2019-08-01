@@ -8,17 +8,17 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * `furo-input-password`
  * Simple password input element which uses a native `<input type="password">` tag
  *
- * <sample-furo-password-input></sample-furo-password-input>
+ * <sample-furo-data-password-input></sample-furo-data-password-input>
  *
  * Tags: input
  * @summary password input element
- * @demo demo-furo-password-input
+ * @demo demo-furo-data-password-input
  * @customElement
  * @polymer
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroPasswordInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataPasswordInput extends FBP(FuroInputBase(LitElement)) {
 
 
   /**
@@ -140,4 +140,4 @@ class FuroPasswordInput extends FBP(FuroInputBase(LitElement)) {
 
 }
 
-customElements.define('furo-password-input', FuroPasswordInput);
+customElements.define('furo-data-password-input', FuroDataPasswordInput);
