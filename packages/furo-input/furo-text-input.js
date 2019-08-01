@@ -36,6 +36,10 @@ class FuroTextInput extends FBP(LitElement) {
     });
   }
 
+  /**
+   * Sets the value for the input field.
+   * @param {String} string
+   */
   setValue(string) {
     this._value = string;
     this.value = string;
@@ -126,6 +130,9 @@ class FuroTextInput extends FBP(LitElement) {
     };
   }
 
+  /**
+   * Sets the focus on the field.
+   */
   focus() {
     this._FBPTriggerWire("--focus");
   }
@@ -243,6 +250,11 @@ class FuroTextInput extends FBP(LitElement) {
     `
   }
 
+  /**
+   *
+   * @return {TemplateResult | TemplateResult}
+   * @private
+   */
   render() {
     // language=HTML
     return html` 

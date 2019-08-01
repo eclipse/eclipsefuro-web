@@ -47,6 +47,10 @@ class FuroNumberInput extends FBP(LitElement) {
     });
   }
 
+  /**
+   * Set the value for the field
+   * @param {Number} num a valid number value
+   */
   setValue(num) {
     this._value = num;
     this.value = num;
@@ -151,6 +155,9 @@ class FuroNumberInput extends FBP(LitElement) {
     };
   }
 
+  /**
+   * Sets the focus on the field.
+   */
   focus() {
     this._FBPTriggerWire("--focus");
   }
@@ -269,6 +276,11 @@ class FuroNumberInput extends FBP(LitElement) {
     `
   }
 
+  /**
+   *
+   * @return {TemplateResult | TemplateResult}
+   * @private
+   */
   render() {
     // language=HTML
     return html` 
