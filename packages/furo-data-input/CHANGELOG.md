@@ -681,7 +681,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* furo-date-input with default for "today" ([21d107a](https://github.com/veith/FuroBaseComponents/commit/21d107a))
+* furo-data-date-input with default for "today" ([21d107a](https://github.com/veith/FuroBaseComponents/commit/21d107a))
 
 
 

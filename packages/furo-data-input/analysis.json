@@ -476,7 +476,7 @@
     {
       "description": "`furo-input-date`\nSimple date input element which uses a native `<input type=\"date\">` tag\n\nTags: input",
       "summary": "date input element",
-      "path": "packages/furo-data-input/furo-date-input.js",
+      "path": "packages/furo-data-input/furo-data-date-input.js",
       "properties": [],
       "methods": [
         {
@@ -978,7 +978,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-date-input",
+      "tagname": "furo-data-date-input",
       "mixins": [
         "FBP",
         "FuroInputBase"

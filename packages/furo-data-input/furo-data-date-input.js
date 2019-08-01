@@ -15,7 +15,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroDateInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataDateInput extends FBP(FuroInputBase(LitElement)) {
 
   /**
    *
@@ -155,4 +155,4 @@ class FuroDateInput extends FBP(FuroInputBase(LitElement)) {
 
 }
 
-customElements.define('furo-date-input', FuroDateInput);
+customElements.define('furo-data-date-input', FuroDataDateInput);

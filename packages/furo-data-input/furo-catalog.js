@@ -1,6 +1,6 @@
 
 import "./furo-data-password-input"
-import "./furo-date-input"
+import "./furo-data-date-input"
 import "./furo-button"
 import "./furo-data-text-input"
 import "./furo-textarea-input"
