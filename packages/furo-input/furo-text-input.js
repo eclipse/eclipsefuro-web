@@ -14,9 +14,6 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroTextInput extends FBP(LitElement) {
-  constructor() {
-    super()
-  }
 
   _FBPReady() {
     super._FBPReady();

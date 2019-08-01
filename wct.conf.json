@@ -7,7 +7,9 @@
         "node_modules/@furo/data/test/index.html",
         "node_modules/@furo/data-ui/test/index.html",
         "node_modules/@furo/util/test/index.html",
-        "node_modules/@furo/navigation/test/index.html"
+        "node_modules/@furo/navigation/test/index.html",
+        "node_modules/@furo/input/test/index.html",
+        "node_modules/@furo/data-input/test/index.html"
     ],
     "root": "./",
     "npm": true,
@@ -24,7 +26,9 @@
                 "node_modules/@furo/route/*.js",
                 "node_modules/@furo/form/*.js",
                 "node_modules/@furo/navigation/*.js",
-                "node_modules/@furo/util/*.js"
+                "node_modules/@furo/util/*.js",
+                "node_modules/@furo/input/*.js",
+                "node_modules/@furo/data-input/*.js"
             ],
             "exclude": ["**/furo-catalog.js"]
         },

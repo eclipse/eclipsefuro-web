@@ -6,6 +6,7 @@ export const nav = [
       {"label": "Getting input", "icon": "input", "href": "input/doc/"},
       {"label": "Dealing with data", "icon": "cloud", "href": "data/doc/"},
       {"label": "Data UI", "icon": "view-column", "href": "data-ui/doc/"},
+      {"label": "Data Input", "icon": "input", "href": "data-input/doc/"},
       {"label": "Layouts helper", "icon": "dashboard", "href": "layout/doc/"},
       {"label": "Forms helper", "icon": "dashboard", "href": "form/doc/"},
       {"label": "App Config", "icon": "settings", "href": "config/doc/"},

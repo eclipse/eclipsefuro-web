@@ -7,7 +7,7 @@
   <title>furo-text-input</title>
 
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/@webtextInputs/webtextInputsjs/webtextInputs-loader.js"></script>
   <script src="/node_modules/mocha/mocha.js"></script>
   <script src="/node_modules/chai/chai.js"></script>
   <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
@@ -33,10 +33,13 @@
 
 
   describe('furo-text-input', () => {
-    let component;
+    let textInput;
+    let inputField;
     beforeEach(async () => {
-      component = fixture('Basic');
-      await component.updateComplete;
+      textInput = fixture('Basic');
+      await textInput.updateComplete;
+      inputField = textInput.shadowRoot.querySelector("input");
+
     });
 
 
@@ -44,10 +47,31 @@
       return axeReport(fixture('Basic'));
     });
 
+    it('should accept a value with setValue', (done) => {
+      textInput.setValue("Test");
+      assert.equal(textInput.value,"Test");
+      assert.equal(inputField.value,"Test");
+      done();
+    });
+
+    it('should be focusable', (done) => {
+      textInput.focus();
+      assert.equal(textInput,document.activeElement);
+      done();
+    });
+    it('should emit value-changed on every keystroke', (done) => {
+
+      textInput.addEventListener("value-changed",e=>{
+        assert.equal(textInput.value,"Simulated input")
+        done();
+      });
+      textInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:"Simulated input"}]}});
+
+    });
 
     it('instantiating furo-text-input with default properties works', () => {
 
-      assert.equal(component.tagName.toLowerCase(), 'furo-text-input');
+      assert.equal(textInput.tagName.toLowerCase(), 'furo-text-input');
 
     });
 
