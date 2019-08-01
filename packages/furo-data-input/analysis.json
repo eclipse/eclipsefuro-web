@@ -1633,8 +1633,8 @@
       ]
     },
     {
-      "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\n<sample-furo-text-input></sample-furo-text-input>\n\nTags: input",
-      "summary": "text input element",
+      "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\n<sample-furo-data-text-input></sample-furo-data-text-input>\n\nTags: input",
+      "summary": "Bind a entityObject.field to a text input",
       "path": "packages/furo-data-input/furo-data-text-input.js",
       "properties": [],
       "methods": [

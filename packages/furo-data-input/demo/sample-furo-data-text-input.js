@@ -2,6 +2,8 @@ import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
+import "@furo/data"
+import "@furo/data/test/initEnv"
 import "../furo-catalog"
 /**
  * `sample-furo-text-input`
@@ -45,7 +47,9 @@ class SampleFuroDataTextInput extends FBP(LitElement) {
       
       <furo-demo-snippet >
         <template>
-          <furo-text-input hint="Hint text" label="label"></furo-text-input>
+          <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+          <furo-data-text-input autofocus ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
+          <furo-data-text-input  hint="Hint text" label="label" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
         </template>
       </furo-demo-snippet>
     `;

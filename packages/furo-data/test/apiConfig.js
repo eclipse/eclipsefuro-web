@@ -478,8 +478,8 @@ export const Types = {
         "type": "string",
         "meta": {
           "label": "Beschreibung",
-          "default": "",
-          "hint": ""
+          "default": "...",
+          "hint": "short text"
         },
         "constraints": {
           "min": {"value": 3, "message": "max 129"},
