@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.2.1...@furo/data-ui@0.3.0) (2019-08-01)
+
+
+### Features
+
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/FuroBaseComponents/commit/fabf35c))
+
+
+
+
+
 ## [0.2.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.2.0...@furo/data-ui@0.2.1) (2019-08-01)
 
 

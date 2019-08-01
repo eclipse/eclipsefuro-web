@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.25.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.24.1...@furo/fbp@4.25.0) (2019-08-01)
+
+
+### Bug Fixes
+
+* auto append fbp only once ([6f99c32](https://github.com/veith/flowbased-polymer/commit/6f99c32))
+
+
+### Features
+
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/flowbased-polymer/commit/fabf35c))
+
+
+
+
+
 ## [4.24.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.24.0...@furo/fbp@4.24.1) (2019-08-01)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.20.2...@furo/form@0.21.0) (2019-08-01)
+
+
+### Features
+
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/FuroBaseComponents/commit/fabf35c))
+
+
+
+
+
 ## [0.20.2](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.20.1...@furo/form@0.20.2) (2019-08-01)
 
 

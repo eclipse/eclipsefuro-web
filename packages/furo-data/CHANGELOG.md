@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.47.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.46.1...@furo/data@0.47.0) (2019-08-01)
+
+
+### Features
+
+* furo-data-text-input with furo-data-input ([f1000fc](https://github.com/veith/FuroBaseComponents/commit/f1000fc))
+* furo-data-text-input with furo-data-input ([d122143](https://github.com/veith/FuroBaseComponents/commit/d122143))
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/FuroBaseComponents/commit/fabf35c))
+
+
+
+
+
 ## [0.46.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.46.0...@furo/data@0.46.1) (2019-08-01)
 
 

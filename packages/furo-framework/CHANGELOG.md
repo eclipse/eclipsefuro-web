@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.7.3...@furo/framework@0.8.0) (2019-08-01)
+
+
+### Features
+
+* separation of furo-input and furo-data-input ([fabf35c](https://github.com/veith/FuroBaseComponents/commit/fabf35c))
+
+
+
+
+
 ## [0.7.3](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.7.2...@furo/framework@0.7.3) (2019-07-28)
 
 **Note:** Version bump only for package @furo/framework
