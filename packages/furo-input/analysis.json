@@ -2,106 +2,22 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-text-input`\n\n <sample-furo-text-input></sample-furo-text-input>",
-      "summary": "Text input field",
-      "path": "packages/furo-input/furo-text-input.js",
+      "description": "`furo-button` displays a button.\n\n\n<sample-furo-button></sample-furo-button>",
+      "summary": "a button",
+      "path": "packages/furo-input/furo-button.js",
       "properties": [
-        {
-          "name": "_value",
-          "type": "?",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 43,
-              "column": 2
-            },
-            "end": {
-              "line": 46,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "error",
-          "type": "boolean | null | undefined",
-          "description": "set this to true to indicate errors",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 53,
-              "column": 6
-            },
-            "end": {
-              "line": 53,
-              "column": 43
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "value",
-          "type": "string | null | undefined",
-          "description": "The start value. Changes will be notified with the `@-value-changed` event",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 57,
-              "column": 6
-            },
-            "end": {
-              "line": 59,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "pattern",
-          "type": "string | null | undefined",
-          "description": "The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.\n\nIf the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 65,
-              "column": 6
-            },
-            "end": {
-              "line": 67,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
         {
           "name": "label",
           "type": "string | null | undefined",
-          "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
+          "description": "Beschriftung des buttons",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 74,
+              "line": 45,
               "column": 7
             }
           },
@@ -112,59 +28,17 @@
           }
         },
         {
-          "name": "max",
-          "type": "number | null | undefined",
-          "description": "The maximum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the text input has no maximum length. This value must also be greater than or equal to the value of minlength.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 78,
-              "column": 6
-            },
-            "end": {
-              "line": 80,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "min",
-          "type": "number | null | undefined",
-          "description": "The minimum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the text input has no minimum length.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 84,
-              "column": 6
-            },
-            "end": {
-              "line": 86,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "autofocus",
+          "name": "danger",
           "type": "boolean | null | undefined",
-          "description": "Set this attribute to autofocus the input field.",
+          "description": "Set danger to true if it is dangerous to press this button",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 49,
               "column": 6
             },
             "end": {
-              "line": 92,
+              "line": 52,
               "column": 7
             }
           },
@@ -177,15 +51,15 @@
         {
           "name": "disabled",
           "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "description": "Set disabled to disable the button",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 96,
+              "line": 56,
               "column": 6
             },
             "end": {
-              "line": 98,
+              "line": 59,
               "column": 7
             }
           },
@@ -196,86 +70,23 @@
           }
         },
         {
-          "name": "readonly",
+          "name": "autofocus",
           "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "description": "Focus the element automatically",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 63,
               "column": 6
             },
             "end": {
-              "line": 104,
+              "line": 66,
               "column": 7
             }
           },
           "metadata": {
             "polymer": {
               "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "_float",
-          "type": "boolean | null | undefined",
-          "description": "helper for the label",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 108,
-              "column": 6
-            },
-            "end": {
-              "line": 110,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "hint",
-          "type": "string | null | undefined",
-          "description": "The hint text for the field.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 114,
-              "column": 6
-            },
-            "end": {
-              "line": 116,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "errortext",
-          "type": "string | null | undefined",
-          "description": "Text for errors",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 120,
-              "column": 6
-            },
-            "end": {
-              "line": 122,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
             }
           }
         }
@@ -499,23 +310,25 @@
         },
         {
           "name": "_FBPReady",
-          "description": "",
+          "description": "Livecycle method\nThis method is called, when the wires are ready",
           "privacy": "protected",
           "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 17,
-              "column": 2
+              "line": 499,
+              "column": 8
             },
             "end": {
-              "line": 36,
-              "column": 3
+              "line": 501,
+              "column": 9
             }
           },
           "metadata": {},
           "params": [],
           "return": {
             "type": "void"
-          }
+          },
+          "inheritedFrom": "FBP"
         },
         {
           "name": "__enqueueTrigger",
@@ -694,23 +507,23 @@
           "inheritedFrom": "FBP"
         },
         {
-          "name": "setValue",
-          "description": "",
+          "name": "focus",
+          "description": "Set the focus to the button",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 38,
+              "line": 30,
               "column": 2
             },
             "end": {
-              "line": 41,
+              "line": 32,
               "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "string"
+              "name": "e"
             }
           ],
           "return": {
@@ -718,123 +531,58 @@
           }
         },
         {
-          "name": "focus",
+          "name": "render",
           "description": "",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 146,
               "column": 2
             },
             "end": {
-              "line": 130,
+              "line": 154,
               "column": 3
             }
           },
           "metadata": {},
           "params": [],
           "return": {
-            "type": "void"
+            "type": "TemplateResult"
           }
-        },
-        {
-          "name": "render",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 245,
-              "column": 2
-            },
-            "end": {
-              "line": 259,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": []
         }
       ],
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo-furo-text-input",
-          "description": "Input samples"
+          "url": "demo-furo-button",
+          "description": "basic usage"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 15,
+          "line": 17,
           "column": 0
         },
         "end": {
-          "line": 261,
+          "line": 155,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "FuroTextInput",
+      "name": "FuroButton",
       "attributes": [
         {
-          "name": "error",
-          "description": "set this to true to indicate errors",
-          "sourceRange": {
-            "start": {
-              "line": 53,
-              "column": 6
-            },
-            "end": {
-              "line": 53,
-              "column": 43
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "value",
-          "description": "The start value. Changes will be notified with the `@-value-changed` event",
-          "sourceRange": {
-            "start": {
-              "line": 57,
-              "column": 6
-            },
-            "end": {
-              "line": 59,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "pattern",
-          "description": "The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.\n\nIf the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.",
-          "sourceRange": {
-            "start": {
-              "line": 65,
-              "column": 6
-            },
-            "end": {
-              "line": 67,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
           "name": "label",
-          "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
+          "description": "Beschriftung des buttons",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 43,
               "column": 6
             },
             "end": {
-              "line": 74,
+              "line": 45,
               "column": 7
             }
           },
@@ -842,47 +590,15 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "max",
-          "description": "The maximum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the text input has no maximum length. This value must also be greater than or equal to the value of minlength.",
+          "name": "danger",
+          "description": "Set danger to true if it is dangerous to press this button",
           "sourceRange": {
             "start": {
-              "line": 78,
+              "line": 49,
               "column": 6
             },
             "end": {
-              "line": 80,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "min",
-          "description": "The minimum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the text input has no minimum length.",
-          "sourceRange": {
-            "start": {
-              "line": 84,
-              "column": 6
-            },
-            "end": {
-              "line": 86,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "autofocus",
-          "description": "Set this attribute to autofocus the input field.",
-          "sourceRange": {
-            "start": {
-              "line": 90,
-              "column": 6
-            },
-            "end": {
-              "line": 92,
+              "line": 52,
               "column": 7
             }
           },
@@ -891,14 +607,14 @@
         },
         {
           "name": "disabled",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "description": "Set disabled to disable the button",
           "sourceRange": {
             "start": {
-              "line": 96,
+              "line": 56,
               "column": 6
             },
             "end": {
-              "line": 98,
+              "line": 59,
               "column": 7
             }
           },
@@ -906,68 +622,29 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "readonly",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "name": "autofocus",
+          "description": "Focus the element automatically",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 63,
               "column": 6
             },
             "end": {
-              "line": 104,
+              "line": 66,
               "column": 7
             }
           },
           "metadata": {},
           "type": "boolean | null | undefined"
-        },
-        {
-          "name": "hint",
-          "description": "The hint text for the field.",
-          "sourceRange": {
-            "start": {
-              "line": 114,
-              "column": 6
-            },
-            "end": {
-              "line": 116,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "errortext",
-          "description": "Text for errors",
-          "sourceRange": {
-            "start": {
-              "line": 120,
-              "column": 6
-            },
-            "end": {
-              "line": 122,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
         }
       ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "value-changed",
-          "description": "value-changed\nFired when value has changed from inside the component\ndetail payload: {String} the text value",
-          "metadata": {}
-        }
-      ],
+      "events": [],
       "styling": {
         "cssVariables": [],
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-text-input",
+      "tagname": "furo-button",
       "mixins": [
         "FBP"
       ]
@@ -1976,6 +1653,977 @@
       },
       "slots": [],
       "tagname": "furo-number-input",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-text-input`\n\n <sample-furo-text-input></sample-furo-text-input>",
+      "summary": "Text input field",
+      "path": "packages/furo-input/furo-text-input.js",
+      "properties": [
+        {
+          "name": "_value",
+          "type": "?",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 43,
+              "column": 2
+            },
+            "end": {
+              "line": 46,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "error",
+          "type": "boolean | null | undefined",
+          "description": "set this to true to indicate errors",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 43
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "value",
+          "type": "string | null | undefined",
+          "description": "The start value. Changes will be notified with the `@-value-changed` event",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 57,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "pattern",
+          "type": "string | null | undefined",
+          "description": "The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.\n\nIf the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 65,
+              "column": 6
+            },
+            "end": {
+              "line": 67,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "label",
+          "type": "string | null | undefined",
+          "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 71,
+              "column": 6
+            },
+            "end": {
+              "line": 74,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "max",
+          "type": "number | null | undefined",
+          "description": "The maximum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the text input has no maximum length. This value must also be greater than or equal to the value of minlength.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 6
+            },
+            "end": {
+              "line": 80,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "min",
+          "type": "number | null | undefined",
+          "description": "The minimum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the text input has no minimum length.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 6
+            },
+            "end": {
+              "line": 86,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean | null | undefined",
+          "description": "Set this attribute to autofocus the input field.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 90,
+              "column": 6
+            },
+            "end": {
+              "line": 92,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 6
+            },
+            "end": {
+              "line": 98,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 102,
+              "column": 6
+            },
+            "end": {
+              "line": 104,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "_float",
+          "type": "boolean | null | undefined",
+          "description": "helper for the label",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 108,
+              "column": 6
+            },
+            "end": {
+              "line": 110,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "hint",
+          "type": "string | null | undefined",
+          "description": "The hint text for the field.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 114,
+              "column": 6
+            },
+            "end": {
+              "line": 116,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "errortext",
+          "type": "string | null | undefined",
+          "description": "Text for errors",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 120,
+              "column": 6
+            },
+            "end": {
+              "line": 122,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_attachDom",
+          "description": "für Polymer",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 48,
+              "column": 8
+            },
+            "end": {
+              "line": 51,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "dom"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "firstUpdated",
+          "description": "for lit elements",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 54,
+              "column": 8
+            },
+            "end": {
+              "line": 57,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "changedProperties"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPTriggerWire",
+          "description": "Triggers a wire",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 65,
+              "column": 8
+            },
+            "end": {
+              "line": 108,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire",
+              "description": "(String) Name of the wire like --buttonClicked"
+            },
+            {
+              "name": "detailData",
+              "description": "(*) data to pass"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPAddWireHook",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 118,
+              "column": 8
+            },
+            "end": {
+              "line": 135,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire",
+              "description": "(String) Name of the wire"
+            },
+            {
+              "name": "cb",
+              "description": "(function) Callback function cb(detailData)"
+            },
+            {
+              "name": "before"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPTraceWires",
+          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 144,
+              "column": 8
+            },
+            "end": {
+              "line": 166,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPDebug",
+          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 176,
+              "column": 8
+            },
+            "end": {
+              "line": 200,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire"
+            },
+            {
+              "name": "openDebugger",
+              "description": "opens the debugger console, so you can inspect your component."
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "__toCamelCase",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 202,
+              "column": 8
+            },
+            "end": {
+              "line": 206,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "str"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_appendFBP",
+          "description": "parses the dom for flowbased programming tags",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 213,
+              "column": 8
+            },
+            "end": {
+              "line": 493,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "dom",
+              "description": "dom node"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPReady",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 17,
+              "column": 2
+            },
+            "end": {
+              "line": 36,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "__enqueueTrigger",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 502,
+              "column": 8
+            },
+            "end": {
+              "line": 504,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire"
+            },
+            {
+              "name": "detailData"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "__resolveWireAndPath",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 506,
+              "column": 8
+            },
+            "end": {
+              "line": 514,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "w"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "disconnectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 516,
+              "column": 8
+            },
+            "end": {
+              "line": 530,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_pathGet",
+          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 541,
+              "column": 8
+            },
+            "end": {
+              "line": 554,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root",
+              "type": "Object",
+              "description": "Object from which to dereference path from"
+            },
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Path to read"
+            }
+          ],
+          "return": {
+            "type": "*",
+            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_pathSet",
+          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 565,
+              "column": 8
+            },
+            "end": {
+              "line": 587,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root",
+              "type": "Object",
+              "description": "Object from which to dereference path from"
+            },
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Path to set"
+            },
+            {
+              "name": "value",
+              "type": "*",
+              "description": "Value to set to path"
+            }
+          ],
+          "return": {
+            "type": "(string | undefined)",
+            "desc": "The normalized version of the input path"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_split",
+          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 605,
+              "column": 8
+            },
+            "end": {
+              "line": 607,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Input path"
+            }
+          ],
+          "return": {
+            "type": "!Array.<string>",
+            "desc": "Array of path parts"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "setValue",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 38,
+              "column": 2
+            },
+            "end": {
+              "line": 41,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "string"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "focus",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 128,
+              "column": 2
+            },
+            "end": {
+              "line": 130,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 245,
+              "column": 2
+            },
+            "end": {
+              "line": 259,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-text-input",
+          "description": "Input samples"
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 261,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroTextInput",
+      "attributes": [
+        {
+          "name": "error",
+          "description": "set this to true to indicate errors",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 43
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "value",
+          "description": "The start value. Changes will be notified with the `@-value-changed` event",
+          "sourceRange": {
+            "start": {
+              "line": 57,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "pattern",
+          "description": "The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.\n\nIf the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.",
+          "sourceRange": {
+            "start": {
+              "line": 65,
+              "column": 6
+            },
+            "end": {
+              "line": 67,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "label",
+          "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
+          "sourceRange": {
+            "start": {
+              "line": 71,
+              "column": 6
+            },
+            "end": {
+              "line": 74,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "max",
+          "description": "The maximum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the text input has no maximum length. This value must also be greater than or equal to the value of minlength.",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 6
+            },
+            "end": {
+              "line": 80,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "min",
+          "description": "The minimum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the text input has no minimum length.",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 6
+            },
+            "end": {
+              "line": 86,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "autofocus",
+          "description": "Set this attribute to autofocus the input field.",
+          "sourceRange": {
+            "start": {
+              "line": 90,
+              "column": 6
+            },
+            "end": {
+              "line": 92,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "disabled",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 6
+            },
+            "end": {
+              "line": 98,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "readonly",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "sourceRange": {
+            "start": {
+              "line": 102,
+              "column": 6
+            },
+            "end": {
+              "line": 104,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "hint",
+          "description": "The hint text for the field.",
+          "sourceRange": {
+            "start": {
+              "line": 114,
+              "column": 6
+            },
+            "end": {
+              "line": 116,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "errortext",
+          "description": "Text for errors",
+          "sourceRange": {
+            "start": {
+              "line": 120,
+              "column": 6
+            },
+            "end": {
+              "line": 122,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "value-changed\nFired when value has changed from inside the component\ndetail payload: {String} the text value",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-text-input",
       "mixins": [
         "FBP"
       ]

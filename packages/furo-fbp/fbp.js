@@ -45,15 +45,20 @@ export const FBP = (superClass) => {
         }
 
 
-        // für Polymer
+        //  Auto append fbp for Polymer
         _attachDom(dom) {
             this._appendFBP(dom);
             super._attachDom(dom);
         }
 
-        // for lit elements
+        // Auto append fbp for lit elements
         firstUpdated(changedProperties) {
-            this._appendFBP(this.shadowRoot);
+            // ensure to append only once
+            if(!this.__fbpAppended){
+                this._appendFBP(this.shadowRoot);
+                this.__fbpAppended = true;
+            }
+
             super.firstUpdated();
         }
 
