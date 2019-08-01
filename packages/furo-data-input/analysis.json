@@ -5729,7 +5729,7 @@
     {
       "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\nTags: input",
       "summary": "text input element",
-      "path": "packages/furo-data-input/furo-collection-dropdown.js",
+      "path": "packages/furo-data-input/furo-data-collection-dropdown.js",
       "properties": [],
       "methods": [
         {
@@ -6211,7 +6211,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-collection-dropdown",
+      "tagname": "furo-data-collection-dropdown",
       "mixins": [
         "FBP",
         "FuroInputBase"

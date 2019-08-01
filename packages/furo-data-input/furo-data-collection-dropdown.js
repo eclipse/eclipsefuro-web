@@ -15,7 +15,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroCollectionDropdown extends FBP(FuroInputBase(LitElement)) {
+class FuroDataCollectionDropdown extends FBP(FuroInputBase(LitElement)) {
 
     /**
      *
@@ -152,4 +152,4 @@ class FuroCollectionDropdown extends FBP(FuroInputBase(LitElement)) {
     }
 }
 
-customElements.define('furo-collection-dropdown', FuroCollectionDropdown);
+customElements.define('furo-data-collection-dropdown', FuroDataCollectionDropdown);

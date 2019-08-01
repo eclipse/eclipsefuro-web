@@ -767,7 +767,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * Autofocus and disabled ([517eef0](https://github.com/veith/FuroBaseComponents/commit/517eef0))
-* furo-collection-dropdown inital value ([5abfe5e](https://github.com/veith/FuroBaseComponents/commit/5abfe5e))
+* furo-data-collection-dropdown inital value ([5abfe5e](https://github.com/veith/FuroBaseComponents/commit/5abfe5e))
 
 
 
@@ -778,7 +778,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* furo-collection-dropdown ([d761a1f](https://github.com/veith/FuroBaseComponents/commit/d761a1f))
+* furo-data-collection-dropdown ([d761a1f](https://github.com/veith/FuroBaseComponents/commit/d761a1f))
 
 
 

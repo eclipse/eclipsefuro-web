@@ -683,7 +683,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 * collection-agent list-on-hts-in ([9c9eb50](https://github.com/veith/FuroBaseComponents/commit/9c9eb50))
-* furo-collection-dropdown ([d761a1f](https://github.com/veith/FuroBaseComponents/commit/d761a1f))
+* furo-data-collection-dropdown ([d761a1f](https://github.com/veith/FuroBaseComponents/commit/d761a1f))
 
 
 
