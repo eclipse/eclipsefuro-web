@@ -14,7 +14,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroTimeInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataTimeInput extends FBP(FuroInputBase(LitElement)) {
   /**
    *
    * @private
@@ -137,4 +137,4 @@ class FuroTimeInput extends FBP(FuroInputBase(LitElement)) {
 
 }
 
-customElements.define('furo-time-input', FuroTimeInput);
+customElements.define('furo-data-time-input', FuroDataTimeInput);

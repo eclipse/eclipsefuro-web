@@ -46,7 +46,7 @@ class RepeatedData extends FBP(LitElement) {
       <template is="flow-repeat" ƒ-inject-items="--data">
            <div class="box">
           <furo-data-date-input ƒ-bind-data="--itemInjected(*.item.date)"></furo-data-date-input>
-          <furo-time-input ƒ-bind-data="--itemInjected(*.item.time)"></furo-time-input>
+          <furo-data-time-input ƒ-bind-data="--itemInjected(*.item.time)"></furo-data-time-input>
           <hr>
           <div style="background-color: #e2e2e2">
             <repeated-string ƒ-bind-data="--itemInjected(*.item.repstring)"></repeated-string>

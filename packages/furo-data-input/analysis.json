@@ -2273,7 +2273,7 @@
     {
       "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\nTags: input",
       "summary": "text input element",
-      "path": "packages/furo-data-input/furo-textarea-input.js",
+      "path": "packages/furo-data-input/furo-data-textarea-input.js",
       "properties": [
         {
           "name": "rows",
@@ -2770,7 +2770,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-textarea-input",
+      "tagname": "furo-data-textarea-input",
       "mixins": [
         "FBP",
         "FuroInputBase"
@@ -4731,7 +4731,7 @@
     {
       "description": "`furo-input-time`\nSimple time input element which uses a native `<input type=\"time\">` tag\n\nTags: input",
       "summary": "time input element",
-      "path": "packages/furo-data-input/furo-time-input.js",
+      "path": "packages/furo-data-input/furo-data-time-input.js",
       "properties": [],
       "methods": [
         {
@@ -5209,7 +5209,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "furo-time-input",
+      "tagname": "furo-data-time-input",
       "mixins": [
         "FBP",
         "FuroInputBase"

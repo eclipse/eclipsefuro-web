@@ -70,7 +70,7 @@
                 <furo-text-input flex ƒ-focus="--thcl" ƒ-bind-data="--nodeHovered(*.display_name)"></furo-text-input>
               </furo-input-row>
               <furo-input-row label="description">
-                <furo-textarea-input flex ƒ-bind-data="--nodeHovered(*.description)"></furo-textarea-input>
+                <furo-data-textarea-input flex ƒ-bind-data="--nodeHovered(*.description)"></furo-data-textarea-input>
               </furo-input-row>
 
               <h4>Selected</h4>
@@ -79,7 +79,7 @@
                                  ƒ-bind-data="--nodeSelected(*.display_name)"></furo-text-input>
               </furo-input-row>
               <furo-input-row label="description">
-                <furo-textarea-input flex ƒ-bind-data="--nodeSelected(*.description)"></furo-textarea-input>
+                <furo-data-textarea-input flex ƒ-bind-data="--nodeSelected(*.description)"></furo-data-textarea-input>
               </furo-input-row>
               <button @-click="--prev">prev</button>
               <button @-click="--next">next</button>

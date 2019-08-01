@@ -14,7 +14,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroTextareaInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataTextareaInput extends FBP(FuroInputBase(LitElement)) {
   /**
    *
    * @private
@@ -151,4 +151,4 @@ class FuroTextareaInput extends FBP(FuroInputBase(LitElement)) {
 
 }
 
-customElements.define('furo-textarea-input', FuroTextareaInput);
+customElements.define('furo-data-textarea-input', FuroDataTextareaInput);
