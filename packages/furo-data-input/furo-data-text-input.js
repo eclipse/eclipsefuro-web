@@ -13,7 +13,7 @@ import "@furo/input/furo-text-input";
  * Tags: input
  * @summary Bind a entityObject.field to a text input
  * @customElement
- * @demo demo-furo-text-input Data binding
+ * @demo demo-furo-data-text-input Data binding
  * @mixes FBP
  * @mixes FuroInputBase
  */
@@ -25,14 +25,11 @@ class FuroDataTextInput extends FBP(LitElement) {
     this.disabled = false;
     this.errortext = "";
     this.hint = "";
-    this.value;
-
 
     this._FBPAddWireHook("--valueChanged", (val) => {
       if (this.field) {
         this.field.value = val;
       }
-      this.value = val;
     });
 
 
@@ -71,8 +68,26 @@ class FuroDataTextInput extends FBP(LitElement) {
     }
 
     this.field = d;
+    this._updateField();
+
+    this.field.addEventListener('field-value-changed', (e) => {
+      this._updateField();
+    });
+
+    this.field.addEventListener('field-became-invalid', (e) => {
+      // updates wieder einspielen
+      this.error = true;
+      this.errortext = this.field._validity.message;
+    });
+
+    this.field.addEventListener('field-became-valid', (e) => {
+      // updates wieder einspielen
+      this.error = false;
+    });
+  }
 
 
+  _updateField() {
     // label auf attr ist höher gewichtet
     if (!this.label) {
       this._label = this.field._meta.label;
@@ -86,9 +101,7 @@ class FuroDataTextInput extends FBP(LitElement) {
     } else {
       this._hint = this.hint;
     }
-
     this.disabled = this.field._meta.readonly ? true : false;
-    this.value = this.field.value;
 
     //mark incomming error
     if (!this.field._isValid) {
@@ -96,46 +109,7 @@ class FuroDataTextInput extends FBP(LitElement) {
       this.errortext = this.field._validity.message;
     }
     this._FBPTriggerWire('--value', this.field.value);
-
     this.requestUpdate();
-
-    this.field.addEventListener('field-value-changed', (e) => {
-      // updates wieder einspielen
-      this._FBPTriggerWire('--value', e.detail.value);
-
-      // label auf attr ist höher gewichtet
-      if (!this.label) {
-        this._label = this.field._meta.label;
-      } else {
-        this._label = this.label;
-      }
-
-      // hint auf attr ist höher gewichtet
-      if (!this.hint) {
-        this._hint = this.field._meta.hint;
-      } else {
-        this._hint = this.hint;
-      }
-
-      this.disabled = this.field._meta.readonly;
-
-      this.value = this.field.value;
-
-      this.requestUpdate()
-    });
-
-
-    this.field.addEventListener('field-became-invalid', (e) => {
-      // updates wieder einspielen
-      this.error = true;
-      this.errortext = this.field._validity.message;
-    });
-
-    this.field.addEventListener('field-became-valid', (e) => {
-      // updates wieder einspielen
-      this.error = false;
-    });
-
   }
 
   /**
