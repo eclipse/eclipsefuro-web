@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.42.0...@furo/input@0.43.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* furo-number-input step, min, max ([e2f6589](https://github.com/veith/FuroBaseComponents/commit/e2f6589))
+
+
+### Features
+
+* furo-range-input ([3538a5b](https://github.com/veith/FuroBaseComponents/commit/3538a5b))
+* furo-search-input ([7a2dea5](https://github.com/veith/FuroBaseComponents/commit/7a2dea5))
+
+
+
+
+
 # [0.42.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.41.0...@furo/input@0.42.0) (2019-08-02)
 
 
