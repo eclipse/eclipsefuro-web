@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.14.0...@furo/route@0.15.0) (2019-08-02)
+
+
+### Features
+
+* furo-data-number-input with furo-number-input ([230e7cd](https://github.com/veith/FuroBaseComponents/commit/230e7cd))
+
+
+
+
+
 # [0.14.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.13.1...@furo/route@0.14.0) (2019-08-01)
 
 

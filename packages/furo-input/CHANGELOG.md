@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.41.0...@furo/input@0.42.0) (2019-08-02)
+
+
+### Features
+
+* furo-button ƒ-enable, ƒ-disable ([6a4c7d8](https://github.com/veith/FuroBaseComponents/commit/6a4c7d8))
+* furo-data-number-input with furo-number-input ([230e7cd](https://github.com/veith/FuroBaseComponents/commit/230e7cd))
+* furo-password-input ([e1ae454](https://github.com/veith/FuroBaseComponents/commit/e1ae454))
+
+
+
+
+
 # [0.41.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.38.2...@furo/input@0.41.0) (2019-08-01)
 
 

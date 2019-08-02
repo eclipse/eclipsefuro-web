@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.39.0...@furo/data-input@0.40.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* width of the inner elements is now 100% ([975d6d8](https://github.com/veith/FuroBaseComponents/commit/975d6d8))
+
+
+### Features
+
+* furo-data-number-input with furo-number-input ([230e7cd](https://github.com/veith/FuroBaseComponents/commit/230e7cd))
+* furo-password-input ([e1ae454](https://github.com/veith/FuroBaseComponents/commit/e1ae454))
+
+
+
+
+
 # 0.39.0 (2019-08-01)
 
 
