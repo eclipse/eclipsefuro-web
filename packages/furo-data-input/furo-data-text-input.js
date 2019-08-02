@@ -138,6 +138,10 @@ class FuroDataTextInput extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+
+        furo-text-input{
+            width: 100%;
+        }
     `
   }
 

@@ -46,38 +46,50 @@ class FuroDataNumberInput extends FBP(LitElement) {
     return {
 
       /**
-       * Overrides the label text from the **specs**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
        */
       label: {
         type: String,
         attribute: true
       },
       /**
-       * Overrides the hint text from the **specs**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
        */
       hint: {
         type: String,
       },
       /**
-       * Overrides the min value from the **specs**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
        */
       min: {
         type: Number,
       },
       /**
-       * Overrides the max value from the **specs**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
        */
       max: {
         type: Number,
       },
       /**
-       * Overrides the step value from the **specs**
+       * Overrides the step value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
        */
       step: {
         type: String, // string, because "any" is also a valid step
       },
       /**
-       * Overrides the readonly value from the **specs**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
        */
       readonly: {
         type: Boolean,
@@ -206,6 +218,9 @@ class FuroDataNumberInput extends FBP(LitElement) {
 
         :host([hidden]) {
             display: none;
+        }
+        furo-number-input{
+            width: 100%;
         }
     `
   }
