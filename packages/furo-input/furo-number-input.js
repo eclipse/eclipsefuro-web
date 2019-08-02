@@ -45,6 +45,21 @@ class FuroNumberInput extends FBP(LitElement) {
         this.dispatchEvent(customEvent);
       }
     });
+
+    // set pattern, min, max, step
+    let inputField = this.shadowRoot.querySelector("#input");
+    if (this.pattern) {
+      inputField.setAttribute("pattern", this.pattern);
+    }
+    if (this.min) {
+      inputField.setAttribute("min", this.min);
+    }
+    if (this.max) {
+      inputField.setAttribute("max", this.max);
+    }
+    if (this.step) {
+      inputField.setAttribute("step", this.step);
+    }
   }
 
 
@@ -298,10 +313,7 @@ class FuroNumberInput extends FBP(LitElement) {
     return html` 
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
        type="number" 
-       step="${this.step}"
-       min="${this.min}"
-       max="${this.max}"
-       pattern="${this.pattern}"
+       
        ƒ-.value="--value" 
        @-input="--inputInput(*)"   
        ƒ-focus="--focus">
