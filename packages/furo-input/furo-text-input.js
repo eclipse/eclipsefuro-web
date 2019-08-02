@@ -18,24 +18,38 @@ class FuroTextInput extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
 
-
     this._value = this.value || "";
-
     this._FBPAddWireHook("--inputInput", (e) => {
       let input = e.composedPath()[0];
-      this.value = input.value;
-      this._float = !!input.value;
-      /**
-       * @event value-changed
-       * Fired when value has changed from inside the component
-       * detail payload: {String} the text value
-       */
-      let customEvent = new Event('value-changed', {composed: true, bubbles: true});
-      customEvent.detail = this.value;
-      this.dispatchEvent(customEvent);
-    });
-  }
 
+      this.error = !input.validity.valid;
+      this._float = !!input.value;
+
+      if (input.validity.valid) {
+        this.value = input.value;
+        /**
+         * @event value-changed
+         * Fired when value has changed from inside the component
+         * detail payload: {String} the text value
+         */
+        let customEvent = new Event('value-changed', {composed: true, bubbles: true});
+        customEvent.detail = this.value;
+        this.dispatchEvent(customEvent);
+      }
+    });
+
+    // set pattern, min, max
+    let inputField = this.shadowRoot.querySelector("#input");
+    if (this.pattern) {
+      inputField.setAttribute("pattern", this.pattern);
+    }
+    if (this.min) {
+      inputField.setAttribute("minlength", this.min);
+    }
+    if (this.max) {
+      inputField.setAttribute("maxlength", this.max);
+    }
+  }
 
 
   set _value(v){
@@ -272,9 +286,6 @@ class FuroTextInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-       pattern="${this.pattern}"
-       maxlength="${this.max}"
-       minlength="${this.min}"
        type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
       <div class="border"></div>
       <label float="${this._float}" for="input">${this.label}</label>  

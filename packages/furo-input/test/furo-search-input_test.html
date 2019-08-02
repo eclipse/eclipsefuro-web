@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-  <title>furo-text-input</title>
+  <title>furo-search-input</title>
 
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -21,7 +21,7 @@
 
 <test-fixture id="Basic">
   <template>
-    <furo-text-input></furo-text-input>
+    <furo-search-input></furo-search-input>
   </template>
 </test-fixture>
 
@@ -32,31 +32,31 @@
 
 
 
-  describe('furo-text-input', () => {
-    let textInput;
+  describe('furo-search-input', () => {
+    let searchInput;
     let inputField;
     beforeEach(async () => {
-      textInput = fixture('Basic');
-      await textInput.updateComplete;
-      inputField = textInput.shadowRoot.querySelector("input");
+      searchInput = fixture('Basic');
+      await searchInput.updateComplete;
+      inputField = searchInput.shadowRoot.querySelector("input");
 
     });
 
     it('should be disablealble with method disable', (done) => {
-      textInput.disable();
+      searchInput.disable();
       setTimeout(()=>{
         assert.equal(inputField.getAttribute("readonly"),"");
-        assert.equal(textInput.readonly,true);
+        assert.equal(searchInput.readonly,true);
         done();
       },5)
     });
 
     it('should be enablealble with method enable', (done) => {
-      textInput.readonly = true;
-      textInput.enable();
+      searchInput.readonly = true;
+      searchInput.enable();
       setTimeout(()=>{
         assert.equal(inputField.getAttribute("readonly"),null);
-        assert.equal(textInput.readonly,false);
+        assert.equal(searchInput.readonly,false);
         done();
       },5)
     });
@@ -66,30 +66,30 @@
     });
 
     it('should accept a value with setValue', (done) => {
-      textInput.setValue("Test");
-      assert.equal(textInput.value,"Test");
+      searchInput.setValue("Test");
+      assert.equal(searchInput.value,"Test");
       assert.equal(inputField.value,"Test");
       done();
     });
 
     it('should be focusable', (done) => {
-      textInput.focus();
-      assert.equal(textInput,document.activeElement);
+      searchInput.focus();
+      assert.equal(searchInput,document.activeElement);
       done();
     });
     it('should emit value-changed on every keystroke', (done) => {
 
-      textInput.addEventListener("value-changed",e=>{
-        assert.equal(textInput.value,"Simulated input");
+      searchInput.addEventListener("value-changed",e=>{
+        assert.equal(searchInput.value,"Simulated input");
         done();
       });
-      textInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:"Simulated input", validity:{valid:true}}]}});
+      searchInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:"Simulated input", validity:{valid:true}}]}});
 
     });
 
-    it('instantiating furo-text-input with default properties works', () => {
+    it('instantiating furo-search-input with default properties works', () => {
 
-      assert.equal(textInput.tagName.toLowerCase(), 'furo-text-input');
+      assert.equal(searchInput.tagName.toLowerCase(), 'furo-search-input');
 
     });
 

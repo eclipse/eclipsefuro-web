@@ -3,55 +3,58 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 
 /**
- * `furo-number-input`
+ * `furo-search-input`
  *
- *  <sample-furo-number-input></sample-furo-number-input>
+ *  <furo-search-input label="Search" hint="Press escape to clear"></sample-furo-search-input>
  *
- * @summary Number input field
+ * @summary Search input field
  * @customElement
  * @polymer
- * @demo demo-furo-number-input Input sample
+ * @demo demo-furo-search-input Input samples
  * @appliesMixin FBP
  */
-class FuroNumberInput extends FBP(LitElement) {
-
-  constructor() {
-    super();
-    this.step = "any";
-  }
+class FuroSearchInput extends FBP(LitElement) {
 
   _FBPReady() {
     super._FBPReady();
 
-
     this._value = this.value || "";
-
     this._FBPAddWireHook("--inputInput", (e) => {
       let input = e.composedPath()[0];
-
-      // mark min max error
       this.error = input.validity.rangeOverflow || input.validity.rangeUnderflow || input.validity.patternMismatch;
+      this._float = !!input.value;
 
-      if (!input.validity.badInput) {
+      if (input.validity.valid) {
         this.value = input.value;
-        this._float = !!input.value;
+
         /**
          * @event value-changed
          * Fired when value has changed from inside the component
-         * detail payload: {Number} the number value
+         * detail payload: {String} the text value
          */
         let customEvent = new Event('value-changed', {composed: true, bubbles: true});
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
       }
     });
-  }
 
+    // set pattern, min, max
+    let inputField = this.shadowRoot.querySelector("#input");
+    if (this.pattern) {
+      inputField.setAttribute("pattern", this.pattern);
+    }
+    if (this.min) {
+      inputField.setAttribute("minlength", this.min);
+    }
+    if (this.max) {
+      inputField.setAttribute("maxlength", this.max);
+    }
+
+  }
 
 
   set _value(v) {
     this._float = !!v;
-
     this._FBPTriggerWire("--value", v)
   }
 
@@ -65,40 +68,15 @@ class FuroNumberInput extends FBP(LitElement) {
        * The start value. Changes will be notified with the `@-value-changed` event
        */
       value: {
-        type: Number
-      },
-      /**
-       * The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.
-       *
-       * A string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).
-       */
-      step: {
         type: String
       },
-      /**
-       * The maximum value to accept for this input. If the value entered into the element exceeds this, the element fails constraint validation. If the value of the max attribute isn't a number, then the element has no maximum value.
-       *
-       * This value must be greater than or equal to the value of the min attribute.
-       */
-      max: {
-        type: Number
-      },
-      /**
-       * The minimum value to accept for this input. If the value of the element is less than this, the element fails constraint validation. If a value is specified for min that isn't a valid number, the input has no minimum value.
-       *
-       * This value must be less than or equal to the value of the max attribute.
-       */
-      min: {
-        type: Number
-      },
-
       /**
        * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
        *
        * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
        */
-      pattern:{
-        type:String
+      pattern: {
+        type: String
       },
       /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
@@ -106,6 +84,18 @@ class FuroNumberInput extends FBP(LitElement) {
       label: {
         type: String,
         attribute: true
+      },
+      /**
+       * The maximum number of characters (as UTF-16 code units) the user can enter into the search input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the search input has no maximum length. This value must also be greater than or equal to the value of minlength.
+       */
+      max: {
+        type: Number
+      },
+      /**
+       * The minimum number of characters (as UTF-16 code units) the user can enter into the search input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the search input has no minimum length.
+       */
+      min: {
+        type: Number
       },
       /**
        * Set this attribute to autofocus the input field.
@@ -138,7 +128,7 @@ class FuroNumberInput extends FBP(LitElement) {
         type: String,
       },
       /**
-       * text for errors
+       * Text for errors
        */
       errortext: {
         type: String,
@@ -147,13 +137,14 @@ class FuroNumberInput extends FBP(LitElement) {
 
     };
   }
+
   /**
-   * Set the value for the field
-   * @param {Number} num a valid number value
+   * Sets the value for the input field.
+   * @param {String} string
    */
-  setValue(num) {
-    this._value = num;
-    this.value = num;
+  setValue(string) {
+    this._value = string;
+    this.value = string;
   }
 
   /**
@@ -162,18 +153,21 @@ class FuroNumberInput extends FBP(LitElement) {
   focus() {
     this._FBPTriggerWire("--focus");
   }
+
   /**
    * Sets the field to readonly
    */
-  disable(){
+  disable() {
     this.readonly = true;
   }
+
   /**
    * Makes the field writable.
    */
-  enable(){
+  enable() {
     this.readonly = false;
   }
+
   /**
    *
    * @private
@@ -296,15 +290,8 @@ class FuroNumberInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html` 
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-       type="number" 
-       step="${this.step}"
-       min="${this.min}"
-       max="${this.max}"
-       pattern="${this.pattern}"
-       ƒ-.value="--value" 
-       @-input="--inputInput(*)"   
-       ƒ-focus="--focus">
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly}       
+       type="search" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
       <div class="border"></div>
       <label float="${this._float}" for="input">${this.label}</label>  
       <div class="hint">${this.hint}</div>
@@ -315,4 +302,4 @@ class FuroNumberInput extends FBP(LitElement) {
 
 }
 
-window.customElements.define('furo-number-input', FuroNumberInput);
+window.customElements.define('furo-search-input', FuroSearchInput);

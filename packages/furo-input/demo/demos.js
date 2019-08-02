@@ -5,3 +5,4 @@ import "./sample-furo-button";
 import "./sample-furo-number-input";
 import "./sample-furo-text-input";
 import "./demo-furo-password-input";
+import "./demo-furo-search-input"
