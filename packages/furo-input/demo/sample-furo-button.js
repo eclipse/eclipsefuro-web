@@ -47,9 +47,9 @@ class SampleFuroButton extends FBP(LitElement) {
       <furo-demo-snippet>
         <template>
           <furo-button label="Label"></furo-button>
-          <furo-button label="Label" disabled></furo-button>
-          <furo-button label="Label" danger></furo-button>
-          <furo-button label="Label" autofocus></furo-button>
+          <furo-button label="Disabled" disabled></furo-button>
+          <furo-button label="Danger" danger></furo-button>
+          <furo-button label="Autofocus" autofocus></furo-button>
         </template>
       </furo-demo-snippet>
     `;

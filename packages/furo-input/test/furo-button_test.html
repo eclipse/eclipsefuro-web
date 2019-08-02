@@ -1,0 +1,87 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-button</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <furo-button></furo-button>
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog.js"
+  import "@furo/fbp/flow-bind.js"
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+  describe('furo-button tests ', function () {
+
+
+    let furoButton = {};
+
+    beforeEach(async () => {
+      furoButton = fixture('basic');
+      await furoButton.updateComplete;
+
+    });
+
+
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+
+    it('should be a furo-button', (done) => {
+      assert.equal(furoButton.nodeName.toLowerCase(), "furo-button");
+      done()
+    });
+
+    it('should be able to be danger', (done) => {
+      assert.equal(furoButton.danger,false);
+      furoButton.setAttribute("danger","");
+      assert.equal(furoButton.danger,true);
+      done();
+    });
+
+    it('should be disablealble with method disable', (done) => {
+      furoButton.disable();
+      setTimeout(()=>{
+        assert.equal(furoButton.getAttribute("disabled"),"");
+        assert.equal(furoButton.disabled,true);
+        done();
+      },5)
+    });
+
+    it('should be enablealble with method enable', (done) => {
+      furoButton.readonly = true;
+      furoButton.enable();
+      setTimeout(()=>{
+        assert.equal(furoButton.getAttribute("disabled"),null);
+        assert.equal(furoButton.disabled,false);
+        done();
+      },5)
+    });
+
+    it('should be focusable', (done) => {
+      furoButton.focus();
+      assert.equal(furoButton,document.activeElement);
+      done();
+    });
+
+  });
+</script>
+</body>
+</html>

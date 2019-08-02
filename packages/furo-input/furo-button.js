@@ -32,6 +32,20 @@ class FuroButton extends FBP(LitElement) {
     this._FBPTriggerWire("--focus", e);
   }
 
+
+  /**
+   * Disables the button
+   */
+  disable(){
+    this.disabled = true;
+  }
+  /**
+   * Enables the button
+   */
+  enable(){
+    this.disabled = false;
+  }
+
   /**
    * @private
    * @return {Object}
@@ -78,22 +92,18 @@ class FuroButton extends FBP(LitElement) {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
         :host {
-            display: block;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        :host {
             display: inline-block;
             position: relative;
             font-size: 16px;
             box-sizing: border-box;
-            margin: 0;
+            margin: 0 0 0 1px;
             padding: 8px 0;
         }
-
+        
+        :host([hidden]) {
+            display: none;
+        }
+        
         * {
             transition: all 200ms ease-in;
         }
@@ -109,30 +119,32 @@ class FuroButton extends FBP(LitElement) {
             border: none;
             text-transform: uppercase;
             font-size: 14px;
+            box-sizing: border-box;
         }
 
+        button:focus:active {
+            box-shadow:none;
+        }
         button:focus {
             outline: none;
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            background-color: var(--secondary-color);
+            background-color: var(--secondary);
             color: var(--on-secondary);
         }
 
         :host([danger]) button:focus {
-            background-color: lightgray;
-            box-sizing: border-box;
-            color: var(--danger-color);
+            background-color: var(--on-danger, #FFFFFF);
+            color: var(--danger, #ff0000);
         }
 
         button[disabled]  {
-            box-sizing: border-box;
-            background-color: var(--disabled-color,#eeeeee);
+            background-color: var(--disabled,#eeeeee);
             color: var(--on-disabled,#333333);
             
         }
 
         :host([danger]) button {
-            background-color: var(--danger-color, #ff0000);
+            background-color: var(--danger, #ff0000);
             color: var(--on-danger, #FFFFFF);
         }
 

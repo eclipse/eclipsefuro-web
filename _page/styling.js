@@ -22,7 +22,8 @@ export class Styling {
                 --llm-variant-color: #f0f1f4;
                 --disabled-color: #B4B5B4;
                 --header-color: #212121;
-
+                --danger: #FA0202;
+                --on-danger: #FAFAFA;
                 --on-primary: #212121;
                 --on-primary-variant: #585858;
                 --on-secondary: #212121;
