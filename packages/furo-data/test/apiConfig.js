@@ -495,6 +495,28 @@ export const Types = {
           "fmt": "%1"
         }
       },
+      "descrWithDefault": {
+        "description": "To test default values",
+        "type": "string",
+        "meta": {
+          "label": "Beschreibung",
+          "default": "YES",
+          "hint": "short text"
+        },
+        "constraints": {
+          "min": {"value": 3, "message": "max 129"},
+          "max": {"value": 129},
+          "mandatory": {"value": false},
+          "readonly": {"value": false}
+        },
+        "options": {},
+        "toString": {
+          "fields": [
+            "taskNummer"
+          ],
+          "fmt": "%1"
+        }
+      },
       "repdate": {
         "type": "vnd.acme.zeitunddatum",
         "meta": {

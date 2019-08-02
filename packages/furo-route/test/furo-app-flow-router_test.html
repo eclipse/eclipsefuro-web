@@ -14,9 +14,7 @@
   <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
   <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
   <script src="/node_modules/sinon/pkg/sinon.js"></script>
-  <script type="module" src="/node_modules/@furo/fbp/flow-bind.js"></script>
 
-  <script type="module" src="../furo-catalog.js"></script>
 </head>
 <body>
 
@@ -33,6 +31,10 @@
 </test-fixture>
 
 <script type="module">
+
+  import "../furo-catalog.js"
+  import "@furo/fbp/flow-bind.js"
+
   describe('app-flow-router', () => {
     let flow;
     let router;

@@ -54,6 +54,25 @@
       done();
     });
 
+    it('should be disablealble with method disable', (done) => {
+      numberInput.disable();
+      setTimeout(()=>{
+        assert.equal(inputField.getAttribute("readonly"),"");
+        assert.equal(numberInput.readonly,true);
+        done();
+      },5)
+    });
+
+    it('should be enablealble with method enable', (done) => {
+      numberInput.readonly = true;
+      numberInput.enable();
+      setTimeout(()=>{
+        assert.equal(inputField.getAttribute("readonly"),null);
+        assert.equal(numberInput.readonly,false);
+        done();
+      },5)
+    });
+
     it('should accept numeric value with setValue', (done) => {
       numberInput.setValue(123);
       assert.equal(numberInput.value,123);

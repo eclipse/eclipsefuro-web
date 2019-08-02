@@ -81,7 +81,6 @@ class FuroDataTextInput extends FBP(LitElement) {
 
     this.field = fieldNode;
     this._updateField();
-
     this.field.addEventListener('field-value-changed', (e) => {
       this._updateField();
     });

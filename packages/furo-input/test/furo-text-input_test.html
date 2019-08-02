@@ -42,6 +42,24 @@
 
     });
 
+    it('should be disablealble with method disable', (done) => {
+      textInput.disable();
+      setTimeout(()=>{
+        assert.equal(inputField.getAttribute("readonly"),"");
+        assert.equal(textInput.readonly,true);
+        done();
+      },5)
+    });
+
+    it('should be enablealble with method enable', (done) => {
+      textInput.readonly = true;
+      textInput.enable();
+      setTimeout(()=>{
+        assert.equal(inputField.getAttribute("readonly"),null);
+        assert.equal(textInput.readonly,false);
+        done();
+      },5)
+    });
 
     it('a11y', () => {
       return axeReport(fixture('Basic'));
