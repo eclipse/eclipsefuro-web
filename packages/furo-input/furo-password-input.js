@@ -34,6 +34,18 @@ class FuroPasswordInput extends FBP(LitElement) {
       customEvent.detail = this.value;
       this.dispatchEvent(customEvent);
     });
+
+    // set pattern, min, max
+    let inputField = this.shadowRoot.querySelector("#input");
+    if (this.pattern) {
+      inputField.setAttribute("pattern", this.pattern);
+    }
+    if (this.min) {
+      inputField.setAttribute("minlength", this.min);
+    }
+    if (this.max) {
+      inputField.setAttribute("maxlength", this.max);
+    }
   }
 
 
@@ -287,9 +299,6 @@ class FuroPasswordInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-       pattern="${this.pattern}"
-       maxlength="${this.max}"
-       minlength="${this.min}"
        type="password" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
       <div class="border"></div>
       <label float="${this._float}" for="input">${this.label}</label>  

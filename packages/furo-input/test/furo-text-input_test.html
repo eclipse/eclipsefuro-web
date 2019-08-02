@@ -21,7 +21,7 @@
 
 <test-fixture id="Basic">
   <template>
-    <furo-text-input></furo-text-input>
+    <furo-text-input min="1" max="100" pattern="[^@]"></furo-text-input>
   </template>
 </test-fixture>
 
@@ -41,6 +41,22 @@
       inputField = textInput.shadowRoot.querySelector("input");
 
     });
+
+
+    it('should have a minlength on the inputField', (done) => {
+      assert.equal(inputField.getAttribute("minlength"),1);
+      done();
+    });
+    it('should have a maxlength on the inputField', (done) => {
+      assert.equal(inputField.getAttribute("maxlength"),100);
+      done();
+    });
+
+    it('should have a pattern on the inputField', (done) => {
+      assert.equal(inputField.getAttribute("pattern"),'[^@]');
+      done();
+    });
+
 
     it('should be disablealble with method disable', (done) => {
       textInput.disable();
