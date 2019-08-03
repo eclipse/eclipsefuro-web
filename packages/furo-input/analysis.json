@@ -716,6 +716,25 @@
           }
         },
         {
+          "name": "errortext",
+          "type": "string | null | undefined",
+          "description": "Getter method for errortext",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 177,
+              "column": 2
+            },
+            "end": {
+              "line": 179,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
           "name": "error",
           "type": "boolean | null | undefined",
           "description": "set this to true to indicate errors",
@@ -937,27 +956,6 @@
             },
             "end": {
               "line": 143,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "errortext",
-          "type": "string | null | undefined",
-          "description": "text for errors",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 147,
-              "column": 6
-            },
-            "end": {
-              "line": 149,
               "column": 7
             }
           },
@@ -1408,16 +1406,60 @@
           }
         },
         {
+          "name": "setError",
+          "description": "Set the field to error state",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 186,
+              "column": 2
+            },
+            "end": {
+              "line": 191,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "text"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "clearError",
+          "description": "clears the error and restores the errortext.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 196,
+              "column": 2
+            },
+            "end": {
+              "line": 199,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "focus",
           "description": "Sets the focus on the field.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 205,
               "column": 2
             },
             "end": {
-              "line": 168,
+              "line": 207,
               "column": 3
             }
           },
@@ -1433,11 +1475,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 211,
               "column": 2
             },
             "end": {
-              "line": 174,
+              "line": 213,
               "column": 3
             }
           },
@@ -1453,11 +1495,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 178,
+              "line": 217,
               "column": 2
             },
             "end": {
-              "line": 180,
+              "line": 219,
               "column": 3
             }
           },
@@ -1473,11 +1515,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 300,
+              "line": 344,
               "column": 2
             },
             "end": {
-              "line": 315,
+              "line": 359,
               "column": 3
             }
           },
@@ -1502,7 +1544,7 @@
           "column": 0
         },
         "end": {
-          "line": 317,
+          "line": 361,
           "column": 1
         }
       },
@@ -1669,22 +1711,6 @@
           },
           "metadata": {},
           "type": "string | null | undefined"
-        },
-        {
-          "name": "errortext",
-          "description": "text for errors",
-          "sourceRange": {
-            "start": {
-              "line": 147,
-              "column": 6
-            },
-            "end": {
-              "line": 149,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
         }
       ],
       "events": [
@@ -1729,6 +1755,25 @@
             "polymer": {
               "readOnly": false
             }
+          }
+        },
+        {
+          "name": "errortext",
+          "type": "string | null | undefined",
+          "description": "Getter method for errortext",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 163,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
           }
         },
         {
@@ -1953,27 +1998,6 @@
             },
             "end": {
               "line": 127,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "errortext",
-          "type": "string | null | undefined",
-          "description": "Text for errors",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 131,
-              "column": 6
-            },
-            "end": {
-              "line": 133,
               "column": 7
             }
           },
@@ -2423,16 +2447,60 @@
           }
         },
         {
+          "name": "setError",
+          "description": "Set the field to error state",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 172,
+              "column": 2
+            },
+            "end": {
+              "line": 177,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "text"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "clearError",
+          "description": "clears the error and restores the errortext.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 182,
+              "column": 2
+            },
+            "end": {
+              "line": 185,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "focus",
           "description": "Sets the focus on the field.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 150,
+              "line": 190,
               "column": 2
             },
             "end": {
-              "line": 152,
+              "line": 192,
               "column": 3
             }
           },
@@ -2448,11 +2516,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 157,
+              "line": 197,
               "column": 2
             },
             "end": {
-              "line": 159,
+              "line": 199,
               "column": 3
             }
           },
@@ -2468,11 +2536,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 163,
+              "line": 203,
               "column": 2
             },
             "end": {
-              "line": 165,
+              "line": 205,
               "column": 3
             }
           },
@@ -2488,11 +2556,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 284,
+              "line": 329,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 340,
               "column": 3
             }
           },
@@ -2517,7 +2585,7 @@
           "column": 0
         },
         "end": {
-          "line": 297,
+          "line": 342,
           "column": 1
         }
       },
@@ -2684,22 +2752,6 @@
           },
           "metadata": {},
           "type": "string | null | undefined"
-        },
-        {
-          "name": "errortext",
-          "description": "Text for errors",
-          "sourceRange": {
-            "start": {
-              "line": 131,
-              "column": 6
-            },
-            "end": {
-              "line": 133,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
         }
       ],
       "events": [
@@ -2744,6 +2796,25 @@
             "polymer": {
               "readOnly": false
             }
+          }
+        },
+        {
+          "name": "errortext",
+          "type": "string | null | undefined",
+          "description": "Getter method for errortext",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 161,
+              "column": 2
+            },
+            "end": {
+              "line": 163,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
           }
         },
         {
@@ -2968,27 +3039,6 @@
             },
             "end": {
               "line": 125,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "errortext",
-          "type": "string | null | undefined",
-          "description": "Text for errors",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 129,
-              "column": 6
-            },
-            "end": {
-              "line": 131,
               "column": 7
             }
           },
@@ -3438,16 +3488,60 @@
           }
         },
         {
+          "name": "setError",
+          "description": "Set the field to error state",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 170,
+              "column": 2
+            },
+            "end": {
+              "line": 175,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "text"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "clearError",
+          "description": "clears the error and restores the errortext.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 180,
+              "column": 2
+            },
+            "end": {
+              "line": 183,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "focus",
           "description": "Sets the focus on the field.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 148,
+              "line": 189,
               "column": 2
             },
             "end": {
-              "line": 150,
+              "line": 191,
               "column": 3
             }
           },
@@ -3463,11 +3557,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 196,
               "column": 2
             },
             "end": {
-              "line": 158,
+              "line": 199,
               "column": 3
             }
           },
@@ -3483,11 +3577,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 162,
+              "line": 203,
               "column": 2
             },
             "end": {
-              "line": 165,
+              "line": 206,
               "column": 3
             }
           },
@@ -3503,11 +3597,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 211,
               "column": 2
             },
             "end": {
-              "line": 172,
+              "line": 213,
               "column": 3
             }
           },
@@ -3523,11 +3617,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 217,
               "column": 2
             },
             "end": {
-              "line": 178,
+              "line": 219,
               "column": 3
             }
           },
@@ -3543,11 +3637,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 297,
+              "line": 343,
               "column": 2
             },
             "end": {
-              "line": 308,
+              "line": 354,
               "column": 3
             }
           },
@@ -3572,7 +3666,7 @@
           "column": 0
         },
         "end": {
-          "line": 310,
+          "line": 356,
           "column": 1
         }
       },
@@ -3739,22 +3833,6 @@
           },
           "metadata": {},
           "type": "string | null | undefined"
-        },
-        {
-          "name": "errortext",
-          "description": "Text for errors",
-          "sourceRange": {
-            "start": {
-              "line": 129,
-              "column": 6
-            },
-            "end": {
-              "line": 131,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
         }
       ],
       "events": [
@@ -3799,6 +3877,25 @@
             "polymer": {
               "readOnly": false
             }
+          }
+        },
+        {
+          "name": "errortext",
+          "type": "string | null | undefined",
+          "description": "Getter method for errortext",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 165,
+              "column": 2
+            },
+            "end": {
+              "line": 167,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
           }
         },
         {
@@ -4023,27 +4120,6 @@
             },
             "end": {
               "line": 128,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "errortext",
-          "type": "string | null | undefined",
-          "description": "Text for errors",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 132,
-              "column": 6
-            },
-            "end": {
-              "line": 134,
               "column": 7
             }
           },
@@ -4493,16 +4569,60 @@
           }
         },
         {
+          "name": "setError",
+          "description": "Set the field to error state",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 174,
+              "column": 2
+            },
+            "end": {
+              "line": 179,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "text"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "clearError",
+          "description": "clears the error and restores the errortext.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 184,
+              "column": 2
+            },
+            "end": {
+              "line": 187,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "focus",
           "description": "Sets the focus on the field.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 193,
               "column": 2
             },
             "end": {
-              "line": 154,
+              "line": 195,
               "column": 3
             }
           },
@@ -4518,11 +4638,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 200,
               "column": 2
             },
             "end": {
-              "line": 161,
+              "line": 202,
               "column": 3
             }
           },
@@ -4538,11 +4658,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 207,
               "column": 2
             },
             "end": {
-              "line": 168,
+              "line": 209,
               "column": 3
             }
           },
@@ -4558,11 +4678,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 289,
+              "line": 335,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 346,
               "column": 3
             }
           },
@@ -4587,7 +4707,7 @@
           "column": 0
         },
         "end": {
-          "line": 302,
+          "line": 348,
           "column": 1
         }
       },
@@ -4754,22 +4874,6 @@
           },
           "metadata": {},
           "type": "string | null | undefined"
-        },
-        {
-          "name": "errortext",
-          "description": "Text for errors",
-          "sourceRange": {
-            "start": {
-              "line": 132,
-              "column": 6
-            },
-            "end": {
-              "line": 134,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
         }
       ],
       "events": [
@@ -4814,6 +4918,25 @@
             "polymer": {
               "readOnly": false
             }
+          }
+        },
+        {
+          "name": "errortext",
+          "type": "string | null | undefined",
+          "description": "Getter method for errortext",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 174,
+              "column": 2
+            },
+            "end": {
+              "line": 176,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
           }
         },
         {
@@ -5017,27 +5140,6 @@
             },
             "end": {
               "line": 138,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "errortext",
-          "type": "string | null | undefined",
-          "description": "text for errors",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 142,
-              "column": 6
-            },
-            "end": {
-              "line": 144,
               "column": 7
             }
           },
@@ -5488,16 +5590,60 @@
           }
         },
         {
+          "name": "setError",
+          "description": "Set the field to error state",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 183,
+              "column": 2
+            },
+            "end": {
+              "line": 188,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "text"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "clearError",
+          "description": "clears the error and restores the errortext.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 193,
+              "column": 2
+            },
+            "end": {
+              "line": 196,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "focus",
           "description": "Sets the focus on the field.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 161,
+              "line": 202,
               "column": 2
             },
             "end": {
-              "line": 163,
+              "line": 204,
               "column": 3
             }
           },
@@ -5513,11 +5659,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 167,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 169,
+              "line": 210,
               "column": 3
             }
           },
@@ -5533,11 +5679,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 173,
+              "line": 214,
               "column": 2
             },
             "end": {
-              "line": 175,
+              "line": 216,
               "column": 3
             }
           },
@@ -5553,11 +5699,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 334,
               "column": 2
             },
             "end": {
-              "line": 303,
+              "line": 349,
               "column": 3
             }
           },
@@ -5582,7 +5728,7 @@
           "column": 0
         },
         "end": {
-          "line": 305,
+          "line": 351,
           "column": 1
         }
       },
@@ -5733,22 +5879,6 @@
           },
           "metadata": {},
           "type": "string | null | undefined"
-        },
-        {
-          "name": "errortext",
-          "description": "text for errors",
-          "sourceRange": {
-            "start": {
-              "line": 142,
-              "column": 6
-            },
-            "end": {
-              "line": 144,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
         }
       ],
       "events": [
@@ -5793,6 +5923,25 @@
             "polymer": {
               "readOnly": false
             }
+          }
+        },
+        {
+          "name": "errortext",
+          "type": "string | null | undefined",
+          "description": "Getter method for errortext",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 182,
+              "column": 2
+            },
+            "end": {
+              "line": 184,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
           }
         },
         {
@@ -6017,27 +6166,6 @@
             },
             "end": {
               "line": 148,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "errortext",
-          "type": "string | null | undefined",
-          "description": "text for errors",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 152,
-              "column": 6
-            },
-            "end": {
-              "line": 154,
               "column": 7
             }
           },
@@ -6488,16 +6616,60 @@
           }
         },
         {
+          "name": "setError",
+          "description": "Set the field to error state",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 191,
+              "column": 2
+            },
+            "end": {
+              "line": 196,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "text"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "clearError",
+          "description": "clears the error and restores the errortext.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 201,
+              "column": 2
+            },
+            "end": {
+              "line": 204,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "focus",
           "description": "Sets the focus on the field.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 171,
+              "line": 209,
               "column": 2
             },
             "end": {
-              "line": 173,
+              "line": 211,
               "column": 3
             }
           },
@@ -6513,11 +6685,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 215,
               "column": 2
             },
             "end": {
-              "line": 179,
+              "line": 217,
               "column": 3
             }
           },
@@ -6533,11 +6705,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 183,
+              "line": 221,
               "column": 2
             },
             "end": {
-              "line": 185,
+              "line": 223,
               "column": 3
             }
           },
@@ -6553,11 +6725,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 300,
+              "line": 343,
               "column": 2
             },
             "end": {
-              "line": 315,
+              "line": 358,
               "column": 3
             }
           },
@@ -6582,7 +6754,7 @@
           "column": 0
         },
         "end": {
-          "line": 317,
+          "line": 360,
           "column": 1
         }
       },
@@ -6749,22 +6921,6 @@
           },
           "metadata": {},
           "type": "string | null | undefined"
-        },
-        {
-          "name": "errortext",
-          "description": "text for errors",
-          "sourceRange": {
-            "start": {
-              "line": 152,
-              "column": 6
-            },
-            "end": {
-              "line": 154,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
         }
       ],
       "events": [
@@ -6801,7 +6957,7 @@
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 71,
               "column": 3
             }
           },
@@ -6812,17 +6968,36 @@
           }
         },
         {
+          "name": "errortext",
+          "type": "string | null | undefined",
+          "description": "text for errors",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 182,
+              "column": 2
+            },
+            "end": {
+              "line": 184,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
           "name": "error",
           "type": "boolean | null | undefined",
           "description": "set this to true to indicate errors",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 79,
+              "line": 78,
               "column": 6
             },
             "end": {
-              "line": 79,
+              "line": 78,
               "column": 43
             }
           },
@@ -6839,11 +7014,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 83,
+              "line": 82,
               "column": 6
             },
             "end": {
-              "line": 85,
+              "line": 84,
               "column": 7
             }
           },
@@ -6860,11 +7035,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 92,
               "column": 6
             },
             "end": {
-              "line": 95,
+              "line": 94,
               "column": 7
             }
           },
@@ -6881,11 +7056,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 104,
               "column": 6
             },
             "end": {
-              "line": 107,
+              "line": 106,
               "column": 7
             }
           },
@@ -6902,11 +7077,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 115,
+              "line": 114,
               "column": 6
             },
             "end": {
-              "line": 117,
+              "line": 116,
               "column": 7
             }
           },
@@ -6923,11 +7098,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 122,
               "column": 6
             },
             "end": {
-              "line": 126,
+              "line": 125,
               "column": 7
             }
           },
@@ -6944,11 +7119,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 129,
               "column": 6
             },
             "end": {
-              "line": 132,
+              "line": 131,
               "column": 7
             }
           },
@@ -6965,11 +7140,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 136,
+              "line": 135,
               "column": 6
             },
             "end": {
-              "line": 138,
+              "line": 137,
               "column": 7
             }
           },
@@ -6986,11 +7161,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 141,
               "column": 6
             },
             "end": {
-              "line": 144,
+              "line": 143,
               "column": 7
             }
           },
@@ -7007,11 +7182,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 148,
+              "line": 147,
               "column": 6
             },
             "end": {
-              "line": 150,
+              "line": 149,
               "column": 7
             }
           },
@@ -7028,32 +7203,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 154,
+              "line": 153,
               "column": 6
             },
             "end": {
-              "line": 156,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "errortext",
-          "type": "string | null | undefined",
-          "description": "text for errors",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 160,
-              "column": 6
-            },
-            "end": {
-              "line": 162,
+              "line": 155,
               "column": 7
             }
           },
@@ -7504,16 +7658,60 @@
           }
         },
         {
+          "name": "setError",
+          "description": "Set the field to error state",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 191,
+              "column": 2
+            },
+            "end": {
+              "line": 196,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "text"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "clearError",
+          "description": "clears the error and restores the errortext.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 201,
+              "column": 2
+            },
+            "end": {
+              "line": 204,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "focus",
           "description": "Sets the focus on the field.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 179,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 181,
+              "line": 210,
               "column": 3
             }
           },
@@ -7529,11 +7727,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 185,
+              "line": 215,
               "column": 2
             },
             "end": {
-              "line": 187,
+              "line": 217,
               "column": 3
             }
           },
@@ -7549,11 +7747,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 191,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 224,
               "column": 3
             }
           },
@@ -7569,11 +7767,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 308,
+              "line": 343,
               "column": 2
             },
             "end": {
-              "line": 323,
+              "line": 357,
               "column": 3
             }
           },
@@ -7598,7 +7796,7 @@
           "column": 0
         },
         "end": {
-          "line": 325,
+          "line": 359,
           "column": 1
         }
       },
@@ -7607,15 +7805,31 @@
       "name": "FuroDateInput",
       "attributes": [
         {
+          "name": "errortext",
+          "description": "text for errors",
+          "sourceRange": {
+            "start": {
+              "line": 182,
+              "column": 2
+            },
+            "end": {
+              "line": 184,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
           "name": "error",
           "description": "set this to true to indicate errors",
           "sourceRange": {
             "start": {
-              "line": 79,
+              "line": 78,
               "column": 6
             },
             "end": {
-              "line": 79,
+              "line": 78,
               "column": 43
             }
           },
@@ -7627,11 +7841,11 @@
           "description": "The start value. Changes will be notified with the `@-value-changed` event",
           "sourceRange": {
             "start": {
-              "line": 83,
+              "line": 82,
               "column": 6
             },
             "end": {
-              "line": 85,
+              "line": 84,
               "column": 7
             }
           },
@@ -7643,11 +7857,11 @@
           "description": "The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.\n\nA string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).\n\n**Tipp:** set a `min` value as reference for the stepping calculations.",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 92,
               "column": 6
             },
             "end": {
-              "line": 95,
+              "line": 94,
               "column": 7
             }
           },
@@ -7659,11 +7873,11 @@
           "description": "The latest date to accept. If the value entered into the element is later than this date, the element fails constraint validation. If the value of the max attribute isn't a valid string which follows the format yyyy-MM-dd, then the element has no maximum value.\n\nThis value must specify a date string later than or equal to the one specified by the min attribute.\n\nFor date inputs, the value of step is given in days, with a scaling factor of 86,400,000 (since the underlying numeric value is in milliseconds). The default value of step is 1, indicating 1 day.\n\n[more](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#step)",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 104,
               "column": 6
             },
             "end": {
-              "line": 107,
+              "line": 106,
               "column": 7
             }
           },
@@ -7675,11 +7889,11 @@
           "description": "The earliest date to accept as a valid input.\n\nDates earlier than this will cause the element to fail constraint validation. If the value of the min attribute isn't a valid string which follows the format yyyy-MM-dd, then the element has no minimum value.\n\nThis value must specify a date string earlier than or equal to the one specified by the max attribute.",
           "sourceRange": {
             "start": {
-              "line": 115,
+              "line": 114,
               "column": 6
             },
             "end": {
-              "line": 117,
+              "line": 116,
               "column": 7
             }
           },
@@ -7691,11 +7905,11 @@
           "description": "The latest date to accept, in the syntax described under Date value format\n\nA string indicating the latest date to accept, specified in the same [date value format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#Date_value_format). If the specified string isn't a valid date, no maximum value is set.",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 122,
               "column": 6
             },
             "end": {
-              "line": 126,
+              "line": 125,
               "column": 7
             }
           },
@@ -7707,11 +7921,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 129,
               "column": 6
             },
             "end": {
-              "line": 132,
+              "line": 131,
               "column": 7
             }
           },
@@ -7723,11 +7937,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 136,
+              "line": 135,
               "column": 6
             },
             "end": {
-              "line": 138,
+              "line": 137,
               "column": 7
             }
           },
@@ -7739,11 +7953,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 141,
               "column": 6
             },
             "end": {
-              "line": 144,
+              "line": 143,
               "column": 7
             }
           },
@@ -7755,27 +7969,11 @@
           "description": "The hint text for the field.",
           "sourceRange": {
             "start": {
-              "line": 154,
+              "line": 153,
               "column": 6
             },
             "end": {
-              "line": 156,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "errortext",
-          "description": "text for errors",
-          "sourceRange": {
-            "start": {
-              "line": 160,
-              "column": 6
-            },
-            "end": {
-              "line": 162,
+              "line": 155,
               "column": 7
             }
           },
