@@ -7,6 +7,7 @@
     "@furo/config": "^0.16.25",
     "@furo/data": "^0.48.0",
     "@furo/data-input": "^0.40.0",
+    "@furo/input": "^0.43.0",
     "@furo/data-ui": "^0.3.0",
     "@furo/data-util": "^0.0.22",
     "@furo/doc-helper": "^0.6.1",
