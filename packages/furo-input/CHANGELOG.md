@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.44.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.43.0...@furo/input@0.44.0) (2019-08-03)
+
+
+### Features
+
+* furo-time-input ([7e0b472](https://github.com/veith/FuroBaseComponents/commit/7e0b472))
+* furo-time-input ([ed68e5e](https://github.com/veith/FuroBaseComponents/commit/ed68e5e))
+
+
+
+
+
 # [0.43.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.42.0...@furo/input@0.43.0) (2019-08-02)
 
 
