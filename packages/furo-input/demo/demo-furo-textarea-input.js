@@ -29,7 +29,6 @@ class DemoFuroTextareaInput extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-       
     `
   }
 
@@ -48,6 +47,7 @@ class DemoFuroTextareaInput extends FBP(LitElement) {
           <furo-textarea-input rows="1" label="a lot of text" hint="just type" value="aa\nss\v"></furo-textarea-input>
           <furo-text-input label="compare" value="text" hint="hint"></furo-text-input>
           <hr>
+          <furo-textarea-input label="a lot of text" hint="just type" value="aa\nss\v"></furo-textarea-input>
           <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v"></furo-textarea-input>
         </template>
       </furo-demo-snippet>

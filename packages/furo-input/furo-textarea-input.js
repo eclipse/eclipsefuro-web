@@ -96,7 +96,17 @@ class FuroTextareaInput extends FBP(LitElement) {
       min: {
         type: Number
       },
-
+      /**
+       * The visible width of the text control, in average character widths. If it is specified, it must be a positive integer.
+       *
+       * If it is not specified, the default value is 20.
+       */
+      cols: {
+        type: Number
+      },
+      /**
+       * The number of visible text lines for the control.
+       */
       rows: {
         type: Number
       },
@@ -338,7 +348,7 @@ class FuroTextareaInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-        ƒ-.value="--value" rows="${this.rows}" @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>
+        ƒ-.value="--value" rows="${this.rows}" cols="${this.cols}" @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>
       <div class="border"></div>
       <label float="${this._float}" for="input">${this.label}</label>  
       <div class="hint">${this.hint}</div>
