@@ -251,8 +251,7 @@ class FuroRangeInput extends FBP(LitElement) {
         
 
         /** slider http://danielstern.ca/range.css/#/  */
-
-
+        
         input:focus {
             outline: none;
         }
@@ -279,9 +278,8 @@ class FuroRangeInput extends FBP(LitElement) {
         :host(:focus-within) input::-webkit-slider-runnable-track, :host(:focus-within) input::-webkit-slider-thumb {
             background: #007BFF;
         }
-
-
         /** slider */
+        
         .border {
             position: absolute;
             width: 100%;
