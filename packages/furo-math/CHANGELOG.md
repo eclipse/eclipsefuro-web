@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.26](https://github.com/veith/FuroBaseComponents/compare/@furo/math@0.1.25...@furo/math@0.1.26) (2019-08-03)
+
+**Note:** Version bump only for package @furo/math
+
+
+
+
+
 ## [0.1.25](https://github.com/veith/FuroBaseComponents/compare/@furo/math@0.1.24...@furo/math@0.1.25) (2019-08-01)
 
 **Note:** Version bump only for package @furo/math

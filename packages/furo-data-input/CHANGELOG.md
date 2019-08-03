@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.41.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.40.0...@furo/data-input@0.41.0) (2019-08-03)
+
+
+### Features
+
+* furo-textarea-input ([3f2d353](https://github.com/veith/FuroBaseComponents/commit/3f2d353))
+* furo-textarea-input ([ad95f09](https://github.com/veith/FuroBaseComponents/commit/ad95f09))
+
+
+
+
+
 # [0.40.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.39.0...@furo/data-input@0.40.0) (2019-08-02)
 
 
