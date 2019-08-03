@@ -147,6 +147,47 @@ class FuroSearchInput extends FBP(LitElement) {
     this.value = string;
   }
 
+
+
+  /**
+   * Setter method for errortext
+   * @param {String} errortext
+   * @private
+   */
+  set errortext(v) {
+    this._errortext = v;
+    this.__initalErrorText = v;
+  }
+
+  /**
+   * Getter method for errortext
+   * @private
+   */
+  get errortext() {
+    return this._errortext;
+  }
+
+  /**
+   * Set the field to error state
+   *
+   * @param [{String}] The new errortext
+   */
+  setError(text) {
+    if (typeof text === "string") {
+      this._errortext = text;
+    }
+    this.error = true;
+  }
+
+  /**
+   * clears the error and restores the errortext.
+   */
+  clearError(){
+    this.error = false;
+    this._errortext = this.__initalErrorText;
+  }
+
+
   /**
    * Sets the focus on the field.
    */
@@ -258,9 +299,14 @@ class FuroSearchInput extends FBP(LitElement) {
             border-width: 1px;
         }
 
+        :host([error]) .errortext {
+            display: block;
+        }
         .errortext {
             color: var(--error, red);
+            display: none;
         }
+
 
         :host(:focus-within) .errortext {
             display: none;

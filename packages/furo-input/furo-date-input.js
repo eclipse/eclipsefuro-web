@@ -3,34 +3,45 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 
 /**
- * `furo-text-input`
+ * `furo-date-input`
  *
- *  <sample-furo-text-input></sample-furo-text-input>
+ * ### Sample
+ *  <furo-date-input value="2020-02-20" step="7" label="Date" hint="Type in a date"></furo-date-input>
  *
- * @summary Text input field
+ * If you type in a date outside the min max range or the step, an "error" will be indicated. But not the error text.
+ *
+ * @summary Date input field
  * @customElement
  * @polymer
- * @demo demo-furo-text-input Input samples
+ * @demo demo-furo-date-input Input sample
  * @appliesMixin FBP
  */
-class FuroTextInput extends FBP(LitElement) {
+class FuroDateInput extends FBP(LitElement) {
+
+  constructor() {
+    super();
+    this.step = "any";
+  }
 
   _FBPReady() {
     super._FBPReady();
 
+
     this._value = this.value || "";
+
     this._FBPAddWireHook("--inputInput", (e) => {
       let input = e.composedPath()[0];
 
-      this.error = !input.validity.valid;
-      this._float = !!input.value;
+      // mark min max step error
+      this.error = input.validity.rangeOverflow || input.validity.rangeUnderflow || input.validity.stepMismatch;
 
-      if (input.validity.valid) {
+      if (!input.validity.badInput) {
         this.value = input.value;
+        this._float = !!input.value;
         /**
          * @event value-changed
          * Fired when value has changed from inside the component
-         * detail payload: {String} the text value
+         * detail payload: {String} the date value like "12:15" or "11:59:59"
          */
         let customEvent = new Event('value-changed', {composed: true, bubbles: true});
         customEvent.detail = this.value;
@@ -38,23 +49,26 @@ class FuroTextInput extends FBP(LitElement) {
       }
     });
 
-    // set pattern, min, max
+    // set pattern, min, max, step
     let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
+
+
     if (this.min) {
-      inputField.setAttribute("minlength", this.min);
+      inputField.setAttribute("min", this.min);
     }
     if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
+      inputField.setAttribute("max", this.max);
+    }
+    if (this.step) {
+      inputField.setAttribute("step", this.step);
     }
   }
 
 
-  set _value(v){
+
+  set _value(v) {
     this._float = !!v;
-      this._FBPTriggerWire("--value",v)
+    this._FBPTriggerWire("--value", v)
   }
 
   static get properties() {
@@ -70,31 +84,45 @@ class FuroTextInput extends FBP(LitElement) {
         type: String
       },
       /**
-       * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
+       * The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.
        *
-       * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
+       * A string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).
+       *
+       * **Tipp:** set a `min` value as reference for the stepping calculations.
        */
-      pattern:{
-        type:String
+      step: {
+        type: String
       },
       /**
-       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
+       * The latest date to accept. If the value entered into the element is later than this date, the element fails constraint validation. If the value of the max attribute isn't a valid string which follows the format yyyy-MM-dd, then the element has no maximum value.
+       *
+       * This value must specify a date string later than or equal to the one specified by the min attribute.
+       *
+       * For date inputs, the value of step is given in days, with a scaling factor of 86,400,000 (since the underlying numeric value is in milliseconds). The default value of step is 1, indicating 1 day.
+       *
+       * [more](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#step)
+       */
+      max: {
+        type: String
+      },
+      /**
+       * The earliest date to accept as a valid input.
+       *
+       * Dates earlier than this will cause the element to fail constraint validation. If the value of the min attribute isn't a valid string which follows the format yyyy-MM-dd, then the element has no minimum value.
+       *
+       * This value must specify a date string earlier than or equal to the one specified by the max attribute.
+       */
+      min: {
+        type: String
+      },
+      /**
+       * The latest date to accept, in the syntax described under Date value format
+       *
+       * A string indicating the latest date to accept, specified in the same [date value format](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#Date_value_format). If the specified string isn't a valid date, no maximum value is set.
        */
       label: {
         type: String,
         attribute: true
-      },
-      /**
-       * The maximum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the text input has no maximum length. This value must also be greater than or equal to the value of minlength.
-       */
-      max: {
-        type: Number
-      },
-      /**
-       * The minimum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the text input has no minimum length.
-       */
-      min: {
-        type: Number
       },
       /**
        * Set this attribute to autofocus the input field.
@@ -127,7 +155,7 @@ class FuroTextInput extends FBP(LitElement) {
         type: String,
       },
       /**
-       * Text for errors
+       * text for errors
        */
       errortext: {
         type: String,
@@ -136,31 +164,22 @@ class FuroTextInput extends FBP(LitElement) {
 
     };
   }
+
   /**
-   * Sets the value for the input field.
-   * @param {String} string
+   * Set the value for the field
+   * @param {Number} num a valid date number value
    */
-  setValue(string) {
-    this._value = string;
-    this.value = string;
+  setValue(num) {
+    this._value = num;
+    this.value = num;
   }
 
 
-
-  /**
-   * Setter method for errortext
-   * @param {String} errortext
-   * @private
-   */
   set errortext(v) {
     this._errortext = v;
     this.__initalErrorText = v;
   }
 
-  /**
-   * Getter method for errortext
-   * @private
-   */
   get errortext() {
     return this._errortext;
   }
@@ -184,7 +203,6 @@ class FuroTextInput extends FBP(LitElement) {
     this.error = false;
     this._errortext = this.__initalErrorText;
   }
-
   /**
    * Sets the focus on the field.
    */
@@ -195,15 +213,17 @@ class FuroTextInput extends FBP(LitElement) {
   /**
    * Sets the field to readonly
    */
-  disable(){
+  disable() {
     this.readonly = true;
   }
+
   /**
    * Makes the field writable.
    */
-  enable(){
+  enable() {
     this.readonly = false;
   }
+
   /**
    *
    * @private
@@ -252,23 +272,17 @@ class FuroTextInput extends FBP(LitElement) {
 
         label {
             position: absolute;
-            top: 8px;
-            color: rgba(0, 0, 0, .26);
-            font-size: 12px;
             pointer-events: none;
             display: block;
             width: 100%;
             overflow: hidden;
             white-space: nowrap;
             text-align: left;
-        }
-
-        label[float="true"] {
             color: var(--on-background, #333333);
             font-size: 10px;
             top: -4px;
-            visibility: visible;
         }
+
 
         * {
             transition: all 150ms ease-out;
@@ -288,7 +302,7 @@ class FuroTextInput extends FBP(LitElement) {
             transition: all 550ms ease-in;
         }
 
-        
+
         :host([error]) .border {
             border-color: var(--error, red);
             border-width: 1px;
@@ -302,19 +316,19 @@ class FuroTextInput extends FBP(LitElement) {
             display: none;
         }
 
-
-        :host(:focus-within)  .errortext{
+        :host(:focus-within) .errortext {
             display: none;
         }
-        
-        :host(:focus-within) label[float="true"] {
+
+        :host(:focus-within) label {
             color: var(--accent, #333333);
         }
-        
+
         :host(:focus-within) .border {
             border-color: var(--accent, #3f51b5);
             border-width: 1px;
         }
+
         :host([error]:focus-within) .border {
             border-color: var(--error, red);
             border-width: 1px;
@@ -331,15 +345,18 @@ class FuroTextInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-       type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
+       type="date"     
+       ƒ-.value="--value" 
+       @-input="--inputInput(*)"   
+       ƒ-focus="--focus">
       <div class="border"></div>
       <label float="${this._float}" for="input">${this.label}</label>  
       <div class="hint">${this.hint}</div>
-      <div class="errortext">${this.errortext}</div>
+      <div class="errortext">${this._errortext}</div>
  
     `;
   }
 
 }
 
-window.customElements.define('furo-text-input', FuroTextInput);
+window.customElements.define('furo-date-input', FuroDateInput);

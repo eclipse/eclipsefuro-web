@@ -43,6 +43,23 @@
     });
 
 
+    it('should be possible to set a error with setError', (done) => {
+
+      textInput.setError("Text from outside");
+      assert.equal(textInput.errortext,"Text from outside");
+      assert.equal(textInput.error,true);
+      done();
+    });
+
+    it('should clear the errorstate and resume to the initial errortext', (done) => {
+      textInput.errortext = "Initial Error Text";
+      textInput.setError("Text from outside");
+      textInput.clearError();
+      assert.equal(textInput.errortext,"Initial Error Text");
+      assert.equal(textInput.error,false);
+      done();
+    });
+
     it('should have a minlength on the inputField', (done) => {
       assert.equal(inputField.getAttribute("minlength"),1);
       done();

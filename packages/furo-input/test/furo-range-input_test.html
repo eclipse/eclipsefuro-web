@@ -49,6 +49,25 @@
 
 
 
+    it('should be possible to set a error with setError', (done) => {
+
+      rangeInput.setError("Text from outside");
+      assert.equal(rangeInput.errortext,"Text from outside");
+      assert.equal(rangeInput.error,true);
+      done();
+    });
+
+    it('should clear the errorstate and resume to the initial errortext', (done) => {
+
+      rangeInput.errortext = "Initial Error Text";
+      rangeInput.setError("Text from outside");
+      rangeInput.clearError();
+      assert.equal(rangeInput.errortext,"Initial Error Text");
+      assert.equal(rangeInput.error,false);
+      done();
+    });
+
+
     it('should have a min on the inputField', (done) => {
       assert.equal(inputField.getAttribute("min"),1);
       done();

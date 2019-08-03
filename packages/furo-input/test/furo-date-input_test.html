@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-  <title>furo-time-input</title>
+  <title>furo-date-input</title>
 
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -21,7 +21,7 @@
 
 <test-fixture id="Basic">
   <template>
-    <furo-time-input min="12:00" max="14:00" step="60"></furo-time-input>
+    <furo-date-input min="12:00" max="14:00" step="60" errortext="Initial Error Text"></furo-date-input>
   </template>
 </test-fixture>
 
@@ -32,13 +32,13 @@
 
 
 
-  describe('furo-time-input', () => {
-    let timeInput;
+  describe('furo-date-input', () => {
+    let dateInput;
     let inputField;
     beforeEach(async () => {
-      timeInput = fixture('Basic');
-      await timeInput.updateComplete;
-      inputField = timeInput.shadowRoot.querySelector("input");
+      dateInput = fixture('Basic');
+      await dateInput.updateComplete;
+      inputField = dateInput.shadowRoot.querySelector("input");
 
     });
 
@@ -48,21 +48,6 @@
     });
 
 
-    it('should be possible to set a error with setError', (done) => {
-      timeInput.setError("Text from outside");
-      assert.equal(timeInput.errortext,"Text from outside");
-      assert.equal(timeInput.error,true);
-      done();
-    });
-
-    it('should clear the errorstate and resume to the initial errortext', (done) => {
-      timeInput.errortext = "Initial Error Text";
-      timeInput.setError("Text from outside");
-      timeInput.clearError();
-      assert.equal(timeInput.errortext,"Initial Error Text");
-      assert.equal(timeInput.error,false);
-      done();
-    });
 
     it('should have a min on the inputField', (done) => {
       assert.equal(inputField.getAttribute("min"),"12:00");
@@ -79,64 +64,80 @@
     });
 
 
+    it('should be possible to set a error with setError', (done) => {
+      dateInput.setError("Text from outside");
+      assert.equal(dateInput.errortext,"Text from outside");
+      assert.equal(dateInput.error,true);
+      done();
+    });
+
+    it('should clear the errorstate and resume to the initial errortext', (done) => {
+      dateInput.setError("Text from outside");
+
+      dateInput.clearError();
+      assert.equal(dateInput.errortext,"Initial Error Text");
+      assert.equal(dateInput.error,false);
+      done();
+    });
+
     it('should not accept string  value with setValue', (done) => {
-      timeInput.setValue("Test");
-      assert.equal(timeInput.value,"Test");
+      dateInput.setValue("Test");
+      assert.equal(dateInput.value,"Test");
       assert.equal(inputField.value,"");
       done();
     });
 
     it('should be disablealble with method disable', (done) => {
-      timeInput.disable();
+      dateInput.disable();
       setTimeout(()=>{
         assert.equal(inputField.getAttribute("readonly"),"");
-        assert.equal(timeInput.readonly,true);
+        assert.equal(dateInput.readonly,true);
         done();
       },5)
     });
 
     it('should be enablealble with method enable', (done) => {
-      timeInput.readonly = true;
-      timeInput.enable();
+      dateInput.readonly = true;
+      dateInput.enable();
       setTimeout(()=>{
         assert.equal(inputField.getAttribute("readonly"),null);
-        assert.equal(timeInput.readonly,false);
+        assert.equal(dateInput.readonly,false);
         done();
       },5)
     });
 
     it('should not accept numeric value with setValue', (done) => {
-      timeInput.setValue(123);
-      assert.equal(timeInput.value,123);
+      dateInput.setValue(123);
+      assert.equal(dateInput.value,123);
       assert.equal(inputField.value,"");
       done();
     });
 
-    it('should  accept time value with setValue', (done) => {
-      timeInput.setValue("12:14");
-      assert.equal(inputField.value,"12:14");
-      assert.equal(timeInput.value,"12:14");
+    it('should  accept date value with setValue', (done) => {
+      dateInput.setValue("2021-12-10");
+      assert.equal(inputField.value,"2021-12-10");
+      assert.equal(dateInput.value,"2021-12-10");
       done();
     });
 
     it('should be focusable', (done) => {
-      timeInput.focus();
-      assert.equal(timeInput,document.activeElement);
+      dateInput.focus();
+      assert.equal(dateInput,document.activeElement);
       done();
     });
     it('should emit value-changed on every keystroke', (done) => {
 
-      timeInput.addEventListener("value-changed",e=>{
-        assert.equal(timeInput.value,1337);
+      dateInput.addEventListener("value-changed",e=>{
+        assert.equal(dateInput.value,1337);
         done();
       });
-      timeInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:1337, validity:{}}]}});
+      dateInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:1337, validity:{}}]}});
 
     });
 
-    it('instantiating furo-time-input with default properties works', () => {
+    it('instantiating furo-date-input with default properties works', () => {
 
-      assert.equal(timeInput.tagName.toLowerCase(), 'furo-time-input');
+      assert.equal(dateInput.tagName.toLowerCase(), 'furo-date-input');
 
     });
 
