@@ -62,7 +62,6 @@ class FuroRangeInput extends FBP(LitElement) {
   }
 
 
-
   set _value(v) {
     this._float = !!v;
 
@@ -147,6 +146,7 @@ class FuroRangeInput extends FBP(LitElement) {
 
     };
   }
+
   /**
    * Set the value for the field
    * @param {Number} num a valid number value
@@ -155,7 +155,6 @@ class FuroRangeInput extends FBP(LitElement) {
     this._value = num;
     this.value = num;
   }
-
 
 
   /**
@@ -191,7 +190,7 @@ class FuroRangeInput extends FBP(LitElement) {
   /**
    * clears the error and restores the errortext.
    */
-  clearError(){
+  clearError() {
     this.error = false;
     this._errortext = this.__initalErrorText;
   }
@@ -203,18 +202,21 @@ class FuroRangeInput extends FBP(LitElement) {
   focus() {
     this._FBPTriggerWire("--focus");
   }
+
   /**
    * Disables the field
    */
-  disable(){
+  disable() {
     this.disabled = true;
   }
+
   /**
    * Makes the field writable.
    */
-  enable(){
+  enable() {
     this.disabled = false;
   }
+
   /**
    *
    * @private
@@ -241,17 +243,45 @@ class FuroRangeInput extends FBP(LitElement) {
 
 
         input {
-            border: none;
-            background: 0 0;
-            font-size: 12px;
-            margin: 0;
-            padding: 0;
+            -webkit-appearance: none;
             width: 100%;
-            text-align: left;
-            color: inherit;
+            margin: 6px 0;
+            
+        }
+        
+
+        /** slider http://danielstern.ca/range.css/#/  */
+
+
+        input:focus {
             outline: none;
         }
 
+        input::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #e5e5e5;
+            border: none;
+        }
+
+        input::-webkit-slider-thumb {
+            border: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 8px;
+            background: #e5e5e5;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -6px;
+        }
+
+        :host(:focus-within) input::-webkit-slider-runnable-track, :host(:focus-within) input::-webkit-slider-thumb {
+            background: #007BFF;
+        }
+
+
+        /** slider */
         .border {
             position: absolute;
             width: 100%;
@@ -273,7 +303,7 @@ class FuroRangeInput extends FBP(LitElement) {
             white-space: nowrap;
             text-align: left;
         }
-        
+
         * {
             transition: all 150ms ease-out;
         }
@@ -301,6 +331,7 @@ class FuroRangeInput extends FBP(LitElement) {
         :host([error]) .errortext {
             display: block;
         }
+
         .errortext {
             color: var(--error, red);
             display: none;
@@ -335,7 +366,7 @@ class FuroRangeInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html` 
-      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled } 
+      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
        type="range" 
        
        ƒ-.value="--value" 

@@ -74,10 +74,11 @@ class FuroDocProperties extends FBP(LitElement) {
         }
 
         h2 {
-            font-weight: 400;
-            line-height: 28px;
-            font-size: 20px;
             margin-top: 48px;
+            font-size: 1.25rem;
+            font-weight: 500;
+            letter-spacing: 0.0125em;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.87);
         }
     `
   }
