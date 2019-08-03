@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>furo-time-input</title>
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+  <script type="module" src="../furo-catalog.js"></script>
+</head>
+<body>
+
+
+<test-fixture id="Basic">
+  <template>
+    <furo-time-input min="12:00" max="14:00" step="60"></furo-time-input>
+  </template>
+</test-fixture>
+
+<script type="module">
+
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+
+
+  describe('furo-time-input', () => {
+    let timeInput;
+    let inputField;
+    beforeEach(async () => {
+      timeInput = fixture('Basic');
+      await timeInput.updateComplete;
+      inputField = timeInput.shadowRoot.querySelector("input");
+
+    });
+
+
+    it('a11y', () => {
+      return axeReport(fixture('Basic'));
+    });
+
+
+
+    it('should have a min on the inputField', (done) => {
+      assert.equal(inputField.getAttribute("min"),"12:00");
+      done();
+    });
+    it('should have a max on the inputField', (done) => {
+      assert.equal(inputField.getAttribute("max"),"14:00");
+      done();
+    });
+
+    it('should have a step on the inputField', (done) => {
+      assert.equal(inputField.getAttribute("step"), 60);
+      done();
+    });
+
+
+    it('should not accept string  value with setValue', (done) => {
+      timeInput.setValue("Test");
+      assert.equal(timeInput.value,"Test");
+      assert.equal(inputField.value,"");
+      done();
+    });
+
+    it('should be disablealble with method disable', (done) => {
+      timeInput.disable();
+      setTimeout(()=>{
+        assert.equal(inputField.getAttribute("readonly"),"");
+        assert.equal(timeInput.readonly,true);
+        done();
+      },5)
+    });
+
+    it('should be enablealble with method enable', (done) => {
+      timeInput.readonly = true;
+      timeInput.enable();
+      setTimeout(()=>{
+        assert.equal(inputField.getAttribute("readonly"),null);
+        assert.equal(timeInput.readonly,false);
+        done();
+      },5)
+    });
+
+    it('should not accept numeric value with setValue', (done) => {
+      timeInput.setValue(123);
+      assert.equal(timeInput.value,123);
+      assert.equal(inputField.value,"");
+      done();
+    });
+
+    it('should  accept time value with setValue', (done) => {
+      timeInput.setValue("12:14");
+      assert.equal(inputField.value,"12:14");
+      assert.equal(timeInput.value,"12:14");
+      done();
+    });
+
+    it('should be focusable', (done) => {
+      timeInput.focus();
+      assert.equal(timeInput,document.activeElement);
+      done();
+    });
+    it('should emit value-changed on every keystroke', (done) => {
+
+      timeInput.addEventListener("value-changed",e=>{
+        assert.equal(timeInput.value,1337);
+        done();
+      });
+      timeInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:1337, validity:{}}]}});
+
+    });
+
+    it('instantiating furo-time-input with default properties works', () => {
+
+      assert.equal(timeInput.tagName.toLowerCase(), 'furo-time-input');
+
+    });
+
+
+  });
+
+
+</script>
+
+</body>
+</html>
