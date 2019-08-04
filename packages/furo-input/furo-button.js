@@ -130,7 +130,7 @@ class FuroButton extends FBP(LitElement) {
         }
         
         * {
-            transition: all 200ms ease-in;
+            transition: all 100ms ease-in;
         }
 
         button {
