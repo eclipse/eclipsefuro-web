@@ -13,6 +13,7 @@ import "@furo/layout/furo-ripple";
  * @summary a button
  * @customElement
  * @demo demo-furo-button basic usage
+ * @demo demo-furo-input-together Different input elements together
  * @appliesMixin FBP
  */
 class FuroButton extends FBP(LitElement) {
@@ -29,7 +30,7 @@ class FuroButton extends FBP(LitElement) {
    * @param e
    */
   focus(e) {
-    this._FBPTriggerWire("--focus", e);
+    this._FBPTriggerWire("--focus");
   }
 
 

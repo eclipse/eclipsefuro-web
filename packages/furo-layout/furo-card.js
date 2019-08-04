@@ -47,6 +47,7 @@ class FuroCard extends FBP(LitElement) {
             bottom: 0;
             left: 0;
             right:0;
+            border-top: 1px solid var(--separator);
         }
 
     `

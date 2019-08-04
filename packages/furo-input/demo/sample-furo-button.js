@@ -57,13 +57,13 @@ class SampleFuroButton extends FBP(LitElement) {
             <tr>
               <td>Default</td>
               <td>
-                <furo-button autofocus label="default"></furo-button>
+                <furo-button autofocus label="default" ƒ-focus="--primaryraisedClicked" @-click="--defautlClicked"></furo-button>
               </td>
               <td>
                 <furo-button disabled label="raised"></furo-button>
               </td>
               <td>
-                <furo-button raised label="other"></furo-button>
+                <furo-button raised label="other" ƒ-focus="--defautlClicked" @-click="--raisedClicked"></furo-button>
               </td>
               <td>
                 <furo-button disabled raised label="raised"></furo-button>
@@ -73,13 +73,13 @@ class SampleFuroButton extends FBP(LitElement) {
             <tr>
               <td>primary</td>
               <td>
-                <furo-button primary label="primary"></furo-button>
+                <furo-button primary label="primary" ƒ-focus="--raisedClicked" @-click="--primaryClicked"></furo-button>
               </td>
               <td>
                 <furo-button primary disabled label="primary"></furo-button>
               </td>
               <td>
-                <furo-button primary raised label="primary"></furo-button>
+                <furo-button primary raised label="primary" ƒ-focus="--primaryClicked" @-click="--primaryraisedClicked"></furo-button>
               </td>
               <td>
                 <furo-button primary disabled raised label="primary"></furo-button>

@@ -14,6 +14,7 @@ import {FBP} from "@furo/fbp";
  * @customElement
  * @polymer
  * @demo demo-furo-date-input Input sample
+ * @demo demo-furo-input-together Different input elements together
  * @appliesMixin FBP
  */
 class FuroDateInput extends FBP(LitElement) {

@@ -11,3 +11,4 @@ import "./demo-furo-search-input";
 import "./demo-furo-textarea-input"
 import "./demo-furo-time-input";
 import "./demo-furo-date-input";
+import "./demo-furo-input-together";

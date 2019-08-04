@@ -11,6 +11,7 @@ import {FBP} from "@furo/fbp";
  * @customElement
  * @polymer
  * @demo demo-furo-text-input Input samples
+ * @demo demo-furo-input-together Different input elements together
  * @appliesMixin FBP
  */
 class FuroTextInput extends FBP(LitElement) {
