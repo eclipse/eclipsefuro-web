@@ -29,7 +29,7 @@ class SampleFuroButton extends FBP(LitElement) {
         }
         
         furo-demo-snippet {
-            height: 130px;
+            height: 330px;
         }
 
     `
@@ -46,10 +46,46 @@ class SampleFuroButton extends FBP(LitElement) {
       <h3>Sample</h3>
       <furo-demo-snippet>
         <template>
-          <furo-button label="Label"></furo-button>
-          <furo-button label="Disabled" disabled></furo-button>
-          <furo-button label="Danger" danger></furo-button>
-          <furo-button label="Autofocus" autofocus></furo-button>
+          <table>
+            <tr>
+              <th></th>
+              <th>Default</th>
+              <th>disabled</th>
+              <th>raised</th>
+              <th>raised disabled</th>
+              </th>
+            <tr>
+              <td>Default</td>
+              <td>
+                <furo-button autofocus label="default"></furo-button>
+              </td>
+              <td>
+                <furo-button disabled label="raised"></furo-button>
+              </td>
+              <td>
+                <furo-button raised label="other"></furo-button>
+              </td>
+              <td>
+                <furo-button disabled raised label="raised"></furo-button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>primary</td>
+              <td>
+                <furo-button primary label="primary"></furo-button>
+              </td>
+              <td>
+                <furo-button primary disabled label="primary"></furo-button>
+              </td>
+              <td>
+                <furo-button primary raised label="primary"></furo-button>
+              </td>
+              <td>
+                <furo-button primary disabled raised label="primary"></furo-button>
+              </td>
+            </tr>
+          </table>
         </template>
       </furo-demo-snippet>
     `;

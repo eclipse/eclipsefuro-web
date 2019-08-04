@@ -55,46 +55,90 @@ class DemoFuroButton extends FBP(LitElement) {
               <tr>
               <th></th>
               <th>Default</th>
-              <th>Disabled</th>
-              <th>Raised</th>
-              <th>Raised Disabled</th>
+              <th>disabled</th>
+              <th>raised</th>
+              <th>raised disabled</th>
               </th>
               <tr>
                 <td>Default</td>
                 <td>
-                  <furo-button label="other"></furo-button>
+                  <furo-button autofocus label="default"></furo-button>
                 </td>
                 <td>
-                  <furo-button raised label="raised"></furo-button>
+                  <furo-button disabled label="raised"></furo-button>
                 </td> 
                 <td>
-                  <furo-button disabled label="other"></furo-button>
+                  <furo-button raised label="other"></furo-button>
                 </td>
                 <td>
                   <furo-button disabled raised label="raised"></furo-button>
                 </td>
               </tr>
-              
+             
+               <tr>
+                <td>primary</td>
+                <td>
+                  <furo-button primary label="primary"></furo-button>
+                </td>
+                <td>
+                  <furo-button primary disabled label="primary"></furo-button>
+                </td> 
+                <td>
+                  <furo-button primary raised label="primary"></furo-button>
+                </td>
+                <td>
+                  <furo-button primary disabled raised label="primary"></furo-button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>secondary</td>
+                <td>
+                  <furo-button secondary label="secondary"></furo-button>
+                </td>
+                <td>
+                  <furo-button secondary disabled label="secondary"></furo-button>
+                </td>
+                <td>
+                  <furo-button secondary raised  label="secondary"></furo-button>
+                </td>
+                <td>
+                  <furo-button secondary disabled raised label="secondary"></furo-button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>accent</td>
+                <td>
+                  <furo-button accent label="accent"></furo-button>
+                </td>
+                <td>
+                  <furo-button accent disabled label="accent"></furo-button>
+                </td>
+                <td>
+                  <furo-button accent raised label="accent"></furo-button>
+                </td>
+                <td>
+                  <furo-button accent disabled raised label="accent"></furo-button>
+                </td>
+              </tr>
+              <tr>
+                <td>danger</td>
+                <td>
+                  <furo-button danger label="danger"></furo-button>
+                </td>
+                <td>
+                  <furo-button danger disabled label="danger"></furo-button>
+                </td>
+                <td>
+                  <furo-button danger raised label="danger"></furo-button>
+                </td>
+                <td>
+                  <furo-button danger disabled raised label="danger"></furo-button>
+                </td>
+              </tr>
             </table>
-            <furo-button></furo-button>
-
-
-            <furo-button disabled label="disabled"></furo-button>
-            <furo-button danger label="danger"></furo-button>
-            <furo-button accent label="Accent"></furo-button>
-            <furo-button primary label="Primary"></furo-button>
-            <furo-button secondary label="Secondary"></furo-button>
-
-            <hr>
-
-
-            <furo-button raised label="autofocus" autofocus></furo-button>
-            <furo-button raised label="other"></furo-button>
-            <furo-button raised disabled label="disabled"></furo-button>
-            <furo-button raised danger label="Danger"></furo-button>
-            <furo-button raised accent label="Accent"></furo-button>
-            <furo-button raised primary label="Primary"></furo-button>
-            <furo-button raised secondary label="Secondary"></furo-button>
+           
           </template>
         </furo-demo-snippet>
 

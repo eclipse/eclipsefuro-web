@@ -124,10 +124,10 @@ class FuroButton extends FBP(LitElement) {
         }
 
 
-        button[disabled]  {
+        :host([disabled]) button[disabled]  {
             color: var(--disabled,#eeeeee);
         }
-        :host([raised]) button[disabled]  {
+        :host([raised][disabled]) button[disabled]  {
             background-color: var(--disabled,#eeeeee);
             color: var(--on-disabled,#333333);
         }
