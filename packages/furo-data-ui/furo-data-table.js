@@ -138,7 +138,7 @@ class FuroDataTable extends FBP(LitElement) {
 
             th {
                 background-color: var(--on-primary, transparent);
-                color: var(--primary-color, #035CA1);
+                color: var(--primary, #035CA1);
                 white-space: nowrap;
                 font-weight: bold;
             }
@@ -209,7 +209,7 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             tbody tr[selected=true] .ri:before {
-                background-color: var(--primary-color, #4d90f0);
+                background-color: var(--primary, #4d90f0);
                 content: '';
                 display: block;
                 height: 100%;

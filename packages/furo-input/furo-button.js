@@ -109,44 +109,87 @@ class FuroButton extends FBP(LitElement) {
         }
 
         button {
+            font-family: "Roboto", "Noto", sans-serif;
             position: relative;
             border-radius: 2px;
             width: 100%;
             cursor: pointer;
-            background-color: var(--primary-color);
             color: var(--on-primary);
             padding: 12px 24px;
             border: none;
             text-transform: uppercase;
             font-size: 14px;
             box-sizing: border-box;
+            outline: none;
         }
 
-        button:focus:active {
-            box-shadow:none;
+
+        button[disabled]  {
+            color: var(--disabled,#eeeeee);
         }
-        button:focus {
-            outline: none;
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        :host([raised]) button[disabled]  {
+            background-color: var(--disabled,#eeeeee);
+            color: var(--on-disabled,#333333);
+        }
+
+        :host([primary]) button{
+            color: var(--primary);
+        }
+        :host([raised][primary]) button{
+            background-color: var(--primary);
+            color: var(--on-primary);
+        }
+      
+        
+        :host([accent]) button{
+            color: var(--accent);
+        }
+        :host([raised][accent]) button{
+            background-color: var(--accent);
+            color: var(--on-accent);
+        }
+        
+        :host([secondary]) button{
+            color: var(--secondary);
+        }
+        :host([raised][secondary]) button{
             background-color: var(--secondary);
             color: var(--on-secondary);
         }
 
-        :host([danger]) button:focus {
+        :host([danger]) button {
+            color: var(--danger, #ff0000);
+        }
+        :host([raised][danger]) button {
+            background-color: var(--danger, #ff0000);
+            color: var(--on-danger, #FFFFFF);
+        }
+
+        :host([raised][danger]) button:focus {
             background-color: var(--on-danger, #FFFFFF);
             color: var(--danger, #ff0000);
         }
 
-        button[disabled]  {
-            background-color: var(--disabled,#eeeeee);
-            color: var(--on-disabled,#333333);
-            
-        }
 
-        :host([danger]) button {
-            background-color: var(--danger, #ff0000);
-            color: var(--on-danger, #FFFFFF);
+        button:active {
+            box-shadow:none;
         }
+        button:focus{
+            font-weight: 700;
+        }
+        
+        :host([raised]) button, :host([raised]) button:active{
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        }
+        
+        :host([raised]) button:focus {
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
+        }
+        
+
+
+      
+
 
     `
   }

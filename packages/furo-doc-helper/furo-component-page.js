@@ -25,13 +25,6 @@ class FuroComponentPage extends FBP(LitElement) {
    * @return {CSSResult}
    */
   static get styles() {
-    // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-       
-    `
-  }
-
-  static get styles() {
 
     let theme = Theme.getThemeForComponent(this.name);
     if (theme) {

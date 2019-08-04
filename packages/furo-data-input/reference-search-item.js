@@ -59,7 +59,7 @@ class ReferenceSearchItem extends FBP(LitElement) {
         }
 
         div {
-            border-bottom: 1px solid var(--primary-color);
+            border-bottom: 1px solid var(--primary);
             padding: 8px;
             cursor: pointer;
             box-sizing: border-box;

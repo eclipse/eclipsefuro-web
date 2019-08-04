@@ -81,7 +81,7 @@ class ViewHome extends FBP(LitElement) {
             display: flex;
             align-content: start;
             font-weight: 500;
-            color: var(--on-background);
+            color:var(--accent);
         }
 
         h1 {
@@ -127,6 +127,9 @@ class ViewHome extends FBP(LitElement) {
         }
         h2.with-footnote{
             margin-bottom: 0;
+        }
+        a{
+            color:var(--accent);
         }
     `
   }

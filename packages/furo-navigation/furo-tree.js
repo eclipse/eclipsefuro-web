@@ -370,7 +370,7 @@ class FuroTree extends FBP(LitElement) {
         }
 
         :host(:focus-within) td > *[selected] {
-            background: var(--primary-color, #429cff);
+            background: var(--primary, #429cff);
             color: var(--on-primary, white);
         }
 
@@ -385,7 +385,7 @@ class FuroTree extends FBP(LitElement) {
 
 
         :host(:focus-within) td > *[selected]:hover {
-            background: var(--primary-color, #57a9ff);
+            background: var(--primary, #57a9ff);
         }
 
 
@@ -395,7 +395,7 @@ class FuroTree extends FBP(LitElement) {
             left: var(--spacing-xs, 8px);
             bottom: var(--spacing-xs, 8px);
             width: inherit;
-            border: 1px solid var(--primary-color, #57a9ff);
+            border: 1px solid var(--primary, #57a9ff);
             padding: 2px;
             font-size: 11px;
             z-index: 2;
@@ -404,13 +404,13 @@ class FuroTree extends FBP(LitElement) {
 
         @keyframes border-pulsate {
             0% {
-                border-color: var(--primary-color, #57a9ff);
+                border-color: var(--primary, #57a9ff);
             }
             50% {
                 border-color: var(--surface, #999999);
             }
             100% {
-                border-color: var(--primary-color, #57a9ff);
+                border-color: var(--primary, #57a9ff);
             }
         }
 

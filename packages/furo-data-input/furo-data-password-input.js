@@ -86,7 +86,7 @@ class FuroDataPasswordInput extends FBP(FuroInputBase(LitElement)) {
          }
 
         label[float="true"] {
-            color: var(--primary-color, #3f51b5);
+            color: var(--primary, #3f51b5);
             font-size: 10px;
             top: -4px;
             visibility: visible;
@@ -116,7 +116,7 @@ class FuroDataPasswordInput extends FBP(FuroInputBase(LitElement)) {
         }
 
         :host(:focus-within) .border {
-            border-color: var(--primary-color, #3f51b5);
+            border-color: var(--primary, #3f51b5);
             border-width: 1px;
         }
     `

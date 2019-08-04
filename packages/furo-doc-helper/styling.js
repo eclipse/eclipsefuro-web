@@ -7,9 +7,10 @@ export class Styling {
         return css`
             :host {
                 /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
-                --primary: #ececec;
+                --primary: #039be5;
+                --accent: #ffc247;
                 --primary-variant: #f4f4f4;
-                --secondary: #f4f4f4;
+                --secondary: #ffeb3b;
                 --secondary-variant: #edeeed;
                 --background: #ffffff;
                 --surface: #eeeeee;
@@ -21,10 +22,11 @@ export class Styling {
                 --llm-variant-color: #f0f1f4;
                 --disabled-color: #B4B5B4;
                 --header-color: #212121;
-
+                --danger: #FA0202;
+                --on-danger: #FAFAFA;
                 --on-primary: #212121;
                 --on-primary-variant: #585858;
-                --on-secondary: #212121;
+                --on-secondary: #000000;
                 --on-background: #212121;
                 --on-surface: #212121;
                 --on-header: #ffffff;

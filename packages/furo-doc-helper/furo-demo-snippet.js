@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import {Styling} from "./styling";
 import "@furo/layout"
 import "@furo/util/furo-markdown"
 import "./graph/furo-show-flow"
@@ -106,80 +107,87 @@ class FuroDemoSnippet extends FBP(LitElement) {
    * @return {CSSResult}
    */
   static get styles() {
-    // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: block;
-            height: 300px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
+    let theme = Theme.getThemeForComponent(this.name);
+    if (theme) {
+      return [theme, Styling.theme]
+    } else {
+      // language=CSS
+      return [css`
+          :host {
+              display: block;
+              height: 300px;
+              box-sizing: border-box;
+              overflow: hidden;
+          }
 
-        :host([hidden]) {
-            display: none;
-        }
+          :host([hidden]) {
+              display: none;
+          }
 
-        furo-markdown {
-            height: 100%;
-            overflow: auto;
-        }
+          furo-markdown {
+              height: 100%;
+              overflow: auto;
+          }
 
-        #demo, #flow {
-            height: 100%;
-        }
+          #demo, #flow {
+              height: 100%;
+          }
 
-        :host(:not([demo])) #demo {
-            display: none;
-        }
+          :host(:not([demo])) #demo {
+              display: none;
+          }
 
-        :host(:not([flow])) #flow {
-            display: none;
-        }
+          :host(:not([flow])) #flow {
+              display: none;
+          }
 
-        :host(:not([source])) > furo-markdown {
-            display: none;
-        }
+          :host(:not([source])) > furo-markdown {
+              display: none;
+          }
 
-        div.flexbody {
-            height: inherit;
-            overflow: hidden;
-        }
+          div.flexbody {
+              height: inherit;
+              overflow: hidden;
+          }
 
-        span {
-            cursor: pointer;
-        }
+          span {
+              cursor: pointer;
+          }
 
-        .nav {
-            background-color: var(--demo-header);
-            color: var(--on-primary);
-            margin-bottom: 24px;
-        }
+          .nav {
+              background-color: var(--demo-header);
+              color: var(--on-primary);
+              margin-bottom: 24px;
+          }
 
-        .nav span {
-            display: inline-block;
-            border-bottom: 1px solid var(--demo-header, white);
-        }
+          .nav span {
+              display: inline-block;
+              border-bottom: 1px solid var(--demo-header, white);
+          }
 
-        :host([flow]) .flow {
-            font-weight: 800;
-            border-bottom: 1px solid var(--on-primary);
-        }
+          :host([flow]) .flow {
+              font-weight: 800;
+              border-bottom: 1px solid var(--on-primary);
+          }
 
-        :host([demo]) .demo {
-            font-weight: 800;
-            border-bottom: 1px solid var(--on-primary);
-        }
+          :host([demo]) .demo {
+              font-weight: 800;
+              border-bottom: 1px solid var(--on-primary);
+          }
 
-        :host([no-demo]) .demo {
-            display: none;
-        }
+          :host([no-demo]) .demo {
+              display: none;
+          }
 
-        :host([source]) .source {
-            font-weight: 800;
-            border-bottom: 1px solid var(--on-primary);
-        }
+          :host([source]) .source {
+              font-weight: 800;
+              border-bottom: 1px solid var(--on-primary);
+          }
 
-    `
+      `, Styling.theme]
+    }
+
+
   }
 
 

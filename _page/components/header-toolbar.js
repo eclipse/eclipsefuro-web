@@ -84,7 +84,7 @@ class HeaderToolbar extends FBP(LitElement) {
         :host([selected="api"]) a[name="api"],
         :host([selected="guide"]) a[name="guide"]
         {
-            border-bottom: 2px solid var(--on-secondary);
+            border-bottom: 2px solid var(--accent);
         }
        
 

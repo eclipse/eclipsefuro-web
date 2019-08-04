@@ -271,7 +271,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
         }
 
         furo-icon:focus {
-            color: var(--primary-color, #CDCDCD)
+            color: var(--primary, #CDCDCD)
         }
 
     `

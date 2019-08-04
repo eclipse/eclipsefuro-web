@@ -10,7 +10,7 @@ export class Styling {
                 --primary: #ececec;
                 --accent: #3f83e3;
                 --primary-variant: #f4f4f4;
-                --secondary: #f4f4f4;
+                --secondary: #ffeb3b;
                 --secondary-variant: #edeeed;
                 --background: #ffffff;
                 --surface: #eeeeee;
@@ -26,7 +26,7 @@ export class Styling {
                 --on-danger: #FAFAFA;
                 --on-primary: #212121;
                 --on-primary-variant: #585858;
-                --on-secondary: #212121;
+                --on-secondary: #000000;
                 --on-background: #212121;
                 --on-surface: #212121;
                 --on-header: #ffffff;
