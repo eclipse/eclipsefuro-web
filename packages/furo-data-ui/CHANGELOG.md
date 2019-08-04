@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.3.1...@furo/data-ui@0.3.2) (2019-08-04)
+
+
+### Bug Fixes
+
+* stylevar --primary-color is --primary ([3d791c4](https://github.com/veith/FuroBaseComponents/commit/3d791c4))
+
+
+
+
+
 ## [0.3.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.3.0...@furo/data-ui@0.3.1) (2019-08-03)
 
 **Note:** Version bump only for package @furo/data-ui

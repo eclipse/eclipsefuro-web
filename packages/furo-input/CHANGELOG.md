@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.46.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.45.0...@furo/input@0.46.0) (2019-08-04)
+
+
+### Bug Fixes
+
+* stylevar --primary-color is --primary ([3d791c4](https://github.com/veith/FuroBaseComponents/commit/3d791c4))
+
+
+### Features
+
+* furo-button with raised, disabled, primary, danger, secondary, accent ([f7914e0](https://github.com/veith/FuroBaseComponents/commit/f7914e0))
+* furo-button with raised, disabled, primary, danger, secondary, accent ([e25de86](https://github.com/veith/FuroBaseComponents/commit/e25de86))
+
+
+
+
+
 # [0.45.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.44.0...@furo/input@0.45.0) (2019-08-03)
 
 

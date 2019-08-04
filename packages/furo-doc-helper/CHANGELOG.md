@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.7.0...@furo/doc-helper@0.7.1) (2019-08-04)
+
+
+### Bug Fixes
+
+* stylevar --primary-color is --primary ([3d791c4](https://github.com/veith/FuroBaseComponents/commit/3d791c4))
+
+
+
+
+
 # [0.7.0](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.6.1...@furo/doc-helper@0.7.0) (2019-08-03)
 
 
