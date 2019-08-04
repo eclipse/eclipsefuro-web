@@ -79,6 +79,31 @@ class FuroButton extends FBP(LitElement) {
         type: Boolean,
         reflect: true
       }
+      ,
+      /**
+       * Give the button a "box"
+       */
+      raised: {
+        type: Boolean
+      },
+      /**
+       * Sets the color to the primary color (--primary)
+       */
+      primary: {
+        type: Boolean
+      },
+      /**
+       * Sets the color to the secondary color (--secondary)
+       */
+      secondary: {
+        type: Boolean
+      },
+      /**
+       * Sets the color to the accent color (--accent)
+       */
+      accent: {
+        type: Boolean
+      }
     };
   }
 
@@ -186,10 +211,7 @@ class FuroButton extends FBP(LitElement) {
             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
         }
         
-
-
-      
-
+        
 
     `
   }
