@@ -29,7 +29,7 @@ class SampleFuroButton extends FBP(LitElement) {
         }
         
         furo-demo-snippet {
-            height: 330px;
+            height: 200px;
         }
 
     `
