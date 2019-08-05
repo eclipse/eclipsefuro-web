@@ -1,6 +1,6 @@
 {
     "suites": [
-        "/test/index.html"
+        "test/index.html"
     ],
     "root": "./",
     "npm": true,

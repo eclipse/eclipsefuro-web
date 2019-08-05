@@ -18,8 +18,6 @@ export class Styling {
                 --separator: #c3c4c3;
                 --error: #C51162;
                 --success: #129991;
-                --llm-color: #ffffff;
-                --llm-variant-color: #f0f1f4;
                 --disabled-color: #B4B5B4;
                 --header-color: #212121;
                 --danger: #FA0202;

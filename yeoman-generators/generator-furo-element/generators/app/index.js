@@ -45,7 +45,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const fileList = ["polymer.json", "README.md", ".gitignore", ".npmignore"];
+    const fileList = ["polymer.json", ".gitignore", ".npmignore", "wct.conf.json"];
     fileList.forEach((fileName) => {
       this.fs.copy(
         this.templatePath(fileName),
@@ -53,7 +53,7 @@ module.exports = class extends Generator {
       );
     });
 
-    const tplList = ["index.html","furo-catalog.js", "package.json","demo/demos.js", "test/index.html"];
+    const tplList = ["index.html","furo-catalog.js","README.md",  "package.json","demo/demos.js", "test/index.html"];
 
     tplList.forEach((tpl)=>{
       this.fs.copyTpl(
