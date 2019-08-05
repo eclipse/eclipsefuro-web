@@ -45,11 +45,16 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const fileList = ["polymer.json", ".gitignore", ".npmignore", "wct.conf.json"];
+
+    const fileList = ["polymer.json", "_.gitignore", "_.npmignore", "wct.conf.json"];
     fileList.forEach((fileName) => {
+      let targetFile = fileName;
+      if(fileName.startsWith("_")){
+        targetFile = fileName.substr(1);
+      }
       this.fs.copy(
         this.templatePath(fileName),
-        this.destinationPath(fileName)
+        this.destinationPath(targetFile)
       );
     });
 
