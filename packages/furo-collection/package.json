@@ -1,22 +1,22 @@
 {
   "name": "@furo/collection",
-  "version": "0.20.3",
+  "version": "0.20.4",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
     "@furo/config": "^0.16.26",
-    "@furo/data": "^0.48.1",
-    "@furo/data-input": "^0.41.2",
-    "@furo/data-ui": "^0.3.2",
-    "@furo/data-util": "^0.0.23",
-    "@furo/doc-helper": "^0.7.2",
+    "@furo/data": "^0.48.2",
+    "@furo/data-input": "^0.41.3",
+    "@furo/data-ui": "^0.4.0",
+    "@furo/data-util": "^0.0.24",
+    "@furo/doc-helper": "^0.8.0",
     "@furo/fbp": "^4.25.1",
-    "@furo/form": "^0.21.4",
-    "@furo/framework": "^0.8.0",
-    "@furo/input": "^0.46.1",
-    "@furo/layout": "^0.30.2",
-    "@furo/navigation": "^0.29.4",
-    "@furo/route": "^0.15.1"
+    "@furo/form": "^0.21.5",
+    "@furo/framework": "^0.9.0",
+    "@furo/input": "^0.47.0",
+    "@furo/layout": "^0.30.3",
+    "@furo/navigation": "^0.29.5",
+    "@furo/route": "^0.15.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

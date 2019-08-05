@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.47.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.46.1...@furo/input@0.47.0) (2019-08-05)
+
+
+### Features
+
+* render flow ([c669f75](https://github.com/veith/FuroBaseComponents/commit/c669f75))
+
+
+
+
+
 ## [0.46.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.46.0...@furo/input@0.46.1) (2019-08-04)
 
 

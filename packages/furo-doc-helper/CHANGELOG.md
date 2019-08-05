@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.7.2...@furo/doc-helper@0.8.0) (2019-08-05)
+
+
+### Bug Fixes
+
+* Readme ([0f95f49](https://github.com/veith/FuroBaseComponents/commit/0f95f49))
+
+
+### Features
+
+* render flow ([c669f75](https://github.com/veith/FuroBaseComponents/commit/c669f75))
+
+
+
+
+
 ## [0.7.2](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.7.1...@furo/doc-helper@0.7.2) (2019-08-04)
 
 

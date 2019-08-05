@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.3.2...@furo/data-ui@0.4.0) (2019-08-05)
+
+
+### Features
+
+* render flow ([c669f75](https://github.com/veith/FuroBaseComponents/commit/c669f75))
+
+
+
+
+
 ## [0.3.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.3.1...@furo/data-ui@0.3.2) (2019-08-04)
 
 
