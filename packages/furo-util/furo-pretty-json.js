@@ -28,7 +28,7 @@ class FuroPrettyJson extends FBP(LitElement) {
             :host {
                 display: block;
                 font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-                margin: var(--gap-size);
+                margin: var(--spacing);
                 line-height: 1.5;
             }
 

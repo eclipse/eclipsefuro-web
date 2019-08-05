@@ -1103,7 +1103,7 @@ class FuroDataTable extends FBP(LitElement) {
                 width: 100%;
                 border-spacing: 0;
                 padding: 0;
-                margin-bottom: var(--gap-size, 8px);
+                margin-bottom: var(--spacing, 8px);
             }
 &nbsp;
             tbody, thead {
@@ -1135,7 +1135,7 @@ class FuroDataTable extends FBP(LitElement) {
 &nbsp;
             td, th {
                 padding-left: 0;
-                margin-right: var(--gap-size, 8px);
+                margin-right: var(--spacing, 8px);
                 -webkit-font-smoothing: antialiased;
                 font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
                 font-size: .875rem;
@@ -1172,7 +1172,7 @@ class FuroDataTable extends FBP(LitElement) {
 &nbsp;
             .fx {
                 display: block;
-                width: var(--gap-size, 12px);
+                width: var(--spacing, 12px);
                 outline: none;
             }
 &nbsp;
@@ -1335,7 +1335,7 @@ class FuroDataTable extends FBP(LitElement) {
                 &lt;/tr&gt;
                 &lt;/thead&gt;
                 &lt;tbody&gt;
-                
+
                 &lt;template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal"&gt;
                     &lt;tr tabindex="0" ƒ-focus="--entity" draggable="true"&gt;
 &nbsp;
@@ -1343,15 +1343,15 @@ class FuroDataTable extends FBP(LitElement) {
                         &lt;td class="fx"&gt;
                             &lt;div&gt;&lt;input type="checkbox"&gt;&lt;/div&gt;
                         &lt;/td&gt;
-                        
+
                         ${tableDetails(this.cols)}
-                        
+
                         &lt;span hidden&gt;&lt;/span&gt;
                         &lt;entity-object type="${this._type}" ƒ-inject-raw="--internal(*.item)"
                                        @-object-ready="--entity"&gt;&lt;/entity-object&gt;
 &nbsp;
                     &lt;/tr&gt;
-                        
+
                 &lt;/template&gt;
                 &lt;/tbody&gt;
             &lt;/table&gt;`;

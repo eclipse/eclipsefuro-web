@@ -7,6 +7,23 @@ import {FBP} from "@furo/fbp";
  *
  *  <sample-furo-text-input></sample-furo-text-input>
  *
+ * ### Styling
+ * The following custom properties and mixins are available for styling:
+ *
+ * Custom property | Description | Default  | Fallback
+ * ----------------|-------------|----------|----------
+ * `--input-hint-color` | Color of hint text | `--on-surface` | #333333
+ * `--input-label-color` | Color of label in field| `--disabled,` | #333333
+ * `--input-label-float-color` | Color of label when floating | `--on-surface` | #333333
+ * `--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5
+ * `--input-hint-color` | Color of hint text   | `--on-surface` | #333333
+ * `--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333
+ * `--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red
+ * `--input-error-text-color` | Color of error text | `--error` | red
+ * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
+ * `--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red
+ *
+ *
  * @summary Text input field
  * @customElement
  * @polymer
@@ -213,6 +230,7 @@ class FuroTextInput extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
+        /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
             position: relative;
@@ -223,6 +241,7 @@ class FuroTextInput extends FBP(LitElement) {
             height: 28px;
             font-family: "Roboto", "Noto", sans-serif;
             line-height: 1.5;
+            
         }
 
         :host([hidden]) {
@@ -232,7 +251,7 @@ class FuroTextInput extends FBP(LitElement) {
 
         input {
             border: none;
-            background: 0 0;
+            background: none;
             font-size: 12px;
             margin: 0;
             padding: 0;
@@ -248,13 +267,13 @@ class FuroTextInput extends FBP(LitElement) {
             height: 1px;
             top: 28px;
             border: none;
-            border-bottom: 1px solid rgba(0, 0, 0, .12);
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
         label {
             position: absolute;
             top: 8px;
-            color: rgba(0, 0, 0, .26);
+            color: var(--input-label-color, var(--disabled, #333333));
             font-size: 12px;
             pointer-events: none;
             display: block;
@@ -265,7 +284,7 @@ class FuroTextInput extends FBP(LitElement) {
         }
 
         label[float="true"] {
-            color: var(--on-background, #333333);
+            color: var(--input-float-label-color, var(--on-surface, #333333));
             font-size: 10px;
             top: -4px;
             visibility: visible;
@@ -285,13 +304,13 @@ class FuroTextInput extends FBP(LitElement) {
         }
 
         :host(:focus-within) .hint {
-            color: var(--app-hint-color);
+            color: var(--input-hint-color, var(--on-surface, #333333));
             transition: all 550ms ease-in;
         }
 
         
         :host([error]) .border {
-            border-color: var(--error, red);
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
             border-width: 1px;
         }
 
@@ -299,7 +318,7 @@ class FuroTextInput extends FBP(LitElement) {
             display: block;
         }
         .errortext {
-            color: var(--error, red);
+            color: var(--input-error-text-color, var(--error, red));
             display: none;
         }
 
@@ -309,15 +328,15 @@ class FuroTextInput extends FBP(LitElement) {
         }
         
         :host(:focus-within) label[float="true"] {
-            color: var(--accent, #333333);
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
         
         :host(:focus-within) .border {
-            border-color: var(--accent, #3f51b5);
+            color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
             border-width: 1px;
         }
         :host([error]:focus-within) .border {
-            border-color: var(--error, red);
+            border-color: var(--input-active-error-activation-indicator-color, var(--error, red));
             border-width: 1px;
         }
     `

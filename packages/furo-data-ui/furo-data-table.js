@@ -129,7 +129,7 @@ class FuroDataTable extends FBP(LitElement) {
                 width: 100%;
                 border-spacing: 0;
                 padding: 0;
-                margin-bottom: var(--gap-size, 8px);
+                margin-bottom: var(--spacing, 8px);
             }
 
             tbody, thead {
@@ -161,7 +161,7 @@ class FuroDataTable extends FBP(LitElement) {
 
             td, th {
                 padding-left: 0;
-                margin-right: var(--gap-size, 8px);
+                margin-right: var(--spacing, 8px);
                 -webkit-font-smoothing: antialiased;
                 font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
                 font-size: .875rem;
@@ -198,7 +198,7 @@ class FuroDataTable extends FBP(LitElement) {
 
             .fx {
                 display: block;
-                width: var(--gap-size, 12px);
+                width: var(--spacing, 12px);
                 outline: none;
             }
 

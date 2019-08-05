@@ -25,6 +25,11 @@ class FuroGraphRenderer extends FBP(LitElement) {
     var graphWidth = sizes.width;
     var graphHeight = sizes.height;
 
+    // remove old image on redraw
+    let i = this.shadowRoot.querySelector("svg");
+    if(i){
+      i.remove();
+    }
     var canvas = SVG().addTo(this.shadowRoot).panZoom({zoomMin: 0.1, zoomMax: 10, zoomFactor: 0.015});
 
     canvas.viewbox(0, 0, graphWidth, graphHeight);

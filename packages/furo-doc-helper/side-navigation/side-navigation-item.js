@@ -110,7 +110,7 @@ class SideNavigationItem extends FBP(LitElement) {
         }
 
         furo-icon {
-            margin-right: var(--gap-size);
+            margin-right: var(--spacing);
         }
     `
   }

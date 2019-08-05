@@ -180,7 +180,7 @@ class FuroShowFlow extends FBP(LitElement) {
   _recursiveParse(node, parentNode) {
 // todo switch to childNodes ignore TEXT_NODE and store COMMENT_NODE (8) to the next ELEMENT_NODE (1)
 // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
-    if (node.childNodes.length > 0) {
+    if (node.childNodes && node.childNodes.length > 0) {
       // start with empty
       let description = "";
       Array.from(node.childNodes).forEach((e, i) => {

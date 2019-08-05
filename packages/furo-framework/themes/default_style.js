@@ -5,58 +5,56 @@ export class Styling {
 
     // language=CSS
     return css`
-        :host {
-            /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
-            /* Develloper Theme */
+            :host {
+                
+                /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
+                /* https://material.io/design/material-theming/implementing-your-theme.html#color */
+                --primary: #ececec;
+                --primary-variant: #f4f4f4;
+                --on-primary: #212121;
 
-            /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
-            --primary: #ececec;
-            --accent: #3f83e3;
-            --primary-variant: #f4f4f4;
-            --secondary: #f4f4f4;
-            --secondary-variant: #edeeed;
-            --background: #ffffff;
-            --surface: #eeeeee;
-            --blockquote: #ffc247;
-            --separator: #c3c4c3;
-            --error: #C51162;
-            --success: #129991;
-            --llm-color: #ffffff;
-            --llm-variant-color: #f0f1f4;
-            --disabled-color: #B4B5B4;
-            --header-color: #212121;
+                --secondary: #ffeb3b;
+                --secondary-variant: #edeeed;
+                --on-secondary: #000000;
 
-            --on-primary: #212121;
-            --on-primary-variant: #585858;
-            --on-secondary: #212121;
-            --on-background: #212121;
-            --on-surface: #212121;
-            --on-header: #ffffff;
+                --accent: #3f83e3;
+                --on-accent: #e5e5e5;
 
-            --on-error: #ffffff;
-            --on-success: #202124;
-            --on-llm: #2c2c2c;
-            --gap-size: 24px;
+                --background: #ffffff;
+                --on-background: #212121;
 
-            /* Spacing */
-            --spacing-xxs: 4px;
-            --spacing-xs: 8px;
-            --spacing-s: 16px;
-            --spacing: 24px;
-            --spacing-m: 24px;
-            --spacing-l: 32px;
-            --spacing-xl: 48px;
-            --spacing-xxl: 96px;
+                --surface: #eeeeee;
+                --on-surface: #212121;
+                --separator: #c3c4c3;
 
-            /* Apply your theme here */
-            --demo-color-one: #6200ee;
-            --demo-color-two: #212121;
-            --demo-color-three: #eaddfd;
-            --on-demo: #fff;
-            --on-demo-three: #212121;
+                /* Input, Forms, Toast*/
+                --error: #C51162;
+                --on-error: #ffffff;
 
-            --border-radius: 4px;
-        }
-    `;
+                --danger: #FA0202;
+                --on-danger: #FAFAFA;
+                
+                --success: #129991;
+                --on-success: #202124;
+
+                --disabled-color: #B4B5B4;
+                
+                /* Spacing */
+                --spacing-xxs: 4px;
+                --spacing-xs: 8px;
+                --spacing-s: 16px;
+                --spacing: 24px;
+                --spacing-m: 24px;
+                --spacing-l: 32px;
+                --spacing-xl: 48px;
+                --spacing-xxl: 96px;
+                
+                
+                /* project specific */
+                --furo-input: #ffc247;
+
+            }
+
+        `;
   }
 }
