@@ -113,6 +113,8 @@ class FuroMarkdown extends (LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+            background-color: var(--surface, white);
+            color: var(--on-surface, black);
         }
 
         :host([hidden]) {

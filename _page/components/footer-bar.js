@@ -24,7 +24,8 @@ class FooterBar extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
-            background-color: var(--surface);
+            background-color: var(--surface, white);
+            color: var(--on-surface, black);
             height: 120px;
         }
 

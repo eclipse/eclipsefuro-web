@@ -27,6 +27,7 @@ class PanelDoc extends FBP(LitElement) {
         :host {
             display: block;
             height: 100%;
+            padding-top: var(--spacing);
             padding-left: var(--spacing-s);
             overflow: hidden;
             box-sizing: border-box;
