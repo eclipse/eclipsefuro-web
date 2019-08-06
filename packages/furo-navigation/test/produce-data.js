@@ -193,7 +193,7 @@ class ProduceData extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <button>make data</button>
+      <furo-button label="create tree data"></furo-button>
     `;
   }
 }

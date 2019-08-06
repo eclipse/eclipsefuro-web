@@ -12,6 +12,7 @@ import "@furo/layout/furo-ripple";
  *
  * @summary a button
  * @customElement
+ * @demo furo-button-playground Furo-button playground
  * @demo demo-furo-button basic usage
  * @demo demo-furo-input-together Different input elements together
  * @appliesMixin FBP
@@ -37,13 +38,14 @@ class FuroButton extends FBP(LitElement) {
   /**
    * Disables the button
    */
-  disable(){
+  disable() {
     this.disabled = true;
   }
+
   /**
    * Enables the button
    */
-  enable(){
+  enable() {
     this.disabled = false;
   }
 
@@ -57,6 +59,12 @@ class FuroButton extends FBP(LitElement) {
        * Beschriftung des buttons
        */
       label: {
+        type: String
+      },
+      /**
+       * Optional icon
+       */
+      icon: {
         type: String
       },
       /**
@@ -82,9 +90,22 @@ class FuroButton extends FBP(LitElement) {
       }
       ,
       /**
-       * Give the button a "box"
+       * Give the button a "box" with shadow
        */
       raised: {
+        type: Boolean
+      },
+      /**
+       * Give the button a "box"
+       */
+      unevelated: {
+        type: Boolean
+      },
+
+      /**
+       * Give the button a "border"
+       */
+      outline: {
         type: Boolean
       },
       /**
@@ -122,101 +143,203 @@ class FuroButton extends FBP(LitElement) {
             position: relative;
             font-size: 16px;
             box-sizing: border-box;
-            margin: 0 0 0 1px;
-            padding: 8px 0;
+
+            min-width: 64px;
+            height: 36px;
+
         }
-        
+
         :host([hidden]) {
             display: none;
         }
-        
+
         * {
             transition: all 100ms ease-in;
         }
 
         button {
             font-family: "Roboto", "Noto", sans-serif;
-            position: relative;
-            border-radius: 2px;
+            border-radius: 4px;
+            border: 1px solid transparent;
             width: 100%;
             cursor: pointer;
-            color: var(--on-primary);
-            padding: 12px 24px;
-            border: none;
+            color: var(--on-surface);
+            padding: 0 16px;
             text-transform: uppercase;
             font-size: 14px;
-            box-sizing: border-box;
             outline: none;
+            line-height: 34px;
+            background-color: transparent;
+            box-sizing: border-box;
         }
 
-
-        :host([disabled]) button[disabled]  {
-            color: var(--disabled,#eeeeee);
-        }
-        :host([raised][disabled]) button[disabled]  {
-            background-color: var(--disabled,#eeeeee);
-            color: var(--on-disabled,#333333);
+        :host([unevelated]) button {
+            background-color: var(--surface, #f7f7f7);
+            color: var(--on-surface, #333333);
         }
 
-        :host([primary]) button{
+        :host([disabled]) button[disabled], :host([disabled]) button[disabled]:hover {
+            color: var(--disabled, #eeeeee);
+        }
+
+        :host([raised][disabled]) button[disabled] ,:host([raised][disabled]) button[disabled]:hover,  :host([unevelated][disabled]) button[disabled] ,:host([unevelated][disabled]) button[disabled]:hover ,  :host([outline][disabled]) button[disabled] ,:host([outline][disabled]) button[disabled]:hover {
+            background-color: var(--disabled, #eeeeee);
+            color: var(--on-disabled, #333333);
+            border-color:var(--disabled, #eeeeee);
+        }
+
+        
+        :host([primary]) button {
             color: var(--primary);
         }
-        :host([raised][primary]) button{
+        :host([raised][primary]) button, :host([unevelated][primary]) button {
             background-color: var(--primary);
             color: var(--on-primary);
         }
-      
-        
-        :host([accent]) button{
+        :host([outline][primary]) button {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        :host([raised][primary]) button:focus, :host([unevelated][primary]) button:focus{
+            background-color: var(--primary-light);
+        }
+        :host([raised][primary]) button:hover, :host([unevelated][primary]) button:hover{
+            background-color: var(--primary-dark);
+        }
+        :host([primary]) button:focus{
+            background-color: var(--surface-light);
+        }
+        :host([primary]) button:hover{
+            background-color: var(--surface-dark);
+        }
+
+
+
+        :host([accent]) button {
             color: var(--accent);
         }
-        :host([raised][accent]) button{
+        :host([raised][accent]) button, :host([unevelated][accent]) button {
             background-color: var(--accent);
             color: var(--on-accent);
         }
-        
-        :host([secondary]) button{
+        :host([outline][accent]) button {
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+        :host([raised][accent]) button:focus, :host([unevelated][accent]) button:focus{
+            background-color: var(--accent-light);
+        }
+        :host([raised][accent]) button:hover, :host([unevelated][accent]) button:hover{
+            background-color: var(--accent-dark);
+        }
+        :host([accent]) button:focus{
+            background-color: var(--surface-light);
+        }
+        :host([accent]) button:hover{
+            background-color: var(--surface-dark);
+        }
+
+
+        :host([secondary]) button {
             color: var(--secondary);
         }
-        :host([raised][secondary]) button{
+        :host([raised][secondary]) button, :host([unevelated][secondary]) button {
             background-color: var(--secondary);
             color: var(--on-secondary);
         }
+        :host([outline][secondary]) button {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+        }
+        :host([raised][secondary]) button:focus, :host([unevelated][secondary]) button:focus{
+            background-color: var(--secondary-light);
+        }
+        :host([raised][secondary]) button:hover, :host([unevelated][secondary]) button:hover{
+            background-color: var(--secondary-dark);
+        }
+        :host([secondary]) button:focus{
+            background-color: var(--surface-light);
+        }
+        :host([secondary]) button:hover{
+            background-color: var(--surface-dark);
+        }
+
+        
+        
+
 
         :host([danger]) button {
             color: var(--danger, #ff0000);
         }
-        :host([raised][danger]) button {
+
+        :host([raised][danger]) button, :host([unevelated][danger]) button {
             background-color: var(--danger, #ff0000);
             color: var(--on-danger, #FFFFFF);
         }
+ 
 
-        :host([raised][danger]) button:focus {
+        :host([outline][danger]) button {
+            background-color: transparent;
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        :host([raised][danger]) button:focus, :host([unevelated][danger]) button:focus{
             background-color: var(--on-danger, #FFFFFF);
             color: var(--danger, #ff0000);
         }
+        :host([raised][danger]) button:hover, :host([unevelated][danger]) button:hover{
+            background-color: var(--danger-dark);
+            color: var(--on-danger, #FFFFFF);
+        }
+        :host([danger]) button:focus{
+            background-color: var(--surface-light);
+        }
+        :host([danger]) button:hover{
+            background-color: var(--surface-dark);
+        }
 
+
+        :host([outline]) button {
+            background-color: transparent;
+            color: var(--on-surface);
+            border: 1px solid var(--on-surface);
+        }
 
         button:active {
-            box-shadow:none;
+            box-shadow: none;
         }
-        button:focus{
+
+        button:focus {
             font-weight: 700;
         }
-       
-        
-        
+
+
         :host([raised]) button:focus {
             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
         }
-        :host([raised]) button{
+
+        :host([raised]) button {
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
         }
-        :host([raised]) button:active{
+
+        :host([raised]) button:active {
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
         }
 
 
+        furo-icon {
+            width: 18px;
+            height: 18px;
+            margin: 0 8px 0 12px;
+        }
+
+        :host([icon]) button {
+            padding: 0 16px 0 0;
+        }
 
     `
   }
@@ -229,9 +352,8 @@ class FuroButton extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <button @-click="--click" ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>${this.label}
-        <slot></slot>
-        <furo-ripple ƒ-trigger="--click"></furo-ripple>
+      <button @-keypressed="--buttonPressed" ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}><furo-icon ?hidden="${!this.icon}" icon="${this.icon}"></furo-icon>${this.label}       
+        <furo-ripple ƒ-trigger="--buttonPressed"></furo-ripple>
       </button>
     `;
   }

@@ -20,7 +20,9 @@ export const nav = [
     ]
   },
   {
-    "group": "Patterns", "items": [
+    "group": "Manuals", "items": [
+      {"label": "Styling", "icon": "pan-tool", "href": "md/styling/"},
+      {"label": "Theming", "icon": "pan-tool", "href": "md/theming/"},
       {"label": "Icons", "icon": "gesture", "href": "icons/"},
       {"label": "Dealing with data", "icon": "cloud", "href": "doc/data/"},
       {"label": "Data UI", "icon": "view-column", "href": "doc/data-ui/"},

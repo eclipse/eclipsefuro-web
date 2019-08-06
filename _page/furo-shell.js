@@ -40,7 +40,7 @@ class FuroShell extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-            <main-stage @-app-flow="--flowEvent"></main-stage>
+            <main-stage></main-stage>
         `;
     }
 

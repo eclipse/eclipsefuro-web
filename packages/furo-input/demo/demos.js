@@ -1,3 +1,4 @@
+import "./furo-button-playground";
 import "./demo-furo-button";
 import "./demo-furo-number-input";
 import "./demo-furo-range-input";

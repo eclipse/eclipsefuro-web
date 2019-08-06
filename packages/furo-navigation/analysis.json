@@ -1405,8 +1405,8 @@
       ]
     },
     {
-      "description": "`furo-tree`\ntodo Describe your element",
-      "summary": "todo shortdescription",
+      "description": "`furo-tree` renders a tree,",
+      "summary": "tree menu",
       "path": "packages/furo-navigation/furo-tree.js",
       "properties": [
         {
@@ -1416,11 +1416,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 28,
+              "line": 27,
               "column": 4
             },
             "end": {
-              "line": 28,
+              "line": 27,
               "column": 18
             }
           },
@@ -1438,11 +1438,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 38,
+              "line": 37,
               "column": 4
             },
             "end": {
-              "line": 38,
+              "line": 37,
               "column": 26
             }
           },
@@ -1460,11 +1460,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 306,
+              "line": 305,
               "column": 6
             },
             "end": {
-              "line": 306,
+              "line": 305,
               "column": 27
             }
           },
@@ -1481,11 +1481,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 310,
+              "line": 309,
               "column": 6
             },
             "end": {
-              "line": 310,
+              "line": 309,
               "column": 45
             }
           },
@@ -1502,11 +1502,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 314,
+              "line": 313,
               "column": 6
             },
             "end": {
-              "line": 314,
+              "line": 313,
               "column": 77
             }
           },
@@ -1740,11 +1740,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 328,
+              "line": 327,
               "column": 2
             },
             "end": {
-              "line": 330,
+              "line": 329,
               "column": 3
             }
           },
@@ -1936,11 +1936,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 138,
+              "line": 137,
               "column": 3
             }
           },
@@ -1956,11 +1956,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 140,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 143,
+              "line": 142,
               "column": 3
             }
           },
@@ -1980,11 +1980,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 144,
               "column": 2
             },
             "end": {
-              "line": 157,
+              "line": 156,
               "column": 3
             }
           },
@@ -2000,11 +2000,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 158,
               "column": 2
             },
             "end": {
-              "line": 164,
+              "line": 163,
               "column": 3
             }
           },
@@ -2020,11 +2020,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 165,
               "column": 2
             },
             "end": {
-              "line": 171,
+              "line": 170,
               "column": 3
             }
           },
@@ -2040,11 +2040,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 173,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 178,
+              "line": 177,
               "column": 3
             }
           },
@@ -2060,11 +2060,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 183,
+              "line": 182,
               "column": 2
             },
             "end": {
-              "line": 204,
+              "line": 203,
               "column": 3
             }
           },
@@ -2080,11 +2080,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 214,
+              "line": 213,
               "column": 3
             }
           },
@@ -2100,11 +2100,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 219,
+              "line": 218,
               "column": 2
             },
             "end": {
-              "line": 221,
+              "line": 220,
               "column": 3
             }
           },
@@ -2120,11 +2120,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 223,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 225,
+              "line": 224,
               "column": 3
             }
           },
@@ -2140,11 +2140,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 227,
+              "line": 226,
               "column": 2
             },
             "end": {
-              "line": 229,
+              "line": 228,
               "column": 3
             }
           },
@@ -2160,11 +2160,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 234,
+              "line": 233,
               "column": 2
             },
             "end": {
-              "line": 236,
+              "line": 235,
               "column": 3
             }
           },
@@ -2180,11 +2180,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 241,
+              "line": 240,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 242,
               "column": 3
             }
           },
@@ -2200,11 +2200,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 244,
               "column": 2
             },
             "end": {
-              "line": 252,
+              "line": 251,
               "column": 3
             }
           },
@@ -2224,11 +2224,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 253,
               "column": 2
             },
             "end": {
-              "line": 257,
+              "line": 256,
               "column": 3
             }
           },
@@ -2244,11 +2244,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 262,
+              "line": 261,
               "column": 2
             },
             "end": {
-              "line": 267,
+              "line": 266,
               "column": 3
             }
           },
@@ -2264,11 +2264,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 272,
+              "line": 271,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 294,
               "column": 3
             }
           },
@@ -2284,11 +2284,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 321,
+              "line": 320,
               "column": 2
             },
             "end": {
-              "line": 323,
+              "line": 322,
               "column": 3
             }
           },
@@ -2304,11 +2304,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 427,
+              "line": 426,
               "column": 2
             },
             "end": {
-              "line": 443,
+              "line": 442,
               "column": 3
             }
           },
@@ -2324,11 +2324,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 446,
+              "line": 445,
               "column": 2
             },
             "end": {
-              "line": 459,
+              "line": 458,
               "column": 3
             }
           },
@@ -2348,11 +2348,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 461,
+              "line": 460,
               "column": 2
             },
             "end": {
-              "line": 480,
+              "line": 479,
               "column": 3
             }
           },
@@ -2368,11 +2368,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 482,
+              "line": 481,
               "column": 2
             },
             "end": {
-              "line": 558,
+              "line": 557,
               "column": 3
             }
           },
@@ -2388,11 +2388,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 560,
+              "line": 559,
               "column": 2
             },
             "end": {
-              "line": 657,
+              "line": 656,
               "column": 3
             }
           },
@@ -2412,11 +2412,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 660,
+              "line": 659,
               "column": 2
             },
             "end": {
-              "line": 675,
+              "line": 674,
               "column": 3
             }
           },
@@ -2440,18 +2440,18 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/furo-tree.html",
-          "description": ""
+          "url": "demo-furo-tree",
+          "description": "Basic usage"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 19,
+          "line": 18,
           "column": 0
         },
         "end": {
-          "line": 676,
+          "line": 675,
           "column": 1
         }
       },
@@ -2464,11 +2464,11 @@
           "description": "Maximal depth for the tree. Default is infinite.",
           "sourceRange": {
             "start": {
-              "line": 306,
+              "line": 305,
               "column": 6
             },
             "end": {
-              "line": 306,
+              "line": 305,
               "column": 27
             }
           },
@@ -2480,11 +2480,11 @@
           "description": "Sets the tabindex",
           "sourceRange": {
             "start": {
-              "line": 310,
+              "line": 309,
               "column": 6
             },
             "end": {
-              "line": 310,
+              "line": 309,
               "column": 45
             }
           },

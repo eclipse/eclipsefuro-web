@@ -9,12 +9,11 @@ import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
 import "./furo-tree-item"
 
 /**
- * `furo-tree`
- * todo Describe your element
+ * `furo-tree` renders a tree,
  *
- * @summary todo shortdescription
+ * @summary tree menu
  * @customElement
- * @demo demo/furo-tree.html
+ * @demo demo-furo-tree Basic usage
  * @appliesMixin FBP
  */
 class FuroTree extends FBP(LitElement) {
