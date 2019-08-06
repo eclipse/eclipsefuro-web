@@ -1,9 +1,9 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from '@furo/fbp';
+import {Theme} from "@furo/framework/theme";
 import '@furo/layout';
-import "@furo/fbp/flow-repeat"
-import "./side-navigation/side-navigation-group"
-
+import "@furo/fbp/flow-repeat";
+import "./side-navigation/side-navigation-group";
 /**
  * `api-navigation`
  * Describe your element
@@ -32,15 +32,14 @@ class SideNavigation extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return [
-      css`
+    return Theme.getThemeForComponent(this.name) || css`
           :host {
               display: block;
-              background-color: var(--background);
+              background-color: var(--surface, white);
+              padding: var(--spacing);
           }
 
       `
-    ];
   }
 
   /**
