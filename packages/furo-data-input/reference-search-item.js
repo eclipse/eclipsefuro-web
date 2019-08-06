@@ -33,7 +33,7 @@ class ReferenceSearchItem extends FBP(LitElement) {
   }
 
   injectItem(item) {
-    this._item = item.data;
+    this._item = item;
     this.requestUpdate();
   }
 
@@ -96,7 +96,7 @@ class ReferenceSearchItem extends FBP(LitElement) {
     // language=HTML
     return html`
 <div @-click="^^item-selected(_item)">
-${this._item.display_name}
+${this._item.data.display_name}
 </div>           
 `;
   }
