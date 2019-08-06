@@ -11,7 +11,6 @@
   <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
   <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
   <script src="/node_modules/sinon/pkg/sinon.js"></script>
-
 </head>
 <body>
 
@@ -29,13 +28,13 @@
 </test-fixture>
 
 <script type="module">
-  import "../furo-catalog.js"
-  import "./packages/furo-fbp/flow-bind"; // for testing
-  import "@furo/navigation/test/produce-data"
-  import "@furo/navigation/test/initEnv"
+  import "./initEnv"
   import "@furo/data"
+  import "./produce-data"
+  import "../furo-catalog.js"
   import 'axe-core/axe.min.js';
   import {axeReport} from 'pwa-helpers/axe-report.js';
+  import "./packages/furo-fbp/flow-bind"; // for testing
 
   function keydown(TargetElement, key) {
     let customEvent = new Event('keydown', {composed: true, bubbles: true});
@@ -65,7 +64,6 @@
     it('should collapse all nodes', (done) => {
       tree.addEventListener("items-in-dom", (e) => {
         tree.collapseAll();
-
         setTimeout(() => {
           let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
           assert.equal(items.length, 1);
@@ -265,7 +263,7 @@
         assert.equal(tree._hoveredField.display_name.value, "root");
         assert.equal(tree._hoveredField, items[0].fieldNode);
         setTimeout(() => {
-          assert.equal(items[0].getAttribute("hovered"), "")
+          assert.equal(items[0].getAttribute("hovered"), "");
           done();
         }, 0)
 
