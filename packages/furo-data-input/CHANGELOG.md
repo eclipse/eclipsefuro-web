@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.41.3...@furo/data-input@0.42.0) (2019-08-06)
+
+
+### Features
+
+* return complete item (data,links) on item-selected event ([53ed911](https://github.com/veith/FuroBaseComponents/commit/53ed911))
+
+
+
+
+
 ## [0.41.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.41.2...@furo/data-input@0.41.3) (2019-08-05)
 
 **Note:** Version bump only for package @furo/data-input
