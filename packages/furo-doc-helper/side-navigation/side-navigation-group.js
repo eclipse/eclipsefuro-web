@@ -53,9 +53,9 @@ class SideNavigationGroup extends FBP(LitElement) {
 
             position: sticky;
             top:0;
-            background-color: white;
+            background-color: var(--surface, white);
             z-index: 1;
-            color: var(--on-background);
+            color: var(--on-surface, black);
             letter-spacing: .07272727em;
             font-size: 12px;   
             font-weight: 500;
@@ -68,7 +68,7 @@ class SideNavigationGroup extends FBP(LitElement) {
             padding: var(--spacing-s) 0;
             border-bottom-width: 1px;
             border-bottom-style: solid;
-            border-bottom-color: rgba(0, 0, 0, .12);
+            border-bottom-color: var(--background, rgba(0, 0, 0, .12);
         }
         
 

@@ -46,7 +46,8 @@ class ViewGuide extends FBP(LitElement) {
             height: 100%;
             overflow: hidden;
             box-sizing: border-box;
-            padding: var(--spacing) 0  var(--spacing)  var(--spacing);
+            background-color: var(--background, white);
+            color: var(--on-background, black);
             --split-master-width: 250px;
         }
 

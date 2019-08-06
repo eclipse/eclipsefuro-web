@@ -61,7 +61,7 @@ class SideNavigationItem extends FBP(LitElement) {
             min-height: 40px;
             line-height: 40px;
             margin-bottom: 4px;
-            color: var(--on-background);
+            color: var(--on-surface);
             letter-spacing: .01785714em;
             font-size: .875rem;
             font-weight: 500;
