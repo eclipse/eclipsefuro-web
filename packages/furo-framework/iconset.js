@@ -34,18 +34,8 @@ export class Iconset {
     static get(setName, iconName) {
 
         // default fallback icon `report problem`
-        let icon = '<g><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path></g>';
-
-        if(this[setName] === undefined ) {
-
-            console.warn("iconset `"+setName+"` does not exist");
-        }
-        else if( this[setName][iconName] === undefined) {
-
-            console.warn("icon `"+iconName+"` in iconset `"+setName+"` does not exist");
-        }
-        else {
-
+        let icon = '<g></g>';
+        if(this[setName] && this[setName][iconName]) {
             icon = this[setName][iconName];
         }
 
