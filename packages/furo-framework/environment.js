@@ -12,3 +12,4 @@ Env._acceptLanguage.unshift(window.navigator.language);
 
 Env.api = {"headers": [["Accept-Language", Env._acceptLanguage.join(",")]], "services": {}, "specs": {}};
 Env.locale = window.navigator.language;
+

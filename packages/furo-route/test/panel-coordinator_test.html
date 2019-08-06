@@ -14,18 +14,6 @@
   <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
   <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
-  <script type="module">
-    import '../furo-catalog';
-    import '../test/example-panel';
-    import "@furo/fbp/flow-bind"
-    import "@furo/navigation";
-    import "@furo/fbp/flow-bind"
-    import "@furo/navigation/test/initEnv"
-    import "@furo/data"
-    import "@furo/navigation/test/produce-data"
-    import "@furo/layout"
-  </script>
-
 </head>
 <body>
 
@@ -54,6 +42,14 @@
 
 <script type="module">
 
+  import '../furo-catalog';
+  import '../test/example-panel';
+  import "@furo/navigation";
+  import "./packages/furo-fbp/flow-bind"; // for testing
+  import "@furo/navigation/test/initEnv"
+  import "@furo/data"
+  import "@furo/navigation/test/produce-data"
+  import "@furo/layout"
   import '/node_modules/axe-core/axe.min.js';
   import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
   import "../test/registerTypes"

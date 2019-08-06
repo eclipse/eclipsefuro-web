@@ -19,9 +19,7 @@ import {FBP} from "@furo/fbp";
  */
 class FuroVerticalScroller extends FBP(LitElement) {
 
-  constructor() {
-    super();
-  }
+
 
 
     /**

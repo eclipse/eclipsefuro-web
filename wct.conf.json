@@ -1,40 +1,59 @@
 {
     "suites": [
-        "node_modules/@furo/framework/test/index.html",
-        "node_modules/@furo/fbp/test/index.html",
-        "node_modules/@furo/form/test/index.html",
-        "node_modules/@furo/route/test/index.html",
-        "node_modules/@furo/data/test/index.html",
-        "node_modules/@furo/data-ui/test/index.html",
-        "node_modules/@furo/util/test/index.html",
-        "node_modules/@furo/navigation/test/index.html",
-        "node_modules/@furo/input/test/index.html",
-        "node_modules/@furo/data-input/test/index.html"
+        "packages/furo-fbp/test/*_test.html",
+        "packages/furo-data/test/*_test.html",
+        "packages/furo-data-ui/test/*_test.html",
+        "packages/furo-data-input/test/*_test.html",
+        "packages/furo-data-util/test/*_test.html",
+        "packages/furo-form/test/*_test.html",
+        "packages/furo-framework/test/*_test.html",
+        "packages/furo-input/test/*_test.html",
+        "packages/furo-layout/test/*_test.html",
+        "packages/furo-logic/test/*_test.html",
+        "packages/furo-math/test/*_test.html",
+        "packages/furo-navigation/test/*_test.html",
+        "packages/furo-route/test/*_test.html",
+        "packages/furo-timing/test/*_test.html",
+        "packages/furo-util/test/*_test.html"
     ],
-    "root": "./",
     "npm": true,
     "moduleResolution": "node",
     "verbose": false,
     "plugins": {
         "istanbub": {
-            "reporters": ["text-summary", "lcov"],
-            "include": [
-                "node_modules/@furo/framework/*.js",
-                "node_modules/@furo/data/*.js",
-                "node_modules/@furo/data-ui/*.js",
-                "node_modules/@furo/fbp/*.js",
-                "node_modules/@furo/route/*.js",
-                "node_modules/@furo/form/*.js",
-                "node_modules/@furo/navigation/*.js",
-                "node_modules/@furo/util/*.js",
-                "node_modules/@furo/input/*.js",
-                "node_modules/@furo/data-input/*.js"
+            "reporters": [
+                "text-summary",
+                "lcov"
             ],
-            "exclude": ["**/furo-catalog.js"]
+            "include": [
+                "packages/furo-fbp/*.js",
+                "packages/furo-data/*.js",
+                "packages/furo-data-ui/*.js",
+                "packages/furo-data-input/*.js",
+                "packages/furo-data-util/*.js",
+                "packages/furo-form/*.js",
+                "packages/furo-framework/*.js",
+                "packages/furo-input/*.js",
+                "packages/furo-layout/*.js",
+                "packages/furo-logic/*.js",
+                "packages/furo-math/*.js",
+                "packages/furo-navigation/*.js",
+                "packages/furo-route/*.js",
+                "packages/furo-timing/*.js",
+                "packages/furo-util/*.js"
+            ],
+            "sinclude": [
+
+                "packages/furo-data-ui/*.js"
+            ],
+            "exclude": [
+                "**/furo-catalog.js"
+            ]
         },
         "local": {
-            "browsers": ["chrome"]
+            "browsers": [
+                "chrome"
+            ]
         }
     }
-
 }

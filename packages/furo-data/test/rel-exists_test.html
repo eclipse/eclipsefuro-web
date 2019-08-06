@@ -14,7 +14,7 @@
   <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
   <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
-  <script type="module" src="../furo-catalog.js"></script>
+
 </head>
 <body>
 
@@ -25,9 +25,8 @@
 </test-fixture>
 
 <script type="module">
+  import "../furo-catalog"
 
-  import '/node_modules/axe-core/axe.min.js';
-  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
   describe('rel-exists tests ', function () {
 

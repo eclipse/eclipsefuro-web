@@ -24,9 +24,7 @@ import {Theme} from "@furo/framework/theme"
  */
 class FuroVerticalFlex extends LitElement {
 
-  constructor() {
-    super();
-  }
+
 
 
   /**

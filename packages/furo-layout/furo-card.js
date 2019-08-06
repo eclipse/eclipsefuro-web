@@ -13,9 +13,7 @@ import {FBP} from "@furo/fbp";
  */
 class FuroCard extends FBP(LitElement) {
 
-  constructor() {
-    super();
-  }
+
 
   /**
    *

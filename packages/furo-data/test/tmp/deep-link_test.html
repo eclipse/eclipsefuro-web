@@ -5,8 +5,6 @@
   <title>test for deep-link</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   <script src="/node_modules/mocha/mocha.js"></script>
   <script src="/node_modules/chai/chai.js"></script>
@@ -14,7 +12,8 @@
   <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
   <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
-  <script type="module" src="../furo-catalog.js"></script>
+
+
 </head>
 <body>
 
@@ -25,11 +24,8 @@
 </test-fixture>
 
 <script type="module">
-
-  import {Init} from "@furo/framework";
-  import {Services,Types} from "./apiConfig.js"
-  Init.registerApiServices(Services);
-  Init.registerApiTypes(Types);
+import "./initEnv.js"
+  import "../furo-catalog"
 
   describe('deep-link tests ', function () {
 

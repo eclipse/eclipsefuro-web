@@ -14,12 +14,6 @@
     <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
 
-    <script type="module">
-        import "@furo/fbp/flow-bind";
-        import '@furo/fbp/flow-repeat';
-        import '../demo/rep-item';
-
-    </script>
 </head>
 <body>
 
@@ -52,6 +46,9 @@
 </test-fixture>
 
 <script type="module">
+    import "../flow-bind"; // for testing
+    import '../flow-repeat';
+    import '../demo/rep-item';
 
     let expect = chai.expect;
 

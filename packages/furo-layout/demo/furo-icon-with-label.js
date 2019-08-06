@@ -10,9 +10,7 @@ import '@furo/layout';
  */
 class FuroIconWithLabel extends FBP(LitElement) {
 
-    constructor() {
-        super();
-    }
+
 
     static get properties() {
         return {
