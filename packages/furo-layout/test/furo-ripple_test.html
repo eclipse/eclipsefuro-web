@@ -18,7 +18,7 @@
   <template>
     <test-bind>
       <template>
-      <furo-ripple></furo-ripple>
+      <furo-ripple noink></furo-ripple>
     </template>
     </test-bind>
   </template>
@@ -39,9 +39,12 @@
       element = fix[1];
     });
 
+    it('should have a trigger mehtod', (done) => {
+      element.trigger();
+      done();
+    });
 
     it('should be a furo-ripple', (done) => {
-
       assert.equal(element.nodeName.toLowerCase(), "furo-ripple");
 
       done()

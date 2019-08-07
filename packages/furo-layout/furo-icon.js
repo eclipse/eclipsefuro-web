@@ -142,10 +142,7 @@ class FuroIcon extends LitElement {
             }
 
             this.shadowRoot.getElementById("furo-icon-svg").innerHTML = Iconset.get(w[0], w[1]);
-        } else {
-            console.warn("icon name is not defined.")
         }
-
     }
 
 

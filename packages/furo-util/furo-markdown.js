@@ -65,7 +65,7 @@ class FuroMarkdown extends (LitElement) {
    * @param src
    * @return {Promise<string | never>}
    */
-  fetchSrc(src) {
+  fetchMd(src) {
     return fetch(src).then(res => res.text()).then(markdown => {
       this.markdown = markdown;
     });

@@ -42,7 +42,7 @@
     });
 
     it('should fetch and render a md file', async () => {
-      await element.fetchSrc('./test.md');
+      await element.fetchMd('./test.md');
       let c = element.shadowRoot.querySelectorAll("*");
       assert.equal(c[0].innerText, "Test");
       assert.equal(c[1].innerText, "done");
