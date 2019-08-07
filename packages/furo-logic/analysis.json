@@ -3,7 +3,7 @@
   "elements": [
     {
       "description": "`forth-stack` is a declarative stack, inspired by the forth stack.\n\nhttps://hackaday.com/2017/01/27/forth-the-hackers-language/\nhttp://wiki.laptop.org/go/Forth_stack_operators\nhttp://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks",
-      "summary": "",
+      "summary": "doing stack operations",
       "path": "packages/furo-logic/forth-stack.js",
       "properties": [
         {
@@ -97,6 +97,27 @@
             }
           },
           "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "size",
+          "type": "?",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 23,
+              "column": 2
+            },
+            "end": {
+              "line": 33,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
         }
       ],
       "methods": [
@@ -617,15 +638,15 @@
         },
         {
           "name": "clearStack",
-          "description": "",
+          "description": "Empties the stack and set the stack-size to 0",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 31,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 34,
+              "line": 40,
               "column": 3
             }
           },
@@ -641,11 +662,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 47,
               "column": 2
             },
             "end": {
-              "line": 45,
+              "line": 51,
               "column": 3
             }
           },
@@ -661,15 +682,15 @@
         },
         {
           "name": "swap",
-          "description": "swap ( n1 n2 -- n2 n1 )\n\nswap, as you may have guessed, swaps the top two elements of the stack. For example:\n\n1 2 3 4 swap\nwill give you:\n\n1 2 4 3 <- Top",
+          "description": "swap **( n1 n2 -- n2 n1 )**\n\nswap, as you may have guessed, swaps the top two elements of the stack. For example:\n\n1 2 3 4 swap\nwill give you:\n\n1 2 4 3 <- Top",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 65,
               "column": 2
             },
             "end": {
-              "line": 67,
+              "line": 73,
               "column": 3
             }
           },
@@ -681,15 +702,15 @@
         },
         {
           "name": "drop",
-          "description": "drop ( n -- )\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top",
+          "description": "drop **( n -- )**\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 79,
+              "line": 85,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 100,
               "column": 3
             }
           },
@@ -698,15 +719,15 @@
         },
         {
           "name": "dup",
-          "description": "dup ( n -- n n )\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top",
+          "description": "dup **( n -- n n )**\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 113,
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 117,
               "column": 3
             }
           },
@@ -715,15 +736,15 @@
         },
         {
           "name": "over",
-          "description": "over ( n1 n2 -- n1 n2 n1 )\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top",
+          "description": "over **( n1 n2 -- n1 n2 n1 )**\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 128,
+              "line": 134,
               "column": 3
             }
           },
@@ -732,15 +753,15 @@
         },
         {
           "name": "rot",
-          "description": "rot ( n1 n2 n3 -- n2 n3 n1 )\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3* 1 <- Top",
+          "description": "rot **( n1 n2 n3 -- n2 n3 n1 )**\n\n   Finally, rot “rotates” the top three elements of the stack. The third element from the top of the stack gets moved to the top of the stack, pushing the other two elements down.\n\n   1 2 3 rot\n   gives you:\n\n   2 3* 1 <- Top",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 140,
+              "line": 146,
               "column": 2
             },
             "end": {
-              "line": 153,
+              "line": 159,
               "column": 3
             }
           },
@@ -756,11 +777,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 162,
+              "line": 168,
               "column": 2
             },
             "end": {
-              "line": 166,
+              "line": 172,
               "column": 3
             }
           },
@@ -988,11 +1009,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 23,
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 167,
+          "line": 173,
           "column": 1
         }
       },
@@ -1011,6 +1032,12 @@
           "type": "CustomEvent",
           "name": "rotated",
           "description": "Fired when stack was rotated",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "stack-size-changed",
+          "description": "stack-size-changed\nFired when the stack size changes\ndetail payload: {Number} Integer with the current size of the stack",
           "metadata": {}
         },
         {

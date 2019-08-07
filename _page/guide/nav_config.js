@@ -32,7 +32,6 @@ export const nav = [
       {"label": "Navigation", "icon": "tab", "href": "doc/navigation/"},
       {"label": "Routing", "icon": "arrow-forward", "href": "doc/route/"},
       {"label": "Timing", "icon": "alarm", "href": "doc/timing/"},
-      {"label": "Math", "icon": "timeline", "href": "doc/math/"},
       {"label": "Util", "icon": "star-border", "href": "doc/util/"},
     ]
   },

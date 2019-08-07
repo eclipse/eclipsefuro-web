@@ -99,6 +99,29 @@
           "inheritedFrom": "UpdatingElement"
         },
         {
+          "name": "size",
+          "type": "?",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/logic/forth-stack.js",
+            "start": {
+              "line": 23,
+              "column": 2
+            },
+            "end": {
+              "line": 33,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "inheritedFrom": "ForthStack"
+        },
+        {
           "name": "x",
           "type": "number | null | undefined",
           "description": "current x",
@@ -776,16 +799,16 @@
         },
         {
           "name": "clearStack",
-          "description": "",
+          "description": "Empties the stack and set the stack-size to 0",
           "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 31,
+              "line": 37,
               "column": 2
             },
             "end": {
-              "line": 34,
+              "line": 40,
               "column": 3
             }
           },
@@ -803,11 +826,11 @@
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 41,
+              "line": 47,
               "column": 2
             },
             "end": {
-              "line": 45,
+              "line": 51,
               "column": 3
             }
           },
@@ -844,16 +867,16 @@
         },
         {
           "name": "drop",
-          "description": "drop ( n -- )\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top",
+          "description": "drop **( n -- )**\n\n drop simply drops the top element of the stack. Running:\n\n 1 2 3 drop\n gives you a stack of:\n\n 1 2 <- Top",
           "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 79,
+              "line": 85,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 100,
               "column": 3
             }
           },
@@ -863,16 +886,16 @@
         },
         {
           "name": "dup",
-          "description": "dup ( n -- n n )\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top",
+          "description": "dup **( n -- n n )**\n\n    dup is short for “duplicate” – it duplicates the top element of the stack. For example, try this out:\n\n    1 2 3 dup\n\n    You should end up with the following stack:\n\n    1 2 3 3 <- Top",
           "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 107,
+              "line": 113,
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 117,
               "column": 3
             }
           },
@@ -882,16 +905,16 @@
         },
         {
           "name": "over",
-          "description": "over ( n1 n2 -- n1 n2 n1 )\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top",
+          "description": "over **( n1 n2 -- n1 n2 n1 )**\n\n   over is a bit less obvious: it takes the second element from the top of the stack and duplicates it to the top of the stack. Running this:\n\n   1 2 3 over\n   will result in this:\n\n   1 2 3 2 <- Top",
           "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 124,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 128,
+              "line": 134,
               "column": 3
             }
           },
@@ -923,11 +946,11 @@
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 162,
+              "line": 168,
               "column": 2
             },
             "end": {
-              "line": 166,
+              "line": 172,
               "column": 3
             }
           },
@@ -1692,6 +1715,13 @@
           "type": "CustomEvent",
           "name": "rotated",
           "description": "Fired when stack was rotated",
+          "metadata": {},
+          "inheritedFrom": "ForthStack"
+        },
+        {
+          "type": "CustomEvent",
+          "name": "stack-size-changed",
+          "description": "stack-size-changed\nFired when the stack size changes\ndetail payload: {Number} Integer with the current size of the stack",
           "metadata": {},
           "inheritedFrom": "ForthStack"
         },

@@ -114,7 +114,7 @@
         {
           "name": "raised",
           "type": "boolean | null | undefined",
-          "description": "Give the button a \"box\"",
+          "description": "Give the button a \"box\" with shadow",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -133,17 +133,17 @@
           }
         },
         {
-          "name": "outline",
+          "name": "unevelated",
           "type": "boolean | null | undefined",
-          "description": "Give the button a \"border\"",
+          "description": "Give the button a \"box\"",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 101,
+              "line": 100,
               "column": 6
             },
             "end": {
-              "line": 103,
+              "line": 102,
               "column": 7
             }
           },
@@ -154,9 +154,9 @@
           }
         },
         {
-          "name": "primary",
+          "name": "outline",
           "type": "boolean | null | undefined",
-          "description": "Sets the color to the primary color (--primary)",
+          "description": "Give the button a \"border\"",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -175,9 +175,9 @@
           }
         },
         {
-          "name": "secondary",
+          "name": "primary",
           "type": "boolean | null | undefined",
-          "description": "Sets the color to the secondary color (--secondary)",
+          "description": "Sets the color to the primary color (--primary)",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -196,9 +196,9 @@
           }
         },
         {
-          "name": "accent",
+          "name": "secondary",
           "type": "boolean | null | undefined",
-          "description": "Sets the color to the accent color (--accent)",
+          "description": "Sets the color to the secondary color (--secondary)",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -207,6 +207,27 @@
             },
             "end": {
               "line": 121,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "accent",
+          "type": "boolean | null | undefined",
+          "description": "Sets the color to the accent color (--accent)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 125,
+              "column": 6
+            },
+            "end": {
+              "line": 127,
               "column": 7
             }
           },
@@ -702,11 +723,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 294,
+              "line": 351,
               "column": 2
             },
             "end": {
-              "line": 301,
+              "line": 358,
               "column": 3
             }
           },
@@ -739,7 +760,7 @@
           "column": 0
         },
         "end": {
-          "line": 302,
+          "line": 359,
           "column": 1
         }
       },
@@ -829,7 +850,7 @@
         },
         {
           "name": "raised",
-          "description": "Give the button a \"box\"",
+          "description": "Give the button a \"box\" with shadow",
           "sourceRange": {
             "start": {
               "line": 94,
@@ -844,15 +865,15 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "outline",
-          "description": "Give the button a \"border\"",
+          "name": "unevelated",
+          "description": "Give the button a \"box\"",
           "sourceRange": {
             "start": {
-              "line": 101,
+              "line": 100,
               "column": 6
             },
             "end": {
-              "line": 103,
+              "line": 102,
               "column": 7
             }
           },
@@ -860,8 +881,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "primary",
-          "description": "Sets the color to the primary color (--primary)",
+          "name": "outline",
+          "description": "Give the button a \"border\"",
           "sourceRange": {
             "start": {
               "line": 107,
@@ -876,8 +897,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "secondary",
-          "description": "Sets the color to the secondary color (--secondary)",
+          "name": "primary",
+          "description": "Sets the color to the primary color (--primary)",
           "sourceRange": {
             "start": {
               "line": 113,
@@ -892,8 +913,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "accent",
-          "description": "Sets the color to the accent color (--accent)",
+          "name": "secondary",
+          "description": "Sets the color to the secondary color (--secondary)",
           "sourceRange": {
             "start": {
               "line": 119,
@@ -901,6 +922,22 @@
             },
             "end": {
               "line": 121,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "accent",
+          "description": "Sets the color to the accent color (--accent)",
+          "sourceRange": {
+            "start": {
+              "line": 125,
+              "column": 6
+            },
+            "end": {
+              "line": 127,
               "column": 7
             }
           },
