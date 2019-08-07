@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.30.0...@furo/navigation@0.31.0) (2019-08-07)
+
+
+### Features
+
+* testing ([7428896](https://github.com/veith/FuroBaseComponents/commit/7428896))
+* testing coverage removed, because everyone can run the tests ([053fd18](https://github.com/veith/FuroBaseComponents/commit/053fd18))
+
+
+
+
+
 # [0.30.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.29.5...@furo/navigation@0.30.0) (2019-08-06)
 
 

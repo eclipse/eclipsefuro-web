@@ -9,7 +9,7 @@
     ],
     "homepage": "https://veith.github.io/flowbased-polymer/",
     "name": "@furo/fbp",
-    "version": "4.25.1",
+    "version": "4.26.0",
     "resolutions": {
         "inherits": "2.0.3",
         "samsam": "1.1.3",

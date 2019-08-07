@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.9.0...@furo/framework@0.10.0) (2019-08-07)
+
+
+### Bug Fixes
+
+* import Env ([81078a0](https://github.com/veith/FuroBaseComponents/commit/81078a0))
+
+
+### Features
+
+* furo-icon without console warnigs, returns a empty svg ([ed3873f](https://github.com/veith/FuroBaseComponents/commit/ed3873f))
+* testing ([7428896](https://github.com/veith/FuroBaseComponents/commit/7428896))
+
+
+
+
+
 # [0.9.0](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.8.0...@furo/framework@0.9.0) (2019-08-05)
 
 
