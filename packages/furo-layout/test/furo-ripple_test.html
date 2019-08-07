@@ -16,15 +16,18 @@
 
 <test-fixture id="basic">
   <template>
-    <furo-ripple></furo-ripple>
+    <test-bind>
+      <template>
+      <furo-ripple></furo-ripple>
+    </template>
+    </test-bind>
   </template>
 </test-fixture>
 
 <script type="module">
   import "../furo-catalog.js"
-  import "@furo/fbp/flow-bind.js"
-  import '/node_modules/axe-core/axe.min.js';
-  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+  import "@furo/fbp/testhelper/test-bind"; //for testing
+
 
   describe('furo-ripple tests ', function () {
 
@@ -32,19 +35,15 @@
     let element = {};
 
     beforeEach(async () => {
-      element = fixture('basic');
-      await element.updateComplete;
-
+      let fix = fixture('basic');
+      element = fix[1];
     });
 
-
-    // a11y tests
-    it('a11y', () => {
-      return axeReport(fixture('basic'));
-    });
 
     it('should be a furo-ripple', (done) => {
+
       assert.equal(element.nodeName.toLowerCase(), "furo-ripple");
+
       done()
     });
 

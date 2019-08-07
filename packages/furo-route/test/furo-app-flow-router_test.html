@@ -20,20 +20,20 @@
 
 <test-fixture id="router">
   <template>
-    <flow-bind>
+    <test-bind>
       <template>
         <furo-app-flow-router url-space-regex="^/app/" ƒ-trigger="--f"></furo-app-flow-router>
         <furo-app-flow @-app-flow="--f"></furo-app-flow>
 
       </template>
-    </flow-bind>
+    </test-bind>
   </template>
 </test-fixture>
 
 <script type="module">
 
   import "../furo-catalog.js"
-  import "./packages/furo-fbp/flow-bind"; // for testing
+  import "@furo/fbp/testhelper/test-bind"; // for testing
 
   describe('app-flow-router', () => {
     let flow;

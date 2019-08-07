@@ -1,16 +1,16 @@
 {
     "suites": [
         "packages/furo-navigation/test/*_test.html",
-        "packages/furo-fbp/test/*_test.html",
-        "packages/furo-config/test/*_test.html",
-        "packages/furo-data/test/*_test.html",
-        "packages/furo-data-input/test/*_test.html",
         "packages/furo-data-ui/test/*_test.html",
+        "packages/furo-layout/test/*_test.html",
+        "packages/furo-fbp/test/*_test.html",
+        "packages/furo-data-input/test/*_test.html",
+        "packages/furo-data/test/*_test.html",
+        "packages/furo-config/test/*_test.html",
         "packages/furo-data-util/test/*_test.html",
         "packages/furo-form/test/*_test.html",
         "packages/furo-framework/test/*_test.html",
         "packages/furo-input/test/*_test.html",
-        "packages/furo-layout/test/*_test.html",
         "packages/furo-logic/test/*_test.html",
         "packages/furo-math/test/*_test.html",
         "packages/furo-route/test/*_test.html",
@@ -19,6 +19,7 @@
     ],
     "npm": true,
     "moduleResolution": "node",
+
     "verbose": false,
     "plugins": {
         "istanbub": {
@@ -42,11 +43,8 @@
                 "packages/furo-navigation/*.js",
                 "packages/furo-route/*.js",
                 "packages/furo-timing/*.js",
-                "packages/furo-util/*.js"
-            ],
-            "sinclude": [
-
-                "packages/furo-data-ui/*.js"
+                "packages/furo-util/*.js",
+                "packages/furo-testhelper/data-ui/*.js"
             ],
             "exclude": [
                 "**/furo-catalog.js"

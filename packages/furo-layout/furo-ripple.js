@@ -124,6 +124,7 @@ class FuroRipple extends LitElement {
             this.removeAttribute("_active");
         }, 50);
     }
+
 }
 
 customElements.define('furo-ripple', FuroRipple);

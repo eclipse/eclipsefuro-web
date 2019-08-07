@@ -19,7 +19,7 @@
 
 <test-fixture id="basic">
   <template>
-    <flow-bind>
+    <test-bind>
       <template>
         <produce-data auto @-data="--data"></produce-data>
 
@@ -36,7 +36,7 @@
 
 
       </template>
-    </flow-bind>
+    </test-bind>
   </template>
 </test-fixture>
 
@@ -45,7 +45,7 @@
   import '../furo-catalog';
   import '../test/example-panel';
   import "@furo/navigation";
-  import "./packages/furo-fbp/flow-bind"; // for testing
+  import "@furo/fbp/testhelper/test-bind";
   import "@furo/navigation/test/initEnv"
   import "@furo/data"
   import "@furo/navigation/test/produce-data"

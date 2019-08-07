@@ -17,7 +17,7 @@
 
 <test-fixture id="basic">
   <template>
-    <flow-bind>
+    <test-bind>
       <template>
         <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
         <furo-data-number-input  ƒ-bind-data="--entity(*.fields.id)"></furo-data-number-input>
@@ -28,14 +28,14 @@
                               @-value-changed="--textChanged"></furo-data-number-input>
         <furo-data-number-input  ƒ-bind-data="--entity(*.fields.invalidBinding)"></furo-data-number-input>
       </template>
-    </flow-bind>
+    </test-bind>
 
   </template>
 </test-fixture>
 
 <script type="module">
+  import "@furo/fbp/testhelper/test-bind";
   import "../furo-catalog.js"
-  import "./packages/furo-fbp/flow-bind"; // for testing
   import "@furo/data/test/initEnv.js"
   import "@furo/data/entity-object.js"
   import '/node_modules/axe-core/axe.min.js';

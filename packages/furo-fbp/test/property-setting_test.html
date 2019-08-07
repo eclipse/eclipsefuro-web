@@ -5,15 +5,12 @@
     <title>flowbased-polymer test</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="/node_modules/mocha/mocha.js"></script>
     <script src="/node_modules/chai/chai.js"></script>
     <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
     <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
     <script src="/node_modules/sinon/pkg/sinon.js"></script>
-
 </head>
 <body>
 
@@ -37,37 +34,33 @@
 </test-fixture>
 
 <script type="module">
-    import "../flow-bind"; // for testing
-    import 'axe-core/axe.min.js';
-    import {axeReport} from 'pwa-helpers/axe-report.js';
+    import "../flow-bind";
+
 
     describe('property tests ', function () {
 
 
-        let element = {};
+        let element;
 
         beforeEach(async () => {
             let fix = fixture('basic');
-            element.$ = {
-                receiver: fix[1].querySelector("#receiver"),
-                sender: fix[1].querySelector("#sender")
+
+            element = {
+                receiver: fix[1].children[1],
+                sender: fix[1].children[0],
             };
             await element.updateComplete;
 
         });
 
 
-        it('a11y', () => {
-            return axeReport(fixture('basic'));
-        });
-
         it('should set the property prop of receiver to e.detail', (done) => {
 
 
             let customEvent = new Event('new-data', {composed: true, bubbles: true});
             customEvent.detail = {a: 1, b: 4};
-            element.$.sender.dispatchEvent(customEvent);
-            assert.equal(element.$.receiver.prop.b, 4);
+            element.sender.dispatchEvent(customEvent);
+            assert.equal(element.receiver.prop.b, 4);
             done()
         });
 
@@ -75,8 +68,8 @@
         it('should set the property subprop of receiver to e.detail.b', (done) => {
             let customEvent = new Event('new-data', {composed: true, bubbles: true});
             customEvent.detail = {a: 1, b: 4};
-            element.$.sender.dispatchEvent(customEvent);
-            assert.equal(element.$.receiver.subprop, 4);
+            element.sender.dispatchEvent(customEvent);
+            assert.equal(element.receiver.subprop, 4);
             done()
         });
 
@@ -86,22 +79,22 @@
             let customEvent = new Event('new-data', {composed: true, bubbles: true});
             customEvent.detail = {a: 1, b: 4};
             customEvent.other = {xxxxx: 1, yyyyy: 4};
-            element.$.sender.dispatchEvent(customEvent);
-            assert.equal(element.$.receiver.raw.yyyyy, 4);
+            element.sender.dispatchEvent(customEvent);
+            assert.equal(element.receiver.raw.yyyyy, 4);
             done()
         });
 
 
         it('should send e.other and set e.other.yyyyy to receiver', (done) => {
 
-            element.$.receiver.methodTest = (e) => {
+            element.receiver.methodTest = (e) => {
                 assert.equal(e, "----");
                 done()
             };
 
             let customEvent = new Event('method-test', {composed: true, bubbles: true});
             customEvent.detail = {sub: "----"};
-            element.$.sender.dispatchEvent(customEvent);
+            element.sender.dispatchEvent(customEvent);
 
 
         });

@@ -31,7 +31,7 @@ class ForthStack extends (LitElement) {
 
   clearStack() {
     this._stack = [];
-    this.set('size', 0);
+    this.size =  0;
   }
 
   /**
@@ -41,7 +41,7 @@ class ForthStack extends (LitElement) {
    */
   put(e) {
     this._stack.push(e);
-    this.set('size', this._stack.length);
+    this.size = this._stack.length;
     return this._stack.length;
   }
 
@@ -80,7 +80,7 @@ class ForthStack extends (LitElement) {
   drop() {
     if (this._stack.length > 0) {
       let e = this._stack.pop();
-      this.set('size', this._stack.length);
+      this.size = this._stack.length;
       if (this._stack.length === 0) {
         /**
          * Fired when stack is empty
@@ -107,7 +107,7 @@ class ForthStack extends (LitElement) {
    */
   dup() {
     this._stack.push(this._stack[this._stack.length - 1]);
-    this.set('size', this._stack.length);
+    this.size = this._stack.length;
     return this._stack.length;
   }
 
@@ -124,7 +124,7 @@ class ForthStack extends (LitElement) {
    */
   over() {
     this._stack.push(this._stack[this._stack.length - 2]);
-    this.set('size', this._stack.length);
+    this.size = this._stack.length;
     return this._stack.length;
   }
 

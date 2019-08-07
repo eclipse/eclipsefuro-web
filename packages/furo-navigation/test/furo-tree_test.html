@@ -16,25 +16,25 @@
 
 <test-fixture id="basic">
   <template>
-    <flow-bind>
+    <test-bind>
       <template>
         <produce-data @-data="--data"></produce-data>
         <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
         <furo-tree ƒ-bind-data="--entityObj"></furo-tree>
 
       </template>
-    </flow-bind>
+    </test-bind>
   </template>
 </test-fixture>
 
 <script type="module">
   import "./initEnv"
+  import "../furo-catalog.js"
   import "@furo/data"
   import "./produce-data"
-  import "../furo-catalog.js"
   import 'axe-core/axe.min.js';
   import {axeReport} from 'pwa-helpers/axe-report.js';
-  import "./packages/furo-fbp/flow-bind"; // for testing
+  import "@furo/fbp/testhelper/test-bind";
 
   function keydown(TargetElement, key) {
     let customEvent = new Event('keydown', {composed: true, bubbles: true});

@@ -19,7 +19,7 @@
 
 <test-fixture id="basic">
     <template>
-        <flow-bind>
+        <test-bind>
             <template>
                 <deep-link service="tasks"
                            @-hts-out="--hts">
@@ -34,28 +34,19 @@
                                    @-object-ready="--data"></collection-object>
                 <furo-data-table ƒ-bind-data="--data"></furo-data-table>
             </template>
-        </flow-bind>
+        </test-bind>
 
     </template>
 </test-fixture>
 
 <script type="module">
-    import '../furo-catalog.js';
-    import '@furo/framework';
+
+
     import '@furo/data';
-    import "./packages/furo-fbp/flow-bind"; // for testing
+    import "@furo/fbp/testhelper/test-bind"; // for testing
 
-    let expect = chai.expect;
-
-    import '/node_modules/axe-core/axe.min.js';
-    import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
-
-    import {Init} from "@furo/framework";
-    import {Services, Types} from "./apiConfig.js"
-
-    Init.registerApiServices(Services);
-    Init.registerApiTypes(Types);
-
+    import "@furo/test-helper/data-ui/initEnv"
+    import '@furo/data-ui/furo-data-table';
     function keydown(TargetElement, key) {
         let customEvent = new Event('keydown', {composed: true, bubbles: true});
         customEvent.code = key; // Deprecated, prefer .key instead.
