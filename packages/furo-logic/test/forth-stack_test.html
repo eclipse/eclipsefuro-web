@@ -47,7 +47,7 @@
 
     it('instantiating the element with default properties works', function () {
       var element = fixture('BasicTestFixture');
-      assert.equal(element.size, 0);
+      assert.equal(element._size, 0);
     });
 
 
@@ -55,7 +55,7 @@
       var element = fixture('BasicTestFixture');
       element.put(4334);
       element.put(4334);
-      assert.equal(element.size, 2);
+      assert.equal(element._size, 2);
     });
 
 
@@ -65,7 +65,7 @@
       element.put("x");
 
       assert.equal(element.drop(), "x");
-      assert.equal(element.size, 1);
+      assert.equal(element._size, 1);
     });
 
     it('duplicate top element', function () {
@@ -77,7 +77,7 @@
       assert.equal(element.drop(), "x");
       assert.equal(element.drop(), "x");
       assert.equal(element.drop(), "a");
-      assert.equal(element.size, 0);
+      assert.equal(element._size, 0);
 
 
     });
@@ -93,13 +93,13 @@
       assert.equal(element.drop(), "c");
       assert.equal(element.drop(), "b");
       assert.equal(element.drop(), "a");
-      assert.equal(element.size, 0);
+      assert.equal(element._size, 0);
     });
 
     it('emmit stack empty', function (done) {
       var element = fixture('drop');
       element.addEventListener('empty', (e) => {
-        assert.equal(element.size, 0);
+        assert.equal(element._size, 0);
         done();
       });
       element.put("a");
