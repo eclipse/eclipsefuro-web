@@ -3,14 +3,14 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {nav} from "./nav_config";
 
-import "@google-web-components/google-youtube"
-import "../components/topic-title"
-import "../components/topic-intro"
+import "@google-web-components/google-youtube";
+import "../components/topic-title";
+import "../components/topic-intro";
 //pages
-import "./pages/page-icons"
-import "./panel-md-loader"
+import "./pages/page-icons";
+import "./panel-md-loader";
 
-import "./components/all-imports"
+import "./components/all-imports";
 
 /**
  * `view-guide`
