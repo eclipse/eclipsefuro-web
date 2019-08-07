@@ -1,4 +1,4 @@
-import {Env} from "@furo/framework/environment"
+import {Env} from "./environment"
 
 /**
  * Todo Describe and explain

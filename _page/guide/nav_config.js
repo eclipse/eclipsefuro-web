@@ -21,8 +21,8 @@ export const nav = [
   },
   {
     "group": "Manuals", "items": [
-      {"label": "Styling", "icon": "pan-tool", "href": "md/styling/"},
-      {"label": "Theming", "icon": "pan-tool", "href": "md/theming/"},
+      {"label": "Styling", "icon": "image:color-lens", "href": "md/styling/"},
+      {"label": "Theming", "icon": "image:brush", "href": "md/theming/"},
       {"label": "Icons", "icon": "gesture", "href": "icons/"},
       {"label": "Dealing with data", "icon": "cloud", "href": "doc/data/"},
       {"label": "Data UI", "icon": "view-column", "href": "doc/data-ui/"},
