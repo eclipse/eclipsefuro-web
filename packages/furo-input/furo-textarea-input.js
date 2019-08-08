@@ -14,7 +14,10 @@ import {FBP} from "@furo/fbp";
  * @appliesMixin FBP
  */
 class FuroTextareaInput extends FBP(LitElement) {
-
+  constructor(){
+    super();
+    this.valid = true;
+  }
   _FBPReady() {
     super._FBPReady();
 
@@ -22,7 +25,7 @@ class FuroTextareaInput extends FBP(LitElement) {
     this._FBPAddWireHook("--inputInput", (e) => {
       let input = e.composedPath()[0];
 
-      this.error = !input.validity.valid;
+      this.valid = !input.validity.valid;
       this._float = !!input.value;
 
       if (input.validity.valid) {
@@ -145,6 +148,33 @@ class FuroTextareaInput extends FBP(LitElement) {
        */
       errortext: {
         type: String,
+      },
+      /**
+       * Icon on the left side
+       */
+      leadingIcon: {
+        type: String,
+        attribute: "leading-icon"
+      },
+      /**
+       * Icon on the right side
+       */
+      trailingIcon: {
+        type: String,
+        attribute: "trailing-icon"
+      },
+      /**
+       * html input validity
+       */
+      valid:{
+        type:Boolean,
+        reflect:true
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed:{
+        type:Boolean
       }
 
 

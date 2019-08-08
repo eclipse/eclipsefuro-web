@@ -60,7 +60,7 @@ class DemoFuroInputTogether extends FBP(LitElement) {
             <br>
             <br>
             <furo-time-input ƒ-set-value="--time" value="01:00" step="900" hint="Step in 15 Minutes"
-                             label="Time input field" @-value-changed="--time"></furo-time-input>
+                             label="Time  field" @-value-changed="--time"></furo-time-input>
             <furo-range-input label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
                               @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
            

@@ -155,24 +155,33 @@ class FuroTextInput extends FBP(LitElement) {
       errortext: {
         type: String,
       },
-
+      /**
+       * Icon on the left side
+       */
       leadingIcon: {
         type: String,
         attribute: "leading-icon"
       },
-
+      /**
+       * Icon on the right side
+       */
       trailingIcon: {
         type: String,
         attribute: "trailing-icon"
       },
+      /**
+       * html input validity
+       */
       valid:{
         type:Boolean,
         reflect:true
       },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
       condensed:{
         type:Boolean
       }
-
     };
   }
 

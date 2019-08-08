@@ -144,22 +144,32 @@ class FuroRangeInput extends FBP(LitElement) {
       errortext: {
         type: String,
       },
-
+      /**
+       * Icon on the left side
+       */
       leadingIcon: {
         type: String,
         attribute: "leading-icon"
       },
-
+      /**
+       * Icon on the right side
+       */
       trailingIcon: {
         type: String,
         attribute: "trailing-icon"
       },
-      valid: {
-        type: Boolean,
-        reflect: true
+      /**
+       * html input validity
+       */
+      valid:{
+        type:Boolean,
+        reflect:true
       },
-      condensed: {
-        type: Boolean
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed:{
+        type:Boolean
       }
     };
   }
@@ -260,6 +270,7 @@ class FuroRangeInput extends FBP(LitElement) {
         .wrapper {
             padding: 0 12px;
             box-sizing: border-box;
+            height: 56px;
         }
 
 
@@ -268,7 +279,7 @@ class FuroRangeInput extends FBP(LitElement) {
             background: none;
             box-sizing: border-box;
             padding: 0;
-            margin: 20px 0;
+            margin: 19px 0 0 0;
             width: 100%;
             line-height: 56px;
             color: inherit;
