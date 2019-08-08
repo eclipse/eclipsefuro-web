@@ -29,6 +29,7 @@ class PageIcons extends FBP(LitElement) {
             display: block;
             overflow: auto;
             height: 100%;
+            padding: var(--spacing);
         }
 
         :host([hidden]) {
@@ -50,11 +51,11 @@ class PageIcons extends FBP(LitElement) {
             </topic-intro>
     
             
-            <furo-markdown unsafe ƒ-fetch="--pageActivated"  mdsrc="/_page/markdown/default-icons.md"></furo-markdown>
+            <furo-markdown unsafe mdsrc="/_page/markdown/default-icons.md"></furo-markdown>
             <demo-furo-icon-list></demo-furo-icon-list>
             
             <topic-title title="custom icons"></topic-title>
-            <furo-markdown ƒ-fetch="--pageActivated" mdsrc="/_page/markdown/custom-icons.md"></furo-markdown>
+            <furo-markdown mdsrc="/_page/markdown/custom-icons.md"></furo-markdown>
             
             
         `;

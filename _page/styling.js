@@ -15,7 +15,7 @@ export class Styling {
                 --on-primary: #212121;
 
                 --secondary: #ffeb3b;
-                --secondary-variant: #edeeed;
+                --secondary-variant: #c1b02e;
                 --on-secondary: #000000;
 
                 --accent: #3f83e3;
@@ -55,6 +55,7 @@ export class Styling {
                 --blockquote: #ffc247;
 
             }
+
             /** the background of the bar itself. **/
             ::-webkit-scrollbar {
                 width: 8px;
