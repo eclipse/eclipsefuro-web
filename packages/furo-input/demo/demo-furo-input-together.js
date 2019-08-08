@@ -64,6 +64,7 @@ class DemoFuroInputTogether extends FBP(LitElement) {
             <furo-range-input label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
                               @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
            
+            <furo-color-input label="Color" value="#FEA234"></furo-color-input>
             <furo-search-input label="Search"></furo-search-input>
             <furo-date-input ƒ-set-value="--date" max="2020-12-31" min="2020-01-01" value="2020-02-02"
                              hint="Min max in 2020 only" label="Date input field"
