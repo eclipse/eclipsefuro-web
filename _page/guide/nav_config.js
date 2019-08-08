@@ -21,7 +21,7 @@ export const nav = [
   },
   {
     "group": "Manuals", "items": [
-      {"label": "Styling", "icon": "image:color-lens", "href": "md/styling/"},
+      {"label": "Styling", "icon": "image:color-lens", "href": "styling/"},
       {"label": "Theming", "icon": "image:brush", "href": "md/theming/"},
       {"label": "Icons", "icon": "gesture", "href": "icons/"},
       {"label": "Dealing with data", "icon": "cloud", "href": "doc/data/"},

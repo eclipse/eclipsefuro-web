@@ -29,6 +29,7 @@ class PageIcons extends FBP(LitElement) {
             display: block;
             overflow: auto;
             height: 100%;
+            padding: var(--spacing);
         }
 
         :host([hidden]) {

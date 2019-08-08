@@ -8,6 +8,7 @@ import "../components/topic-title";
 import "../components/topic-intro";
 //pages
 import "./pages/page-icons";
+import "./pages/page-styling";
 import "./panel-md-loader";
 
 import "./components/all-imports";
@@ -77,6 +78,7 @@ class ViewGuide extends FBP(LitElement) {
         <furo-pages ƒ-inject-location="--pathChanged" default="welcome">
           <panel-guide name="pages"></panel-guide>
           <page-icons name="icons"></page-icons>
+          <page-styling name="styling"></page-styling>
           <panel-md-loader name="md"></panel-md-loader>
           <div name="welcome">welcome to the guide</div>
         </furo-pages>
