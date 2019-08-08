@@ -61,6 +61,7 @@ class StyleCategorySample extends FBP(LitElement) {
                 padding: var(--spacing);
                 box-sizing: border-box;
                 cursor: pointer;
+                transition: all 0.25s ease-in;
             }
             .narrow{
                 height: 90px;
@@ -114,11 +115,11 @@ class StyleCategorySample extends FBP(LitElement) {
             }
             div.item[onprimary]{
                 background-color: var(--on-primary);
-                color: var(--primary);
+                color: black;
             }
             div.item[onsecondary]{
                 background-color: var(--on-secondary);
-                color: var(--secondary);
+                color: white;
             }
             div.item[onbackground]{
                 background-color: var(--on-background);
@@ -130,7 +131,7 @@ class StyleCategorySample extends FBP(LitElement) {
             }
             div.item[onerror]{
                 background-color: var(--on-error);
-                color: var(--error);
+                color: black;
             }
         `
     ];
