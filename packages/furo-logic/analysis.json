@@ -100,16 +100,16 @@
         },
         {
           "name": "size",
-          "type": "?",
-          "description": "",
+          "type": "number",
+          "description": "Current size of the stack",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 23,
+              "line": 27,
               "column": 2
             },
             "end": {
-              "line": 33,
+              "line": 37,
               "column": 3
             }
           },
@@ -642,11 +642,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 41,
               "column": 2
             },
             "end": {
-              "line": 40,
+              "line": 44,
               "column": 3
             }
           },
@@ -662,11 +662,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 47,
+              "line": 51,
               "column": 2
             },
             "end": {
-              "line": 51,
+              "line": 55,
               "column": 3
             }
           },
@@ -686,11 +686,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 65,
+              "line": 69,
               "column": 2
             },
             "end": {
-              "line": 73,
+              "line": 77,
               "column": 3
             }
           },
@@ -706,11 +706,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 89,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 104,
               "column": 3
             }
           },
@@ -723,11 +723,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 117,
+              "line": 121,
               "column": 3
             }
           },
@@ -740,11 +740,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 134,
               "column": 2
             },
             "end": {
-              "line": 134,
+              "line": 138,
               "column": 3
             }
           },
@@ -757,11 +757,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 150,
               "column": 2
             },
             "end": {
-              "line": 159,
+              "line": 163,
               "column": 3
             }
           },
@@ -777,11 +777,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 168,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 172,
+              "line": 176,
               "column": 3
             }
           },
@@ -1013,7 +1013,7 @@
           "column": 0
         },
         "end": {
-          "line": 173,
+          "line": 177,
           "column": 1
         }
       },

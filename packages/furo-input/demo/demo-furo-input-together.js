@@ -80,8 +80,8 @@ class DemoFuroInputTogether extends FBP(LitElement) {
                              label="Text input field" @-value-changed="--text"></furo-text-input>
             <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
                                label="Number input field" @-value-changed="--number"></furo-number-input>
-            <furo-text-input ƒ-set-value="--time" label="Input field" @-value-changed="--time"></furo-text-input>
-
+            <furo-text-input style="width: 100%" ƒ-set-value="--time" label="Input field" @-value-changed="--time"></furo-text-input>
+            
             <hr>
             <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v" @-value-changed="--fromTextarea"></furo-textarea-input>
             

@@ -18,7 +18,9 @@ class FuroRangeInput extends FBP(LitElement) {
   constructor() {
     super();
     this.step = "any";
+    this.valid = true;
   }
+
 
   _FBPReady() {
     super._FBPReady();
@@ -30,7 +32,7 @@ class FuroRangeInput extends FBP(LitElement) {
       let input = e.composedPath()[0];
 
       // mark min max error
-      this.error = input.validity.rangeOverflow || input.validity.rangeUnderflow;
+      this.valid = !(input.validity.rangeOverflow || input.validity.rangeUnderflow);
 
       if (!input.validity.badInput) {
         this.value = input.value;
@@ -137,13 +139,28 @@ class FuroRangeInput extends FBP(LitElement) {
         type: String,
       },
       /**
-       * text for errors
+       * Text for errors
        */
       errortext: {
         type: String,
+      },
+
+      leadingIcon: {
+        type: String,
+        attribute: "leading-icon"
+      },
+
+      trailingIcon: {
+        type: String,
+        attribute: "trailing-icon"
+      },
+      valid: {
+        type: Boolean,
+        reflect: true
+      },
+      condensed: {
+        type: Boolean
       }
-
-
     };
   }
 
@@ -217,6 +234,7 @@ class FuroRangeInput extends FBP(LitElement) {
     this.disabled = false;
   }
 
+
   /**
    *
    * @private
@@ -225,134 +243,290 @@ class FuroRangeInput extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
+        /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
             position: relative;
-            font-size: 12px;
             box-sizing: border-box;
-            margin: 0 0 14px 0;
-            padding: 8px 0 2px 0;
-            height: 28px;
+            margin: 14px 0 0 0;
+            height: 75px;
             font-family: "Roboto", "Noto", sans-serif;
-            line-height: 1.5;
         }
 
         :host([hidden]) {
             display: none;
         }
 
+        .wrapper {
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+
 
         input {
-            -webkit-appearance: none;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 20px 0;
             width: 100%;
-            margin: 6px 0;
-            
-        }
-        
-
-        /** slider http://danielstern.ca/range.css/#/  */
-        
-        input:focus {
+            line-height: 56px;
+            color: inherit;
             outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
         }
 
-        input::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 4px;
-            cursor: pointer;
-            background: #e5e5e5;
-            border: none;
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
         }
 
-        input::-webkit-slider-thumb {
-            border: none;
-            height: 16px;
-            width: 16px;
-            border-radius: 8px;
-            background: #e5e5e5;
-            cursor: pointer;
-            -webkit-appearance: none;
-            margin-top: -6px;
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
         }
 
-        :host(:focus-within) input::-webkit-slider-runnable-track, :host(:focus-within) input::-webkit-slider-thumb {
-            background: #007BFF;
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
         }
-        /** slider */
-        
-        .border {
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+       
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            line-height: 56px;
+        }
+
+      
+        :host(:not([filled])) label span {
+            position: relative;
+            font-size: 12px;
+            top: -30px;
+            left: 0;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 28px;
+            top: 56px;
             border: none;
-            border-bottom: 1px solid rgba(0, 0, 0, .12);
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
-        label {
-            position: absolute;
-            color: rgba(0, 0, 0, .26);
-            font-size: 10px;
-            top: -4px;
-            pointer-events: none;
+        :host([filled]) .ripple-line {
             display: block;
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            text-align: left;
         }
+
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+            border: none;
+        }
+
+        :host([filled]) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
 
         * {
-            transition: all 150ms ease-out;
+            transition: all 200ms ease-out;
         }
 
         .hint, .errortext {
             position: absolute;
-            top: 30px;
-            font-size: 10px;
+            bottom: 0;
+            font-size: 12px;
             color: transparent;
+            padding-left: 12px;
             white-space: nowrap;
             pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            color: var(--app-hint-color);
+            color: var(--input-hint-color, #999999);
             transition: all 550ms ease-in;
         }
 
-
-        :host([error]) .border {
-            border-color: var(--error, red);
-            border-width: 1px;
-        }
 
         :host([error]) .errortext {
             display: block;
         }
 
         .errortext {
-            color: var(--error, red);
+            color: var(--input-error-text-color, var(--error, red));
             display: none;
         }
 
 
-        :host(:focus-within) .errortext {
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
+        furo-icon {
             display: none;
+            top: 16px;
         }
 
-        :host(:focus-within) label[float="true"] {
-            color: var(--accent, #333333);
+        furo-icon.lead {
+            position: absolute;
+
+            left: 8px;
         }
 
-        :host(:focus-within) .border {
-            border-color: var(--accent, #3f51b5);
-            border-width: 1px;
+        furo-icon.trail {
+            position: absolute;
+            right: 8px;
         }
 
-        :host([error]:focus-within) .border {
-            border-color: var(--error, red);
-            border-width: 1px;
+        :host([leading-icon]) furo-icon.lead, :host([trailing-icon]) furo-icon.trail {
+            display: block;
         }
+
+        :host([leading-icon]) .wrapper {
+            padding-left: 36px;
+        }
+
+        :host([trailing-icon]) .wrapper {
+            padding-right: 36px;
+        }
+
+        :host(:focus-within:not([valid])) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([condensed]) input, :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+            line-height: 36px;
+        }
+
+        :host([condensed]) input {
+            font-size: 14px;
+            margin: 10px;
+        }
+
+        :host([condensed][filled]) input {
+            font-size: 13px;
+        }
+
+        :host([condensed]) .borderlabel {
+            height: 36px;
+        }
+
+        :host([condensed]) furo-icon {
+            top: 6px;
+        }
+
+        :host([condensed]) .ripple-line {
+            top: 36px;
+        }
+
+        :host([condensed][filled]) label span {
+            top: -15px;
+            font-size: 10px;
+        }
+
+        :host([condensed]) label span {
+            top: -20px;
+            font-size: 10px;
+        }
+
+        :host([condensed]) .hint, :host([condensed]) .errortext {
+            font-size: 10px;
+        }
+
+        :host([condensed]) {
+            height: 53px;
+        }
+
     `
   }
 
@@ -364,19 +538,29 @@ class FuroRangeInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html` 
+      <div class="wrapper">
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
       <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
-       type="range" 
-       
+       type="range"       
        ƒ-.value="--value" 
        @-input="--inputInput(*)"   
        ƒ-focus="--focus">
-      <div class="border"></div>
-      <label float="${this._float}" for="input">${this.label}</label>  
+       
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label ?float="${this._float}" for="input"><span>${this.label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
     `;
   }
+
 
 }
 

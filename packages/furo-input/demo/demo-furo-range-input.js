@@ -54,6 +54,12 @@ class DemoFuroRangeInput extends FBP(LitElement) {
                                @-value-changed="--nval"></furo-number-input>
             <furo-text-input label="Text" hint="type something like a number" ƒ-set-value="--rval"
                              @-value-changed="--rval,--nval"></furo-text-input>
+            <hr>
+
+            <furo-range-input  leading-icon="dashboard" label="Range" step="0.25"  min="10" max="20" hint="Slide for a number"></furo-range-input>
+            <furo-range-input condensed leading-icon="dashboard" label="Range" step="0.25"  min="10" max="20" hint="Slide for a number"></furo-range-input>
+            <furo-range-input filled leading-icon="dashboard" label="Range" step="0.25"  min="10" max="20" hint="Slide for a number"></furo-range-input>
+            <furo-range-input filled condensed leading-icon="dashboard" label="Range" step="0.25"  min="10" max="20" hint="Slide for a number"></furo-range-input>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

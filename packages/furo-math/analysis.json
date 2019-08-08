@@ -100,17 +100,17 @@
         },
         {
           "name": "size",
-          "type": "?",
-          "description": "",
+          "type": "number",
+          "description": "Current size of the stack",
           "privacy": "public",
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 23,
+              "line": 27,
               "column": 2
             },
             "end": {
-              "line": 33,
+              "line": 37,
               "column": 3
             }
           },
@@ -804,11 +804,11 @@
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 37,
+              "line": 41,
               "column": 2
             },
             "end": {
-              "line": 40,
+              "line": 44,
               "column": 3
             }
           },
@@ -826,11 +826,11 @@
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 47,
+              "line": 51,
               "column": 2
             },
             "end": {
-              "line": 51,
+              "line": 55,
               "column": 3
             }
           },
@@ -872,11 +872,11 @@
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 85,
+              "line": 89,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 104,
               "column": 3
             }
           },
@@ -891,11 +891,11 @@
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 113,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 117,
+              "line": 121,
               "column": 3
             }
           },
@@ -910,11 +910,11 @@
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 130,
+              "line": 134,
               "column": 2
             },
             "end": {
-              "line": 134,
+              "line": 138,
               "column": 3
             }
           },
@@ -946,11 +946,11 @@
           "sourceRange": {
             "file": "../../../@furo/logic/forth-stack.js",
             "start": {
-              "line": 168,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 172,
+              "line": 176,
               "column": 3
             }
           },

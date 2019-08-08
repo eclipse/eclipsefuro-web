@@ -1,0 +1,130 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-data-textarea-input_test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+      <template>
+        <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+        <furo-data-textarea-input ƒ-bind-data="--entity(*.fields.descrWithDefault)"></furo-data-textarea-input>
+        <furo-data-textarea-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.fields.descrWithDefault)"
+                              @-value-changed="--textareaChanged"></furo-data-textarea-input>
+
+        <furo-data-textarea-input ƒ-bind-data="--entity(*.fields.invalidBinding)"></furo-data-textarea-input>
+      </template>
+    </test-bind>
+
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog.js"
+  import "@furo/fbp/testhelper/test-bind";
+  import "@furo/data/test/initEnv.js"
+  import "@furo/data/entity-object.js"
+  import '/node_modules/axe-core/axe.min.js';
+
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+  describe('furo-data-textarea-input_test tests ', function () {
+
+
+    let dataTextareaInput, host, entityObject, secondTextareaInput, invalidTextareaInput;
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      host = fix[0]._host;
+      entityObject = fix[1];
+      await entityObject.updateComplete;
+
+      dataTextareaInput = fix[2];
+      await dataTextareaInput.updateComplete;
+
+      secondTextareaInput = fix[3];
+      await secondTextareaInput.updateComplete;
+
+      invalidTextareaInput = fix[4];
+      await invalidTextareaInput.updateComplete;
+
+    });
+
+    it('should log invalid bindings', (done) => {
+      secondTextareaInput._FBPAddWireHook("--value", (val) => {
+        // invalid binding
+        assert.equal(invalidTextareaInput.field, undefined);
+        // valid binding
+        assert.equal(secondTextareaInput.field._isValid, true);
+        done();
+      });
+    });
+    it('should override hints ', (done) => {
+      secondTextareaInput._FBPAddWireHook("--value", (val) => {
+        assert.equal(secondTextareaInput._hint, "FromTPL")
+        done();
+      });
+    });
+    it('should override labels ', (done) => {
+      secondTextareaInput._FBPAddWireHook("--value", (val) => {
+        assert.equal(secondTextareaInput._label, "FromTPL")
+        done();
+      });
+
+    });
+    it('should receive value with bind', (done) => {
+      dataTextareaInput._FBPAddWireHook("--value", (val) => {
+        assert.equal(val, "YES")
+        done();
+      });
+
+    });
+    it('should bind the field description', (done) => {
+      host._FBPAddWireHook("--entity", () => {
+        assert.equal(dataTextareaInput._label, "Beschreibung");
+        done();
+      })
+    });
+
+
+    it('should update the entity when values changed', (done) => {
+      // ignore the init values
+      setTimeout(() => {
+        secondTextareaInput._FBPAddWireHook("--value", (val) => {
+          assert.equal(val, "newTextarea");
+          done();
+        });
+
+        dataTextareaInput._FBPTriggerWire("--valueChanged", "newTextarea");
+      }, 10)
+
+    });
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+    it('should be a furo-data-textarea-input_test', (done) => {
+      assert.equal(dataTextareaInput.nodeName.toLowerCase(), "furo-data-textarea-input");
+      done()
+    });
+
+
+  })
+  ;
+</script>
+</body>
+</html>

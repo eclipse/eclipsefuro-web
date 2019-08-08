@@ -1,0 +1,152 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-data-time-input_test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+      <template>
+        <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+        <furo-data-time-input  ƒ-bind-data="--entity(*.fields.id)"></furo-data-time-input>
+        <furo-data-time-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.fields.id)"
+                                min="1"
+                                max="10"
+                                step="0.5"
+                              @-value-changed="--textChanged"></furo-data-time-input>
+        <furo-data-time-input  ƒ-bind-data="--entity(*.fields.invalidBinding)"></furo-data-time-input>
+      </template>
+    </test-bind>
+
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "@furo/fbp/testhelper/test-bind";
+  import "../furo-catalog.js"
+  import "@furo/data/test/initEnv.js"
+  import "@furo/data/entity-object.js"
+  import '/node_modules/axe-core/axe.min.js';
+
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+  describe('furo-data-time-input_test tests ', function () {
+
+
+    let dataTimeInput, host, entityObject, secondTimeInput, invalidTimeInput;
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      host = fix[0]._host;
+      entityObject = fix[1];
+      await entityObject.updateComplete;
+
+      dataTimeInput = fix[2];
+      await dataTimeInput.updateComplete;
+
+      secondTimeInput = fix[3];
+      await secondTimeInput.updateComplete;
+
+      invalidTimeInput = fix[4];
+      await invalidTimeInput.updateComplete;
+
+    });
+
+    it('should override hints ', (done) => {
+      secondTimeInput._FBPAddWireHook("--value", (val) => {
+        assert.equal(secondTimeInput._hint, "FromTPL");
+        done();
+      });
+    });
+
+    it('should override labels ', (done) => {
+      secondTimeInput._FBPAddWireHook("--value", (val) => {
+        assert.equal(secondTimeInput._label, "FromTPL");
+        done();
+      });
+
+    });
+    it('should override min ', (done) => {
+      secondTimeInput._FBPAddWireHook("--value", (val) => {
+        assert.equal(secondTimeInput.min, 1);
+        done();
+      });
+    });
+    it('should override max ', (done) => {
+      secondTimeInput._FBPAddWireHook("--value", (val) => {
+        assert.equal(secondTimeInput.max, 10);
+        done();
+      });
+    });
+    it('should override step ', (done) => {
+      secondTimeInput._FBPAddWireHook("--value", (val) => {
+        assert.equal(secondTimeInput.step, 0.5);
+        done();
+      });
+    });
+    it('should receive value with bind', (done) => {
+      dataTimeInput._FBPAddWireHook("--value", (val) => {
+        assert.equal(val, 443343);
+        done();
+      });
+
+    });
+    it('should bind the field description', (done) => {
+      host._FBPAddWireHook("--entity", () => {
+        assert.equal(dataTimeInput._label, "Task ID");
+        done();
+      })
+    });
+
+
+    it('should log invalid bindings', (done) => {
+      secondTimeInput._FBPAddWireHook("--value", (val) => {
+        // invalid binding
+        assert.equal(invalidTimeInput.field, undefined);
+        // valid binding
+        assert.equal(secondTimeInput.field._isValid, true);
+        done();
+      });
+    });
+
+    it('should update the entity when values changed', (done) => {
+      // ignore the init values
+      setTimeout(() => {
+        secondTimeInput._FBPAddWireHook("--value", (val) => {
+          assert.equal(val, "newText");
+          done();
+        });
+
+        dataTimeInput._FBPTriggerWire("--valueChanged", "newText");
+      }, 10)
+
+    });
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+    it('should be a furo-data-time-input_test', (done) => {
+      assert.equal(dataTimeInput.nodeName.toLowerCase(), "furo-data-time-input");
+      done()
+    });
+
+
+  })
+  ;
+</script>
+</body>
+</html>
