@@ -10,3 +10,4 @@ import "@furo/util/demo/demos"
 // EXPERIMENTS
 
 import "@furo/experiments"
+import "@furo/experiments/demo/demos"

@@ -6,7 +6,7 @@ import {LitElement} from 'lit-element';
  *
  * <furo-demo-snippet>
  *   <template>
- *     <furo-button @-click="--start" label="start"></furo-button>
+ *     <furo-button raised @-click="--start" label="start"></furo-button>
  *     <furo-speech-recognition ƒ-start="--start" @-transcript="--text"></furo-speech-recognition>
  *     <div ƒ-.inner-text="--text"></div>
  *   </template>

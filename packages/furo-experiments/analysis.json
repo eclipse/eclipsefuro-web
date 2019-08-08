@@ -1868,8 +1868,8 @@
       ],
       "demos": [
         {
-          "url": "demo/video-source.html",
-          "description": ""
+          "url": "demo-capture-video",
+          "description": "Basic demo"
         }
       ],
       "metadata": {},
@@ -1926,7 +1926,7 @@
       "tagname": "furo-capture-video"
     },
     {
-      "description": "`furo-speech-recognition`\nSpeak recogninition API component\n\n<furo-demo-snippet>\n  <template>\n    <furo-button @-click=\"--start\" label=\"start\"></furo-button>\n    <furo-speech-recognition ƒ-start=\"--start\" @-transcript=\"--text\"></furo-speech-recognition>\n    <div ƒ-.inner-text=\"--text\"></div>\n  </template>\n</furo-demo-snippet>",
+      "description": "`furo-speech-recognition`\nSpeak recogninition API component\n\n<furo-demo-snippet>\n  <template>\n    <furo-button raised @-click=\"--start\" label=\"start\"></furo-button>\n    <furo-speech-recognition ƒ-start=\"--start\" @-transcript=\"--text\"></furo-speech-recognition>\n    <div ƒ-.inner-text=\"--text\"></div>\n  </template>\n</furo-demo-snippet>",
       "summary": "Speech to text",
       "path": "packages/furo-experiments/furo-speech-recognition.js",
       "properties": [

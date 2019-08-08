@@ -11,7 +11,7 @@ import {LitElement} from 'lit-element';
  *
  * @summary Capture video from Camera
  * @customElement
- * @demo demo/video-source.html
+ * @demo demo-capture-video Basic demo
  */
 class FuroCaptureVideo extends (LitElement) {
 
