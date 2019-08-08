@@ -51,16 +51,13 @@ class DemoFuroTextareaInput extends FBP(LitElement) {
             <furo-text-input label="compare" value="text" hint="hint"></furo-text-input>
             <hr>
             <furo-textarea-input label="a lot of text" hint="just type" value="aa\nss\v"></furo-textarea-input>
-            
-            <hr>
-            <furo-split-view style="height: 300px">
-              <furo-textarea-input style="width: 100%" slot="master" rows="14" label="Markdown" hint="just type"
-                                   @-value-changed="--text"></furo-textarea-input>
-              <furo-markdown ƒ-parse-markdown="--text" ></furo-markdown>  
-            </furo-split-view>
-            
           </template>
         </furo-demo-snippet>
+        <furo-split-view flex>
+          <furo-textarea-input style="width: 100%" slot="master" rows="14" label="Markdown" hint="just type"
+                               @-value-changed="--text"></furo-textarea-input>
+          <furo-markdown  style="width: 100%"  ƒ-parse-markdown="--text" ></furo-markdown>
+        </furo-split-view>
       </furo-vertical-flex>
     `;
   }
