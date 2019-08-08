@@ -38,7 +38,7 @@ class PageStyling extends FBP(LitElement) {
                 display: block;
                 overflow: auto;
                 height: 100%;
-                padding: 0 var(--spacing);
+                padding: var(--spacing);
             }
 
             :host([hidden]) {

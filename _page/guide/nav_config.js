@@ -24,7 +24,7 @@ export const nav = [
       {"label": "Styling", "icon": "image:color-lens", "href": "styling/"},
       {"label": "Theming", "icon": "image:brush", "href": "md/theming/"},
       {"label": "Icons", "icon": "gesture", "href": "icons/"},
-      {"label": "Dealing with data", "icon": "cloud", "href": "doc/data/"},
+      {"label": "Dealing with data", "icon": "cloud", "href": "md/dealing-w-data/"},
       {"label": "Data UI", "icon": "view-column", "href": "doc/data-ui/"},
       {"label": "Layouts helper", "icon": "dashboard", "href": "doc/layout/"},
       {"label": "Forms helper", "icon": "dashboard", "href": "doc/form/"},

@@ -80,7 +80,7 @@ class ViewGuide extends FBP(LitElement) {
           <page-icons name="icons"></page-icons>
           <page-styling name="styling"></page-styling>
           <panel-md-loader name="md"></panel-md-loader>
-          <div name="welcome">welcome to the guide</div>
+          <div name="welcome">Coming soon.</div>
         </furo-pages>
       </furo-split-view>
     `;
