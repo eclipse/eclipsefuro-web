@@ -14,8 +14,8 @@ export class Styling {
                 --primary-variant: #f4f4f4;
                 --on-primary: #212121;
 
-                --secondary: #ffeb3b;
-                --secondary-variant: #c1b02e;
+                --secondary: #fbe73a;
+                --secondary-variant: #9e7f2b;
                 --on-secondary: #000000;
 
                 --accent: #3f83e3;

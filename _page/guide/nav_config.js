@@ -13,26 +13,26 @@ export const nav = [
       {"label": "Wires", "icon": "compare-arrows", "href": "md/fbp-wires/"},
       {"label": "Events", "icon": "open-in-new", "href": "md/fbp-events/"},
       {"label": "Data", "icon": "input", "href": "md/fbp-data/"},
-      {"label": "More wireing", "icon": "compare-arrows", "href": "md/fbp-wires-more/"},
-      {"label": "Scripting", "icon": "chaos", "href": "md/fbp-scripting/"},
+      {"label": "More wiring", "icon": "compare-arrows", "href": "md/fbp-wires-more/"},
+      {"label": "Scripting", "icon": "av:play-arrow", "href": "md/fbp-scripting/"},
       {"label": "Lifecycle", "icon": "restore", "href": "md/fbp-lifecycle/"},
-      {"label": "Debugging", "icon": "pan-tool", "href": "md/fbp-debugging/"},
+      {"label": "Debugging", "icon": "bug-report", "href": "md/fbp-debugging/"},
     ]
   },
   {
     "group": "Manuals", "items": [
       {"label": "Styling", "icon": "image:color-lens", "href": "styling/"},
       {"label": "Theming", "icon": "image:brush", "href": "md/theming/"},
-      {"label": "Icons", "icon": "gesture", "href": "icons/"},
+      {"label": "Icons", "icon": "social:mood", "href": "icons/"},
       {"label": "Dealing with data", "icon": "cloud", "href": "md/dealing-w-data/"},
-      {"label": "Data UI", "icon": "view-column", "href": "doc/data-ui/"},
-      {"label": "Layouts helper", "icon": "dashboard", "href": "doc/layout/"},
-      {"label": "Forms helper", "icon": "dashboard", "href": "doc/form/"},
-      {"label": "App Config", "icon": "settings", "href": "doc/config/"},
-      {"label": "Navigation", "icon": "tab", "href": "doc/navigation/"},
-      {"label": "Routing", "icon": "arrow-forward", "href": "doc/route/"},
-      {"label": "Timing", "icon": "alarm", "href": "doc/timing/"},
-      {"label": "Util", "icon": "star-border", "href": "doc/util/"},
+      {"label": "Data UI", "icon": "view-column", "href": "md/data-ui/"},
+      {"label": "Layouts helper", "icon": "dashboard", "href": "md/layout-helpers/"},
+      {"label": "Forms helper", "icon": "dashboard", "href": "md/form-helpers/"},
+      {"label": "App Config", "icon": "settings", "href": "md/config/"},
+      {"label": "Navigation", "icon": "tab", "href": "md/navigation/"},
+      {"label": "Routing", "icon": "arrow-forward", "href": "md/route/"},
+      {"label": "Timing", "icon": "alarm", "href": "md/timing/"},
+      {"label": "Util", "icon": "star-border", "href": "md/util/"},
     ]
   },
 
@@ -49,10 +49,10 @@ export const nav = [
   },
   {
     "group": "Credits", "items": [
-      {"label": "The Polymer Project", "icon": "polymer", "href": "page/api-design/"},
-      {"label": "Lit Element", "icon": "polymer", "href": "page/api-design/"},
-      {"label": "webcomponents.org", "icon": "polymer", "href": "icons/"},
-      {"label": "J.P Morrison", "icon": "arrow-right", "href": "icons/"}
+      {"label": "The Polymer Project", "icon": "polymer", "href": ""},
+      {"label": "Lit Element", "icon": "lightbulb-outline", "href": ""},
+      {"label": "webcomponents.org", "icon": "polymer", "href": ""},
+      {"label": "J.P Morrison", "icon": "thumb-up", "href": ""}
     ]
   }
 ];

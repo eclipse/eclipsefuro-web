@@ -124,8 +124,8 @@ class SideNavigationItem extends FBP(LitElement) {
     // language=HTML
     return html`        
       
-        <a tabindex="-1" href="${this.basePath}${this.item.href}" ƒ-click=":STOP,--click"></a>     
-<furo-icon icon="${this.item.icon}"></furo-icon>${this.item.label}
+        <a tabindex="-1" href="${this.basePath}${this.item.href}" ƒ-click=":STOP,--click"></a><span>     
+<furo-icon icon="${this.item.icon}"></furo-icon>${this.item.label}</span>
     `;
   }
 }
