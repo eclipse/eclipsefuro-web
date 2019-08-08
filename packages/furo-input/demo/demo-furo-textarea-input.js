@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
@@ -40,19 +40,30 @@ class DemoFuroTextareaInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h2>Demo furo-textarea-input</h2>
-      <p>description</p>
-      <furo-demo-snippet >
-        <template>
-          <furo-textarea-input rows="1" label="a lot of text" hint="just type" value="aa\nss\v"></furo-textarea-input>
-          <furo-text-input label="compare" value="text" hint="hint"></furo-text-input>
-          <hr>
-          <furo-textarea-input label="a lot of text" hint="just type" value="aa\nss\v"></furo-textarea-input>
-          <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v"></furo-textarea-input>
-        </template>
-      </furo-demo-snippet>
+      <furo-vertical-flex>
+        <div>
+          <h2>Demo furo-textarea-input</h2>
+          <p>description</p>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+            <furo-textarea-input rows="1" label="a lot of text" hint="just type" value="aa\nss\v"></furo-textarea-input>
+            <furo-text-input label="compare" value="text" hint="hint"></furo-text-input>
+            <hr>
+            <furo-textarea-input label="a lot of text" hint="just type" value="aa\nss\v"></furo-textarea-input>
+            
+            <hr>
+            <furo-split-view style="height: 300px">
+              <furo-textarea-input style="width: 100%" slot="master" rows="14" label="Markdown" hint="just type"
+                                   @-value-changed="--text"></furo-textarea-input>
+              <furo-markdown ƒ-parse-markdown="--text" ></furo-markdown>  
+            </furo-split-view>
+            
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
     `;
   }
 }
 
-window.customElements.define('demo-furo-textarea-input', DemoFuroTextareaInput );
+window.customElements.define('demo-furo-textarea-input', DemoFuroTextareaInput);
