@@ -2,11 +2,20 @@ import {LitElement} from 'lit-element';
 
 /**
  * `furo-speech-recognition`
- * todo Describe your element
+ * Speak recogninition API component
  *
- * @summary todo shortdescription
+ * <furo-demo-snippet>
+ *   <template>
+ *     <furo-button @-click="--start" label="start"></furo-button>
+ *     <furo-speech-recognition ƒ-start="--start" @-transcript="--text"></furo-speech-recognition>
+ *     <div ƒ-.inner-text="--text"></div>
+ *   </template>
+ * </furo-demo-snippet>
+ *
+ *
+ * @summary Speech to text
  * @customElement
- * @demo demo/furo-speech-recognition.html
+ * @demo demo-furo-speech-recognition
  */
 class FuroSpeechRecognition extends (LitElement) {
 

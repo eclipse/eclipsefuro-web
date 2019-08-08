@@ -16,6 +16,7 @@ export const nav = [
       {"label": "Math", "icon": "timeline", "href": "math/doc/"},
       {"label": "Logic", "icon": "av:web", "href": "logic/doc/"},
       {"label": "Util", "icon": "star-border", "href": "util/doc/"},
+      {"label": "💀 Experiments", "icon": "image:colorize", "href": "experiments/doc/"},
     ]
   },
   {
