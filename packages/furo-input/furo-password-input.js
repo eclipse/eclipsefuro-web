@@ -24,12 +24,10 @@ class FuroPasswordInput extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
 
-
     this._value = this.value || "";
 
     this._FBPAddWireHook("--inputInput", (e) => {
       let input = e.composedPath()[0];
-
       this.valid = input.validity.valid;
       this._float = !!input.value;
       if (input.validity.valid) {
