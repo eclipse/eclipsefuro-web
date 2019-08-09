@@ -4943,7 +4943,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host([hidden]) {
             display: none;
         }
-    `}}window.customElements.define("furo-doc-fetch-analysis",FuroDocFetchAnalysis);class FetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();fetch("/node_modules/@furo/data/analysis.json").then(res=>res.json()).then(analysis=>{/**
+    `}}window.customElements.define("furo-doc-fetch-analysis",FuroDocFetchAnalysis);class FetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();fetch("FuroBaseComponents/node_modules/@furo/data/analysis.json").then(res=>res.json()).then(analysis=>{/**
        * @event data
        * Fired when analysis loaded
        * detail payload: analysis
@@ -13851,7 +13851,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
     `}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-this._FBPAddWireHook("--packageChanged",e=>{this._FBPTriggerWire("--src","/node_modules/@furo/"+e.pathSegments[0]+"/analysis.json")})}/**
+this._FBPAddWireHook("--packageChanged",e=>{this._FBPTriggerWire("--src","FuroBaseComponents/node_modules/@furo/"+e.pathSegments[0]+"/analysis.json")})}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
