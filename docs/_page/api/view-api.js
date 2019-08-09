@@ -13583,7 +13583,7 @@ return _furoShell.html`
       <p>If unsafe is not set, html will not be rendered</p>
       <furo-demo-snippet source>
         <template>
-          <furo-markdown mdsrc="/FuroBaseComponent/_page/markdown/demo.md"></furo-markdown>
+          <furo-markdown mdsrc="/FuroBaseComponents/_page/markdown/demo.md"></furo-markdown>
         </template>
       </furo-demo-snippet>     
       
@@ -13591,7 +13591,7 @@ return _furoShell.html`
       <p>If unsafe is not set, html will not be rendered</p>
       <furo-demo-snippet source>
         <template>
-          <furo-markdown unsafe mdsrc="/FuroBaseComponent/_page/markdown/demo.md"></furo-markdown>
+          <furo-markdown unsafe mdsrc="/FuroBaseComponents/_page/markdown/demo.md"></furo-markdown>
         </template>
       </furo-demo-snippet>
     `}}window.customElements.define("demo-furo-markdown",DemoFuroMarkdown);class DemoFuroPrettyJson extends(0,_furoShell.FBP)(_furoShell.LitElement){/**

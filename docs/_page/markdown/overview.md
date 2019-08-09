@@ -17,7 +17,7 @@ from the different packages to something useful.
 In furo-fbp you connect events from one component to methods of an ohter component. If you get this concept, you have understand
 already 90% of the thing you need to write a program.
 
-![101](/FuroBaseComponent/_page/images/fbp101.jpg)
+![101](/FuroBaseComponents/_page/images/fbp101.jpg)
 
 
 ### The introduction video

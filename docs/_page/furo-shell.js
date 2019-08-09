@@ -1559,7 +1559,7 @@ return Theme.getThemeForComponent(this.name)||css`
      */render(){// language=HTML
 return html`
       <furo-horizontal-flex>
-        <a name="home" href="/FuroBaseComponent/">フロー Furo BaseComponents</a>
+        <a name="home" href="/FuroBaseComponents/">フロー Furo BaseComponents</a>
         <furo-empty-spacer></furo-empty-spacer>
         <a name="guide" href="/guide/md/overview/">Guide</a>
         <a name="api" href="/api/input/doc/">API</a>
