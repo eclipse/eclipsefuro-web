@@ -1559,7 +1559,7 @@ return Theme.getThemeForComponent(this.name)||css`
      */render(){// language=HTML
 return html`
       <furo-horizontal-flex>
-        <a name="home" href="/home">フロー Furo BaseComponents</a>
+        <a name="home" href="/FuroBaseComponent/">フロー Furo BaseComponents</a>
         <furo-empty-spacer></furo-empty-spacer>
         <a name="guide" href="/guide/md/overview/">Guide</a>
         <a name="api" href="/api/input/doc/">API</a>
@@ -1929,7 +1929,7 @@ MIXIN_MATCH.lastIndex=0;VAR_ASSIGN.lastIndex=0;return has}var commonUtils={updat
        * the desired `orange`. This leads us to a limitation.
        *
        * Limitation 1:
-      
+
        * Only properties in the rule where the `@apply`
        * is used are considered as default values.
        * If another rule matches the element and sets `background` with
@@ -1940,7 +1940,7 @@ MIXIN_MATCH.lastIndex=0;VAR_ASSIGN.lastIndex=0;return has}var commonUtils={updat
        *
        * When using Polymer's `updateStyles` api, new properties may not be set for
        * `@apply` properties.
-      
+
       */_exports.$commonUtils=commonUtils;"use strict";const APPLY_NAME_CLEAN=/;\s*/m,INITIAL_INHERIT=/^\s*(initial)|(inherit)\s*$/,IMPORTANT=/\s*!important/,MIXIN_VAR_SEP="_-_";/**
                               * @typedef {!Object<string, string>}
                               */let PropertyEntry,DependantsEntry,MixinMapEntry;// eslint-disable-line no-unused-vars
@@ -2155,14 +2155,14 @@ template[CURRENT_VERSION]=template[NEXT_VERSION];template._validating=!1})}}/**
                        This interface is provided to add document-level <style> elements to ShadyCSS for processing.
                        These styles must be processed by ShadyCSS to simulate ShadowRoot upper-bound encapsulation from outside styles
                        In addition, these styles may also need to be processed for @apply rules and CSS Custom Properties
-                       
+
                        To add document-level styles to ShadyCSS, one can call `ShadyCSS.addDocumentStyle(styleElement)` or `ShadyCSS.addDocumentStyle({getStyle: () => styleElement})`
-                       
+
                        In addition, if the process used to discover document-level styles can be synchronously flushed, one should set `ShadyCSS.documentStyleFlush`.
                        This function will be called when calculating styles.
-                       
+
                        An example usage of the document-level styling api can be found in `examples/document-style-lib.js`
-                       
+
                        @unrestricted
                        */class CustomStyleInterface{constructor(){/** @type {!Array<!CustomStyleProvider>} */this.customStyles=[];this.enqueued=!1;// NOTE(dfreedm): use quotes here to prevent closure inlining to `function(){}`;
 documentWait(()=>{if(window.ShadyCSS.flushCustomStyles){window.ShadyCSS.flushCustomStyles()}})}/**
@@ -2977,7 +2977,7 @@ if(64976<=c&&65007>=c){return!1}if(65535===(65535&c)||65534===(65535&c)){return!
 if(0<=c&&8>=c){return!1}if(11===c){return!1}if(14<=c&&31>=c){return!1}if(127<=c&&159>=c){return!1}// out of range
 if(1114111<c){return!1}return!0}function fromCodePoint(c){/*eslint no-bitwise:0*/if(65535<c){c-=65536;var surrogate1=55296+(c>>10),surrogate2=56320+(1023&c);return String.fromCharCode(surrogate1,surrogate2)}return String.fromCharCode(c)}var UNESCAPE_MD_RE=/\\([!"#$%&'()*+,\-.\/:;<=>?@[\\\]^_`{|}~])/g,ENTITY_RE=/&([a-z#][a-z0-9]{1,31});/gi,UNESCAPE_ALL_RE=new RegExp(UNESCAPE_MD_RE.source+"|"+ENTITY_RE.source,"gi"),DIGITAL_ENTITY_TEST_RE=/^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i,entities=require("./entities");function replaceEntityPattern(match,name){var code=0;if(has(entities,name)){return entities[name]}if(35===name.charCodeAt(0)/* # */&&DIGITAL_ENTITY_TEST_RE.test(name)){code="x"===name[1].toLowerCase()?parseInt(name.slice(2),16):parseInt(name.slice(1),10);if(isValidEntityCode(code)){return fromCodePoint(code)}}return match}/*function replaceEntities(str) {
           if (str.indexOf('&') < 0) { return str; }
-        
+
           return str.replace(ENTITY_RE, replaceEntityPattern);
         }*/function unescapeMd(str){if(0>str.indexOf("\\")){return str}return str.replace(UNESCAPE_MD_RE,"$1")}function unescapeAll(str){if(0>str.indexOf("\\")&&0>str.indexOf("&")){return str}return str.replace(UNESCAPE_ALL_RE,function(match,escaped,entity){if(escaped){return escaped}return replaceEntityPattern(match,entity)})}////////////////////////////////////////////////////////////////////////////////
 var HTML_ESCAPE_TEST_RE=/[&<>"]/,HTML_ESCAPE_REPLACE_RE=/[&<>"]/g,HTML_REPLACEMENTS={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"};function replaceUnsafeChar(ch){return HTML_REPLACEMENTS[ch]}function escapeHtml(str){if(HTML_ESCAPE_TEST_RE.test(str)){return str.replace(HTML_ESCAPE_REPLACE_RE,replaceUnsafeChar)}return str}////////////////////////////////////////////////////////////////////////////////
@@ -4281,25 +4281,25 @@ function isTerminatorChar(ch){switch(ch){case 10/* \n */:case 33/* ! */:case 35/
 // flexibility required.
 /*
       var TERMINATOR_RE = /[\n!#$%&*+\-:<=>@[\\\]^_`{}~]/;
-      
+
       module.exports = function text(state, silent) {
         var pos = state.pos,
             idx = state.src.slice(pos).search(TERMINATOR_RE);
-      
+
         // first char is terminator -> empty text
         if (idx === 0) { return false; }
-      
+
         // no terminator -> text till end of string
         if (idx < 0) {
           if (!silent) { state.pending += state.src.slice(pos); }
           state.pos = state.src.length;
           return true;
         }
-      
+
         if (!silent) { state.pending += state.src.slice(pos, pos + idx); }
-      
+
         state.pos += idx;
-      
+
         return true;
       };*/},{}],50:[function(require,module,exports){// Clean up tokens after emphasis and strikethrough postprocessing:
 // merge adjacent text nodes into one and re-calculate all token levels
