@@ -313,10 +313,12 @@ class FuroButton extends FBP(LitElement) {
             box-shadow: none;
         }
 
-        button:focus {
-            font-weight: 700;
+        button:focus{
+            background-color: var(--surface-light);
         }
-
+        button:hover{
+            background-color: var(--surface-dark);
+        }
 
         :host([raised]) button:focus {
             box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
