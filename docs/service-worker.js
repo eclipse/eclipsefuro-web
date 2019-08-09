@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["_page/api/view-api.js","606bd21b0a5e0300e92f958aacac2b71"],["_page/furo-shell.js","5b5bc238ddbf178cc25de5d71aa78645"],["_page/guide/view-guide.js","ec8e4ae856fbe3826d473cc91002d92d"],["index.html","4433ab58581a4aca7d2307231d8519d5"],["manifest.json","2cc9a149d29d0e7656b68c02360a830f"]];
+var precacheConfig = [["FuroBaseComponents/_page/api/view-api.js","606bd21b0a5e0300e92f958aacac2b71"],["FuroBaseComponents/_page/furo-shell.js","5b5bc238ddbf178cc25de5d71aa78645"],["FuroBaseComponents/_page/guide/view-guide.js","ec8e4ae856fbe3826d473cc91002d92d"],["index.html","4433ab58581a4aca7d2307231d8519d5"],["manifest.json","2cc9a149d29d0e7656b68c02360a830f"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 
