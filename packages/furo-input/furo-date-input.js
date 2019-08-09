@@ -67,7 +67,6 @@ class FuroDateInput extends FBP(LitElement) {
   }
 
 
-
   set _value(v) {
     this._float = !!v;
     this._FBPTriggerWire("--value", v)
@@ -179,15 +178,15 @@ class FuroDateInput extends FBP(LitElement) {
       /**
        * html input validity
        */
-      valid:{
-        type:Boolean,
-        reflect:true
+      valid: {
+        type: Boolean,
+        reflect: true
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
-      condensed:{
-        type:Boolean
+      condensed: {
+        type: Boolean
       }
 
 
@@ -228,10 +227,11 @@ class FuroDateInput extends FBP(LitElement) {
   /**
    * clears the error and restores the errortext.
    */
-  clearError(){
+  clearError() {
     this.error = false;
     this._errortext = this.__initalErrorText;
   }
+
   /**
    * Sets the focus on the field.
    */
@@ -284,7 +284,10 @@ class FuroDateInput extends FBP(LitElement) {
             height: 56px;
         }
 
-       
+        .iwrap {
+            position: relative;
+        }
+
 
         input {
             position: absolute;
@@ -294,8 +297,7 @@ class FuroDateInput extends FBP(LitElement) {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            left:12px;
-            right: 12px;
+            width: 100%;
             line-height: 24px;
             color: inherit;
             outline: none;
@@ -369,7 +371,7 @@ class FuroDateInput extends FBP(LitElement) {
         :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
             font-size: 12px;
             top: -30px;
-            left:0;
+            left: 0;
             position: relative;
         }
 
@@ -494,16 +496,18 @@ class FuroDateInput extends FBP(LitElement) {
 
         furo-icon {
             display: none;
-            top:16px;
+            top: 16px;
         }
-        furo-icon.lead{
+
+        furo-icon.lead {
             position: absolute;
-            
-            left:8px;
+
+            left: 8px;
         }
-        furo-icon.trail{
+
+        furo-icon.trail {
             position: absolute;
-            right:8px;
+            right: 8px;
         }
 
         :host([leading-icon]) furo-icon.lead, :host([trailing-icon]) furo-icon.trail {
@@ -514,52 +518,61 @@ class FuroDateInput extends FBP(LitElement) {
             left: 24px;
         }
 
-        :host([leading-icon]) .wrapper{
+        :host([leading-icon]) .wrapper {
             padding-left: 36px;
         }
-        :host([trailing-icon]) .wrapper{
+
+        :host([trailing-icon]) .wrapper {
             padding-right: 36px;
         }
-        :host(:focus-within:not([valid])) label{
+
+        :host(:focus-within:not([valid])) label {
             color: var(--input-error-text-color, var(--error, red));
         }
 
-        :host([condensed]) input{
-            top:8px;
+        :host([condensed]) input {
+            top: 8px;
         }
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
+
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
             line-height: 36px;
         }
-        :host([condensed]) input{
+
+        :host([condensed]) input {
             font-size: 14px;
         }
-        :host([condensed][filled]) input{
+
+        :host([condensed][filled]) input {
             font-size: 13px;
         }
-        :host([condensed]) .borderlabel{
+
+        :host([condensed]) .borderlabel {
             height: 36px;
-        }  
-        
-        :host([condensed])  furo-icon {
-            top:6px;
         }
-        
+
+        :host([condensed]) furo-icon {
+            top: 6px;
+        }
+
         :host([condensed]) .ripple-line {
             top: 36px;
         }
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top:-15px;
+            top: -15px;
             font-size: 10px;
-        } 
+        }
+
         :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top:-20px;
+            top: -20px;
             font-size: 10px;
-        } 
+        }
+
         :host([condensed]) .hint, :host([condensed]) .errortext {
             font-size: 10px;
         }
-        :host([condensed]){
+
+        :host([condensed]) {
             height: 53px;
         }
 
@@ -576,12 +589,13 @@ class FuroDateInput extends FBP(LitElement) {
     return html` 
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
        type="date"     
        ƒ-.value="--value" 
        @-input="--inputInput(*)"   
        ƒ-focus="--focus">
-       
+       </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>
       <div class="borderlabel">
@@ -596,7 +610,6 @@ class FuroDateInput extends FBP(LitElement) {
  
     `;
   }
-
 
 
 }
