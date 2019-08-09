@@ -71,6 +71,7 @@ class FuroSplitView extends FBP(LitElement) {
             height: 100%;
             overflow-y: auto;
         }
+       
     `
   }
 

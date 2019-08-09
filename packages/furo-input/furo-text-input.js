@@ -269,7 +269,6 @@ class FuroTextInput extends FBP(LitElement) {
             box-sizing: border-box;
             margin: 14px 0 0 0;
             height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
             width: 190px;
         }
 

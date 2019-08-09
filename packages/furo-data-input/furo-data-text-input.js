@@ -133,6 +133,7 @@ class FuroDataTextInput extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: inline-block;
+            width: 190px;
         }
 
         :host([hidden]) {
@@ -147,7 +148,7 @@ class FuroDataTextInput extends FBP(LitElement) {
 
   render() {
     // language=HTML
-    return html` 
+    return html`
        <furo-text-input 
           ?autofocus=${this.autofocus} 
           ?disabled=${this.disabled} 

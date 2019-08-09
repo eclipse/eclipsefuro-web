@@ -214,6 +214,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: inline-block;
+            width:104px;
         }
 
         :host([hidden]) {

@@ -29,6 +29,7 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+        
 
     `
   }

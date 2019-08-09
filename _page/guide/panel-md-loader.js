@@ -45,7 +45,6 @@ class PanelMdLoader extends FBP(LitElement) {
             display: block;
             height: 100%;
             overflow-y: auto;
-            max-width: 100%;
             box-sizing: border-box;
         }
 
@@ -56,7 +55,10 @@ class PanelMdLoader extends FBP(LitElement) {
         furo-markdown{
             padding: var(--spacing);
           background-color: var(--background);
+            max-width: 960px;
+            min-width: 500px;
         }
+        
     `
   }
 

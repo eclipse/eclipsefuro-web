@@ -133,6 +133,7 @@ class FuroDataSearchInput extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: inline-block;
+            width:190px;
         }
 
         :host([hidden]) {

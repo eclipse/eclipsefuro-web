@@ -117,8 +117,7 @@ class FuroDocMenu extends FBP(LitElement) {
             list-style: none;
             padding: 0;
         }
-
-
+        
 
     `
   }

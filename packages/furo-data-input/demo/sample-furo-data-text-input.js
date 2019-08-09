@@ -49,7 +49,6 @@ class SampleFuroDataTextInput extends FBP(LitElement) {
         <template>
           <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
           <furo-data-text-input autofocus ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
-          <furo-data-text-input  hint="Hint text" label="label" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
         </template>
       </furo-demo-snippet>
     `;

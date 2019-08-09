@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/util"
@@ -38,21 +38,56 @@ class PanelDoc extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        furo-doc-element{
-            max-width: 800px;
+
+        furo-doc-element, furo-doc-class {
+            max-width: 960px;
             min-width: 500px;
+            padding-left: var(--spacing);
         }
-       
+
+        /** the background of the bar itself. **/
+        ::-webkit-scrollbar {
+            width: 6px;
+            background-color: var(--surface, white);
+        }
+
+        /** the directional buttons on the scrollbar. **/
+        ::-webkit-scrollbar-button {
+            background-color: var(--on-surface, black);
+        }
+
+        /** the empty space “below” the progress bar. **/
+        ::-webkit-scrollbar-track {
+        }
+
+        /** the top-most layer of the the progress bar not covered by the thumb. **/
+        ::-webkit-scrollbar-track-piece {
+        }
+
+        /** the draggable scrolling element resizes depending on the size of the scrollable element. **/
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--on-surface, black);
+            border-radius: 3px;
+        }
+
+        /** the bottom corner of the scrollable element, where two scrollbar meet. **/
+        ::-webkit-scrollbar-corner {
+        }
+
+        /** the draggable resizing handle that appears above the scrollbar-corner at the bottom corner of some elements. **/
+        ::-webkit-resizer {
+        }
     `
   }
+
   /**
    * flow is ready lifecycle method
    */
-  _FBPReady(){
+  _FBPReady() {
     super._FBPReady();
     //this._FBPTraceWires()
-    this._FBPAddWireHook("--packageChanged",e=>{
-      this._FBPTriggerWire("--src","/node_modules/@furo/" + e.pathSegments[0] + "/analysis.json")
+    this._FBPAddWireHook("--packageChanged", e => {
+      this._FBPTriggerWire("--src", "/node_modules/@furo/" + e.pathSegments[0] + "/analysis.json")
     })
 
   }
@@ -66,20 +101,24 @@ class PanelDoc extends FBP(LitElement) {
     // language=HTML
     return html`
 
-        <!-- find the package -->
+      <!-- find the package -->
       <furo-location url-space-regex="^/api" @-location-changed="--packageChanged"></furo-location>
       <furo-location url-space-regex="^/api/[^/]*/doc" @-location-changed="--pathChanged"></furo-location>
-      <furo-doc-fetch-analysis ƒ-fetch-src="--src" ƒ-check-subroute="--pathChanged" @-data="--analysis"></furo-doc-fetch-analysis>
+      <furo-doc-fetch-analysis ƒ-fetch-src="--src" ƒ-check-subroute="--pathChanged"
+                               @-data="--analysis"></furo-doc-fetch-analysis>
 
-      <furo-split-view >
+      <furo-split-view>
 
         <!-- the doc menu -->
         <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element"
                        @-class="--class" @-mixin="--class"></furo-doc-menu>
 
-        <furo-doc-element scroll ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
-        <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
-
+        <div scroll>
+          <furo-doc-element ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
+        </div>
+        <div scroll>
+          <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
+        </div>
       </furo-split-view>
     `;
   }

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {nav} from "./nav_config";
@@ -56,8 +56,43 @@ class ViewGuide extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        furo-pages{
+
+        furo-pages {
             height: 100%;
+        }
+        
+
+        /** the background of the bar itself. **/
+        ::-webkit-scrollbar {
+            width: 6px;
+            background-color: var(--surface, white);
+        }
+
+        /** the directional buttons on the scrollbar. **/
+        ::-webkit-scrollbar-button {
+            background-color: var(--on-surface, black);
+        }
+
+        /** the empty space “below” the progress bar. **/
+        ::-webkit-scrollbar-track {
+        }
+
+        /** the top-most layer of the the progress bar not covered by the thumb. **/
+        ::-webkit-scrollbar-track-piece {
+        }
+
+        /** the draggable scrolling element resizes depending on the size of the scrollable element. **/
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--on-surface, black);
+            border-radius: 3px;
+        }
+
+        /** the bottom corner of the scrollable element, where two scrollbar meet. **/
+        ::-webkit-scrollbar-corner {
+        }
+
+        /** the draggable resizing handle that appears above the scrollbar-corner at the bottom corner of some elements. **/
+        ::-webkit-resizer {
         }
     `
   }
@@ -77,10 +112,15 @@ class ViewGuide extends FBP(LitElement) {
           <side-navigation ƒ-inject-nav-config="--nav" base-path="/guide/"></side-navigation>
         </div>
         <furo-pages ƒ-inject-location="--pathChanged" default="welcome">
+          
           <panel-guide name="pages"></panel-guide>
+          
           <page-icons name="icons"></page-icons>
+          
           <page-styling name="styling"></page-styling>
+          
           <panel-md-loader name="md"></panel-md-loader>
+          
           <div name="welcome">Coming soon.</div>
         </furo-pages>
       </furo-split-view>
