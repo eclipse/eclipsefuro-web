@@ -245,6 +245,7 @@ class FuroColorInput extends FBP(LitElement) {
             margin: 14px 0 0 0;
             height: 75px;
             font-family: "Roboto", "Noto", sans-serif;
+            width: 104px;
         }
 
         :host([hidden]) {
@@ -252,20 +253,22 @@ class FuroColorInput extends FBP(LitElement) {
         }
 
         .wrapper {
+            position: relative;
             padding: 0 12px;
             box-sizing: border-box;
             height: 56px;
         }
 
         input {
+            position: absolute;
+            top: 10px;
             border: none;
             background: none;
             box-sizing: border-box;
-            width: 100%;
-            min-width: 60px;
-            height: 30px;
-            margin: 8px 0 ;
-            padding: 0;
+            left:20px;
+            width: 64px;
+            height: 40px;
+            padding: 6px;
             color: inherit;
             outline: none;
             font-family: "Roboto", "Noto", sans-serif;
@@ -479,10 +482,12 @@ class FuroColorInput extends FBP(LitElement) {
             color: var(--input-error-text-color, var(--error, red));
         }
 
-        :host([condensed]) input, :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+        :host([condensed]) input{
+            top:8px;
+        }
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
             line-height: 36px;
         }
-
         :host([condensed]) input {
             font-size: 14px;
             margin: 10px;

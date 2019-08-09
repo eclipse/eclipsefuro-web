@@ -270,6 +270,7 @@ class FuroTextInput extends FBP(LitElement) {
             margin: 14px 0 0 0;
             height: 75px;
             font-family: "Roboto", "Noto", sans-serif;
+            width: 190px;
         }
 
         :host([hidden]) {
@@ -277,6 +278,7 @@ class FuroTextInput extends FBP(LitElement) {
         }
 
         .wrapper {
+            position: relative;
             padding: 0 12px;
             box-sizing: border-box;
         }
@@ -284,13 +286,16 @@ class FuroTextInput extends FBP(LitElement) {
        
 
         input {
+            position: absolute;
+            top: 16px;
             border: none;
             background: none;
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            width: 100%;
-            line-height: 56px;
+            left:12px;
+            right: 12px;
+            line-height: 24px;
             color: inherit;
             outline: none;
             font-family: "Roboto", "Noto", sans-serif;
@@ -517,10 +522,12 @@ class FuroTextInput extends FBP(LitElement) {
         :host(:focus-within:not([valid])) label{
             color: var(--input-error-text-color, var(--error, red));
         }
-        
-        
-        
-        :host([condensed]) input, :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
+
+
+        :host([condensed]) input{
+            top:8px;
+        }
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
             line-height: 36px;
         }
         :host([condensed]) input{
@@ -529,7 +536,7 @@ class FuroTextInput extends FBP(LitElement) {
         :host([condensed][filled]) input{
             font-size: 13px;
         }
-        :host([condensed]) .borderlabel{
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
             height: 36px;
         }  
         
