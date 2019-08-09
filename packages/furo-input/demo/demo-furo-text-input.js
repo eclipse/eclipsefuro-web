@@ -48,8 +48,8 @@ class DemoFuroTextInput extends FBP(LitElement) {
           <h2>Demo furo-text-input</h2>
           <p>description</p>
         </div>
-        <furo-demo-snippet flex>
-          <template>
+        <furo-horizontal-scroller flex>
+          
             <div style="background-color: #e5e5e5; padding: 30px">
               <furo-text-input min="5" leading-icon="send" label="Label" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="send" filled label="Label" value="Val" hint="Hint"></furo-text-input>
@@ -67,8 +67,8 @@ class DemoFuroTextInput extends FBP(LitElement) {
               <furo-text-input trailing-icon="fingerprint"  condensed label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="fingerprint"  condensed filled label="Label" value="Val" hint="Hint"></furo-text-input>
             </div>
-          </template>
-        </furo-demo-snippet>
+          
+        </furo-horizontal-scroller>
       </furo-vertical-flex>
     `;
   }

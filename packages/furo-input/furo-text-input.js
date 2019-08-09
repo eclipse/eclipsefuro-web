@@ -278,9 +278,12 @@ class FuroTextInput extends FBP(LitElement) {
         }
 
         .wrapper {
-            position: relative;
             padding: 0 12px;
             box-sizing: border-box;
+        }
+
+        .iwrap {
+            position: relative;
         }
 
        
@@ -293,8 +296,7 @@ class FuroTextInput extends FBP(LitElement) {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            left:12px;
-            right: 12px;
+            width: 100%;
             line-height: 24px;
             color: inherit;
             outline: none;
@@ -576,9 +578,10 @@ class FuroTextInput extends FBP(LitElement) {
     return html` 
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
         type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
-       
+       </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>
       <div class="borderlabel">
