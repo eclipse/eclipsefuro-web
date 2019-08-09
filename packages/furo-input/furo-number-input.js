@@ -482,6 +482,11 @@ class FuroNumberInput extends FBP(LitElement) {
             color: var(--input-error-text-color, var(--error, red));
         }
 
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+
         :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
             border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
@@ -529,7 +534,7 @@ class FuroNumberInput extends FBP(LitElement) {
         :host([condensed][filled]) input{
             font-size: 13px;
         }
-        :host([condensed]) .borderlabel{
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
             height: 36px;
         }  
         

@@ -59,7 +59,7 @@ class DemoFuroTextInput extends FBP(LitElement) {
             <div style="padding:30px">
               <furo-text-input label="Label" value="Val" hint="Hint jkfdjkdkjf"></furo-text-input>
               <furo-text-input filled label="Label" value="Val" hint="Hint"></furo-text-input>
-              <furo-text-input error label="Label" value="Val" errortext="errortext"></furo-text-input>
+              <furo-text-input error label="Label" value="Val" hint="tex" errortext="errortext"></furo-text-input>
               <furo-text-input trailing-icon="send" filled error label="Label" value="Val" errortext="errortext"></furo-text-input>
             </div> 
             <div style="padding:30px">

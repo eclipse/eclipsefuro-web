@@ -351,28 +351,22 @@ class FuroDateInput extends FBP(LitElement) {
             border-bottom-left-radius: 4px;
         }
 
-        :host(:not([filled])) label span {
-            top: 0;
-            position: relative;
-        }
 
         :host(:not([filled])) label {
             padding: 0 4px;
             border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
             border-left: none;
             border-right: none;
+            border-top: none;
             line-height: 56px;
         }
 
-        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-            border-top: none;
-        }
 
-        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+        :host(:not([filled])) label span {
+            position: relative;
             font-size: 12px;
             top: -30px;
             left: 0;
-            position: relative;
         }
 
 
@@ -408,22 +402,14 @@ class FuroDateInput extends FBP(LitElement) {
             display: none;
         }
 
-        :host([filled]) label {
-            border: none;
-        }
-
 
         :host([filled]) label {
             padding: 0 12px;
             line-height: 56px;
+            border: none;
         }
 
         :host([filled]) label span {
-            position: relative;
-            top: 0;
-        }
-
-        :host([filled]) label[float] span, :host(:focus-within) label span {
             font-size: 12px;
             font-weight: 400;
             top: -20px;
@@ -490,6 +476,11 @@ class FuroDateInput extends FBP(LitElement) {
             color: var(--input-error-text-color, var(--error, red));
         }
 
+        :host([error]:focus-within) .hint {
+            display: none;
+        }
+
+
         :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
             border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
@@ -512,10 +503,6 @@ class FuroDateInput extends FBP(LitElement) {
 
         :host([leading-icon]) furo-icon.lead, :host([trailing-icon]) furo-icon.trail {
             display: block;
-        }
-
-        :host([leading-icon]) label span {
-            left: 24px;
         }
 
         :host([leading-icon]) .wrapper {
@@ -546,7 +533,7 @@ class FuroDateInput extends FBP(LitElement) {
             font-size: 13px;
         }
 
-        :host([condensed]) .borderlabel {
+        :host([condensed]) .borderlabel , :host([condensed]) .wrapper{
             height: 36px;
         }
 
@@ -563,11 +550,11 @@ class FuroDateInput extends FBP(LitElement) {
             font-size: 10px;
         }
 
-        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top: -20px;
+        :host([condensed]) label span {
+            top:-20px;
             font-size: 10px;
         }
-
+        
         :host([condensed]) .hint, :host([condensed]) .errortext {
             font-size: 10px;
         }
