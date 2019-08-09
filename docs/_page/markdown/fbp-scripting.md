@@ -45,7 +45,7 @@ class HookSample extends FBP(LitElement) {
         super();
         // the md-fetcher can only work with urls
         this._FBPAddWireHook("--pathChanged",(d)=>{
-          this._FBPTriggerWire("--fetchMD","/_page/markdown/"+ d.pathSegments[0] + ".md");         
+          this._FBPTriggerWire("--fetchMD","/FuroBaseComponent/_page/markdown/"+ d.pathSegments[0] + ".md");         
       })
     }
 }

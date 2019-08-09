@@ -976,11 +976,11 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             </topic-intro>
     
             
-            <furo-markdown unsafe mdsrc="/_page/markdown/default-icons.md"></furo-markdown>
+            <furo-markdown unsafe mdsrc="/FuroBaseComponent/_page/markdown/default-icons.md"></furo-markdown>
             <demo-furo-icon-list></demo-furo-icon-list>
             
             <topic-title title="custom icons"></topic-title>
-            <furo-markdown mdsrc="/_page/markdown/custom-icons.md"></furo-markdown>
+            <furo-markdown mdsrc="/FuroBaseComponent/_page/markdown/custom-icons.md"></furo-markdown>
             
             
         `}}customElements.define("page-icons",PageIcons);class PageStyling extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
@@ -1004,10 +1004,10 @@ return _furoShell.Theme$1.getThemeForComponent(this.name)||[_furoShell.css`
         `,Styling.theme]}render(){// language=HTML
 return _furoShell.html`
         
-            <furo-markdown unsafe mdsrc="/_page/markdown/styling-top.md"></furo-markdown>
+            <furo-markdown unsafe mdsrc="/FuroBaseComponent/_page/markdown/styling-top.md"></furo-markdown>
             <style-category-sample></style-category-sample>
-            <furo-markdown unsafe mdsrc="/_page/markdown/styling-bottom.md"></furo-markdown>
-        `}}window.customElements.define("page-styling",PageStyling);class PanelMdLoader extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--pathChanged",e=>{let md=e.pathSegments[0];this._FBPTriggerWire("--fetchMD","/_page/markdown/"+md+".md");this.scrollTop=0})}/**
+            <furo-markdown unsafe mdsrc="/FuroBaseComponent/_page/markdown/styling-bottom.md"></furo-markdown>
+        `}}window.customElements.define("page-styling",PageStyling);class PanelMdLoader extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--pathChanged",e=>{let md=e.pathSegments[0];this._FBPTriggerWire("--fetchMD","/FuroBaseComponent/_page/markdown/"+md+".md");this.scrollTop=0})}/**
     * flow is ready lifecycle method
     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
 }/**

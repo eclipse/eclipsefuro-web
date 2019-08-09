@@ -720,17 +720,17 @@ return _furoShell.css`
 
     `}}_exports.Styling=Styling;var styling={Styling:Styling};_exports.$styling=styling;(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.dagre=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){/*
       Copyright (c) 2012-2014 Chris Pettitt
-      
+
       Permission is hereby granted, free of charge, to any person obtaining a copy
       of this software and associated documentation files (the "Software"), to deal
       in the Software without restriction, including without limitation the rights
       to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
       copies of the Software, and to permit persons to whom the Software is
       furnished to do so, subject to the following conditions:
-      
+
       The above copyright notice and this permission notice shall be included in
       all copies or substantial portions of the Software.
-      
+
       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
       IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
       FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -13583,7 +13583,7 @@ return _furoShell.html`
       <p>If unsafe is not set, html will not be rendered</p>
       <furo-demo-snippet source>
         <template>
-          <furo-markdown mdsrc="/_page/markdown/demo.md"></furo-markdown>
+          <furo-markdown mdsrc="/FuroBaseComponent/_page/markdown/demo.md"></furo-markdown>
         </template>
       </furo-demo-snippet>     
       
@@ -13591,7 +13591,7 @@ return _furoShell.html`
       <p>If unsafe is not set, html will not be rendered</p>
       <furo-demo-snippet source>
         <template>
-          <furo-markdown unsafe mdsrc="/_page/markdown/demo.md"></furo-markdown>
+          <furo-markdown unsafe mdsrc="/FuroBaseComponent/_page/markdown/demo.md"></furo-markdown>
         </template>
       </furo-demo-snippet>
     `}}window.customElements.define("demo-furo-markdown",DemoFuroMarkdown);class DemoFuroPrettyJson extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
