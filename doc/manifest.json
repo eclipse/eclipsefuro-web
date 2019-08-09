@@ -1,0 +1,21 @@
+{
+  "name": "erp-web-app-sample-with-guildline",
+  "short_name": "erp-web-app-sample-with-guildline",
+  "description": "",
+  "icons": [
+    {
+      "src": "_assets/icons/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "_assets/icons/apple-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#545454",
+  "background_color": "#ffffff"
+}
