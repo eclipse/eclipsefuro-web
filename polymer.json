@@ -2,11 +2,11 @@
   "entrypoint": "index.html",
   "shell": "_page/furo-shell.js",
   "fragments": [
-
+    "_page/api/view-api.js",
+    "_page/guide/view-guide.js"
   ],
   "sources": [
     "_assets/**/*",
-    "coverage/**/*",
     "_page/markdown/**/*",
     "_page/images/**/*",
     "_page/assets/**/*"

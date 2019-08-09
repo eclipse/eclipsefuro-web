@@ -4,8 +4,6 @@ import {Theme} from "@furo/framework/theme"
 import {Styling} from "./styling";
 
 
-import "./api/view-api";
-import "./guide/view-guide";
 import "./home/view-home";
 import "./components/header-toolbar";
 
@@ -26,6 +24,25 @@ class MainStage extends FBP(LitElement) {
 
   constructor() {
     super();
+  }
+
+  _FBPReady() {
+    super._FBPReady();
+    /**
+     * Register hook on wire --locationChanged to
+     * Lazy load parts of the page
+     */
+    this._FBPAddWireHook("--locationChanged", (e) => {
+      switch (e.pathSegments[0]) {
+        case "api":
+          import("./api/view-api");
+          break;
+        case "guide":
+          import ("./guide/view-guide");
+          break;
+
+      }
+    });
   }
 
   /**
@@ -74,13 +91,13 @@ class MainStage extends FBP(LitElement) {
 
       <furo-vertical-flex>
         <header-toolbar></header-toolbar>
-        
+
         <furo-pages flex ƒ-inject-location="--locationChanged" default="home">
           <view-home name="home"></view-home>
           <view-guide name="guide"></view-guide>
           <view-api name="api"></view-api>
         </furo-pages>
-        
+
       </furo-vertical-flex>
       <furo-location @-location-changed="--locationChanged"></furo-location>
     `;

@@ -3,7 +3,8 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {nav} from "./nav_config";
 
-import "@google-web-components/google-youtube";
+import "@furo/doc-helper/side-navigation"
+
 import "../components/topic-title";
 import "../components/topic-intro";
 //pages

@@ -1,4 +1,3 @@
-
 /**
  * furo-fbp base class
  *
@@ -54,7 +53,7 @@ export const FBP = (superClass) => {
         // Auto append fbp for lit elements
         firstUpdated(changedProperties) {
             // ensure to append only once
-            if(!this.__fbpAppended){
+            if (!this.__fbpAppended) {
                 this._appendFBP(this.shadowRoot);
                 this.__fbpAppended = true;
             }
@@ -89,7 +88,10 @@ export const FBP = (superClass) => {
                                     response = receiver.element[receiver.method](data);
                                 }
                                 // @-ƒ-function auslösen
-                                let customEvent = new Event('ƒ-' + receiver.attrName, {composed: false, bubbles: false});
+                                let customEvent = new Event('ƒ-' + receiver.attrName, {
+                                    composed: false,
+                                    bubbles: false
+                                });
                                 customEvent.detail = response;
                                 receiver.element.dispatchEvent(customEvent);
 
@@ -151,21 +153,35 @@ export const FBP = (superClass) => {
             let self = this;
             for (let wire in this.__wirebundle) {
                 this._FBPAddWireHook(wire, (e) => {
-                    console.group("Trace for", this.nodeName + ": " + wire);
-                    console.table([{"host": self, "wire": wire, "data": e}]);
 
-                    console.groupCollapsed("Data");
-                    console.log(e);
-                    console.groupEnd();
+                    var ua = navigator.userAgent.toLowerCase();
+                    let agent = true;
+                    if (ua.indexOf('safari') != -1) {
+                        if (ua.indexOf('chrome') > -1) {
+                            agent = true // Chrome
+                        } else {
+                            agent = false // Safari
+                        }
+                    }
 
-                    console.groupCollapsed("Target Elements");
-                    console.table(self.__wirebundle[wire]);
-                    console.groupEnd();
+                    if (agent) {
+                        console.group("Trace for", this.nodeName + ": " + wire);
+                        console.table([{"host": self, "wire": wire, "data": e}]);
 
-                    console.groupCollapsed("Call Stack");
-                    console.log(new Error().stack);
-                    console.groupEnd();
-                    console.groupEnd();
+                        console.groupCollapsed("Data");
+                        console.log(e);
+                        console.groupEnd();
+
+                        console.groupCollapsed("Target Elements");
+                        console.table(self.__wirebundle[wire]);
+                        console.groupEnd();
+
+                        console.groupCollapsed("Call Stack");
+                        console.log(new Error().stack);
+                        console.groupEnd();
+                        console.groupEnd();
+                    }
+
                 }, true)
             }
 
@@ -185,21 +201,33 @@ export const FBP = (superClass) => {
                 if (openDebugger) {
                     debugger
                 } else {
-                    console.group("Debug", this.nodeName + ": " + wire);
-                    console.group("Target Elements");
-                    console.table(self.__wirebundle[wire]);
-                    console.groupEnd();
+                    var ua = navigator.userAgent.toLowerCase();
+                    let agent = true;
+                    if (ua.indexOf('safari') != -1) {
+                        if (ua.indexOf('chrome') > -1) {
+                            agent = true // Chrome
+                        } else {
+                            agent = false // Safari
+                        }
+                    }
 
-                    console.groupCollapsed("Data");
-                    console.log(e);
-                    console.groupEnd();
+                    if (agent) {
+                        console.group("Debug", this.nodeName + ": " + wire);
+                        console.group("Target Elements");
+                        console.table(self.__wirebundle[wire]);
+                        console.groupEnd();
+
+                        console.groupCollapsed("Data");
+                        console.log(e);
+                        console.groupEnd();
 
 
-                    console.groupCollapsed("Call Stack");
-                    console.log(new Error().stack);
-                    console.groupEnd();
+                        console.groupCollapsed("Call Stack");
+                        console.log(new Error().stack);
+                        console.groupEnd();
 
-                    console.groupEnd();
+                        console.groupEnd();
+                    }
 
                 }
             }, true)
@@ -243,7 +271,7 @@ export const FBP = (superClass) => {
 
                         // Persist contents
                         let tpl = document.createElement("template");
-                        tpl.content.append(  original.content );
+                        tpl.content.append(original.content);
 
                         replacement.appendChild(tpl);
 
@@ -291,7 +319,7 @@ export const FBP = (superClass) => {
                             wirebundle[r.receivingWire].push({
                                 "element": element,
                                 "method": this.__toCamelCase(element.attributes[i].name.substr(2)),
-                                "attrName":element.attributes[i].name.substr(2),
+                                "attrName": element.attributes[i].name.substr(2),
                                 "path": r.path
                             });
 
@@ -502,9 +530,10 @@ export const FBP = (superClass) => {
          * Livecycle method
          * This method is called, when the wires are ready
          */
-        _FBPReady(){
+        _FBPReady() {
             this.__fbp_ready = true;
         }
+
         __enqueueTrigger(wire, detailData) {
             this.__wireQueue.push({"w": wire, "d": detailData});
         }
