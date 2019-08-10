@@ -24,6 +24,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
     this.template = t.content;
     this.markdown = "```html\n" + t.innerHTML + "\n```";
 
+    this.icon = "fullscreen";
     this.addEventListener("source", (e) => {
       this.source = true;
       this.demo = false;
@@ -65,6 +66,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
       source: {type: Boolean, reflect: true},
       demo: {type: Boolean, reflect: true},
       flow: {type: Boolean, reflect: true},
+      fullscreen: {type: Boolean, reflect: true},
       noDemo: {type: Boolean, reflect: true, attribute:"no-demo"}
     };
   }
@@ -98,6 +100,24 @@ class FuroDemoSnippet extends FBP(LitElement) {
       this._FBPTriggerWire("--template", this.template);
     }
 
+    /**
+     * Register hook on wire --fullscreen to
+     * toggle fullscreen of the demo
+     */
+    this._FBPAddWireHook("--fullscreen",(e)=>{
+      if(!this.fullscreen){
+        this.requestFullscreen();
+        this.fullscreen = true;
+        this.icon = "fullscreen-exit";
+        this.requestUpdate();
+      }else{
+        document.exitFullscreen();
+        this.fullscreen = false;
+        this.icon = "fullscreen";
+      }
+
+    });
+
   }
 
 
@@ -118,10 +138,21 @@ class FuroDemoSnippet extends FBP(LitElement) {
               height: 300px;
               box-sizing: border-box;
               overflow: hidden;
+              background-color: var(--background);
           }
 
           :host([hidden]) {
               display: none;
+          }
+
+
+          :host([fullscreen]) .nav{
+              background-color: var(--surface);
+          }
+          
+          :host([fullscreen]) {
+          
+              height: 100vh;
           }
 
           furo-markdown {
@@ -201,7 +232,8 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
       <furo-vertical-flex>
         <div class="nav"><span class="demo" @-click="-^demo">demo</span> | <span class="source" @-click="-^source">source</span>
-          | <span class="flow" @-click="-^flow">flow</span></div>
+          | <span class="flow" @-click="-^flow">flow</span> | <furo-icon style="float:right" @-click="--fullscreen" icon="${this.icon}"></furo-icon></div>
+        
         <div flex class="flexbody">
           <div id="demo" flex></div>
           <furo-show-flow id="flow" ƒ-parse-template="--template"></furo-show-flow>

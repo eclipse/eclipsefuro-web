@@ -162,7 +162,7 @@ class ViewHome extends FBP(LitElement) {
                 <p class="hero-title">フロー</p>
                 <p class="hero-caption">A enterprise grade and simple framework for creating fast, lightweight web apps
                     with web components</p>
-                <a class="hero-link" href="/guide">Get Started</a>
+                <a class="hero-link" href="/guide/md/overview/">Get Started</a>
 
                 <h1 class="title">Why use furo?</h1>
                 <furo-horizontal-flex padded>
