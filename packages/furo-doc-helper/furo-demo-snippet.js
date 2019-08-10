@@ -114,6 +114,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
         document.exitFullscreen();
         this.fullscreen = false;
         this.icon = "fullscreen";
+        this.requestUpdate();
       }
 
     });
@@ -148,6 +149,11 @@ class FuroDemoSnippet extends FBP(LitElement) {
 
           :host([fullscreen]) .nav{
               background-color: var(--surface);
+              padding: 16px;
+          }
+          
+          :host([fullscreen]) .nav span {
+              border-bottom-color: var(--surface);
           }
           
           :host([fullscreen]) {
