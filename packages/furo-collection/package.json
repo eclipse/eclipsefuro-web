@@ -1,22 +1,22 @@
 {
   "name": "@furo/collection",
-  "version": "0.20.6",
+  "version": "0.20.7",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
-    "@furo/config": "^0.16.27",
-    "@furo/data": "^0.49.0",
-    "@furo/data-input": "^0.43.0",
-    "@furo/data-ui": "^0.5.0",
-    "@furo/data-util": "^0.0.25",
-    "@furo/doc-helper": "^0.10.0",
-    "@furo/fbp": "^4.26.0",
-    "@furo/form": "^0.22.0",
-    "@furo/framework": "^0.10.0",
-    "@furo/input": "^0.49.0",
-    "@furo/layout": "^0.31.0",
-    "@furo/navigation": "^0.31.0",
-    "@furo/route": "^0.16.0"
+    "@furo/config": "^0.16.28",
+    "@furo/data": "^0.49.1",
+    "@furo/data-input": "^0.44.0",
+    "@furo/data-ui": "^0.5.1",
+    "@furo/data-util": "^0.0.26",
+    "@furo/doc-helper": "^0.10.1",
+    "@furo/fbp": "^4.26.1",
+    "@furo/form": "^0.22.1",
+    "@furo/framework": "^0.10.1",
+    "@furo/input": "^0.50.0",
+    "@furo/layout": "^0.32.0",
+    "@furo/navigation": "^0.31.1",
+    "@furo/route": "^0.16.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

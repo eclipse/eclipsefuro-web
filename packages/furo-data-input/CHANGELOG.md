@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.44.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.43.0...@furo/data-input@0.44.0) (2019-08-10)
+
+
+### Features
+
+* range-input styles ([e03e89c](https://github.com/veith/FuroBaseComponents/commit/e03e89c))
+
+
+
+
+
 # [0.43.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.42.0...@furo/data-input@0.43.0) (2019-08-07)
 
 

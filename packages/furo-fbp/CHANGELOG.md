@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.26.1](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.26.0...@furo/fbp@4.26.1) (2019-08-10)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
 # [4.26.0](https://github.com/veith/flowbased-polymer/compare/@furo/fbp@4.25.1...@furo/fbp@4.26.0) (2019-08-07)
 
 

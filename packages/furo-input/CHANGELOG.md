@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.50.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.49.0...@furo/input@0.50.0) (2019-08-10)
+
+
+### Bug Fixes
+
+* css fixes ([5c82047](https://github.com/veith/FuroBaseComponents/commit/5c82047))
+* css fixes furo-input condensed ([67aab69](https://github.com/veith/FuroBaseComponents/commit/67aab69))
+* css fixes furo-password-input ([ad6bf5f](https://github.com/veith/FuroBaseComponents/commit/ad6bf5f))
+* css fixes furo-password-input ([31f63e6](https://github.com/veith/FuroBaseComponents/commit/31f63e6))
+
+
+### Features
+
+* date-, range-, search-, time- input styles ([dc237b3](https://github.com/veith/FuroBaseComponents/commit/dc237b3))
+* furo-color ([b9d7a9f](https://github.com/veith/FuroBaseComponents/commit/b9d7a9f))
+* furo-color ([2b291ac](https://github.com/veith/FuroBaseComponents/commit/2b291ac))
+* number-input styles ([a0ea656](https://github.com/veith/FuroBaseComponents/commit/a0ea656))
+* range-input styles ([e03e89c](https://github.com/veith/FuroBaseComponents/commit/e03e89c))
+
+
+
+
+
 # [0.49.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.48.0...@furo/input@0.49.0) (2019-08-07)
 
 
