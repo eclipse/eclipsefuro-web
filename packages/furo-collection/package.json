@@ -1,6 +1,6 @@
 {
   "name": "@furo/collection",
-  "version": "0.20.12",
+  "version": "0.20.13",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
@@ -13,7 +13,7 @@
     "@furo/fbp": "^4.26.2",
     "@furo/form": "^0.23.1",
     "@furo/framework": "^0.10.1",
-    "@furo/input": "^0.50.3",
+    "@furo/input": "^0.50.4",
     "@furo/layout": "^0.32.1",
     "@furo/navigation": "^0.31.6",
     "@furo/route": "^0.16.2"
