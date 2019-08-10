@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-util@0.0.26...@furo/data-util@0.1.0) (2019-08-10)
+
+
+### Features
+
+* furo-data-text-input icons ([62a24f9](https://github.com/veith/FuroBaseComponents/commit/62a24f9))
+
+
+
+
+
 ## [0.0.26](https://github.com/veith/FuroBaseComponents/compare/@furo/data-util@0.0.25...@furo/data-util@0.0.26) (2019-08-10)
 
 **Note:** Version bump only for package @furo/data-util

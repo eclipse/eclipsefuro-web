@@ -1,6 +1,6 @@
 {
   "name": "@furo/data-util",
-  "version": "0.0.26",
+  "version": "0.1.0",
   "description": "Furo data utility components",
   "main": "furo-catalog.js",
   "dependencies": {
