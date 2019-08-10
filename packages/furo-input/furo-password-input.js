@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import  "@furo/layout/furo-icon";
 
 /**
  * `furo-password-input`
@@ -526,7 +527,7 @@ class FuroPasswordInput extends FBP(LitElement) {
             display: block;
         }
 
-        :host([leading-icon]) label span {
+        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
             left: 24px;
         }
 

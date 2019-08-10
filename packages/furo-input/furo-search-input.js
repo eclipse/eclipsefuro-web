@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import  "@furo/layout/furo-icon";
 
 /**
  * `furo-search-input`
@@ -506,7 +507,7 @@ class FuroSearchInput extends FBP(LitElement) {
             display: block;
         }
 
-        :host([leading-icon]) label span {
+        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
             left: 24px;
         }
 
