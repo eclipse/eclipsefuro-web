@@ -186,7 +186,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
           }
 
           .nav {
-              background-color: var(--demo-header);
+              background-color: var(--demo-header, white);
               color: var(--on-primary);
               margin-bottom: 24px;
           }
