@@ -181,7 +181,7 @@ class FuroDataTextInput extends FBP(LitElement) {
           ?disabled=${this.disabled} 
           label="${this._label}" 
           ?error="${this.error}" 
-          ?condenses="${this.condensed}"          
+          ?condensed="${this.condensed}"          
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
