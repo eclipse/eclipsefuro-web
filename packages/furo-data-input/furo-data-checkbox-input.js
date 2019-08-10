@@ -27,13 +27,16 @@ class FuroDataCheckboxInput extends FBP(FuroInputBase(LitElement)) {
         :host {
             display: inline-block;
             position: relative;
-            font-size: 12px;
             box-sizing: border-box;
             margin: 0 0 14px 0;
             padding: 8px 0 2px 0;
-            height: 28px;
-            font-family: "Roboto", "Noto", sans-serif;
+            height: 75px;
             line-height: 1.5;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
         }
 
         :host([error]) .border {

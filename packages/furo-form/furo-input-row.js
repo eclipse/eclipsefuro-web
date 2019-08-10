@@ -27,13 +27,11 @@ class FuroInputRow extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
-            margin-bottom: 16px;
-            margin-top: 8px;
         }
 
         div {
-            line-height: var(--input-row-width,40px);
-            width: 120px;
+            line-height: 100%;
+            width: var(--input-row-width,140px);
         }
 
         ::slotted(*) {

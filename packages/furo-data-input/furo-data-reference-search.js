@@ -64,7 +64,7 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
 
     this.addEventListener("searchInput", (e) => {
-      this._searchTerm = e.composedPath()[0].value;
+      this._searchTerm = e.detail;
       if (this._searchTerm.length > this.minTermLength) {
         /**
          * @event search
@@ -208,7 +208,7 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
         .list {
             position: absolute;
-            top: 32px;
+            top: 70px;
             left: 0;
             right: 0;
             overflow: auto;
@@ -223,7 +223,7 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
             display: block;
         }
 
-        furo-data-search-input {
+        furo-data-text-input {
             width: 100%;
         }
     `
@@ -237,9 +237,9 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
   render() {
     // language=HTML
     return html`
-    <furo-data-search-input ?autofocus=${this.autofocus} ?disabled=${this.disabled} display-only 
+    <furo-data-text-input trailing-icon="search" ?autofocus=${this.autofocus} ?disabled=${this.disabled} display-only 
     label="${this._label}" 
-    ƒ-bind-data="--field(*.display_name)" @-input="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"></furo-data-search-input>
+    ƒ-bind-data="--field(*.display_name)" @-value-changed="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"></furo-data-text-input>
     <div class="list" @-item-selected="--itemSelected"   >
        
         <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressed">
