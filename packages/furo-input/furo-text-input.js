@@ -528,6 +528,10 @@ class FuroTextInput extends FBP(LitElement) {
             left: 24px;
         }
 
+        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
+            left: 0;
+        }
+
         :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
             padding-left: 36px;
         }
