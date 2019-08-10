@@ -63,6 +63,33 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean
+      },
+      /**
+       * Icon on the left side
+       */
+      leadingIcon: {
+        type: String,
+        attribute: "leading-icon"
+      },
+      /**
+       * Icon on the right side
+       */
+      trailingIcon: {
+        type: String,
+        attribute: "trailing-icon"
+      },
+      /**
+       * html input validity
+       */
+      valid:{
+        type:Boolean,
+        reflect:true
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed:{
+        type:Boolean
       }
     }
   }
@@ -154,6 +181,9 @@ class FuroDataTextInput extends FBP(LitElement) {
           ?disabled=${this.disabled} 
           label="${this._label}" 
           ?error="${this.error}" 
+          ?condenses="${this.condensed}"          
+          leading-icon="${this.leadingIcon}" 
+          trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
           hint="${this.hint}" 
           @-value-changed="--valueChanged"
