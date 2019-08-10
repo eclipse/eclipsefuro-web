@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.49.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.49.1...@furo/data@0.49.2) (2019-08-10)
+
+
+### Bug Fixes
+
+* furo-***-input label position ([4ee5d1d](https://github.com/veith/FuroBaseComponents/commit/4ee5d1d))
+
+
+
+
+
 ## [0.49.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.49.0...@furo/data@0.49.1) (2019-08-10)
 
 **Note:** Version bump only for package @furo/data

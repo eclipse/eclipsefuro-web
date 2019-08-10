@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-util@0.1.0...@furo/data-util@0.1.1) (2019-08-10)
+
+
+### Bug Fixes
+
+* furo-***-input label position ([4ee5d1d](https://github.com/veith/FuroBaseComponents/commit/4ee5d1d))
+
+
+
+
+
 # [0.1.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-util@0.0.26...@furo/data-util@0.1.0) (2019-08-10)
 
 

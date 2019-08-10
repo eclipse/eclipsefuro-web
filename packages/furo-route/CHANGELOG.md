@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.2](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.16.1...@furo/route@0.16.2) (2019-08-10)
+
+
+### Bug Fixes
+
+* furo-***-input label position ([4ee5d1d](https://github.com/veith/FuroBaseComponents/commit/4ee5d1d))
+
+
+
+
+
 ## [0.16.1](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.16.0...@furo/route@0.16.1) (2019-08-10)
 
 **Note:** Version bump only for package @furo/route

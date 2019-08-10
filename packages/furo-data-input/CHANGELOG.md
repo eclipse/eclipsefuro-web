@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.46.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.45.1...@furo/data-input@0.46.0) (2019-08-10)
+
+
+### Bug Fixes
+
+* furo-***-input label position ([4ee5d1d](https://github.com/veith/FuroBaseComponents/commit/4ee5d1d))
+
+
+### Features
+
+* furo-data-date-input ([7afd52c](https://github.com/veith/FuroBaseComponents/commit/7afd52c))
+
+
+
+
+
 ## [0.45.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.45.0...@furo/data-input@0.45.1) (2019-08-10)
 
 

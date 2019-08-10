@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.31.4](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.31.3...@furo/navigation@0.31.4) (2019-08-10)
+
+
+### Bug Fixes
+
+* furo-***-input label position ([4ee5d1d](https://github.com/veith/FuroBaseComponents/commit/4ee5d1d))
+
+
+
+
+
 ## [0.31.3](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.31.2...@furo/navigation@0.31.3) (2019-08-10)
 
 **Note:** Version bump only for package @furo/navigation
