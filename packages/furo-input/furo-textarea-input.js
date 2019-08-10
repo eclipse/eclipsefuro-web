@@ -138,6 +138,12 @@ class FuroTextareaInput extends FBP(LitElement) {
         type: Boolean
       },
       /**
+       * Lets the placeholder always floating
+       */
+      float:{
+        type:Boolean
+      },
+      /**
        * The hint text for the field.
        */
       hint: {

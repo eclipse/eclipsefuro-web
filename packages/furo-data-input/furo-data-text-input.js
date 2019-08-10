@@ -90,6 +90,12 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       condensed:{
         type:Boolean
+      },
+      /**
+       * passes always float the label
+       */
+      float:{
+        type:Boolean
       }
     }
   }
@@ -181,6 +187,7 @@ class FuroDataTextInput extends FBP(LitElement) {
           ?disabled=${this.disabled} 
           label="${this._label}" 
           ?error="${this.error}" 
+          ?float="${this.float}" 
           ?condensed="${this.condensed}"          
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 

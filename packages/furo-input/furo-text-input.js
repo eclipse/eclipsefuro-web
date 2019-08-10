@@ -28,6 +28,7 @@ import {FBP} from "@furo/fbp";
  * @customElement
  * @polymer
  * @demo demo-furo-text-input Input samples
+ * @demo furo-text-input-playground Text-input playground
  * @demo demo-furo-input-together Different input elements together
  * @appliesMixin FBP
  */
@@ -144,6 +145,12 @@ class FuroTextInput extends FBP(LitElement) {
         type: Boolean
       },
       /**
+       * Lets the placeholder always floating
+       */
+      float:{
+        type:Boolean
+      },
+      /**
        * The hint text for the field.
        */
       hint: {
@@ -181,7 +188,9 @@ class FuroTextInput extends FBP(LitElement) {
        */
       condensed:{
         type:Boolean
-      }
+      },
+
+
     };
   }
 
@@ -589,7 +598,7 @@ class FuroTextInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
       <div class="right-border"></div>
       </div>
       

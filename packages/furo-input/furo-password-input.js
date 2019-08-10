@@ -129,6 +129,12 @@ class FuroPasswordInput extends FBP(LitElement) {
         type: Boolean
       },
       /**
+       * Lets the placeholder always floating
+       */
+      float:{
+        type:Boolean
+      },
+      /**
        * The hint text for the field.
        */
       hint: {
@@ -595,7 +601,7 @@ class FuroPasswordInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
       <div class="right-border"></div>
       </div>
       
