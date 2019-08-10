@@ -25,9 +25,9 @@ the value of **color1** on the wire `--newColor` instead the click event.
 
 <furo-demo-snippet demo style="height:600px">
 <template>
-  <furo-data-color-input label="choose color 1"  @-value-changed="((color1)), --newColor"></furo-data-color-input>
-  <furo-data-color-input label="choose color 2"  @-value-changed="((color2)), --newColor"></furo-data-color-input>
-  <furo-data-color-input label="choose color 3"  @-value-changed="((color3)), --newColor"></furo-data-color-input>
+  <furo-color-input label="choose color 1"  @-value-changed="((color1)), --newColor"></furo-color-input>
+  <furo-color-input label="choose color 2"  @-value-changed="((color2)), --newColor"></furo-color-input>
+  <furo-color-input label="choose color 3"  @-value-changed="((color3)), --newColor"></furo-color-input>
   <hr />
   <light-bulb ƒ-set-color="--newColor" on></light-bulb>  
   <furo-button @-click="--newColor(color1)" label="setColor"></furo-button>   
