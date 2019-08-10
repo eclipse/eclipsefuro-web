@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.50.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.50.0...@furo/input@0.50.1) (2019-08-10)
+
+
+### Bug Fixes
+
+* furo-***-input attribute float to let the placeholder text always floating ([e647779](https://github.com/veith/FuroBaseComponents/commit/e647779))
+
+
+
+
+
 # [0.50.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.49.0...@furo/input@0.50.0) (2019-08-10)
 
 

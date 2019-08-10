@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.45.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.45.0...@furo/data-input@0.45.1) (2019-08-10)
+
+
+### Bug Fixes
+
+* furo-***-input attribute float to let the placeholder text always floating ([e647779](https://github.com/veith/FuroBaseComponents/commit/e647779))
+* furo-data-text-input typos ([fba17ce](https://github.com/veith/FuroBaseComponents/commit/fba17ce))
+
+
+
+
+
 # [0.45.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.44.0...@furo/data-input@0.45.0) (2019-08-10)
 
 
