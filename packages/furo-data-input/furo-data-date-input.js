@@ -254,6 +254,7 @@ class FuroDataDateInput extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+        
         furo-date-input{
             width: 100%;
         }
