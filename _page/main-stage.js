@@ -92,8 +92,8 @@ class MainStage extends FBP(LitElement) {
       <furo-vertical-flex>
         <header-toolbar></header-toolbar>
 
-        <furo-pages flex ƒ-inject-location="--locationChanged" default="home">
-          <view-home name="home"></view-home>
+        <furo-pages flex ƒ-inject-location="--locationChanged" default="FuroBaseComponents">
+          <view-home name="FuroBaseComponents"></view-home>
           <view-guide name="guide"></view-guide>
           <view-api name="api"></view-api>
         </furo-pages>

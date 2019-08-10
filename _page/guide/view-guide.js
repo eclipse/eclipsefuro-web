@@ -4,13 +4,13 @@ import {FBP} from "@furo/fbp";
 import {nav} from "./nav_config";
 
 import "@furo/doc-helper/side-navigation"
+import "@furo/doc-helper/furo-demo-snippet"
 
 import "../components/topic-title";
 import "../components/topic-intro";
 //pages
-import "./pages/page-icons";
-import "./pages/page-styling";
 import "./panel-md-loader";
+import "./demoimports";
 
 import "./components/all-imports";
 
@@ -114,11 +114,7 @@ class ViewGuide extends FBP(LitElement) {
         <furo-pages ƒ-inject-location="--pathChanged" default="welcome">
           
           <panel-guide name="pages"></panel-guide>
-          
-          <page-icons name="icons"></page-icons>
-          
-          <page-styling name="styling"></page-styling>
-          
+        
           <panel-md-loader name="md"></panel-md-loader>
           
           <div name="welcome">Coming soon.</div>

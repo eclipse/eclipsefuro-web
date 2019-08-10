@@ -87,7 +87,7 @@ class PanelDoc extends FBP(LitElement) {
     super._FBPReady();
     //this._FBPTraceWires()
     this._FBPAddWireHook("--packageChanged", e => {
-      this._FBPTriggerWire("--src", "/node_modules/@furo/" + e.pathSegments[0] + "/analysis.json")
+      this._FBPTriggerWire("--src", "../../../node_modules/@furo/" + e.pathSegments[0] + "/analysis.json")
     })
 
   }

@@ -6,6 +6,7 @@
     "_page/guide/view-guide.js"
   ],
   "sources": [
+    "favicon.ico",
     "_assets/**/*",
     "_page/markdown/**/*",
     "_page/images/**/*",
@@ -19,6 +20,24 @@
   ],
   "builds": [
     {
+      "name": "es6-bundled",
+      "browserCapabilities": [
+        "es2015"
+      ],
+      "js": {
+        "minify": true,
+        "compile": "es2015",
+        "transformModulesToAmd": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "bundle": true,
+      "addServiceWorker": true,
+      "addPushManifest": false,
       "preset": "es6-bundled"
     }
   ],

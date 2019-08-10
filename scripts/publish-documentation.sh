@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-#polymer build
+polymer build
 cp -r ./build/es6-bundled/* ./docs/
 
-#git subtree push --prefix doc origin gh-pages
+cd docs
+echo "Check before commit"
+
+superstatic
