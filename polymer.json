@@ -37,7 +37,7 @@
       },
       "bundle": true,
       "addServiceWorker": true,
-      "addPushManifest": false,
+      "addPushManifest": true,
       "preset": "es6-bundled"
     }
   ],
