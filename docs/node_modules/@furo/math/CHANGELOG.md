@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/veith/FuroBaseComponents/compare/@furo/math@0.2.0...@furo/math@0.2.1) (2019-08-10)
+
+**Note:** Version bump only for package @furo/math
+
+
+
+
+
+# [0.2.0](https://github.com/veith/FuroBaseComponents/compare/@furo/math@0.1.27...@furo/math@0.2.0) (2019-08-10)
+
+
+### Features
+
+* range-input styles ([e03e89c](https://github.com/veith/FuroBaseComponents/commit/e03e89c))
+
+
+
+
+
 ## [0.1.27](https://github.com/veith/FuroBaseComponents/compare/@furo/math@0.1.26...@furo/math@0.1.27) (2019-08-07)
 
 **Note:** Version bump only for package @furo/math

@@ -9704,6 +9704,8 @@ let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputFie
        */readonly:{type:Boolean,reflect:!0},/**
        * helper for the label
        */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
        * The hint text for the field.
        */hint:{type:String},/**
        * Text for errors
@@ -9976,15 +9978,15 @@ return Theme.getThemeForComponent(this.name)||css`
             right: 8px;
         }
 
-        :host([leading-icon]) furo-icon.lead, :host([trailing-icon]) furo-icon.trail {
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
             display: block;
         }
 
-        :host([leading-icon]) .wrapper {
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
             padding-left: 36px;
         }
 
-        :host([trailing-icon]) .wrapper {
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
             padding-right: 36px;
         }
 
@@ -10052,7 +10054,7 @@ return html`
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
       <div class="right-border"></div>
       </div>
       
