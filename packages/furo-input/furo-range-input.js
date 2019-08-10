@@ -492,15 +492,15 @@ class FuroRangeInput extends FBP(LitElement) {
             right: 8px;
         }
 
-        :host([leading-icon]) furo-icon.lead, :host([trailing-icon]) furo-icon.trail {
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
             display: block;
         }
 
-        :host([leading-icon]) .wrapper {
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
             padding-left: 36px;
         }
 
-        :host([trailing-icon]) .wrapper {
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
             padding-right: 36px;
         }
 

@@ -1328,11 +1328,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 48,
+              "line": 47,
               "column": 8
             },
             "end": {
-              "line": 51,
+              "line": 50,
               "column": 9
             }
           },
@@ -1354,11 +1354,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 54,
+              "line": 53,
               "column": 8
             },
             "end": {
-              "line": 62,
+              "line": 61,
               "column": 9
             }
           },
@@ -1380,11 +1380,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 70,
+              "line": 69,
               "column": 8
             },
             "end": {
-              "line": 113,
+              "line": 115,
               "column": 9
             }
           },
@@ -1411,11 +1411,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 123,
+              "line": 125,
               "column": 8
             },
             "end": {
-              "line": 140,
+              "line": 142,
               "column": 9
             }
           },
@@ -1442,11 +1442,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 149,
+              "line": 151,
               "column": 8
             },
             "end": {
-              "line": 171,
+              "line": 187,
               "column": 9
             }
           },
@@ -1464,11 +1464,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 181,
+              "line": 197,
               "column": 8
             },
             "end": {
-              "line": 205,
+              "line": 233,
               "column": 9
             }
           },
@@ -1494,11 +1494,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 207,
+              "line": 235,
               "column": 8
             },
             "end": {
-              "line": 211,
+              "line": 239,
               "column": 9
             }
           },
@@ -1517,11 +1517,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 218,
+              "line": 246,
               "column": 8
             },
             "end": {
-              "line": 498,
+              "line": 526,
               "column": 9
             }
           },
@@ -1544,11 +1544,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 504,
+              "line": 532,
               "column": 8
             },
             "end": {
-              "line": 506,
+              "line": 534,
               "column": 9
             }
           },
@@ -1566,11 +1566,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 507,
+              "line": 536,
               "column": 8
             },
             "end": {
-              "line": 509,
+              "line": 538,
               "column": 9
             }
           },
@@ -1595,11 +1595,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 511,
+              "line": 540,
               "column": 8
             },
             "end": {
-              "line": 519,
+              "line": 548,
               "column": 9
             }
           },
@@ -1618,11 +1618,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 521,
+              "line": 550,
               "column": 8
             },
             "end": {
-              "line": 535,
+              "line": 564,
               "column": 9
             }
           },
@@ -1640,11 +1640,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 546,
+              "line": 575,
               "column": 8
             },
             "end": {
-              "line": 559,
+              "line": 588,
               "column": 9
             }
           },
@@ -1674,11 +1674,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 570,
+              "line": 599,
               "column": 8
             },
             "end": {
-              "line": 592,
+              "line": 621,
               "column": 9
             }
           },
@@ -1713,11 +1713,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 610,
+              "line": 639,
               "column": 8
             },
             "end": {
-              "line": 612,
+              "line": 641,
               "column": 9
             }
           },

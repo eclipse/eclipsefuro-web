@@ -35,6 +35,7 @@ class FuroDataTextInput extends FBP(LitElement) {
     this.errortext = "";
     this.hint = "";
 
+
     this._FBPAddWireHook("--valueChanged", (val) => {
       if (this.field) {
         this.field.value = val;
@@ -46,18 +47,53 @@ class FuroDataTextInput extends FBP(LitElement) {
     return {
 
       /**
-       * Overrides the label text from the **specs**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
        */
       label: {
         type: String,
         attribute: true
       },
       /**
-       * Overrides the hint text from the **specs**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
        */
       hint: {
         type: String,
       },
+      /**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      min: {
+        type: Number,
+      },
+      /**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      max: {
+        type: Number,
+      },
+      /**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      readonly: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean, reflect: true
+      },
+
       /**
        * Set this attribute to autofocus the input field.
        */
@@ -101,7 +137,20 @@ class FuroDataTextInput extends FBP(LitElement) {
   }
 
   /**
-   * Bind a entity field to the text-input. You can use the entity even when no data was received.
+   * Sets the field to readonly
+   */
+  disable(){
+    this._readonly = true;
+  }
+  /**
+   * Makes the field writable.
+   */
+  enable(){
+    this._readonly = false;
+  }
+
+  /**
+   * Bind a entity field to the number-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
@@ -133,6 +182,7 @@ class FuroDataTextInput extends FBP(LitElement) {
 
   _updateField() {
     // label auf attr ist höher gewichtet
+
     if (!this.label) {
       this._label = this.field._meta.label;
     } else {
@@ -146,6 +196,26 @@ class FuroDataTextInput extends FBP(LitElement) {
       this._hint = this.hint;
     }
     this.disabled = this.field._meta.readonly ? true : false;
+
+    // min auf attr ist höher gewichtet
+    if (!this.min) {
+      this._min = this.field._meta.min;
+    } else {
+      this._min = this.min;
+    }
+    // max auf attr ist höher gewichtet
+    if (!this.max) {
+      this._max = this.field._meta.max;
+    } else {
+      this._max = this.max;
+    }
+    // readonly auf attr ist höher gewichtet
+    if (!this.readonly) {
+      this._readonly = this.field._meta.readonly;
+    } else {
+      this._readonly = this.readonly;
+    }
+
 
     //mark incomming error
     if (!this.field._isValid) {
@@ -184,8 +254,10 @@ class FuroDataTextInput extends FBP(LitElement) {
     return html`
        <furo-text-input 
           ?autofocus=${this.autofocus} 
-          ?disabled=${this.disabled} 
+          ?readonly=${this._readonly||this.disabled} 
           label="${this._label}" 
+          min="${this._min}" 
+          max="${this._max}" 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          

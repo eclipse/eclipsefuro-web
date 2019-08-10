@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
+import "@furo/data/entity-object"
 import "../furo-catalog"
 /**
  * `demo-furo-data-text-input`
@@ -45,7 +46,8 @@ class DemoFuroDataTextInput extends FBP(LitElement) {
       <furo-demo-snippet >
         <template>
           <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
-          <furo-data-text-input autofocus ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
+          <furo-data-text-input trailing-icon="dashboard" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
+          <furo-data-text-input leading-icon="dashboard" float label="Always float" hint="Always float" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
           <furo-data-text-input autofocus ƒ-bind-data="--entity(*.fields.description)" @-value-changed="--textChanged"></furo-data-text-input>
           <!-- --textChanged only comes when data was typed in. -->
           <span ƒ-.inner-text="--textChanged"></span>
