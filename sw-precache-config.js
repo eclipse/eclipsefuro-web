@@ -13,6 +13,7 @@ module.exports = {
     '_page/markdown/**/*',
     '_page/assets/**/*',
     '_page/images/**/*',
+    'node_modules/@furo/**/analysis.json',
     'manifest.json'
   ],
   runtimeCaching: [
