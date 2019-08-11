@@ -21,9 +21,9 @@ To park data from an event just use the **((property))** '@-event="((property))"
 To send parked data, write the property name in brackets after the wire. Like `@-click="--newColor(color1)"`. This will send
 the value of **color1** on the wire `--newColor` instead the click event.
 
-## Simple example
+### Simple example
 
-<furo-demo-snippet demo style="height:600px">
+<furo-demo-snippet demo style="height:300px">
 <template>
   <furo-color-input label="choose color 1"  @-value-changed="((color1)), --newColor"></furo-color-input>
   <furo-color-input label="choose color 2"  @-value-changed="((color2)), --newColor"></furo-color-input>
@@ -37,6 +37,14 @@ the value of **color1** on the wire `--newColor` instead the click event.
     
 </template>
 </furo-demo-snippet>
+
+## Sending the complete event --wire(*)
+Normaly fbp passes the event.detail attribute to the ƒ-xxx. But sometimes you need something different then **event.detail** on the receiving component. 
+In this case you can put the complete event on the wire, by using a asterisks (*) on the sending paart.
+You can assign a sub property of the event with`ƒ-something="--dataReceived(*.record.title)"`
+ 
+## Getting responses from the methods, *@-ƒ-method*
+When the method that you have wired returns data that you want to use in another wire, just add a @-f like **@-ƒ-calc="--resutlWire""**.
 
 
 
