@@ -3,7 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/util"
 import "@furo/layout"
-import "@furo/doc-helper"
+import "./furo-catalog"
 import "@furo/route"
 
 

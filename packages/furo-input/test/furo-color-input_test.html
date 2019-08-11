@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>furo-color-input</title>
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+
+</head>
+<body>
+
+
+<test-fixture id="Basic">
+  <template>
+    <furo-color-input value="#FEA233"></furo-color-input>
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog"
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+
+
+  describe('furo-color-input', () => {
+    let colorInput;
+    let inputField;
+    beforeEach(async () => {
+      colorInput = fixture('Basic');
+      await colorInput.updateComplete;
+      inputField = colorInput.shadowRoot.querySelector("input");
+
+    });
+
+
+    it('a11y', () => {
+      return axeReport(fixture('Basic'));
+    });
+
+
+    it('should be possible to set a error with setError', (done) => {
+
+      colorInput.setError("Text from outside");
+      assert.equal(colorInput.errortext,"Text from outside");
+      assert.equal(colorInput.error,true);
+      done();
+    });
+
+    it('should clear the errorstate and resume to the initial errortext', (done) => {
+      colorInput.errortext = "Initial Error Text";
+      colorInput.setError("Text from outside");
+      colorInput.clearError();
+      assert.equal(colorInput.errortext,"Initial Error Text");
+      assert.equal(colorInput.error,false);
+      done();
+    });
+
+
+
+    it('should not accept string  value with setValue', (done) => {
+      colorInput.setValue("#FEA123");
+      assert.equal(colorInput.value,"#FEA123");
+      assert.equal(inputField.value,"#fea123");
+      done();
+    });
+
+    it('should be disablealble with method disable', (done) => {
+      colorInput.disable();
+      setTimeout(()=>{
+        assert.equal(inputField.getAttribute("readonly"),"");
+        assert.equal(colorInput.readonly,true);
+        done();
+      },5)
+    });
+
+    it('should be enablealble with method enable', (done) => {
+      colorInput.readonly = true;
+      colorInput.enable();
+      setTimeout(()=>{
+        assert.equal(inputField.getAttribute("readonly"),null);
+        assert.equal(colorInput.readonly,false);
+        done();
+      },5)
+    });
+
+    it('should accept string value with setValue', (done) => {
+      colorInput.setValue("#FFFFFF");
+      setTimeout(()=>{
+      assert.equal(colorInput.value,"#FFFFFF");
+      assert.equal(inputField.value,"#ffffff");
+      done();
+      },5)
+    });
+
+    it('should be focusable', (done) => {
+      colorInput.focus();
+      assert.equal(colorInput,document.activeElement);
+      done();
+    });
+    it('should emit value-changed on changes', (done) => {
+
+      colorInput.addEventListener("value-changed",e=>{
+        assert.equal(colorInput.value,"#FFFFFF");
+        done();
+      });
+      colorInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:"#FFFFFF", validity:{"valid":true}}]}});
+
+    });
+
+    it('instantiating furo-color-input with default properties works', () => {
+
+      assert.equal(colorInput.tagName.toLowerCase(), 'furo-color-input');
+
+    });
+
+
+  });
+
+
+</script>
+
+</body>
+</html>
