@@ -49,10 +49,10 @@ export const nav = [
   },
   {
     "group": "Credits", "items": [
-      {"label": "The Polymer Project", "icon": "polymer", "href": ""},
-      {"label": "Lit Element", "icon": "lightbulb-outline", "href": ""},
-      {"label": "webcomponents.org", "icon": "polymer", "href": ""},
-      {"label": "J.P Morrison", "icon": "thumb-up", "href": ""}
+      {"label": "Lit Element", "icon": "lightbulb-outline", "href": "md/cred-lit/"},
+      {"label": "The Polymer Project", "icon": "polymer", "href": "md/cred-polymer/"},
+      {"label": "webcomponents.org", "icon": "polymer", "href": "md/cred-wc/"},
+      {"label": "J.P Morrison", "icon": "thumb-up", "href": "md/cred-morrison/"}
     ]
   }
 ];
