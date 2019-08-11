@@ -92,14 +92,14 @@ function assertImportResolvesWithinPkgRoot(source, pkgRoot, srcFile, node) {
 }
 
 function assertNoLocalDirectoryImports(source, pkgRoot, srcFile, node) {
-  if (source.indexOf('@material') === -1 && source[0] !== '.') {
+  if (source.indexOf('@furo') === -1 && source[0] !== '.') {
     return; // skip check for external dependencies
   }
 
   const srcDir = path.dirname(srcFile);
   const resolvedSrc = path.relative(process.cwd(), path.resolve(srcDir, source));
-  const relPathFromPkgRoot = resolvedSrc.indexOf('@material') > -1 ?
-    './packages/mdc-'+resolvedSrc.slice(resolvedSrc.indexOf('@material')+10) :
+  const relPathFromPkgRoot = resolvedSrc.indexOf('@furo') > -1 ?
+    './packages/mdc-'+resolvedSrc.slice(resolvedSrc.indexOf('@furo')+10) :
     './'+resolvedSrc;
 
   if (!fs.existsSync(path.extname(relPathFromPkgRoot) ?
@@ -119,7 +119,7 @@ function assertModuleImportSpecifiedAsPkgDep(source, pkgRoot, srcFile, node) {
   const pkgJson = require(path.resolve(pkgRoot, 'package.json'));
   const dependencies = Object.keys(pkgJson.dependencies);
   // NOTE: We test on a partial path here to acommodate imports that resolve to sub-folders/sub-files
-  // of deps. E.g. require('@material/foo/bar') where the dep is '@material/foo'
+  // of deps. E.g. require('@furo/foo/bar') where the dep is '@furo/foo'
   const sourceSpecifiedAsDep = dependencies.some((dep) => source.indexOf(dep) === 0);
   if (!sourceSpecifiedAsDep) {
     error(

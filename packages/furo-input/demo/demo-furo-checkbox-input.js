@@ -44,8 +44,10 @@ class DemoFuroCheckboxInput extends FBP(LitElement) {
       
       <furo-demo-snippet >
         <template>
-          <furo-checkbox-input label="The label" value="true" @-checked="--aChecked" @-unchecked="--aUnchecked"></furo-checkbox-input>
+          <furo-checkbox-input label="The label" value="true" text="Click to check" @-checked="--aChecked" @-unchecked="--aUnchecked"></furo-checkbox-input>
           <furo-checkbox-input condensed label="The label" value="false" ƒ-uncheck="--aChecked" ƒ-check="--aUnchecked"></furo-checkbox-input>
+          <furo-checkbox-input filled label="The label" value="false" ƒ-uncheck="--aChecked" ƒ-check="--aUnchecked"></furo-checkbox-input>
+          <furo-checkbox-input filled condensed label="The label" value="false" ƒ-uncheck="--aChecked" ƒ-check="--aUnchecked"></furo-checkbox-input>
           <furo-checkbox-input disabled label="Disabled"   ƒ-uncheck="--aChecked" ƒ-check="--aUnchecked"></furo-checkbox-input>
         </template>
       </furo-demo-snippet>
