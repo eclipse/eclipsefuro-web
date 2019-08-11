@@ -1,4 +1,5 @@
-# Webcomponents.org
+# Webcomponents . org
+
 WebComponents.org aims to make it easy to share, discover, and reuse web components. Web components is a standard created to empower developers to create new HTML tags such that `<my-new-button>` would be valid and able to be utilized across all browsers. It creates a framework agnostic way of composing and repurposing code.
 
 ## Specifications

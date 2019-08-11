@@ -1,8 +1,10 @@
-# [J. Paul Rodker Morrison](http://www.jpaulmorrison.com/)
+# J. Paul Rodker Morrison
 
 Furo was inspired by the work of Paul Morrison. You will find a lot of interesting material on his page.
 
-[Flow-Based Programming](http://www.jpaulmorrison.com/fbp/index.shtml)
+- [Flow-Based Programming](http://www.jpaulmorrison.com/fbp/index.shtml)
+- [J. Paul Rodker Morrison](http://www.jpaulmorrison.com/)
+
 
 ### Some words from the discoverer of Flow Based Programming
         
