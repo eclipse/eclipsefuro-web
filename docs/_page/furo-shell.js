@@ -2440,6 +2440,7 @@ return Theme.getThemeForComponent(this.name)||css`
 return html`
             <div class="content">
                 <p class="hero-title">フロー</p>
+                <p class="hero-caption">Version 0.xx.xx</p>
                 <p class="hero-caption">A enterprise grade and simple framework for creating fast, lightweight web apps
                     with web components</p>
                 <a class="hero-link" href="/guide/md/overview/">Get Started</a>

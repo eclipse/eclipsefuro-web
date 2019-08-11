@@ -24,14 +24,6 @@
   <script>
     window.APPROOT = {rootPath: '/'};
 
-    // Load and register pre-caching Service Worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function (registration) {
-        navigator.serviceWorker.register('/service-worker.js', {
-          scope: APPROOT.rootPath
-        });
-      });
-    }
 
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -44,6 +36,16 @@
         });
       });
     }
+
+    // Load and register pre-caching Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function (registration) {
+        navigator.serviceWorker.register('/service-worker.js', {
+          scope: APPROOT.rootPath
+        });
+      });
+    }
+
   </script>
 
   <!-- Load your application shell -->
