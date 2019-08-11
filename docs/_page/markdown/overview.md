@@ -9,7 +9,7 @@ Why you don’t do the same to write your app or component? Use existing web-com
 But there is more then just eventlisteners in Furo-FBP. 
 Watch the video below for a short introduction or read more in the [Flowbased Programming](/guide/md/fbp-wires/) section.
 
-We also recommended the [Patterns] section, to get a better understanding how to wire the [components](/api/doc/input/) 
+We also recommended the [Manuals] section, to get a better understanding how to wire the [components](/api/doc/input/) 
 from the different packages to something useful.
 
 ### FBP 101

@@ -9897,11 +9897,16 @@ return[css`
               margin-bottom: 24px;
           }
 
+          
           .nav span {
               display: inline-block;
               border-bottom: 1px solid var(--demo-header, white);
+              cursor: pointer;
           }
 
+          .nav furo-icon{
+              cursor: pointer;
+          }
           :host([flow]) .flow {
               font-weight: 800;
               border-bottom: 1px solid var(--on-primary);
