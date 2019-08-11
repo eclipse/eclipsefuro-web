@@ -10,7 +10,9 @@
 
 module.exports = {
   staticFileGlobs: [
-    'src/**/*',
+    '_page/markdown/**/*',
+    '_page/assets/**/*',
+    '_page/images/**/*',
     'manifest.json'
   ],
   runtimeCaching: [
