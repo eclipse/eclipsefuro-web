@@ -21,18 +21,17 @@ export const nav = [
   },
   {
     "group": "Manuals", "items": [
-      {"label": "Styling", "icon": "image:color-lens", "href": "styling/"},
+      {"label": "Styling", "icon": "image:color-lens", "href": "md/styling/"},
       {"label": "Theming", "icon": "image:brush", "href": "md/theming/"},
-      {"label": "Icons", "icon": "social:mood", "href": "icons/"},
+      {"label": "Icons", "icon": "social:mood", "href": "md/icons/"},
       {"label": "Dealing with data", "icon": "cloud", "href": "md/dealing-w-data/"},
-      {"label": "Data UI", "icon": "view-column", "href": "md/data-ui/"},
-      {"label": "Layouts helper", "icon": "dashboard", "href": "md/layout-helpers/"},
-      {"label": "Forms helper", "icon": "dashboard", "href": "md/form-helpers/"},
-      {"label": "App Config", "icon": "settings", "href": "md/config/"},
-      {"label": "Navigation", "icon": "tab", "href": "md/navigation/"},
+      {"label": "...Data UI", "icon": "view-column", "href": "md/data-ui/"},
+      {"label": "...Layout helper", "icon": "dashboard", "href": "md/layout-helpers/"},
+      {"label": "...Form helper", "icon": "dashboard", "href": "md/form-helpers/"},
+      {"label": "..App Config", "icon": "settings", "href": "md/config/"},
+      {"label": "...Navigation", "icon": "tab", "href": "md/navigation/"},
       {"label": "Routing", "icon": "arrow-forward", "href": "md/route/"},
-      {"label": "Timing", "icon": "alarm", "href": "md/timing/"},
-      {"label": "Util", "icon": "star-border", "href": "md/util/"},
+      {"label": "...Util", "icon": "star-border", "href": "md/util/"},
     ]
   },
 
