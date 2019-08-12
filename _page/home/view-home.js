@@ -214,6 +214,12 @@ class ViewHome extends FBP(LitElement) {
                         <p>If you like <a href="https://webpack.js.org/">webpack</a> or <a href="https://open-wc.org/">open-wc</a>,
                             feel free to change it.</p>
                     </div>
+                  <div class="panel" flex>
+                        <h2 class="caption">Dont Like Frameworks?</h2>
+                        <p>You can use the components from furo without having the "framework".</p>
+                        <p>You can also use the <strong>fbp</strong> without having the "framework" </p>
+                        
+                    </div>
 
                 </furo-horizontal-flex>
 
