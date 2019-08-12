@@ -113,12 +113,12 @@ class PanelDoc extends FBP(LitElement) {
         <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element"
                        @-class="--class" @-mixin="--class"></furo-doc-menu>
 
-        <div scroll>
-          <furo-doc-element ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
-        </div>
-        <div scroll>
-          <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
-        </div>
+        
+        <furo-doc-element scroll ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
+
+
+        <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
+
       </furo-split-view>
     `;
   }

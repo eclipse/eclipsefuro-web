@@ -46,7 +46,7 @@ class SampleFuroButton extends FBP(LitElement) {
       <h3>Sample</h3>
       <furo-demo-snippet>
         <template>
-          <table>
+          <table width="100%">
             <tr>
               <th></th>
               <th>Default</th>
@@ -63,7 +63,7 @@ class SampleFuroButton extends FBP(LitElement) {
                 <furo-button disabled label="raised"></furo-button>
               </td>
               <td>
-                <furo-button raised label="other" ƒ-focus="--defautlClicked" @-click="--raisedClicked"></furo-button>
+                <furo-button raised icon="fingerprint" label="other" ƒ-focus="--defautlClicked" @-click="--raisedClicked"></furo-button>
               </td>
               <td>
                 <furo-button disabled raised label="raised"></furo-button>

@@ -21,17 +21,11 @@ export const nav = [
   },
   {
     "group": "The Framework", "items": [
-      {"label": "Overview", "icon": "create", "href": "doc/framework/"},
-      {"label": "Styling", "icon": "image:color-lens", "href": "md/api-design/"},
-      {"label": "Theming", "icon": "image:brush", "href": "doc/furo-config/"},
-      {"label": "Internationalisation", "icon": "create", "href": "md/api-design/"},
-      {"label": "Configuration", "icon": "create", "href": "md/api-design/"}
-    ]
-  },
-
-  {
-    "group": "Misc", "items": [
-      {"label": "Test Coverage", "icon": "create", "href": "md/api-design/"}
+      {"label": "Overview", "icon": "create", "href": "framework/doc/"},
+      {"label": "Theming", "icon": "image:brush", "href": "framework/doc/Theme"},
+      {"label": "Internationalisation", "icon": "create", "href": "framework/doc/i18n"},
+      {"label": "Configuration", "icon": "create", "href": "framework/doc/Env"},
+      {"label": "Register Icons", "icon": "image:color-lens", "href": "framework/doc/Iconset"}
     ]
   }
 ];
