@@ -136,7 +136,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
       return [css`
           :host {
               display: block;
-              height: 300px;
+              height: 320px;
               box-sizing: border-box;
               overflow: hidden;
               background-color: var(--background);

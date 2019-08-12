@@ -27,7 +27,7 @@ class SampleFuroTextInput extends FBP(LitElement) {
             display: none;
         }
         furo-demo-snippet {
-            height: 130px;
+            checkbox
         }
        
     `

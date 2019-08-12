@@ -1,19 +1,18 @@
 # Getting started with Furo Flowbased Programming
 
-With FBP you mostly connect the the output of a component (event) with the functions of an ohter element.
+With FBP you mostly connect the the output of a component (a dom event) with the functions of an ohter element.
 
 
 
 ## Connecting things
 
-We have a button and an elements which we want to remove after the button is clicked.
+We have a lightswitch (button) and lightbulb which we want to toggle when the switch is clicked.
  
-  
 
 <furo-demo-snippet demo>
 <template>
-  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
-  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button> 
+  <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button>
+  <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>  
 </template>
 </furo-demo-snippet>
 
