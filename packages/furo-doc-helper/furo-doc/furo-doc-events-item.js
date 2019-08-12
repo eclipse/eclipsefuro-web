@@ -72,7 +72,7 @@ class FuroDocEventsItem extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <strong>@-${this.prop.name}</strong> : <span class="type">${this.prop.type}</span> 
+      <strong>${this.prop.name}</strong> : <span class="type">${this.prop.type}</span> 
       <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
       
     `;

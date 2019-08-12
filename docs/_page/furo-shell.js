@@ -5134,7 +5134,7 @@ return Theme.getThemeForComponent(this.name)||css`
      * @returns {TemplateResult}
      */render(){// language=HTML
 if(!this.method.return){this.method.return={}}this.cname=this.method.name.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase();return html`
-      <strong>ƒ-${this.cname}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
+      <strong>${this.cname}</strong>  (<template is="flow-repeat" ƒ-inject-items="--data(*.params)">
       <span class="name" ƒ-.inner-text="--item(*.name)"></span> : 
       <span class="type" ƒ-.inner-text="--item(*.type)"></span></template>) ⟹ <span class="return">${this.method.return.type}</span>
       
@@ -5215,7 +5215,7 @@ return Theme.getThemeForComponent(this.name)||css`
      * @returns {TemplateResult}
      */render(){// language=HTML
 return html`
-      <strong>@-${this.prop.name}</strong> : <span class="type">${this.prop.type}</span> 
+      <strong>${this.prop.name}</strong> : <span class="type">${this.prop.type}</span> 
       <furo-markdown ƒ-parse-markdown="--data(*.description)">></furo-markdown>
       
     `}}window.customElements.define("furo-doc-events-item",FuroDocEventsItem);class FuroDocEvents extends FBP(LitElement){constructor(){super();this.hidden=!0}/**
