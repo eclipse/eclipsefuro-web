@@ -171,11 +171,13 @@ class FuroDataTextInput extends FBP(LitElement) {
       // updates wieder einspielen
       this.error = true;
       this.errortext = this.field._validity.message;
+      this.requestUpdate();
     });
 
     this.field.addEventListener('field-became-valid', (e) => {
       // updates wieder einspielen
       this.error = false;
+      this.requestUpdate();
     });
   }
 
