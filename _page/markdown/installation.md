@@ -1,7 +1,11 @@
 # Installation
 
-## furo-collection
+This page describes the manual installation. 
+If you want to make a component, you can use the starter pack for components.
 
+A starter pack for an app will follow soon.
+ 
+## furo-collection
 The furo-collection package contains all packages from [furoBaseComponents](/api/input/doc/). 
 The installed versions of the sub packages are cross checked for compatibility.     
      

@@ -20,7 +20,7 @@ You can receive and rewire the response from a methodname with **@-ƒ-methodname
 
 
 ## Spread arguments
-Todo @veith write documentation asap.
+//Todo @veith write documentation asap.
 
 
 
