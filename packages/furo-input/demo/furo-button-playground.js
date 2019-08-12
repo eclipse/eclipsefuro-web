@@ -134,7 +134,7 @@ class FuroButtonPlayground extends FBP(LitElement) {
             <furo-vertical-flex slot="master">          
               <furo-text-input autofocus label="Label" value="${this.label}" @-value-changed="--label"></furo-text-input>
               <furo-text-input autofocus label="Icon" value="${this.icon}" hint="mail, send, filter-list, fingerprint" @-value-changed="--icon"></furo-text-input>
-              
+              <furo-select-input></furo-select-input>
               <furo-button raised label="Primary" ?primary="${this.primary}" @-click="--toggleprimary"></furo-button>
               <furo-button raised label="secondary" ?primary="${this.secondary}" @-click="--togglesecondary"></furo-button>
               <furo-button raised label="accent" ?primary="${this.accent}" @-click="--toggleaccent"></furo-button>

@@ -14,3 +14,5 @@ import "./demo-furo-time-input";
 import "./demo-furo-date-input";
 import "./demo-furo-input-together";
 import "./demo-furo-checkbox-input";
+import "./sample-furo-select-input";
+import "./demo-furo-select-input";
