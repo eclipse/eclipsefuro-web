@@ -6,7 +6,7 @@ The furo-collection package contains all packages from [furoBaseComponents](/api
 The installed versions of the sub packages are cross checked for compatibility.     
      
 ```bash
-    npm install --save furo-collection
+    npm install --save @furo/collection
 ```
 
 
@@ -14,7 +14,7 @@ The installed versions of the sub packages are cross checked for compatibility.
 If you work with your own components and just want to have the fbp capability, install [furo-fbp](/api/fbp/doc/FBP).
 
 ```bash
-    npm install --save furo-fbp
+    npm install --save @furo/fbp
 ```
 
 
