@@ -46,7 +46,15 @@ class SampleFuroButton extends FBP(LitElement) {
       <h3>Sample</h3>
       <furo-demo-snippet>
         <template>
-          <table width="100%">
+          <style>
+            
+            
+            td{
+              padding: 12px;
+              text-align: center;
+            }
+          </style>
+          <table>
             <tr>
               <th></th>
               <th>Default</th>

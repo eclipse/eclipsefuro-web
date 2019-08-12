@@ -6841,6 +6841,14 @@ return _furoShell.html`
       <h3>Sample</h3>
       <furo-demo-snippet>
         <template>
+          <style>
+            
+            
+            td{
+              padding: 12px;
+              text-align: center;
+            }
+          </style>
           <table>
             <tr>
               <th></th>
@@ -6858,7 +6866,7 @@ return _furoShell.html`
                 <furo-button disabled label="raised"></furo-button>
               </td>
               <td>
-                <furo-button raised label="other" ƒ-focus="--defautlClicked" @-click="--raisedClicked"></furo-button>
+                <furo-button raised icon="fingerprint" label="other" ƒ-focus="--defautlClicked" @-click="--raisedClicked"></furo-button>
               </td>
               <td>
                 <furo-button disabled raised label="raised"></furo-button>
@@ -8260,12 +8268,12 @@ return _furoShell.html`
         <furo-doc-menu slot="master" scroll ƒ-analysis="--analysis" @-element="--element"
                        @-class="--class" @-mixin="--class"></furo-doc-menu>
 
-        <div scroll>
-          <furo-doc-element ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
-        </div>
-        <div scroll>
-          <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
-        </div>
+        
+        <furo-doc-element scroll ƒ-print="--element" ƒ-hide="--class"></furo-doc-element>
+
+
+        <furo-doc-class scroll ƒ-print="--class" ƒ-hide="--element"></furo-doc-class>
+
       </furo-split-view>
     `}}window.customElements.define("panel-doc",PanelDoc);class FuroAppFlowRouter extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.style.display="none";/**
                                   * A regexp that defines the set of URLs that should be considered part
