@@ -2539,9 +2539,9 @@ return html`
                     </div>
                     <div class="panel" flex>
                         <h2 class="caption">Testable</h2>
-                        <p>Components built with furo are trivial to test. Trigger the wires or listen to data on a
-                            wire. No monster
-                            querySelectors needed.</p>
+                        <p>Components built with furo are easy to test. Trigger the wires or add a hook to an existing wire
+                        and inspect the data.
+                        </p>
                     </div>
                 </furo-horizontal-flex>
 
@@ -9836,7 +9836,7 @@ let demo=this.shadowRoot.querySelector("#demo");if(!this.noDemo){let elem=docume
 return[css`
           :host {
               display: block;
-              height: 300px;
+              height: 320px;
               box-sizing: border-box;
               overflow: hidden;
               background-color: var(--background);

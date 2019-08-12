@@ -6487,7 +6487,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             display: none;
         }
         furo-demo-snippet {
-            height: 130px;
+            height: 160px;
         }
        
     `}/**
@@ -6520,7 +6520,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             display: none;
         }
         furo-demo-snippet {
-            height: 130px;
+            checkbox
         }
        
     `}/**
@@ -6553,7 +6553,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             display: none;
         }
         furo-demo-snippet {
-            height: 130px;
+            checkbox
         }
        
     `}/**
