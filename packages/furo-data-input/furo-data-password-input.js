@@ -1,7 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import {FuroInputBase} from "./FuroInputBase.js";
 import "@furo/input/furo-password-input";
 
 /**
@@ -15,7 +14,6 @@ import "@furo/input/furo-password-input";
  * @customElement
  * @demo demo-furo-data-password-input Data binding
  * @mixes FBP
- * @mixes FuroInputBase
  */
 class FuroDataPasswordInput extends FBP(LitElement) {
 

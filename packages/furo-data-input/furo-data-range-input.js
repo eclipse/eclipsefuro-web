@@ -1,21 +1,243 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
-
 import {FBP} from "@furo/fbp";
-import {FuroInputBase} from "./FuroInputBase.js";
+import "@furo/input/furo-range-input";
 
 /**
- * `furo-input-range`
- * Simple range input element which uses a native `<input type="range">` tag
+ * `furo-data-range-input`
+ * Binds a entityObject field to a furo-range-input field
+ *
+ * <sample-furo-data-range-input></sample-furo-data-range-input>
  *
  * Tags: input
- * @summary range input element
+ * @summary Bind a entityObject.field to a range input
  * @customElement
- * @polymer
+ * @demo demo-furo-data-range-input Data binding
  * @mixes FBP
- * @mixes FuroInputBase
  */
-class FuroDataRangeInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataRangeInput extends FBP(LitElement) {
+
+  /**
+   * @event value-changed
+   * Fired when value has changed from inside the input field.
+   *
+   * detail payload: {Range} the range value
+   *
+   * Comes from underlying component furo-range-input. **bubbles**
+   */
+
+  constructor() {
+    super();
+    this.error = false;
+    this.disabled = false;
+    this.errortext = "";
+    this.hint = "";
+
+    this._FBPAddWireHook("--valueChanged", (val) => {
+      if (this.field) {
+        this.field.value = val;
+      }
+    });
+  }
+
+  static get properties() {
+    return {
+
+      /**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      label: {
+        type: String,
+        attribute: true
+      },
+      /**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      hint: {
+        type: String,
+      },
+      /**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      min: {
+        type: Range,
+      },
+      /**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      max: {
+        type: Range,
+      },
+      /**
+       * Overrides the step value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      step: {
+        type: String, // string, because "any" is also a valid step
+      },
+      /**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      readonly: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean, reflect: true
+      },
+
+      /**
+       * Set this attribute to autofocus the input field.
+       */
+      autofocus: {
+        type: Boolean
+      },
+      /**
+       * Icon on the left side
+       */
+      leadingIcon: {
+        type: String,
+        attribute: "leading-icon"
+      },
+      /**
+       * Icon on the right side
+       */
+      trailingIcon: {
+        type: String,
+        attribute: "trailing-icon"
+      },
+      /**
+       * html input validity
+       */
+      valid:{
+        type:Boolean,
+        reflect:true
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed:{
+        type:Boolean
+      },
+      /**
+       * passes always float the label
+       */
+      float:{
+        type:Boolean
+      }
+    }
+  }
+
+  /**
+   * Sets the field to readonly
+   */
+  disable(){
+    this._readonly = true;
+  }
+  /**
+   * Makes the field writable.
+   */
+  enable(){
+    this._readonly = false;
+  }
+
+  /**
+   * Bind a entity field to the range-input. You can use the entity even when no data was received.
+   * When you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * @param {Object|FieldNode} fieldNode a Field object
+   */
+  bindData(fieldNode) {
+    if (fieldNode === undefined) {
+      console.warn("Invalid binding ");
+      console.log(this);
+      return
+    }
+
+    this.field = fieldNode;
+    this._updateField();
+    this.field.addEventListener('field-value-changed', (e) => {
+      this._updateField();
+    });
+
+    this.field.addEventListener('field-became-invalid', (e) => {
+      // updates wieder einspielen
+      this.error = true;
+      this.errortext = this.field._validity.message;
+      this.requestUpdate();
+    });
+
+    this.field.addEventListener('field-became-valid', (e) => {
+      // updates wieder einspielen
+      this.error = false;
+      this.requestUpdate();
+    });
+  }
+
+
+  _updateField() {
+    // label auf attr ist höher gewichtet
+    if (!this.label) {
+      this._label = this.field._meta.label;
+    } else {
+      this._label = this.label;
+    }
+
+    // hint auf attr ist höher gewichtet
+    if (!this.hint) {
+      this._hint = this.field._meta.hint;
+    } else {
+      this._hint = this.hint;
+    }
+    this.disabled = this.field._meta.readonly ? true : false;
+
+    // min auf attr ist höher gewichtet
+    if (!this.min) {
+      this._min = this.field._meta.min;
+    } else {
+      this._min = this.min;
+    }
+    // max auf attr ist höher gewichtet
+    if (!this.max) {
+      this._max = this.field._meta.max;
+    } else {
+      this._max = this.max;
+    }
+    // step auf attr ist höher gewichtet
+    if (!this.step) {
+      this._step = this.field._meta.step;
+    } else {
+      this._step = this.step;
+    }
+    // readonly auf attr ist höher gewichtet
+    if (!this.readonly) {
+      this._readonly = this.field._meta.readonly;
+    } else {
+      this._readonly = this.readonly;
+    }
+
+
+
+    //mark incomming error
+    if (!this.field._isValid) {
+      this.error = true;
+      this.errortext = this.field._validity.message;
+    }
+    this._FBPTriggerWire('--value', this.field.value);
+    this.requestUpdate();
+  }
 
   /**
    *
@@ -27,118 +249,39 @@ class FuroDataRangeInput extends FBP(FuroInputBase(LitElement)) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: inline-block;
-            position: relative;
-            font-size: 12px;
-            box-sizing: border-box;
-            margin: 0 0 14px 0;
-            padding: 8px 0 2px 0;
-            height: 28px;
-            font-family: "Roboto", "Noto", sans-serif;
-            line-height: 1.5;
+            width: 190px;
         }
 
         :host([hidden]) {
             display: none;
         }
-
-        :host([error]) .border {
-            border-color: red;
-            border-width: 1px;
-        }
-
-
-        input {
-            border: none;
-            background: 0 0;
-            font-size: 12px;
-            margin: 0;
-            padding: 0;
+        furo-range-input{
             width: 100%;
-            text-align: left;
-            color: inherit;
-            outline: none;
-        }
-
-        .border {
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top:29px;
-            border: none;
-            border-bottom: 1px solid rgba(0, 0, 0, .12);
-         }
-
-        label {
-            position: absolute;
-            top: 8px;
-            color: rgba(0, 0, 0, .26);
-            font-size: 12px;
-            pointer-events: none;
-            display: block;
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            text-align: left;
-         }
-
-        label[float="true"] {
-            color: var(--primary, #3f51b5);
-            font-size: 10px;
-            top: -4px;
-            visibility: visible;
-         }
-
-        * {
-            transition: all 150ms ease-out;
-        }
-
-        .hint {
-            position: absolute;
-            top: 30px;
-            font-size: 10px;
-            color: transparent;
-            white-space: nowrap;
-            pointer-events: none;
-         }
-
-        :host(:focus-within) .hint {
-            color: var(--app-hint-color);
-            transition: all 550ms ease-in;
-        }
-
-        :host([error]) .border {
-            border-color: red;
-            border-width: 1px;
-        }
-
-        :host(:focus-within) .border {
-            border-color: var(--primary, #3f51b5);
-            border-width: 1px;
         }
     `
   }
 
   render() {
     // language=HTML
-    return html`     
-      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="range" list="datalist" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focusReceived">
-      <div class="border"></div>     
-      <label float="${this._float}" for="input">${this._label}</label>  
-      <div class="hint">${this.hint}</div>
- 
+    return html` 
+       <furo-range-input 
+          ?autofocus=${this.autofocus} 
+          ?readonly=${this._readonly||this.disabled} 
+          label="${this._label}" 
+          min="${this._min}" 
+          max="${this._max}" 
+          step="${this._step}" 
+          ?error="${this.error}" 
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}"          
+          leading-icon="${this.leadingIcon}" 
+          trailing-icon="${this.trailingIcon}" 
+          errortext="${this.errortext}" 
+          hint="${this.hint}" 
+          @-value-changed="--valueChanged"
+          ƒ-set-value="--value"></furo-range-input>      
     `;
   }
-
-  constructor() {
-    super();
-
-  }
-
-  _init() {
-    super._init()
-    this._float = true;
-  }
-
 
 }
 
