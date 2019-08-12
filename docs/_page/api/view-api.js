@@ -6441,7 +6441,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
             color: #eeeeee;
         }
 
-    `,_furoShell.Styling.theme]}constructor(){super();this.label="Label";this.icon="apps";this.primary=!1;this.secondary=!1;this.accent=!1;this.danger=!1;this.raised=!1;this.unevelated=!1;this.outline=!1;this.disabled=!1}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--label",val=>{this.label=val;this.requestUpdate()});this._FBPAddWireHook("--icon",val=>{this.icon=val;this.requestUpdate()});["primary","secondary","accent","raised","danger","outline","unevelated","disabled"].forEach(bool=>{this._FBPAddWireHook("--toggle"+bool,()=>{let newstate=!this[bool];switch(bool){case"primary":case"secondary":case"accent":case"danger":this.primary=!1;this.secondary=!1;this.accent=!1;this.danger=!1;break;case"raised":case"unevelated":case"outline":this.raised=!1;this.outline=!1;this.unevelated=!1;break;}this[bool]=newstate;this.requestUpdate()})});this._FBPAddWireHook("--enable",()=>{this.disabled=!1;this.requestUpdate()});this._FBPAddWireHook("--disable",()=>{this.disabled=!0;this.requestUpdate()})}/**
+    `,_furoShell.Styling.theme]}constructor(){super();this.label="Label";this.icon="apps";this.primary=!1;this.secondary=!1;this.accent=!1;this.danger=!1;this.raised=!1;this.unevelated=!1;this.outline=!1;this.disabled=!1}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--label",val=>{this.label=val;this.requestUpdate()});this._FBPAddWireHook("--icon",val=>{this.icon=val;this.requestUpdate()});this._FBPAddWireHook("--colorset",color=>{this.primary=!1;this.secondary=!1;this.accent=!1;this.danger=!1;this[color]=!0;this.requestUpdate()});this._FBPAddWireHook("--layout",layout=>{this.raised=!1;this.outline=!1;this.unevelated=!1;this[layout]=!0;this.requestUpdate()});this._FBPAddWireHook("--toggledisabled",()=>{this.disabled=!this.disabled;this.requestUpdate()});this._FBPAddWireHook("--enable",()=>{this.disabled=!1;this.requestUpdate()});this._FBPAddWireHook("--disable",()=>{this.disabled=!0;this.requestUpdate()})}/**
      * @private
      * @returns {TemplateResult}
      */render(){return _furoShell.html`
@@ -6453,19 +6453,12 @@ return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
         <div class="flex">
           <furo-split-view>
             <furo-vertical-flex slot="master">          
-              <furo-text-input autofocus label="Label" value="${this.label}" @-value-changed="--label"></furo-text-input>
-              <furo-text-input autofocus label="Icon" value="${this.icon}" hint="mail, send, filter-list, fingerprint" @-value-changed="--icon"></furo-text-input>
-              <furo-select-input></furo-select-input>
-              <furo-button raised label="Primary" ?primary="${this.primary}" @-click="--toggleprimary"></furo-button>
-              <furo-button raised label="secondary" ?primary="${this.secondary}" @-click="--togglesecondary"></furo-button>
-              <furo-button raised label="accent" ?primary="${this.accent}" @-click="--toggleaccent"></furo-button>
-              <furo-button raised label="danger" ?primary="${this.danger}" @-click="--toggledanger"></furo-button>
+              <furo-text-input autofocus label="Label" value="${this.label}" @-value-changed="--label"></furo-text-input>             
+              <furo-select-input value="${this.icon}" label="Select icon" list="apps, fingerprint, mail, send, filter-list, alarm-on, alarm-on, undefied-icon"  @-value-changed="--icon"></furo-select-input>
+              <furo-select-input label="Theme Color" list="none, primary, secondary, accent, danger"  @-value-changed="--colorset"></furo-select-input>
+              <furo-select-input label="Border / Fill" list="none, raised, unevelated, outline"  @-value-changed="--layout"></furo-select-input>
               
-              <hr>
               
-              <furo-button raised label="raised" ?primary="${this.raised}" @-click="--toggleraised"></furo-button>
-              <furo-button raised label="unevelated" ?primary="${this.unevelated}" @-click="--toggleunevelated"></furo-button>
-              <furo-button raised label="outline" ?primary="${this.outline}" @-click="--toggleoutline"></furo-button>
               <hr>
               <furo-button raised label="disabled" ?primary="${this.disabled}" @-click="--toggledisabled"></furo-button>
               

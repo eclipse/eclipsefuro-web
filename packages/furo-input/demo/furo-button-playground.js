@@ -75,35 +75,28 @@ class FuroButtonPlayground extends FBP(LitElement) {
       this.requestUpdate();
     });
 
-    ["primary", "secondary", "accent", "raised", "danger", "outline", "unevelated", "disabled"].forEach((bool) => {
-
-      this._FBPAddWireHook("--toggle" + bool, () => {
-        let newstate = !this[bool];
-
-        switch (bool) {
-          case "primary":
-          case "secondary":
-          case "accent":
-          case "danger":
-            this.primary = false;
-            this.secondary = false;
-            this.accent = false;
-            this.danger = false;
-            break;
-
-          case "raised":
-          case "unevelated":
-          case "outline":
-            this.raised = false;
-            this.outline = false;
-            this.unevelated = false;
-            break;
-        }
-        this[bool] = newstate;
-        this.requestUpdate();
-
-      });
+    this._FBPAddWireHook("--colorset" , (color) => {
+      this.primary = false;
+      this.secondary = false;
+      this.accent = false;
+      this.danger = false;
+      this[color] = true;
+      this.requestUpdate();
     });
+
+     this._FBPAddWireHook("--layout" , (layout) => {
+       this.raised = false;
+       this.outline = false;
+       this.unevelated = false;
+       this[layout] = true;
+      this.requestUpdate();
+    });
+
+     this._FBPAddWireHook("--toggledisabled" , () => {
+       this.disabled = !this.disabled;
+      this.requestUpdate();
+    });
+
 
     this._FBPAddWireHook("--enable", () => {
       this.disabled = false;
@@ -132,19 +125,12 @@ class FuroButtonPlayground extends FBP(LitElement) {
         <div class="flex">
           <furo-split-view>
             <furo-vertical-flex slot="master">          
-              <furo-text-input autofocus label="Label" value="${this.label}" @-value-changed="--label"></furo-text-input>
-              <furo-text-input autofocus label="Icon" value="${this.icon}" hint="mail, send, filter-list, fingerprint" @-value-changed="--icon"></furo-text-input>
-              <furo-select-input></furo-select-input>
-              <furo-button raised label="Primary" ?primary="${this.primary}" @-click="--toggleprimary"></furo-button>
-              <furo-button raised label="secondary" ?primary="${this.secondary}" @-click="--togglesecondary"></furo-button>
-              <furo-button raised label="accent" ?primary="${this.accent}" @-click="--toggleaccent"></furo-button>
-              <furo-button raised label="danger" ?primary="${this.danger}" @-click="--toggledanger"></furo-button>
+              <furo-text-input autofocus label="Label" value="${this.label}" @-value-changed="--label"></furo-text-input>             
+              <furo-select-input value="${this.icon}" label="Select icon" list="apps, fingerprint, mail, send, filter-list, alarm-on, alarm-on, undefied-icon"  @-value-changed="--icon"></furo-select-input>
+              <furo-select-input label="Theme Color" list="none, primary, secondary, accent, danger"  @-value-changed="--colorset"></furo-select-input>
+              <furo-select-input label="Border / Fill" list="none, raised, unevelated, outline"  @-value-changed="--layout"></furo-select-input>
               
-              <hr>
               
-              <furo-button raised label="raised" ?primary="${this.raised}" @-click="--toggleraised"></furo-button>
-              <furo-button raised label="unevelated" ?primary="${this.unevelated}" @-click="--toggleunevelated"></furo-button>
-              <furo-button raised label="outline" ?primary="${this.outline}" @-click="--toggleoutline"></furo-button>
               <hr>
               <furo-button raised label="disabled" ?primary="${this.disabled}" @-click="--toggledisabled"></furo-button>
               
