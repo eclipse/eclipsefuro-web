@@ -444,6 +444,7 @@ class FuroTree extends FBP(LitElement) {
 
 
   bindData(treeNode) {
+
     if (treeNode.fields === undefined) {
       return
     }
