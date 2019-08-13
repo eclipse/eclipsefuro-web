@@ -59,7 +59,7 @@ class FuroButtonPlayground extends FBP(LitElement) {
     this.accent = false;
     this.danger = false;
     this.raised = false;
-    this.unevelated = false;
+    this.unelevated = false;
     this.outline = false;
     this.disabled = false;
   }
@@ -87,7 +87,7 @@ class FuroButtonPlayground extends FBP(LitElement) {
      this._FBPAddWireHook("--layout" , (layout) => {
        this.raised = false;
        this.outline = false;
-       this.unevelated = false;
+       this.unelevated = false;
        this[layout] = true;
       this.requestUpdate();
     });
@@ -128,7 +128,7 @@ class FuroButtonPlayground extends FBP(LitElement) {
               <furo-text-input autofocus label="Label" value="${this.label}" @-value-changed="--label"></furo-text-input>             
               <furo-select-input value="${this.icon}" label="Select icon" list="apps, fingerprint, mail, send, filter-list, alarm-on, alarm-on, undefied-icon"  @-value-changed="--icon"></furo-select-input>
               <furo-select-input label="Theme Color" list="none, primary, secondary, accent, danger"  @-value-changed="--colorset"></furo-select-input>
-              <furo-select-input label="Border / Fill" list="none, raised, unevelated, outline"  @-value-changed="--layout"></furo-select-input>
+              <furo-select-input label="Border / Fill" list="none, raised, unelevated, outline"  @-value-changed="--layout"></furo-select-input>
               
               
               <hr>
@@ -150,7 +150,7 @@ class FuroButtonPlayground extends FBP(LitElement) {
                  ?secondary="${this.secondary}" 
                  ?accent="${this.accent}" 
                  ?raised="${this.raised}" 
-                 ?unevelated="${this.unevelated}" 
+                 ?unelevated="${this.unelevated}" 
                  ?disabled="${this.disabled}" 
                  ?outline="${this.outline}" 
                  ?danger="${this.danger}" 
@@ -163,7 +163,7 @@ class FuroButtonPlayground extends FBP(LitElement) {
                  label="${this.label}"
                  ?primary="${this.primary}" 
                  ?secondary="${this.secondary}" 
-                   ?unevelated="${this.unevelated}" 
+                   ?unelevated="${this.unelevated}" 
                  ?accent="${this.accent}" 
                  ?raised="${this.raised}" 
                  ?disabled="${this.disabled}" 
@@ -178,7 +178,7 @@ class FuroButtonPlayground extends FBP(LitElement) {
                  ?secondary="${this.secondary}" 
                  ?accent="${this.accent}" 
                  ?raised="${this.raised}" 
-                 ?unevelated="${this.unevelated}" 
+                 ?unelevated="${this.unelevated}" 
                  ?disabled="${this.disabled}" 
                  ?outline="${this.outline}" 
                  ?danger="${this.danger}" 
@@ -191,7 +191,7 @@ class FuroButtonPlayground extends FBP(LitElement) {
                  label="${this.label}"
                  ?primary="${this.primary}" 
                  ?secondary="${this.secondary}" 
-                   ?unevelated="${this.unevelated}" 
+                   ?unelevated="${this.unelevated}" 
                  ?accent="${this.accent}" 
                  ?raised="${this.raised}" 
                  ?disabled="${this.disabled}" 
