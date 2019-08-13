@@ -8297,10 +8297,263 @@
       ]
     },
     {
-      "description": "`furo-input-text`\nSimple text input element which uses a native `<input type=\"text\">` tag\n\nTags: input",
+      "description": "`furo-data-collection-dropdown`\n\n<sample-furo-data-collection-dropdown></sample-furo-data-collection-dropdown>\n\nTags: input",
       "summary": "text input element",
       "path": "packages/furo-data-input/furo-data-collection-dropdown.js",
-      "properties": [],
+      "properties": [
+        {
+          "name": "label",
+          "type": "string | null | undefined",
+          "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 51,
+              "column": 12
+            },
+            "end": {
+              "line": 54,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "hint",
+          "type": "string | null | undefined",
+          "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 60,
+              "column": 12
+            },
+            "end": {
+              "line": 62,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "min",
+          "type": "number | null | undefined",
+          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 68,
+              "column": 12
+            },
+            "end": {
+              "line": 70,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "max",
+          "type": "number | null | undefined",
+          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 12
+            },
+            "end": {
+              "line": 78,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | null | undefined",
+          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 12
+            },
+            "end": {
+              "line": 86,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 90,
+              "column": 12
+            },
+            "end": {
+              "line": 92,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean | null | undefined",
+          "description": "Set this attribute to autofocus the input field.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 97,
+              "column": 12
+            },
+            "end": {
+              "line": 99,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "leadingIcon",
+          "type": "string | null | undefined",
+          "description": "Icon on the left side",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 103,
+              "column": 12
+            },
+            "end": {
+              "line": 106,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "trailingIcon",
+          "type": "string | null | undefined",
+          "description": "Icon on the right side",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 110,
+              "column": 12
+            },
+            "end": {
+              "line": 113,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "valid",
+          "type": "boolean | null | undefined",
+          "description": "html input validity",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 117,
+              "column": 12
+            },
+            "end": {
+              "line": 120,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "condensed",
+          "type": "boolean | null | undefined",
+          "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 124,
+              "column": 12
+            },
+            "end": {
+              "line": 126,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "float",
+          "type": "boolean | null | undefined",
+          "description": "passes always float the label",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 130,
+              "column": 12
+            },
+            "end": {
+              "line": 132,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
       "methods": [
         {
           "name": "_attachDom",
@@ -8717,16 +8970,102 @@
           "inheritedFrom": "FBP"
         },
         {
+          "name": "disable",
+          "description": "Sets the field to readonly",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 139,
+              "column": 4
+            },
+            "end": {
+              "line": 141,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "enable",
+          "description": "Makes the field writable.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 145,
+              "column": 4
+            },
+            "end": {
+              "line": 147,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "bindData",
+          "description": "Bind a entity field to the number-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 154,
+              "column": 4
+            },
+            "end": {
+              "line": 179,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "fieldNode",
+              "type": "(Object | FieldNode)",
+              "description": "a Field object"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateField",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 182,
+              "column": 4
+            },
+            "end": {
+              "line": 226,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "render",
           "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 251,
               "column": 4
             },
             "end": {
-              "line": 127,
+              "line": 271,
               "column": 5
             }
           },
@@ -8739,11 +9078,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 276,
               "column": 4
             },
             "end": {
-              "line": 151,
+              "line": 289,
               "column": 5
             }
           },
@@ -8763,19 +9102,219 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 17,
+          "line": 18,
           "column": 0
         },
         "end": {
-          "line": 152,
+          "line": 290,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
       "name": "FuroDataCollectionDropdown",
-      "attributes": [],
-      "events": [],
+      "attributes": [
+        {
+          "name": "label",
+          "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 51,
+              "column": 12
+            },
+            "end": {
+              "line": 54,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "hint",
+          "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 60,
+              "column": 12
+            },
+            "end": {
+              "line": 62,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "min",
+          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 68,
+              "column": 12
+            },
+            "end": {
+              "line": 70,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "max",
+          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 12
+            },
+            "end": {
+              "line": 78,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "readonly",
+          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 12
+            },
+            "end": {
+              "line": 86,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "disabled",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "sourceRange": {
+            "start": {
+              "line": 90,
+              "column": 12
+            },
+            "end": {
+              "line": 92,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "autofocus",
+          "description": "Set this attribute to autofocus the input field.",
+          "sourceRange": {
+            "start": {
+              "line": 97,
+              "column": 12
+            },
+            "end": {
+              "line": 99,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "leading-icon",
+          "description": "Icon on the left side",
+          "sourceRange": {
+            "start": {
+              "line": 103,
+              "column": 12
+            },
+            "end": {
+              "line": 106,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "trailing-icon",
+          "description": "Icon on the right side",
+          "sourceRange": {
+            "start": {
+              "line": 110,
+              "column": 12
+            },
+            "end": {
+              "line": 113,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "valid",
+          "description": "html input validity",
+          "sourceRange": {
+            "start": {
+              "line": 117,
+              "column": 12
+            },
+            "end": {
+              "line": 120,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "condensed",
+          "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
+          "sourceRange": {
+            "start": {
+              "line": 124,
+              "column": 12
+            },
+            "end": {
+              "line": 126,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "float",
+          "description": "passes always float the label",
+          "sourceRange": {
+            "start": {
+              "line": 130,
+              "column": 12
+            },
+            "end": {
+              "line": 132,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "value-changed\nFired when value has changed from inside the input field.\n\ndetail payload: {String} the text value\n\nComes from underlying component furo-text-input. **bubbles**",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []

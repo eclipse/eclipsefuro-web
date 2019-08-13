@@ -37,7 +37,7 @@ class FuroSelectInput extends FBP(LitElement) {
 
       if (!input.validity.badInput) {
         this.value = input.value;
-        this._float = !!input.value;
+
         /**
          * @event value-changed
          * Fired when value has changed from inside the component
@@ -54,16 +54,17 @@ class FuroSelectInput extends FBP(LitElement) {
 
 
   set _value(v) {
-    this._float = !!v;
+
     this._FBPTriggerWire("--value", v)
   }
 
-  set value(v) {
-    this._vl = v;
+  set value(v){
+    this._v = v;
+    this._value = v;
   }
 
-  get value() {
-    return this._vl;
+  get value(){
+    return this._v;
   }
 
   static get properties() {
@@ -126,18 +127,7 @@ class FuroSelectInput extends FBP(LitElement) {
       readonly: {
         type: Boolean, reflect: true
       },
-      /**
-       * helper for the label
-       */
-      _float: {
-        type: Boolean
-      },
-      /**
-       * Lets the placeholder always floating
-       */
-      float: {
-        type: Boolean
-      },
+
       /**
        * The hint text for the field.
        */
@@ -181,12 +171,13 @@ class FuroSelectInput extends FBP(LitElement) {
     };
   }
 
+
   /**
    * Set the value for the field
    * @param {String} the id of the selected item
    */
   setValue(num) {
-    this._value = num;
+
     this.value = num;
   }
 
@@ -628,7 +619,7 @@ class FuroSelectInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float || this.float}" for="input"><span>${this.label}</span></label>
+      <label float for="input"><span>${this.label}</span></label>
       <div class="right-border"></div>
       </div>
       

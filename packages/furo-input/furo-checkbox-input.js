@@ -75,6 +75,14 @@ class FuroCheckboxInput extends FBP(LitElement) {
     this._FBPTriggerWire("--value", v)
   }
 
+  set value(v){
+    this._v = v;
+    this._value = v;
+  }
+
+  get value(){
+    return this._v;
+  }
   static get properties() {
     return {
       /**

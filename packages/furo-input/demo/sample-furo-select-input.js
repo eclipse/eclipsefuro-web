@@ -48,7 +48,7 @@ class SampleFuroSelectInput extends FBP(LitElement) {
      
       <furo-demo-snippet >
         <template>
-          <furo-select-input leading-icon="fingerprint" trailing-icon="mail" @-value-changed="--val" label="please select" value="44" list="23, 44, more, items"></furo-select-input>
+          <furo-select-input leading-icon="fingerprint" trailing-icon="mail" @-value-changed="--val" label="please select" list="23, 44, more, items"  value="more"></furo-select-input>
           <furo-select-input   ƒ-set-value="--val" autofocus label="please select"  options='[{"id":23,"label":"AAA"},{"id":44,"label":"BBB"}]'></furo-select-input>
           <furo-select-input disabled hint="decide" label="please select" options='[{"id":23,"label":"AAA","selected":false},{"id":44,"label":"BBB","selected":true}]'></furo-select-input>
           

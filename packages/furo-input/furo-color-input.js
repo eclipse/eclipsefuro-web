@@ -45,18 +45,6 @@ class FuroColorInput extends FBP(LitElement) {
       }
     });
 
-    // set pattern, min, max
-    let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
-    if (this.min) {
-      inputField.setAttribute("minlength", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
-    }
-
   }
 
 
@@ -77,14 +65,7 @@ class FuroColorInput extends FBP(LitElement) {
       value: {
         type: String
       },
-      /**
-       * The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.
-       *
-       * If the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.
-       */
-      pattern: {
-        type: String
-      },
+
       /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
        */
