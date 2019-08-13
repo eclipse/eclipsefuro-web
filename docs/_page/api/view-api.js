@@ -6441,7 +6441,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
             color: #eeeeee;
         }
 
-    `,_furoShell.Styling.theme]}constructor(){super();this.label="Label";this.icon="apps";this.primary=!1;this.secondary=!1;this.accent=!1;this.danger=!1;this.raised=!1;this.unevelated=!1;this.outline=!1;this.disabled=!1}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--label",val=>{this.label=val;this.requestUpdate()});this._FBPAddWireHook("--icon",val=>{this.icon=val;this.requestUpdate()});this._FBPAddWireHook("--colorset",color=>{this.primary=!1;this.secondary=!1;this.accent=!1;this.danger=!1;this[color]=!0;this.requestUpdate()});this._FBPAddWireHook("--layout",layout=>{this.raised=!1;this.outline=!1;this.unevelated=!1;this[layout]=!0;this.requestUpdate()});this._FBPAddWireHook("--toggledisabled",()=>{this.disabled=!this.disabled;this.requestUpdate()});this._FBPAddWireHook("--enable",()=>{this.disabled=!1;this.requestUpdate()});this._FBPAddWireHook("--disable",()=>{this.disabled=!0;this.requestUpdate()})}/**
+    `,_furoShell.Styling.theme]}constructor(){super();this.label="Label";this.icon="apps";this.primary=!1;this.secondary=!1;this.accent=!1;this.danger=!1;this.raised=!1;this.unelevated=!1;this.outline=!1;this.disabled=!1}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--label",val=>{this.label=val;this.requestUpdate()});this._FBPAddWireHook("--icon",val=>{this.icon=val;this.requestUpdate()});this._FBPAddWireHook("--colorset",color=>{this.primary=!1;this.secondary=!1;this.accent=!1;this.danger=!1;this[color]=!0;this.requestUpdate()});this._FBPAddWireHook("--layout",layout=>{this.raised=!1;this.outline=!1;this.unelevated=!1;this[layout]=!0;this.requestUpdate()});this._FBPAddWireHook("--toggledisabled",()=>{this.disabled=!this.disabled;this.requestUpdate()});this._FBPAddWireHook("--enable",()=>{this.disabled=!1;this.requestUpdate()});this._FBPAddWireHook("--disable",()=>{this.disabled=!0;this.requestUpdate()})}/**
      * @private
      * @returns {TemplateResult}
      */render(){return _furoShell.html`
@@ -6456,7 +6456,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
               <furo-text-input autofocus label="Label" value="${this.label}" @-value-changed="--label"></furo-text-input>             
               <furo-select-input value="${this.icon}" label="Select icon" list="apps, fingerprint, mail, send, filter-list, alarm-on, alarm-on, undefied-icon"  @-value-changed="--icon"></furo-select-input>
               <furo-select-input label="Theme Color" list="none, primary, secondary, accent, danger"  @-value-changed="--colorset"></furo-select-input>
-              <furo-select-input label="Border / Fill" list="none, raised, unevelated, outline"  @-value-changed="--layout"></furo-select-input>
+              <furo-select-input label="Border / Fill" list="none, raised, unelevated, outline"  @-value-changed="--layout"></furo-select-input>
               
               
               <hr>
@@ -6478,7 +6478,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
                  ?secondary="${this.secondary}" 
                  ?accent="${this.accent}" 
                  ?raised="${this.raised}" 
-                 ?unevelated="${this.unevelated}" 
+                 ?unelevated="${this.unelevated}" 
                  ?disabled="${this.disabled}" 
                  ?outline="${this.outline}" 
                  ?danger="${this.danger}" 
@@ -6491,7 +6491,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
                  label="${this.label}"
                  ?primary="${this.primary}" 
                  ?secondary="${this.secondary}" 
-                   ?unevelated="${this.unevelated}" 
+                   ?unelevated="${this.unelevated}" 
                  ?accent="${this.accent}" 
                  ?raised="${this.raised}" 
                  ?disabled="${this.disabled}" 
@@ -6506,7 +6506,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
                  ?secondary="${this.secondary}" 
                  ?accent="${this.accent}" 
                  ?raised="${this.raised}" 
-                 ?unevelated="${this.unevelated}" 
+                 ?unelevated="${this.unelevated}" 
                  ?disabled="${this.disabled}" 
                  ?outline="${this.outline}" 
                  ?danger="${this.danger}" 
@@ -6519,7 +6519,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
                  label="${this.label}"
                  ?primary="${this.primary}" 
                  ?secondary="${this.secondary}" 
-                   ?unevelated="${this.unevelated}" 
+                   ?unelevated="${this.unelevated}" 
                  ?accent="${this.accent}" 
                  ?raised="${this.raised}" 
                  ?disabled="${this.disabled}" 

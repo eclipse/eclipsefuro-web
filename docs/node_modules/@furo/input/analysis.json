@@ -133,7 +133,7 @@
           }
         },
         {
-          "name": "unevelated",
+          "name": "unelevated",
           "type": "boolean | null | undefined",
           "description": "Give the button a \"box\"",
           "privacy": "public",
@@ -865,7 +865,7 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "unevelated",
+          "name": "unelevated",
           "description": "Give the button a \"box\"",
           "sourceRange": {
             "start": {

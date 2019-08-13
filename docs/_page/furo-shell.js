@@ -10152,7 +10152,7 @@ return html`
        * Give the button a "box" with shadow
        */raised:{type:Boolean},/**
        * Give the button a "box"
-       */unevelated:{type:Boolean},/**
+       */unelevated:{type:Boolean},/**
        * Give the button a "border"
        */outline:{type:Boolean},/**
        * Sets the color to the primary color (--primary)
@@ -10201,7 +10201,7 @@ return Theme.getThemeForComponent(this.name)||css`
             box-sizing: border-box;
         }
 
-        :host([unevelated]) button {
+        :host([unelevated]) button {
             background-color: var(--surface, #f7f7f7);
             color: var(--on-surface, #333333);
         }
@@ -10210,7 +10210,7 @@ return Theme.getThemeForComponent(this.name)||css`
             color: var(--disabled, #eeeeee);
         }
 
-        :host([raised][disabled]) button[disabled] ,:host([raised][disabled]) button[disabled]:hover,  :host([unevelated][disabled]) button[disabled] ,:host([unevelated][disabled]) button[disabled]:hover ,  :host([outline][disabled]) button[disabled] ,:host([outline][disabled]) button[disabled]:hover {
+        :host([raised][disabled]) button[disabled] ,:host([raised][disabled]) button[disabled]:hover,  :host([unelevated][disabled]) button[disabled] ,:host([unelevated][disabled]) button[disabled]:hover ,  :host([outline][disabled]) button[disabled] ,:host([outline][disabled]) button[disabled]:hover {
             background-color: var(--disabled, #eeeeee);
             color: var(--on-disabled, #333333);
             border-color:var(--disabled, #eeeeee);
@@ -10220,7 +10220,7 @@ return Theme.getThemeForComponent(this.name)||css`
         :host([primary]) button {
             color: var(--primary);
         }
-        :host([raised][primary]) button, :host([unevelated][primary]) button {
+        :host([raised][primary]) button, :host([unelevated][primary]) button {
             background-color: var(--primary);
             color: var(--on-primary);
         }
@@ -10229,10 +10229,10 @@ return Theme.getThemeForComponent(this.name)||css`
             color: var(--primary);
             border: 1px solid var(--primary);
         }
-        :host([raised][primary]) button:focus, :host([unevelated][primary]) button:focus{
+        :host([raised][primary]) button:focus, :host([unelevated][primary]) button:focus{
             background-color: var(--primary-light);
         }
-        :host([raised][primary]) button:hover, :host([unevelated][primary]) button:hover{
+        :host([raised][primary]) button:hover, :host([unelevated][primary]) button:hover{
             background-color: var(--primary-dark);
         }
         :host([primary]) button:focus{
@@ -10247,7 +10247,7 @@ return Theme.getThemeForComponent(this.name)||css`
         :host([accent]) button {
             color: var(--accent);
         }
-        :host([raised][accent]) button, :host([unevelated][accent]) button {
+        :host([raised][accent]) button, :host([unelevated][accent]) button {
             background-color: var(--accent);
             color: var(--on-accent);
         }
@@ -10256,10 +10256,10 @@ return Theme.getThemeForComponent(this.name)||css`
             color: var(--accent);
             border: 1px solid var(--accent);
         }
-        :host([raised][accent]) button:focus, :host([unevelated][accent]) button:focus{
+        :host([raised][accent]) button:focus, :host([unelevated][accent]) button:focus{
             background-color: var(--accent-light);
         }
-        :host([raised][accent]) button:hover, :host([unevelated][accent]) button:hover{
+        :host([raised][accent]) button:hover, :host([unelevated][accent]) button:hover{
             background-color: var(--accent-dark);
         }
         :host([accent]) button:focus{
@@ -10273,7 +10273,7 @@ return Theme.getThemeForComponent(this.name)||css`
         :host([secondary]) button {
             color: var(--secondary);
         }
-        :host([raised][secondary]) button, :host([unevelated][secondary]) button {
+        :host([raised][secondary]) button, :host([unelevated][secondary]) button {
             background-color: var(--secondary);
             color: var(--on-secondary);
         }
@@ -10282,10 +10282,10 @@ return Theme.getThemeForComponent(this.name)||css`
             color: var(--secondary);
             border: 1px solid var(--secondary);
         }
-        :host([raised][secondary]) button:focus, :host([unevelated][secondary]) button:focus{
+        :host([raised][secondary]) button:focus, :host([unelevated][secondary]) button:focus{
             background-color: var(--secondary-light);
         }
-        :host([raised][secondary]) button:hover, :host([unevelated][secondary]) button:hover{
+        :host([raised][secondary]) button:hover, :host([unelevated][secondary]) button:hover{
             background-color: var(--secondary-dark);
         }
         :host([secondary]) button:focus{
@@ -10303,7 +10303,7 @@ return Theme.getThemeForComponent(this.name)||css`
             color: var(--danger, #ff0000);
         }
 
-        :host([raised][danger]) button, :host([unevelated][danger]) button {
+        :host([raised][danger]) button, :host([unelevated][danger]) button {
             background-color: var(--danger, #ff0000);
             color: var(--on-danger, #FFFFFF);
         }
@@ -10315,11 +10315,11 @@ return Theme.getThemeForComponent(this.name)||css`
             border: 1px solid var(--danger);
         }
 
-        :host([raised][danger]) button:focus, :host([unevelated][danger]) button:focus{
+        :host([raised][danger]) button:focus, :host([unelevated][danger]) button:focus{
             background-color: var(--on-danger, #FFFFFF);
             color: var(--danger, #ff0000);
         }
-        :host([raised][danger]) button:hover, :host([unevelated][danger]) button:hover{
+        :host([raised][danger]) button:hover, :host([unelevated][danger]) button:hover{
             background-color: var(--danger-dark);
             color: var(--on-danger, #FFFFFF);
         }
