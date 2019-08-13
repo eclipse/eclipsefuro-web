@@ -1363,7 +1363,71 @@
       "description": "`furo-form-layouter`\n\nUse furo-form-layouter to structure your forms.\nIt is based on a grid system with the following properties:\n- full-width row (Standard)\n- two columns\n- four columns\n\nThe required variant is set using an attribute.\ne.g. two, four\n\n<demo-furo-form-layouter></demo-furo-form-layouter>\n\nTags: form",
       "summary": "Grid based form field row",
       "path": "packages/furo-form/furo-form-layouter.js",
-      "properties": [],
+      "properties": [
+        {
+          "name": "breakpoints",
+          "type": "string | null | undefined",
+          "description": "Set custom breakpoints max. two values\nDefault: \"810,405\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 12
+            },
+            "end": {
+              "line": 63,
+              "column": 39
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "narrow",
+          "type": "boolean | null | undefined",
+          "description": "Set narrow attribute to force\na",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 68,
+              "column": 12
+            },
+            "end": {
+              "line": 71,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "narrower",
+          "type": "boolean | null | undefined",
+          "description": "Set narrower attribute to force\n1 column view",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 12
+            },
+            "end": {
+              "line": 79,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
       "methods": [
         {
           "name": "_attachDom",
@@ -1785,11 +1849,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 32,
+              "line": 52,
               "column": 4
             },
             "end": {
-              "line": 35,
+              "line": 55,
               "column": 5
             }
           },
@@ -1805,11 +1869,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 77,
+              "line": 127,
               "column": 4
             },
             "end": {
-              "line": 82,
+              "line": 132,
               "column": 5
             }
           },
@@ -1831,14 +1895,63 @@
           "column": 0
         },
         "end": {
-          "line": 83,
+          "line": 133,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
       "name": "FuroFormLayouter",
-      "attributes": [],
+      "attributes": [
+        {
+          "name": "breakpoints",
+          "description": "Set custom breakpoints max. two values\nDefault: \"810,405\"",
+          "sourceRange": {
+            "start": {
+              "line": 63,
+              "column": 12
+            },
+            "end": {
+              "line": 63,
+              "column": 39
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "narrow",
+          "description": "Set narrow attribute to force\na",
+          "sourceRange": {
+            "start": {
+              "line": 68,
+              "column": 12
+            },
+            "end": {
+              "line": 71,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "narrower",
+          "description": "Set narrower attribute to force\n1 column view",
+          "sourceRange": {
+            "start": {
+              "line": 76,
+              "column": 12
+            },
+            "end": {
+              "line": 79,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
       "events": [],
       "styling": {
         "cssVariables": [],

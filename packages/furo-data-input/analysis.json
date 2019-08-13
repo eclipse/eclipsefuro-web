@@ -8308,12 +8308,54 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 51,
-              "column": 12
+              "line": 52,
+              "column": 6
             },
             "end": {
-              "line": 54,
-              "column": 13
+              "line": 55,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "displayField",
+          "type": "string | null | undefined",
+          "description": "The name of the field from the injected collection that contains the label for the dropdown array.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 6
+            },
+            "end": {
+              "line": 62,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "valueField",
+          "type": "string | null | undefined",
+          "description": "The name of the field from the injected collection that contains the value you want to assign to the attribute value and the binded field.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 66,
+              "column": 6
+            },
+            "end": {
+              "line": 69,
+              "column": 7
             }
           },
           "metadata": {
@@ -8329,12 +8371,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 60,
-              "column": 12
+              "line": 75,
+              "column": 6
             },
             "end": {
-              "line": 62,
-              "column": 13
+              "line": 77,
+              "column": 7
             }
           },
           "metadata": {
@@ -8344,60 +8386,18 @@
           }
         },
         {
-          "name": "min",
-          "type": "number | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 68,
-              "column": 12
-            },
-            "end": {
-              "line": 70,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "max",
-          "type": "number | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 76,
-              "column": 12
-            },
-            "end": {
-              "line": 78,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
           "name": "readonly",
           "type": "boolean | null | undefined",
-          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 84,
-              "column": 12
+              "line": 79,
+              "column": 6
             },
             "end": {
-              "line": 86,
-              "column": 13
+              "line": 81,
+              "column": 7
             }
           },
           "metadata": {
@@ -8413,12 +8413,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 90,
-              "column": 12
+              "line": 85,
+              "column": 6
             },
             "end": {
-              "line": 92,
-              "column": 13
+              "line": 87,
+              "column": 7
             }
           },
           "metadata": {
@@ -8434,12 +8434,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
-              "column": 12
+              "line": 92,
+              "column": 6
             },
             "end": {
-              "line": 99,
-              "column": 13
+              "line": 94,
+              "column": 7
             }
           },
           "metadata": {
@@ -8455,12 +8455,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 103,
-              "column": 12
+              "line": 98,
+              "column": 6
             },
             "end": {
-              "line": 106,
-              "column": 13
+              "line": 101,
+              "column": 7
             }
           },
           "metadata": {
@@ -8476,12 +8476,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 110,
-              "column": 12
+              "line": 105,
+              "column": 6
             },
             "end": {
-              "line": 113,
-              "column": 13
+              "line": 108,
+              "column": 7
             }
           },
           "metadata": {
@@ -8497,12 +8497,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 117,
-              "column": 12
+              "line": 112,
+              "column": 6
             },
             "end": {
-              "line": 120,
-              "column": 13
+              "line": 115,
+              "column": 7
             }
           },
           "metadata": {
@@ -8518,33 +8518,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
-              "column": 12
+              "line": 119,
+              "column": 6
             },
             "end": {
-              "line": 126,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "float",
-          "type": "boolean | null | undefined",
-          "description": "passes always float the label",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 130,
-              "column": 12
-            },
-            "end": {
-              "line": 132,
-              "column": 13
+              "line": 121,
+              "column": 7
             }
           },
           "metadata": {
@@ -8975,12 +8954,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 139,
-              "column": 4
+              "line": 128,
+              "column": 2
             },
             "end": {
-              "line": 141,
-              "column": 5
+              "line": 130,
+              "column": 3
             }
           },
           "metadata": {},
@@ -8995,12 +8974,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 145,
-              "column": 4
+              "line": 135,
+              "column": 2
             },
             "end": {
-              "line": 147,
-              "column": 5
+              "line": 137,
+              "column": 3
             }
           },
           "metadata": {},
@@ -9015,12 +8994,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 154,
-              "column": 4
+              "line": 144,
+              "column": 2
             },
             "end": {
-              "line": 179,
-              "column": 5
+              "line": 171,
+              "column": 3
             }
           },
           "metadata": {},
@@ -9041,12 +9020,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 182,
-              "column": 4
+              "line": 174,
+              "column": 2
             },
             "end": {
-              "line": 226,
-              "column": 5
+              "line": 209,
+              "column": 3
             }
           },
           "metadata": {},
@@ -9061,12 +9040,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 251,
-              "column": 4
+              "line": 234,
+              "column": 2
             },
             "end": {
-              "line": 271,
-              "column": 5
+              "line": 254,
+              "column": 3
             }
           },
           "metadata": {},
@@ -9078,12 +9057,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 276,
-              "column": 4
+              "line": 260,
+              "column": 2
             },
             "end": {
-              "line": 289,
-              "column": 5
+              "line": 272,
+              "column": 3
             }
           },
           "metadata": {},
@@ -9102,11 +9081,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 18,
+          "line": 17,
           "column": 0
         },
         "end": {
-          "line": 290,
+          "line": 273,
           "column": 1
         }
       },
@@ -9119,12 +9098,44 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 51,
-              "column": 12
+              "line": 52,
+              "column": 6
             },
             "end": {
-              "line": 54,
-              "column": 13
+              "line": 55,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "display-field",
+          "description": "The name of the field from the injected collection that contains the label for the dropdown array.",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 6
+            },
+            "end": {
+              "line": 62,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "value-field",
+          "description": "The name of the field from the injected collection that contains the value you want to assign to the attribute value and the binded field.",
+          "sourceRange": {
+            "start": {
+              "line": 66,
+              "column": 6
+            },
+            "end": {
+              "line": 69,
+              "column": 7
             }
           },
           "metadata": {},
@@ -9135,60 +9146,28 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 60,
-              "column": 12
+              "line": 75,
+              "column": 6
             },
             "end": {
-              "line": 62,
-              "column": 13
+              "line": 77,
+              "column": 7
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
         },
         {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 68,
-              "column": 12
-            },
-            "end": {
-              "line": 70,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 76,
-              "column": 12
-            },
-            "end": {
-              "line": 78,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
           "name": "readonly",
-          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "description": "",
           "sourceRange": {
             "start": {
-              "line": 84,
-              "column": 12
+              "line": 79,
+              "column": 6
             },
             "end": {
-              "line": 86,
-              "column": 13
+              "line": 81,
+              "column": 7
             }
           },
           "metadata": {},
@@ -9199,12 +9178,12 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 90,
-              "column": 12
+              "line": 85,
+              "column": 6
             },
             "end": {
-              "line": 92,
-              "column": 13
+              "line": 87,
+              "column": 7
             }
           },
           "metadata": {},
@@ -9215,12 +9194,12 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 97,
-              "column": 12
+              "line": 92,
+              "column": 6
             },
             "end": {
-              "line": 99,
-              "column": 13
+              "line": 94,
+              "column": 7
             }
           },
           "metadata": {},
@@ -9231,12 +9210,12 @@
           "description": "Icon on the left side",
           "sourceRange": {
             "start": {
-              "line": 103,
-              "column": 12
+              "line": 98,
+              "column": 6
             },
             "end": {
-              "line": 106,
-              "column": 13
+              "line": 101,
+              "column": 7
             }
           },
           "metadata": {},
@@ -9247,12 +9226,12 @@
           "description": "Icon on the right side",
           "sourceRange": {
             "start": {
-              "line": 110,
-              "column": 12
+              "line": 105,
+              "column": 6
             },
             "end": {
-              "line": 113,
-              "column": 13
+              "line": 108,
+              "column": 7
             }
           },
           "metadata": {},
@@ -9263,12 +9242,12 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 117,
-              "column": 12
+              "line": 112,
+              "column": 6
             },
             "end": {
-              "line": 120,
-              "column": 13
+              "line": 115,
+              "column": 7
             }
           },
           "metadata": {},
@@ -9279,28 +9258,12 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 124,
-              "column": 12
+              "line": 119,
+              "column": 6
             },
             "end": {
-              "line": 126,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "float",
-          "description": "passes always float the label",
-          "sourceRange": {
-            "start": {
-              "line": 130,
-              "column": 12
-            },
-            "end": {
-              "line": 132,
-              "column": 13
+              "line": 121,
+              "column": 7
             }
           },
           "metadata": {},
@@ -9322,8 +9285,7 @@
       "slots": [],
       "tagname": "furo-data-collection-dropdown",
       "mixins": [
-        "FBP",
-        "FuroInputBase"
+        "FBP"
       ]
     },
     {
