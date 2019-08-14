@@ -64,7 +64,7 @@
     },
     "members": {
       "description": "List of project members",
-      "type": "member",
+      "type": "person",
       "meta": {
         "label": "Project members",
         "default": "",
@@ -75,7 +75,25 @@
       "options": [],
       "__proto": {
         "number": 5,
-        "type": "member"
+        "type": "person"
+      }
+    },
+    "cost_limit": {
+      "description": "Project cost limit",
+      "type": "google.type.money",
+      "meta": {
+        "label": "Cost limit",
+        "default": "",
+        "hint": "",
+        "required": true
+      },
+      "constraints": {
+        "max": 25000
+      },
+      "options": [],
+      "__proto": {
+        "number": 6,
+        "type": "google.type.money"
       }
     }
   }
