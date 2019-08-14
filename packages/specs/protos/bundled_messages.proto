@@ -1,0 +1,159 @@
+syntax = "proto3";
+package furo.type;
+
+import "google/api/annotations.proto";
+import "google/protobuf/any.proto";
+import "google/type/money.proto";
+import "google/type/date.proto";
+import "furo/type/meta.proto";
+import "furo/type/link.proto";
+
+
+
+// Person message type
+message Person {                            
+    // Localized String representation of a person
+    string display_name = 1;
+    
+    // First name of a person
+    string first_name = 3;
+    
+    // Name of a person
+    string name = 2;
+    
+    // Internal phone number
+    string phone_nr = 4;
+    
+    // List of main skills of a person
+    repeated string skills = 5;
+
+}
+// Collection with persons inside
+message PersonCollection {                    
+    // person entities
+    repeated Person entities = 4;
+    
+    // Hateoas links
+    repeated furo.type.Link links = 3;
+    
+    // Meta for the response
+    furo.type.Meta meta = 2;
+
+}
+// Person with hateoas
+message PersonEntity {                    
+    // person entity
+    Person data = 1;
+    
+    // Hateoas links
+    repeated furo.type.Link links = 2;
+    
+    // Meta for the response
+    furo.type.Meta meta = 3;
+
+}
+// Project description
+message Project {                                
+    // Project cost limit
+    google.type.Money cost_limit = 6;
+    
+    // Short project description
+    string description = 4;
+    
+    // Localized String representation of a project
+    string display_name = 1;
+    
+    // Prospective end date of the project
+    google.type.Date end = 3;
+    
+    // List of project members
+    repeated Person members = 5;
+    
+    // Start date of the project
+    google.type.Date start = 2;
+
+}
+// Task data description
+message Task {                            
+    // Short task description
+    string description = 2;
+    
+    // Localized String representation of a task
+    string display_name = 1;
+    
+    // Estimated time in days
+    int32 estimated_time = 3;
+    
+    // Owner of a task
+    Person owner = 4;
+    
+    // List of subtasks
+    Task subtasks = 5;
+
+}
+// Singletonresource of the navigationtree
+message Tree {                                                
+    // description of the node
+    string description = 4;
+    
+    // String representation of the node
+    string display_name = 1;
+    
+    // if node has error
+    bool has_error = 8;
+    
+    // icon of the node
+    string icon = 6;
+    
+    // Id of the node
+    string id = 2;
+    
+    // key words of the node
+    string key_words = 7;
+    
+    // node open or not
+    bool open = 9;
+    
+    // Indicator which panel type is loaded
+    string panel = 5;
+    
+    // Rootnode of the tree
+    Treeitem root = 10;
+    
+    // subtitle of the node
+    string subtitle = 3;
+
+}
+// Item of the navigationtree
+message Treeitem {                                                
+    // Children of this node
+    repeated Treeitem children = 10;
+    
+    // description of the node
+    string description = 4;
+    
+    // String representation of the node
+    string display_name = 1;
+    
+    // if node has error
+    bool has_error = 7;
+    
+    // icon of the node
+    string icon = 5;
+    
+    // Id of the node
+    string id = 2;
+    
+    // key words of the node
+    string key_words = 6;
+    
+    // Deeplink information of this node
+    furo.type.Link link = 9;
+    
+    // node open or not
+    bool open = 8;
+    
+    // subtitle of the node
+    string subtitle = 3;
+
+}

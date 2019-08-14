@@ -1,0 +1,478 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "bundled_services.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/members": {
+      "get": {
+        "summary": "Get a collection with PersonEntities",
+        "operationId": "ListProjectMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/typeListProjectMembersResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "fields",
+            "description": "Partielle Repräsentation fields=id,name // 10.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Filter.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "count",
+            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          },
+          {
+            "name": "sum",
+            "description": "not implemented.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "not implemented (ehemals context).",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "description": "Query term to search a member.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectMembersService"
+        ]
+      }
+    },
+    "/api/members/{prs}:unsubscribe": {
+      "post": {
+        "summary": "Custom method to unsubscribe a member, complete PersonEntity is expected",
+        "operationId": "UnsubscribeProjectMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/typeUnsubscribeProjectMembersResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "prs",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/typePersonEntity"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectMembersService"
+        ]
+      }
+    },
+    "/api/persons": {
+      "get": {
+        "summary": "Get a collection with PersonEntities",
+        "operationId": "ListPerson",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/typeListPersonResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "fields",
+            "description": "Partielle Repräsentation fields=id,name // 10.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Filter.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "count",
+            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          },
+          {
+            "name": "sum",
+            "description": "not implemented.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "not implemented (ehemals context).",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "description": "Query term to search a member.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "PersonService"
+        ]
+      }
+    },
+    "/api/persons/{prs}": {
+      "get": {
+        "summary": "Get a PersonEntity",
+        "operationId": "GetPerson",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/typeGetPersonResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "prs",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "PersonService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "typeGetPersonResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typePersonEntity"
+          }
+        },
+        "meta": {
+          "$ref": "#/definitions/typeMeta"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typeLink"
+          }
+        }
+      }
+    },
+    "typeLink": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "title": "link"
+        },
+        "method": {
+          "type": "string",
+          "title": "method of curl"
+        },
+        "rel": {
+          "type": "string",
+          "title": "the relationship"
+        },
+        "type": {
+          "type": "string",
+          "title": "mime type"
+        }
+      },
+      "title": "link"
+    },
+    "typeListPersonResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typePersonCollection"
+          }
+        },
+        "meta": {
+          "$ref": "#/definitions/typeMeta"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typeLink"
+          }
+        }
+      }
+    },
+    "typeListProjectMembersResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typePersonCollection"
+          }
+        },
+        "meta": {
+          "$ref": "#/definitions/typeMeta"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typeLink"
+          }
+        }
+      }
+    },
+    "typeMeta": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/typeMetaField"
+          },
+          "title": "fields of meta info"
+        }
+      },
+      "title": "meta info"
+    },
+    "typeMetaField": {
+      "type": "object",
+      "properties": {
+        "constraints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typeMetaFieldConstraint"
+          },
+          "title": "constraints of a field"
+        },
+        "meta": {
+          "$ref": "#/definitions/typeMetaFieldMeta",
+          "title": "meta information of a field"
+        }
+      },
+      "title": "fields of meta info"
+    },
+    "typeMetaFieldConstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "constrain of a field"
+        }
+      },
+      "title": "constrains of fields"
+    },
+    "typeMetaFieldMeta": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "meta information of a field"
+        }
+      },
+      "title": "meta"
+    },
+    "typePerson": {
+      "type": "object",
+      "properties": {
+        "display_name": {
+          "type": "string",
+          "title": "Localized String representation of a person"
+        },
+        "first_name": {
+          "type": "string",
+          "title": "First name of a person"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of a person"
+        },
+        "phone_nr": {
+          "type": "string",
+          "title": "Internal phone number"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "List of main skills of a person"
+        }
+      },
+      "title": "Person message type"
+    },
+    "typePersonCollection": {
+      "type": "object",
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typePerson"
+          },
+          "title": "person entities"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typeLink"
+          },
+          "title": "Hateoas links"
+        },
+        "meta": {
+          "$ref": "#/definitions/typeMeta",
+          "title": "Meta for the response"
+        }
+      },
+      "title": "Collection with persons inside"
+    },
+    "typePersonEntity": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/typePerson",
+          "title": "person entity"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typeLink"
+          },
+          "title": "Hateoas links"
+        },
+        "meta": {
+          "$ref": "#/definitions/typeMeta",
+          "title": "Meta for the response"
+        }
+      },
+      "title": "Person with hateoas"
+    },
+    "typeUnsubscribeProjectMembersResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typePersonCollection"
+          }
+        },
+        "meta": {
+          "$ref": "#/definitions/typeMeta"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/typeLink"
+          }
+        }
+      }
+    }
+  }
+}

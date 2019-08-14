@@ -1,0 +1,149 @@
+syntax = "proto3";
+package furo.type;
+import "google/api/annotations.proto";
+import "bundled_messages.proto";
+import "furo/type/meta.proto";
+import "furo/type/link.proto";
+
+
+
+
+// person service
+service PersonService {           
+   
+    // Get a PersonEntity
+    rpc GetPerson (GetPersonRequest) returns (GetPersonResponse){
+        option (google.api.http) = {
+            get: "/api/persons/{prs}"
+        };
+    }   
+    // Get a collection with PersonEntities
+    rpc ListPerson (ListPersonRequest) returns (ListPersonResponse){
+        option (google.api.http) = {
+            get: "/api/persons"
+        };
+    }
+}
+   
+message GetPersonRequest { 
+    
+    string prs = 1; 
+}
+
+message GetPersonResponse {
+    repeated PersonEntity data= 1;
+    furo.type.Meta meta = 2;
+    repeated furo.type.Link links = 3;
+}
+   
+message ListPersonRequest { 
+    
+    //Partielle Repräsentation fields=id,name // 10
+    string fields = 1;
+    //Sortierung nach feldern
+    //**?filter=-completed** um completed absteigend zu bekommen
+    //**?filter=completed** um completed aufsteigend zu bekommen
+    string sort = 2;
+    //Filter
+    string filter = 3;
+    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    int32 page = 4;
+    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    int32 limit = 5;
+    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
+    bool count = 6;
+    //not implemented
+    string sum = 7;
+    //not implemented (ehemals context)
+    string view = 8;       
+       
+    //Query term to search a member
+    string q = 11;
+}
+
+message ListPersonResponse {
+    repeated PersonCollection data= 1;
+    furo.type.Meta meta = 2;
+    repeated furo.type.Link links = 3;
+}
+
+// The members of a project
+service ProjectMembersService {           
+   
+    // Get a collection with PersonEntities
+    rpc ListProjectMembers (ListProjectMembersRequest) returns (ListProjectMembersResponse){
+        option (google.api.http) = {
+            get: "/api/members"
+        };
+    }   
+    // Custom method to unsubscribe a member, complete PersonEntity is expected
+    rpc UnsubscribeProjectMembers (UnsubscribeProjectMembersRequest) returns (UnsubscribeProjectMembersResponse){
+        option (google.api.http) = {
+            post: "/api/members/{prs}:unsubscribe"
+            body: "data"
+        };
+    }
+}
+   
+message ListProjectMembersRequest { 
+    
+    //Partielle Repräsentation fields=id,name // 10
+    string fields = 1;
+    //Sortierung nach feldern
+    //**?filter=-completed** um completed absteigend zu bekommen
+    //**?filter=completed** um completed aufsteigend zu bekommen
+    string sort = 2;
+    //Filter
+    string filter = 3;
+    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    int32 page = 4;
+    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    int32 limit = 5;
+    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
+    bool count = 6;
+    //not implemented
+    string sum = 7;
+    //not implemented (ehemals context)
+    string view = 8;       
+       
+    //Query term to search a member
+    string q = 11;
+}
+
+message ListProjectMembersResponse {
+    repeated PersonCollection data= 1;
+    furo.type.Meta meta = 2;
+    repeated furo.type.Link links = 3;
+}
+   
+message UnsubscribeProjectMembersRequest { 
+    
+    string prs = 1;
+    PersonEntity data =  2;  
+}
+
+message UnsubscribeProjectMembersResponse {
+    repeated PersonCollection data= 1;
+    furo.type.Meta meta = 2;
+    repeated furo.type.Link links = 3;
+}
+
+// Project data
+service ProjectService {   
+
+}
+
+// The tasks of a given project
+service ProjectTaskService {   
+
+}
+
+// The tree with relevant project data
+service ProjectTreeService {   
+
+}
+
+// The tasks
+service TaskService {   
+
+}
