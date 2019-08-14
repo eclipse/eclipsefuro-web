@@ -1,3 +1,5 @@
+{"services":[
+,
 {
   "general": {
     "name": "members",
@@ -15,7 +17,7 @@
     "List": {
       "data": {
         "request": null,
-        "response": "person_collection"
+        "response": "people"
       },
       "query": {
         "q":{
@@ -38,3 +40,9 @@
     }
   }
 }
+,
+,
+,
+,
+
+]}
