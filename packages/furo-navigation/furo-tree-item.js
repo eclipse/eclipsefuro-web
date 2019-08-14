@@ -159,7 +159,6 @@ export class FuroTreeItem extends FBP(LitElement) {
     });
 
 
-
     // make first node visible
     if (this.fieldNode.depth === 0) {
       this.hidden = false;
@@ -208,6 +207,11 @@ export class FuroTreeItem extends FBP(LitElement) {
       this.searchmatch = true;
     });
 
+    // This item is  in the search results
+    this.fieldNode.addEventListener("field-value-changed", (e) => {
+      this.requestUpdate();
+    });
+
   }
 
 
@@ -219,103 +223,103 @@ export class FuroTreeItem extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-            :host {
-                display: block;
-                line-height: 40px;
-                cursor: pointer;
-                user-select: none;
-                padding-left: var(--spacing-xs, 16px);
-                border-radius: 2px;
-                position: relative;
+        :host {
+            display: block;
+            line-height: 40px;
+            cursor: pointer;
+            user-select: none;
+            padding-left: var(--spacing-xs, 16px);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        :host([inedit]) {
+            font-style: italic;
+        }
+
+        :host([haserror]),
+        :host([selected][haserror]) {
+            color: var(--error, red);
+        }
+
+        :host([haserror]) furo-icon {
+            animation: error-pulse 3s infinite;
+        }
+
+        .label {
+            white-space: nowrap;
+            font-size: 0.875rem;
+            letter-spacing: 0.2px;
+            margin-left: 8px;
+        }
+
+        .desc {
+            font-size: smaller;
+            white-space: nowrap;
+        }
+
+        .oc {
+            color: var(--separator-color, #b5b5b5);
+            width: 12px;
+            box-sizing: border-box;
+            padding-left: 4px;
+            font-size: 8px;
+        }
+
+        :host([selected]) .oc {
+            color: var(--on-primary, white);
+        }
+
+        :host([searchmatch])::before {
+            position: absolute;
+            top: 8px;
+            content: "🔍";
+            right: 2px;
+            font-size: 12px;
+        }
+
+        furo-icon[error] {
+            animation: error-pulse 2s infinite;
+        }
+
+        :host([selected]) furo-icon {
+            fill: var(--on-primary, white);;
+        }
+
+
+        furo-icon {
+
+            transition: all 0.4s;
+            width: 20px;
+            height: 20px;
+            margin-right: 4px;
+
+        }
+
+        @keyframes error-pulse {
+            0% {
+                fill: var(--on-primary, #46150f);
+            }
+            12% {
+                fill: var(--error-color, #fc4d34);
+            }
+            24% {
+                fill: var(--on-primary, #46150f);
+            }
+            36% {
+                fill: var(--error-color, #fc4d34);
+            }
+            48% {
+                fill: var(--on-primary, #46150f);
             }
 
-            :host([hidden]) {
-                display: none;
-            }
+        }
 
-            :host([inedit]) {
-                font-style: italic;
-            }
-
-            :host([haserror]) ,
-            :host([selected][haserror]) {
-                color: var(--error, red);
-            }
-
-            :host([haserror]) furo-icon {
-                animation: error-pulse 3s infinite;
-            }
-
-            .label {
-                white-space: nowrap;
-                font-size: 0.875rem;
-                letter-spacing: 0.2px;
-                margin-left: 8px;
-            }
-
-            .desc {
-                font-size: smaller;
-                white-space: nowrap;
-            }
-
-            .oc {
-                color: var(--separator-color, #b5b5b5);
-                width: 12px;
-                box-sizing: border-box;
-                padding-left: 4px;
-                font-size: 8px;
-            }
-
-            :host([selected]) .oc {
-                color: var(--on-primary, white);
-            }
-
-            :host([searchmatch])::before {
-                position: absolute;
-                top: 8px;
-                content: "🔍";
-                right: 2px;
-                font-size: 12px;
-            }
-
-            furo-icon[error] {
-                animation: error-pulse 2s infinite;
-            }
-
-            :host([selected]) furo-icon {
-                fill: var(--on-primary, white);;
-            }
-
-
-            furo-icon {
-
-                transition: all 0.4s;
-                width: 20px;
-                height: 20px;
-                margin-right: 4px;
-
-            }
-
-            @keyframes error-pulse {
-                0% {
-                    fill: var(--on-primary, #46150f);
-                }
-                12% {
-                    fill: var(--error-color, #fc4d34);
-                }
-                24% {
-                    fill: var(--on-primary, #46150f);
-                }
-                36% {
-                    fill: var(--error-color, #fc4d34);
-                }
-                48% {
-                    fill: var(--on-primary, #46150f);
-                }
-
-            }
-
-        `
+    `
   }
 
 

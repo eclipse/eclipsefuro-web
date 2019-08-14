@@ -6,6 +6,7 @@ export class FieldNode extends EventTreeNode {
   constructor(parentNode, fieldSpec, fieldName) {
     super(parentNode);
     this.__specdefinitions = parentNode.__specdefinitions;
+
     this._spec = fieldSpec;
     this._meta = fieldSpec.meta || {};
     this._constraints = fieldSpec.constraints;
@@ -17,8 +18,8 @@ export class FieldNode extends EventTreeNode {
     this._isValid = true;
 
 
-    // custom type fields aufbauen
-    if (this._spec.type.startsWith("vnd.")) {
+    // Build custom type if a spec exists
+    if(this.__specdefinitions[this._spec.type] !== undefined ){
       this._createVendorType(this._spec.type);
     }
 

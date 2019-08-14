@@ -115,21 +115,21 @@ class FuroDataTextInput extends FBP(LitElement) {
       /**
        * html input validity
        */
-      valid:{
-        type:Boolean,
-        reflect:true
+      valid: {
+        type: Boolean,
+        reflect: true
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
-      condensed:{
-        type:Boolean
+      condensed: {
+        type: Boolean
       },
       /**
        * passes always float the label
        */
-      float:{
-        type:Boolean
+      float: {
+        type: Boolean
       }
     }
   }
@@ -137,13 +137,14 @@ class FuroDataTextInput extends FBP(LitElement) {
   /**
    * Sets the field to readonly
    */
-  disable(){
+  disable() {
     this._readonly = true;
   }
+
   /**
    * Makes the field writable.
    */
-  enable(){
+  enable() {
     this._readonly = false;
   }
 
@@ -179,6 +180,15 @@ class FuroDataTextInput extends FBP(LitElement) {
     });
   }
 
+  // label setter and getter are needed for rendering on the first time
+  set label(l) {
+    this._l = l;
+    this._label = l;
+  }
+
+  get label() {
+    return this._l;
+  }
 
   _updateField() {
     // label auf attr ist höher gewichtet
@@ -243,7 +253,7 @@ class FuroDataTextInput extends FBP(LitElement) {
             display: none;
         }
 
-        furo-text-input{
+        furo-text-input {
             width: 100%;
         }
     `
@@ -254,7 +264,7 @@ class FuroDataTextInput extends FBP(LitElement) {
     return html`
        <furo-text-input 
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?readonly=${this._readonly || this.disabled} 
           label="${this._label}" 
           min="${this._min}" 
           max="${this._max}" 

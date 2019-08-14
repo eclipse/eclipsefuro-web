@@ -119,6 +119,9 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean
+      },
+      list: {
+        type: String
       }
     }
   }
@@ -171,6 +174,16 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
   }
 
+
+  // label setter and getter are needed for rendering on the first time
+  set label(l) {
+    this._l = l;
+    this._label = l;
+  }
+
+  get label() {
+    return this._l;
+  }
 
   _updateField() {
     // label auf attr ist höher gewichtet
@@ -247,6 +260,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
+          list="${this.list}"
           hint="${this.hint}" 
           ƒ-set-options="--selection"
           @-value-changed="--valueChanged"
@@ -262,7 +276,11 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
     // map
     let arr = collection.data.map((e) => {
-      return {"id": e.data[this.valueField], "label": e.data[this.displayField], "selected": (this.value == e.data[val])}
+      return {
+        "id": e.data[this.valueField],
+        "label": e.data[this.displayField],
+        "selected": (this.value == e.data[val])
+      }
     });
 
     if (!this.value) {

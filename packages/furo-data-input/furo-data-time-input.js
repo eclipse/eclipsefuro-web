@@ -111,13 +111,14 @@ class FuroDataTimeInput extends FBP(LitElement) {
   /**
    * Sets the field to readonly
    */
-  disable(){
+  disable() {
     this._readonly = true;
   }
+
   /**
    * Makes the field writable.
    */
-  enable(){
+  enable() {
     this._readonly = false;
   }
 
@@ -153,6 +154,16 @@ class FuroDataTimeInput extends FBP(LitElement) {
     });
   }
 
+
+  // label setter and getter are needed for rendering on the first time
+  set label(l) {
+    this._l = l;
+    this._label = l;
+  }
+
+  get label() {
+    return this._l;
+  }
 
   _updateField() {
     // label auf attr ist höher gewichtet
@@ -194,7 +205,6 @@ class FuroDataTimeInput extends FBP(LitElement) {
     }
 
 
-
     //mark incomming error
     if (!this.field._isValid) {
       this.error = true;
@@ -214,13 +224,14 @@ class FuroDataTimeInput extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: inline-block;
-            width:104px;
+            width: 104px;
         }
 
         :host([hidden]) {
             display: none;
         }
-        furo-time-input{
+
+        furo-time-input {
             width: 100%;
         }
     `
@@ -231,7 +242,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
     return html` 
        <furo-time-input 
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?readonly=${this._readonly || this.disabled} 
           label="${this._label}" 
           min="${this._min}" 
           max="${this._max}" 
