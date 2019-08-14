@@ -1,9 +1,16 @@
 {
-  "name": "PersonCollection",
-  "type": "person_collection",
-  "mime": "application/person_collection+json",
-  "description": "Collection with persons inside",
+  "name": "YOURTYPECollection",
+  "type": "YOURTYPE_collection",
+  "mime": "application/YOURTYPE_collection+json",
+  "description": "Collection with YOURTYPEs inside",
   "fields": {
+    "data": {
+      "description": "remove when not used",
+      "type": "define the type, maybe you want to send sum, count,....",
+      "__proto": {
+        "number": 1
+      }
+    },
     "meta": {
       "description": "Meta for the response",
       "type": "furo.meta",
@@ -22,8 +29,8 @@
       }
     },
     "entities": {
-      "description": "person entities",
-      "type": "person",
+      "description": "YOURTYPE entities",
+      "type": "YOURTYPE",
       "meta": {
         "repeated": true
       },
