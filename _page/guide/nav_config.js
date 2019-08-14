@@ -13,7 +13,7 @@ export const nav = [
       {"label": "Wires", "icon": "compare-arrows", "href": "md/fbp-wires/"},
       {"label": "Events", "icon": "open-in-new", "href": "md/fbp-events/"},
       {"label": "Data", "icon": "input", "href": "md/fbp-data/"},
-      {"label": "More wiring", "icon": "compare-arrows", "href": "md/fbp-wires-more/"},
+      {"label": "More wireing", "icon": "compare-arrows", "href": "md/fbp-wires-more/"},
       {"label": "Scripting", "icon": "av:play-arrow", "href": "md/fbp-scripting/"},
       {"label": "Lifecycle", "icon": "restore", "href": "md/fbp-lifecycle/"},
       {"label": "Debugging", "icon": "bug-report", "href": "md/fbp-debugging/"},

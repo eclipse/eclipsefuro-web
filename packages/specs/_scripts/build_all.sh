@@ -5,7 +5,9 @@ cd $DIR
 cd ..
 pwd
 
-./_scripts/generate.sh
+./_scripts/prepare.sh
+./_scripts/generateSingleFiles.sh
+./_scripts/generateBundledFiles.sh
 ./_scripts/makeEnvFile.js
 
 

@@ -1,7 +1,11 @@
 {
   "name": "Tree",
-  "type": "tree",
+  "type": "Tree",
   "description": "Singletonresource of the navigationtree",
+  "__proto": {
+    "package": "furo.demo",
+    "imports": ["treeitem.proto"]
+  },
   "fields": {
     "display_name": {
       "description": "String representation of the node",
@@ -85,7 +89,7 @@
     },
     "root": {
       "description": "Rootnode of the tree",
-      "type": "treeitem",
+      "type": "Treeitem",
       "meta": {},
       "__proto": {
         "number": 10

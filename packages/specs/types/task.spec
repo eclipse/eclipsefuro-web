@@ -1,7 +1,11 @@
 {
   "name": "Task",
-  "type": "task",
+  "type": "Task",
   "description": "Task data description",
+  "__proto": {
+    "package": "furo.demo",
+    "imports": ["task.proto","person.proto"]
+  },
   "fields": {
     "display_name": {
       "description": "Localized String representation of a task",
@@ -49,7 +53,7 @@
     },
     "owner": {
       "description": "Owner of a task",
-      "type": "person",
+      "type": "Person",
       "meta": {
         "label": "Owner",
         "default": "",
@@ -59,12 +63,12 @@
       "options": [],
       "__proto": {
         "number": 4,
-        "type": "person"
+        "type": "Person"
       }
     },
     "subtasks": {
       "description": "List of subtasks",
-      "type": "task",
+      "type": "Task",
       "meta": {
         "label": "Subtask",
         "default": "",
@@ -75,7 +79,7 @@
       "options": [],
       "__proto": {
         "number": 5,
-        "type": "task"
+        "type": "Task"
       }
     }
   }

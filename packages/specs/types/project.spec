@@ -1,7 +1,15 @@
 {
   "name": "Project",
-  "type": "project",
+  "type": "Project",
   "description": "Project description",
+  "__proto": {
+    "package": "furo.demo",
+    "imports": [
+      "google/type/money.proto",
+      "google/type/date.proto",
+      "person.proto"
+    ]
+  },
   "fields": {
     "display_name": {
       "description": "Localized String representation of a project",
@@ -20,7 +28,7 @@
     },
     "start": {
       "description": "Start date of the project",
-      "type": "google.type.date",
+      "type": "google.type.Date",
       "meta": {
         "label": "Project start",
         "default": "",
@@ -30,12 +38,12 @@
       "options": [],
       "__proto": {
         "number": 2,
-        "type": "google.type.date"
+        "type": "google.type.Date"
       }
     },
     "end": {
       "description": "Prospective end date of the project",
-      "type": "google.type.date",
+      "type": "google.type.Date",
       "meta": {
         "label": "Project end",
         "default": "",
@@ -45,7 +53,7 @@
       "options": [],
       "__proto": {
         "number": 3,
-        "type": "google.type.date"
+        "type": "google.type.Date"
       }
     },
     "description": {
@@ -64,7 +72,7 @@
     },
     "members": {
       "description": "List of project members",
-      "type": "person",
+      "type": "Person",
       "meta": {
         "label": "Project members",
         "default": "",
@@ -75,12 +83,12 @@
       "options": [],
       "__proto": {
         "number": 5,
-        "type": "person"
+        "type": "Person"
       }
     },
     "cost_limit": {
       "description": "Project cost limit",
-      "type": "google.type.money",
+      "type": "google.type.Money",
       "meta": {
         "label": "Cost limit",
         "default": "",
@@ -93,7 +101,7 @@
       "options": [],
       "__proto": {
         "number": 6,
-        "type": "google.type.money"
+        "type": "google.type.Money"
       }
     }
   }

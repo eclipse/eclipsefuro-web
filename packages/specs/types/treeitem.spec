@@ -1,7 +1,11 @@
 {
   "name": "Treeitem",
-  "type": "treeitem",
+  "type": "Treeitem",
   "description": "Item of the navigationtree",
+  "__proto": {
+    "package": "furo.demo",
+    "imports": ["furo/type/link.proto"]
+  },
   "fields": {
     "display_name": {
       "description": "String representation of the node",
@@ -74,14 +78,14 @@
     },
     "link": {
       "description": "Deeplink information of this node",
-      "type": "vnd.com.adcubum.link",
+      "type": "furo.type.Link",
       "__proto": {
         "number": 9
       }
     },
     "children": {
       "description": "Children of this node",
-      "type": "vnd.com.adcubum.treeitem",
+      "type": "Treeitem",
       "meta": {
         "repeated": true
       },

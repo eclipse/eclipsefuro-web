@@ -1,7 +1,11 @@
 {
   "name": "Person",
-  "type": "person",
+  "type": "Person",
   "description": "Person message type",
+  "__proto": {
+    "package": "furo.demo",
+    "imports": []
+  },
   "fields": {
     "display_name": {
       "description": "Localized String representation of a person",
