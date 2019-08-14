@@ -19,7 +19,7 @@
       },
       "query": {
         "q":{
-          "description": "Suchterm für die Liste",
+          "description": "Query term to search a member",
           "type": "string",
           "meta": {
             "label": "Search",

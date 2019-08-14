@@ -10,7 +10,7 @@ rm $DIR/../_tmp/types.json
 # open Array
 echo '{"types":[' >> $DIR/../_tmp/types.json
 
-for t in $DIR/../specs/*.spec; do (cat $t; echo ',') >> $DIR/../_tmp/tmptypes.json; done
+for t in $DIR/../types/*.spec; do (cat $t; echo ',') >> $DIR/../_tmp/tmptypes.json; done
 
 cat $DIR/../_tmp/tmptypes.json | sed '$ s/.$//' >> $DIR/../_tmp/types.json
 rm $DIR/../_tmp/tmptypes.json
