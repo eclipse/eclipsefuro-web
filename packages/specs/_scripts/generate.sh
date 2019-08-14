@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "generating restlets and types from api specification ..."
+echo "generating services and types from api specification ..."
 echo "*** Prepare ***"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -19,6 +19,20 @@ echo ']}' >> $DIR/../_tmp/types.json
 
 echo "types done."
 
+
+rm $DIR/../_tmp/services.json
+# open Array
+echo '{"services":[' >> $DIR/../_tmp/services.json
+
+for t in $DIR/../services/*.spec; do (cat $t; echo ',') >> $DIR/../_tmp/tmpservices.json; done
+
+cat $DIR/../_tmp/tmpservices.json | sed '$ s/.$//' >> $DIR/../_tmp/services.json
+rm $DIR/../_tmp/tmpservices.json
+# close Array
+echo ']}' >> $DIR/../_tmp/services.json
+
+echo "services done."
+
+
 cd $DIR
 
-./makeEnvFile.js

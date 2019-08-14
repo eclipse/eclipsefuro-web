@@ -15,7 +15,7 @@
     "List": {
       "data": {
         "request": null,
-        "response": "people"
+        "response": "person"
       },
       "query": {
         "q":{
