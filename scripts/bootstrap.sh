@@ -34,3 +34,4 @@ for package in ${packages[@]}; do
 
   fi
 done
+ln -sfv ${INIT_CWD}/packages/furo-testhelper ${INIT_CWD}/node_modules/@furo/testhelper

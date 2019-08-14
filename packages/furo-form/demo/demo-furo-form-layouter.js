@@ -28,7 +28,7 @@ class DemoFuroFormLayouter extends FBP(LitElement) {
             display: none;
         }
         furo-demo-snippet {
-            height: 850px;
+            height: 950px;
         }
        
     `
@@ -61,6 +61,20 @@ class DemoFuroFormLayouter extends FBP(LitElement) {
                 <furo-text-input label="Special hint"></furo-text-input>
                 <furo-text-input label="Owner"></furo-text-input>
             </furo-form-layouter>
+            
+            <furo-form-layouter two>
+                <div>
+                <input type="checkbox"><br>
+                <input type="checkbox"><br>
+                <input type="checkbox"><br>
+                <input type="checkbox"><br>
+                </div>
+                <div>
+                <input type="checkbox"><br>
+                <input type="checkbox"><br>
+                <input type="checkbox"><br>
+                </div>
+            </furo-form-layouter>
 
             <!-- Full width, four column layout with condensed input fields -->
             <furo-form-layouter>
@@ -79,6 +93,7 @@ class DemoFuroFormLayouter extends FBP(LitElement) {
                 <furo-button label="Save" unelevated primary></furo-button>
                 <furo-button label="Cancel" unelevated></furo-button>
             </furo-form-layouter>
+            
         </template>
       </furo-demo-snippet>
     `;

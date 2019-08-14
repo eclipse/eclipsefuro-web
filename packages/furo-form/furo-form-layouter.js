@@ -32,28 +32,35 @@ class FuroFormLayouter extends FBP(LitElement) {
         this.breakpointSmall = 405;
 
         const ro = new ResizeObserver(entries => {
-            this.dispatchEvent(new CustomEvent('event-name', {
-                detail: request, bubbles: true, composed: true
-            }));
+
             for (let entry of entries) {
-                if (entry.contentRect && entry.contentRect.width < this.breakpointBig && entry.contentRect.width > this.breakpointSmall) {
+                if (entry.contentRect && entry.contentRect.width > 0 && entry.contentRect.width < this.breakpointBig && entry.contentRect.width > this.breakpointSmall) {
                     this.setAttribute('narrow', '');
                     this.narrow = true;
                     this.removeAttribute('narrower');
                     this.narrower = false;
-                } else if (entry.contentRect && entry.contentRect.width < this.breakpointSmall) {
+                    this._fireResize();
+                } else if (entry.contentRect && entry.contentRect.width > 0 && entry.contentRect.width < this.breakpointSmall) {
                     this.setAttribute('narrower', '');
                     this.narrower = true;
                     this.removeAttribute('narrow');
                     this.narrow = false;
+                    this._fireResize();
                 } else {
                     this.removeAttribute('narrow');
                     this.removeAttribute('narrower');
                     this.narrow = this.narrower = false;
                 }
             }
+
         });
         ro.observe(this);
+    }
+
+    _fireResize(){
+        this.dispatchEvent(new CustomEvent('layout-changed', {
+            detail: this, bubbles: true, composed: true
+        }));
     }
 
     /**

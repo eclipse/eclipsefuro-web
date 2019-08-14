@@ -65,16 +65,26 @@
       done();
     });
 
-    it('should set attributes from the resize observer', (done) => {
-      const ro = new ResizeObserver(entries => {
+    it('should set attributes from the resize observer, narrow', (done) => {
+
+      element.addEventListener('layout-changed', ()=>{
         console.log('observer');
-        console.log(element);
-
+        assert.equal(element.narrow, true);
         done();
-
       });
-      ro.observe(element);
-      element.style.width = 404;
+      element.setAttribute('breakpoint-big', '900');
+      element.setAttribute("style","width:899px");
+    });
+
+    it('should set attributes from the resize observer, narrower', (done) => {
+
+      element.addEventListener('layout-changed', ()=>{
+        console.log('observer');
+        assert.equal(element.narrower, true);
+        done();
+      });
+      element.setAttribute('breakpoint-small', '400');
+      element.setAttribute("style","width:399px");
     });
 
 
