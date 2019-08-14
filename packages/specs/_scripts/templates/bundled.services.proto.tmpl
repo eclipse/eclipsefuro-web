@@ -2,6 +2,8 @@ syntax = "proto3";
 package furo.type;
 import "google/api/annotations.proto";
 import "bundled_messages.proto";
+import "furo/type/meta.proto";
+import "furo/type/link.proto";
 
 {{range $import := .__proto.imports}}
 import "{{$import}}";{{end}}

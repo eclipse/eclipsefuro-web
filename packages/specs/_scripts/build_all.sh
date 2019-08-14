@@ -9,5 +9,6 @@ pwd
 ./_scripts/generateSingleFiles.sh
 ./_scripts/generateBundledFiles.sh
 ./_scripts/makeEnvFile.js
+./_scripts/genswagger.sh
 
 

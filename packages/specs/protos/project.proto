@@ -6,26 +6,7 @@ import "google/type/money.proto";
 import "google/type/date.proto";
 import "person.proto";
 
-
-
-// Project description
-message Project {                                
-    // Project cost limit
-    google.type.Money cost_limit = 6;
-    
-    // Short project description
-    string description = 4;
-    
-    // Localized String representation of a project
-    string display_name = 1;
-    
-    // Prospective end date of the project
-    google.type.Date end = 3;
-    
-    // List of project members
-    repeated Person members = 5;
-    
-    // Start date of the project
-    google.type.Date start = 2;
+// 
+service Service {   
 
 }

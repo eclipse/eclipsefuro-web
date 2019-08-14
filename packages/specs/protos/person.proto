@@ -3,23 +3,7 @@ package furo.demo;
 
 
 
-
-
-// Person message type
-message Person {                            
-    // Localized String representation of a person
-    string display_name = 1;
-    
-    // First name of a person
-    string first_name = 3;
-    
-    // Name of a person
-    string name = 2;
-    
-    // Internal phone number
-    string phone_nr = 4;
-    
-    // List of main skills of a person
-    repeated string skills = 5;
+// 
+service Service {   
 
 }

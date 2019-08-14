@@ -23,13 +23,13 @@
       "deeplink": {
         "rel": "list",
         "href": "/api/members/{prs}:unsubscribe",
-        "method": "GET"
+        "method": "POST"
       }
     },
     "List": {
       "description": "Get a collection with PersonEntities",
       "data": {
-        "request": "DDDDDDD",
+        "request": null,
         "response": "PersonCollection"
       },
       "query": {
