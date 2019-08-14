@@ -1,6 +1,6 @@
 {
   "general": {
-    "name": "members",
+    "name": "ProjectMembers",
     "description": "The members of a project",
     "version": "1.0.0",
     "lifecycle": {
@@ -12,10 +12,25 @@
     }
   },
   "services": {
-    "List": {
+    "Unsubscribe": {
+      "description": "Custom method to unsubscribe a member, complete PersonEntity is expected",
       "data": {
-        "request": null,
-        "response": "person_collection"
+        "request": "PersonEntity",
+        "response": "PersonCollection"
+      },
+      "query": {
+      },
+      "deeplink": {
+        "rel": "list",
+        "href": "/api/members/{prs}:unsubscribe",
+        "method": "GET"
+      }
+    },
+    "List": {
+      "description": "Get a collection with PersonEntities",
+      "data": {
+        "request": "DDDDDDD",
+        "response": "PersonCollection"
       },
       "query": {
         "q":{

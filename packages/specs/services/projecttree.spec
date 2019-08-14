@@ -1,6 +1,6 @@
 {
   "general": {
-    "name": "projecttree",
+    "name": "ProjectTree",
     "description": "The tree with relevant project data",
     "version": "1.0.0",
     "lifecycle": {

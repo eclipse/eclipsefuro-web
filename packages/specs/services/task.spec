@@ -1,6 +1,6 @@
 {
   "general": {
-    "name": "tasks",
+    "name": "Task",
     "description": "The tasks",
     "version": "1.0.0",
     "lifecycle": {

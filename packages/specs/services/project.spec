@@ -1,6 +1,6 @@
 {
   "general": {
-    "name": "project",
+    "name": "Project",
     "description": "Project data",
     "version": "1.0.0",
     "lifecycle": {

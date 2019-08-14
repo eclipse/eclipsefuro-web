@@ -1,7 +1,7 @@
 {"services":[
 {
   "general": {
-    "name": "persons",
+    "name": "Person",
     "description": "person service",
     "version": "1.0.0",
     "lifecycle": {
@@ -10,11 +10,16 @@
     },
     "__proto": {
       "package": "furo.demo",
-      "imports": ["person.proto"]
+      "imports": [
+        "person.proto",
+        "furo/types/link.proto",
+        "furo/types/meta.proto"
+      ]
     }
   },
   "services": {
     "List": {
+      "description": "Get a collection with PersonEntities",
       "data": {
         "request": null,
         "response": "PersonCollection"
@@ -39,6 +44,7 @@
       }
     },
     "Get": {
+      "description": "Get a PersonEntity",
       "data": {
         "request": null,
         "response": "PersonEntity"
@@ -57,7 +63,7 @@
 ,
 {
   "general": {
-    "name": "members",
+    "name": "ProjectMembers",
     "description": "The members of a project",
     "version": "1.0.0",
     "lifecycle": {
@@ -69,10 +75,25 @@
     }
   },
   "services": {
-    "List": {
+    "Unsubscribe": {
+      "description": "Custom method to unsubscribe a member, complete PersonEntity is expected",
       "data": {
-        "request": null,
-        "response": "person_collection"
+        "request": "PersonEntity",
+        "response": "PersonCollection"
+      },
+      "query": {
+      },
+      "deeplink": {
+        "rel": "list",
+        "href": "/api/members/{prs}:unsubscribe",
+        "method": "GET"
+      }
+    },
+    "List": {
+      "description": "Get a collection with PersonEntities",
+      "data": {
+        "request": "DDDDDDD",
+        "response": "PersonCollection"
       },
       "query": {
         "q":{
@@ -98,7 +119,7 @@
 ,
 {
   "general": {
-    "name": "project",
+    "name": "Project",
     "description": "Project data",
     "version": "1.0.0",
     "lifecycle": {
@@ -115,7 +136,7 @@
 ,
 {
   "general": {
-    "name": "projecttasks",
+    "name": "ProjectTask",
     "description": "The tasks of a given project",
     "version": "1.0.0",
     "lifecycle": {
@@ -132,7 +153,7 @@
 ,
 {
   "general": {
-    "name": "projecttree",
+    "name": "ProjectTree",
     "description": "The tree with relevant project data",
     "version": "1.0.0",
     "lifecycle": {
@@ -149,7 +170,7 @@
 ,
 {
   "general": {
-    "name": "tasks",
+    "name": "Task",
     "description": "The tasks",
     "version": "1.0.0",
     "lifecycle": {
