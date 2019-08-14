@@ -1,0 +1,41 @@
+syntax = "proto3";
+package furo.demo;
+
+
+import "furo/type/link.proto";
+
+
+
+// Item of the navigationtree
+message Treeitem {                                                
+    // Children of this node
+    repeated Treeitem children = 10;
+    
+    // description of the node
+    string description = 4;
+    
+    // String representation of the node
+    string display_name = 1;
+    
+    // if node has error
+    bool has_error = 7;
+    
+    // icon of the node
+    string icon = 5;
+    
+    // Id of the node
+    string id = 2;
+    
+    // key words of the node
+    string key_words = 6;
+    
+    // Deeplink information of this node
+    furo.type.Link link = 9;
+    
+    // node open or not
+    bool open = 8;
+    
+    // subtitle of the node
+    string subtitle = 3;
+
+}

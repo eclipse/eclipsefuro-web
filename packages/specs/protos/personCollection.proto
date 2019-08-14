@@ -1,0 +1,22 @@
+syntax = "proto3";
+package furo.demo;
+
+
+import "furo/type/meta.proto";
+import "furo/type/link.proto";
+import "person.proto";
+
+
+
+// Collection with persons inside
+message PersonCollection {                    
+    // person entities
+    repeated Person entities = 4;
+    
+    // Hateoas links
+    repeated furo.type.Link links = 3;
+    
+    // Meta for the response
+    furo.type.Meta meta = 2;
+
+}

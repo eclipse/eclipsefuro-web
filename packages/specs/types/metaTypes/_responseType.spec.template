@@ -1,0 +1,41 @@
+{
+  "name": "YOURTYPECollection",
+  "type": "YOURTYPE_collection",
+  "description": "Collection with YOURTYPEs inside",
+  "fields": {
+    "data": {
+      "description": "remove when not used",
+      "type": "define the type, maybe you want to send sum, count,....",
+      "__proto": {
+        "number": 1
+      }
+    },
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.type.Meta",
+      "__proto": {
+        "number": 2
+      }
+    },
+    "links": {
+      "description": "Hateoas links",
+      "type": "furo.type.Link",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
+    "entities": {
+      "description": "YOURTYPE entities",
+      "type": "YOURTYPE",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 4
+      }
+    }
+  }
+}

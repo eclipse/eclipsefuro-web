@@ -1,0 +1,27 @@
+syntax = "proto3";
+package furo.demo;
+
+
+import "task.proto";
+import "person.proto";
+
+
+
+// Task data description
+message Task {                            
+    // Short task description
+    string description = 2;
+    
+    // Localized String representation of a task
+    string display_name = 1;
+    
+    // Estimated time in days
+    int32 estimated_time = 3;
+    
+    // Owner of a task
+    Person owner = 4;
+    
+    // List of subtasks
+    Task subtasks = 5;
+
+}

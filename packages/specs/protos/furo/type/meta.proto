@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package furo.type;
+
+
+// meta info
+message Meta {
+    // fields of meta info
+    map<string,MetaField >  meta =  1;
+}
+
+
+// fields of meta info
+message MetaField {
+    // constraints of a field
+    repeated MetaFieldConstraint constraints = 4;
+
+    // meta information of a field
+    MetaFieldMeta meta = 3;
+}
+
+
+// constrains of fields
+message MetaFieldConstraint {
+    // constrain of a field
+    map<string,string >  constraint =  1;
+}
+
+// meta
+message MetaFieldMeta {
+    // meta information of a field
+    string label = 1;
+}

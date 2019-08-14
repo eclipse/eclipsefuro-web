@@ -1,0 +1,18 @@
+syntax = "proto3";
+package furo.type;
+
+import "google/api/annotations.proto";
+import "google/protobuf/any.proto";
+import "google/type/money.proto";
+import "google/type/date.proto";
+import "furo/type/meta.proto";
+import "furo/type/link.proto";
+
+
+{{range $objType := .types}}
+// {{$objType.description}}
+message {{ $objType.type}} {  {{ $fieldsDict := dict }} {{ $keyList := list }} {{range  $k, $v := .fields}}  {{$_ := set $fieldsDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}{{range $key := sortAlpha $keyList}} {{ $values := pick $fieldsDict $key }} {{ $valueTmp := values $values }} {{ $value := index $valueTmp 0 }} {{$field :=  $key }}
+    // {{$value.description}}
+    {{if $value.meta.repeated}}repeated {{end}}{{if $value.__proto.map_to}}map{{"<" | noescape }}{{$value.__proto.map_from}},{{$value.__proto.map_to}}>{{else}}{{if $value.__proto.type}}{{$value.__proto.type}}{{else}}{{$value.type}}{{end}}{{end}} {{$key}} = {{$value.__proto.number}};
+{{end}}
+}{{end}}

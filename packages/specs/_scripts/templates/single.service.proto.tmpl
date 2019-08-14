@@ -1,0 +1,20 @@
+syntax = "proto3";
+package {{.__proto.package}};
+import "google/api/annotations.proto";
+
+{{range $import := .__proto.imports}}
+import "{{$import}}";{{end}}
+
+{{range $restlet := .restlets}}{{$serviceName := camelcase $restlet.general.name}}
+// {{$restlet.general.description}}
+service {{$serviceName}}Service { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := $restlet.services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
+{{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
+    // {{$method.description}}
+    rpc {{$key}}{{$serviceName}} ({{$key}}{{$serviceName}}Request) returns ({{$key}}{{$serviceName}}Response){
+        option (google.api.http) = {
+            {{ lower $method.deeplink.method}}: "{{$method.deeplink.href}}"{{ if $method.data.request}}
+            body: "data"{{end}}
+        };
+    }{{end}}
+}
+{{end}}
