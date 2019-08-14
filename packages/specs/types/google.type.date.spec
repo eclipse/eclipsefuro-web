@@ -1,6 +1,6 @@
 {
-  "name": "vnd.com.google.date",
-  "type": "vnd.com.google.date",
+  "name": "Date",
+  "type": "google.type.date",
   "description": "Date, https://github.com/googleapis/googleapis/blob/master/google/type/date.proto ",
   "fields": {
     "display_name": {

@@ -1,6 +1,6 @@
 {
   "name": "Money",
-  "type": "vnd.com.google.money",
+  "type": "google.type.money",
   "description": "Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/type/money.proto",
   "fields": {
     "display_name": {

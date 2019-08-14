@@ -18,8 +18,8 @@
   <template>
     <test-bind>
     <template>
-     <furo-form-layouter></furo-form-layouter>
-     </template>
+        <furo-form-layouter></furo-form-layouter>
+      </template>
     </test-bind>
   </template>
 </test-fixture>
@@ -39,7 +39,7 @@
 
     beforeEach(async () => {
       let fix = fixture('basic');
-      element = fix[1]
+      element = fix[1];
       await element.updateComplete;
 
     });
@@ -48,9 +48,33 @@
       return axeReport(fixture('basic'));
     });
 
-    it('should be a furo-form-layouter', (done) => {
+    it('should be a furo-form-layouter', () => {
       assert.equal(element.nodeName.toLowerCase(), "furo-form-layouter");
+    });
+
+    it('should have default breakpoints', () => {
+      assert.equal(element.breakpointBig, 810);
+      assert.equal(element.breakpointSmall, 405);
+    });
+
+    it('should be possible to override breakpoints', (done) => {
+      element.setAttribute('breakpoint-big', '900');
+      element.setAttribute('breakpoint-small', '450');
+      assert.equal(element.breakpointBig, 900);
+      assert.equal(element.breakpointSmall, 450);
       done();
+    });
+
+    it('should set attributes from the resize observer', (done) => {
+      const ro = new ResizeObserver(entries => {
+        console.log('observer');
+        console.log(element);
+
+        done();
+
+      });
+      ro.observe(element);
+      element.style.width = 404;
     });
 
 

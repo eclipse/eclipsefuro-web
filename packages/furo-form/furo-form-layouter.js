@@ -28,19 +28,28 @@ class FuroFormLayouter extends FBP(LitElement) {
         super();
         this.narrow = false;
         this.narrower = false;
-        this.breakpoints = '';
+        this.breakpointBig = 810;
+        this.breakpointSmall = 405;
 
         const ro = new ResizeObserver(entries => {
+            this.dispatchEvent(new CustomEvent('event-name', {
+                detail: request, bubbles: true, composed: true
+            }));
             for (let entry of entries) {
-                if (entry.contentRect && entry.contentRect.width < 810 && entry.contentRect.width > 405) {
+                if (entry.contentRect && entry.contentRect.width < this.breakpointBig && entry.contentRect.width > this.breakpointSmall) {
                     this.setAttribute('narrow', '');
+                    this.narrow = true;
                     this.removeAttribute('narrower');
-                } else if (entry.contentRect && entry.contentRect.width < 405) {
+                    this.narrower = false;
+                } else if (entry.contentRect && entry.contentRect.width < this.breakpointSmall) {
                     this.setAttribute('narrower', '');
+                    this.narrower = true;
                     this.removeAttribute('narrow');
+                    this.narrow = false;
                 } else {
                     this.removeAttribute('narrow');
                     this.removeAttribute('narrower');
+                    this.narrow = this.narrower = false;
                 }
             }
         });
@@ -50,8 +59,8 @@ class FuroFormLayouter extends FBP(LitElement) {
     /**
      * flow is ready lifecycle method
      */
-    __fbpReady() {
-        super.__fbpReady();
+    _FBPReady() {
+        super._FBPReady();
         //this._FBPTraceWires()
     }
 
@@ -61,21 +70,24 @@ class FuroFormLayouter extends FBP(LitElement) {
              * Set custom breakpoints max. two values
              * Default: "810,405"
              */
-            breakpoints: {type: String},
+            breakpointBig: {type: String, attribute: 'breakpoint-big', reflect: true},
+            breakpointSmall: {type: String, attribute: 'breakpoint-small', reflect: true},
             /**
-             * Set narrow attribute to force
-             * a
+             * Set narrow-fix attribute to force
+             * the layout analog to breakpoint big
              */
-            narrow: {
+            narrowFix: {
                 type: Boolean,
+                attribute: 'narrow-fix',
                 reflect: true
             },
             /**
-             * Set narrower attribute to force
-             * 1 column view
+             * Set narrower-fix attribute to force
+             * 1 column view (analog breakpoint small)
              */
-            narrower: {
+            narrowerFix: {
                 type: Boolean,
+                attribute: 'narrower-fix',
                 reflect: true
             }
 
@@ -118,6 +130,22 @@ class FuroFormLayouter extends FBP(LitElement) {
                 grid-template-columns: repeat(1, 1fr);
             }
 
+            :host([narrow-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            :host([four][narrow-fix]) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            :host([four][narrower-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            :host([narrower-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
             ::slotted(*) {
                 width: 100%;
             }
@@ -125,6 +153,10 @@ class FuroFormLayouter extends FBP(LitElement) {
         `
     }
 
+    /**
+     * @private
+     * @returns {TemplateResult | TemplateResult}
+     */
     render() {
         // language=HTML
         return html`
