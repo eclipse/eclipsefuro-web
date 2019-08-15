@@ -7,21 +7,21 @@ import "@furo/doc-helper/side-navigation"
 import "@furo/doc-helper/furo-demo-snippet"
 
 //pages
-import "./panel-md-loader";
-import "./demoimports";
+import "./spec-md-loader";
+import "./imports";
 
-import "./components/all-imports";
+
 
 /**
- * `view-guide`
+ * `view-spec`
  * todo Describe your element
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/view-guide.html
+ * @demo demo/view-spec.html
  * @appliesMixin FBP
  */
-class ViewGuide extends FBP(LitElement) {
+class ViewSpec extends FBP(LitElement) {
 
 
   /**
@@ -103,16 +103,14 @@ class ViewGuide extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-location url-space-regex="^/guide" @-location-changed="--pathChanged"></furo-location>
+      <furo-location url-space-regex="^/spec" @-location-changed="--pathChanged"></furo-location>
 
       <furo-split-view>
         <div slot="master" scroll>
-          <side-navigation ƒ-inject-nav-config="--nav" base-path="/guide/"></side-navigation>
+          <side-navigation ƒ-inject-nav-config="--nav" base-path="/spec/"></side-navigation>
         </div>
         <furo-pages ƒ-inject-location="--pathChanged" default="welcome">
-          <panel-md-loader name="md"></panel-md-loader>
-          
-          <div name="welcome">Coming soon.</div>
+          <spec-md-loader name="md"></spec-md-loader>
         </furo-pages>
       </furo-split-view>
     `;
@@ -121,4 +119,4 @@ class ViewGuide extends FBP(LitElement) {
 
 }
 
-window.customElements.define('view-guide', ViewGuide);
+window.customElements.define('view-spec', ViewSpec);

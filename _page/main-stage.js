@@ -40,6 +40,9 @@ class MainStage extends FBP(LitElement) {
         case "guide":
           import ("./guide/view-guide");
           break;
+       case "spec":
+          import ("./spec/view-spec");
+          break;
 
       }
     });
@@ -96,6 +99,7 @@ class MainStage extends FBP(LitElement) {
           <view-home name="FuroBaseComponents"></view-home>
           <view-guide name="guide"></view-guide>
           <view-api name="api"></view-api>
+          <view-spec name="spec"></view-spec>
         </furo-pages>
 
       </furo-vertical-flex>

@@ -3,7 +3,8 @@
   "shell": "_page/furo-shell.js",
   "fragments": [
     "_page/api/view-api.js",
-    "_page/guide/view-guide.js"
+    "_page/guide/view-guide.js",
+    "_page/spec/view-spec.js"
   ],
   "sources": [
     "favicon.ico",
