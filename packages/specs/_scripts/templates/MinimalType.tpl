@@ -18,9 +18,10 @@
         "constraints": {},
         "options": [],
         "__proto": {
+          "type": "{{.proto_type}}",
           "number": 1
         }
-      }
+    },
     "display_name": {
       "description": "Localized String representation of a {{.type}}",
       "type": "string",
