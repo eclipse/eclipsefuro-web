@@ -64,7 +64,7 @@
       },
       "deeplink": {
         "rel": "self",
-        "href": "/api/persons/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/persons/{var}",
         "method": "GET"
       }
     },
@@ -77,7 +77,7 @@
       "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/api/persons/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/persons/{var}",
         "method": "PATCH"
       }
     },
@@ -90,7 +90,7 @@
       "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/api/persons/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/persons/{var}",
         "method": "DELETE"
       }
     }

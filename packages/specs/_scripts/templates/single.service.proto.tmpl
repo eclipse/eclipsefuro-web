@@ -11,13 +11,13 @@ import "{{$import}}";{{end}}
 
 {{$serviceName := camelcase .name}}
 // {{.description}}
-service {{$serviceName}}Service { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := .services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
+service {{$serviceName}} { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := .services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
     // {{$method.description}}
     rpc {{$key}}{{$serviceName}} ({{$key}}{{$serviceName}}Request) returns ({{$method.data.response}}){
         option (google.api.http) = {
             {{ lower $method.deeplink.method}}: "{{$method.deeplink.href}}"{{ if $method.data.request}}
-            body: "data"{{end}}
+            {{ if or (eq $method.deeplink.method "POST") (eq $method.deeplink.method "PATCH") (eq $method.deeplink.method "PUT")}}body: "data"{{end}}{{end}}
         };
     }{{end}}
 }

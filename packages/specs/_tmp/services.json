@@ -65,7 +65,7 @@
       },
       "deeplink": {
         "rel": "self",
-        "href": "/api/projects/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/projects/{var}",
         "method": "GET"
       }
     },
@@ -78,7 +78,7 @@
       "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/api/projects/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/projects/{var}",
         "method": "PATCH"
       }
     },
@@ -91,7 +91,7 @@
       "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/api/projects/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/projects/{var}",
         "method": "DELETE"
       }
     }
@@ -164,7 +164,7 @@
       },
       "deeplink": {
         "rel": "self",
-        "href": "/api/persons/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/persons/{var}",
         "method": "GET"
       }
     },
@@ -177,7 +177,7 @@
       "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/api/persons/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/persons/{var}",
         "method": "PATCH"
       }
     },
@@ -190,7 +190,7 @@
       "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/api/persons/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/persons/{var}",
         "method": "DELETE"
       }
     }
@@ -279,7 +279,7 @@
       },
       "deeplink": {
         "rel": "self",
-        "href": "/api/trees/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/trees/{var}",
         "method": "GET"
       }
     },
@@ -292,7 +292,7 @@
       "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/api/trees/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/trees/{var}",
         "method": "PATCH"
       }
     },
@@ -305,7 +305,7 @@
       "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/api/trees/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/trees/{var}",
         "method": "DELETE"
       }
     }
@@ -435,7 +435,7 @@
       },
       "deeplink": {
         "rel": "self",
-        "href": "/api/tasks/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/tasks/{var}",
         "method": "GET"
       }
     },
@@ -448,7 +448,7 @@
       "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/api/tasks/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/tasks/{var}",
         "method": "PATCH"
       }
     },
@@ -461,7 +461,7 @@
       "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/api/tasks/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/tasks/{var}",
         "method": "DELETE"
       }
     }
