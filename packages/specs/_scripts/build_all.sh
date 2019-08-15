@@ -6,12 +6,13 @@ else
 PACKAGEBUNDLENAME=$1
 fi
 
-echo $PACKAGEBUNDLENAME
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $DIR
 cd ..
-pwd
+
+echo "clean proto dir"
+rm -rf build/*
 
 ./_scripts/prepare.sh $PACKAGEBUNDLENAME
 ./_scripts/generateSingleFiles.sh

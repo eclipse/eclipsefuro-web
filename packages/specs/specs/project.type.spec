@@ -1,5 +1,5 @@
 {
-  "name": "Project",
+  "name": "project",
   "type": "Project",
   "description": "Project description",
   "__proto": {
@@ -7,7 +7,7 @@
     "imports": [
       "google/type/money.proto",
       "google/type/date.proto",
-      "person.proto"
+      "person/person.proto"
     ]
   },
   "fields": {

@@ -1,5 +1,5 @@
 {
-  "name": "PersonCollection",
+  "name": "person_collection",
   "type": "PersonCollection",
   "description": "PersonCollection with repeated PersonEntity inside",
   "__proto": {

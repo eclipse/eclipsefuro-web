@@ -22,8 +22,8 @@ specs.types.forEach((type)=>{
 });
 apiSpecs += `\nexport const Types =` + JSON.stringify(t);
 
-fs.writeFileSync("../furo-testhelper/api_spec.js", apiSpecs);
+fs.writeFileSync("build/api_spec.js", apiSpecs);
 
 
-console.log("../furo-testhelper/api_spec.js created");
+console.log("build/api_spec.js created");
 

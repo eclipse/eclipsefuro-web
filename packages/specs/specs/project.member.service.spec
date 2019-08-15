@@ -1,5 +1,5 @@
 {
-  "name": "ServiceProjectMembers",
+  "name": "project_members_service",
   "description": "The members of a project",
   "version": "1.0.0",
   "lifecycle": {
@@ -8,7 +8,9 @@
   },
   "__proto": {
     "package": "projectmember",
-    "imports": []
+    "imports": [
+      "person/person_entity.proto"
+    ]
   },
   "services": {
     "Unsubscribe": {

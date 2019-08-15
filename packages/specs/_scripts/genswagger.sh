@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # https://github.com/gogo/protobuf/issues/325
-cd protos/
+cd build/protos/
 
 protoc -I. \
 -I/usr/local/include \
@@ -14,5 +14,5 @@ Mgoogle/protobuf/struct.proto=github.com/gogo/protobuf/types,\
 Mgoogle/protobuf/timestamp.proto=github.com/gogo/protobuf/types,\
 Mgoogle/protobuf/wrappers.proto=github.com/gogo/protobuf/types,\
 plugins=grpc:./ \
---swagger_out=logtostderr=true:../swaggerdoc \
+--swagger_out=logtostderr=true:../ \
 bundled*.proto

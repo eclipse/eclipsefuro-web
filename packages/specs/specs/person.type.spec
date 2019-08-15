@@ -1,5 +1,5 @@
 {
-  "name": "Person",
+  "name": "person",
   "type": "Person",
   "description": "Person message type",
   "__proto": {

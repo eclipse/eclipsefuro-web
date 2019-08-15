@@ -1,5 +1,5 @@
 {
-  "name": "Project",
+  "name": "project_service",
   "description": "Project data",
   "version": "1.0.0",
   "lifecycle": {

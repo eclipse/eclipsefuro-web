@@ -1,5 +1,5 @@
 {
-  "name": "Treeitem",
+  "name": "treeitem",
   "type": "Treeitem",
   "description": "Item of the navigationtree",
   "__proto": {

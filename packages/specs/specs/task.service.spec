@@ -1,5 +1,5 @@
 {
-  "name": "Task",
+  "name": "task_service",
   "description": "The tasks",
   "version": "1.0.0",
   "lifecycle": {

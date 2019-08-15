@@ -1,6 +1,6 @@
 {"bundlepackage":"default", "types":[
 {
-  "name": "Tree",
+  "name": "tree",
   "type": "Tree",
   "description": "Singletonresource of the navigationtree",
   "__proto": {
@@ -101,7 +101,7 @@
 }
 ,
 {
-  "name": "PersonCollection",
+  "name": "person_collection",
   "type": "PersonCollection",
   "description": "PersonCollection with repeated PersonEntity inside",
   "__proto": {
@@ -144,7 +144,7 @@
 }
 ,
 {
-  "name": "Person",
+  "name": "person",
   "type": "Person",
   "description": "Person message type",
   "__proto": {
@@ -228,7 +228,7 @@
 }
 ,
 {
-  "name": "PersonEntity",
+  "name": "person_entity",
   "type": "PersonEntity",
   "description": "PersonEntity with Person",
   "__proto": {
@@ -266,7 +266,7 @@
 }
 ,
 {
-  "name": "Treeitem",
+  "name": "treeitem",
   "type": "Treeitem",
   "description": "Item of the navigationtree",
   "__proto": {
@@ -365,12 +365,12 @@
 }
 ,
 {
-  "name": "Task",
+  "name": "task",
   "type": "Task",
   "description": "Task data description",
   "__proto": {
     "package": "task",
-    "imports": ["task.proto","person.proto"]
+    "imports": ["task.proto","person/person.proto"]
   },
   "fields": {
     "display_name": {
@@ -452,7 +452,7 @@
 }
 ,
 {
-  "name": "Project",
+  "name": "project",
   "type": "Project",
   "description": "Project description",
   "__proto": {
@@ -460,7 +460,7 @@
     "imports": [
       "google/type/money.proto",
       "google/type/date.proto",
-      "person.proto"
+      "person/person.proto"
     ]
   },
   "fields": {

@@ -1,5 +1,5 @@
 {
-  "name": "ProjectTree",
+  "name": "project_tree_service",
   "description": "The tree with relevant project data",
   "version": "1.0.0",
   "lifecycle": {

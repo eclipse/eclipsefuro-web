@@ -1,5 +1,5 @@
 {
-  "name": "PersonEntity",
+  "name": "person_entity",
   "type": "PersonEntity",
   "description": "PersonEntity with Person",
   "__proto": {

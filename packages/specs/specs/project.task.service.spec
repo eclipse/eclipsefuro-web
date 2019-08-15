@@ -1,5 +1,5 @@
 {
-  "name": "ProjectTask",
+  "name": "project_task_service",
   "description": "The tasks of a given project",
   "version": "1.0.0",
   "lifecycle": {

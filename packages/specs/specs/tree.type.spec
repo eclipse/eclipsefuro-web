@@ -1,5 +1,5 @@
 {
-  "name": "Tree",
+  "name": "tree",
   "type": "Tree",
   "description": "Singletonresource of the navigationtree",
   "__proto": {

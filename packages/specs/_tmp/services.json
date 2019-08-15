@@ -1,6 +1,6 @@
 {"bundlepackage":"default","services":[
 {
-  "name": "Project",
+  "name": "project_service",
   "description": "Project data",
   "version": "1.0.0",
   "lifecycle": {
@@ -16,7 +16,7 @@
 }
 ,
 {
-  "name": "PersonService",
+  "name": "person_service",
   "description": "person service",
   "version": "1.0.0",
   "lifecycle": {
@@ -26,8 +26,8 @@
   "__proto": {
     "package": "person",
     "imports": [
-      "personEntity.proto",
-      "personCollection.proto",
+      "person_entity.proto",
+      "person_collection.proto",
       "furo/type/link.proto",
       "furo/type/meta.proto"
     ]
@@ -76,7 +76,7 @@
 }
 ,
 {
-  "name": "ProjectTask",
+  "name": "project_task_service",
   "description": "The tasks of a given project",
   "version": "1.0.0",
   "lifecycle": {
@@ -92,7 +92,7 @@
 }
 ,
 {
-  "name": "ProjectTree",
+  "name": "project_tree_service",
   "description": "The tree with relevant project data",
   "version": "1.0.0",
   "lifecycle": {
@@ -108,7 +108,7 @@
 }
 ,
 {
-  "name": "ServiceProjectMembers",
+  "name": "project_members_service",
   "description": "The members of a project",
   "version": "1.0.0",
   "lifecycle": {
@@ -117,7 +117,9 @@
   },
   "__proto": {
     "package": "projectmember",
-    "imports": []
+    "imports": [
+      "person/person_entity.proto"
+    ]
   },
   "services": {
     "Unsubscribe": {
@@ -163,7 +165,7 @@
 }
 ,
 {
-  "name": "Task",
+  "name": "task_service",
   "description": "The tasks",
   "version": "1.0.0",
   "lifecycle": {

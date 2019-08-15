@@ -1,10 +1,10 @@
 {
-  "name": "Task",
+  "name": "task",
   "type": "Task",
   "description": "Task data description",
   "__proto": {
     "package": "task",
-    "imports": ["task.proto","person.proto"]
+    "imports": ["task.proto","person/person.proto"]
   },
   "fields": {
     "display_name": {

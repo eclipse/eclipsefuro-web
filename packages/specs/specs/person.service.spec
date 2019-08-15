@@ -1,5 +1,5 @@
 {
-  "name": "PersonService",
+  "name": "person_service",
   "description": "person service",
   "version": "1.0.0",
   "lifecycle": {
@@ -9,8 +9,8 @@
   "__proto": {
     "package": "person",
     "imports": [
-      "personEntity.proto",
-      "personCollection.proto",
+      "person_entity.proto",
+      "person_collection.proto",
       "furo/type/link.proto",
       "furo/type/meta.proto"
     ]

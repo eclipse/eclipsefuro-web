@@ -21,9 +21,9 @@ PROTOFILE=$(cat $t \
  | sed 's/[",]//g' \
  | tr -d '[[:space:]]')
 
-mkdir -p protos/$FOLDER
+mkdir -p build/protos/$FOLDER
 
- simple-generator -d $t -t _scripts/templates/single.message.proto.tmpl > protos/$FOLDER/$PROTOFILE.proto
+ simple-generator -d $t -t _scripts/templates/single.message.proto.tmpl > build/protos/$FOLDER/$PROTOFILE.proto
 done
 
 
@@ -48,9 +48,9 @@ PROTOFILE=$(cat $t \
  | sed 's/[",]//g' \
  | tr -d '[[:space:]]')
 
-mkdir -p protos/$FOLDER
+mkdir -p build/protos/$FOLDER
 
- simple-generator -d $t -t _scripts/templates/single.message.proto.tmpl > protos/$FOLDER/$PROTOFILE.proto
+ simple-generator -d $t -t _scripts/templates/single.message.proto.tmpl > build/protos/$FOLDER/$PROTOFILE.proto
 done
 
 
@@ -74,6 +74,6 @@ PROTOFILE=$(cat $t \
  | sed 's/[",]//g' \
  | tr -d '[[:space:]]')
 
- mkdir -p protos/$FOLDER
- simple-generator -d $t -t _scripts/templates/single.service.proto.tmpl > protos/$FOLDER/$PROTOFILE.proto
+ mkdir -p build/protos/$FOLDER
+ simple-generator -d $t -t _scripts/templates/single.service.proto.tmpl > build/protos/$FOLDER/$PROTOFILE.proto
 done
