@@ -11,5 +11,18 @@
     "imports": []
   },
   "services": {
+    "List": {
+      "description": "Get a collection with TaskEntities",
+      "data": {
+        "request": null,
+        "response": "TaskCollection"
+      },
+      "query": {},
+      "deeplink": {
+        "rel": "list",
+        "href": "/api/tasks",
+        "method": "GET"
+      }
+    }
   }
 }

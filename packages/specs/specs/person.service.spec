@@ -9,6 +9,7 @@
   "__proto": {
     "package": "person",
     "imports": [
+      "person.proto",
       "person_entity.proto",
       "person_collection.proto",
       "furo/type/link.proto",
@@ -41,6 +42,20 @@
         "method": "GET"
       }
     },
+    "Create": {
+      "description": "Creates a person",
+      "data": {
+        "request": "Person",
+        "response": "PersonEntity"
+      },
+      "query": {
+      },
+      "deeplink": {
+        "rel": "create",
+        "href": "/api/persons",
+        "method": "POST"
+      }
+    },
     "Get": {
       "description": "Get a PersonEntity",
       "data": {
@@ -53,6 +68,34 @@
         "rel": "self",
         "href": "/api/persons/{prs}",
         "method": "GET"
+      }
+    },
+    "Update": {
+      "description": "Delete a Person",
+      "data": {
+        "request": null,
+        "response": "PersonEntity"
+      },
+      "query": {
+      },
+      "deeplink": {
+        "rel": "update",
+        "href": "/api/persons/{prs}",
+        "method": "PATCH"
+      }
+    },
+    "Delete": {
+      "description": "Delete a Person",
+      "data": {
+        "request": null,
+        "response": null
+      },
+      "query": {
+      },
+      "deeplink": {
+        "rel": "delete",
+        "href": "/api/persons/{prs}",
+        "method": "DELETE"
       }
     }
   }
