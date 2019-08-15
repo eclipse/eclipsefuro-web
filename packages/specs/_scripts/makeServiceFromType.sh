@@ -11,3 +11,4 @@ OUTPUTFILESERVICE=$BASETYPE".service.spec"
 simple-generator -d specs/$BASETYPE.type.spec -t _scripts/templates/ServiceFromType.tmpl > specs/$OUTPUTFILESERVICE
 
 
+

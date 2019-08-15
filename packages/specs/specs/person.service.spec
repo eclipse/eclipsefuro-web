@@ -35,6 +35,7 @@
         }
       },
       "deeplink": {
+        "description": "no params required",
         "rel": "list",
         "href": "/api/persons",
         "method": "GET"
