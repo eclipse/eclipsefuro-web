@@ -23,8 +23,6 @@
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   <script>
     window.APPROOT = {rootPath: '/'};
-
-
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.getRegistration().then((registration) => {
