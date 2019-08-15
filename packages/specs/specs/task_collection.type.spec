@@ -1,14 +1,14 @@
 {
-  "name": "person_collection",
-  "type": "PersonCollection",
-  "description": "PersonCollection with repeated PersonEntity inside",
+  "name": "task_collection",
+  "type": "TaskCollection",
+  "description": "TaskCollection with repeated TaskEntity",
   "__proto": {
-    "package": "person",
+    "package": "task",
     "imports": [
-      "furo/type/meta.proto",
-      "furo/type/link.proto",
-      "person.proto"
-    ]
+     "task_entity.proto",
+     "furo/type/meta.proto",
+     "furo/type/link.proto"
+     ]
   },
   "fields": {
     "meta": {
@@ -29,8 +29,8 @@
       }
     },
     "entities": {
-      "description": "person entities",
-      "type": "Person",
+      "description": "TaskEntity repeated",
+      "type": "TaskEntity",
       "meta": {
         "repeated": true
       },

@@ -2,25 +2,25 @@
 // generation date: 2019-08-15 15:00:49
 
 syntax = "proto3";
-package person;
+package project;
 
 import "google/api/annotations.proto";
 import "google/protobuf/any.proto";
 
 
-import "person.proto";
+import "project.proto";
 import "furo/type/meta.proto";
 import "furo/type/link.proto";
 
-// PersonEntity with Person
-message PersonEntity {                    
-    // Person message type
-    Person data = 1;
+// ProjectCollection with repeated ProjectEntity
+message ProjectCollection {                    
+    // ProjectEntity repeated
+    repeated ProjectEntity entities = 4;
     
     // Hateoas links
-    repeated furo.type.Link links = 2;
+    repeated furo.type.Link links = 3;
     
     // Meta for the response
-    furo.type.Meta meta = 3;
+    furo.type.Meta meta = 2;
 
 }

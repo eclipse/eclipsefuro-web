@@ -350,9 +350,9 @@
         "entities": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/typePerson"
+            "$ref": "#/definitions/typePersonEntity"
           },
-          "title": "person entities"
+          "title": "PersonEntity repeated"
         },
         "links": {
           "type": "array",
@@ -366,14 +366,14 @@
           "title": "Meta for the response"
         }
       },
-      "title": "PersonCollection with repeated PersonEntity inside"
+      "title": "PersonCollection with repeated PersonEntity"
     },
     "typePersonEntity": {
       "type": "object",
       "properties": {
         "data": {
           "$ref": "#/definitions/typePerson",
-          "title": "person entity"
+          "title": "Person message type"
         },
         "links": {
           "type": "array",

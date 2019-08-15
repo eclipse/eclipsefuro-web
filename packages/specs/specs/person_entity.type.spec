@@ -12,7 +12,7 @@
   },
   "fields": {
     "data": {
-      "description": "person entity",
+      "description": "Person message type",
       "type": "Person",
       "__proto": {
         "number": 1

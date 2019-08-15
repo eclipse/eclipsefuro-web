@@ -2,20 +2,20 @@
 // generation date: 2019-08-15 15:00:49
 
 syntax = "proto3";
-package person;
+package task;
 
 import "google/api/annotations.proto";
 import "google/protobuf/any.proto";
 
 
-import "person.proto";
+import "task.proto";
 import "furo/type/meta.proto";
 import "furo/type/link.proto";
 
-// PersonEntity with Person
-message PersonEntity {                    
-    // Person message type
-    Person data = 1;
+// TaskEntity with Task
+message TaskEntity {                    
+    // Task data description
+    Task data = 1;
     
     // Hateoas links
     repeated furo.type.Link links = 2;

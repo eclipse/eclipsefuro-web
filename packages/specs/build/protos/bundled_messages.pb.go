@@ -55,7 +55,7 @@ func (m *Tree) Reset()         { *m = Tree{} }
 func (m *Tree) String() string { return proto.CompactTextString(m) }
 func (*Tree) ProtoMessage()    {}
 func (*Tree) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{0}
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{0}
 }
 func (m *Tree) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -154,31 +154,31 @@ func (m *Tree) GetSubtitle() string {
 	return ""
 }
 
-// PersonCollection with repeated PersonEntity inside
-type PersonCollection struct {
-	// person entities
-	Entities []*Person `protobuf:"bytes,4,rep,name=entities" json:"entities,omitempty"`
+// TreeEntity with Tree
+type TreeEntity struct {
+	// Singletonresource of the navigationtree
+	Data *Tree `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
 	// Hateoas links
-	Links []*_type.Link `protobuf:"bytes,3,rep,name=links" json:"links,omitempty"`
+	Links []*_type.Link `protobuf:"bytes,2,rep,name=links" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *_type.Meta `protobuf:"bytes,2,opt,name=meta" json:"meta,omitempty"`
+	Meta                 *_type.Meta `protobuf:"bytes,3,opt,name=meta" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
 	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *PersonCollection) Reset()         { *m = PersonCollection{} }
-func (m *PersonCollection) String() string { return proto.CompactTextString(m) }
-func (*PersonCollection) ProtoMessage()    {}
-func (*PersonCollection) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{1}
+func (m *TreeEntity) Reset()         { *m = TreeEntity{} }
+func (m *TreeEntity) String() string { return proto.CompactTextString(m) }
+func (*TreeEntity) ProtoMessage()    {}
+func (*TreeEntity) Descriptor() ([]byte, []int) {
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{1}
 }
-func (m *PersonCollection) XXX_Unmarshal(b []byte) error {
+func (m *TreeEntity) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *PersonCollection) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *TreeEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_PersonCollection.Marshal(b, m, deterministic)
+		return xxx_messageInfo_TreeEntity.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalTo(b)
@@ -188,33 +188,100 @@ func (m *PersonCollection) XXX_Marshal(b []byte, deterministic bool) ([]byte, er
 		return b[:n], nil
 	}
 }
-func (dst *PersonCollection) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PersonCollection.Merge(dst, src)
+func (dst *TreeEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TreeEntity.Merge(dst, src)
 }
-func (m *PersonCollection) XXX_Size() int {
+func (m *TreeEntity) XXX_Size() int {
 	return m.Size()
 }
-func (m *PersonCollection) XXX_DiscardUnknown() {
-	xxx_messageInfo_PersonCollection.DiscardUnknown(m)
+func (m *TreeEntity) XXX_DiscardUnknown() {
+	xxx_messageInfo_TreeEntity.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_PersonCollection proto.InternalMessageInfo
+var xxx_messageInfo_TreeEntity proto.InternalMessageInfo
 
-func (m *PersonCollection) GetEntities() []*Person {
+func (m *TreeEntity) GetData() *Tree {
 	if m != nil {
-		return m.Entities
+		return m.Data
 	}
 	return nil
 }
 
-func (m *PersonCollection) GetLinks() []*_type.Link {
+func (m *TreeEntity) GetLinks() []*_type.Link {
 	if m != nil {
 		return m.Links
 	}
 	return nil
 }
 
-func (m *PersonCollection) GetMeta() *_type.Meta {
+func (m *TreeEntity) GetMeta() *_type.Meta {
+	if m != nil {
+		return m.Meta
+	}
+	return nil
+}
+
+// TaskEntity with Task
+type TaskEntity struct {
+	// Task data description
+	Data *Task `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	// Hateoas links
+	Links []*_type.Link `protobuf:"bytes,2,rep,name=links" json:"links,omitempty"`
+	// Meta for the response
+	Meta                 *_type.Meta `protobuf:"bytes,3,opt,name=meta" json:"meta,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *TaskEntity) Reset()         { *m = TaskEntity{} }
+func (m *TaskEntity) String() string { return proto.CompactTextString(m) }
+func (*TaskEntity) ProtoMessage()    {}
+func (*TaskEntity) Descriptor() ([]byte, []int) {
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{2}
+}
+func (m *TaskEntity) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *TaskEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_TaskEntity.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *TaskEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskEntity.Merge(dst, src)
+}
+func (m *TaskEntity) XXX_Size() int {
+	return m.Size()
+}
+func (m *TaskEntity) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskEntity.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskEntity proto.InternalMessageInfo
+
+func (m *TaskEntity) GetData() *Task {
+	if m != nil {
+		return m.Data
+	}
+	return nil
+}
+
+func (m *TaskEntity) GetLinks() []*_type.Link {
+	if m != nil {
+		return m.Links
+	}
+	return nil
+}
+
+func (m *TaskEntity) GetMeta() *_type.Meta {
 	if m != nil {
 		return m.Meta
 	}
@@ -242,7 +309,7 @@ func (m *Person) Reset()         { *m = Person{} }
 func (m *Person) String() string { return proto.CompactTextString(m) }
 func (*Person) ProtoMessage()    {}
 func (*Person) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{2}
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{3}
 }
 func (m *Person) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -306,31 +373,31 @@ func (m *Person) GetSkills() []string {
 	return nil
 }
 
-// PersonEntity with Person
-type PersonEntity struct {
-	// person entity
-	Data *Person `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+// PersonCollection with repeated PersonEntity
+type PersonCollection struct {
+	// PersonEntity repeated
+	Entities []*PersonEntity `protobuf:"bytes,4,rep,name=entities" json:"entities,omitempty"`
 	// Hateoas links
-	Links []*_type.Link `protobuf:"bytes,2,rep,name=links" json:"links,omitempty"`
+	Links []*_type.Link `protobuf:"bytes,3,rep,name=links" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *_type.Meta `protobuf:"bytes,3,opt,name=meta" json:"meta,omitempty"`
+	Meta                 *_type.Meta `protobuf:"bytes,2,opt,name=meta" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
 	XXX_sizecache        int32       `json:"-"`
 }
 
-func (m *PersonEntity) Reset()         { *m = PersonEntity{} }
-func (m *PersonEntity) String() string { return proto.CompactTextString(m) }
-func (*PersonEntity) ProtoMessage()    {}
-func (*PersonEntity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{3}
+func (m *PersonCollection) Reset()         { *m = PersonCollection{} }
+func (m *PersonCollection) String() string { return proto.CompactTextString(m) }
+func (*PersonCollection) ProtoMessage()    {}
+func (*PersonCollection) Descriptor() ([]byte, []int) {
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{4}
 }
-func (m *PersonEntity) XXX_Unmarshal(b []byte) error {
+func (m *PersonCollection) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *PersonEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *PersonCollection) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_PersonEntity.Marshal(b, m, deterministic)
+		return xxx_messageInfo_PersonCollection.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalTo(b)
@@ -340,33 +407,100 @@ func (m *PersonEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)
 		return b[:n], nil
 	}
 }
-func (dst *PersonEntity) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PersonEntity.Merge(dst, src)
+func (dst *PersonCollection) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PersonCollection.Merge(dst, src)
 }
-func (m *PersonEntity) XXX_Size() int {
+func (m *PersonCollection) XXX_Size() int {
 	return m.Size()
 }
-func (m *PersonEntity) XXX_DiscardUnknown() {
-	xxx_messageInfo_PersonEntity.DiscardUnknown(m)
+func (m *PersonCollection) XXX_DiscardUnknown() {
+	xxx_messageInfo_PersonCollection.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_PersonEntity proto.InternalMessageInfo
+var xxx_messageInfo_PersonCollection proto.InternalMessageInfo
 
-func (m *PersonEntity) GetData() *Person {
+func (m *PersonCollection) GetEntities() []*PersonEntity {
 	if m != nil {
-		return m.Data
+		return m.Entities
 	}
 	return nil
 }
 
-func (m *PersonEntity) GetLinks() []*_type.Link {
+func (m *PersonCollection) GetLinks() []*_type.Link {
 	if m != nil {
 		return m.Links
 	}
 	return nil
 }
 
-func (m *PersonEntity) GetMeta() *_type.Meta {
+func (m *PersonCollection) GetMeta() *_type.Meta {
+	if m != nil {
+		return m.Meta
+	}
+	return nil
+}
+
+// TaskCollection with repeated TaskEntity
+type TaskCollection struct {
+	// TaskEntity repeated
+	Entities []*TaskEntity `protobuf:"bytes,4,rep,name=entities" json:"entities,omitempty"`
+	// Hateoas links
+	Links []*_type.Link `protobuf:"bytes,3,rep,name=links" json:"links,omitempty"`
+	// Meta for the response
+	Meta                 *_type.Meta `protobuf:"bytes,2,opt,name=meta" json:"meta,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *TaskCollection) Reset()         { *m = TaskCollection{} }
+func (m *TaskCollection) String() string { return proto.CompactTextString(m) }
+func (*TaskCollection) ProtoMessage()    {}
+func (*TaskCollection) Descriptor() ([]byte, []int) {
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{5}
+}
+func (m *TaskCollection) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *TaskCollection) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_TaskCollection.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *TaskCollection) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskCollection.Merge(dst, src)
+}
+func (m *TaskCollection) XXX_Size() int {
+	return m.Size()
+}
+func (m *TaskCollection) XXX_DiscardUnknown() {
+	xxx_messageInfo_TaskCollection.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_TaskCollection proto.InternalMessageInfo
+
+func (m *TaskCollection) GetEntities() []*TaskEntity {
+	if m != nil {
+		return m.Entities
+	}
+	return nil
+}
+
+func (m *TaskCollection) GetLinks() []*_type.Link {
+	if m != nil {
+		return m.Links
+	}
+	return nil
+}
+
+func (m *TaskCollection) GetMeta() *_type.Meta {
 	if m != nil {
 		return m.Meta
 	}
@@ -404,7 +538,7 @@ func (m *Treeitem) Reset()         { *m = Treeitem{} }
 func (m *Treeitem) String() string { return proto.CompactTextString(m) }
 func (*Treeitem) ProtoMessage()    {}
 func (*Treeitem) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{4}
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{6}
 }
 func (m *Treeitem) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -524,7 +658,7 @@ func (m *Task) Reset()         { *m = Task{} }
 func (m *Task) String() string { return proto.CompactTextString(m) }
 func (*Task) ProtoMessage()    {}
 func (*Task) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{5}
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{7}
 }
 func (m *Task) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -588,6 +722,207 @@ func (m *Task) GetSubtasks() *Task {
 	return nil
 }
 
+// ProjectCollection with repeated ProjectEntity
+type ProjectCollection struct {
+	// ProjectEntity repeated
+	Entities []*ProjectEntity `protobuf:"bytes,4,rep,name=entities" json:"entities,omitempty"`
+	// Hateoas links
+	Links []*_type.Link `protobuf:"bytes,3,rep,name=links" json:"links,omitempty"`
+	// Meta for the response
+	Meta                 *_type.Meta `protobuf:"bytes,2,opt,name=meta" json:"meta,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *ProjectCollection) Reset()         { *m = ProjectCollection{} }
+func (m *ProjectCollection) String() string { return proto.CompactTextString(m) }
+func (*ProjectCollection) ProtoMessage()    {}
+func (*ProjectCollection) Descriptor() ([]byte, []int) {
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{8}
+}
+func (m *ProjectCollection) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *ProjectCollection) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_ProjectCollection.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *ProjectCollection) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ProjectCollection.Merge(dst, src)
+}
+func (m *ProjectCollection) XXX_Size() int {
+	return m.Size()
+}
+func (m *ProjectCollection) XXX_DiscardUnknown() {
+	xxx_messageInfo_ProjectCollection.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ProjectCollection proto.InternalMessageInfo
+
+func (m *ProjectCollection) GetEntities() []*ProjectEntity {
+	if m != nil {
+		return m.Entities
+	}
+	return nil
+}
+
+func (m *ProjectCollection) GetLinks() []*_type.Link {
+	if m != nil {
+		return m.Links
+	}
+	return nil
+}
+
+func (m *ProjectCollection) GetMeta() *_type.Meta {
+	if m != nil {
+		return m.Meta
+	}
+	return nil
+}
+
+// ProjectEntity with Project
+type ProjectEntity struct {
+	// Project description
+	Data *Project `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	// Hateoas links
+	Links []*_type.Link `protobuf:"bytes,2,rep,name=links" json:"links,omitempty"`
+	// Meta for the response
+	Meta                 *_type.Meta `protobuf:"bytes,3,opt,name=meta" json:"meta,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *ProjectEntity) Reset()         { *m = ProjectEntity{} }
+func (m *ProjectEntity) String() string { return proto.CompactTextString(m) }
+func (*ProjectEntity) ProtoMessage()    {}
+func (*ProjectEntity) Descriptor() ([]byte, []int) {
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{9}
+}
+func (m *ProjectEntity) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *ProjectEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_ProjectEntity.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *ProjectEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ProjectEntity.Merge(dst, src)
+}
+func (m *ProjectEntity) XXX_Size() int {
+	return m.Size()
+}
+func (m *ProjectEntity) XXX_DiscardUnknown() {
+	xxx_messageInfo_ProjectEntity.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ProjectEntity proto.InternalMessageInfo
+
+func (m *ProjectEntity) GetData() *Project {
+	if m != nil {
+		return m.Data
+	}
+	return nil
+}
+
+func (m *ProjectEntity) GetLinks() []*_type.Link {
+	if m != nil {
+		return m.Links
+	}
+	return nil
+}
+
+func (m *ProjectEntity) GetMeta() *_type.Meta {
+	if m != nil {
+		return m.Meta
+	}
+	return nil
+}
+
+// PersonEntity with Person
+type PersonEntity struct {
+	// Person message type
+	Data *Person `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	// Hateoas links
+	Links []*_type.Link `protobuf:"bytes,2,rep,name=links" json:"links,omitempty"`
+	// Meta for the response
+	Meta                 *_type.Meta `protobuf:"bytes,3,opt,name=meta" json:"meta,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *PersonEntity) Reset()         { *m = PersonEntity{} }
+func (m *PersonEntity) String() string { return proto.CompactTextString(m) }
+func (*PersonEntity) ProtoMessage()    {}
+func (*PersonEntity) Descriptor() ([]byte, []int) {
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{10}
+}
+func (m *PersonEntity) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *PersonEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_PersonEntity.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *PersonEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PersonEntity.Merge(dst, src)
+}
+func (m *PersonEntity) XXX_Size() int {
+	return m.Size()
+}
+func (m *PersonEntity) XXX_DiscardUnknown() {
+	xxx_messageInfo_PersonEntity.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_PersonEntity proto.InternalMessageInfo
+
+func (m *PersonEntity) GetData() *Person {
+	if m != nil {
+		return m.Data
+	}
+	return nil
+}
+
+func (m *PersonEntity) GetLinks() []*_type.Link {
+	if m != nil {
+		return m.Links
+	}
+	return nil
+}
+
+func (m *PersonEntity) GetMeta() *_type.Meta {
+	if m != nil {
+		return m.Meta
+	}
+	return nil
+}
+
 // Project description
 type Project struct {
 	// Project cost limit
@@ -611,7 +946,7 @@ func (m *Project) Reset()         { *m = Project{} }
 func (m *Project) String() string { return proto.CompactTextString(m) }
 func (*Project) ProtoMessage()    {}
 func (*Project) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{6}
+	return fileDescriptor_bundled_messages_39dabed9d1454171, []int{11}
 }
 func (m *Project) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -684,11 +1019,16 @@ func (m *Project) GetStart() *_type1.Date {
 
 func init() {
 	proto.RegisterType((*Tree)(nil), "furo.type.Tree")
-	proto.RegisterType((*PersonCollection)(nil), "furo.type.PersonCollection")
+	proto.RegisterType((*TreeEntity)(nil), "furo.type.TreeEntity")
+	proto.RegisterType((*TaskEntity)(nil), "furo.type.TaskEntity")
 	proto.RegisterType((*Person)(nil), "furo.type.Person")
-	proto.RegisterType((*PersonEntity)(nil), "furo.type.PersonEntity")
+	proto.RegisterType((*PersonCollection)(nil), "furo.type.PersonCollection")
+	proto.RegisterType((*TaskCollection)(nil), "furo.type.TaskCollection")
 	proto.RegisterType((*Treeitem)(nil), "furo.type.Treeitem")
 	proto.RegisterType((*Task)(nil), "furo.type.Task")
+	proto.RegisterType((*ProjectCollection)(nil), "furo.type.ProjectCollection")
+	proto.RegisterType((*ProjectEntity)(nil), "furo.type.ProjectEntity")
+	proto.RegisterType((*PersonEntity)(nil), "furo.type.PersonEntity")
 	proto.RegisterType((*Project)(nil), "furo.type.Project")
 }
 func (m *Tree) Marshal() (dAtA []byte, err error) {
@@ -784,7 +1124,7 @@ func (m *Tree) MarshalTo(dAtA []byte) (int, error) {
 	return i, nil
 }
 
-func (m *PersonCollection) Marshal() (dAtA []byte, err error) {
+func (m *TreeEntity) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalTo(dAtA)
@@ -794,16 +1134,16 @@ func (m *PersonCollection) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *PersonCollection) MarshalTo(dAtA []byte) (int, error) {
+func (m *TreeEntity) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
-	if m.Meta != nil {
-		dAtA[i] = 0x12
+	if m.Data != nil {
+		dAtA[i] = 0xa
 		i++
-		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Meta.Size()))
-		n2, err := m.Meta.MarshalTo(dAtA[i:])
+		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Data.Size()))
+		n2, err := m.Data.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
@@ -811,7 +1151,7 @@ func (m *PersonCollection) MarshalTo(dAtA []byte) (int, error) {
 	}
 	if len(m.Links) > 0 {
 		for _, msg := range m.Links {
-			dAtA[i] = 0x1a
+			dAtA[i] = 0x12
 			i++
 			i = encodeVarintBundledMessages(dAtA, i, uint64(msg.Size()))
 			n, err := msg.MarshalTo(dAtA[i:])
@@ -821,9 +1161,50 @@ func (m *PersonCollection) MarshalTo(dAtA []byte) (int, error) {
 			i += n
 		}
 	}
-	if len(m.Entities) > 0 {
-		for _, msg := range m.Entities {
-			dAtA[i] = 0x22
+	if m.Meta != nil {
+		dAtA[i] = 0x1a
+		i++
+		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Meta.Size()))
+		n3, err := m.Meta.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n3
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return i, nil
+}
+
+func (m *TaskEntity) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *TaskEntity) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if m.Data != nil {
+		dAtA[i] = 0xa
+		i++
+		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Data.Size()))
+		n4, err := m.Data.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n4
+	}
+	if len(m.Links) > 0 {
+		for _, msg := range m.Links {
+			dAtA[i] = 0x12
 			i++
 			i = encodeVarintBundledMessages(dAtA, i, uint64(msg.Size()))
 			n, err := msg.MarshalTo(dAtA[i:])
@@ -832,6 +1213,16 @@ func (m *PersonCollection) MarshalTo(dAtA []byte) (int, error) {
 			}
 			i += n
 		}
+	}
+	if m.Meta != nil {
+		dAtA[i] = 0x1a
+		i++
+		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Meta.Size()))
+		n5, err := m.Meta.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n5
 	}
 	if m.XXX_unrecognized != nil {
 		i += copy(dAtA[i:], m.XXX_unrecognized)
@@ -899,7 +1290,7 @@ func (m *Person) MarshalTo(dAtA []byte) (int, error) {
 	return i, nil
 }
 
-func (m *PersonEntity) Marshal() (dAtA []byte, err error) {
+func (m *PersonCollection) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalTo(dAtA)
@@ -909,24 +1300,24 @@ func (m *PersonEntity) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *PersonEntity) MarshalTo(dAtA []byte) (int, error) {
+func (m *PersonCollection) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
-	if m.Data != nil {
-		dAtA[i] = 0xa
+	if m.Meta != nil {
+		dAtA[i] = 0x12
 		i++
-		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Data.Size()))
-		n3, err := m.Data.MarshalTo(dAtA[i:])
+		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Meta.Size()))
+		n6, err := m.Meta.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n3
+		i += n6
 	}
 	if len(m.Links) > 0 {
 		for _, msg := range m.Links {
-			dAtA[i] = 0x12
+			dAtA[i] = 0x1a
 			i++
 			i = encodeVarintBundledMessages(dAtA, i, uint64(msg.Size()))
 			n, err := msg.MarshalTo(dAtA[i:])
@@ -936,15 +1327,72 @@ func (m *PersonEntity) MarshalTo(dAtA []byte) (int, error) {
 			i += n
 		}
 	}
+	if len(m.Entities) > 0 {
+		for _, msg := range m.Entities {
+			dAtA[i] = 0x22
+			i++
+			i = encodeVarintBundledMessages(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return i, nil
+}
+
+func (m *TaskCollection) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *TaskCollection) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
 	if m.Meta != nil {
-		dAtA[i] = 0x1a
+		dAtA[i] = 0x12
 		i++
 		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Meta.Size()))
-		n4, err := m.Meta.MarshalTo(dAtA[i:])
+		n7, err := m.Meta.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n4
+		i += n7
+	}
+	if len(m.Links) > 0 {
+		for _, msg := range m.Links {
+			dAtA[i] = 0x1a
+			i++
+			i = encodeVarintBundledMessages(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
+		}
+	}
+	if len(m.Entities) > 0 {
+		for _, msg := range m.Entities {
+			dAtA[i] = 0x22
+			i++
+			i = encodeVarintBundledMessages(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
+		}
 	}
 	if m.XXX_unrecognized != nil {
 		i += copy(dAtA[i:], m.XXX_unrecognized)
@@ -1027,11 +1475,11 @@ func (m *Treeitem) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x4a
 		i++
 		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Link.Size()))
-		n5, err := m.Link.MarshalTo(dAtA[i:])
+		n8, err := m.Link.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n5
+		i += n8
 	}
 	if len(m.Children) > 0 {
 		for _, msg := range m.Children {
@@ -1087,21 +1535,182 @@ func (m *Task) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x22
 		i++
 		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Owner.Size()))
-		n6, err := m.Owner.MarshalTo(dAtA[i:])
+		n9, err := m.Owner.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n6
+		i += n9
 	}
 	if m.Subtasks != nil {
 		dAtA[i] = 0x2a
 		i++
 		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Subtasks.Size()))
-		n7, err := m.Subtasks.MarshalTo(dAtA[i:])
+		n10, err := m.Subtasks.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n7
+		i += n10
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return i, nil
+}
+
+func (m *ProjectCollection) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *ProjectCollection) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if m.Meta != nil {
+		dAtA[i] = 0x12
+		i++
+		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Meta.Size()))
+		n11, err := m.Meta.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n11
+	}
+	if len(m.Links) > 0 {
+		for _, msg := range m.Links {
+			dAtA[i] = 0x1a
+			i++
+			i = encodeVarintBundledMessages(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
+		}
+	}
+	if len(m.Entities) > 0 {
+		for _, msg := range m.Entities {
+			dAtA[i] = 0x22
+			i++
+			i = encodeVarintBundledMessages(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return i, nil
+}
+
+func (m *ProjectEntity) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *ProjectEntity) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if m.Data != nil {
+		dAtA[i] = 0xa
+		i++
+		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Data.Size()))
+		n12, err := m.Data.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n12
+	}
+	if len(m.Links) > 0 {
+		for _, msg := range m.Links {
+			dAtA[i] = 0x12
+			i++
+			i = encodeVarintBundledMessages(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
+		}
+	}
+	if m.Meta != nil {
+		dAtA[i] = 0x1a
+		i++
+		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Meta.Size()))
+		n13, err := m.Meta.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n13
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return i, nil
+}
+
+func (m *PersonEntity) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *PersonEntity) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if m.Data != nil {
+		dAtA[i] = 0xa
+		i++
+		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Data.Size()))
+		n14, err := m.Data.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n14
+	}
+	if len(m.Links) > 0 {
+		for _, msg := range m.Links {
+			dAtA[i] = 0x12
+			i++
+			i = encodeVarintBundledMessages(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
+		}
+	}
+	if m.Meta != nil {
+		dAtA[i] = 0x1a
+		i++
+		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Meta.Size()))
+		n15, err := m.Meta.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n15
 	}
 	if m.XXX_unrecognized != nil {
 		i += copy(dAtA[i:], m.XXX_unrecognized)
@@ -1134,21 +1743,21 @@ func (m *Project) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintBundledMessages(dAtA, i, uint64(m.Start.Size()))
-		n8, err := m.Start.MarshalTo(dAtA[i:])
+		n16, err := m.Start.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n8
+		i += n16
 	}
 	if m.End != nil {
 		dAtA[i] = 0x1a
 		i++
 		i = encodeVarintBundledMessages(dAtA, i, uint64(m.End.Size()))
-		n9, err := m.End.MarshalTo(dAtA[i:])
+		n17, err := m.End.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n9
+		i += n17
 	}
 	if len(m.Description) > 0 {
 		dAtA[i] = 0x22
@@ -1172,11 +1781,11 @@ func (m *Project) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x32
 		i++
 		i = encodeVarintBundledMessages(dAtA, i, uint64(m.CostLimit.Size()))
-		n10, err := m.CostLimit.MarshalTo(dAtA[i:])
+		n18, err := m.CostLimit.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
-		i += n10
+		i += n18
 	}
 	if m.XXX_unrecognized != nil {
 		i += copy(dAtA[i:], m.XXX_unrecognized)
@@ -1243,14 +1852,14 @@ func (m *Tree) Size() (n int) {
 	return n
 }
 
-func (m *PersonCollection) Size() (n int) {
+func (m *TreeEntity) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	if m.Meta != nil {
-		l = m.Meta.Size()
+	if m.Data != nil {
+		l = m.Data.Size()
 		n += 1 + l + sovBundledMessages(uint64(l))
 	}
 	if len(m.Links) > 0 {
@@ -1259,11 +1868,35 @@ func (m *PersonCollection) Size() (n int) {
 			n += 1 + l + sovBundledMessages(uint64(l))
 		}
 	}
-	if len(m.Entities) > 0 {
-		for _, e := range m.Entities {
+	if m.Meta != nil {
+		l = m.Meta.Size()
+		n += 1 + l + sovBundledMessages(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *TaskEntity) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Data != nil {
+		l = m.Data.Size()
+		n += 1 + l + sovBundledMessages(uint64(l))
+	}
+	if len(m.Links) > 0 {
+		for _, e := range m.Links {
 			l = e.Size()
 			n += 1 + l + sovBundledMessages(uint64(l))
 		}
+	}
+	if m.Meta != nil {
+		l = m.Meta.Size()
+		n += 1 + l + sovBundledMessages(uint64(l))
 	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
@@ -1305,14 +1938,14 @@ func (m *Person) Size() (n int) {
 	return n
 }
 
-func (m *PersonEntity) Size() (n int) {
+func (m *PersonCollection) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	if m.Data != nil {
-		l = m.Data.Size()
+	if m.Meta != nil {
+		l = m.Meta.Size()
 		n += 1 + l + sovBundledMessages(uint64(l))
 	}
 	if len(m.Links) > 0 {
@@ -1321,9 +1954,39 @@ func (m *PersonEntity) Size() (n int) {
 			n += 1 + l + sovBundledMessages(uint64(l))
 		}
 	}
+	if len(m.Entities) > 0 {
+		for _, e := range m.Entities {
+			l = e.Size()
+			n += 1 + l + sovBundledMessages(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *TaskCollection) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
 	if m.Meta != nil {
 		l = m.Meta.Size()
 		n += 1 + l + sovBundledMessages(uint64(l))
+	}
+	if len(m.Links) > 0 {
+		for _, e := range m.Links {
+			l = e.Size()
+			n += 1 + l + sovBundledMessages(uint64(l))
+		}
+	}
+	if len(m.Entities) > 0 {
+		for _, e := range m.Entities {
+			l = e.Size()
+			n += 1 + l + sovBundledMessages(uint64(l))
+		}
 	}
 	if m.XXX_unrecognized != nil {
 		n += len(m.XXX_unrecognized)
@@ -1406,6 +2069,86 @@ func (m *Task) Size() (n int) {
 	}
 	if m.Subtasks != nil {
 		l = m.Subtasks.Size()
+		n += 1 + l + sovBundledMessages(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *ProjectCollection) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Meta != nil {
+		l = m.Meta.Size()
+		n += 1 + l + sovBundledMessages(uint64(l))
+	}
+	if len(m.Links) > 0 {
+		for _, e := range m.Links {
+			l = e.Size()
+			n += 1 + l + sovBundledMessages(uint64(l))
+		}
+	}
+	if len(m.Entities) > 0 {
+		for _, e := range m.Entities {
+			l = e.Size()
+			n += 1 + l + sovBundledMessages(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *ProjectEntity) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Data != nil {
+		l = m.Data.Size()
+		n += 1 + l + sovBundledMessages(uint64(l))
+	}
+	if len(m.Links) > 0 {
+		for _, e := range m.Links {
+			l = e.Size()
+			n += 1 + l + sovBundledMessages(uint64(l))
+		}
+	}
+	if m.Meta != nil {
+		l = m.Meta.Size()
+		n += 1 + l + sovBundledMessages(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *PersonEntity) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Data != nil {
+		l = m.Data.Size()
+		n += 1 + l + sovBundledMessages(uint64(l))
+	}
+	if len(m.Links) > 0 {
+		for _, e := range m.Links {
+			l = e.Size()
+			n += 1 + l + sovBundledMessages(uint64(l))
+		}
+	}
+	if m.Meta != nil {
+		l = m.Meta.Size()
 		n += 1 + l + sovBundledMessages(uint64(l))
 	}
 	if m.XXX_unrecognized != nil {
@@ -1792,7 +2535,7 @@ func (m *Tree) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *PersonCollection) Unmarshal(dAtA []byte) error {
+func (m *TreeEntity) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1815,13 +2558,77 @@ func (m *PersonCollection) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: PersonCollection: wiretype end group for non-group")
+			return fmt.Errorf("proto: TreeEntity: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: PersonCollection: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: TreeEntity: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Data", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Data == nil {
+				m.Data = &Tree{}
+			}
+			if err := m.Data.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
 		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Links", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Links = append(m.Links, &_type.Link{})
+			if err := m.Links[len(m.Links)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Meta", wireType)
 			}
@@ -1854,7 +2661,91 @@ func (m *PersonCollection) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 3:
+		default:
+			iNdEx = preIndex
+			skippy, err := skipBundledMessages(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *TaskEntity) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowBundledMessages
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: TaskEntity: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: TaskEntity: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Data", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Data == nil {
+				m.Data = &Task{}
+			}
+			if err := m.Data.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Links", wireType)
 			}
@@ -1885,9 +2776,9 @@ func (m *PersonCollection) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 4:
+		case 3:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Entities", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Meta", wireType)
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
@@ -1911,8 +2802,10 @@ func (m *PersonCollection) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Entities = append(m.Entities, &Person{})
-			if err := m.Entities[len(m.Entities)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if m.Meta == nil {
+				m.Meta = &_type.Meta{}
+			}
+			if err := m.Meta.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -2134,7 +3027,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *PersonEntity) Unmarshal(dAtA []byte) error {
+func (m *PersonCollection) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -2157,15 +3050,15 @@ func (m *PersonEntity) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: PersonEntity: wiretype end group for non-group")
+			return fmt.Errorf("proto: PersonCollection: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: PersonEntity: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: PersonCollection: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
-		case 1:
+		case 2:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Data", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Meta", wireType)
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
@@ -2189,14 +3082,14 @@ func (m *PersonEntity) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if m.Data == nil {
-				m.Data = &Person{}
+			if m.Meta == nil {
+				m.Meta = &_type.Meta{}
 			}
-			if err := m.Data.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.Meta.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
-		case 2:
+		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Links", wireType)
 			}
@@ -2227,7 +3120,89 @@ func (m *PersonEntity) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 3:
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Entities", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Entities = append(m.Entities, &PersonEntity{})
+			if err := m.Entities[len(m.Entities)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipBundledMessages(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *TaskCollection) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowBundledMessages
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: TaskCollection: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: TaskCollection: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 2:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Meta", wireType)
 			}
@@ -2257,6 +3232,68 @@ func (m *PersonEntity) Unmarshal(dAtA []byte) error {
 				m.Meta = &_type.Meta{}
 			}
 			if err := m.Meta.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Links", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Links = append(m.Links, &_type.Link{})
+			if err := m.Links[len(m.Links)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Entities", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Entities = append(m.Entities, &TaskEntity{})
+			if err := m.Entities[len(m.Entities)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -2805,6 +3842,448 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
+func (m *ProjectCollection) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowBundledMessages
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: ProjectCollection: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: ProjectCollection: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Meta", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Meta == nil {
+				m.Meta = &_type.Meta{}
+			}
+			if err := m.Meta.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Links", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Links = append(m.Links, &_type.Link{})
+			if err := m.Links[len(m.Links)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Entities", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Entities = append(m.Entities, &ProjectEntity{})
+			if err := m.Entities[len(m.Entities)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipBundledMessages(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowBundledMessages
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: ProjectEntity: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: ProjectEntity: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Data", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Data == nil {
+				m.Data = &Project{}
+			}
+			if err := m.Data.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Links", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Links = append(m.Links, &_type.Link{})
+			if err := m.Links[len(m.Links)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Meta", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Meta == nil {
+				m.Meta = &_type.Meta{}
+			}
+			if err := m.Meta.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipBundledMessages(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *PersonEntity) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowBundledMessages
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: PersonEntity: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: PersonEntity: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Data", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Data == nil {
+				m.Data = &Person{}
+			}
+			if err := m.Data.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Links", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Links = append(m.Links, &_type.Link{})
+			if err := m.Links[len(m.Links)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Meta", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowBundledMessages
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Meta == nil {
+				m.Meta = &_type.Meta{}
+			}
+			if err := m.Meta.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipBundledMessages(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthBundledMessages
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
 func (m *Project) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
@@ -3150,54 +4629,59 @@ var (
 )
 
 func init() {
-	proto.RegisterFile("bundled_messages.proto", fileDescriptor_bundled_messages_42a8e7f975a90fe9)
+	proto.RegisterFile("bundled_messages.proto", fileDescriptor_bundled_messages_39dabed9d1454171)
 }
 
-var fileDescriptor_bundled_messages_42a8e7f975a90fe9 = []byte{
-	// 710 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0xcd, 0x4e, 0x1b, 0x3b,
-	0x14, 0xd6, 0x24, 0x33, 0xc9, 0xe4, 0x84, 0xcb, 0xbd, 0xf8, 0x22, 0xae, 0xe1, 0xb6, 0x28, 0x0d,
-	0x42, 0x44, 0x42, 0x4d, 0x54, 0xfa, 0x06, 0x6d, 0xd9, 0x01, 0x42, 0x23, 0xa4, 0x2e, 0x23, 0x27,
-	0x73, 0x20, 0x6e, 0x66, 0xec, 0x91, 0xed, 0x08, 0x65, 0xd9, 0x07, 0xe8, 0xa2, 0xbb, 0xbe, 0x47,
-	0x5f, 0x82, 0x65, 0x1f, 0xa1, 0xe2, 0x39, 0xba, 0xa8, 0x6c, 0x4f, 0x42, 0x80, 0x80, 0xb2, 0xea,
-	0xce, 0xe7, 0xfb, 0x3e, 0xff, 0x9c, 0xef, 0x7c, 0x99, 0xc0, 0xd6, 0x60, 0x22, 0xd2, 0x0c, 0xd3,
-	0x7e, 0x8e, 0x5a, 0xb3, 0x2b, 0xd4, 0xdd, 0x42, 0x49, 0x23, 0x49, 0xe3, 0x72, 0xa2, 0x64, 0xd7,
-	0x4c, 0x0b, 0xdc, 0x79, 0x71, 0x25, 0xe5, 0x55, 0x86, 0x3d, 0x56, 0xf0, 0x1e, 0x13, 0x42, 0x1a,
-	0x66, 0xb8, 0x14, 0xa5, 0x70, 0x67, 0xbb, 0x64, 0x5d, 0x35, 0x98, 0x5c, 0xf6, 0x98, 0x98, 0x96,
-	0xd4, 0x7f, 0x25, 0x65, 0x4f, 0xe9, 0xe5, 0x52, 0xe0, 0x8c, 0xd8, 0x5a, 0x24, 0x52, 0x66, 0xb0,
-	0xc4, 0x37, 0xed, 0xa5, 0xa5, 0x1c, 0x0d, 0x7b, 0x8c, 0x66, 0x5c, 0x8c, 0x3d, 0xda, 0xfe, 0x56,
-	0x81, 0xf0, 0x42, 0x21, 0x92, 0x57, 0xb0, 0x96, 0x72, 0x5d, 0x64, 0x6c, 0xda, 0x17, 0x2c, 0x47,
-	0x1a, 0xb4, 0x82, 0x4e, 0x23, 0x69, 0x96, 0xd8, 0x19, 0xcb, 0x91, 0xac, 0x43, 0x85, 0xa7, 0xb4,
-	0xe2, 0x88, 0x0a, 0x4f, 0xc9, 0x0e, 0xc4, 0x7a, 0x32, 0x30, 0xdc, 0x64, 0x48, 0xab, 0x0e, 0x9d,
-	0xd7, 0xa4, 0x05, 0xcd, 0x14, 0xf5, 0x50, 0xf1, 0xc2, 0x76, 0x49, 0xc3, 0xf2, 0xb4, 0x3b, 0x88,
-	0x6c, 0x42, 0x54, 0x30, 0x81, 0x19, 0x8d, 0x1c, 0xe7, 0x0b, 0x42, 0x20, 0xe4, 0x43, 0x29, 0x68,
-	0xcd, 0x81, 0x6e, 0x4d, 0xfe, 0x87, 0xc6, 0x18, 0xa7, 0xfd, 0x6b, 0xa9, 0x52, 0x4d, 0xeb, 0xfe,
-	0xa2, 0x31, 0x4e, 0x3f, 0xda, 0xda, 0x92, 0x23, 0xa6, 0xfb, 0xa8, 0x94, 0x54, 0x34, 0x6e, 0x05,
-	0x9d, 0x38, 0x89, 0x47, 0x4c, 0x1f, 0xdb, 0xda, 0x9e, 0x26, 0x0b, 0x14, 0xb4, 0xe1, 0x70, 0xb7,
-	0x26, 0x07, 0x10, 0x2a, 0x29, 0x0d, 0x85, 0x56, 0xd0, 0x69, 0x1e, 0xfd, 0xdb, 0x9d, 0x4f, 0xa8,
-	0x6b, 0x7d, 0xe0, 0x06, 0xf3, 0xc4, 0x09, 0xda, 0x5f, 0x02, 0xf8, 0xe7, 0x1c, 0x95, 0x96, 0xe2,
-	0xbd, 0xcc, 0x32, 0x1c, 0xba, 0x57, 0xef, 0x41, 0x68, 0x3d, 0x75, 0x2e, 0x34, 0x8f, 0xfe, 0x5e,
-	0xd8, 0x7d, 0x8a, 0x86, 0x25, 0x8e, 0x24, 0xfb, 0x10, 0x59, 0x8b, 0x35, 0xad, 0xb6, 0xaa, 0x0f,
-	0x54, 0x27, 0x5c, 0x8c, 0x13, 0xcf, 0x92, 0xd7, 0x10, 0xa3, 0x30, 0xdc, 0x70, 0xd4, 0x34, 0x74,
-	0xca, 0x8d, 0x05, 0xa5, 0xbf, 0x3a, 0x99, 0x4b, 0xda, 0x5f, 0x03, 0xa8, 0x79, 0x70, 0x95, 0x61,
-	0x11, 0x08, 0x1d, 0xe5, 0xc7, 0xe5, 0xd6, 0xe4, 0x25, 0xc0, 0x25, 0x57, 0xda, 0xf8, 0x4d, 0x7e,
-	0x64, 0x0d, 0x87, 0xb8, 0x2d, 0xdb, 0x10, 0x17, 0x23, 0x29, 0xb0, 0x2f, 0x54, 0x39, 0xb0, 0xba,
-	0xab, 0xcf, 0x14, 0xd9, 0x82, 0x9a, 0x1e, 0xf3, 0x2c, 0xd3, 0x34, 0x6a, 0x55, 0x3b, 0x8d, 0xa4,
-	0xac, 0xda, 0x9f, 0x03, 0x58, 0xf3, 0x6f, 0x3a, 0xb6, 0xcf, 0x9c, 0x92, 0x7d, 0x08, 0x53, 0x66,
-	0x98, 0x7b, 0xd1, 0xd2, 0x7e, 0x1c, 0x7d, 0xe7, 0x50, 0xe5, 0x59, 0x87, 0x66, 0x6e, 0x57, 0x9f,
-	0x71, 0xbb, 0xfd, 0xbd, 0x02, 0xf1, 0x6c, 0x74, 0x7f, 0x3e, 0xc6, 0xb3, 0xc0, 0x46, 0x4f, 0x05,
-	0xb6, 0xf6, 0x5c, 0x60, 0xeb, 0x4f, 0x04, 0x36, 0x5e, 0x08, 0xec, 0x1e, 0x84, 0xd6, 0x0d, 0x17,
-	0xe2, 0x25, 0x56, 0x39, 0x92, 0xf4, 0x20, 0x1e, 0x8e, 0x78, 0x96, 0x2a, 0x14, 0x14, 0x9c, 0xa7,
-	0x4b, 0x93, 0x3d, 0x17, 0xb5, 0x6f, 0x02, 0x08, 0x2f, 0x98, 0x1e, 0xaf, 0xe2, 0xd8, 0x03, 0x17,
-	0x2a, 0x8f, 0x5d, 0xd8, 0x87, 0x75, 0xd4, 0x86, 0xe7, 0xcc, 0x60, 0xda, 0x37, 0xbc, 0x4c, 0x57,
-	0x94, 0xfc, 0x35, 0x47, 0x2f, 0x78, 0x8e, 0xe4, 0x00, 0x22, 0x79, 0x2d, 0xd0, 0xc7, 0x6b, 0x69,
-	0x3c, 0x3c, 0x4f, 0x0e, 0xfd, 0x4c, 0x98, 0x1e, 0x6b, 0xe7, 0xec, 0xfd, 0xbe, 0xed, 0xbb, 0x93,
-	0xb9, 0xa0, 0xfd, 0x2b, 0x80, 0xfa, 0xb9, 0x92, 0x9f, 0x70, 0x68, 0x56, 0xe9, 0xe6, 0x00, 0x22,
-	0x6d, 0x98, 0x32, 0xe5, 0x6f, 0x78, 0xa3, 0xeb, 0x3f, 0xa3, 0xfe, 0xe8, 0x0f, 0xcc, 0x60, 0xe2,
-	0x79, 0xb2, 0x07, 0x55, 0x14, 0x69, 0x19, 0xbe, 0x25, 0x32, 0xcb, 0xae, 0x90, 0x90, 0x43, 0xa8,
-	0xe7, 0x98, 0x0f, 0x50, 0xf9, 0x1f, 0xcf, 0xd2, 0xb6, 0x67, 0x0a, 0xf2, 0x06, 0x60, 0x28, 0xb5,
-	0xe9, 0x67, 0x3c, 0xe7, 0xc6, 0x65, 0xa7, 0x79, 0x44, 0xee, 0x5d, 0x7d, 0x6a, 0xff, 0x01, 0x92,
-	0x86, 0x55, 0x9d, 0x58, 0xd1, 0xbb, 0xb5, 0x9b, 0xdb, 0xdd, 0xe0, 0xc7, 0xed, 0x6e, 0xf0, 0xf3,
-	0x76, 0x37, 0x18, 0xd4, 0xdc, 0x77, 0xfd, 0xed, 0xef, 0x00, 0x00, 0x00, 0xff, 0xff, 0xba, 0x87,
-	0xcd, 0x28, 0x92, 0x06, 0x00, 0x00,
+var fileDescriptor_bundled_messages_39dabed9d1454171 = []byte{
+	// 799 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x56, 0xc1, 0x6e, 0xdb, 0x46,
+	0x10, 0x05, 0x29, 0x52, 0xa2, 0x46, 0x8e, 0x5b, 0x6f, 0x53, 0x87, 0x71, 0x5b, 0x43, 0x95, 0xe1,
+	0x5a, 0x40, 0x00, 0x09, 0x71, 0xfa, 0x05, 0x6d, 0x73, 0x4b, 0x82, 0x80, 0x08, 0xd0, 0xa3, 0xb0,
+	0x12, 0xc7, 0xd6, 0x96, 0xe4, 0x2e, 0xb1, 0xbb, 0x42, 0xa0, 0x43, 0x0f, 0x45, 0x3f, 0xa0, 0x28,
+	0x8a, 0x02, 0xfd, 0x8f, 0xfe, 0x84, 0x8f, 0xfd, 0x84, 0xc2, 0xdf, 0xd1, 0x43, 0xb1, 0xbb, 0x94,
+	0x2c, 0x89, 0xb2, 0xab, 0x43, 0x95, 0x1b, 0x67, 0xde, 0xe3, 0xce, 0xf0, 0xcd, 0xbc, 0x95, 0xe0,
+	0x78, 0x3c, 0xe3, 0x69, 0x8e, 0xe9, 0xa8, 0x40, 0xa5, 0xe8, 0x35, 0xaa, 0x41, 0x29, 0x85, 0x16,
+	0xa4, 0x7d, 0x35, 0x93, 0x62, 0xa0, 0xe7, 0x25, 0x9e, 0x7c, 0x7e, 0x2d, 0xc4, 0x75, 0x8e, 0x43,
+	0x5a, 0xb2, 0x21, 0xe5, 0x5c, 0x68, 0xaa, 0x99, 0xe0, 0x15, 0xf1, 0xe4, 0x69, 0x85, 0xda, 0x68,
+	0x3c, 0xbb, 0x1a, 0x52, 0x3e, 0xaf, 0xa0, 0x27, 0x15, 0x64, 0x4e, 0x19, 0x16, 0x82, 0xe3, 0x02,
+	0x38, 0x5e, 0x05, 0x52, 0xaa, 0xb1, 0xca, 0x3f, 0x36, 0x45, 0x2b, 0x3a, 0x6a, 0x5a, 0xcf, 0xe6,
+	0x8c, 0x67, 0x2e, 0xdb, 0xfb, 0xc3, 0x87, 0xe0, 0x9d, 0x44, 0x24, 0x5f, 0xc2, 0x41, 0xca, 0x54,
+	0x99, 0xd3, 0xf9, 0x88, 0xd3, 0x02, 0x63, 0xaf, 0xeb, 0xf5, 0xdb, 0x49, 0xa7, 0xca, 0xbd, 0xa1,
+	0x05, 0x92, 0x43, 0xf0, 0x59, 0x1a, 0xfb, 0x16, 0xf0, 0x59, 0x4a, 0x4e, 0x20, 0x52, 0xb3, 0xb1,
+	0x66, 0x3a, 0xc7, 0xb8, 0x61, 0xb3, 0xcb, 0x98, 0x74, 0xa1, 0x93, 0xa2, 0x9a, 0x48, 0x56, 0x9a,
+	0xaf, 0x8c, 0x83, 0xea, 0xb4, 0xbb, 0x14, 0x79, 0x0c, 0x61, 0x49, 0x39, 0xe6, 0x71, 0x68, 0x31,
+	0x17, 0x10, 0x02, 0x01, 0x9b, 0x08, 0x1e, 0x37, 0x6d, 0xd2, 0x3e, 0x93, 0xcf, 0xa0, 0x9d, 0xe1,
+	0x7c, 0xf4, 0x5e, 0xc8, 0x54, 0xc5, 0x2d, 0x57, 0x28, 0xc3, 0xf9, 0xf7, 0x26, 0x36, 0xe0, 0x94,
+	0xaa, 0x11, 0x4a, 0x29, 0x64, 0x1c, 0x75, 0xbd, 0x7e, 0x94, 0x44, 0x53, 0xaa, 0x5e, 0x9a, 0xd8,
+	0x9c, 0x26, 0x4a, 0xe4, 0x71, 0xdb, 0xe6, 0xed, 0x33, 0xb9, 0x80, 0x40, 0x0a, 0xa1, 0x63, 0xe8,
+	0x7a, 0xfd, 0xce, 0xe5, 0x27, 0x83, 0xe5, 0x84, 0x06, 0x46, 0x07, 0xa6, 0xb1, 0x48, 0x2c, 0xa1,
+	0xf7, 0x23, 0x80, 0xc9, 0xbc, 0xe4, 0x9a, 0xe9, 0x39, 0x39, 0x83, 0x20, 0xa5, 0x9a, 0x5a, 0x5d,
+	0x3a, 0x97, 0x1f, 0x6d, 0xbc, 0x96, 0x58, 0x90, 0x9c, 0x43, 0x68, 0xb4, 0x55, 0xb1, 0xdf, 0x6d,
+	0x6c, 0xb0, 0x5e, 0x31, 0x9e, 0x25, 0x0e, 0x35, 0x67, 0x99, 0xc1, 0x58, 0xd1, 0xd6, 0x59, 0xaf,
+	0x51, 0xd3, 0xc4, 0x82, 0xb6, 0x3c, 0x55, 0xd9, 0x7f, 0x97, 0xa7, 0x2a, 0xdb, 0x43, 0xf9, 0x5f,
+	0x3d, 0x68, 0xbe, 0x45, 0xa9, 0x04, 0xdf, 0x65, 0x35, 0x08, 0x04, 0x16, 0x72, 0xcb, 0x61, 0x9f,
+	0xc9, 0x17, 0x00, 0x57, 0x4c, 0x2a, 0xed, 0x5e, 0x72, 0x0b, 0xd2, 0xb6, 0x19, 0xfb, 0xca, 0x53,
+	0x88, 0xca, 0xa9, 0xe0, 0x38, 0xe2, 0xb2, 0x5a, 0x8f, 0x96, 0x8d, 0xdf, 0x48, 0x72, 0x0c, 0x4d,
+	0x95, 0xb1, 0x3c, 0x57, 0x71, 0xd8, 0x6d, 0xf4, 0xdb, 0x49, 0x15, 0xf5, 0x7e, 0xf3, 0xe0, 0x63,
+	0xd7, 0xd3, 0xb7, 0x22, 0xcf, 0x71, 0x62, 0xf7, 0x68, 0xf1, 0x35, 0xfe, 0x03, 0x5f, 0x73, 0xa7,
+	0x4c, 0xe3, 0x41, 0x65, 0x5e, 0x40, 0x84, 0x46, 0x6f, 0x86, 0x2a, 0x0e, 0x2c, 0xf3, 0xc9, 0x0a,
+	0xd3, 0x95, 0x76, 0x03, 0x49, 0x96, 0xc4, 0xde, 0x2f, 0x1e, 0x1c, 0x9a, 0x21, 0xec, 0xa9, 0xa7,
+	0xe7, 0xb5, 0x9e, 0x3e, 0xdd, 0x98, 0x7e, 0xad, 0xa3, 0x3f, 0x7d, 0x88, 0x16, 0xcb, 0xfc, 0xe1,
+	0x8d, 0xbd, 0xb0, 0x70, 0x78, 0x9f, 0x85, 0x9b, 0x0f, 0x59, 0xb8, 0x75, 0x8f, 0x85, 0xa3, 0x15,
+	0x0b, 0x9f, 0x41, 0x60, 0xb4, 0xb1, 0xb6, 0xde, 0x22, 0x9c, 0x05, 0xc9, 0x10, 0xa2, 0xc9, 0x94,
+	0xe5, 0xa9, 0x44, 0x1e, 0x83, 0xd5, 0x6d, 0xab, 0xd7, 0x97, 0xa4, 0xde, 0x8d, 0x07, 0x81, 0x91,
+	0x73, 0x17, 0xc5, 0x36, 0x54, 0xf0, 0xeb, 0x2a, 0x9c, 0xc3, 0x21, 0x2a, 0xcd, 0x0a, 0xaa, 0x31,
+	0x1d, 0x69, 0x56, 0x39, 0x20, 0x4c, 0x1e, 0x2d, 0xb3, 0xef, 0x58, 0x81, 0xe4, 0x02, 0x42, 0xf1,
+	0x9e, 0xa3, 0xb3, 0x40, 0xe7, 0xf2, 0xa8, 0xb6, 0x6e, 0x89, 0xc3, 0xc9, 0x33, 0x37, 0x13, 0xaa,
+	0x32, 0x65, 0x95, 0xdd, 0x72, 0x09, 0x2c, 0x09, 0xbd, 0xdf, 0x3d, 0x38, 0x7a, 0x2b, 0xc5, 0x0f,
+	0x38, 0xd1, 0x7b, 0xda, 0xca, 0xaf, 0x6b, 0x5b, 0x19, 0xaf, 0xb6, 0xee, 0x6a, 0xd7, 0x16, 0xf3,
+	0x67, 0x0f, 0x1e, 0xad, 0x61, 0xe4, 0xab, 0xb5, 0x7b, 0x8d, 0xd4, 0xcf, 0xd8, 0xc3, 0xd5, 0xf6,
+	0x93, 0x07, 0x07, 0xab, 0x5e, 0x26, 0xe7, 0x6b, 0x4d, 0x6c, 0x99, 0xc1, 0xff, 0xdf, 0xc3, 0x3f,
+	0x1e, 0xb4, 0xaa, 0x2f, 0xdc, 0x65, 0xdf, 0x2e, 0x20, 0x54, 0x9a, 0x4a, 0x5d, 0xcd, 0xee, 0x68,
+	0xe0, 0x7e, 0xfa, 0xdd, 0xb1, 0xdf, 0x51, 0x8d, 0x89, 0xc3, 0xc9, 0x19, 0x34, 0x90, 0xa7, 0x55,
+	0xed, 0x2d, 0x34, 0x83, 0xee, 0xe0, 0xe1, 0x67, 0xd0, 0x2a, 0xb0, 0x18, 0xa3, 0x74, 0x57, 0xf0,
+	0x56, 0x51, 0x16, 0x0c, 0xf2, 0x1c, 0x60, 0x22, 0x94, 0x1e, 0xe5, 0xac, 0x60, 0xda, 0xba, 0xdb,
+	0x4c, 0x72, 0xb5, 0xf4, 0x6b, 0xf3, 0xaf, 0x25, 0x69, 0x1b, 0xd6, 0x2b, 0x43, 0xfa, 0xe6, 0xe0,
+	0xe6, 0xf6, 0xd4, 0xfb, 0xeb, 0xf6, 0xd4, 0xfb, 0xfb, 0xf6, 0xd4, 0x1b, 0x37, 0xed, 0x7f, 0x91,
+	0x17, 0xff, 0x06, 0x00, 0x00, 0xff, 0xff, 0x5d, 0x5f, 0xee, 0x1b, 0x46, 0x09, 0x00, 0x00,
 }
