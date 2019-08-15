@@ -2366,7 +2366,7 @@ return Theme.getThemeForComponent(this.name)||css`
                 text-decoration: none;
                 line-height: 26px;
                 vertical-align: unset;
-                display: flex;
+                
                 align-content: start;
                 font-weight: 500;
                 color: var(--accent);
@@ -2441,7 +2441,7 @@ return html`
             <div class="content">
                 <p class="hero-title">フロー</p>
                 <p class="hero-caption">Version 0.xx.xx</p>
-                <p class="hero-caption">A enterprise grade and simple framework for creating fast, lightweight web apps
+                <p class="hero-caption">An enterprise grade and simple framework for creating fast, lightweight web apps
                     with web components</p>
                 <a class="hero-link" href="/guide/md/overview/">Get Started</a>
 
@@ -10305,19 +10305,19 @@ return html`
             </furo-horizontal-flex>
         `}static get properties(){return{/**
        * The label for the input row
-       */label:{type:String}}}}window.customElements.define("furo-input-row",FuroInputRow);class FuroFormLayouter extends FBP(LitElement){constructor(){super();this.narrow=!1;this.narrower=!1;this.breakpoints="";const ro=new ResizeObserver(entries=>{for(let entry of entries){if(entry.contentRect&&810>entry.contentRect.width&&405<entry.contentRect.width){this.setAttribute("narrow","");this.removeAttribute("narrower")}else if(entry.contentRect&&405>entry.contentRect.width){this.setAttribute("narrower","");this.removeAttribute("narrow")}else{this.removeAttribute("narrow");this.removeAttribute("narrower")}}});ro.observe(this)}/**
+       */label:{type:String}}}}window.customElements.define("furo-input-row",FuroInputRow);class FuroFormLayouter extends FBP(LitElement){constructor(){super();this.narrow=!1;this.narrower=!1;this.breakpointBig=810;this.breakpointSmall=405;const ro=new ResizeObserver(entries=>{for(let entry of entries){if(entry.contentRect&&0<entry.contentRect.width&&entry.contentRect.width<this.breakpointBig&&entry.contentRect.width>this.breakpointSmall){this.setAttribute("narrow","");this.narrow=!0;this.removeAttribute("narrower");this.narrower=!1;this._fireResize()}else if(entry.contentRect&&0<entry.contentRect.width&&entry.contentRect.width<this.breakpointSmall){this.setAttribute("narrower","");this.narrower=!0;this.removeAttribute("narrow");this.narrow=!1;this._fireResize()}else{this.removeAttribute("narrow");this.removeAttribute("narrower");this.narrow=this.narrower=!1}}});ro.observe(this)}_fireResize(){this.dispatchEvent(new CustomEvent("layout-changed",{detail:this,bubbles:!0,composed:!0}))}/**
      * flow is ready lifecycle method
-     */__fbpReady(){super.__fbpReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
 }static get properties(){return{/**
        * Set custom breakpoints max. two values
        * Default: "810,405"
-       */breakpoints:{type:String},/**
-       * Set narrow attribute to force
-       * a
-       */narrow:{type:Boolean,reflect:!0},/**
-       * Set narrower attribute to force
-       * 1 column view
-       */narrower:{type:Boolean,reflect:!0}}}static get styles(){// language=CSS
+       */breakpointBig:{type:String,attribute:"breakpoint-big",reflect:!0},breakpointSmall:{type:String,attribute:"breakpoint-small",reflect:!0},/**
+       * Set narrow-fix attribute to force
+       * the layout analog to breakpoint big
+       */narrowFix:{type:Boolean,attribute:"narrow-fix",reflect:!0},/**
+       * Set narrower-fix attribute to force
+       * 1 column view (analog breakpoint small)
+       */narrowerFix:{type:Boolean,attribute:"narrower-fix",reflect:!0}}}static get styles(){// language=CSS
 return Theme.getThemeForComponent(this.name)||css`
             :host {
                 display: grid;
@@ -10352,11 +10352,30 @@ return Theme.getThemeForComponent(this.name)||css`
                 grid-template-columns: repeat(1, 1fr);
             }
 
+            :host([narrow-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            :host([four][narrow-fix]) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            :host([four][narrower-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            :host([narrower-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
             ::slotted(*) {
                 width: 100%;
             }
 
-        `}render(){// language=HTML
+        `}/**
+     * @private
+     * @returns {TemplateResult | TemplateResult}
+     */render(){// language=HTML
 return html`
             <slot></slot>
         `}}window.customElements.define("furo-form-layouter",FuroFormLayouter);class FuroButton extends FBP(LitElement){constructor(){super();this.label="label not set";this.disabled=!1;this.danger=!1}/**
