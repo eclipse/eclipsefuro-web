@@ -1,7 +1,7 @@
 {
   "name": "person_service",
-  "description": "person service",
-  "version": "1.0.0",
+  "description": "service specs for the person api",
+  "version": "0.0.1",
   "lifecycle": {
     "deprecated": false,
     "info": "This version is still valid"
@@ -11,21 +11,19 @@
     "imports": [
       "person.proto",
       "person_entity.proto",
-      "person_collection.proto",
-      "furo/type/link.proto",
-      "furo/type/meta.proto"
+      "person_collection.proto"
     ]
   },
   "services": {
     "List": {
-      "description": "Get a collection with PersonEntities",
+      "description": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
       "data": {
         "request": null,
         "response": "PersonCollection"
       },
       "query": {
         "q": {
-          "description": "Query term to search a member",
+          "description": "Query term to search a person",
           "type": "string",
           "meta": {
             "label": "Search",
@@ -43,7 +41,7 @@
       }
     },
     "Create": {
-      "description": "Creates a person",
+      "description": "Creates a new Person",
       "data": {
         "request": "Person",
         "response": "PersonEntity"
@@ -57,44 +55,42 @@
       }
     },
     "Get": {
-      "description": "Get a PersonEntity",
+      "description": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
       "data": {
-        "request": null,
+        "request": "google.protobuf.Empty",
         "response": "PersonEntity"
       },
       "query": {
       },
       "deeplink": {
         "rel": "self",
-        "href": "/api/persons/{prs}",
+        "href": "/api/persons/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
         "method": "GET"
       }
     },
     "Update": {
-      "description": "Delete a Person",
+      "description": "Updates a Person, partial updates are supported",
       "data": {
-        "request": null,
+        "request": "Person",
         "response": "PersonEntity"
       },
-      "query": {
-      },
+      "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/api/persons/{prs}",
+        "href": "/api/persons/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
         "method": "PATCH"
       }
     },
     "Delete": {
       "description": "Delete a Person",
       "data": {
-        "request": null,
-        "response": null
+        "request": "google.protobuf.Empty",
+        "response": "google.protobuf.Empty"
       },
-      "query": {
-      },
+      "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/api/persons/{prs}",
+        "href": "/api/persons/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
         "method": "DELETE"
       }
     }

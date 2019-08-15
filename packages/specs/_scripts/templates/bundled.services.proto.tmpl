@@ -5,7 +5,7 @@ syntax = "proto3";
 package furo.type;
 import "google/api/annotations.proto";
 import "bundled_messages.proto";
-
+import "google/protobuf/empty.proto";
 {{range $import := .__proto.imports}}
 import "{{$import}}";{{end}}
 

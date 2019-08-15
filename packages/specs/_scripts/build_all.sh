@@ -17,7 +17,7 @@ rm -rf build/*
 ./_scripts/prepare.sh $PACKAGEBUNDLENAME
 ./_scripts/generateSingleFiles.sh
 ./_scripts/generateBundledFiles.sh
-./_scripts/makeEnvFile.js
+./_scripts/generateClientEnviroment.js
 ./_scripts/genswagger.sh
 
 
