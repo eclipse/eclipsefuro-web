@@ -8,6 +8,8 @@ import "google/type/date.proto";
 import "furo/type/meta.proto";
 import "furo/type/link.proto";
 
+{{range $import := .__proto.imports}}
+import "{{$import}}";{{end}}
 
 {{range $objType := .types}}
 // {{$objType.description}}

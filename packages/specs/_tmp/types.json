@@ -1,10 +1,154 @@
-{"types":[
+{"bundlepackage":"default", "types":[
+{
+  "name": "Tree",
+  "type": "Tree",
+  "description": "Singletonresource of the navigationtree",
+  "__proto": {
+    "package": "tree",
+    "imports": ["treeitem.proto"]
+  },
+  "fields": {
+    "display_name": {
+      "description": "String representation of the node",
+      "type": "string",
+      "meta": {
+        "readonly": true,
+        "tree-searcb-index": true
+      },
+      "__proto": {
+        "number": 1
+      }
+    },
+    "id": {
+      "description": "Id of the node",
+      "type": "string",
+      "__proto": {
+        "number": 2
+      }
+    },
+    "subtitle": {
+      "description": "subtitle of the node",
+      "type": "string",
+      "meta": {
+        "tree-searcb-index": true
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
+    "description": {
+      "description": "description of the node",
+      "meta": {
+        "tree-searcb-index": true
+      },
+      "type": "string",
+      "__proto": {
+        "number": 4
+      }
+    },
+    "panel": {
+      "description": "Indicator which panel type is loaded",
+      "type": "string",
+      "meta": {
+        "readonly": true,
+        "tree-searcb-index": false
+      },
+      "__proto": {
+        "number": 5
+      }
+    },
+    "icon": {
+      "description": "icon of the node",
+      "type": "string",
+      "__proto": {
+        "number": 6
+      }
+    },
+    "key_words": {
+      "description": "key words of the node",
+      "meta": {
+        "tree-searcb-index": true
+      },
+      "type": "string",
+      "__proto": {
+        "number": 7
+      }
+    },
+    "has_error": {
+      "description": "if node has error",
+      "type": "bool",
+      "__proto": {
+        "number": 8
+      }
+    },
+    "open": {
+      "description": "node open or not",
+      "type": "bool",
+      "__proto": {
+        "number": 9
+      }
+    },
+    "root": {
+      "description": "Rootnode of the tree",
+      "type": "Treeitem",
+      "meta": {},
+      "__proto": {
+        "number": 10
+      }
+    }
+
+  }
+}
+,
+{
+  "name": "PersonCollection",
+  "type": "PersonCollection",
+  "description": "PersonCollection with repeated PersonEntity inside",
+  "__proto": {
+    "package": "person",
+    "imports": [
+      "furo/type/meta.proto",
+      "furo/type/link.proto",
+      "person.proto"
+    ]
+  },
+  "fields": {
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.type.Meta",
+      "__proto": {
+        "number": 2
+      }
+    },
+    "links": {
+      "description": "Hateoas links",
+      "type": "furo.type.Link",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
+    "entities": {
+      "description": "person entities",
+      "type": "Person",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 4
+      }
+    }
+  }
+}
+,
 {
   "name": "Person",
   "type": "Person",
   "description": "Person message type",
   "__proto": {
-    "package": "furo.demo",
+    "package": "person",
     "imports": []
   },
   "fields": {
@@ -84,54 +228,11 @@
 }
 ,
 {
-  "name": "PersonCollection",
-  "type": "PersonCollection",
-  "description": "Collection with persons inside",
-  "__proto": {
-    "package": "furo.demo",
-    "imports": [
-      "furo/type/meta.proto",
-      "furo/type/link.proto",
-      "person.proto"
-    ]
-  },
-  "fields": {
-    "meta": {
-      "description": "Meta for the response",
-      "type": "furo.type.Meta",
-      "__proto": {
-        "number": 2
-      }
-    },
-    "links": {
-      "description": "Hateoas links",
-      "type": "furo.type.Link",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 3
-      }
-    },
-    "entities": {
-      "description": "person entities",
-      "type": "Person",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 4
-      }
-    }
-  }
-}
-,
-{
   "name": "PersonEntity",
   "type": "PersonEntity",
-  "description": "Person with hateoas",
+  "description": "PersonEntity with Person",
   "__proto": {
-    "package": "furo.demo",
+    "package": "person",
     "imports": [
       "person.proto",
       "furo/type/meta.proto",
@@ -165,11 +266,197 @@
 }
 ,
 {
+  "name": "Treeitem",
+  "type": "Treeitem",
+  "description": "Item of the navigationtree",
+  "__proto": {
+    "package": "tree",
+    "imports": ["furo/type/link.proto"]
+  },
+  "fields": {
+    "display_name": {
+      "description": "String representation of the node",
+      "type": "string",
+      "meta": {
+        "readonly": true,
+        "tree-searcb-index": true
+      },
+      "__proto": {
+        "number": 1
+      }
+    },
+    "id": {
+      "description": "Id of the node",
+      "type": "string",
+      "__proto": {
+        "number": 2
+      }
+    },
+    "subtitle": {
+      "description": "subtitle of the node",
+      "type": "string",
+      "meta": {
+        "tree-searcb-index": true
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
+    "description": {
+      "description": "description of the node",
+      "meta": {
+        "tree-searcb-index": true
+      },
+      "type": "string",
+      "__proto": {
+        "number": 4
+      }
+    },
+    "icon": {
+      "description": "icon of the node",
+      "type": "string",
+      "__proto": {
+        "number": 5
+      }
+    },
+    "key_words": {
+      "description": "key words of the node",
+      "meta": {
+        "tree-searcb-index": true
+      },
+      "type": "string",
+      "__proto": {
+        "number": 6
+      }
+    },
+    "has_error": {
+      "description": "if node has error",
+      "type": "bool",
+      "__proto": {
+        "number": 7
+      }
+    },
+    "open": {
+      "description": "node open or not",
+      "type": "bool",
+      "__proto": {
+        "number": 8
+      }
+    },
+    "link": {
+      "description": "Deeplink information of this node",
+      "type": "furo.type.Link",
+      "__proto": {
+        "number": 9
+      }
+    },
+    "children": {
+      "description": "Children of this node",
+      "type": "Treeitem",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 10
+      }
+    }
+
+  }
+}
+,
+{
+  "name": "Task",
+  "type": "Task",
+  "description": "Task data description",
+  "__proto": {
+    "package": "task",
+    "imports": ["task.proto","person.proto"]
+  },
+  "fields": {
+    "display_name": {
+      "description": "Localized String representation of a task",
+      "type": "string",
+      "meta": {
+        "label": "Task",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 1
+      }
+    },
+    "description": {
+      "description": "Short task description",
+      "type": "string",
+      "meta": {
+        "label": "Description",
+        "default": "",
+        "hint": ""
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 2
+      }
+    },
+    "estimated_time": {
+      "description": "Estimated time in days",
+      "type": "int",
+      "meta": {
+        "label": "Est. days",
+        "default": "",
+        "hint": ""
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 3,
+        "type": "int32"
+      }
+    },
+    "owner": {
+      "description": "Owner of a task",
+      "type": "Person",
+      "meta": {
+        "label": "Owner",
+        "default": "",
+        "hint": ""
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 4,
+        "type": "Person"
+      }
+    },
+    "subtasks": {
+      "description": "List of subtasks",
+      "type": "Task",
+      "meta": {
+        "label": "Subtask",
+        "default": "",
+        "hint": "",
+        "required": true
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 5,
+        "type": "Task"
+      }
+    }
+  }
+}
+,
+{
   "name": "Project",
   "type": "Project",
   "description": "Project description",
   "__proto": {
-    "package": "furo.demo",
+    "package": "project",
     "imports": [
       "google/type/money.proto",
       "google/type/date.proto",
@@ -270,293 +557,6 @@
         "type": "google.type.Money"
       }
     }
-  }
-}
-,
-{
-  "name": "Task",
-  "type": "Task",
-  "description": "Task data description",
-  "__proto": {
-    "package": "furo.demo",
-    "imports": ["task.proto","person.proto"]
-  },
-  "fields": {
-    "display_name": {
-      "description": "Localized String representation of a task",
-      "type": "string",
-      "meta": {
-        "label": "Task",
-        "default": "",
-        "hint": "",
-        "readonly": true
-      },
-      "constraints": {},
-      "options": [],
-      "__proto": {
-        "number": 1
-      }
-    },
-    "description": {
-      "description": "Short task description",
-      "type": "string",
-      "meta": {
-        "label": "Description",
-        "default": "",
-        "hint": ""
-      },
-      "constraints": {},
-      "options": [],
-      "__proto": {
-        "number": 2
-      }
-    },
-    "estimated_time": {
-      "description": "Estimated time in days",
-      "type": "int",
-      "meta": {
-        "label": "Est. days",
-        "default": "",
-        "hint": ""
-      },
-      "constraints": {},
-      "options": [],
-      "__proto": {
-        "number": 3,
-        "type": "int32"
-      }
-    },
-    "owner": {
-      "description": "Owner of a task",
-      "type": "Person",
-      "meta": {
-        "label": "Owner",
-        "default": "",
-        "hint": ""
-      },
-      "constraints": {},
-      "options": [],
-      "__proto": {
-        "number": 4,
-        "type": "Person"
-      }
-    },
-    "subtasks": {
-      "description": "List of subtasks",
-      "type": "Task",
-      "meta": {
-        "label": "Subtask",
-        "default": "",
-        "hint": "",
-        "required": true
-      },
-      "constraints": {},
-      "options": [],
-      "__proto": {
-        "number": 5,
-        "type": "Task"
-      }
-    }
-  }
-}
-,
-{
-  "name": "Tree",
-  "type": "Tree",
-  "description": "Singletonresource of the navigationtree",
-  "__proto": {
-    "package": "furo.demo",
-    "imports": ["treeitem.proto"]
-  },
-  "fields": {
-    "display_name": {
-      "description": "String representation of the node",
-      "type": "string",
-      "meta": {
-        "readonly": true,
-        "tree-searcb-index": true
-      },
-      "__proto": {
-        "number": 1
-      }
-    },
-    "id": {
-      "description": "Id of the node",
-      "type": "string",
-      "__proto": {
-        "number": 2
-      }
-    },
-    "subtitle": {
-      "description": "subtitle of the node",
-      "type": "string",
-      "meta": {
-        "tree-searcb-index": true
-      },
-      "__proto": {
-        "number": 3
-      }
-    },
-    "description": {
-      "description": "description of the node",
-      "meta": {
-        "tree-searcb-index": true
-      },
-      "type": "string",
-      "__proto": {
-        "number": 4
-      }
-    },
-    "panel": {
-      "description": "Indicator which panel type is loaded",
-      "type": "string",
-      "meta": {
-        "readonly": true,
-        "tree-searcb-index": false
-      },
-      "__proto": {
-        "number": 5
-      }
-    },
-    "icon": {
-      "description": "icon of the node",
-      "type": "string",
-      "__proto": {
-        "number": 6
-      }
-    },
-    "key_words": {
-      "description": "key words of the node",
-      "meta": {
-        "tree-searcb-index": true
-      },
-      "type": "string",
-      "__proto": {
-        "number": 7
-      }
-    },
-    "has_error": {
-      "description": "if node has error",
-      "type": "bool",
-      "__proto": {
-        "number": 8
-      }
-    },
-    "open": {
-      "description": "node open or not",
-      "type": "bool",
-      "__proto": {
-        "number": 9
-      }
-    },
-    "root": {
-      "description": "Rootnode of the tree",
-      "type": "Treeitem",
-      "meta": {},
-      "__proto": {
-        "number": 10
-      }
-    }
-
-  }
-}
-,
-{
-  "name": "Treeitem",
-  "type": "Treeitem",
-  "description": "Item of the navigationtree",
-  "__proto": {
-    "package": "furo.demo",
-    "imports": ["furo/type/link.proto"]
-  },
-  "fields": {
-    "display_name": {
-      "description": "String representation of the node",
-      "type": "string",
-      "meta": {
-        "readonly": true,
-        "tree-searcb-index": true
-      },
-      "__proto": {
-        "number": 1
-      }
-    },
-    "id": {
-      "description": "Id of the node",
-      "type": "string",
-      "__proto": {
-        "number": 2
-      }
-    },
-    "subtitle": {
-      "description": "subtitle of the node",
-      "type": "string",
-      "meta": {
-        "tree-searcb-index": true
-      },
-      "__proto": {
-        "number": 3
-      }
-    },
-    "description": {
-      "description": "description of the node",
-      "meta": {
-        "tree-searcb-index": true
-      },
-      "type": "string",
-      "__proto": {
-        "number": 4
-      }
-    },
-    "icon": {
-      "description": "icon of the node",
-      "type": "string",
-      "__proto": {
-        "number": 5
-      }
-    },
-    "key_words": {
-      "description": "key words of the node",
-      "meta": {
-        "tree-searcb-index": true
-      },
-      "type": "string",
-      "__proto": {
-        "number": 6
-      }
-    },
-    "has_error": {
-      "description": "if node has error",
-      "type": "bool",
-      "__proto": {
-        "number": 7
-      }
-    },
-    "open": {
-      "description": "node open or not",
-      "type": "bool",
-      "__proto": {
-        "number": 8
-      }
-    },
-    "link": {
-      "description": "Deeplink information of this node",
-      "type": "furo.type.Link",
-      "__proto": {
-        "number": 9
-      }
-    },
-    "children": {
-      "description": "Children of this node",
-      "type": "Treeitem",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 10
-      }
-    }
-
   }
 }
 

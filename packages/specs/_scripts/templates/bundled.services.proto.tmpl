@@ -2,18 +2,16 @@ syntax = "proto3";
 package furo.type;
 import "google/api/annotations.proto";
 import "bundled_messages.proto";
-import "furo/type/meta.proto";
-import "furo/type/link.proto";
 
 {{range $import := .__proto.imports}}
 import "{{$import}}";{{end}}
 
 {{range $restlet := .services}}
-// {{$restlet.general.description}}
-service {{$restlet.general.name}}Service { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := $restlet.services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
+// {{$restlet.description}}
+service {{$restlet.name}}Service { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := $restlet.services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
     // {{$method.description}}
-    rpc {{$key}}{{$restlet.general.name}} ({{$key}}{{$restlet.general.name}}Request) returns ({{$key}}{{$restlet.general.name}}Response){
+    rpc {{$key}}{{$restlet.name}} ({{$key}}{{$restlet.name}}Request) returns ({{$method.data.response}}){
         option (google.api.http) = {
             {{ lower $method.deeplink.method}}: "{{$method.deeplink.href}}"{{ if $method.data.request}}
             body: "data"{{end}}
@@ -21,7 +19,7 @@ service {{$restlet.general.name}}Service { {{ $rpcDict := dict }} {{ $keyList :=
     }{{end}}
 }
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
-message {{$key}}{{$restlet.general.name}}Request { {{ $params := regexFindAll  "{[a-zA-Z]*}" $method.deeplink.href 10}}{{$reservedIdx := 0}}
+message {{$key}}{{$restlet.name}}Request { {{ $params := regexFindAll  "{[a-zA-Z]*}" $method.deeplink.href 10}}{{$reservedIdx := 0}}
     {{if eq $key "List"}}{{$reservedIdx = 10}}
     //Partielle Repräsentation fields=id,name // {{$reservedIdx}}
     string fields = 1;
@@ -49,9 +47,4 @@ message {{$key}}{{$restlet.general.name}}Request { {{ $params := regexFindAll  "
     string {{$qKey}} = {{ if $method.data.request}}{{if eq $key "List"}}{{ add (len $params) (add 12 $qIndex)}}{{else}}{{ add (len $params) (add 2 $qIndex)}}{{end}}{{else}}{{if eq $key "List"}}{{add (len $params) (add 11 $qIndex)}}{{else}}{{add (len $params) (add1 $qIndex)}}{{end}}{{end}};{{end}}{{end}}
 }
 
-message {{$key}}{{$restlet.general.name}}Response {
-    repeated {{$method.data.response}} data= 1;
-    furo.type.Meta meta = 2;
-    repeated furo.type.Link links = 3;
-}
 {{end}}{{end}}

@@ -11,7 +11,7 @@ let apiSpecs = "";
 let s = {};
 let services = JSON.parse(fs.readFileSync('_tmp/services.json'));
 services.services.forEach((service)=>{
-  s[service.general.name] = service
+  s[service.name] = service
 });
 apiSpecs = `export const Services =` + JSON.stringify(s);
 

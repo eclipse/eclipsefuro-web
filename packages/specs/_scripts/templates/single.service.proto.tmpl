@@ -1,20 +1,57 @@
 syntax = "proto3";
 package {{.__proto.package}};
-import "google/api/annotations.proto";
 
+import "google/api/annotations.proto";
 {{range $import := .__proto.imports}}
 import "{{$import}}";{{end}}
 
-{{range $restlet := .restlets}}{{$serviceName := camelcase $restlet.general.name}}
-// {{$restlet.general.description}}
-service {{$serviceName}}Service { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := $restlet.services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
+
+{{$serviceName := camelcase .name}}
+// {{.description}}
+service {{$serviceName}}Service { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := .services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
     // {{$method.description}}
-    rpc {{$key}}{{$serviceName}} ({{$key}}{{$serviceName}}Request) returns ({{$key}}{{$serviceName}}Response){
+    rpc {{$key}}{{$serviceName}} ({{$key}}{{$serviceName}}Request) returns ({{$method.data.response}}){
         option (google.api.http) = {
             {{ lower $method.deeplink.method}}: "{{$method.deeplink.href}}"{{ if $method.data.request}}
             body: "data"{{end}}
         };
     }{{end}}
+}
+
+
+{{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
+message {{$key}}{{$serviceName}}Request { {{ $params := regexFindAll  "{[a-zA-Z]*}" $method.deeplink.href 10}}{{$reservedIdx := 0}}
+    {{if eq $key "List"}}{{$reservedIdx = 10}}
+    //Partielle Repräsentation fields=id,name // {{$reservedIdx}}
+    string fields = 1;
+    //Sortierung nach feldern
+    //**?filter=-completed** um completed absteigend zu bekommen
+    //**?filter=completed** um completed aufsteigend zu bekommen
+    string sort = 2;
+    //Filter
+    string filter = 3;
+    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    int32 page = 4;
+    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    int32 limit = 5;
+    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
+    bool count = 6;
+    //not implemented
+    string sum = 7;
+    //not implemented (ehemals context)
+    string view = 8;{{range $index, $value := $params}}
+    string {{ trimAll "}" (trimAll "{" $value ) }} = {{add 11 $index}};{{$length := $index}}{{end}} {{else}}{{range $index, $value := $params}}
+    string {{ trimAll "}" (trimAll "{" $value ) }} = {{add1 $index}};{{$length :=$index}}{{end}}{{ if $method.data.request}}
+    {{$method.data.request}} data = {{if eq $key "List"}} {{add 10 (len $params)}} {{else}} {{add1 (len $params)}}{{end}}; {{end}}{{end}} {{ if $method.query}} {{ $qDict := dict }} {{ $keyList := list }} {{range  $k, $v := $method.query }}{{$_ := set $qDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
+    {{range $qIndex, $qKey := sortAlpha $keyList }} {{ $values := pick $qDict $qKey }} {{ $valueTmp := values $values }} {{ $query := index $valueTmp 0 }}
+    //{{$query.description}}
+    string {{$qKey}} = {{ if $method.data.request}}{{if eq $key "List"}}{{ add (len $params) (add 12 $qIndex)}}{{else}}{{ add (len $params) (add 2 $qIndex)}}{{end}}{{else}}{{if eq $key "List"}}{{add (len $params) (add 11 $qIndex)}}{{else}}{{add (len $params) (add1 $qIndex)}}{{end}}{{end}};{{end}}{{end}}
+}
+
+message {{$key}}{{$serviceName}}Response {
+    repeated {{$method.data.response}} data= 1;
+    furo.type.Meta meta = 2;
+    repeated furo.type.Link links = 3;
 }
 {{end}}
