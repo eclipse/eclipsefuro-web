@@ -55,7 +55,7 @@ func (m *Tree) Reset()         { *m = Tree{} }
 func (m *Tree) String() string { return proto.CompactTextString(m) }
 func (*Tree) ProtoMessage()    {}
 func (*Tree) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_b4c6b1d5a3f8fc8a, []int{0}
+	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{0}
 }
 func (m *Tree) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -171,7 +171,7 @@ func (m *PersonCollection) Reset()         { *m = PersonCollection{} }
 func (m *PersonCollection) String() string { return proto.CompactTextString(m) }
 func (*PersonCollection) ProtoMessage()    {}
 func (*PersonCollection) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_b4c6b1d5a3f8fc8a, []int{1}
+	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{1}
 }
 func (m *PersonCollection) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -242,7 +242,7 @@ func (m *Person) Reset()         { *m = Person{} }
 func (m *Person) String() string { return proto.CompactTextString(m) }
 func (*Person) ProtoMessage()    {}
 func (*Person) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_b4c6b1d5a3f8fc8a, []int{2}
+	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{2}
 }
 func (m *Person) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -323,7 +323,7 @@ func (m *PersonEntity) Reset()         { *m = PersonEntity{} }
 func (m *PersonEntity) String() string { return proto.CompactTextString(m) }
 func (*PersonEntity) ProtoMessage()    {}
 func (*PersonEntity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_b4c6b1d5a3f8fc8a, []int{3}
+	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{3}
 }
 func (m *PersonEntity) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -404,7 +404,7 @@ func (m *Treeitem) Reset()         { *m = Treeitem{} }
 func (m *Treeitem) String() string { return proto.CompactTextString(m) }
 func (*Treeitem) ProtoMessage()    {}
 func (*Treeitem) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_b4c6b1d5a3f8fc8a, []int{4}
+	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{4}
 }
 func (m *Treeitem) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -524,7 +524,7 @@ func (m *Task) Reset()         { *m = Task{} }
 func (m *Task) String() string { return proto.CompactTextString(m) }
 func (*Task) ProtoMessage()    {}
 func (*Task) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_b4c6b1d5a3f8fc8a, []int{5}
+	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{5}
 }
 func (m *Task) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -611,7 +611,7 @@ func (m *Project) Reset()         { *m = Project{} }
 func (m *Project) String() string { return proto.CompactTextString(m) }
 func (*Project) ProtoMessage()    {}
 func (*Project) Descriptor() ([]byte, []int) {
-	return fileDescriptor_bundled_messages_b4c6b1d5a3f8fc8a, []int{6}
+	return fileDescriptor_bundled_messages_42a8e7f975a90fe9, []int{6}
 }
 func (m *Project) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -3150,10 +3150,10 @@ var (
 )
 
 func init() {
-	proto.RegisterFile("bundled_messages.proto", fileDescriptor_bundled_messages_b4c6b1d5a3f8fc8a)
+	proto.RegisterFile("bundled_messages.proto", fileDescriptor_bundled_messages_42a8e7f975a90fe9)
 }
 
-var fileDescriptor_bundled_messages_b4c6b1d5a3f8fc8a = []byte{
+var fileDescriptor_bundled_messages_42a8e7f975a90fe9 = []byte{
 	// 710 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x55, 0xcd, 0x4e, 0x1b, 0x3b,
 	0x14, 0xd6, 0x24, 0x33, 0xc9, 0xe4, 0x84, 0xcb, 0xbd, 0xf8, 0x22, 0xae, 0xe1, 0xb6, 0x28, 0x0d,
