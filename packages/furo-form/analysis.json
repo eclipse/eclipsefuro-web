@@ -1365,18 +1365,18 @@
       "path": "packages/furo-form/furo-form-layouter.js",
       "properties": [
         {
-          "name": "breakpoints",
+          "name": "breakpointBig",
           "type": "string | null | undefined",
           "description": "Set custom breakpoints max. two values\nDefault: \"810,405\"",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 79,
               "column": 12
             },
             "end": {
-              "line": 63,
-              "column": 39
+              "line": 79,
+              "column": 85
             }
           },
           "metadata": {
@@ -1386,17 +1386,38 @@
           }
         },
         {
-          "name": "narrow",
-          "type": "boolean | null | undefined",
-          "description": "Set narrow attribute to force\na",
+          "name": "breakpointSmall",
+          "type": "string | null | undefined",
+          "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 80,
               "column": 12
             },
             "end": {
-              "line": 71,
+              "line": 80,
+              "column": 89
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "narrowFix",
+          "type": "boolean | null | undefined",
+          "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 85,
+              "column": 12
+            },
+            "end": {
+              "line": 89,
               "column": 13
             }
           },
@@ -1407,17 +1428,17 @@
           }
         },
         {
-          "name": "narrower",
+          "name": "narrowerFix",
           "type": "boolean | null | undefined",
-          "description": "Set narrower attribute to force\n1 column view",
+          "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 94,
               "column": 12
             },
             "end": {
-              "line": 79,
+              "line": 98,
               "column": 13
             }
           },
@@ -1647,25 +1668,23 @@
         },
         {
           "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready",
+          "description": "flow is ready lifecycle method",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 532,
-              "column": 8
+              "line": 68,
+              "column": 4
             },
             "end": {
-              "line": 534,
-              "column": 9
+              "line": 71,
+              "column": 5
             }
           },
           "metadata": {},
           "params": [],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "FBP"
+          }
         },
         {
           "name": "__enqueueTrigger",
@@ -1844,16 +1863,16 @@
           "inheritedFrom": "FBP"
         },
         {
-          "name": "__fbpReady",
-          "description": "flow is ready lifecycle method",
-          "privacy": "private",
+          "name": "_fireResize",
+          "description": "",
+          "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 59,
               "column": 4
             },
             "end": {
-              "line": 55,
+              "line": 63,
               "column": 5
             }
           },
@@ -1866,19 +1885,22 @@
         {
           "name": "render",
           "description": "",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 166,
               "column": 4
             },
             "end": {
-              "line": 132,
+              "line": 171,
               "column": 5
             }
           },
           "metadata": {},
-          "params": []
+          "params": [],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
         }
       ],
       "staticMethods": [],
@@ -1895,7 +1917,7 @@
           "column": 0
         },
         "end": {
-          "line": 133,
+          "line": 172,
           "column": 1
         }
       },
@@ -1904,31 +1926,47 @@
       "name": "FuroFormLayouter",
       "attributes": [
         {
-          "name": "breakpoints",
+          "name": "breakpoint-big",
           "description": "Set custom breakpoints max. two values\nDefault: \"810,405\"",
           "sourceRange": {
             "start": {
-              "line": 63,
+              "line": 79,
               "column": 12
             },
             "end": {
-              "line": 63,
-              "column": 39
+              "line": 79,
+              "column": 85
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
         },
         {
-          "name": "narrow",
-          "description": "Set narrow attribute to force\na",
+          "name": "breakpoint-small",
+          "description": "",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 80,
               "column": 12
             },
             "end": {
-              "line": 71,
+              "line": 80,
+              "column": 89
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "narrow-fix",
+          "description": "Set narrow-fix attribute to force\nthe layout analog to breakpoint big",
+          "sourceRange": {
+            "start": {
+              "line": 85,
+              "column": 12
+            },
+            "end": {
+              "line": 89,
               "column": 13
             }
           },
@@ -1936,15 +1974,15 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "narrower",
-          "description": "Set narrower attribute to force\n1 column view",
+          "name": "narrower-fix",
+          "description": "Set narrower-fix attribute to force\n1 column view (analog breakpoint small)",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 94,
               "column": 12
             },
             "end": {
-              "line": 79,
+              "line": 98,
               "column": 13
             }
           },
