@@ -1,0 +1,14 @@
+syntax = "proto3";
+package furo.type;
+
+import "google/api/annotations.proto";
+import "google/protobuf/any.proto";
+
+
+
+// meta
+message Fieldmeta {            
+    // meta information of a field
+    string label = 1;
+
+}

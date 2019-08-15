@@ -1,0 +1,14 @@
+syntax = "proto3";
+package task;
+
+import "google/api/annotations.proto";
+
+
+
+
+// The tasks
+service TaskService {   
+
+}
+
+

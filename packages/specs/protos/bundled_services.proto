@@ -1,0 +1,127 @@
+syntax = "proto3";
+package furo.type;
+import "google/api/annotations.proto";
+import "bundled_messages.proto";
+
+
+
+
+// Project data
+service ProjectService {   
+
+}
+
+// person service
+service PersonServiceService {           
+   
+    // Get a PersonEntity
+    rpc GetPersonService (GetPersonServiceRequest) returns (PersonEntity){
+        option (google.api.http) = {
+            get: "/api/persons/{prs}"
+        };
+    }   
+    // Get a collection with PersonEntities
+    rpc ListPersonService (ListPersonServiceRequest) returns (PersonCollection){
+        option (google.api.http) = {
+            get: "/api/persons"
+        };
+    }
+}
+   
+message GetPersonServiceRequest { 
+    
+    string prs = 1; 
+}
+
+   
+message ListPersonServiceRequest { 
+    
+    //Partielle Repräsentation fields=id,name // 10
+    string fields = 1;
+    //Sortierung nach feldern
+    //**?filter=-completed** um completed absteigend zu bekommen
+    //**?filter=completed** um completed aufsteigend zu bekommen
+    string sort = 2;
+    //Filter
+    string filter = 3;
+    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    int32 page = 4;
+    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    int32 limit = 5;
+    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
+    bool count = 6;
+    //not implemented
+    string sum = 7;
+    //not implemented (ehemals context)
+    string view = 8;       
+       
+    //Query term to search a member
+    string q = 11;
+}
+
+
+// The tasks of a given project
+service ProjectTaskService {   
+
+}
+
+// The tree with relevant project data
+service ProjectTreeService {   
+
+}
+
+// The members of a project
+service ServiceProjectMembersService {           
+   
+    // Get a collection with PersonEntities
+    rpc ListServiceProjectMembers (ListServiceProjectMembersRequest) returns (PersonCollection){
+        option (google.api.http) = {
+            get: "/api/members"
+        };
+    }   
+    // Custom method to unsubscribe a member, complete PersonEntity is expected
+    rpc UnsubscribeServiceProjectMembers (UnsubscribeServiceProjectMembersRequest) returns (PersonCollection){
+        option (google.api.http) = {
+            post: "/api/members/{prs}:unsubscribe"
+            body: "data"
+        };
+    }
+}
+   
+message ListServiceProjectMembersRequest { 
+    
+    //Partielle Repräsentation fields=id,name // 10
+    string fields = 1;
+    //Sortierung nach feldern
+    //**?filter=-completed** um completed absteigend zu bekommen
+    //**?filter=completed** um completed aufsteigend zu bekommen
+    string sort = 2;
+    //Filter
+    string filter = 3;
+    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    int32 page = 4;
+    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    int32 limit = 5;
+    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
+    bool count = 6;
+    //not implemented
+    string sum = 7;
+    //not implemented (ehemals context)
+    string view = 8;       
+       
+    //Query term to search a member
+    string q = 11;
+}
+
+   
+message UnsubscribeServiceProjectMembersRequest { 
+    
+    string prs = 1;
+    PersonEntity data =  2;  
+}
+
+
+// The tasks
+service TaskService {   
+
+}

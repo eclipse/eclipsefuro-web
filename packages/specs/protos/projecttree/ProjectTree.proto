@@ -1,0 +1,14 @@
+syntax = "proto3";
+package projecttree;
+
+import "google/api/annotations.proto";
+
+
+
+
+// The tree with relevant project data
+service ProjecttreeService {   
+
+}
+
+
