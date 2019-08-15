@@ -25,7 +25,8 @@
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
     "doc": "./scripts/generate-analysis.sh",
     "serve": "polymer serve -p 7777",
-    "test": "polymer test"
+    "test": "wct",
+    "genpage" : "./scripts/publish-documentation.sh"
   },
   "author": "veith",
   "license": "MIT",
