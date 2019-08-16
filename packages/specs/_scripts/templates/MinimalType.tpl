@@ -3,13 +3,13 @@
   "type": "{{.type}}",
   "description": "{{.description}}",
   "__proto": {
-    "package": "person",
+    "package": "{{.name}}",
     "imports": []
   },
   "fields": {
     "id": {
         "description": "Identity of {{.type}}",
-        "type": "string",
+        "type": "{{.proto_type}}",
         "meta": {
           "label": "Name",
           "default": "",
@@ -18,7 +18,6 @@
         "constraints": {},
         "options": [],
         "__proto": {
-          "type": "{{.proto_type}}",
           "number": 1
         }
     },

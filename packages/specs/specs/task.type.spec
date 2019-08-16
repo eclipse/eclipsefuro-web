@@ -4,12 +4,15 @@
   "description": "Task data description",
   "__proto": {
     "package": "task",
-    "imports": ["task.proto","person/person.proto"]
+    "imports": [
+      "person/person.proto",
+      "project/project_collection.proto"
+    ]
   },
   "fields": {
     "display_name": {
       "description": "Localized String representation of a task",
-      "type": "string",
+      "type": "project.ProjectCollection",
       "meta": {
         "label": "Task",
         "default": "",
@@ -53,7 +56,7 @@
     },
     "owner": {
       "description": "Owner of a task",
-      "type": "Person",
+      "type": "person.Person",
       "meta": {
         "label": "Owner",
         "default": "",
@@ -62,13 +65,12 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 4,
-        "type": "Person"
+        "number": 4
       }
     },
     "subtasks": {
       "description": "List of subtasks",
-      "type": "Task",
+      "type": "task.Task",
       "meta": {
         "label": "Subtask",
         "default": "",
@@ -78,8 +80,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 5,
-        "type": "Task"
+        "number": 5
       }
     }
   }

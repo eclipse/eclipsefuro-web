@@ -1,9 +1,9 @@
 {
   "name": "money",
   "type": "Money",
-  "description": "Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/type/money.proto",
+  "description": "Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",
   "__proto": {
-    "package": "google.type",
+    "package": "google",
     "imports": []
   },
   "fields": {

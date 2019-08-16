@@ -9,15 +9,19 @@
   "__proto": {
     "package": "projectmember",
     "imports": [
-      "person/person_entity.proto"
+      "person/person_entity.proto",
+      "person/person_collection.proto",
+      "furo/meta.proto",
+      "furo/link.proto",
+      "protobuf/empty.proto"
     ]
   },
   "services": {
     "Unsubscribe": {
       "description": "Custom method to unsubscribe a member, complete PersonEntity is expected",
       "data": {
-        "request": "PersonEntity",
-        "response": "PersonCollection"
+        "request": "person.PersonEntity",
+        "response": "person.PersonCollection"
       },
       "query": {
       },
@@ -32,7 +36,7 @@
       "description": "Get a collection with PersonEntities",
       "data": {
         "request": null,
-        "response": "PersonCollection"
+        "response": "person.PersonCollection"
       },
       "query": {
         "q": {

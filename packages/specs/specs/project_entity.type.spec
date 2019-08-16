@@ -6,21 +6,21 @@
     "package": "project",
     "imports": [
       "project.proto",
-      "furo/type/meta.proto",
-      "furo/type/link.proto"
+      "furo/meta.proto",
+      "furo/link.proto"
     ]
   },
   "fields": {
     "data": {
-      "description": "Project description",
-      "type": "Project",
+      "description": "contains a project.Project",
+      "type": "project.Project",
       "__proto": {
         "number": 1
       }
     },
     "links": {
       "description": "Hateoas links",
-      "type": "furo.type.Link",
+      "type": "furo.Link",
       "meta": {"repeated": true},
       "__proto": {
         "number": 2
@@ -28,7 +28,7 @@
     },
     "meta": {
       "description": "Meta for the response",
-      "type": "furo.type.Meta",
+      "type": "furo.Meta",
       "__proto": {
         "number": 3
       }

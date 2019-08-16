@@ -1,9 +1,9 @@
 {
   "name": "date",
   "type": "Date",
-  "description": "Date, https://github.com/googleapis/googleapis/blob/master/google/type/date.proto ",
+  "description": "Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",
   "__proto": {
-    "package": "google.type",
+    "package": "google",
     "imports": []
   },
   "fields": {

@@ -10,15 +10,15 @@ let apiSpecs = "";
 // Services
 let s = {};
 let services = JSON.parse(fs.readFileSync('_tmp/services.json'));
-services.services.forEach((service)=>{
-  s[service.name] = service
+services.services.forEach((service) => {
+    s[service.name] = service
 });
 apiSpecs = `export const Services =` + JSON.stringify(s);
 
 let t = {};
 let specs = JSON.parse(fs.readFileSync('_tmp/types.json'));
-specs.types.forEach((type)=>{
-  t[type.type] = type
+specs.types.forEach((type) => {
+    t[type.__proto.package + "." + type.type] = type
 });
 apiSpecs += `\nexport const Types =` + JSON.stringify(t);
 

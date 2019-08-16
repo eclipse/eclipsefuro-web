@@ -4,7 +4,7 @@
   "description": "Item of the navigationtree",
   "__proto": {
     "package": "tree",
-    "imports": ["furo/type/link.proto"]
+    "imports": ["furo/link.proto"]
   },
   "fields": {
     "display_name": {
@@ -78,14 +78,14 @@
     },
     "link": {
       "description": "Deeplink information of this node",
-      "type": "furo.type.Link",
+      "type": "furo.Link",
       "__proto": {
         "number": 9
       }
     },
     "children": {
       "description": "Children of this node",
-      "type": "Treeitem",
+      "type": "tree.Treeitem",
       "meta": {
         "repeated": true
       },

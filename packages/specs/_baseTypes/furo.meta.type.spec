@@ -3,8 +3,8 @@
   "type": "Meta",
   "description": "meta info",
   "__proto": {
-    "package": "furo.type",
-    "imports": ["furo/type/metafield.proto"]
+    "package": "furo",
+    "imports": ["metafield.proto"]
   },
   "fields": {
     "meta": {
@@ -13,7 +13,7 @@
       "__proto": {
         "number": 1,
         "map_from": "string",
-        "map_to": "furo.type.Metafield"
+        "map_to": "furo.Metafield"
       }
     }
   }

@@ -5,22 +5,22 @@
   "__proto": {
     "package": "project",
     "imports": [
-     "project.proto",
-     "furo/type/meta.proto",
-     "furo/type/link.proto"
+     "project_entity.proto",
+     "furo/meta.proto",
+     "furo/link.proto"
      ]
   },
   "fields": {
     "meta": {
       "description": "Meta for the response",
-      "type": "furo.type.Meta",
+      "type": "furo.Meta",
       "__proto": {
         "number": 2
       }
     },
     "links": {
       "description": "Hateoas links",
-      "type": "furo.type.Link",
+      "type": "furo.Link",
       "meta": {
         "repeated": true
       },
@@ -29,8 +29,8 @@
       }
     },
     "entities": {
-      "description": "ProjectEntity repeated",
-      "type": "ProjectEntity",
+      "description": "Contains a project.ProjectEntity repeated",
+      "type": "project.ProjectEntity",
       "meta": {
         "repeated": true
       },

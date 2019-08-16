@@ -12,7 +12,7 @@
       "{{.name}}.proto",
       "{{.name}}_entity.proto",
       "{{.name}}_collection.proto",
-      "google/protobuf/empty.proto"
+      "protobuf/empty.proto"
     ]
   },
   "services": {
@@ -20,7 +20,7 @@
       "description": "The List method takes zero or more parameters as input, and returns a {{.type}}Collection of {{.type}}Entity that match the input parameters.",
       "data": {
         "request": null,
-        "response": "{{.type}}Collection"
+        "response": "{{.__proto.package}}.{{.type}}Collection"
       },
       "query": {
         "q": {
@@ -45,8 +45,8 @@
     "Create": {
       "description": "Creates a new {{.type}}",
       "data": {
-        "request": "{{.type}}",
-        "response": "{{.type}}Entity"
+        "request": "{{.__proto.package}}.{{.type}}",
+        "response": "{{.__proto.package}}.{{.type}}Entity"
       },
       "query": {
       },
@@ -59,8 +59,8 @@
     "Get": {
       "description": "The Get method takes zero or more parameters, and returns a {{.type}}Entity which contains a {{.type}}",
       "data": {
-        "request": "google.protobuf.Empty",
-        "response": "{{.type}}Entity"
+        "request": null,
+        "response": "{{.__proto.package}}.{{.type}}Entity"
       },
       "query": {
       },
@@ -73,8 +73,8 @@
     "Update": {
       "description": "Updates a {{.type}}, partial updates are supported",
       "data": {
-        "request": "{{.type}}",
-        "response": "{{.type}}Entity"
+        "request": "{{.__proto.package}}.{{.type}}",
+        "response": "{{.__proto.package}}.{{.type}}Entity"
       },
       "query": {},
       "deeplink": {
@@ -86,8 +86,8 @@
     "Delete": {
       "description": "Delete a {{.type}}",
       "data": {
-        "request": "google.protobuf.Empty",
-        "response": "google.protobuf.Empty"
+        "request": "protobuf.Empty",
+        "response": "protobuf.Empty"
       },
       "query": {},
       "deeplink": {

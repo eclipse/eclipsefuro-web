@@ -12,14 +12,14 @@
     },
     "meta": {
       "description": "Meta for the response",
-      "type": "furo.type.Meta",
+      "type": "furo.Meta",
       "__proto": {
         "number": 2
       }
     },
     "links": {
       "description": "Hateoas links",
-      "type": "furo.type.Link",
+      "type": "furo.Link",
       "meta": {
         "repeated": true
       },

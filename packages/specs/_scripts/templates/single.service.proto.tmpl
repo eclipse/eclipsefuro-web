@@ -9,7 +9,7 @@ import "google/api/annotations.proto";
 import "{{$import}}";{{end}}
 
 
-{{$serviceName := camelcase .name}}
+{{$serviceName := camelcase (snakecase .name)}}
 // {{.description}}
 service {{$serviceName}} { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := .services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
@@ -53,9 +53,4 @@ message {{$key}}{{$serviceName}}Request { {{ $params := regexFindAll  "{[a-zA-Z]
     string {{$qKey}} = {{ if $method.data.request}}{{if eq $key "List"}}{{ add (len $params) (add 12 $qIndex)}}{{else}}{{ add (len $params) (add 2 $qIndex)}}{{end}}{{else}}{{if eq $key "List"}}{{add (len $params) (add 11 $qIndex)}}{{else}}{{add (len $params) (add1 $qIndex)}}{{end}}{{end}};{{end}}{{end}}
 }
 
-message {{$key}}{{$serviceName}}Response {
-    repeated {{$method.data.response}} data= 1;
-    furo.type.Meta meta = 2;
-    repeated furo.type.Link links = 3;
-}
 {{end}}

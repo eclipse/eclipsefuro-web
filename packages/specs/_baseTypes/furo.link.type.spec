@@ -3,7 +3,7 @@
   "type": "Link",
   "description": "link",
   "__proto": {
-    "package": "furo.type",
+    "package": "furo",
     "imports": []
   },
   "fields": {

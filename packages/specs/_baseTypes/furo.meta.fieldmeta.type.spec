@@ -3,7 +3,7 @@
   "type": "Fieldmeta",
   "description": "meta",
   "__proto": {
-    "package": "furo.type",
+    "package": "furo",
     "imports": []
   },
   "fields": {

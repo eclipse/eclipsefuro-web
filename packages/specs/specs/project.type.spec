@@ -5,8 +5,8 @@
   "__proto": {
     "package": "project",
     "imports": [
-      "google/type/money.proto",
-      "google/type/date.proto",
+      "google/money.proto",
+      "google/date.proto",
       "person/person.proto"
     ]
   },
@@ -28,7 +28,7 @@
     },
     "start": {
       "description": "Start date of the project",
-      "type": "google.type.Date",
+      "type": "google.Date",
       "meta": {
         "label": "Project start",
         "default": "",
@@ -37,13 +37,12 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 2,
-        "type": "google.type.Date"
+        "number": 2
       }
     },
     "end": {
       "description": "Prospective end date of the project",
-      "type": "google.type.Date",
+      "type": "google.Date",
       "meta": {
         "label": "Project end",
         "default": "",
@@ -52,8 +51,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 3,
-        "type": "google.type.Date"
+        "number": 3
       }
     },
     "description": {
@@ -72,7 +70,7 @@
     },
     "members": {
       "description": "List of project members",
-      "type": "Person",
+      "type": "person.Person",
       "meta": {
         "label": "Project members",
         "default": "",
@@ -82,13 +80,12 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 5,
-        "type": "Person"
+        "number": 5
       }
     },
     "cost_limit": {
       "description": "Project cost limit",
-      "type": "google.type.Money",
+      "type": "google.Money",
       "meta": {
         "label": "Cost limit",
         "default": "",
@@ -100,8 +97,7 @@
       },
       "options": [],
       "__proto": {
-        "number": 6,
-        "type": "google.type.Money"
+        "number": 6
       }
     }
   }

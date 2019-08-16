@@ -11,7 +11,8 @@
     "imports": [
       "project.proto",
       "project_entity.proto",
-      "project_collection.proto"
+      "project_collection.proto",
+      "protobuf/empty.proto"
     ]
   },
   "services": {
@@ -19,7 +20,7 @@
       "description": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
       "data": {
         "request": null,
-        "response": "ProjectCollection"
+        "response": "project.ProjectCollection"
       },
       "query": {
         "q": {
@@ -35,6 +36,7 @@
         }
       },
       "deeplink": {
+        "description":"Describe_the_query_params_if_you_have",
         "rel": "list",
         "href": "/api/projects",
         "method": "GET"
@@ -43,8 +45,8 @@
     "Create": {
       "description": "Creates a new Project",
       "data": {
-        "request": "Project",
-        "response": "ProjectEntity"
+        "request": "project.Project",
+        "response": "project.ProjectEntity"
       },
       "query": {
       },
@@ -57,8 +59,8 @@
     "Get": {
       "description": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
       "data": {
-        "request": "google.protobuf.Empty",
-        "response": "ProjectEntity"
+        "request": null,
+        "response": "project.ProjectEntity"
       },
       "query": {
       },
@@ -71,8 +73,8 @@
     "Update": {
       "description": "Updates a Project, partial updates are supported",
       "data": {
-        "request": "Project",
-        "response": "ProjectEntity"
+        "request": "project.Project",
+        "response": "project.ProjectEntity"
       },
       "query": {},
       "deeplink": {
@@ -84,8 +86,8 @@
     "Delete": {
       "description": "Delete a Project",
       "data": {
-        "request": "google.protobuf.Empty",
-        "response": "google.protobuf.Empty"
+        "request": "protobuf.Empty",
+        "response": "protobuf.Empty"
       },
       "query": {},
       "deeplink": {

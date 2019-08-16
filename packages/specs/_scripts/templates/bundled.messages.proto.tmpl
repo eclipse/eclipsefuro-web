@@ -2,14 +2,14 @@
 // generation date: {{now | date "2006-01-02 15:04:05"}}
 
 syntax = "proto3";
-package furo.type;
+package furo;
 
 import "google/api/annotations.proto";
-import "google/protobuf/any.proto";
-import "google/type/money.proto";
-import "google/type/date.proto";
-import "furo/type/meta.proto";
-import "furo/type/link.proto";
+import "protobuf/any.proto";
+import "google/money.proto";
+import "google/date.proto";
+import "furo/meta.proto";
+import "furo/link.proto";
 
 {{range $import := .__proto.imports}}
 import "{{$import}}";{{end}}

@@ -3,7 +3,7 @@
   "type": "Fieldconstraint",
   "description": "constrains of fields",
   "__proto": {
-    "package": "furo.type",
+    "package": "furo",
     "imports": []
   },
   "fields": {

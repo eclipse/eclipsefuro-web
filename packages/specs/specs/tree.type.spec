@@ -89,7 +89,7 @@
     },
     "root": {
       "description": "Rootnode of the tree",
-      "type": "Treeitem",
+      "type": "tree.Treeitem",
       "meta": {},
       "__proto": {
         "number": 10

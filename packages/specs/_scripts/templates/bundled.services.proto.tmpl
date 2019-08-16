@@ -2,15 +2,15 @@
 // generation date: {{now | date "2006-01-02 15:04:05"}}
 
 syntax = "proto3";
-package furo.type;
+package furo;
 import "google/api/annotations.proto";
 import "bundled_messages.proto";
-import "google/protobuf/empty.proto";
+import "protobuf/empty.proto";
 {{range $import := .__proto.imports}}
 import "{{$import}}";{{end}}
 
 {{range $restlet := .services}}
-{{$serviceName := camelcase $restlet.name}}
+{{$serviceName := camelcase (snakecase $restlet.name)}}
 // {{$restlet.description}}
 service {{$serviceName}} { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := $restlet.services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}

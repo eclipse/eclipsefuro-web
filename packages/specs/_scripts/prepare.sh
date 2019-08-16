@@ -11,9 +11,9 @@ rm $DIR/../_tmp/types.json
 echo '{"bundlepackage":"'$1'", "types":[' >> $DIR/../_tmp/types.json
 
 for t in `find ./specs -name '*.type.spec'`; do (cat $t; echo ',') >> $DIR/../_tmp/tmptypes.json; done
+for t in `find ./_baseTypes -name '*.type.spec'`; do (cat $t; echo ',') >> $DIR/../_tmp/tmptypes.json; done
 
 cat $DIR/../_tmp/tmptypes.json | sed '$ s/.$//' >> $DIR/../_tmp/types.json
-
 rm $DIR/../_tmp/tmptypes.json
 # close Array
 echo ']}' >> $DIR/../_tmp/types.json
