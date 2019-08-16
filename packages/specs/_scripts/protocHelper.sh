@@ -16,8 +16,12 @@ mkdir -p ../../swagger/$PACKAGE
 protoc --proto_path=../ \
 -I. \
 -I/usr/local/include \
+-I../google \
 -I../furo \
 -I../project \
+-I../task \
+-I../tree \
+-I../person \
 -I$GOPATH/src \
 -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
 --gogofast_out=.\

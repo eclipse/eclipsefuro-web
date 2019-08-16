@@ -101,6 +101,82 @@
 }
 ,
 {
+  "name": "tree_entity",
+  "type": "TreeEntity",
+  "description": "TreeEntity with Tree",
+  "__proto": {
+    "package": "tree",
+    "imports": [
+      "tree.proto",
+      "furo/meta.proto",
+      "furo/link.proto"
+    ]
+  },
+  "fields": {
+    "data": {
+      "description": "contains a tree.Tree",
+      "type": "tree.Tree",
+      "__proto": {
+        "number": 1
+      }
+    },
+    "links": {
+      "description": "Hateoas links",
+      "type": "furo.Link",
+      "meta": {"repeated": true},
+      "__proto": {
+        "number": 2
+      }
+    },
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.Meta",
+      "__proto": {
+        "number": 3
+      }
+    }
+  }
+}
+,
+{
+  "name": "task_entity",
+  "type": "TaskEntity",
+  "description": "TaskEntity with Task",
+  "__proto": {
+    "package": "task",
+    "imports": [
+      "task.proto",
+      "furo/meta.proto",
+      "furo/link.proto"
+    ]
+  },
+  "fields": {
+    "data": {
+      "description": "contains a task.Task",
+      "type": "task.Task",
+      "__proto": {
+        "number": 1
+      }
+    },
+    "links": {
+      "description": "Hateoas links",
+      "type": "furo.Link",
+      "meta": {"repeated": true},
+      "__proto": {
+        "number": 2
+      }
+    },
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.Meta",
+      "__proto": {
+        "number": 3
+      }
+    }
+  }
+}
+,
+{
   "name": "person",
   "type": "Person",
   "description": "Person message type",
@@ -179,6 +255,135 @@
       "options": [],
       "__proto": {
         "number": 5
+      }
+    }
+  }
+}
+,
+{
+  "name": "person_collection",
+  "type": "PersonCollection",
+  "description": "PersonCollection with repeated PersonEntity",
+  "__proto": {
+    "package": "person",
+    "imports": [
+     "person_entity.proto",
+     "furo/meta.proto",
+     "furo/link.proto"
+     ]
+  },
+  "fields": {
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.Meta",
+      "__proto": {
+        "number": 2
+      }
+    },
+    "links": {
+      "description": "Hateoas links",
+      "type": "furo.Link",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
+    "entities": {
+      "description": "Contains a person.PersonEntity repeated",
+      "type": "person.PersonEntity",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 4
+      }
+    }
+  }
+}
+,
+{
+  "name": "tree_collection",
+  "type": "TreeCollection",
+  "description": "TreeCollection with repeated TreeEntity",
+  "__proto": {
+    "package": "tree",
+    "imports": [
+     "tree_entity.proto",
+     "furo/meta.proto",
+     "furo/link.proto"
+     ]
+  },
+  "fields": {
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.Meta",
+      "__proto": {
+        "number": 2
+      }
+    },
+    "links": {
+      "description": "Hateoas links",
+      "type": "furo.Link",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
+    "entities": {
+      "description": "Contains a tree.TreeEntity repeated",
+      "type": "tree.TreeEntity",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 4
+      }
+    }
+  }
+}
+,
+{
+  "name": "task_collection",
+  "type": "TaskCollection",
+  "description": "TaskCollection with repeated TaskEntity",
+  "__proto": {
+    "package": "task",
+    "imports": [
+     "task_entity.proto",
+     "furo/meta.proto",
+     "furo/link.proto"
+     ]
+  },
+  "fields": {
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.Meta",
+      "__proto": {
+        "number": 2
+      }
+    },
+    "links": {
+      "description": "Hateoas links",
+      "type": "furo.Link",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
+    "entities": {
+      "description": "Contains a task.TaskEntity repeated",
+      "type": "task.TaskEntity",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 4
       }
     }
   }
@@ -430,6 +635,44 @@
     "data": {
       "description": "contains a project.Project",
       "type": "project.Project",
+      "__proto": {
+        "number": 1
+      }
+    },
+    "links": {
+      "description": "Hateoas links",
+      "type": "furo.Link",
+      "meta": {"repeated": true},
+      "__proto": {
+        "number": 2
+      }
+    },
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.Meta",
+      "__proto": {
+        "number": 3
+      }
+    }
+  }
+}
+,
+{
+  "name": "person_entity",
+  "type": "PersonEntity",
+  "description": "PersonEntity with Person",
+  "__proto": {
+    "package": "person",
+    "imports": [
+      "person.proto",
+      "furo/meta.proto",
+      "furo/link.proto"
+    ]
+  },
+  "fields": {
+    "data": {
+      "description": "contains a person.Person",
+      "type": "person.Person",
       "__proto": {
         "number": 1
       }
