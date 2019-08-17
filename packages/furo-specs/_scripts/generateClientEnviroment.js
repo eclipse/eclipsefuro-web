@@ -30,6 +30,7 @@ services.services.forEach((service) => {
 
 services.imports = Array.from(bundledImport);
 fs.writeFileSync("_tmp/services.json", JSON.stringify(services));
+apiSpecs = `export const Services =` + JSON.stringify(s);
 
 let t = {};
 let specs = JSON.parse(fs.readFileSync('_tmp/types.json'));
