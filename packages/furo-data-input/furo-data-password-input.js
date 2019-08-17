@@ -262,7 +262,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-password-input>      
     `;

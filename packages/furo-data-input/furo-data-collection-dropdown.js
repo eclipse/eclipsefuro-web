@@ -261,7 +261,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
           trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
           list="${this.list}"
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           ƒ-set-options="--selection"
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-select-input>      

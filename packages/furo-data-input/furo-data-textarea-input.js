@@ -154,7 +154,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
           label="${this._label}" 
           ?error="${this.error}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-textarea-input>      
     `;

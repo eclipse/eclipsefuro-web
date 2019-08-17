@@ -249,7 +249,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
           step="${this._step}" 
           ?error="${this.error}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-time-input>      
     `;
