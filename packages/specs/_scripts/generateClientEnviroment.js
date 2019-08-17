@@ -6,14 +6,30 @@
 const fs = require('fs');
 
 let apiSpecs = "";
-
+let bundledImport = new Set();
 // Services
 let s = {};
 let services = JSON.parse(fs.readFileSync('_tmp/services.json'));
 services.services.forEach((service) => {
-    s[service.name] = service
+    s[service.name] = service;
+    //collect all imports
+    (s[service.name].__proto.imports).forEach((el)=>{
+        if(el.indexOf('/') === -1){
+            bundledImport.add(s[service.name].__proto.package + "/" + el);
+
+        }else {
+            console.log(el)
+            bundledImport.add(el);
+
+        }
+
+
+    })
 });
-apiSpecs = `export const Services =` + JSON.stringify(s);
+
+
+services.imports = Array.from(bundledImport);
+fs.writeFileSync("_tmp/services.json", JSON.stringify(services));
 
 let t = {};
 let specs = JSON.parse(fs.readFileSync('_tmp/types.json'));
@@ -26,4 +42,3 @@ fs.writeFileSync("build/api_spec.js", apiSpecs);
 
 
 console.log("build/api_spec.js created");
-

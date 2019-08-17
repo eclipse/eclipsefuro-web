@@ -2,7 +2,7 @@
 // generation date: {{now | date "2006-01-02 15:04:05"}}
 
 syntax = "proto3";
-package furo;
+package bundled;
 
 import "google/api/annotations.proto";
 import "protobuf/any.proto";
@@ -18,6 +18,6 @@ import "{{$import}}";{{end}}
 // {{$objType.description}}
 message {{ $objType.type}} {  {{ $fieldsDict := dict }} {{ $keyList := list }} {{range  $k, $v := .fields}}  {{$_ := set $fieldsDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}{{range $key := sortAlpha $keyList}} {{ $values := pick $fieldsDict $key }} {{ $valueTmp := values $values }} {{ $value := index $valueTmp 0 }} {{$field :=  $key }}
     // {{$value.description}}
-    {{if $value.meta.repeated}}repeated {{end}}{{if $value.__proto.map_to}}map{{"<" | noescape }}{{$value.__proto.map_from}},{{$value.__proto.map_to}}>{{else}}{{if $value.__proto.type}}{{$value.__proto.type}}{{else}}{{$value.type}}{{end}}{{end}} {{$key}} = {{$value.__proto.number}};
+    {{if $value.meta.repeated}}repeated {{end}}{{if $value.__proto.map_to}}map{{"<" | noescape }}{{$value.__proto.map_from}},{{$value.__proto.map_to}}>{{else}}{{if $value.__proto.type}}{{regexReplaceAll "^[^furo\\.|google\\.][^\\.]*\\.(.*)" $value.__proto.type "${1}"}}{{else}}{{regexReplaceAll "^[^furo\\.|google\\.][^\\.]*\\.(.*)" $value.type "${1}"}}{{end}}{{end}} {{$key}} = {{$value.__proto.number}};
 {{end}}
 }{{end}}

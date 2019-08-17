@@ -2,20 +2,19 @@
 // generation date: {{now | date "2006-01-02 15:04:05"}}
 
 syntax = "proto3";
-package furo;
+package bundled;
 import "google/api/annotations.proto";
-import "bundled_messages.proto";
+import "messages.proto";
 import "protobuf/empty.proto";
-{{range $import := .__proto.imports}}
-import "{{$import}}";{{end}}
 
 {{range $restlet := .services}}
 {{$serviceName := camelcase (snakecase $restlet.name)}}
+
 // {{$restlet.description}}
 service {{$serviceName}} { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := $restlet.services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
     // {{$method.description}}
-    rpc {{$key}}{{$restlet.name}} ({{$key}}{{$restlet.name}}Request) returns ({{$method.data.response}}){
+    rpc {{$key}}{{$serviceName}} ({{$key}}{{$serviceName}}Request) returns ({{regexReplaceAll "^[^furo\\.|google\\.][^\\.]*\\.(.*)" $method.data.response "${1}"}}){
         //{{$method.deeplink.description}}
         option (google.api.http) = {
             {{ lower $method.deeplink.method}}: "{{$method.deeplink.href}}"{{ if $method.data.request}}
@@ -24,7 +23,7 @@ service {{$serviceName}} { {{ $rpcDict := dict }} {{ $keyList := list }} {{range
     }{{end}}
 }
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
-message {{$key}}{{$restlet.name}}Request { {{ $params := regexFindAll  "{[a-zA-Z]*}" $method.deeplink.href 10}}{{$reservedIdx := 0}}
+message {{$key}}{{$serviceName}}Request { {{ $params := regexFindAll  "{[a-zA-Z]*}" $method.deeplink.href 10}}{{$reservedIdx := 0}}
     {{if eq $key "List"}}{{$reservedIdx = 10}}
     //Partielle Repräsentation fields=id,name // {{$reservedIdx}}
     string fields = 1;
@@ -46,10 +45,14 @@ message {{$key}}{{$restlet.name}}Request { {{ $params := regexFindAll  "{[a-zA-Z
     string view = 8;{{range $index, $value := $params}}
     string {{ trimAll "}" (trimAll "{" $value ) }} = {{add 11 $index}};{{$length := $index}}{{end}} {{else}}{{range $index, $value := $params}}
     string {{ trimAll "}" (trimAll "{" $value ) }} = {{add1 $index}};{{$length :=$index}}{{end}}{{ if $method.data.request}}
-    {{$method.data.request}} data = {{if eq $key "List"}} {{add 10 (len $params)}} {{else}} {{add1 (len $params)}}{{end}}; {{end}}{{end}} {{ if $method.query}} {{ $qDict := dict }} {{ $keyList := list }} {{range  $k, $v := $method.query }}{{$_ := set $qDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
+    {{regexReplaceAll "^[^furo\\.|google\\.][^\\.]*\\.(.*)" $method.data.request "${1}"}} data = {{if eq $key "List"}} {{add 10 (len $params)}} {{else}} {{add1 (len $params)}}{{end}}; {{end}}{{end}} {{ if $method.query}} {{ $qDict := dict }} {{ $keyList := list }} {{range  $k, $v := $method.query }}{{$_ := set $qDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
     {{range $qIndex, $qKey := sortAlpha $keyList }} {{ $values := pick $qDict $qKey }} {{ $valueTmp := values $values }} {{ $query := index $valueTmp 0 }}
     //{{$query.description}}
     string {{$qKey}} = {{ if $method.data.request}}{{if eq $key "List"}}{{ add (len $params) (add 12 $qIndex)}}{{else}}{{ add (len $params) (add 2 $qIndex)}}{{end}}{{else}}{{if eq $key "List"}}{{add (len $params) (add 11 $qIndex)}}{{else}}{{add (len $params) (add1 $qIndex)}}{{end}}{{end}};{{end}}{{end}}
 }
 
 {{end}}{{end}}
+
+message Empty {
+
+}

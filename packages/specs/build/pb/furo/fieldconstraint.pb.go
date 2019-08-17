@@ -33,7 +33,7 @@ func (m *Fieldconstraint) Reset()         { *m = Fieldconstraint{} }
 func (m *Fieldconstraint) String() string { return proto.CompactTextString(m) }
 func (*Fieldconstraint) ProtoMessage()    {}
 func (*Fieldconstraint) Descriptor() ([]byte, []int) {
-	return fileDescriptor_fieldconstraint_00fa57564332ab74, []int{0}
+	return fileDescriptor_fieldconstraint_6e4119a1f2ab169c, []int{0}
 }
 func (m *Fieldconstraint) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -428,10 +428,10 @@ var (
 )
 
 func init() {
-	proto.RegisterFile("fieldconstraint.proto", fileDescriptor_fieldconstraint_00fa57564332ab74)
+	proto.RegisterFile("fieldconstraint.proto", fileDescriptor_fieldconstraint_6e4119a1f2ab169c)
 }
 
-var fileDescriptor_fieldconstraint_00fa57564332ab74 = []byte{
+var fileDescriptor_fieldconstraint_6e4119a1f2ab169c = []byte{
 	// 153 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x4d, 0xcb, 0x4c, 0xcd,
 	0x49, 0x49, 0xce, 0xcf, 0x2b, 0x2e, 0x29, 0x4a, 0xcc, 0xcc, 0x2b, 0xd1, 0x2b, 0x28, 0xca, 0x2f,

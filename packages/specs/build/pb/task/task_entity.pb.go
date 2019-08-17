@@ -38,7 +38,7 @@ func (m *TaskEntity) Reset()         { *m = TaskEntity{} }
 func (m *TaskEntity) String() string { return proto.CompactTextString(m) }
 func (*TaskEntity) ProtoMessage()    {}
 func (*TaskEntity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_entity_d94df65d9e3425fa, []int{0}
+	return fileDescriptor_task_entity_cb62652329db3376, []int{0}
 }
 func (m *TaskEntity) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -445,9 +445,9 @@ var (
 	ErrIntOverflowTaskEntity   = fmt.Errorf("proto: integer overflow")
 )
 
-func init() { proto.RegisterFile("task_entity.proto", fileDescriptor_task_entity_d94df65d9e3425fa) }
+func init() { proto.RegisterFile("task_entity.proto", fileDescriptor_task_entity_cb62652329db3376) }
 
-var fileDescriptor_task_entity_d94df65d9e3425fa = []byte{
+var fileDescriptor_task_entity_cb62652329db3376 = []byte{
 	// 166 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2c, 0x49, 0x2c, 0xce,
 	0x8e, 0x4f, 0xcd, 0x2b, 0xc9, 0x2c, 0xa9, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x01,

@@ -14,11 +14,14 @@ cd ..
 echo "clean proto dir"
 rm -rf build/*
 
+./_scripts/prepareBundled.sh $PACKAGEBUNDLENAME
+./_scripts/generateBundledFiles.sh
 
 ./_scripts/prepare.sh $PACKAGEBUNDLENAME
-./_scripts/generateSingleFiles.sh
-# ./_scripts/generateBundledFiles.sh
 ./_scripts/generateClientEnviroment.js
+
+./_scripts/generateSingleFiles.sh
+
 
 ./_scripts/protocHelper.sh person
 ./_scripts/protocHelper.sh project
@@ -29,5 +32,8 @@ rm -rf build/*
 ./_scripts/protocHelper.sh protobuf
 ./_scripts/protocHelper.sh google
 ./_scripts/protocHelper.sh furo
+
+
+./_scripts/protocHelper.sh bundled
 
 

@@ -33,7 +33,7 @@ func (m *Fieldmeta) Reset()         { *m = Fieldmeta{} }
 func (m *Fieldmeta) String() string { return proto.CompactTextString(m) }
 func (*Fieldmeta) ProtoMessage()    {}
 func (*Fieldmeta) Descriptor() ([]byte, []int) {
-	return fileDescriptor_fieldmeta_401551df71404564, []int{0}
+	return fileDescriptor_fieldmeta_6414c935197da48e, []int{0}
 }
 func (m *Fieldmeta) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -322,9 +322,9 @@ var (
 	ErrIntOverflowFieldmeta   = fmt.Errorf("proto: integer overflow")
 )
 
-func init() { proto.RegisterFile("fieldmeta.proto", fileDescriptor_fieldmeta_401551df71404564) }
+func init() { proto.RegisterFile("fieldmeta.proto", fileDescriptor_fieldmeta_6414c935197da48e) }
 
-var fileDescriptor_fieldmeta_401551df71404564 = []byte{
+var fileDescriptor_fieldmeta_6414c935197da48e = []byte{
 	// 91 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4f, 0xcb, 0x4c, 0xcd,
 	0x49, 0xc9, 0x4d, 0x2d, 0x49, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x49, 0x2b, 0x2d,

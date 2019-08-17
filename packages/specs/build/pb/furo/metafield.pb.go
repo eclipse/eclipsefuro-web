@@ -35,7 +35,7 @@ func (m *Metafield) Reset()         { *m = Metafield{} }
 func (m *Metafield) String() string { return proto.CompactTextString(m) }
 func (*Metafield) ProtoMessage()    {}
 func (*Metafield) Descriptor() ([]byte, []int) {
-	return fileDescriptor_metafield_5056169f9bc26547, []int{0}
+	return fileDescriptor_metafield_3fe0b6c12775ff00, []int{0}
 }
 func (m *Metafield) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -386,9 +386,9 @@ var (
 	ErrIntOverflowMetafield   = fmt.Errorf("proto: integer overflow")
 )
 
-func init() { proto.RegisterFile("metafield.proto", fileDescriptor_metafield_5056169f9bc26547) }
+func init() { proto.RegisterFile("metafield.proto", fileDescriptor_metafield_3fe0b6c12775ff00) }
 
-var fileDescriptor_metafield_5056169f9bc26547 = []byte{
+var fileDescriptor_metafield_3fe0b6c12775ff00 = []byte{
 	// 141 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xcf, 0x4d, 0x2d, 0x49,
 	0x4c, 0xcb, 0x4c, 0xcd, 0x49, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x49, 0x2b, 0x2d,
