@@ -38,7 +38,7 @@ func (m *TreeCollection) Reset()         { *m = TreeCollection{} }
 func (m *TreeCollection) String() string { return proto.CompactTextString(m) }
 func (*TreeCollection) ProtoMessage()    {}
 func (*TreeCollection) Descriptor() ([]byte, []int) {
-	return fileDescriptor_tree_collection_771f9a62ce32933b, []int{0}
+	return fileDescriptor_tree_collection_8f15c147361eadbf, []int{0}
 }
 func (m *TreeCollection) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -448,10 +448,10 @@ var (
 )
 
 func init() {
-	proto.RegisterFile("tree_collection.proto", fileDescriptor_tree_collection_771f9a62ce32933b)
+	proto.RegisterFile("tree_collection.proto", fileDescriptor_tree_collection_8f15c147361eadbf)
 }
 
-var fileDescriptor_tree_collection_771f9a62ce32933b = []byte{
+var fileDescriptor_tree_collection_8f15c147361eadbf = []byte{
 	// 185 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2d, 0x29, 0x4a, 0x4d,
 	0x8d, 0x4f, 0xce, 0xcf, 0xc9, 0x49, 0x4d, 0x2e, 0xc9, 0xcc, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f,

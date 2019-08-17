@@ -38,7 +38,7 @@ func (m *TreeEntity) Reset()         { *m = TreeEntity{} }
 func (m *TreeEntity) String() string { return proto.CompactTextString(m) }
 func (*TreeEntity) ProtoMessage()    {}
 func (*TreeEntity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_tree_entity_ee919070d2ba1186, []int{0}
+	return fileDescriptor_tree_entity_b43f1ec955b8a9a0, []int{0}
 }
 func (m *TreeEntity) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -445,9 +445,9 @@ var (
 	ErrIntOverflowTreeEntity   = fmt.Errorf("proto: integer overflow")
 )
 
-func init() { proto.RegisterFile("tree_entity.proto", fileDescriptor_tree_entity_ee919070d2ba1186) }
+func init() { proto.RegisterFile("tree_entity.proto", fileDescriptor_tree_entity_b43f1ec955b8a9a0) }
 
-var fileDescriptor_tree_entity_ee919070d2ba1186 = []byte{
+var fileDescriptor_tree_entity_b43f1ec955b8a9a0 = []byte{
 	// 167 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2c, 0x29, 0x4a, 0x4d,
 	0x8d, 0x4f, 0xcd, 0x2b, 0xc9, 0x2c, 0xa9, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x01,

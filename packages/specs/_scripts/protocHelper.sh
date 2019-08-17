@@ -35,6 +35,7 @@ Mfuro/meta.proto=../furo,\
 Mgoogle/date.proto=../google,\
 Mgoogle/money.proto=../google,\
 Mprotobuf/empty.proto=../protobuf,\
+Mprotobuf/any.proto=../protobuf,\
 Mperson/person.proto=../person,\
 Mtask/task.proto=../task,\
 Mtree/tree.proto=../tree,\

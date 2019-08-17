@@ -39,7 +39,7 @@ func (m *Money) Reset()         { *m = Money{} }
 func (m *Money) String() string { return proto.CompactTextString(m) }
 func (*Money) ProtoMessage()    {}
 func (*Money) Descriptor() ([]byte, []int) {
-	return fileDescriptor_money_944e458b019bacbf, []int{0}
+	return fileDescriptor_money_66e206634a418949, []int{0}
 }
 func (m *Money) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -442,9 +442,9 @@ var (
 	ErrIntOverflowMoney   = fmt.Errorf("proto: integer overflow")
 )
 
-func init() { proto.RegisterFile("money.proto", fileDescriptor_money_944e458b019bacbf) }
+func init() { proto.RegisterFile("money.proto", fileDescriptor_money_66e206634a418949) }
 
-var fileDescriptor_money_944e458b019bacbf = []byte{
+var fileDescriptor_money_66e206634a418949 = []byte{
 	// 160 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xce, 0xcd, 0xcf, 0x4b,
 	0xad, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x4b, 0xcf, 0xcf, 0x4f, 0xcf, 0x49, 0x55,
