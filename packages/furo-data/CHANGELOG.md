@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.50.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.49.3...@furo/data@0.50.0) (2019-08-17)
+
+
+### Features
+
+* notification for repeater nodes ([3b59949](https://github.com/veith/FuroBaseComponents/commit/3b59949))
+
+
+
+
+
 ## [0.49.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.49.2...@furo/data@0.49.3) (2019-08-12)
 
 **Note:** Version bump only for package @furo/data
