@@ -1,4 +1,4 @@
-define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.panelRegistry=_exports.Types$1=_exports.Types=_exports.Services=_exports.RepeaterNode=_exports.NodeEvent=_exports.FuroTreeItem=_exports.FuroInputBase=_exports.FieldNode=_exports.EventTreeNode=_exports.EntityNode=_exports.CollectionNode=_exports.CollectionControls=_exports.$panelRegistry=_exports.$furoTreeItem=_exports.$apiConfig$1=_exports.$apiConfig=_exports.$RepeaterNode=_exports.$FuroInputBase=_exports.$FieldNode=_exports.$EventTreeNode=_exports.$EntityNode=_exports.$CollectionNode=_exports.$CollectionControls=void 0;class FetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();fetch("/node_modules/@furo/data/analysis.json").then(res=>res.json()).then(analysis=>{/**
+define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.panelRegistry=_exports.nav=_exports.Types$1=_exports.Types=_exports.Services=_exports.RepeaterNode=_exports.NodeEvent=_exports.FuroTreeItem=_exports.FuroInputBase=_exports.FieldNode=_exports.EventTreeNode=_exports.EntityNode=_exports.CollectionNode=_exports.CollectionControls=_exports.$panelRegistry=_exports.$navConfig=_exports.$furoTreeItem=_exports.$apiConfig$1=_exports.$apiConfig=_exports.$RepeaterNode=_exports.$FuroInputBase=_exports.$FieldNode=_exports.$EventTreeNode=_exports.$EntityNode=_exports.$CollectionNode=_exports.$CollectionControls=void 0;class FetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();fetch("/node_modules/@furo/data/analysis.json").then(res=>res.json()).then(analysis=>{/**
        * @event data
        * Fired when analysis loaded
        * detail payload: analysis
@@ -1518,7 +1518,7 @@ return _furoShell.html`
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-password-input>      
     `}}customElements.define("furo-data-password-input",FuroDataPasswordInput);class FuroDataDateInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
@@ -1617,7 +1617,7 @@ return _furoShell.html`
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-date-input>      
     `}}customElements.define("furo-data-date-input",FuroDataDateInput);class FuroDataTextInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
@@ -1710,7 +1710,7 @@ return _furoShell.html`
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-text-input>      
     `}}customElements.define("furo-data-text-input",FuroDataTextInput);class FuroDataTextareaInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
@@ -1760,7 +1760,7 @@ return _furoShell.html`
           label="${this._label}" 
           ?error="${this.error}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-textarea-input>      
     `}}customElements.define("furo-data-textarea-input",FuroDataTextareaInput);class FuroDataSearchInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
@@ -1811,7 +1811,7 @@ return _furoShell.html`
           label="${this._label}" 
           ?error="${this.error}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-search-input>      
     `}}customElements.define("furo-data-search-input",FuroDataSearchInput);/**
@@ -2034,7 +2034,7 @@ return _furoShell.html`
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-number-input>      
     `}}customElements.define("furo-data-number-input",FuroDataNumberInput);class FuroDataRangeInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
@@ -2132,7 +2132,7 @@ return _furoShell.html`
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-range-input>      
     `}}customElements.define("furo-data-range-input",FuroDataRangeInput);class FuroDataTimeInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
@@ -2218,7 +2218,7 @@ return _furoShell.html`
           step="${this._step}" 
           ?error="${this.error}" 
           errortext="${this.errortext}" 
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-time-input>      
     `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(FuroInputBase(_furoShell.LitElement)){/**
@@ -2390,7 +2390,7 @@ return _furoShell.html`
           trailing-icon="${this.trailingIcon}" 
           errortext="${this.errortext}" 
           list="${this.list}"
-          hint="${this.hint}" 
+          hint="${this._hint}" 
           ƒ-set-options="--selection"
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-select-input>      
@@ -2562,10 +2562,10 @@ if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}r
          */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("repeat-became-invalid",this))});/**
          * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
          */this.addEventListener("field-value-changed",e=>{this._pristine=!1})}removeAllChildren(){this.__childNodes=[];this.repeats=[];this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed",this.repeats,!1))}set value(val){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
-this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0))}get value(){return this.repeats.map(f=>{return f.value})}deleteChild(index){this.repeats.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
+this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this.repeats,!1))}get value(){return this.repeats.map(f=>{return f.value})}deleteChild(index){this.repeats.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
 fieldNode.deleteFromList=()=>{this.deleteChild(this.repeats.indexOf(fieldNode))};return index}_setInvalid(error){this._isValid=!1;let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
 error.field=path.slice(1).join(".")}this.repeats[path[0]]._setInvalid(error)}add(data){let index=this._addSilent();this._pristine=!1;// set data if given
-if(data){let child=this.repeats[index];child.value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));// return field for chainabilty
+if(data){let child=this.repeats[index];child.value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
 return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;this._meta=fieldSpec.meta||{};this._constraints=fieldSpec.constraints;this._options=fieldSpec.options;this._name=fieldName;this._value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
 if(this.__specdefinitions[this._spec.type]!==void 0){this._createVendorType(this._spec.type)}// set default value from meta
 if(this._meta&&this._meta.default){this.defaultvalue=this._meta.default;this._pristine=!1}/**
@@ -3004,7 +3004,7 @@ for(let index in this.fields.__childNodes){let field=this.fields.__childNodes[in
 data[fieldName].forEach((repdata,i)=>{// create if record index do not exist
 if(!fieldNode.repeats[i]){fieldNode._addSilent()}let repMeta={};if(dynamicFieldMeta[fieldName]){if(dynamicFieldMeta[fieldName].fields){repMeta=dynamicFieldMeta[fieldName].fields}}// Werte aktualisieren
 fieldNode.repeats[i].value=repdata;fieldNode.repeats[i]._pristine=!0;fieldNode.repeats[i].__index=i});// entferne überzählige nodes
-let newSize=data[fieldName].length;if(newSize<fieldNode.repeats.length){fieldNode.repeats.splice(newSize)}fieldNode._pristine=!0;fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",fieldNode.repeats,!0))}else{if(fieldNode){fieldNode._clearInvalidity();let meta={},submeta={};// Kommen neue metas von draussen rein
+let newSize=data[fieldName].length;if(newSize<fieldNode.repeats.length){fieldNode.repeats.splice(newSize)}fieldNode._pristine=!0;fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",fieldNode.repeats,!0));fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",fieldNode.repeats,!1))}else{if(fieldNode){fieldNode._clearInvalidity();let meta={},submeta={};// Kommen neue metas von draussen rein
 if(dynamicFieldMeta[fieldName]){meta=dynamicFieldMeta[fieldName];// setze node Meta wenn neue metas gekommen sind
 // TODO @veith Metas mischen und nicht überklatschen, ev immer von spec meta aus und nicht von runtime meta
 if(meta.constraints){for(let key in meta.constraints){fieldNode._constraints[key]=meta.constraints[key]}}if(meta.meta){for(let key in meta.meta){fieldNode._meta[key]=meta.meta[key]}}if(meta.options){for(let key in meta.options){fieldNode._options[key]=meta.options[key]}}// hat es meta für subfelder
@@ -4241,7 +4241,7 @@ return _furoShell.html`
       </furo-vertical-flex>
       </template>
       </furo-demo-snippet>
-    `}}window.customElements.define("demo-capture-video",DemoCaptureVideo);class FuroDemoLoader extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}load(location){if(location.pathSegments[0]){let lastDemo=this.shadowRoot.querySelector("#demo");lastDemo.remove();this.demoComponent=location.pathSegments[0];// if the element is registered append the new
+    `}}window.customElements.define("demo-capture-video",DemoCaptureVideo);const nav=[{group:"Packages",items:[{label:"Getting input",icon:"input",href:"input/doc/"},{label:"Dealing with data",icon:"cloud",href:"data/doc/"},{label:"Data UI",icon:"view-column",href:"data-ui/doc/"},{label:"Data Input",icon:"input",href:"data-input/doc/"},{label:"Layouts helper",icon:"dashboard",href:"layout/doc/"},{label:"Forms helper",icon:"dashboard",href:"form/doc/"},{label:"App Config",icon:"settings",href:"config/doc/"},{label:"Navigation",icon:"tab",href:"navigation/doc/"},{label:"Routing",icon:"arrow-forward",href:"route/doc/"},{label:"Timing",icon:"alarm",href:"timing/doc/"},{label:"Math",icon:"timeline",href:"math/doc/"},{label:"Logic",icon:"av:web",href:"logic/doc/"},{label:"Util",icon:"star-border",href:"util/doc/"},{label:"\uD83D\uDC80 Experiments",icon:"image:colorize",href:"experiments/doc/"}]},{group:"The Framework",items:[{label:"Overview",icon:"create",href:"framework/doc/"},{label:"Theming",icon:"image:brush",href:"framework/doc/Theme"},{label:"Internationalisation",icon:"create",href:"framework/doc/i18n"},{label:"Configuration",icon:"create",href:"framework/doc/Env"},{label:"Register Icons",icon:"image:color-lens",href:"framework/doc/Iconset"}]}];_exports.nav=nav;var nav_config={nav:nav};_exports.$navConfig=nav_config;class FuroDemoLoader extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}load(location){if(location.pathSegments[0]){let lastDemo=this.shadowRoot.querySelector("#demo");lastDemo.remove();this.demoComponent=location.pathSegments[0];// if the element is registered append the new
 if(document.createElement(this.demoComponent).constructor!==HTMLElement){// append the demo element
 let demo=document.createElement(this.demoComponent);demo.id="demo";this.shadowRoot.appendChild(demo)}else{let demo=document.createElement("div");demo.id="demo";demo.classList.add("error");demo.innerText="404  -  "+this.demoComponent+" is not imported, nothing to show here";this.shadowRoot.appendChild(demo)}this.requestUpdate()}}/**
      * flow is ready lifecycle method
@@ -4518,7 +4518,7 @@ return _furoShell.html`
 }}window.customElements.define("furo-panel-coordinator",FuroPanelCoordinator);class ViewApi extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * flow is ready lifecycle method
    */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-this._FBPTriggerWire("--nav",_furoShell.nav)}/**
+this._FBPTriggerWire("--nav",nav)}/**
      * Themable Styles
      * @private
      * @return {CSSResult}

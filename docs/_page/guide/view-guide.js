@@ -1,68 +1,4 @@
-define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.nav=_exports.$navConfig=void 0;class TopicIntro extends _furoShell.LitElement{constructor(){super();this.title="";this.text=""}static get properties(){return{title:{type:String},text:{type:String}}}static get styles(){// language=CSS
-return[_furoShell.css`
-                :host {
-                    display: block;
-                    overflow: auto;
-                }
-
-                :host([hidden]) {
-                    display: none;
-                }
-                
-                h1.panel-header{
-                    font-size: 2.8rem;
-                    font-weight: 400;
-                    line-height: 3.125rem;
-                    letter-spacing: normal;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-                
-                p.panel-content {
-                    font-size: 1rem;
-                    line-height: 1.5rem;
-                    font-weight: 400;
-                    letter-spacing: .03125em;
-                }
-
-                div.right {
-                    background-color: var(--secondary);
-                    min-height: 300px;
-                    margin: var(--spacing);
-                    padding:  var(--spacing);
-                    max-width: 800px;
-                    border-radius: var(--border-radius,  4px);
-                }
-            `]}render(){// language=HTML
-return _furoShell.html`
-<h2 class="panel-header">${this.title}</h2>
-        <furo-split-view>
-            <div slot="master">              
-                <p class="panel-content">${this.text}</p>
-            </div>
-            <div class="right">
-                <slot></slot>
-            </div>
-        </furo-split-view>
-    `}}window.customElements.define("topic-intro",TopicIntro);class TopicTitle extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}static get properties(){return{title:{type:String}}}static get styles(){// language=CSS
-return[_furoShell.css`
-                :host {
-                    display: block;
-                }
-
-                :host([hidden]) {
-                    display: none;
-                }
-                h2{
-                    font-size: 1.25rem;
-                    font-weight: 500;
-                    letter-spacing: .0125em;
-                    border-bottom: 1px solid rgba(0,0,0,.87);
-                }
-            `]}render(){// language=HTML
-return _furoShell.html`
-            <h2>${this.title}</h2>
-        `}}window.customElements.define("topic-title",TopicTitle);class LightBulb extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.off=!0;this.color="#fee753"}/**
+define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.nav=_exports.$navConfig=void 0;class LightBulb extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.off=!0;this.color="#fee753"}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -778,9 +714,6 @@ return _furoShell.html`
           <side-navigation ƒ-inject-nav-config="--nav" base-path="/guide/"></side-navigation>
         </div>
         <furo-pages ƒ-inject-location="--pathChanged" default="welcome">
-          
-          <panel-guide name="pages"></panel-guide>
-        
           <panel-md-loader name="md"></panel-md-loader>
           
           <div name="welcome">Coming soon.</div>

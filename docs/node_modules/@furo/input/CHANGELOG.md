@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.51.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.50.6...@furo/input@0.51.0) (2019-08-17)
+
+
+### Features
+
+* furo-data-collection-dropdown with furo-select-input ([16804c1](https://github.com/veith/FuroBaseComponents/commit/16804c1))
+
+
+
+
+
 ## [0.50.6](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.50.5...@furo/input@0.50.6) (2019-08-13)
 
 
