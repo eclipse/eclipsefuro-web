@@ -291,19 +291,19 @@ class FuroCheckboxInput extends FBP(LitElement) {
         }
 
         :host([filled]) .wrapper {
-            background-checkbox: var(--surface-light, #FEFEFE);
+            background-color: var(--surface-light, #FEFEFE);
         }
 
         :host([filled]) .wrapper:hover {
-            background-checkbox: var(--surface, #FCFCFC);
+            background-color: var(--surface, #FCFCFC);
         }
 
         :host([filled]:focus-within) .wrapper {
-            background-checkbox: var(--surface-dark, #FEA222);
+            background-color: var(--surface-dark, #FEA222);
         }
 
         :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-checkbox: var(--input-hover-checkbox, #333333);
+            border-color: var(--input-hover-color, #333333);
         }
 
 
@@ -327,7 +327,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
             width: 8px;
             box-sizing: border-box;
             pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-checkbox, var(--disabled, #333333));
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
             border-right: none;
             border-top-left-radius: 4px;
             border-bottom-left-radius: 4px;
@@ -336,7 +336,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
         label {
             padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-checkbox, var(--disabled, #333333));
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
             border-left: none;
             border-right: none;
             line-height: 56px;
@@ -345,7 +345,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
         
         .right-border {
             pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-checkbox, var(--disabled, #333333));
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
             border-left: none;
             border-top-right-radius: 4px;
             border-bottom-right-radius: 4px;
@@ -364,7 +364,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
             height: 1px;
             top: 56px;
             border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-checkbox, var(--disabled, #333333));
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
         :host([filled]) .ripple-line {
@@ -405,14 +405,14 @@ class FuroCheckboxInput extends FBP(LitElement) {
             position: absolute;
             bottom: 0;
             font-size: 12px;
-            checkbox: transparent;
+            color: transparent;
             padding-left: 12px;
             white-space: nowrap;
             pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            checkbox: var(--input-hint-checkbox, #999999);
+            color: var(--input-hint-color, #999999);
             transition: all 550ms ease-in;
         }
 
@@ -422,38 +422,38 @@ class FuroCheckboxInput extends FBP(LitElement) {
         }
 
         .errortext {
-            checkbox: var(--input-error-text-checkbox, var(--error, red));
+            color: var(--input-error-text-color, var(--error, red));
             display: none;
         }
 
 
         label {
-            checkbox: var(--input-hint-checkbox, var(--disabled, #DEDEDE));
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
         }
 
         :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            checkbox: var(--input-active-float-label-checkbox, var(--primary, #3f51b5));
-            border-checkbox: var(--input-active-float-label-checkbox, var(--primary, #3f51b5));
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
 
 
         :host(:focus-within) .ripple-line {
-            border-checkbox: var(--input-active-activation-indicator-checkbox, var(--primary, #3f51b5));
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
             border-width: 2px;
         }
 
         :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-checkbox: var(--input-active-activation-indicator-checkbox, var(--primary, #3f51b5));
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
             border-width: 2px;
         }
 
         :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-checkbox: var(--input-error-text-checkbox, var(--error, red));
+            border-color: var(--input-error-text-color, var(--error, red));
             border-width: 2px;
         }
 
         :host([error]:focus-within) label {
-            checkbox: var(--input-error-text-checkbox, var(--error, red));
+            color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([error]:focus-within) .hint {
@@ -461,7 +461,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
         }
 
         :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-checkbox: var(--input-error-activation-indicator-checkbox, var(--error, red));
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
 
         furo-icon {
@@ -493,7 +493,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
         }
 
         :host(:focus-within:not([valid])) label {
-            checkbox: var(--input-error-text-checkbox, var(--error, red));
+            color: var(--input-error-text-color, var(--error, red));
         }
 
         :host([condensed]) input{
