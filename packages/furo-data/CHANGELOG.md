@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.50.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.50.1...@furo/data@0.50.2) (2019-08-19)
+
+
+### Bug Fixes
+
+* this-repeated-field-changed ([ecfdb8b](https://github.com/veith/FuroBaseComponents/commit/ecfdb8b))
+
+
+
+
+
 ## [0.50.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.50.0...@furo/data@0.50.1) (2019-08-19)
 
 
