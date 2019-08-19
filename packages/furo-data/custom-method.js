@@ -44,8 +44,8 @@ class CustomMethod extends FBP(LitElement) {
         }
         this._service = this._servicedefinitions[service];
 
-        if (this._service.general.lifecycle.deprecated) {
-            console.warn("You are using a deprecated service (" + service + ") " + this._service.general.lifecycle.info);
+        if (this._service.lifecycle && this._service.lifecycle.deprecated) {
+            console.warn("You are using a deprecated service (" + service + ") " + this._service.lifecycle.info);
         }
     }
 

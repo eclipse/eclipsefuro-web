@@ -84,13 +84,13 @@ import "./initEnv.js"
 
     it('should load service via ƒ-set-service', (done) => {
         element.setService("tasks");
-      assert.equal(element._service.general.name,"tasks");
+      assert.equal(element._service.name,"tasks");
       done();
     });
 
     it('should load specs via attribute service', (done) => {
       element.setAttribute("service", "tasks");
-      assert.equal(element._service.general.name,"tasks");
+      assert.equal(element._service.name,"tasks");
       done();
     });
 

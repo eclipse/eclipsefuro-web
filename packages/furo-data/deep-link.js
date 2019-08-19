@@ -139,8 +139,8 @@ class DeepLink extends LitElement {
   set service(service) {
     if (this._servicedefinitions[service]) {
       this._service = this._servicedefinitions[service];
-      if (this._service.general.lifecycle.deprecated) {
-        console.warn("You are using a deprecated service (" + service + ") " + this._service.general.lifecycle.info);
+      if (this._service.lifecycle && this._service.lifecycle.deprecated) {
+        console.warn("You are using a deprecated service (" + service + ") " + this._service.lifecycle.info);
       }
     } else {
       console.error("service " + service + " does not exist", this, "Available Services:", this._servicedefinitions);
