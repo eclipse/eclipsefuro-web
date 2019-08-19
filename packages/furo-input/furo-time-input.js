@@ -11,6 +11,21 @@ import  "@furo/layout/furo-icon";
  *
  * If you type in a time outside the min max range or the step, an "error" will be indicated. But not the error text.
  *
+ * ### Styling
+ * The following custom properties and mixins are available for styling:
+ *
+ * Custom property | Description | Default  | Fallback
+ * ----------------|-------------|----------|----------
+ * `--input-hint-color` | Color of hint text | #999999 | --
+ * `--input-label-color` | Color of label in field| `--disabled,` | #333333
+ * `--input-label-float-color` | Color of label when floating | `--on-surface` | #333333
+ * `--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5
+ * `--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333
+ * `--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red
+ * `--input-error-text-color` | Color of error text | `--error` | red
+ * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
+ * `--input-active-error-activation-indicator-color` | Color of factivation indicator in active error state   | `--error` | red
+ *
  * @summary Time input field
  * @customElement
  * @polymer
