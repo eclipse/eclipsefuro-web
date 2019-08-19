@@ -14,7 +14,6 @@ import {FBP} from "@furo/fbp";
 class FuroCard extends FBP(LitElement) {
 
 
-
   /**
    *
    * @private
@@ -28,24 +27,35 @@ class FuroCard extends FBP(LitElement) {
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
             0 1px 5px 0 rgba(0, 0, 0, 0.12),
             0 3px 1px -2px rgba(0, 0, 0, 0.2);
-
+            --furo-button-padding: 4px;
             background: var(--furo-card-background, white);
-            padding: var(--furo-card-padding, 12px);
+            padding-bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
             margin: var(--furo-card-margin, 0);
             box-sizing: border-box;
-            height: var(--furo-card-height, unset);
+            height: var(--furo-card-height, 340px);
+            width: var(--furo-card-width, 300px);
             position: relative;
+            border-radius: 4px;
         }
 
+      
         :host([hidden]) {
             display: none;
         }
-        .action{
+        
+        .content{
+            padding: var(--furo-card-padding, var(--spacing-s, 16px));
+        }
+        
+        .action {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right:0;
-            border-top: 1px solid var(--separator);
+            bottom:var(--furo-card-padding, var(--spacing-xs, 8px));
+            left: var(--furo-card-padding, var(--spacing-xs, 8px));
+        }
+        
+        .media ::slotted(*){
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
         }
 
     `
@@ -59,7 +69,12 @@ class FuroCard extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
+      <div class="media">
+      <slot name="media"></slot>
+      </div>
+      <div class="content">
       <slot></slot>
+      </div>
       <div class="action">
         <slot name="action"></slot>
       </div>

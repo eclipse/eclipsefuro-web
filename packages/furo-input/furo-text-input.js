@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import  "@furo/layout/furo-icon";
+import "@furo/layout/furo-icon";
 
 /**
  * `furo-text-input`
@@ -35,10 +35,11 @@ import  "@furo/layout/furo-icon";
 class FuroTextInput extends FBP(LitElement) {
 
 
-  constructor(){
+  constructor() {
     super();
     this.valid = true;
   }
+
   _FBPReady() {
     super._FBPReady();
 
@@ -147,8 +148,8 @@ class FuroTextInput extends FBP(LitElement) {
       /**
        * Lets the placeholder always floating
        */
-      float:{
-        type:Boolean
+      float: {
+        type: Boolean
       },
       /**
        * The hint text for the field.
@@ -179,15 +180,15 @@ class FuroTextInput extends FBP(LitElement) {
       /**
        * html input validity
        */
-      valid:{
-        type:Boolean,
-        reflect:true
+      valid: {
+        type: Boolean,
+        reflect: true
       },
       /**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
-      condensed:{
-        type:Boolean
+      condensed: {
+        type: Boolean
       },
 
 
@@ -286,15 +287,18 @@ class FuroTextInput extends FBP(LitElement) {
         }
 
         .wrapper {
+            position: relative;
             padding: 0 12px;
             box-sizing: border-box;
+            height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         .iwrap {
             position: relative;
         }
 
-       
 
         input {
             position: absolute;
@@ -378,7 +382,7 @@ class FuroTextInput extends FBP(LitElement) {
         :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
             font-size: 12px;
             top: -30px;
-            left:0;
+            left: 0;
             position: relative;
         }
 
@@ -507,16 +511,18 @@ class FuroTextInput extends FBP(LitElement) {
 
         furo-icon {
             display: none;
-            top:16px;
+            top: 16px;
         }
-        furo-icon.lead{
+
+        furo-icon.lead {
             position: absolute;
-            
-            left:8px;
+
+            left: 8px;
         }
-        furo-icon.trail{
+
+        furo-icon.trail {
             position: absolute;
-            right:8px;
+            right: 8px;
         }
 
         :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
@@ -527,57 +533,66 @@ class FuroTextInput extends FBP(LitElement) {
             left: 24px;
         }
 
-        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
+        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
             left: 0;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
             padding-left: 36px;
         }
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
+
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
             padding-right: 36px;
         }
-        :host(:focus-within:not([valid])) label{
+
+        :host(:focus-within:not([valid])) label {
             color: var(--input-error-text-color, var(--error, red));
         }
 
 
-        :host([condensed]) input{
-            top:8px;
+        :host([condensed]) input {
+            top: 8px;
         }
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
+
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
             line-height: 36px;
         }
-        :host([condensed]) input{
+
+        :host([condensed]) input {
             font-size: 14px;
         }
-        :host([condensed][filled]) input{
+
+        :host([condensed][filled]) input {
             font-size: 13px;
         }
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
+
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
             height: 36px;
-        }  
-        
-        :host([condensed])  furo-icon {
-            top:6px;
         }
-        
+
+        :host([condensed]) furo-icon {
+            top: 6px;
+        }
+
         :host([condensed]) .ripple-line {
             top: 36px;
         }
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top:-15px;
+            top: -15px;
             font-size: 10px;
-        } 
+        }
+
         :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top:-20px;
+            top: -20px;
             font-size: 10px;
-        } 
+        }
+
         :host([condensed]) .hint, :host([condensed]) .errortext {
             font-size: 10px;
         }
-        :host([condensed]){
+
+        :host([condensed]) {
             height: 53px;
         }
 
@@ -602,7 +617,7 @@ class FuroTextInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float || this.float}" for="input"><span>${this.label}</span></label>
       <div class="right-border"></div>
       </div>
       

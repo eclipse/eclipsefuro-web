@@ -165,7 +165,7 @@ class FuroButton extends FBP(LitElement) {
             width: 100%;
             cursor: pointer;
             color: var(--on-surface);
-            padding: 0 16px;
+            padding: 0  var(--furo-button-padding, var(--spacing-s, 16px));;
             text-transform: uppercase;
             font-size: 14px;
             outline: none;

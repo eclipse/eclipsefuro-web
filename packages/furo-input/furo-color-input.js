@@ -261,6 +261,8 @@ class FuroColorInput extends FBP(LitElement) {
             padding: 0 12px;
             box-sizing: border-box;
             height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         input {
