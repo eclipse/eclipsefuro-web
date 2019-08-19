@@ -64,8 +64,8 @@ export class RepeaterNode extends EventTreeNode {
       this.repeats[i]._pristine = true;
 
     });
-    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, true));
-    this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this.repeats, false));
+    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
+    this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
 
   }
 
@@ -122,7 +122,7 @@ export class RepeaterNode extends EventTreeNode {
     }
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-added", this.repeats[index], true));
     this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added", this.repeats[index], false));
-    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, true));
+    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
     this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
 
     // return field for chainabilty

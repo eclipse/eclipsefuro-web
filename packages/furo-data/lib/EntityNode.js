@@ -154,8 +154,8 @@ export class EntityNode extends EventTreeNode {
           }
 
           fieldNode._pristine = true;
-          fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", fieldNode.repeats, true));
-          fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", fieldNode.repeats, false));
+          fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", fieldNode, true));
+          fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", fieldNode, false));
 
         } else {
           if (fieldNode) {
