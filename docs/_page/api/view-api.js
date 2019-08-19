@@ -1429,7 +1429,56 @@ return _furoShell.html`
       </furo-demo-snippet>
 
 
-    `}}window.customElements.define("demo-furo-select-input",DemoFuroSelectInput);class FuroDataPasswordInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-select-input",DemoFuroSelectInput);class DemoFuroCheckbox extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <h2>Demo furo-checkbox</h2>
+      
+      <furo-demo-snippet >
+        <template>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>checked</th>
+                    <th>unchecked</th>
+                </tr>
+                <tr>
+                  <td>enabled</td>
+                  <td> <furo-checkbox checked></furo-checkbox></td>
+                  <td> <furo-checkbox ></furo-checkbox></td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
+                    <td> <furo-checkbox checked disabled></furo-checkbox></td>
+                    <td> <furo-checkbox disabled></furo-checkbox></td>
+                </tr>
+                <tr>
+                    <td>focus</td>
+                    <td> <furo-checkbox checked autofocus></furo-checkbox></td>
+                    <td> </td>
+                </tr>
+            </table>
+
+        </template>
+      </furo-demo-snippet>
+    `}}window.customElements.define("demo-furo-checkbox",DemoFuroCheckbox);class FuroDataPasswordInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
@@ -2713,7 +2762,8 @@ return _furoShell.html`
      * Requests are made via the Fetch API if possible.
      * Fallback XMLHttpRequest
      *
-     * @event fatal-error(payload request object)
+     * **payload** request object
+     * @event fatal-error
      * @param request
      */_executeRequest(request){/**
      * dispatches fatal-error
@@ -2770,7 +2820,7 @@ this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links))
          * detail payload: hts
          */let customEvent=new Event("response-hts-updated",{composed:!0,bubbles:!0});customEvent.detail=r.links;this.dispatchEvent(customEvent)}});this._singleElementQueue=[];//queue for calls, before hts is set
 this._queryParams={}}static get properties(){return{/**
-       * Name des Services
+       * The service name. Like ProjectService
        */service:{type:String,attribute:!0},pageSize:{type:Number,attribute:"page-size"},fields:{type:String,attribute:!0},orderBy:{type:String,attribute:"order-by"},filter:{type:Array,attribute:!0},view:{type:String,attribute:!0},listOnHtsIn:{type:Boolean,attribute:"list-on-hts-in"}}}firstUpdated(){super.firstUpdated();/**
                            * @event collection-controls
                            * Fired when
@@ -2810,7 +2860,7 @@ setFilter(filterstring){if(Array.isArray(filterstring)){this.filter=filterstring
    */ /**
        * Setze den Service
        * @param service
-       */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.general.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.general.lifecycle.info)}// set pagination defaults
+       */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}// set pagination defaults
 }bindRequestObject(entityTree){this._entityTree=entityTree}/**
      * Update query params
      * a qp like {"active":true} will just update the qp *active*
@@ -2892,7 +2942,7 @@ if(this._type){this._checkType(this._type)}}}window.customElements.define("colle
        */method:{type:String,attribute:!0}}}/**
      * Setze den Service
      * @param service
-     */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.general.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.general.lifecycle.info)}}bindRequestObject(entityTree){this._entityTree=entityTree}bindData(entityTree){this._entityTree=entityTree}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
+     */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}bindRequestObject(entityTree){this._entityTree=entityTree}bindData(entityTree){this._entityTree=entityTree}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
 let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");headers.append("Content-Type","application/json");return new Request(link.href,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
 let s=Object.keys(this._service.services).map(key=>{return key.toLowerCase()});if(-1===s.indexOf(serviceName.toLowerCase())){// todo fehler werfen ???
 console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}// check Hateoas
@@ -2963,7 +3013,7 @@ this._qp=qp;this.trigger()}/**
      */setService(serviceName){this.service=serviceName}/**
      * Setze den Service
      * @param service
-     */set service(service){if(this._servicedefinitions[service]){this._service=this._servicedefinitions[service];if(this._service.general.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.general.lifecycle.info)}}else{console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions)}}}window.customElements.define("deep-link",DeepLink);class ReverseDeepLink extends _furoShell.LitElement{constructor(){super();this.service="";this._services=_furoShell.Env.api.services}/**
+     */set service(service){if(this._servicedefinitions[service]){this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}else{console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions)}}}window.customElements.define("deep-link",DeepLink);class ReverseDeepLink extends _furoShell.LitElement{constructor(){super();this.service="";this._services=_furoShell.Env.api.services}/**
      * converts the href of a LinkObject
      *
      * @param {object|linkObject} {object|rawEntity} {object|rawCollection} data
@@ -3029,17 +3079,17 @@ if(!this.entity){setTimeout(()=>{this.injectRaw(jsonObj)},0)}else{this.entity.in
                                                             * Fired when
                                                             * detail payload:
                                                             */let customEvent=new Event("object-ready",{composed:!0,bubbles:!0});customEvent.detail=this.entity;setTimeout(()=>{this.dispatchEvent(customEvent)},0);this.entity.addEventListener("data-injected",e=>{/**
-      * @event data-injected
-      * Fired when injected data was processed.
-      * detail payload: {Object|EntityNode} reference to entity
-      */let customEvent=new Event("data-injected",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent)});this.entity.addEventListener("field-value-changed",e=>{/**
+       * @event data-injected
+       * Fired when injected data was processed.
+       * detail payload: {Object|EntityNode} reference to entity
+       */let customEvent=new Event("data-injected",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent)});this.entity.addEventListener("field-value-changed",e=>{/**
        * @event data-changed
        * Fired when data in collection has changed
        * detail payload: {Object|CollectionNode}
        */let customEvent=new Event("data-changed",{composed:!0,bubbles:!0});customEvent.detail=this.entity.rawData;this.dispatchEvent(customEvent);/**
                                         * @event (field-value-changed)
                                         *
-                                        * ✋ Internal Event!
+                                        * ✋ Internal Event from EntityNode which you can use in the targeted components!
                                         *
                                         * Fired when a value on a field node changes. This event **bubbles** by default. Can be used on any node.
                                         *
@@ -3047,7 +3097,7 @@ if(!this.entity){setTimeout(()=>{this.injectRaw(jsonObj)},0)}else{this.entity.in
                                         */ /**
                                             * @event (this-field-value-changed)
                                             *
-                                            * ✋ Internal Event!
+                                            * ✋ Internal Event from EntityNode which you can use in the targeted components!
                                             *
                                             * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
                                             *
@@ -3055,7 +3105,7 @@ if(!this.entity){setTimeout(()=>{this.injectRaw(jsonObj)},0)}else{this.entity.in
                                             */ /**
                                                 * @event (data-injected)
                                                 *
-                                                * ✋ Internal Event!
+                                                * ✋ Internal Event from EntityNode which you can use in the targeted components!
                                                 *
                                                 * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
                                                 *
@@ -3066,9 +3116,7 @@ if(!this.entity){setTimeout(()=>{this.injectRaw(jsonObj)},0)}else{this.entity.in
      * Inits internal entity
      * References will still be valid
      */init(){this.entity.init();let customEvent=new Event("object-ready",{composed:!0,bubbles:!0});customEvent.detail=this.entity;setTimeout(()=>{this.dispatchEvent(customEvent)},0)}firstUpdated(){super.firstUpdated();// queueing
-if(this._type){this._checkType(this._type)}// data objects
-this._entityFields=this.querySelectorAll("entity-field");// console.log("todo",this._entityFields);
-}}window.customElements.define("entity-object",EntityObject);class EntityAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api;// HTS aus response anwenden
+if(this._type){this._checkType(this._type)}}}window.customElements.define("entity-object",EntityObject);class EntityAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api;// HTS aus response anwenden
 this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links)){/**
          * @event response-hts-updated
          * Fired when
@@ -3079,7 +3127,7 @@ this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links))
        */service:{type:String,attribute:!0}}}/**
      * Setze den Service
      * @param service
-     */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.general.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.general.lifecycle.info)}}bindRequestObject(entityTree){this._entityTree=entityTree}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
+     */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}bindRequestObject(entityTree){this._entityTree=entityTree}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
 let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");if("put"!==link.method.toLowerCase()){headers.append("Content-Type","application/json")}return new Request(link.href,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
 if(!this._service.services[serviceName]){console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}//queue if no hts is set, queue it
 if(!this._hts){this._singleElementQueue=[[rel,serviceName]];return!0}// check Hateoas
@@ -3179,12 +3227,18 @@ if(!field._isValid){field._clearInvalidity()}}}}};fields.addEventListener("field
                                                         this.validator(field)
                                                       });
                                                     },16);
-                                                     */}}window.customElements.define("entity-validator",EntityValidator);class EntityField extends _furoShell.LitElement{constructor(){super()}setValue(v){this.value=v}set value(v){this._value=v;this.field.value=v}get value(){return this._value}bindData(d){if(d===void 0){console.warn("Invalid binding ");console.log(this);return}this.field=d;this.field.addEventListener("field-value-changed",e=>{// updates wieder einspielen
-/**
-      * @event value-changed
-      * Fired when
-      * detail payload:
-      */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail.value;this.dispatchEvent(customEvent)})}}customElements.define("entity-field",EntityField);class FuroFilterContainer extends(0,_furoShell.FBP)(HTMLElement){constructor(){super();this.style.display="none";this.type=this.getAttribute("type");// find .querySelectorAll("simple-filter-field")
+                                                     */}}window.customElements.define("entity-validator",EntityValidator);class EntityField extends _furoShell.LitElement{/**
+   * Set the value of the field.
+   * @param v
+   */setValue(v){this.value=v}set value(v){this._value=v;this.field.value=v}get value(){return this._value}/**
+     * Bind a entity field to the date-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){if(fieldNode===void 0){console.warn("Invalid binding ");console.log(this);return}this.field=fieldNode;this.field.addEventListener("field-value-changed",e=>{/**
+       * @event value-changed
+       * Fired when
+       * detail payload:
+       */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail.value;this.dispatchEvent(customEvent)})}}customElements.define("entity-field",EntityField);class FuroFilterContainer extends(0,_furoShell.FBP)(HTMLElement){constructor(){super();this.style.display="none";this.type=this.getAttribute("type");// find .querySelectorAll("simple-filter-field")
 let filterFields=this.querySelectorAll("simple-filter-field");if(null!=filterFields){filterFields.forEach(f=>{// set types to children
 f.type=this.type})}// register changes
 this.addEventListener("furo-filter-field-changed",e=>{// baum für filter aufbauen
