@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.32.4](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.32.3...@furo/layout@0.32.4) (2019-08-19)
+
+
+### Bug Fixes
+
+* card width and  height ([9d781bd](https://github.com/veith/FuroBaseComponents/commit/9d781bd))
+
+
+
+
+
 ## [0.32.3](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.32.2...@furo/layout@0.32.3) (2019-08-19)
 
 
