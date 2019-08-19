@@ -14784,7 +14784,191 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroIconWithLabel extends FBP(LitElement){static get properties(){return{icon:{type:String}}}static get styles(){// language=CSS
+    `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroCheckbox extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.value=input.value;this.checked=!this.checked;/**
+                                     * @event value-changed
+                                     * Fired when value has changed from inside the component
+                                     * detail payload: {String} the text value
+                                     */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.checked){/**
+         * @event checked
+         * Fired when the checkbox is checked
+         * detail payload: {String} the text value
+         */let customEvent=new Event("checked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}set value(v){this._v=v;this._value=v}get value(){return this.v}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * check the checkbox
+     */check(){this.checked=!0}static get properties(){return{/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:String},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this checkbox is checked.
+       */checked:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this is focused.
+       */focused:{type:Boolean}}}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+            /* https://material.io/design/components/text-fields.html#theming */
+            :host {
+                display: inline-block;
+                position: relative;
+                box-sizing: border-box;
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+            /* The wrapper */
+            .wrapper {
+                display: block;
+                position: relative;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                box-sizing: border-box;
+
+            }
+
+            input[type="checkbox" i] {
+                margin: 0;
+            }
+
+            /* input checkbox*/
+            .wrapper input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                cursor: pointer;
+                height: 40px;
+                width: 40px;
+                z-index: 1;
+                box-sizing: border-box;
+
+            }
+
+            .checkbox-background {
+                position: absolute;
+                top: 11px;
+                left: 11px;
+                height: 18px;
+                width: 18px;
+                background-color: var(--input-checkbox-unselected-bg-color, var(--background, #ffffff));
+                border: solid 2px;
+                border-color: var(--input-checkbox-unselected-border-color, var(--separator, #7E7E7E));
+                box-sizing: border-box;
+            }
+
+            /* unselected checkbox when hovering */
+            .wrapper:hover {
+                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light,#F5F5F5));
+            }
+
+            .wrapper:hover input ~ .checkbox-background {
+                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light,#F5F5F5));
+            }
+
+            /* unselected checkbox when focusing */
+            .wrapper[focused] {
+                background-color: var(--input-checkbox-unselected-focus-bg-color, var(--surface-dark, #DDDDDD));
+            }
+
+            .wrapper[checked] input ~ .checkbox-background {
+                background-color: var(--input-checkbox-unselected-focus-bg-color, var(--surface-dark, #DDDDDD) );
+            }
+
+            /* unselected checkbox when pressing */
+            .wrapper:active {
+                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark , #C0C0C0));
+            }
+
+            .wrapper:active input ~ .checkbox-background {
+                background-color: var(--input-checkbox-unselected-active-bg-color, var(--background,#ffffff));
+            }
+
+            /* selected checkbox  */
+            .wrapper[checked] input:checked ~ .checkbox-background {
+                background-color: var(--input-checkbox-selected-bg-color, #6200FD);
+                border-color: var(--input-checkbox-selected-bg-color, var(--background,#ffffff));
+            }
+
+            /* selected checkbox when focusing */
+            .wrapper[checked][focused]  {
+                background-color: var(--input-checkbox-selected-hover-bg-color, #D5C6E9);
+            }
+
+            .wrapper[checked][focused] input ~ .checkbox-background {
+                background-color: var(--input-checkbox-selected-focus-bg-color, #6200FD);
+            }
+
+            /* selected checkbox when hovering */
+            .wrapper[checked]:hover {
+                background-color: var(--input-checkbox-selected-hover-bg-color, #E4DBE6);
+            }
+
+            /* disabled checkbox selected */
+            .wrapper[checked][disabled] input:disabled:checked ~ .checkbox-background {
+                background-color: var(--input-checkbox-disabled-selected-bg-color, #B9B9B9);
+                border-color: var(--input-checkbox-disabled-selected-border-color, #B9B9B9);
+            }
+
+            /* disabled checkbox unselected */
+            .wrapper input:disabled ~ .checkbox-background {
+                background-color: var(--input-checkbox-disabled-unselected-bg-color, var(--background, #ffffff));
+                border-color: var(--input-checkbox-disabled-unselected-border-color, var(--surface,#aaaaaa));
+            }
+
+            .checkbox-background:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+
+            input:disabled {
+                cursor: default;
+            }
+
+            /* disabled checkbox when hovering */
+            .wrapper[disabled]:hover {
+                background-color: var(--input-checkbox-disabled-hover-bg-color, #ffffff);
+                background: transparent;
+            }
+
+            .wrapper input:checked ~ .checkbox-background:after {
+                display: block;
+            }
+
+            .wrapper .checkbox-background:after {
+                left: 3px;
+                top: -1px;
+                width: 5px;
+                height: 11px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+        `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return html`
+          <div id="wrapper" class="wrapper" ?focus=${this.autofocus} ?focused="${this.focused}" ?checked="${this.checked}" ?disabled="${this.disabled}">
+              <input id="input" type="checkbox" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?checked=${this.checked}
+                    ƒ-.value="--value" ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
+              <span class="checkbox-background"></span>
+          </div>
+        `}}customElements.define("furo-checkbox",FuroCheckbox);class FuroIconWithLabel extends FBP(LitElement){static get properties(){return{icon:{type:String}}}static get styles(){// language=CSS
 return[css`
                 :host {
                     height: 48px;

@@ -105,7 +105,8 @@ class ApiFetch extends HTMLElement {
      * Requests are made via the Fetch API if possible.
      * Fallback XMLHttpRequest
      *
-     * @event fatal-error(payload request object)
+     * **payload** request object
+     * @event fatal-error
      * @param request
      */
     _executeRequest(request) {
