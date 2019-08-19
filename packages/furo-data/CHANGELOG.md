@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.50.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.50.0...@furo/data@0.50.1) (2019-08-19)
+
+
+### Bug Fixes
+
+* lifecycle property with better checks ([9af2f9e](https://github.com/veith/FuroBaseComponents/commit/9af2f9e))
+* lifecycle property with better checks ([3e75ff5](https://github.com/veith/FuroBaseComponents/commit/3e75ff5))
+
+
+
+
+
 # [0.50.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.49.3...@furo/data@0.50.0) (2019-08-17)
 
 

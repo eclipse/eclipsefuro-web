@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.52.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.51.0...@furo/input@0.52.0) (2019-08-19)
+
+
+### Bug Fixes
+
+* layout positioning and sizes ([d209573](https://github.com/veith/FuroBaseComponents/commit/d209573))
+
+
+### Features
+
+* furo checkbox ([f13acf1](https://github.com/veith/FuroBaseComponents/commit/f13acf1))
+
+
+
+
+
 # [0.51.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.50.6...@furo/input@0.51.0) (2019-08-17)
 
 
