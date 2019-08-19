@@ -32,8 +32,6 @@ class FuroCard extends FBP(LitElement) {
             padding-bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
             margin: var(--furo-card-margin, 0);
             box-sizing: border-box;
-            height: var(--furo-card-height, 340px);
-            width: var(--furo-card-width, 300px);
             position: relative;
             border-radius: 4px;
         }
