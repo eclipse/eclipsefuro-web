@@ -2,7 +2,7 @@ import {LitElement, html} from 'lit-element';
 import {Env} from "@furo/framework"
 
 /**
- * Converts hateoas to queryParams
+ * Converts hateoas to queryParams, which is useful for routing with app-flow
  *
  *
  *```

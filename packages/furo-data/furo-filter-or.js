@@ -1,6 +1,7 @@
 /**
+ * Placeholder component to describe nested filters
  *
- * @appliesMixin FBP
+ * More information in furo-filter
  */
 class FuroFilterOr extends (HTMLElement) {
 

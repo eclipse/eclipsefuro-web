@@ -1,5 +1,5 @@
 {
-  "name": "tree_service",
+  "name": "TreeService",
   "description": "service specs for the tree api",
   "version": "0.0.1",
   "lifecycle": {

@@ -4,7 +4,8 @@ import "./api-fetch"
 import {Env} from "@furo/framework"
 
 /**
- * `entity-agent`
+ * `entity-agent` is an interface component to handle entity requests. It analyzes the hateoas data.
+ *
  *
  * @customElement
  * @demo demo/index.html

@@ -1,5 +1,5 @@
 {
-  "name": "task_service",
+  "name": "TaskService",
   "description": "service specs for the task api",
   "version": "0.0.1",
   "lifecycle": {

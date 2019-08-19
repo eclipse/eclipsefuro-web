@@ -5,21 +5,14 @@ import {CollectionControls} from "./lib/CollectionControls.js"
 import {Env} from "@furo/framework"
 
 /**
- * `data-collection`
+ * `collection-agent` is an interface component to handle collection requests. It helps you with paginating collection data.
  *
- * an interface component to get collection requests
- * give this component a mime type of a resource and the hateoas. other additionally options like order-by filter could
- * also be added. based on those information the component generate a request and update the result to the collection
  *
- * How a hateoasIn likes:
- * {
- *  {rel: "self", method: "GET", type: "application/vnd.com.acme.task", href: "/api/v1/task"}
- *  {rel: "subresource", method: "GET", type: "application/vnd.com.acme.tag", href: "/api/v1/tag"}
- * }
+ *
  *
  * How to use:
  * ```html
- * <data-collection ƒ-hts-in="--x"
+ * <collection-agent ƒ-hts-in="--x"
  *                      service=""
  *                      ƒ-prev-page=""
  *                      ƒ-next-page=""
@@ -30,7 +23,7 @@ import {Env} from "@furo/framework"
  *                      list-on-hts-in
  *                      @-hts-out="--x"
  *                    >
- * </data-collection>
+ * </collection-agent>
  * ```
  *
  * @customElement
@@ -65,7 +58,7 @@ class collectionAgent extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Name des Services
+       * The service name. Like ProjectService
        */
       service: {type: String, attribute: true},
       pageSize: {type: Number, attribute: "page-size"},

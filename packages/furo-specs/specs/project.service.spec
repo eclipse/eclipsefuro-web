@@ -1,5 +1,5 @@
 {
-  "name": "project_service",
+  "name": "ProjectService",
   "description": "service specs for the project api",
   "version": "0.0.1",
   "lifecycle": {
@@ -69,7 +69,7 @@
       },
       "deeplink": {
         "rel": "self",
-        "href": "/api/projects/{var}",
+        "href": "/api/projects/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
         "method": "GET"
       }
     },
@@ -83,7 +83,7 @@
       "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/api/projects/{var}",
+        "href": "/api/projects/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
         "method": "PATCH"
       }
     },
@@ -97,7 +97,7 @@
       "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/api/projects/{var}",
+        "href": "/api/projects/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
         "method": "DELETE"
       }
     }

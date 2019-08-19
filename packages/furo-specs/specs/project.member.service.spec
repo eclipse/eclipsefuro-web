@@ -1,5 +1,5 @@
 {
-  "name": "project_members_service",
+  "name": "ProjectMembersService",
   "description": "The members of a project",
   "version": "1.0.0",
   "lifecycle": {

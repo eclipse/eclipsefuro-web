@@ -2,7 +2,7 @@ import {LitElement, html} from 'lit-element';
 import {FBP} from "@furo/fbp";
 
 /**
- * `entity-validator`
+ * `entity-validator` validates a single field and sets the corresponding mets
  *
  * @customElement
  * @demo demo/index.html

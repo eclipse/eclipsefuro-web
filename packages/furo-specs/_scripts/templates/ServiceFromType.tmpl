@@ -1,5 +1,5 @@
 {
-  "name": "{{.name}}_service",
+  "name": "{{camelcase (snakecase .name)}}Service",
   "description": "service specs for the {{.name}} api",
   "version": "0.0.1",
   "lifecycle": {

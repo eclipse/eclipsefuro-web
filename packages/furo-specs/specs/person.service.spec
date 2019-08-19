@@ -1,5 +1,5 @@
 {
-  "name": "person_service",
+  "name": "PersonService",
   "description": "service specs for the person api",
   "version": "0.0.1",
   "lifecycle": {

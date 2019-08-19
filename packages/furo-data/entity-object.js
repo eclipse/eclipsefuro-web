@@ -28,18 +28,21 @@ class EntityObject extends (LitElement) {
     };
   }
 
-  injectPlainData(data){
-    this.injectRaw({data:data});
+  injectPlainData(data) {
+    this.injectRaw({data: data});
   }
+
   /**
    * inject a raw entity json {data:..,links:...,meta,..-}
    * @param jsonObj
    */
   injectRaw(jsonObj) {
     // queue inject bis entity bereit ist
-    if(!this.entity){
-      setTimeout(()=>{this.injectRaw(jsonObj)},0);
-    }else{
+    if (!this.entity) {
+      setTimeout(() => {
+        this.injectRaw(jsonObj)
+      }, 0);
+    } else {
       this.entity.injectRaw(jsonObj);
     }
   }
@@ -76,32 +79,32 @@ class EntityObject extends (LitElement) {
     }, 0);
 
 
-    this.entity.addEventListener("data-injected",(e)=>{
-        /**
-        * @event data-injected
-        * Fired when injected data was processed.
-        * detail payload: {Object|EntityNode} reference to entity
-        */
-        let customEvent = new Event('data-injected', {composed:true, bubbles: true});
-        customEvent.detail = e.detail;
-        this.dispatchEvent(customEvent)
+    this.entity.addEventListener("data-injected", (e) => {
+      /**
+       * @event data-injected
+       * Fired when injected data was processed.
+       * detail payload: {Object|EntityNode} reference to entity
+       */
+      let customEvent = new Event('data-injected', {composed: true, bubbles: true});
+      customEvent.detail = e.detail;
+      this.dispatchEvent(customEvent)
     });
 
 
-    this.entity.addEventListener("field-value-changed",(e)=>{
+    this.entity.addEventListener("field-value-changed", (e) => {
       /**
        * @event data-changed
        * Fired when data in collection has changed
        * detail payload: {Object|CollectionNode}
        */
-      let customEvent = new Event('data-changed', {composed:true, bubbles: true});
+      let customEvent = new Event('data-changed', {composed: true, bubbles: true});
       customEvent.detail = this.entity.rawData;
       this.dispatchEvent(customEvent);
 
       /**
        * @event (field-value-changed)
        *
-       * ✋ Internal Event!
+       * ✋ Internal Event from EntityNode which you can use in the targeted components!
        *
        * Fired when a value on a field node changes. This event **bubbles** by default. Can be used on any node.
        *
@@ -111,7 +114,7 @@ class EntityObject extends (LitElement) {
       /**
        * @event (this-field-value-changed)
        *
-       * ✋ Internal Event!
+       * ✋ Internal Event from EntityNode which you can use in the targeted components!
        *
        * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
        *
@@ -121,7 +124,7 @@ class EntityObject extends (LitElement) {
       /**
        * @event (data-injected)
        *
-       * ✋ Internal Event!
+       * ✋ Internal Event from EntityNode which you can use in the targeted components!
        *
        * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
        *
@@ -153,11 +156,6 @@ class EntityObject extends (LitElement) {
     if (this._type) {
       this._checkType(this._type);
     }
-
-    // data objects
-    this._entityFields = this.querySelectorAll("entity-field");
-   // console.log("todo",this._entityFields);
-
   }
 
 }
