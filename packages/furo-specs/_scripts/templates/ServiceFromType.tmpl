@@ -18,6 +18,7 @@
   "services": {
     "List": {
       "description": "The List method takes zero or more parameters as input, and returns a {{.type}}Collection of {{.type}}Entity that match the input parameters.",
+      "rpc_name": "List{{camelcase (snakecase .name)}}s",
       "data": {
         "request": null,
         "response": "{{.__proto.package}}.{{.type}}Collection"
@@ -44,6 +45,7 @@
     },
     "Create": {
       "description": "Creates a new {{.type}}",
+      "rpc_name": "Create{{camelcase (snakecase .name)}}",
       "data": {
         "request": "{{.__proto.package}}.{{.type}}",
         "response": "{{.__proto.package}}.{{.type}}Entity"
@@ -58,6 +60,7 @@
     },
     "Get": {
       "description": "The Get method takes zero or more parameters, and returns a {{.type}}Entity which contains a {{.type}}",
+      "rpc_name": "Get{{camelcase (snakecase .name)}}",
       "data": {
         "request": null,
         "response": "{{.__proto.package}}.{{.type}}Entity"
@@ -72,6 +75,7 @@
     },
     "Update": {
       "description": "Updates a {{.type}}, partial updates are supported",
+      "rpc_name": "Update{{camelcase (snakecase .name)}}",
       "data": {
         "request": "{{.__proto.package}}.{{.type}}",
         "response": "{{.__proto.package}}.{{.type}}Entity"
@@ -85,6 +89,7 @@
     },
     "Delete": {
       "description": "Delete a {{.type}}",
+      "rpc_name": "Delete{{camelcase (snakecase .name)}}",
       "data": {
         "request": "protobuf.Empty",
         "response": "protobuf.Empty"

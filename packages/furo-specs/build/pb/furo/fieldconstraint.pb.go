@@ -3,11 +3,12 @@
 
 package furo
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-
-import io "io"
+import (
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -23,7 +24,7 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 // constrains of fields
 type Fieldconstraint struct {
 	// constrain of a field
-	Constraint           map[string]string `protobuf:"bytes,1,rep,name=constraint" json:"constraint,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Constraint           map[string]string `protobuf:"bytes,1,rep,name=constraint,proto3" json:"constraint,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`
@@ -33,7 +34,7 @@ func (m *Fieldconstraint) Reset()         { *m = Fieldconstraint{} }
 func (m *Fieldconstraint) String() string { return proto.CompactTextString(m) }
 func (*Fieldconstraint) ProtoMessage()    {}
 func (*Fieldconstraint) Descriptor() ([]byte, []int) {
-	return fileDescriptor_fieldconstraint_fe6dd14a91004d27, []int{0}
+	return fileDescriptor_c84bec0898eef877, []int{0}
 }
 func (m *Fieldconstraint) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -50,8 +51,8 @@ func (m *Fieldconstraint) XXX_Marshal(b []byte, deterministic bool) ([]byte, err
 		return b[:n], nil
 	}
 }
-func (dst *Fieldconstraint) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Fieldconstraint.Merge(dst, src)
+func (m *Fieldconstraint) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Fieldconstraint.Merge(m, src)
 }
 func (m *Fieldconstraint) XXX_Size() int {
 	return m.Size()
@@ -73,6 +74,23 @@ func init() {
 	proto.RegisterType((*Fieldconstraint)(nil), "furo.Fieldconstraint")
 	proto.RegisterMapType((map[string]string)(nil), "furo.Fieldconstraint.ConstraintEntry")
 }
+
+func init() { proto.RegisterFile("fieldconstraint.proto", fileDescriptor_c84bec0898eef877) }
+
+var fileDescriptor_c84bec0898eef877 = []byte{
+	// 153 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x4d, 0xcb, 0x4c, 0xcd,
+	0x49, 0x49, 0xce, 0xcf, 0x2b, 0x2e, 0x29, 0x4a, 0xcc, 0xcc, 0x2b, 0xd1, 0x2b, 0x28, 0xca, 0x2f,
+	0xc9, 0x17, 0x62, 0x49, 0x2b, 0x2d, 0xca, 0x57, 0x9a, 0xce, 0xc8, 0xc5, 0xef, 0x86, 0x2a, 0x2f,
+	0xe4, 0xca, 0xc5, 0x85, 0xe0, 0x49, 0x30, 0x2a, 0x30, 0x6b, 0x70, 0x1b, 0xa9, 0xea, 0x81, 0x94,
+	0xeb, 0xa1, 0x29, 0xd5, 0x73, 0x86, 0x33, 0x5d, 0xf3, 0x4a, 0x8a, 0x2a, 0x83, 0x90, 0x34, 0x4a,
+	0xd9, 0x72, 0xf1, 0xa3, 0x49, 0x0b, 0x09, 0x70, 0x31, 0x67, 0xa7, 0x56, 0x4a, 0x30, 0x2a, 0x30,
+	0x6a, 0x70, 0x06, 0x81, 0x98, 0x42, 0x22, 0x5c, 0xac, 0x65, 0x89, 0x39, 0xa5, 0xa9, 0x12, 0x4c,
+	0x60, 0x31, 0x08, 0xc7, 0x8a, 0xc9, 0x82, 0xd1, 0x89, 0xe7, 0xc4, 0x23, 0x39, 0xc6, 0x0b, 0x8f,
+	0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x4c, 0x62, 0x03, 0x3b, 0xda, 0x18, 0x10, 0x00, 0x00, 0xff,
+	0xff, 0x8d, 0xe9, 0x3a, 0x39, 0xcd, 0x00, 0x00, 0x00,
+}
+
 func (m *Fieldconstraint) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -168,7 +186,7 @@ func (m *Fieldconstraint) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -196,7 +214,7 @@ func (m *Fieldconstraint) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -205,6 +223,9 @@ func (m *Fieldconstraint) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthFieldconstraint
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthFieldconstraint
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -225,7 +246,7 @@ func (m *Fieldconstraint) Unmarshal(dAtA []byte) error {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					wire |= (uint64(b) & 0x7F) << shift
+					wire |= uint64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
@@ -242,7 +263,7 @@ func (m *Fieldconstraint) Unmarshal(dAtA []byte) error {
 						}
 						b := dAtA[iNdEx]
 						iNdEx++
-						stringLenmapkey |= (uint64(b) & 0x7F) << shift
+						stringLenmapkey |= uint64(b&0x7F) << shift
 						if b < 0x80 {
 							break
 						}
@@ -252,6 +273,9 @@ func (m *Fieldconstraint) Unmarshal(dAtA []byte) error {
 						return ErrInvalidLengthFieldconstraint
 					}
 					postStringIndexmapkey := iNdEx + intStringLenmapkey
+					if postStringIndexmapkey < 0 {
+						return ErrInvalidLengthFieldconstraint
+					}
 					if postStringIndexmapkey > l {
 						return io.ErrUnexpectedEOF
 					}
@@ -268,7 +292,7 @@ func (m *Fieldconstraint) Unmarshal(dAtA []byte) error {
 						}
 						b := dAtA[iNdEx]
 						iNdEx++
-						stringLenmapvalue |= (uint64(b) & 0x7F) << shift
+						stringLenmapvalue |= uint64(b&0x7F) << shift
 						if b < 0x80 {
 							break
 						}
@@ -278,6 +302,9 @@ func (m *Fieldconstraint) Unmarshal(dAtA []byte) error {
 						return ErrInvalidLengthFieldconstraint
 					}
 					postStringIndexmapvalue := iNdEx + intStringLenmapvalue
+					if postStringIndexmapvalue < 0 {
+						return ErrInvalidLengthFieldconstraint
+					}
 					if postStringIndexmapvalue > l {
 						return io.ErrUnexpectedEOF
 					}
@@ -307,6 +334,9 @@ func (m *Fieldconstraint) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthFieldconstraint
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthFieldconstraint
 			}
 			if (iNdEx + skippy) > l {
@@ -376,8 +406,11 @@ func skipFieldconstraint(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthFieldconstraint
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthFieldconstraint
 			}
 			return iNdEx, nil
@@ -408,6 +441,9 @@ func skipFieldconstraint(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthFieldconstraint
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -426,21 +462,3 @@ var (
 	ErrInvalidLengthFieldconstraint = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowFieldconstraint   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() {
-	proto.RegisterFile("fieldconstraint.proto", fileDescriptor_fieldconstraint_fe6dd14a91004d27)
-}
-
-var fileDescriptor_fieldconstraint_fe6dd14a91004d27 = []byte{
-	// 153 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x4d, 0xcb, 0x4c, 0xcd,
-	0x49, 0x49, 0xce, 0xcf, 0x2b, 0x2e, 0x29, 0x4a, 0xcc, 0xcc, 0x2b, 0xd1, 0x2b, 0x28, 0xca, 0x2f,
-	0xc9, 0x17, 0x62, 0x49, 0x2b, 0x2d, 0xca, 0x57, 0x9a, 0xce, 0xc8, 0xc5, 0xef, 0x86, 0x2a, 0x2f,
-	0xe4, 0xca, 0xc5, 0x85, 0xe0, 0x49, 0x30, 0x2a, 0x30, 0x6b, 0x70, 0x1b, 0xa9, 0xea, 0x81, 0x94,
-	0xeb, 0xa1, 0x29, 0xd5, 0x73, 0x86, 0x33, 0x5d, 0xf3, 0x4a, 0x8a, 0x2a, 0x83, 0x90, 0x34, 0x4a,
-	0xd9, 0x72, 0xf1, 0xa3, 0x49, 0x0b, 0x09, 0x70, 0x31, 0x67, 0xa7, 0x56, 0x4a, 0x30, 0x2a, 0x30,
-	0x6a, 0x70, 0x06, 0x81, 0x98, 0x42, 0x22, 0x5c, 0xac, 0x65, 0x89, 0x39, 0xa5, 0xa9, 0x12, 0x4c,
-	0x60, 0x31, 0x08, 0xc7, 0x8a, 0xc9, 0x82, 0xd1, 0x89, 0xe7, 0xc4, 0x23, 0x39, 0xc6, 0x0b, 0x8f,
-	0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x4c, 0x62, 0x03, 0x3b, 0xda, 0x18, 0x10, 0x00, 0x00, 0xff,
-	0xff, 0x8d, 0xe9, 0x3a, 0x39, 0xcd, 0x00, 0x00, 0x00,
-}

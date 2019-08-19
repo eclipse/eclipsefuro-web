@@ -3,11 +3,12 @@
 
 package protobuf
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-
-import io "io"
+import (
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -31,7 +32,7 @@ func (m *Empty) Reset()         { *m = Empty{} }
 func (m *Empty) String() string { return proto.CompactTextString(m) }
 func (*Empty) ProtoMessage()    {}
 func (*Empty) Descriptor() ([]byte, []int) {
-	return fileDescriptor_empty_4692ff76c995be90, []int{0}
+	return fileDescriptor_2b3147679766dcb8, []int{0}
 }
 func (m *Empty) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -48,8 +49,8 @@ func (m *Empty) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *Empty) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Empty.Merge(dst, src)
+func (m *Empty) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Empty.Merge(m, src)
 }
 func (m *Empty) XXX_Size() int {
 	return m.Size()
@@ -63,6 +64,18 @@ var xxx_messageInfo_Empty proto.InternalMessageInfo
 func init() {
 	proto.RegisterType((*Empty)(nil), "protobuf.Empty")
 }
+
+func init() { proto.RegisterFile("empty.proto", fileDescriptor_2b3147679766dcb8) }
+
+var fileDescriptor_2b3147679766dcb8 = []byte{
+	// 70 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4e, 0xcd, 0x2d, 0x28,
+	0xa9, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x00, 0x53, 0x49, 0xa5, 0x69, 0x4a, 0xec,
+	0x5c, 0xac, 0xae, 0x20, 0x09, 0x27, 0x9e, 0x13, 0x8f, 0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c,
+	0xf0, 0x48, 0x8e, 0x31, 0x89, 0x0d, 0xac, 0xc0, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x8d, 0xe2,
+	0x9a, 0xb5, 0x36, 0x00, 0x00, 0x00,
+}
+
 func (m *Empty) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -133,7 +146,7 @@ func (m *Empty) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -154,6 +167,9 @@ func (m *Empty) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthEmpty
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthEmpty
 			}
 			if (iNdEx + skippy) > l {
@@ -223,8 +239,11 @@ func skipEmpty(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthEmpty
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthEmpty
 			}
 			return iNdEx, nil
@@ -255,6 +274,9 @@ func skipEmpty(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthEmpty
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -273,14 +295,3 @@ var (
 	ErrInvalidLengthEmpty = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowEmpty   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() { proto.RegisterFile("empty.proto", fileDescriptor_empty_4692ff76c995be90) }
-
-var fileDescriptor_empty_4692ff76c995be90 = []byte{
-	// 70 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4e, 0xcd, 0x2d, 0x28,
-	0xa9, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x00, 0x53, 0x49, 0xa5, 0x69, 0x4a, 0xec,
-	0x5c, 0xac, 0xae, 0x20, 0x09, 0x27, 0x9e, 0x13, 0x8f, 0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c,
-	0xf0, 0x48, 0x8e, 0x31, 0x89, 0x0d, 0xac, 0xc0, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x8d, 0xe2,
-	0x9a, 0xb5, 0x36, 0x00, 0x00, 0x00,
-}

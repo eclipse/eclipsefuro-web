@@ -3,18 +3,16 @@
 
 package task
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import protobuf "../protobuf"
-import _ "google.golang.org/genproto/googleapis/api/annotations"
-
 import (
-	context "golang.org/x/net/context"
+	protobuf "../protobuf"
+	context "context"
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
+	io "io"
+	math "math"
 )
-
-import io "io"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -28,7 +26,7 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 type CreateTaskServiceRequest struct {
-	Data                 *Task    `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	Data                 *Task    `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -38,7 +36,7 @@ func (m *CreateTaskServiceRequest) Reset()         { *m = CreateTaskServiceReque
 func (m *CreateTaskServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateTaskServiceRequest) ProtoMessage()    {}
 func (*CreateTaskServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_service_dddd70387ed76c50, []int{0}
+	return fileDescriptor_b256a733fb46de0c, []int{0}
 }
 func (m *CreateTaskServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -55,8 +53,8 @@ func (m *CreateTaskServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (dst *CreateTaskServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateTaskServiceRequest.Merge(dst, src)
+func (m *CreateTaskServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTaskServiceRequest.Merge(m, src)
 }
 func (m *CreateTaskServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -75,8 +73,8 @@ func (m *CreateTaskServiceRequest) GetData() *Task {
 }
 
 type DeleteTaskServiceRequest struct {
-	Tsk                  string          `protobuf:"bytes,1,opt,name=tsk,proto3" json:"tsk,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
+	Var                  string          `protobuf:"bytes,1,opt,name=var,proto3" json:"var,omitempty"`
+	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
 	XXX_sizecache        int32           `json:"-"`
@@ -86,7 +84,7 @@ func (m *DeleteTaskServiceRequest) Reset()         { *m = DeleteTaskServiceReque
 func (m *DeleteTaskServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteTaskServiceRequest) ProtoMessage()    {}
 func (*DeleteTaskServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_service_dddd70387ed76c50, []int{1}
+	return fileDescriptor_b256a733fb46de0c, []int{1}
 }
 func (m *DeleteTaskServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -103,8 +101,8 @@ func (m *DeleteTaskServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (dst *DeleteTaskServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteTaskServiceRequest.Merge(dst, src)
+func (m *DeleteTaskServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteTaskServiceRequest.Merge(m, src)
 }
 func (m *DeleteTaskServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -115,9 +113,9 @@ func (m *DeleteTaskServiceRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_DeleteTaskServiceRequest proto.InternalMessageInfo
 
-func (m *DeleteTaskServiceRequest) GetTsk() string {
+func (m *DeleteTaskServiceRequest) GetVar() string {
 	if m != nil {
-		return m.Tsk
+		return m.Var
 	}
 	return ""
 }
@@ -130,7 +128,7 @@ func (m *DeleteTaskServiceRequest) GetData() *protobuf.Empty {
 }
 
 type GetTaskServiceRequest struct {
-	Tsk                  string   `protobuf:"bytes,1,opt,name=tsk,proto3" json:"tsk,omitempty"`
+	Var                  string   `protobuf:"bytes,1,opt,name=var,proto3" json:"var,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -140,7 +138,7 @@ func (m *GetTaskServiceRequest) Reset()         { *m = GetTaskServiceRequest{} }
 func (m *GetTaskServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*GetTaskServiceRequest) ProtoMessage()    {}
 func (*GetTaskServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_service_dddd70387ed76c50, []int{2}
+	return fileDescriptor_b256a733fb46de0c, []int{2}
 }
 func (m *GetTaskServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -157,8 +155,8 @@ func (m *GetTaskServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]byt
 		return b[:n], nil
 	}
 }
-func (dst *GetTaskServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTaskServiceRequest.Merge(dst, src)
+func (m *GetTaskServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTaskServiceRequest.Merge(m, src)
 }
 func (m *GetTaskServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -169,33 +167,33 @@ func (m *GetTaskServiceRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_GetTaskServiceRequest proto.InternalMessageInfo
 
-func (m *GetTaskServiceRequest) GetTsk() string {
+func (m *GetTaskServiceRequest) GetVar() string {
 	if m != nil {
-		return m.Tsk
+		return m.Var
 	}
 	return ""
 }
 
 type ListTaskServiceRequest struct {
-	// Partielle Repräsentation fields=id,name // 10
+	//Partielle Repräsentation fields=id,name // 10
 	Fields string `protobuf:"bytes,1,opt,name=fields,proto3" json:"fields,omitempty"`
-	// Sortierung nach feldern
-	// **?filter=-completed** um completed absteigend zu bekommen
-	// **?filter=completed** um completed aufsteigend zu bekommen
+	//Sortierung nach feldern
+	//**?filter=-completed** um completed absteigend zu bekommen
+	//**?filter=completed** um completed aufsteigend zu bekommen
 	Sort string `protobuf:"bytes,2,opt,name=sort,proto3" json:"sort,omitempty"`
-	// Filter
+	//Filter
 	Filter string `protobuf:"bytes,3,opt,name=filter,proto3" json:"filter,omitempty"`
-	// Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+	//Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
 	Page int32 `protobuf:"varint,4,opt,name=page,proto3" json:"page,omitempty"`
-	// Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+	//Anzahl Elemente pro Seite, maximal sind 99 erlaubt
 	Limit int32 `protobuf:"varint,5,opt,name=limit,proto3" json:"limit,omitempty"`
-	// Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
+	//Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
 	Count bool `protobuf:"varint,6,opt,name=count,proto3" json:"count,omitempty"`
-	// not implemented
+	//not implemented
 	Sum string `protobuf:"bytes,7,opt,name=sum,proto3" json:"sum,omitempty"`
-	// not implemented (ehemals context)
+	//not implemented (ehemals context)
 	View string `protobuf:"bytes,8,opt,name=view,proto3" json:"view,omitempty"`
-	// Query term to search a task
+	//Query term to search a task
 	Q                    string   `protobuf:"bytes,11,opt,name=q,proto3" json:"q,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -206,7 +204,7 @@ func (m *ListTaskServiceRequest) Reset()         { *m = ListTaskServiceRequest{}
 func (m *ListTaskServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*ListTaskServiceRequest) ProtoMessage()    {}
 func (*ListTaskServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_service_dddd70387ed76c50, []int{3}
+	return fileDescriptor_b256a733fb46de0c, []int{3}
 }
 func (m *ListTaskServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -223,8 +221,8 @@ func (m *ListTaskServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]by
 		return b[:n], nil
 	}
 }
-func (dst *ListTaskServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListTaskServiceRequest.Merge(dst, src)
+func (m *ListTaskServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListTaskServiceRequest.Merge(m, src)
 }
 func (m *ListTaskServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -299,8 +297,8 @@ func (m *ListTaskServiceRequest) GetQ() string {
 }
 
 type UpdateTaskServiceRequest struct {
-	Tsk                  string   `protobuf:"bytes,1,opt,name=tsk,proto3" json:"tsk,omitempty"`
-	Data                 *Task    `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
+	Var                  string   `protobuf:"bytes,1,opt,name=var,proto3" json:"var,omitempty"`
+	Data                 *Task    `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -310,7 +308,7 @@ func (m *UpdateTaskServiceRequest) Reset()         { *m = UpdateTaskServiceReque
 func (m *UpdateTaskServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateTaskServiceRequest) ProtoMessage()    {}
 func (*UpdateTaskServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_service_dddd70387ed76c50, []int{4}
+	return fileDescriptor_b256a733fb46de0c, []int{4}
 }
 func (m *UpdateTaskServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -327,8 +325,8 @@ func (m *UpdateTaskServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (dst *UpdateTaskServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UpdateTaskServiceRequest.Merge(dst, src)
+func (m *UpdateTaskServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateTaskServiceRequest.Merge(m, src)
 }
 func (m *UpdateTaskServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -339,9 +337,9 @@ func (m *UpdateTaskServiceRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_UpdateTaskServiceRequest proto.InternalMessageInfo
 
-func (m *UpdateTaskServiceRequest) GetTsk() string {
+func (m *UpdateTaskServiceRequest) GetVar() string {
 	if m != nil {
-		return m.Tsk
+		return m.Var
 	}
 	return ""
 }
@@ -361,6 +359,43 @@ func init() {
 	proto.RegisterType((*UpdateTaskServiceRequest)(nil), "task.UpdateTaskServiceRequest")
 }
 
+func init() { proto.RegisterFile("task_service.proto", fileDescriptor_b256a733fb46de0c) }
+
+var fileDescriptor_b256a733fb46de0c = []byte{
+	// 492 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x93, 0xcf, 0x6e, 0xd3, 0x40,
+	0x10, 0xc6, 0xb5, 0xcd, 0x9f, 0x36, 0x93, 0x48, 0x84, 0x51, 0x5a, 0xad, 0x4c, 0x65, 0x45, 0xe6,
+	0x12, 0x38, 0x24, 0x52, 0xb8, 0xf5, 0x48, 0xa9, 0xb8, 0xf4, 0x82, 0x0b, 0x82, 0x13, 0x68, 0x9b,
+	0x6c, 0x23, 0xab, 0x8e, 0xd7, 0xf1, 0xae, 0x83, 0x10, 0xe2, 0xc2, 0x2b, 0xf0, 0x52, 0x70, 0xab,
+	0xc4, 0x0b, 0xa0, 0x88, 0x07, 0x41, 0x3b, 0x6b, 0xe3, 0x42, 0x1c, 0x29, 0xa7, 0xcc, 0x4e, 0xbe,
+	0xfd, 0xed, 0xa7, 0x99, 0xcf, 0x80, 0x46, 0xe8, 0xdb, 0x0f, 0x5a, 0x66, 0xeb, 0x68, 0x26, 0xc7,
+	0x69, 0xa6, 0x8c, 0xc2, 0xa6, 0xed, 0x79, 0xa7, 0x0b, 0xa5, 0x16, 0xb1, 0x9c, 0x88, 0x34, 0x9a,
+	0x88, 0x24, 0x51, 0x46, 0x98, 0x48, 0x25, 0xda, 0x69, 0x3c, 0xb0, 0x9a, 0xa2, 0x7e, 0x48, 0x0c,
+	0x99, 0x98, 0xc8, 0x7c, 0x2a, 0x5a, 0xc7, 0xd4, 0x9a, 0xa9, 0x38, 0x96, 0x33, 0x7b, 0xad, 0x68,
+	0x0f, 0xe8, 0xe7, 0x3a, 0xbf, 0x99, 0xc8, 0x65, 0x5a, 0x8a, 0x83, 0x33, 0xe0, 0xe7, 0x99, 0x14,
+	0x46, 0xbe, 0x16, 0xfa, 0xf6, 0xca, 0x59, 0x09, 0xe5, 0x2a, 0x97, 0xda, 0xa0, 0x0f, 0xcd, 0xb9,
+	0x30, 0x82, 0xb3, 0x21, 0x1b, 0x75, 0xa7, 0x30, 0xa6, 0x67, 0xad, 0x2e, 0xa4, 0x7e, 0xf0, 0x0a,
+	0xf8, 0x0b, 0x19, 0xcb, 0xda, 0xbb, 0x7d, 0x68, 0xac, 0x45, 0x46, 0x57, 0x3b, 0xa1, 0x2d, 0xf1,
+	0x71, 0x41, 0x3b, 0x20, 0xda, 0x83, 0x71, 0x69, 0x67, 0x7c, 0x61, 0xed, 0x14, 0xc8, 0x27, 0x70,
+	0xfc, 0x52, 0x9a, 0x7d, 0x78, 0xc1, 0x1d, 0x83, 0x93, 0xcb, 0x48, 0xd7, 0x89, 0x4f, 0xa0, 0x7d,
+	0x13, 0xc9, 0x78, 0xae, 0x0b, 0x7d, 0x71, 0x42, 0x84, 0xa6, 0x56, 0x99, 0x21, 0x0b, 0x9d, 0x90,
+	0x6a, 0xa7, 0x8d, 0x8d, 0xcc, 0x78, 0xa3, 0xd4, 0xda, 0x93, 0xd5, 0xa6, 0x62, 0x21, 0x79, 0x73,
+	0xc8, 0x46, 0xad, 0x90, 0x6a, 0x1c, 0x40, 0x2b, 0x8e, 0x96, 0x91, 0xe1, 0x2d, 0x6a, 0xba, 0x83,
+	0xed, 0xce, 0x54, 0x9e, 0x18, 0xde, 0x1e, 0xb2, 0xd1, 0x51, 0xe8, 0x0e, 0xd6, 0xb0, 0xce, 0x97,
+	0xfc, 0xd0, 0x19, 0xd6, 0xf9, 0xd2, 0x12, 0xd7, 0x91, 0xfc, 0xc8, 0x8f, 0xdc, 0xeb, 0xb6, 0xc6,
+	0x1e, 0xb0, 0x15, 0xef, 0x52, 0x83, 0xad, 0x82, 0x4b, 0xe0, 0x6f, 0xd2, 0xb9, 0xd8, 0x73, 0xa0,
+	0xfe, 0x3f, 0x03, 0xdd, 0x5a, 0xcf, 0xf4, 0x47, 0x03, 0xba, 0xf7, 0x40, 0xf8, 0x0e, 0xa0, 0x5a,
+	0x35, 0xfa, 0x4e, 0xbf, 0x6b, 0xf9, 0x5e, 0xbf, 0xe2, 0x5d, 0x50, 0xba, 0x02, 0xfe, 0xf5, 0xe7,
+	0xef, 0x6f, 0x07, 0x18, 0x00, 0xc5, 0xd2, 0xfe, 0xab, 0xcf, 0xe8, 0x25, 0x7c, 0x0b, 0x50, 0x05,
+	0xa1, 0x24, 0xef, 0x8a, 0x86, 0xf7, 0xff, 0xea, 0x4b, 0xf0, 0xd3, 0x7e, 0x05, 0x9e, 0x7c, 0x5e,
+	0x8b, 0xec, 0x0b, 0x86, 0x70, 0x58, 0xc4, 0x01, 0x1f, 0x39, 0x6a, 0x6d, 0x3a, 0x76, 0x9b, 0xc5,
+	0x6d, 0xe6, 0x15, 0x74, 0xca, 0xd8, 0x68, 0x3c, 0x75, 0x17, 0xeb, 0x73, 0xe4, 0x0d, 0x2a, 0xec,
+	0xf9, 0xdf, 0xcf, 0x29, 0x40, 0x42, 0xf7, 0xf0, 0xde, 0x1c, 0xf0, 0x3d, 0x40, 0xb5, 0xb9, 0x72,
+	0x02, 0xbb, 0x76, 0x59, 0x63, 0xd7, 0x27, 0x26, 0x9f, 0x6e, 0xd9, 0x75, 0x13, 0x7e, 0xde, 0xfb,
+	0xbe, 0xf1, 0xd9, 0xdd, 0xc6, 0x67, 0xbf, 0x36, 0x3e, 0xbb, 0x6e, 0xd3, 0x00, 0x9f, 0xfd, 0x09,
+	0x00, 0x00, 0xff, 0xff, 0x03, 0xf9, 0x6f, 0xc6, 0x41, 0x04, 0x00, 0x00,
+}
+
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
 var _ grpc.ClientConn
@@ -374,15 +409,15 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type TaskServiceClient interface {
 	// Creates a new Task
-	CreateTaskService(ctx context.Context, in *CreateTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error)
+	CreateTask(ctx context.Context, in *CreateTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error)
 	// Delete a Task
-	DeleteTaskService(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeleteTask(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task
-	GetTaskService(ctx context.Context, in *GetTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error)
+	GetTask(ctx context.Context, in *GetTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.
-	ListTaskService(ctx context.Context, in *ListTaskServiceRequest, opts ...grpc.CallOption) (*TaskCollection, error)
+	ListTasks(ctx context.Context, in *ListTaskServiceRequest, opts ...grpc.CallOption) (*TaskCollection, error)
 	// Updates a Task, partial updates are supported
-	UpdateTaskService(ctx context.Context, in *UpdateTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error)
+	UpdateTask(ctx context.Context, in *UpdateTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error)
 }
 
 type taskServiceClient struct {
@@ -393,45 +428,45 @@ func NewTaskServiceClient(cc *grpc.ClientConn) TaskServiceClient {
 	return &taskServiceClient{cc}
 }
 
-func (c *taskServiceClient) CreateTaskService(ctx context.Context, in *CreateTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error) {
+func (c *taskServiceClient) CreateTask(ctx context.Context, in *CreateTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error) {
 	out := new(TaskEntity)
-	err := c.cc.Invoke(ctx, "/task.TaskService/CreateTaskService", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/task.TaskService/CreateTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *taskServiceClient) DeleteTaskService(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
+func (c *taskServiceClient) DeleteTask(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
 	out := new(protobuf.Empty)
-	err := c.cc.Invoke(ctx, "/task.TaskService/DeleteTaskService", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/task.TaskService/DeleteTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *taskServiceClient) GetTaskService(ctx context.Context, in *GetTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error) {
+func (c *taskServiceClient) GetTask(ctx context.Context, in *GetTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error) {
 	out := new(TaskEntity)
-	err := c.cc.Invoke(ctx, "/task.TaskService/GetTaskService", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/task.TaskService/GetTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *taskServiceClient) ListTaskService(ctx context.Context, in *ListTaskServiceRequest, opts ...grpc.CallOption) (*TaskCollection, error) {
+func (c *taskServiceClient) ListTasks(ctx context.Context, in *ListTaskServiceRequest, opts ...grpc.CallOption) (*TaskCollection, error) {
 	out := new(TaskCollection)
-	err := c.cc.Invoke(ctx, "/task.TaskService/ListTaskService", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/task.TaskService/ListTasks", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *taskServiceClient) UpdateTaskService(ctx context.Context, in *UpdateTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error) {
+func (c *taskServiceClient) UpdateTask(ctx context.Context, in *UpdateTaskServiceRequest, opts ...grpc.CallOption) (*TaskEntity, error) {
 	out := new(TaskEntity)
-	err := c.cc.Invoke(ctx, "/task.TaskService/UpdateTaskService", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/task.TaskService/UpdateTask", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -441,107 +476,107 @@ func (c *taskServiceClient) UpdateTaskService(ctx context.Context, in *UpdateTas
 // TaskServiceServer is the server API for TaskService service.
 type TaskServiceServer interface {
 	// Creates a new Task
-	CreateTaskService(context.Context, *CreateTaskServiceRequest) (*TaskEntity, error)
+	CreateTask(context.Context, *CreateTaskServiceRequest) (*TaskEntity, error)
 	// Delete a Task
-	DeleteTaskService(context.Context, *DeleteTaskServiceRequest) (*protobuf.Empty, error)
+	DeleteTask(context.Context, *DeleteTaskServiceRequest) (*protobuf.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task
-	GetTaskService(context.Context, *GetTaskServiceRequest) (*TaskEntity, error)
+	GetTask(context.Context, *GetTaskServiceRequest) (*TaskEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.
-	ListTaskService(context.Context, *ListTaskServiceRequest) (*TaskCollection, error)
+	ListTasks(context.Context, *ListTaskServiceRequest) (*TaskCollection, error)
 	// Updates a Task, partial updates are supported
-	UpdateTaskService(context.Context, *UpdateTaskServiceRequest) (*TaskEntity, error)
+	UpdateTask(context.Context, *UpdateTaskServiceRequest) (*TaskEntity, error)
 }
 
 func RegisterTaskServiceServer(s *grpc.Server, srv TaskServiceServer) {
 	s.RegisterService(&_TaskService_serviceDesc, srv)
 }
 
-func _TaskService_CreateTaskService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_CreateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateTaskServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TaskServiceServer).CreateTaskService(ctx, in)
+		return srv.(TaskServiceServer).CreateTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/task.TaskService/CreateTaskService",
+		FullMethod: "/task.TaskService/CreateTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TaskServiceServer).CreateTaskService(ctx, req.(*CreateTaskServiceRequest))
+		return srv.(TaskServiceServer).CreateTask(ctx, req.(*CreateTaskServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TaskService_DeleteTaskService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_DeleteTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteTaskServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TaskServiceServer).DeleteTaskService(ctx, in)
+		return srv.(TaskServiceServer).DeleteTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/task.TaskService/DeleteTaskService",
+		FullMethod: "/task.TaskService/DeleteTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TaskServiceServer).DeleteTaskService(ctx, req.(*DeleteTaskServiceRequest))
+		return srv.(TaskServiceServer).DeleteTask(ctx, req.(*DeleteTaskServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TaskService_GetTaskService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_GetTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTaskServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TaskServiceServer).GetTaskService(ctx, in)
+		return srv.(TaskServiceServer).GetTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/task.TaskService/GetTaskService",
+		FullMethod: "/task.TaskService/GetTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TaskServiceServer).GetTaskService(ctx, req.(*GetTaskServiceRequest))
+		return srv.(TaskServiceServer).GetTask(ctx, req.(*GetTaskServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TaskService_ListTaskService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_ListTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListTaskServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TaskServiceServer).ListTaskService(ctx, in)
+		return srv.(TaskServiceServer).ListTasks(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/task.TaskService/ListTaskService",
+		FullMethod: "/task.TaskService/ListTasks",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TaskServiceServer).ListTaskService(ctx, req.(*ListTaskServiceRequest))
+		return srv.(TaskServiceServer).ListTasks(ctx, req.(*ListTaskServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TaskService_UpdateTaskService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TaskService_UpdateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateTaskServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TaskServiceServer).UpdateTaskService(ctx, in)
+		return srv.(TaskServiceServer).UpdateTask(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/task.TaskService/UpdateTaskService",
+		FullMethod: "/task.TaskService/UpdateTask",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TaskServiceServer).UpdateTaskService(ctx, req.(*UpdateTaskServiceRequest))
+		return srv.(TaskServiceServer).UpdateTask(ctx, req.(*UpdateTaskServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -551,24 +586,24 @@ var _TaskService_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*TaskServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateTaskService",
-			Handler:    _TaskService_CreateTaskService_Handler,
+			MethodName: "CreateTask",
+			Handler:    _TaskService_CreateTask_Handler,
 		},
 		{
-			MethodName: "DeleteTaskService",
-			Handler:    _TaskService_DeleteTaskService_Handler,
+			MethodName: "DeleteTask",
+			Handler:    _TaskService_DeleteTask_Handler,
 		},
 		{
-			MethodName: "GetTaskService",
-			Handler:    _TaskService_GetTaskService_Handler,
+			MethodName: "GetTask",
+			Handler:    _TaskService_GetTask_Handler,
 		},
 		{
-			MethodName: "ListTaskService",
-			Handler:    _TaskService_ListTaskService_Handler,
+			MethodName: "ListTasks",
+			Handler:    _TaskService_ListTasks_Handler,
 		},
 		{
-			MethodName: "UpdateTaskService",
-			Handler:    _TaskService_UpdateTaskService_Handler,
+			MethodName: "UpdateTask",
+			Handler:    _TaskService_UpdateTask_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -594,9 +629,9 @@ func (m *CreateTaskServiceRequest) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0xa
 		i++
 		i = encodeVarintTaskService(dAtA, i, uint64(m.Data.Size()))
-		n1, err := m.Data.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n1, err1 := m.Data.MarshalTo(dAtA[i:])
+		if err1 != nil {
+			return 0, err1
 		}
 		i += n1
 	}
@@ -621,19 +656,19 @@ func (m *DeleteTaskServiceRequest) MarshalTo(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Tsk) > 0 {
+	if len(m.Var) > 0 {
 		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTaskService(dAtA, i, uint64(len(m.Tsk)))
-		i += copy(dAtA[i:], m.Tsk)
+		i = encodeVarintTaskService(dAtA, i, uint64(len(m.Var)))
+		i += copy(dAtA[i:], m.Var)
 	}
 	if m.Data != nil {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintTaskService(dAtA, i, uint64(m.Data.Size()))
-		n2, err := m.Data.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n2, err2 := m.Data.MarshalTo(dAtA[i:])
+		if err2 != nil {
+			return 0, err2
 		}
 		i += n2
 	}
@@ -658,11 +693,11 @@ func (m *GetTaskServiceRequest) MarshalTo(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Tsk) > 0 {
+	if len(m.Var) > 0 {
 		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTaskService(dAtA, i, uint64(len(m.Tsk)))
-		i += copy(dAtA[i:], m.Tsk)
+		i = encodeVarintTaskService(dAtA, i, uint64(len(m.Var)))
+		i += copy(dAtA[i:], m.Var)
 	}
 	if m.XXX_unrecognized != nil {
 		i += copy(dAtA[i:], m.XXX_unrecognized)
@@ -762,19 +797,19 @@ func (m *UpdateTaskServiceRequest) MarshalTo(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.Tsk) > 0 {
+	if len(m.Var) > 0 {
 		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTaskService(dAtA, i, uint64(len(m.Tsk)))
-		i += copy(dAtA[i:], m.Tsk)
+		i = encodeVarintTaskService(dAtA, i, uint64(len(m.Var)))
+		i += copy(dAtA[i:], m.Var)
 	}
 	if m.Data != nil {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintTaskService(dAtA, i, uint64(m.Data.Size()))
-		n3, err := m.Data.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n3, err3 := m.Data.MarshalTo(dAtA[i:])
+		if err3 != nil {
+			return 0, err3
 		}
 		i += n3
 	}
@@ -815,7 +850,7 @@ func (m *DeleteTaskServiceRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	l = len(m.Tsk)
+	l = len(m.Var)
 	if l > 0 {
 		n += 1 + l + sovTaskService(uint64(l))
 	}
@@ -835,7 +870,7 @@ func (m *GetTaskServiceRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	l = len(m.Tsk)
+	l = len(m.Var)
 	if l > 0 {
 		n += 1 + l + sovTaskService(uint64(l))
 	}
@@ -896,7 +931,7 @@ func (m *UpdateTaskServiceRequest) Size() (n int) {
 	}
 	var l int
 	_ = l
-	l = len(m.Tsk)
+	l = len(m.Var)
 	if l > 0 {
 		n += 1 + l + sovTaskService(uint64(l))
 	}
@@ -938,7 +973,7 @@ func (m *CreateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -966,7 +1001,7 @@ func (m *CreateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -975,6 +1010,9 @@ func (m *CreateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -992,6 +1030,9 @@ func (m *CreateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTaskService
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTaskService
 			}
 			if (iNdEx + skippy) > l {
@@ -1022,7 +1063,7 @@ func (m *DeleteTaskServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1038,7 +1079,7 @@ func (m *DeleteTaskServiceRequest) Unmarshal(dAtA []byte) error {
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Tsk", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Var", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -1050,7 +1091,7 @@ func (m *DeleteTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1060,10 +1101,13 @@ func (m *DeleteTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Tsk = string(dAtA[iNdEx:postIndex])
+			m.Var = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
@@ -1079,7 +1123,7 @@ func (m *DeleteTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1088,6 +1132,9 @@ func (m *DeleteTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1105,6 +1152,9 @@ func (m *DeleteTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTaskService
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTaskService
 			}
 			if (iNdEx + skippy) > l {
@@ -1135,7 +1185,7 @@ func (m *GetTaskServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1151,7 +1201,7 @@ func (m *GetTaskServiceRequest) Unmarshal(dAtA []byte) error {
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Tsk", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Var", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -1163,7 +1213,7 @@ func (m *GetTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1173,10 +1223,13 @@ func (m *GetTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Tsk = string(dAtA[iNdEx:postIndex])
+			m.Var = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
@@ -1185,6 +1238,9 @@ func (m *GetTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTaskService
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTaskService
 			}
 			if (iNdEx + skippy) > l {
@@ -1215,7 +1271,7 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1243,7 +1299,7 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1253,6 +1309,9 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1272,7 +1331,7 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1282,6 +1341,9 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1301,7 +1363,7 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1311,6 +1373,9 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1330,7 +1395,7 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Page |= (int32(b) & 0x7F) << shift
+				m.Page |= int32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1349,7 +1414,7 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Limit |= (int32(b) & 0x7F) << shift
+				m.Limit |= int32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1368,7 +1433,7 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				v |= (int(b) & 0x7F) << shift
+				v |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1388,7 +1453,7 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1398,6 +1463,9 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1417,7 +1485,7 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1427,6 +1495,9 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1446,7 +1517,7 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1456,6 +1527,9 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1468,6 +1542,9 @@ func (m *ListTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTaskService
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTaskService
 			}
 			if (iNdEx + skippy) > l {
@@ -1498,7 +1575,7 @@ func (m *UpdateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1514,7 +1591,7 @@ func (m *UpdateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Tsk", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Var", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -1526,7 +1603,7 @@ func (m *UpdateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1536,10 +1613,13 @@ func (m *UpdateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Tsk = string(dAtA[iNdEx:postIndex])
+			m.Var = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
@@ -1555,7 +1635,7 @@ func (m *UpdateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1564,6 +1644,9 @@ func (m *UpdateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskService
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1581,6 +1664,9 @@ func (m *UpdateTaskServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTaskService
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTaskService
 			}
 			if (iNdEx + skippy) > l {
@@ -1650,8 +1736,11 @@ func skipTaskService(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthTaskService
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthTaskService
 			}
 			return iNdEx, nil
@@ -1682,6 +1771,9 @@ func skipTaskService(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthTaskService
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -1700,40 +1792,3 @@ var (
 	ErrInvalidLengthTaskService = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowTaskService   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() { proto.RegisterFile("task_service.proto", fileDescriptor_task_service_dddd70387ed76c50) }
-
-var fileDescriptor_task_service_dddd70387ed76c50 = []byte{
-	// 495 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0x4f, 0x6f, 0xd3, 0x4e,
-	0x10, 0xd5, 0x36, 0x7f, 0x7e, 0xed, 0x24, 0xfa, 0x35, 0x19, 0xa5, 0xd5, 0xca, 0x54, 0x56, 0x64,
-	0x2e, 0x81, 0x43, 0x22, 0x85, 0x5b, 0x8f, 0x94, 0x8a, 0x4b, 0x2f, 0x18, 0x38, 0x70, 0xa1, 0xda,
-	0x26, 0xdb, 0xc8, 0x8a, 0xe3, 0x75, 0xbc, 0xeb, 0x22, 0x84, 0xb8, 0xf0, 0x15, 0xf8, 0x52, 0x1c,
-	0x2b, 0xf1, 0x05, 0x50, 0xc4, 0x8d, 0x2f, 0x81, 0x76, 0xd6, 0x26, 0x6d, 0xed, 0x48, 0x3d, 0x65,
-	0xf6, 0xe5, 0xcd, 0x9b, 0xa7, 0x99, 0x67, 0x40, 0x23, 0xf4, 0xf2, 0x52, 0xcb, 0xec, 0x26, 0x9a,
-	0xc9, 0x71, 0x9a, 0x29, 0xa3, 0xb0, 0x69, 0x31, 0xef, 0x64, 0xa1, 0xd4, 0x22, 0x96, 0x13, 0x91,
-	0x46, 0x13, 0x91, 0x24, 0xca, 0x08, 0x13, 0xa9, 0x44, 0x3b, 0x8e, 0x07, 0x96, 0x53, 0xd4, 0x7d,
-	0xd2, 0x90, 0x89, 0x89, 0xcc, 0xe7, 0x02, 0x3a, 0x22, 0x68, 0xa6, 0xe2, 0x58, 0xce, 0x6c, 0x5b,
-	0x01, 0x0f, 0xe8, 0xe7, 0x2a, 0xbf, 0x9e, 0xc8, 0x55, 0x5a, 0x92, 0x83, 0x53, 0xe0, 0x67, 0x99,
-	0x14, 0x46, 0xbe, 0x13, 0x7a, 0xf9, 0xd6, 0x59, 0x09, 0xe5, 0x3a, 0x97, 0xda, 0xa0, 0x0f, 0xcd,
-	0xb9, 0x30, 0x82, 0xb3, 0x21, 0x1b, 0x75, 0xa6, 0x30, 0xa6, 0xb1, 0x96, 0x17, 0x12, 0x1e, 0xbc,
-	0x01, 0xfe, 0x4a, 0xc6, 0xb2, 0xb6, 0xb7, 0x07, 0x0d, 0xa3, 0x97, 0xd4, 0x7a, 0x10, 0xda, 0x12,
-	0x9f, 0x16, 0x6a, 0x7b, 0xa4, 0x76, 0x38, 0x2e, 0xed, 0x8c, 0xcf, 0xad, 0x9d, 0x42, 0xf2, 0x19,
-	0x1c, 0xbd, 0x96, 0xe6, 0x31, 0x7a, 0xc1, 0x2d, 0x83, 0xe3, 0x8b, 0x48, 0xd7, 0x91, 0x8f, 0xa1,
-	0x7d, 0x1d, 0xc9, 0x78, 0xae, 0x0b, 0x7e, 0xf1, 0x42, 0x84, 0xa6, 0x56, 0x99, 0x21, 0x0b, 0x07,
-	0x21, 0xd5, 0x8e, 0x1b, 0x1b, 0x99, 0xf1, 0x46, 0xc9, 0xb5, 0x2f, 0xcb, 0x4d, 0xc5, 0x42, 0xf2,
-	0xe6, 0x90, 0x8d, 0x5a, 0x21, 0xd5, 0x38, 0x80, 0x56, 0x1c, 0xad, 0x22, 0xc3, 0x5b, 0x04, 0xba,
-	0x87, 0x45, 0x67, 0x2a, 0x4f, 0x0c, 0x6f, 0x0f, 0xd9, 0x68, 0x3f, 0x74, 0x0f, 0x6b, 0x58, 0xe7,
-	0x2b, 0xfe, 0x9f, 0x33, 0xac, 0xf3, 0x95, 0x55, 0xbc, 0x89, 0xe4, 0x27, 0xbe, 0xef, 0xa6, 0xdb,
-	0x1a, 0xbb, 0xc0, 0xd6, 0xbc, 0x43, 0x00, 0x5b, 0x07, 0x17, 0xc0, 0xdf, 0xa7, 0x73, 0xf1, 0xc8,
-	0x85, 0xfa, 0xf7, 0x16, 0x5a, 0x39, 0xcf, 0xf4, 0x4f, 0x03, 0x3a, 0x77, 0x84, 0xf0, 0x12, 0xfa,
-	0x95, 0x53, 0xa3, 0xef, 0xda, 0x76, 0x65, 0xc0, 0xeb, 0x6d, 0x65, 0xcf, 0x29, 0x64, 0x01, 0xff,
-	0xf6, 0xf3, 0xf7, 0xf7, 0x3d, 0x0c, 0x80, 0xd2, 0x69, 0xff, 0xd5, 0xa7, 0x34, 0x10, 0x3f, 0x42,
-	0xbf, 0x92, 0x87, 0x72, 0xc0, 0xae, 0xa0, 0x78, 0x0f, 0x83, 0x50, 0xea, 0x3f, 0xef, 0x6d, 0xf5,
-	0x27, 0x5f, 0x8c, 0x5e, 0x7e, 0xc5, 0x0f, 0xf0, 0xff, 0xfd, 0x70, 0xe0, 0x13, 0x27, 0x5e, 0x1b,
-	0x99, 0xdd, 0xd6, 0xb1, 0x4e, 0xfa, 0xf0, 0x41, 0x96, 0xf0, 0xc4, 0xb5, 0xd7, 0x47, 0xcc, 0x1b,
-	0x6c, 0xc5, 0xcf, 0xfe, 0x7d, 0x69, 0x01, 0xd2, 0x80, 0x2e, 0xde, 0xd9, 0x0d, 0x4a, 0xe8, 0x57,
-	0x8e, 0x5a, 0x6e, 0x65, 0xd7, 0xb5, 0x6b, 0xbc, 0xfb, 0x24, 0xcd, 0xa7, 0x15, 0xef, 0x6e, 0xf9,
-	0x2f, 0xbb, 0x3f, 0x36, 0x3e, 0xbb, 0xdd, 0xf8, 0xec, 0xd7, 0xc6, 0x67, 0x57, 0x6d, 0x5a, 0xea,
-	0x8b, 0xbf, 0x01, 0x00, 0x00, 0xff, 0xff, 0xbf, 0xb4, 0xb7, 0x1f, 0x63, 0x04, 0x00, 0x00,
-}

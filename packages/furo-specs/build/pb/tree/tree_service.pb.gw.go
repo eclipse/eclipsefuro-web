@@ -28,7 +28,7 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 
-func request_TreeService_CreateTreeService_0(ctx context.Context, marshaler runtime.Marshaler, client TreeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_TreeService_CreateTree_0(ctx context.Context, marshaler runtime.Marshaler, client TreeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -40,16 +40,16 @@ func request_TreeService_CreateTreeService_0(ctx context.Context, marshaler runt
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.CreateTreeService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.CreateTree(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
 var (
-	filter_TreeService_DeleteTreeService_0 = &utilities.DoubleArray{Encoding: map[string]int{"tre": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_TreeService_DeleteTree_0 = &utilities.DoubleArray{Encoding: map[string]int{"tre": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_TreeService_DeleteTreeService_0(ctx context.Context, marshaler runtime.Marshaler, client TreeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_TreeService_DeleteTree_0(ctx context.Context, marshaler runtime.Marshaler, client TreeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -71,16 +71,16 @@ func request_TreeService_DeleteTreeService_0(ctx context.Context, marshaler runt
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tre", err)
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_TreeService_DeleteTreeService_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_TreeService_DeleteTree_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.DeleteTreeService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.DeleteTree(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func request_TreeService_GetTreeService_0(ctx context.Context, marshaler runtime.Marshaler, client TreeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_TreeService_GetTree_0(ctx context.Context, marshaler runtime.Marshaler, client TreeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -102,29 +102,29 @@ func request_TreeService_GetTreeService_0(ctx context.Context, marshaler runtime
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tre", err)
 	}
 
-	msg, err := client.GetTreeService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.GetTree(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
 var (
-	filter_TreeService_ListTreeService_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_TreeService_ListTrees_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_TreeService_ListTreeService_0(ctx context.Context, marshaler runtime.Marshaler, client TreeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_TreeService_ListTrees_0(ctx context.Context, marshaler runtime.Marshaler, client TreeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_TreeService_ListTreeService_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_TreeService_ListTrees_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.ListTreeService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.ListTrees(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func request_TreeService_UpdateTreeService_0(ctx context.Context, marshaler runtime.Marshaler, client TreeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_TreeService_UpdateTree_0(ctx context.Context, marshaler runtime.Marshaler, client TreeServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -154,7 +154,7 @@ func request_TreeService_UpdateTreeService_0(ctx context.Context, marshaler runt
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tre", err)
 	}
 
-	msg, err := client.UpdateTreeService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.UpdateTree(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -197,7 +197,7 @@ func RegisterTreeServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn
 // "TreeServiceClient" to call the correct interceptors.
 func RegisterTreeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client TreeServiceClient) error {
 
-	mux.Handle("POST", pattern_TreeService_CreateTreeService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_TreeService_CreateTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -206,18 +206,18 @@ func RegisterTreeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_TreeService_CreateTreeService_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TreeService_CreateTree_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_TreeService_CreateTreeService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TreeService_CreateTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_TreeService_DeleteTreeService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_TreeService_DeleteTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -226,18 +226,18 @@ func RegisterTreeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_TreeService_DeleteTreeService_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TreeService_DeleteTree_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_TreeService_DeleteTreeService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TreeService_DeleteTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_TreeService_GetTreeService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_TreeService_GetTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -246,18 +246,18 @@ func RegisterTreeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_TreeService_GetTreeService_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TreeService_GetTree_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_TreeService_GetTreeService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TreeService_GetTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_TreeService_ListTreeService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_TreeService_ListTrees_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -266,18 +266,18 @@ func RegisterTreeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_TreeService_ListTreeService_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TreeService_ListTrees_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_TreeService_ListTreeService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TreeService_ListTrees_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PATCH", pattern_TreeService_UpdateTreeService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PATCH", pattern_TreeService_UpdateTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -286,14 +286,14 @@ func RegisterTreeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_TreeService_UpdateTreeService_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TreeService_UpdateTree_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_TreeService_UpdateTreeService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TreeService_UpdateTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -301,25 +301,25 @@ func RegisterTreeServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 }
 
 var (
-	pattern_TreeService_CreateTreeService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "trees"}, ""))
+	pattern_TreeService_CreateTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "trees"}, ""))
 
-	pattern_TreeService_DeleteTreeService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "trees", "tre"}, ""))
+	pattern_TreeService_DeleteTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "trees", "tre"}, ""))
 
-	pattern_TreeService_GetTreeService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "trees", "tre"}, ""))
+	pattern_TreeService_GetTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "trees", "tre"}, ""))
 
-	pattern_TreeService_ListTreeService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "trees"}, ""))
+	pattern_TreeService_ListTrees_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "trees"}, ""))
 
-	pattern_TreeService_UpdateTreeService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "trees", "tre"}, ""))
+	pattern_TreeService_UpdateTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "trees", "tre"}, ""))
 )
 
 var (
-	forward_TreeService_CreateTreeService_0 = runtime.ForwardResponseMessage
+	forward_TreeService_CreateTree_0 = runtime.ForwardResponseMessage
 
-	forward_TreeService_DeleteTreeService_0 = runtime.ForwardResponseMessage
+	forward_TreeService_DeleteTree_0 = runtime.ForwardResponseMessage
 
-	forward_TreeService_GetTreeService_0 = runtime.ForwardResponseMessage
+	forward_TreeService_GetTree_0 = runtime.ForwardResponseMessage
 
-	forward_TreeService_ListTreeService_0 = runtime.ForwardResponseMessage
+	forward_TreeService_ListTrees_0 = runtime.ForwardResponseMessage
 
-	forward_TreeService_UpdateTreeService_0 = runtime.ForwardResponseMessage
+	forward_TreeService_UpdateTree_0 = runtime.ForwardResponseMessage
 )

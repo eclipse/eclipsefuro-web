@@ -3,11 +3,12 @@
 
 package furo
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-
-import io "io"
+import (
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -39,7 +40,7 @@ func (m *Link) Reset()         { *m = Link{} }
 func (m *Link) String() string { return proto.CompactTextString(m) }
 func (*Link) ProtoMessage()    {}
 func (*Link) Descriptor() ([]byte, []int) {
-	return fileDescriptor_link_5f8f1218513a2904, []int{0}
+	return fileDescriptor_2ee656911eb8a56a, []int{0}
 }
 func (m *Link) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -56,8 +57,8 @@ func (m *Link) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *Link) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Link.Merge(dst, src)
+func (m *Link) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Link.Merge(m, src)
 }
 func (m *Link) XXX_Size() int {
 	return m.Size()
@@ -99,6 +100,21 @@ func (m *Link) GetType() string {
 func init() {
 	proto.RegisterType((*Link)(nil), "furo.Link")
 }
+
+func init() { proto.RegisterFile("link.proto", fileDescriptor_2ee656911eb8a56a) }
+
+var fileDescriptor_2ee656911eb8a56a = []byte{
+	// 127 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xca, 0xc9, 0xcc, 0xcb,
+	0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x49, 0x2b, 0x2d, 0xca, 0x57, 0x8a, 0xe0, 0x62,
+	0xf1, 0xc9, 0xcc, 0xcb, 0x16, 0x12, 0xe2, 0x62, 0xc9, 0x28, 0x4a, 0x4d, 0x93, 0x60, 0x56, 0x60,
+	0xd4, 0xe0, 0x0c, 0x02, 0xb3, 0x85, 0xc4, 0xb8, 0xd8, 0x72, 0x53, 0x4b, 0x32, 0xf2, 0x53, 0x24,
+	0x98, 0xc0, 0xa2, 0x50, 0x9e, 0x90, 0x00, 0x17, 0x73, 0x51, 0x6a, 0x8e, 0x04, 0x23, 0x58, 0x10,
+	0xc4, 0x04, 0xe9, 0x2e, 0xa9, 0x2c, 0x48, 0x95, 0x60, 0x81, 0xe8, 0x06, 0xb1, 0x9d, 0x78, 0x4e,
+	0x3c, 0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x24, 0x36, 0xb0, 0xa5,
+	0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff, 0xaa, 0x51, 0x4d, 0x8f, 0x82, 0x00, 0x00, 0x00,
+}
+
 func (m *Link) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -209,7 +225,7 @@ func (m *Link) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -237,7 +253,7 @@ func (m *Link) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -247,6 +263,9 @@ func (m *Link) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthLink
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthLink
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -266,7 +285,7 @@ func (m *Link) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -276,6 +295,9 @@ func (m *Link) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthLink
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthLink
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -295,7 +317,7 @@ func (m *Link) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -305,6 +327,9 @@ func (m *Link) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthLink
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthLink
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -324,7 +349,7 @@ func (m *Link) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -334,6 +359,9 @@ func (m *Link) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthLink
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthLink
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -346,6 +374,9 @@ func (m *Link) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthLink
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthLink
 			}
 			if (iNdEx + skippy) > l {
@@ -415,8 +446,11 @@ func skipLink(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthLink
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthLink
 			}
 			return iNdEx, nil
@@ -447,6 +481,9 @@ func skipLink(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthLink
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -465,17 +502,3 @@ var (
 	ErrInvalidLengthLink = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowLink   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() { proto.RegisterFile("link.proto", fileDescriptor_link_5f8f1218513a2904) }
-
-var fileDescriptor_link_5f8f1218513a2904 = []byte{
-	// 126 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xca, 0xc9, 0xcc, 0xcb,
-	0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x49, 0x2b, 0x2d, 0xca, 0x57, 0x8a, 0xe0, 0x62,
-	0xf1, 0xc9, 0xcc, 0xcb, 0x16, 0x12, 0xe0, 0x62, 0x2e, 0x4a, 0xcd, 0x91, 0x60, 0x54, 0x60, 0xd4,
-	0xe0, 0x0c, 0x02, 0x31, 0x85, 0xc4, 0xb8, 0xd8, 0x72, 0x53, 0x4b, 0x32, 0xf2, 0x53, 0x24, 0x98,
-	0xc0, 0x82, 0x50, 0x9e, 0x90, 0x10, 0x17, 0x4b, 0x46, 0x51, 0x6a, 0x9a, 0x04, 0x33, 0x58, 0x14,
-	0xcc, 0x06, 0x89, 0x95, 0x54, 0x16, 0xa4, 0x4a, 0xb0, 0x40, 0xc4, 0x40, 0x6c, 0x27, 0x9e, 0x13,
-	0x8f, 0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c, 0xf0, 0x48, 0x8e, 0x31, 0x89, 0x0d, 0x6c, 0xa9,
-	0x31, 0x20, 0x00, 0x00, 0xff, 0xff, 0xef, 0x32, 0xb9, 0x1c, 0x82, 0x00, 0x00, 0x00,
-}

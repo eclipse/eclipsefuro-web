@@ -3,12 +3,13 @@
 
 package project
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import furo "../furo"
-
-import io "io"
+import (
+	furo "../furo"
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,11 +25,11 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 // ProjectEntity with Project
 type ProjectEntity struct {
 	// contains a project.Project
-	Data *Project `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	Data *Project `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
 	// Hateoas links
-	Links []*furo.Link `protobuf:"bytes,2,rep,name=links" json:"links,omitempty"`
+	Links []*furo.Link `protobuf:"bytes,2,rep,name=links,proto3" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *furo.Meta `protobuf:"bytes,3,opt,name=meta" json:"meta,omitempty"`
+	Meta                 *furo.Meta `protobuf:"bytes,3,opt,name=meta,proto3" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -38,7 +39,7 @@ func (m *ProjectEntity) Reset()         { *m = ProjectEntity{} }
 func (m *ProjectEntity) String() string { return proto.CompactTextString(m) }
 func (*ProjectEntity) ProtoMessage()    {}
 func (*ProjectEntity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_project_entity_ec047409f21ea57b, []int{0}
+	return fileDescriptor_1e0625aed09375d8, []int{0}
 }
 func (m *ProjectEntity) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -55,8 +56,8 @@ func (m *ProjectEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error
 		return b[:n], nil
 	}
 }
-func (dst *ProjectEntity) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ProjectEntity.Merge(dst, src)
+func (m *ProjectEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ProjectEntity.Merge(m, src)
 }
 func (m *ProjectEntity) XXX_Size() int {
 	return m.Size()
@@ -91,6 +92,24 @@ func (m *ProjectEntity) GetMeta() *furo.Meta {
 func init() {
 	proto.RegisterType((*ProjectEntity)(nil), "project.ProjectEntity")
 }
+
+func init() { proto.RegisterFile("project_entity.proto", fileDescriptor_1e0625aed09375d8) }
+
+var fileDescriptor_1e0625aed09375d8 = []byte{
+	// 174 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x29, 0x28, 0xca, 0xcf,
+	0x4a, 0x4d, 0x2e, 0x89, 0x4f, 0xcd, 0x2b, 0xc9, 0x2c, 0xa9, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9,
+	0x17, 0x62, 0x87, 0x8a, 0x4a, 0xf1, 0x42, 0x19, 0x10, 0x71, 0x29, 0xfe, 0xb4, 0xd2, 0xa2, 0x7c,
+	0xfd, 0xdc, 0xd4, 0x92, 0x44, 0x14, 0x81, 0x9c, 0xcc, 0xbc, 0x6c, 0x88, 0x80, 0x52, 0x39, 0x17,
+	0x6f, 0x00, 0x44, 0x8b, 0x2b, 0xd8, 0x40, 0x21, 0x15, 0x2e, 0x96, 0x94, 0xc4, 0x92, 0x44, 0x09,
+	0x46, 0x05, 0x46, 0x0d, 0x6e, 0x23, 0x01, 0x3d, 0x98, 0x81, 0x50, 0x55, 0x41, 0x60, 0x59, 0x21,
+	0x05, 0x2e, 0x56, 0x90, 0x21, 0xc5, 0x12, 0x4c, 0x0a, 0xcc, 0x1a, 0xdc, 0x46, 0x5c, 0x7a, 0x20,
+	0x73, 0xf5, 0x7c, 0x32, 0xf3, 0xb2, 0x83, 0x20, 0x12, 0x42, 0x72, 0x5c, 0x2c, 0x20, 0x7b, 0x25,
+	0x98, 0xc1, 0xe6, 0x40, 0x15, 0xf8, 0xa6, 0x96, 0x24, 0x06, 0x81, 0xc5, 0x9d, 0x78, 0x4e, 0x3c,
+	0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x24, 0x36, 0xb0, 0x6b, 0x8c,
+	0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x92, 0xe8, 0x18, 0xc6, 0xdf, 0x00, 0x00, 0x00,
+}
+
 func (m *ProjectEntity) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -110,9 +129,9 @@ func (m *ProjectEntity) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0xa
 		i++
 		i = encodeVarintProjectEntity(dAtA, i, uint64(m.Data.Size()))
-		n1, err := m.Data.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n1, err1 := m.Data.MarshalTo(dAtA[i:])
+		if err1 != nil {
+			return 0, err1
 		}
 		i += n1
 	}
@@ -132,9 +151,9 @@ func (m *ProjectEntity) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x1a
 		i++
 		i = encodeVarintProjectEntity(dAtA, i, uint64(m.Meta.Size()))
-		n2, err := m.Meta.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n2, err2 := m.Meta.MarshalTo(dAtA[i:])
+		if err2 != nil {
+			return 0, err2
 		}
 		i += n2
 	}
@@ -207,7 +226,7 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -235,7 +254,7 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -244,6 +263,9 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProjectEntity
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthProjectEntity
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -268,7 +290,7 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -277,6 +299,9 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProjectEntity
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthProjectEntity
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -299,7 +324,7 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -308,6 +333,9 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProjectEntity
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthProjectEntity
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -325,6 +353,9 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthProjectEntity
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthProjectEntity
 			}
 			if (iNdEx + skippy) > l {
@@ -394,8 +425,11 @@ func skipProjectEntity(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthProjectEntity
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthProjectEntity
 			}
 			return iNdEx, nil
@@ -426,6 +460,9 @@ func skipProjectEntity(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthProjectEntity
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -444,22 +481,3 @@ var (
 	ErrInvalidLengthProjectEntity = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowProjectEntity   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() {
-	proto.RegisterFile("project_entity.proto", fileDescriptor_project_entity_ec047409f21ea57b)
-}
-
-var fileDescriptor_project_entity_ec047409f21ea57b = []byte{
-	// 174 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x29, 0x28, 0xca, 0xcf,
-	0x4a, 0x4d, 0x2e, 0x89, 0x4f, 0xcd, 0x2b, 0xc9, 0x2c, 0xa9, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9,
-	0x17, 0x62, 0x87, 0x8a, 0x4a, 0xf1, 0x42, 0x19, 0x10, 0x71, 0x29, 0xfe, 0xb4, 0xd2, 0xa2, 0x7c,
-	0xfd, 0xdc, 0xd4, 0x92, 0x44, 0x14, 0x81, 0x9c, 0xcc, 0xbc, 0x6c, 0x88, 0x80, 0x52, 0x39, 0x17,
-	0x6f, 0x00, 0x44, 0x8b, 0x2b, 0xd8, 0x40, 0x21, 0x15, 0x2e, 0x96, 0x94, 0xc4, 0x92, 0x44, 0x09,
-	0x46, 0x05, 0x46, 0x0d, 0x6e, 0x23, 0x01, 0x3d, 0x98, 0x81, 0x50, 0x55, 0x41, 0x60, 0x59, 0x21,
-	0x05, 0x2e, 0x56, 0x90, 0x21, 0xc5, 0x12, 0x4c, 0x0a, 0xcc, 0x1a, 0xdc, 0x46, 0x5c, 0x7a, 0x20,
-	0x73, 0xf5, 0x7c, 0x32, 0xf3, 0xb2, 0x83, 0x20, 0x12, 0x42, 0x72, 0x5c, 0x2c, 0x20, 0x7b, 0x25,
-	0x98, 0xc1, 0xe6, 0x40, 0x15, 0xf8, 0xa6, 0x96, 0x24, 0x06, 0x81, 0xc5, 0x9d, 0x78, 0x4e, 0x3c,
-	0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x24, 0x36, 0xb0, 0x6b, 0x8c,
-	0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x92, 0xe8, 0x18, 0xc6, 0xdf, 0x00, 0x00, 0x00,
-}

@@ -4,8 +4,11 @@
 syntax = "proto3";
 package bundled;
 
+{{range $key, $option := .__proto.options}}
+option {{$key}} = {{if  (typeOf $option | eq "bool")}}{{$option}};{{else}}"{{$option}}";{{end}}{{end}}
+
 import "google/api/annotations.proto";
-import "protobuf/any.proto";
+import "google/protobuf/any.proto";
 import "google/money.proto";
 import "google/date.proto";
 import "furo/meta.proto";

@@ -2,6 +2,8 @@
 // generation date: {{now | date "2006-01-02 15:04:05"}}
 syntax = "proto3";
 package {{.__proto.package}};
+{{range $key, $option := .__proto.options}}
+option {{$key}} = {{if  (typeOf $option | eq "bool")}}{{$option}};{{else}}"{{$option}}";{{end}}{{end}}
 {{range $import := .__proto.imports}}
 import "{{$import}}";{{end}}
 

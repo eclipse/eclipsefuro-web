@@ -3,12 +3,13 @@
 
 package tree
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import furo "../furo"
-
-import io "io"
+import (
+	furo "../furo"
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,11 +25,11 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 // TreeEntity with Tree
 type TreeEntity struct {
 	// contains a tree.Tree
-	Data *Tree `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	Data *Tree `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
 	// Hateoas links
-	Links []*furo.Link `protobuf:"bytes,2,rep,name=links" json:"links,omitempty"`
+	Links []*furo.Link `protobuf:"bytes,2,rep,name=links,proto3" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *furo.Meta `protobuf:"bytes,3,opt,name=meta" json:"meta,omitempty"`
+	Meta                 *furo.Meta `protobuf:"bytes,3,opt,name=meta,proto3" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -38,7 +39,7 @@ func (m *TreeEntity) Reset()         { *m = TreeEntity{} }
 func (m *TreeEntity) String() string { return proto.CompactTextString(m) }
 func (*TreeEntity) ProtoMessage()    {}
 func (*TreeEntity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_tree_entity_b43f1ec955b8a9a0, []int{0}
+	return fileDescriptor_26fbbaf51a75749e, []int{0}
 }
 func (m *TreeEntity) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -55,8 +56,8 @@ func (m *TreeEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *TreeEntity) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TreeEntity.Merge(dst, src)
+func (m *TreeEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TreeEntity.Merge(m, src)
 }
 func (m *TreeEntity) XXX_Size() int {
 	return m.Size()
@@ -91,6 +92,24 @@ func (m *TreeEntity) GetMeta() *furo.Meta {
 func init() {
 	proto.RegisterType((*TreeEntity)(nil), "tree.TreeEntity")
 }
+
+func init() { proto.RegisterFile("tree_entity.proto", fileDescriptor_26fbbaf51a75749e) }
+
+var fileDescriptor_26fbbaf51a75749e = []byte{
+	// 167 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2c, 0x29, 0x4a, 0x4d,
+	0x8d, 0x4f, 0xcd, 0x2b, 0xc9, 0x2c, 0xa9, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x01,
+	0x09, 0x49, 0x71, 0x81, 0x48, 0x88, 0x88, 0x14, 0x7f, 0x5a, 0x69, 0x51, 0xbe, 0x7e, 0x6e, 0x6a,
+	0x49, 0x22, 0x8a, 0x40, 0x4e, 0x66, 0x5e, 0x36, 0x44, 0x40, 0x29, 0x8f, 0x8b, 0x2b, 0xa4, 0x28,
+	0x35, 0xd5, 0x15, 0x6c, 0x8e, 0x90, 0x1c, 0x17, 0x4b, 0x4a, 0x62, 0x49, 0xa2, 0x04, 0xa3, 0x02,
+	0xa3, 0x06, 0xb7, 0x11, 0x97, 0x1e, 0xd8, 0x28, 0x90, 0x7c, 0x10, 0x58, 0x5c, 0x48, 0x81, 0x8b,
+	0x15, 0xa4, 0xb7, 0x58, 0x82, 0x49, 0x81, 0x19, 0xac, 0x00, 0x64, 0x9c, 0x9e, 0x4f, 0x66, 0x5e,
+	0x76, 0x10, 0x44, 0x02, 0x64, 0x02, 0xc8, 0x3a, 0x09, 0x66, 0xa8, 0x09, 0x60, 0x05, 0xbe, 0xa9,
+	0x25, 0x89, 0x41, 0x60, 0x71, 0x27, 0x9e, 0x13, 0x8f, 0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c,
+	0xf0, 0x48, 0x8e, 0x31, 0x89, 0x0d, 0xec, 0x08, 0x63, 0x40, 0x00, 0x00, 0x00, 0xff, 0xff, 0xb3,
+	0xa6, 0x7e, 0xff, 0xcd, 0x00, 0x00, 0x00,
+}
+
 func (m *TreeEntity) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -110,9 +129,9 @@ func (m *TreeEntity) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0xa
 		i++
 		i = encodeVarintTreeEntity(dAtA, i, uint64(m.Data.Size()))
-		n1, err := m.Data.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n1, err1 := m.Data.MarshalTo(dAtA[i:])
+		if err1 != nil {
+			return 0, err1
 		}
 		i += n1
 	}
@@ -132,9 +151,9 @@ func (m *TreeEntity) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x1a
 		i++
 		i = encodeVarintTreeEntity(dAtA, i, uint64(m.Meta.Size()))
-		n2, err := m.Meta.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n2, err2 := m.Meta.MarshalTo(dAtA[i:])
+		if err2 != nil {
+			return 0, err2
 		}
 		i += n2
 	}
@@ -207,7 +226,7 @@ func (m *TreeEntity) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -235,7 +254,7 @@ func (m *TreeEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -244,6 +263,9 @@ func (m *TreeEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeEntity
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeEntity
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -268,7 +290,7 @@ func (m *TreeEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -277,6 +299,9 @@ func (m *TreeEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeEntity
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeEntity
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -299,7 +324,7 @@ func (m *TreeEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -308,6 +333,9 @@ func (m *TreeEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeEntity
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeEntity
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -325,6 +353,9 @@ func (m *TreeEntity) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTreeEntity
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTreeEntity
 			}
 			if (iNdEx + skippy) > l {
@@ -394,8 +425,11 @@ func skipTreeEntity(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthTreeEntity
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthTreeEntity
 			}
 			return iNdEx, nil
@@ -426,6 +460,9 @@ func skipTreeEntity(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthTreeEntity
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -444,20 +481,3 @@ var (
 	ErrInvalidLengthTreeEntity = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowTreeEntity   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() { proto.RegisterFile("tree_entity.proto", fileDescriptor_tree_entity_b43f1ec955b8a9a0) }
-
-var fileDescriptor_tree_entity_b43f1ec955b8a9a0 = []byte{
-	// 167 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2c, 0x29, 0x4a, 0x4d,
-	0x8d, 0x4f, 0xcd, 0x2b, 0xc9, 0x2c, 0xa9, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x01,
-	0x09, 0x49, 0x71, 0x81, 0x48, 0x88, 0x88, 0x14, 0x7f, 0x5a, 0x69, 0x51, 0xbe, 0x7e, 0x6e, 0x6a,
-	0x49, 0x22, 0x8a, 0x40, 0x4e, 0x66, 0x5e, 0x36, 0x44, 0x40, 0x29, 0x8f, 0x8b, 0x2b, 0xa4, 0x28,
-	0x35, 0xd5, 0x15, 0x6c, 0x8e, 0x90, 0x1c, 0x17, 0x4b, 0x4a, 0x62, 0x49, 0xa2, 0x04, 0xa3, 0x02,
-	0xa3, 0x06, 0xb7, 0x11, 0x97, 0x1e, 0xd8, 0x28, 0x90, 0x7c, 0x10, 0x58, 0x5c, 0x48, 0x81, 0x8b,
-	0x15, 0xa4, 0xb7, 0x58, 0x82, 0x49, 0x81, 0x19, 0xac, 0x00, 0x64, 0x9c, 0x9e, 0x4f, 0x66, 0x5e,
-	0x76, 0x10, 0x44, 0x02, 0x64, 0x02, 0xc8, 0x3a, 0x09, 0x66, 0xa8, 0x09, 0x60, 0x05, 0xbe, 0xa9,
-	0x25, 0x89, 0x41, 0x60, 0x71, 0x27, 0x9e, 0x13, 0x8f, 0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c,
-	0xf0, 0x48, 0x8e, 0x31, 0x89, 0x0d, 0xec, 0x08, 0x63, 0x40, 0x00, 0x00, 0x00, 0xff, 0xff, 0xb3,
-	0xa6, 0x7e, 0xff, 0xcd, 0x00, 0x00, 0x00,
-}

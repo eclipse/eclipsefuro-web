@@ -18,6 +18,7 @@
   "services": {
     "List": {
       "description": "The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",
+      "rpc_name": "ListTrees",
       "data": {
         "request": null,
         "response": "tree.TreeCollection"
@@ -44,6 +45,7 @@
     },
     "Create": {
       "description": "Creates a new Tree",
+      "rpc_name": "CreateTree",
       "data": {
         "request": "tree.Tree",
         "response": "tree.TreeEntity"
@@ -58,6 +60,7 @@
     },
     "Get": {
       "description": "The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",
+      "rpc_name": "GetTree",
       "data": {
         "request": null,
         "response": "tree.TreeEntity"
@@ -72,6 +75,7 @@
     },
     "Update": {
       "description": "Updates a Tree, partial updates are supported",
+      "rpc_name": "UpdateTree",
       "data": {
         "request": "tree.Tree",
         "response": "tree.TreeEntity"
@@ -85,6 +89,7 @@
     },
     "Delete": {
       "description": "Delete a Tree",
+      "rpc_name": "DeleteTree",
       "data": {
         "request": "protobuf.Empty",
         "response": "protobuf.Empty"

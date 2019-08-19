@@ -28,7 +28,7 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 
-func request_PersonService_CreatePersonService_0(ctx context.Context, marshaler runtime.Marshaler, client PersonServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_PersonService_CreatePerson_0(ctx context.Context, marshaler runtime.Marshaler, client PersonServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreatePersonServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -40,16 +40,16 @@ func request_PersonService_CreatePersonService_0(ctx context.Context, marshaler 
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.CreatePersonService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.CreatePerson(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
 var (
-	filter_PersonService_DeletePersonService_0 = &utilities.DoubleArray{Encoding: map[string]int{"prs": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_PersonService_DeletePerson_0 = &utilities.DoubleArray{Encoding: map[string]int{"prs": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_PersonService_DeletePersonService_0(ctx context.Context, marshaler runtime.Marshaler, client PersonServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_PersonService_DeletePerson_0(ctx context.Context, marshaler runtime.Marshaler, client PersonServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeletePersonServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -71,16 +71,16 @@ func request_PersonService_DeletePersonService_0(ctx context.Context, marshaler 
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prs", err)
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_PersonService_DeletePersonService_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_PersonService_DeletePerson_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.DeletePersonService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.DeletePerson(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func request_PersonService_GetPersonService_0(ctx context.Context, marshaler runtime.Marshaler, client PersonServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_PersonService_GetPerson_0(ctx context.Context, marshaler runtime.Marshaler, client PersonServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPersonServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -102,29 +102,29 @@ func request_PersonService_GetPersonService_0(ctx context.Context, marshaler run
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prs", err)
 	}
 
-	msg, err := client.GetPersonService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.GetPerson(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
 var (
-	filter_PersonService_ListPersonService_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_PersonService_ListPersons_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_PersonService_ListPersonService_0(ctx context.Context, marshaler runtime.Marshaler, client PersonServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_PersonService_ListPersons_0(ctx context.Context, marshaler runtime.Marshaler, client PersonServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPersonServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_PersonService_ListPersonService_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_PersonService_ListPersons_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.ListPersonService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.ListPersons(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func request_PersonService_UpdatePersonService_0(ctx context.Context, marshaler runtime.Marshaler, client PersonServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_PersonService_UpdatePerson_0(ctx context.Context, marshaler runtime.Marshaler, client PersonServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdatePersonServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -154,7 +154,7 @@ func request_PersonService_UpdatePersonService_0(ctx context.Context, marshaler 
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prs", err)
 	}
 
-	msg, err := client.UpdatePersonService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.UpdatePerson(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
@@ -197,7 +197,7 @@ func RegisterPersonServiceHandler(ctx context.Context, mux *runtime.ServeMux, co
 // "PersonServiceClient" to call the correct interceptors.
 func RegisterPersonServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client PersonServiceClient) error {
 
-	mux.Handle("POST", pattern_PersonService_CreatePersonService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_PersonService_CreatePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -206,18 +206,18 @@ func RegisterPersonServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_PersonService_CreatePersonService_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_PersonService_CreatePerson_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_PersonService_CreatePersonService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_PersonService_CreatePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_PersonService_DeletePersonService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_PersonService_DeletePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -226,18 +226,18 @@ func RegisterPersonServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_PersonService_DeletePersonService_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_PersonService_DeletePerson_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_PersonService_DeletePersonService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_PersonService_DeletePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_PersonService_GetPersonService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_PersonService_GetPerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -246,18 +246,18 @@ func RegisterPersonServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_PersonService_GetPersonService_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_PersonService_GetPerson_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_PersonService_GetPersonService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_PersonService_GetPerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_PersonService_ListPersonService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_PersonService_ListPersons_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -266,18 +266,18 @@ func RegisterPersonServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_PersonService_ListPersonService_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_PersonService_ListPersons_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_PersonService_ListPersonService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_PersonService_ListPersons_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PATCH", pattern_PersonService_UpdatePersonService_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PATCH", pattern_PersonService_UpdatePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -286,14 +286,14 @@ func RegisterPersonServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_PersonService_UpdatePersonService_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_PersonService_UpdatePerson_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_PersonService_UpdatePersonService_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_PersonService_UpdatePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -301,25 +301,25 @@ func RegisterPersonServiceHandlerClient(ctx context.Context, mux *runtime.ServeM
 }
 
 var (
-	pattern_PersonService_CreatePersonService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "persons"}, ""))
+	pattern_PersonService_CreatePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "persons"}, ""))
 
-	pattern_PersonService_DeletePersonService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "persons", "prs"}, ""))
+	pattern_PersonService_DeletePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "persons", "prs"}, ""))
 
-	pattern_PersonService_GetPersonService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "persons", "prs"}, ""))
+	pattern_PersonService_GetPerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "persons", "prs"}, ""))
 
-	pattern_PersonService_ListPersonService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "persons"}, ""))
+	pattern_PersonService_ListPersons_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "persons"}, ""))
 
-	pattern_PersonService_UpdatePersonService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "persons", "prs"}, ""))
+	pattern_PersonService_UpdatePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "persons", "prs"}, ""))
 )
 
 var (
-	forward_PersonService_CreatePersonService_0 = runtime.ForwardResponseMessage
+	forward_PersonService_CreatePerson_0 = runtime.ForwardResponseMessage
 
-	forward_PersonService_DeletePersonService_0 = runtime.ForwardResponseMessage
+	forward_PersonService_DeletePerson_0 = runtime.ForwardResponseMessage
 
-	forward_PersonService_GetPersonService_0 = runtime.ForwardResponseMessage
+	forward_PersonService_GetPerson_0 = runtime.ForwardResponseMessage
 
-	forward_PersonService_ListPersonService_0 = runtime.ForwardResponseMessage
+	forward_PersonService_ListPersons_0 = runtime.ForwardResponseMessage
 
-	forward_PersonService_UpdatePersonService_0 = runtime.ForwardResponseMessage
+	forward_PersonService_UpdatePerson_0 = runtime.ForwardResponseMessage
 )

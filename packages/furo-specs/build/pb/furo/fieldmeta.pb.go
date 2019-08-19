@@ -3,11 +3,12 @@
 
 package furo
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-
-import io "io"
+import (
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -33,7 +34,7 @@ func (m *Fieldmeta) Reset()         { *m = Fieldmeta{} }
 func (m *Fieldmeta) String() string { return proto.CompactTextString(m) }
 func (*Fieldmeta) ProtoMessage()    {}
 func (*Fieldmeta) Descriptor() ([]byte, []int) {
-	return fileDescriptor_fieldmeta_08a99c8d34aebe7d, []int{0}
+	return fileDescriptor_6370245e698d74dd, []int{0}
 }
 func (m *Fieldmeta) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -50,8 +51,8 @@ func (m *Fieldmeta) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *Fieldmeta) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Fieldmeta.Merge(dst, src)
+func (m *Fieldmeta) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Fieldmeta.Merge(m, src)
 }
 func (m *Fieldmeta) XXX_Size() int {
 	return m.Size()
@@ -72,6 +73,19 @@ func (m *Fieldmeta) GetLabel() string {
 func init() {
 	proto.RegisterType((*Fieldmeta)(nil), "furo.Fieldmeta")
 }
+
+func init() { proto.RegisterFile("fieldmeta.proto", fileDescriptor_6370245e698d74dd) }
+
+var fileDescriptor_6370245e698d74dd = []byte{
+	// 91 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4f, 0xcb, 0x4c, 0xcd,
+	0x49, 0xc9, 0x4d, 0x2d, 0x49, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x49, 0x2b, 0x2d,
+	0xca, 0x57, 0x52, 0xe4, 0xe2, 0x74, 0x83, 0x49, 0x08, 0x89, 0x70, 0xb1, 0xe6, 0x24, 0x26, 0xa5,
+	0xe6, 0x48, 0x30, 0x2a, 0x30, 0x6a, 0x70, 0x06, 0x41, 0x38, 0x4e, 0x3c, 0x27, 0x1e, 0xc9, 0x31,
+	0x5e, 0x78, 0x24, 0xc7, 0xf8, 0xe0, 0x91, 0x1c, 0x63, 0x12, 0x1b, 0x58, 0xb7, 0x31, 0x20, 0x00,
+	0x00, 0xff, 0xff, 0x2e, 0x3d, 0x6c, 0xcc, 0x50, 0x00, 0x00, 0x00,
+}
+
 func (m *Fieldmeta) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -152,7 +166,7 @@ func (m *Fieldmeta) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -180,7 +194,7 @@ func (m *Fieldmeta) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -190,6 +204,9 @@ func (m *Fieldmeta) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthFieldmeta
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthFieldmeta
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -202,6 +219,9 @@ func (m *Fieldmeta) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthFieldmeta
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthFieldmeta
 			}
 			if (iNdEx + skippy) > l {
@@ -271,8 +291,11 @@ func skipFieldmeta(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthFieldmeta
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthFieldmeta
 			}
 			return iNdEx, nil
@@ -303,6 +326,9 @@ func skipFieldmeta(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthFieldmeta
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -321,15 +347,3 @@ var (
 	ErrInvalidLengthFieldmeta = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowFieldmeta   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() { proto.RegisterFile("fieldmeta.proto", fileDescriptor_fieldmeta_08a99c8d34aebe7d) }
-
-var fileDescriptor_fieldmeta_08a99c8d34aebe7d = []byte{
-	// 91 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4f, 0xcb, 0x4c, 0xcd,
-	0x49, 0xc9, 0x4d, 0x2d, 0x49, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x49, 0x2b, 0x2d,
-	0xca, 0x57, 0x52, 0xe4, 0xe2, 0x74, 0x83, 0x49, 0x08, 0x89, 0x70, 0xb1, 0xe6, 0x24, 0x26, 0xa5,
-	0xe6, 0x48, 0x30, 0x2a, 0x30, 0x6a, 0x70, 0x06, 0x41, 0x38, 0x4e, 0x3c, 0x27, 0x1e, 0xc9, 0x31,
-	0x5e, 0x78, 0x24, 0xc7, 0xf8, 0xe0, 0x91, 0x1c, 0x63, 0x12, 0x1b, 0x58, 0xb7, 0x31, 0x20, 0x00,
-	0x00, 0xff, 0xff, 0x2e, 0x3d, 0x6c, 0xcc, 0x50, 0x00, 0x00, 0x00,
-}
