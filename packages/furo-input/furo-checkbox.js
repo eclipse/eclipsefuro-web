@@ -9,7 +9,7 @@ import {FBP} from "@furo/fbp";
  *
  * Checkbox input element which uses a native `<input type="checkbox">` tag.
  *
- * Checkboxes allow the user to select multiple options from a set.
+ * Checkboxes allow the user to to make a binary choice, i.e. a choice between one of two possible mutually exclusive options.
  *
  * ### Sample
  *  <furo-demo-snippet>
@@ -23,6 +23,21 @@ import {FBP} from "@furo/fbp";
  *
  * Custom property | Description | Default  | Fallback
  * ----------------|-------------|----------|----------
+ * `--input-checkbox-unselected-bg-color` | background color of the unchecked checkbox | `--background` | #ffffff
+ * `--input-checkbox-unselected-border-color` | border color of the unchecked checkbox | `--separator` | #7E7E7E
+ * `--input-checkbox-unselected-hover-bg-color` | background color of the unchecked checkbox by hovering | `--surface-light` | #F5F5F5
+ * `--input-checkbox-unselected-focus-bg-color` | background color of the unchecked checkbox by focusing | `--surface-dark` | #DDDDDD
+ * `--input-checkbox-unselected-active-bg-color` | background color of the unchecked checkbox by pressing | `--surface-dark` | #C0C0C0
+ * `--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--surface-dark` | #C0C0C0
+ * `--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--accent` | #6200FD
+ * `--input-checkbox-selected-hover-bg-color` | background color of the checked checkbox by hovering | `--on-accent` | #D5C6E9
+ * `--input-checkbox-selected-focus-bg-color` | background color of the checked checkbox by focusing | `--accent` | #6200FD
+ * `--input-checkbox-disabled-selected-bg-color` | background color of the checked disabled checkbox | `--disable` | #B9B9B9
+ * `--input-checkbox-disabled-selected-border-color` | border color of the checked disabled checkbox | `--disable` | #B9B9B9
+ * `--input-checkbox-disabled-unselected-bg-color` | background color of the unchecked disabled checkbox | `--background` | #ffffff
+ * `--input-checkbox-disabled-unselected-border-color` | border color of the unchecked disabled checkbox | `--surface` | #aaaaaa
+ * `--input-checkbox-disabled-hover-bg-color` | background color of the unchecked disabled checkbox by hovering| `--background` | #ffffff
+ *
  *
  * @summary checkbox input
  * @customElement
@@ -95,7 +110,7 @@ class FuroCheckbox extends FBP(LitElement) {
     }
 
     /**
-     * Sets the focus on the field.
+     * Sets the focus on the checkbox.
      */
     focus() {
         this._FBPTriggerWire("--focus");
@@ -237,33 +252,33 @@ class FuroCheckbox extends FBP(LitElement) {
             }
 
             .wrapper:active input ~ .checkbox-background {
-                background-color: var(--input-checkbox-unselected-active-bg-color, var(--background,#ffffff));
+                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark , #C0C0C0));
             }
 
             /* selected checkbox  */
             .wrapper[checked] input:checked ~ .checkbox-background {
-                background-color: var(--input-checkbox-selected-bg-color, #6200FD);
-                border-color: var(--input-checkbox-selected-bg-color, var(--background,#ffffff));
+                background-color: var(--input-checkbox-selected-bg-color, var(--accent, #6200FD));
+                border-color: var(--input-checkbox-selected-bg-color, var(--accent, #6200FD));
             }
 
             /* selected checkbox when focusing */
             .wrapper[checked][focused]  {
-                background-color: var(--input-checkbox-selected-hover-bg-color, #D5C6E9);
+                background-color: var(--input-checkbox-selected-hover-bg-color, var(--on-accent,#D5C6E9));
             }
 
             .wrapper[checked][focused] input ~ .checkbox-background {
-                background-color: var(--input-checkbox-selected-focus-bg-color, #6200FD);
+                background-color: var(--input-checkbox-selected-focus-bg-color, var(--accent, #6200FD));
             }
 
             /* selected checkbox when hovering */
             .wrapper[checked]:hover {
-                background-color: var(--input-checkbox-selected-hover-bg-color, #E4DBE6);
+                background-color: var(--input-checkbox-selected-hover-bg-color, var(--on-accent, #E4DBE6));
             }
 
             /* disabled checkbox selected */
             .wrapper[checked][disabled] input:disabled:checked ~ .checkbox-background {
-                background-color: var(--input-checkbox-disabled-selected-bg-color, #B9B9B9);
-                border-color: var(--input-checkbox-disabled-selected-border-color, #B9B9B9);
+                background-color: var(--input-checkbox-disabled-selected-bg-color, var(--disable,#B9B9B9));
+                border-color: var(--input-checkbox-disabled-selected-border-color, var(--disable,#B9B9B9));
             }
 
             /* disabled checkbox unselected */
@@ -284,7 +299,7 @@ class FuroCheckbox extends FBP(LitElement) {
 
             /* disabled checkbox when hovering */
             .wrapper[disabled]:hover {
-                background-color: var(--input-checkbox-disabled-hover-bg-color, #ffffff);
+                background-color: var(--input-checkbox-disabled-hover-bg-color, var(--background,#ffffff));
                 background: transparent;
             }
 

@@ -7,6 +7,11 @@ exit 1
 fi
 
 PACKAGE=$1
+if [ ! -d build/protos/$PACKAGE ]
+then
+    echo "Package folder /build/protos/$PACKAGE DOES NOT exists."
+    exit 1
+fi
 # https://github.com/gogo/protobuf/issues/325
 cd build/protos/$PACKAGE
 mkdir -p ../../pb/$PACKAGE
