@@ -3,11 +3,12 @@
 
 package person
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-
-import io "io"
+import (
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -31,7 +32,7 @@ type Person struct {
 	// Internal phone number
 	PhoneNr string `protobuf:"bytes,4,opt,name=phone_nr,json=phoneNr,proto3" json:"phone_nr,omitempty"`
 	// List of main skills of a person
-	Skills               []string `protobuf:"bytes,5,rep,name=skills" json:"skills,omitempty"`
+	Skills               []string `protobuf:"bytes,5,rep,name=skills,proto3" json:"skills,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -41,7 +42,7 @@ func (m *Person) Reset()         { *m = Person{} }
 func (m *Person) String() string { return proto.CompactTextString(m) }
 func (*Person) ProtoMessage()    {}
 func (*Person) Descriptor() ([]byte, []int) {
-	return fileDescriptor_person_524c4d157dd74b60, []int{0}
+	return fileDescriptor_4c9e10cf24b1156d, []int{0}
 }
 func (m *Person) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -58,8 +59,8 @@ func (m *Person) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *Person) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Person.Merge(dst, src)
+func (m *Person) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Person.Merge(m, src)
 }
 func (m *Person) XXX_Size() int {
 	return m.Size()
@@ -108,6 +109,24 @@ func (m *Person) GetSkills() []string {
 func init() {
 	proto.RegisterType((*Person)(nil), "person.Person")
 }
+
+func init() { proto.RegisterFile("person.proto", fileDescriptor_4c9e10cf24b1156d) }
+
+var fileDescriptor_4c9e10cf24b1156d = []byte{
+	// 167 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x29, 0x48, 0x2d, 0x2a,
+	0xce, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x83, 0xf0, 0x94, 0x26, 0x32, 0x72,
+	0xb1, 0x05, 0x80, 0x99, 0x42, 0x8a, 0x5c, 0x3c, 0x29, 0x99, 0xc5, 0x05, 0x39, 0x89, 0x95, 0xf1,
+	0x79, 0x89, 0xb9, 0xa9, 0x12, 0x8c, 0x0a, 0x8c, 0x1a, 0x9c, 0x41, 0xdc, 0x50, 0x31, 0xbf, 0xc4,
+	0xdc, 0x54, 0x21, 0x59, 0x2e, 0xae, 0xb4, 0xcc, 0xa2, 0xe2, 0x12, 0x88, 0x02, 0x66, 0xb0, 0x02,
+	0x4e, 0xb0, 0x08, 0x58, 0x5a, 0x88, 0x8b, 0x05, 0x2c, 0xc1, 0x04, 0x96, 0x00, 0xb3, 0x85, 0x24,
+	0xb9, 0x38, 0x0a, 0x32, 0xf2, 0xf3, 0x52, 0xe3, 0xf3, 0x8a, 0x24, 0x58, 0xc0, 0xe2, 0xec, 0x60,
+	0xbe, 0x5f, 0x91, 0x90, 0x18, 0x17, 0x5b, 0x71, 0x76, 0x66, 0x4e, 0x4e, 0xb1, 0x04, 0xab, 0x02,
+	0xb3, 0x06, 0x67, 0x10, 0x94, 0xe7, 0xc4, 0x73, 0xe2, 0x91, 0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c,
+	0x0f, 0x1e, 0xc9, 0x31, 0x26, 0xb1, 0x81, 0x1d, 0x6c, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0xab,
+	0x13, 0x70, 0x16, 0xc0, 0x00, 0x00, 0x00,
+}
+
 func (m *Person) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -239,7 +258,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -267,7 +286,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -277,6 +296,9 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthPerson
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthPerson
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -296,7 +318,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -306,6 +328,9 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthPerson
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthPerson
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -325,7 +350,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -335,6 +360,9 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthPerson
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthPerson
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -354,7 +382,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -364,6 +392,9 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthPerson
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthPerson
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -383,7 +414,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -393,6 +424,9 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthPerson
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthPerson
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -405,6 +439,9 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthPerson
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthPerson
 			}
 			if (iNdEx + skippy) > l {
@@ -474,8 +511,11 @@ func skipPerson(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthPerson
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthPerson
 			}
 			return iNdEx, nil
@@ -506,6 +546,9 @@ func skipPerson(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthPerson
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -524,20 +567,3 @@ var (
 	ErrInvalidLengthPerson = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowPerson   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() { proto.RegisterFile("person.proto", fileDescriptor_person_524c4d157dd74b60) }
-
-var fileDescriptor_person_524c4d157dd74b60 = []byte{
-	// 167 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x29, 0x48, 0x2d, 0x2a,
-	0xce, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x83, 0xf0, 0x94, 0x26, 0x32, 0x72,
-	0xb1, 0x05, 0x80, 0x99, 0x42, 0x8a, 0x5c, 0x3c, 0x29, 0x99, 0xc5, 0x05, 0x39, 0x89, 0x95, 0xf1,
-	0x79, 0x89, 0xb9, 0xa9, 0x12, 0x8c, 0x0a, 0x8c, 0x1a, 0x9c, 0x41, 0xdc, 0x50, 0x31, 0xbf, 0xc4,
-	0xdc, 0x54, 0x21, 0x21, 0x2e, 0x16, 0xb0, 0x14, 0x13, 0x58, 0x0a, 0xcc, 0x16, 0x92, 0xe5, 0xe2,
-	0x4a, 0xcb, 0x2c, 0x2a, 0x2e, 0x81, 0x68, 0x62, 0x06, 0xcb, 0x70, 0x82, 0x45, 0xc0, 0x5a, 0x24,
-	0xb9, 0x38, 0x0a, 0x32, 0xf2, 0xf3, 0x52, 0xe3, 0xf3, 0x8a, 0x24, 0x58, 0xc0, 0x92, 0xec, 0x60,
-	0xbe, 0x5f, 0x91, 0x90, 0x18, 0x17, 0x5b, 0x71, 0x76, 0x66, 0x4e, 0x4e, 0xb1, 0x04, 0xab, 0x02,
-	0xb3, 0x06, 0x67, 0x10, 0x94, 0xe7, 0xc4, 0x73, 0xe2, 0x91, 0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c,
-	0x0f, 0x1e, 0xc9, 0x31, 0x26, 0xb1, 0x81, 0x1d, 0x6c, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0x73,
-	0x54, 0x84, 0x2d, 0xc0, 0x00, 0x00, 0x00,
-}

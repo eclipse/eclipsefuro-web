@@ -18,7 +18,7 @@
     "/api/persons": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
-        "operationId": "ListPersonService",
+        "operationId": "ListPersons",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -101,7 +101,7 @@
       },
       "post": {
         "summary": "Creates a new Person",
-        "operationId": "CreatePersonService",
+        "operationId": "CreatePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -128,7 +128,7 @@
     "/api/persons/{prs}": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
-        "operationId": "GetPersonService",
+        "operationId": "GetPerson",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -151,7 +151,7 @@
       },
       "delete": {
         "summary": "Delete a Person",
-        "operationId": "DeletePersonService",
+        "operationId": "DeletePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -174,7 +174,7 @@
       },
       "patch": {
         "summary": "Updates a Person, partial updates are supported",
-        "operationId": "UpdatePersonService",
+        "operationId": "UpdatePerson",
         "responses": {
           "200": {
             "description": "A successful response.",

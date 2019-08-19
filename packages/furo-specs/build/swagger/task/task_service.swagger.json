@@ -18,7 +18,7 @@
     "/api/tasks": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",
-        "operationId": "ListTaskService",
+        "operationId": "ListTasks",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -101,7 +101,7 @@
       },
       "post": {
         "summary": "Creates a new Task",
-        "operationId": "CreateTaskService",
+        "operationId": "CreateTask",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -125,10 +125,10 @@
         ]
       }
     },
-    "/api/tasks/{tsk}": {
+    "/api/tasks/{var}": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",
-        "operationId": "GetTaskService",
+        "operationId": "GetTask",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -139,7 +139,7 @@
         },
         "parameters": [
           {
-            "name": "tsk",
+            "name": "var",
             "in": "path",
             "required": true,
             "type": "string"
@@ -151,7 +151,7 @@
       },
       "delete": {
         "summary": "Delete a Task",
-        "operationId": "DeleteTaskService",
+        "operationId": "DeleteTask",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -162,7 +162,7 @@
         },
         "parameters": [
           {
-            "name": "tsk",
+            "name": "var",
             "in": "path",
             "required": true,
             "type": "string"
@@ -174,7 +174,7 @@
       },
       "patch": {
         "summary": "Updates a Task, partial updates are supported",
-        "operationId": "UpdateTaskService",
+        "operationId": "UpdateTask",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -185,7 +185,7 @@
         },
         "parameters": [
           {
-            "name": "tsk",
+            "name": "var",
             "in": "path",
             "required": true,
             "type": "string"

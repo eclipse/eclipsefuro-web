@@ -3,13 +3,14 @@
 
 package task
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import person "../person"
-import project "project"
-
-import io "io"
+import (
+	person "../person"
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+	project "project"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -27,13 +28,13 @@ type Task struct {
 	// Short task description
 	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	// Localized String representation of a task
-	DisplayName *project.ProjectCollection `protobuf:"bytes,1,opt,name=display_name,json=displayName" json:"display_name,omitempty"`
+	DisplayName *project.ProjectCollection `protobuf:"bytes,1,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
 	// Estimated time in days
 	EstimatedTime int32 `protobuf:"varint,3,opt,name=estimated_time,json=estimatedTime,proto3" json:"estimated_time,omitempty"`
 	// Owner of a task
-	Owner *person.Person `protobuf:"bytes,4,opt,name=owner" json:"owner,omitempty"`
+	Owner *person.Person `protobuf:"bytes,4,opt,name=owner,proto3" json:"owner,omitempty"`
 	// List of subtasks
-	Subtasks             *Task    `protobuf:"bytes,5,opt,name=subtasks" json:"subtasks,omitempty"`
+	Subtasks             *Task    `protobuf:"bytes,5,opt,name=subtasks,proto3" json:"subtasks,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -43,7 +44,7 @@ func (m *Task) Reset()         { *m = Task{} }
 func (m *Task) String() string { return proto.CompactTextString(m) }
 func (*Task) ProtoMessage()    {}
 func (*Task) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_d42a498c7cff2d41, []int{0}
+	return fileDescriptor_ce5d8dd45b4a91ff, []int{0}
 }
 func (m *Task) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -60,8 +61,8 @@ func (m *Task) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *Task) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Task.Merge(dst, src)
+func (m *Task) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Task.Merge(m, src)
 }
 func (m *Task) XXX_Size() int {
 	return m.Size()
@@ -110,6 +111,29 @@ func (m *Task) GetSubtasks() *Task {
 func init() {
 	proto.RegisterType((*Task)(nil), "task.Task")
 }
+
+func init() { proto.RegisterFile("task.proto", fileDescriptor_ce5d8dd45b4a91ff) }
+
+var fileDescriptor_ce5d8dd45b4a91ff = []byte{
+	// 243 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x90, 0x31, 0x4b, 0xc4, 0x30,
+	0x14, 0xc7, 0x89, 0x5e, 0x45, 0x5f, 0xcf, 0x1b, 0xe2, 0x12, 0x3a, 0x94, 0x20, 0x2a, 0x9d, 0x72,
+	0xa0, 0xb3, 0x8b, 0xee, 0x72, 0x84, 0xdb, 0x4b, 0xae, 0x7d, 0x43, 0xbc, 0xa6, 0x09, 0x49, 0x44,
+	0xfc, 0x86, 0x8e, 0x7e, 0x00, 0x07, 0xe9, 0x27, 0x91, 0xa6, 0xb5, 0x38, 0xfd, 0xc3, 0xfb, 0xfd,
+	0x79, 0xe1, 0xf7, 0x00, 0xa2, 0x0a, 0x47, 0xe1, 0xbc, 0x8d, 0x96, 0xae, 0xc6, 0x77, 0x71, 0xe5,
+	0xd0, 0x07, 0xdb, 0x6f, 0xa7, 0x98, 0x50, 0xc1, 0x9d, 0xb7, 0xaf, 0xd8, 0xc4, 0xed, 0x9c, 0x75,
+	0x63, 0xbb, 0x0e, 0x9b, 0xa8, 0xff, 0x1a, 0xd7, 0xdf, 0x04, 0x56, 0x7b, 0x15, 0x8e, 0x94, 0x43,
+	0xde, 0x62, 0x68, 0xbc, 0x76, 0x23, 0x65, 0x27, 0x9c, 0x54, 0x17, 0xf2, 0xff, 0x88, 0x3e, 0xc2,
+	0xba, 0xd5, 0xc1, 0x75, 0xea, 0xa3, 0xee, 0x95, 0x41, 0x46, 0x38, 0xa9, 0xf2, 0xfb, 0x42, 0xcc,
+	0xbb, 0xc5, 0x6e, 0xca, 0xe7, 0xe5, 0x0b, 0x99, 0xcf, 0xfd, 0x17, 0x65, 0x90, 0xde, 0xc2, 0x06,
+	0x43, 0xd4, 0x46, 0x45, 0x6c, 0xeb, 0xa8, 0x0d, 0xb2, 0x53, 0x4e, 0xaa, 0x4c, 0x5e, 0x2e, 0xd3,
+	0xbd, 0x36, 0x48, 0x6f, 0x20, 0xb3, 0xef, 0x3d, 0x7a, 0xb6, 0x4a, 0xeb, 0x37, 0x62, 0x16, 0xda,
+	0xa5, 0x90, 0x13, 0xa4, 0x77, 0x70, 0x1e, 0xde, 0x0e, 0xa3, 0x78, 0x60, 0x59, 0x2a, 0x82, 0x48,
+	0x27, 0x19, 0x5d, 0xe4, 0xc2, 0x9e, 0xd6, 0x9f, 0x43, 0x49, 0xbe, 0x86, 0x92, 0xfc, 0x0c, 0x25,
+	0x39, 0x9c, 0x25, 0xe7, 0x87, 0xdf, 0x00, 0x00, 0x00, 0xff, 0xff, 0x2b, 0xd7, 0x97, 0x4f, 0x3e,
+	0x01, 0x00, 0x00,
+}
+
 func (m *Task) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -129,9 +153,9 @@ func (m *Task) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0xa
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(m.DisplayName.Size()))
-		n1, err := m.DisplayName.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n1, err1 := m.DisplayName.MarshalTo(dAtA[i:])
+		if err1 != nil {
+			return 0, err1
 		}
 		i += n1
 	}
@@ -150,9 +174,9 @@ func (m *Task) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x22
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(m.Owner.Size()))
-		n2, err := m.Owner.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n2, err2 := m.Owner.MarshalTo(dAtA[i:])
+		if err2 != nil {
+			return 0, err2
 		}
 		i += n2
 	}
@@ -160,9 +184,9 @@ func (m *Task) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x2a
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(m.Subtasks.Size()))
-		n3, err := m.Subtasks.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n3, err3 := m.Subtasks.MarshalTo(dAtA[i:])
+		if err3 != nil {
+			return 0, err3
 		}
 		i += n3
 	}
@@ -240,7 +264,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -268,7 +292,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -277,6 +301,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -301,7 +328,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -311,6 +338,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -330,7 +360,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.EstimatedTime |= (int32(b) & 0x7F) << shift
+				m.EstimatedTime |= int32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -349,7 +379,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -358,6 +388,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -382,7 +415,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -391,6 +424,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -408,6 +444,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTask
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTask
 			}
 			if (iNdEx + skippy) > l {
@@ -477,8 +516,11 @@ func skipTask(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthTask
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthTask
 			}
 			return iNdEx, nil
@@ -509,6 +551,9 @@ func skipTask(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthTask
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -527,25 +572,3 @@ var (
 	ErrInvalidLengthTask = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowTask   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() { proto.RegisterFile("task.proto", fileDescriptor_task_d42a498c7cff2d41) }
-
-var fileDescriptor_task_d42a498c7cff2d41 = []byte{
-	// 243 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x90, 0x31, 0x4b, 0xc4, 0x30,
-	0x14, 0xc7, 0x89, 0x5e, 0x45, 0x5f, 0xcf, 0x1b, 0xe2, 0x12, 0x3a, 0x94, 0x20, 0x2a, 0x9d, 0x72,
-	0xa0, 0xb3, 0x8b, 0xee, 0x72, 0x84, 0xdb, 0x4b, 0xae, 0x7d, 0x43, 0xbc, 0xa6, 0x09, 0x49, 0x44,
-	0xfc, 0x86, 0x8e, 0x7e, 0x00, 0x07, 0xe9, 0x27, 0x91, 0xa6, 0xb5, 0x38, 0xfd, 0xc3, 0xfb, 0xfd,
-	0x13, 0xf2, 0x7b, 0x00, 0x51, 0x85, 0xa3, 0x70, 0xde, 0x46, 0x4b, 0x57, 0xe3, 0xb9, 0xb8, 0x72,
-	0xe8, 0x83, 0xed, 0xb7, 0x53, 0x4c, 0xa8, 0xe0, 0xce, 0xdb, 0x57, 0x6c, 0xe2, 0x76, 0xce, 0xba,
-	0xb1, 0x5d, 0x87, 0x4d, 0xd4, 0x7f, 0x8d, 0xeb, 0x6f, 0x02, 0xab, 0xbd, 0x0a, 0x47, 0xfa, 0x08,
-	0xeb, 0x56, 0x07, 0xd7, 0xa9, 0x8f, 0xba, 0x57, 0x06, 0x19, 0xe1, 0xa4, 0xca, 0xef, 0x0b, 0x31,
-	0xdf, 0x14, 0xbb, 0x29, 0x9f, 0x97, 0x07, 0x64, 0x3e, 0xf7, 0x5f, 0x94, 0x41, 0xca, 0x21, 0x6f,
-	0x31, 0x34, 0x5e, 0xbb, 0x91, 0xb1, 0x13, 0x4e, 0xaa, 0x0b, 0xf9, 0x7f, 0x44, 0x6f, 0x61, 0x83,
-	0x21, 0x6a, 0xa3, 0x22, 0xb6, 0x75, 0xd4, 0x06, 0xd9, 0x29, 0x27, 0x55, 0x26, 0x2f, 0x97, 0xe9,
-	0x5e, 0x1b, 0xa4, 0x37, 0x90, 0xd9, 0xf7, 0x1e, 0x3d, 0x5b, 0xa5, 0x0f, 0x6c, 0xc4, 0x2c, 0xb4,
-	0x4b, 0x21, 0x27, 0x48, 0xef, 0xe0, 0x3c, 0xbc, 0x1d, 0x46, 0xf1, 0xc0, 0xb2, 0x54, 0x04, 0x91,
-	0x56, 0x32, 0xba, 0xc8, 0x85, 0x3d, 0xad, 0x3f, 0x87, 0x92, 0x7c, 0x0d, 0x25, 0xf9, 0x19, 0x4a,
-	0x72, 0x38, 0x4b, 0xce, 0x0f, 0xbf, 0x01, 0x00, 0x00, 0xff, 0xff, 0xe9, 0x5d, 0x8f, 0xbc, 0x3e,
-	0x01, 0x00, 0x00,
-}

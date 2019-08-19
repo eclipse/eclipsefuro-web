@@ -18,7 +18,7 @@
     "/api/trees": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",
-        "operationId": "ListTreeService",
+        "operationId": "ListTrees",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -101,7 +101,7 @@
       },
       "post": {
         "summary": "Creates a new Tree",
-        "operationId": "CreateTreeService",
+        "operationId": "CreateTree",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -128,7 +128,7 @@
     "/api/trees/{tre}": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",
-        "operationId": "GetTreeService",
+        "operationId": "GetTree",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -151,7 +151,7 @@
       },
       "delete": {
         "summary": "Delete a Tree",
-        "operationId": "DeleteTreeService",
+        "operationId": "DeleteTree",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -174,7 +174,7 @@
       },
       "patch": {
         "summary": "Updates a Tree, partial updates are supported",
-        "operationId": "UpdateTreeService",
+        "operationId": "UpdateTree",
         "responses": {
           "200": {
             "description": "A successful response.",

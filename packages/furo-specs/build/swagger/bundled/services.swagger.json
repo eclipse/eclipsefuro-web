@@ -621,7 +621,7 @@
         ]
       }
     },
-    "/api/tasks/{tsk}": {
+    "/api/tasks/{var}": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",
         "operationId": "GetTaskService",
@@ -635,7 +635,7 @@
         },
         "parameters": [
           {
-            "name": "tsk",
+            "name": "var",
             "in": "path",
             "required": true,
             "type": "string"
@@ -658,7 +658,7 @@
         },
         "parameters": [
           {
-            "name": "tsk",
+            "name": "var",
             "in": "path",
             "required": true,
             "type": "string"
@@ -681,7 +681,7 @@
         },
         "parameters": [
           {
-            "name": "tsk",
+            "name": "var",
             "in": "path",
             "required": true,
             "type": "string"

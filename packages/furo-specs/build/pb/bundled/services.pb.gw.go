@@ -491,7 +491,7 @@ func request_TaskService_CreateTaskService_0(ctx context.Context, marshaler runt
 }
 
 var (
-	filter_TaskService_DeleteTaskService_0 = &utilities.DoubleArray{Encoding: map[string]int{"tsk": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_TaskService_DeleteTaskService_0 = &utilities.DoubleArray{Encoding: map[string]int{"var": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
 func request_TaskService_DeleteTaskService_0(ctx context.Context, marshaler runtime.Marshaler, client TaskServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
@@ -505,15 +505,15 @@ func request_TaskService_DeleteTaskService_0(ctx context.Context, marshaler runt
 		_   = err
 	)
 
-	val, ok = pathParams["tsk"]
+	val, ok = pathParams["var"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "tsk")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "var")
 	}
 
-	protoReq.Tsk, err = runtime.String(val)
+	protoReq.Var, err = runtime.String(val)
 
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tsk", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "var", err)
 	}
 
 	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_TaskService_DeleteTaskService_0); err != nil {
@@ -536,15 +536,15 @@ func request_TaskService_GetTaskService_0(ctx context.Context, marshaler runtime
 		_   = err
 	)
 
-	val, ok = pathParams["tsk"]
+	val, ok = pathParams["var"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "tsk")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "var")
 	}
 
-	protoReq.Tsk, err = runtime.String(val)
+	protoReq.Var, err = runtime.String(val)
 
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tsk", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "var", err)
 	}
 
 	msg, err := client.GetTaskService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -588,15 +588,15 @@ func request_TaskService_UpdateTaskService_0(ctx context.Context, marshaler runt
 		_   = err
 	)
 
-	val, ok = pathParams["tsk"]
+	val, ok = pathParams["var"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "tsk")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "var")
 	}
 
-	protoReq.Tsk, err = runtime.String(val)
+	protoReq.Var, err = runtime.String(val)
 
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tsk", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "var", err)
 	}
 
 	msg, err := client.UpdateTaskService(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
@@ -1336,13 +1336,13 @@ func RegisterTaskServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 var (
 	pattern_TaskService_CreateTaskService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "tasks"}, ""))
 
-	pattern_TaskService_DeleteTaskService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "tasks", "tsk"}, ""))
+	pattern_TaskService_DeleteTaskService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "tasks", "var"}, ""))
 
-	pattern_TaskService_GetTaskService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "tasks", "tsk"}, ""))
+	pattern_TaskService_GetTaskService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "tasks", "var"}, ""))
 
 	pattern_TaskService_ListTaskService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "tasks"}, ""))
 
-	pattern_TaskService_UpdateTaskService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "tasks", "tsk"}, ""))
+	pattern_TaskService_UpdateTaskService_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"api", "tasks", "var"}, ""))
 )
 
 var (

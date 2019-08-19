@@ -4,6 +4,9 @@
 syntax = "proto3";
 package {{.__proto.package}};
 
+{{range $key, $option := .__proto.options}}
+option {{$key}} = {{if  (typeOf $option | eq "bool")}}{{$option}};{{else}}"{{$option}}";{{end}}{{end}}
+
 import "google/api/annotations.proto";
 {{range $import := .__proto.imports}}
 import "{{$import}}";{{end}}
@@ -14,7 +17,7 @@ import "{{$import}}";{{end}}
 service {{$serviceName}} { {{ $rpcDict := dict }} {{ $keyList := list }} {{range  $k, $v := .services }}  {{$_ := set $rpcDict $k $v}} {{ $keyList = append $keyList $k }} {{end}}
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
     // {{$method.description}}
-    rpc {{$key}}{{$serviceName}} ({{$key}}{{$serviceName}}Request) returns ({{$method.data.response}}){
+    rpc {{if $method.rpc_name}}{{$method.rpc_name}}{{else}}{{$key}}{{end}} ({{$key}}{{$serviceName}}Request) returns ({{$method.data.response}}){
         //{{$method.deeplink.description}}
         option (google.api.http) = {
             {{ lower $method.deeplink.method}}: "{{$method.deeplink.href}}"{{ if $method.data.request}}

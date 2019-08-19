@@ -18,6 +18,7 @@
   "services": {
     "List": {
       "description": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
+      "rpc_name": "ListPersons",
       "data": {
         "request": null,
         "response": "person.PersonCollection"
@@ -44,6 +45,7 @@
     },
     "Create": {
       "description": "Creates a new Person",
+      "rpc_name": "CreatePerson",
       "data": {
         "request": "person.Person",
         "response": "person.PersonEntity"
@@ -58,6 +60,7 @@
     },
     "Get": {
       "description": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
+      "rpc_name": "GetPerson",
       "data": {
         "request": null,
         "response": "person.PersonEntity"
@@ -72,6 +75,7 @@
     },
     "Update": {
       "description": "Updates a Person, partial updates are supported",
+      "rpc_name": "UpdatePerson",
       "data": {
         "request": "person.Person",
         "response": "person.PersonEntity"
@@ -85,6 +89,7 @@
     },
     "Delete": {
       "description": "Delete a Person",
+      "rpc_name": "DeletePerson",
       "data": {
         "request": "protobuf.Empty",
         "response": "protobuf.Empty"

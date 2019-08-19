@@ -18,7 +18,7 @@
     "/api/projects": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
-        "operationId": "ListProjectService",
+        "operationId": "ListProjects",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -101,7 +101,7 @@
       },
       "post": {
         "summary": "Creates a new Project",
-        "operationId": "CreateProjectService",
+        "operationId": "CreateProject",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -128,7 +128,7 @@
     "/api/projects/{var}": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
-        "operationId": "GetProjectService",
+        "operationId": "GetProject",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -151,7 +151,7 @@
       },
       "delete": {
         "summary": "Delete a Project",
-        "operationId": "DeleteProjectService",
+        "operationId": "DeleteProject",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -174,7 +174,7 @@
       },
       "patch": {
         "summary": "Updates a Project, partial updates are supported",
-        "operationId": "UpdateProjectService",
+        "operationId": "UpdateProject",
         "responses": {
           "200": {
             "description": "A successful response.",

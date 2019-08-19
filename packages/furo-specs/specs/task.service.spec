@@ -18,6 +18,7 @@
   "services": {
     "List": {
       "description": "The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",
+      "rpc_name": "ListTasks",
       "data": {
         "request": null,
         "response": "task.TaskCollection"
@@ -44,6 +45,7 @@
     },
     "Create": {
       "description": "Creates a new Task",
+      "rpc_name": "CreateTask",
       "data": {
         "request": "task.Task",
         "response": "task.TaskEntity"
@@ -58,6 +60,7 @@
     },
     "Get": {
       "description": "The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",
+      "rpc_name": "GetTask",
       "data": {
         "request": null,
         "response": "task.TaskEntity"
@@ -66,12 +69,13 @@
       },
       "deeplink": {
         "rel": "self",
-        "href": "/api/tasks/{tsk}",
+        "href": "/api/tasks/{var}",
         "method": "GET"
       }
     },
     "Update": {
       "description": "Updates a Task, partial updates are supported",
+      "rpc_name": "UpdateTask",
       "data": {
         "request": "task.Task",
         "response": "task.TaskEntity"
@@ -79,12 +83,13 @@
       "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/api/tasks/{tsk}",
+        "href": "/api/tasks/{var}",
         "method": "PATCH"
       }
     },
     "Delete": {
       "description": "Delete a Task",
+      "rpc_name": "DeleteTask",
       "data": {
         "request": "protobuf.Empty",
         "response": "protobuf.Empty"
@@ -92,7 +97,7 @@
       "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/api/tasks/{tsk}",
+        "href": "/api/tasks/{var}",
         "method": "DELETE"
       }
     }

@@ -18,6 +18,7 @@
   "services": {
     "List": {
       "description": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
+      "rpc_name": "ListProjects",
       "data": {
         "request": null,
         "response": "project.ProjectCollection"
@@ -44,6 +45,7 @@
     },
     "Create": {
       "description": "Creates a new Project",
+      "rpc_name": "CreateProject",
       "data": {
         "request": "project.Project",
         "response": "project.ProjectEntity"
@@ -58,6 +60,7 @@
     },
     "Get": {
       "description": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
+      "rpc_name": "GetProject",
       "data": {
         "request": null,
         "response": "project.ProjectEntity"
@@ -72,6 +75,7 @@
     },
     "Update": {
       "description": "Updates a Project, partial updates are supported",
+      "rpc_name": "UpdateProject",
       "data": {
         "request": "project.Project",
         "response": "project.ProjectEntity"
@@ -85,6 +89,7 @@
     },
     "Delete": {
       "description": "Delete a Project",
+      "rpc_name": "DeleteProject",
       "data": {
         "request": "protobuf.Empty",
         "response": "protobuf.Empty"

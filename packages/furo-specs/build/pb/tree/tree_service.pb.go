@@ -3,18 +3,16 @@
 
 package tree
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import protobuf "../protobuf"
-import _ "google.golang.org/genproto/googleapis/api/annotations"
-
 import (
-	context "golang.org/x/net/context"
+	protobuf "../protobuf"
+	context "context"
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
+	io "io"
+	math "math"
 )
-
-import io "io"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -28,7 +26,7 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 type CreateTreeServiceRequest struct {
-	Data                 *Tree    `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	Data                 *Tree    `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -38,7 +36,7 @@ func (m *CreateTreeServiceRequest) Reset()         { *m = CreateTreeServiceReque
 func (m *CreateTreeServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateTreeServiceRequest) ProtoMessage()    {}
 func (*CreateTreeServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_tree_service_94ade41017c3df20, []int{0}
+	return fileDescriptor_fa1f961f13a8b7dc, []int{0}
 }
 func (m *CreateTreeServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -55,8 +53,8 @@ func (m *CreateTreeServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (dst *CreateTreeServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateTreeServiceRequest.Merge(dst, src)
+func (m *CreateTreeServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTreeServiceRequest.Merge(m, src)
 }
 func (m *CreateTreeServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -76,7 +74,7 @@ func (m *CreateTreeServiceRequest) GetData() *Tree {
 
 type DeleteTreeServiceRequest struct {
 	Tre                  string          `protobuf:"bytes,1,opt,name=tre,proto3" json:"tre,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
+	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
 	XXX_sizecache        int32           `json:"-"`
@@ -86,7 +84,7 @@ func (m *DeleteTreeServiceRequest) Reset()         { *m = DeleteTreeServiceReque
 func (m *DeleteTreeServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteTreeServiceRequest) ProtoMessage()    {}
 func (*DeleteTreeServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_tree_service_94ade41017c3df20, []int{1}
+	return fileDescriptor_fa1f961f13a8b7dc, []int{1}
 }
 func (m *DeleteTreeServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -103,8 +101,8 @@ func (m *DeleteTreeServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (dst *DeleteTreeServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteTreeServiceRequest.Merge(dst, src)
+func (m *DeleteTreeServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteTreeServiceRequest.Merge(m, src)
 }
 func (m *DeleteTreeServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -140,7 +138,7 @@ func (m *GetTreeServiceRequest) Reset()         { *m = GetTreeServiceRequest{} }
 func (m *GetTreeServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*GetTreeServiceRequest) ProtoMessage()    {}
 func (*GetTreeServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_tree_service_94ade41017c3df20, []int{2}
+	return fileDescriptor_fa1f961f13a8b7dc, []int{2}
 }
 func (m *GetTreeServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -157,8 +155,8 @@ func (m *GetTreeServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]byt
 		return b[:n], nil
 	}
 }
-func (dst *GetTreeServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTreeServiceRequest.Merge(dst, src)
+func (m *GetTreeServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTreeServiceRequest.Merge(m, src)
 }
 func (m *GetTreeServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -177,25 +175,25 @@ func (m *GetTreeServiceRequest) GetTre() string {
 }
 
 type ListTreeServiceRequest struct {
-	// Partielle Repräsentation fields=id,name // 10
+	//Partielle Repräsentation fields=id,name // 10
 	Fields string `protobuf:"bytes,1,opt,name=fields,proto3" json:"fields,omitempty"`
-	// Sortierung nach feldern
-	// **?filter=-completed** um completed absteigend zu bekommen
-	// **?filter=completed** um completed aufsteigend zu bekommen
+	//Sortierung nach feldern
+	//**?filter=-completed** um completed absteigend zu bekommen
+	//**?filter=completed** um completed aufsteigend zu bekommen
 	Sort string `protobuf:"bytes,2,opt,name=sort,proto3" json:"sort,omitempty"`
-	// Filter
+	//Filter
 	Filter string `protobuf:"bytes,3,opt,name=filter,proto3" json:"filter,omitempty"`
-	// Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+	//Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
 	Page int32 `protobuf:"varint,4,opt,name=page,proto3" json:"page,omitempty"`
-	// Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+	//Anzahl Elemente pro Seite, maximal sind 99 erlaubt
 	Limit int32 `protobuf:"varint,5,opt,name=limit,proto3" json:"limit,omitempty"`
-	// Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
+	//Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
 	Count bool `protobuf:"varint,6,opt,name=count,proto3" json:"count,omitempty"`
-	// not implemented
+	//not implemented
 	Sum string `protobuf:"bytes,7,opt,name=sum,proto3" json:"sum,omitempty"`
-	// not implemented (ehemals context)
+	//not implemented (ehemals context)
 	View string `protobuf:"bytes,8,opt,name=view,proto3" json:"view,omitempty"`
-	// Query term to search a tree
+	//Query term to search a tree
 	Q                    string   `protobuf:"bytes,11,opt,name=q,proto3" json:"q,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -206,7 +204,7 @@ func (m *ListTreeServiceRequest) Reset()         { *m = ListTreeServiceRequest{}
 func (m *ListTreeServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*ListTreeServiceRequest) ProtoMessage()    {}
 func (*ListTreeServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_tree_service_94ade41017c3df20, []int{3}
+	return fileDescriptor_fa1f961f13a8b7dc, []int{3}
 }
 func (m *ListTreeServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -223,8 +221,8 @@ func (m *ListTreeServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]by
 		return b[:n], nil
 	}
 }
-func (dst *ListTreeServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListTreeServiceRequest.Merge(dst, src)
+func (m *ListTreeServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListTreeServiceRequest.Merge(m, src)
 }
 func (m *ListTreeServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -300,7 +298,7 @@ func (m *ListTreeServiceRequest) GetQ() string {
 
 type UpdateTreeServiceRequest struct {
 	Tre                  string   `protobuf:"bytes,1,opt,name=tre,proto3" json:"tre,omitempty"`
-	Data                 *Tree    `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
+	Data                 *Tree    `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -310,7 +308,7 @@ func (m *UpdateTreeServiceRequest) Reset()         { *m = UpdateTreeServiceReque
 func (m *UpdateTreeServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateTreeServiceRequest) ProtoMessage()    {}
 func (*UpdateTreeServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_tree_service_94ade41017c3df20, []int{4}
+	return fileDescriptor_fa1f961f13a8b7dc, []int{4}
 }
 func (m *UpdateTreeServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -327,8 +325,8 @@ func (m *UpdateTreeServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (dst *UpdateTreeServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UpdateTreeServiceRequest.Merge(dst, src)
+func (m *UpdateTreeServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateTreeServiceRequest.Merge(m, src)
 }
 func (m *UpdateTreeServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -361,6 +359,43 @@ func init() {
 	proto.RegisterType((*UpdateTreeServiceRequest)(nil), "tree.UpdateTreeServiceRequest")
 }
 
+func init() { proto.RegisterFile("tree_service.proto", fileDescriptor_fa1f961f13a8b7dc) }
+
+var fileDescriptor_fa1f961f13a8b7dc = []byte{
+	// 490 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x93, 0xc1, 0x6e, 0xd3, 0x40,
+	0x10, 0x86, 0xb5, 0x6d, 0x92, 0x36, 0x93, 0x48, 0x84, 0x51, 0x5a, 0xad, 0x4c, 0x65, 0x45, 0xe6,
+	0x12, 0x38, 0x24, 0x52, 0xb8, 0xf5, 0x48, 0xa9, 0xb8, 0xf4, 0x82, 0x0b, 0x82, 0x13, 0xc8, 0x4d,
+	0xa6, 0x91, 0x25, 0xc7, 0x76, 0x76, 0xd7, 0x45, 0x08, 0x71, 0xe1, 0x15, 0x78, 0x29, 0xb8, 0x55,
+	0xe2, 0x05, 0x50, 0xc4, 0x83, 0xa0, 0x9d, 0xb5, 0x71, 0x21, 0x8e, 0xd4, 0x53, 0x66, 0x27, 0xff,
+	0x7e, 0xfb, 0x6b, 0xe6, 0x37, 0xa0, 0x51, 0x44, 0x1f, 0x34, 0xa9, 0x9b, 0x78, 0x4e, 0x93, 0x5c,
+	0x65, 0x26, 0xc3, 0x96, 0xed, 0x79, 0x27, 0xcb, 0x2c, 0x5b, 0x26, 0x34, 0x8d, 0xf2, 0x78, 0x1a,
+	0xa5, 0x69, 0x66, 0x22, 0x13, 0x67, 0xa9, 0x76, 0x1a, 0x0f, 0xac, 0xa6, 0xac, 0x1f, 0x32, 0x83,
+	0x52, 0x13, 0x9b, 0x4f, 0x65, 0xeb, 0x88, 0x5b, 0xf3, 0x2c, 0x49, 0x68, 0x6e, 0xaf, 0x95, 0xed,
+	0x21, 0xff, 0x5c, 0x15, 0xd7, 0x53, 0x5a, 0xe5, 0x95, 0x38, 0x38, 0x05, 0x79, 0xa6, 0x28, 0x32,
+	0xf4, 0x5a, 0x11, 0x5d, 0x3a, 0x2b, 0x21, 0xad, 0x0b, 0xd2, 0x06, 0x7d, 0x68, 0x2d, 0x22, 0x13,
+	0x49, 0x31, 0x12, 0xe3, 0xde, 0x0c, 0x26, 0xfc, 0xac, 0xd5, 0x85, 0xdc, 0x0f, 0x5e, 0x81, 0x7c,
+	0x41, 0x09, 0x35, 0xde, 0x1d, 0xc0, 0xbe, 0x51, 0xc4, 0x57, 0xbb, 0xa1, 0x2d, 0xf1, 0x71, 0x49,
+	0xdb, 0x63, 0xda, 0x83, 0x49, 0x65, 0x67, 0x72, 0x6e, 0xed, 0x94, 0xc8, 0x27, 0x70, 0xf4, 0x92,
+	0xcc, 0x7d, 0x78, 0xc1, 0xad, 0x80, 0xe3, 0x8b, 0x58, 0x37, 0x89, 0x8f, 0xa1, 0x73, 0x1d, 0x53,
+	0xb2, 0xd0, 0xa5, 0xbe, 0x3c, 0x21, 0x42, 0x4b, 0x67, 0xca, 0xb0, 0x85, 0x6e, 0xc8, 0xb5, 0xd3,
+	0x26, 0x86, 0x94, 0xdc, 0xaf, 0xb4, 0xf6, 0x64, 0xb5, 0x79, 0xb4, 0x24, 0xd9, 0x1a, 0x89, 0x71,
+	0x3b, 0xe4, 0x1a, 0x87, 0xd0, 0x4e, 0xe2, 0x55, 0x6c, 0x64, 0x9b, 0x9b, 0xee, 0x60, 0xbb, 0xf3,
+	0xac, 0x48, 0x8d, 0xec, 0x8c, 0xc4, 0xf8, 0x30, 0x74, 0x07, 0x6b, 0x58, 0x17, 0x2b, 0x79, 0xe0,
+	0x0c, 0xeb, 0x62, 0x65, 0x89, 0x37, 0x31, 0x7d, 0x94, 0x87, 0xee, 0x75, 0x5b, 0x63, 0x1f, 0xc4,
+	0x5a, 0xf6, 0xb8, 0x21, 0xd6, 0xc1, 0x05, 0xc8, 0x37, 0xf9, 0x22, 0xba, 0xe7, 0x40, 0xfd, 0x7f,
+	0x06, 0xba, 0xb5, 0x9e, 0xd9, 0x8f, 0x7d, 0xe8, 0xdd, 0x01, 0xe1, 0x3b, 0x80, 0x7a, 0xd5, 0xe8,
+	0x3b, 0xfd, 0xae, 0xe5, 0x7b, 0x83, 0x9a, 0x77, 0xce, 0xe9, 0x0a, 0xe4, 0xd7, 0x9f, 0xbf, 0xbf,
+	0xed, 0x61, 0x00, 0x1c, 0x4b, 0xfb, 0xaf, 0x3e, 0xe5, 0x97, 0xf0, 0x2d, 0x40, 0x1d, 0x84, 0x8a,
+	0xbc, 0x2b, 0x1a, 0xde, 0xff, 0xab, 0xaf, 0xc0, 0x4f, 0x07, 0x35, 0x78, 0xfa, 0xd9, 0x28, 0xfa,
+	0x82, 0x21, 0x1c, 0x94, 0x71, 0xc0, 0x47, 0x8e, 0xda, 0x98, 0x8e, 0xdd, 0x66, 0x71, 0x9b, 0x79,
+	0x09, 0xdd, 0x2a, 0x36, 0x1a, 0x4f, 0xdc, 0xc5, 0xe6, 0x1c, 0x79, 0xc3, 0x1a, 0x7b, 0xf6, 0xf7,
+	0x73, 0x0a, 0x90, 0xd1, 0x7d, 0xbc, 0x33, 0x07, 0x7c, 0x0f, 0x50, 0x6f, 0xae, 0x9a, 0xc0, 0xae,
+	0x5d, 0x36, 0xd8, 0xf5, 0x99, 0x29, 0x67, 0x5b, 0x76, 0xdd, 0x84, 0x9f, 0xf7, 0xbf, 0x6f, 0x7c,
+	0x71, 0xbb, 0xf1, 0xc5, 0xaf, 0x8d, 0x2f, 0xae, 0x3a, 0x3c, 0xc0, 0x67, 0x7f, 0x02, 0x00, 0x00,
+	0xff, 0xff, 0x50, 0xc8, 0xe9, 0x97, 0x41, 0x04, 0x00, 0x00,
+}
+
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
 var _ grpc.ClientConn
@@ -374,15 +409,15 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type TreeServiceClient interface {
 	// Creates a new Tree
-	CreateTreeService(ctx context.Context, in *CreateTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error)
+	CreateTree(ctx context.Context, in *CreateTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error)
 	// Delete a Tree
-	DeleteTreeService(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeleteTree(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree
-	GetTreeService(ctx context.Context, in *GetTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error)
+	GetTree(ctx context.Context, in *GetTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.
-	ListTreeService(ctx context.Context, in *ListTreeServiceRequest, opts ...grpc.CallOption) (*TreeCollection, error)
+	ListTrees(ctx context.Context, in *ListTreeServiceRequest, opts ...grpc.CallOption) (*TreeCollection, error)
 	// Updates a Tree, partial updates are supported
-	UpdateTreeService(ctx context.Context, in *UpdateTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error)
+	UpdateTree(ctx context.Context, in *UpdateTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error)
 }
 
 type treeServiceClient struct {
@@ -393,45 +428,45 @@ func NewTreeServiceClient(cc *grpc.ClientConn) TreeServiceClient {
 	return &treeServiceClient{cc}
 }
 
-func (c *treeServiceClient) CreateTreeService(ctx context.Context, in *CreateTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error) {
+func (c *treeServiceClient) CreateTree(ctx context.Context, in *CreateTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error) {
 	out := new(TreeEntity)
-	err := c.cc.Invoke(ctx, "/tree.TreeService/CreateTreeService", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/tree.TreeService/CreateTree", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *treeServiceClient) DeleteTreeService(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
+func (c *treeServiceClient) DeleteTree(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
 	out := new(protobuf.Empty)
-	err := c.cc.Invoke(ctx, "/tree.TreeService/DeleteTreeService", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/tree.TreeService/DeleteTree", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *treeServiceClient) GetTreeService(ctx context.Context, in *GetTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error) {
+func (c *treeServiceClient) GetTree(ctx context.Context, in *GetTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error) {
 	out := new(TreeEntity)
-	err := c.cc.Invoke(ctx, "/tree.TreeService/GetTreeService", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/tree.TreeService/GetTree", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *treeServiceClient) ListTreeService(ctx context.Context, in *ListTreeServiceRequest, opts ...grpc.CallOption) (*TreeCollection, error) {
+func (c *treeServiceClient) ListTrees(ctx context.Context, in *ListTreeServiceRequest, opts ...grpc.CallOption) (*TreeCollection, error) {
 	out := new(TreeCollection)
-	err := c.cc.Invoke(ctx, "/tree.TreeService/ListTreeService", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/tree.TreeService/ListTrees", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *treeServiceClient) UpdateTreeService(ctx context.Context, in *UpdateTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error) {
+func (c *treeServiceClient) UpdateTree(ctx context.Context, in *UpdateTreeServiceRequest, opts ...grpc.CallOption) (*TreeEntity, error) {
 	out := new(TreeEntity)
-	err := c.cc.Invoke(ctx, "/tree.TreeService/UpdateTreeService", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/tree.TreeService/UpdateTree", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -441,107 +476,107 @@ func (c *treeServiceClient) UpdateTreeService(ctx context.Context, in *UpdateTre
 // TreeServiceServer is the server API for TreeService service.
 type TreeServiceServer interface {
 	// Creates a new Tree
-	CreateTreeService(context.Context, *CreateTreeServiceRequest) (*TreeEntity, error)
+	CreateTree(context.Context, *CreateTreeServiceRequest) (*TreeEntity, error)
 	// Delete a Tree
-	DeleteTreeService(context.Context, *DeleteTreeServiceRequest) (*protobuf.Empty, error)
+	DeleteTree(context.Context, *DeleteTreeServiceRequest) (*protobuf.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree
-	GetTreeService(context.Context, *GetTreeServiceRequest) (*TreeEntity, error)
+	GetTree(context.Context, *GetTreeServiceRequest) (*TreeEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.
-	ListTreeService(context.Context, *ListTreeServiceRequest) (*TreeCollection, error)
+	ListTrees(context.Context, *ListTreeServiceRequest) (*TreeCollection, error)
 	// Updates a Tree, partial updates are supported
-	UpdateTreeService(context.Context, *UpdateTreeServiceRequest) (*TreeEntity, error)
+	UpdateTree(context.Context, *UpdateTreeServiceRequest) (*TreeEntity, error)
 }
 
 func RegisterTreeServiceServer(s *grpc.Server, srv TreeServiceServer) {
 	s.RegisterService(&_TreeService_serviceDesc, srv)
 }
 
-func _TreeService_CreateTreeService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TreeService_CreateTree_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateTreeServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TreeServiceServer).CreateTreeService(ctx, in)
+		return srv.(TreeServiceServer).CreateTree(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/tree.TreeService/CreateTreeService",
+		FullMethod: "/tree.TreeService/CreateTree",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TreeServiceServer).CreateTreeService(ctx, req.(*CreateTreeServiceRequest))
+		return srv.(TreeServiceServer).CreateTree(ctx, req.(*CreateTreeServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TreeService_DeleteTreeService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TreeService_DeleteTree_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteTreeServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TreeServiceServer).DeleteTreeService(ctx, in)
+		return srv.(TreeServiceServer).DeleteTree(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/tree.TreeService/DeleteTreeService",
+		FullMethod: "/tree.TreeService/DeleteTree",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TreeServiceServer).DeleteTreeService(ctx, req.(*DeleteTreeServiceRequest))
+		return srv.(TreeServiceServer).DeleteTree(ctx, req.(*DeleteTreeServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TreeService_GetTreeService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TreeService_GetTree_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTreeServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TreeServiceServer).GetTreeService(ctx, in)
+		return srv.(TreeServiceServer).GetTree(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/tree.TreeService/GetTreeService",
+		FullMethod: "/tree.TreeService/GetTree",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TreeServiceServer).GetTreeService(ctx, req.(*GetTreeServiceRequest))
+		return srv.(TreeServiceServer).GetTree(ctx, req.(*GetTreeServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TreeService_ListTreeService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TreeService_ListTrees_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListTreeServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TreeServiceServer).ListTreeService(ctx, in)
+		return srv.(TreeServiceServer).ListTrees(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/tree.TreeService/ListTreeService",
+		FullMethod: "/tree.TreeService/ListTrees",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TreeServiceServer).ListTreeService(ctx, req.(*ListTreeServiceRequest))
+		return srv.(TreeServiceServer).ListTrees(ctx, req.(*ListTreeServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TreeService_UpdateTreeService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _TreeService_UpdateTree_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateTreeServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TreeServiceServer).UpdateTreeService(ctx, in)
+		return srv.(TreeServiceServer).UpdateTree(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/tree.TreeService/UpdateTreeService",
+		FullMethod: "/tree.TreeService/UpdateTree",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TreeServiceServer).UpdateTreeService(ctx, req.(*UpdateTreeServiceRequest))
+		return srv.(TreeServiceServer).UpdateTree(ctx, req.(*UpdateTreeServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -551,24 +586,24 @@ var _TreeService_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*TreeServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateTreeService",
-			Handler:    _TreeService_CreateTreeService_Handler,
+			MethodName: "CreateTree",
+			Handler:    _TreeService_CreateTree_Handler,
 		},
 		{
-			MethodName: "DeleteTreeService",
-			Handler:    _TreeService_DeleteTreeService_Handler,
+			MethodName: "DeleteTree",
+			Handler:    _TreeService_DeleteTree_Handler,
 		},
 		{
-			MethodName: "GetTreeService",
-			Handler:    _TreeService_GetTreeService_Handler,
+			MethodName: "GetTree",
+			Handler:    _TreeService_GetTree_Handler,
 		},
 		{
-			MethodName: "ListTreeService",
-			Handler:    _TreeService_ListTreeService_Handler,
+			MethodName: "ListTrees",
+			Handler:    _TreeService_ListTrees_Handler,
 		},
 		{
-			MethodName: "UpdateTreeService",
-			Handler:    _TreeService_UpdateTreeService_Handler,
+			MethodName: "UpdateTree",
+			Handler:    _TreeService_UpdateTree_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -594,9 +629,9 @@ func (m *CreateTreeServiceRequest) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0xa
 		i++
 		i = encodeVarintTreeService(dAtA, i, uint64(m.Data.Size()))
-		n1, err := m.Data.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n1, err1 := m.Data.MarshalTo(dAtA[i:])
+		if err1 != nil {
+			return 0, err1
 		}
 		i += n1
 	}
@@ -631,9 +666,9 @@ func (m *DeleteTreeServiceRequest) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintTreeService(dAtA, i, uint64(m.Data.Size()))
-		n2, err := m.Data.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n2, err2 := m.Data.MarshalTo(dAtA[i:])
+		if err2 != nil {
+			return 0, err2
 		}
 		i += n2
 	}
@@ -772,9 +807,9 @@ func (m *UpdateTreeServiceRequest) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintTreeService(dAtA, i, uint64(m.Data.Size()))
-		n3, err := m.Data.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n3, err3 := m.Data.MarshalTo(dAtA[i:])
+		if err3 != nil {
+			return 0, err3
 		}
 		i += n3
 	}
@@ -938,7 +973,7 @@ func (m *CreateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -966,7 +1001,7 @@ func (m *CreateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -975,6 +1010,9 @@ func (m *CreateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -992,6 +1030,9 @@ func (m *CreateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTreeService
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTreeService
 			}
 			if (iNdEx + skippy) > l {
@@ -1022,7 +1063,7 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1050,7 +1091,7 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1060,6 +1101,9 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1079,7 +1123,7 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1088,6 +1132,9 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1105,6 +1152,9 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTreeService
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTreeService
 			}
 			if (iNdEx + skippy) > l {
@@ -1135,7 +1185,7 @@ func (m *GetTreeServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1163,7 +1213,7 @@ func (m *GetTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1173,6 +1223,9 @@ func (m *GetTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1185,6 +1238,9 @@ func (m *GetTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTreeService
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTreeService
 			}
 			if (iNdEx + skippy) > l {
@@ -1215,7 +1271,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1243,7 +1299,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1253,6 +1309,9 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1272,7 +1331,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1282,6 +1341,9 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1301,7 +1363,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1311,6 +1373,9 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1330,7 +1395,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Page |= (int32(b) & 0x7F) << shift
+				m.Page |= int32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1349,7 +1414,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Limit |= (int32(b) & 0x7F) << shift
+				m.Limit |= int32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1368,7 +1433,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				v |= (int(b) & 0x7F) << shift
+				v |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1388,7 +1453,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1398,6 +1463,9 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1417,7 +1485,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1427,6 +1495,9 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1446,7 +1517,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1456,6 +1527,9 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1468,6 +1542,9 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTreeService
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTreeService
 			}
 			if (iNdEx + skippy) > l {
@@ -1498,7 +1575,7 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1526,7 +1603,7 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1536,6 +1613,9 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1555,7 +1635,7 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1564,6 +1644,9 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTreeService
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTreeService
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1581,6 +1664,9 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTreeService
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTreeService
 			}
 			if (iNdEx + skippy) > l {
@@ -1650,8 +1736,11 @@ func skipTreeService(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthTreeService
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthTreeService
 			}
 			return iNdEx, nil
@@ -1682,6 +1771,9 @@ func skipTreeService(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthTreeService
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -1700,40 +1792,3 @@ var (
 	ErrInvalidLengthTreeService = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowTreeService   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() { proto.RegisterFile("tree_service.proto", fileDescriptor_tree_service_94ade41017c3df20) }
-
-var fileDescriptor_tree_service_94ade41017c3df20 = []byte{
-	// 491 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0x4d, 0x6f, 0xd3, 0x40,
-	0x10, 0xd5, 0x36, 0x1f, 0xb4, 0x93, 0x88, 0x26, 0xa3, 0xb4, 0x5a, 0x99, 0xca, 0x8a, 0xcc, 0x25,
-	0x70, 0x48, 0xa4, 0x70, 0xeb, 0x91, 0x52, 0x71, 0xe9, 0x05, 0x03, 0x07, 0x2e, 0x54, 0x6e, 0x32,
-	0x8d, 0x2c, 0x39, 0xb6, 0xe3, 0x5d, 0x17, 0x21, 0xc4, 0x85, 0xbf, 0xc0, 0x9f, 0xe2, 0x58, 0x89,
-	0x3f, 0x80, 0x22, 0x6e, 0xfc, 0x09, 0xb4, 0xb3, 0x76, 0xd3, 0xd6, 0x8e, 0x94, 0x53, 0x66, 0x5f,
-	0xde, 0xbc, 0x79, 0x9a, 0x79, 0x06, 0xd4, 0x19, 0xd1, 0xa5, 0xa2, 0xec, 0x26, 0x9c, 0xd1, 0x38,
-	0xcd, 0x12, 0x9d, 0x60, 0xd3, 0x60, 0xce, 0xc9, 0x22, 0x49, 0x16, 0x11, 0x4d, 0x82, 0x34, 0x9c,
-	0x04, 0x71, 0x9c, 0xe8, 0x40, 0x87, 0x49, 0xac, 0x2c, 0xc7, 0x01, 0xc3, 0x29, 0xea, 0x3e, 0x6b,
-	0x50, 0xac, 0x43, 0xfd, 0xb5, 0x80, 0x8e, 0x18, 0x9a, 0x25, 0x51, 0x44, 0x33, 0xd3, 0x56, 0xc0,
-	0x03, 0xfe, 0xb9, 0xca, 0xaf, 0x27, 0xb4, 0x4c, 0x4b, 0xb2, 0x77, 0x0a, 0xf2, 0x2c, 0xa3, 0x40,
-	0xd3, 0x87, 0x8c, 0xe8, 0xbd, 0xb5, 0xe2, 0xd3, 0x2a, 0x27, 0xa5, 0xd1, 0x85, 0xe6, 0x3c, 0xd0,
-	0x81, 0x14, 0x43, 0x31, 0xea, 0x4c, 0x61, 0xcc, 0x63, 0x0d, 0xcf, 0x67, 0xdc, 0x7b, 0x07, 0xf2,
-	0x0d, 0x45, 0x54, 0xdb, 0xdb, 0x83, 0x86, 0xce, 0x88, 0x5b, 0x0f, 0x7c, 0x53, 0xe2, 0xf3, 0x42,
-	0x6d, 0x8f, 0xd5, 0x0e, 0xc7, 0xa5, 0x9d, 0xf1, 0xb9, 0xb1, 0x53, 0x48, 0xbe, 0x80, 0xa3, 0xb7,
-	0xa4, 0x77, 0xd1, 0xf3, 0x6e, 0x05, 0x1c, 0x5f, 0x84, 0xaa, 0x8e, 0x7c, 0x0c, 0xed, 0xeb, 0x90,
-	0xa2, 0xb9, 0x2a, 0xf8, 0xc5, 0x0b, 0x11, 0x9a, 0x2a, 0xc9, 0x34, 0x5b, 0x38, 0xf0, 0xb9, 0xb6,
-	0xdc, 0x48, 0x53, 0x26, 0x1b, 0x25, 0xd7, 0xbc, 0x0c, 0x37, 0x0d, 0x16, 0x24, 0x9b, 0x43, 0x31,
-	0x6a, 0xf9, 0x5c, 0xe3, 0x00, 0x5a, 0x51, 0xb8, 0x0c, 0xb5, 0x6c, 0x31, 0x68, 0x1f, 0x06, 0x9d,
-	0x25, 0x79, 0xac, 0x65, 0x7b, 0x28, 0x46, 0xfb, 0xbe, 0x7d, 0x18, 0xc3, 0x2a, 0x5f, 0xca, 0x27,
-	0xd6, 0xb0, 0xca, 0x97, 0x46, 0xf1, 0x26, 0xa4, 0x2f, 0x72, 0xdf, 0x4e, 0x37, 0x35, 0x76, 0x41,
-	0xac, 0x64, 0x87, 0x01, 0xb1, 0xf2, 0x2e, 0x40, 0x7e, 0x4c, 0xe7, 0xc1, 0x8e, 0x0b, 0x75, 0x1f,
-	0x2c, 0xb4, 0x72, 0x9e, 0xe9, 0xbf, 0x06, 0x74, 0xee, 0x09, 0xe1, 0x25, 0xf4, 0x2b, 0xa7, 0x46,
-	0xd7, 0xb6, 0x6d, 0xcb, 0x80, 0xd3, 0xdb, 0xc8, 0x9e, 0x73, 0xc8, 0x3c, 0xf9, 0xe3, 0xf7, 0xdf,
-	0x9f, 0x7b, 0xe8, 0x01, 0xa7, 0xd3, 0xfc, 0xab, 0x4e, 0x79, 0x20, 0x7e, 0x86, 0x7e, 0x25, 0x0f,
-	0xe5, 0x80, 0x6d, 0x41, 0x71, 0x1e, 0x07, 0xa1, 0xd4, 0x7f, 0xd9, 0xdb, 0xe8, 0x4f, 0xbe, 0xe9,
-	0x8c, 0xbe, 0xe3, 0x27, 0x78, 0xfa, 0x30, 0x1c, 0xf8, 0xcc, 0x8a, 0xd7, 0x46, 0x66, 0xbb, 0x75,
-	0xac, 0x93, 0x3e, 0x7c, 0x94, 0x25, 0x3c, 0xb1, 0xed, 0xf5, 0x11, 0x73, 0x06, 0x1b, 0xf1, 0xb3,
-	0xbb, 0x2f, 0xcd, 0x43, 0x1e, 0xd0, 0xc5, 0x7b, 0xbb, 0x41, 0x82, 0x7e, 0xe5, 0xa8, 0xe5, 0x56,
-	0xb6, 0x5d, 0xbb, 0xc6, 0xbb, 0xcb, 0xd2, 0x72, 0x5a, 0xf1, 0x6e, 0x97, 0xff, 0xba, 0xfb, 0x6b,
-	0xed, 0x8a, 0xdb, 0xb5, 0x2b, 0xfe, 0xac, 0x5d, 0x71, 0xd5, 0xe6, 0xa5, 0xbe, 0xfa, 0x1f, 0x00,
-	0x00, 0xff, 0xff, 0x41, 0xcd, 0x9a, 0x7c, 0x63, 0x04, 0x00, 0x00,
-}

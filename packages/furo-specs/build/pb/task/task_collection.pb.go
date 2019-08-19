@@ -3,12 +3,13 @@
 
 package task
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import furo "../furo"
-
-import io "io"
+import (
+	furo "../furo"
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,11 +25,11 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 // TaskCollection with repeated TaskEntity
 type TaskCollection struct {
 	// Contains a task.TaskEntity repeated
-	Entities []*TaskEntity `protobuf:"bytes,4,rep,name=entities" json:"entities,omitempty"`
+	Entities []*TaskEntity `protobuf:"bytes,4,rep,name=entities,proto3" json:"entities,omitempty"`
 	// Hateoas links
-	Links []*furo.Link `protobuf:"bytes,3,rep,name=links" json:"links,omitempty"`
+	Links []*furo.Link `protobuf:"bytes,3,rep,name=links,proto3" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *furo.Meta `protobuf:"bytes,2,opt,name=meta" json:"meta,omitempty"`
+	Meta                 *furo.Meta `protobuf:"bytes,2,opt,name=meta,proto3" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -38,7 +39,7 @@ func (m *TaskCollection) Reset()         { *m = TaskCollection{} }
 func (m *TaskCollection) String() string { return proto.CompactTextString(m) }
 func (*TaskCollection) ProtoMessage()    {}
 func (*TaskCollection) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_collection_569e1deae5bdce8a, []int{0}
+	return fileDescriptor_b4c58fac18b89406, []int{0}
 }
 func (m *TaskCollection) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -55,8 +56,8 @@ func (m *TaskCollection) XXX_Marshal(b []byte, deterministic bool) ([]byte, erro
 		return b[:n], nil
 	}
 }
-func (dst *TaskCollection) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TaskCollection.Merge(dst, src)
+func (m *TaskCollection) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskCollection.Merge(m, src)
 }
 func (m *TaskCollection) XXX_Size() int {
 	return m.Size()
@@ -91,6 +92,25 @@ func (m *TaskCollection) GetMeta() *furo.Meta {
 func init() {
 	proto.RegisterType((*TaskCollection)(nil), "task.TaskCollection")
 }
+
+func init() { proto.RegisterFile("task_collection.proto", fileDescriptor_b4c58fac18b89406) }
+
+var fileDescriptor_b4c58fac18b89406 = []byte{
+	// 185 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2d, 0x49, 0x2c, 0xce,
+	0x8e, 0x4f, 0xce, 0xcf, 0xc9, 0x49, 0x4d, 0x2e, 0xc9, 0xcc, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f,
+	0xc9, 0x17, 0x62, 0x01, 0x09, 0x4b, 0x09, 0x82, 0x25, 0x53, 0xf3, 0x4a, 0x32, 0x4b, 0x2a, 0x21,
+	0x12, 0x52, 0xfc, 0x69, 0xa5, 0x45, 0xf9, 0xfa, 0xb9, 0xa9, 0x25, 0x89, 0x28, 0x02, 0x39, 0x99,
+	0x79, 0xd9, 0x10, 0x01, 0xa5, 0x06, 0x46, 0x2e, 0xbe, 0x90, 0xc4, 0xe2, 0x6c, 0x67, 0xb8, 0x99,
+	0x42, 0x3a, 0x5c, 0x1c, 0x60, 0x43, 0x32, 0x53, 0x8b, 0x25, 0x58, 0x14, 0x98, 0x35, 0xb8, 0x8d,
+	0x04, 0xf4, 0x40, 0x46, 0xeb, 0x81, 0xd4, 0xb9, 0x82, 0x8d, 0x0f, 0x82, 0xab, 0x10, 0x52, 0xe0,
+	0x62, 0x05, 0x19, 0x57, 0x2c, 0xc1, 0x0c, 0x56, 0xca, 0xa5, 0x07, 0xb2, 0x41, 0xcf, 0x27, 0x33,
+	0x2f, 0x3b, 0x08, 0x22, 0x21, 0x24, 0xc7, 0xc5, 0x02, 0x72, 0x81, 0x04, 0x93, 0x02, 0x23, 0x42,
+	0x81, 0x6f, 0x6a, 0x49, 0x62, 0x10, 0x58, 0xdc, 0x89, 0xe7, 0xc4, 0x23, 0x39, 0xc6, 0x0b, 0x8f,
+	0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x4c, 0x62, 0x03, 0xbb, 0xcb, 0x18, 0x10, 0x00, 0x00, 0xff,
+	0xff, 0x14, 0x65, 0x00, 0x46, 0xeb, 0x00, 0x00, 0x00,
+}
+
 func (m *TaskCollection) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -110,9 +130,9 @@ func (m *TaskCollection) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintTaskCollection(dAtA, i, uint64(m.Meta.Size()))
-		n1, err := m.Meta.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n1, err1 := m.Meta.MarshalTo(dAtA[i:])
+		if err1 != nil {
+			return 0, err1
 		}
 		i += n1
 	}
@@ -211,7 +231,7 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -239,7 +259,7 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -248,6 +268,9 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskCollection
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskCollection
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -272,7 +295,7 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -281,6 +304,9 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskCollection
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskCollection
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -303,7 +329,7 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -312,6 +338,9 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTaskCollection
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTaskCollection
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -327,6 +356,9 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTaskCollection
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTaskCollection
 			}
 			if (iNdEx + skippy) > l {
@@ -396,8 +428,11 @@ func skipTaskCollection(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthTaskCollection
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthTaskCollection
 			}
 			return iNdEx, nil
@@ -428,6 +463,9 @@ func skipTaskCollection(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthTaskCollection
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -446,23 +484,3 @@ var (
 	ErrInvalidLengthTaskCollection = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowTaskCollection   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() {
-	proto.RegisterFile("task_collection.proto", fileDescriptor_task_collection_569e1deae5bdce8a)
-}
-
-var fileDescriptor_task_collection_569e1deae5bdce8a = []byte{
-	// 185 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x2d, 0x49, 0x2c, 0xce,
-	0x8e, 0x4f, 0xce, 0xcf, 0xc9, 0x49, 0x4d, 0x2e, 0xc9, 0xcc, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f,
-	0xc9, 0x17, 0x62, 0x01, 0x09, 0x4b, 0x09, 0x82, 0x25, 0x53, 0xf3, 0x4a, 0x32, 0x4b, 0x2a, 0x21,
-	0x12, 0x52, 0xfc, 0x69, 0xa5, 0x45, 0xf9, 0xfa, 0xb9, 0xa9, 0x25, 0x89, 0x28, 0x02, 0x39, 0x99,
-	0x79, 0xd9, 0x10, 0x01, 0xa5, 0x06, 0x46, 0x2e, 0xbe, 0x90, 0xc4, 0xe2, 0x6c, 0x67, 0xb8, 0x99,
-	0x42, 0x72, 0x5c, 0x2c, 0x20, 0x1d, 0x12, 0x4c, 0x0a, 0x8c, 0x1a, 0xdc, 0x46, 0x5c, 0x7a, 0x20,
-	0x2d, 0x7a, 0xbe, 0xa9, 0x25, 0x89, 0x41, 0x60, 0x71, 0x21, 0x05, 0x2e, 0x56, 0x90, 0x01, 0xc5,
-	0x12, 0xcc, 0x0a, 0xcc, 0x08, 0x05, 0x3e, 0x99, 0x79, 0xd9, 0x41, 0x10, 0x09, 0x21, 0x1d, 0x2e,
-	0x0e, 0xb0, 0x33, 0x32, 0x53, 0x8b, 0x25, 0x58, 0xc0, 0x8a, 0x04, 0xf4, 0x40, 0x8e, 0xd3, 0x03,
-	0xd9, 0xe4, 0x0a, 0x76, 0x60, 0x10, 0x5c, 0x85, 0x13, 0xcf, 0x89, 0x47, 0x72, 0x8c, 0x17, 0x1e,
-	0xc9, 0x31, 0x3e, 0x78, 0x24, 0xc7, 0x98, 0xc4, 0x06, 0x76, 0x97, 0x31, 0x20, 0x00, 0x00, 0xff,
-	0xff, 0x44, 0xef, 0x6f, 0x38, 0xeb, 0x00, 0x00, 0x00,
-}
