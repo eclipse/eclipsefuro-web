@@ -4,6 +4,7 @@
   "description": "{{.description}}",
   "__proto": {
     "package": "{{.name}}",
+    "options": {},
     "imports": []
   },
   "fields": {
