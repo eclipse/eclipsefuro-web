@@ -146,6 +146,16 @@ class FuroCheckbox extends FBP(LitElement) {
         this.shadowRoot.getElementById("input").click();
     }
 
+    /**
+     * Sets the value for the checkbox .
+     * @param {String} string
+     */
+    setValue(string) {
+        this._value = string;
+        this.value = string;
+        this._FBPTriggerWire("--value", string)
+    }
+
     static get properties() {
         return {
 

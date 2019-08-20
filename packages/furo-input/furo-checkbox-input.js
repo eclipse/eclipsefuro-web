@@ -47,12 +47,8 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
   _FBPReady() {
     super._FBPReady();
-
     this._value = this.value || false;
-
-
   }
-
 
   set _value(v) {
     this._float = !!v;
@@ -67,6 +63,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
   get value(){
     return this._v;
   }
+
   static get properties() {
     return {
       /**
@@ -88,6 +85,12 @@ class FuroCheckboxInput extends FBP(LitElement) {
         attribute: true
       },
 
+      /**
+       * A Boolean attribute which, if present, means this checkbox is checked.
+       */
+      checked: {
+          type: Boolean
+      },
 
       /**
        * Set this attribute to autofocus the input field.
@@ -155,14 +158,21 @@ class FuroCheckboxInput extends FBP(LitElement) {
   }
 
   /**
-   * Sets the value for the input field.
+   * Sets the value for the checkbox.
    * @param {String} string
    */
   setValue(string) {
     this._value = string;
     this.value = string;
+    this._FBPTriggerWire("--value", string);
   }
 
+  /**
+   * toggle the checkbox
+   */
+  toggle() {
+      this._FBPTriggerWire("--toggle");
+  }
 
   /**
    * Setter method for errortext
@@ -201,7 +211,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
     this.error = false;
     this._errortext = this.__initalErrorText;
   }
-
 
   /**
    * Sets the focus on the field.
@@ -267,8 +276,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
             height: 56px;
         }
 
-       
-
         :host([filled]) .wrapper {
             background-color: var(--surface-light, #FEFEFE);
         }
@@ -287,10 +294,8 @@ class FuroCheckboxInput extends FBP(LitElement) {
         
 
         label {
-            padding: 0 6px;
             line-height: 56px;
         }
-        
 
         .ripple-line {
             display: none;
@@ -308,12 +313,9 @@ class FuroCheckboxInput extends FBP(LitElement) {
         
 
         :host([filled]) label {
-            padding: 0 12px;
             line-height: 56px;
             border: none;
         }
-
-      
 
         * {
             transition: all 200ms ease-out;
@@ -321,10 +323,10 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
         .hint, .errortext {
             position: absolute;
-            bottom: -19px;
+            bottom: -0;
             font-size: 12px;
             color: transparent;
-            padding-left: 12px;
+            padding-left: 42px;
             white-space: nowrap;
             pointer-events: none;
         }
@@ -380,7 +382,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
         :host([error]) .ripple-line,  :host([error]) label {
             border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
-        
 
         :host(:focus-within:not([valid])) label {
             color: var(--input-error-text-color, var(--error, red));
@@ -407,8 +408,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
             top: 34px;
         }
 
-      
-
         :host([condensed]) .hint, :host([condensed]) .errortext {
             font-size: 10px;
         }
@@ -421,19 +420,17 @@ class FuroCheckboxInput extends FBP(LitElement) {
             position: absolute;
             top: 8px;
         }
-       label  {
+        
+        label  {
             position: absolute;
             top: 0px;
-            left:36px;
+            left:42px;
             right: 0;
-           text-overflow: ellipsis;
-           white-space: nowrap;
-           overflow: hidden;
-       }
-        
-    
-        
-
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+       
         :host([condensed]) furo-checkbox  {
             top: -2px;
         }
@@ -451,9 +448,9 @@ class FuroCheckboxInput extends FBP(LitElement) {
     return html` 
       <div class="wrapper">
       
-        <furo-checkbox type="checkbox"  id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}       
-         ƒ-toggle="--click" ƒ-focus="--click" ƒ-set-value="--value" ƒ-focus="--focus"  ƒ-check="--check"  ƒ-uncheck="--uncheck"  ></furo-checkbox>
-        <label for="input"  @-click="--click">${this.label}</label>
+        <furo-checkbox type="checkbox" id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}  ?checked = ${this.checked}  
+         ƒ-toggle="--toggle" ƒ-focus="--toggle" ƒ-set-value="--value" ƒ-focus="--focus"  ƒ-check="--check"  ƒ-uncheck="--uncheck"  ></furo-checkbox>
+        <label for="input"  @-click="--toggle">${this.label}</label>
         
       </div>
       
@@ -463,7 +460,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
  
     `;
   }
-
 }
 
 window.customElements.define('furo-checkbox-input', FuroCheckboxInput);
