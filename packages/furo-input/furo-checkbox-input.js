@@ -48,38 +48,8 @@ class FuroCheckboxInput extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
 
-    this._value = this.value || "";
-    this._FBPAddWireHook("--inputInput", (e) => {
+    this._value = this.value || false;
 
-      let input = e.composedPath()[0];
-      this.error = input.validity.rangeOverflow || input.validity.rangeUnderflow || input.validity.patternMismatch;
-      this._float = !!input.value;
-
-      if (input.validity.valid) {
-        this.value = input.value;
-
-        /**
-         * @event value-changed
-         * Fired when value has changed from inside the component
-         * detail payload: {String} the text value
-         */
-        let customEvent = new Event('value-changed', {composed: true, bubbles: true});
-        customEvent.detail = this.value;
-        this.dispatchEvent(customEvent);
-      }
-    });
-
-    // set pattern, min, max
-    let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
-    if (this.min) {
-      inputField.setAttribute("minlength", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
-    }
 
   }
 
@@ -281,10 +251,9 @@ class FuroCheckboxInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
-            min-width: 190px;
+            margin: 19px 0 0 0;
+            height: 56px;
+            width: 300px;
         }
 
         :host([hidden]) {
@@ -293,21 +262,12 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
         .wrapper {
             position: relative;
-            padding: 0 12px;
+            padding: 0;
             box-sizing: border-box;
             height: 56px;
         }
 
-        input {
-            position: absolute;
-            top: 10px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            color: inherit;
-            outline: none;
-            
-        }
+       
 
         :host([filled]) .wrapper {
             background-color: var(--surface-light, #FEFEFE);
@@ -337,7 +297,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -353,17 +313,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
             border: none;
         }
 
-        label span {
-            left: 32px;
-            position: relative;
-        }
-        
-        :host([filled]) label span {
-            
-            font-weight: 400;
-            position: relative;
-        }
-
+      
 
         * {
             transition: all 200ms ease-out;
@@ -371,10 +321,10 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
-            padding-left: 23px;
+            padding-left: 12px;
             white-space: nowrap;
             pointer-events: none;
         }
@@ -436,15 +386,13 @@ class FuroCheckboxInput extends FBP(LitElement) {
             color: var(--input-error-text-color, var(--error, red));
         }
 
-        :host([condensed]) input{
-            top:8px;
+        :host([condensed]) label{
+            top:2px;
+            font-size: 14px;
         }
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
             line-height: 36px;
-        }
-        :host([condensed]) input {
             font-size: 14px;
-            margin: 10px;
         }
 
         :host([condensed][filled]) input {
@@ -456,21 +404,35 @@ class FuroCheckboxInput extends FBP(LitElement) {
         }
 
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
+
+      
 
         :host([condensed]) .hint, :host([condensed]) .errortext {
             font-size: 10px;
         }
 
         :host([condensed]) {
-            height: 53px;
+            height: 36px;
         }
 
         furo-checkbox  {
             position: absolute;
             top: 8px;
         }
+       label  {
+            position: absolute;
+            top: 0px;
+            left:36px;
+            right: 0;
+           text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+       }
+        
+    
+        
 
         :host([condensed]) furo-checkbox  {
             top: -2px;
@@ -488,10 +450,11 @@ class FuroCheckboxInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <div class="wrapper">
+      
         <furo-checkbox type="checkbox"  id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}       
-         ƒ-toggle="--click" ƒ-focus="--click" ƒ-.value="--value" ƒ-focus="--focus"  ƒ-check="--check"  ƒ-uncheck="--uncheck" 
-         @-input="--inputInput(*)"  ></furo-checkbox>
-        <label for="input"  @-click="--click"><span>${this.label}</span></label>
+         ƒ-toggle="--click" ƒ-focus="--click" ƒ-.value="--value" ƒ-focus="--focus"  ƒ-check="--check"  ƒ-uncheck="--uncheck"  ></furo-checkbox>
+        <label for="input"  @-click="--click">${this.label}</label>
+        
       </div>
       
       <div class="ripple-line"></div>           

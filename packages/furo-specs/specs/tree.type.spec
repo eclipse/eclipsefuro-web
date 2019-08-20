@@ -12,7 +12,7 @@
       "type": "string",
       "meta": {
         "readonly": true,
-        "tree-searcb-index": true
+        "tree-search-index": true
       },
       "__proto": {
         "number": 1
@@ -29,7 +29,7 @@
       "description": "subtitle of the node",
       "type": "string",
       "meta": {
-        "tree-searcb-index": true
+        "tree-search-index": true
       },
       "__proto": {
         "number": 3
@@ -38,7 +38,7 @@
     "description": {
       "description": "description of the node",
       "meta": {
-        "tree-searcb-index": true
+        "tree-search-index": true
       },
       "type": "string",
       "__proto": {
@@ -50,7 +50,7 @@
       "type": "string",
       "meta": {
         "readonly": true,
-        "tree-searcb-index": false
+        "tree-search-index": false
       },
       "__proto": {
         "number": 5
@@ -66,7 +66,7 @@
     "key_words": {
       "description": "key words of the node",
       "meta": {
-        "tree-searcb-index": true
+        "tree-search-index": true
       },
       "type": "string",
       "__proto": {

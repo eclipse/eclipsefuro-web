@@ -2,6 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 
+//todo: implement like this: https://material.io/design/components/cards.html#anatomy
+
 /**
  * `furo-card`
  * todo Describe your element
