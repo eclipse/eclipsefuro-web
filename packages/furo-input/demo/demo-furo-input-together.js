@@ -106,7 +106,7 @@ class DemoFuroInputTogether extends FBP(LitElement) {
             <furo-text-input ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
                              label="Text input field" @-value-changed="--text"></furo-text-input>           
             <br>
-            <furo-checkbox-input condensed ƒ-set-value="--check" label="Benutzerdefinierter Text---------------------------------------"></furo-checkbox-input>
+            <furo-checkbox-input condensed ƒ-toggle="--check" label="Benutzerdefinierter "></furo-checkbox-input>
            
             <furo-text-input condensed ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
                              label="Text input field" @-value-changed="--text"></furo-text-input>
