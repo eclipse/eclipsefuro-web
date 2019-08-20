@@ -6,7 +6,8 @@
     "package": "task",
     "imports": [
       "person/person.proto",
-      "project/project_collection.proto"
+      "project/project_collection.proto",
+      "furo/reference.proto"
     ]
   },
   "fields": {
@@ -56,10 +57,17 @@
     },
     "owner": {
       "description": "Owner of a task",
-      "type": "person.Person",
+      "type": "furo.Reference",
       "meta": {
         "label": "Owner",
-        "default": "",
+        "default": {
+          "display_name": "Owner",
+          "id": "",
+          "rel": "List",
+          "href": "/api/v1/persons",
+          "method": "GET",
+          "type": "person.Person"
+        },
         "hint": ""
       },
       "constraints": {},

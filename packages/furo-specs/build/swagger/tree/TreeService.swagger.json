@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "project_service.proto",
+    "title": "TreeService.proto",
     "version": "version not set"
   },
   "schemes": [
@@ -15,15 +15,15 @@
     "application/json"
   ],
   "paths": {
-    "/api/projects": {
+    "/api/trees": {
       "get": {
-        "summary": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
-        "operationId": "ListProjects",
+        "summary": "The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",
+        "operationId": "ListTrees",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/projectProjectCollection"
+              "$ref": "#/definitions/treeTreeCollection"
             }
           }
         },
@@ -89,24 +89,24 @@
           },
           {
             "name": "q",
-            "description": "Query term to search a project.",
+            "description": "Query term to search a tree.",
             "in": "query",
             "required": false,
             "type": "string"
           }
         ],
         "tags": [
-          "ProjectService"
+          "TreeService"
         ]
       },
       "post": {
-        "summary": "Creates a new Project",
-        "operationId": "CreateProject",
+        "summary": "Creates a new Tree",
+        "operationId": "CreateTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/projectProjectEntity"
+              "$ref": "#/definitions/treeTreeEntity"
             }
           }
         },
@@ -116,42 +116,42 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/projectProject"
+              "$ref": "#/definitions/treeTree"
             }
           }
         ],
         "tags": [
-          "ProjectService"
+          "TreeService"
         ]
       }
     },
-    "/api/projects/{var}": {
+    "/api/trees/{tre}": {
       "get": {
-        "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
-        "operationId": "GetProject",
+        "summary": "The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",
+        "operationId": "GetTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/projectProjectEntity"
+              "$ref": "#/definitions/treeTreeEntity"
             }
           }
         },
         "parameters": [
           {
-            "name": "var",
+            "name": "tre",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
         "tags": [
-          "ProjectService"
+          "TreeService"
         ]
       },
       "delete": {
-        "summary": "Delete a Project",
-        "operationId": "DeleteProject",
+        "summary": "Delete a Tree",
+        "operationId": "DeleteTree",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -162,30 +162,30 @@
         },
         "parameters": [
           {
-            "name": "var",
+            "name": "tre",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
         "tags": [
-          "ProjectService"
+          "TreeService"
         ]
       },
       "patch": {
-        "summary": "Updates a Project, partial updates are supported",
-        "operationId": "UpdateProject",
+        "summary": "Updates a Tree, partial updates are supported",
+        "operationId": "UpdateTree",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/projectProjectEntity"
+              "$ref": "#/definitions/treeTreeEntity"
             }
           }
         },
         "parameters": [
           {
-            "name": "var",
+            "name": "tre",
             "in": "path",
             "required": true,
             "type": "string"
@@ -195,12 +195,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/projectProject"
+              "$ref": "#/definitions/treeTree"
             }
           }
         ],
         "tags": [
-          "ProjectService"
+          "TreeService"
         ]
       }
     }
@@ -278,126 +278,67 @@
       },
       "title": "fields of meta info"
     },
-    "googleDate": {
+    "protobufEmpty": {
       "type": "object",
-      "properties": {
-        "day": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant."
-        },
-        "display_name": {
-          "type": "string",
-          "title": "Localized String representation of date"
-        },
-        "month": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day."
-        },
-        "year": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year."
-        }
-      },
-      "title": "Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto"
+      "title": "https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto"
     },
-    "googleMoney": {
+    "treeTree": {
       "type": "object",
       "properties": {
-        "currency_code": {
-          "type": "string",
-          "description": "The 3-letter currency code defined in ISO 4217."
-        },
-        "display_name": {
-          "type": "string",
-          "title": "String representation of money entity"
-        },
-        "nanos": {
-          "type": "string",
-          "format": "int64",
-          "description": "Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000."
-        },
-        "units": {
-          "type": "string",
-          "format": "int64",
-          "description": "The whole units of the amount."
-        }
-      },
-      "title": "Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto"
-    },
-    "personPerson": {
-      "type": "object",
-      "properties": {
-        "display_name": {
-          "type": "string",
-          "title": "Localized String representation of a person"
-        },
-        "first_name": {
-          "type": "string",
-          "title": "First name of a person"
-        },
-        "name": {
-          "type": "string",
-          "title": "Name of a person"
-        },
-        "phone_nr": {
-          "type": "string",
-          "title": "Internal phone number"
-        },
-        "skills": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "List of main skills of a person"
-        }
-      },
-      "title": "Person message type"
-    },
-    "projectProject": {
-      "type": "object",
-      "properties": {
-        "cost_limit": {
-          "$ref": "#/definitions/googleMoney",
-          "title": "Project cost limit"
-        },
         "description": {
           "type": "string",
-          "title": "Short project description"
+          "title": "description of the node"
         },
         "display_name": {
           "type": "string",
-          "title": "Localized String representation of a project"
+          "title": "String representation of the node"
         },
-        "end": {
-          "$ref": "#/definitions/googleDate",
-          "title": "Prospective end date of the project"
+        "has_error": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "if node has error"
         },
-        "members": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/personPerson"
-          },
-          "title": "List of project members"
+        "icon": {
+          "type": "string",
+          "title": "icon of the node"
         },
-        "start": {
-          "$ref": "#/definitions/googleDate",
-          "title": "Start date of the project"
+        "id": {
+          "type": "string",
+          "title": "Id of the node"
+        },
+        "key_words": {
+          "type": "string",
+          "title": "key words of the node"
+        },
+        "open": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "node open or not"
+        },
+        "panel": {
+          "type": "string",
+          "title": "Indicator which panel type is loaded"
+        },
+        "root": {
+          "$ref": "#/definitions/treeTreeitem",
+          "title": "Rootnode of the tree"
+        },
+        "subtitle": {
+          "type": "string",
+          "title": "subtitle of the node"
         }
       },
-      "title": "Project description"
+      "title": "Singletonresource of the navigationtree"
     },
-    "projectProjectCollection": {
+    "treeTreeCollection": {
       "type": "object",
       "properties": {
         "entities": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/projectProjectEntity"
+            "$ref": "#/definitions/treeTreeEntity"
           },
-          "title": "Contains a project.ProjectEntity repeated"
+          "title": "Contains a tree.TreeEntity repeated"
         },
         "links": {
           "type": "array",
@@ -411,14 +352,14 @@
           "title": "Meta for the response"
         }
       },
-      "title": "ProjectCollection with repeated ProjectEntity"
+      "title": "TreeCollection with repeated TreeEntity"
     },
-    "projectProjectEntity": {
+    "treeTreeEntity": {
       "type": "object",
       "properties": {
         "data": {
-          "$ref": "#/definitions/projectProject",
-          "title": "contains a project.Project"
+          "$ref": "#/definitions/treeTree",
+          "title": "contains a tree.Tree"
         },
         "links": {
           "type": "array",
@@ -432,11 +373,58 @@
           "title": "Meta for the response"
         }
       },
-      "title": "ProjectEntity with Project"
+      "title": "TreeEntity with Tree"
     },
-    "protobufEmpty": {
+    "treeTreeitem": {
       "type": "object",
-      "title": "https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto"
+      "properties": {
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/treeTreeitem"
+          },
+          "title": "Children of this node"
+        },
+        "description": {
+          "type": "string",
+          "title": "description of the node"
+        },
+        "display_name": {
+          "type": "string",
+          "title": "String representation of the node"
+        },
+        "has_error": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "if node has error"
+        },
+        "icon": {
+          "type": "string",
+          "title": "icon of the node"
+        },
+        "id": {
+          "type": "string",
+          "title": "Id of the node"
+        },
+        "key_words": {
+          "type": "string",
+          "title": "key words of the node"
+        },
+        "link": {
+          "$ref": "#/definitions/furoLink",
+          "title": "Deeplink information of this node"
+        },
+        "open": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "node open or not"
+        },
+        "subtitle": {
+          "type": "string",
+          "title": "subtitle of the node"
+        }
+      },
+      "title": "Item of the navigationtree"
     }
   }
 }
