@@ -15,6 +15,27 @@ import {FBP} from "@furo/fbp";
  */
 class FuroCard extends FBP(LitElement) {
 
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Main title
+       */
+      title: {type: String},
+      secondaryText: {type: String, attribute: "secondary-text"},
+      hasaction: {type: Boolean, reflect: true}
+    };
+  }
+
+
+  constructor() {
+    super();
+    this.hasaction = this.querySelectorAll('*[slot="action"]').length > 0;
+
+  }
 
   /**
    *
@@ -36,24 +57,61 @@ class FuroCard extends FBP(LitElement) {
             box-sizing: border-box;
             position: relative;
             border-radius: 4px;
+            font-size: 14px;
+            letter-spacing: 0.1px;
         }
 
-      
+
         :host([hidden]) {
             display: none;
         }
-        
-        .content{
+
+        :host([hasaction]) .content {
+            padding-bottom: 44px;
+        }
+
+
+        .content {
             padding: var(--furo-card-padding, var(--spacing-s, 16px));
         }
-        
+
         .action {
             position: absolute;
-            bottom:var(--furo-card-padding, var(--spacing-xs, 8px));
+            bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
             left: var(--furo-card-padding, var(--spacing-xs, 8px));
+            right: var(--furo-card-padding, var(--spacing-xs, 8px));
+
         }
-        
-        .media ::slotted(*){
+
+
+        :host([title]) .head {
+            display: block;
+        }
+
+        .head {
+            display: none;
+            padding: var(--spacing-s, 16px);
+        }
+
+        .head span {
+            color: var(--secondary-color, var(--on-primary-light,#777777));
+            line-height: 22px;
+        }
+
+        h1 {
+            font-size: 24px;
+            line-height: 24px;
+            letter-spacing: 0;
+            margin: 0;
+            font-weight: normal;
+            margin-bottom: 4px;
+        }
+
+        :host([title]) .media ::slotted(*) {
+            border-radius: 0;
+        }
+
+        .media ::slotted(*) {
             border-top-right-radius: 4px;
             border-top-left-radius: 4px;
         }
@@ -69,6 +127,10 @@ class FuroCard extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
+        <div class="head">
+          <h1>${this.title}</h1>
+        <span>${this.secondaryText}</span>  
+        </div>
       <div class="media">
       <slot name="media"></slot>
       </div>

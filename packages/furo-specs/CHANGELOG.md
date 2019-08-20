@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.0.3...@furo/specs@0.0.4) (2019-08-20)
+
+
+### Bug Fixes
+
+* bundled messages need furo/reference.proto import ([397bf57](https://github.com/veith/FuroBaseComponents/commit/397bf57))
+* heights alignments ([dcca7e8](https://github.com/veith/FuroBaseComponents/commit/dcca7e8))
+
+
+
+
+
 ## [0.0.3](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.0.2...@furo/specs@0.0.3) (2019-08-19)
 
 

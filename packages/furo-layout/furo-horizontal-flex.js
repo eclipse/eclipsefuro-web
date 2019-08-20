@@ -59,6 +59,15 @@ class FuroHorizontalFlex extends (LitElement) {
         :host([hidden]) {
             display: none;
         }
+        
+        
+        :host([space]) ::slotted(*:not(:first-child)) {
+            margin-left:   var(--spacing-xs, 8px);
+        }      
+        
+        :host([space]) ::slotted(*:not(:last-child)) {
+            margin-right:  var(--spacing-xs, 8px);
+        }
 
     `
   }
