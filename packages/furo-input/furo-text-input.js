@@ -282,7 +282,7 @@ class FuroTextInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 0;
+            margin: 19px 0 0 0;
             height: 56px;
             width: 190px;
         }
@@ -590,9 +590,7 @@ class FuroTextInput extends FBP(LitElement) {
             top: -20px;
             font-size: 10px;
         }
-
-      
-
+        
         :host([condensed]) {
             height: 36px;
         }

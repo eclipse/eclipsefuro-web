@@ -51,19 +51,17 @@ class DemoFuroTextInput extends FBP(LitElement) {
         <furo-horizontal-scroller flex>
           
             <div style="background-color:var(--surface); padding: 30px">
-              <div style="display: inline-block;  height: 56px; width: 190px; background: #0e5e9f"></div>
-              TEXT jjj Qq
               <furo-text-input min="5" leading-icon="send" label="Label" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="send" filled label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="send" leading-icon="send"  error label="Label" errortext="errortext"></furo-text-input>
               <furo-text-input trailing-icon="send" leading-icon="send"  filled error label="Label" value="Val" errortext="errortext"></furo-text-input>
             </div>
             <div style="padding:30px">
-              <furo-checkbox></furo-checkbox>
+              
               <furo-text-input label="Label" value="Val" hint="Hint jkfdjkdkjf"></furo-text-input>
               <furo-text-input filled label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input error label="Label" value="Val" hint="tex" errortext="errortext"></furo-text-input>
-              
+              <furo-checkbox></furo-checkbox>
               <furo-text-input trailing-icon="send" filled condensed error label="Label" value="Val" errortext="errortext"></furo-text-input>
             </div> 
             <div style="padding:30px">
