@@ -51,7 +51,10 @@ class FuroCard extends FBP(LitElement) {
             position: absolute;
             bottom:var(--furo-card-padding, var(--spacing-xs, 8px));
             left: var(--furo-card-padding, var(--spacing-xs, 8px));
+            right: var(--furo-card-padding, var(--spacing-xs, 8px));
         }
+        
+
         
         .media ::slotted(*){
             border-top-right-radius: 4px;

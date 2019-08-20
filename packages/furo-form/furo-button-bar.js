@@ -26,7 +26,7 @@ class FuroButtonBar extends (LitElement) {
         }
 
         ::slotted(*) {
-            margin: 0 8px;
+            margin: var(--spacing-xs, 8px);
         }
 
         ::slotted(*:first-child) {
