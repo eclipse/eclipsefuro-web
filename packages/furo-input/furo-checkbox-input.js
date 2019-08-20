@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import  "@furo/layout/furo-icon";
+import  "./furo-checkbox";
 
 /**
  * `furo-checkbox-input`
@@ -15,9 +16,22 @@ import  "@furo/layout/furo-icon";
  * ### Sample
  *  <furo-demo-snippet>
  *   <template>
- *    <furo-checkbox-input label="This is the Label"></furo-checkbox-input> <furo-text-input label="Label" value="Val" hint="Hint"></furo-text-input>
+ *    <furo-checkbox-input label="This is the Label"></furo-checkbox-input>
  *   </template>
  *  </furo-demo-snippet>
+ *
+ * ### Styling
+ * The following custom properties and mixins are available for styling:
+ *
+ * Custom property | Description | Default  | Fallback
+ * ----------------|-------------|----------|----------
+ * `--input-hint-color` | Color of hint text | #999999 | --
+ * `--input-error-text-color` | Color of error text | `--error` | red
+ * `--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5
+ * `--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333
+ * `--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red
+ * `--input-error-text-color` | Color of error text | `--error` | red
+ * `--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5
  *
  * @summary checkbox input
  * @customElement
@@ -146,20 +160,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
        */
       errortext: {
         type: String,
-      },
-      /**
-       * Icon on the left side
-       */
-      leadingIcon: {
-        type: String,
-        attribute: "leading-icon"
-      },
-      /**
-       * Icon on the right side
-       */
-      trailingIcon: {
-        type: String,
-        attribute: "trailing-icon"
       },
       /**
        * html input validity
@@ -307,60 +307,16 @@ class FuroCheckboxInput extends FBP(LitElement) {
             background-color: var(--surface-dark, #FEA222);
         }
 
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+        :host(:not([filled]):hover) label {
             border-color: var(--input-hover-color, #333333);
         }
-
-
-        .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-        }
-
-        .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
-
+        
 
         label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
+            padding: 0 6px;
             line-height: 56px;
         }
-
         
-        .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-        }
-
 
         .ripple-line {
             display: none;
@@ -375,11 +331,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
         :host([filled]) .ripple-line {
             display: block;
         }
-
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
-        }
-
+        
 
         :host([filled]) label {
             padding: 0 12px;
@@ -388,8 +340,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
         }
 
         label span {
-
-            
             left: 32px;
             position: relative;
         }
@@ -397,7 +347,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
         :host([filled]) label span {
             
             font-weight: 400;
-            
             position: relative;
         }
 
@@ -411,7 +360,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
             bottom: 0;
             font-size: 12px;
             color: transparent;
-            padding-left: 12px;
+            padding-left: 23px;
             white-space: nowrap;
             pointer-events: none;
         }
@@ -420,7 +369,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
             color: var(--input-hint-color, #999999);
             transition: all 550ms ease-in;
         }
-
 
         :host([error]) .errortext {
             display: block;
@@ -431,9 +379,10 @@ class FuroCheckboxInput extends FBP(LitElement) {
             display: none;
         }
 
-
         label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+            font-size: 16px;
+            color: inherit;
+            cursor: pointer;
         }
 
         :host(:focus-within) label, :host(:focus-within:not([filled])) label {
@@ -441,18 +390,17 @@ class FuroCheckboxInput extends FBP(LitElement) {
             border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
         }
 
-
         :host(:focus-within) .ripple-line {
             border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
             border-width: 2px;
         }
 
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+        :host(:not([filled]):focus-within) label {
             border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
             border-width: 2px;
         }
 
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+        :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
             border-color: var(--input-error-text-color, var(--error, red));
             border-width: 2px;
         }
@@ -465,37 +413,10 @@ class FuroCheckboxInput extends FBP(LitElement) {
             display: none;
         }
 
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+        :host([error]) .ripple-line,  :host([error]) label {
             border-color: var(--input-error-activation-indicator-color, var(--error, red));
         }
-
-        furo-icon {
-            display: none;
-            top: 16px;
-        }
-
-        furo-icon.lead {
-            position: absolute;
-
-            left: 8px;
-        }
-
-        furo-icon.trail {
-            position: absolute;
-            right: 8px;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
-        }
-
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
-        }
+        
 
         :host(:focus-within:not([valid])) label {
             color: var(--input-error-text-color, var(--error, red));
@@ -516,19 +437,13 @@ class FuroCheckboxInput extends FBP(LitElement) {
             font-size: 13px;
         }
 
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+        :host([condensed]) .wrapper {
             height: 36px;
-        }
-
-        :host([condensed]) furo-icon {
-            top: 6px;
         }
 
         :host([condensed]) .ripple-line {
             top: 36px;
         }
-
-       
 
         :host([condensed]) .hint, :host([condensed]) .errortext {
             font-size: 10px;
@@ -536,6 +451,15 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
         :host([condensed]) {
             height: 53px;
+        }
+
+        furo-checkbox  {
+            position: absolute;
+            top: 8px;
+        }
+
+        :host([condensed]) furo-checkbox  {
+            top: -2px;
         }
 
     `
@@ -550,16 +474,9 @@ class FuroCheckboxInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly}       
-       type="checkbox" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">${this.text}
-       
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
-      </div>
-      <div class="borderlabel">
-      <div class="left-border"></div>
-      <label for="input"><span>${this.label}</span></label>
-      <div class="right-border"></div>
+        <furo-checkbox id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}       
+         ƒ-toggle="--click" ƒ-focus="--click" type="checkbox" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus"></furo-checkbox>
+        <label for="input"  @-click="--click"><span>${this.label}</span></label>
       </div>
       
       <div class="ripple-line"></div>           

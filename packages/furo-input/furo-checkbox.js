@@ -28,7 +28,6 @@ import {FBP} from "@furo/fbp";
  * `--input-checkbox-unselected-hover-bg-color` | background color of the unchecked checkbox by hovering | `--surface-light` | #F5F5F5
  * `--input-checkbox-unselected-focus-bg-color` | background color of the unchecked checkbox by focusing | `--surface-dark` | #DDDDDD
  * `--input-checkbox-unselected-active-bg-color` | background color of the unchecked checkbox by pressing | `--surface-dark` | #C0C0C0
- * `--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--surface-dark` | #C0C0C0
  * `--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--accent` | #6200FD
  * `--input-checkbox-selected-hover-bg-color` | background color of the checked checkbox by hovering | `--on-accent` | #D5C6E9
  * `--input-checkbox-selected-focus-bg-color` | background color of the checked checkbox by focusing | `--accent` | #6200FD
@@ -83,6 +82,16 @@ class FuroCheckbox extends FBP(LitElement) {
                 customEvent.detail = this.value;
                 this.dispatchEvent(customEvent);
             }
+            else {
+                /**
+                 * @event unchecked
+                 * Fired when the checkbox is unchecked
+                 * detail payload: {String} the text value
+                 */
+                let customEvent = new Event('unchecked', {composed: true, bubbles: true});
+                customEvent.detail = this.value;
+                this.dispatchEvent(customEvent);
+            }
         });
 
         this._FBPAddWireHook("--focusReceived", (e) => {
@@ -121,6 +130,20 @@ class FuroCheckbox extends FBP(LitElement) {
      */
     check() {
         this.checked = true;
+    }
+
+    /**
+     * uncheck the checkbox
+     */
+    uncheck() {
+        this.checked = false;
+    }
+
+    /**
+     * toggle the checkbox
+     */
+    toggle() {
+        this.checked = !this.checked;
     }
 
     static get properties() {
