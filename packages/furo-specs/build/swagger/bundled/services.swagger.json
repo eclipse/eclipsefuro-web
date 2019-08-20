@@ -1063,7 +1063,7 @@
           "title": "Estimated time in days"
         },
         "owner": {
-          "$ref": "#/definitions/bundledPerson",
+          "$ref": "#/definitions/furoReference",
           "title": "Owner of a task"
         },
         "subtasks": {
@@ -1333,6 +1333,36 @@
         }
       },
       "title": "fields of meta info"
+    },
+    "furoReference": {
+      "type": "object",
+      "properties": {
+        "display_name": {
+          "type": "string",
+          "title": "String representation of the reference"
+        },
+        "href": {
+          "type": "string",
+          "title": "link"
+        },
+        "id": {
+          "type": "string",
+          "title": "Id of the reference"
+        },
+        "method": {
+          "type": "string",
+          "title": "method of curl GET, POST, PUT, PATCH, DELETE"
+        },
+        "rel": {
+          "type": "string",
+          "title": "the relationship"
+        },
+        "type": {
+          "type": "string",
+          "title": "mime type"
+        }
+      },
+      "title": "reference"
     },
     "googleDate": {
       "type": "object",

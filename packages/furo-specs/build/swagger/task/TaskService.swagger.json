@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "task_service.proto",
+    "title": "TaskService.proto",
     "version": "version not set"
   },
   "schemes": [
@@ -278,6 +278,36 @@
       },
       "title": "fields of meta info"
     },
+    "furoReference": {
+      "type": "object",
+      "properties": {
+        "display_name": {
+          "type": "string",
+          "title": "String representation of the reference"
+        },
+        "href": {
+          "type": "string",
+          "title": "link"
+        },
+        "id": {
+          "type": "string",
+          "title": "Id of the reference"
+        },
+        "method": {
+          "type": "string",
+          "title": "method of curl GET, POST, PUT, PATCH, DELETE"
+        },
+        "rel": {
+          "type": "string",
+          "title": "the relationship"
+        },
+        "type": {
+          "type": "string",
+          "title": "mime type"
+        }
+      },
+      "title": "reference"
+    },
     "googleDate": {
       "type": "object",
       "properties": {
@@ -455,7 +485,7 @@
           "title": "Estimated time in days"
         },
         "owner": {
-          "$ref": "#/definitions/personPerson",
+          "$ref": "#/definitions/furoReference",
           "title": "Owner of a task"
         },
         "subtasks": {

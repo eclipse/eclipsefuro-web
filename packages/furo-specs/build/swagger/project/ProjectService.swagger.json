@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "person_service.proto",
+    "title": "ProjectService.proto",
     "version": "version not set"
   },
   "schemes": [
@@ -15,15 +15,15 @@
     "application/json"
   ],
   "paths": {
-    "/api/persons": {
+    "/api/projects": {
       "get": {
-        "summary": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
-        "operationId": "ListPersons",
+        "summary": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
+        "operationId": "ListProjects",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/personPersonCollection"
+              "$ref": "#/definitions/projectProjectCollection"
             }
           }
         },
@@ -89,24 +89,24 @@
           },
           {
             "name": "q",
-            "description": "Query term to search a person.",
+            "description": "Query term to search a project.",
             "in": "query",
             "required": false,
             "type": "string"
           }
         ],
         "tags": [
-          "PersonService"
+          "ProjectService"
         ]
       },
       "post": {
-        "summary": "Creates a new Person",
-        "operationId": "CreatePerson",
+        "summary": "Creates a new Project",
+        "operationId": "CreateProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/personPersonEntity"
+              "$ref": "#/definitions/projectProjectEntity"
             }
           }
         },
@@ -116,42 +116,42 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/personPerson"
+              "$ref": "#/definitions/projectProject"
             }
           }
         ],
         "tags": [
-          "PersonService"
+          "ProjectService"
         ]
       }
     },
-    "/api/persons/{prs}": {
+    "/api/projects/{var}": {
       "get": {
-        "summary": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
-        "operationId": "GetPerson",
+        "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
+        "operationId": "GetProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/personPersonEntity"
+              "$ref": "#/definitions/projectProjectEntity"
             }
           }
         },
         "parameters": [
           {
-            "name": "prs",
+            "name": "var",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
         "tags": [
-          "PersonService"
+          "ProjectService"
         ]
       },
       "delete": {
-        "summary": "Delete a Person",
-        "operationId": "DeletePerson",
+        "summary": "Delete a Project",
+        "operationId": "DeleteProject",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -162,30 +162,30 @@
         },
         "parameters": [
           {
-            "name": "prs",
+            "name": "var",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
         "tags": [
-          "PersonService"
+          "ProjectService"
         ]
       },
       "patch": {
-        "summary": "Updates a Person, partial updates are supported",
-        "operationId": "UpdatePerson",
+        "summary": "Updates a Project, partial updates are supported",
+        "operationId": "UpdateProject",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/personPersonEntity"
+              "$ref": "#/definitions/projectProjectEntity"
             }
           }
         },
         "parameters": [
           {
-            "name": "prs",
+            "name": "var",
             "in": "path",
             "required": true,
             "type": "string"
@@ -195,12 +195,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/personPerson"
+              "$ref": "#/definitions/projectProject"
             }
           }
         ],
         "tags": [
-          "PersonService"
+          "ProjectService"
         ]
       }
     }
@@ -278,6 +278,55 @@
       },
       "title": "fields of meta info"
     },
+    "googleDate": {
+      "type": "object",
+      "properties": {
+        "day": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant."
+        },
+        "display_name": {
+          "type": "string",
+          "title": "Localized String representation of date"
+        },
+        "month": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day."
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year."
+        }
+      },
+      "title": "Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto"
+    },
+    "googleMoney": {
+      "type": "object",
+      "properties": {
+        "currency_code": {
+          "type": "string",
+          "description": "The 3-letter currency code defined in ISO 4217."
+        },
+        "display_name": {
+          "type": "string",
+          "title": "String representation of money entity"
+        },
+        "nanos": {
+          "type": "string",
+          "format": "int64",
+          "description": "Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000."
+        },
+        "units": {
+          "type": "string",
+          "format": "int64",
+          "description": "The whole units of the amount."
+        }
+      },
+      "title": "Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto"
+    },
     "personPerson": {
       "type": "object",
       "properties": {
@@ -307,15 +356,48 @@
       },
       "title": "Person message type"
     },
-    "personPersonCollection": {
+    "projectProject": {
+      "type": "object",
+      "properties": {
+        "cost_limit": {
+          "$ref": "#/definitions/googleMoney",
+          "title": "Project cost limit"
+        },
+        "description": {
+          "type": "string",
+          "title": "Short project description"
+        },
+        "display_name": {
+          "type": "string",
+          "title": "Localized String representation of a project"
+        },
+        "end": {
+          "$ref": "#/definitions/googleDate",
+          "title": "Prospective end date of the project"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/personPerson"
+          },
+          "title": "List of project members"
+        },
+        "start": {
+          "$ref": "#/definitions/googleDate",
+          "title": "Start date of the project"
+        }
+      },
+      "title": "Project description"
+    },
+    "projectProjectCollection": {
       "type": "object",
       "properties": {
         "entities": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/personPersonEntity"
+            "$ref": "#/definitions/projectProjectEntity"
           },
-          "title": "Contains a person.PersonEntity repeated"
+          "title": "Contains a project.ProjectEntity repeated"
         },
         "links": {
           "type": "array",
@@ -329,14 +411,14 @@
           "title": "Meta for the response"
         }
       },
-      "title": "PersonCollection with repeated PersonEntity"
+      "title": "ProjectCollection with repeated ProjectEntity"
     },
-    "personPersonEntity": {
+    "projectProjectEntity": {
       "type": "object",
       "properties": {
         "data": {
-          "$ref": "#/definitions/personPerson",
-          "title": "contains a person.Person"
+          "$ref": "#/definitions/projectProject",
+          "title": "contains a project.Project"
         },
         "links": {
           "type": "array",
@@ -350,7 +432,7 @@
           "title": "Meta for the response"
         }
       },
-      "title": "PersonEntity with Person"
+      "title": "ProjectEntity with Project"
     },
     "protobufEmpty": {
       "type": "object",

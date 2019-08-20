@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "tree_service.proto",
+    "title": "PersonService.proto",
     "version": "version not set"
   },
   "schemes": [
@@ -15,15 +15,15 @@
     "application/json"
   ],
   "paths": {
-    "/api/trees": {
+    "/api/persons": {
       "get": {
-        "summary": "The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",
-        "operationId": "ListTrees",
+        "summary": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
+        "operationId": "ListPersons",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/treeTreeCollection"
+              "$ref": "#/definitions/personPersonCollection"
             }
           }
         },
@@ -89,24 +89,24 @@
           },
           {
             "name": "q",
-            "description": "Query term to search a tree.",
+            "description": "Query term to search a person.",
             "in": "query",
             "required": false,
             "type": "string"
           }
         ],
         "tags": [
-          "TreeService"
+          "PersonService"
         ]
       },
       "post": {
-        "summary": "Creates a new Tree",
-        "operationId": "CreateTree",
+        "summary": "Creates a new Person",
+        "operationId": "CreatePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/treeTreeEntity"
+              "$ref": "#/definitions/personPersonEntity"
             }
           }
         },
@@ -116,42 +116,42 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/treeTree"
+              "$ref": "#/definitions/personPerson"
             }
           }
         ],
         "tags": [
-          "TreeService"
+          "PersonService"
         ]
       }
     },
-    "/api/trees/{tre}": {
+    "/api/persons/{prs}": {
       "get": {
-        "summary": "The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",
-        "operationId": "GetTree",
+        "summary": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
+        "operationId": "GetPerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/treeTreeEntity"
+              "$ref": "#/definitions/personPersonEntity"
             }
           }
         },
         "parameters": [
           {
-            "name": "tre",
+            "name": "prs",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
         "tags": [
-          "TreeService"
+          "PersonService"
         ]
       },
       "delete": {
-        "summary": "Delete a Tree",
-        "operationId": "DeleteTree",
+        "summary": "Delete a Person",
+        "operationId": "DeletePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -162,30 +162,30 @@
         },
         "parameters": [
           {
-            "name": "tre",
+            "name": "prs",
             "in": "path",
             "required": true,
             "type": "string"
           }
         ],
         "tags": [
-          "TreeService"
+          "PersonService"
         ]
       },
       "patch": {
-        "summary": "Updates a Tree, partial updates are supported",
-        "operationId": "UpdateTree",
+        "summary": "Updates a Person, partial updates are supported",
+        "operationId": "UpdatePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/treeTreeEntity"
+              "$ref": "#/definitions/personPersonEntity"
             }
           }
         },
         "parameters": [
           {
-            "name": "tre",
+            "name": "prs",
             "in": "path",
             "required": true,
             "type": "string"
@@ -195,12 +195,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/treeTree"
+              "$ref": "#/definitions/personPerson"
             }
           }
         ],
         "tags": [
-          "TreeService"
+          "PersonService"
         ]
       }
     }
@@ -278,67 +278,44 @@
       },
       "title": "fields of meta info"
     },
-    "protobufEmpty": {
-      "type": "object",
-      "title": "https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto"
-    },
-    "treeTree": {
+    "personPerson": {
       "type": "object",
       "properties": {
-        "description": {
-          "type": "string",
-          "title": "description of the node"
-        },
         "display_name": {
           "type": "string",
-          "title": "String representation of the node"
+          "title": "Localized String representation of a person"
         },
-        "has_error": {
-          "type": "boolean",
-          "format": "boolean",
-          "title": "if node has error"
-        },
-        "icon": {
+        "first_name": {
           "type": "string",
-          "title": "icon of the node"
+          "title": "First name of a person"
         },
-        "id": {
+        "name": {
           "type": "string",
-          "title": "Id of the node"
+          "title": "Name of a person"
         },
-        "key_words": {
+        "phone_nr": {
           "type": "string",
-          "title": "key words of the node"
+          "title": "Internal phone number"
         },
-        "open": {
-          "type": "boolean",
-          "format": "boolean",
-          "title": "node open or not"
-        },
-        "panel": {
-          "type": "string",
-          "title": "Indicator which panel type is loaded"
-        },
-        "root": {
-          "$ref": "#/definitions/treeTreeitem",
-          "title": "Rootnode of the tree"
-        },
-        "subtitle": {
-          "type": "string",
-          "title": "subtitle of the node"
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "List of main skills of a person"
         }
       },
-      "title": "Singletonresource of the navigationtree"
+      "title": "Person message type"
     },
-    "treeTreeCollection": {
+    "personPersonCollection": {
       "type": "object",
       "properties": {
         "entities": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/treeTreeEntity"
+            "$ref": "#/definitions/personPersonEntity"
           },
-          "title": "Contains a tree.TreeEntity repeated"
+          "title": "Contains a person.PersonEntity repeated"
         },
         "links": {
           "type": "array",
@@ -352,14 +329,14 @@
           "title": "Meta for the response"
         }
       },
-      "title": "TreeCollection with repeated TreeEntity"
+      "title": "PersonCollection with repeated PersonEntity"
     },
-    "treeTreeEntity": {
+    "personPersonEntity": {
       "type": "object",
       "properties": {
         "data": {
-          "$ref": "#/definitions/treeTree",
-          "title": "contains a tree.Tree"
+          "$ref": "#/definitions/personPerson",
+          "title": "contains a person.Person"
         },
         "links": {
           "type": "array",
@@ -373,58 +350,11 @@
           "title": "Meta for the response"
         }
       },
-      "title": "TreeEntity with Tree"
+      "title": "PersonEntity with Person"
     },
-    "treeTreeitem": {
+    "protobufEmpty": {
       "type": "object",
-      "properties": {
-        "children": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/treeTreeitem"
-          },
-          "title": "Children of this node"
-        },
-        "description": {
-          "type": "string",
-          "title": "description of the node"
-        },
-        "display_name": {
-          "type": "string",
-          "title": "String representation of the node"
-        },
-        "has_error": {
-          "type": "boolean",
-          "format": "boolean",
-          "title": "if node has error"
-        },
-        "icon": {
-          "type": "string",
-          "title": "icon of the node"
-        },
-        "id": {
-          "type": "string",
-          "title": "Id of the node"
-        },
-        "key_words": {
-          "type": "string",
-          "title": "key words of the node"
-        },
-        "link": {
-          "$ref": "#/definitions/furoLink",
-          "title": "Deeplink information of this node"
-        },
-        "open": {
-          "type": "boolean",
-          "format": "boolean",
-          "title": "node open or not"
-        },
-        "subtitle": {
-          "type": "string",
-          "title": "subtitle of the node"
-        }
-      },
-      "title": "Item of the navigationtree"
+      "title": "https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto"
     }
   }
 }
