@@ -56,20 +56,35 @@ class DemoFuroInputTogether extends FBP(LitElement) {
 }</style>
             <furo-horizontal-flex>
               <furo-card>
-                <div>
-                  <furo-time-input ƒ-set-value="--time" value="01:00" step="900" hint="Step in 15 Minutes"
-                                   label="Time  field" @-value-changed="--time"></furo-time-input>
-                  <furo-color-input label="Color" value="#FEA234"></furo-color-input>
-                  <hr>
-                  <furo-range-input label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
-                                    @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
+                
+                  <furo-vertical-flex>
+                    <furo-checkbox-input hint="Hint"   label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input   hint="Hint"   label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input    hint="Hint"  label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input  hint="Hint"    label="Benutzerdefinierter "></furo-checkbox-input>
+                    <furo-checkbox-input    label="Benutzerdefinierter "></furo-checkbox-input>
+                  </furo-vertical-flex>
+                  
 
-                </div>
+                
                 <furo-horizontal-flex slot="action">
                   <furo-button primary label="primary"></furo-button>
                   <furo-button label="other"></furo-button>
 
                 </furo-horizontal-flex>
+              </furo-card>
+              
+              <furo-card>
+                <furo-form-layouter two>
+                  <furo-horizontal-flex>
+                    <furo-time-input flex  ƒ-set-value="--time" value="01:00" step="900" hint="Step in 15 Minutes"
+                                     label="Time  field" @-value-changed="--time"></furo-time-input>
+                    <furo-color-input flex  label="Color" value="#FEA234"></furo-color-input>
+                  </furo-horizontal-flex>
+                  <furo-text-input leading-icon="fingerprint" label="Owner"></furo-text-input>
+                  <furo-text-input label="Special hint"></furo-text-input>
+                  <furo-text-input label="Owner"></furo-text-input>
+                </furo-form-layouter>
               </furo-card>
 
               <furo-card>

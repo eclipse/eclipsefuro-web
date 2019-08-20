@@ -251,7 +251,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 19px 0 0 0;
+            margin: 0;
             height: 56px;
             width: 300px;
         }
