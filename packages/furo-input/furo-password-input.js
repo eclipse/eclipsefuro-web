@@ -295,8 +295,8 @@ class FuroPasswordInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
+            margin: 19px 0 0 0;
+            height: 56px;
             width: 190px;
         }
 
@@ -425,7 +425,7 @@ class FuroPasswordInput extends FBP(LitElement) {
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -467,7 +467,7 @@ class FuroPasswordInput extends FBP(LitElement) {
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -568,11 +568,10 @@ class FuroPasswordInput extends FBP(LitElement) {
 
         :host([condensed]) input{
             top:8px;
+            font-size: 14px;
         }
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
             line-height: 36px;
-        }
-        :host([condensed]) input{
             font-size: 14px;
         }
         :host([condensed][filled]) input{
@@ -587,7 +586,7 @@ class FuroPasswordInput extends FBP(LitElement) {
         }
         
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
@@ -598,11 +597,9 @@ class FuroPasswordInput extends FBP(LitElement) {
             top:-20px;
             font-size: 10px;
         } 
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
-        }
+        
         :host([condensed]){
-            height: 53px;
+            height: 36px;
         }
 
     `

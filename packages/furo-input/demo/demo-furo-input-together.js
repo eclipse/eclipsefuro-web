@@ -101,7 +101,8 @@ class DemoFuroInputTogether extends FBP(LitElement) {
                     ƒ-make-visible="--showPasswordClicked"
                     ƒ-make-invisible="--hidePasswordClicked"
             ></furo-password-input>
-
+            <furo-range-input label="Range" step="0.25" value="11" min="10" max="20" hint="Slide for a number"
+                              @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
             <furo-text-input ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
                              label="Text input field" @-value-changed="--text"></furo-text-input>
             <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
