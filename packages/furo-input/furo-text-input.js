@@ -190,7 +190,12 @@ class FuroTextInput extends FBP(LitElement) {
       condensed: {
         type: Boolean
       },
-
+      /**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */
+      filled: {
+        type: Boolean
+      },
 
     };
   }
@@ -278,7 +283,7 @@ class FuroTextInput extends FBP(LitElement) {
             position: relative;
             box-sizing: border-box;
             margin: 14px 0 0 0;
-            height: 75px;
+            height: 56px;
             width: 190px;
         }
 
@@ -448,7 +453,7 @@ class FuroTextInput extends FBP(LitElement) {
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -593,7 +598,7 @@ class FuroTextInput extends FBP(LitElement) {
         }
 
         :host([condensed]) {
-            height: 53px;
+            height: 36px;
         }
 
     `
