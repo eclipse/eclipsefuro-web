@@ -192,6 +192,12 @@ class FuroRangeInput extends FBP(LitElement) {
        */
       condensed: {
         type: Boolean
+      },
+      /**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */
+      filled: {
+        type: Boolean
       }
     };
   }

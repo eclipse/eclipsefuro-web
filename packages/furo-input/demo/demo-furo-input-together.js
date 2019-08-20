@@ -52,6 +52,7 @@ class DemoFuroInputTogether extends FBP(LitElement) {
           <template>
 <style>furo-card{
   margin: 16px;
+  width:300px;
 }</style>
             <furo-horizontal-flex>
               <furo-card>
