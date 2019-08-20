@@ -255,6 +255,20 @@ class FuroCheckboxInput extends FBP(LitElement) {
   }
 
   /**
+   * check the checkbox
+   */
+  check() {
+      this._FBPTriggerWire("--check");
+  }
+
+  /**
+   * uncheck the checkbox
+   */
+  uncheck() {
+      this._FBPTriggerWire("--uncheck");
+  }
+
+  /**
    *
    * @private
    * @return {CSSResult}
@@ -474,8 +488,9 @@ class FuroCheckboxInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <div class="wrapper">
-        <furo-checkbox id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}       
-         ƒ-toggle="--click" ƒ-focus="--click" type="checkbox" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus"></furo-checkbox>
+        <furo-checkbox type="checkbox"  id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}       
+         ƒ-toggle="--click" ƒ-focus="--click" ƒ-.value="--value" ƒ-focus="--focus"  ƒ-check="--check"  ƒ-uncheck="--uncheck" 
+         @-input="--inputInput(*)"  ></furo-checkbox>
         <label for="input"  @-click="--click"><span>${this.label}</span></label>
       </div>
       

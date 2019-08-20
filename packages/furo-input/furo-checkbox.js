@@ -143,7 +143,7 @@ class FuroCheckbox extends FBP(LitElement) {
      * toggle the checkbox
      */
     toggle() {
-        this.checked = !this.checked;
+        this.shadowRoot.getElementById("input").click();
     }
 
     static get properties() {
@@ -264,10 +264,7 @@ class FuroCheckbox extends FBP(LitElement) {
             .wrapper[focused] {
                 background-color: var(--input-checkbox-unselected-focus-bg-color, var(--surface-dark, #DDDDDD));
             }
-
-            .wrapper[checked] input ~ .checkbox-background {
-                background-color: var(--input-checkbox-unselected-focus-bg-color, var(--surface-dark, #DDDDDD) );
-            }
+            
 
             /* unselected checkbox when pressing */
             .wrapper:active {
@@ -279,7 +276,7 @@ class FuroCheckbox extends FBP(LitElement) {
             }
 
             /* selected checkbox  */
-            .wrapper[checked] input:checked ~ .checkbox-background {
+            .wrapper[checked] input ~ .checkbox-background {
                 background-color: var(--input-checkbox-selected-bg-color, var(--accent, #6200FD));
                 border-color: var(--input-checkbox-selected-bg-color, var(--accent, #6200FD));
             }
