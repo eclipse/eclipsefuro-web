@@ -52,7 +52,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
   set _value(v) {
     this._float = !!v;
-    this._FBPTriggerWire("--value", v)
+    this._FBPTriggerWire("--value", !!v)
   }
 
   set value(v){
@@ -70,11 +70,13 @@ class FuroCheckboxInput extends FBP(LitElement) {
        * set this to true to indicate errors
        */
       error: {type: Boolean, reflect: true},
+
       /**
-       * The start value. Changes will be notified with the `@-value-changed` event
+       * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+       * This is different from the native attribute `value` of the input checkbox
        */
       value: {
-        type: String
+        type: Boolean
       },
 
       /**
@@ -159,12 +161,12 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
   /**
    * Sets the value for the checkbox.
-   * @param {String} string
+   * @param {Boolean} v
    */
-  setValue(string) {
-    this._value = string;
-    this.value = string;
-    this._FBPTriggerWire("--value", string);
+  setValue(v) {
+    this._value = !!v;
+    this.value = !!v;
+    this._FBPTriggerWire("--value", !!v);
   }
 
   /**
@@ -448,9 +450,9 @@ class FuroCheckboxInput extends FBP(LitElement) {
     return html` 
       <div class="wrapper">
       
-        <furo-checkbox type="checkbox" id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}  ?checked = ${this.checked}  
-         ƒ-toggle="--toggle" ƒ-focus="--toggle" ƒ-set-value="--value" ƒ-focus="--focus"  ƒ-check="--check"  ƒ-uncheck="--uncheck"  ></furo-checkbox>
-        <label for="input"  @-click="--toggle">${this.label}</label>
+        <furo-checkbox type="checkbox" id="input"  ?checked=${this.checked}  ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}  
+         ƒ-toggle="--toggle" ƒ-set-value="--value" ƒ-focus="--focus"  ƒ-check="--check"  ƒ-uncheck="--uncheck"></furo-checkbox>
+        <label for="input"  @-click="--toggle,--focus">${this.label}</label>
         
       </div>
       

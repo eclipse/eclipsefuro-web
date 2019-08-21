@@ -48,19 +48,16 @@ class FuroCheckbox extends FBP(LitElement) {
 
     constructor() {
         super();
-        this.valid = true;
     }
 
     _FBPReady() {
         super._FBPReady();
-
-        this._value = this.value || "";
         this._FBPAddWireHook("--inputInput", (e) => {
 
             let input = e.composedPath()[0];
-            this.value = input.value;
 
-            this.checked = !this.checked;
+            this.checked = input.checked;
+            this.value   = input.checked;
 
             /**
              * @event value-changed
@@ -104,20 +101,6 @@ class FuroCheckbox extends FBP(LitElement) {
 
     }
 
-    set _value(v) {
-        this._float = !!v;
-        this._FBPTriggerWire("--value", v)
-    }
-
-    set value(v){
-        this._v = v;
-        this._value = v;
-    }
-
-    get value(){
-        return this.v;
-    }
-
     /**
      * Sets the focus on the checkbox.
      */
@@ -130,6 +113,7 @@ class FuroCheckbox extends FBP(LitElement) {
      */
     check() {
         this.checked = true;
+        this.value = true;
     }
 
     /**
@@ -137,6 +121,7 @@ class FuroCheckbox extends FBP(LitElement) {
      */
     uncheck() {
         this.checked = false;
+        this.value = false;
     }
 
     /**
@@ -147,23 +132,25 @@ class FuroCheckbox extends FBP(LitElement) {
     }
 
     /**
-     * Sets the value for the checkbox .
-     * @param {String} string
+     * Sets the value for the checkbox
+     * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+     * This is different from the native attribute `value` of the input checkbox
+     * @param {boolean} v
      */
-    setValue(string) {
-        this._value = string;
-        this.value = string;
-        this._FBPTriggerWire("--value", string)
+    setValue(v) {
+        this.value = !!v;
+        this.checked = !!v;
     }
 
     static get properties() {
         return {
 
             /**
-             * The start value. Changes will be notified with the `@-value-changed` event
+             * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+             * This is different from the native attribute `value` of the input checkbox
              */
             value: {
-                type: String
+                type: Boolean
             },
 
             /**
@@ -184,7 +171,7 @@ class FuroCheckbox extends FBP(LitElement) {
              * A Boolean attribute which, if present, means this checkbox is checked.
              */
             checked: {
-                type: Boolean
+                type: Boolean, reflect: true
             },
 
             /**
@@ -357,9 +344,9 @@ class FuroCheckbox extends FBP(LitElement) {
      */
     render(){
         return html`
-          <div id="wrapper" class="wrapper" ?focus=${this.autofocus} ?focused="${this.focused}" ?checked="${this.checked}" ?disabled="${this.disabled}">
-              <input id="input" type="checkbox" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?checked=${this.checked}
-                    ƒ-.value="--value" ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
+          <div id="wrapper" class="wrapper" ?focused=${this.focused} ?checked=${this.checked} ?disabled=${this.disabled}>
+              <input id="input" type="checkbox" ?checked=${this.checked}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
+                     ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
               <span class="checkbox-background"></span>
           </div>
         `;
