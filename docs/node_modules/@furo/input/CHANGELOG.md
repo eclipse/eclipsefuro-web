@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.52.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.52.0...@furo/input@0.52.1) (2019-08-20)
+
+
+### Bug Fixes
+
+* heights alignments ([e857b9f](https://github.com/veith/FuroBaseComponents/commit/e857b9f))
+* heights alignments ([6b1542d](https://github.com/veith/FuroBaseComponents/commit/6b1542d))
+* heights alignments ([dcca7e8](https://github.com/veith/FuroBaseComponents/commit/dcca7e8))
+* heights alignments ([fb7455e](https://github.com/veith/FuroBaseComponents/commit/fb7455e))
+* heights alignments ([e291dff](https://github.com/veith/FuroBaseComponents/commit/e291dff))
+* margins removed ([340c9be](https://github.com/veith/FuroBaseComponents/commit/340c9be))
+
+
+
+
+
+# [0.52.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.51.0...@furo/input@0.52.0) (2019-08-19)
+
+
+### Bug Fixes
+
+* layout positioning and sizes ([d209573](https://github.com/veith/FuroBaseComponents/commit/d209573))
+
+
+### Features
+
+* furo checkbox ([f13acf1](https://github.com/veith/FuroBaseComponents/commit/f13acf1))
+
+
+
+
+
 # [0.51.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.50.6...@furo/input@0.51.0) (2019-08-17)
 
 

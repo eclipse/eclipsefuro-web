@@ -1,4 +1,4 @@
-define(["exports","require"],function(_exports,_require){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$attrDefault=attr;_exports.$documentWaitDefault=documentWait;_exports.parser=_exports.$parserDefault=parser;_exports.find=_exports.$selectorDefault=baseFind;_exports.addClass=addClass;_exports.addMethodNames=addMethodNames;_exports.adopt=adopt;_exports.after=after;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.array=array;_exports.assignNewId=assignNewId;_exports.back=back;_exports.backward=backward;_exports.bbox=bbox;_exports.before=before;_exports.camelCase=camelCase;_exports.capitalize=capitalize;_exports.classes=classes;_exports.clear=clear;_exports.create=create;_exports.createScopeStyle=createScopeStyle;_exports.css$1=css$1;_exports.ctm=ctm;_exports.cx=cx;_exports.cy=cy;_exports.data=data;_exports.degrees=degrees;_exports.detectMixin=detectMixin;_exports.dispatch$1=_exports.dispatch=dispatch;_exports.eid=eid;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.extend=extend;_exports.filter=filter;_exports.find$1=find;_exports.findMatchingParen=findMatchingParen;_exports.findOne=findOne;_exports.forEachRule=forEachRule;_exports.forget=forget;_exports.forward=forward;_exports.from=from;_exports.front=front;_exports.gatherStyleText=gatherStyleText;_exports.getBuildComment=getBuildComment;_exports.getClass=getClass;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.getMethodNames=getMethodNames;_exports.getMethodsFor=getMethodsFor;_exports.getOrigin=getOrigin;_exports.getWindow=getWindow;_exports.hasClass=hasClass;_exports.height=height;_exports.height$1=height$1;_exports.hide=hide;_exports.insertAfter=insertAfter;_exports.insertBefore=insertBefore;_exports.insertNodeIntoTemplate=insertNodeIntoTemplate;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.invent=invent;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.length=length;_exports.makeInstance=makeInstance;_exports.makeMorphable$1=_exports.makeMorphable=makeMorphable;_exports.map=map;_exports.matrixify=matrixify;_exports.memory=memory;_exports.mockAdopt=mockAdopt;_exports.move=move;_exports.next=next;_exports.nodeOrNew=nodeOrNew;_exports.noop=noop;_exports.off$1=_exports.off=off;_exports.on$1=_exports.on=on;_exports.parse=parse;_exports.pathRegReplace=pathRegReplace;_exports.plain=plain;_exports.plot=plot;_exports.point=point;_exports.position=position;_exports.prev=prev;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.property$1=_exports.property=property;_exports.proportionalSize=proportionalSize;_exports.query$1=_exports.query=query;_exports.queryAll$1=_exports.queryAll=queryAll;_exports.radians=radians;_exports.rbox=rbox;_exports.register=register;_exports.registerAttrHook=registerAttrHook;_exports.registerMethods=registerMethods;_exports.registerMorphableType$1=_exports.registerMorphableType=registerMorphableType;_exports.registerWindow$1=_exports.registerWindow=registerWindow;_exports.remember=remember;_exports.removeClass=removeClass;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeNodesFromTemplate=removeNodesFromTemplate;_exports.restoreWindow=restoreWindow;_exports.rulesForStyle=rulesForStyle;_exports.rx=rx;_exports.ry=ry;_exports.saveWindow=saveWindow;_exports.screenCTM=screenCTM;_exports.setElementClassRaw=setElementClassRaw;_exports.show=show;_exports.siblings=siblings;_exports.size=size;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.templateFactory$1=_exports.templateFactory=templateFactory;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.to=to;_exports.toCssText=toCssText;_exports.toParent=toParent;_exports.toRoot=toRoot;_exports.toggleClass=toggleClass;_exports.transform=transform;_exports.unCamelCase=unCamelCase;_exports.untransform=untransform;_exports.updateNativeProperties=updateNativeProperties;_exports.visible=visible;_exports.width=width;_exports.width$1=width$1;_exports.withWindow=withWindow;_exports.wrapWithAttrCheck=wrapWithAttrCheck;_exports.x=x;_exports.x$1=x$1;_exports.y=y;_exports.y$1=y$1;_exports.Runner=_exports.$RunnerDefault=_exports.$Runner=_exports.Rect=_exports.$RectDefault=_exports.$Rect=_exports.Queue=_exports.$QueueDefault=_exports.$Queue=_exports.Polyline=_exports.$PolylineDefault=_exports.$Polyline=_exports.Polygon=_exports.$PolygonDefault=_exports.$Polygon=_exports.Point=_exports.$PointDefault=_exports.PointArray=_exports.$PointArrayDefault=_exports.$PointArray=_exports.$Point=_exports.Pattern=_exports.$PatternDefault=_exports.$Pattern=_exports.Path=_exports.$PathDefault=_exports.PathArray=_exports.$PathArrayDefault=_exports.$PathArray=_exports.$Path=_exports.Morphable=_exports.$MorphableDefault=_exports.$Morphable=_exports.Matrix=_exports.$MatrixDefault=_exports.$Matrix=_exports.Mask=_exports.$MaskDefault=_exports.$Mask=_exports.Marker=_exports.$MarkerDefault=_exports.$Marker=_exports.List=_exports.$ListDefault=_exports.$List=_exports.Line=_exports.$LineDefault=_exports.$Line=_exports.Image=_exports.$ImageDefault=_exports.$Image=_exports.Gradient=_exports.$GradientDefault=_exports.$Gradient=_exports.G=_exports.$GDefault=_exports.$G=_exports.ForeignObject=_exports.$ForeignObjectDefault=_exports.$ForeignObject=_exports.EventTarget=_exports.$EventTargetDefault=_exports.$EventTarget=_exports.Ellipse=_exports.$EllipseDefault=_exports.$Ellipse=_exports.Element=_exports.$ElementDefault=_exports.$Element=_exports.Dom=_exports.$DomDefault=_exports.$Dom=_exports.Defs=_exports.$DefsDefault=_exports.$Defs=_exports.$Controller=_exports.Container=_exports.$ContainerDefault=_exports.$Container=_exports.Color=_exports.$ColorDefault=_exports.$Color=_exports.ClipPath=_exports.$ClipPathDefault=_exports.$ClipPath=_exports.Circle=_exports.$CircleDefault=_exports.$Circle=_exports.Box=_exports.$BoxDefault=_exports.$Box=_exports.$BaseDefault=_exports.$Base=_exports.$ArrayPolyfill=_exports.Animator=_exports.$AnimatorDefault=_exports.$Animator=_exports.A=_exports.$ADefault=_exports.$A=void 0;_exports.$styling$1=_exports.$styling=_exports.$styleUtil=_exports.$styleSettings=_exports.$socialIcons=_exports.$shadyRender=_exports.$selector=_exports.$render=_exports.regex=_exports.$regex=_exports.$poly=_exports.$pointed=_exports.$placesIcons=_exports.$parts=_exports.$part=_exports.$parser=_exports.$notificationIcons=_exports.namespaces=_exports.$namespaces=_exports.$modifyTemplate=_exports.$methods=_exports.$memory=_exports.$mapsIcons=_exports.$main=_exports.$litHtml=_exports.$litElement=_exports.$imageIcons=_exports.$iconset$1=_exports.$iconset=_exports.$i18n=_exports.$hardwareIcons=_exports.$gradiented=_exports.$furo=_exports.$fbp=_exports.$event=_exports.$environment=_exports.$editorIcons=_exports.$dom=_exports.$documentWait=_exports.$directive=_exports.$deviceIcons=_exports.defaults=_exports.$defaults=_exports.$defaultTemplateProcessor=_exports.$decorators=_exports.$data=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface=_exports.$cssTag=_exports.$cssParse=_exports.$css=_exports.$communicationIcons=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$circled=_exports.$baseIcons=_exports.$avIcons=_exports.$attr=_exports.$arrange=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$adopter=_exports.Use=_exports.$UseDefault=_exports.$Use=_exports.Tspan=_exports.$TspanDefault=_exports.$Tspan=_exports.Timeline=_exports.$TimelineDefault=_exports.$Timeline=_exports.TextPath=_exports.$TextPathDefault=_exports.$TextPath=_exports.Text=_exports.$TextDefault=_exports.$Text=_exports.Symbol=_exports.$SymbolDefault=_exports.$Symbol=_exports.Svg=_exports.$SvgDefault=_exports.$Svg=_exports.Style=_exports.$StyleDefault=_exports.$Style=_exports.Stop=_exports.$StopDefault=_exports.$Stop=_exports.Shape=_exports.$ShapeDefault=_exports.$Shape=_exports.Number=_exports.$SVGNumberDefault=_exports.$SVGNumber=_exports.Array=_exports.$SVGArrayDefault=_exports.$SVGArray=void 0;_exports.UpdatingElement$1=_exports.UpdatingElement=_exports.TransformBag$1=_exports.TransformBag=_exports.Theme$1=_exports.Theme=_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=_exports.TemplateInstance$1=_exports.TemplateInstance=_exports.Template$1=_exports.Template=_exports.Sys$1=_exports.Sys=_exports.Styling$1=_exports.Styling=_exports.StyleNode=_exports.Stepper=_exports.Spring$1=_exports.Spring=_exports.SocialIcons=_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=_exports.SVG=_exports.PropertyPart$1=_exports.PropertyPart=_exports.PropertyCommitter$1=_exports.PropertyCommitter=_exports.PlacesIcons=_exports.PID$1=_exports.PID=_exports.ObjectBag$1=_exports.ObjectBag=_exports.NotificationIcons=_exports.NonMorphable$1=_exports.NonMorphable=_exports.NodePart$1=_exports.NodePart=_exports.MorphArray=_exports.MapsIcons=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.LitElement=_exports.Init$1=_exports.Init=_exports.ImageIcons=_exports.Iconset$1=_exports.Iconset=_exports.IS_VAR=_exports.HardwareIcons=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.FuroDocIcons=_exports.FuroBaseIcons=_exports.FBP=_exports.EventPart$1=_exports.EventPart=_exports.Env$1=_exports.Env=_exports.EditorIcons=_exports.Ease$1=_exports.Ease=_exports.DeviceIcons=_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.Controller$1=_exports.Controller=_exports.CommunicationIcons=_exports.CSSResult$1=_exports.CSSResult=_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=_exports.BRACKETED=_exports.AvIcons=_exports.AttributePart$1=_exports.AttributePart=_exports.AttributeCommitter$1=_exports.AttributeCommitter=_exports.ANIMATION_MATCH=_exports.$window=_exports.utils=_exports.$utils=_exports.$updatingElement=_exports.$unscopedStyleHandler=_exports.$unsafeHtml=_exports.$transform=_exports.$theme=_exports.$textable=_exports.$templateResult=_exports.$templateMapDefault=_exports.$templateMap=_exports.$templateInstance=_exports.$templateFactory=_exports.$template=_exports.$system=void 0;_exports.xmlns=_exports.xlink=_exports.wrap=_exports.whitespace=_exports.unsafeHTML=_exports.unsafeCSS$1=_exports.unsafeCSS=_exports.types=_exports.transforms=_exports.timeline=_exports.templateCaches$1=_exports.templateCaches=_exports.svgjs=_exports.svg$2=_exports.svg$1=_exports.svg=_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=_exports.subClassArray=_exports.scopingAttribute=_exports.root=_exports.rgb=_exports.reparentNodes$1=_exports.reparentNodes=_exports.render$1=_exports.render$2=_exports.render=_exports.removeNodes$1=_exports.removeNodes=_exports.reference=_exports.pathLetters=_exports.parts$1=_exports.parts=_exports.numbersWithDots=_exports.numberAndUnit=_exports.ns=_exports.nothing$1=_exports.nothing=_exports.notEqual$1=_exports.notEqual=_exports.nodeMarker=_exports.noChange$1=_exports.noChange=_exports.nativeShadow=_exports.nativeCssVariables=_exports.markerRegex=_exports.marker=_exports.lastAttributeNameRegex=_exports.isTemplatePartActive$1=_exports.isTemplatePartActive=_exports.isRgb=_exports.isPrimitive$1=_exports.isPrimitive=_exports.isPercent=_exports.isPathLetter=_exports.isNumber=_exports.isIterable$1=_exports.isIterable=_exports.isImage=_exports.isHex=_exports.isDirective$1=_exports.isDirective=_exports.isCss=_exports.isCEPolyfill=_exports.isBlank=_exports.i18n$1=_exports.i18n=_exports.hyphen=_exports.html$2=_exports.html$1=_exports.html=_exports.hex=_exports.globals=_exports.eventOptions$1=_exports.eventOptions=_exports.easing$1=_exports.easing=_exports.dots=_exports.disableRuntime=_exports.directive$1=_exports.directive=_exports.delimiter=_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=_exports.defaultConverter$1=_exports.defaultConverter=_exports.customElement$1=_exports.customElement=_exports.cssBuild=_exports.css$2=_exports.css=_exports.createMarker$1=_exports.createMarker=_exports.boundAttributeSuffix=_exports.attrs=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=void 0;_require=babelHelpers.interopRequireWildcard(_require);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){keys.push.apply(keys,Object.getOwnPropertySymbols(object))}if(enumerableOnly)keys=keys.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});return keys}function _objectSpread(target){for(var i=1,source;i<arguments.length;i++){source=null!=arguments[i]?arguments[i]:{};if(i%2){ownKeys(source,!0).forEach(function(key){babelHelpers.defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}const FuroDocIcons={github:"<g><path d=\"M12,2C6.48,2,2,6.59,2,12.25c0,4.53,2.87,8.37,6.84,9.73c0.5,0.09,0.68-0.22,0.68-0.49c0-0.24-0.01-0.89-0.01-1.74c-2.78,0.62-3.37-1.37-3.37-1.37c-0.45-1.18-1.11-1.5-1.11-1.5c-0.91-0.64,0.07-0.62,0.07-0.62c1,0.07,1.53,1.06,1.53,1.06c0.89,1.57,2.34,1.11,2.91,0.85c0.09-0.66,0.35-1.11,0.63-1.37c-2.22-0.26-4.56-1.14-4.56-5.07c0-1.12,0.39-2.03,1.03-2.75c-0.1-0.26-0.45-1.3,0.1-2.71c0,0,0.84-0.28,2.75,1.05c0.8-0.23,1.65-0.34,2.5-0.34c0.85,0,1.7,0.12,2.5,0.34c1.91-1.33,2.75-1.05,2.75-1.05c0.55,1.41,0.2,2.45,0.1,2.71c0.64,0.72,1.03,1.63,1.03,2.75c0,3.94-2.34,4.81-4.57,5.06c0.36,0.32,0.68,0.94,0.68,1.9c0,1.37-0.01,2.48-0.01,2.81c0,0.27,0.18,0.59,0.69,0.49c3.97-1.36,6.83-5.2,6.83-9.73C22,6.59,17.52,2,12,2\"></path></g>"};_exports.FuroDocIcons=FuroDocIcons;var iconset={FuroDocIcons:FuroDocIcons};/**
+define(["exports","require"],function(_exports,_require){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$attrDefault=attr;_exports.$documentWaitDefault=documentWait;_exports.parser=_exports.$parserDefault=parser;_exports.find=_exports.$selectorDefault=baseFind;_exports.addClass=addClass;_exports.addMethodNames=addMethodNames;_exports.adopt=adopt;_exports.after=after;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.array=array;_exports.assignNewId=assignNewId;_exports.back=back;_exports.backward=backward;_exports.bbox=bbox;_exports.before=before;_exports.camelCase=camelCase;_exports.capitalize=capitalize;_exports.classes=classes;_exports.clear=clear;_exports.create=create;_exports.createScopeStyle=createScopeStyle;_exports.css$1=css$1;_exports.ctm=ctm;_exports.cx=cx;_exports.cy=cy;_exports.data=data;_exports.degrees=degrees;_exports.detectMixin=detectMixin;_exports.dispatch$1=_exports.dispatch=dispatch;_exports.eid=eid;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.extend=extend;_exports.filter=filter;_exports.find$1=find;_exports.findMatchingParen=findMatchingParen;_exports.findOne=findOne;_exports.forEachRule=forEachRule;_exports.forget=forget;_exports.forward=forward;_exports.from=from;_exports.front=front;_exports.gatherStyleText=gatherStyleText;_exports.getBuildComment=getBuildComment;_exports.getClass=getClass;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.getMethodNames=getMethodNames;_exports.getMethodsFor=getMethodsFor;_exports.getOrigin=getOrigin;_exports.getWindow=getWindow;_exports.hasClass=hasClass;_exports.height=height;_exports.height$1=height$1;_exports.hide=hide;_exports.insertAfter=insertAfter;_exports.insertBefore=insertBefore;_exports.insertNodeIntoTemplate=insertNodeIntoTemplate;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.invent=invent;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.length=length;_exports.makeInstance=makeInstance;_exports.makeMorphable$1=_exports.makeMorphable=makeMorphable;_exports.map=map;_exports.matrixify=matrixify;_exports.memory=memory;_exports.mockAdopt=mockAdopt;_exports.move=move;_exports.next=next;_exports.nodeOrNew=nodeOrNew;_exports.noop=noop;_exports.off$1=_exports.off=off;_exports.on$1=_exports.on=on;_exports.parse=parse;_exports.pathRegReplace=pathRegReplace;_exports.plain=plain;_exports.plot=plot;_exports.point=point;_exports.position=position;_exports.prev=prev;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.property$1=_exports.property=property;_exports.proportionalSize=proportionalSize;_exports.query$1=_exports.query=query;_exports.queryAll$1=_exports.queryAll=queryAll;_exports.radians=radians;_exports.rbox=rbox;_exports.register=register;_exports.registerAttrHook=registerAttrHook;_exports.registerMethods=registerMethods;_exports.registerMorphableType$1=_exports.registerMorphableType=registerMorphableType;_exports.registerWindow$1=_exports.registerWindow=registerWindow;_exports.remember=remember;_exports.removeClass=removeClass;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeNodesFromTemplate=removeNodesFromTemplate;_exports.restoreWindow=restoreWindow;_exports.rulesForStyle=rulesForStyle;_exports.rx=rx;_exports.ry=ry;_exports.saveWindow=saveWindow;_exports.screenCTM=screenCTM;_exports.setElementClassRaw=setElementClassRaw;_exports.show=show;_exports.siblings=siblings;_exports.size=size;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.templateFactory$1=_exports.templateFactory=templateFactory;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.to=to;_exports.toCssText=toCssText;_exports.toParent=toParent;_exports.toRoot=toRoot;_exports.toggleClass=toggleClass;_exports.transform=transform;_exports.unCamelCase=unCamelCase;_exports.untransform=untransform;_exports.updateNativeProperties=updateNativeProperties;_exports.visible=visible;_exports.width=width;_exports.width$1=width$1;_exports.withWindow=withWindow;_exports.wrapWithAttrCheck=wrapWithAttrCheck;_exports.x=x;_exports.x$1=x$1;_exports.y=y;_exports.y$1=y$1;_exports.Runner=_exports.$RunnerDefault=_exports.$Runner=_exports.Rect=_exports.$RectDefault=_exports.$Rect=_exports.Queue=_exports.$QueueDefault=_exports.$Queue=_exports.Polyline=_exports.$PolylineDefault=_exports.$Polyline=_exports.Polygon=_exports.$PolygonDefault=_exports.$Polygon=_exports.Point=_exports.$PointDefault=_exports.PointArray=_exports.$PointArrayDefault=_exports.$PointArray=_exports.$Point=_exports.Pattern=_exports.$PatternDefault=_exports.$Pattern=_exports.Path=_exports.$PathDefault=_exports.PathArray=_exports.$PathArrayDefault=_exports.$PathArray=_exports.$Path=_exports.Morphable=_exports.$MorphableDefault=_exports.$Morphable=_exports.Matrix=_exports.$MatrixDefault=_exports.$Matrix=_exports.Mask=_exports.$MaskDefault=_exports.$Mask=_exports.Marker=_exports.$MarkerDefault=_exports.$Marker=_exports.List=_exports.$ListDefault=_exports.$List=_exports.Line=_exports.$LineDefault=_exports.$Line=_exports.Image=_exports.$ImageDefault=_exports.$Image=_exports.Gradient=_exports.$GradientDefault=_exports.$Gradient=_exports.G=_exports.$GDefault=_exports.$G=_exports.ForeignObject=_exports.$ForeignObjectDefault=_exports.$ForeignObject=_exports.EventTarget=_exports.$EventTargetDefault=_exports.$EventTarget=_exports.Ellipse=_exports.$EllipseDefault=_exports.$Ellipse=_exports.Element=_exports.$ElementDefault=_exports.$Element=_exports.Dom=_exports.$DomDefault=_exports.$Dom=_exports.Defs=_exports.$DefsDefault=_exports.$Defs=_exports.$Controller=_exports.Container=_exports.$ContainerDefault=_exports.$Container=_exports.Color=_exports.$ColorDefault=_exports.$Color=_exports.ClipPath=_exports.$ClipPathDefault=_exports.$ClipPath=_exports.Circle=_exports.$CircleDefault=_exports.$Circle=_exports.Box=_exports.$BoxDefault=_exports.$Box=_exports.$BaseDefault=_exports.$Base=_exports.$ArrayPolyfill=_exports.Animator=_exports.$AnimatorDefault=_exports.$Animator=_exports.A=_exports.$ADefault=_exports.$A=void 0;_exports.$styling=_exports.$styleUtil=_exports.$styleSettings=_exports.$socialIcons=_exports.$shadyRender=_exports.$selector=_exports.$render=_exports.regex=_exports.$regex=_exports.$poly=_exports.$pointed=_exports.$placesIcons=_exports.$parts=_exports.$part=_exports.$parser=_exports.$notificationIcons=_exports.namespaces=_exports.$namespaces=_exports.$modifyTemplate=_exports.$methods=_exports.$memory=_exports.$mapsIcons=_exports.$main=_exports.$litHtml=_exports.$litElement=_exports.$imageIcons=_exports.$iconset$1=_exports.$iconset=_exports.$i18n=_exports.$hardwareIcons=_exports.$gradiented=_exports.$furo=_exports.$fbp=_exports.$event=_exports.$environment=_exports.$editorIcons=_exports.$dom=_exports.$documentWait=_exports.$directive=_exports.$deviceIcons=_exports.defaults=_exports.$defaults=_exports.$defaultTemplateProcessor=_exports.$decorators=_exports.$dataEnvironment=_exports.$data=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface=_exports.$cssTag=_exports.$cssParse=_exports.$css=_exports.$communicationIcons=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$circled=_exports.$baseIcons=_exports.$avIcons=_exports.$attr=_exports.$arrange=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$adopter=_exports.Use=_exports.$UseDefault=_exports.$Use=_exports.Tspan=_exports.$TspanDefault=_exports.$Tspan=_exports.Timeline=_exports.$TimelineDefault=_exports.$Timeline=_exports.TextPath=_exports.$TextPathDefault=_exports.$TextPath=_exports.Text=_exports.$TextDefault=_exports.$Text=_exports.Symbol=_exports.$SymbolDefault=_exports.$Symbol=_exports.Svg=_exports.$SvgDefault=_exports.$Svg=_exports.Style=_exports.$StyleDefault=_exports.$Style=_exports.Stop=_exports.$StopDefault=_exports.$Stop=_exports.Shape=_exports.$ShapeDefault=_exports.$Shape=_exports.Number=_exports.$SVGNumberDefault=_exports.$SVGNumber=_exports.Array=_exports.$SVGArrayDefault=_exports.$SVGArray=void 0;_exports.TransformBag$1=_exports.TransformBag=_exports.Theme$1=_exports.Theme=_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=_exports.TemplateInstance$1=_exports.TemplateInstance=_exports.Template$1=_exports.Template=_exports.Sys$1=_exports.Sys=_exports.Styling$1=_exports.Styling=_exports.StyleNode=_exports.Stepper=_exports.Spring$1=_exports.Spring=_exports.SocialIcons=_exports.Services=_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=_exports.SVG=_exports.PropertyPart$1=_exports.PropertyPart=_exports.PropertyCommitter$1=_exports.PropertyCommitter=_exports.PlacesIcons=_exports.PID$1=_exports.PID=_exports.ObjectBag$1=_exports.ObjectBag=_exports.NotificationIcons=_exports.NonMorphable$1=_exports.NonMorphable=_exports.NodePart$1=_exports.NodePart=_exports.MorphArray=_exports.MapsIcons=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.LitElement=_exports.Init$1=_exports.Init=_exports.ImageIcons=_exports.Iconset$1=_exports.Iconset=_exports.IS_VAR=_exports.HardwareIcons=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.FuroDocIcons=_exports.FuroBaseIcons=_exports.FBP=_exports.EventPart$1=_exports.EventPart=_exports.Env$1=_exports.Env=_exports.EditorIcons=_exports.Ease$1=_exports.Ease=_exports.DeviceIcons=_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.Controller$1=_exports.Controller=_exports.CommunicationIcons=_exports.CSSResult$1=_exports.CSSResult=_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=_exports.BRACKETED=_exports.AvIcons=_exports.AttributePart$1=_exports.AttributePart=_exports.AttributeCommitter$1=_exports.AttributeCommitter=_exports.ANIMATION_MATCH=_exports.$window=_exports.utils=_exports.$utils=_exports.$updatingElement=_exports.$unscopedStyleHandler=_exports.$unsafeHtml=_exports.$transform=_exports.$theme=_exports.$textable=_exports.$templateResult=_exports.$templateMapDefault=_exports.$templateMap=_exports.$templateInstance=_exports.$templateFactory=_exports.$template=_exports.$system=_exports.$styling$1=void 0;_exports.xmlns=_exports.xlink=_exports.wrap=_exports.whitespace=_exports.unsafeHTML=_exports.unsafeCSS$1=_exports.unsafeCSS=_exports.types=_exports.transforms=_exports.timeline=_exports.templateCaches$1=_exports.templateCaches=_exports.svgjs=_exports.svg$2=_exports.svg$1=_exports.svg=_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=_exports.subClassArray=_exports.scopingAttribute=_exports.root=_exports.rgb=_exports.reparentNodes$1=_exports.reparentNodes=_exports.render$1=_exports.render$2=_exports.render=_exports.removeNodes$1=_exports.removeNodes=_exports.reference=_exports.pathLetters=_exports.parts$1=_exports.parts=_exports.numbersWithDots=_exports.numberAndUnit=_exports.ns=_exports.nothing$1=_exports.nothing=_exports.notEqual$1=_exports.notEqual=_exports.nodeMarker=_exports.noChange$1=_exports.noChange=_exports.nativeShadow=_exports.nativeCssVariables=_exports.markerRegex=_exports.marker=_exports.lastAttributeNameRegex=_exports.isTemplatePartActive$1=_exports.isTemplatePartActive=_exports.isRgb=_exports.isPrimitive$1=_exports.isPrimitive=_exports.isPercent=_exports.isPathLetter=_exports.isNumber=_exports.isIterable$1=_exports.isIterable=_exports.isImage=_exports.isHex=_exports.isDirective$1=_exports.isDirective=_exports.isCss=_exports.isCEPolyfill=_exports.isBlank=_exports.i18n$1=_exports.i18n=_exports.hyphen=_exports.html$2=_exports.html$1=_exports.html=_exports.hex=_exports.globals=_exports.eventOptions$1=_exports.eventOptions=_exports.easing$1=_exports.easing=_exports.dots=_exports.disableRuntime=_exports.directive$1=_exports.directive=_exports.delimiter=_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=_exports.defaultConverter$1=_exports.defaultConverter=_exports.customElement$1=_exports.customElement=_exports.cssBuild=_exports.css$2=_exports.css=_exports.createMarker$1=_exports.createMarker=_exports.boundAttributeSuffix=_exports.attrs=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.UpdatingElement$1=_exports.UpdatingElement=_exports.Types=void 0;_require=babelHelpers.interopRequireWildcard(_require);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){keys.push.apply(keys,Object.getOwnPropertySymbols(object))}if(enumerableOnly)keys=keys.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});return keys}function _objectSpread(target){for(var i=1,source;i<arguments.length;i++){source=null!=arguments[i]?arguments[i]:{};if(i%2){ownKeys(source,!0).forEach(function(key){babelHelpers.defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}const FuroDocIcons={github:"<g><path d=\"M12,2C6.48,2,2,6.59,2,12.25c0,4.53,2.87,8.37,6.84,9.73c0.5,0.09,0.68-0.22,0.68-0.49c0-0.24-0.01-0.89-0.01-1.74c-2.78,0.62-3.37-1.37-3.37-1.37c-0.45-1.18-1.11-1.5-1.11-1.5c-0.91-0.64,0.07-0.62,0.07-0.62c1,0.07,1.53,1.06,1.53,1.06c0.89,1.57,2.34,1.11,2.91,0.85c0.09-0.66,0.35-1.11,0.63-1.37c-2.22-0.26-4.56-1.14-4.56-5.07c0-1.12,0.39-2.03,1.03-2.75c-0.1-0.26-0.45-1.3,0.1-2.71c0,0,0.84-0.28,2.75,1.05c0.8-0.23,1.65-0.34,2.5-0.34c0.85,0,1.7,0.12,2.5,0.34c1.91-1.33,2.75-1.05,2.75-1.05c0.55,1.41,0.2,2.45,0.1,2.71c0.64,0.72,1.03,1.63,1.03,2.75c0,3.94-2.34,4.81-4.57,5.06c0.36,0.32,0.68,0.94,0.68,1.9c0,1.37-0.01,2.48-0.01,2.81c0,0.27,0.18,0.59,0.69,0.49c3.97-1.36,6.83-5.2,6.83-9.73C22,6.59,17.52,2,12,2\"></path></g>"};_exports.FuroDocIcons=FuroDocIcons;var iconset={FuroDocIcons:FuroDocIcons};/**
     * @license
     * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
     * This code may only be used under the BSD style license found at
@@ -1132,6 +1132,15 @@ return Theme.getThemeForComponent(this.name)||css`
         :host([hidden]) {
             display: none;
         }
+        
+        
+        :host([space]) ::slotted(*:not(:first-child)) {
+            margin-left:   var(--spacing-xs, 8px);
+        }      
+        
+        :host([space]) ::slotted(*:not(:last-child)) {
+            margin-right:  var(--spacing-xs, 8px);
+        }
 
     `}/**
      * @private
@@ -1304,35 +1313,104 @@ return Theme.getThemeForComponent(this.name)||css`
      */render(){// language=HTML
 return html`
       <slot></slot>
-    `}}window.customElements.define("furo-loading-indicator-bar",FuroLoadingIndicatorBar);class FuroCard extends FBP(LitElement){/**
-   *
+    `}}window.customElements.define("furo-loading-indicator-bar",FuroLoadingIndicatorBar);/**
+                                                                                      * `furo-card`
+                                                                                      * todo Describe your element
+                                                                                      *
+                                                                                      * @summary todo shortdescription
+                                                                                      * @customElement
+                                                                                      * @demo demo-furo-card
+                                                                                      * @appliesMixin FBP
+                                                                                      */class FuroCard extends FBP(LitElement){/**
    * @private
-   * @return {CSSResult}
-   */static get styles(){// language=CSS
+   * @return {Object}
+   */static get properties(){return{/**
+       * Main title
+       */title:{type:String},secondaryText:{type:String,attribute:"secondary-text"},hasaction:{type:Boolean,reflect:!0},hasmedia:{type:Boolean,reflect:!0}}}constructor(){super();this.hasaction=0<this.querySelectorAll("*[slot=\"action\"]").length;this.hasmedia=0<this.querySelectorAll("*[slot=\"media\"]").length}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
 return Theme.getThemeForComponent(this.name)||css`
         :host {
             display: block;
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
             0 1px 5px 0 rgba(0, 0, 0, 0.12),
             0 3px 1px -2px rgba(0, 0, 0, 0.2);
-
+            --furo-button-padding: var(--spacing-xs, 8px);
             background: var(--furo-card-background, white);
-            padding: var(--furo-card-padding, 12px);
+            padding-bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
             margin: var(--furo-card-margin, 0);
             box-sizing: border-box;
-            height: var(--furo-card-height, unset);
             position: relative;
+            border-radius: 4px;
+            font-size: 14px;
+            letter-spacing: 0.1px;
         }
+
 
         :host([hidden]) {
             display: none;
         }
-        .action{
+
+        :host([hasaction]) .content {
+            padding-bottom: 44px;
+        }
+
+
+        /** no padding-top on .content if title is set **/
+        :host([title]) .content {
+            padding-top: 0;
+        }
+        
+        /** set padding-top on .content if media is present **/
+        :host([title][hasmedia]) .content {
+            padding-top: var(--furo-card-padding, var(--spacing-s, 16px));
+        }
+        
+        .content {
+            padding: var(--furo-card-padding, var(--spacing-s, 16px));
+        }
+
+        .action {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right:0;
-            border-top: 1px solid var(--separator);
+            bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
+            left: var(--furo-card-padding, var(--spacing-xs, 8px));
+            right: var(--furo-card-padding, var(--spacing-xs, 8px));
+
+        }
+
+
+        :host([title]) .head {
+            display: block;
+        }
+
+        .head {
+            display: none;
+            padding: var(--spacing-s, 16px);
+        }
+
+        .head span {
+            color: var(--secondary-color, var(--on-primary-light,#777777));
+            line-height: 22px;
+        }
+
+        h1 {
+            font-size: 24px;
+            line-height: 24px;
+            letter-spacing: 0;
+            margin: 0;
+            font-weight: normal;
+            margin-bottom: 4px;
+        }
+
+        :host([title]) .media ::slotted(*) {
+            border-radius: 0;
+        }
+
+        .media ::slotted(*) {
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
         }
 
     `}/**
@@ -1340,7 +1418,16 @@ return Theme.getThemeForComponent(this.name)||css`
      * @returns {TemplateResult}
      */render(){// language=HTML
 return html`
+        <div class="head">
+          <h1>${this.title}</h1>
+        <span>${this.secondaryText}</span>  
+        </div>
+      <div class="media">
+      <slot name="media"></slot>
+      </div>
+      <div class="content">
       <slot></slot>
+      </div>
       <div class="action">
         <slot name="action"></slot>
       </div>
@@ -1568,13 +1655,13 @@ return html`
         </a>
       </furo-horizontal-flex>
       <furo-location @-location-changed="--pathChanged"></furo-location>
-    `}}window.customElements.define("header-toolbar",HeaderToolbar);/**
-                                                                * Maps Icons
-                                                                * This is a set of the 24x24 icons from https://github.com/google/material-design-icons.
-                                                                *
-                                                                * The set correspondents with the set of @polymer/iron-icons/maps-icons
-                                                                *
-                                                                */const MapsIcons={"add-location":"<g><path d=\"M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm4 8h-3v3h-2v-3H8V8h3V5h2v3h3v2z\"></path></g>",beenhere:"<g><path d=\"M19 1H5c-1.1 0-1.99.9-1.99 2L3 15.93c0 .69.35 1.3.88 1.66L12 23l8.11-5.41c.53-.36.88-.97.88-1.66L21 3c0-1.1-.9-2-2-2zm-9 15l-5-5 1.41-1.41L10 13.17l7.59-7.59L19 7l-9 9z\"></path></g>",directions:"<g><path d=\"M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z\"></path></g>","directions-bike":"<g><path d=\"M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z\"></path></g>","directions-boat":"<g><path d=\"M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zM3.95 19H4c1.6 0 3.02-.88 4-2 .98 1.12 2.4 2 4 2s3.02-.88 4-2c.98 1.12 2.4 2 4 2h.05l1.89-6.68c.08-.26.06-.54-.06-.78s-.34-.42-.6-.5L20 10.62V6c0-1.1-.9-2-2-2h-3V1H9v3H6c-1.1 0-2 .9-2 2v4.62l-1.29.42c-.26.08-.48.26-.6.5s-.15.52-.06.78L3.95 19zM6 6h12v3.97L12 8 6 9.97V6z\"></path></g>","directions-bus":"<g><path d=\"M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z\"></path></g>","directions-car":"<g><path d=\"M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z\"></path></g>","directions-railway":"<g><path d=\"M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zm8 1.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6-7H6V5h12v5z\"></path></g>","directions-run":"<g><path d=\"M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z\"></path></g>","directions-subway":"<g><path d=\"M12 2c-4.42 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-6H6V6h5v5zm5.5 6c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6h-5V6h5v5z\"></path></g>","directions-transit":"<g><path d=\"M12 2c-4.42 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-6H6V6h5v5zm5.5 6c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6h-5V6h5v5z\"></path></g>","directions-walk":"<g><path d=\"M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7\"></path></g>","edit-location":"<g><path d=\"M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm-1.56 10H9v-1.44l3.35-3.34 1.43 1.43L10.44 12zm4.45-4.45l-.7.7-1.44-1.44.7-.7c.15-.15.39-.15.54 0l.9.9c.15.15.15.39 0 .54z\"></path></g>","ev-station":"<g><path d=\"M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM18 10c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zM8 18v-4.5H6L10 6v5h2l-4 7z\"></path></g>",flight:"<g><path d=\"M10.18 9\"></path><path d=\"M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z\"></path></g>",hotel:"<g><path d=\"M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z\"></path></g>",layers:"<g><path d=\"M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z\"></path></g>","layers-clear":"<g><path d=\"M19.81 14.99l1.19-.92-1.43-1.43-1.19.92 1.43 1.43zm-.45-4.72L21 9l-9-7-2.91 2.27 7.87 7.88 2.4-1.88zM3.27 1L2 2.27l4.22 4.22L3 9l1.63 1.27L12 16l2.1-1.63 1.43 1.43L12 18.54l-7.37-5.73L3 14.07l9 7 4.95-3.85L20.73 21 22 19.73 3.27 1z\"></path></g>","local-activity":"<g><path d=\"M20 12c0-1.1.9-2 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-1.99.9-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2zm-4.42 4.8L12 14.5l-3.58 2.3 1.08-4.12-3.29-2.69 4.24-.25L12 5.8l1.54 3.95 4.24.25-3.29 2.69 1.09 4.11z\"></path></g>","local-airport":"<g><path d=\"M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z\"></path></g>","local-atm":"<g><path d=\"M11 17h2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1h-3v-1h4V8h-2V7h-2v1h-1c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h3v1H9v2h2v1zm9-13H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4V6h16v12z\"></path></g>","local-bar":"<g><path d=\"M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z\"></path></g>","local-cafe":"<g><path d=\"M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM2 21h18v-2H2v2z\"></path></g>","local-car-wash":"<g><path d=\"M17 5c.83 0 1.5-.67 1.5-1.5 0-1-1.5-2.7-1.5-2.7s-1.5 1.7-1.5 2.7c0 .83.67 1.5 1.5 1.5zm-5 0c.83 0 1.5-.67 1.5-1.5 0-1-1.5-2.7-1.5-2.7s-1.5 1.7-1.5 2.7c0 .83.67 1.5 1.5 1.5zM7 5c.83 0 1.5-.67 1.5-1.5C8.5 2.5 7 .8 7 .8S5.5 2.5 5.5 3.5C5.5 4.33 6.17 5 7 5zm11.92 3.01C18.72 7.42 18.16 7 17.5 7h-11c-.66 0-1.21.42-1.42 1.01L3 14v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 18c-.83 0-1.5-.67-1.5-1.5S5.67 15 6.5 15s1.5.67 1.5 1.5S7.33 18 6.5 18zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 13l1.5-4.5h11L19 13H5z\"></path></g>","local-convenience-store":"<g><path d=\"M19 7V4H5v3H2v13h8v-4h4v4h8V7h-3zm-8 3H9v1h2v1H8V9h2V8H8V7h3v3zm5 2h-1v-2h-2V7h1v2h1V7h1v5z\"></path></g>","local-dining":"<g><path d=\"M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z\"></path></g>","local-drink":"<g><path d=\"M3 2l2.01 18.23C5.13 21.23 5.97 22 7 22h10c1.03 0 1.87-.77 1.99-1.77L21 2H3zm9 17c-1.66 0-3-1.34-3-3 0-2 3-5.4 3-5.4s3 3.4 3 5.4c0 1.66-1.34 3-3 3zm6.33-11H5.67l-.44-4h13.53l-.43 4z\"></path></g>","local-florist":"<g><path d=\"M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z\"></path></g>","local-gas-station":"<g><path d=\"M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM12 10H6V5h6v5zm6 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z\"></path></g>","local-grocery-store":"<g><path d=\"M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z\"></path></g>","local-hospital":"<g><path d=\"M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z\"></path></g>","local-hotel":"<g><path d=\"M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z\"></path></g>","local-laundry-service":"<g><path d=\"M9.17 16.83c1.56 1.56 4.1 1.56 5.66 0 1.56-1.56 1.56-4.1 0-5.66l-5.66 5.66zM18 2.01L6 2c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V4c0-1.11-.89-1.99-2-1.99zM10 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM7 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm5 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z\"></path></g>","local-library":"<g><path d=\"M12 11.55C9.64 9.35 6.48 8 3 8v11c3.48 0 6.64 1.35 9 3.55 2.36-2.19 5.52-3.55 9-3.55V8c-3.48 0-6.64 1.35-9 3.55zM12 8c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z\"></path></g>","local-mall":"<g><path d=\"M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm0 10c-2.76 0-5-2.24-5-5h2c0 1.66 1.34 3 3 3s3-1.34 3-3h2c0 2.76-2.24 5-5 5z\"></path></g>","local-movies":"<g><path d=\"M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z\"></path></g>","local-offer":"<g><path d=\"M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z\"></path></g>","local-parking":"<g><path d=\"M13 3H6v18h4v-6h3c3.31 0 6-2.69 6-6s-2.69-6-6-6zm.2 8H10V7h3.2c1.1 0 2 .9 2 2s-.9 2-2 2z\"></path></g>","local-pharmacy":"<g><path d=\"M21 5h-2.64l1.14-3.14L17.15 1l-1.46 4H3v2l2 6-2 6v2h18v-2l-2-6 2-6V5zm-5 9h-3v3h-2v-3H8v-2h3V9h2v3h3v2z\"></path></g>","local-phone":"<g><path d=\"M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z\"></path></g>","local-pizza":"<g><path d=\"M12 2C8.43 2 5.23 3.54 3.01 6L12 22l8.99-16C18.78 3.55 15.57 2 12 2zM7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm5 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z\"></path></g>","local-play":"<g><path d=\"M20 12c0-1.1.9-2 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-1.99.9-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2zm-4.42 4.8L12 14.5l-3.58 2.3 1.08-4.12-3.29-2.69 4.24-.25L12 5.8l1.54 3.95 4.24.25-3.29 2.69 1.09 4.11z\"></path></g>","local-post-office":"<g><path d=\"M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z\"></path></g>","local-printshop":"<g><path d=\"M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z\"></path></g>","local-see":"<g><circle cx=\"12\" cy=\"12\" r=\"3.2\"></circle><path d=\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\"></path></g>","local-shipping":"<g><path d=\"M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z\"></path></g>","local-taxi":"<g><path d=\"M18.92 6.01C18.72 5.42 18.16 5 17.5 5H15V3H9v2H6.5c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z\"></path></g>",map:"<g><path d=\"M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z\"></path></g>","my-location":"<g><path d=\"M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z\"></path></g>",navigation:"<g><path d=\"M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z\"></path></g>","near-me":"<g><path d=\"M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z\"></path></g>","person-pin":"<g><path d=\"M19 2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 3.3c1.49 0 2.7 1.21 2.7 2.7 0 1.49-1.21 2.7-2.7 2.7-1.49 0-2.7-1.21-2.7-2.7 0-1.49 1.21-2.7 2.7-2.7zM18 16H6v-.9c0-2 4-3.1 6-3.1s6 1.1 6 3.1v.9z\"></path></g>","person-pin-circle":"<g><path d=\"M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 2c1.1 0 2 .9 2 2 0 1.11-.9 2-2 2s-2-.89-2-2c0-1.1.9-2 2-2zm0 10c-1.67 0-3.14-.85-4-2.15.02-1.32 2.67-2.05 4-2.05s3.98.73 4 2.05c-.86 1.3-2.33 2.15-4 2.15z\"></path></g>","pin-drop":"<g><path d=\"M18 8c0-3.31-2.69-6-6-6S6 4.69 6 8c0 4.5 6 11 6 11s6-6.5 6-11zm-8 0c0-1.1.9-2 2-2s2 .9 2 2-.89 2-2 2c-1.1 0-2-.9-2-2zM5 20v2h14v-2H5z\"></path></g>",place:"<g><path d=\"M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z\"></path></g>","rate-review":"<g><path d=\"M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 14v-2.47l6.88-6.88c.2-.2.51-.2.71 0l1.77 1.77c.2.2.2.51 0 .71L8.47 14H6zm12 0h-7.5l2-2H18v2z\"></path></g>",restaurant:"<g><path d=\"M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z\"></path></g>","restaurant-menu":"<g><path d=\"M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z\"></path></g>",satellite:"<g><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 4.99h3C8 6.65 6.66 8 5 8V4.99zM5 12v-2c2.76 0 5-2.25 5-5.01h2C12 8.86 8.87 12 5 12zm0 6l3.5-4.5 2.5 3.01L14.5 12l4.5 6H5z\"></path></g>","store-mall-directory":"<g><path d=\"M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z\"></path></g>",streetview:"<g><path d=\"M12.56 14.33c-.34.27-.56.7-.56 1.17V21h7c1.1 0 2-.9 2-2v-5.98c-.94-.33-1.95-.52-3-.52-2.03 0-3.93.7-5.44 1.83z\"></path><circle cx=\"18\" cy=\"6\" r=\"5\"></circle><path d=\"M11.5 6c0-1.08.27-2.1.74-3H5c-1.1 0-2 .9-2 2v14c0 .55.23 1.05.59 1.41l9.82-9.82C12.23 9.42 11.5 7.8 11.5 6z\"></path></g>",subway:"<g><circle cx=\"15.5\" cy=\"16\" r=\"1\"></circle><circle cx=\"8.5\" cy=\"16\" r=\"1\"></circle><path d=\"M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z\"></path></g>",terrain:"<g><path d=\"M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z\"></path></g>",traffic:"<g><path d=\"M20 10h-3V8.86c1.72-.45 3-2 3-3.86h-3V4c0-.55-.45-1-1-1H8c-.55 0-1 .45-1 1v1H4c0 1.86 1.28 3.41 3 3.86V10H4c0 1.86 1.28 3.41 3 3.86V15H4c0 1.86 1.28 3.41 3 3.86V20c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1.14c1.72-.45 3-2 3-3.86h-3v-1.14c1.72-.45 3-2 3-3.86zm-8 9c-1.11 0-2-.9-2-2s.89-2 2-2c1.1 0 2 .9 2 2s-.89 2-2 2zm0-5c-1.11 0-2-.9-2-2s.89-2 2-2c1.1 0 2 .9 2 2s-.89 2-2 2zm0-5c-1.11 0-2-.9-2-2 0-1.11.89-2 2-2 1.1 0 2 .89 2 2 0 1.1-.89 2-2 2z\"></path></g>",train:"<g><path d=\"M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-7H6V6h5v4zm2 0V6h5v4h-5zm3.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z\"></path></g>",tram:"<g><path d=\"M19 16.94V8.5c0-2.79-2.61-3.4-6.01-3.49l.76-1.51H17V2H7v1.5h4.75l-.76 1.52C7.86 5.11 5 5.73 5 8.5v8.44c0 1.45 1.19 2.66 2.59 2.97L6 21.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 20h-.08c1.69 0 2.58-1.37 2.58-3.06zm-7 1.56c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5-4.5H7V9h10v5z\"></path></g>","transfer-within-a-station":"<g><path d=\"M16.49 15.5v-1.75L14 16.25l2.49 2.5V17H22v-1.5zm3.02 4.25H14v1.5h5.51V23L22 20.5 19.51 18zM9.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5.75 8.9L3 23h2.1l1.75-8L9 17v6h2v-7.55L8.95 13.4l.6-3C10.85 12 12.8 13 15 13v-2c-1.85 0-3.45-1-4.35-2.45l-.95-1.6C9.35 6.35 8.7 6 8 6c-.25 0-.5.05-.75.15L2 8.3V13h2V9.65l1.75-.75\"></path></g>","zoom-out-map":"<g><path d=\"M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6z\"></path></g>"};_exports.MapsIcons=MapsIcons;var mapsIcons={MapsIcons:MapsIcons};/**
+    `}}window.customElements.define("header-toolbar",HeaderToolbar);const Services={ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"project",imports:["project.proto","project_entity.proto","project_collection.proto","protobuf/empty.proto"]},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/projects",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/api/projects",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/api/projects/{var}",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/api/projects/{var}",method:"PATCH"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"protobuf.Empty",response:"protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/projects/{var}",method:"DELETE"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"person",imports:["person.proto","person_entity.proto","person_collection.proto","protobuf/empty.proto"]},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/persons",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/api/persons",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/api/persons/{prs}",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/api/persons/{prs}",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"protobuf.Empty",response:"protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/persons/{prs}",method:"DELETE"}}}},TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"tree",imports:["tree.proto","tree_entity.proto","tree_collection.proto","protobuf/empty.proto"]},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/api/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/api/trees/{tre}",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/api/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"protobuf.Empty",response:"protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/trees/{tre}",method:"DELETE"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmember",imports:["person/person_entity.proto","person/person_collection.proto","furo/meta.proto","furo/link.proto","protobuf/empty.proto"]},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"list",href:"/api/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"task",imports:["task.proto","task_entity.proto","task_collection.proto","protobuf/empty.proto"]},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a task",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/tasks",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/api/tasks",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/api/tasks/{var}",method:"GET"}},Update:{description:"Updates a Task, partial updates are supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/api/tasks/{var}",method:"PATCH"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"protobuf.Empty",response:"protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/tasks/{var}",method:"DELETE"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:["navigationnode.proto"]},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:3}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["tree.proto","furo/meta.proto","furo/link.proto"]},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"]},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:11}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",imports:["task.proto","furo/meta.proto","furo/link.proto"]},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:[]},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},options:[],__proto:{number:4}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},options:[],__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},options:[],__proto:{number:6}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["person_entity.proto","furo/meta.proto","furo/link.proto"]},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["tree_entity.proto","furo/meta.proto","furo/link.proto"]},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",imports:["task_entity.proto","furo/meta.proto","furo/link.proto"]},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["person/person.proto","project/project_collection.proto","furo/reference.proto"]},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"project.ProjectCollection",meta:{label:"Task",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int",meta:{label:"Est. days",default:"",hint:""},constraints:{},options:[],__proto:{number:4,type:"int32"}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"Owner",default:{display_name:"Owner",id:"",rel:"List",href:"/api/v1/persons",method:"GET",type:"person.Person"},hint:""},constraints:{},options:[],__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",required:!0},constraints:{},options:[],__proto:{number:6}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["project_entity.proto","furo/meta.proto","furo/link.proto"]},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["project.proto","furo/meta.proto","furo/link.proto"]},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["person.proto","furo/meta.proto","furo/link.proto"]},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/money.proto","google/date.proto","person/person.proto"]},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:2}},start:{description:"Start date of the project",type:"google.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},options:[],__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},options:[],__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},options:[],__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.Money",meta:{label:"Cost limit",default:"",hint:"",required:!0},constraints:{max:25e3},options:[],__proto:{number:7}}}},"google.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google",imports:[]},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3,type:"int64"}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4,type:"int64"}}}},"furo.Fieldmeta":{name:"fieldmeta",type:"Fieldmeta",description:"meta",__proto:{package:"furo",imports:[]},fields:{label:{type:"string",description:"meta information of a field",__proto:{number:1}}}},"protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"protobuf",imports:[]},fields:{}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[]},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}}}},"furo.Metafield":{name:"metafield",type:"Metafield",description:"fields of meta info",__proto:{package:"furo",imports:["fieldconstraint.proto","fieldmeta.proto"]},fields:{meta:{description:"meta information of a field",type:"furo.Fieldmeta",__proto:{number:3}},constraints:{description:"constraints of a field",type:"furo.Fieldconstraint",__proto:{number:4,repeated:!0}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:[]},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},rel:{description:"the relationship",type:"string",__proto:{number:3}},method:{description:"method of curl GET, POST, PUT, PATCH, DELETE",type:"string",__proto:{number:4}},href:{description:"link",type:"string",__proto:{number:5}},type:{description:"mime type",type:"string",__proto:{number:6}}}},"furo.Fieldconstraint":{name:"fieldconstraint",type:"Fieldconstraint",description:"constrains of fields",__proto:{package:"furo",imports:[]},fields:{constraint:{description:"constrain of a field",type:"keyValuePair",__proto:{number:1,map_from:"string",map_to:"string"}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:["metafield.proto"]},fields:{meta:{description:"fields of meta info",type:"keyValuePair",__proto:{number:1,map_from:"string",map_to:"furo.Metafield"}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any` contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{csharp_namespace:"Google.Protobuf.WellKnownTypes",go_package:"github.com/golang/protobuf/ptypes/any",java_package:"com.google.protobuf",java_outer_classname:"AnyProto",java_multiple_files:!0,objc_class_prefix:"GPB"},imports:[]},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"ArrayBuffer",__proto:{number:2,type:"bytes"}}}},"google.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google",imports:[]},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1,type:"int32"}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2,type:"int32"}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3,type:"int32"}}}}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
+    * Maps Icons
+    * This is a set of the 24x24 icons from https://github.com/google/material-design-icons.
+    *
+    * The set correspondents with the set of @polymer/iron-icons/maps-icons
+    *
+    */_exports.$dataEnvironment=data_environment;const MapsIcons={"add-location":"<g><path d=\"M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm4 8h-3v3h-2v-3H8V8h3V5h2v3h3v2z\"></path></g>",beenhere:"<g><path d=\"M19 1H5c-1.1 0-1.99.9-1.99 2L3 15.93c0 .69.35 1.3.88 1.66L12 23l8.11-5.41c.53-.36.88-.97.88-1.66L21 3c0-1.1-.9-2-2-2zm-9 15l-5-5 1.41-1.41L10 13.17l7.59-7.59L19 7l-9 9z\"></path></g>",directions:"<g><path d=\"M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z\"></path></g>","directions-bike":"<g><path d=\"M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm5.8-10l2.4-2.4.8.8c1.3 1.3 3 2.1 5.1 2.1V9c-1.5 0-2.7-.6-3.6-1.5l-1.9-1.9c-.5-.4-1-.6-1.6-.6s-1.1.2-1.4.6L7.8 8.4c-.4.4-.6.9-.6 1.4 0 .6.2 1.1.6 1.4L11 14v5h2v-6.2l-2.2-2.3zM19 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z\"></path></g>","directions-boat":"<g><path d=\"M20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2zM3.95 19H4c1.6 0 3.02-.88 4-2 .98 1.12 2.4 2 4 2s3.02-.88 4-2c.98 1.12 2.4 2 4 2h.05l1.89-6.68c.08-.26.06-.54-.06-.78s-.34-.42-.6-.5L20 10.62V6c0-1.1-.9-2-2-2h-3V1H9v3H6c-1.1 0-2 .9-2 2v4.62l-1.29.42c-.26.08-.48.26-.6.5s-.15.52-.06.78L3.95 19zM6 6h12v3.97L12 8 6 9.97V6z\"></path></g>","directions-bus":"<g><path d=\"M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z\"></path></g>","directions-car":"<g><path d=\"M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z\"></path></g>","directions-railway":"<g><path d=\"M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zm8 1.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6-7H6V5h12v5z\"></path></g>","directions-run":"<g><path d=\"M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z\"></path></g>","directions-subway":"<g><path d=\"M12 2c-4.42 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-6H6V6h5v5zm5.5 6c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6h-5V6h5v5z\"></path></g>","directions-transit":"<g><path d=\"M12 2c-4.42 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-6H6V6h5v5zm5.5 6c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6h-5V6h5v5z\"></path></g>","directions-walk":"<g><path d=\"M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7\"></path></g>","edit-location":"<g><path d=\"M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm-1.56 10H9v-1.44l3.35-3.34 1.43 1.43L10.44 12zm4.45-4.45l-.7.7-1.44-1.44.7-.7c.15-.15.39-.15.54 0l.9.9c.15.15.15.39 0 .54z\"></path></g>","ev-station":"<g><path d=\"M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM18 10c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zM8 18v-4.5H6L10 6v5h2l-4 7z\"></path></g>",flight:"<g><path d=\"M10.18 9\"></path><path d=\"M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z\"></path></g>",hotel:"<g><path d=\"M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z\"></path></g>",layers:"<g><path d=\"M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z\"></path></g>","layers-clear":"<g><path d=\"M19.81 14.99l1.19-.92-1.43-1.43-1.19.92 1.43 1.43zm-.45-4.72L21 9l-9-7-2.91 2.27 7.87 7.88 2.4-1.88zM3.27 1L2 2.27l4.22 4.22L3 9l1.63 1.27L12 16l2.1-1.63 1.43 1.43L12 18.54l-7.37-5.73L3 14.07l9 7 4.95-3.85L20.73 21 22 19.73 3.27 1z\"></path></g>","local-activity":"<g><path d=\"M20 12c0-1.1.9-2 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-1.99.9-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2zm-4.42 4.8L12 14.5l-3.58 2.3 1.08-4.12-3.29-2.69 4.24-.25L12 5.8l1.54 3.95 4.24.25-3.29 2.69 1.09 4.11z\"></path></g>","local-airport":"<g><path d=\"M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z\"></path></g>","local-atm":"<g><path d=\"M11 17h2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1h-3v-1h4V8h-2V7h-2v1h-1c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h3v1H9v2h2v1zm9-13H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4V6h16v12z\"></path></g>","local-bar":"<g><path d=\"M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z\"></path></g>","local-cafe":"<g><path d=\"M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM2 21h18v-2H2v2z\"></path></g>","local-car-wash":"<g><path d=\"M17 5c.83 0 1.5-.67 1.5-1.5 0-1-1.5-2.7-1.5-2.7s-1.5 1.7-1.5 2.7c0 .83.67 1.5 1.5 1.5zm-5 0c.83 0 1.5-.67 1.5-1.5 0-1-1.5-2.7-1.5-2.7s-1.5 1.7-1.5 2.7c0 .83.67 1.5 1.5 1.5zM7 5c.83 0 1.5-.67 1.5-1.5C8.5 2.5 7 .8 7 .8S5.5 2.5 5.5 3.5C5.5 4.33 6.17 5 7 5zm11.92 3.01C18.72 7.42 18.16 7 17.5 7h-11c-.66 0-1.21.42-1.42 1.01L3 14v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 18c-.83 0-1.5-.67-1.5-1.5S5.67 15 6.5 15s1.5.67 1.5 1.5S7.33 18 6.5 18zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 13l1.5-4.5h11L19 13H5z\"></path></g>","local-convenience-store":"<g><path d=\"M19 7V4H5v3H2v13h8v-4h4v4h8V7h-3zm-8 3H9v1h2v1H8V9h2V8H8V7h3v3zm5 2h-1v-2h-2V7h1v2h1V7h1v5z\"></path></g>","local-dining":"<g><path d=\"M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z\"></path></g>","local-drink":"<g><path d=\"M3 2l2.01 18.23C5.13 21.23 5.97 22 7 22h10c1.03 0 1.87-.77 1.99-1.77L21 2H3zm9 17c-1.66 0-3-1.34-3-3 0-2 3-5.4 3-5.4s3 3.4 3 5.4c0 1.66-1.34 3-3 3zm6.33-11H5.67l-.44-4h13.53l-.43 4z\"></path></g>","local-florist":"<g><path d=\"M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z\"></path></g>","local-gas-station":"<g><path d=\"M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM12 10H6V5h6v5zm6 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z\"></path></g>","local-grocery-store":"<g><path d=\"M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z\"></path></g>","local-hospital":"<g><path d=\"M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z\"></path></g>","local-hotel":"<g><path d=\"M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z\"></path></g>","local-laundry-service":"<g><path d=\"M9.17 16.83c1.56 1.56 4.1 1.56 5.66 0 1.56-1.56 1.56-4.1 0-5.66l-5.66 5.66zM18 2.01L6 2c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V4c0-1.11-.89-1.99-2-1.99zM10 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM7 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm5 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z\"></path></g>","local-library":"<g><path d=\"M12 11.55C9.64 9.35 6.48 8 3 8v11c3.48 0 6.64 1.35 9 3.55 2.36-2.19 5.52-3.55 9-3.55V8c-3.48 0-6.64 1.35-9 3.55zM12 8c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z\"></path></g>","local-mall":"<g><path d=\"M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm0 10c-2.76 0-5-2.24-5-5h2c0 1.66 1.34 3 3 3s3-1.34 3-3h2c0 2.76-2.24 5-5 5z\"></path></g>","local-movies":"<g><path d=\"M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z\"></path></g>","local-offer":"<g><path d=\"M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z\"></path></g>","local-parking":"<g><path d=\"M13 3H6v18h4v-6h3c3.31 0 6-2.69 6-6s-2.69-6-6-6zm.2 8H10V7h3.2c1.1 0 2 .9 2 2s-.9 2-2 2z\"></path></g>","local-pharmacy":"<g><path d=\"M21 5h-2.64l1.14-3.14L17.15 1l-1.46 4H3v2l2 6-2 6v2h18v-2l-2-6 2-6V5zm-5 9h-3v3h-2v-3H8v-2h3V9h2v3h3v2z\"></path></g>","local-phone":"<g><path d=\"M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z\"></path></g>","local-pizza":"<g><path d=\"M12 2C8.43 2 5.23 3.54 3.01 6L12 22l8.99-16C18.78 3.55 15.57 2 12 2zM7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm5 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z\"></path></g>","local-play":"<g><path d=\"M20 12c0-1.1.9-2 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-1.99.9-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2zm-4.42 4.8L12 14.5l-3.58 2.3 1.08-4.12-3.29-2.69 4.24-.25L12 5.8l1.54 3.95 4.24.25-3.29 2.69 1.09 4.11z\"></path></g>","local-post-office":"<g><path d=\"M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z\"></path></g>","local-printshop":"<g><path d=\"M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z\"></path></g>","local-see":"<g><circle cx=\"12\" cy=\"12\" r=\"3.2\"></circle><path d=\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\"></path></g>","local-shipping":"<g><path d=\"M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z\"></path></g>","local-taxi":"<g><path d=\"M18.92 6.01C18.72 5.42 18.16 5 17.5 5H15V3H9v2H6.5c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z\"></path></g>",map:"<g><path d=\"M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z\"></path></g>","my-location":"<g><path d=\"M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z\"></path></g>",navigation:"<g><path d=\"M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z\"></path></g>","near-me":"<g><path d=\"M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z\"></path></g>","person-pin":"<g><path d=\"M19 2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 3.3c1.49 0 2.7 1.21 2.7 2.7 0 1.49-1.21 2.7-2.7 2.7-1.49 0-2.7-1.21-2.7-2.7 0-1.49 1.21-2.7 2.7-2.7zM18 16H6v-.9c0-2 4-3.1 6-3.1s6 1.1 6 3.1v.9z\"></path></g>","person-pin-circle":"<g><path d=\"M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 2c1.1 0 2 .9 2 2 0 1.11-.9 2-2 2s-2-.89-2-2c0-1.1.9-2 2-2zm0 10c-1.67 0-3.14-.85-4-2.15.02-1.32 2.67-2.05 4-2.05s3.98.73 4 2.05c-.86 1.3-2.33 2.15-4 2.15z\"></path></g>","pin-drop":"<g><path d=\"M18 8c0-3.31-2.69-6-6-6S6 4.69 6 8c0 4.5 6 11 6 11s6-6.5 6-11zm-8 0c0-1.1.9-2 2-2s2 .9 2 2-.89 2-2 2c-1.1 0-2-.9-2-2zM5 20v2h14v-2H5z\"></path></g>",place:"<g><path d=\"M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z\"></path></g>","rate-review":"<g><path d=\"M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 14v-2.47l6.88-6.88c.2-.2.51-.2.71 0l1.77 1.77c.2.2.2.51 0 .71L8.47 14H6zm12 0h-7.5l2-2H18v2z\"></path></g>",restaurant:"<g><path d=\"M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z\"></path></g>","restaurant-menu":"<g><path d=\"M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z\"></path></g>",satellite:"<g><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 4.99h3C8 6.65 6.66 8 5 8V4.99zM5 12v-2c2.76 0 5-2.25 5-5.01h2C12 8.86 8.87 12 5 12zm0 6l3.5-4.5 2.5 3.01L14.5 12l4.5 6H5z\"></path></g>","store-mall-directory":"<g><path d=\"M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z\"></path></g>",streetview:"<g><path d=\"M12.56 14.33c-.34.27-.56.7-.56 1.17V21h7c1.1 0 2-.9 2-2v-5.98c-.94-.33-1.95-.52-3-.52-2.03 0-3.93.7-5.44 1.83z\"></path><circle cx=\"18\" cy=\"6\" r=\"5\"></circle><path d=\"M11.5 6c0-1.08.27-2.1.74-3H5c-1.1 0-2 .9-2 2v14c0 .55.23 1.05.59 1.41l9.82-9.82C12.23 9.42 11.5 7.8 11.5 6z\"></path></g>",subway:"<g><circle cx=\"15.5\" cy=\"16\" r=\"1\"></circle><circle cx=\"8.5\" cy=\"16\" r=\"1\"></circle><path d=\"M7.01 9h10v5h-10zM17.8 2.8C16 2.09 13.86 2 12 2c-1.86 0-4 .09-5.8.8C3.53 3.84 2 6.05 2 8.86V22h20V8.86c0-2.81-1.53-5.02-4.2-6.06zm.2 13.08c0 1.45-1.18 2.62-2.63 2.62l1.13 1.12V20H15l-1.5-1.5h-2.83L9.17 20H7.5v-.38l1.12-1.12C7.18 18.5 6 17.32 6 15.88V9c0-2.63 3-3 6-3 3.32 0 6 .38 6 3v6.88z\"></path></g>",terrain:"<g><path d=\"M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z\"></path></g>",traffic:"<g><path d=\"M20 10h-3V8.86c1.72-.45 3-2 3-3.86h-3V4c0-.55-.45-1-1-1H8c-.55 0-1 .45-1 1v1H4c0 1.86 1.28 3.41 3 3.86V10H4c0 1.86 1.28 3.41 3 3.86V15H4c0 1.86 1.28 3.41 3 3.86V20c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1.14c1.72-.45 3-2 3-3.86h-3v-1.14c1.72-.45 3-2 3-3.86zm-8 9c-1.11 0-2-.9-2-2s.89-2 2-2c1.1 0 2 .9 2 2s-.89 2-2 2zm0-5c-1.11 0-2-.9-2-2s.89-2 2-2c1.1 0 2 .9 2 2s-.89 2-2 2zm0-5c-1.11 0-2-.9-2-2 0-1.11.89-2 2-2 1.1 0 2 .89 2 2 0 1.1-.89 2-2 2z\"></path></g>",train:"<g><path d=\"M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-7H6V6h5v4zm2 0V6h5v4h-5zm3.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z\"></path></g>",tram:"<g><path d=\"M19 16.94V8.5c0-2.79-2.61-3.4-6.01-3.49l.76-1.51H17V2H7v1.5h4.75l-.76 1.52C7.86 5.11 5 5.73 5 8.5v8.44c0 1.45 1.19 2.66 2.59 2.97L6 21.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 20h-.08c1.69 0 2.58-1.37 2.58-3.06zm-7 1.56c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5-4.5H7V9h10v5z\"></path></g>","transfer-within-a-station":"<g><path d=\"M16.49 15.5v-1.75L14 16.25l2.49 2.5V17H22v-1.5zm3.02 4.25H14v1.5h5.51V23L22 20.5 19.51 18zM9.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5.75 8.9L3 23h2.1l1.75-8L9 17v6h2v-7.55L8.95 13.4l.6-3C10.85 12 12.8 13 15 13v-2c-1.85 0-3.45-1-4.35-2.45l-.95-1.6C9.35 6.35 8.7 6 8 6c-.25 0-.5.05-.75.15L2 8.3V13h2V9.65l1.75-.75\"></path></g>","zoom-out-map":"<g><path d=\"M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6z\"></path></g>"};_exports.MapsIcons=MapsIcons;var mapsIcons={MapsIcons:MapsIcons};/**
     * Places Icons
     * This is a set of the 24x24 icons from https://github.com/google/material-design-icons.
     *
@@ -1629,7 +1716,8 @@ return html`
     * The set correspondents with the set of @polymer/iron-icons/image-icons
     *
     */_exports.$hardwareIcons=hardwareIcons;const ImageIcons={"add-a-photo":"<g><path d=\"M3 4V1h2v3h3v2H5v3H3V6H0V4h3zm3 6V7h3V4h7l1.83 2H21c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V10h3zm7 9c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-3.2-5c0 1.77 1.43 3.2 3.2 3.2s3.2-1.43 3.2-3.2-1.43-3.2-3.2-3.2-3.2 1.43-3.2 3.2z\"></path></g>","add-to-photos":"<g><path d=\"M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z\"></path></g>",adjust:"<g><path d=\"M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z\"></path></g>",assistant:"<g><path d=\"M19 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5.12 10.88L12 17l-1.88-4.12L6 11l4.12-1.88L12 5l1.88 4.12L18 11l-4.12 1.88z\"></path></g>","assistant-photo":"<g><path d=\"M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z\"></path></g>",audiotrack:"<g><path d=\"M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z\"></path></g>","blur-circular":"<g><path d=\"M10 9c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0 4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zM7 9.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm3 7c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-3-3c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm3-6c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zM14 9c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0-1.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zm3 6c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm0-4c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm2-3.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm0-3.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z\"></path></g>","blur-linear":"<g><path d=\"M5 17.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM9 13c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0-4c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zM3 21h18v-2H3v2zM5 9.5c.83 0 1.5-.67 1.5-1.5S5.83 6.5 5 6.5 3.5 7.17 3.5 8 4.17 9.5 5 9.5zm0 4c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM9 17c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm8-.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zM3 3v2h18V3H3zm14 5.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zm0 4c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zM13 9c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0 4c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0 4c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1z\"></path></g>","blur-off":"<g><path d=\"M14 7c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm-.2 4.48l.2.02c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5l.02.2c.09.67.61 1.19 1.28 1.28zM14 3.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zm-4 0c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zm11 7c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zM10 7c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm8 8c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0-4c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0-4c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm-4 13.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zM2.5 5.27l3.78 3.78L6 9c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1c0-.1-.03-.19-.06-.28l2.81 2.81c-.71.11-1.25.73-1.25 1.47 0 .83.67 1.5 1.5 1.5.74 0 1.36-.54 1.47-1.25l2.81 2.81c-.09-.03-.18-.06-.28-.06-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1c0-.1-.03-.19-.06-.28l3.78 3.78L20 20.23 3.77 4 2.5 5.27zM10 17c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm11-3.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zM6 13c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zM3 9.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm7 11c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zM6 17c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm-3-3.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5z\"></path></g>","blur-on":"<g><path d=\"M6 13c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0 4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0-8c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm-3 .5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zM6 5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm15 5.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zM14 7c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0-3.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zm-11 10c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm7 7c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm0-17c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zM10 7c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1zm0 5.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm8 .5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0 4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0-8c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm3 8.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zM14 17c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm0 3.5c-.28 0-.5.22-.5.5s.22.5.5.5.5-.22.5-.5-.22-.5-.5-.5zm-4-12c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm0 8.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm4-4.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm0-4c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z\"></path></g>","brightness-1":"<g><circle cx=\"12\" cy=\"12\" r=\"10\"></circle></g>","brightness-2":"<g><path d=\"M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z\"></path></g>","brightness-3":"<g><path d=\"M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z\"></path></g>","brightness-4":"<g><path d=\"M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z\"></path></g>","brightness-5":"<g><path d=\"M20 15.31L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z\"></path></g>","brightness-6":"<g><path d=\"M20 15.31L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18V6c3.31 0 6 2.69 6 6s-2.69 6-6 6z\"></path></g>","brightness-7":"<g><path d=\"M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z\"></path></g>","broken-image":"<g><path d=\"M21 5v6.59l-3-3.01-4 4.01-4-4-4 4-3-3.01V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2zm-3 6.42l3 3.01V19c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-6.58l3 2.99 4-4 4 4 4-3.99z\"></path></g>",brush:"<g><path d=\"M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34c-.39-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z\"></path></g>","burst-mode":"<g><path d=\"M1 5h2v14H1zm4 0h2v14H5zm17 0H10c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V6c0-.55-.45-1-1-1zM11 17l2.5-3.15L15.29 16l2.5-3.22L21 17H11z\"></path></g>",camera:"<g><path d=\"M9.4 10.5l4.77-8.26C13.47 2.09 12.75 2 12 2c-2.4 0-4.6.85-6.32 2.25l3.66 6.35.06-.1zM21.54 9c-.92-2.92-3.15-5.26-6-6.34L11.88 9h9.66zm.26 1h-7.49l.29.5 4.76 8.25C21 16.97 22 14.61 22 12c0-.69-.07-1.35-.2-2zM8.54 12l-3.9-6.75C3.01 7.03 2 9.39 2 12c0 .69.07 1.35.2 2h7.49l-1.15-2zm-6.08 3c.92 2.92 3.15 5.26 6 6.34L12.12 15H2.46zm11.27 0l-3.9 6.76c.7.15 1.42.24 2.17.24 2.4 0 4.6-.85 6.32-2.25l-3.66-6.35-.93 1.6z\"></path></g>","camera-alt":"<g><circle cx=\"12\" cy=\"12\" r=\"3.2\"></circle><path d=\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\"></path></g>","camera-front":"<g><path d=\"M10 20H5v2h5v2l3-3-3-3v2zm4 0v2h5v-2h-5zM12 8c1.1 0 2-.9 2-2s-.9-2-2-2-1.99.9-1.99 2S10.9 8 12 8zm5-8H7C5.9 0 5 .9 5 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zM7 2h10v10.5c0-1.67-3.33-2.5-5-2.5s-5 .83-5 2.5V2z\"></path></g>","camera-rear":"<g><path d=\"M10 20H5v2h5v2l3-3-3-3v2zm4 0v2h5v-2h-5zm3-20H7C5.9 0 5 .9 5 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2zm-5 6c-1.11 0-2-.9-2-2s.89-2 1.99-2 2 .9 2 2C14 5.1 13.1 6 12 6z\"></path></g>","camera-roll":"<g><path d=\"M14 5c0-1.1-.9-2-2-2h-1V2c0-.55-.45-1-1-1H6c-.55 0-1 .45-1 1v1H4c-1.1 0-2 .9-2 2v15c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2h8V5h-8zm-2 13h-2v-2h2v2zm0-9h-2V7h2v2zm4 9h-2v-2h2v2zm0-9h-2V7h2v2zm4 9h-2v-2h2v2zm0-9h-2V7h2v2z\"></path></g>","center-focus-strong":"<g><path d=\"M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm-7 7H3v4c0 1.1.9 2 2 2h4v-2H5v-4zM5 5h4V3H5c-1.1 0-2 .9-2 2v4h2V5zm14-2h-4v2h4v4h2V5c0-1.1-.9-2-2-2zm0 16h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z\"></path></g>","center-focus-weak":"<g><path d=\"M5 15H3v4c0 1.1.9 2 2 2h4v-2H5v-4zM5 5h4V3H5c-1.1 0-2 .9-2 2v4h2V5zm14-2h-4v2h4v4h2V5c0-1.1-.9-2-2-2zm0 16h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z\"></path></g>",collections:"<g><path d=\"M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z\"></path></g>","collections-bookmark":"<g><path d=\"M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 10l-2.5-1.5L15 12V4h5v8z\"></path></g>","color-lens":"<g><path d=\"M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z\"></path></g>",colorize:"<g><path d=\"M20.71 5.63l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-3.12 3.12-1.93-1.91-1.41 1.41 1.42 1.42L3 16.25V21h4.75l8.92-8.92 1.42 1.42 1.41-1.41-1.92-1.92 3.12-3.12c.4-.4.4-1.03.01-1.42zM6.92 19L5 17.08l8.06-8.06 1.92 1.92L6.92 19z\"></path></g>",compare:"<g><path d=\"M10 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h5v2h2V1h-2v2zm0 15H5l5-6v6zm9-15h-5v2h5v13l-5-6v9h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z\"></path></g>","control-point":"<g><path d=\"M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"></path></g>","control-point-duplicate":"<g><path d=\"M16 8h-2v3h-3v2h3v3h2v-3h3v-2h-3zM2 12c0-2.79 1.64-5.2 4.01-6.32V3.52C2.52 4.76 0 8.09 0 12s2.52 7.24 6.01 8.48v-2.16C3.64 17.2 2 14.79 2 12zm13-9c-4.96 0-9 4.04-9 9s4.04 9 9 9 9-4.04 9-9-4.04-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z\"></path></g>",crop:"<g><path d=\"M17 15h2V7c0-1.1-.9-2-2-2H9v2h8v8zM7 17V1H5v4H1v2h4v10c0 1.1.9 2 2 2h10v4h2v-4h4v-2H7z\"></path></g>","crop-16-9":"<g><path d=\"M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z\"></path></g>","crop-3-2":"<g><path d=\"M19 4H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V6h14v12z\"></path></g>","crop-5-4":"<g><path d=\"M19 5H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 12H5V7h14v10z\"></path></g>","crop-7-5":"<g><path d=\"M19 7H5c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 8H5V9h14v6z\"></path></g>","crop-din":"<g><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z\"></path></g>","crop-free":"<g><path d=\"M3 5v4h2V5h4V3H5c-1.1 0-2 .9-2 2zm2 10H3v4c0 1.1.9 2 2 2h4v-2H5v-4zm14 4h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4zm0-16h-4v2h4v4h2V5c0-1.1-.9-2-2-2z\"></path></g>","crop-landscape":"<g><path d=\"M19 5H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 12H5V7h14v10z\"></path></g>","crop-original":"<g><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z\"></path></g>","crop-portrait":"<g><path d=\"M17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7V5h10v14z\"></path></g>","crop-rotate":"<g><path d=\"M7.47 21.49C4.2 19.93 1.86 16.76 1.5 13H0c.51 6.16 5.66 11 11.95 11 .23 0 .44-.02.66-.03L8.8 20.15l-1.33 1.34zM12.05 0c-.23 0-.44.02-.66.04l3.81 3.81 1.33-1.33C19.8 4.07 22.14 7.24 22.5 11H24c-.51-6.16-5.66-11-11.95-11zM16 14h2V8c0-1.11-.9-2-2-2h-6v2h6v6zm-8 2V4H6v2H4v2h2v8c0 1.1.89 2 2 2h8v2h2v-2h2v-2H8z\"></path></g>","crop-square":"<g><path d=\"M18 4H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H6V6h12v12z\"></path></g>",dehaze:"<g><path d=\"M2 15.5v2h20v-2H2zm0-5v2h20v-2H2zm0-5v2h20v-2H2z\"></path></g>",details:"<g><path d=\"M3 4l9 16 9-16H3zm3.38 2h11.25L12 16 6.38 6z\"></path></g>",edit:"<g><path d=\"M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z\"></path></g>",exposure:"<g><path d=\"M15 17v2h2v-2h2v-2h-2v-2h-2v2h-2v2h2zm5-15H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM5 5h6v2H5V5zm15 15H4L20 4v16z\"></path></g>","exposure-neg-1":"<g><path d=\"M4 11v2h8v-2H4zm15 7h-2V7.38L14 8.4V6.7L18.7 5h.3v13z\"></path></g>","exposure-neg-2":"<g><path d=\"M15.05 16.29l2.86-3.07c.38-.39.72-.79 1.04-1.18.32-.39.59-.78.82-1.17.23-.39.41-.78.54-1.17s.19-.79.19-1.18c0-.53-.09-1.02-.27-1.46-.18-.44-.44-.81-.78-1.11-.34-.31-.77-.54-1.26-.71-.51-.16-1.08-.24-1.72-.24-.69 0-1.31.11-1.85.32-.54.21-1 .51-1.36.88-.37.37-.65.8-.84 1.3-.18.47-.27.97-.28 1.5h2.14c.01-.31.05-.6.13-.87.09-.29.23-.54.4-.75.18-.21.41-.37.68-.49.27-.12.6-.18.96-.18.31 0 .58.05.81.15.23.1.43.25.59.43.16.18.28.4.37.65.08.25.13.52.13.81 0 .22-.03.43-.08.65-.06.22-.15.45-.29.7-.14.25-.32.53-.56.83-.23.3-.52.65-.88 1.03l-4.17 4.55V18H21v-1.71h-5.95zM2 11v2h8v-2H2z\"></path></g>","exposure-plus-1":"<g><path d=\"M10 7H8v4H4v2h4v4h2v-4h4v-2h-4V7zm10 11h-2V7.38L15 8.4V6.7L19.7 5h.3v13z\"></path></g>","exposure-plus-2":"<g><path d=\"M16.05 16.29l2.86-3.07c.38-.39.72-.79 1.04-1.18.32-.39.59-.78.82-1.17.23-.39.41-.78.54-1.17.13-.39.19-.79.19-1.18 0-.53-.09-1.02-.27-1.46-.18-.44-.44-.81-.78-1.11-.34-.31-.77-.54-1.26-.71-.51-.16-1.08-.24-1.72-.24-.69 0-1.31.11-1.85.32-.54.21-1 .51-1.36.88-.37.37-.65.8-.84 1.3-.18.47-.27.97-.28 1.5h2.14c.01-.31.05-.6.13-.87.09-.29.23-.54.4-.75.18-.21.41-.37.68-.49.27-.12.6-.18.96-.18.31 0 .58.05.81.15.23.1.43.25.59.43.16.18.28.4.37.65.08.25.13.52.13.81 0 .22-.03.43-.08.65-.06.22-.15.45-.29.7-.14.25-.32.53-.56.83-.23.3-.52.65-.88 1.03l-4.17 4.55V18H22v-1.71h-5.95zM8 7H6v4H2v2h4v4h2v-4h4v-2H8V7z\"></path></g>","exposure-zero":"<g><path d=\"M16.14 12.5c0 1-.1 1.85-.3 2.55-.2.7-.48 1.27-.83 1.7-.36.44-.79.75-1.3.95-.51.2-1.07.3-1.7.3-.62 0-1.18-.1-1.69-.3-.51-.2-.95-.51-1.31-.95-.36-.44-.65-1.01-.85-1.7-.2-.7-.3-1.55-.3-2.55v-2.04c0-1 .1-1.85.3-2.55.2-.7.48-1.26.84-1.69.36-.43.8-.74 1.31-.93C10.81 5.1 11.38 5 12 5c.63 0 1.19.1 1.7.29.51.19.95.5 1.31.93.36.43.64.99.84 1.69.2.7.3 1.54.3 2.55v2.04zm-2.11-2.36c0-.64-.05-1.18-.13-1.62-.09-.44-.22-.79-.4-1.06-.17-.27-.39-.46-.64-.58-.25-.13-.54-.19-.86-.19-.32 0-.61.06-.86.18s-.47.31-.64.58c-.17.27-.31.62-.4 1.06s-.13.98-.13 1.62v2.67c0 .64.05 1.18.14 1.62.09.45.23.81.4 1.09s.39.48.64.61.54.19.87.19c.33 0 .62-.06.87-.19s.46-.33.63-.61c.17-.28.3-.64.39-1.09.09-.45.13-.99.13-1.62v-2.66z\"></path></g>",filter:"<g><path d=\"M15.96 10.29l-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71zM3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm18-4H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14z\"></path></g>","filter-1":"<g><path d=\"M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm11 10h2V5h-4v2h2v8zm7-14H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14z\"></path></g>","filter-2":"<g><path d=\"M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm18-4H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zm-4-4h-4v-2h2c1.1 0 2-.89 2-2V7c0-1.11-.9-2-2-2h-4v2h4v2h-2c-1.1 0-2 .89-2 2v4h6v-2z\"></path></g>","filter-3":"<g><path d=\"M21 1H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zM3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm14 8v-1.5c0-.83-.67-1.5-1.5-1.5.83 0 1.5-.67 1.5-1.5V7c0-1.11-.9-2-2-2h-4v2h4v2h-2v2h2v2h-4v2h4c1.1 0 2-.89 2-2z\"></path></g>","filter-4":"<g><path d=\"M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm12 10h2V5h-2v4h-2V5h-2v6h4v4zm6-14H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14z\"></path></g>","filter-5":"<g><path d=\"M21 1H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zM3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm14 8v-2c0-1.11-.9-2-2-2h-2V7h4V5h-6v6h4v2h-4v2h4c1.1 0 2-.89 2-2z\"></path></g>","filter-6":"<g><path d=\"M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm18-4H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zm-8-2h2c1.1 0 2-.89 2-2v-2c0-1.11-.9-2-2-2h-2V7h4V5h-4c-1.1 0-2 .89-2 2v6c0 1.11.9 2 2 2zm0-4h2v2h-2v-2z\"></path></g>","filter-7":"<g><path d=\"M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm18-4H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zm-8-2l4-8V5h-6v2h4l-4 8h2z\"></path></g>","filter-8":"<g><path d=\"M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm18-4H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zm-8-2h2c1.1 0 2-.89 2-2v-1.5c0-.83-.67-1.5-1.5-1.5.83 0 1.5-.67 1.5-1.5V7c0-1.11-.9-2-2-2h-2c-1.1 0-2 .89-2 2v1.5c0 .83.67 1.5 1.5 1.5-.83 0-1.5.67-1.5 1.5V13c0 1.11.9 2 2 2zm0-8h2v2h-2V7zm0 4h2v2h-2v-2z\"></path></g>","filter-9":"<g><path d=\"M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm18-4H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14zM15 5h-2c-1.1 0-2 .89-2 2v2c0 1.11.9 2 2 2h2v2h-4v2h4c1.1 0 2-.89 2-2V7c0-1.11-.9-2-2-2zm0 4h-2V7h2v2z\"></path></g>","filter-9-plus":"<g><path d=\"M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm11 7V8c0-1.11-.9-2-2-2h-1c-1.1 0-2 .89-2 2v1c0 1.11.9 2 2 2h1v1H9v2h3c1.1 0 2-.89 2-2zm-3-3V8h1v1h-1zm10-8H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 8h-2V7h-2v2h-2v2h2v2h2v-2h2v6H7V3h14v6z\"></path></g>","filter-b-and-w":"<g><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16l-7-8v8H5l7-8V5h7v14z\"></path></g>","filter-center-focus":"<g><path d=\"M5 15H3v4c0 1.1.9 2 2 2h4v-2H5v-4zM5 5h4V3H5c-1.1 0-2 .9-2 2v4h2V5zm14-2h-4v2h4v4h2V5c0-1.1-.9-2-2-2zm0 16h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4zM12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z\"></path></g>","filter-drama":"<g><path d=\"M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.61 5.64 5.36 8.04 2.35 8.36 0 10.9 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4h2c0-2.76-1.86-5.08-4.4-5.78C8.61 6.88 10.2 6 12 6c3.03 0 5.5 2.47 5.5 5.5v.5H19c1.65 0 3 1.35 3 3s-1.35 3-3 3z\"></path></g>","filter-frames":"<g><path d=\"M20 4h-4l-4-4-4 4H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H4V6h4.52l3.52-3.5L15.52 6H20v14zM18 8H6v10h12\"></path></g>","filter-hdr":"<g><path d=\"M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z\"></path></g>","filter-none":"<g><path d=\"M3 5H1v16c0 1.1.9 2 2 2h16v-2H3V5zm18-4H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 16H7V3h14v14z\"></path></g>","filter-tilt-shift":"<g><path d=\"M11 4.07V2.05c-2.01.2-3.84 1-5.32 2.21L7.1 5.69c1.11-.86 2.44-1.44 3.9-1.62zm7.32.19C16.84 3.05 15.01 2.25 13 2.05v2.02c1.46.18 2.79.76 3.9 1.62l1.42-1.43zM19.93 11h2.02c-.2-2.01-1-3.84-2.21-5.32L18.31 7.1c.86 1.11 1.44 2.44 1.62 3.9zM5.69 7.1L4.26 5.68C3.05 7.16 2.25 8.99 2.05 11h2.02c.18-1.46.76-2.79 1.62-3.9zM4.07 13H2.05c.2 2.01 1 3.84 2.21 5.32l1.43-1.43c-.86-1.1-1.44-2.43-1.62-3.89zM15 12c0-1.66-1.34-3-3-3s-3 1.34-3 3 1.34 3 3 3 3-1.34 3-3zm3.31 4.9l1.43 1.43c1.21-1.48 2.01-3.32 2.21-5.32h-2.02c-.18 1.45-.76 2.78-1.62 3.89zM13 19.93v2.02c2.01-.2 3.84-1 5.32-2.21l-1.43-1.43c-1.1.86-2.43 1.44-3.89 1.62zm-7.32-.19C7.16 20.95 9 21.75 11 21.95v-2.02c-1.46-.18-2.79-.76-3.9-1.62l-1.42 1.43z\"></path></g>","filter-vintage":"<g><path d=\"M18.7 12.4c-.28-.16-.57-.29-.86-.4.29-.11.58-.24.86-.4 1.92-1.11 2.99-3.12 3-5.19-1.79-1.03-4.07-1.11-6 0-.28.16-.54.35-.78.54.05-.31.08-.63.08-.95 0-2.22-1.21-4.15-3-5.19C10.21 1.85 9 3.78 9 6c0 .32.03.64.08.95-.24-.2-.5-.39-.78-.55-1.92-1.11-4.2-1.03-6 0 0 2.07 1.07 4.08 3 5.19.28.16.57.29.86.4-.29.11-.58.24-.86.4-1.92 1.11-2.99 3.12-3 5.19 1.79 1.03 4.07 1.11 6 0 .28-.16.54-.35.78-.54-.05.32-.08.64-.08.96 0 2.22 1.21 4.15 3 5.19 1.79-1.04 3-2.97 3-5.19 0-.32-.03-.64-.08-.95.24.2.5.38.78.54 1.92 1.11 4.2 1.03 6 0-.01-2.07-1.08-4.08-3-5.19zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z\"></path></g>",flare:"<g><path d=\"M7 11H1v2h6v-2zm2.17-3.24L7.05 5.64 5.64 7.05l2.12 2.12 1.41-1.41zM13 1h-2v6h2V1zm5.36 6.05l-1.41-1.41-2.12 2.12 1.41 1.41 2.12-2.12zM17 11v2h6v-2h-6zm-5-2c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm2.83 7.24l2.12 2.12 1.41-1.41-2.12-2.12-1.41 1.41zm-9.19.71l1.41 1.41 2.12-2.12-1.41-1.41-2.12 2.12zM11 23h2v-6h-2v6z\"></path></g>","flash-auto":"<g><path d=\"M3 2v12h3v9l7-12H9l4-9H3zm16 0h-2l-3.2 9h1.9l.7-2h3.2l.7 2h1.9L19 2zm-2.15 5.65L18 4l1.15 3.65h-2.3z\"></path></g>","flash-off":"<g><path d=\"M3.27 3L2 4.27l5 5V13h3v9l3.58-6.14L17.73 20 19 18.73 3.27 3zM17 10h-4l4-8H7v2.18l8.46 8.46L17 10z\"></path></g>","flash-on":"<g><path d=\"M7 2v11h3v9l7-12h-4l4-8z\"></path></g>",flip:"<g><path d=\"M15 21h2v-2h-2v2zm4-12h2V7h-2v2zM3 5v14c0 1.1.9 2 2 2h4v-2H5V5h4V3H5c-1.1 0-2 .9-2 2zm16-2v2h2c0-1.1-.9-2-2-2zm-8 20h2V1h-2v22zm8-6h2v-2h-2v2zM15 5h2V3h-2v2zm4 8h2v-2h-2v2zm0 8c1.1 0 2-.9 2-2h-2v2z\"></path></g>",gradient:"<g><path d=\"M11 9h2v2h-2zm-2 2h2v2H9zm4 0h2v2h-2zm2-2h2v2h-2zM7 9h2v2H7zm12-6H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 18H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm2-7h-2v2h2v2h-2v-2h-2v2h-2v-2h-2v2H9v-2H7v2H5v-2h2v-2H5V5h14v6z\"></path></g>",grain:"<g><path d=\"M10 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12-8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-4 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm4-4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-4-4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-4-4c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z\"></path></g>","grid-off":"<g><path d=\"M8 4v1.45l2 2V4h4v4h-3.45l2 2H14v1.45l2 2V10h4v4h-3.45l2 2H20v1.45l2 2V4c0-1.1-.9-2-2-2H4.55l2 2H8zm8 0h4v4h-4V4zM1.27 1.27L0 2.55l2 2V20c0 1.1.9 2 2 2h15.46l2 2 1.27-1.27L1.27 1.27zM10 12.55L11.45 14H10v-1.45zm-6-6L5.45 8H4V6.55zM8 20H4v-4h4v4zm0-6H4v-4h3.45l.55.55V14zm6 6h-4v-4h3.45l.55.54V20zm2 0v-1.46L17.46 20H16z\"></path></g>","grid-on":"<g><path d=\"M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 20H4v-4h4v4zm0-6H4v-4h4v4zm0-6H4V4h4v4zm6 12h-4v-4h4v4zm0-6h-4v-4h4v4zm0-6h-4V4h4v4zm6 12h-4v-4h4v4zm0-6h-4v-4h4v4zm0-6h-4V4h4v4z\"></path></g>","hdr-off":"<g><path d=\"M17.5 15v-2h1.1l.9 2H21l-.9-2.1c.5-.2.9-.8.9-1.4v-1c0-.8-.7-1.5-1.5-1.5H16v4.9l1.1 1.1h.4zm0-4.5h2v1h-2v-1zm-4.5 0v.4l1.5 1.5v-1.9c0-.8-.7-1.5-1.5-1.5h-1.9l1.5 1.5h.4zm-3.5-1l-7-7-1.1 1L6.9 9h-.4v2h-2V9H3v6h1.5v-2.5h2V15H8v-4.9l1.5 1.5V15h3.4l7.6 7.6 1.1-1.1-12.1-12z\"></path></g>","hdr-on":"<g><path d=\"M21 11.5v-1c0-.8-.7-1.5-1.5-1.5H16v6h1.5v-2h1.1l.9 2H21l-.9-2.1c.5-.3.9-.8.9-1.4zm-1.5 0h-2v-1h2v1zm-13-.5h-2V9H3v6h1.5v-2.5h2V15H8V9H6.5v2zM13 9H9.5v6H13c.8 0 1.5-.7 1.5-1.5v-3c0-.8-.7-1.5-1.5-1.5zm0 4.5h-2v-3h2v3z\"></path></g>","hdr-strong":"<g><path d=\"M17 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zM5 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z\"></path></g>","hdr-weak":"<g><path d=\"M5 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm12-2c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z\"></path></g>",healing:"<g><path d=\"M17.73 12.02l3.98-3.98c.39-.39.39-1.02 0-1.41l-4.34-4.34c-.39-.39-1.02-.39-1.41 0l-3.98 3.98L8 2.29C7.8 2.1 7.55 2 7.29 2c-.25 0-.51.1-.7.29L2.25 6.63c-.39.39-.39 1.02 0 1.41l3.98 3.98L2.25 16c-.39.39-.39 1.02 0 1.41l4.34 4.34c.39.39 1.02.39 1.41 0l3.98-3.98 3.98 3.98c.2.2.45.29.71.29.26 0 .51-.1.71-.29l4.34-4.34c.39-.39.39-1.02 0-1.41l-3.99-3.98zM12 9c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-4.71 1.96L3.66 7.34l3.63-3.63 3.62 3.62-3.62 3.63zM10 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 2c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2.66 9.34l-3.63-3.62 3.63-3.63 3.62 3.62-3.62 3.63z\"></path></g>",image:"<g><path d=\"M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z\"></path></g>","image-aspect-ratio":"<g><path d=\"M16 10h-2v2h2v-2zm0 4h-2v2h2v-2zm-8-4H6v2h2v-2zm4 0h-2v2h2v-2zm8-6H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z\"></path></g>",iso:"<g><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5.5 7.5h2v-2H9v2h2V9H9v2H7.5V9h-2V7.5zM19 19H5L19 5v14zm-2-2v-1.5h-5V17h5z\"></path></g>",landscape:"<g><path d=\"M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z\"></path></g>","leak-add":"<g><path d=\"M6 3H3v3c1.66 0 3-1.34 3-3zm8 0h-2c0 4.97-4.03 9-9 9v2c6.08 0 11-4.93 11-11zm-4 0H8c0 2.76-2.24 5-5 5v2c3.87 0 7-3.13 7-7zm0 18h2c0-4.97 4.03-9 9-9v-2c-6.07 0-11 4.93-11 11zm8 0h3v-3c-1.66 0-3 1.34-3 3zm-4 0h2c0-2.76 2.24-5 5-5v-2c-3.87 0-7 3.13-7 7z\"></path></g>","leak-remove":"<g><path d=\"M10 3H8c0 .37-.04.72-.12 1.06l1.59 1.59C9.81 4.84 10 3.94 10 3zM3 4.27l2.84 2.84C5.03 7.67 4.06 8 3 8v2c1.61 0 3.09-.55 4.27-1.46L8.7 9.97C7.14 11.24 5.16 12 3 12v2c2.71 0 5.19-.99 7.11-2.62l2.5 2.5C10.99 15.81 10 18.29 10 21h2c0-2.16.76-4.14 2.03-5.69l1.43 1.43C14.55 17.91 14 19.39 14 21h2c0-1.06.33-2.03.89-2.84L19.73 21 21 19.73 4.27 3 3 4.27zM14 3h-2c0 1.5-.37 2.91-1.02 4.16l1.46 1.46C13.42 6.98 14 5.06 14 3zm5.94 13.12c.34-.08.69-.12 1.06-.12v-2c-.94 0-1.84.19-2.66.52l1.6 1.6zm-4.56-4.56l1.46 1.46C18.09 12.37 19.5 12 21 12v-2c-2.06 0-3.98.58-5.62 1.56z\"></path></g>",lens:"<g><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z\"></path></g>","linked-camera":"<g><circle cx=\"12\" cy=\"14\" r=\"3.2\"></circle><path d=\"M16 3.33c2.58 0 4.67 2.09 4.67 4.67H22c0-3.31-2.69-6-6-6v1.33M16 6c1.11 0 2 .89 2 2h1.33c0-1.84-1.49-3.33-3.33-3.33V6\"></path><path d=\"M17 9c0-1.11-.89-2-2-2V4H9L7.17 6H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9h-5zm-5 10c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\"></path></g>",looks:"<g><path d=\"M12 10c-3.86 0-7 3.14-7 7h2c0-2.76 2.24-5 5-5s5 2.24 5 5h2c0-3.86-3.14-7-7-7zm0-4C5.93 6 1 10.93 1 17h2c0-4.96 4.04-9 9-9s9 4.04 9 9h2c0-6.07-4.93-11-11-11z\"></path></g>","looks-3":"<g><path d=\"M19.01 3h-14c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 7.5c0 .83-.67 1.5-1.5 1.5.83 0 1.5.67 1.5 1.5V15c0 1.11-.9 2-2 2h-4v-2h4v-2h-2v-2h2V9h-4V7h4c1.1 0 2 .89 2 2v1.5z\"></path></g>","looks-4":"<g><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 14h-2v-4H9V7h2v4h2V7h2v10z\"></path></g>","looks-5":"<g><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 6h-4v2h2c1.1 0 2 .89 2 2v2c0 1.11-.9 2-2 2H9v-2h4v-2H9V7h6v2z\"></path></g>","looks-6":"<g><path d=\"M11 15h2v-2h-2v2zm8-12H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 6h-4v2h2c1.1 0 2 .89 2 2v2c0 1.11-.9 2-2 2h-2c-1.1 0-2-.89-2-2V9c0-1.11.9-2 2-2h4v2z\"></path></g>","looks-one":"<g><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2V9h-2V7h4v10z\"></path></g>","looks-two":"<g><path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 8c0 1.11-.9 2-2 2h-2v2h4v2H9v-4c0-1.11.9-2 2-2h2V9H9V7h4c1.1 0 2 .89 2 2v2z\"></path></g>",loupe:"<g><path d=\"M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.49 2 2 6.49 2 12s4.49 10 10 10h8c1.1 0 2-.9 2-2v-8c0-5.51-4.49-10-10-10zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"></path></g>","monochrome-photos":"<g><path d=\"M20 5h-3.2L15 3H9L7.2 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 14h-8v-1c-2.8 0-5-2.2-5-5s2.2-5 5-5V7h8v12zm-3-6c0-2.8-2.2-5-5-5v1.8c1.8 0 3.2 1.4 3.2 3.2s-1.4 3.2-3.2 3.2V18c2.8 0 5-2.2 5-5zm-8.2 0c0 1.8 1.4 3.2 3.2 3.2V9.8c-1.8 0-3.2 1.4-3.2 3.2z\"></path></g>","movie-creation":"<g><path d=\"M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z\"></path></g>","movie-filter":"<g><path d=\"M18 4l2 3h-3l-2-3h-2l2 3h-3l-2-3H8l2 3H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4zm-6.75 11.25L10 18l-1.25-2.75L6 14l2.75-1.25L10 10l1.25 2.75L14 14l-2.75 1.25zm5.69-3.31L16 14l-.94-2.06L13 11l2.06-.94L16 8l.94 2.06L19 11l-2.06.94z\"></path></g>","music-note":"<g><path d=\"M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z\"></path></g>",nature:"<g><path d=\"M13 16.12c3.47-.41 6.17-3.36 6.17-6.95 0-3.87-3.13-7-7-7s-7 3.13-7 7c0 3.47 2.52 6.34 5.83 6.89V20H5v2h14v-2h-6v-3.88z\"></path></g>","nature-people":"<g><path d=\"M22.17 9.17c0-3.87-3.13-7-7-7s-7 3.13-7 7c0 3.47 2.52 6.34 5.83 6.89V20H6v-3h1v-4c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v4h1v5h16v-2h-3v-3.88c3.47-.41 6.17-3.36 6.17-6.95zM4.5 11c.83 0 1.5-.67 1.5-1.5S5.33 8 4.5 8 3 8.67 3 9.5 3.67 11 4.5 11z\"></path></g>","navigate-before":"<g><path d=\"M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z\"></path></g>","navigate-next":"<g><path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"></path></g>",palette:"<g><path d=\"M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z\"></path></g>",panorama:"<g><path d=\"M23 18V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2zM8.5 12.5l2.5 3.01L14.5 11l4.5 6H5l3.5-4.5z\"></path></g>","panorama-fish-eye":"<g><path d=\"M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z\"></path></g>","panorama-horizontal":"<g><path d=\"M20 6.54v10.91c-2.6-.77-5.28-1.16-8-1.16-2.72 0-5.4.39-8 1.16V6.54c2.6.77 5.28 1.16 8 1.16 2.72.01 5.4-.38 8-1.16M21.43 4c-.1 0-.2.02-.31.06C18.18 5.16 15.09 5.7 12 5.7c-3.09 0-6.18-.55-9.12-1.64-.11-.04-.22-.06-.31-.06-.34 0-.57.23-.57.63v14.75c0 .39.23.62.57.62.1 0 .2-.02.31-.06 2.94-1.1 6.03-1.64 9.12-1.64 3.09 0 6.18.55 9.12 1.64.11.04.21.06.31.06.33 0 .57-.23.57-.63V4.63c0-.4-.24-.63-.57-.63z\"></path></g>","panorama-vertical":"<g><path d=\"M19.94 21.12c-1.1-2.94-1.64-6.03-1.64-9.12 0-3.09.55-6.18 1.64-9.12.04-.11.06-.22.06-.31 0-.34-.23-.57-.63-.57H4.63c-.4 0-.63.23-.63.57 0 .1.02.2.06.31C5.16 5.82 5.71 8.91 5.71 12c0 3.09-.55 6.18-1.64 9.12-.05.11-.07.22-.07.31 0 .33.23.57.63.57h14.75c.39 0 .63-.24.63-.57-.01-.1-.03-.2-.07-.31zM6.54 20c.77-2.6 1.16-5.28 1.16-8 0-2.72-.39-5.4-1.16-8h10.91c-.77 2.6-1.16 5.28-1.16 8 0 2.72.39 5.4 1.16 8H6.54z\"></path></g>","panorama-wide-angle":"<g><path d=\"M12 6c2.45 0 4.71.2 7.29.64.47 1.78.71 3.58.71 5.36 0 1.78-.24 3.58-.71 5.36-2.58.44-4.84.64-7.29.64s-4.71-.2-7.29-.64C4.24 15.58 4 13.78 4 12c0-1.78.24-3.58.71-5.36C7.29 6.2 9.55 6 12 6m0-2c-2.73 0-5.22.24-7.95.72l-.93.16-.25.9C2.29 7.85 2 9.93 2 12s.29 4.15.87 6.22l.25.89.93.16c2.73.49 5.22.73 7.95.73s5.22-.24 7.95-.72l.93-.16.25-.89c.58-2.08.87-4.16.87-6.23s-.29-4.15-.87-6.22l-.25-.89-.93-.16C17.22 4.24 14.73 4 12 4z\"></path></g>",photo:"<g><path d=\"M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z\"></path></g>","photo-album":"<g><path d=\"M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4zm0 15l3-3.86 2.14 2.58 3-3.86L18 19H6z\"></path></g>","photo-camera":"<g><circle cx=\"12\" cy=\"12\" r=\"3.2\"></circle><path d=\"M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\"></path></g>","photo-filter":"<g><path d=\"M19.02 10v9H5V5h9V3H5.02c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-9h-2zM17 10l.94-2.06L20 7l-2.06-.94L17 4l-.94 2.06L14 7l2.06.94zm-3.75.75L12 8l-1.25 2.75L8 12l2.75 1.25L12 16l1.25-2.75L16 12z\"></path></g>","photo-library":"<g><path d=\"M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z\"></path></g>","photo-size-select-actual":"<g><path d=\"M21 3H3C2 3 1 4 1 5v14c0 1.1.9 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zM5 17l3.5-4.5 2.5 3.01L14.5 11l4.5 6H5z\"></path></g>","photo-size-select-large":"<g><path d=\"M21 15h2v2h-2v-2zm0-4h2v2h-2v-2zm2 8h-2v2c1 0 2-1 2-2zM13 3h2v2h-2V3zm8 4h2v2h-2V7zm0-4v2h2c0-1-1-2-2-2zM1 7h2v2H1V7zm16-4h2v2h-2V3zm0 16h2v2h-2v-2zM3 3C2 3 1 4 1 5h2V3zm6 0h2v2H9V3zM5 3h2v2H5V3zm-4 8v8c0 1.1.9 2 2 2h12V11H1zm2 8l2.5-3.21 1.79 2.15 2.5-3.22L13 19H3z\"></path></g>","photo-size-select-small":"<g><path d=\"M23 15h-2v2h2v-2zm0-4h-2v2h2v-2zm0 8h-2v2c1 0 2-1 2-2zM15 3h-2v2h2V3zm8 4h-2v2h2V7zm-2-4v2h2c0-1-1-2-2-2zM3 21h8v-6H1v4c0 1.1.9 2 2 2zM3 7H1v2h2V7zm12 12h-2v2h2v-2zm4-16h-2v2h2V3zm0 16h-2v2h2v-2zM3 3C2 3 1 4 1 5h2V3zm0 8H1v2h2v-2zm8-8H9v2h2V3zM7 3H5v2h2V3z\"></path></g>","picture-as-pdf":"<g><path d=\"M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 7.5c0 .83-.67 1.5-1.5 1.5H9v2H7.5V7H10c.83 0 1.5.67 1.5 1.5v1zm5 2c0 .83-.67 1.5-1.5 1.5h-2.5V7H15c.83 0 1.5.67 1.5 1.5v3zm4-3H19v1h1.5V11H19v2h-1.5V7h3v1.5zM9 9.5h1v-1H9v1zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm10 5.5h1v-3h-1v3z\"></path></g>",portrait:"<g><path d=\"M12 12.25c1.24 0 2.25-1.01 2.25-2.25S13.24 7.75 12 7.75 9.75 8.76 9.75 10s1.01 2.25 2.25 2.25zm4.5 4c0-1.5-3-2.25-4.5-2.25s-4.5.75-4.5 2.25V17h9v-.75zM19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z\"></path></g>","remove-red-eye":"<g><path d=\"M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z\"></path></g>","rotate-90-degrees-ccw":"<g><path d=\"M7.34 6.41L.86 12.9l6.49 6.48 6.49-6.48-6.5-6.49zM3.69 12.9l3.66-3.66L11 12.9l-3.66 3.66-3.65-3.66zm15.67-6.26C17.61 4.88 15.3 4 13 4V.76L8.76 5 13 9.24V6c1.79 0 3.58.68 4.95 2.05 2.73 2.73 2.73 7.17 0 9.9C16.58 19.32 14.79 20 13 20c-.97 0-1.94-.21-2.84-.61l-1.49 1.49C10.02 21.62 11.51 22 13 22c2.3 0 4.61-.88 6.36-2.64 3.52-3.51 3.52-9.21 0-12.72z\"></path></g>","rotate-left":"<g><path d=\"M7.11 8.53L5.7 7.11C4.8 8.27 4.24 9.61 4.07 11h2.02c.14-.87.49-1.72 1.02-2.47zM6.09 13H4.07c.17 1.39.72 2.73 1.62 3.89l1.41-1.42c-.52-.75-.87-1.59-1.01-2.47zm1.01 5.32c1.16.9 2.51 1.44 3.9 1.61V17.9c-.87-.15-1.71-.49-2.46-1.03L7.1 18.32zM13 4.07V1L8.45 5.55 13 10V6.09c2.84.48 5 2.94 5 5.91s-2.16 5.43-5 5.91v2.02c3.95-.49 7-3.85 7-7.93s-3.05-7.44-7-7.93z\"></path></g>","rotate-right":"<g><path d=\"M15.55 5.55L11 1v3.07C7.06 4.56 4 7.92 4 12s3.05 7.44 7 7.93v-2.02c-2.84-.48-5-2.94-5-5.91s2.16-5.43 5-5.91V10l4.55-4.45zM19.93 11c-.17-1.39-.72-2.73-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47h2.02zM13 17.9v2.02c1.39-.17 2.74-.71 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03zm3.89-2.42l1.42 1.41c.9-1.16 1.45-2.5 1.62-3.89h-2.02c-.14.87-.48 1.72-1.02 2.48z\"></path></g>",slideshow:"<g><path d=\"M10 8v8l5-4-5-4zm9-5H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z\"></path></g>",straighten:"<g><path d=\"M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h2v4h2V8h2v4h2V8h2v4h2V8h2v4h2V8h2v8z\"></path></g>",style:"<g><path d=\"M2.53 19.65l1.34.56v-9.03l-2.43 5.86c-.41 1.02.08 2.19 1.09 2.61zm19.5-3.7L17.07 3.98c-.31-.75-1.04-1.21-1.81-1.23-.26 0-.53.04-.79.15L7.1 5.95c-.75.31-1.21 1.03-1.23 1.8-.01.27.04.54.15.8l4.96 11.97c.31.76 1.05 1.22 1.83 1.23.26 0 .52-.05.77-.15l7.36-3.05c1.02-.42 1.51-1.59 1.09-2.6zM7.88 8.75c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 11c0 1.1.9 2 2 2h1.45l-3.45-8.34v6.34z\"></path></g>","switch-camera":"<g><path d=\"M20 4h-3.17L15 2H9L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 11.5V13H9v2.5L5.5 12 9 8.5V11h6V8.5l3.5 3.5-3.5 3.5z\"></path></g>","switch-video":"<g><path d=\"M18 9.5V6c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-3.5l4 4v-13l-4 4zm-5 6V13H7v2.5L3.5 12 7 8.5V11h6V8.5l3.5 3.5-3.5 3.5z\"></path></g>","tag-faces":"<g><path d=\"M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z\"></path></g>",texture:"<g><path d=\"M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z\"></path></g>",timelapse:"<g><path d=\"M16.24 7.76C15.07 6.59 13.54 6 12 6v6l-4.24 4.24c2.34 2.34 6.14 2.34 8.49 0 2.34-2.34 2.34-6.14-.01-8.48zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z\"></path></g>",timer:"<g><path d=\"M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z\"></path></g>","timer-10":"<g><path d=\"M0 7.72V9.4l3-1V18h2V6h-.25L0 7.72zm23.78 6.65c-.14-.28-.35-.53-.63-.74-.28-.21-.61-.39-1.01-.53s-.85-.27-1.35-.38c-.35-.07-.64-.15-.87-.23-.23-.08-.41-.16-.55-.25-.14-.09-.23-.19-.28-.3-.05-.11-.08-.24-.08-.39 0-.14.03-.28.09-.41.06-.13.15-.25.27-.34.12-.1.27-.18.45-.24s.4-.09.64-.09c.25 0 .47.04.66.11.19.07.35.17.48.29.13.12.22.26.29.42.06.16.1.32.1.49h1.95c0-.39-.08-.75-.24-1.09-.16-.34-.39-.63-.69-.88-.3-.25-.66-.44-1.09-.59C21.49 9.07 21 9 20.46 9c-.51 0-.98.07-1.39.21-.41.14-.77.33-1.06.57-.29.24-.51.52-.67.84-.16.32-.23.65-.23 1.01s.08.69.23.96c.15.28.36.52.64.73.27.21.6.38.98.53.38.14.81.26 1.27.36.39.08.71.17.95.26s.43.19.57.29c.13.1.22.22.27.34.05.12.07.25.07.39 0 .32-.13.57-.4.77-.27.2-.66.29-1.17.29-.22 0-.43-.02-.64-.08-.21-.05-.4-.13-.56-.24-.17-.11-.3-.26-.41-.44-.11-.18-.17-.41-.18-.67h-1.89c0 .36.08.71.24 1.05.16.34.39.65.7.93.31.27.69.49 1.15.66.46.17.98.25 1.58.25.53 0 1.01-.06 1.44-.19.43-.13.8-.31 1.11-.54.31-.23.54-.51.71-.83.17-.32.25-.67.25-1.06-.02-.4-.09-.74-.24-1.02zm-9.96-7.32c-.34-.4-.75-.7-1.23-.88-.47-.18-1.01-.27-1.59-.27-.58 0-1.11.09-1.59.27-.48.18-.89.47-1.23.88-.34.41-.6.93-.79 1.59-.18.65-.28 1.45-.28 2.39v1.92c0 .94.09 1.74.28 2.39.19.66.45 1.19.8 1.6.34.41.75.71 1.23.89.48.18 1.01.28 1.59.28.59 0 1.12-.09 1.59-.28.48-.18.88-.48 1.22-.89.34-.41.6-.94.78-1.6.18-.65.28-1.45.28-2.39v-1.92c0-.94-.09-1.74-.28-2.39-.18-.66-.44-1.19-.78-1.59zm-.92 6.17c0 .6-.04 1.11-.12 1.53-.08.42-.2.76-.36 1.02-.16.26-.36.45-.59.57-.23.12-.51.18-.82.18-.3 0-.58-.06-.82-.18s-.44-.31-.6-.57c-.16-.26-.29-.6-.38-1.02-.09-.42-.13-.93-.13-1.53v-2.5c0-.6.04-1.11.13-1.52.09-.41.21-.74.38-1 .16-.25.36-.43.6-.55.24-.11.51-.17.81-.17.31 0 .58.06.81.17.24.11.44.29.6.55.16.25.29.58.37.99.08.41.13.92.13 1.52v2.51z\"></path></g>","timer-3":"<g><path d=\"M11.61 12.97c-.16-.24-.36-.46-.62-.65-.25-.19-.56-.35-.93-.48.3-.14.57-.3.8-.5.23-.2.42-.41.57-.64.15-.23.27-.46.34-.71.08-.24.11-.49.11-.73 0-.55-.09-1.04-.28-1.46-.18-.42-.44-.77-.78-1.06-.33-.28-.73-.5-1.2-.64-.45-.13-.97-.2-1.53-.2-.55 0-1.06.08-1.52.24-.47.17-.87.4-1.2.69-.33.29-.6.63-.78 1.03-.2.39-.29.83-.29 1.29h1.98c0-.26.05-.49.14-.69.09-.2.22-.38.38-.52.17-.14.36-.25.58-.33.22-.08.46-.12.73-.12.61 0 1.06.16 1.36.47.3.31.44.75.44 1.32 0 .27-.04.52-.12.74-.08.22-.21.41-.38.57-.17.16-.38.28-.63.37-.25.09-.55.13-.89.13H6.72v1.57H7.9c.34 0 .64.04.91.11.27.08.5.19.69.35.19.16.34.36.44.61.1.24.16.54.16.87 0 .62-.18 1.09-.53 1.42-.35.33-.84.49-1.45.49-.29 0-.56-.04-.8-.13-.24-.08-.44-.2-.61-.36-.17-.16-.3-.34-.39-.56-.09-.22-.14-.46-.14-.72H4.19c0 .55.11 1.03.32 1.45.21.42.5.77.86 1.05s.77.49 1.24.63.96.21 1.48.21c.57 0 1.09-.08 1.58-.23.49-.15.91-.38 1.26-.68.36-.3.64-.66.84-1.1.2-.43.3-.93.3-1.48 0-.29-.04-.58-.11-.86-.08-.25-.19-.51-.35-.76zm9.26 1.4c-.14-.28-.35-.53-.63-.74-.28-.21-.61-.39-1.01-.53s-.85-.27-1.35-.38c-.35-.07-.64-.15-.87-.23-.23-.08-.41-.16-.55-.25-.14-.09-.23-.19-.28-.3-.05-.11-.08-.24-.08-.39s.03-.28.09-.41c.06-.13.15-.25.27-.34.12-.1.27-.18.45-.24s.4-.09.64-.09c.25 0 .47.04.66.11.19.07.35.17.48.29.13.12.22.26.29.42.06.16.1.32.1.49h1.95c0-.39-.08-.75-.24-1.09-.16-.34-.39-.63-.69-.88-.3-.25-.66-.44-1.09-.59-.43-.15-.92-.22-1.46-.22-.51 0-.98.07-1.39.21-.41.14-.77.33-1.06.57-.29.24-.51.52-.67.84-.16.32-.23.65-.23 1.01s.08.68.23.96c.15.28.37.52.64.73.27.21.6.38.98.53.38.14.81.26 1.27.36.39.08.71.17.95.26s.43.19.57.29c.13.1.22.22.27.34.05.12.07.25.07.39 0 .32-.13.57-.4.77-.27.2-.66.29-1.17.29-.22 0-.43-.02-.64-.08-.21-.05-.4-.13-.56-.24-.17-.11-.3-.26-.41-.44-.11-.18-.17-.41-.18-.67h-1.89c0 .36.08.71.24 1.05.16.34.39.65.7.93.31.27.69.49 1.15.66.46.17.98.25 1.58.25.53 0 1.01-.06 1.44-.19.43-.13.8-.31 1.11-.54.31-.23.54-.51.71-.83.17-.32.25-.67.25-1.06-.02-.4-.09-.74-.24-1.02z\"></path></g>","timer-off":"<g><path d=\"M19.04 4.55l-1.42 1.42C16.07 4.74 14.12 4 12 4c-1.83 0-3.53.55-4.95 1.48l1.46 1.46C9.53 6.35 10.73 6 12 6c3.87 0 7 3.13 7 7 0 1.27-.35 2.47-.94 3.49l1.45 1.45C20.45 16.53 21 14.83 21 13c0-2.12-.74-4.07-1.97-5.61l1.42-1.42-1.41-1.42zM15 1H9v2h6V1zm-4 8.44l2 2V8h-2v1.44zM3.02 4L1.75 5.27 4.5 8.03C3.55 9.45 3 11.16 3 13c0 4.97 4.02 9 9 9 1.84 0 3.55-.55 4.98-1.5l2.5 2.5 1.27-1.27-7.71-7.71L3.02 4zM12 20c-3.87 0-7-3.13-7-7 0-1.28.35-2.48.95-3.52l9.56 9.56c-1.03.61-2.23.96-3.51.96z\"></path></g>",tonality:"<g><path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93s3.05-7.44 7-7.93v15.86zm2-15.86c1.03.13 2 .45 2.87.93H13v-.93zM13 7h5.24c.25.31.48.65.68 1H13V7zm0 3h6.74c.08.33.15.66.19 1H13v-1zm0 9.93V19h2.87c-.87.48-1.84.8-2.87.93zM18.24 17H13v-1h5.92c-.2.35-.43.69-.68 1zm1.5-3H13v-1h6.93c-.04.34-.11.67-.19 1z\"></path></g>",transform:"<g><path d=\"M22 18v-2H8V4h2L7 1 4 4h2v2H2v2h4v8c0 1.1.9 2 2 2h8v2h-2l3 3 3-3h-2v-2h4zM10 8h6v6h2V8c0-1.1-.9-2-2-2h-6v2z\"></path></g>",tune:"<g><path d=\"M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z\"></path></g>","view-comfy":"<g><path d=\"M3 9h4V5H3v4zm0 5h4v-4H3v4zm5 0h4v-4H8v4zm5 0h4v-4h-4v4zM8 9h4V5H8v4zm5-4v4h4V5h-4zm5 9h4v-4h-4v4zM3 19h4v-4H3v4zm5 0h4v-4H8v4zm5 0h4v-4h-4v4zm5 0h4v-4h-4v4zm0-14v4h4V5h-4z\"></path></g>","view-compact":"<g><path d=\"M3 19h6v-7H3v7zm7 0h12v-7H10v7zM3 5v6h19V5H3z\"></path></g>",vignette:"<g><path d=\"M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 15c-4.42 0-8-2.69-8-6s3.58-6 8-6 8 2.69 8 6-3.58 6-8 6z\"></path></g>","wb-auto":"<g><path d=\"M6.85 12.65h2.3L8 9l-1.15 3.65zM22 7l-1.2 6.29L19.3 7h-1.6l-1.49 6.29L15 7h-.76C12.77 5.17 10.53 4 8 4c-4.42 0-8 3.58-8 8s3.58 8 8 8c3.13 0 5.84-1.81 7.15-4.43l.1.43H17l1.5-6.1L20 16h1.75l2.05-9H22zm-11.7 9l-.7-2H6.4l-.7 2H3.8L7 7h2l3.2 9h-1.9z\"></path></g>","wb-cloudy":"<g><path d=\"M19.36 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96z\"></path></g>","wb-incandescent":"<g><path d=\"M3.55 18.54l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8zM11 22.45h2V19.5h-2v2.95zM4 10.5H1v2h3v-2zm11-4.19V1.5H9v4.81C7.21 7.35 6 9.28 6 11.5c0 3.31 2.69 6 6 6s6-2.69 6-6c0-2.22-1.21-4.15-3-5.19zm5 4.19v2h3v-2h-3zm-2.76 7.66l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4z\"></path></g>","wb-iridescent":"<g><path d=\"M5 14.5h14v-6H5v6zM11 .55V3.5h2V.55h-2zm8.04 2.5l-1.79 1.79 1.41 1.41 1.8-1.79-1.42-1.41zM13 22.45V19.5h-2v2.95h2zm7.45-3.91l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM3.55 4.46l1.79 1.79 1.41-1.41-1.79-1.79-1.41 1.41zm1.41 15.49l1.79-1.8-1.41-1.41-1.79 1.79 1.41 1.42z\"></path></g>","wb-sunny":"<g><path d=\"M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z\"></path></g>"};_exports.ImageIcons=ImageIcons;var imageIcons={ImageIcons:ImageIcons};// -- initialize application env, theme, api
-_exports.$imageIcons=imageIcons;Iconset.registerIconset("furo",FuroDocIcons);Iconset.registerIconset("default",FuroBaseIcons);Iconset.registerIconset("av",AvIcons);Iconset.registerIconset("communication",CommunicationIcons);Iconset.registerIconset("device",DeviceIcons);Iconset.registerIconset("editor",EditorIcons);Iconset.registerIconset("social",SocialIcons);Iconset.registerIconset("places",PlacesIcons);Iconset.registerIconset("notification",NotificationIcons);Iconset.registerIconset("map",MapsIcons);Iconset.registerIconset("hardware",HardwareIcons);Iconset.registerIconset("image",ImageIcons);/**
+_exports.$imageIcons=imageIcons;Init.registerApiServices(Services);Init.registerApiTypes(Types);//Attention: Styling is defined in main-stage
+Iconset.registerIconset("furo",FuroDocIcons);Iconset.registerIconset("default",FuroBaseIcons);Iconset.registerIconset("av",AvIcons);Iconset.registerIconset("communication",CommunicationIcons);Iconset.registerIconset("device",DeviceIcons);Iconset.registerIconset("editor",EditorIcons);Iconset.registerIconset("social",SocialIcons);Iconset.registerIconset("places",PlacesIcons);Iconset.registerIconset("notification",NotificationIcons);Iconset.registerIconset("map",MapsIcons);Iconset.registerIconset("hardware",HardwareIcons);Iconset.registerIconset("image",ImageIcons);/**
                                               @license
                                               Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
                                               This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -2601,9 +2689,10 @@ setTimeout(()=>{this._locationChangeNotyfier({detail:this._lastChangedAt})},0)}/
      */disconnectedCallback(){document.body.removeEventListener("click",this._clickHandler,!0);document.body.removeEventListener("__furoLocationChanged",this._locationChangeNotyfier,!0);window.removeEventListener("popstate",this._locationChangeNotyfier,!0);window.removeEventListener("popstate",this._locationChangeNotyfier,!0)}// create a valid href string from this._location
 _getHrefFromLocation(){// path, query hash
 let href=this._location.path;if(0<this._location.query.length){href+="?"+this._location.query}if(0<this._location.hash.length){href+="#"+this._location.hash}return href}_registerHandler(){this._locationChangeNotyfier=e=>{this._lastChangedAt=e.detail;// ignore links outside urlSpaceRegex
-if(""!==this.urlSpaceRegex){if(null===window.location.pathname.match(this.urlSpaceRegex)){return}}// path-changed
+if(""!==this.urlSpaceRegex){if(null===window.location.pathname.match(this.urlSpaceRegex)){return}}// register empty objects for later usage
+this._location.query={};this._location.hash={};// path-changed
 // cut of urlSpaceRegex
-let newPath=window.decodeURIComponent(window.location.pathname).replace(new RegExp(this.urlSpaceRegex),"");;if(this._location.path!==newPath){this._location.path=newPath;// path segments
+let newPath=window.decodeURIComponent(window.location.pathname).replace(new RegExp(this.urlSpaceRegex),"");if(this._location.path!==newPath){this._location.path=newPath;// path segments
 this._location.pathSegments=[];let m,rgx=new RegExp(/\/([^/]*)/gi);while(null!==(m=rgx.exec(newPath))){this._location.pathSegments.push(m[1])}/**
            * @event location-path-changed
            * Fired when Path portion of the location changed
@@ -2756,7 +2845,7 @@ return[css`
      */render(){// language=HTML
 return html`
             <main-stage></main-stage>
-        `}}window.customElements.define("furo-shell",FuroShell);/*! markdown-it 9.0.1 https://github.com//markdown-it/markdown-it @license MIT */(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.markdownit=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){// HTML5 entities map: { name -> utf16string }
+        `}}window.customElements.define("furo-shell",FuroShell);/*! markdown-it 9.1.0 https://github.com//markdown-it/markdown-it @license MIT */(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.markdownit=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){// HTML5 entities map: { name -> utf16string }
 //
 'use strict';/*eslint quotes:0*/module.exports=require("entities/maps/entities.json")},{"entities/maps/entities.json":52}],2:[function(require,module,exports){// List of valid html blocks names, accorting to commonmark spec
 // http://jgm.github.io/CommonMark/spec.html#html-blocks
@@ -3885,7 +3974,8 @@ nodes=[];level=currentToken.level;lastPos=0;for(ln=0;ln<links.length;ln++){url=l
 //
 if(!links[ln].schema){urlText=state.md.normalizeLinkText("http://"+urlText).replace(/^http:\/\//,"")}else if("mailto:"===links[ln].schema&&!/^mailto:/i.test(urlText)){urlText=state.md.normalizeLinkText("mailto:"+urlText).replace(/^mailto:/,"")}else{urlText=state.md.normalizeLinkText(urlText)}pos=links[ln].index;if(pos>lastPos){token=new state.Token("text","",0);token.content=text.slice(lastPos,pos);token.level=level;nodes.push(token)}token=new state.Token("link_open","a",1);token.attrs=[["href",fullUrl]];token.level=level++;token.markup="linkify";token.info="auto";nodes.push(token);token=new state.Token("text","",0);token.content=urlText;token.level=level;nodes.push(token);token=new state.Token("link_close","a",-1);token.level=--level;token.markup="linkify";token.info="auto";nodes.push(token);lastPos=links[ln].lastIndex}if(lastPos<text.length){token=new state.Token("text","",0);token.content=text.slice(lastPos);token.level=level;nodes.push(token)}// replace current node
 blockTokens[j].children=tokens=arrayReplaceAt(tokens,i,nodes)}}}}},{"../common/utils":4}],33:[function(require,module,exports){// Normalize input string
-'use strict';var NEWLINES_RE=/\r[\n\u0085]?|[\u2424\u2028\u0085]/g,NULL_RE=/\u0000/g;module.exports=function normalize(state){var str;// Normalize newlines
+'use strict';// https://spec.commonmark.org/0.29/#line-ending
+var NEWLINES_RE=/\r\n?|\n/g,NULL_RE=/\0/g;module.exports=function normalize(state){var str;// Normalize newlines
 str=state.src.replace(NEWLINES_RE,"\n");// Replace NULL characters
 str=str.replace(NULL_RE,"\uFFFD");state.src=str}},{}],34:[function(require,module,exports){// Simple typographic replacements
 //
@@ -10140,7 +10230,7 @@ return Theme.getThemeForComponent(this.name)||css`
         }
 
         ::slotted(*) {
-            margin: 0 8px;
+            margin: var(--spacing-xs, 8px);
         }
 
         ::slotted(*:first-child) {
@@ -10443,7 +10533,7 @@ return Theme.getThemeForComponent(this.name)||css`
             width: 100%;
             cursor: pointer;
             color: var(--on-surface);
-            padding: 0 16px;
+            padding: 0  var(--furo-button-padding, var(--spacing-s, 16px));;
             text-transform: uppercase;
             font-size: 14px;
             outline: none;
@@ -10676,7 +10766,9 @@ let inputField=this.shadowRoot.querySelector("#input");if(this.min){inputField.s
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
      * Set the value for the field
      * @param {Number} num a valid number value
      */setValue(num){this._value=num;this.value=num}/**
@@ -10709,9 +10801,8 @@ return Theme.getThemeForComponent(this.name)||css`
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
+            margin: 19px 0 0 0;
+            height: 56px;
             width: 190px;
         }
 
@@ -10723,6 +10814,9 @@ return Theme.getThemeForComponent(this.name)||css`
             position: relative;
             padding: 0 12px;
             box-sizing: border-box;
+            height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         .iwrap {
@@ -10837,7 +10931,7 @@ return Theme.getThemeForComponent(this.name)||css`
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -10879,7 +10973,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -10978,11 +11072,10 @@ return Theme.getThemeForComponent(this.name)||css`
         }
         :host([condensed]) input{
             top:8px;
+            font-size: 14px;
         }
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
             line-height: 36px;
-        }
-        :host([condensed]) input{
             font-size: 14px;
         }
         :host([condensed][filled]) input{
@@ -10997,7 +11090,7 @@ return Theme.getThemeForComponent(this.name)||css`
         }
         
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
@@ -11008,11 +11101,9 @@ return Theme.getThemeForComponent(this.name)||css`
             top:-20px;
             font-size: 10px;
         } 
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
-        }
+        
         :host([condensed]){
-            height: 53px;
+            height: 36px;
         }
 
     `}/**
@@ -11084,7 +11175,9 @@ let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputFie
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
      * Sets the value for the input field.
      * @param {String} string
      */setValue(string){this._value=string;this.value=string}/**
@@ -11117,8 +11210,8 @@ return Theme.getThemeForComponent(this.name)||css`
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
+            margin: 19px 0 0 0;
+            height: 56px;
             width: 190px;
         }
 
@@ -11127,15 +11220,18 @@ return Theme.getThemeForComponent(this.name)||css`
         }
 
         .wrapper {
+            position: relative;
             padding: 0 12px;
             box-sizing: border-box;
+            height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         .iwrap {
             position: relative;
         }
 
-       
 
         input {
             position: absolute;
@@ -11219,7 +11315,7 @@ return Theme.getThemeForComponent(this.name)||css`
         :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
             font-size: 12px;
             top: -30px;
-            left:0;
+            left: 0;
             position: relative;
         }
 
@@ -11243,7 +11339,7 @@ return Theme.getThemeForComponent(this.name)||css`
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -11285,7 +11381,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -11348,16 +11444,18 @@ return Theme.getThemeForComponent(this.name)||css`
 
         furo-icon {
             display: none;
-            top:16px;
+            top: 16px;
         }
-        furo-icon.lead{
+
+        furo-icon.lead {
             position: absolute;
-            
-            left:8px;
+
+            left: 8px;
         }
-        furo-icon.trail{
+
+        furo-icon.trail {
             position: absolute;
-            right:8px;
+            right: 8px;
         }
 
         :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
@@ -11368,58 +11466,61 @@ return Theme.getThemeForComponent(this.name)||css`
             left: 24px;
         }
 
-        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span{
+        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
             left: 0;
         }
 
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper{
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
             padding-left: 36px;
         }
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper{
+
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
             padding-right: 36px;
         }
-        :host(:focus-within:not([valid])) label{
+
+        :host(:focus-within:not([valid])) label {
             color: var(--input-error-text-color, var(--error, red));
         }
 
 
-        :host([condensed]) input{
-            top:8px;
-        }
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
-            line-height: 36px;
-        }
-        :host([condensed]) input{
+        :host([condensed]) input {
+            top: 8px;
             font-size: 14px;
         }
-        :host([condensed][filled]) input{
+
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+            line-height: 36px;
+            font-size: 14px;
+        }
+        
+        :host([condensed][filled]) input {
             font-size: 13px;
         }
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper{
+
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
             height: 36px;
-        }  
-        
-        :host([condensed])  furo-icon {
-            top:6px;
         }
-        
+
+        :host([condensed]) furo-icon {
+            top: 6px;
+        }
+
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top:-15px;
-            font-size: 10px;
-        } 
-        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top:-20px;
-            font-size: 10px;
-        } 
-        :host([condensed]) .hint, :host([condensed]) .errortext {
+            top: -15px;
             font-size: 10px;
         }
-        :host([condensed]){
-            height: 53px;
+
+        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
+            top: -20px;
+            font-size: 10px;
+        }
+        
+        :host([condensed]) {
+            height: 36px;
         }
 
     `}/**
@@ -11487,7 +11588,9 @@ let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputFie
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
      * Sets the value for the input field.
      * @param {String} string
      */setValue(string){this._value=string;this.value=string}/**
@@ -11524,8 +11627,8 @@ return Theme.getThemeForComponent(this.name)||css`
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
+            margin: 19px 0 0 0;
+            height: 56px;
             width: 190px;
         }
 
@@ -11534,8 +11637,12 @@ return Theme.getThemeForComponent(this.name)||css`
         }
 
         .wrapper {
+            position: relative;
             padding: 0 12px;
             box-sizing: border-box;
+            height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         .iwrap {
@@ -11650,7 +11757,7 @@ return Theme.getThemeForComponent(this.name)||css`
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -11692,7 +11799,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -11793,11 +11900,10 @@ return Theme.getThemeForComponent(this.name)||css`
 
         :host([condensed]) input{
             top:8px;
+            font-size: 14px;
         }
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
             line-height: 36px;
-        }
-        :host([condensed]) input{
             font-size: 14px;
         }
         :host([condensed][filled]) input{
@@ -11812,7 +11918,7 @@ return Theme.getThemeForComponent(this.name)||css`
         }
         
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
@@ -11823,11 +11929,9 @@ return Theme.getThemeForComponent(this.name)||css`
             top:-20px;
             font-size: 10px;
         } 
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
-        }
+        
         :host([condensed]){
-            height: 53px;
+            height: 36px;
         }
 
     `}/**
@@ -11895,7 +11999,9 @@ let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputFie
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
      * Sets the value for the input field.
      * @param {String} string
      */setValue(string){this._value=string;this.value=string}/**
@@ -11928,9 +12034,8 @@ return Theme.getThemeForComponent(this.name)||css`
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
+            margin: 19px 0 0 0;
+            height: 56px;
             width: 190px;
         }
 
@@ -11942,8 +12047,14 @@ return Theme.getThemeForComponent(this.name)||css`
             position: relative;
             padding: 0 12px;
             box-sizing: border-box;
+            height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
+        .iwrap {
+            position: relative;
+        }
 
 
         input {
@@ -11954,8 +12065,7 @@ return Theme.getThemeForComponent(this.name)||css`
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            left:12px;
-            right: 12px;
+            width: 100%;
             line-height: 24px;
             color: inherit;
             outline: none;
@@ -12053,7 +12163,7 @@ return Theme.getThemeForComponent(this.name)||css`
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -12095,7 +12205,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -12195,11 +12305,10 @@ return Theme.getThemeForComponent(this.name)||css`
 
         :host([condensed]) input{
             top:8px;
+            font-size: 14px;
         }
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
             line-height: 36px;
-        }
-        :host([condensed]) input{
             font-size: 14px;
         }
         :host([condensed][filled]) input{
@@ -12214,7 +12323,7 @@ return Theme.getThemeForComponent(this.name)||css`
         }
 
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
@@ -12225,11 +12334,9 @@ return Theme.getThemeForComponent(this.name)||css`
             top:-20px;
             font-size: 10px;
         }
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
-        }
+        
         :host([condensed]){
-            height: 53px;
+            height: 36px;
         }
 
     `}/**
@@ -12240,9 +12347,10 @@ return Theme.getThemeForComponent(this.name)||css`
 return html` 
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly}       
        type="search" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
-       
+       </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>
       <div class="borderlabel">
@@ -12299,7 +12407,9 @@ let inputField=this.shadowRoot.querySelector("#input");if(this.min){inputField.s
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
      * Set the value for the field
      * @param {Number} num a valid number value
      */setValue(num){this._value=num;this.value=num}/**
@@ -12332,9 +12442,8 @@ return Theme.getThemeForComponent(this.name)||css`
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
+            margin: 19px 0 0 0;
+            height: 56px;
             width: 190px;
         }
 
@@ -12343,10 +12452,12 @@ return Theme.getThemeForComponent(this.name)||css`
         }
 
         .wrapper {
-
+            position: relative;
             padding: 0 12px;
             box-sizing: border-box;
             height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         .iwrap {
@@ -12449,7 +12560,7 @@ return Theme.getThemeForComponent(this.name)||css`
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -12483,7 +12594,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -12578,15 +12689,16 @@ return Theme.getThemeForComponent(this.name)||css`
 
         :host([condensed]) input {
             top: 8px;
+            font-size: 14px;
         }
 
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
             line-height: 36px;
+            font-size: 14px;
         }
-
-        
-        
-
+        :host([condensed][filled]) input{
+            font-size: 13px;
+        }
         :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
             height: 36px;
         }
@@ -12596,7 +12708,7 @@ return Theme.getThemeForComponent(this.name)||css`
         }
 
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
 
         :host([condensed][filled]) label span {
@@ -12609,12 +12721,8 @@ return Theme.getThemeForComponent(this.name)||css`
             font-size: 10px;
         }
 
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
-        }
-
         :host([condensed]) {
-            height: 53px;
+            height: 36px;
         }
 
     `}/**
@@ -12692,7 +12800,9 @@ let inputField=this.shadowRoot.querySelector("#input");if(this.min){inputField.s
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
      * Set the value for the field
      * @param {Number} num a valid time number value
      */setValue(num){this._value=num;this.value=num}/**
@@ -12725,9 +12835,8 @@ return Theme.getThemeForComponent(this.name)||css`
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
+            margin: 19px 0 0 0;
+            height: 56px;
             width: 104px;
         }
 
@@ -12740,6 +12849,8 @@ return Theme.getThemeForComponent(this.name)||css`
             padding: 0 12px;
             box-sizing: border-box;
             height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         .iwrap {
@@ -12847,7 +12958,7 @@ return Theme.getThemeForComponent(this.name)||css`
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -12881,7 +12992,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -12974,11 +13085,10 @@ return Theme.getThemeForComponent(this.name)||css`
 
         :host([condensed]) input{
             top:8px;
+            font-size: 14px;
         }
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
             line-height: 36px;
-        }
-        :host([condensed]) input{
             font-size: 14px;
         }
         :host([condensed][filled]) input{
@@ -12993,7 +13103,7 @@ return Theme.getThemeForComponent(this.name)||css`
         }
         
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
@@ -13005,11 +13115,8 @@ return Theme.getThemeForComponent(this.name)||css`
             font-size: 10px;
         }
         
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
-        }
         :host([condensed]){
-            height: 53px;
+            height: 36px;
         }
 
     `}/**
@@ -13095,7 +13202,9 @@ let inputField=this.shadowRoot.querySelector("#input");if(this.min){inputField.s
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
      * Set the value for the field
      * @param {Number} num a valid date number value
      */setValue(num){this._value=num;this.value=num}set errortext(v){this._errortext=v;this.__initalErrorText=v}get errortext(){return this._errortext}/**
@@ -13121,9 +13230,8 @@ return Theme.getThemeForComponent(this.name)||css`
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
+            margin: 19px 0 0 0;
+            height: 56px;
             width: 174px;
         }
 
@@ -13136,6 +13244,8 @@ return Theme.getThemeForComponent(this.name)||css`
             padding: 0 12px;
             box-sizing: border-box;
             height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         .iwrap {
@@ -13243,7 +13353,7 @@ return Theme.getThemeForComponent(this.name)||css`
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -13277,7 +13387,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -13373,13 +13483,11 @@ return Theme.getThemeForComponent(this.name)||css`
 
         :host([condensed]) input {
             top: 8px;
+            font-size: 14px;
         }
 
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
             line-height: 36px;
-        }
-
-        :host([condensed]) input {
             font-size: 14px;
         }
 
@@ -13396,7 +13504,7 @@ return Theme.getThemeForComponent(this.name)||css`
         }
 
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
@@ -13408,13 +13516,9 @@ return Theme.getThemeForComponent(this.name)||css`
             top:-20px;
             font-size: 10px;
         }
-        
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
-        }
 
         :host([condensed]) {
-            height: 53px;
+            height: 36px;
         }
 
     `}/**
@@ -13476,7 +13580,9 @@ return html`
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
      * Sets the value for the input field.
      * @param {String} string
      */setValue(string){this._value=string;this.value=string}/**
@@ -13509,9 +13615,8 @@ return Theme.getThemeForComponent(this.name)||css`
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
+            margin: 19px 0 0 0;
+            height: 56px;
             width: 104px;
         }
 
@@ -13524,6 +13629,8 @@ return Theme.getThemeForComponent(this.name)||css`
             padding: 0 12px;
             box-sizing: border-box;
             height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         input {
@@ -13626,7 +13733,7 @@ return Theme.getThemeForComponent(this.name)||css`
             position: absolute;
             width: 100%;
             height: 1px;
-            top: 56px;
+            top: 54px;
             border: none;
             border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
@@ -13660,7 +13767,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -13755,13 +13862,11 @@ return Theme.getThemeForComponent(this.name)||css`
 
         :host([condensed]) input{
             top:8px;
+            font-size: 14px;
         }
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
             line-height: 36px;
-        }
-        :host([condensed]) input {
             font-size: 14px;
-            margin: 10px;
         }
 
         :host([condensed][filled]) input {
@@ -13777,10 +13882,10 @@ return Theme.getThemeForComponent(this.name)||css`
         }
 
         :host([condensed]) .ripple-line {
-            top: 36px;
+            top: 34px;
         }
 
-        :host([condensed][filled]) label span {
+        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
             top: -15px;
             font-size: 10px;
         }
@@ -13790,12 +13895,8 @@ return Theme.getThemeForComponent(this.name)||css`
             font-size: 10px;
         }
 
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
-        }
-
         :host([condensed]) {
-            height: 53px;
+            height: 36px;
         }
 
     `}/**
@@ -13868,7 +13969,9 @@ let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputFie
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
      * Sets the value for the input field.
      * @param {String} string
      */setValue(string){this._value=string;this.value=string}/**
@@ -14062,7 +14165,9 @@ this.valid=!(input.validity.rangeOverflow||input.validity.rangeUnderflow);if(!in
        * html input validity
        */valid:{type:Boolean,reflect:!0},/**
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
      * Set the value for the field
      * @param {String} the id of the selected item
      */setValue(num){this.value=num}/**
@@ -14116,6 +14221,9 @@ return Theme.getThemeForComponent(this.name)||css`
             position: relative;
             padding: 0 12px;
             box-sizing: border-box;
+            height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
         }
 
         .iwrap {
@@ -14424,387 +14532,41 @@ return html`
       <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-select-input",FuroSelectInput);class FuroCheckboxInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.error=input.validity.rangeOverflow||input.validity.rangeUnderflow||input.validity.patternMismatch;this._float=!!input.value;if(input.validity.valid){this.value=input.value;/**
-                                   * @event value-changed
-                                   * Fired when value has changed from inside the component
-                                   * detail payload: {String} the text value
-                                   */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});// set pattern, min, max
-let inputField=this.shadowRoot.querySelector("#input");if(this.pattern){inputField.setAttribute("pattern",this.pattern)}if(this.min){inputField.setAttribute("minlength",this.min)}if(this.max){inputField.setAttribute("maxlength",this.max)}}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}set value(v){this._v=v;this._value=v}get value(){return this._v}static get properties(){return{/**
-       * set this to true to indicate errors
-       */error:{type:Boolean,reflect:!0},/**
-       * The start value. Changes will be notified with the `@-value-changed` event
-       */value:{type:String},/**
-       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
-       */label:{type:String,attribute:!0},/**
-       * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */disabled:{type:Boolean,reflect:!0},/**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */readonly:{type:Boolean,reflect:!0},/**
-       * helper for the label
-       */_float:{type:Boolean},/**
-       * Lets the placeholder always floating
-       */float:{type:Boolean},/**
-       * The hint text for the field.
-       */hint:{type:String},/**
-       * Text for errors
-       */errortext:{type:String},/**
-       * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
-       * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
-       * html input validity
-       */valid:{type:Boolean,reflect:!0},/**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean}}}/**
-     * Sets the value for the input field.
-     * @param {String} string
-     */setValue(string){this._value=string;this.value=string}/**
-     * Setter method for errortext
-     * @param {String} errortext
-     * @private
-     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
-     * Getter method for errortext
-     * @private
-     */get errortext(){return this._errortext}/**
-     * Set the field to error state
-     *
-     * @param [{String}] The new errortext
-     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
-     * clears the error and restores the errortext.
-     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
-     * Sets the focus on the field.
-     */focus(){this._FBPTriggerWire("--focus")}/**
-     * Sets the field to readonly
-     */disable(){this.readonly=!0}/**
-     * Makes the field writable.
-     */enable(){this.readonly=!1}/**
-     *
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
-        /* https://material.io/design/components/text-fields.html#theming */
-        :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
-            font-family: "Roboto", "Noto", sans-serif;
-            min-width: 190px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-        }
-
-        input {
-            position: absolute;
-            top: 10px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            color: inherit;
-            outline: none;
-            
-        }
-
-        :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
-        }
-
-        :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
-        }
-
-        :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
-        }
-
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
-        }
-
-
-        .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-        }
-
-        .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
-
-
-        label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            line-height: 56px;
-        }
-
-        
-        .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-        }
-
-
-        .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 56px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        }
-
-        :host([filled]) .ripple-line {
-            display: block;
-        }
-
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
-        }
-
-
-        :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-            border: none;
-        }
-
-        label span {
-
-            
-            left: 32px;
-            position: relative;
-        }
-        
-        :host([filled]) label span {
-            
-            font-weight: 400;
-            
-            position: relative;
-        }
-
-
-        * {
-            transition: all 200ms ease-out;
-        }
-
-        .hint, .errortext {
-            position: absolute;
-            bottom: 0;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
-        }
-
-
-        :host([error]) .errortext {
-            display: block;
-        }
-
-        .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
-        }
-
-
-        label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
-        }
-
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-        }
-
-
-        :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
-
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-        :host([error]:focus-within) .hint {
-            display: none;
-        }
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
-        }
-
-        furo-icon {
-            display: none;
-            top: 16px;
-        }
-
-        furo-icon.lead {
-            position: absolute;
-
-            left: 8px;
-        }
-
-        furo-icon.trail {
-            position: absolute;
-            right: 8px;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
-        }
-
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
-        }
-
-        :host(:focus-within:not([valid])) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-        :host([condensed]) input{
-            top:8px;
-        }
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
-            line-height: 36px;
-        }
-        :host([condensed]) input {
-            font-size: 14px;
-            margin: 10px;
-        }
-
-        :host([condensed][filled]) input {
-            font-size: 13px;
-        }
-
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-            height: 36px;
-        }
-
-        :host([condensed]) furo-icon {
-            top: 6px;
-        }
-
-        :host([condensed]) .ripple-line {
-            top: 36px;
-        }
-
-       
-
-        :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
-        }
-
-        :host([condensed]) {
-            height: 53px;
-        }
-
-    `}/**
-     *
-     * @return {TemplateResult | TemplateResult}
-     * @private
-     */render(){// language=HTML
-return html` 
-      <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly}       
-       type="checkbox" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">${this.text}
-       
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
-      </div>
-      <div class="borderlabel">
-      <div class="left-border"></div>
-      <label for="input"><span>${this.label}</span></label>
-      <div class="right-border"></div>
-      </div>
-      
-      <div class="ripple-line"></div>           
-      <div class="hint">${this.hint}</div>
-      <div class="errortext">${this.errortext}</div>
- 
-    `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroCheckbox extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.value=input.value;this.checked=!this.checked;/**
-                                     * @event value-changed
-                                     * Fired when value has changed from inside the component
-                                     * detail payload: {String} the text value
-                                     */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.checked){/**
-         * @event checked
-         * Fired when the checkbox is checked
-         * detail payload: {String} the text value
-         */let customEvent=new Event("checked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}set value(v){this._v=v;this._value=v}get value(){return this.v}/**
-     * Sets the focus on the field.
+    `}}window.customElements.define("furo-select-input",FuroSelectInput);class FuroCheckbox extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
+     * Sets the focus on the checkbox.
      */focus(){this._FBPTriggerWire("--focus")}/**
      * check the checkbox
-     */check(){this.checked=!0}static get properties(){return{/**
-       * The start value. Changes will be notified with the `@-value-changed` event
-       */value:{type:String},/**
+     */check(){this.checked=!0;this.value=!0}/**
+     * uncheck the checkbox
+     */uncheck(){this.checked=!1;this.value=!1}/**
+     * toggle the checkbox
+     */toggle(){this.shadowRoot.getElementById("input").click()}/**
+     * Sets the value for the checkbox
+     * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+     * This is different from the native attribute `value` of the input checkbox
+     * @param {boolean} v
+     */setValue(v){this.checked=!!v;this.value=!!v}set value(v){this._value=!!v;/**
+                        * @event value-changed
+                        * Fired when value has changed from inside the component
+                        * detail payload: {String} the text value
+                        */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.checked){/**
+       * @event checked
+       * Fired when the checkbox is checked
+       * detail payload: {String} the text value
+       */let customEvent=new Event("checked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}else{/**
+       * @event unchecked
+       * Fired when the checkbox is unchecked
+       * detail payload: {String} the text value
+       */let customEvent=new Event("unchecked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}}get value(){return this._value}static get properties(){return{/**
+       * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+       * This is different from the native attribute `value` of the input checkbox
+       */value:{type:Boolean},/**
        * Set this attribute to autofocus the input field.
        */autofocus:{type:Boolean},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */disabled:{type:Boolean},/**
        * A Boolean attribute which, if present, means this checkbox is checked.
-       */checked:{type:Boolean},/**
+       */checked:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this is focused.
        */focused:{type:Boolean}}}/**
      *
@@ -14871,11 +14633,11 @@ return Theme.getThemeForComponent(this.name)||css`
 
             /* unselected checkbox when hovering */
             .wrapper:hover {
-                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light,#F5F5F5));
+                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light, #F5F5F5));
             }
 
             .wrapper:hover input ~ .checkbox-background {
-                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light,#F5F5F5));
+                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light, #F5F5F5));
             }
 
             /* unselected checkbox when focusing */
@@ -14883,49 +14645,45 @@ return Theme.getThemeForComponent(this.name)||css`
                 background-color: var(--input-checkbox-unselected-focus-bg-color, var(--surface-dark, #DDDDDD));
             }
 
-            .wrapper[checked] input ~ .checkbox-background {
-                background-color: var(--input-checkbox-unselected-focus-bg-color, var(--surface-dark, #DDDDDD) );
-            }
-
             /* unselected checkbox when pressing */
             .wrapper:active {
-                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark , #C0C0C0));
+                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark, #C0C0C0));
             }
 
             .wrapper:active input ~ .checkbox-background {
-                background-color: var(--input-checkbox-unselected-active-bg-color, var(--background,#ffffff));
+                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark, #C0C0C0));
             }
 
             /* selected checkbox  */
-            .wrapper[checked] input:checked ~ .checkbox-background {
-                background-color: var(--input-checkbox-selected-bg-color, #6200FD);
-                border-color: var(--input-checkbox-selected-bg-color, var(--background,#ffffff));
+            .wrapper[checked] input ~ .checkbox-background {
+                background-color: var(--input-checkbox-selected-bg-color, var(--accent, #6200FD));
+                border-color: var(--input-checkbox-selected-bg-color, var(--accent, #6200FD));
             }
 
             /* selected checkbox when focusing */
-            .wrapper[checked][focused]  {
-                background-color: var(--input-checkbox-selected-hover-bg-color, #D5C6E9);
+            .wrapper[checked][focused] {
+                background-color: var(--input-checkbox-selected-hover-bg-color, var(--on-accent, #D5C6E9));
             }
 
             .wrapper[checked][focused] input ~ .checkbox-background {
-                background-color: var(--input-checkbox-selected-focus-bg-color, #6200FD);
+                background-color: var(--input-checkbox-selected-focus-bg-color, var(--accent, #6200FD));
             }
 
             /* selected checkbox when hovering */
             .wrapper[checked]:hover {
-                background-color: var(--input-checkbox-selected-hover-bg-color, #E4DBE6);
+                background-color: var(--input-checkbox-selected-hover-bg-color, var(--on-accent, #E4DBE6));
             }
 
             /* disabled checkbox selected */
             .wrapper[checked][disabled] input:disabled:checked ~ .checkbox-background {
-                background-color: var(--input-checkbox-disabled-selected-bg-color, #B9B9B9);
-                border-color: var(--input-checkbox-disabled-selected-border-color, #B9B9B9);
+                background-color: var(--input-checkbox-disabled-selected-bg-color, var(--disable, #B9B9B9));
+                border-color: var(--input-checkbox-disabled-selected-border-color, var(--disable, #B9B9B9));
             }
 
             /* disabled checkbox unselected */
             .wrapper input:disabled ~ .checkbox-background {
                 background-color: var(--input-checkbox-disabled-unselected-bg-color, var(--background, #ffffff));
-                border-color: var(--input-checkbox-disabled-unselected-border-color, var(--surface,#aaaaaa));
+                border-color: var(--input-checkbox-disabled-unselected-border-color, var(--surface, #aaaaaa));
             }
 
             .checkbox-background:after {
@@ -14940,11 +14698,11 @@ return Theme.getThemeForComponent(this.name)||css`
 
             /* disabled checkbox when hovering */
             .wrapper[disabled]:hover {
-                background-color: var(--input-checkbox-disabled-hover-bg-color, #ffffff);
+                background-color: var(--input-checkbox-disabled-hover-bg-color, var(--background, #ffffff));
                 background: transparent;
             }
 
-            .wrapper input:checked ~ .checkbox-background:after {
+            .wrapper[checked] .checkbox-background:after {
                 display: block;
             }
 
@@ -14963,12 +14721,272 @@ return Theme.getThemeForComponent(this.name)||css`
      * @private
      * @returns {TemplateResult}
      */render(){return html`
-          <div id="wrapper" class="wrapper" ?focus=${this.autofocus} ?focused="${this.focused}" ?checked="${this.checked}" ?disabled="${this.disabled}">
-              <input id="input" type="checkbox" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?checked=${this.checked}
-                    ƒ-.value="--value" ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
+          <div id="wrapper" class="wrapper" ?focused=${this.focused} ?checked=${this.checked} ?disabled=${this.disabled}>
+              <input id="input" type="checkbox" ?checked=${this.checked}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
+                     ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
               <span class="checkbox-background"></span>
           </div>
-        `}}customElements.define("furo-checkbox",FuroCheckbox);class FuroIconWithLabel extends FBP(LitElement){static get properties(){return{icon:{type:String}}}static get styles(){// language=CSS
+        `}}customElements.define("furo-checkbox",FuroCheckbox);class FuroCheckboxInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--toggle",_=>{if(!this.disabled){this.toggle()}})}set value(v){this._value=v;this._FBPTriggerWire("--value",!!v)}get value(){return this._value}set checked(v){if(v){this.check()}else{this.uncheck()}}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+       * This is different from the native attribute `value` of the input checkbox
+       */value:{type:Boolean},/**
+       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
+       */label:{type:String,attribute:!0},/**
+       * A Boolean attribute which, if present, means this checkbox is checked.
+       */checked:{type:Boolean},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * helper for the label
+       */_float:{type:Boolean},/**
+       * Lets the placeholder always floating
+       */float:{type:Boolean},/**
+       * The hint text for the field.
+       */hint:{type:String},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
+     * Sets the value for the checkbox.
+     * @param {Boolean} v
+     */setValue(v){this.value=!!v}/**
+     * toggle the checkbox
+     */toggle(){if(this.value){this.uncheck()}else{this.check()}}/**
+     * Setter method for errortext
+     * @param {String} errortext
+     * @private
+     */set errortext(v){this._errortext=v;this.__initalErrorText=v}/**
+     * Getter method for errortext
+     * @private
+     */get errortext(){return this._errortext}/**
+     * Set the field to error state
+     *
+     * @param [{String}] The new errortext
+     */setError(text){if("string"===typeof text){this._errortext=text}this.error=!0}/**
+     * clears the error and restores the errortext.
+     */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
+     * Sets the focus on the field.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * Sets the field to readonly
+     */disable(){this.readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this.readonly=!1}/**
+     * check the checkbox
+     */check(){this.value=!0}/**
+     * uncheck the checkbox
+     */uncheck(){this.value=!1}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+            /* https://material.io/design/components/text-fields.html#theming */
+            :host {
+                display: inline-block;
+                position: relative;
+                box-sizing: border-box;
+                margin: 0;
+                height: 56px;
+                width: 300px;
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+            .wrapper {
+                position: relative;
+                padding: 0;
+                box-sizing: border-box;
+                height: 56px;
+            }
+
+            :host([filled]) .wrapper {
+                background-color: var(--surface-light, #FEFEFE);
+            }
+
+            :host([filled]) .wrapper:hover {
+                background-color: var(--surface, #FCFCFC);
+            }
+
+            :host([filled]:focus-within) .wrapper {
+                background-color: var(--surface-dark, #FEA222);
+            }
+
+            :host(:not([filled]):hover) label {
+                border-color: var(--input-hover-color, #333333);
+            }
+
+            label {
+                line-height: 56px;
+            }
+
+            .ripple-line {
+                display: none;
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                top: 54px;
+                border: none;
+                border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            }
+
+            :host([filled]) .ripple-line {
+                display: block;
+            }
+
+            :host([filled]) label {
+                line-height: 56px;
+                border: none;
+            }
+
+            * {
+                transition: all 200ms ease-out;
+            }
+
+            .hint, .errortext {
+                position: absolute;
+                bottom: -0;
+                font-size: 12px;
+                color: transparent;
+                padding-left: 42px;
+                white-space: nowrap;
+                pointer-events: none;
+            }
+
+            :host(:focus-within) .hint {
+                color: var(--input-hint-color, #999999);
+                transition: all 550ms ease-in;
+            }
+
+            :host([error]) .errortext {
+                display: block;
+            }
+
+            .errortext {
+                color: var(--input-error-text-color, var(--error, red));
+                display: none;
+            }
+
+            label {
+                font-size: 16px;
+                color: inherit;
+                cursor: pointer;
+            }
+
+            :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+                color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+                border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            }
+
+            :host(:focus-within) .ripple-line {
+                border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+                border-width: 2px;
+            }
+
+            :host(:not([filled]):focus-within) label {
+                border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+                border-width: 2px;
+            }
+
+            :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+                border-color: var(--input-error-text-color, var(--error, red));
+                border-width: 2px;
+            }
+
+            :host([error]:focus-within) label {
+                color: var(--input-error-text-color, var(--error, red));
+            }
+
+            :host([error]:focus-within) .hint {
+                display: none;
+            }
+
+            :host([error]) .ripple-line, :host([error]) label {
+                border-color: var(--input-error-activation-indicator-color, var(--error, red));
+            }
+
+            :host(:focus-within:not([valid])) label {
+                color: var(--input-error-text-color, var(--error, red));
+            }
+
+            :host([condensed]) label {
+                top: 2px;
+                font-size: 14px;
+            }
+
+            :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+                line-height: 36px;
+                font-size: 14px;
+            }
+
+            :host([condensed][filled]) input {
+                font-size: 13px;
+            }
+
+            :host([condensed]) .wrapper {
+                height: 36px;
+            }
+
+            :host([condensed]) .ripple-line {
+                top: 34px;
+            }
+
+            :host([condensed]) .hint, :host([condensed]) .errortext {
+                font-size: 10px;
+            }
+
+            :host([condensed]) {
+                height: 36px;
+            }
+
+            furo-checkbox {
+                position: absolute;
+                top: 8px;
+            }
+
+            label {
+                position: absolute;
+                top: 0px;
+                left: 42px;
+                right: 0;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            :host([condensed]) furo-checkbox {
+                top: -2px;
+            }
+
+        `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html` 
+      <div class="wrapper">
+      
+        <furo-checkbox type="checkbox" id="input"  ?autofocus=${this.autofocus} ?disabled=${this.disabled||this.readonly}  
+          ƒ-set-value="--value" ƒ-focus="--focus"></furo-checkbox>
+        <label for="input"  @-click="--toggle,--focus">${this.label}</label>
+        
+      </div>
+      
+      <div class="ripple-line"></div>           
+      <div class="hint">${this.hint}</div>
+      <div class="errortext">${this.errortext}</div>
+ 
+    `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroIconWithLabel extends FBP(LitElement){static get properties(){return{icon:{type:String}}}static get styles(){// language=CSS
 return[css`
                 :host {
                     height: 48px;

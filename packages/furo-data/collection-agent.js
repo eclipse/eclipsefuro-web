@@ -32,6 +32,14 @@ import {Env} from "@furo/framework"
  */
 class collectionAgent extends FBP(LitElement) {
 
+  /**
+   * @event ALL_BUBBLING_EVENTS_FROM_api-fetch
+   *
+   * All bubbling events from [api-fetch](api-fetch) will be fired, because collection-agent uses api-fetch internally.
+   *
+   */
+
+
   constructor() {
     super();
     this._servicedefinitions = Env.api.services;

@@ -5,13 +5,14 @@ import {Env} from "@furo/framework"
 
 /**
  * `entity-object`
- * This component is deprecated, use data-object instead
+ * > This component is deprecated, use [data-object](data-object) instead
+ * >
+ * > This component will be removed in Q4 2019 (somewhere in Q4, not end of Q4).
+ * You should receive console deprecation messages with deprecation warnings since  **@furo/data#0.50.2** or **@furo/collection#0.20.20**.
  *
- * This component will be removed in Q4 2019
  *
  * @summary Typed entity object
  * @customElement
- * @demo demo/entity-object.html
  * @appliesMixin FBP
  */
 class EntityObject extends (LitElement) {

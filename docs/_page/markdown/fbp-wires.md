@@ -1,5 +1,8 @@
 # Getting started with Furo Flowbased Programming
 
+> This section is just to teach the base concepts. The components in this examples, like the light-bulb, are mostly 
+> not meant for production use (of course you can do if it fits your needs).  
+
 With FBP you mostly connect the the output of a component (a dom event) with the functions of an ohter element.
 
 
