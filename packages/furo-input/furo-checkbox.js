@@ -57,38 +57,8 @@ class FuroCheckbox extends FBP(LitElement) {
             let input = e.composedPath()[0];
 
             this.checked = input.checked;
-            this.value   = input.checked;
+            this.value = input.checked;
 
-            /**
-             * @event value-changed
-             * Fired when value has changed from inside the component
-             * detail payload: {String} the text value
-             */
-            let customEvent = new Event('value-changed', {composed: true, bubbles: true});
-            customEvent.detail = this.value;
-            this.dispatchEvent(customEvent);
-
-            if(this.checked) {
-
-                /**
-                 * @event checked
-                 * Fired when the checkbox is checked
-                 * detail payload: {String} the text value
-                 */
-                let customEvent = new Event('checked', {composed: true, bubbles: true});
-                customEvent.detail = this.value;
-                this.dispatchEvent(customEvent);
-            }
-            else {
-                /**
-                 * @event unchecked
-                 * Fired when the checkbox is unchecked
-                 * detail payload: {String} the text value
-                 */
-                let customEvent = new Event('unchecked', {composed: true, bubbles: true});
-                customEvent.detail = this.value;
-                this.dispatchEvent(customEvent);
-            }
         });
 
         this._FBPAddWireHook("--focusReceived", (e) => {
@@ -138,8 +108,48 @@ class FuroCheckbox extends FBP(LitElement) {
      * @param {boolean} v
      */
     setValue(v) {
-        this.value = !!v;
         this.checked = !!v;
+        this.value = !!v;
+    }
+
+    set value(v) {
+
+        this._value = !!v;
+
+        /**
+         * @event value-changed
+         * Fired when value has changed from inside the component
+         * detail payload: {String} the text value
+         */
+        let customEvent = new Event('value-changed', {composed: true, bubbles: true});
+        customEvent.detail = this.value;
+        this.dispatchEvent(customEvent);
+
+        if (this.checked) {
+
+            /**
+             * @event checked
+             * Fired when the checkbox is checked
+             * detail payload: {String} the text value
+             */
+            let customEvent = new Event('checked', {composed: true, bubbles: true});
+            customEvent.detail = this.value;
+            this.dispatchEvent(customEvent);
+        }
+        else {
+            /**
+             * @event unchecked
+             * Fired when the checkbox is unchecked
+             * detail payload: {String} the text value
+             */
+            let customEvent = new Event('unchecked', {composed: true, bubbles: true});
+            customEvent.detail = this.value;
+            this.dispatchEvent(customEvent);
+        }
+    }
+
+    get value() {
+        return this._value;
     }
 
     static get properties() {
@@ -250,26 +260,25 @@ class FuroCheckbox extends FBP(LitElement) {
 
             /* unselected checkbox when hovering */
             .wrapper:hover {
-                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light,#F5F5F5));
+                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light, #F5F5F5));
             }
 
             .wrapper:hover input ~ .checkbox-background {
-                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light,#F5F5F5));
+                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light, #F5F5F5));
             }
 
             /* unselected checkbox when focusing */
             .wrapper[focused] {
                 background-color: var(--input-checkbox-unselected-focus-bg-color, var(--surface-dark, #DDDDDD));
             }
-            
 
             /* unselected checkbox when pressing */
             .wrapper:active {
-                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark , #C0C0C0));
+                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark, #C0C0C0));
             }
 
             .wrapper:active input ~ .checkbox-background {
-                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark , #C0C0C0));
+                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark, #C0C0C0));
             }
 
             /* selected checkbox  */
@@ -279,8 +288,8 @@ class FuroCheckbox extends FBP(LitElement) {
             }
 
             /* selected checkbox when focusing */
-            .wrapper[checked][focused]  {
-                background-color: var(--input-checkbox-selected-hover-bg-color, var(--on-accent,#D5C6E9));
+            .wrapper[checked][focused] {
+                background-color: var(--input-checkbox-selected-hover-bg-color, var(--on-accent, #D5C6E9));
             }
 
             .wrapper[checked][focused] input ~ .checkbox-background {
@@ -294,14 +303,14 @@ class FuroCheckbox extends FBP(LitElement) {
 
             /* disabled checkbox selected */
             .wrapper[checked][disabled] input:disabled:checked ~ .checkbox-background {
-                background-color: var(--input-checkbox-disabled-selected-bg-color, var(--disable,#B9B9B9));
-                border-color: var(--input-checkbox-disabled-selected-border-color, var(--disable,#B9B9B9));
+                background-color: var(--input-checkbox-disabled-selected-bg-color, var(--disable, #B9B9B9));
+                border-color: var(--input-checkbox-disabled-selected-border-color, var(--disable, #B9B9B9));
             }
 
             /* disabled checkbox unselected */
             .wrapper input:disabled ~ .checkbox-background {
                 background-color: var(--input-checkbox-disabled-unselected-bg-color, var(--background, #ffffff));
-                border-color: var(--input-checkbox-disabled-unselected-border-color, var(--surface,#aaaaaa));
+                border-color: var(--input-checkbox-disabled-unselected-border-color, var(--surface, #aaaaaa));
             }
 
             .checkbox-background:after {
@@ -316,11 +325,11 @@ class FuroCheckbox extends FBP(LitElement) {
 
             /* disabled checkbox when hovering */
             .wrapper[disabled]:hover {
-                background-color: var(--input-checkbox-disabled-hover-bg-color, var(--background,#ffffff));
+                background-color: var(--input-checkbox-disabled-hover-bg-color, var(--background, #ffffff));
                 background: transparent;
             }
 
-            .wrapper input:checked ~ .checkbox-background:after {
+            .wrapper[checked] .checkbox-background:after {
                 display: block;
             }
 
@@ -342,7 +351,7 @@ class FuroCheckbox extends FBP(LitElement) {
      * @private
      * @returns {TemplateResult}
      */
-    render(){
+    render() {
         return html`
           <div id="wrapper" class="wrapper" ?focused=${this.focused} ?checked=${this.checked} ?disabled=${this.disabled}>
               <input id="input" type="checkbox" ?checked=${this.checked}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 

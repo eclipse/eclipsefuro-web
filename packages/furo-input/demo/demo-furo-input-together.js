@@ -119,9 +119,8 @@ class DemoFuroInputTogether extends FBP(LitElement) {
             
            
             <furo-horizontal-flex space>
-                <furo-checkbox checked></furo-checkbox>
-              <furo-checkbox-input style="margin-top: 19px" label="Benutzerdefinierter Text" hint="Hint" @-value-changed="--check" autofocus></furo-checkbox-input>
-                <furo-checkbox-input style="margin-top: 19px" label="Benutzerdefinierter Text 2" hint="Hint" ƒ-set-value="--check" checked></furo-checkbox-input>
+                <furo-checkbox-input style="margin-top: 19px" label="Benutzerdefinierter Text" hint="Hint" @-value-changed="--check" autofocus ></furo-checkbox-input>
+                <furo-checkbox-input style="margin-top: 19px" label="Disabled " ƒ-set-value="--check" checked disabled></furo-checkbox-input>
 
                 <furo-text-input ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
                              label="Text input field" @-value-changed="--text"></furo-text-input>
