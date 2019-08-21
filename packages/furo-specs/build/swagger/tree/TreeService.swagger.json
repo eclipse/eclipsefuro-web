@@ -324,7 +324,11 @@
         "open": {
           "type": "boolean",
           "format": "boolean",
-          "title": "node open or not"
+          "title": "node is open or not"
+        },
+        "panel": {
+          "type": "string",
+          "title": "Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)"
         },
         "secondary_text": {
           "type": "string",
@@ -338,48 +342,22 @@
       "properties": {
         "description": {
           "type": "string",
-          "title": "description of the node"
+          "title": "description of the tree"
         },
         "display_name": {
           "type": "string",
-          "title": "String representation of the node"
-        },
-        "has_error": {
-          "type": "boolean",
-          "format": "boolean",
-          "title": "if node has error"
-        },
-        "icon": {
-          "type": "string",
-          "title": "icon of the node"
+          "title": "String representation of the tree"
         },
         "id": {
           "type": "string",
-          "title": "Id of the node"
-        },
-        "key_words": {
-          "type": "string",
-          "title": "key words of the node"
-        },
-        "open": {
-          "type": "boolean",
-          "format": "boolean",
-          "title": "node open or not"
-        },
-        "panel": {
-          "type": "string",
-          "title": "Indicator which panel type is loaded"
+          "title": "Id of the tree"
         },
         "root": {
           "$ref": "#/definitions/treeNavigationnode",
           "title": "Rootnode of the tree"
-        },
-        "subtitle": {
-          "type": "string",
-          "title": "subtitle of the node"
         }
       },
-      "title": "Singletonresource of the navigationtree"
+      "title": "Navigation tree type with recursive navigation nodes"
     },
     "treeTreeCollection": {
       "type": "object",

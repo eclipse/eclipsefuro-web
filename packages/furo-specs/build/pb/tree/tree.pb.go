@@ -21,31 +21,19 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
-// Singletonresource of the navigationtree
+// Navigation tree type with recursive navigation nodes
 type Tree struct {
-	// description of the node
-	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
-	// String representation of the node
+	// description of the tree
+	Description string `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
+	// String representation of the tree
 	DisplayName string `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
-	// if node has error
-	HasError bool `protobuf:"varint,8,opt,name=has_error,json=hasError,proto3" json:"has_error,omitempty"`
-	// icon of the node
-	Icon string `protobuf:"bytes,6,opt,name=icon,proto3" json:"icon,omitempty"`
-	// Id of the node
+	// Id of the tree
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// key words of the node
-	KeyWords string `protobuf:"bytes,7,opt,name=key_words,json=keyWords,proto3" json:"key_words,omitempty"`
-	// node open or not
-	Open bool `protobuf:"varint,9,opt,name=open,proto3" json:"open,omitempty"`
-	// Indicator which panel type is loaded
-	Panel string `protobuf:"bytes,5,opt,name=panel,proto3" json:"panel,omitempty"`
 	// Rootnode of the tree
-	Root *Navigationnode `protobuf:"bytes,10,opt,name=root,proto3" json:"root,omitempty"`
-	// subtitle of the node
-	Subtitle             string   `protobuf:"bytes,3,opt,name=subtitle,proto3" json:"subtitle,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Root                 *Navigationnode `protobuf:"bytes,10,opt,name=root,proto3" json:"root,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
 func (m *Tree) Reset()         { *m = Tree{} }
@@ -95,44 +83,9 @@ func (m *Tree) GetDisplayName() string {
 	return ""
 }
 
-func (m *Tree) GetHasError() bool {
-	if m != nil {
-		return m.HasError
-	}
-	return false
-}
-
-func (m *Tree) GetIcon() string {
-	if m != nil {
-		return m.Icon
-	}
-	return ""
-}
-
 func (m *Tree) GetId() string {
 	if m != nil {
 		return m.Id
-	}
-	return ""
-}
-
-func (m *Tree) GetKeyWords() string {
-	if m != nil {
-		return m.KeyWords
-	}
-	return ""
-}
-
-func (m *Tree) GetOpen() bool {
-	if m != nil {
-		return m.Open
-	}
-	return false
-}
-
-func (m *Tree) GetPanel() string {
-	if m != nil {
-		return m.Panel
 	}
 	return ""
 }
@@ -144,13 +97,6 @@ func (m *Tree) GetRoot() *Navigationnode {
 	return nil
 }
 
-func (m *Tree) GetSubtitle() string {
-	if m != nil {
-		return m.Subtitle
-	}
-	return ""
-}
-
 func init() {
 	proto.RegisterType((*Tree)(nil), "tree.Tree")
 }
@@ -158,24 +104,18 @@ func init() {
 func init() { proto.RegisterFile("tree.proto", fileDescriptor_cb3889276909882a) }
 
 var fileDescriptor_cb3889276909882a = []byte{
-	// 266 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x90, 0x31, 0x4e, 0xc3, 0x30,
-	0x18, 0x85, 0xe5, 0x90, 0x96, 0xf4, 0x6f, 0xc5, 0x60, 0x65, 0xb0, 0x8a, 0x14, 0x05, 0xa6, 0x4c,
-	0x1d, 0xe0, 0x06, 0x48, 0xac, 0x1d, 0x22, 0x24, 0xc6, 0xc8, 0xad, 0x7f, 0x51, 0xab, 0xa9, 0x6d,
-	0xd9, 0x06, 0x94, 0xa3, 0x70, 0x23, 0x46, 0x8e, 0x80, 0x72, 0x12, 0xe4, 0x3f, 0x45, 0x82, 0xed,
-	0xbd, 0xe7, 0xcf, 0xcf, 0xf2, 0x03, 0x88, 0x1e, 0x71, 0xe3, 0xbc, 0x8d, 0x96, 0xe7, 0x49, 0xaf,
-	0x4b, 0x23, 0xdf, 0xf4, 0x8b, 0x8c, 0xda, 0x1a, 0x63, 0xd5, 0xf9, 0xec, 0xf6, 0x23, 0x83, 0xfc,
-	0xc9, 0x23, 0xf2, 0x1a, 0x96, 0x0a, 0xc3, 0xde, 0x6b, 0x97, 0x08, 0x91, 0xd7, 0xac, 0x59, 0xb4,
-	0x7f, 0x23, 0x7e, 0x03, 0x2b, 0xa5, 0x83, 0xeb, 0xe5, 0xd0, 0x19, 0x79, 0x42, 0x91, 0x9d, 0x91,
-	0x29, 0xdb, 0xca, 0x13, 0xf2, 0x6b, 0x58, 0x1c, 0x64, 0xe8, 0xd0, 0x7b, 0xeb, 0x45, 0x51, 0xb3,
-	0xa6, 0x68, 0x8b, 0x83, 0x0c, 0x8f, 0xc9, 0x73, 0x0e, 0xb9, 0xde, 0x5b, 0x23, 0xe6, 0x74, 0x8f,
-	0x34, 0xbf, 0x82, 0x4c, 0x2b, 0xc1, 0x28, 0xc9, 0xb4, 0x4a, 0x05, 0x47, 0x1c, 0xba, 0x77, 0xeb,
-	0x55, 0x10, 0x97, 0x14, 0x17, 0x47, 0x1c, 0x9e, 0x93, 0x4f, 0x05, 0xd6, 0xa1, 0x11, 0x0b, 0x2a,
-	0x26, 0xcd, 0x4b, 0x98, 0x39, 0x69, 0xb0, 0x17, 0x33, 0x82, 0x27, 0xc3, 0x1b, 0xc8, 0xbd, 0xb5,
-	0x51, 0x40, 0xcd, 0x9a, 0xe5, 0x5d, 0xb9, 0xa1, 0x31, 0xb6, 0xff, 0xfe, 0xdf, 0x12, 0xc1, 0xd7,
-	0x50, 0x84, 0xd7, 0x5d, 0xd4, 0xb1, 0x47, 0x71, 0x31, 0xbd, 0xf7, 0xeb, 0x1f, 0x56, 0x9f, 0x63,
-	0xc5, 0xbe, 0xc6, 0x8a, 0x7d, 0x8f, 0x15, 0xdb, 0xcd, 0x69, 0xb0, 0xfb, 0x9f, 0x00, 0x00, 0x00,
-	0xff, 0xff, 0x86, 0x62, 0x32, 0xfb, 0x5a, 0x01, 0x00, 0x00,
+	// 172 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2a, 0x29, 0x4a, 0x4d,
+	0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x01, 0xb1, 0xa5, 0x44, 0xf2, 0x12, 0xcb, 0x32,
+	0xd3, 0x13, 0x4b, 0x32, 0xf3, 0xf3, 0xf2, 0xf2, 0x53, 0xa0, 0x72, 0x4a, 0xad, 0x8c, 0x5c, 0x2c,
+	0x21, 0x45, 0xa9, 0xa9, 0x42, 0x0a, 0x5c, 0xdc, 0x29, 0xa9, 0xc5, 0xc9, 0x45, 0x99, 0x05, 0x20,
+	0x15, 0x12, 0xcc, 0x0a, 0x8c, 0x1a, 0x9c, 0x41, 0xc8, 0x42, 0x42, 0x8a, 0x5c, 0x3c, 0x29, 0x99,
+	0xc5, 0x05, 0x39, 0x89, 0x95, 0xf1, 0x79, 0x89, 0xb9, 0xa9, 0x12, 0x4c, 0x50, 0x25, 0x10, 0x31,
+	0xbf, 0xc4, 0xdc, 0x54, 0x21, 0x3e, 0x2e, 0xa6, 0xcc, 0x14, 0x09, 0x46, 0xb0, 0x04, 0x53, 0x66,
+	0x8a, 0x90, 0x06, 0x17, 0x4b, 0x51, 0x7e, 0x7e, 0x89, 0x04, 0x97, 0x02, 0xa3, 0x06, 0xb7, 0x91,
+	0x88, 0x1e, 0xd8, 0x51, 0x7e, 0x28, 0xee, 0x08, 0x02, 0xab, 0x70, 0xe2, 0x39, 0xf1, 0x48, 0x8e,
+	0xf1, 0xc2, 0x23, 0x39, 0xc6, 0x07, 0x8f, 0xe4, 0x18, 0x93, 0xd8, 0xc0, 0x8e, 0x33, 0x06, 0x04,
+	0x00, 0x00, 0xff, 0xff, 0xb1, 0x9d, 0x95, 0xf7, 0xc6, 0x00, 0x00, 0x00,
 }
 
 func (m *Tree) Marshal() (dAtA []byte, err error) {
@@ -205,55 +145,11 @@ func (m *Tree) MarshalTo(dAtA []byte) (int, error) {
 		i = encodeVarintTree(dAtA, i, uint64(len(m.DisplayName)))
 		i += copy(dAtA[i:], m.DisplayName)
 	}
-	if len(m.Subtitle) > 0 {
-		dAtA[i] = 0x1a
-		i++
-		i = encodeVarintTree(dAtA, i, uint64(len(m.Subtitle)))
-		i += copy(dAtA[i:], m.Subtitle)
-	}
 	if len(m.Description) > 0 {
-		dAtA[i] = 0x22
+		dAtA[i] = 0x1a
 		i++
 		i = encodeVarintTree(dAtA, i, uint64(len(m.Description)))
 		i += copy(dAtA[i:], m.Description)
-	}
-	if len(m.Panel) > 0 {
-		dAtA[i] = 0x2a
-		i++
-		i = encodeVarintTree(dAtA, i, uint64(len(m.Panel)))
-		i += copy(dAtA[i:], m.Panel)
-	}
-	if len(m.Icon) > 0 {
-		dAtA[i] = 0x32
-		i++
-		i = encodeVarintTree(dAtA, i, uint64(len(m.Icon)))
-		i += copy(dAtA[i:], m.Icon)
-	}
-	if len(m.KeyWords) > 0 {
-		dAtA[i] = 0x3a
-		i++
-		i = encodeVarintTree(dAtA, i, uint64(len(m.KeyWords)))
-		i += copy(dAtA[i:], m.KeyWords)
-	}
-	if m.HasError {
-		dAtA[i] = 0x40
-		i++
-		if m.HasError {
-			dAtA[i] = 1
-		} else {
-			dAtA[i] = 0
-		}
-		i++
-	}
-	if m.Open {
-		dAtA[i] = 0x48
-		i++
-		if m.Open {
-			dAtA[i] = 1
-		} else {
-			dAtA[i] = 0
-		}
-		i++
 	}
 	if m.Root != nil {
 		dAtA[i] = 0x52
@@ -294,31 +190,9 @@ func (m *Tree) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovTree(uint64(l))
 	}
-	l = len(m.Subtitle)
-	if l > 0 {
-		n += 1 + l + sovTree(uint64(l))
-	}
 	l = len(m.Description)
 	if l > 0 {
 		n += 1 + l + sovTree(uint64(l))
-	}
-	l = len(m.Panel)
-	if l > 0 {
-		n += 1 + l + sovTree(uint64(l))
-	}
-	l = len(m.Icon)
-	if l > 0 {
-		n += 1 + l + sovTree(uint64(l))
-	}
-	l = len(m.KeyWords)
-	if l > 0 {
-		n += 1 + l + sovTree(uint64(l))
-	}
-	if m.HasError {
-		n += 2
-	}
-	if m.Open {
-		n += 2
 	}
 	if m.Root != nil {
 		l = m.Root.Size()
@@ -438,38 +312,6 @@ func (m *Tree) Unmarshal(dAtA []byte) error {
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Subtitle", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTree
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTree
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTree
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Subtitle = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 4:
-			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Description", wireType)
 			}
 			var stringLen uint64
@@ -500,142 +342,6 @@ func (m *Tree) Unmarshal(dAtA []byte) error {
 			}
 			m.Description = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 5:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Panel", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTree
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTree
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTree
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Panel = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 6:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Icon", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTree
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTree
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTree
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Icon = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 7:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field KeyWords", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTree
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthTree
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthTree
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.KeyWords = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 8:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field HasError", wireType)
-			}
-			var v int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTree
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.HasError = bool(v != 0)
-		case 9:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Open", wireType)
-			}
-			var v int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTree
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			m.Open = bool(v != 0)
 		case 10:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Root", wireType)

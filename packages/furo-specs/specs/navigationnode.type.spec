@@ -52,6 +52,17 @@
         "number": 5
       }
     },
+    "panel": {
+      "description": "Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",
+      "type": "string",
+      "meta": {
+        "readonly": true,
+        "tree-search-index": false
+      },
+      "__proto": {
+        "number": 6
+      }
+    },
     "key_words": {
       "description": "key words of the node",
       "meta": {
@@ -59,28 +70,28 @@
       },
       "type": "string",
       "__proto": {
-        "number": 6
+        "number": 7
       }
     },
     "has_error": {
       "description": "if node has error",
       "type": "bool",
       "__proto": {
-        "number": 7
+        "number": 8
       }
     },
     "open": {
-      "description": "node open or not",
+      "description": "node is open or not",
       "type": "bool",
       "__proto": {
-        "number": 8
+        "number": 9
       }
     },
     "link": {
       "description": "Deeplink information of this node",
       "type": "furo.Link",
       "__proto": {
-        "number": 9
+        "number": 10
       }
     },
     "children": {
@@ -90,7 +101,7 @@
         "repeated": true
       },
       "__proto": {
-        "number": 10
+        "number": 11
       }
     }
 
