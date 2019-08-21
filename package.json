@@ -24,9 +24,9 @@
     "lint:imports": "node scripts/check-imports.js",
     "bootstrap": "npm install && ./scripts/bootstrap.sh",
     "doc": "./scripts/generate-analysis.sh",
-    "serve": "polymer serve -p 7777",
+    "serve": "polymer serve -p 5555",
     "test": "wct",
-    "genpage" : "./scripts/publish-documentation.sh"
+    "genpage": "./scripts/publish-documentation.sh"
   },
   "author": "veith",
   "license": "MIT",

@@ -11,6 +11,21 @@
     ]
   },
   "fields": {
+    "id": {
+      "description": "Identity of a task",
+      "type": "string",
+      "meta": {
+        "label": "Id",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 1
+      }
+    },
     "display_name": {
       "description": "Localized String representation of a task",
       "type": "project.ProjectCollection",
@@ -23,7 +38,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 1
+        "number": 2
       }
     },
     "description": {
@@ -37,7 +52,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 2
+        "number": 3
       }
     },
     "estimated_time": {
@@ -51,7 +66,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 3,
+        "number": 4,
         "type": "int32"
       }
     },
@@ -73,7 +88,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 4
+        "number": 5
       }
     },
     "subtasks": {
@@ -88,7 +103,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 5
+        "number": 6
       }
     }
   }

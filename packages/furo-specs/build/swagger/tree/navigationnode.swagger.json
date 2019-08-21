@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "treeitem.proto",
+    "title": "navigationnode.proto",
     "version": "version not set"
   },
   "schemes": [

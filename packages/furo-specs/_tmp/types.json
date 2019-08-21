@@ -5,23 +5,23 @@
   "description": "Singletonresource of the navigationtree",
   "__proto": {
     "package": "tree",
-    "imports": ["treeitem.proto"]
+    "imports": ["navigationnode.proto"]
   },
   "fields": {
+    "id": {
+      "description": "Id of the node",
+      "type": "string",
+      "__proto": {
+        "number": 1
+      }
+    },
     "display_name": {
       "description": "String representation of the node",
       "type": "string",
       "meta": {
         "readonly": true,
-        "tree-searcb-index": true
+        "tree-search-index": true
       },
-      "__proto": {
-        "number": 1
-      }
-    },
-    "id": {
-      "description": "Id of the node",
-      "type": "string",
       "__proto": {
         "number": 2
       }
@@ -30,7 +30,7 @@
       "description": "subtitle of the node",
       "type": "string",
       "meta": {
-        "tree-searcb-index": true
+        "tree-search-index": true
       },
       "__proto": {
         "number": 3
@@ -39,7 +39,7 @@
     "description": {
       "description": "description of the node",
       "meta": {
-        "tree-searcb-index": true
+        "tree-search-index": true
       },
       "type": "string",
       "__proto": {
@@ -51,7 +51,7 @@
       "type": "string",
       "meta": {
         "readonly": true,
-        "tree-searcb-index": false
+        "tree-search-index": false
       },
       "__proto": {
         "number": 5
@@ -67,7 +67,7 @@
     "key_words": {
       "description": "key words of the node",
       "meta": {
-        "tree-searcb-index": true
+        "tree-search-index": true
       },
       "type": "string",
       "__proto": {
@@ -90,7 +90,7 @@
     },
     "root": {
       "description": "Rootnode of the tree",
-      "type": "tree.Treeitem",
+      "type": "tree.Navigationnode",
       "meta": {},
       "__proto": {
         "number": 10
@@ -135,6 +135,105 @@
         "number": 3
       }
     }
+  }
+}
+,
+{
+  "name": "navigationnode",
+  "type": "Navigationnode",
+  "description": "Item of the navigationtree",
+  "__proto": {
+    "package": "tree",
+    "imports": ["furo/link.proto"]
+  },
+  "fields": {
+    "id": {
+      "description": "Id of the node",
+      "type": "string",
+      "__proto": {
+        "number": 1
+      }
+    },
+    "display_name": {
+      "description": "String representation of the node",
+      "type": "string",
+      "meta": {
+        "readonly": true,
+        "tree-search-index": true
+      },
+      "__proto": {
+        "number": 2
+      }
+    },
+    "secondary_text": {
+      "description": "Secondary text of the node",
+      "type": "string",
+      "meta": {
+        "tree-search-index": true
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
+    "description": {
+      "description": "description of the node",
+      "meta": {
+        "tree-search-index": true
+      },
+      "type": "string",
+      "__proto": {
+        "number": 4
+      }
+    },
+    "icon": {
+      "description": "icon of the node",
+      "type": "string",
+      "__proto": {
+        "number": 5
+      }
+    },
+    "key_words": {
+      "description": "key words of the node",
+      "meta": {
+        "tree-search-index": true
+      },
+      "type": "string",
+      "__proto": {
+        "number": 6
+      }
+    },
+    "has_error": {
+      "description": "if node has error",
+      "type": "bool",
+      "__proto": {
+        "number": 7
+      }
+    },
+    "open": {
+      "description": "node open or not",
+      "type": "bool",
+      "__proto": {
+        "number": 8
+      }
+    },
+    "link": {
+      "description": "Deeplink information of this node",
+      "type": "furo.Link",
+      "__proto": {
+        "number": 9
+      }
+    },
+    "children": {
+      "description": "Children of this node",
+      "type": "tree.Navigationnode",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 10
+      }
+    }
+
   }
 }
 ,
@@ -185,8 +284,8 @@
     "imports": []
   },
   "fields": {
-    "display_name": {
-      "description": "Localized String representation of a person",
+    "id": {
+      "description": "Identity of a person",
       "type": "string",
       "meta": {
         "label": "Person",
@@ -200,6 +299,21 @@
         "number": 1
       }
     },
+    "display_name": {
+      "description": "Localized String representation of a person",
+      "type": "string",
+      "meta": {
+        "label": "Person",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 2
+      }
+    },
     "name": {
       "description": "Name of a person",
       "type": "string",
@@ -211,7 +325,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 2
+        "number": 3
       }
     },
     "first_name": {
@@ -225,7 +339,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 3
+        "number": 4
       }
     },
     "phone_nr": {
@@ -239,7 +353,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 4
+        "number": 5
       }
     },
     "skills": {
@@ -254,7 +368,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 5
+        "number": 6
       }
     }
   }
@@ -390,105 +504,6 @@
 }
 ,
 {
-  "name": "treeitem",
-  "type": "Treeitem",
-  "description": "Item of the navigationtree",
-  "__proto": {
-    "package": "tree",
-    "imports": ["furo/link.proto"]
-  },
-  "fields": {
-    "display_name": {
-      "description": "String representation of the node",
-      "type": "string",
-      "meta": {
-        "readonly": true,
-        "tree-searcb-index": true
-      },
-      "__proto": {
-        "number": 1
-      }
-    },
-    "id": {
-      "description": "Id of the node",
-      "type": "string",
-      "__proto": {
-        "number": 2
-      }
-    },
-    "subtitle": {
-      "description": "subtitle of the node",
-      "type": "string",
-      "meta": {
-        "tree-searcb-index": true
-      },
-      "__proto": {
-        "number": 3
-      }
-    },
-    "description": {
-      "description": "description of the node",
-      "meta": {
-        "tree-searcb-index": true
-      },
-      "type": "string",
-      "__proto": {
-        "number": 4
-      }
-    },
-    "icon": {
-      "description": "icon of the node",
-      "type": "string",
-      "__proto": {
-        "number": 5
-      }
-    },
-    "key_words": {
-      "description": "key words of the node",
-      "meta": {
-        "tree-searcb-index": true
-      },
-      "type": "string",
-      "__proto": {
-        "number": 6
-      }
-    },
-    "has_error": {
-      "description": "if node has error",
-      "type": "bool",
-      "__proto": {
-        "number": 7
-      }
-    },
-    "open": {
-      "description": "node open or not",
-      "type": "bool",
-      "__proto": {
-        "number": 8
-      }
-    },
-    "link": {
-      "description": "Deeplink information of this node",
-      "type": "furo.Link",
-      "__proto": {
-        "number": 9
-      }
-    },
-    "children": {
-      "description": "Children of this node",
-      "type": "tree.Treeitem",
-      "meta": {
-        "repeated": true
-      },
-      "__proto": {
-        "number": 10
-      }
-    }
-
-  }
-}
-,
-{
   "name": "task",
   "type": "Task",
   "description": "Task data description",
@@ -501,6 +516,21 @@
     ]
   },
   "fields": {
+    "id": {
+      "description": "Identity of a task",
+      "type": "string",
+      "meta": {
+        "label": "Id",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 1
+      }
+    },
     "display_name": {
       "description": "Localized String representation of a task",
       "type": "project.ProjectCollection",
@@ -513,7 +543,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 1
+        "number": 2
       }
     },
     "description": {
@@ -527,7 +557,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 2
+        "number": 3
       }
     },
     "estimated_time": {
@@ -541,7 +571,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 3,
+        "number": 4,
         "type": "int32"
       }
     },
@@ -563,7 +593,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 4
+        "number": 5
       }
     },
     "subtasks": {
@@ -578,7 +608,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 5
+        "number": 6
       }
     }
   }
@@ -716,6 +746,21 @@
     ]
   },
   "fields": {
+    "id": {
+      "description": "Identity of a project",
+      "type": "string",
+      "meta": {
+        "label": "Id",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 1
+      }
+    },
     "display_name": {
       "description": "Localized String representation of a project",
       "type": "string",
@@ -728,7 +773,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 1
+        "number": 2
       }
     },
     "start": {
@@ -742,7 +787,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 2
+        "number": 3
       }
     },
     "end": {
@@ -756,7 +801,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 3
+        "number": 4
       }
     },
     "description": {
@@ -770,7 +815,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 4
+        "number": 5
       }
     },
     "members": {
@@ -785,7 +830,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 5
+        "number": 6
       }
     },
     "cost_limit": {
@@ -802,7 +847,7 @@
       },
       "options": [],
       "__proto": {
-        "number": 6
+        "number": 7
       }
     }
   }

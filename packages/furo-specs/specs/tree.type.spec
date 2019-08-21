@@ -4,9 +4,16 @@
   "description": "Singletonresource of the navigationtree",
   "__proto": {
     "package": "tree",
-    "imports": ["treeitem.proto"]
+    "imports": ["navigationnode.proto"]
   },
   "fields": {
+    "id": {
+      "description": "Id of the node",
+      "type": "string",
+      "__proto": {
+        "number": 1
+      }
+    },
     "display_name": {
       "description": "String representation of the node",
       "type": "string",
@@ -14,13 +21,6 @@
         "readonly": true,
         "tree-search-index": true
       },
-      "__proto": {
-        "number": 1
-      }
-    },
-    "id": {
-      "description": "Id of the node",
-      "type": "string",
       "__proto": {
         "number": 2
       }
@@ -89,7 +89,7 @@
     },
     "root": {
       "description": "Rootnode of the tree",
-      "type": "tree.Treeitem",
+      "type": "tree.Navigationnode",
       "meta": {},
       "__proto": {
         "number": 10

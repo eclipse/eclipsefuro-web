@@ -10,7 +10,7 @@
   "fields": {
     "id": {
         "description": "Identity of {{.type}}",
-        "type": "{{.proto_type}}",
+        "type": "{{.identity_type}}",
         "meta": {
           "label": "Name",
           "default": "",

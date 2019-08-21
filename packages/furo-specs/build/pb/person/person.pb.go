@@ -24,15 +24,17 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 // Person message type
 type Person struct {
 	// Localized String representation of a person
-	DisplayName string `protobuf:"bytes,1,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
+	DisplayName string `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
 	// First name of a person
-	FirstName string `protobuf:"bytes,3,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
+	FirstName string `protobuf:"bytes,4,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
+	// Identity of a person
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Name of a person
-	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Internal phone number
-	PhoneNr string `protobuf:"bytes,4,opt,name=phone_nr,json=phoneNr,proto3" json:"phone_nr,omitempty"`
+	PhoneNr string `protobuf:"bytes,5,opt,name=phone_nr,json=phoneNr,proto3" json:"phone_nr,omitempty"`
 	// List of main skills of a person
-	Skills               []string `protobuf:"bytes,5,rep,name=skills,proto3" json:"skills,omitempty"`
+	Skills               []string `protobuf:"bytes,6,rep,name=skills,proto3" json:"skills,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -85,6 +87,13 @@ func (m *Person) GetFirstName() string {
 	return ""
 }
 
+func (m *Person) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
 func (m *Person) GetName() string {
 	if m != nil {
 		return m.Name
@@ -113,18 +122,19 @@ func init() {
 func init() { proto.RegisterFile("person.proto", fileDescriptor_4c9e10cf24b1156d) }
 
 var fileDescriptor_4c9e10cf24b1156d = []byte{
-	// 167 bytes of a gzipped FileDescriptorProto
+	// 180 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x29, 0x48, 0x2d, 0x2a,
-	0xce, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x83, 0xf0, 0x94, 0x26, 0x32, 0x72,
+	0xce, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x83, 0xf0, 0x94, 0x16, 0x32, 0x72,
 	0xb1, 0x05, 0x80, 0x99, 0x42, 0x8a, 0x5c, 0x3c, 0x29, 0x99, 0xc5, 0x05, 0x39, 0x89, 0x95, 0xf1,
-	0x79, 0x89, 0xb9, 0xa9, 0x12, 0x8c, 0x0a, 0x8c, 0x1a, 0x9c, 0x41, 0xdc, 0x50, 0x31, 0xbf, 0xc4,
-	0xdc, 0x54, 0x21, 0x59, 0x2e, 0xae, 0xb4, 0xcc, 0xa2, 0xe2, 0x12, 0x88, 0x02, 0x66, 0xb0, 0x02,
-	0x4e, 0xb0, 0x08, 0x58, 0x5a, 0x88, 0x8b, 0x05, 0x2c, 0xc1, 0x04, 0x96, 0x00, 0xb3, 0x85, 0x24,
-	0xb9, 0x38, 0x0a, 0x32, 0xf2, 0xf3, 0x52, 0xe3, 0xf3, 0x8a, 0x24, 0x58, 0xc0, 0xe2, 0xec, 0x60,
-	0xbe, 0x5f, 0x91, 0x90, 0x18, 0x17, 0x5b, 0x71, 0x76, 0x66, 0x4e, 0x4e, 0xb1, 0x04, 0xab, 0x02,
-	0xb3, 0x06, 0x67, 0x10, 0x94, 0xe7, 0xc4, 0x73, 0xe2, 0x91, 0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c,
-	0x0f, 0x1e, 0xc9, 0x31, 0x26, 0xb1, 0x81, 0x1d, 0x6c, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0xab,
-	0x13, 0x70, 0x16, 0xc0, 0x00, 0x00, 0x00,
+	0x79, 0x89, 0xb9, 0xa9, 0x12, 0x4c, 0x0a, 0x8c, 0x1a, 0x9c, 0x41, 0xdc, 0x50, 0x31, 0xbf, 0xc4,
+	0xdc, 0x54, 0x21, 0x59, 0x2e, 0xae, 0xb4, 0xcc, 0xa2, 0xe2, 0x12, 0x88, 0x02, 0x16, 0xb0, 0x02,
+	0x4e, 0xb0, 0x08, 0x58, 0x9a, 0x8f, 0x8b, 0x29, 0x33, 0x45, 0x82, 0x11, 0x2c, 0xcc, 0x94, 0x99,
+	0x22, 0x24, 0xc4, 0xc5, 0x02, 0x56, 0xc8, 0x0c, 0x16, 0x01, 0xb3, 0x85, 0x24, 0xb9, 0x38, 0x0a,
+	0x32, 0xf2, 0xf3, 0x52, 0xe3, 0xf3, 0x8a, 0x24, 0x58, 0xc1, 0xe2, 0xec, 0x60, 0xbe, 0x5f, 0x91,
+	0x90, 0x18, 0x17, 0x5b, 0x71, 0x76, 0x66, 0x4e, 0x4e, 0xb1, 0x04, 0x9b, 0x02, 0xb3, 0x06, 0x67,
+	0x10, 0x94, 0xe7, 0xc4, 0x73, 0xe2, 0x91, 0x1c, 0xe3, 0x85, 0x47, 0x72, 0x8c, 0x0f, 0x1e, 0xc9,
+	0x31, 0x26, 0xb1, 0x81, 0x3d, 0x60, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0x3e, 0x29, 0xf5, 0xd1,
+	0xd0, 0x00, 0x00, 0x00,
 }
 
 func (m *Person) Marshal() (dAtA []byte, err error) {
@@ -142,33 +152,39 @@ func (m *Person) MarshalTo(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
-	if len(m.DisplayName) > 0 {
+	if len(m.Id) > 0 {
 		dAtA[i] = 0xa
+		i++
+		i = encodeVarintPerson(dAtA, i, uint64(len(m.Id)))
+		i += copy(dAtA[i:], m.Id)
+	}
+	if len(m.DisplayName) > 0 {
+		dAtA[i] = 0x12
 		i++
 		i = encodeVarintPerson(dAtA, i, uint64(len(m.DisplayName)))
 		i += copy(dAtA[i:], m.DisplayName)
 	}
 	if len(m.Name) > 0 {
-		dAtA[i] = 0x12
+		dAtA[i] = 0x1a
 		i++
 		i = encodeVarintPerson(dAtA, i, uint64(len(m.Name)))
 		i += copy(dAtA[i:], m.Name)
 	}
 	if len(m.FirstName) > 0 {
-		dAtA[i] = 0x1a
+		dAtA[i] = 0x22
 		i++
 		i = encodeVarintPerson(dAtA, i, uint64(len(m.FirstName)))
 		i += copy(dAtA[i:], m.FirstName)
 	}
 	if len(m.PhoneNr) > 0 {
-		dAtA[i] = 0x22
+		dAtA[i] = 0x2a
 		i++
 		i = encodeVarintPerson(dAtA, i, uint64(len(m.PhoneNr)))
 		i += copy(dAtA[i:], m.PhoneNr)
 	}
 	if len(m.Skills) > 0 {
 		for _, s := range m.Skills {
-			dAtA[i] = 0x2a
+			dAtA[i] = 0x32
 			i++
 			l = len(s)
 			for l >= 1<<7 {
@@ -202,6 +218,10 @@ func (m *Person) Size() (n int) {
 	}
 	var l int
 	_ = l
+	l = len(m.Id)
+	if l > 0 {
+		n += 1 + l + sovPerson(uint64(l))
+	}
 	l = len(m.DisplayName)
 	if l > 0 {
 		n += 1 + l + sovPerson(uint64(l))
@@ -274,6 +294,38 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowPerson
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthPerson
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthPerson
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Id = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field DisplayName", wireType)
 			}
 			var stringLen uint64
@@ -304,7 +356,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 			}
 			m.DisplayName = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 2:
+		case 3:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Name", wireType)
 			}
@@ -336,7 +388,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 			}
 			m.Name = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 3:
+		case 4:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field FirstName", wireType)
 			}
@@ -368,7 +420,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 			}
 			m.FirstName = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 4:
+		case 5:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field PhoneNr", wireType)
 			}
@@ -400,7 +452,7 @@ func (m *Person) Unmarshal(dAtA []byte) error {
 			}
 			m.PhoneNr = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
-		case 5:
+		case 6:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Skills", wireType)
 			}

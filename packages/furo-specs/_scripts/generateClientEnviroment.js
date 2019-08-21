@@ -39,7 +39,7 @@ specs.types.forEach((type) => {
 });
 apiSpecs += `\nexport const Types =` + JSON.stringify(t);
 
-fs.writeFileSync("build/api_spec.js", apiSpecs);
+fs.writeFileSync("build/data_environment.js", apiSpecs);
 
 
-console.log("build/api_spec.js created");
+console.log("build/data_environment.js created");

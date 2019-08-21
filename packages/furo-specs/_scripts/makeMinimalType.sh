@@ -15,7 +15,7 @@ else
 fi
 
 NAME=$1
-echo '{"name":"'$1'","type":"'$2'","description":"'$3'","proto_type":"'$PROTO'"}' > ./_tmpType.json
+echo '{"name":"'$1'","type":"'$2'","description":"'$3'","identity_type":"'$PROTO'"}' > ./_tmpType.json
 OUTPUTFILESERVICE=$NAME".type.spec"
 
 simple-generator -d ./_tmpType.json -t _scripts/templates/MinimalType.tpl > specs/$OUTPUTFILESERVICE

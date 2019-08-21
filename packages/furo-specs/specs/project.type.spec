@@ -11,6 +11,21 @@
     ]
   },
   "fields": {
+    "id": {
+      "description": "Identity of a project",
+      "type": "string",
+      "meta": {
+        "label": "Id",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 1
+      }
+    },
     "display_name": {
       "description": "Localized String representation of a project",
       "type": "string",
@@ -23,7 +38,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 1
+        "number": 2
       }
     },
     "start": {
@@ -37,7 +52,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 2
+        "number": 3
       }
     },
     "end": {
@@ -51,7 +66,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 3
+        "number": 4
       }
     },
     "description": {
@@ -65,7 +80,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 4
+        "number": 5
       }
     },
     "members": {
@@ -80,7 +95,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 5
+        "number": 6
       }
     },
     "cost_limit": {
@@ -97,7 +112,7 @@
       },
       "options": [],
       "__proto": {
-        "number": 6
+        "number": 7
       }
     }
   }

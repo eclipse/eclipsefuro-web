@@ -7,8 +7,8 @@
     "imports": []
   },
   "fields": {
-    "display_name": {
-      "description": "Localized String representation of a person",
+    "id": {
+      "description": "Identity of a person",
       "type": "string",
       "meta": {
         "label": "Person",
@@ -22,6 +22,21 @@
         "number": 1
       }
     },
+    "display_name": {
+      "description": "Localized String representation of a person",
+      "type": "string",
+      "meta": {
+        "label": "Person",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 2
+      }
+    },
     "name": {
       "description": "Name of a person",
       "type": "string",
@@ -33,7 +48,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 2
+        "number": 3
       }
     },
     "first_name": {
@@ -47,7 +62,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 3
+        "number": 4
       }
     },
     "phone_nr": {
@@ -61,7 +76,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 4
+        "number": 5
       }
     },
     "skills": {
@@ -76,7 +91,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 5
+        "number": 6
       }
     }
   }

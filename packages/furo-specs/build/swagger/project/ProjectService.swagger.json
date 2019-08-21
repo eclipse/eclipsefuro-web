@@ -338,6 +338,10 @@
           "type": "string",
           "title": "First name of a person"
         },
+        "id": {
+          "type": "string",
+          "title": "Identity of a person"
+        },
         "name": {
           "type": "string",
           "title": "Name of a person"
@@ -374,6 +378,10 @@
         "end": {
           "$ref": "#/definitions/googleDate",
           "title": "Prospective end date of the project"
+        },
+        "id": {
+          "type": "string",
+          "title": "Identity of a project"
         },
         "members": {
           "type": "array",
