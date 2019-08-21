@@ -3,7 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "@furo/data"
-import "@furo/data/test/initEnv"
+
 import "../furo-catalog"
 /**
  * `sample-furo-number-input`

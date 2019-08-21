@@ -15,7 +15,7 @@ class FuroLocation extends HTMLElement {
     super();
     this.style.display = "none";
     this._location = {
-      "host": window.location.host
+      "host": window.location.host,
     };
 
 
@@ -105,9 +105,13 @@ class FuroLocation extends HTMLElement {
         }
       }
 
+      // register empty objects for later usage
+      this._location.query = {};
+      this._location.hash = {};
+
       // path-changed
       // cut of urlSpaceRegex
-      let newPath = window.decodeURIComponent(window.location.pathname).replace(new RegExp(this.urlSpaceRegex),"");;
+      let newPath = window.decodeURIComponent(window.location.pathname).replace(new RegExp(this.urlSpaceRegex),"");
       if (this._location.path !== newPath) {
         this._location.path = newPath;
 

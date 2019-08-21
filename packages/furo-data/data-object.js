@@ -4,41 +4,45 @@ import {Env} from "@furo/framework"
 
 
 /**
- * `entity-object`
- * This component is deprecated, use data-object instead
+ * `data-object`
  *
- * This component will be removed in Q4 2019
  *
- * @summary Typed entity object
+ * @summary Typed data object
  * @customElement
- * @demo demo/entity-object.html
+ * @demo demo-data-object Basic demonstration
  * @appliesMixin FBP
  */
-class EntityObject extends (LitElement) {
+class DataObject extends (LitElement) {
 
   constructor() {
     super();
     this._specs = Env.api.specs;
-    console.warn("entity-object is deprecated, use data-object instead");
-    console.warn("This component will be removed in Q4-2019",this);
   }
 
 
   static get properties() {
     return {
       /**
-       * Name der Spec
+       * The name of the type you want to use. The type must be registered in Env
        */
       type: {type: String}
     };
   }
 
-  injectPlainData(data) {
-    this.injectRaw({data: data});
-  }
 
   /**
-   * inject a raw entity json {data:..,links:...,meta,..-}
+   * inject a raw data response from the corresonding agent.
+   *
+   * Input may look something like this:
+   *
+   * ```json
+   *  {data:{},links:[],meta{}}
+   * ```
+   *
+   * ```json
+   *  {data:{},links:[],meta{},entities:[]}
+   * ```
+   *
    * @param jsonObj
    */
   injectRaw(jsonObj) {
@@ -52,6 +56,10 @@ class EntityObject extends (LitElement) {
     }
   }
 
+  /**
+   *
+   * @param type
+   */
   set type(type) {
     if (this._type) {
       this._checkType(type);
@@ -59,6 +67,11 @@ class EntityObject extends (LitElement) {
     this._type = type;
   }
 
+  /**
+   *
+   * @param type
+   * @private
+   */
   _checkType(type) {
 
     if (this._specs[type] === undefined) {
@@ -154,6 +167,9 @@ class EntityObject extends (LitElement) {
     }, 0);
   }
 
+  /**
+   * @private
+   */
   firstUpdated() {
     super.firstUpdated();
 
@@ -165,4 +181,4 @@ class EntityObject extends (LitElement) {
 
 }
 
-window.customElements.define('entity-object', EntityObject);
+window.customElements.define('data-object', DataObject);

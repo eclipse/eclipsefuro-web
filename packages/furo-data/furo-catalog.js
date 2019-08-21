@@ -1,3 +1,4 @@
+import "./data-object"
 import "./collection-agent"
 import "./collection-object"
 import "./custom-method"

@@ -4,6 +4,9 @@ import {Env} from "@furo/framework"
 
 /**
  * `collection-object`
+ * This component is deprecated, use data-object instead
+ *
+ * This component will be removed in Q4 2019
  *
  * @customElement
  * @demo demo/form.html
@@ -14,7 +17,9 @@ class CollectionObject extends (LitElement) {
   constructor() {
     super();
     this._specs = Env.api.specs;
-
+    console.warn("collection-object is deprecated, use data-object instead");
+    console.warn("This component will be removed in Q4-2019",this);
+    //@veith, do not forget to remov lib/CollectionNode too
   }
 
   injectRaw(jsonObj) {

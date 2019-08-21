@@ -1,4 +1,4 @@
-import {LitElement, html,css} from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 import "./api-fetch"
 import {Env} from "@furo/framework"
@@ -63,8 +63,26 @@ class EntityAgent extends FBP(LitElement) {
     }
   }
 
+  /**
+   * deprecated
+   *
+   * use bindRequestData instead
+   * @param entityTree
+   */
   bindRequestObject(entityTree) {
     this._entityTree = entityTree;
+    console.warn("ƒ-bind-request-object is deprecated, use ƒ-bind-request-data instead");
+    console.warn("This component will be removed in Q4-2019", this);
+  }
+
+
+  /**
+   * Binds a data-object type. Use this if you want save data.
+   *
+   * @param dataObject
+   */
+  bindRequestData(dataObject) {
+    this._entityTree = dataObject;
   }
 
 
@@ -78,7 +96,7 @@ class EntityAgent extends FBP(LitElement) {
 
     headers.append('Content-Type', 'application/' + link.type + '+json');
 
-    if (link.method.toLowerCase() !== 'put'){
+    if (link.method.toLowerCase() !== 'put') {
       headers.append('Content-Type', 'application/json');
     }
 
@@ -158,6 +176,7 @@ class EntityAgent extends FBP(LitElement) {
     this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.delete));
 
   }
+
   /**
    * @event save-success
    * Fired when load was successful
@@ -184,10 +203,11 @@ class EntityAgent extends FBP(LitElement) {
       return;
     }
     this._attachListeners("save");
-    // TODO nur delta senden
+    // TODO nur modifizierte daten senden (.pristine)
     this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._entityTree.rawData));
 
   }
+
   /**
    * @event create-success
    * Fired when load was successful
@@ -226,8 +246,8 @@ class EntityAgent extends FBP(LitElement) {
       this.dispatchEvent(customEvent);
 
       // remove listeners
-      this.removeEventListener("req-success", success,true);
-      this.removeEventListener("req-failed", failed,true);
+      this.removeEventListener("req-success", success, true);
+      this.removeEventListener("req-failed", failed, true);
 
     };
 
@@ -239,8 +259,8 @@ class EntityAgent extends FBP(LitElement) {
       this.dispatchEvent(customEvent);
 
       // remove listeners
-      this.removeEventListener("req-success", success,true);
-      this.removeEventListener("req-failed", failed,true);
+      this.removeEventListener("req-success", success, true);
+      this.removeEventListener("req-failed", failed, true);
     };
     /**
      * do not add the listener directly to response, otherwise it kicks in before hts is updated
@@ -249,6 +269,7 @@ class EntityAgent extends FBP(LitElement) {
     this.addEventListener("req-success", success, true);
     this.addEventListener("req-failed", failed, true);
   }
+
   _updateInternalHTS(hts) {
     // convert link object to hts array
     if (hts && hts.rel && hts.method && hts.type && hts.href) {
@@ -302,10 +323,10 @@ class EntityAgent extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return css`
-              :host {
-                  display: none;
-              }
-          `
+        :host {
+            display: none;
+        }
+    `
   }
 
   /**
@@ -314,7 +335,7 @@ class EntityAgent extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html`        
+    return html`
       <api-fetch
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"

@@ -4,7 +4,6 @@ import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog"
 
-import '../test/initEnv';
 
 /**
  * `demo-furo-icon`

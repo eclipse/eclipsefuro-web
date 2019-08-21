@@ -26,7 +26,8 @@ class FuroCard extends FBP(LitElement) {
        */
       title: {type: String},
       secondaryText: {type: String, attribute: "secondary-text"},
-      hasaction: {type: Boolean, reflect: true}
+      hasaction: {type: Boolean, reflect: true},
+      hasmedia: {type: Boolean, reflect: true}
     };
   }
 
@@ -34,7 +35,7 @@ class FuroCard extends FBP(LitElement) {
   constructor() {
     super();
     this.hasaction = this.querySelectorAll('*[slot="action"]').length > 0;
-
+    this.hasmedia = this.querySelectorAll('*[slot="media"]').length > 0;
   }
 
   /**
@@ -50,7 +51,7 @@ class FuroCard extends FBP(LitElement) {
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
             0 1px 5px 0 rgba(0, 0, 0, 0.12),
             0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            --furo-button-padding: 4px;
+            --furo-button-padding: var(--spacing-xs, 8px);
             background: var(--furo-card-background, white);
             padding-bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
             margin: var(--furo-card-margin, 0);
@@ -71,6 +72,16 @@ class FuroCard extends FBP(LitElement) {
         }
 
 
+        /** no padding-top on .content if title is set **/
+        :host([title]) .content {
+            padding-top: 0;
+        }
+        
+        /** set padding-top on .content if media is present **/
+        :host([title][hasmedia]) .content {
+            padding-top: var(--furo-card-padding, var(--spacing-s, 16px));
+        }
+        
         .content {
             padding: var(--furo-card-padding, var(--spacing-s, 16px));
         }

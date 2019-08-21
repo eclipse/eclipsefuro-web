@@ -1,11 +1,12 @@
 // -- initialize application env, theme, api
 
-//import {Init, Env} from "@furo/framework/furo.js";
-//import {Theme} from "@furo/framework/theme.js";
-//import {Services, Types} from "@furo/spec/baseTypes.js"
+import  {Init,Iconset} from "@furo/framework/furo.js";
+import {Services, Types} from "@furo/specs/build/data_environment.js"
 
+Init.registerApiServices(Services);
+Init.registerApiTypes(Types);
 
-import {Iconset} from "@furo/framework/furo.js";
+//Attention: Styling is defined in main-stage
 import {FuroBaseIcons} from "@furo/layout/iconsets/baseIcons";
 import {MapsIcons} from "@furo/layout/iconsets/mapsIcons";
 import {PlacesIcons} from "@furo/layout/iconsets/placesIcons";
@@ -21,7 +22,6 @@ import {ImageIcons} from "@furo/layout/iconsets/imageIcons";
 
 
 Iconset.registerIconset("furo", FuroDocIcons);
-
 Iconset.registerIconset("default", FuroBaseIcons);
 Iconset.registerIconset("av", AvIcons);
 Iconset.registerIconset("communication", CommunicationIcons);
