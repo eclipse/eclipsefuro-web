@@ -7,4 +7,5 @@ import "./demo-furo-data-textarea-input";
 import "./sample-furo-data-number-input"
 import "./demo-furo-data-number-input"
 import "./demo-furo-data-time-input"
+import "./demo-furo-data-checkbox-input"
 import "./sample-furo-data-collection-dropdown"

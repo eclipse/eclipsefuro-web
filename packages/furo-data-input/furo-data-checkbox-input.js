@@ -1,133 +1,143 @@
-import {LitElement, html,css} from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {FuroInputBase} from "./FuroInputBase.js";
 
 /**
- * `furo-input-checkbox`
- * Checkbox input element which uses a native `<input type="checkbox">` tag. Works best with furo-data components.
+ * `furo-data-checkbox-input`
+ * furo-data-checkbox-input element which uses a  `<furo-checkbox-input >` element. Works best with furo-data components.
  *
- * Tags: input
- * @summary checkbox input element
- * @demo demo/checkbox.html
+ *   ### Sample
+ *  <furo-demo-snippet>
+ *   <template>
+ *    <furo-data-checkbox-input  ƒ-bind-data="--entity(*.fields.open)"></furo-data-checkbox-input>
+ *   </template>
+ *  </furo-demo-snippet>
+ *
+ * Tags: data-input
+ * @summary furo data checkbox input element
+ * @demo demo-furo-data-checkbox-input Input samples
  * @customElement
  * @mixes FBP
  * @mixes FuroInputBase
  */
 class FuroDataCheckboxInput extends FBP(FuroInputBase(LitElement)) {
 
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+
+    /**
+     * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox-input
+     *
+     * All bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.
+     *
+     */
+
+    constructor() {
+        super();
+
+        this._FBPAddWireHook("--valueChanged", (val) => {
+            if (this.field) {
+                this.field.value = val;
+            }
+        });
+    }
+
+
+    static get properties() {
+        return {
+
+            /**
+             * Overrides the label text from the **specs**.
+             *
+             * Use with caution, normally the specs defines this value.
+             */
+            label: {
+                type: String,
+                attribute: true
+            },
+            /**
+             * Overrides the hint text from the **specs**.
+             *
+             * Use with caution, normally the specs defines this value.
+             */
+            hint: {
+                type: String,
+            },
+            /**
+             * Overrides the readonly value from the **specs**.
+             *
+             * Use with caution, normally the specs defines this value.
+             */
+            readonly: {
+                type: Boolean,
+            },
+            /**
+             * A Boolean attribute which, if present, means this field cannot be edited by the user.
+             */
+            disabled: {
+                type: Boolean, reflect: true
+            },
+
+            /**
+             * Set this attribute to autofocus the input field.
+             */
+            autofocus: {
+                type: Boolean
+            },
+            /**
+             * html input validity
+             */
+            valid: {
+                type: Boolean,
+                reflect: true
+            },
+            /**
+             * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+             */
+            condensed: {
+                type: Boolean
+            }
+        }
+    }
+
+    /**
+     *
+     * @private
+     * @return {CSSResult}
+     */
+    static get styles() {
+        // language=CSS
+        return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 8px 0 2px 0;
-            height: 75px;
-            line-height: 1.5;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-        }
-
-        :host([error]) .border {
-            border-color: red;
-            border-width: 1px;
+            width: 300px;
         }
 
         :host([hidden]) {
             display: none;
         }
 
-        input {
-            border: none;
-            background: 0 0;
-            font-size: 12px;
-            margin: 0;
-            padding: 0;
-            width: unset;
-            text-align: left;
-            color: inherit;
-            outline: none;
-        }
-        
-        .border{
-            position: absolute;
+        furo-checkbox-input {
             width: 100%;
-            height: 1px;
-            top:28px;
-            border: none;
-            border-bottom: 1px solid rgba(0, 0, 0, .12);
-        }
-
-        :host(:focus-within) .border{
-            border-color: var(--primary,#3f51b5);
-            border-width: 1px;
-        }
-        
-        label {
-            position: unset;
-            top: unset;
-            color: unset;
-            pointer-events: unset;
-            display: unset;
-            width: unset;
-            overflow: unset;
-            padding-left: 12px;
-        }
-        * {
-            transition: all 150ms ease-out;
-        }
-
-        .hint{
-            position: absolute;
-            top: 30px;
-            font-size: 10px;
-            color:transparent;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-        :host(:focus-within) .hint{
-            color: var(--app-hint-color);
-            transition: all 550ms ease-in;
         }
     `
-  }
-
-  render() {
-    return html` 
-      <input id="input"  aria-label="${this._label}" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="checkbox" list="datalist" ƒ-.checked="--value" @-input="--inputCheckbox(*)"   ƒ-focus="--focusReceived">     
-      <label for="input" class="text">${this._label}</label>
-      
-      <div class="border"></div>  
-      <div class="hint">${this.hint}</div>
- 
-    `;
-    // language=HTML
-  }
-
-  constructor() {
-    super();
-    this._text = this.getAttribute('text')
-  }
-
-  static get properties() {
-    return {
-      text: {
-        type: String,
-        attribute: true
-      }
     }
-  }
+
+
+    render() {
+        // language=HTML
+        return html`
+             <furo-checkbox-input 
+                ?autofocus=${this.autofocus} 
+                ?disabled=${this._readonly || this.disabled} 
+                label="${this._label}" 
+                ?error="${this.error}" 
+                ?condensed="${this.condensed}"          
+                errortext="${this.errortext}" 
+                hint="${this._hint}" 
+                @-value-changed="--valueChanged"
+                ƒ-set-value="--value"></furo-checkbox-input>      
+          `;
+    }
 }
 
 customElements.define('furo-data-checkbox-input', FuroDataCheckboxInput);

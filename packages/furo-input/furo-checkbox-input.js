@@ -27,7 +27,7 @@ import "./furo-checkbox";
  * ----------------|-------------|----------|----------
  * `--input-hint-color` | Color of hint text | #999999 | --
  * `--input-error-text-color` | Color of error text | `--error` | red
- * `--input-active-float-label-color` | Color of floating label when active  | `--primary` | #3f51b5
+ * `--input-active-label-color` | Color of the label when active  | `--primary` | #3f51b5
  * `--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333
  * `--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red
  * `--input-error-text-color` | Color of error text | `--error` | red
@@ -40,6 +40,13 @@ import "./furo-checkbox";
  */
 class FuroCheckboxInput extends FBP(LitElement) {
 
+    /**
+     * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox
+     *
+     * All bubbling events from [furo-checkbox](furo-checkbox) will be fired, because furo-checkbox-input uses furo-checkbox internally.
+     *
+     */
+
     constructor() {
         super();
         this.valid = true;
@@ -47,6 +54,8 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
     _FBPReady() {
         super._FBPReady();
+        // init value , when undefined then false
+        this._value = !!this.value;
         this._FBPAddWireHook("--toggle", _ => {
 
             if(!this.disabled) {
@@ -120,18 +129,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
              */
             readonly: {
                 type: Boolean, reflect: true
-            },
-            /**
-             * helper for the label
-             */
-            _float: {
-                type: Boolean
-            },
-            /**
-             * Lets the placeholder always floating
-             */
-            float: {
-                type: Boolean
             },
             /**
              * The hint text for the field.
@@ -363,8 +360,8 @@ class FuroCheckboxInput extends FBP(LitElement) {
             }
 
             :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-                color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-                border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+                color: var(--input-active-label-color, var(--primary, #3f51b5));
+                border-color: var(--input-active-label-color, var(--primary, #3f51b5));
             }
 
             :host(:focus-within) .ripple-line {
@@ -450,11 +447,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
         `
     }
 
-    /**
-     *
-     * @return {TemplateResult | TemplateResult}
-     * @private
-     */
     render() {
         // language=HTML
         return html` 
