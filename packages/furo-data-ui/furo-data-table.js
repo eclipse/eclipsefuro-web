@@ -14,8 +14,14 @@ const tableDetails = (fields) => html`${fields.map(f => html`<td row-width="${f.
  * Read only data table based on the response type from the rest api spec.
  *
  * ```
- * <furo-data-table ƒ-bind-data="--data" type="vnd.com.abc" @-tablerow-selected="--rowSelected" @-checkstate-changed="--checkStateChanged"></furo-data-table>
+ * <furo-data-table type="project.Project"
+ *                  ƒ-bind-data="--data"></furo-data-table>
  * ```
+ *
+ * Custom property | Description | Default  | Fallback
+ * ----------------|-------------|----------|----------
+ * `--furo-data-table-background` | Background color of the element | --background | white
+ * `--furo-data-table-select-color` | Background color of the focused table row element | --accent-light | lightgrey
  *
  * Configuration:
  * Attribute: hide-header | hides the table header row
@@ -23,7 +29,7 @@ const tableDetails = (fields) => html`${fields.map(f => html`<td row-width="${f.
  * Tags: data-ui
  *
  * @summary datatable
- * @demo demo/index.html
+ * @demo demo-furo-data-table Simple data table demo
  * @customElement
  * @mixes FBP
  */
@@ -83,6 +89,14 @@ class FuroDataTable extends FBP(LitElement) {
 
     }
 
+    /**
+     * flow is ready lifecycle method
+     */
+    __fbpReady() {
+        super.__fbpReady();
+        //this._FBPTraceWires();
+    }
+
     static get properties() {
         return {
             /**
@@ -114,6 +128,7 @@ class FuroDataTable extends FBP(LitElement) {
             :host {
                 display: block;
                 height: 100%;
+                background-color: var(--furo-data-table-background, var(--background, white));
             }
 
             :host([hidden]) {
@@ -126,31 +141,28 @@ class FuroDataTable extends FBP(LitElement) {
 
             table {
                 table-layout: fixed;
-                width: 100%;
+                display: block;
+                width: 0;
                 border-spacing: 0;
                 padding: 0;
                 margin-bottom: var(--spacing, 8px);
             }
 
-            tbody, thead {
-                display: table;
-            }
-
             th {
-                background-color: var(--on-primary, transparent);
                 color: var(--primary, #035CA1);
                 white-space: nowrap;
-                font-weight: bold;
+                font-weight: 400;
+                padding-left: 0;
+                -webkit-font-smoothing: antialiased;
+                text-align: left;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                font-size: 10px;
             }
 
             tr {
                 outline: none;
                 line-height: 40px;
-                -webkit-box-shadow: inset 0 -1px 0 0 rgba(100, 121, 143, 0.122);
-                box-shadow: inset 0 -1px 0 0 rgba(100, 121, 143, 0.122);
-                display: -webkit-box;
-                display: -webkit-flex;
-                display: flex;
                 position: relative;
             }
 
@@ -159,63 +171,24 @@ class FuroDataTable extends FBP(LitElement) {
                 z-index: 1;
             }
 
-            td, th {
-                padding-left: 0;
-                margin-right: var(--spacing, 8px);
-                -webkit-font-smoothing: antialiased;
-                font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-                font-size: .875rem;
-                letter-spacing: .2px;
-                text-align: left;
-
-            }
-
-            td[row-width=width-xs], th[row-width=width-xs] {
-                width: var(--spacing-xs, 8px);
-            }
-
-            td[row-width=width-s], th[row-width=width-s] {
-                width: var(--spacing-s, 24px);
-            }
-
-            td[row-width=width-m], th[row-width=width-m] {
-                width: var(--spacing-m, 72px);
-            }
-
-            td[row-width=width-l], th[row-width=width-l] {
-                width: var(--spacing-l, 96px);
-            }
-
-            td[row-width=width-xl], th[row-width=width-xl] {
-                width: var(--spacing-xl, 120px);
-            }
-
             .bog {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
+                font-size: 12px;
+                margin-right: var(--spacing, 12px);
             }
 
             .fx {
                 display: block;
                 width: var(--spacing, 12px);
+                padding-right: var(--spacing, 12px);
+                padding-left: var(--spacing, 12px);
                 outline: none;
             }
 
-            .ri {
-                width: 2px;
-                line-height: 20px;
-                padding-right: 4px;
-            }
-
-            tbody tr[selected=true] .ri:before {
-                background-color: var(--primary, #4d90f0);
-                content: '';
-                display: block;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                width: 2px;
+            tbody tr[selected=true] {
+                background-color: var(--furo-data-table-select-color, var(--accent-light, lightgrey));
             }
 
             input[type=checkbox] {
@@ -224,6 +197,10 @@ class FuroDataTable extends FBP(LitElement) {
 
             *[hidden] {
                 display: none;
+            }
+
+            .table-container {
+                overflow-x: auto;
             }
 
         `
@@ -263,7 +240,7 @@ class FuroDataTable extends FBP(LitElement) {
             //optional check for properties from prototype chain
             if (this._specs[this._type].fields.hasOwnProperty(key)) {
                 let field = {};
-                if (this._specs[this._type].fields[key].type.startsWith('vnd.')) {
+                if (this._specs[this._specs[this._type].fields[key].type] !== undefined) {
                     field.name = '--entity(*.fields.' + key + '.display_name)';
                 } else {
                     field.name = '--entity(*.fields.' + key + ')';
@@ -290,6 +267,7 @@ class FuroDataTable extends FBP(LitElement) {
 
     /**
      * Event listening and type check
+     * @private
      * @param changedProps
      */
     firstUpdated(changedProps) {
@@ -320,6 +298,9 @@ class FuroDataTable extends FBP(LitElement) {
 
     }
 
+    /**
+     * Triggers wire name --focus for internal use
+     */
     focus() {
         this._selectRowByIndex(0);
         this._FBPTriggerWire('--focus');
@@ -336,7 +317,7 @@ class FuroDataTable extends FBP(LitElement) {
          * new data arrived from CollectionNode
          */
         this._collection.addEventListener('data-changed', (data) => {
-            this._FBPTriggerWire('--collectionData', data.detail);
+            this._FBPTriggerWire('--collectionData', data.detail.entities);
         });
 
         this.dispatchEvent(new CustomEvent('data-loaded', {
@@ -347,15 +328,16 @@ class FuroDataTable extends FBP(LitElement) {
 
     /**
      * Template rendering
+     * @private
      * @returns {TemplateResult|TemplateResult}
      */
     render() {
         // language=HTML
         return html`
+        <div class="table-container">
             <table @-input="--rowCheckChanged(*)">
                 <thead>
                 <tr>
-                    <th class="ri fx" tabindex="-1"></th>
                     <th class="fx"></th>
                     ${tableHeaders(this.cols)}
                 </tr>
@@ -364,23 +346,18 @@ class FuroDataTable extends FBP(LitElement) {
                 
                 <template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal">
                     <tr tabindex="0" ƒ-focus="--entity" draggable="true">
-
-                        <td class="ri fx" tabindex="-1"></td>
                         <td class="fx">
                             <div><input type="checkbox"></div>
                         </td>
-                        
                         ${tableDetails(this.cols)}
-                        
                         <span hidden></span>
                         <entity-object type="${this._type}" ƒ-inject-raw="--internal(*.item)"
                                        @-object-ready="--entity"></entity-object>
-
                     </tr>
-                        
                 </template>
                 </tbody>
-            </table>`;
+            </table>
+        </div>`;
     }
 
     /**
@@ -414,6 +391,7 @@ class FuroDataTable extends FBP(LitElement) {
 
     /**
      * Handles table row select
+     * @private
      * @param e
      */
     _selectRow(e) {
@@ -432,7 +410,7 @@ class FuroDataTable extends FBP(LitElement) {
                     detail: this._collection.data[this._selectedIndex], bubbles: true, composed: true
                 }));
             }
-        } else if (e.target.nodeName === 'INPUT' && e.target.parentNode.parentElement.parentElement.rowIndex >= 0 ) {
+        } else if (e.target.nodeName === 'INPUT' && e.target.parentNode.parentElement.parentElement.rowIndex >= 0) {
             this._selectedIndex = e.target.parentNode.parentElement.parentElement.rowIndex - 1;
         }
 

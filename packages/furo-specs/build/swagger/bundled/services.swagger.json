@@ -100,39 +100,6 @@
         ]
       }
     },
-    "/api/members/{prs}:unsubscribe": {
-      "post": {
-        "summary": "Custom method to unsubscribe a member, complete PersonEntity is expected",
-        "operationId": "UnsubscribeProjectMembersService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledPersonCollection"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "prs",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/bundledPersonEntity"
-            }
-          }
-        ],
-        "tags": [
-          "ProjectMembersService"
-        ]
-      }
-    },
     "/api/persons": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
@@ -322,177 +289,27 @@
         ]
       }
     },
-    "/api/projects": {
-      "get": {
-        "summary": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
-        "operationId": "ListProjectService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledProjectCollection"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "Partielle Repräsentation fields=id,name // 10.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "filter",
-            "description": "Filter.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "page",
-            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "count",
-            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
-            "in": "query",
-            "required": false,
-            "type": "boolean",
-            "format": "boolean"
-          },
-          {
-            "name": "sum",
-            "description": "not implemented.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "view",
-            "description": "not implemented (ehemals context).",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "q",
-            "description": "Query term to search a project.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ProjectService"
-        ]
-      },
+    "/api/projects/{prj}/members/{prs}:unsubscribe": {
       "post": {
-        "summary": "Creates a new Project",
-        "operationId": "CreateProjectService",
+        "summary": "Custom method to unsubscribe a member, complete PersonEntity is expected",
+        "operationId": "UnsubscribeProjectMembersService",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledProjectEntity"
+              "$ref": "#/definitions/bundledPersonCollection"
             }
           }
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/bundledProject"
-            }
-          }
-        ],
-        "tags": [
-          "ProjectService"
-        ]
-      }
-    },
-    "/api/projects/{var}": {
-      "get": {
-        "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
-        "operationId": "GetProjectService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledProjectEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "var",
+            "name": "prj",
             "in": "path",
             "required": true,
             "type": "string"
-          }
-        ],
-        "tags": [
-          "ProjectService"
-        ]
-      },
-      "delete": {
-        "summary": "Delete a Project",
-        "operationId": "DeleteProjectService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledEmpty"
-            }
-          }
-        },
-        "parameters": [
+          },
           {
-            "name": "var",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ProjectService"
-        ]
-      },
-      "patch": {
-        "summary": "Updates a Project, partial updates are supported",
-        "operationId": "UpdateProjectService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledProjectEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "var",
+            "name": "prs",
             "in": "path",
             "required": true,
             "type": "string"
@@ -502,12 +319,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/bundledProject"
+              "$ref": "#/definitions/bundledPersonEntity"
             }
           }
         ],
         "tags": [
-          "ProjectService"
+          "ProjectMembersService"
         ]
       }
     },
@@ -888,6 +705,179 @@
           "TreeService"
         ]
       }
+    },
+    "/mockdata/projects/1/delete.json": {
+      "delete": {
+        "summary": "Delete a Project",
+        "operationId": "DeleteProjectService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledEmpty"
+            }
+          }
+        },
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/1/get.json": {
+      "get": {
+        "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
+        "operationId": "GetProjectService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledProjectEntity"
+            }
+          }
+        },
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/1/update.json": {
+      "patch": {
+        "summary": "Updates a Project, partial updates are supported",
+        "operationId": "UpdateProjectService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledProjectEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bundledProject"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/create.json": {
+      "post": {
+        "summary": "Creates a new Project",
+        "operationId": "CreateProjectService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledProjectEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bundledProject"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/list.json": {
+      "get": {
+        "summary": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
+        "operationId": "ListProjectService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledProjectCollection"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "fields",
+            "description": "Partielle Repräsentation fields=id,name // 10.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Filter.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "count",
+            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          },
+          {
+            "name": "sum",
+            "description": "not implemented.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "not implemented (ehemals context).",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "description": "Query term to search a project.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
     }
   },
   "definitions": {
@@ -1134,7 +1124,10 @@
           "title": "Owner of a task"
         },
         "subtasks": {
-          "$ref": "#/definitions/bundledTask",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/bundledTask"
+          },
           "title": "List of subtasks"
         }
       },

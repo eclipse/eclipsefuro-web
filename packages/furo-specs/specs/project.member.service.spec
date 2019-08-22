@@ -28,7 +28,7 @@
       "deeplink": {
         "description": "{prs} stands for person",
         "rel": "list",
-        "href": "/api/members/{prs}:unsubscribe",
+        "href": "/api/projects/{prj}/members/{prs}:unsubscribe",
         "method": "POST"
       }
     },

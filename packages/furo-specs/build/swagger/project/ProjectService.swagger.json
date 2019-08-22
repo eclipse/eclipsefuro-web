@@ -15,7 +15,95 @@
     "application/json"
   ],
   "paths": {
-    "/api/projects": {
+    "/mockdata/projects/1/delete.json": {
+      "delete": {
+        "summary": "Delete a Project",
+        "operationId": "DeleteProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protobufEmpty"
+            }
+          }
+        },
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/1/get.json": {
+      "get": {
+        "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
+        "operationId": "GetProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/projectProjectEntity"
+            }
+          }
+        },
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/1/update.json": {
+      "patch": {
+        "summary": "Updates a Project, partial updates are supported",
+        "operationId": "UpdateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/projectProjectEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/projectProject"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/create.json": {
+      "post": {
+        "summary": "Creates a new Project",
+        "operationId": "CreateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/projectProjectEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/projectProject"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/list.json": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
         "operationId": "ListProjects",
@@ -93,110 +181,6 @@
             "in": "query",
             "required": false,
             "type": "string"
-          }
-        ],
-        "tags": [
-          "ProjectService"
-        ]
-      },
-      "post": {
-        "summary": "Creates a new Project",
-        "operationId": "CreateProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/projectProjectEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/projectProject"
-            }
-          }
-        ],
-        "tags": [
-          "ProjectService"
-        ]
-      }
-    },
-    "/api/projects/{var}": {
-      "get": {
-        "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
-        "operationId": "GetProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/projectProjectEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "var",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ProjectService"
-        ]
-      },
-      "delete": {
-        "summary": "Delete a Project",
-        "operationId": "DeleteProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protobufEmpty"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "var",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "ProjectService"
-        ]
-      },
-      "patch": {
-        "summary": "Updates a Project, partial updates are supported",
-        "operationId": "UpdateProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/projectProjectEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "var",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/projectProject"
-            }
           }
         ],
         "tags": [

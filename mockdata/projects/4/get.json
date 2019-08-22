@@ -17,16 +17,12 @@
     },
     "members": [
       {
-        "display_name": "John Doe",
+        "display_name": "John Doe, +41783332244",
         "first_name": "John",
+        "id": "1",
         "name": "Doe",
-        "phone_nr": "+41789996655",
-        "skills": [
-          "GO",
-          "Java",
-          "Kotlin",
-          "JS"
-        ]
+        "phone_nr": "+41783332244",
+        "skills": []
       }
     ],
     "start": {
@@ -41,7 +37,7 @@
       "href": "/mockdata/projects/4/get.json",
       "method": "GET",
       "rel": "self",
-      "type": "project.Project"
+      "type": "project.ProjectEntity"
     }
   ]
 }

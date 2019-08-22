@@ -501,7 +501,10 @@
           "title": "Owner of a task"
         },
         "subtasks": {
-          "$ref": "#/definitions/taskTask",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/taskTask"
+          },
           "title": "List of subtasks"
         }
       },

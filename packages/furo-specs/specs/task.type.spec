@@ -98,7 +98,7 @@
         "label": "Subtask",
         "default": "",
         "hint": "",
-        "required": true
+        "repeated": true
       },
       "constraints": {},
       "options": [],

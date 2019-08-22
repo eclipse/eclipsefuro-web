@@ -919,7 +919,7 @@
       },
       "privacy": "public",
       "superclass": "LitElement",
-      "name": "DataObject",
+      "name": "FuroDataObject",
       "attributes": [
         {
           "name": "type",
@@ -960,7 +960,7 @@
         {
           "type": "CustomEvent",
           "name": "data-changed",
-          "description": "data-changed\nFired when data in furo-data-object has changed\n\n*detail payload:** {Object|CollectionNode}\n\n**bubbles**",
+          "description": "data-changed\nFired when data in furo-data-object has changed\n\n*detail payload:** {Object|CollectionNode}\n\n*bubbles**",
           "metadata": {}
         },
         {

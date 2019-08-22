@@ -7782,28 +7782,154 @@
       ]
     },
     {
-      "description": "`furo-input-checkbox`\nCheckbox input element which uses a native `<input type=\"checkbox\">` tag. Works best with furo-data components.\n\nTags: input",
-      "summary": "checkbox input element",
+      "description": "`furo-data-checkbox-input`\nfuro-data-checkbox-input element which uses a  `<furo-checkbox-input >` element. Works best with furo-data components.\n\n  ### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-data-checkbox-input  ƒ-bind-data=\"--entity(*.fields.open)\"></furo-data-checkbox-input>\n  </template>\n </furo-demo-snippet>\n\nTags: data-input",
+      "summary": "furo data checkbox input element",
       "path": "packages/furo-data-input/furo-data-checkbox-input.js",
       "properties": [
         {
-          "name": "text",
+          "name": "label",
           "type": "string | null | undefined",
-          "description": "",
+          "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
-              "column": 6
+              "line": 52,
+              "column": 12
             },
             "end": {
-              "line": 127,
-              "column": 7
+              "line": 55,
+              "column": 13
             }
           },
           "metadata": {
             "polymer": {
               "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "hint",
+          "type": "string | null | undefined",
+          "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 12
+            },
+            "end": {
+              "line": 63,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "readonly",
+          "type": "boolean | null | undefined",
+          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 12
+            },
+            "end": {
+              "line": 71,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 12
+            },
+            "end": {
+              "line": 77,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean | null | undefined",
+          "description": "Set this attribute to autofocus the input field.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 12
+            },
+            "end": {
+              "line": 84,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "valid",
+          "type": "boolean | null | undefined",
+          "description": "html input validity",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 88,
+              "column": 12
+            },
+            "end": {
+              "line": 91,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "condensed",
+          "type": "boolean | null | undefined",
+          "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 95,
+              "column": 12
+            },
+            "end": {
+              "line": 97,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
             }
           }
         }
@@ -8229,12 +8355,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 105,
-              "column": 2
+              "line": 125,
+              "column": 4
             },
             "end": {
-              "line": 115,
-              "column": 3
+              "line": 139,
+              "column": 5
             }
           },
           "metadata": {},
@@ -8244,18 +8370,18 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/checkbox.html",
-          "description": ""
+          "url": "demo-furo-data-checkbox-input",
+          "description": "Input samples"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 23,
           "column": 0
         },
         "end": {
-          "line": 130,
+          "line": 140,
           "column": 1
         }
       },
@@ -8264,23 +8390,126 @@
       "name": "FuroDataCheckboxInput",
       "attributes": [
         {
-          "name": "text",
-          "description": "",
+          "name": "label",
+          "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 124,
-              "column": 6
+              "line": 52,
+              "column": 12
             },
             "end": {
-              "line": 127,
-              "column": 7
+              "line": 55,
+              "column": 13
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
+        },
+        {
+          "name": "hint",
+          "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 61,
+              "column": 12
+            },
+            "end": {
+              "line": 63,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "readonly",
+          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 12
+            },
+            "end": {
+              "line": 71,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "disabled",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 12
+            },
+            "end": {
+              "line": 77,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "autofocus",
+          "description": "Set this attribute to autofocus the input field.",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 12
+            },
+            "end": {
+              "line": 84,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "valid",
+          "description": "html input validity",
+          "sourceRange": {
+            "start": {
+              "line": 88,
+              "column": 12
+            },
+            "end": {
+              "line": 91,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "condensed",
+          "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
+          "sourceRange": {
+            "start": {
+              "line": 95,
+              "column": 12
+            },
+            "end": {
+              "line": 97,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "ALL_BUBBLING_EVENTS_FROM_furo-checkbox-input",
+          "description": "ALL_BUBBLING_EVENTS_FROM_furo-checkbox-input\n\nAll bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []

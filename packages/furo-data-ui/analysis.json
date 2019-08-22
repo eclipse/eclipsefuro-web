@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-data-table`\nRead only data table based on the response type from the rest api spec.\n\n```\n<furo-data-table ƒ-bind-data=\"--data\" type=\"vnd.com.abc\" @-tablerow-selected=\"--rowSelected\" @-checkstate-changed=\"--checkStateChanged\"></furo-data-table>\n```\n\nConfiguration:\nAttribute: hide-header | hides the table header row\n\nTags: data-ui",
+      "description": "`furo-data-table`\nRead only data table based on the response type from the rest api spec.\n\n```\n<furo-data-table type=\"project.Project\"\n                 ƒ-bind-data=\"--data\"></furo-data-table>\n```\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-data-table-background` | Background color of the element | --background | white\n`--furo-data-table-select-color` | Background color of the focused table row element | --accent-light | lightgrey\n\nConfiguration:\nAttribute: hide-header | hides the table header row\n\nTags: data-ui",
       "summary": "datatable",
       "path": "packages/furo-data-ui/furo-data-table.js",
       "properties": [
@@ -13,11 +13,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 208,
               "column": 4
             },
             "end": {
-              "line": 236,
+              "line": 213,
               "column": 5
             }
           },
@@ -32,11 +32,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 113,
               "column": 12
             },
             "end": {
-              "line": 101,
+              "line": 115,
               "column": 13
             }
           },
@@ -77,14 +77,14 @@
         {
           "name": "firstUpdated",
           "description": "Event listening and type check",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 294,
+              "line": 272,
               "column": 4
             },
             "end": {
-              "line": 320,
+              "line": 298,
               "column": 5
             }
           },
@@ -461,16 +461,36 @@
           "inheritedFrom": "FBP"
         },
         {
+          "name": "__fbpReady",
+          "description": "flow is ready lifecycle method",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 94,
+              "column": 4
+            },
+            "end": {
+              "line": 97,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "_checkType",
           "description": "SPEC Type checker\nBuilds the column Array for the inner template",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 244,
+              "line": 221,
               "column": 4
             },
             "end": {
-              "line": 288,
+              "line": 265,
               "column": 5
             }
           },
@@ -486,15 +506,15 @@
         },
         {
           "name": "focus",
-          "description": "",
+          "description": "Triggers wire name --focus for internal use",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 322,
+              "line": 303,
               "column": 4
             },
             "end": {
-              "line": 325,
+              "line": 306,
               "column": 5
             }
           },
@@ -510,11 +530,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 331,
+              "line": 312,
               "column": 4
             },
             "end": {
-              "line": 345,
+              "line": 326,
               "column": 5
             }
           },
@@ -532,14 +552,14 @@
         {
           "name": "render",
           "description": "Template rendering",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 351,
+              "line": 333,
               "column": 4
             },
             "end": {
-              "line": 383,
+              "line": 360,
               "column": 5
             }
           },
@@ -555,11 +575,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 390,
+              "line": 367,
               "column": 4
             },
             "end": {
-              "line": 412,
+              "line": 389,
               "column": 5
             }
           },
@@ -576,14 +596,14 @@
         {
           "name": "_selectRow",
           "description": "Handles table row select",
-          "privacy": "protected",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 418,
+              "line": 396,
               "column": 4
             },
             "end": {
-              "line": 438,
+              "line": 416,
               "column": 5
             }
           },
@@ -603,11 +623,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 446,
+              "line": 424,
               "column": 4
             },
             "end": {
-              "line": 458,
+              "line": 436,
               "column": 5
             }
           },
@@ -625,18 +645,18 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/index.html",
-          "description": ""
+          "url": "demo-furo-data-table",
+          "description": "Simple data table demo"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 29,
+          "line": 35,
           "column": 0
         },
         "end": {
-          "line": 460,
+          "line": 438,
           "column": 1
         }
       },
@@ -649,11 +669,11 @@
           "description": "Typedefinition of incoming collection items\nREST SPEC Type\ne.g. vnd.com.abc.[type]",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 208,
               "column": 4
             },
             "end": {
-              "line": 236,
+              "line": 213,
               "column": 5
             }
           },
@@ -665,11 +685,11 @@
           "description": "Flag to show table header information\nTRUE => shows header",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 113,
               "column": 12
             },
             "end": {
-              "line": 101,
+              "line": 115,
               "column": 13
             }
           },

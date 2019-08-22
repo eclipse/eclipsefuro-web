@@ -39,7 +39,7 @@
       "deeplink": {
         "description":"Describe_the_query_params_if_you_have",
         "rel": "list",
-        "href": "/api/persons",
+        "href": "/mockdata/persons/list.json",
         "method": "GET"
       }
     },
@@ -54,8 +54,8 @@
       },
       "deeplink": {
         "rel": "create",
-        "href": "/api/persons",
-        "method": "POST"
+        "href": "/mockdata/persons/create.json",
+        "method": "GET"
       }
     },
     "Get": {
@@ -69,7 +69,7 @@
       },
       "deeplink": {
         "rel": "self",
-        "href": "/api/persons/{prs}",
+        "href": "/mockdata/persons/1/get.json",
         "method": "GET"
       }
     },
@@ -83,8 +83,8 @@
       "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/api/persons/{prs}",
-        "method": "PATCH"
+        "href": "/mockdata/persons/1/update.json",
+        "method": "GET"
       }
     },
     "Delete": {
@@ -97,8 +97,8 @@
       "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/api/persons/{prs}",
-        "method": "DELETE"
+        "href": "/mockdata/persons/1/delete.json",
+        "method": "GET"
       }
     }
   }

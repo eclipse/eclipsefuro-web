@@ -4,6 +4,7 @@ import "@furo/form/demo/demos"
 import "@furo/input/demo/demos"
 import "@furo/data/demo/demos"
 import "@furo/data-input/demo/demos"
+import "@furo/data-ui/demo/demos"
 import "@furo/util/demo/demos"
 import "@furo/navigation/demo/demos"
 
