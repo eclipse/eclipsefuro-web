@@ -6,17 +6,17 @@ import {Env} from "@furo/framework"
  *
  *
  *```
- *<reverse-deep-link
+ *<furo-reverse-deep-link
  *      service="tasks"
  *      rel="self" @-converted="--queryParams"
  *      ƒ-convert="--rawEntityOrCollection, --linksArray, --linkObject"
- *></reverse-deep-link>
+ *></furo-reverse-deep-link>
  *```
  *
  * @customElement
- * @demo demo/reverse-deep-link.html
+ * @demo demo/furo-reverse-deep-link.html
   */
-class ReverseDeepLink extends (LitElement) {
+class FuroReverseDeepLink extends (LitElement) {
 
   constructor() {
     super();
@@ -99,9 +99,16 @@ class ReverseDeepLink extends (LitElement) {
     if (linkObject.rel === "self") {
       linkObject.rel = "Get";
     }
+
     linkObject.rel = linkObject.rel.charAt(0).toUpperCase() + linkObject.rel.slice(1);
-    let pattern = this._serviceDef[linkObject.rel].deeplink.href;
+    let pattern = "";
+
+    if(this._serviceDef[linkObject.rel]){
+       pattern = this._serviceDef[linkObject.rel].deeplink.href;
+    }
+
     let rgx = new RegExp("\{([^\}]*)\}", "gi");
+
     let keys = [];
     let m;
 
@@ -142,4 +149,4 @@ class ReverseDeepLink extends (LitElement) {
 
 }
 
-window.customElements.define('reverse-deep-link', ReverseDeepLink);
+window.customElements.define('furo-reverse-deep-link', FuroReverseDeepLink);

@@ -19,12 +19,12 @@
   <template>
     <test-bind>
       <template>
-        <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
-        <furo-data-text-input ƒ-bind-data="--entity(*.fields.descrWithDefault)"></furo-data-text-input>
-        <furo-data-text-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.fields.descrWithDefault)"
+        <furo-data-object type="person.Person" @-object-ready="--entity"></furo-data-object>
+        <furo-data-text-input ƒ-bind-data="--entity(*.fields.name)"></furo-data-text-input>
+        <furo-data-text-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.fields.name)"
                               @-value-changed="--textChanged"></furo-data-text-input>
 
-        <furo-data-text-input ƒ-bind-data="--entity(*.fields.invalidBinding)"></furo-data-text-input>
+
       </template>
     </test-bind>
 
@@ -34,8 +34,8 @@
 <script type="module">
   import "../furo-catalog.js"
   import "@furo/fbp/testhelper/test-bind";
-  import "@furo/data/test/initEnv.js"
-  import "@furo/data/entity-object.js"
+  import "@furo/testhelper/initEnv.js"
+  import "@furo/data/furo-data-object.js"
   import '/node_modules/axe-core/axe.min.js';
 
   import '/node_modules/axe-core/axe.min.js';
@@ -44,7 +44,7 @@
   describe('furo-data-text-input_test tests ', function () {
 
 
-    let dataTextInput, host, entityObject, secondTextInput, invalidTextInput;
+    let dataTextInput, host, entityObject, secondTextInput;
 
     beforeEach(async () => {
       let fix = fixture('basic');
@@ -58,20 +58,12 @@
       secondTextInput = fix[3];
       await secondTextInput.updateComplete;
 
-      invalidTextInput = fix[4];
-      await invalidTextInput.updateComplete;
+
 
     });
 
-    it('should log invalid bindings', (done) => {
-      secondTextInput._FBPAddWireHook("--value", (val) => {
-        // invalid binding
-        assert.equal(invalidTextInput.field, undefined);
-        // valid binding
-        assert.equal(secondTextInput.field._isValid, true);
-        done();
-      });
-    });
+
+
     it('should override hints ', (done) => {
       secondTextInput._FBPAddWireHook("--value", (val) => {
         assert.equal(secondTextInput._hint, "FromTPL")
@@ -86,6 +78,7 @@
 
     });
     it('should receive value with bind', (done) => {
+      entityObject.data.fields.name.value = "YES"
       dataTextInput._FBPAddWireHook("--value", (val) => {
         assert.equal(val, "YES")
         done();
@@ -94,7 +87,7 @@
     });
     it('should bind the field description', (done) => {
       host._FBPAddWireHook("--entity", () => {
-        assert.equal(dataTextInput._label, "Beschreibung");
+        assert.equal(dataTextInput._label, "Name");
         done();
       })
     });

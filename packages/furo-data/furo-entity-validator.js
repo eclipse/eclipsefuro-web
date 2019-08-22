@@ -4,24 +4,19 @@ import {FBP} from "@furo/fbp";
 /**
  * `entity-validator` validates a single field and sets the corresponding metas
  *
- * > This component is deprecated, use [furo-data-object](furo-data-object) instead
- * >
- * > This component will be removed in Q4 2019 (somewhere in Q4, not end of Q4).
- * > You should receive console deprecation messages with deprecation warnings since  **@furo/data#0.50.2** or **@furo/collection#0.20.20**.
  *
  * @customElement
  * @demo demo/index.html
  * @appliesMixin FBP
  */
-class EntityValidator extends FBP(LitElement) {
+class FuroEntityValidator extends FBP(LitElement) {
 
   constructor() {
     super();
     this.checks = {};
     this._initChecks();
 
-    console.warn("entity-validator is deprecated, use furo-entity-validator instead");
-    console.warn("This component will be removed in Q4-2019",this);
+
   }
 
   _initChecks() {
@@ -125,4 +120,4 @@ class EntityValidator extends FBP(LitElement) {
 
 }
 
-window.customElements.define('entity-validator', EntityValidator);
+window.customElements.define('furo-entity-validator', FuroEntityValidator);

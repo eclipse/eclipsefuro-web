@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>test for deep-link</title>
+  <title>test for furo-deep-link</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -19,15 +19,16 @@
 
 <test-fixture id="basic">
   <template>
-    <deep-link></deep-link>
+    <furo-deep-link></furo-deep-link>
   </template>
 </test-fixture>
 
 <script type="module">
-import "./initEnv.js"
   import "../furo-catalog"
+  import "@furo/testhelper/initEnv.js"
+  import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
 
-  describe('deep-link tests ', function () {
+  describe('furo-deep-link tests ', function () {
 
     let element = {};
 
@@ -37,66 +38,63 @@ import "./initEnv.js"
 
     });
 
-    it('should warn on use of a deprecated service', (done) => {
 
-      let spy = sinon.spy(console, 'warn');
-      element.setAttribute("service", "tasksDeprecated");
-      assert.equal(spy.args[0][0],"You are using a deprecated service (tasksDeprecated) Please change to service tasks until Q3-2033");
-      // restore the original function
-      spy.restore();
 
-      done();
-    });
 
-    it('should trigger()  when setting qp ', (done) => {
-      element.setService("tasks");
+    it('should trigger()  ', (done) => {
+
+      element.setService("ProjectService");
+
       element.addEventListener("hts-out",(e)=>{
         let detail = e.detail;
-        assert.equal(detail[0].rel,"create");
+        assert.equal(detail[0].rel,"list");
         done();
       });
 
-      element.qp={"vtr":12, "tfag":233};
-
-
+      element.trigger();
     });
+
+
+
+    it('should qpIn()   ', (done) => {
+      element.setService("ProjectService");
+      element.addEventListener("hts-out",(e)=>{
+        let detail = e.detail;
+        assert.equal(detail[0].rel,"list");
+        assert.equal(detail[3].href,"/mockdata/projects/12/update.json");
+        done();
+      });
+
+      element.qpIn({"prj":12, "tfag":233});
+    });
+
+
     it('should accept and trigger qp via ƒ-qp-in', (done) => {
-      element.setService("tasks");
+      element.setService("ProjectService");
       element.addEventListener("hts-out",(e)=>{
         let detail = e.detail;
-        assert.equal(detail[0].rel,"create");
+        assert.equal(detail[1].rel,"create");
         done();
       });
-      element.qpIn({"vtr":12, "tfag":233});
-
-    });
-
-    it('DEPRECATED should accept and trigger qp via ƒ-inject-query-params', (done) => {
-      element.setService("tasks");
-      element.addEventListener("hts-out",(e)=>{
-        let detail = e.detail;
-        assert.equal(detail[0].rel,"create")
-        done();
-      });
-      element.injectQueryParams({"vtr":12, "tfag":233});
+      element.qpIn({"prj":12, "tfag":233});
 
     });
 
     it('should load service via ƒ-set-service', (done) => {
-        element.setService("tasks");
-      assert.equal(element._service.name,"tasks");
+        element.setService("ProjectService");
+      assert.equal(element._service.name,"ProjectService");
       done();
     });
 
     it('should load specs via attribute service', (done) => {
-      element.setAttribute("service", "tasks");
-      assert.equal(element._service.name,"tasks");
+      element.setAttribute("service", "ProjectService");
+      assert.equal(element._service.name,"ProjectService");
       done();
     });
 
 
-    it('should be a deep-link element', (done) => {
-      assert.equal(element.nodeName, "DEEP-LINK");
+    it('should be a furo-deep-link element', (done) => {
+      assert.equal(element.nodeName, "FURO-DEEP-LINK");
       done()
     });
 

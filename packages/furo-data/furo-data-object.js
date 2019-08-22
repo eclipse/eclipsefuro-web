@@ -14,7 +14,7 @@ import {Env} from "@furo/framework"
  *
  * `furo-data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to
  * transform incomming data to an object and vice versa. You can access the manipulated data structure on the property
- * `.entity.rawData` with javascript (if needed).
+ * `.data.rawData` with javascript (if needed).
  *
  * ```html
  *  <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
@@ -49,6 +49,8 @@ class FuroDataObject extends (LitElement) {
   }
 
 
+
+
   /**
    * inject a raw data response from the corresonding agent.
    *
@@ -68,12 +70,10 @@ class FuroDataObject extends (LitElement) {
    */
   injectRaw(jsonObj) {
     // queue inject bis entity bereit ist
-    if (!this.entity) {
-      setTimeout(() => {
-        this.injectRaw(jsonObj)
-      }, 0);
+    if (!this.data) {
+      this._queue = jsonObj;
     } else {
-      this.entity.injectRaw(jsonObj);
+      this.data.injectRaw(jsonObj);
     }
   }
 
@@ -82,10 +82,9 @@ class FuroDataObject extends (LitElement) {
    * @param type
    */
   set type(type) {
-    if (this._type) {
-      this._checkType(type);
+    if(this._checkType(type)){
+      this._type = type;
     }
-    this._type = type;
   }
 
   /**
@@ -97,14 +96,20 @@ class FuroDataObject extends (LitElement) {
 
     if (this._specs[type] === undefined) {
       console.warn("Type does not exist.", type, this, this._specs);
-      return
+      return false
     }
 
     /**
      * create the entity node
      * @type {EntityNode}
      */
-    this.entity = new EntityNode(null, type, this._specs);
+    this.data = new EntityNode(null, type, this._specs);
+
+    // if data is on queue inject it.
+    if(this._queue !== undefined){
+      this.injectRaw(this._queue);
+      this._queue = undefined;
+    }
 
     /**
      * @event object-ready
@@ -115,13 +120,13 @@ class FuroDataObject extends (LitElement) {
      * **bubbles**
      */
     let customEvent = new Event('object-ready', {composed: true, bubbles: true});
-    customEvent.detail = this.entity;
+    customEvent.detail = this.data;
     setTimeout(() => {
       this.dispatchEvent(customEvent);
     }, 0);
 
 
-    this.entity.addEventListener("data-injected", (e) => {
+    this.data.addEventListener("data-injected", (e) => {
       /**
        * @event data-injected
        * Fired when injected data was processed.
@@ -136,7 +141,7 @@ class FuroDataObject extends (LitElement) {
     });
 
 
-    this.entity.addEventListener("field-value-changed", (e) => {
+    this.data.addEventListener("field-value-changed", (e) => {
       /**
        * @event data-changed
        * Fired when data in furo-data-object has changed
@@ -146,7 +151,7 @@ class FuroDataObject extends (LitElement) {
        *   **bubbles**
        */
       let customEvent = new Event('data-changed', {composed: true, bubbles: true});
-      customEvent.detail = this.entity.rawData;
+      customEvent.detail = this.data.rawData;
       this.dispatchEvent(customEvent);
 
       /**
@@ -181,6 +186,7 @@ class FuroDataObject extends (LitElement) {
        * detail payload: **{NodeEvent}**
        */
 
+      return true
     });
   }
 
@@ -189,25 +195,16 @@ class FuroDataObject extends (LitElement) {
    * References will still be valid
    */
   init() {
-    this.entity.init();
+    this.data.init();
     let customEvent = new Event('object-ready', {composed: true, bubbles: true});
-    customEvent.detail = this.entity;
+    customEvent.detail = this.data;
     setTimeout(() => {
       this.dispatchEvent(customEvent);
     }, 0);
   }
 
-  /**
-   * @private
-   */
-  firstUpdated() {
-    super.firstUpdated();
 
-    // queueing
-    if (this._type) {
-      this._checkType(this._type);
-    }
-  }
+
 
 }
 

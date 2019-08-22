@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>test for reverse-deep-link</title>
+  <title>test for furo-reverse-deep-link</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -12,22 +12,23 @@
   <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
   <script src="/node_modules/sinon/pkg/sinon.js"></script>
   <!-- Env must be loaded before -->
-  <script type="module" src="./initEnv.js"></script>
 </head>
 <body>
 
 
 <test-fixture id="Basic">
   <template>
-    <reverse-deep-link service="tasks"></reverse-deep-link>
+    <furo-reverse-deep-link service="ProjectMembersService"></furo-reverse-deep-link>
   </template>
 </test-fixture>
 
 <script type="module">
 
   import "../furo-catalog"
+  import "@furo/testhelper/initEnv.js"
+  import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
 
-  describe('reverse-deep-link', () => {
+  describe('furo-reverse-deep-link', () => {
 
     let rdl;
 
@@ -38,11 +39,18 @@
 
     });
 
+    it('instantiating the element with default properties works', () => {
+      assert.equal(rdl.tagName.toLowerCase(), 'furo-reverse-deep-link');
+      expect(rdl.convert).to.be.a('function');
+      expect(rdl.service).to.be.a('string');
+      rdl.setAttribute("rel", "self");
+      expect(rdl.rel).to.be.a('string');
+    });
+
 
     it('should convert a Collection', function (done) {
-
-      rdl._services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
-      rdl._services.tasks.services.List.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      rdl._services.ProjectMembersService.services.Unsubscribe.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      rdl._services.ProjectMembersService.services.List.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
 
 
       rdl.addEventListener("converted", (d) => {
@@ -67,6 +75,8 @@
             "type": "application/vnd.com.acme.task+json"
           }]
       });
+
+
     });
 
 
@@ -84,14 +94,16 @@
 
     it('should convert a Entity', function (done) {
 
-      rdl.rel = "release";
+      rdl.rel = "self";
 
       rdl.addEventListener("converted", (d) => {
-        expect(d.detail.vtr).to.equal("THISONE");
+
+        expect(d.detail.vtr).to.equal("31337");
         done();
       });
-
-      rdl._services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      rdl._services.ProjectMembersService.services.Get = {deeplink: {href: ""}};
+      rdl._services.ProjectMembersService.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      rdl._services.ProjectMembersService.services.Unsubscribe.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
       rdl.convert({
         "data": 32, "links": [{
           "rel": "self",
@@ -100,9 +112,9 @@
           "type": "application/vnd.com.acme.task+json"
         },
           {
-            "rel": "release",
+            "rel": "unsubscribe",
             "method": "GET",
-            "href": "/api/v1/tasks/THISONE:release",
+            "href": "/api/v1/tasks/THISONE:unsubscribe",
             "type": "application/vnd.com.acme.task+json"
           }]
       });
@@ -110,14 +122,16 @@
 
     it('should convert a links Array', function (done) {
 
-      rdl.rel = "release";
+      rdl.rel = "unsubscribe";
 
       rdl.addEventListener("converted", (d) => {
         expect(d.detail.vtr).to.equal("THISONE");
         done();
       });
+      rdl._services.ProjectMembersService.services.Get = {deeplink: {href: ""}};
+      rdl._services.ProjectMembersService.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      rdl._services.ProjectMembersService.services.Unsubscribe.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}:unsubscribe";
 
-      rdl._services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
       rdl.convert([{
         "rel": "self",
         "method": "GET",
@@ -125,9 +139,9 @@
         "type": "application/vnd.com.acme.task+json"
       },
         {
-          "rel": "release",
+          "rel": "unsubscribe",
           "method": "GET",
-          "href": "/api/v1/tasks/THISONE:release",
+          "href": "/demo/api/v1/tasks/THISONE:unsubscribe",
           "type": "application/vnd.com.acme.task+json"
         }]);
     });
@@ -140,7 +154,7 @@
         done();
       });
 
-      rdl._services.tasks.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
+      rdl._services.ProjectMembersService.services.Get.deeplink.href = "/{demo}/api/{version}/tasks/{vtr}.json";
       rdl.convert({
         "rel": "self",
         "method": "GET",
@@ -148,15 +162,6 @@
         "type": "application/vnd.com.acme.task+json"
       })
     });
-    it('instantiating the element with default properties works', () => {
-
-      assert.equal(rdl.tagName.toLowerCase(), 'reverse-deep-link');
-      expect(rdl.convert).to.be.a('function');
-      expect(rdl.service).to.be.a('string');
-      rdl.setAttribute("rel", "self");
-      expect(rdl.rel).to.be.a('string');
-    });
-
 
   });
 </script>

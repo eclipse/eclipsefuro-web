@@ -19,14 +19,14 @@
   <template>
     <test-bind>
       <template>
-        <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+        <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
         <furo-data-date-input  ƒ-bind-data="--entity(*.fields.id)"></furo-data-date-input>
         <furo-data-date-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.fields.id)"
                                 min="1"
                                 max="10"
                                 step="0.5"
                               @-value-changed="--textChanged"></furo-data-date-input>
-        <furo-data-date-input  ƒ-bind-data="--entity(*.fields.invalidBinding)"></furo-data-date-input>
+
       </template>
     </test-bind>
 
@@ -36,8 +36,8 @@
 <script type="module">
   import "@furo/fbp/testhelper/test-bind";
   import "../furo-catalog.js"
-  import "@furo/data/test/initEnv.js"
-  import "@furo/data/entity-object.js"
+  import "@furo/testhelper/initEnv.js"
+  import "@furo/data/furo-data-object.js"
   import '/node_modules/axe-core/axe.min.js';
 
   import '/node_modules/axe-core/axe.min.js';
@@ -46,7 +46,7 @@
   describe('furo-data-date-input_test tests ', function () {
 
 
-    let dataDateInput, host, entityObject, secondDateInput, invalidDateInput;
+    let dataDateInput, host, entityObject, secondDateInput;
 
     beforeEach(async () => {
       let fix = fixture('basic');
@@ -60,8 +60,6 @@
       secondDateInput = fix[3];
       await secondDateInput.updateComplete;
 
-      invalidDateInput = fix[4];
-      await invalidDateInput.updateComplete;
 
     });
 
@@ -98,29 +96,22 @@
       });
     });
     it('should receive value with bind', (done) => {
+      entityObject.data.fields.id.value = 2332;
       dataDateInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(val, 443343);
+        assert.equal(val, 2332);
         done();
       });
 
     });
     it('should bind the field description', (done) => {
       host._FBPAddWireHook("--entity", () => {
-        assert.equal(dataDateInput._label, "Task ID");
+        assert.equal(dataDateInput._label, "Id");
         done();
       })
     });
 
 
-    it('should log invalid bindings', (done) => {
-      secondDateInput._FBPAddWireHook("--value", (val) => {
-        // invalid binding
-        assert.equal(invalidDateInput.field, undefined);
-        // valid binding
-        assert.equal(secondDateInput.field._isValid, true);
-        done();
-      });
-    });
+
 
     it('should update the entity when values changed', (done) => {
       // ignore the init values

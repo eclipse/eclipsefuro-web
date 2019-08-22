@@ -18,8 +18,8 @@
   <template>
     <test-bind>
       <template>
-        <produce-data @-data="--data"></produce-data>
-        <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+
+        <entity-object type="tree.Tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
         <furo-tree ƒ-bind-data="--entityObj"></furo-tree>
 
       </template>
@@ -28,7 +28,7 @@
 </test-fixture>
 
 <script type="module">
-  import "./initEnv"
+  import "@furo/testhelper/initEnv.js"
   import "../furo-catalog.js"
   import "@furo/data"
   import "./produce-data"
@@ -58,6 +58,14 @@
       await dataprocuder.updateComplete;
       tree = fix[3];
       await tree.updateComplete;
+
+      fetch('/mockdata/trees/')
+                          .then(response => response.json())
+                          .then(data => {
+                              console.log(data)
+
+                          })
+                          .catch(error => console.error(error));
     });
 
 

@@ -1,11 +1,9 @@
 {
     "suites": [
-        "packages/furo-navigation/test/*_test.html",
-        "packages/furo-data-ui/test/*_test.html",
+        "packages/furo-data/test/*_test.html",
         "packages/furo-layout/test/*_test.html",
         "packages/furo-fbp/test/*_test.html",
         "packages/furo-data-input/test/*_test.html",
-        "packages/furo-data/test/*_test.html",
         "packages/furo-config/test/*_test.html",
         "packages/furo-data-util/test/*_test.html",
         "packages/furo-form/test/*_test.html",
@@ -13,16 +11,20 @@
         "packages/furo-input/test/*_test.html",
         "packages/furo-logic/test/*_test.html",
         "packages/furo-math/test/*_test.html",
-        "packages/furo-route/test/*_test.html",
         "packages/furo-timing/test/*_test.html",
-        "packages/furo-util/test/*_test.html"
+        "packages/furo-util/test/*_test.html",
+        "packages/furo-route/test/*_test.html",
+        "packages/furo-data-ui/test/*_test.html",
+        "packages/furo-navigation/test/*_test.html"
     ],
     "npm": true,
     "moduleResolution": "node",
 
     "verbose": false,
     "plugins": {
+
         "istanbub": {
+
             "reporters": [
                 "text-summary",
                 "lcov"

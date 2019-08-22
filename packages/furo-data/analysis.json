@@ -3739,9 +3739,9 @@
       ]
     },
     {
-      "description": "`deep-link`",
+      "description": "`furo-deep-link`",
       "summary": "",
-      "path": "packages/furo-data/deep-link.js",
+      "path": "packages/furo-data/furo-deep-link.js",
       "properties": [
         {
           "name": "_hasConnected",
@@ -4781,15 +4781,15 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "deep-link",
+      "tagname": "furo-deep-link",
       "mixins": [
         "FBP"
       ]
     },
     {
-      "description": "Converts hateoas to queryParams, which is useful for routing with app-flow\n\n\n```\n<reverse-deep-link\n     service=\"tasks\"\n     rel=\"self\" @-converted=\"--queryParams\"\n     ƒ-convert=\"--rawEntityOrCollection, --linksArray, --linkObject\"\n></reverse-deep-link>\n```",
+      "description": "Converts hateoas to queryParams, which is useful for routing with app-flow\n\n\n```\n<furo-reverse-deep-link\n     service=\"tasks\"\n     rel=\"self\" @-converted=\"--queryParams\"\n     ƒ-convert=\"--rawEntityOrCollection, --linksArray, --linkObject\"\n></furo-reverse-deep-link>\n```",
       "summary": "",
-      "path": "packages/furo-data/reverse-deep-link.js",
+      "path": "packages/furo-data/furo-reverse-deep-link.js",
       "properties": [
         {
           "name": "_hasConnected",
@@ -5694,7 +5694,7 @@
       ],
       "demos": [
         {
-          "url": "demo/reverse-deep-link.html",
+          "url": "demo/furo-reverse-deep-link.html",
           "description": ""
         }
       ],
@@ -5759,7 +5759,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "reverse-deep-link"
+      "tagname": "furo-reverse-deep-link"
     },
     {
       "description": "`entity-object`\n> This component is deprecated, use [furo-data-object](furo-data-object) instead\n>\n> This component will be removed in Q4 2019 (somewhere in Q4, not end of Q4).\nYou should receive console deprecation messages with deprecation warnings since  **@furo/data#0.50.2** or **@furo/collection#0.20.20**.",

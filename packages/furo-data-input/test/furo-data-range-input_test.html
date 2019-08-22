@@ -19,7 +19,7 @@
   <template>
     <test-bind>
       <template>
-        <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+        <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
         <furo-data-range-input  ƒ-bind-data="--entity(*.fields.id)"></furo-data-range-input>
         <furo-data-range-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.fields.id)"
                                 min="1"
@@ -36,8 +36,8 @@
 <script type="module">
   import "@furo/fbp/testhelper/test-bind";
   import "../furo-catalog.js"
-  import "@furo/data/test/initEnv.js"
-  import "@furo/data/entity-object.js"
+  import "@furo/testhelper/initEnv.js"
+  import "@furo/data/furo-data-object.js"
   import '/node_modules/axe-core/axe.min.js';
 
   import '/node_modules/axe-core/axe.min.js';
@@ -97,16 +97,20 @@
         done();
       });
     });
+
+
     it('should receive value with bind', (done) => {
+      entityObject.data.fields.id.value = 2332;
       dataRangeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(val, 443343);
+        assert.equal(val, 2332);
         done();
       });
-
     });
+
+
     it('should bind the field description', (done) => {
       host._FBPAddWireHook("--entity", () => {
-        assert.equal(dataRangeInput._label, "Task ID");
+        assert.equal(dataRangeInput._label, "Id");
         done();
       })
     });

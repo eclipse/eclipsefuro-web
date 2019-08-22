@@ -51,7 +51,7 @@
           <custom-method service="tasks" method="release" ƒ-bind-request-object="--data" ƒ-hts-in="--hts"
                          ƒ-trigger="--relClk"></custom-method>
 
-          <deep-link auto ƒ-qp-in='--qp' service="tasks" @-hts-out="--hts"></deep-link>
+          <furo-deep-link auto ƒ-qp-in='--qp' service="tasks" @-hts-out="--hts"></furo-deep-link>
           <entity-agent service="tasks" ƒ-save="--saveClicked" ƒ-bind-request-object="--data" ƒ-hts-in="--hts"
                         ƒ-load="--loadClicked" @-save="--saveClicked" @-response="--entityResponse"  @-response-error="--errorResponse"
                         @-load-success="--ls"></entity-agent>

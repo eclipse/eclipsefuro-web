@@ -26,10 +26,9 @@
 
 <script type="module">
   import "../furo-catalog.js"
-
   import "@furo/fbp/testhelper/test-bind"; // for testing
-
-
+  import "@furo/testhelper/initEnv.js"
+  import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
 
   describe('furo-data-object_test tests ', function () {
 
@@ -47,6 +46,48 @@
     it('should be a furo-data-object_test', (done) => {
       assert.equal(element.nodeName.toLowerCase(), "furo-data-object");
       done()
+    });
+
+    it('should have useful data', (done) => {
+      element.setAttribute("type","project.Project");
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        element.injectRaw(response);
+      });
+
+      let handler = (e)=>{
+        assert.equal(element.data.fields.cost_limit._spec.type,"google.Money");
+        done();
+      };
+      element.addEventListener("data-injected",handler);
+    });
+
+
+
+    it('should fire data-injected', (done) => {
+      element.setAttribute("type","project.Project");
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        element.injectRaw(response);
+      });
+
+      let handler = (e)=>{
+        done();
+      };
+      element.addEventListener("data-injected",handler);
+    });
+
+
+    it('should queue data on injectRaw until the type is set', (done) => {
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        element.injectRaw(response);
+        element.setAttribute("type","project.Project");
+      });
+
+      let handler = (e)=>{
+        done();
+      };
+      element.addEventListener("object-ready",handler);
     });
 
 
