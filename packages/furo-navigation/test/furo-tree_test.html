@@ -19,8 +19,8 @@
     <test-bind>
       <template>
         <produce-data @-data="--data"></produce-data>
-        <furo-data-object type="tree.Tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></furo-data-object>
-        <furo-tree ƒ-bind-data="--entityObj"></furo-tree>
+        <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data" @-object-ready="--entityObj"></furo-data-object>
+        <furo-tree ƒ-bind-data="--entityObj(*.data)"></furo-tree>
       </template>
     </test-bind>
   </template>
@@ -61,80 +61,62 @@
       await dataprocuder.produce();
     });
 
-
-    it('should collapse all nodes', (done) => {
-
-
-      tree.addEventListener("items-in-dom", (e) => {
-
-        tree.collapseAll();
-
-        setTimeout(() => {
-          let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
-
-          assert.equal(items.length, 1);
-          done();
-        }, 90)
-      });
-
-
-    });
-
     it('should expand all nodes', (done) => {
 
 
-      tree.addEventListener("items-in-dom", (e) => {
-        tree.expandAll();
-        setTimeout(() => {
-          let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
-          assert.equal(items.length, 10);
-          done();
-        }, 90)
-      });
+      tree.addEventListener("nodes-expanded", (e) => {
+        let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
+        assert.equal(items.length, 11);
+        done();
 
+      });
+      tree.expandAll();
     });
+
+    it('should collapse all nodes', (done) => {
+      tree.addEventListener("nodes-collapsed", (e) => {
+        let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
+        assert.equal(items.length, 1);
+        done();
+      });
+      tree.collapseAll();
+    });
+
+
 
     it('should collapse a single node', (done) => {
 
-      tree.addEventListener("items-in-dom", (e) => {
-        tree.expandAll();
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "Enter");
-        tree.collapseNodeRecursive();
-
-        setTimeout(() => {
+      tree.addEventListener("nodes-collapsed", (e) => {
           let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
           assert.equal(items.length, 7);
           done();
-        }, 90)
-
       });
 
+      tree.expandAll();
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "Enter");
+      tree.collapseNodeRecursive();
 
     });
 
     it('should toggle a single node', (done) => {
 
-      tree.addEventListener("items-in-dom", (e) => {
+      tree.addEventListener("node-opened", (e) => {
 
-        keydown(tree, "Enter");
-        tree.selectNext();
-        tree.toggle();
-
-
-
-        setTimeout(() => {
           let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
-          assert.equal(items.length, 6);
-          assert.equal(tree._hoveredField.display_name.value, "root");
+          assert.equal(items.length, 5);
+          assert.equal(tree._hoveredField.display_name.value, "A");
           done();
-        }, 90)
+
 
       });
+      keydown(tree, "Enter");
+      tree.selectNext();
+      tree.toggle();
 
 
     });
@@ -142,35 +124,24 @@
 
     it('should expand a single node recursive', (done) => {
 
-      tree.addEventListener("items-in-dom", (e) => {
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "Enter");
-        tree.expandNodeRecursive();
-
-        setTimeout(() => {
+      tree.addEventListener("nodes-expanded", (e) => {
           let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
           assert.equal(items.length, 9);
           done();
-        }, 1)
-
       });
 
-
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "Enter");
+      tree.expandNodeRecursive();
     });
 
 
     it('should open with arrowRight', (done) => {
 
-      tree.addEventListener("items-in-dom", (e) => {
+      tree.addEventListener("node-selected", (e) => {
         let items = tree.shadowRoot.querySelectorAll("furo-tree-item");
-        keydown(tree, "ArrowRight");
-        keydown(tree, "ArrowRight");
-        keydown(tree, "ArrowRight");
-        keydown(tree, "Enter");
-
-
         assert.equal(tree._hoveredField.display_name.value, "C");
         assert.equal(tree._hoveredField, items[2].fieldNode);
         setTimeout(() => {
@@ -180,41 +151,35 @@
         }, 0)
 
       });
-
+      keydown(tree, "ArrowRight");
+      keydown(tree, "ArrowRight");
+      keydown(tree, "ArrowRight");
+      keydown(tree, "Enter");
 
     });
 
     it('should home with arrowLeft', (done) => {
 
-      tree.addEventListener("items-in-dom", (e) => {
+      tree.addEventListener("node-selected", (e) => {
         let items = tree.shadowRoot.querySelectorAll("furo-tree-item");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-        keydown(tree, "ArrowDown");
-
-        keydown(tree, "ArrowLeft");
-        keydown(tree, "ArrowLeft");
-        keydown(tree, "ArrowLeft");
-        keydown(tree, "ArrowRight");
-        keydown(tree, "Enter");
-
-
         assert.equal(tree._hoveredField.display_name.value, "A");
         assert.equal(tree._hoveredField, items[1].fieldNode);
-        setTimeout(() => {
-          assert.equal(items[1].getAttribute("hovered"), "");
-          assert.equal(items[1].getAttribute("selected"), "");
-          done();
-        }, 0)
-
       });
 
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
+      keydown(tree, "ArrowDown");
 
+      keydown(tree, "ArrowLeft");
+      keydown(tree, "ArrowLeft");
+      keydown(tree, "ArrowLeft");
+      keydown(tree, "ArrowRight");
+      keydown(tree, "Enter");
     });
 
 

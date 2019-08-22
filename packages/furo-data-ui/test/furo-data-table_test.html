@@ -46,7 +46,7 @@
     import "@furo/fbp/testhelper/test-bind"; // for testing
 
     import "@furo/testhelper/initEnv.js";
-    import '@furo/data-ui/furo-data-table';
+    import '../furo-data-table';
     function keydown(TargetElement, key) {
         let customEvent = new Event('keydown', {composed: true, bubbles: true});
         customEvent.code = key; // Deprecated, prefer .key instead.

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>test for reverse-deep-link</title>
+  <title>test for furo-reverse-deep-link</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -18,7 +18,7 @@
 
 <test-fixture id="Basic">
   <template>
-    <reverse-deep-link service="ProjectMembersService"></reverse-deep-link>
+    <furo-reverse-deep-link service="ProjectMembersService"></furo-reverse-deep-link>
   </template>
 </test-fixture>
 
@@ -28,7 +28,7 @@
   import "@furo/testhelper/initEnv.js"
   import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
 
-  describe('reverse-deep-link', () => {
+  describe('furo-reverse-deep-link', () => {
 
     let rdl;
 
@@ -40,7 +40,7 @@
     });
 
     it('instantiating the element with default properties works', () => {
-      assert.equal(rdl.tagName.toLowerCase(), 'reverse-deep-link');
+      assert.equal(rdl.tagName.toLowerCase(), 'furo-reverse-deep-link');
       expect(rdl.convert).to.be.a('function');
       expect(rdl.service).to.be.a('string');
       rdl.setAttribute("rel", "self");

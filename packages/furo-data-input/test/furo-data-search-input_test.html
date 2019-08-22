@@ -20,11 +20,11 @@
     <test-bind>
       <template>
         <furo-data-object type="person.Person" @-object-ready="--entity"></furo-data-object>
-        <furo-data-search-input ƒ-bind-data="--entity(*.fields.name)"></furo-data-search-input>
-        <furo-data-search-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.fields.name)"
+        <furo-data-search-input ƒ-bind-data="--entity(*.name)"></furo-data-search-input>
+        <furo-data-search-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.name)"
                               @-value-changed="--searchChanged"></furo-data-search-input>
 
-        <furo-data-search-input ƒ-bind-data="--entity(*.fields.invalidBinding)"></furo-data-search-input>
+        <furo-data-search-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-search-input>
       </template>
     </test-bind>
 
@@ -86,7 +86,7 @@
 
     });
     it('should receive value with bind', (done) => {
-      entityObject.data.fields.name.value = "YES"
+      entityObject.data.name.value = "YES"
       dataSearchInput._FBPAddWireHook("--value", (val) => {
         assert.equal(val, "YES");
         done();

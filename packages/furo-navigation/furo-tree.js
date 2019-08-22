@@ -172,7 +172,7 @@ class FuroTree extends FBP(LitElement) {
 
   _hoverHome() {
     let parent = this._hoveredField.getParentElement();
-    if (parent) {
+    if (parent.nodeName !== "FURO-TREE") {
       parent.triggerHover();
     }
   }
@@ -245,7 +245,7 @@ class FuroTree extends FBP(LitElement) {
   addSubNode(rawNode) {
     let newnode = this._selectedField.children.add();
     newnode.value = rawNode;
-    this._buildFlatTree(this._rootNode);
+
     setTimeout(() => {
       newnode.selectItem();
 
@@ -447,14 +447,13 @@ class FuroTree extends FBP(LitElement) {
 
   bindData(treeNode) {
 
-    if (treeNode.fields === undefined) {
+    if (treeNode.root === undefined) {
       return
     }
 
-    this._tree = treeNode.fields;
-    this._rootNode = this._tree.root;
+    this._rootNode = treeNode.root;
 
-    treeNode.addEventListener("data-injected", (e) => {
+    treeNode.addEventListener("repeated-fields-changed", (e) => {
       this._init();
     });
 
@@ -610,6 +609,25 @@ class FuroTree extends FBP(LitElement) {
       // add openclose method to treeNode
       node.toggleOpenClose = () => {
         node.open.value = !node.open.value;
+        if(node.open.value){
+          /**
+           * @event node-opened
+           * Fired when a node is opened
+           */
+          let customEvent = new Event('node-opened', {composed: true, bubbles: false});
+          setTimeout(() => {
+            this.dispatchEvent(customEvent);
+          },0);
+        }else{
+          /**
+           * @event node-closed
+           * Fired when a node is closed
+           */
+          let customEvent = new Event('node-closed', {composed: true, bubbles: false});
+          setTimeout(() => {
+            this.dispatchEvent(customEvent);
+          },0);
+        }
       };
 
       // hovers the current node
@@ -636,7 +654,18 @@ class FuroTree extends FBP(LitElement) {
 
       // expand recursive
       node.expandRecursive = () => {
-        node.broadcastEvent(new NodeEvent('recursive-expand-requested', node));
+        let event = new NodeEvent('recursive-expand-requested', node);
+        node.broadcastEvent(event);
+        /**
+         * @event nodes-expanded
+         * Fired when nodes are expanded recursive
+         */
+        let customEvent = new Event('nodes-expanded', {composed: true, bubbles: false});
+        setTimeout(() => {
+          this.dispatchEvent(customEvent);
+        }, 0);
+
+
       };
 
       node.addEventListener("recursive-expand-requested", (e) => {
@@ -646,6 +675,14 @@ class FuroTree extends FBP(LitElement) {
       // collapse recursive
       node.collapseRecursive = () => {
         node.broadcastEvent(new NodeEvent('recursive-collapse-requested', node));
+        /**
+         * @event nodes-collapsed
+         * Fired when nodes are collapsed recursive
+         */
+        let customEvent = new Event('nodes-collapsed', {composed: true, bubbles: false});
+        setTimeout(() => {
+          this.dispatchEvent(customEvent);
+        }, 0);
       };
 
       node.addEventListener("recursive-collapse-requested", (e) => {
@@ -655,7 +692,6 @@ class FuroTree extends FBP(LitElement) {
 
     // open the root ode
     tree.open.value = true;
-
     this._FBPTriggerWire("--treeChanged", this._flatTree);
   }
 

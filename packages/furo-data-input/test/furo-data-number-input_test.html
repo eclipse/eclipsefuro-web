@@ -20,13 +20,13 @@
     <test-bind>
       <template>
         <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-        <furo-data-number-input  ƒ-bind-data="--entity(*.fields.id)"></furo-data-number-input>
-        <furo-data-number-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.fields.id)"
+        <furo-data-number-input  ƒ-bind-data="--entity(*.id)"></furo-data-number-input>
+        <furo-data-number-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.id)"
                                 min="1"
                                 max="10"
                                 step="0.5"
                               @-value-changed="--textChanged"></furo-data-number-input>
-        <furo-data-number-input  ƒ-bind-data="--entity(*.fields.invalidBinding)"></furo-data-number-input>
+        <furo-data-number-input  ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-number-input>
       </template>
     </test-bind>
 
@@ -100,7 +100,7 @@
 
 
     it('should receive value with bind', (done) => {
-      entityObject.data.fields.id.value = 2332;
+      entityObject.data.id.value = 2332;
       dataNumberInput._FBPAddWireHook("--value", (val) => {
         assert.equal(val, 2332);
         done();

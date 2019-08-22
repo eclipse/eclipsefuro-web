@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>test for deep-link</title>
+  <title>test for furo-deep-link</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -19,7 +19,7 @@
 
 <test-fixture id="basic">
   <template>
-    <deep-link></deep-link>
+    <furo-deep-link></furo-deep-link>
   </template>
 </test-fixture>
 
@@ -28,7 +28,7 @@
   import "@furo/testhelper/initEnv.js"
   import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
 
-  describe('deep-link tests ', function () {
+  describe('furo-deep-link tests ', function () {
 
     let element = {};
 
@@ -93,8 +93,8 @@
     });
 
 
-    it('should be a deep-link element', (done) => {
-      assert.equal(element.nodeName, "DEEP-LINK");
+    it('should be a furo-deep-link element', (done) => {
+      assert.equal(element.nodeName, "FURO-DEEP-LINK");
       done()
     });
 

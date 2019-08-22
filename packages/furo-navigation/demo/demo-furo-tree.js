@@ -57,13 +57,14 @@ class DemoFuroTree extends FBP(LitElement) {
               width: 100%
             }</style>
 
+            <produce-data  @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
-            <furo-data-object type="tree.Tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></furo-data-object>
+            <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data" @-object-ready="--entityObj"></furo-data-object>
 
             <furo-split-view style="height: 500px;">
-              <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj"
+              <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.data)"
                          @-node-selected="--nodeSelected"
                          ƒ-select-next="--next"
                          ƒ-select-prev="--prev"
@@ -97,7 +98,7 @@ class DemoFuroTree extends FBP(LitElement) {
             </furo-split-view>
 
 
-            <produce-data  @-data="--data"></produce-data>
+            
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>

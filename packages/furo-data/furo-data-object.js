@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit-element';
-import {EntityNode} from "./lib/EntityNode.js"
+import {DataObject} from "./lib/DataObject.js"
 import {Env} from "@furo/framework"
 
 
@@ -103,7 +103,7 @@ class FuroDataObject extends (LitElement) {
      * create the entity node
      * @type {EntityNode}
      */
-    this.data = new EntityNode(null, type, this._specs);
+    this.data = new DataObject(null, type, this._specs);
 
     // if data is on queue inject it.
     if(this._queue !== undefined){
