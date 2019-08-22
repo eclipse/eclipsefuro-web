@@ -4,10 +4,11 @@ import {Env, i18n} from "@furo/framework"
 import {Theme} from "@furo/framework/theme"
 
 import '@furo/fbp/flow-repeat.js';
+import '@furo/data';
 
 
-const tableHeaders = (fields) => html`${fields.map(f => html`<th class="head" row-width="${f.meta.datatable.row_width}"><div class="bog">${f.meta.label}</div></th>`)}`;
-const tableDetails = (fields) => html`${fields.map(f => html`<td row-width="${f.meta.datatable.row_width}"><div class="bog" ƒ-.inner-text="${f.name}"></div></td>`)}`;
+const tableHeaders = (fields) => html`${fields.map(f => html`<th class="head"><div class="cell">${f.meta.label}</div></th>`)}`;
+const tableDetails = (fields) => html`${fields.map(f => html`<td><div class="cell" ƒ-.inner-text="${f.name}"></div></td>`)}`;
 
 /**
  * `furo-data-table`
@@ -77,9 +78,9 @@ class FuroDataTable extends FBP(LitElement) {
         this._FBPAddWireHook("--rowCheckChanged", (r) => {
             if (r.composedPath()[0].nodeName === 'INPUT') {
                 if (r.composedPath()[0].checked) {
-                    this._checkedRows.push(this._collection.data[this._selectedIndex]);
+                    this._checkedRows.push(this._collection.rawEntity.entities[this._selectedIndex]);
                 } else {
-                    this._checkedRows.pop(this._collection.data[this._selectedIndex]);
+                    this._checkedRows.pop(this._collection.rawEntity.entities[this._selectedIndex]);
                 }
             }
             this.dispatchEvent(new CustomEvent('checkstate-changed', {
@@ -92,9 +93,10 @@ class FuroDataTable extends FBP(LitElement) {
     /**
      * flow is ready lifecycle method
      */
-    __fbpReady() {
-        super.__fbpReady();
+    _FBPReady() {
+        super._FBPReady();
         //this._FBPTraceWires();
+        this._FBPAddWireHook('--entity', (w)=>{console.log(w)})
     }
 
     static get properties() {
@@ -171,7 +173,7 @@ class FuroDataTable extends FBP(LitElement) {
                 z-index: 1;
             }
 
-            .bog {
+            .cell {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
@@ -188,7 +190,8 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             tbody tr[selected=true] {
-                background-color: var(--furo-data-table-select-color, var(--accent-light, lightgrey));
+                background-color: var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey));
+                color: var(--furo-data-table-select-color, var(--on-accent, black));
             }
 
             input[type=checkbox] {
@@ -240,15 +243,13 @@ class FuroDataTable extends FBP(LitElement) {
             //optional check for properties from prototype chain
             if (this._specs[this._type].fields.hasOwnProperty(key)) {
                 let field = {};
-                if (this._specs[this._specs[this._type].fields[key].type] !== undefined) {
-                    field.name = '--entity(*.fields.' + key + '.display_name)';
-                } else {
+                if (this._specs[this._specs[this._type].fields[key].type] === undefined) {
                     field.name = '--entity(*.fields.' + key + ')';
+                } else {
+                    // append .display_name if the field type is a registered  type in data_environment
+                    field.name = '--entity(*.fields.' + key + '.display_name)';
                 }
-                field.meta = this._specs[this._type].fields[key].meta || {datatable: {row_width: "width-m"}};
-                if (!field.meta.datatable) {
-                    field.meta.datatable = {row_width: "width-m"};
-                }
+                field.meta = this._specs[this._type].fields[key].meta || {};
                 /**
                  * Internationalisation if possible
                  * @type {*|{}}
@@ -292,7 +293,7 @@ class FuroDataTable extends FBP(LitElement) {
         this.shadowRoot.querySelector('tbody').oncontextmenu = (e) => {
             e.preventDefault();
             this.dispatchEvent(new CustomEvent('contextmenu-requested', {
-                detail: this._collection.data[e.target.parentElement.rowIndex], bubbles: false, composed: true
+                detail: this._collection.rawEntity.entities[e.target.parentElement.rowIndex], bubbles: false, composed: true
             }));
         };
 
@@ -316,8 +317,8 @@ class FuroDataTable extends FBP(LitElement) {
         /**
          * new data arrived from CollectionNode
          */
-        this._collection.addEventListener('data-changed', (data) => {
-            this._FBPTriggerWire('--collectionData', data.detail.entities);
+        this._collection.addEventListener('data-injected', (data) => {
+            this._FBPTriggerWire('--collectionData', data.detail._rawEntity.entities);
         });
 
         this.dispatchEvent(new CustomEvent('data-loaded', {
@@ -332,29 +333,29 @@ class FuroDataTable extends FBP(LitElement) {
      * @returns {TemplateResult|TemplateResult}
      */
     render() {
-        // language=HTML
+        //language=HTML
         return html`
         <div class="table-container">
             <table @-input="--rowCheckChanged(*)">
                 <thead>
-                <tr>
-                    <th class="fx"></th>
-                    ${tableHeaders(this.cols)}
-                </tr>
+                    <tr>
+                        <th class="fx"></th>
+                        ${tableHeaders(this.cols)}
+                    </tr>
                 </thead>
                 <tbody>
-                
-                <template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal">
-                    <tr tabindex="0" ƒ-focus="--entity" draggable="true">
-                        <td class="fx">
-                            <div><input type="checkbox"></div>
-                        </td>
-                        ${tableDetails(this.cols)}
-                        <span hidden></span>
-                        <entity-object type="${this._type}" ƒ-inject-raw="--internal(*.item)"
-                                       @-object-ready="--entity"></entity-object>
-                    </tr>
-                </template>
+                    <template is="flow-repeat" ƒ-inject-items="--collectionData()" internal-wire="--internal">
+                        <tr tabindex="0" ƒ-focus="--entity" draggable="true">
+                            <td class="fx">
+                                <div><input type="checkbox"></div>
+                            </td>
+                            ${tableDetails(this.cols)}
+                            <span hidden></span>
+                            <furo-data-object type="${this._type}" 
+                                          ƒ-inject-raw="--internal(*.item)"
+                                          @-object-ready="--entity"></furo-data-object>
+                        </tr>
+                    </template>
                 </tbody>
             </table>
         </div>`;
@@ -382,7 +383,7 @@ class FuroDataTable extends FBP(LitElement) {
                 break;
             case 'Enter':
                 this.dispatchEvent(new CustomEvent('tablerow-selected', {
-                    detail: this._collection.data[this._selectedIndex], bubbles: true, composed: true
+                    detail: this._collection.rawEntity.entities[this._selectedIndex], bubbles: true, composed: true
                 }));
                 break;
         }
@@ -407,7 +408,7 @@ class FuroDataTable extends FBP(LitElement) {
 
             if (e.type === 'click') {
                 this.dispatchEvent(new CustomEvent('tablerow-selected', {
-                    detail: this._collection.data[this._selectedIndex], bubbles: true, composed: true
+                    detail:this._collection.rawEntity.entities[this._selectedIndex], bubbles: true, composed: true
                 }));
             }
         } else if (e.target.nodeName === 'INPUT' && e.target.parentNode.parentElement.parentElement.rowIndex >= 0) {

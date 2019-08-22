@@ -7,6 +7,7 @@ import "../furo-catalog"
 
 import "@furo/data";
 import "@furo/input";
+import "@furo/util";
 
 /**
  * `demo-furo-data-table`
@@ -43,6 +44,7 @@ class DemoFuroDataTable extends FBP(LitElement) {
 
     _FBPReady() {
         super._FBPReady();
+        //this._FBPTraceWires();
     }
 
     /**
@@ -58,8 +60,11 @@ class DemoFuroDataTable extends FBP(LitElement) {
                     <furo-button label="List data" primary unelevated @-click="--btnListClicked">
                 </div>
                 <div class="flex">
-                    <furo-data-table type="project.Project" ƒ-bind-data="--data"></furo-data-table>
+                    <furo-data-table type="project.Project" 
+                                     ƒ-bind-data="--data" @-tablerow-selected="--rowSelected"></furo-data-table>
+                   
                 </div>
+                <furo-pretty-json ƒ-inject-data="--rowSelected"></furo-pretty-json>
             </furo-vertical-flex>
 
             <deep-link ƒ-trigger="--btnListClicked" service="ProjectService" @-hts-out="--hts"></deep-link>
