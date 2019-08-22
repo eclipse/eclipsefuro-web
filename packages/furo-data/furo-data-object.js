@@ -4,23 +4,23 @@ import {Env} from "@furo/framework"
 
 
 /**
- * `data-object` gives you a object which is built based on the **type** spec.
+ * `furo-data-object` gives you a object which is built based on the **type** spec.
  * The types must be available in the {Env}, learn more about setting up the environment in the guide.
  *
  * The data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.
  *
- * `data-object` receives its data regularly from a [collection-aget](collection-agent) or a  [entity-aget](entity-agent).
+ * `furo-data-object` receives its data regularly from a [collection-aget](collection-agent) or a  [entity-aget](entity-agent).
  * But you can also send json data which is formed like the raw-data of this type.
  *
- * `data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to
+ * `furo-data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to
  * transform incomming data to an object and vice versa. You can access the manipulated data structure on the property
  * `.entity.rawData` with javascript (if needed).
  *
  * ```html
- *  <!-- The data-object will send a initial dataObject of type project.Project on @-response-ready -->
- *  <data-object type="project.Project" ƒ-inject-raw="--response(*.data)" @-object-ready="--dataObject"></data-object>
+ *  <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
+ *  <furo-data-object type="project.Project" ƒ-inject-raw="--response(*.data)" @-object-ready="--dataObject"></furo-data-object>
  *
- *  <!-- The entity-agent will fetch the data from ProjectService and pass it in @-response to the data-object.  -->
+ *  <!-- The entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
  *  <entity-agent service="ProjectService" ƒ-save="--saveClicked" ƒ-bind-request-data="--dataObject" @-response="--response" ></entity-agent>
  *```
  *
@@ -28,10 +28,10 @@ import {Env} from "@furo/framework"
  *
  * @summary Typed data object
  * @customElement
- * @demo demo-data-object Basic usage
+ * @demo demo-furo-data-object Basic usage
  * @appliesMixin FBP
  */
-class DataObject extends (LitElement) {
+class FuroDataObject extends (LitElement) {
 
   constructor() {
     super();
@@ -139,11 +139,11 @@ class DataObject extends (LitElement) {
     this.entity.addEventListener("field-value-changed", (e) => {
       /**
        * @event data-changed
-       * Fired when data in data-object has changed
+       * Fired when data in furo-data-object has changed
        *
-       * **detail payload:** {Object|CollectionNode}
+       *   **detail payload:** {Object|CollectionNode}
        *
-       *      * **bubbles**
+       *   **bubbles**
        */
       let customEvent = new Event('data-changed', {composed: true, bubbles: true});
       customEvent.detail = this.entity.rawData;
@@ -211,4 +211,4 @@ class DataObject extends (LitElement) {
 
 }
 
-window.customElements.define('data-object', DataObject);
+window.customElements.define('furo-data-object', FuroDataObject);

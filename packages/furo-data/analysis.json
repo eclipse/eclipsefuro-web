@@ -2,9 +2,9 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`data-object` gives you a object which is built based on the **type** spec.\nThe types must be available in the {Env}, learn more about setting up the environment in the guide.\n\nThe data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.\n\n`data-object` receives its data regularly from a [collection-aget](collection-agent) or a  [entity-aget](entity-agent).\nBut you can also send json data which is formed like the raw-data of this type.\n\n`data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to\ntransform incomming data to an object and vice versa. You can access the manipulated data structure on the property\n`.entity.rawData` with javascript (if needed).\n\n```html\n <!-- The data-object will send a initial dataObject of type project.Project on @-response-ready -->\n <data-object type=\"project.Project\" ƒ-inject-raw=\"--response(*.data)\" @-object-ready=\"--dataObject\"></data-object>\n\n <!-- The entity-agent will fetch the data from ProjectService and pass it in @-response to the data-object.  -->\n <entity-agent service=\"ProjectService\" ƒ-save=\"--saveClicked\" ƒ-bind-request-data=\"--dataObject\" @-response=\"--response\" ></entity-agent>\n```",
+      "description": "`furo-data-object` gives you a object which is built based on the **type** spec.\nThe types must be available in the {Env}, learn more about setting up the environment in the guide.\n\nThe data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.\n\n`furo-data-object` receives its data regularly from a [collection-aget](collection-agent) or a  [entity-aget](entity-agent).\nBut you can also send json data which is formed like the raw-data of this type.\n\n`furo-data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to\ntransform incomming data to an object and vice versa. You can access the manipulated data structure on the property\n`.entity.rawData` with javascript (if needed).\n\n```html\n <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->\n <furo-data-object type=\"project.Project\" ƒ-inject-raw=\"--response(*.data)\" @-object-ready=\"--dataObject\"></furo-data-object>\n\n <!-- The entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->\n <entity-agent service=\"ProjectService\" ƒ-save=\"--saveClicked\" ƒ-bind-request-data=\"--dataObject\" @-response=\"--response\" ></entity-agent>\n```",
       "summary": "Typed data object",
-      "path": "packages/furo-data/data-object.js",
+      "path": "packages/furo-data/furo-data-object.js",
       "properties": [
         {
           "name": "_hasConnected",
@@ -902,7 +902,7 @@
       ],
       "demos": [
         {
-          "url": "demo-data-object",
+          "url": "demo-furo-data-object",
           "description": "Basic usage"
         }
       ],
@@ -960,7 +960,7 @@
         {
           "type": "CustomEvent",
           "name": "data-changed",
-          "description": "data-changed\nFired when data in data-object has changed\n\n*detail payload:** {Object|CollectionNode}\n\n**bubbles**",
+          "description": "data-changed\nFired when data in furo-data-object has changed\n\n*detail payload:** {Object|CollectionNode}\n\n**bubbles**",
           "metadata": {}
         },
         {
@@ -981,7 +981,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "data-object",
+      "tagname": "furo-data-object",
       "mixins": [
         "FBP"
       ]
@@ -2004,7 +2004,7 @@
       "tagname": "collection-agent"
     },
     {
-      "description": "`collection-object`\n\n> This component is deprecated, use [data-object](data-object) instead\n>\n> This component will be removed in Q4 2019 (somewhere in Q4, not end of Q4).\nYou should receive console deprecation messages with deprecation warnings since  **@furo/data#0.50.2** or **@furo/collection#0.20.20**.",
+      "description": "`collection-object`\n\n> This component is deprecated, use [furo-data-object](furo-data-object) instead\n>\n> This component will be removed in Q4 2019 (somewhere in Q4, not end of Q4).\nYou should receive console deprecation messages with deprecation warnings since  **@furo/data#0.50.2** or **@furo/collection#0.20.20**.",
       "summary": "",
       "path": "packages/furo-data/collection-object.js",
       "properties": [
@@ -5762,7 +5762,7 @@
       "tagname": "reverse-deep-link"
     },
     {
-      "description": "`entity-object`\n> This component is deprecated, use [data-object](data-object) instead\n>\n> This component will be removed in Q4 2019 (somewhere in Q4, not end of Q4).\nYou should receive console deprecation messages with deprecation warnings since  **@furo/data#0.50.2** or **@furo/collection#0.20.20**.",
+      "description": "`entity-object`\n> This component is deprecated, use [furo-data-object](furo-data-object) instead\n>\n> This component will be removed in Q4 2019 (somewhere in Q4, not end of Q4).\nYou should receive console deprecation messages with deprecation warnings since  **@furo/data#0.50.2** or **@furo/collection#0.20.20**.",
       "summary": "Typed entity object",
       "path": "packages/furo-data/entity-object.js",
       "properties": [
@@ -7231,7 +7231,7 @@
         },
         {
           "name": "bindRequestData",
-          "description": "Binds a data-object type. Use this if you want save data.",
+          "description": "Binds a furo-data-object type. Use this if you want save data.",
           "privacy": "public",
           "sourceRange": {
             "start": {

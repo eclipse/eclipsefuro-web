@@ -3,15 +3,15 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 
 /**
- * `data-object-form`
- * A simple form for the demo-data-object component
+ * `furo-data-object-form`
+ * A simple form for the demo-furo-data-object component
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/data-object-form.html
+ * @demo demo/furo-data-object-form.html
  * @appliesMixin FBP
  */
-class DataObjectForm extends FBP(LitElement) {
+class FuroDataObjectForm extends FBP(LitElement) {
 
     constructor() {
         super();
@@ -80,4 +80,4 @@ class DataObjectForm extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('data-object-form', DataObjectForm);
+window.customElements.define('furo-data-object-form', FuroDataObjectForm);

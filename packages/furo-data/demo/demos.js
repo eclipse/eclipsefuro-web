@@ -1,1 +1,1 @@
-import "./demo-data-object"
+import "./demo-furo-data-object"

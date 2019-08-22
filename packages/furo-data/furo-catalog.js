@@ -1,4 +1,4 @@
-import "./data-object"
+import "./furo-data-object"
 import "./collection-agent"
 import "./collection-object"
 import "./custom-method"

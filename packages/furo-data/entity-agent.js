@@ -77,7 +77,7 @@ class EntityAgent extends FBP(LitElement) {
 
 
   /**
-   * Binds a data-object type. Use this if you want save data.
+   * Binds a furo-data-object type. Use this if you want save data.
    *
    * @param dataObject
    */
