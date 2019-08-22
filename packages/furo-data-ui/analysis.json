@@ -13,11 +13,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 208,
+              "line": 211,
               "column": 4
             },
             "end": {
-              "line": 213,
+              "line": 216,
               "column": 5
             }
           },
@@ -32,11 +32,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 115,
               "column": 12
             },
             "end": {
-              "line": 115,
+              "line": 117,
               "column": 13
             }
           },
@@ -80,11 +80,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 272,
+              "line": 273,
               "column": 4
             },
             "end": {
-              "line": 298,
+              "line": 299,
               "column": 5
             }
           },
@@ -264,25 +264,23 @@
         },
         {
           "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready",
+          "description": "flow is ready lifecycle method",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 532,
-              "column": 8
+              "line": 95,
+              "column": 4
             },
             "end": {
-              "line": 534,
-              "column": 9
+              "line": 99,
+              "column": 5
             }
           },
           "metadata": {},
           "params": [],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "FBP"
+          }
         },
         {
           "name": "__enqueueTrigger",
@@ -461,36 +459,16 @@
           "inheritedFrom": "FBP"
         },
         {
-          "name": "__fbpReady",
-          "description": "flow is ready lifecycle method",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 94,
-              "column": 4
-            },
-            "end": {
-              "line": 97,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "_checkType",
           "description": "SPEC Type checker\nBuilds the column Array for the inner template",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 221,
+              "line": 224,
               "column": 4
             },
             "end": {
-              "line": 265,
+              "line": 266,
               "column": 5
             }
           },
@@ -510,11 +488,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 303,
+              "line": 304,
               "column": 4
             },
             "end": {
-              "line": 306,
+              "line": 307,
               "column": 5
             }
           },
@@ -530,11 +508,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 312,
+              "line": 313,
               "column": 4
             },
             "end": {
-              "line": 326,
+              "line": 327,
               "column": 5
             }
           },
@@ -555,11 +533,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 333,
+              "line": 334,
               "column": 4
             },
             "end": {
-              "line": 360,
+              "line": 361,
               "column": 5
             }
           },
@@ -575,11 +553,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 367,
+              "line": 368,
               "column": 4
             },
             "end": {
-              "line": 389,
+              "line": 390,
               "column": 5
             }
           },
@@ -599,11 +577,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 396,
+              "line": 397,
               "column": 4
             },
             "end": {
-              "line": 416,
+              "line": 417,
               "column": 5
             }
           },
@@ -623,11 +601,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 424,
+              "line": 425,
               "column": 4
             },
             "end": {
-              "line": 436,
+              "line": 437,
               "column": 5
             }
           },
@@ -652,11 +630,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 35,
+          "line": 36,
           "column": 0
         },
         "end": {
-          "line": 438,
+          "line": 439,
           "column": 1
         }
       },
@@ -669,11 +647,11 @@
           "description": "Typedefinition of incoming collection items\nREST SPEC Type\ne.g. vnd.com.abc.[type]",
           "sourceRange": {
             "start": {
-              "line": 208,
+              "line": 211,
               "column": 4
             },
             "end": {
-              "line": 213,
+              "line": 216,
               "column": 5
             }
           },
@@ -685,11 +663,11 @@
           "description": "Flag to show table header information\nTRUE => shows header",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 115,
               "column": 12
             },
             "end": {
-              "line": 115,
+              "line": 117,
               "column": 13
             }
           },
