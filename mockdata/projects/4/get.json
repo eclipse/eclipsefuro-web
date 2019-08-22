@@ -1,14 +1,14 @@
 {
   "data": {
-    "id": "3",
+    "id": "4",
     "cost_limit": {
       "currency_code": "CHF",
-      "display_name": "CHF 9'000.00",
-      "nanos": 150000,
+      "display_name": "CHF 5'000.00",
+      "nanos": 5000,
       "units": 0
     },
-    "description": "Evaluate new build system",
-    "display_name": "Simple WebApp Project, CHF 9'000.00",
+    "description": "Update components",
+    "display_name": "Update components, CHF 5'000.00",
     "end": {
       "day": 31,
       "display_name": "31.12.2020",
@@ -38,7 +38,7 @@
   },
   "links": [
     {
-      "href": "/mockdata/projects/3",
+      "href": "/mockdata/projects/4/get.json",
       "method": "GET",
       "rel": "self",
       "type": "project.Project"

@@ -40,7 +40,7 @@
       },
       "links": [
         {
-          "href": "/mockdata/projects/get_1.json",
+          "href": "/mockdata/projects/1/get.json",
           "method": "GET",
           "rel": "self",
           "type": "project.Project"
@@ -87,7 +87,7 @@
       },
       "links": [
         {
-          "href": "/mockdata/projects/get_2.json",
+          "href": "/mockdata/projects/2/get.json",
           "method": "GET",
           "rel": "self",
           "type": "project.Project"
@@ -134,7 +134,7 @@
       },
       "links": [
         {
-          "href": "/mockdata/projects/3",
+          "href": "/mockdata/projects/3/get.json",
           "method": "GET",
           "rel": "self",
           "type": "project.Project"
@@ -181,7 +181,7 @@
       },
       "links": [
         {
-          "href": "/mockdata/projects/4",
+          "href": "/mockdata/projects/4/get.json",
           "method": "GET",
           "rel": "self",
           "type": "project.Project"

@@ -38,7 +38,7 @@
   },
   "links": [
     {
-      "href": "/mockdata/projects/get_2.json",
+      "href": "/mockdata/projects/2/get.json",
       "method": "GET",
       "rel": "self",
       "type": "project.Project"
