@@ -60,7 +60,7 @@ class DemoFuroTree extends FBP(LitElement) {
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
-            <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+            <data-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></data-object>
 
             <furo-split-view style="height: 500px;">
               <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj"

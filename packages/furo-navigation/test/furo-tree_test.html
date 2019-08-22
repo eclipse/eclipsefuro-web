@@ -18,16 +18,16 @@
   <template>
     <test-bind>
       <template>
-
-        <entity-object type="tree.Tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+        <produce-data @-data="--data"></produce-data>
+        <furo-data-object type="tree.Tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></furo-data-object>
         <furo-tree ƒ-bind-data="--entityObj"></furo-tree>
-
       </template>
     </test-bind>
   </template>
 </test-fixture>
 
 <script type="module">
+
   import "@furo/testhelper/initEnv.js"
   import "../furo-catalog.js"
   import "@furo/data"
@@ -41,8 +41,6 @@
     customEvent.code = key; // Deprecated, prefer .key instead.
     customEvent.key = key;
     TargetElement.dispatchEvent(customEvent);
-
-
   }
 
   describe('furo-tree tests ', function () {
@@ -52,51 +50,52 @@
     beforeEach(async () => {
       let fix = fixture('basic');
       host = fix[0]._host;
-      entity = fix[2];
-      await entity.updateComplete;
       dataprocuder = fix[1];
       await dataprocuder.updateComplete;
+
+      entity = fix[2];
+      await entity.updateComplete;
+
       tree = fix[3];
       await tree.updateComplete;
-
-      fetch('/mockdata/trees/')
-                          .then(response => response.json())
-                          .then(data => {
-                              console.log(data)
-
-                          })
-                          .catch(error => console.error(error));
+      await dataprocuder.produce();
     });
 
 
     it('should collapse all nodes', (done) => {
+
+
       tree.addEventListener("items-in-dom", (e) => {
+
         tree.collapseAll();
+
         setTimeout(() => {
           let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
+
           assert.equal(items.length, 1);
           done();
-        }, 1)
-
+        }, 90)
       });
-      dataprocuder.produce();
+
+
     });
 
     it('should expand all nodes', (done) => {
+
+
       tree.addEventListener("items-in-dom", (e) => {
         tree.expandAll();
-
         setTimeout(() => {
           let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
           assert.equal(items.length, 10);
           done();
-        }, 1)
-
+        }, 90)
       });
-      dataprocuder.produce();
+
     });
 
-    it('should collapse a single nodes', (done) => {
+    it('should collapse a single node', (done) => {
+
       tree.addEventListener("items-in-dom", (e) => {
         tree.expandAll();
         keydown(tree, "ArrowDown");
@@ -111,19 +110,21 @@
           let items = tree.shadowRoot.querySelectorAll("furo-tree-item:not([hidden])");
           assert.equal(items.length, 7);
           done();
-        }, 1)
+        }, 90)
 
       });
-      dataprocuder.produce();
+
+
     });
 
-    it('should toggle a single nodes', (done) => {
+    it('should toggle a single node', (done) => {
+
       tree.addEventListener("items-in-dom", (e) => {
 
         keydown(tree, "Enter");
         tree.selectNext();
         tree.toggle();
-        tree.selectPrev();
+
 
 
         setTimeout(() => {
@@ -131,14 +132,16 @@
           assert.equal(items.length, 6);
           assert.equal(tree._hoveredField.display_name.value, "root");
           done();
-        }, 1)
+        }, 90)
 
       });
-      dataprocuder.produce();
+
+
     });
 
 
     it('should expand a single node recursive', (done) => {
+
       tree.addEventListener("items-in-dom", (e) => {
         keydown(tree, "ArrowDown");
         keydown(tree, "ArrowDown");
@@ -153,11 +156,13 @@
         }, 1)
 
       });
-      dataprocuder.produce();
+
+
     });
 
 
     it('should open with arrowRight', (done) => {
+
       tree.addEventListener("items-in-dom", (e) => {
         let items = tree.shadowRoot.querySelectorAll("furo-tree-item");
         keydown(tree, "ArrowRight");
@@ -175,10 +180,12 @@
         }, 0)
 
       });
-      dataprocuder.produce();
+
+
     });
 
     it('should home with arrowLeft', (done) => {
+
       tree.addEventListener("items-in-dom", (e) => {
         let items = tree.shadowRoot.querySelectorAll("furo-tree-item");
         keydown(tree, "ArrowDown");
@@ -206,11 +213,13 @@
         }, 0)
 
       });
-      dataprocuder.produce();
+
+
     });
 
 
     it('should select previous node', (done) => {
+
       tree.addEventListener("items-in-dom", (e) => {
         let items = tree.shadowRoot.querySelectorAll("furo-tree-item");
         keydown(tree, "ArrowDown");
@@ -230,10 +239,12 @@
         }, 0)
 
       });
-      dataprocuder.produce();
+
+
     });
 
     it('should select next node', (done) => {
+
       tree.addEventListener("items-in-dom", (e) => {
         let items = tree.shadowRoot.querySelectorAll("furo-tree-item");
         keydown(tree, "ArrowDown");
@@ -248,9 +259,11 @@
         }, 0)
 
       });
-      dataprocuder.produce();
+
+
     });
     it('should select first node', (done) => {
+
       tree.addEventListener("items-in-dom", (e) => {
         let items = tree.shadowRoot.querySelectorAll("furo-tree-item");
         tree._hoveredField.selectItem();
@@ -262,10 +275,12 @@
         }, 0)
 
       });
-      dataprocuder.produce();
+
+
     });
 
     it('should prehover first node', (done) => {
+
       tree.addEventListener("items-in-dom", (e) => {
         let items = tree.shadowRoot.querySelectorAll("furo-tree-item");
         assert.equal(tree._hoveredField.display_name.value, "root");
@@ -276,20 +291,22 @@
         }, 0)
 
       });
-      dataprocuder.produce();
+
+
     });
 
     it('should build flat tree', (done) => {
+
       tree.addEventListener("items-in-dom", (e) => {
         assert.equal(tree._flatTree.length, 10);
         done();
       });
-      dataprocuder.produce();
+
 
     });
 
     it('should render open nodes only', (done) => {
-      dataprocuder.produce();
+
 
       tree.addEventListener("items-in-dom", (e) => {
         let items = tree.shadowRoot.querySelectorAll("furo-tree-item[hidden]")
@@ -298,19 +315,6 @@
       });
 
 
-    });
-
-
-    it('should render a full tree', (done) => {
-      tree.setAttribute("deep-open", "");
-      dataprocuder.produce();
-      setTimeout(() => {
-
-        expect(tree.scrollHeight).be.gt(100);
-        expect(entity.entity.fields.root.children.repeats.length).be.eq(2);
-        expect(entity.entity.fields.root.children.value[0].display_name).be.eq("A");
-        done();
-      }, 10);
     });
 
 
@@ -325,9 +329,10 @@
     });
 
     it('should add a node', (done) => {
+
       let handler = () => {
         keydown(tree, "Enter");
-        tree.addSubNode({"display_name":"test"});
+        tree.addSubNode({"display_name": "test"});
         keydown(tree, "Enter");
         setTimeout(() => {
           let items = tree.shadowRoot.querySelectorAll("furo-tree-item");
@@ -337,10 +342,12 @@
         tree.removeEventListener("items-in-dom", handler);
       };
       tree.addEventListener("items-in-dom", handler);
-      dataprocuder.produce();
+
+
     });
 
     it('should delete a node recursive', (done) => {
+
       let handler = () => {
         tree.focus();
         keydown(tree, "ArrowDown");
@@ -356,9 +363,23 @@
         }, 22);
         tree.removeEventListener("items-in-dom", handler);
       };
-      tree.addEventListener("items-in-dom", handler);
-      dataprocuder.produce();
+
+
     });
+
+    it('should render a full tree', (done) => {
+      tree.setAttribute("deep-open", "");
+
+
+      setTimeout(() => {
+
+        expect(tree.scrollHeight).be.gt(100);
+        expect(entity.data.fields.root.children.repeats.length).be.eq(2);
+        expect(entity.data.fields.root.children.value[0].display_name).be.eq("A");
+        done();
+      }, 100);
+    })
+    ;
 
 
   })
