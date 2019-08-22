@@ -15,69 +15,8 @@
     "application/json"
   ],
   "paths": {
-    "/mockdata/projects/1/delete.json": {
-      "delete": {
-        "summary": "Delete a Project",
-        "operationId": "DeleteProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protobufEmpty"
-            }
-          }
-        },
-        "tags": [
-          "ProjectService"
-        ]
-      }
-    },
-    "/mockdata/projects/1/get.json": {
-      "get": {
-        "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
-        "operationId": "GetProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/projectProjectEntity"
-            }
-          }
-        },
-        "tags": [
-          "ProjectService"
-        ]
-      }
-    },
-    "/mockdata/projects/1/update.json": {
-      "patch": {
-        "summary": "Updates a Project, partial updates are supported",
-        "operationId": "UpdateProject",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/projectProjectEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/projectProject"
-            }
-          }
-        ],
-        "tags": [
-          "ProjectService"
-        ]
-      }
-    },
     "/mockdata/projects/create.json": {
-      "post": {
+      "get": {
         "summary": "Creates a new Project",
         "operationId": "CreateProject",
         "responses": {
@@ -90,12 +29,117 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/projectProject"
-            }
+            "name": "data.cost_limit.currency_code",
+            "description": "The 3-letter currency code defined in ISO 4217.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.cost_limit.display_name",
+            "description": "String representation of money entity.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.cost_limit.nanos",
+            "description": "Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "data.cost_limit.units",
+            "description": "The whole units of the amount.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "data.description",
+            "description": "Short project description.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.display_name",
+            "description": "Localized String representation of a project.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.end.day",
+            "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.end.display_name",
+            "description": "Localized String representation of date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.end.month",
+            "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.end.year",
+            "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.id",
+            "description": "Identity of a project.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.start.day",
+            "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.start.display_name",
+            "description": "Localized String representation of date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.start.month",
+            "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.start.year",
+            "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [
@@ -181,6 +225,194 @@
             "in": "query",
             "required": false,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/{prj}/delete.json": {
+      "get": {
+        "summary": "Delete a Project",
+        "operationId": "DeleteProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/protobufEmpty"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "prj",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/{prj}/get.json": {
+      "get": {
+        "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
+        "operationId": "GetProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/projectProjectEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "prj",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/{prj}/update.json": {
+      "get": {
+        "summary": "Updates a Project, partial updates are supported",
+        "operationId": "UpdateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/projectProjectEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "prj",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "data.cost_limit.currency_code",
+            "description": "The 3-letter currency code defined in ISO 4217.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.cost_limit.display_name",
+            "description": "String representation of money entity.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.cost_limit.nanos",
+            "description": "Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "data.cost_limit.units",
+            "description": "The whole units of the amount.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "data.description",
+            "description": "Short project description.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.display_name",
+            "description": "Localized String representation of a project.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.end.day",
+            "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.end.display_name",
+            "description": "Localized String representation of date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.end.month",
+            "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.end.year",
+            "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.id",
+            "description": "Identity of a project.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.start.day",
+            "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.start.display_name",
+            "description": "Localized String representation of date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.start.month",
+            "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.start.year",
+            "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [

@@ -69,7 +69,7 @@
       },
       "deeplink": {
         "rel": "self",
-        "href": "/mockdata/tasks/1/get.json",
+        "href": "/mockdata/tasks/{tsk}/get.json",
         "method": "GET"
       }
     },
@@ -83,7 +83,7 @@
       "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/mockdata/tasks/1/update.json",
+        "href": "/mockdata/tasks/{tsk}/update.json",
         "method": "GET"
       }
     },
@@ -97,7 +97,7 @@
       "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/mockdata/tasks/1/delete.json",
+        "href": "/mockdata/tasks/{tsk}/delete.json",
         "method": "GET"
       }
     }

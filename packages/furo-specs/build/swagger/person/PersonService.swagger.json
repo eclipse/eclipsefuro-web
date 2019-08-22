@@ -15,7 +15,72 @@
     "application/json"
   ],
   "paths": {
-    "/api/persons": {
+    "/mockdata/persons/create.json": {
+      "get": {
+        "summary": "Creates a new Person",
+        "operationId": "CreatePerson",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/personPersonEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "data.display_name",
+            "description": "Localized String representation of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.first_name",
+            "description": "First name of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.id",
+            "description": "Identity of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.name",
+            "description": "Name of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.phone_nr",
+            "description": "Internal phone number.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.skills",
+            "description": "List of main skills of a person.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "PersonService"
+        ]
+      }
+    },
+    "/mockdata/persons/list.json": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
         "operationId": "ListPersons",
@@ -98,26 +163,26 @@
         "tags": [
           "PersonService"
         ]
-      },
-      "post": {
-        "summary": "Creates a new Person",
-        "operationId": "CreatePerson",
+      }
+    },
+    "/mockdata/persons/{prs}/delete.json": {
+      "get": {
+        "summary": "Delete a Person",
+        "operationId": "DeletePerson",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/personPersonEntity"
+              "$ref": "#/definitions/protobufEmpty"
             }
           }
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
+            "name": "prs",
+            "in": "path",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/personPerson"
-            }
+            "type": "string"
           }
         ],
         "tags": [
@@ -125,7 +190,7 @@
         ]
       }
     },
-    "/api/persons/{prs}": {
+    "/mockdata/persons/{prs}/get.json": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
         "operationId": "GetPerson",
@@ -148,31 +213,10 @@
         "tags": [
           "PersonService"
         ]
-      },
-      "delete": {
-        "summary": "Delete a Person",
-        "operationId": "DeletePerson",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/protobufEmpty"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "prs",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "PersonService"
-        ]
-      },
-      "patch": {
+      }
+    },
+    "/mockdata/persons/{prs}/update.json": {
+      "get": {
         "summary": "Updates a Person, partial updates are supported",
         "operationId": "UpdatePerson",
         "responses": {
@@ -191,12 +235,50 @@
             "type": "string"
           },
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/personPerson"
-            }
+            "name": "data.display_name",
+            "description": "Localized String representation of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.first_name",
+            "description": "First name of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.id",
+            "description": "Identity of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.name",
+            "description": "Name of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.phone_nr",
+            "description": "Internal phone number.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.skills",
+            "description": "List of main skills of a person.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [

@@ -100,195 +100,6 @@
         ]
       }
     },
-    "/api/persons": {
-      "get": {
-        "summary": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
-        "operationId": "ListPersonService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledPersonCollection"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "Partielle Repräsentation fields=id,name // 10.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "filter",
-            "description": "Filter.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "page",
-            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "count",
-            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
-            "in": "query",
-            "required": false,
-            "type": "boolean",
-            "format": "boolean"
-          },
-          {
-            "name": "sum",
-            "description": "not implemented.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "view",
-            "description": "not implemented (ehemals context).",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "q",
-            "description": "Query term to search a person.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "PersonService"
-        ]
-      },
-      "post": {
-        "summary": "Creates a new Person",
-        "operationId": "CreatePersonService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledPersonEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/bundledPerson"
-            }
-          }
-        ],
-        "tags": [
-          "PersonService"
-        ]
-      }
-    },
-    "/api/persons/{prs}": {
-      "get": {
-        "summary": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
-        "operationId": "GetPersonService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledPersonEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "prs",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "PersonService"
-        ]
-      },
-      "delete": {
-        "summary": "Delete a Person",
-        "operationId": "DeletePersonService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledEmpty"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "prs",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "PersonService"
-        ]
-      },
-      "patch": {
-        "summary": "Updates a Person, partial updates are supported",
-        "operationId": "UpdatePersonService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledPersonEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "prs",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/bundledPerson"
-            }
-          }
-        ],
-        "tags": [
-          "PersonService"
-        ]
-      }
-    },
     "/api/projects/{prj}/members/{prs}:unsubscribe": {
       "post": {
         "summary": "Custom method to unsubscribe a member, complete PersonEntity is expected",
@@ -325,195 +136,6 @@
         ],
         "tags": [
           "ProjectMembersService"
-        ]
-      }
-    },
-    "/api/tasks": {
-      "get": {
-        "summary": "The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",
-        "operationId": "ListTaskService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledTaskCollection"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "Partielle Repräsentation fields=id,name // 10.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "filter",
-            "description": "Filter.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "page",
-            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "count",
-            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
-            "in": "query",
-            "required": false,
-            "type": "boolean",
-            "format": "boolean"
-          },
-          {
-            "name": "sum",
-            "description": "not implemented.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "view",
-            "description": "not implemented (ehemals context).",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "q",
-            "description": "Query term to search a task.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "TaskService"
-        ]
-      },
-      "post": {
-        "summary": "Creates a new Task",
-        "operationId": "CreateTaskService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledTaskEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/bundledTask"
-            }
-          }
-        ],
-        "tags": [
-          "TaskService"
-        ]
-      }
-    },
-    "/api/tasks/{var}": {
-      "get": {
-        "summary": "The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",
-        "operationId": "GetTaskService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledTaskEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "var",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "TaskService"
-        ]
-      },
-      "delete": {
-        "summary": "Delete a Task",
-        "operationId": "DeleteTaskService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledEmpty"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "var",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "TaskService"
-        ]
-      },
-      "patch": {
-        "summary": "Updates a Task, partial updates are supported",
-        "operationId": "UpdateTaskService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledTaskEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "var",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/bundledTask"
-            }
-          }
-        ],
-        "tags": [
-          "TaskService"
         ]
       }
     },
@@ -706,10 +328,160 @@
         ]
       }
     },
-    "/mockdata/projects/1/delete.json": {
-      "delete": {
-        "summary": "Delete a Project",
-        "operationId": "DeleteProjectService",
+    "/mockdata/persons/create.json": {
+      "get": {
+        "summary": "Creates a new Person",
+        "operationId": "CreatePersonService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledPersonEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "data.display_name",
+            "description": "Localized String representation of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.first_name",
+            "description": "First name of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.id",
+            "description": "Identity of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.name",
+            "description": "Name of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.phone_nr",
+            "description": "Internal phone number.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.skills",
+            "description": "List of main skills of a person.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "PersonService"
+        ]
+      }
+    },
+    "/mockdata/persons/list.json": {
+      "get": {
+        "summary": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
+        "operationId": "ListPersonService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledPersonCollection"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "fields",
+            "description": "Partielle Repräsentation fields=id,name // 10.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Filter.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "count",
+            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          },
+          {
+            "name": "sum",
+            "description": "not implemented.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "not implemented (ehemals context).",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "description": "Query term to search a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "PersonService"
+        ]
+      }
+    },
+    "/mockdata/persons/{prs}/delete.json": {
+      "get": {
+        "summary": "Delete a Person",
+        "operationId": "DeletePersonService",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -718,57 +490,117 @@
             }
           }
         },
-        "tags": [
-          "ProjectService"
-        ]
-      }
-    },
-    "/mockdata/projects/1/get.json": {
-      "get": {
-        "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
-        "operationId": "GetProjectService",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/bundledProjectEntity"
-            }
+        "parameters": [
+          {
+            "name": "prs",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
-        },
+        ],
         "tags": [
-          "ProjectService"
+          "PersonService"
         ]
       }
     },
-    "/mockdata/projects/1/update.json": {
-      "patch": {
-        "summary": "Updates a Project, partial updates are supported",
-        "operationId": "UpdateProjectService",
+    "/mockdata/persons/{prs}/get.json": {
+      "get": {
+        "summary": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
+        "operationId": "GetPersonService",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledProjectEntity"
+              "$ref": "#/definitions/bundledPersonEntity"
             }
           }
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
+            "name": "prs",
+            "in": "path",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/bundledProject"
-            }
+            "type": "string"
           }
         ],
         "tags": [
-          "ProjectService"
+          "PersonService"
+        ]
+      }
+    },
+    "/mockdata/persons/{prs}/update.json": {
+      "get": {
+        "summary": "Updates a Person, partial updates are supported",
+        "operationId": "UpdatePersonService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledPersonEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "prs",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "data.display_name",
+            "description": "Localized String representation of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.first_name",
+            "description": "First name of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.id",
+            "description": "Identity of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.name",
+            "description": "Name of a person.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.phone_nr",
+            "description": "Internal phone number.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.skills",
+            "description": "List of main skills of a person.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "PersonService"
         ]
       }
     },
     "/mockdata/projects/create.json": {
-      "post": {
+      "get": {
         "summary": "Creates a new Project",
         "operationId": "CreateProjectService",
         "responses": {
@@ -781,12 +613,117 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/bundledProject"
-            }
+            "name": "data.cost_limit.currency_code",
+            "description": "The 3-letter currency code defined in ISO 4217.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.cost_limit.display_name",
+            "description": "String representation of money entity.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.cost_limit.nanos",
+            "description": "Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "data.cost_limit.units",
+            "description": "The whole units of the amount.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "data.description",
+            "description": "Short project description.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.display_name",
+            "description": "Localized String representation of a project.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.end.day",
+            "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.end.display_name",
+            "description": "Localized String representation of date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.end.month",
+            "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.end.year",
+            "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.id",
+            "description": "Identity of a project.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.start.day",
+            "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.start.display_name",
+            "description": "Localized String representation of date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.start.month",
+            "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.start.year",
+            "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
           }
         ],
         "tags": [
@@ -876,6 +813,501 @@
         ],
         "tags": [
           "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/{prj}/delete.json": {
+      "get": {
+        "summary": "Delete a Project",
+        "operationId": "DeleteProjectService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledEmpty"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "prj",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/{prj}/get.json": {
+      "get": {
+        "summary": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
+        "operationId": "GetProjectService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledProjectEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "prj",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/projects/{prj}/update.json": {
+      "get": {
+        "summary": "Updates a Project, partial updates are supported",
+        "operationId": "UpdateProjectService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledProjectEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "prj",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "data.cost_limit.currency_code",
+            "description": "The 3-letter currency code defined in ISO 4217.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.cost_limit.display_name",
+            "description": "String representation of money entity.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.cost_limit.nanos",
+            "description": "Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "data.cost_limit.units",
+            "description": "The whole units of the amount.",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "data.description",
+            "description": "Short project description.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.display_name",
+            "description": "Localized String representation of a project.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.end.day",
+            "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.end.display_name",
+            "description": "Localized String representation of date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.end.month",
+            "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.end.year",
+            "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.id",
+            "description": "Identity of a project.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.start.day",
+            "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.start.display_name",
+            "description": "Localized String representation of date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.start.month",
+            "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.start.year",
+            "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "ProjectService"
+        ]
+      }
+    },
+    "/mockdata/tasks/create.json": {
+      "get": {
+        "summary": "Creates a new Task",
+        "operationId": "CreateTaskService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledTaskEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "data.description",
+            "description": "Short task description.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.estimated_time",
+            "description": "Estimated time in days.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.id",
+            "description": "Identity of a task.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.display_name",
+            "description": "String representation of the reference.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.href",
+            "description": "link.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.id",
+            "description": "Id of the reference.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.method",
+            "description": "method of curl GET, POST, PUT, PATCH, DELETE.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.rel",
+            "description": "the relationship.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.type",
+            "description": "mime type.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TaskService"
+        ]
+      }
+    },
+    "/mockdata/tasks/list.json": {
+      "get": {
+        "summary": "The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",
+        "operationId": "ListTaskService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledTaskCollection"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "fields",
+            "description": "Partielle Repräsentation fields=id,name // 10.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Filter.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "count",
+            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          },
+          {
+            "name": "sum",
+            "description": "not implemented.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "not implemented (ehemals context).",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "description": "Query term to search a task.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TaskService"
+        ]
+      }
+    },
+    "/mockdata/tasks/{tsk}/delete.json": {
+      "get": {
+        "summary": "Delete a Task",
+        "operationId": "DeleteTaskService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledEmpty"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tsk",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TaskService"
+        ]
+      }
+    },
+    "/mockdata/tasks/{tsk}/get.json": {
+      "get": {
+        "summary": "The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",
+        "operationId": "GetTaskService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledTaskEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tsk",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TaskService"
+        ]
+      }
+    },
+    "/mockdata/tasks/{tsk}/update.json": {
+      "get": {
+        "summary": "Updates a Task, partial updates are supported",
+        "operationId": "UpdateTaskService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/bundledTaskEntity"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tsk",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "data.description",
+            "description": "Short task description.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.estimated_time",
+            "description": "Estimated time in days.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "data.id",
+            "description": "Identity of a task.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.display_name",
+            "description": "String representation of the reference.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.href",
+            "description": "link.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.id",
+            "description": "Id of the reference.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.method",
+            "description": "method of curl GET, POST, PUT, PATCH, DELETE.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.rel",
+            "description": "the relationship.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.type",
+            "description": "mime type.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "TaskService"
         ]
       }
     }
