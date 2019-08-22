@@ -30,8 +30,8 @@
                                   list-on-hts-in
                                   @-response="--colResponded">
                 </collection-agent>
-                <collection-object type="taskCollection" ƒ-inject-raw="--colResponded"
-                                   @-object-ready="--data"></collection-object>
+                <furo-data-object type="task.TaskCollection" ƒ-inject-raw="--colResponded"
+                                   @-object-ready="--data"></furo-data-object>
                 <furo-data-table ƒ-bind-data="--data"></furo-data-table>
             </template>
         </test-bind>
@@ -79,7 +79,7 @@
 
         it('should show a table header', (done) => {
             assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').childElementCount, 7);
-            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').querySelectorAll('th')[2].innerText, 'TASK');
+            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').querySelectorAll('th')[2].innerText, 'TASK****');
             assert.notEqual(dataTable.shadowRoot.querySelector('table').querySelector('thead').offsetHeight, 0);
 
             done();
@@ -99,7 +99,7 @@
         it('should focus first row', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
                     assert.equal(dataTable._selectedIndex, 0);
 
@@ -112,14 +112,10 @@
         it('should select a specific row', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
                     let body = dataTable.shadowRoot.querySelector('tbody');
                     keydown(body, 'ArrowDown');
-                    assert.equal(dataTable._selectedIndex, 1);
-                    keydown(body, 'ArrowDown');
-                    assert.equal(dataTable._selectedIndex, 2);
-                    keydown(body, 'ArrowUp');
                     assert.equal(dataTable._selectedIndex, 1);
 
                     done();
@@ -131,7 +127,7 @@
         it('enter should select the table row', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
                     let body = dataTable.shadowRoot.querySelector('tbody');
                     keydown(body, 'ArrowDown');
@@ -141,7 +137,7 @@
                 });
             });
             dataTable.addEventListener('tablerow-selected', (r) =>{
-                assert.equal(r.detail.data.description, "Super Pursuit Mode");
+                assert.equal(r.detail.data.description, "Increase test coverage");
                 done();
             });
             linker.trigger();
@@ -150,9 +146,9 @@
         it('should have 3 entity items', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
-                    assert.equal(dataTable._collection.data.length, 3);
+                    assert.equal(dataTable._collection.rawEntity.entities.length, 2);
 
                     done();
                 });
@@ -163,15 +159,15 @@
         it('checking a table row should send all checked rows as an array', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
-                    let cb1 = dataTable.shadowRoot.querySelector('tbody').querySelector('tr').querySelectorAll(".fx")[1].querySelector('input');
+                    let cb1 = dataTable.shadowRoot.querySelector('tbody').querySelector('tr').querySelector('td').querySelector('input');
                     cb1.click();
                 });
 
             });
             dataTable.addEventListener('checkstate-changed', (r) =>{
-                assert.equal(r.detail[0].data.description, "Beispiel Task");
+                assert.equal(r.detail[0].data.description, "Apply new documentation structure");
                 done();
             });
             linker.trigger();
@@ -180,10 +176,10 @@
         it('should render 3 table rows', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
 
-                    assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('tbody').children.length, 10);
+                    assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('tbody').children.length, 7);
                     done();
                 });
 

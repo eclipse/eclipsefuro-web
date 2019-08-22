@@ -14,7 +14,6 @@
     <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
     <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
-
 </head>
 <body>
 
@@ -31,8 +30,8 @@
                                   list-on-hts-in
                                   @-response="--colResponded">
                 </collection-agent>
-                <collection-object type="taskCollection" ƒ-inject-raw="--colResponded"
-                                   @-object-ready="--data"></collection-object>
+                <furo-data-object type="task.TaskCollection" ƒ-inject-raw="--colResponded"
+                                  @-object-ready="--data"></furo-data-object>
                 <furo-data-table ƒ-bind-data="--data" hide-header></furo-data-table>
             </template>
         </test-bind>
@@ -41,14 +40,13 @@
 </test-fixture>
 
 <script type="module">
-    import '@furo/framework';
+
+
     import '@furo/data';
     import "@furo/fbp/testhelper/test-bind"; // for testing
 
     import "@furo/testhelper/initEnv.js";
     import '@furo/data-ui/furo-data-table';
-
-
     function keydown(TargetElement, key) {
         let customEvent = new Event('keydown', {composed: true, bubbles: true});
         customEvent.code = key; // Deprecated, prefer .key instead.
@@ -74,24 +72,9 @@
 
         it('should have the correct type information', (done) => {
             assert.equal(dataTable._type, "task.Task");
-            assert.equal(dataTable.cols.length, 8);
+            assert.equal(dataTable.cols.length, 6);
             done()
 
-        });
-
-        it('should assign the correct meta information', (done) => {
-            assert.equal(dataTable.cols[0].meta.datatable.row_width, "width-l");
-            assert.equal(dataTable.cols[1].meta.datatable.row_width, "width-s");
-            assert.equal(dataTable.cols[2].meta.datatable.row_width, "width-xl");
-
-            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('tbody').querySelector('template').content.querySelector('tr').childElementCount, 10);
-            done()
-        });
-
-        it('the table header should be hidden', (done) => {
-            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').offsetHeight, 0);
-
-            done();
         });
 
         it('empty or invalid type should fire spec-error', (done) => {
@@ -108,7 +91,7 @@
         it('should focus first row', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
                     assert.equal(dataTable._selectedIndex, 0);
 
@@ -121,14 +104,10 @@
         it('should select a specific row', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
                     let body = dataTable.shadowRoot.querySelector('tbody');
                     keydown(body, 'ArrowDown');
-                    assert.equal(dataTable._selectedIndex, 1);
-                    keydown(body, 'ArrowDown');
-                    assert.equal(dataTable._selectedIndex, 2);
-                    keydown(body, 'ArrowUp');
                     assert.equal(dataTable._selectedIndex, 1);
 
                     done();
@@ -140,7 +119,7 @@
         it('enter should select the table row', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
                     let body = dataTable.shadowRoot.querySelector('tbody');
                     keydown(body, 'ArrowDown');
@@ -150,7 +129,7 @@
                 });
             });
             dataTable.addEventListener('tablerow-selected', (r) =>{
-                assert.equal(r.detail.data.description, "Super Pursuit Mode");
+                assert.equal(r.detail.data.description, "Increase test coverage");
                 done();
             });
             linker.trigger();
@@ -159,9 +138,9 @@
         it('should have 3 entity items', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
-                    assert.equal(dataTable._collection.data.length, 3);
+                    assert.equal(dataTable._collection.rawEntity.entities.length, 2);
 
                     done();
                 });
@@ -172,16 +151,15 @@
         it('checking a table row should send all checked rows as an array', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
-                    let cb1 = dataTable.shadowRoot.querySelector('tbody').querySelector('tr').querySelectorAll(".fx")[1].querySelector('input');
+                    let cb1 = dataTable.shadowRoot.querySelector('tbody').querySelector('tr').querySelector('td').querySelector('input');
                     cb1.click();
                 });
 
             });
             dataTable.addEventListener('checkstate-changed', (r) =>{
-                //Todo: @maltenoerstoem Safari?
-                //assert.equal(r.detail[0].data.description, "Beispiel Task");
+                assert.equal(r.detail[0].data.description, "Apply new documentation structure");
                 done();
             });
             linker.trigger();
@@ -190,15 +168,21 @@
         it('should render 3 table rows', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
-                dataTable._collection.addEventListener('data-changed', () => {
+                dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
 
-                    assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('tbody').children.length, 10);
+                    assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('tbody').children.length, 7);
                     done();
                 });
 
             });
             linker.trigger();
+        });
+
+        it('the table header should be hidden', (done) => {
+            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').offsetHeight, 0);
+
+            done();
         });
 
     });
