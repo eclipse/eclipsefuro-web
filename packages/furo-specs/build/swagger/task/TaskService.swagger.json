@@ -36,6 +36,13 @@
             "type": "string"
           },
           {
+            "name": "data.display_name",
+            "description": "Localized String representation of a task.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "data.estimated_time",
             "description": "Estimated time in days.",
             "in": "query",
@@ -260,6 +267,13 @@
             "type": "string"
           },
           {
+            "name": "data.display_name",
+            "description": "Localized String representation of a task.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "data.estimated_time",
             "description": "Estimated time in days.",
             "in": "query",
@@ -426,170 +440,6 @@
       },
       "title": "reference"
     },
-    "googleDate": {
-      "type": "object",
-      "properties": {
-        "day": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant."
-        },
-        "display_name": {
-          "type": "string",
-          "title": "Localized String representation of date"
-        },
-        "month": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day."
-        },
-        "year": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year."
-        }
-      },
-      "title": "Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto"
-    },
-    "googleMoney": {
-      "type": "object",
-      "properties": {
-        "currency_code": {
-          "type": "string",
-          "description": "The 3-letter currency code defined in ISO 4217."
-        },
-        "display_name": {
-          "type": "string",
-          "title": "String representation of money entity"
-        },
-        "nanos": {
-          "type": "string",
-          "format": "int64",
-          "description": "Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000."
-        },
-        "units": {
-          "type": "string",
-          "format": "int64",
-          "description": "The whole units of the amount."
-        }
-      },
-      "title": "Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto"
-    },
-    "personPerson": {
-      "type": "object",
-      "properties": {
-        "display_name": {
-          "type": "string",
-          "title": "Localized String representation of a person"
-        },
-        "first_name": {
-          "type": "string",
-          "title": "First name of a person"
-        },
-        "id": {
-          "type": "string",
-          "title": "Identity of a person"
-        },
-        "name": {
-          "type": "string",
-          "title": "Name of a person"
-        },
-        "phone_nr": {
-          "type": "string",
-          "title": "Internal phone number"
-        },
-        "skills": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "List of main skills of a person"
-        }
-      },
-      "title": "Person message type"
-    },
-    "projectProject": {
-      "type": "object",
-      "properties": {
-        "cost_limit": {
-          "$ref": "#/definitions/googleMoney",
-          "title": "Project cost limit"
-        },
-        "description": {
-          "type": "string",
-          "title": "Short project description"
-        },
-        "display_name": {
-          "type": "string",
-          "title": "Localized String representation of a project"
-        },
-        "end": {
-          "$ref": "#/definitions/googleDate",
-          "title": "Prospective end date of the project"
-        },
-        "id": {
-          "type": "string",
-          "title": "Identity of a project"
-        },
-        "members": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/personPerson"
-          },
-          "title": "List of project members"
-        },
-        "start": {
-          "$ref": "#/definitions/googleDate",
-          "title": "Start date of the project"
-        }
-      },
-      "title": "Project description"
-    },
-    "projectProjectCollection": {
-      "type": "object",
-      "properties": {
-        "entities": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/projectProjectEntity"
-          },
-          "title": "Contains a project.ProjectEntity repeated"
-        },
-        "links": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/furoLink"
-          },
-          "title": "Hateoas links"
-        },
-        "meta": {
-          "$ref": "#/definitions/furoMeta",
-          "title": "Meta for the response"
-        }
-      },
-      "title": "ProjectCollection with repeated ProjectEntity"
-    },
-    "projectProjectEntity": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/projectProject",
-          "title": "contains a project.Project"
-        },
-        "links": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/furoLink"
-          },
-          "title": "Hateoas links"
-        },
-        "meta": {
-          "$ref": "#/definitions/furoMeta",
-          "title": "Meta for the response"
-        }
-      },
-      "title": "ProjectEntity with Project"
-    },
     "protobufEmpty": {
       "type": "object",
       "title": "https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto"
@@ -602,7 +452,7 @@
           "title": "Short task description"
         },
         "display_name": {
-          "$ref": "#/definitions/projectProjectCollection",
+          "type": "string",
           "title": "Localized String representation of a task"
         },
         "estimated_time": {

@@ -1025,6 +1025,13 @@
             "type": "string"
           },
           {
+            "name": "data.display_name",
+            "description": "Localized String representation of a task.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "data.estimated_time",
             "description": "Estimated time in days.",
             "in": "query",
@@ -1244,6 +1251,13 @@
           {
             "name": "data.description",
             "description": "Short task description.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.display_name",
+            "description": "Localized String representation of a task.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -1539,7 +1553,7 @@
           "title": "Short task description"
         },
         "display_name": {
-          "$ref": "#/definitions/bundledProjectCollection",
+          "type": "string",
           "title": "Localized String representation of a task"
         },
         "estimated_time": {

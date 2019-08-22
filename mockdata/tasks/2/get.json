@@ -1,0 +1,25 @@
+{
+  "data": {
+    "id": "2",
+    "display_name": "Do more tests",
+    "description": "Increase test coverage",
+    "estimated_time": 15,
+    "owner": {
+      "display_name": "John Doe, +41783332244",
+      "id": "1",
+      "rel": "List",
+      "href": "/mockdata/persons/1/get.json",
+      "method": "GET",
+      "type": "person.Person"
+    },
+    "subtasks": []
+  },
+  "links": [
+    {
+      "href": "/mockdata/tasks/2/get.json",
+      "method": "GET",
+      "rel": "self",
+      "type": "task.Task"
+    }
+  ]
+}

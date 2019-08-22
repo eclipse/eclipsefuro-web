@@ -28,7 +28,7 @@
     },
     "display_name": {
       "description": "Localized String representation of a task",
-      "type": "project.ProjectCollection",
+      "type": "string",
       "meta": {
         "label": "Task",
         "default": "",
