@@ -1,51 +1,52 @@
 {
-  "data": {
-    "description": "Navigation tree",
-    "display_name": "Project tree",
-    "id": "1",
-    "root": {
-      "id": 1,
-      "display_name": "root",
-      "description": "root",
-      "icon": "mail",
-      "open": true,
-      "has_error": false,
-      "key_words": "documentation",
-      "panel": "view",
-      "secondary_text": "Secondary node description",
-      "link": {
-        "rel": "self",
-        "method": "GET",
-        "href": "./api/v1/tasks/12.json",
-        "type": "vnd.com.acme.task"
-      },
-      "children": [
-        {
-          "id": 2,
-          "display_name": "A",
-          "description": "first with veery big title sub",
-          "icon": "mail",
-          "open": true,
-          "has_error": false,
-          "key_words": "documentation",
-          "panel": "view",
-          "secondary_text": "Secondary node description",
-          "link": {
-            "rel": "self",
-            "method": "GET",
-            "href": "./api/v1/tasks/A.json",
-            "type": "vnd.com.acme.task"
-          },
-          "children": [{
+  "data":{
+  "id": "1",
+  "display_name": "Project tree",
+  "description": "Navigation tree",
+  "root": {
+    "id": 1,
+    "display_name": "Home",
+    "secondary_text": "Secondary node description",
+    "description": "Description for home",
+    "icon": "account-balance",
+    "panel": "view",
+    "key_words": "documentation",
+    "has_error": false,
+    "open": true,
+    "link": {
+      "rel": "self",
+      "method": "GET",
+      "href": "./api/v1/tasks/12.json",
+      "type": "vnd.com.acme.task"
+    },
+    "children": [
+      {
+        "id": 2,
+        "display_name": "A",
+        "secondary_text": "Secondary node description",
+        "description": "first with veery big title sub",
+        "icon": "apps",
+        "panel": "view",
+        "key_words": "documentation",
+        "has_error": false,
+        "open": false,
+        "link": {
+          "rel": "self",
+          "method": "GET",
+          "href": "./api/v1/tasks/A.json",
+          "type": "vnd.com.acme.task"
+        },
+        "children": [
+          {
             "id": 3,
             "display_name": "C",
-            "description": "sub sirst with veery big titleub",
-            "icon": "mail",
-            "open": true,
-            "has_error": false,
-            "key_words": "documentation",
-            "panel": "view",
             "secondary_text": "Secondary node description",
+            "description": "Fingerprint Studio",
+            "icon": "fingerprint",
+            "panel": "view",
+            "key_words": "documentation",
+            "has_error": false,
+            "open": false,
             "link": {
               "rel": "self",
               "method": "GET",
@@ -53,106 +54,148 @@
               "type": "vnd.com.acme.task"
             },
             "children": []
-          }]
-        }, {
-          "id": 4,
-          "display_name": "B",
-          "description": "second sirst with veery big titleub",
-          "icon": "mail",
-          "open": true,
-          "has_error": false,
-          "key_words": "documentation",
-          "panel": "view",
-          "secondary_text": "Secondary node description",
-          "link": {
-            "rel": "self",
-            "method": "GET",
-            "href": "./api/v1/tasks/12.json",
-            "type": "vnd.com.acme.task-b"
           },
-          "children": [{
+          {
+            "id": null,
+            "display_name": null,
+            "secondary_text": null,
+            "description": "Android Studo",
+            "icon": "android",
+            "panel": null,
+            "key_words": null,
+            "has_error": null,
+            "open": false,
+            "link": {
+              "rel": null,
+              "method": null,
+              "href": null,
+              "type": null
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "display_name": "B",
+        "secondary_text": "Secondary node description",
+        "description": "Sent data",
+        "icon": "send",
+        "panel": "view",
+        "key_words": "documentation",
+        "has_error": false,
+        "open": false,
+        "link": {
+          "rel": "self",
+          "method": "GET",
+          "href": "./api/v1/tasks/12.json",
+          "type": "vnd.com.acme.task-b"
+        },
+        "children": [
+          {
             "id": 5,
             "display_name": "D",
-            "description": "sub suirst with veery big titleb",
-            "icon": "mail",
-            "open": true,
-            "has_error": false,
-            "key_words": "documentation",
-            "panel": "view",
             "secondary_text": "Secondary node description",
+            "description": "sub suirst with veery big titleb",
+            "icon": "alarm-on",
+            "panel": "view",
+            "key_words": "documentation",
+            "has_error": false,
+            "open": false,
             "link": {
               "rel": "self",
               "method": "GET",
               "href": "./api/v1/tasks/12.json",
               "type": "vnd.com.acme.task"
             },
-            "children": [{
-              "id": 6,
-              "display_name": "E",
-              "description": "sub suirst with veery big titleb",
-              "icon": "mail",
-              "open": true,
-              "has_error": false,
-              "key_words": "documentation",
-              "panel": "view",
-              "secondary_text": "Secondary node description",
-              "link": {
-                "rel": "self",
-                "method": "GET",
-                "href": "./api/v1/tasks/12.json",
-                "type": "vnd.com.acme.task"
-              },
-              "children": [{
-                "id": 7,
+            "children": [
+              {
+                "id": 6,
                 "display_name": "E",
-                "description": "sub sub",
-                "icon": "mail",
-                "open": true,
-                "has_error": false,
-                "key_words": "documentation",
-                "panel": "view",
                 "secondary_text": "Secondary node description",
+                "description": "sub suirst with veery big titleb",
+                "icon": "filter-list",
+                "panel": "view",
+                "key_words": "documentation",
+                "has_error": false,
+                "open": false,
                 "link": {
                   "rel": "self",
                   "method": "GET",
                   "href": "./api/v1/tasks/12.json",
                   "type": "vnd.com.acme.task"
                 },
-                "children": [{
-                  "id": 8,
-                  "display_name": "E",
-                  "description": "sub sub",
-                  "icon": "mail",
-                  "open": true,
-                  "has_error": false,
-                  "key_words": "documentation",
-                  "panel": "view",
-                  "secondary_text": "Secondary node description",
-                  "link": {
-                    "rel": "self",
-                    "method": "GET",
-                    "href": "./api/v1/tasks/12.json",
-                    "type": "vnd.com.acme.task"
-                  },
-                  "children": [{
-                    "id": 455,
+                "children": [
+                  {
+                    "id": 7,
                     "display_name": "E",
-                    "description": "Berlin",
-                    "children": []
-                  }]
-                }]
-              }]
-            }]
-          }, {
+                    "secondary_text": "Secondary node description",
+                    "description": "sub sub",
+                    "icon": "mail",
+                    "panel": "view",
+                    "key_words": "documentation",
+                    "has_error": false,
+                    "open": false,
+                    "link": {
+                      "rel": "self",
+                      "method": "GET",
+                      "href": "./api/v1/tasks/12.json",
+                      "type": "vnd.com.acme.task"
+                    },
+                    "children": [
+                      {
+                        "id": 8,
+                        "display_name": "E",
+                        "secondary_text": "Secondary node description",
+                        "description": "sub sub",
+                        "icon": "mail",
+                        "panel": "view",
+                        "key_words": "documentation",
+                        "has_error": false,
+                        "open": false,
+                        "link": {
+                          "rel": "self",
+                          "method": "GET",
+                          "href": "./api/v1/tasks/12.json",
+                          "type": "vnd.com.acme.task"
+                        },
+                        "children": [
+                          {
+                            "id": 455,
+                            "display_name": "E",
+                            "secondary_text": null,
+                            "description": "Berlin",
+                            "icon": null,
+                            "panel": null,
+                            "key_words": null,
+                            "has_error": null,
+                            "open": false,
+                            "link": {
+                              "rel": null,
+                              "method": null,
+                              "href": null,
+                              "type": null
+                            },
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "id": 234,
             "display_name": "E",
+            "secondary_text": "Secondary node description",
             "description": "sub unknown type",
             "icon": "mail",
-            "open": true,
-            "has_error": false,
-            "key_words": "documentation",
             "panel": "view",
-            "secondary_text": "Secondary node description",
+            "key_words": "documentation",
+            "has_error": false,
+            "open": true,
             "link": {
               "rel": "self",
               "method": "GET",
@@ -160,9 +203,18 @@
               "type": "vnd.com.acme.unknown"
             },
             "children": []
-          }]
-        }
-      ]
-    }
+          }
+        ]
+      }
+    ]
   }
+},
+  "links": [
+    {
+      "href": "/mockdata/trees/1/get.json",
+      "method": "GET",
+      "rel": "self",
+      "type": "tree.TreeEntity"
+    }
+  ]
 }

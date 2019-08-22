@@ -248,7 +248,8 @@ class FuroTree extends FBP(LitElement) {
     this._buildFlatTree(this._rootNode);
     setTimeout(() => {
       newnode.selectItem();
-    }, 10)
+
+    }, 60)
   }
 
   deleteNode() {
@@ -327,6 +328,7 @@ class FuroTree extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
+    //this._FBPTraceWires();
   }
 
   /**
@@ -430,7 +432,7 @@ class FuroTree extends FBP(LitElement) {
     <div class="srch">🔍 ${this._searchTerm}</div>
       <div class="tablewrapper">
       <table>
-        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested">
+        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id.value">
           <tr>
             <td>
               ${this._treeItemTepmplate}
