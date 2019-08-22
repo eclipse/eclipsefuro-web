@@ -50,6 +50,11 @@ class FuroCheckboxInput extends FBP(LitElement) {
     constructor() {
         super();
         this.valid = true;
+
+        this.addEventListener("value-changed", e=>{
+
+            this._value = e.detail;
+        });
     }
 
     _FBPReady() {

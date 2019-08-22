@@ -5,8 +5,6 @@ import {FBP} from "@furo/fbp";
 /**
  * `furo-checkbox`
  *
- * # WORK IN PROGRESS
- *
  * Checkbox input element which uses a native `<input type="checkbox">` tag.
  *
  * Checkboxes allow the user to to make a binary choice, i.e. a choice between one of two possible mutually exclusive options.
