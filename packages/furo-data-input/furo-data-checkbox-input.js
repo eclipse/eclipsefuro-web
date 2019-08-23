@@ -1,6 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import "@furo/input/furo-checkbox-input";
 import {FuroInputBase} from "./FuroInputBase.js";
 
 /**
@@ -33,6 +34,8 @@ class FuroDataCheckboxInput extends FBP(FuroInputBase(LitElement)) {
 
     constructor() {
         super();
+        this.disabled = false;
+        this.hint = "";
 
         this._FBPAddWireHook("--valueChanged", (val) => {
             if (this.field) {
@@ -41,6 +44,94 @@ class FuroDataCheckboxInput extends FBP(FuroInputBase(LitElement)) {
         });
     }
 
+    /**
+     * Sets the field to readonly
+     */
+    disable() {
+        this._readonly = true;
+    }
+
+    /**
+     * Makes the field writable.
+     */
+    enable() {
+        this._readonly = false;
+    }
+
+    /**
+     * Bind a entity field to the furo-data-checkbox-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */
+    bindData(fieldNode) {
+        if (fieldNode === undefined) {
+            console.warn("Invalid binding ");
+            console.log(this);
+            return
+        }
+        this.field = fieldNode;
+
+        this._updateField();
+        this.field.addEventListener('field-value-changed', (e) => {
+            this._updateField();
+        });
+
+        this.field.addEventListener('field-became-invalid', (e) => {
+            // updates wieder einspielen
+            this.error = true;
+            this.errortext = this.field._validity.message;
+            this.requestUpdate();
+        });
+
+        this.field.addEventListener('field-became-valid', (e) => {
+            // updates wieder einspielen
+            this.error = false;
+            this.requestUpdate();
+        });
+    }
+
+    // label setter and getter are needed for rendering on the first time
+    set label(l) {
+        this._l = l;
+        this._label = l;
+    }
+
+    get label() {
+        return this._l;
+    }
+
+    _updateField() {
+
+        if (!this.label) {
+            this._label = this.field._meta.label;
+        } else {
+            this._label = this.label;
+        }
+        if (!this.hint) {
+            this._hint = this.field._meta.hint;
+        } else {
+            this._hint = this.hint;
+        }
+        this.disabled = this.field._meta.readonly ? true : false;
+
+        // readonly auf attr ist höher gewichtet
+        if (!this.readonly) {
+            this._readonly = this.field._meta.readonly;
+        } else {
+            this._readonly = this.readonly;
+        }
+
+
+        //mark incomming error
+        if (!this.field._isValid) {
+            this.error = true;
+            this.errortext = this.field._validity.message;
+        }
+
+        this._FBPTriggerWire('--value', this.field.value);
+
+        this.requestUpdate();
+    }
 
     static get properties() {
         return {
@@ -127,6 +218,7 @@ class FuroDataCheckboxInput extends FBP(FuroInputBase(LitElement)) {
         // language=HTML
         return html`
              <furo-checkbox-input 
+                id="input"
                 ?autofocus=${this.autofocus} 
                 ?disabled=${this._readonly || this.disabled} 
                 label="${this._label}" 
