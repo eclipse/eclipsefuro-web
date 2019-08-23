@@ -1,0 +1,121 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-data-checkbox-input_test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+      <template>
+
+        <furo-data-object type="tree.Tree" @-data-injected="--entity"  ƒ-inject-raw="--response(*.data)"></furo-data-object>
+        <furo-data-checkbox-input ƒ-bind-data="--entity(*.root.open)"></furo-data-checkbox-input>
+        <furo-data-checkbox-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.root.open)"
+                              @-value-changed="--valueChanged"></furo-data-checkbox-input>
+
+
+        <deep-link service="TreeService" @-hts-out="--hts"></deep-link>
+        <entity-agent service="TreeService"
+                          ƒ-hts-in="--hts"
+                          ƒ-load="--hts"
+                          ƒ-bind-request-data="--entity"
+                          @-response="--response">
+        </entity-agent>
+
+
+      </template>
+    </test-bind>
+
+  </template>
+</test-fixture>
+
+<script type="module">
+    import "../furo-catalog.js";
+    import "@furo/fbp/testhelper/test-bind";
+    import "@furo/testhelper/initEnv.js";
+    import "@furo/data/furo-data-object.js";
+    import "@furo/data/entity-agent";
+    import "@furo/data/deep-link";
+    import '/node_modules/axe-core/axe.min.js';
+
+    import '/node_modules/axe-core/axe.min.js';
+    import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+    describe('furo-data-checkbox-input_test tests ', function () {
+
+
+        let dataCheckboxInput, host, entityObject, secondCheckboxInput, deeplink;
+
+        beforeEach(async () => {
+            let fix = fixture('basic');
+            host = fix[0]._host;
+            entityObject = fix[1];
+            await entityObject.updateComplete;
+
+            dataCheckboxInput = fix[2];
+            await dataCheckboxInput.updateComplete;
+
+            secondCheckboxInput = fix[3];
+            await secondCheckboxInput.updateComplete;
+
+            deeplink = fix[4];
+            await deeplink.updateComplete;
+
+            console.log("those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata");
+        });
+
+        //those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata
+        it('should override labels ', (done) => {
+            deeplink.qpIn({"tre":1});
+            secondCheckboxInput._FBPAddWireHook("--value", (val) => {
+                assert.equal(secondCheckboxInput._label, "FromTPL")
+                done();
+            });
+        });
+
+        it('should receive value with bind', (done) => {
+            deeplink.qpIn({"tre":1});
+            dataCheckboxInput._FBPAddWireHook("--value", (val) => {
+                assert.equal(val, true)
+                done();
+            });
+        });
+
+        it('should update the entity when values changed', (done) => {
+            deeplink.qpIn({"tre":1});
+
+
+            secondCheckboxInput._FBPAddWireHook("--valueChanged", (val) => {
+                assert.equal(val, true);
+                done();
+            });
+        });
+
+        // a11y tests
+        it('a11y', () => {
+            return axeReport(fixture('basic'));
+        });
+
+        it('should be a furo-data-checkbox-input_test', (done) => {
+            assert.equal(dataCheckboxInput.nodeName.toLowerCase(), "furo-data-checkbox-input");
+            done()
+        });
+
+
+    })
+    ;
+</script>
+</body>
+</html>
