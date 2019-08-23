@@ -8,7 +8,7 @@
   ],
   "excludes": [],
   "spec_dir": "./newspecs",
-  "__custom_tepmplate_dir": "./_scripts/templates/",
+  "__custom_tepmplate_dir": "./_scripts/templates",
   "swagger": true,
   "grpc_gateway": true,
   "java": true,

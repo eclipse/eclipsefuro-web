@@ -49,6 +49,45 @@
 }
 ,
 {
+  "name": "experiment_entity",
+  "type": "ExperimentEntity",
+  "description": "ExperimentEntity with Experiment",
+  "__proto": {
+    "package": "experiment",
+    "options": {},
+    "imports": [
+      "experiment.proto",
+      "furo/meta.proto",
+      "furo/link.proto"
+    ]
+  },
+  "fields": {
+    "data": {
+      "description": "contains a experiment.Experiment",
+      "type": "experiment.Experiment",
+      "__proto": {
+        "number": 1
+      }
+    },
+    "links": {
+      "description": "Hateoas links",
+      "type": "furo.Link",
+      "meta": {"repeated": true},
+      "__proto": {
+        "number": 2
+      }
+    },
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.Meta",
+      "__proto": {
+        "number": 3
+      }
+    }
+  }
+}
+,
+{
   "name": "tree_entity",
   "type": "TreeEntity",
   "description": "TreeEntity with Tree",
@@ -328,6 +367,92 @@
       "options": [],
       "__proto": {
         "number": 6
+      }
+    }
+  }
+}
+,
+{
+  "name": "experiment",
+  "type": "Experiment",
+  "description": "experiment spec for testing",
+  "__proto": {
+    "package": "experiment",
+    "imports": [
+      "furo/reference.proto"
+    ]
+  },
+  "fields": {
+    "id": {
+      "description": "Identity of a experiment",
+      "type": "string",
+      "meta": {
+        "label": "Id",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 1
+      }
+    },
+    "display_name": {
+      "description": "Localized String representation of a experiment",
+      "type": "string",
+      "meta": {
+        "label": "experiment",
+        "default": "",
+        "hint": "",
+        "readonly": true
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 2
+      }
+    },
+    "description": {
+      "description": "Short experiment description",
+      "type": "string",
+      "meta": {
+        "label": "Description",
+        "default": "",
+        "hint": ""
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 3
+      }
+    },
+    "furo_data_checkbox_input": {
+      "description": "field for furo_data_checkbox_input for testing",
+      "type": "bool",
+      "meta": {
+        "label": "Label for furo_data_checkbox_input",
+        "default": "",
+        "hint": "Hint"
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 4,
+        "type": "int32"
+      }
+    },
+    "furo_data_text_input": {
+      "description": "field for furo_data_text_input for testing",
+      "type": "string",
+      "meta": {
+        "label": "Label for furo_data_text_input input",
+        "hint": "hint"
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 5
       }
     }
   }
@@ -687,6 +812,50 @@
       "type": "furo.Meta",
       "__proto": {
         "number": 3
+      }
+    }
+  }
+}
+,
+{
+  "name": "experiment_collection",
+  "type": "ExperimentCollection",
+  "description": "ExperimentCollection with repeated ExperimentEntity",
+  "__proto": {
+    "package": "experiment",
+    "options": {},
+    "imports": [
+     "experiment_entity.proto",
+     "furo/meta.proto",
+     "furo/link.proto"
+     ]
+  },
+  "fields": {
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.Meta",
+      "__proto": {
+        "number": 2
+      }
+    },
+    "links": {
+      "description": "Hateoas links",
+      "type": "furo.Link",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
+    "entities": {
+      "description": "Contains a experiment.ExperimentEntity repeated",
+      "type": "experiment.ExperimentEntity",
+      "meta": {
+        "repeated": true
+      },
+      "__proto": {
+        "number": 4
       }
     }
   }

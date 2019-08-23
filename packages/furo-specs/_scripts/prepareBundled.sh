@@ -2,35 +2,35 @@
 
 echo "generating services and types from api specification ..."
 echo "*** Prepare ***"
+SPECDIR=$1
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-mkdir -p $DIR/../_tmp
+mkdir -p $DIR/../__tmp
 
-rm $DIR/../_tmp/types.json
+rm $DIR/../__tmp/types_bundled.json
 # open Array
-echo '{"bundlepackage":"'$1'", "types":[' >> $DIR/../_tmp/types.json
+echo '{"types":[' >> $DIR/../__tmp/types_bundled.json
 
-for t in `find ./specs -name '*.type.spec'`; do (cat $t; echo ',') >> $DIR/../_tmp/tmptypes.json; done
+for t in `find $SPECDIR -name '*.type.spec'`; do (cat $t; echo ',--') >> $DIR/../__tmp/tmptypes.json; done
 
-
-cat $DIR/../_tmp/tmptypes.json | sed '$ s/.$//' >> $DIR/../_tmp/types.json
-rm $DIR/../_tmp/tmptypes.json
+cat $DIR/../__tmp/tmptypes.json | sed '$ s/.$//' >> $DIR/../__tmp/types_bundled.json
+rm $DIR/../__tmp/tmptypes.json
 # close Array
-echo ']}' >> $DIR/../_tmp/types.json
+echo ']}' >> $DIR/../__tmp/types_bundled.json
 
 echo "types done."
 
 
-rm $DIR/../_tmp/services.json
+rm $DIR/../__tmp/services_bundled.json
 # open Array
-echo '{"bundlepackage":"'$1'","services":[' >> $DIR/../_tmp/services.json
+echo '{"services":[' >> $DIR/../__tmp/services_bundled.json
 
-for t in `find ./specs -name '*.service.spec'`; do (cat $t; echo ',') >> $DIR/../_tmp/tmpservices.json; done
+for t in `find $SPECDIR -name '*.service.spec'`; do (cat $t; echo ',') >> $DIR/../__tmp/tmpservices.json; done
 echo $t
-cat $DIR/../_tmp/tmpservices.json | sed '$ s/.$//' >> $DIR/../_tmp/services.json
-rm $DIR/../_tmp/tmpservices.json
+cat $DIR/../__tmp/tmpservices.json | sed '$ s/.$//' >> $DIR/../__tmp/services_bundled.json
+rm $DIR/../__tmp/tmpservices.json
 # close Array
-echo ']}' >> $DIR/../_tmp/services.json
+echo ']}' >> $DIR/../__tmp/services_bundled.json
 
 echo "services done."
 

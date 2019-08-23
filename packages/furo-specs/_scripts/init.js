@@ -40,7 +40,7 @@ let templateDir = config.custom_template_dir || __dirname + "/templates/make/";
 
 // loop all packages
 config.packages.forEach((pkg) => {
-  console.log("checking" +  pkg);
+  console.log("checking " +  pkg);
   let dir = config.spec_dir + "/" + pkg;
   let name = pkg;
   let type = pkg[0].toUpperCase() + pkg.substr(1);
@@ -64,7 +64,7 @@ config.packages.forEach((pkg) => {
     // call the simple-generator to build
     sh("simple-generator", ["-d", tmpdir + "_tmptype.json", "-t", templateDir + "MinimalType.tmpl", ">", typefilename])
   }
-  //todo: exclude list
+  // ignore files from ignore list
   if (config.excludes.indexOf(pkg) == -1) {
     // create non existing entities
     if (!fs.existsSync(entityfilename)) {
@@ -86,3 +86,4 @@ config.packages.forEach((pkg) => {
   }
 
 });
+
