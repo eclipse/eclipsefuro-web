@@ -12,7 +12,7 @@
   "swagger": true,
   "grpc_gateway": true,
   "java": true,
-  "build_output_dir": "./build",
+  "build_output_dir": "./newbuild",
   "default_type_for_identities": "string",
   "bundled": {
     "build": true,
@@ -26,7 +26,7 @@
       "java_multiple_files": true,
       "objc_class_prefix": "GPB"
     },
-    "imports":  {
+    "bundled_imports":  {
       "service" : [
          "google/api/annotations.proto",
          "messages.proto",

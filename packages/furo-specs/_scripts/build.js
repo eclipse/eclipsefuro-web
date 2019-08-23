@@ -47,6 +47,9 @@ sh(__dirname + "/prepareBundled.sh", [config.spec_dir]);
 
 // Mix conf with services_bundled
 
+// remove package names on messages for bundled messages and types
+
+
 // Create proto files
 
 
