@@ -17,3 +17,4 @@ test
 .gitattributes
 analysis.json
 wct.conf.json
+furo.spec.conf.json
