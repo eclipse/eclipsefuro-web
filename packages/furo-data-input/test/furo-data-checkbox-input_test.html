@@ -20,14 +20,14 @@
     <test-bind>
       <template>
 
-        <furo-data-object type="tree.Tree" @-data-injected="--entity"  ƒ-inject-raw="--response(*.data)"></furo-data-object>
-        <furo-data-checkbox-input ƒ-bind-data="--entity(*.root.open)"></furo-data-checkbox-input>
-        <furo-data-checkbox-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.root.open)"
+        <furo-data-object type="experiment.Experiment" @-data-injected="--entity"  ƒ-inject-raw="--response(*.data)"></furo-data-object>
+        <furo-data-checkbox-input ƒ-bind-data="--entity(*.furo_data_checkbox_input)"></furo-data-checkbox-input>
+        <furo-data-checkbox-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
                               @-value-changed="--valueChanged"></furo-data-checkbox-input>
 
 
-        <deep-link service="TreeService" @-hts-out="--hts"></deep-link>
-        <entity-agent service="TreeService"
+        <deep-link service="ExperimentService" @-hts-out="--hts"></deep-link>
+        <entity-agent service="ExperimentService"
                           ƒ-hts-in="--hts"
                           ƒ-load="--hts"
                           ƒ-bind-request-data="--entity"
@@ -73,12 +73,13 @@
             deeplink = fix[4];
             await deeplink.updateComplete;
 
-            console.log("those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata");
         });
 
         //those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata
         it('should override labels ', (done) => {
-            deeplink.qpIn({"tre":1});
+            console.log("those tests are base on the mockdata/experiment/1/get.json");
+
+            deeplink.qpIn({"exp":1});
             secondCheckboxInput._FBPAddWireHook("--value", (val) => {
                 assert.equal(secondCheckboxInput._label, "FromTPL")
                 done();
@@ -86,19 +87,9 @@
         });
 
         it('should receive value with bind', (done) => {
-            deeplink.qpIn({"tre":1});
+            deeplink.qpIn({"exp":1});
             dataCheckboxInput._FBPAddWireHook("--value", (val) => {
                 assert.equal(val, true)
-                done();
-            });
-        });
-
-        it('should update the entity when values changed', (done) => {
-            deeplink.qpIn({"tre":1});
-
-
-            secondCheckboxInput._FBPAddWireHook("--valueChanged", (val) => {
-                assert.equal(val, true);
                 done();
             });
         });

@@ -218,6 +218,7 @@ class FuroDataCheckboxInput extends FBP(FuroInputBase(LitElement)) {
         // language=HTML
         return html`
              <furo-checkbox-input 
+                id="input"
                 ?autofocus=${this.autofocus} 
                 ?disabled=${this._readonly || this.disabled} 
                 label="${this._label}" 
