@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-echo PWD
-echo "generating services and types from api specification ..."
+
+echo "preparing services and types from api specification ..."
 echo "*** Prepare ***"
 SPECDIR=$1
 
@@ -22,7 +22,7 @@ rm $DIR/../__tmp/tmptypes_s.json
 # close Array
 echo ']}' >> $DIR/../__tmp/types.json
 
-echo "types done."
+echo "single types done."
 
 
 rm $DIR/../__tmp/services.json
@@ -30,13 +30,12 @@ rm $DIR/../__tmp/services.json
 echo '{"services":[' >> $DIR/../__tmp/services.json
 
 for t in `find $SPECDIR -name '*.service.spec'`; do (cat $t; echo ',') >> $DIR/../__tmp/tmpservices.json; done
-echo $t
 cat $DIR/../__tmp/tmpservices.json | sed '$ s/.$//' >> $DIR/../__tmp/services.json
 rm $DIR/../__tmp/tmpservices.json
 # close Array
 echo ']}' >> $DIR/../__tmp/services.json
 
-echo "services done."
+echo "single services done."
 
 
 cd $DIR

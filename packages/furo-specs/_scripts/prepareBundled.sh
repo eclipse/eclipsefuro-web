@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "generating services and types from api specification ..."
+echo "preparing services and types from api specification ..."
 echo "*** Prepare ***"
 SPECDIR=$1
 
@@ -11,14 +11,14 @@ rm $DIR/../__tmp/types_bundled.json
 # open Array
 echo '{"types":[' >> $DIR/../__tmp/types_bundled.json
 
-for t in `find $SPECDIR -name '*.type.spec'`; do (cat $t; echo ',--') >> $DIR/../__tmp/tmptypes.json; done
+for t in `find $SPECDIR -name '*.type.spec'`; do (cat $t; echo ',') >> $DIR/../__tmp/tmptypes.json; done
 
 cat $DIR/../__tmp/tmptypes.json | sed '$ s/.$//' >> $DIR/../__tmp/types_bundled.json
 rm $DIR/../__tmp/tmptypes.json
 # close Array
 echo ']}' >> $DIR/../__tmp/types_bundled.json
 
-echo "types done."
+echo "bundled types done."
 
 
 rm $DIR/../__tmp/services_bundled.json
@@ -32,7 +32,7 @@ rm $DIR/../__tmp/tmpservices.json
 # close Array
 echo ']}' >> $DIR/../__tmp/services_bundled.json
 
-echo "services done."
+echo "bundled services done."
 
 
 cd $DIR

@@ -26,7 +26,7 @@
       "java_multiple_files": true,
       "objc_class_prefix": "GPB"
     },
-    "bundled_imports":  {
+    "imports":  {
       "service" : [
          "google/api/annotations.proto",
          "messages.proto",

@@ -3,7 +3,8 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const exec = require('child_process').exec;
+const execSync = require('child_process').execSync;
+
 
 let config;
 // config öffnen
@@ -15,14 +16,7 @@ if (fs.existsSync('./furo.spec.conf.json')) {
 }
 
 function sh(command, arguments) {
-  exec(command + " " + arguments.join(" "),
-      (error, stdout, stderr) => {
-        console.log(stdout);
-        console.log(stderr);
-        if (error !== null) {
-          console.log(`exec error: ${error}`);
-        }
-      });
+  execSync(command + " " + arguments.join(" "), {stdio: 'inherit'});
 }
 
 // create spec folder if not exist
