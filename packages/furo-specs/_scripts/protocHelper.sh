@@ -47,8 +47,6 @@ Mtree/tree.proto=../tree,\
 Mproject/project.proto=../project,\
 plugins=grpc:../../pb/$PACKAGE \
 --swagger_out=logtostderr=true:../../swagger/$PACKAGE \
---java_out=../../java/$PACKAGE.jar \
+--java_out=../../java/ \
 --grpc-gateway_out=logtostderr=true:../../pb/$PACKAGE \
 *.proto
-
-rmdir ../../java/$PACKAGE
