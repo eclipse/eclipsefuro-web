@@ -13,14 +13,32 @@
 ## Usage
 
 To add packages, just add them in the packages section of the conf. 
-You can run `initFromConf.sh` to generate a initial structure for a package spec. 
+Then run `./node_modules/@furo/specs/_scripts/init.js` to generate a initial structure for a spec. 
 This consists of the *minimal type*, a *minimal service definition*, a *default entity spec*
-and a *default collection spec*     
+and a *default collection spec*    
+
+To build the furo data_environment.js, the swagger docs, the golang files for the grpc-gateway and the java interfaces run.
+
+```shell script
+./node_modules/@furo/specs/_scripts/build.js
+```
+
+## Preinstalled base types
+
+Following base types are available by default:
+
+- **furo.link** The default link type for HATEOAS links
+- **furo.meta** Meta information for the single fields
+- **furo.type.reference** A type to set a reference to another entity
+- **google.protobuf.any** The any type, can be any type you make
+- **google.type.date**  A type for handling dates (not datetime)
+- **google.type.money**  A type for handling money
+- **protobuf.empty**  A empty type which contains nothing
+ 
 
 > **TIPP** Add the scripts to your package.json so you can run `npm run init` , `npm run build`,... 
 > 
 ## Config
-
 
 - `packages` The name of the packages you use. This will be used for the protoc, swagger, specs folderstructure,... If your specs already exist, the init scripts wont touch them.
 - `spec_dir` Path to your spec directory.
@@ -49,48 +67,48 @@ and a *default collection spec*
     "project",
     "task",
     "tree",
-    "experimental"
+    "experiment"
   ],
-  "spec_dir": "specs",
-  "custom_tepmplate_dir": "./_myTempls",
+  "excludes": [],
+  "spec_dir": "./specs",
+  "__custom_tepmplate_dir": "./_scripts/templates",
   "swagger": true,
   "grpc_gateway": true,
   "java": true,
   "build_output_dir": "./build",
+  "furo_env_name": "data_environment.js",
+  "default_type_for_identities": "string",
   "bundled": {
     "build": true,
     "package_name": "com.acme.api",
     "service_name": "BundledService",
     "proto_options": {
       "csharp_namespace": "Google.Protobuf.WellKnownTypes",
-      "go_package": "github.com/golang/protobuf/ptypes/any",
+      "go_package": "com.acme.api",
       "java_package": "com.acme",
       "java_outer_classname": "AnyProto",
       "java_multiple_files": true,
       "objc_class_prefix": "GPB"
     },
-    "imports":  {
-      "service" : [
-         "google/api/annotations.proto",
-         "messages.proto",
-         "protobuf/empty.proto"
-      ],
-      "messages": [
-        "google/protobuf/any.proto",
-        "furo/meta.proto",
-        "furo/link.proto"
-      ]
-    }
+    "imports": [
+      "google/protobuf/empty.proto",
+      "google/protobuf/any.proto",
+      "google/type/money.proto",
+      "google/type/date.proto",
+      "furo/link.proto",
+      "furo/meta.proto",
+      "furo/reference.proto"
+    ]
   },
   "single": {
     "build": true
   },
   "protoc_I": [
     "/usr/local/include",
-    "../google",
-    "../furo",
     "$GOPATH/src",
-    "$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis"
+    "$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis",
+    "../furo",
+    "../google"
   ],
   "protoc_M": [
     "protobuf/any.proto=github.com/gogo/protobuf/types",
@@ -106,5 +124,6 @@ and a *default collection spec*
     "protobuf/any.proto=../protobuf"
   ]
 }
+
 
 ```
