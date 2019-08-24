@@ -4,8 +4,7 @@
     "project",
     "task",
     "tree",
-    "experimental",
-    "navigationnode"
+    "experiment"
   ],
   "excludes": [],
   "spec_dir": "./newspecs",

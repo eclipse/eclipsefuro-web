@@ -1,19 +1,22 @@
 #! /bin/bash
 
-if [ -z "$1" ]
+if [ -z "$2" ]
 then
   echo 'missing argument, package folder is required'
 exit 1
 fi
-
-PACKAGE=$1
-if [ ! -d build/protos/$PACKAGE ]
+PACKAGE=$2
+BUILDPATHPROTOS=$1
+if [ ! -d $BUILDPATHPROTOS ]
 then
-    echo "Package folder /build/protos/$PACKAGE DOES NOT exists."
+    echo "Package folder /$BUILDPATHPROTOS DOES NOT exists."
     exit 1
 fi
 # https://github.com/gogo/protobuf/issues/325
-cd build/protos/$PACKAGE
+echo $BUILDPATHPROTOS/$PACKAGE
+cd $BUILDPATHPROTOS/$PACKAGE
+
+
 mkdir -p ../../pb/$PACKAGE
 mkdir -p ../../java/$PACKAGE
 mkdir -p ../../swagger/$PACKAGE

@@ -41,7 +41,7 @@ sh(__dirname + "/prepare.sh", [config.spec_dir]);
 sh(__dirname + "/prepareBundled.sh", [config.spec_dir]);
 
 
-console.log("Preprocessing");
+console.log("****Preprocessing****");
 // Mix conf.import,...  with services_bundled
 let bundled_services = JSON.parse(fs.readFileSync('./__tmp/services_bundled.json'));
 let bundled_messages = JSON.parse(fs.readFileSync('./__tmp/types_bundled.json'));
@@ -85,30 +85,34 @@ sh(__dirname + "/generateSingleFiles.sh",[singlebuildpath, config.spec_dir, temp
 
 
 // Create proto files
-console.log("Generate Bundled Proto");
+console.log("****Generate Bundled Proto****");
 let bundledbuildpath = buildpath + "/bundled/";
 
 let bundledbuildpathprotos = bundledbuildpath + "protos/" + config.bundled.package_name + "/";
 
 sh("mkdir",["-p", bundledbuildpathprotos])
 sh("simple-generator", ["-d", "./__tmp/bundled.json", "-t", templateDirBundled + "/bundled.services.proto.tmpl", ">", bundledbuildpathprotos + config.bundled.service_name + ".proto"])
-console.log("Protoc Bundled");
+console.log("****Protoc Bundled****");
 
 // copy basetypes to bundled
 sh("cp",["-r", singlebuildpath + "/protos/furo", bundledbuildpath+ "/protos/furo"]);
 sh("cp",["-r", singlebuildpath + "/protos/google", bundledbuildpath+ "/protos/google"]);
+
+// bundled build
 sh(__dirname + "/protocBundled.sh", [bundledbuildpathprotos]);
 
+console.log("****Protoc Single****");
+config.packages.forEach((pkg)=>{
+console.log("Package " + pkg)
+  sh(__dirname + "/protocHelper.sh", [singlebuildpath + "protos",pkg]);
 
-
-
+});
 // erstellen des protoc commands
 
 
 // single build
 
 
-// bundled build
 
 
 // environment build
