@@ -3,7 +3,7 @@
   "type": "Date",
   "description": "Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",
   "__proto": {
-    "package": "google",
+    "package": "google.type",
     "imports": []
   },
   "fields": {

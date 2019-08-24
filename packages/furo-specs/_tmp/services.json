@@ -1,1 +1,600 @@
-{"bundlepackage":"default","services":[{"name":"ProjectService","description":"service specs for the project api","version":"0.0.1","lifecycle":{"deprecated":false,"info":"This version is still valid"},"__proto":{"package":"project","imports":["project.proto","project_entity.proto","project_collection.proto","protobuf/empty.proto"]},"services":{"List":{"description":"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.","rpc_name":"ListProjects","data":{"request":null,"response":"project.ProjectCollection"},"query":{"q":{"description":"Query term to search a project","type":"string","meta":{"label":"Search","hint":""},"__proto":{"type":"string"}}},"deeplink":{"description":"Describe_the_query_params_if_you_have","rel":"list","href":"/mockdata/projects/list.json","method":"GET"}},"Create":{"description":"Creates a new Project","rpc_name":"CreateProject","data":{"request":"project.Project","response":"project.ProjectEntity"},"query":{},"deeplink":{"rel":"create","href":"/mockdata/projects/create.json","method":"GET"}},"Get":{"description":"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project","rpc_name":"GetProject","data":{"request":null,"response":"project.ProjectEntity"},"query":{},"deeplink":{"rel":"self","href":"/mockdata/projects/{prj}/get.json","method":"GET"}},"Update":{"description":"Updates a Project, partial updates are supported","rpc_name":"UpdateProject","data":{"request":"project.Project","response":"project.ProjectEntity"},"query":{},"deeplink":{"rel":"update","href":"/mockdata/projects/{prj}/update.json","method":"GET"}},"Delete":{"description":"Delete a Project","rpc_name":"DeleteProject","data":{"request":"protobuf.Empty","response":"protobuf.Empty"},"query":{},"deeplink":{"rel":"delete","href":"/mockdata/projects/{prj}/delete.json","method":"GET"}}}},{"name":"PersonService","description":"service specs for the person api","version":"0.0.1","lifecycle":{"deprecated":false,"info":"This version is still valid"},"__proto":{"package":"person","imports":["person.proto","person_entity.proto","person_collection.proto","protobuf/empty.proto"]},"services":{"List":{"description":"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.","rpc_name":"ListPersons","data":{"request":null,"response":"person.PersonCollection"},"query":{"q":{"description":"Query term to search a person","type":"string","meta":{"label":"Search","hint":""},"__proto":{"type":"string"}}},"deeplink":{"description":"Describe_the_query_params_if_you_have","rel":"list","href":"/mockdata/persons/list.json","method":"GET"}},"Create":{"description":"Creates a new Person","rpc_name":"CreatePerson","data":{"request":"person.Person","response":"person.PersonEntity"},"query":{},"deeplink":{"rel":"create","href":"/mockdata/persons/create.json","method":"GET"}},"Get":{"description":"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person","rpc_name":"GetPerson","data":{"request":null,"response":"person.PersonEntity"},"query":{},"deeplink":{"rel":"self","href":"/mockdata/persons/{prs}/get.json","method":"GET"}},"Update":{"description":"Updates a Person, partial updates are supported","rpc_name":"UpdatePerson","data":{"request":"person.Person","response":"person.PersonEntity"},"query":{},"deeplink":{"rel":"update","href":"/mockdata/persons/{prs}/update.json","method":"GET"}},"Delete":{"description":"Delete a Person","rpc_name":"DeletePerson","data":{"request":"protobuf.Empty","response":"protobuf.Empty"},"query":{},"deeplink":{"rel":"delete","href":"/mockdata/persons/{prs}/delete.json","method":"GET"}}}},{"name":"TreeService","description":"service specs for the tree api","version":"0.0.1","lifecycle":{"deprecated":false,"info":"This version is still valid"},"__proto":{"package":"tree","imports":["tree.proto","tree_entity.proto","tree_collection.proto","protobuf/empty.proto"]},"services":{"List":{"description":"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.","rpc_name":"ListTrees","data":{"request":null,"response":"tree.TreeCollection"},"query":{"q":{"description":"Query term to search a tree","type":"string","meta":{"label":"Search","hint":""},"__proto":{"type":"string"}}},"deeplink":{"description":"Describe_the_query_params_if_you_have","rel":"list","href":"/mockdata/trees","method":"GET"}},"Create":{"description":"Creates a new Tree","rpc_name":"CreateTree","data":{"request":"tree.Tree","response":"tree.TreeEntity"},"query":{},"deeplink":{"rel":"create","href":"/mockdata/trees","method":"POST"}},"Get":{"description":"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree","rpc_name":"GetTree","data":{"request":null,"response":"tree.TreeEntity"},"query":{},"deeplink":{"rel":"self","href":"/mockdata/trees/{tre}/get.json","method":"GET"}},"Update":{"description":"Updates a Tree, partial updates are supported","rpc_name":"UpdateTree","data":{"request":"tree.Tree","response":"tree.TreeEntity"},"query":{},"deeplink":{"rel":"update","href":"/mockdata/trees/{tre}","method":"PATCH"}},"Delete":{"description":"Delete a Tree","rpc_name":"DeleteTree","data":{"request":"protobuf.Empty","response":"protobuf.Empty"},"query":{},"deeplink":{"rel":"delete","href":"/mockdata/trees/{tre}","method":"DELETE"}}}},{"name":"ProjectMembersService","description":"The members of a project","version":"1.0.0","lifecycle":{"deprecated":false,"info":"This version is still valid"},"__proto":{"package":"projectmember","imports":["person/person_entity.proto","person/person_collection.proto","furo/meta.proto","furo/link.proto","protobuf/empty.proto"]},"services":{"Unsubscribe":{"description":"Custom method to unsubscribe a member, complete PersonEntity is expected","data":{"request":"person.PersonEntity","response":"person.PersonCollection"},"query":{},"deeplink":{"description":"{prs} stands for person","rel":"list","href":"/api/projects/{prj}/members/{prs}:unsubscribe","method":"POST"}},"List":{"description":"Get a collection with PersonEntities","data":{"request":null,"response":"person.PersonCollection"},"query":{"q":{"description":"Query term to search a member","type":"string","meta":{"label":"Search","hint":""},"__proto":{"type":"string"}}},"deeplink":{"rel":"list","href":"/api/members","method":"GET"}}}},{"name":"ExperimentService","description":"service specs for the experiment api","version":"0.0.1","lifecycle":{"deprecated":false,"info":"This version is still valid"},"__proto":{"package":"experiment","imports":["experiment.proto","experiment_entity.proto","experiment_collection.proto","protobuf/empty.proto"]},"services":{"List":{"description":"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.","rpc_name":"ListExperiments","data":{"request":null,"response":"experiment.ExperimentCollection"},"query":{"q":{"description":"Query term to search a experiment","type":"string","meta":{"label":"Search","hint":""},"__proto":{"type":"string"}}},"deeplink":{"description":"Describe_the_query_params_if_you_have","rel":"list","href":"/mockdata/experiments","method":"GET"}},"Create":{"description":"Creates a new Experiment","rpc_name":"CreateExperiment","data":{"request":"experiment.Experiment","response":"experiment.ExperimentEntity"},"query":{},"deeplink":{"rel":"create","href":"/mockdata/experiments","method":"POST"}},"Get":{"description":"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment","rpc_name":"GetExperiment","data":{"request":null,"response":"experiment.ExperimentEntity"},"query":{},"deeplink":{"rel":"self","href":"/mockdata/experiments/{exp}/get.json","method":"GET"}},"Update":{"description":"Updates a Experiment, partial updates are supported","rpc_name":"UpdateExperiment","data":{"request":"experiment.Experiment","response":"experiment.ExperimentEntity"},"query":{},"deeplink":{"rel":"update","href":"/mockdata/experiments/{exp}","method":"PATCH"}},"Delete":{"description":"Delete a Experiment","rpc_name":"DeleteExperiment","data":{"request":"protobuf.Empty","response":"protobuf.Empty"},"query":{},"deeplink":{"rel":"delete","href":"/mockdata/experiments/{exp}","method":"DELETE"}}}},{"name":"TaskService","description":"service specs for the task api","version":"0.0.1","lifecycle":{"deprecated":false,"info":"This version is still valid"},"__proto":{"package":"task","imports":["task.proto","task_entity.proto","task_collection.proto","protobuf/empty.proto"]},"services":{"List":{"description":"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.","rpc_name":"ListTasks","data":{"request":null,"response":"task.TaskCollection"},"query":{"q":{"description":"Query term to search a task","type":"string","meta":{"label":"Search","hint":""},"__proto":{"type":"string"}}},"deeplink":{"description":"Describe_the_query_params_if_you_have","rel":"list","href":"/mockdata/tasks/list.json","method":"GET"}},"Create":{"description":"Creates a new Task","rpc_name":"CreateTask","data":{"request":"task.Task","response":"task.TaskEntity"},"query":{},"deeplink":{"rel":"create","href":"/mockdata/tasks/create.json","method":"GET"}},"Get":{"description":"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task","rpc_name":"GetTask","data":{"request":null,"response":"task.TaskEntity"},"query":{},"deeplink":{"rel":"self","href":"/mockdata/tasks/{tsk}/get.json","method":"GET"}},"Update":{"description":"Updates a Task, partial updates are supported","rpc_name":"UpdateTask","data":{"request":"task.Task","response":"task.TaskEntity"},"query":{},"deeplink":{"rel":"update","href":"/mockdata/tasks/{tsk}/update.json","method":"GET"}},"Delete":{"description":"Delete a Task","rpc_name":"DeleteTask","data":{"request":"protobuf.Empty","response":"protobuf.Empty"},"query":{},"deeplink":{"rel":"delete","href":"/mockdata/tasks/{tsk}/delete.json","method":"GET"}}}}],"imports":["project/project.proto","project/project_entity.proto","project/project_collection.proto","protobuf/empty.proto","person/person.proto","person/person_entity.proto","person/person_collection.proto","tree/tree.proto","tree/tree_entity.proto","tree/tree_collection.proto","furo/meta.proto","furo/link.proto","experiment/experiment.proto","experiment/experiment_entity.proto","experiment/experiment_collection.proto","task/task.proto","task/task_entity.proto","task/task_collection.proto"]}
+{
+  "bundlepackage": "default",
+  "services": [
+    {
+      "name": "ProjectService",
+      "description": "service specs for the project api",
+      "version": "0.0.1",
+      "lifecycle": {
+        "deprecated": false,
+        "info": "This version is still valid"
+      },
+      "__proto": {
+        "package": "project",
+        "imports": [
+          "project.proto",
+          "project_entity.proto",
+          "project_collection.proto",
+          "protobuf/empty.proto"
+        ]
+      },
+      "services": {
+        "List": {
+          "description": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
+          "rpc_name": "ListProjects",
+          "data": {
+            "request": null,
+            "response": "project.ProjectCollection"
+          },
+          "query": {
+            "q": {
+              "description": "Query term to search a project",
+              "type": "string",
+              "meta": {
+                "label": "Search",
+                "hint": ""
+              },
+              "__proto": {
+                "type": "string"
+              }
+            }
+          },
+          "deeplink": {
+            "description": "Describe_the_query_params_if_you_have",
+            "rel": "list",
+            "href": "/mockdata/projects/list.json",
+            "method": "GET"
+          }
+        },
+        "Create": {
+          "description": "Creates a new Project",
+          "rpc_name": "CreateProject",
+          "data": {
+            "request": "project.Project",
+            "response": "project.ProjectEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "create",
+            "href": "/mockdata/projects/create.json",
+            "method": "GET"
+          }
+        },
+        "Get": {
+          "description": "The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",
+          "rpc_name": "GetProject",
+          "data": {
+            "request": null,
+            "response": "project.ProjectEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "self",
+            "href": "/mockdata/projects/{prj}/get.json",
+            "method": "GET"
+          }
+        },
+        "Update": {
+          "description": "Updates a Project, partial updates are supported",
+          "rpc_name": "UpdateProject",
+          "data": {
+            "request": "project.Project",
+            "response": "project.ProjectEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "update",
+            "href": "/mockdata/projects/{prj}/update.json",
+            "method": "GET"
+          }
+        },
+        "Delete": {
+          "description": "Delete a Project",
+          "rpc_name": "DeleteProject",
+          "data": {
+            "request": "protobuf.Empty",
+            "response": "protobuf.Empty"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "delete",
+            "href": "/mockdata/projects/{prj}/delete.json",
+            "method": "GET"
+          }
+        }
+      }
+    },
+    {
+      "name": "PersonService",
+      "description": "service specs for the person api",
+      "version": "0.0.1",
+      "lifecycle": {
+        "deprecated": false,
+        "info": "This version is still valid"
+      },
+      "__proto": {
+        "package": "person",
+        "imports": [
+          "person.proto",
+          "person_entity.proto",
+          "person_collection.proto",
+          "protobuf/empty.proto"
+        ]
+      },
+      "services": {
+        "List": {
+          "description": "The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",
+          "rpc_name": "ListPersons",
+          "data": {
+            "request": null,
+            "response": "person.PersonCollection"
+          },
+          "query": {
+            "q": {
+              "description": "Query term to search a person",
+              "type": "string",
+              "meta": {
+                "label": "Search",
+                "hint": ""
+              },
+              "__proto": {
+                "type": "string"
+              }
+            }
+          },
+          "deeplink": {
+            "description": "Describe_the_query_params_if_you_have",
+            "rel": "list",
+            "href": "/mockdata/persons/list.json",
+            "method": "GET"
+          }
+        },
+        "Create": {
+          "description": "Creates a new Person",
+          "rpc_name": "CreatePerson",
+          "data": {
+            "request": "person.Person",
+            "response": "person.PersonEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "create",
+            "href": "/mockdata/persons/create.json",
+            "method": "GET"
+          }
+        },
+        "Get": {
+          "description": "The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",
+          "rpc_name": "GetPerson",
+          "data": {
+            "request": null,
+            "response": "person.PersonEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "self",
+            "href": "/mockdata/persons/{prs}/get.json",
+            "method": "GET"
+          }
+        },
+        "Update": {
+          "description": "Updates a Person, partial updates are supported",
+          "rpc_name": "UpdatePerson",
+          "data": {
+            "request": "person.Person",
+            "response": "person.PersonEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "update",
+            "href": "/mockdata/persons/{prs}/update.json",
+            "method": "GET"
+          }
+        },
+        "Delete": {
+          "description": "Delete a Person",
+          "rpc_name": "DeletePerson",
+          "data": {
+            "request": "protobuf.Empty",
+            "response": "protobuf.Empty"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "delete",
+            "href": "/mockdata/persons/{prs}/delete.json",
+            "method": "GET"
+          }
+        }
+      }
+    },
+    {
+      "name": "TreeService",
+      "description": "service specs for the tree api",
+      "version": "0.0.1",
+      "lifecycle": {
+        "deprecated": false,
+        "info": "This version is still valid"
+      },
+      "__proto": {
+        "package": "tree",
+        "imports": [
+          "tree.proto",
+          "tree_entity.proto",
+          "tree_collection.proto",
+          "protobuf/empty.proto"
+        ]
+      },
+      "services": {
+        "List": {
+          "description": "The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",
+          "rpc_name": "ListTrees",
+          "data": {
+            "request": null,
+            "response": "tree.TreeCollection"
+          },
+          "query": {
+            "q": {
+              "description": "Query term to search a tree",
+              "type": "string",
+              "meta": {
+                "label": "Search",
+                "hint": ""
+              },
+              "__proto": {
+                "type": "string"
+              }
+            }
+          },
+          "deeplink": {
+            "description": "Describe_the_query_params_if_you_have",
+            "rel": "list",
+            "href": "/mockdata/trees",
+            "method": "GET"
+          }
+        },
+        "Create": {
+          "description": "Creates a new Tree",
+          "rpc_name": "CreateTree",
+          "data": {
+            "request": "tree.Tree",
+            "response": "tree.TreeEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "create",
+            "href": "/mockdata/trees",
+            "method": "POST"
+          }
+        },
+        "Get": {
+          "description": "The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",
+          "rpc_name": "GetTree",
+          "data": {
+            "request": null,
+            "response": "tree.TreeEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "self",
+            "href": "/mockdata/trees/{tre}/get.json",
+            "method": "GET"
+          }
+        },
+        "Update": {
+          "description": "Updates a Tree, partial updates are supported",
+          "rpc_name": "UpdateTree",
+          "data": {
+            "request": "tree.Tree",
+            "response": "tree.TreeEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "update",
+            "href": "/mockdata/trees/{tre}",
+            "method": "PATCH"
+          }
+        },
+        "Delete": {
+          "description": "Delete a Tree",
+          "rpc_name": "DeleteTree",
+          "data": {
+            "request": "protobuf.Empty",
+            "response": "protobuf.Empty"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "delete",
+            "href": "/mockdata/trees/{tre}",
+            "method": "DELETE"
+          }
+        }
+      }
+    },
+    {
+      "name": "ProjectMembersService",
+      "description": "The members of a project",
+      "version": "1.0.0",
+      "lifecycle": {
+        "deprecated": false,
+        "info": "This version is still valid"
+      },
+      "__proto": {
+        "package": "projectmember",
+        "imports": [
+          "person/person_entity.proto",
+          "person/person_collection.proto",
+          "furo/meta.proto",
+          "furo/link.proto",
+          "protobuf/empty.proto"
+        ]
+      },
+      "services": {
+        "Unsubscribe": {
+          "description": "Custom method to unsubscribe a member, complete PersonEntity is expected",
+          "data": {
+            "request": "person.PersonEntity",
+            "response": "person.PersonCollection"
+          },
+          "query": {},
+          "deeplink": {
+            "description": "{prs} stands for person",
+            "rel": "list",
+            "href": "/api/projects/{prj}/members/{prs}:unsubscribe",
+            "method": "POST"
+          }
+        },
+        "List": {
+          "description": "Get a collection with PersonEntities",
+          "data": {
+            "request": null,
+            "response": "person.PersonCollection"
+          },
+          "query": {
+            "q": {
+              "description": "Query term to search a member",
+              "type": "string",
+              "meta": {
+                "label": "Search",
+                "hint": ""
+              },
+              "__proto": {
+                "type": "string"
+              }
+            }
+          },
+          "deeplink": {
+            "rel": "list",
+            "href": "/api/members",
+            "method": "GET"
+          }
+        }
+      }
+    },
+    {
+      "name": "ExperimentService",
+      "description": "service specs for the experiment api",
+      "version": "0.0.1",
+      "lifecycle": {
+        "deprecated": false,
+        "info": "This version is still valid"
+      },
+      "__proto": {
+        "package": "experiment",
+        "imports": [
+          "experiment.proto",
+          "experiment_entity.proto",
+          "experiment_collection.proto",
+          "protobuf/empty.proto"
+        ]
+      },
+      "services": {
+        "List": {
+          "description": "The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",
+          "rpc_name": "ListExperiments",
+          "data": {
+            "request": null,
+            "response": "experiment.ExperimentCollection"
+          },
+          "query": {
+            "q": {
+              "description": "Query term to search a experiment",
+              "type": "string",
+              "meta": {
+                "label": "Search",
+                "hint": ""
+              },
+              "__proto": {
+                "type": "string"
+              }
+            }
+          },
+          "deeplink": {
+            "description": "Describe_the_query_params_if_you_have",
+            "rel": "list",
+            "href": "/mockdata/experiments",
+            "method": "GET"
+          }
+        },
+        "Create": {
+          "description": "Creates a new Experiment",
+          "rpc_name": "CreateExperiment",
+          "data": {
+            "request": "experiment.Experiment",
+            "response": "experiment.ExperimentEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "create",
+            "href": "/mockdata/experiments",
+            "method": "POST"
+          }
+        },
+        "Get": {
+          "description": "The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",
+          "rpc_name": "GetExperiment",
+          "data": {
+            "request": null,
+            "response": "experiment.ExperimentEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "self",
+            "href": "/mockdata/experiments/{exp}/get.json",
+            "method": "GET"
+          }
+        },
+        "Update": {
+          "description": "Updates a Experiment, partial updates are supported",
+          "rpc_name": "UpdateExperiment",
+          "data": {
+            "request": "experiment.Experiment",
+            "response": "experiment.ExperimentEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "update",
+            "href": "/mockdata/experiments/{exp}",
+            "method": "PATCH"
+          }
+        },
+        "Delete": {
+          "description": "Delete a Experiment",
+          "rpc_name": "DeleteExperiment",
+          "data": {
+            "request": "protobuf.Empty",
+            "response": "protobuf.Empty"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "delete",
+            "href": "/mockdata/experiments/{exp}",
+            "method": "DELETE"
+          }
+        }
+      }
+    },
+    {
+      "name": "TaskService",
+      "description": "service specs for the task api",
+      "version": "0.0.1",
+      "lifecycle": {
+        "deprecated": false,
+        "info": "This version is still valid"
+      },
+      "__proto": {
+        "package": "task",
+        "imports": [
+          "task.proto",
+          "task_entity.proto",
+          "task_collection.proto",
+          "protobuf/empty.proto"
+        ]
+      },
+      "services": {
+        "List": {
+          "description": "The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",
+          "rpc_name": "ListTasks",
+          "data": {
+            "request": null,
+            "response": "task.TaskCollection"
+          },
+          "query": {
+            "q": {
+              "description": "Query term to search a task",
+              "type": "string",
+              "meta": {
+                "label": "Search",
+                "hint": ""
+              },
+              "__proto": {
+                "type": "string"
+              }
+            }
+          },
+          "deeplink": {
+            "description": "Describe_the_query_params_if_you_have",
+            "rel": "list",
+            "href": "/mockdata/tasks/list.json",
+            "method": "GET"
+          }
+        },
+        "Create": {
+          "description": "Creates a new Task",
+          "rpc_name": "CreateTask",
+          "data": {
+            "request": "task.Task",
+            "response": "task.TaskEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "create",
+            "href": "/mockdata/tasks/create.json",
+            "method": "GET"
+          }
+        },
+        "Get": {
+          "description": "The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",
+          "rpc_name": "GetTask",
+          "data": {
+            "request": null,
+            "response": "task.TaskEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "self",
+            "href": "/mockdata/tasks/{tsk}/get.json",
+            "method": "GET"
+          }
+        },
+        "Update": {
+          "description": "Updates a Task, partial updates are supported",
+          "rpc_name": "UpdateTask",
+          "data": {
+            "request": "task.Task",
+            "response": "task.TaskEntity"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "update",
+            "href": "/mockdata/tasks/{tsk}/update.json",
+            "method": "GET"
+          }
+        },
+        "Delete": {
+          "description": "Delete a Task",
+          "rpc_name": "DeleteTask",
+          "data": {
+            "request": "protobuf.Empty",
+            "response": "protobuf.Empty"
+          },
+          "query": {},
+          "deeplink": {
+            "rel": "delete",
+            "href": "/mockdata/tasks/{tsk}/delete.json",
+            "method": "GET"
+          }
+        }
+      }
+    }
+  ],
+  "imports": [
+    "project/project.proto",
+    "project/project_entity.proto",
+    "project/project_collection.proto",
+    "protobuf/empty.proto",
+    "person/person.proto",
+    "person/person_entity.proto",
+    "person/person_collection.proto",
+    "tree/tree.proto",
+    "tree/tree_entity.proto",
+    "tree/tree_collection.proto",
+    "furo/meta.proto",
+    "furo/link.proto",
+    "experiment/experiment.proto",
+    "experiment/experiment_entity.proto",
+    "experiment/experiment_collection.proto",
+    "task/task.proto",
+    "task/task_entity.proto",
+    "task/task_collection.proto"
+  ]
+}

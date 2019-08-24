@@ -4,12 +4,12 @@
 syntax = "proto3";
 package bundled;
 
-{{range $key, $option := .__proto.options}}
+{{range $key, $option := .config.proto_options}}
 option {{$key}} = {{if  (typeOf $option | eq "bool")}}{{$option}};{{else}}"{{$option}}";{{end}}{{end}}
 
 import "google/api/annotations.proto";
-import "google/protobuf/empty.proto";
-
+{{range $import := .config.imports}}
+import "{{$import}}";{{end}}
 
 service dfddf {
 {{range $restlet := .services}}
@@ -61,10 +61,6 @@ message {{$key}}{{$serviceName}}Request { {{ $params := regexFindAll  "{[a-zA-Z]
 }
 
 {{end}}{{end}}
-
-message Empty {
-
-}
 
 {{range $objType := .messages}}
 // {{$objType.description}}

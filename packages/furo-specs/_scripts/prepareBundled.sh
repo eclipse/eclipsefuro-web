@@ -13,7 +13,7 @@ rm $DIR/../__tmp/types_bundled.json
 echo '{"types":[' >> $DIR/../__tmp/types_bundled.json
 
 for t in `find $SPECDIR -name '*.type.spec'`; do (cat $t; echo ',') >> $DIR/../__tmp/tmptypes.json; done
-for t in `find $BASETYPEDIR -name '*.type.spec'`; do (cat $t; echo ',') >> $DIR/../__tmp/tmptypes.json; done
+#for t in `find $BASETYPEDIR -name '*.type.spec'`; do (cat $t; echo ',') >> $DIR/../__tmp/tmptypes.json; done
 cat $DIR/../__tmp/tmptypes.json | sed '$ s/.$//' >> $DIR/../__tmp/types_bundled.json
 rm $DIR/../__tmp/tmptypes.json
 # close Array

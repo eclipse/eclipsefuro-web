@@ -3,7 +3,7 @@
   "type": "Money",
   "description": "Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",
   "__proto": {
-    "package": "google",
+    "package": "google.type",
     "imports": []
   },
   "fields": {
