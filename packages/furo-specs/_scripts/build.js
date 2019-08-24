@@ -15,6 +15,10 @@ if (fs.existsSync('./furo.spec.conf.json')) {
   process.exit(1);
 }
 
+const templateDirBundled = config.custom_template_dir || __dirname + "/templates/bundled/";
+const templateDirSingle = config.custom_template_dir || __dirname + "/templates/single/";
+
+
 function sh(command, arguments) {
   execSync(command + " " + arguments.join(" "), {stdio: 'inherit'});
 }
@@ -30,6 +34,7 @@ if (buildpath.search(cwd) === -1) {
 }
 // clean the build folder
 sh("rm -rf", [buildpath + "/*"]);
+sh("mkdir -p", [buildpath]);
 
 // preprocess
 sh(__dirname + "/prepare.sh", [config.spec_dir]);
@@ -50,10 +55,10 @@ for (let srv in bundle.services) {
   for (let m in bundle.services[srv].services) {
     let method = bundle.services[srv].services[m];
     if (method.data.request) {
-      method.data.request = method.data.request.replace(/^(?!furo|google|protobuf)[^\.]*\.(.*)/gm, "$1");
+      method.data.request = method.data.request.replace(/^(?!google|protobuf)[^\.]*\.(.*)/gm, "$1");
     }
     if (method.data.response) {
-      method.data.response = method.data.response.replace(/^(?!furo|google|protobuf)[^\.]*\.(.*)/gm, "$1");
+      method.data.response = method.data.response.replace(/^(?!google|protobuf)[^\.]*\.(.*)/gm, "$1");
     }
   }
 }
@@ -61,19 +66,28 @@ for (let srv in bundle.services) {
 for (let t in bundle.messages) {
   for (let f in bundle.messages[t].fields) {
     let field = bundle.messages[t].fields[f];
-    field.type = field.type.replace(/^(?!furo|google|protobuf)[^\.]*\.(.*)/gmi, "$1");
+    field.type = field.type.replace(/^(?!google|protobuf)[^\.]*\.(.*)/gmi, "$1");
     if(field.__proto && field.__proto.type){
-      field.__proto.type= field.__proto.type.replace(/^(?!furo|google|protobuf)[^\.]*\.(.*)/gmi, "$1");
+      field.__proto.type= field.__proto.type.replace(/^(?!google|protobuf)[^\.]*\.(.*)/gmi, "$1");
+    }
+    if(field.__proto && field.__proto.map_to){
+      field.__proto.map_to= field.__proto.map_to.replace(/^(?!google|protobuf)[^\.]*\.(.*)/gmi, "$1");
     }
   }
 }
+
+fs.writeFileSync("./__tmp/bundled.json", JSON.stringify(bundle));
 // EOF remove package names on messages for bundled messages and types
 
-// save
-fs.writeFileSync("./__tmp/bundled.json", JSON.stringify(bundle));
-
-
 // Create proto files
+let bundledbuildpath = buildpath + "/bundled/";
+fs.mkdirSync(bundledbuildpath);
+
+sh("simple-generator", ["-d", "./__tmp/bundled.json", "-t", templateDirBundled + "bundled.services.proto.tmpl", ">", bundledbuildpath + config.bundled.service_name + ".proto"])
+
+let singlebuildpath = buildpath + "/packages/";
+fs.mkdirSync(singlebuildpath);
+
 
 
 // erstellen des protoc commands

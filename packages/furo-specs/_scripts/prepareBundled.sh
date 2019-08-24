@@ -6,13 +6,14 @@ SPECDIR=$1
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 mkdir -p $DIR/../__tmp
+BASETYPEDIR="$DIR/../_baseTypes"
 
 rm $DIR/../__tmp/types_bundled.json
 # open Array
 echo '{"types":[' >> $DIR/../__tmp/types_bundled.json
 
 for t in `find $SPECDIR -name '*.type.spec'`; do (cat $t; echo ',') >> $DIR/../__tmp/tmptypes.json; done
-
+for t in `find $BASETYPEDIR -name '*.type.spec'`; do (cat $t; echo ',') >> $DIR/../__tmp/tmptypes.json; done
 cat $DIR/../__tmp/tmptypes.json | sed '$ s/.$//' >> $DIR/../__tmp/types_bundled.json
 rm $DIR/../__tmp/tmptypes.json
 # close Array
