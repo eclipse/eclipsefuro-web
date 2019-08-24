@@ -4,48 +4,48 @@
     "project",
     "task",
     "tree",
-    "experimental"
+    "experiment"
   ],
-  "spec_dir": "specs",
-  "custom_tepmplate_dir": "./_scripts/templates/",
-  "swagger": true,
+  "excludes": [],
+  "spec_dir": "./specs",
+  "custom_tepmplate_dir": "./_scripts/templates",
+  "swagger": false,
   "grpc_gateway": true,
   "java": true,
   "build_output_dir": "./build",
+  "furo_env_name": "data_environment.js",
+  "default_type_for_identities": "string",
   "bundled": {
     "build": true,
     "package_name": "com.acme.api",
     "service_name": "BundledService",
     "proto_options": {
       "csharp_namespace": "Google.Protobuf.WellKnownTypes",
-      "go_package": "github.com/golang/protobuf/ptypes/any",
+      "go_package": "com.acme.api",
       "java_package": "com.acme",
       "java_outer_classname": "AnyProto",
       "java_multiple_files": true,
       "objc_class_prefix": "GPB"
     },
-    "bundled_imports":  {
-      "service" : [
-         "google/api/annotations.proto",
-         "messages.proto",
-         "protobuf/empty.proto"
-      ],
-      "messages": [
-        "google/protobuf/any.proto",
-        "furo/meta.proto",
-        "furo/link.proto"
-      ]
-    }
+    "imports": [
+      "google/protobuf/empty.proto",
+      "google/protobuf/any.proto",
+      "google/type/money.proto",
+      "google/type/date.proto",
+      "furo/link.proto",
+      "furo/meta.proto",
+      "furo/reference.proto"
+    ]
   },
   "single": {
     "build": true
   },
   "protoc_I": [
     "/usr/local/include",
-    "../google",
-    "../furo",
     "$GOPATH/src",
-    "$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis"
+    "$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis",
+    "../furo",
+    "../google"
   ],
   "protoc_M": [
     "protobuf/any.proto=github.com/gogo/protobuf/types",

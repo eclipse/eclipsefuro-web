@@ -39,7 +39,7 @@ func (m *Tree) Reset()         { *m = Tree{} }
 func (m *Tree) String() string { return proto.CompactTextString(m) }
 func (*Tree) ProtoMessage()    {}
 func (*Tree) Descriptor() ([]byte, []int) {
-	return fileDescriptor_tree_772d5964e7c1a1cb, []int{0}
+	return fileDescriptor_tree_110ddb9b48c1436a, []int{0}
 }
 func (m *Tree) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -474,9 +474,9 @@ var (
 	ErrIntOverflowTree   = fmt.Errorf("proto: integer overflow")
 )
 
-func init() { proto.RegisterFile("tree.proto", fileDescriptor_tree_772d5964e7c1a1cb) }
+func init() { proto.RegisterFile("tree.proto", fileDescriptor_tree_110ddb9b48c1436a) }
 
-var fileDescriptor_tree_772d5964e7c1a1cb = []byte{
+var fileDescriptor_tree_110ddb9b48c1436a = []byte{
 	// 173 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2a, 0x29, 0x4a, 0x4d,
 	0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x01, 0xb1, 0xa5, 0x44, 0xf2, 0x12, 0xcb, 0x32,
