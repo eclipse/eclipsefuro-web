@@ -7,7 +7,13 @@ import  "@furo/layout/furo-icon";
 /**
  * `furo-button` displays a button.
  *
+ *  ```html
+ *  <!-- Label can be set with attribute -->
+ *  <furo-button label="Label"></furo-button>
  *
+ *  <!-- Label can be set inside tag -->
+ *  <furo-button>Label</furo-button>
+ *  ```
  * <sample-furo-button></sample-furo-button>
  *
  *
