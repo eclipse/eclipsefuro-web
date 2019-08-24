@@ -22,7 +22,7 @@ class FuroButton extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.label = "label not set";
+    this.label = this.innerText;
     this.disabled = false;
     this.danger = false;
   }

@@ -86,6 +86,16 @@ class FuroCard extends FBP(LitElement) {
             padding: var(--furo-card-padding, var(--spacing-s, 16px));
         }
 
+        .content ::slotted(h1){
+        
+            font-size: 24px;
+            line-height: 24px;
+            letter-spacing: 0;
+            margin: 0;
+            font-weight: normal;
+            margin-bottom: 4px;
+        
+        }
         .action {
             position: absolute;
             bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
@@ -125,6 +135,7 @@ class FuroCard extends FBP(LitElement) {
         .media ::slotted(*) {
             border-top-right-radius: 4px;
             border-top-left-radius: 4px;
+            width: 100%;
         }
 
     `

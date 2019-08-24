@@ -68,7 +68,7 @@ class SampleFuroButton extends FBP(LitElement) {
                 <furo-button autofocus label="default" ƒ-focus="--primaryraisedClicked" @-click="--defautlClicked"></furo-button>
               </td>
               <td>
-                <furo-button disabled label="raised"></furo-button>
+                <furo-button disabled>label in tag</furo-button>
               </td>
               <td>
                 <furo-button raised icon="fingerprint" label="other" ƒ-focus="--defautlClicked" @-click="--raisedClicked"></furo-button>
