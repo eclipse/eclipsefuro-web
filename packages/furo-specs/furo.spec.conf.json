@@ -13,6 +13,7 @@
   "grpc_gateway": true,
   "java": true,
   "build_output_dir": "./build",
+  "furo_env_name": "data_environment.js",
   "default_type_for_identities": "string",
   "bundled": {
     "build": true,

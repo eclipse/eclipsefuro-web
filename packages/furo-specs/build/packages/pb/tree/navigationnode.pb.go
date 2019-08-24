@@ -54,7 +54,7 @@ func (m *Navigationnode) Reset()         { *m = Navigationnode{} }
 func (m *Navigationnode) String() string { return proto.CompactTextString(m) }
 func (*Navigationnode) ProtoMessage()    {}
 func (*Navigationnode) Descriptor() ([]byte, []int) {
-	return fileDescriptor_navigationnode_fd6ac1601a6ba30f, []int{0}
+	return fileDescriptor_navigationnode_e3141d877a9636d2, []int{0}
 }
 func (m *Navigationnode) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -810,10 +810,10 @@ var (
 )
 
 func init() {
-	proto.RegisterFile("navigationnode.proto", fileDescriptor_navigationnode_fd6ac1601a6ba30f)
+	proto.RegisterFile("navigationnode.proto", fileDescriptor_navigationnode_e3141d877a9636d2)
 }
 
-var fileDescriptor_navigationnode_fd6ac1601a6ba30f = []byte{
+var fileDescriptor_navigationnode_e3141d877a9636d2 = []byte{
 	// 303 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x90, 0x41, 0x4b, 0xc3, 0x30,
 	0x18, 0x86, 0x49, 0xd7, 0xcd, 0xee, 0xeb, 0x9c, 0x10, 0x76, 0x08, 0x0a, 0xa5, 0x0a, 0x42, 0x4f,

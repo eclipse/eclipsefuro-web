@@ -38,7 +38,7 @@ func (m *ExperimentEntity) Reset()         { *m = ExperimentEntity{} }
 func (m *ExperimentEntity) String() string { return proto.CompactTextString(m) }
 func (*ExperimentEntity) ProtoMessage()    {}
 func (*ExperimentEntity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_experiment_entity_f4b2f2b23c2472af, []int{0}
+	return fileDescriptor_experiment_entity_65726a9ebc973b88, []int{0}
 }
 func (m *ExperimentEntity) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -446,10 +446,10 @@ var (
 )
 
 func init() {
-	proto.RegisterFile("experiment_entity.proto", fileDescriptor_experiment_entity_f4b2f2b23c2472af)
+	proto.RegisterFile("experiment_entity.proto", fileDescriptor_experiment_entity_65726a9ebc973b88)
 }
 
-var fileDescriptor_experiment_entity_f4b2f2b23c2472af = []byte{
+var fileDescriptor_experiment_entity_65726a9ebc973b88 = []byte{
 	// 178 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x4f, 0xad, 0x28, 0x48,
 	0x2d, 0xca, 0xcc, 0x4d, 0xcd, 0x2b, 0x89, 0x4f, 0xcd, 0x2b, 0xc9, 0x2c, 0xa9, 0xd4, 0x2b, 0x28,

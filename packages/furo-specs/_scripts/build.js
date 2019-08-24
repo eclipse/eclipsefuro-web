@@ -92,7 +92,7 @@ let bundledbuildpath = buildpath + "/bundled/";
 let bundledbuildpathprotos = bundledbuildpath + "protos/" + config.bundled.package_name + "/";
 
 sh("mkdir",["-p", bundledbuildpathprotos])
-sh("simple-generator", ["-d", "./__tmp/bundled.json", "-t", templateDirBundled + "/bundled.services.proto.tmpl", ">", bundledbuildpathprotos + config.bundled.service_name + ".proto"])
+sh("simple-generator", ["-d", "./__tmp/bundled.json", "-t", templateDirBundled + "/bundled.services.proto.tmpl", ">", bundledbuildpathprotos + config.bundled.package_name + ".proto"])
 console.log("****Protoc Bundled****");
 
 // copy basetypes to bundled
@@ -114,16 +114,29 @@ console.log("Package " + pkg);
   sh("./__tmp/protocHelper.sh", [singlebuildpath + "protos",pkg]);
 
 });
-// erstellen des protoc commands
-
-
-// single build
-
-
-
 
 // environment build
+console.log("****furo environment build****");
+let services = JSON.parse(fs.readFileSync('./__tmp/services.json'));
+let types = JSON.parse(fs.readFileSync('./__tmp/types.json'));
+let bundledImport = new Set();
+let apiSpecs = "";
 
+// add the services
+let s = {};
+services.services.forEach((service) => {
+  s[service.name] = service;
+});
+apiSpecs = `export const Services =` + JSON.stringify(s);
+
+let t = {};
+types.types.forEach((type) => {
+  t[type.__proto.package + "." + type.type] = type
+});
+apiSpecs += `\nexport const Types =` + JSON.stringify(t);
+fs.writeFileSync(buildpath+ "/" + config.furo_env_name , apiSpecs);
+
+console.log("env file created");
 
 // gateway build
 
