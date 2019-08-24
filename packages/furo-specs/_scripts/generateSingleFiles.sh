@@ -3,8 +3,10 @@
 BUILDPATH="$1protos"
 SPECDIR=$2
 TEMPLATEDIR="$3"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 echo "make the base types"
-for t in `find ./_baseTypes -name '*.type.spec'`;
+for t in `find $DIR/../_baseTypes -name '*.type.spec'`;
 do
  protofile="`basename -s .type\.spec $t`.proto"
 

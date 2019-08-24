@@ -8,7 +8,7 @@ SPECDIR=$1
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 mkdir -p ./__tmp
 
-BASETYPEDIR="./_baseTypes"
+BASETYPEDIR="$DIR/../_baseTypes"
 
 rm ./__tmp/types.json
 # open Array
