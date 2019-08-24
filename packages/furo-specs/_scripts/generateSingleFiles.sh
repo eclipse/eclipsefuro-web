@@ -31,7 +31,7 @@ done
 
 
 echo "make the specs"
-for t in `find ./newspecs -name '*.type.spec'`;
+for t in `find $SPECDIR -name '*.type.spec'`;
 do
  protofile="`basename -s .type\.spec $t`.proto"
 
@@ -58,7 +58,7 @@ done
 
 
 echo "make the services"
-for t in `find ./newspecs -name '*.service.spec'`;
+for t in `find $SPECDIR -name '*.service.spec'`;
 do
 
  FOLDER=$(cat $t \

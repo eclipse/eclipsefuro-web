@@ -7,12 +7,12 @@
     "experiment"
   ],
   "excludes": [],
-  "spec_dir": "./newspecs",
+  "spec_dir": "./specs",
   "__custom_tepmplate_dir": "./_scripts/templates",
   "swagger": true,
   "grpc_gateway": true,
   "java": true,
-  "build_output_dir": "./newbuild",
+  "build_output_dir": "./build",
   "default_type_for_identities": "string",
   "bundled": {
     "build": true,
@@ -20,7 +20,7 @@
     "service_name": "BundledService",
     "proto_options": {
       "csharp_namespace": "Google.Protobuf.WellKnownTypes",
-      "go_package": "github.com/golang/protobuf/ptypes/any",
+      "go_package": "com.acme.api",
       "java_package": "com.acme",
       "java_outer_classname": "AnyProto",
       "java_multiple_files": true,

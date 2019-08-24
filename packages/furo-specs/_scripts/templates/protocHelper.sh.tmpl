@@ -25,11 +25,8 @@ protoc --proto_path=../ \
 -I/usr/local/include \
 -I../google \
 -I../furo \
--I../project \
--I../task \
--I../tree \
--I../person \
--I../experiment \
+{{- range $pkg := .packages}}
+-I../{{$pkg}} \{{end}}
 -I$GOPATH/src \
 -I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
 --gogofast_out=.\
@@ -44,11 +41,8 @@ Mgoogle/date.proto=../google,\
 Mgoogle/money.proto=../google,\
 Mprotobuf/empty.proto=../protobuf,\
 Mprotobuf/any.proto=../protobuf,\
-Mperson/person.proto=../person,\
-Mtask/task.proto=../task,\
-Mtree/tree.proto=../tree,\
-Mproject/project.proto=../project,\
-Mexperiment/experiment.proto=../experiment, \
+{{- range $pkg := .packages}}
+M{{$pkg}}/{{$pkg}}.proto=../{{$pkg}},\{{end}}
 plugins=grpc:../../pb/$PACKAGE \
 --swagger_out=logtostderr=true:../../swagger/$PACKAGE \
 --java_out=../../java/ \

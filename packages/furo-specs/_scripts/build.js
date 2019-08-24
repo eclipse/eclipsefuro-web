@@ -17,6 +17,7 @@ if (fs.existsSync('./furo.spec.conf.json')) {
 
 const templateDirBundled = config.custom_template_dir || __dirname + "/templates/bundled";
 const templateDirSingle = config.custom_template_dir || __dirname + "/templates/single";
+const templateDirBase = config.custom_template_dir || __dirname + "/templates";
 
 
 function sh(command, arguments) {
@@ -102,9 +103,15 @@ sh("cp",["-r", singlebuildpath + "/protos/google", bundledbuildpath+ "/protos/go
 sh(__dirname + "/protocBundled.sh", [bundledbuildpathprotos]);
 
 console.log("****Protoc Single****");
+// build the command
+sh("simple-generator", ["-d ./furo.spec.conf.json", "-t", templateDirBase + "/protocHelper.sh.tmpl", ">" ,"./__tmp/protocHelper.sh"]);
+// make it executable
+sh("chmod",["755","./__tmp/protocHelper.sh"]);
+
 config.packages.forEach((pkg)=>{
-console.log("Package " + pkg)
-  sh(__dirname + "/protocHelper.sh", [singlebuildpath + "protos",pkg]);
+console.log("Package " + pkg);
+  //sh(__dirname + "/_protocHelper.sh", [singlebuildpath + "protos",pkg]);
+  sh("./__tmp/protocHelper.sh", [singlebuildpath + "protos",pkg]);
 
 });
 // erstellen des protoc commands
