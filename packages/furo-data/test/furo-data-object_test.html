@@ -56,7 +56,7 @@
       });
 
       let handler = (e)=>{
-        assert.equal(element.data.cost_limit._spec.type,"google.Money");
+        assert.equal(element.data.cost_limit._spec.type,"google.type.Money");
         done();
       };
       element.addEventListener("data-injected",handler);

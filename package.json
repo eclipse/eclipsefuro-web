@@ -2,7 +2,6 @@
   "name": "furo-base-components",
   "description": "Collection of furo base components",
   "devDependencies": {
-    "@google-web-components/google-youtube": "^3.0.1",
     "@polymer/polymer": "^3.3.0",
     "babel-traverse": "^6.24.1",
     "lerna": "^3.13.1",

@@ -11,18 +11,7 @@
   "license": "MIT",
   "main": "furo-catalog.js",
   "devDependencies": {
-    "@polymer/test-fixture": "^4.0.2",
-    "@webcomponents/webcomponentsjs": "^2.0.0",
-    "axe-core": "^3.2.2",
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4",
-    "polymer-cli": "^1.9.10",
-    "pwa-helpers": "^0.9.1",
-    "sinon": "^7.3.2",
-    "wct-istanbub": "^0.2.9",
-    "wct-mocha": "^1.0.1",
-    "wct-test-reporter": "0.0.1",
-    "web-component-tester": "6.9.2"
+
   },
   "publishConfig": {
     "access": "public"

@@ -5,6 +5,7 @@
   "main": "furo-catalog.js",
   "dependencies": {
     "@furo/fbp": "^4.26.2",
+    "@furo/data": "^0.50.2",
     "@furo/framework": "^0.10.2",
     "lit-element": "^2.2.1"
   },
