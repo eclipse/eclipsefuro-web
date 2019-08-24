@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-button` displays a button.\n\n\n<sample-furo-button></sample-furo-button>",
+      "description": "`furo-button` displays a button.\n\n ```html\n <!-- Label can be set with attribute -->\n <furo-button label=\"Label\"></furo-button>\n\n <!-- Label can be set inside tag -->\n <furo-button>Label</furo-button>\n ```\n<sample-furo-button></sample-furo-button>",
       "summary": "a button",
       "path": "packages/furo-input/furo-button.js",
       "properties": [
@@ -10,27 +10,6 @@
           "name": "label",
           "type": "string | null | undefined",
           "description": "Beschriftung des buttons",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 61,
-              "column": 6
-            },
-            "end": {
-              "line": 63,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "icon",
-          "type": "string | null | undefined",
-          "description": "Optional icon",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -49,9 +28,9 @@
           }
         },
         {
-          "name": "danger",
-          "type": "boolean | null | undefined",
-          "description": "Set danger to true if it is dangerous to press this button",
+          "name": "icon",
+          "type": "string | null | undefined",
+          "description": "Optional icon",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -59,7 +38,28 @@
               "column": 6
             },
             "end": {
-              "line": 76,
+              "line": 75,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "danger",
+          "type": "boolean | null | undefined",
+          "description": "Set danger to true if it is dangerous to press this button",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 79,
+              "column": 6
+            },
+            "end": {
+              "line": 82,
               "column": 7
             }
           },
@@ -76,11 +76,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 86,
               "column": 6
             },
             "end": {
-              "line": 83,
+              "line": 89,
               "column": 7
             }
           },
@@ -97,11 +97,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 93,
               "column": 6
             },
             "end": {
-              "line": 90,
+              "line": 96,
               "column": 7
             }
           },
@@ -115,27 +115,6 @@
           "name": "raised",
           "type": "boolean | null | undefined",
           "description": "Give the button a \"box\" with shadow",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 95,
-              "column": 6
-            },
-            "end": {
-              "line": 97,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "unelevated",
-          "type": "boolean | null | undefined",
-          "description": "Give the button a \"box\"",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -154,17 +133,17 @@
           }
         },
         {
-          "name": "outline",
+          "name": "unelevated",
           "type": "boolean | null | undefined",
-          "description": "Give the button a \"border\"",
+          "description": "Give the button a \"box\"",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 107,
               "column": 6
             },
             "end": {
-              "line": 110,
+              "line": 109,
               "column": 7
             }
           },
@@ -175,9 +154,9 @@
           }
         },
         {
-          "name": "primary",
+          "name": "outline",
           "type": "boolean | null | undefined",
-          "description": "Sets the color to the primary color (--primary)",
+          "description": "Give the button a \"border\"",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -196,9 +175,9 @@
           }
         },
         {
-          "name": "secondary",
+          "name": "primary",
           "type": "boolean | null | undefined",
-          "description": "Sets the color to the secondary color (--secondary)",
+          "description": "Sets the color to the primary color (--primary)",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -217,9 +196,9 @@
           }
         },
         {
-          "name": "accent",
+          "name": "secondary",
           "type": "boolean | null | undefined",
-          "description": "Sets the color to the accent color (--accent)",
+          "description": "Sets the color to the secondary color (--secondary)",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -228,6 +207,27 @@
             },
             "end": {
               "line": 128,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "accent",
+          "type": "boolean | null | undefined",
+          "description": "Sets the color to the accent color (--accent)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 132,
+              "column": 6
+            },
+            "end": {
+              "line": 134,
               "column": 7
             }
           },
@@ -659,11 +659,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 33,
+              "line": 39,
               "column": 2
             },
             "end": {
-              "line": 35,
+              "line": 41,
               "column": 3
             }
           },
@@ -683,11 +683,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 47,
               "column": 2
             },
             "end": {
-              "line": 43,
+              "line": 49,
               "column": 3
             }
           },
@@ -703,11 +703,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 48,
+              "line": 54,
               "column": 2
             },
             "end": {
-              "line": 50,
+              "line": 56,
               "column": 3
             }
           },
@@ -723,11 +723,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 354,
+              "line": 360,
               "column": 2
             },
             "end": {
-              "line": 361,
+              "line": 367,
               "column": 3
             }
           },
@@ -756,11 +756,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 20,
+          "line": 26,
           "column": 0
         },
         "end": {
-          "line": 362,
+          "line": 368,
           "column": 1
         }
       },
@@ -771,22 +771,6 @@
         {
           "name": "label",
           "description": "Beschriftung des buttons",
-          "sourceRange": {
-            "start": {
-              "line": 61,
-              "column": 6
-            },
-            "end": {
-              "line": 63,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "icon",
-          "description": "Optional icon",
           "sourceRange": {
             "start": {
               "line": 67,
@@ -801,15 +785,31 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "danger",
-          "description": "Set danger to true if it is dangerous to press this button",
+          "name": "icon",
+          "description": "Optional icon",
           "sourceRange": {
             "start": {
               "line": 73,
               "column": 6
             },
             "end": {
-              "line": 76,
+              "line": 75,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "danger",
+          "description": "Set danger to true if it is dangerous to press this button",
+          "sourceRange": {
+            "start": {
+              "line": 79,
+              "column": 6
+            },
+            "end": {
+              "line": 82,
               "column": 7
             }
           },
@@ -821,11 +821,11 @@
           "description": "Set disabled to disable the button",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 86,
               "column": 6
             },
             "end": {
-              "line": 83,
+              "line": 89,
               "column": 7
             }
           },
@@ -837,11 +837,11 @@
           "description": "Focus the element automatically",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 93,
               "column": 6
             },
             "end": {
-              "line": 90,
+              "line": 96,
               "column": 7
             }
           },
@@ -851,22 +851,6 @@
         {
           "name": "raised",
           "description": "Give the button a \"box\" with shadow",
-          "sourceRange": {
-            "start": {
-              "line": 95,
-              "column": 6
-            },
-            "end": {
-              "line": 97,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "unelevated",
-          "description": "Give the button a \"box\"",
           "sourceRange": {
             "start": {
               "line": 101,
@@ -881,15 +865,15 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "outline",
-          "description": "Give the button a \"border\"",
+          "name": "unelevated",
+          "description": "Give the button a \"box\"",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 107,
               "column": 6
             },
             "end": {
-              "line": 110,
+              "line": 109,
               "column": 7
             }
           },
@@ -897,8 +881,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "primary",
-          "description": "Sets the color to the primary color (--primary)",
+          "name": "outline",
+          "description": "Give the button a \"border\"",
           "sourceRange": {
             "start": {
               "line": 114,
@@ -913,8 +897,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "secondary",
-          "description": "Sets the color to the secondary color (--secondary)",
+          "name": "primary",
+          "description": "Sets the color to the primary color (--primary)",
           "sourceRange": {
             "start": {
               "line": 120,
@@ -929,8 +913,8 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "accent",
-          "description": "Sets the color to the accent color (--accent)",
+          "name": "secondary",
+          "description": "Sets the color to the secondary color (--secondary)",
           "sourceRange": {
             "start": {
               "line": 126,
@@ -938,6 +922,22 @@
             },
             "end": {
               "line": 128,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "accent",
+          "description": "Sets the color to the accent color (--accent)",
+          "sourceRange": {
+            "start": {
+              "line": 132,
+              "column": 6
+            },
+            "end": {
+              "line": 134,
               "column": 7
             }
           },

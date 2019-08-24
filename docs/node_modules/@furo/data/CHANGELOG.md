@@ -417,7 +417,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* deep-link without qp (for root elements,...) ([d92d599](https://github.com/veith/FuroBaseComponents/commit/d92d599))
+* furo-deep-link without qp (for root elements,...) ([d92d599](https://github.com/veith/FuroBaseComponents/commit/d92d599))
 
 
 
@@ -433,7 +433,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* deep-link usable without attributes and full test coverage ([37388c0](https://github.com/veith/FuroBaseComponents/commit/37388c0))
+* furo-deep-link usable without attributes and full test coverage ([37388c0](https://github.com/veith/FuroBaseComponents/commit/37388c0))
 
 
 
@@ -1002,7 +1002,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* deep-link defensive copy ([304914f](https://github.com/veith/FuroBaseComponents/commit/304914f))
+* furo-deep-link defensive copy ([304914f](https://github.com/veith/FuroBaseComponents/commit/304914f))
 
 
 ### Features
@@ -1020,9 +1020,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * deep link Api Prefix from environment prepend ([ef387e7](https://github.com/veith/FuroBaseComponents/commit/ef387e7))
 * deep link objects ([5c84808](https://github.com/veith/FuroBaseComponents/commit/5c84808))
-* deep-link hts-out ([598c04c](https://github.com/veith/FuroBaseComponents/commit/598c04c))
-* deep-link prefix removed ([82ccf1c](https://github.com/veith/FuroBaseComponents/commit/82ccf1c))
-* reverse-deep-link matches ([b17e181](https://github.com/veith/FuroBaseComponents/commit/b17e181))
+* furo-deep-link hts-out ([598c04c](https://github.com/veith/FuroBaseComponents/commit/598c04c))
+* furo-deep-link prefix removed ([82ccf1c](https://github.com/veith/FuroBaseComponents/commit/82ccf1c))
+* furo-reverse-deep-link matches ([b17e181](https://github.com/veith/FuroBaseComponents/commit/b17e181))
 
 
 
@@ -1074,7 +1074,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* reverse-deep-link ([b049103](https://github.com/veith/FuroBaseComponents/commit/b049103))
+* furo-reverse-deep-link ([b049103](https://github.com/veith/FuroBaseComponents/commit/b049103))
 
 
 
