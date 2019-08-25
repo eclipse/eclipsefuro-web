@@ -304,7 +304,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* entity-agents accepts plain link object in hts-in ([beec62e](https://github.com/veith/FuroBaseComponents/commit/beec62e))
+* furo-entity-agents accepts plain link object in hts-in ([beec62e](https://github.com/veith/FuroBaseComponents/commit/beec62e))
 
 
 
@@ -590,7 +590,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* entity-agent microtiming issues fixed ([947881d](https://github.com/veith/FuroBaseComponents/commit/947881d))
+* furo-entity-agent microtiming issues fixed ([947881d](https://github.com/veith/FuroBaseComponents/commit/947881d))
 
 
 
@@ -617,7 +617,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* collection-agent accepts link object on ƒ-hts-in ([e83a0ca](https://github.com/veith/FuroBaseComponents/commit/e83a0ca))
+* furo-collection-agent accepts link object on ƒ-hts-in ([e83a0ca](https://github.com/veith/FuroBaseComponents/commit/e83a0ca))
 
 
 
@@ -692,7 +692,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* entity-agent response-error ([36dd396](https://github.com/veith/FuroBaseComponents/commit/36dd396))
+* furo-entity-agent response-error ([36dd396](https://github.com/veith/FuroBaseComponents/commit/36dd396))
 
 
 
@@ -703,7 +703,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* entity-agent dispatches detailed events for load, save, create and delete ([0f42969](https://github.com/veith/FuroBaseComponents/commit/0f42969))
+* furo-entity-agent dispatches detailed events for load, save, create and delete ([0f42969](https://github.com/veith/FuroBaseComponents/commit/0f42969))
 
 
 
@@ -794,7 +794,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* collection-agent list-on-hts-in ([9c9eb50](https://github.com/veith/FuroBaseComponents/commit/9c9eb50))
+* furo-collection-agent list-on-hts-in ([9c9eb50](https://github.com/veith/FuroBaseComponents/commit/9c9eb50))
 * furo-data-collection-dropdown ([d761a1f](https://github.com/veith/FuroBaseComponents/commit/d761a1f))
 
 
@@ -806,7 +806,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* entity-agent delete follows rel delete ([45b9349](https://github.com/veith/FuroBaseComponents/commit/45b9349))
+* furo-entity-agent delete follows rel delete ([45b9349](https://github.com/veith/FuroBaseComponents/commit/45b9349))
 
 
 
@@ -898,7 +898,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* entity-field ([71bc178](https://github.com/veith/FuroBaseComponents/commit/71bc178))
+* furo-entity-field ([71bc178](https://github.com/veith/FuroBaseComponents/commit/71bc178))
 * entity-object notify data changes ([8ab2422](https://github.com/veith/FuroBaseComponents/commit/8ab2422))
 
 
@@ -932,8 +932,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* call collection-agent before hts waits for hts ([edce82f](https://github.com/veith/FuroBaseComponents/commit/edce82f))
-* collection-agent ƒ-clear-filter ([4f504f5](https://github.com/veith/FuroBaseComponents/commit/4f504f5))
+* call furo-collection-agent before hts waits for hts ([edce82f](https://github.com/veith/FuroBaseComponents/commit/edce82f))
+* furo-collection-agent ƒ-clear-filter ([4f504f5](https://github.com/veith/FuroBaseComponents/commit/4f504f5))
 
 
 
@@ -944,7 +944,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* collection-agent accepts fields, order-by and filter ([76010f2](https://github.com/veith/FuroBaseComponents/commit/76010f2))
+* furo-collection-agent accepts fields, order-by and filter ([76010f2](https://github.com/veith/FuroBaseComponents/commit/76010f2))
 * collection-filter ([71d855b](https://github.com/veith/FuroBaseComponents/commit/71d855b))
 
 
@@ -991,7 +991,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* custom-method fires event hts-updated, so you can rewire it to ƒ-trigger ([ce9f769](https://github.com/veith/FuroBaseComponents/commit/ce9f769))
+* furo-custom-method fires event hts-updated, so you can rewire it to ƒ-trigger ([ce9f769](https://github.com/veith/FuroBaseComponents/commit/ce9f769))
 
 
 

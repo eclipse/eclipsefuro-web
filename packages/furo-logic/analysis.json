@@ -1019,7 +1019,7 @@
       },
       "privacy": "public",
       "superclass": "LitElement",
-      "name": "ForthStack",
+      "name": "FuroForthStack",
       "attributes": [],
       "events": [
         {

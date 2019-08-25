@@ -44,7 +44,7 @@ return _furoShell.html`
         }
       </style>
       <furo-icon icon="lightbulb-outline"></furo-icon>
-    `}}window.customElements.define("light-bulb",LightBulb);class IntervalPulse extends _furoShell.LitElement{constructor(){super();this.interval=200;if(this.auto){this.start()}}static get properties(){return{interval:{type:Number,value:200,observer:"_interval"},takt:{type:Number,value:4},/**
+    `}}window.customElements.define("light-bulb",LightBulb);class FuroIntervalPulse extends _furoShell.LitElement{constructor(){super();this.interval=200;if(this.auto){this.start()}}static get properties(){return{interval:{type:Number,value:200,observer:"_interval"},takt:{type:Number,value:4},/**
        * Starts interval automatically
        */auto:Boolean}}start(){let cnt=0,tick="tick";clearInterval(this._intervalObject);this._intervalObject=setInterval(()=>{let pos=cnt++%this.takt,customEvent=new Event("tick",{bubbles:!0});/**
                                     * Fired when interval is
@@ -54,7 +54,7 @@ return _furoShell.html`
          * Fired when tock
          * detail payload: position
          * @event tick
-         */let customEvent=new Event("tock",{bubbles:!0});customEvent.detail=pos;this.dispatchEvent(customEvent)}},this.interval)}stop(){clearInterval(this._intervalObject)}}window.customElements.define("interval-pulse",IntervalPulse);class StyleCategorySample extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+         */let customEvent=new Event("tock",{bubbles:!0});customEvent.detail=pos;this.dispatchEvent(customEvent)}},this.interval)}stop(){clearInterval(this._intervalObject)}}window.customElements.define("furo-interval-pulse",FuroIntervalPulse);class StyleCategorySample extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
      * flow is ready lifecycle method
      */__fbpReady(){super.__fbpReady();//this._FBPTraceWires()
 }static get properties(){return{}}static get styles(){// language=CSS

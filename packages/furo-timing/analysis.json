@@ -944,7 +944,7 @@
       },
       "privacy": "public",
       "superclass": "LitElement",
-      "name": "IntervalPulse",
+      "name": "FuroIntervalPulse",
       "attributes": [
         {
           "name": "interval",
