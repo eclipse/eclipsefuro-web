@@ -17,9 +17,9 @@ class ReadAnalysis extends FBP(LitElement) {
         super();
 
       this.element =  {
-        "description": "`api-fetch`\n\napi-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest\n\n```html\n<api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></api-fetch>\n```",
+        "description": "`furo-api-fetch`\n\nfuro-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest\n\n```html\n<furo-api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></furo-api-fetch>\n```",
         "summary": "",
-        "path": "packages/furo-data/api-fetch.js",
+        "path": "packages/furo-data/furo-api-fetch.js",
         "properties": [
           {
             "name": "lastRequest",
@@ -220,7 +220,7 @@ class ReadAnalysis extends FBP(LitElement) {
         "staticMethods": [],
         "demos": [
           {
-            "url": "demo/api-fetch_demo.html",
+            "url": "demo/furo-api-fetch_demo.html",
             "description": ""
           }
         ],
@@ -288,7 +288,7 @@ class ReadAnalysis extends FBP(LitElement) {
           "selectors": []
         },
         "slots": [],
-        "tagname": "api-fetch"
+        "tagname": "furo-api-fetch"
       };
       setTimeout(()=>{
         /**

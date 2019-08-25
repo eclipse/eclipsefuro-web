@@ -1,17 +1,17 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
-import "./api-fetch"
+import "./furo-api-fetch"
 import {Env} from "@furo/framework"
 
 /**
- * `entity-agent` is an interface component to handle entity requests. It analyzes the hateoas data.
+ * `furo-entity-agent` is an interface component to handle entity requests. It analyzes the hateoas data.
  *
  *
  * @customElement
  * @demo demo/index.html
  * @appliesMixin FBP
  */
-class EntityAgent extends FBP(LitElement) {
+class FuroEntityAgent extends FBP(LitElement) {
 
 
   constructor() {
@@ -52,6 +52,7 @@ class EntityAgent extends FBP(LitElement) {
    * @param service
    */
   set service(service) {
+
     if (!this._servicedefinitions[service]) {
       console.error("service " + service + " does not exist", this, "Available Services:", this._servicedefinitions);
       return;
@@ -122,7 +123,7 @@ class EntityAgent extends FBP(LitElement) {
 
     // check Hateoas
     if (!this._hts[rel]) {
-      console.warn("No HATEOAS for rel self", this._hts, this);
+      console.warn("No HATEOAS for rel " + rel, this._hts, this);
       return true;
     }
     return false;
@@ -145,7 +146,7 @@ class EntityAgent extends FBP(LitElement) {
    */
   load() {
     if (this._checkServiceAndHateoasLinkError("self", "Get")) {
-      return;
+      return false;
     }
     this._attachListeners("load");
     this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.self));
@@ -195,13 +196,16 @@ class EntityAgent extends FBP(LitElement) {
   save() {
     // wen kein rel self vorhanden ist, aber ein rel create existiert, verwendenn wir create
     // rel self ist bewusst gewählt
-    if (!this._hts["self"]) {
+    if (!this._hts["self"] && this._hts["create"]) {
       this.create();
       return;
     }
     if (this._checkServiceAndHateoasLinkError("update", "Update")) {
+      let customEvent = new Event( 'missing-hts-update', {composed: true, bubbles: false});
+      this.dispatchEvent(customEvent);
       return;
     }
+
     this._attachListeners("save");
     // TODO nur modifizierte daten senden (.pristine)
     this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._entityTree.rawData));
@@ -336,16 +340,16 @@ class EntityAgent extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <api-fetch
+      <furo-api-fetch
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"
               @-response="--responseParsed,^^req-success"
               @-response-error="^^req-failed">
-      </api-fetch>
+      </furo-api-fetch>
     `;
   }
 
 
 }
 
-window.customElements.define('entity-agent', EntityAgent);
+window.customElements.define('furo-entity-agent', FuroEntityAgent);

@@ -2,9 +2,9 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`forth-stack` is a declarative stack, inspired by the forth stack.\n\nhttps://hackaday.com/2017/01/27/forth-the-hackers-language/\nhttp://wiki.laptop.org/go/Forth_stack_operators\nhttp://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks",
+      "description": "`furo-forth-stack` is a declarative stack, inspired by the forth stack.\n\nhttps://hackaday.com/2017/01/27/forth-the-hackers-language/\nhttp://wiki.laptop.org/go/Forth_stack_operators\nhttp://galileo.phys.virginia.edu/classes/551.jvn.fall01/primer.htm#stacks",
       "summary": "doing stack operations",
-      "path": "packages/furo-logic/forth-stack.js",
+      "path": "packages/furo-logic/furo-forth-stack.js",
       "properties": [
         {
           "name": "_hasConnected",
@@ -1052,7 +1052,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "forth-stack"
+      "tagname": "furo-forth-stack"
     }
   ]
 }

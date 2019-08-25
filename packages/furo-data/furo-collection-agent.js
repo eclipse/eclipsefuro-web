@@ -1,18 +1,18 @@
 import {LitElement, html} from 'lit-element';
 import {FBP} from '@furo/fbp';
-import './api-fetch.js';
+import './furo-api-fetch.js';
 
 import {Env} from "@furo/framework"
 
 /**
- * `collection-agent` is an interface component to handle collection requests. It helps you with paginating collection data.
+ * `furo-collection-agent` is an interface component to handle collection requests. It helps you with paginating collection data.
  *
  *
  *
  *
  * How to use:
  * ```html
- * <collection-agent ƒ-hts-in="--x"
+ * <furo-collection-agent ƒ-hts-in="--x"
  *                      service=""
  *                      ƒ-prev-page=""
  *                      ƒ-next-page=""
@@ -23,19 +23,19 @@ import {Env} from "@furo/framework"
  *                      list-on-hts-in
  *                      @-hts-out="--x"
  *                    >
- * </collection-agent>
+ * </furo-collection-agent>
  * ```
  *
  * @customElement
  * @appliesMixin FBP
  * @demo demo/collection.html
  */
-class collectionAgent extends FBP(LitElement) {
+class furoCollectionAgent extends FBP(LitElement) {
 
   /**
-   * @event ALL_BUBBLING_EVENTS_FROM_api-fetch
+   * @event ALL_BUBBLING_EVENTS_FROM_furo-api-fetch
    *
-   * All bubbling events from [api-fetch](api-fetch) will be fired, because collection-agent uses api-fetch internally.
+   * All bubbling events from [furo-api-fetch](furo-api-fetch) will be fired, because furo-collection-agent uses furo-api-fetch internally.
    *
    */
 
@@ -400,14 +400,14 @@ class collectionAgent extends FBP(LitElement) {
           display: none;
         }
       </style>
-      <api-fetch
+      <furo-api-fetch
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"
               @-response="--responseParsed">
-      </api-fetch>
+      </furo-api-fetch>
     `;
   }
 
 }
 
-customElements.define('collection-agent', collectionAgent);
+customElements.define('furo-collection-agent', furoCollectionAgent);

@@ -25,11 +25,11 @@
                            @-hts-out="--hts">
                 </furo-deep-link>
 
-                <collection-agent service="TaskService"
+                <furo-collection-agent service="TaskService"
                                   ƒ-hts-in="--hts"
                                   list-on-hts-in
                                   @-response="--colResponded">
-                </collection-agent>
+                </furo-collection-agent>
                 <furo-data-object type="task.TaskCollection" ƒ-inject-raw="--colResponded"
                                   @-object-ready="--data"></furo-data-object>
                 <furo-data-table ƒ-bind-data="--data" hide-header></furo-data-table>

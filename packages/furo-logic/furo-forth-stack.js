@@ -4,7 +4,7 @@ import {FBP} from "@furo/fbp";
 
 
 /**
- * `forth-stack` is a declarative stack, inspired by the forth stack.
+ * `furo-forth-stack` is a declarative stack, inspired by the forth stack.
  *
  * https://hackaday.com/2017/01/27/forth-the-hackers-language/
  * http://wiki.laptop.org/go/Forth_stack_operators
@@ -13,7 +13,7 @@ import {FBP} from "@furo/fbp";
  * @summary doing stack operations
  * @customElement
  */
-class ForthStack extends (LitElement) {
+class FuroForthStack extends (LitElement) {
 
   constructor() {
     super();
@@ -178,4 +178,4 @@ class ForthStack extends (LitElement) {
 }
 
 
-window.customElements.define('forth-stack', ForthStack);
+window.customElements.define('furo-forth-stack', FuroForthStack);

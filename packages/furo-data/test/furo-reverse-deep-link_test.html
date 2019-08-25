@@ -18,7 +18,7 @@
 
 <test-fixture id="Basic">
   <template>
-    <reverse-deep-link service="ProjectMembersService"></reverse-deep-link>
+    <furo-reverse-deep-link service="ProjectMembersService"></furo-reverse-deep-link>
   </template>
 </test-fixture>
 
@@ -40,7 +40,7 @@
     });
 
     it('instantiating the element with default properties works', () => {
-      assert.equal(rdl.tagName.toLowerCase(), 'reverse-deep-link');
+      assert.equal(rdl.tagName.toLowerCase(), 'furo-reverse-deep-link');
       expect(rdl.convert).to.be.a('function');
       expect(rdl.service).to.be.a('string');
       rdl.setAttribute("rel", "self");

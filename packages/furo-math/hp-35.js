@@ -1,4 +1,4 @@
-import {ForthStack} from "@furo/logic/forth-stack.js"
+import {ForthStack} from "@furo/logic/furo-forth-stack.js"
 
   /**
    * `hp-35` is a declarative calculator component.

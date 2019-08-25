@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-entity-validator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+    <template>
+     <furo-entity-validator></furo-entity-validator>
+     </template>
+    </test-bind>
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog.js"
+
+  import "@furo/fbp/testhelper/test-bind"; // for testing
+  import "@furo/testhelper/initEnv.js"
+  import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
+  describe('furo-entity-validator tests ', function () {
+
+
+    let element = {};
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      element = fix[1];
+      await element.updateComplete;
+
+    });
+
+
+    it('should be a furo-entity-validator', (done) => {
+      assert.equal(element.nodeName.toLowerCase(), "furo-entity-validator");
+      done()
+    });
+
+
+  });
+</script>
+</body>
+</html>

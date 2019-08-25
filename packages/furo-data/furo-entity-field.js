@@ -11,7 +11,7 @@ import {FBP} from "@furo/fbp";
  * @polymer
  * @mixes FBP
  */
-class EntityField extends LitElement {
+class FuroEntityField extends LitElement {
 
   /**
    * Set the value of the field.
@@ -60,4 +60,4 @@ class EntityField extends LitElement {
 
 }
 
-customElements.define('entity-field', EntityField);
+customElements.define('furo-entity-field', FuroEntityField);

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>test for rel-exists</title>
+  <title>test for furo-rel-exists</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
@@ -20,16 +20,16 @@
 
 <test-fixture id="basic">
   <template>
-    <rel-exists rel="update"></rel-exists>
+    <furo-rel-exists rel="update"></furo-rel-exists>
   </template>
 </test-fixture>
 
 <script type="module">
   import "../furo-catalog"
+  import "@furo/testhelper/initEnv.js"
   import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
 
-
-  describe('rel-exists tests ', function () {
+  describe('furo-rel-exists tests ', function () {
 
 
     let element;
@@ -66,7 +66,7 @@
 
     it('should fire rel-exist if the type  match', (done) => {
       element.setAttribute("type", "vnd.com.acme.task");
-      element.addEventListener("rel-exists", (e) => {
+      element.addEventListener("furo-rel-exists", (e) => {
         assert.equal(e.detail.type, "vnd.com.acme.task");
         done();
       });
@@ -84,8 +84,8 @@
 
 
     it('should fire exist after injecting', (done) => {
-      element.addEventListener("rel-exists", (e) => {
-        assert.equal(e.type, "rel-exists");
+      element.addEventListener("furo-rel-exists", (e) => {
+        assert.equal(e.type, "furo-rel-exists");
         done();
       });
       element.inject(linkArray);
@@ -94,7 +94,7 @@
 
     it('should return a hateoas link', (done) => {
 
-      element.addEventListener("rel-exists", (e) => {
+      element.addEventListener("furo-rel-exists", (e) => {
         assert.equal(e.detail.type, "vnd.com.acme.task");
         done();
       });
@@ -111,9 +111,9 @@
       assert.equal(element.rel, "save");
     });
 
-    it('should be a rel-exists', (done) => {
+    it('should be a furo-rel-exists', (done) => {
 
-      assert.equal(element.nodeName, "REL-EXISTS");
+      assert.equal(element.nodeName.toLowerCase(), "furo-rel-exists");
       done()
     });
 

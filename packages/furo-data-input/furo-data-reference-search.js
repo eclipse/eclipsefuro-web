@@ -17,17 +17,17 @@ import "./reference-search-item";
  *
  *<furo-horizontal-flex>
  *    <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
- *    Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den collection-agent.
- *    Wenn collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->
+ *    Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den furo-collection-agent.
+ *    Wenn furo-collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->
  *    <furo-data-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
  *
  *    <furo-data-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
  *
  *</furo-horizontal-flex>
  *
- *<!-- Der collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.
+ *<!-- Der furo-collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.
  *Die Resultate werden an furo-data-reference-search zurück gegeben. -->
- *<collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></collection-agent>
+ *<furo-collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></furo-collection-agent>
  *
  * ```
  *

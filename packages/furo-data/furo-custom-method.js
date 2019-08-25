@@ -1,16 +1,16 @@
 import {LitElement, html} from 'lit-element';
 import {FBP} from "@furo/fbp";
-import "./api-fetch"
+import "./furo-api-fetch"
 import {Env} from "@furo/framework"
 
 /**
- * `entity-agent`
+ * `furo-entity-agent`
  *
  * @customElement
  * @demo demo/index.html
  * @appliesMixin FBP
  */
-class CustomMethod extends FBP(LitElement) {
+class FuroCustomMethod extends FBP(LitElement) {
 
 
     constructor() {
@@ -154,14 +154,14 @@ class CustomMethod extends FBP(LitElement) {
           display: none;
         }
       </style>
-      <api-fetch
+      <furo-api-fetch
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"
               @-response="--responseParsed">
-      </api-fetch>
+      </furo-api-fetch>
     `;
     }
 
 }
 
-window.customElements.define('custom-method', CustomMethod);
+window.customElements.define('furo-custom-method', FuroCustomMethod);

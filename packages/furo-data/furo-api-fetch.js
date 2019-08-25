@@ -1,16 +1,16 @@
 /**
- * `api-fetch`
+ * `furo-api-fetch`
  *
- * api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
+ * furo-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
  *
  * ```html
- * <api-fetch ƒ-invoke-request="" ƒ-abort-request=""></api-fetch>
+ * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
  * ```
  *
  * @customElement
- * @demo demo/api-fetch_demo.html
+ * @demo demo/furo-api-fetch_demo.html
  */
-class ApiFetch extends HTMLElement {
+class FuroApiFetch extends HTMLElement {
 
     /**
      * Fired when a request is sent.
@@ -405,4 +405,4 @@ class ApiFetch extends HTMLElement {
 
 }
 
-customElements.define('api-fetch', ApiFetch);
+customElements.define('furo-api-fetch', FuroApiFetch);

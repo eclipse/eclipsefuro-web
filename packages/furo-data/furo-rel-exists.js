@@ -1,14 +1,14 @@
 import {LitElement, html, css} from 'lit-element';
 
 /**
- * `rel-exists`
+ * `furo-rel-exists`
  * Checks if a rel exists in a hateaos Link array
  *
  * @summary checks for a specific rel
- * @demo demo/rel-exists.html
+ * @demo demo/furo-rel-exists.html
  * @customElement
  */
-class RelExists extends LitElement {
+class FuroRelExists extends LitElement {
 
   constructor() {
     super();
@@ -34,11 +34,11 @@ class RelExists extends LitElement {
 
     if (links.length > 0) {
       /**
-       * @event rel-exists
+       * @event furo-rel-exists
        * Fired when rel exists in linkArray
        * detail payload: {Object} Hateoas Link
        */
-      let customEvent = new Event('rel-exists', {composed: true, bubbles: true});
+      let customEvent = new Event('furo-rel-exists', {composed: true, bubbles: true});
       customEvent.detail = links[0];
       this.dispatchEvent(customEvent);
       return true;
@@ -86,4 +86,4 @@ class RelExists extends LitElement {
 
 }
 
-window.customElements.define('rel-exists', RelExists);
+window.customElements.define('furo-rel-exists', FuroRelExists);
