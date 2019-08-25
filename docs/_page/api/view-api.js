@@ -1667,9 +1667,14 @@ if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}r
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
          */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("repeat-became-invalid",this))});/**
          * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
-         */this.addEventListener("field-value-changed",e=>{this._pristine=!1})}removeAllChildren(){this.__childNodes=[];this.repeats=[];this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed",this.repeats,!1))}set value(val){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
-this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}get value(){return this.repeats.map(f=>{return f.value})}deleteChild(index){this.repeats.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
-fieldNode.deleteFromList=()=>{this.deleteChild(this.repeats.indexOf(fieldNode))};return index}_setInvalid(error){this._isValid=!1;let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
+         */this.addEventListener("field-value-changed",e=>{this._pristine=!1})}/**
+     * deletes all repeated fields on this node
+     */removeAllChildren(){this.__childNodes=[];this.repeats=[];this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed",this.repeats,!1))}set value(val){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
+this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}get value(){return this.repeats.map(f=>{return f.value})}/**
+     * Deletes a repeated item by index
+     * @param index
+     */deleteChild(index){this.repeats.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
+fieldNode._deleteFromList=()=>{this.deleteChild(this.repeats.indexOf(fieldNode))};return index}_setInvalid(error){this._isValid=!1;let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
 error.field=path.slice(1).join(".")}this.repeats[path[0]]._setInvalid(error)}add(data){let index=this._addSilent();this._pristine=!1;// set data if given
 if(data){let child=this.repeats[index];child.value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
 return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;this._meta=fieldSpec.meta||{};this._constraints=fieldSpec.constraints;this._options=fieldSpec.options;this._name=fieldName;this._value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
@@ -1681,7 +1686,23 @@ if(this._meta&&this._meta.default){this.defaultvalue=this._meta.default;this._pr
          */this.addEventListener("field-became-invalid",e=>{this._isValid=!1})}_createVendorType(type){if(this.__specdefinitions[type]){for(let fieldName in this.__specdefinitions[type].fields){if(this.__specdefinitions[type].fields[fieldName].meta&&this.__specdefinitions[type].fields[fieldName].meta.repeated){this[fieldName]=new RepeaterNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}else{this[fieldName]=new FieldNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}}}else{console.warn(type+" does not exist")}}set value(val){// type any
 this._createAnyType(val);// map<string, something> typ
 if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{if(0<this.__childNodes.length){for(let index in this.__childNodes){let field=this.__childNodes[index];if(val.hasOwnProperty(field._name)){field.value=val[field._name]}}this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}else{// update the primitive type
-this.oldvalue=this.value;this._value=val;this._pristine=!1;if(JSON.stringify(this.oldvalue)!==JSON.stringify(this._value)){this.dispatchNodeEvent(new NodeEvent("field-value-changed",this,!0))}}}}_createAnyType(val){// remove if type changes
+this.oldvalue=this.value;this._value=val;this._pristine=!1;if(JSON.stringify(this.oldvalue)!==JSON.stringify(this._value)){/**
+           * @event (field-value-changed)
+           *
+           * ✋ Internal Event from EntityNode which you can use in the targeted components!
+           *
+           * Fired when a value on a field node changes. This event **bubbles** by default. Can be used on any node.
+           *
+           * detail payload: **{NodeEvent}** with reference to the FieldNode
+           */this.dispatchNodeEvent(new NodeEvent("field-value-changed",this,!0));/**
+                                                                                        * @event (this-field-value-changed)
+                                                                                        *
+                                                                                        * ✋ Internal Event from EntityNode which you can use in the targeted components!
+                                                                                        *
+                                                                                        * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
+                                                                                        *
+                                                                                        * detail payload: **{NodeEvent}** with reference to the FieldNode
+                                                                                        */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}}_createAnyType(val){// remove if type changes
 if(this.__anyCreated&&this["@type"]!==val["@type"]){for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("any"===this._spec.type&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
 // any can only be a complex type
 this._createVendorType(val["@type"]);this.__anyCreated=!0;this["@type"]=val["@type"]}}_updateKeyValueMap(val,spec){let vType=spec.match(/,\s*(.*)>/)[1],fieldSpec={type:vType};// create if not exist
@@ -1689,10 +1710,27 @@ for(let fieldName in val){if(this[fieldName]==void 0){this[fieldName]=new FieldN
 this[fieldName].value=val[fieldName]}//remove unseted
 for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}}/**
      * deletes the fieldnode
-     */deleteNode(){let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name];//notify
+     */deleteNode(){let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name];// remove from list if this is a repeated item
+if("function"===typeof this._deleteFromList){this._deleteFromList()}//notify
 this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0))}set defaultvalue(val){// type any
 this._createAnyType(val);if(0<this.__childNodes.length){for(let index in this.__childNodes){let field=this.__childNodes[index];field.defaultvalue=val[field._name]}}else{if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{this.oldvalue=this.value;this._value=val;this._pristine=!0}}}get value(){if(0<this.__childNodes.length){this._value={};// nur reine Daten zurück geben
-for(let index in this.__childNodes){let field=this.__childNodes[index];this._value[field._name]=field.value}}return this._value}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};this.dispatchNodeEvent(new NodeEvent("field-became-valid",this))}}_setInvalid(error){// set field empty, if not defined
+for(let index in this.__childNodes){let field=this.__childNodes[index];this._value[field._name]=field.value}}return this._value}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
+                            * @event (field-became-valid)
+                            *
+                            * ✋ Internal Event from EntityNode which you can use in the targeted components!
+                            *
+                            * Fired when a field or subfield gets invalid.
+                            *
+                            * detail payload: **{NodeEvent}** with reference to the FieldNode
+                            */this.dispatchNodeEvent(new NodeEvent("field-became-valid",this,!0));/**
+                                                                                * @event (this-field-became-valid)
+                                                                                *
+                                                                                * ✋ Internal Event from EntityNode which you can use in the targeted components!
+                                                                                *
+                                                                                * Fired when a field gets invalid. This event **does not bubble**. Can be used on any node.
+                                                                                *
+                                                                                * detail payload: **{NodeEvent}** with reference to the FieldNode
+                                                                                */this.dispatchNodeEvent(new NodeEvent("this-field-became-valid",this,!1))}}_setInvalid(error){// set field empty, if not defined
 error.field=error.field||"";let path=error.field.split(".");if(0<path.length&&""!==path[0]){// rest wieder in error reinwerfen
 error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(error)}else{console.warn("Unknown field",path,this._name)}}else{this._isValid=!1;this._validity=error;this.dispatchNodeEvent(new NodeEvent("field-became-invalid",this))}}toString(){//todo parse format rules from _meta...
 return this._value}}_exports.FieldNode=FieldNode;var FieldNode$1={FieldNode:FieldNode};_exports.$FieldNode=FieldNode$1;class DataObject extends EventTreeNode{constructor(parentNode,type,specs){super(parentNode);this.__specdefinitions=specs;this._spec=this.__specdefinitions[type];this.__specdefinitions=this.__specdefinitions;this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0;/**
@@ -1749,9 +1787,9 @@ error.field=path.slice(1).join(".");if(fields[path[0]]){fields[path[0]]._setInva
      * ```
      *
      * @param jsonObj
-     */injectRaw(jsonObj){// queue inject bis entity bereit ist
-if(!this.data){this._queue=jsonObj}else{this.data.injectRaw(jsonObj)}}/**
-     *
+     */injectRaw(jsonObj){this._injectPromise=new Promise(resolve=>{// queue inject bis entity bereit ist
+if(!this.data){this._queue=jsonObj;this._queuedInjectResolver=resolve}else{this.data.injectRaw(jsonObj);resolve(this.data)}});return this._injectPromise}/**
+     * Set the type. The type must be available in the environment
      * @param type
      */set type(type){if(this._checkType(type)){this._type=type}}/**
      *
@@ -1761,7 +1799,7 @@ if(!this.data){this._queue=jsonObj}else{this.data.injectRaw(jsonObj)}}/**
        * create the entity node
        * @type {EntityNode}
        */this.data=new DataObject(null,type,this._specs);// if data is on queue inject it.
-if(this._queue!==void 0){this.injectRaw(this._queue);this._queue=void 0}/**
+if(this._queue!==void 0){this.data.injectRaw(this._queue);this._queue=void 0;this._queuedInjectResolver(this.data)}/**
        * @event object-ready
        * Fired when the object is built (based on the type).
        *
@@ -1782,36 +1820,7 @@ if(this._queue!==void 0){this.injectRaw(this._queue);this._queue=void 0}/**
        *   **detail payload:** {Object|CollectionNode}
        *
        *   **bubbles**
-       */let customEvent=new Event("data-changed",{composed:!0,bubbles:!0});customEvent.detail=this.data.rawData;this.dispatchEvent(customEvent);/**
-                                        * @event (field-value-changed)
-                                        *
-                                        * ✋ Internal Event from EntityNode which you can use in the targeted components!
-                                        *
-                                        * Fired when a value on a field node changes. This event **bubbles** by default. Can be used on any node.
-                                        *
-                                        * detail payload: **{NodeEvent}** with reference to the FieldNode
-                                        */ /**
-                                            * @event (this-field-value-changed)
-                                            *
-                                            * ✋ Internal Event from EntityNode which you can use in the targeted components!
-                                            *
-                                            * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
-                                            *
-                                            * detail payload: **{NodeEvent}** with reference to the FieldNode
-                                            */ /**
-                                                * @event (data-injected)
-                                                *
-                                                * ✋ Internal Event from EntityNode which you can use in the targeted components!
-                                                *
-                                                * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
-                                                *
-                                                * This event **bubbles**.
-                                                *
-                                                * detail payload: **{NodeEvent}**
-                                                */return!0})}/**
-     * Inits internal entity
-     * References will still be valid
-     */init(){this.data.init();let customEvent=new Event("object-ready",{composed:!0,bubbles:!0});customEvent.detail=this.data;setTimeout(()=>{this.dispatchEvent(customEvent)},0)}}window.customElements.define("furo-data-object",FuroDataObject);class FuroDeepLink extends _furoShell.LitElement{constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._qp={}}static get properties(){return{/**
+       */let customEvent=new Event("data-changed",{composed:!0,bubbles:!0});customEvent.detail=this.data.rawData;this.dispatchEvent(customEvent)});return!0}}window.customElements.define("furo-data-object",FuroDataObject);class FuroDeepLink extends _furoShell.LitElement{constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._qp={}}static get properties(){return{/**
        * @type {object|QueryParams} Query Params
        */qp:{type:Object},/**
        * Name des Services
@@ -2209,13 +2218,22 @@ if(Array.isArray(data)){linkObject=data.filter(e=>{return e.rel===this.rel})[0]}
          */this.addEventListener("field-value-changed",e=>{this._pristine=!1})}/**
      * Injecten eines raw models wie bspw body oder entity einer collection
      * @param rawEntity
-     */injectRaw(rawEntity){this._rawEntity=rawEntity;let meta={};if(rawEntity.meta){meta=rawEntity.meta.fields}this._updateFieldValuesAndMetaFromRawEntity(this.fields,rawEntity.data,meta);this._pristine=!0;this._isValid=!0;if(rawEntity.error&&rawEntity.details){rawEntity.details.forEach(errorSet=>{if(errorSet.field_violations){this._handleErrorsFromRawEntity(this.fields,errorSet.field_violations)}})}this.dispatchNodeEvent(new NodeEvent("data-injected",this,!0))}/**
+     */injectRaw(rawEntity){this._rawEntity=rawEntity;let meta={};if(rawEntity.meta){meta=rawEntity.meta.fields}this._updateFieldValuesAndMetaFromRawEntity(this.fields,rawEntity.data,meta);this._pristine=!0;this._isValid=!0;if(rawEntity.error&&rawEntity.details){rawEntity.details.forEach(errorSet=>{if(errorSet.field_violations){this._handleErrorsFromRawEntity(this.fields,errorSet.field_violations)}})}/**
+       * @event (data-injected)
+       *
+       * ✋ Internal Event from EntityNode which you can use in the targeted components!
+       *
+       * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
+       *
+       * This event **bubbles**.
+       *
+       * detail payload: **{NodeEvent}**
+       */this.dispatchNodeEvent(new NodeEvent("data-injected",this,!0))}/**
      * Resete zum letzten injectet state zurück
      */reset(){if(this._rawEntity){this.injectRaw(this._rawEntity)}}/**
      * Inits the EntityNode without breaking the reference
      */init(){this._initFieldsFromSpec(this.fields,this._spec.fields);this._pristine=!0;this._isValid=!0}get rawEntity(){return this._rawEntity}get rawData(){return this.getRawData()}getRawData(){let data={};// nur reine Daten zurück geben
-for(let index in this.fields.__childNodes){let field=this.fields.__childNodes[index];data[field._name]=field.value}return data}_updateFieldValuesAndMetaFromRawEntity(node,data,dynamicFieldMeta){for(let fieldName in data){let fieldNode=node[fieldName];if(!fieldNode){console.warn("unspecified field",fieldName)}else{if(fieldNode._isRepeater){let initialSize=fieldNode.repeats.length;//fieldNode.removeAllChildren();
-// update records
+for(let index in this.fields.__childNodes){let field=this.fields.__childNodes[index];data[field._name]=field.value}return data}_updateFieldValuesAndMetaFromRawEntity(node,data,dynamicFieldMeta){for(let fieldName in data){let fieldNode=node[fieldName];if(!fieldNode){console.warn("unspecified field",fieldName)}else{if(fieldNode._isRepeater){let initialSize=fieldNode.repeats.length;// update records
 data[fieldName].forEach((repdata,i)=>{// create if record index do not exist
 if(!fieldNode.repeats[i]){fieldNode._addSilent()}let repMeta={};if(dynamicFieldMeta[fieldName]){if(dynamicFieldMeta[fieldName].fields){repMeta=dynamicFieldMeta[fieldName].fields}}// Werte aktualisieren
 fieldNode.repeats[i].value=repdata;fieldNode.repeats[i]._pristine=!0;fieldNode.repeats[i].__index=i});// entferne überzählige nodes

@@ -4,6 +4,7 @@ import {Env} from "@furo/framework"
 
 
 /**
+ * ## Deprecated, please work with [furo-data-object](furo-data-object) instead
  * `entity-object`
  * > This component is deprecated, use [furo-data-object](furo-data-object) instead
  * >
@@ -44,6 +45,7 @@ class EntityObject extends (LitElement) {
    */
   injectRaw(jsonObj) {
     // queue inject bis entity bereit ist
+
     if (!this.entity) {
       setTimeout(() => {
         this.injectRaw(jsonObj)
@@ -107,37 +109,6 @@ class EntityObject extends (LitElement) {
       customEvent.detail = this.entity.rawData;
       this.dispatchEvent(customEvent);
 
-      /**
-       * @event (field-value-changed)
-       *
-       * ✋ Internal Event from EntityNode which you can use in the targeted components!
-       *
-       * Fired when a value on a field node changes. This event **bubbles** by default. Can be used on any node.
-       *
-       * detail payload: **{NodeEvent}** with reference to the FieldNode
-       */
-
-      /**
-       * @event (this-field-value-changed)
-       *
-       * ✋ Internal Event from EntityNode which you can use in the targeted components!
-       *
-       * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
-       *
-       * detail payload: **{NodeEvent}** with reference to the FieldNode
-       */
-
-      /**
-       * @event (data-injected)
-       *
-       * ✋ Internal Event from EntityNode which you can use in the targeted components!
-       *
-       * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
-       *
-       * This event **bubbles**.
-       *
-       * detail payload: **{NodeEvent}**
-       */
 
     });
   }

@@ -3,7 +3,7 @@ import {Env} from "@furo/framework"
 
 /**
  * `deep-link`
- *
+ * ## Deprecated, please work with [furo-deep-link](furo-deep-link) instead
  * @customElement
  * @demo demo/form.html
  * @appliesMixin FBP

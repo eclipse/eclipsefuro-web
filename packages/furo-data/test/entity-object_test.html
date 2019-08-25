@@ -18,7 +18,7 @@
   <template>
     <test-bind>
     <template>
-     <entity-object></entity-object>
+     <entity-object type="project.Project"></entity-object>
      </template>
     </test-bind>
   </template>
@@ -43,8 +43,40 @@
     });
 
 
+
+    it('should have useful data', (done) => {
+
+      let EntityRoot = {};
+      let handler = (e) => {
+
+        let firstname = EntityRoot.members.repeats[0].first_name.value;
+        assert.equal(firstname, "John");
+        done();
+      };
+      element.addEventListener("data-injected", handler);
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+
+        EntityRoot = element.entity.fields;
+        element.injectRaw(response);
+      });
+
+    });
+
+    it('should fire data-injected', (done) => {
+      let handler = (e) => {
+        done();
+      };
+      element.addEventListener("data-injected", handler);
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        element.injectRaw(response);
+      });
+
+    });
+
+
     it('should be a entity-object_test', (done) => {
-      element.setAttribute("type","project.ProjectEntity");
+
       assert.equal(element.nodeName.toLowerCase(), "entity-object");
       done()
     });

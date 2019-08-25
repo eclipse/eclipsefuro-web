@@ -3,6 +3,8 @@ import {CollectionNode} from "./lib/CollectionNode.js"
 import {Env} from "@furo/framework"
 
 /**
+ * * ## Deprecated, please work with [furo-data-object](furo-data-object) instead
+ *
  * `collection-object`
  *
  * > This component is deprecated, use [furo-data-object](furo-data-object) instead

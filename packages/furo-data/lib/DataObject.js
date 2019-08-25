@@ -69,7 +69,17 @@ export class DataObject extends EventTreeNode {
         }
       });
     }
-
+    /**
+     * @event (data-injected)
+     *
+     * ✋ Internal Event from EntityNode which you can use in the targeted components!
+     *
+     * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
+     *
+     * This event **bubbles**.
+     *
+     * detail payload: **{NodeEvent}**
+     */
     this.dispatchNodeEvent(new NodeEvent("data-injected", this,true));
   }
 
