@@ -1,7 +1,7 @@
 import {LitElement, html} from 'lit-element';
 import {FBP} from '@furo/fbp';
 import './api-fetch.js';
-import {CollectionControls} from "./lib/CollectionControls.js"
+
 import {Env} from "@furo/framework"
 
 /**
@@ -78,20 +78,6 @@ class collectionAgent extends FBP(LitElement) {
     };
   }
 
-  firstUpdated() {
-    super.firstUpdated();
-    /**
-     * @event collection-controls
-     * Fired when
-     * detail payload:
-     */
-    let customEvent = new Event('collection-controls', {composed: true, bubbles: true});
-
-    customEvent.detail = new CollectionControls(this, this.service, this._servicedefinitions);
-    setTimeout(() => {
-      this.dispatchEvent(customEvent);
-    }, 0);
-  }
 
 
   /**

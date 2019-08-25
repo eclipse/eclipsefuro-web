@@ -26,7 +26,7 @@
                               @-value-changed="--valueChanged"></furo-data-checkbox-input>
 
 
-        <deep-link service="ExperimentService" @-hts-out="--hts"></deep-link>
+        <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
         <entity-agent service="ExperimentService"
                           ƒ-hts-in="--hts"
                           ƒ-load="--hts"
@@ -47,7 +47,7 @@
     import "@furo/testhelper/initEnv.js";
     import "@furo/data/furo-data-object.js";
     import "@furo/data/entity-agent";
-    import "@furo/data/deep-link";
+    import "@furo/data/furo-deep-link";
     import '/node_modules/axe-core/axe.min.js';
 
     import '/node_modules/axe-core/axe.min.js';
