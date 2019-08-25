@@ -43,6 +43,25 @@
     });
 
 
+    it('should delete an entity   when hts rel delete   exist', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("delete-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "delete",
+          "type": "task.TaskEntity"
+        }
+      ]);
+
+      element.bindRequestData({"display_name":"dummy"});
+
+      element.delete();
+    });
+
     it('should not safe an entity on save when hts rel update does not exist', (done) => {
       element.setAttribute("service","TaskService");
       element.addEventListener("missing-hts-update",()=>{

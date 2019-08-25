@@ -64,17 +64,6 @@ class FuroEntityAgent extends FBP(LitElement) {
     }
   }
 
-  /**
-   * deprecated
-   *
-   * use bindRequestData instead
-   * @param entityTree
-   */
-  bindRequestObject(entityTree) {
-    this._entityTree = entityTree;
-    console.warn("ƒ-bind-request-object is deprecated, use ƒ-bind-request-data instead");
-    console.warn("This component will be removed in Q4-2019", this);
-  }
 
 
   /**
