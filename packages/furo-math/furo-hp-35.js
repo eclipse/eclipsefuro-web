@@ -1,7 +1,7 @@
 import {ForthStack} from "@furo/logic/furo-forth-stack.js"
 
   /**
-   * `hp-35` is a declarative calculator component.
+   * `hp-35` is a declarative rpn calculator component.
    *
    * see https://hansklav.home.xs4all.nl/rpn/
    * http://h10032.www1.hp.com/ctg/Manual/c01579350
@@ -10,13 +10,9 @@ import {ForthStack} from "@furo/logic/furo-forth-stack.js"
    * @polymer
    * @demo demo/hp35.html
    */
-  class Hp35 extends ForthStack {
+  class FuroHp35 extends ForthStack {
     constructor() {
       super();
-    }
-
-    static get is() {
-      return 'hp-35';
     }
 
     static get properties() {
@@ -379,5 +375,5 @@ import {ForthStack} from "@furo/logic/furo-forth-stack.js"
     }
   }
 
-  window.customElements.define(Hp35.is, Hp35);
+  window.customElements.define("furo-hp-35", FuroHp35);
 

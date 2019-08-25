@@ -1,2 +1,2 @@
-import "./count-int"
-import "./random-number"
+import "./furo-counter"
+import "./furo-random-number"
