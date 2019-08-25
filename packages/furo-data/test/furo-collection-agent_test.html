@@ -43,6 +43,154 @@
     });
 
 
+    it('should not accept an unkonwn service', (done) => {
+      element.setAttribute("service","unknown");
+      assert.equal(element._service,undefined);
+      done();
+    });
+
+
+
+
+    it('should do  next if rel is  set', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("next-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "next",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      element.next();
+    });
+    it('should do  first if rel is  set', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("first-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "first",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      element.first();
+    });
+    it('should do  prev if rel is  set', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("prev-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "prev",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      element.prev();
+    });
+    it('should do  last if rel is  set', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("last-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "last",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      element.last();
+    });
+
+
+    it('should do nothing on first if rel is not set', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("missing-hts-first",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      element.first();
+    });
+    it('should do nothing on last if rel is not set', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("missing-hts-last",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      element.last();
+    });
+    it('should do nothing on prev if rel is not set', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("missing-hts-prev",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      element.prev();
+    });
+    it('should do nothin on next if rel is not set', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("missing-hts-next",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      element.next();
+    });
+
+    it('should a collection for the defined service when hts is set', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("list-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      element.list();
+    });
+
     it('should be a furo-collection-agent', (done) => {
       assert.equal(element.nodeName.toLowerCase(), "furo-collection-agent");
       done()

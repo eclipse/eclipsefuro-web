@@ -63,6 +63,46 @@ class furoCollectionAgent extends FBP(LitElement) {
     this._queryParams = {};
   }
 
+  /**
+   * Attaches temporary listeners to fire load-success, load-fail, delete-success,...
+   * @param eventPrefix
+   * @private
+   */
+  _attachListeners(eventPrefix) {
+
+    let success = (e) => {
+      // we do not want req-success and req-failed outside of this component
+      e.stopPropagation();
+      let customEvent = new Event(eventPrefix + '-success', {composed: true, bubbles: true});
+
+      customEvent.detail = e.detail;
+      this.dispatchEvent(customEvent);
+
+      // remove listeners
+      this.removeEventListener("req-success", success, true);
+      this.removeEventListener("req-failed", failed, true);
+
+    };
+
+    let failed = (e) => {
+      // we do not want req-success and req-failed outside of this component
+      e.stopPropagation();
+      let customEvent = new Event(eventPrefix + '-failed', {composed: true, bubbles: true});
+      customEvent.detail = e.detail;
+      this.dispatchEvent(customEvent);
+
+      // remove listeners
+      this.removeEventListener("req-success", success, true);
+      this.removeEventListener("req-failed", failed, true);
+    };
+    /**
+     * do not add the listener directly to response, otherwise it kicks in before hts is updated
+     * This extra "loop" is to guarante the order of handling the events
+     */
+    this.addEventListener("req-success", success, true);
+    this.addEventListener("req-failed", failed, true);
+  }
+
   static get properties() {
     return {
       /**
@@ -157,7 +197,7 @@ class furoCollectionAgent extends FBP(LitElement) {
    */
   set service(service) {
     if (!this._servicedefinitions[service]) {
-      console.error("service " + service + " does not exist", this, "Available Services:", this._servicedefinitions);
+      console.warn("service " + service + " does not exist", this, "Available Services:", this._servicedefinitions);
       return;
     }
     this._service = this._servicedefinitions[service];
@@ -166,10 +206,6 @@ class furoCollectionAgent extends FBP(LitElement) {
       console.warn("You are using a deprecated service (" + service + ") " + this._service.lifecycle.info);
     }
     // set pagination defaults
-  }
-
-  bindRequestObject(entityTree) {
-    this._entityTree = entityTree;
   }
 
   /**
@@ -271,7 +307,6 @@ class furoCollectionAgent extends FBP(LitElement) {
   _checkServiceAndHateoasLinkError(rel, serviceName) {
     // check Service Get
     if (!this._service.services[serviceName]) {
-      // todo fehler werfen ???
       console.warn("Restlet " + serviceName + " is not specified", this._service, this);
       return true;
     }
@@ -283,7 +318,7 @@ class furoCollectionAgent extends FBP(LitElement) {
     }
     // check Hateoas
     if (!this._hts[rel]) {
-      console.warn("No HATEOAS for rel self", this._hts, this);
+      console.warn("No HATEOAS for rel " + rel, this._hts, this);
       return true;
     }
     return false;
@@ -291,8 +326,12 @@ class furoCollectionAgent extends FBP(LitElement) {
 
   _followRelService(rel, serviceName) {
     if (this._checkServiceAndHateoasLinkError(rel, serviceName)) {
+      let customEvent = new Event( 'missing-hts-' + rel, {composed: true, bubbles: false});
+      this.dispatchEvent(customEvent);
       return;
+      return
     }
+    this._attachListeners(rel);
     this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts[rel]));
   }
 
@@ -300,7 +339,7 @@ class furoCollectionAgent extends FBP(LitElement) {
    * loads the entity if hts is available
    */
   list() {
-    this._followRelService("list", "List");
+   return this._followRelService("list", "List");
   }
 
   search(term) {
@@ -403,7 +442,8 @@ class furoCollectionAgent extends FBP(LitElement) {
       <furo-api-fetch
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"
-              @-response="--responseParsed">
+              @-response="--responseParsed,^^req-success"
+              @-response-error="^^req-failed">
       </furo-api-fetch>
     `;
   }
