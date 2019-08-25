@@ -12,7 +12,7 @@ import {FBP} from '@furo/fbp/fbp.js';
  *
  * @appliesMixin FBP
  */
-class AppendObject extends FBP(HTMLElement) {
+class FuroAppendObject extends FBP(HTMLElement) {
 
   constructor() {
     super();
@@ -38,4 +38,4 @@ class AppendObject extends FBP(HTMLElement) {
 
 }
 
-window.customElements.define('append-object', AppendObject);
+window.customElements.define('furo-append-object', FuroAppendObject);

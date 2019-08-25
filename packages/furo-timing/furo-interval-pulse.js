@@ -1,15 +1,15 @@
 import { LitElement, html, css } from 'lit-element';
 
 /**
- * `interval-pulse`
+ * `furo-interval-pulse`
  * todo Describe your element
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/interval-pulse.html
+ * @demo demo/furo-interval-pulse.html
  * @appliesMixin FBP
  */
-class IntervalPulse extends (LitElement) {
+class FuroIntervalPulse extends (LitElement) {
 
     constructor() {
         super();
@@ -67,4 +67,4 @@ class IntervalPulse extends (LitElement) {
   }
 }
 
-window.customElements.define('interval-pulse', IntervalPulse);
+window.customElements.define('furo-interval-pulse', FuroIntervalPulse);

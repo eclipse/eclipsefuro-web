@@ -1,5 +1,5 @@
 import "./light-bulb"
-import "@furo/timing/interval-pulse"
+import "@furo/timing/furo-interval-pulse"
 import "./style-category-sample"
 import "./sample-form"
 import "./icons-demo"

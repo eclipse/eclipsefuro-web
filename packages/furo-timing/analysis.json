@@ -2,9 +2,9 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`interval-pulse`\ntodo Describe your element",
+      "description": "`furo-interval-pulse`\ntodo Describe your element",
       "summary": "todo shortdescription",
-      "path": "packages/furo-timing/interval-pulse.js",
+      "path": "packages/furo-timing/furo-interval-pulse.js",
       "properties": [
         {
           "name": "_hasConnected",
@@ -927,7 +927,7 @@
       ],
       "demos": [
         {
-          "url": "demo/interval-pulse.html",
+          "url": "demo/furo-interval-pulse.html",
           "description": ""
         }
       ],
@@ -1008,7 +1008,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "interval-pulse",
+      "tagname": "furo-interval-pulse",
       "mixins": [
         "FBP"
       ]
