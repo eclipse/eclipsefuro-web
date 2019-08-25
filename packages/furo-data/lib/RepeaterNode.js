@@ -46,6 +46,9 @@ export class RepeaterNode extends EventTreeNode {
     });
   }
 
+  /**
+   * deletes all repeated fields on this node
+   */
   removeAllChildren() {
     this.__childNodes = [];
     this.repeats = [];
@@ -76,6 +79,10 @@ export class RepeaterNode extends EventTreeNode {
     });
   }
 
+  /**
+   * Deletes a repeated item by index
+   * @param index
+   */
   deleteChild(index){
     this.repeats.splice(index,1);
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, true));
@@ -90,7 +97,7 @@ export class RepeaterNode extends EventTreeNode {
     fieldNode.__index = index;
 
     // add function to remove field from list
-    fieldNode.deleteFromList = () => {
+    fieldNode._deleteFromList = () => {
       this.deleteChild(this.repeats.indexOf(fieldNode));
     };
 

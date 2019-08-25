@@ -17,9 +17,9 @@
 <test-fixture id="basic">
   <template>
     <test-bind>
-    <template>
-     <furo-data-object></furo-data-object>
-     </template>
+      <template>
+        <furo-data-object></furo-data-object>
+      </template>
     </test-bind>
   </template>
 </test-fixture>
@@ -35,11 +35,207 @@
 
     let element = {};
 
+
     beforeEach(async () => {
       let fix = fixture('basic');
       element = fix[1];
       await element.updateComplete;
 
+    });
+    it('should log to console on non existing type', (done) => {
+      element.type = "unknown";
+      assert.equal(element._type, undefined);
+      element.type = "project.ProjectEntity";
+      assert.equal(element._type,  "project.ProjectEntity");
+      done();
+    });
+    it('should be possible to get the --json value-- of any node', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+          let EntityRoot = ObjectDataRoot.data;
+          let val = EntityRoot.members.value;
+
+          EntityRoot.members.add(val[0]);
+          // set on the repeats
+          EntityRoot.members.repeats[1].first_name.value="Kyra";
+          // read on value
+          assert.equal(EntityRoot.members.value[0].first_name, "John");
+          assert.equal(EntityRoot.members.value[1].first_name, "Kyra");
+
+          done();
+        });
+      });
+    });
+
+
+    it('should declare the complete object not pristine when one field value changes', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+
+          assert.equal(ObjectDataRoot._pristine, true);
+          let EntityRoot = ObjectDataRoot.data;
+          EntityRoot.members.repeats[0].first_name.value= "new";
+          assert.equal(ObjectDataRoot._pristine, false);
+
+          done();
+        });
+      });
+    });
+
+    it('should declare the complete object valid when all fields becomes valid', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+          assert.equal(ObjectDataRoot._isValid, true);
+          let EntityRoot = ObjectDataRoot.data;
+
+          EntityRoot.members.repeats[0].first_name._setInvalid({message:"this first name does not exist"});
+          EntityRoot.members.repeats[0].display_name._setInvalid({message:"this first name does not exist"});
+          assert.equal(ObjectDataRoot._isValid, false);
+          EntityRoot.members.repeats[0].first_name._clearInvalidity();
+          assert.equal(ObjectDataRoot._isValid, false);
+          EntityRoot.members.repeats[0].display_name._clearInvalidity();
+          assert.equal(ObjectDataRoot._isValid, true);
+
+          done();
+        });
+      });
+    });
+    it('should declare the complete object as invalid if one field becomes invalid', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+          assert.equal(ObjectDataRoot._isValid, true);
+          let EntityRoot = ObjectDataRoot.data;
+
+          EntityRoot.members.repeats[0].first_name._setInvalid({message:"this first name does not exist"});
+          assert.equal(ObjectDataRoot._isValid, false);
+          done();
+        });
+      });
+    });
+
+    it('should be possible remove  a item in a repeated by the FieldNode itself', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+          let EntityRoot = ObjectDataRoot.data;
+
+          assert.equal(EntityRoot.members.repeats.length, 1);
+          // add
+          EntityRoot.members.add();
+          assert.equal(EntityRoot.members.repeats.length, 2);
+          EntityRoot.members.repeats[1].deleteNode();
+          assert.equal(EntityRoot.members.repeats.length, 1);
+          done();
+        });
+      });
+    });
+
+    it('should be possible to add and remove all a repeated item on repeated fields', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+          let EntityRoot = ObjectDataRoot.data;
+
+          assert.equal(EntityRoot.members.repeats.length, 1);
+          // add
+          EntityRoot.members.add();
+          assert.equal(EntityRoot.members.repeats.length, 2);
+          EntityRoot.members.removeAllChildren();
+          assert.equal(EntityRoot.members.repeats.length, 0);
+          done();
+        });
+      });
+    });
+    it('should be possible to remove  repeated item by index fields', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+          let EntityRoot = ObjectDataRoot.data;
+
+          assert.equal(EntityRoot.members.repeats.length, 1);
+          // add
+          EntityRoot.members.add();
+          assert.equal(EntityRoot.members.repeats.length, 2);
+          EntityRoot.members.deleteChild(1);
+          assert.equal(EntityRoot.members.repeats.length, 1);
+          done();
+        });
+      });
+    });
+
+
+    it('should fire data-changed when some internal value changed', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+      /**
+       * Attention data-changed will be fired on every field when you inject data
+       */
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+          let EntityRoot = ObjectDataRoot.data;
+
+          assert.equal(EntityRoot.members.repeats[0].first_name.value, "John");
+
+          let handler = (e) => {
+            assert.equal(element.data.data._spec.type, "project.Project");
+            let firstname = (element.data.data.members.repeats[0].first_name.value);
+            assert.equal(firstname, "Lysander");
+            element.removeEventListener("data-changed", handler);
+            done();
+          };
+          element.addEventListener("data-changed", handler,true);
+
+          EntityRoot.members.repeats[0].first_name.value = "Lysander";
+        });
+      });
+    });
+
+
+    it('should return a promise', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+          let EntityRoot = ObjectDataRoot.data;
+          let firstname = EntityRoot.members.repeats[0].first_name.value;
+          assert.equal(EntityRoot._spec.type, "project.Project");
+          assert.equal(firstname, "John");
+          done();
+        });
+      });
+    });
+
+    it('should reslove queued inject promise', (done) => {
+      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+          let EntityRoot = ObjectDataRoot.data
+          let firstname = EntityRoot.members.repeats[0].first_name.value;
+          assert.equal(EntityRoot._spec.type, "project.Project");
+          assert.equal(firstname, "John");
+          done();
+        });
+        element.setAttribute("type", "project.ProjectEntity");
+      });
     });
 
 
@@ -49,45 +245,50 @@
     });
 
     it('should have useful data', (done) => {
-      element.setAttribute("type","project.Project");
+      element.setAttribute("type", "project.ProjectEntity");
+      let EntityRoot = {};
+      let handler = (e) => {
+        let firstname = EntityRoot.members.repeats[0].first_name.value;
+        assert.equal(element.data.data._spec.type, "project.Project");
+        assert.equal(firstname, "John");
+        done();
+      };
+      element.addEventListener("data-injected", handler);
 
       fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+        EntityRoot = element.data.data;
         element.injectRaw(response);
       });
 
-      let handler = (e)=>{
-        assert.equal(element.data.cost_limit._spec.type,"google.type.Money");
-        done();
-      };
-      element.addEventListener("data-injected",handler);
     });
 
 
-
     it('should fire data-injected', (done) => {
-      element.setAttribute("type","project.Project");
+      element.setAttribute("type", "project.ProjectEntity");
+
+
+      let handler = (e) => {
+        done();
+      };
+      element.addEventListener("data-injected", handler);
 
       fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
         element.injectRaw(response);
       });
 
-      let handler = (e)=>{
-        done();
-      };
-      element.addEventListener("data-injected",handler);
     });
 
 
     it('should queue data on injectRaw until the type is set', (done) => {
       fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
         element.injectRaw(response);
-        element.setAttribute("type","project.Project");
+        element.setAttribute("type", "project.ProjectEntity");
       });
 
-      let handler = (e)=>{
+      let handler = (e) => {
         done();
       };
-      element.addEventListener("object-ready",handler);
+      element.addEventListener("object-ready", handler);
     });
 
 

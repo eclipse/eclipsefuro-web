@@ -49,8 +49,6 @@ class FuroDataObject extends (LitElement) {
   }
 
 
-
-
   /**
    * inject a raw data response from the corresonding agent.
    *
@@ -69,20 +67,27 @@ class FuroDataObject extends (LitElement) {
    * @param jsonObj
    */
   injectRaw(jsonObj) {
-    // queue inject bis entity bereit ist
-    if (!this.data) {
-      this._queue = jsonObj;
-    } else {
-      this.data.injectRaw(jsonObj);
-    }
+     this._injectPromise = new Promise((resolve) => {
+      // queue inject bis entity bereit ist
+      if (!this.data) {
+        this._queue = jsonObj;
+        this._queuedInjectResolver = resolve;
+      } else {
+
+       this.data.injectRaw(jsonObj);
+       resolve(this.data);
+      }
+    });
+    return this._injectPromise;
   }
 
   /**
-   *
+   * Set the type. The type must be available in the environment
    * @param type
    */
   set type(type) {
-    if(this._checkType(type)){
+
+    if (this._checkType(type)) {
       this._type = type;
     }
   }
@@ -106,9 +111,10 @@ class FuroDataObject extends (LitElement) {
     this.data = new DataObject(null, type, this._specs);
 
     // if data is on queue inject it.
-    if(this._queue !== undefined){
-      this.injectRaw(this._queue);
+    if (this._queue !== undefined) {
+      this.data.injectRaw(this._queue);
       this._queue = undefined;
+      this._queuedInjectResolver(this.data);
     }
 
     /**
@@ -154,53 +160,10 @@ class FuroDataObject extends (LitElement) {
       customEvent.detail = this.data.rawData;
       this.dispatchEvent(customEvent);
 
-      /**
-       * @event (field-value-changed)
-       *
-       * ✋ Internal Event from EntityNode which you can use in the targeted components!
-       *
-       * Fired when a value on a field node changes. This event **bubbles** by default. Can be used on any node.
-       *
-       * detail payload: **{NodeEvent}** with reference to the FieldNode
-       */
 
-      /**
-       * @event (this-field-value-changed)
-       *
-       * ✋ Internal Event from EntityNode which you can use in the targeted components!
-       *
-       * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
-       *
-       * detail payload: **{NodeEvent}** with reference to the FieldNode
-       */
-
-      /**
-       * @event (data-injected)
-       *
-       * ✋ Internal Event from EntityNode which you can use in the targeted components!
-       *
-       * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
-       *
-       * This event **bubbles**.
-       *
-       * detail payload: **{NodeEvent}**
-       */
-
-      return true
     });
-  }
 
-  /**
-   * Inits internal entity
-   * References will still be valid
-   */
-  init() {
-    this.data.init();
-    let customEvent = new Event('object-ready', {composed: true, bubbles: true});
-    customEvent.detail = this.data;
-    setTimeout(() => {
-      this.dispatchEvent(customEvent);
-    }, 0);
+    return true
   }
 
 

@@ -7,6 +7,10 @@ import {RepeaterNode} from "./RepeaterNode";
  */
 export class EntityNode extends EventTreeNode {
 
+
+
+
+
   constructor(parentNode, type, specs) {
     super(parentNode);
 
@@ -70,6 +74,17 @@ export class EntityNode extends EventTreeNode {
       });
     }
 
+    /**
+     * @event (data-injected)
+     *
+     * ✋ Internal Event from EntityNode which you can use in the targeted components!
+     *
+     * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
+     *
+     * This event **bubbles**.
+     *
+     * detail payload: **{NodeEvent}**
+     */
     this.dispatchNodeEvent(new NodeEvent("data-injected", this,true));
   }
 
@@ -123,8 +138,6 @@ export class EntityNode extends EventTreeNode {
       } else {
         if (fieldNode._isRepeater) {
           let initialSize = fieldNode.repeats.length;
-
-          //fieldNode.removeAllChildren();
 
           // update records
           data[fieldName].forEach((repdata, i) => {

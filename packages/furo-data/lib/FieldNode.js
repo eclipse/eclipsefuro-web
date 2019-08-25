@@ -84,7 +84,26 @@ export class FieldNode extends EventTreeNode {
         this._value = val;
         this._pristine = false;
         if (JSON.stringify(this.oldvalue) !== JSON.stringify(this._value)) {
+          /**
+           * @event (field-value-changed)
+           *
+           * ✋ Internal Event from EntityNode which you can use in the targeted components!
+           *
+           * Fired when a value on a field node changes. This event **bubbles** by default. Can be used on any node.
+           *
+           * detail payload: **{NodeEvent}** with reference to the FieldNode
+           */
           this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
+          /**
+           * @event (this-field-value-changed)
+           *
+           * ✋ Internal Event from EntityNode which you can use in the targeted components!
+           *
+           * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
+           *
+           * detail payload: **{NodeEvent}** with reference to the FieldNode
+           */
+          this.dispatchNodeEvent(new NodeEvent('this-field-value-changed', this, false));
         }
       }
 
@@ -144,6 +163,10 @@ export class FieldNode extends EventTreeNode {
     this.__parentNode.__childNodes.splice(index, 1);
     delete (this.__parentNode[this._name]);
 
+    // remove from list if this is a repeated item
+    if(typeof this._deleteFromList === "function"){
+      this._deleteFromList();
+    }
     //notify
     this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted", this._name, false));
     this.dispatchNodeEvent(new NodeEvent("node-field-deleted", this._name, true));
@@ -189,7 +212,26 @@ export class FieldNode extends EventTreeNode {
     if (!this._isValid) {
       this._isValid = true;
       this._validity = {};
-      this.dispatchNodeEvent(new NodeEvent("field-became-valid", this))
+      /**
+       * @event (field-became-valid)
+       *
+       * ✋ Internal Event from EntityNode which you can use in the targeted components!
+       *
+       * Fired when a field or subfield gets invalid.
+       *
+       * detail payload: **{NodeEvent}** with reference to the FieldNode
+       */
+      this.dispatchNodeEvent(new NodeEvent("field-became-valid", this, true));
+      /**
+       * @event (this-field-became-valid)
+       *
+       * ✋ Internal Event from EntityNode which you can use in the targeted components!
+       *
+       * Fired when a field gets invalid. This event **does not bubble**. Can be used on any node.
+       *
+       * detail payload: **{NodeEvent}** with reference to the FieldNode
+       */
+      this.dispatchNodeEvent(new NodeEvent("this-field-became-valid", this, false))
     }
   }
 
