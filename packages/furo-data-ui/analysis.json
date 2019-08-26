@@ -9,7 +9,7 @@
         {
           "name": "type",
           "type": "string | null | undefined",
-          "description": "Typedefinition of incoming collection items\nREST SPEC Type\ne.g. vnd.com.abc.[type]",
+          "description": "Typedefinition of incoming collection items\nREST SPEC Type\ne.g. task.Task.[type]",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -644,7 +644,7 @@
       "attributes": [
         {
           "name": "type",
-          "description": "Typedefinition of incoming collection items\nREST SPEC Type\ne.g. vnd.com.abc.[type]",
+          "description": "Typedefinition of incoming collection items\nREST SPEC Type\ne.g. task.Task.[type]",
           "sourceRange": {
             "start": {
               "line": 211,

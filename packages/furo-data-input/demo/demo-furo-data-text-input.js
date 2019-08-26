@@ -45,7 +45,7 @@ class DemoFuroDataTextInput extends FBP(LitElement) {
       <p>Bind the field from entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the entity-object specs.</p>
       <furo-demo-snippet >
         <template>
-          <furo-data-object type="vnd.com.acme.task" @-object-ready="--entity"></furo-data-object>
+          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
           <furo-data-text-input trailing-icon="dashboard" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
           <furo-data-text-input leading-icon="dashboard" float label="Always float" hint="Always float" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
           <furo-data-text-input autofocus ƒ-bind-data="--entity(*.fields.description)" @-value-changed="--textChanged"></furo-data-text-input>
