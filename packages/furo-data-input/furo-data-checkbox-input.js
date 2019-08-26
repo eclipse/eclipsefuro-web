@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/input/furo-checkbox-input";
-import {FuroInputBase} from "./FuroInputBase.js";
+
 
 /**
  * `furo-data-checkbox-input`
@@ -22,7 +22,7 @@ import {FuroInputBase} from "./FuroInputBase.js";
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroDataCheckboxInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataCheckboxInput extends FBP(LitElement) {
 
 
     /**

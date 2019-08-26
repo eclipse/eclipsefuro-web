@@ -59,14 +59,14 @@
 
                     <furo-pretty-json ƒ-inject-data="--rowSelected"></furo-pretty-json>
 
-                    <deep-link ƒ-trigger="--btnLoadPressed"
+                    <furo-deep-link ƒ-trigger="--btnLoadPressed"
                                service="tasks"
-                               @-hts-out="--hts"></deep-link>
+                               @-hts-out="--hts"></furo-deep-link>
 
-                    <collection-agent service="tasks"
+                    <furo-collection-agent service="tasks"
                                       ƒ-hts-in="--hts"
                                       list-on-hts-in
-                                      @-response="--colResponded"></collection-agent>
+                                      @-response="--colResponded"></furo-collection-agent>
 
                     <collection-object type="vnd.com.acme.task"
                                        ƒ-inject-raw="--colResponded"

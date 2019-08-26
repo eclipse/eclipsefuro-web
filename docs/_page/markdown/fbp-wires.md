@@ -84,7 +84,7 @@ You can trigger multiple wires from one source by comma separating them.
   <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
   <light-bulb ƒ-toggle="--lightSwitchClicked"></light-bulb>
   <furo-button @-click="--lightSwitchClicked, --blinkerClicked" label="i am a lightswitch"></furo-button>   
-  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="500"></interval-pulse>
+  <furo-interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="500"></furo-interval-pulse>
   <furo-button danger  @-click="--stopBlinkerClicked" label="Stop the blinking"></furo-button>   
 </template>
 </furo-demo-snippet>
@@ -100,7 +100,7 @@ You can receive from multiple wires by comma separating them.
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse"></light-bulb>  
   <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button>   
   <furo-button @-click="--blinkerClicked" label="i am a blinkswitch"></furo-button>   
-  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="500"></interval-pulse>
+  <furo-interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="500"></furo-interval-pulse>
   <furo-button danger  @-click="--stopBlinkerClicked" label="Stop the blinking"></furo-button>   
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse"></light-bulb>  
 </template>
@@ -116,7 +116,7 @@ By default the **event.detail** is passed to the function you wire.
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse" ƒ-set-color="--newColor"></light-bulb>  
   <furo-button @-click="--lightSwitchClicked" label="i am a lightswitch"></furo-button>   
   <furo-button @-click="--blinkerClicked" label="i am a blinkswitch"></furo-button>   
-  <interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="500"></interval-pulse>
+  <furo-interval-pulse ƒ-start="--blinkerClicked" ƒ-stop="--stopBlinkerClicked" @-tick="--intervallPulse" interval="500"></furo-interval-pulse>
   <furo-button danger  @-click="--stopBlinkerClicked" label="Stop the blinking"></furo-button>   
   <light-bulb ƒ-toggle="--lightSwitchClicked, --intervallPulse" ƒ-set-color="--newColor"></light-bulb>
     

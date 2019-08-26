@@ -3,10 +3,10 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper";
 import "@furo/data/furo-data-object";
-import "@furo/data/deep-link";
+import "@furo/data/furo-deep-link";
 import "@furo/layout/furo-horizontal-flex";
 import "../furo-catalog";
-import "@furo/data/entity-agent";
+import "@furo/data/furo-entity-agent";
 
 /**
  * `demo-furo-data-checkbox-input`
@@ -71,13 +71,13 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
 
                     <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
                                       ƒ-inject-raw="--response(*.data)"></furo-data-object>
-                    <deep-link service="ExperimentService" @-hts-out="--hts" ƒ-trigger="--qpIn" qp='{"exp": 1}'></deep-link>
-                    <entity-agent service="ExperimentService"
+                    <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-trigger="--qpIn" qp='{"exp": 1}'></furo-deep-link>
+                    <furo-entity-agent service="ExperimentService"
                                   ƒ-hts-in="--hts"
                                   ƒ-load="--hts"
                                   ƒ-bind-request-data="--entity"
                                   @-response="--response">
-                    </entity-agent>
+                    </furo-entity-agent>
                 </template>
             </furo-demo-snippet>
         `;

@@ -50,7 +50,7 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+            <entity-object type="task.Task" @-object-ready="--entity"></entity-object>
             <furo-horizontal-flex>
               <furo-data-date-input autofocus ƒ-bind-data="--entity(*.fields.id)"
                                       hint="Hint should come from spec and overflows"></furo-data-date-input>

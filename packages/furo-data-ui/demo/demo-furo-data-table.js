@@ -67,13 +67,13 @@ class DemoFuroDataTable extends FBP(LitElement) {
                 <furo-pretty-json ƒ-inject-data="--rowSelected"></furo-pretty-json>
             </furo-vertical-flex>
 
-            <deep-link ƒ-trigger="--btnListClicked" service="ProjectService" @-hts-out="--hts"></deep-link>
-            <collection-agent service="ProjectService"
+            <furo-deep-link ƒ-trigger="--btnListClicked" service="ProjectService" @-hts-out="--hts"></furo-deep-link>
+            <furo-collection-agent service="ProjectService"
                               ƒ-hts-in="--hts"
                               list-on-hts-in
                               @-response-hts-updated="--responseHts"
                               @-response="--collectionResponse">
-            </collection-agent>
+            </furo-collection-agent>
 
             <furo-data-object type="project.ProjectCollection"
                                ƒ-inject-raw="--collectionResponse"

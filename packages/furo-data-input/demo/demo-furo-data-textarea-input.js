@@ -44,7 +44,7 @@ class DemoFuroDataTextareaInput extends FBP(LitElement) {
       <p>Bind the field from entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the entity-object specs.</p>
       <furo-demo-snippet >
         <template>
-          <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+          <entity-object type="project.Project" @-object-ready="--entity"></entity-object>
           <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.fields.description)"></furo-data-textarea-input>
           <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.fields.description)" @-value-changed="--textareaChanged"></furo-data-textarea-input>
           <!-- --textareaChanged only comes when data was typed in. -->

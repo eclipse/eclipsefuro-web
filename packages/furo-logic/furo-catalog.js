@@ -1,1 +1,1 @@
-import "./forth-stack"
+import "./furo-forth-stack"

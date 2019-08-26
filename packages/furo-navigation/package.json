@@ -10,7 +10,6 @@
     "@furo/fbp": "^4.26.2",
     "@furo/framework": "^0.10.2",
     "@furo/layout": "^0.33.0",
-    "@polymer/polymer": "^3.0.0",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.1"
   },

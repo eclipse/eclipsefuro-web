@@ -1,0 +1,180 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-entity-agent</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+    <template>
+     <furo-entity-agent></furo-entity-agent>
+     </template>
+    </test-bind>
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog.js"
+
+  import "@furo/fbp/testhelper/test-bind"; // for testing
+  import "@furo/testhelper/initEnv.js"
+  import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
+  describe('furo-entity-agent tests ', function () {
+
+
+    let element = {};
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      element = fix[1];
+      await element.updateComplete;
+
+    });
+
+
+    it('should delete an entity   when hts rel delete   exist', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("delete-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "delete",
+          "type": "task.TaskEntity"
+        }
+      ]);
+
+      element.bindRequestData({"display_name":"dummy"});
+
+      element.delete();
+    });
+
+    it('should not safe an entity on save when hts rel update does not exist', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("missing-hts-update",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "task.TaskEntity"
+        }
+      ]);
+
+      element.bindRequestData({"display_name":"dummy"});
+
+      element.save();
+    });
+
+
+    it('should create an entity on save when hts rel create exist', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("create-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "create",
+          "type": "task.TaskEntity"
+        }
+      ]);
+
+      element.bindRequestData({"display_name":"dummy"});
+
+      element.create();
+    });
+
+    it('should create an entity on save when hts rel self does not exist', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("create-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "create",
+          "type": "task.TaskEntity"
+        }
+      ]);
+
+      element.bindRequestData({"display_name":"dummy"});
+
+      element.save();
+    });
+    it('should update when hts is set', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("save-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "task.TaskEntity"
+        } ,
+        {
+          "href": "/mockdata/tasks/1/update.json",
+          "method": "GET",
+          "rel": "update",
+          "type": "task.TaskEntity"
+        }
+      ]);
+
+      element.bindRequestData({"display_name":"dfghjk"});
+
+      element.save();
+    });
+
+    it('should get an entity for the defined service', (done) => {
+      element.setAttribute("service","TaskService");
+      element.addEventListener("load-success",()=>{
+        done();
+      });
+      element.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "task.TaskEntity"
+        }
+      ]);
+
+      element.load();
+
+    });
+
+    it('should do nothing when hts is not set', (done) => {
+      element.setAttribute("service","TaskService");
+      assert.equal(element.load(),false);
+      done();
+    });
+
+    it('should be a furo-entity-agent', (done) => {
+      assert.equal(element.nodeName.toLowerCase(), "furo-entity-agent");
+      done()
+    });
+
+
+  });
+</script>
+</body>
+</html>

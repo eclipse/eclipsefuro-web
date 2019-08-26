@@ -8,7 +8,7 @@ You need the following building blocks:
 | component                 | description                       |
 |:--------------------------|:----------------------------------|
 | @furo/route/furo-location | observes location and path        | 
-| @furo/data/deep-link      | builds static HATEOAS information based on query params  |
+| @furo/data/furo-deep-link      | builds static HATEOAS information based on query params  |
 | @furo/route/furo-pages    | can activate views based on the current location |
 
 ### Deep link (perma link)
@@ -18,16 +18,16 @@ Why perma links?
 * No refresh handling
 
 ``` html
-<deep-link ƒ-qp-in="--pageQueryChanged(*.query)" 
+<furo-deep-link ƒ-qp-in="--pageQueryChanged(*.query)" 
            service="task" 
-           @-hts-out="--hts"></deep-link>
+           @-hts-out="--hts"></furo-deep-link>
 
 <!-- e.g. -->
-<entity-agent service="task" 
+<furo-entity-agent service="task" 
               ƒ-bind-request-object="--data"
               ƒ-hts-in="--hts"
               ƒ-load="--actionWIRE"
-              @-response="--responseWIRE"></entity-agent>
+              @-response="--responseWIRE"></furo-entity-agent>
 ```
 
 **Note:** Each page MUST be accessible with a perma link.

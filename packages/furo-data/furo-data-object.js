@@ -9,7 +9,7 @@ import {Env} from "@furo/framework"
  *
  * The data will mostly be used in a [data-ui]/(../../data-input/doc) component or in component that yoh build, which contains one or more of them.
  *
- * `furo-data-object` receives its data regularly from a [collection-aget](collection-agent) or a  [entity-aget](entity-agent).
+ * `furo-data-object` receives its data regularly from a [collection-aget](furo-collection-agent) or a  [entity-aget](furo-entity-agent).
  * But you can also send json data which is formed like the raw-data of this type.
  *
  * `furo-data-object` will not do any validation or data manipulation neither will send the data. It is just responsible to
@@ -20,8 +20,8 @@ import {Env} from "@furo/framework"
  *  <!-- The furo-data-object will send a initial dataObject of type project.Project on @-response-ready -->
  *  <furo-data-object type="project.Project" ƒ-inject-raw="--response(*.data)" @-object-ready="--dataObject"></furo-data-object>
  *
- *  <!-- The entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
- *  <entity-agent service="ProjectService" ƒ-save="--saveClicked" ƒ-bind-request-data="--dataObject" @-response="--response" ></entity-agent>
+ *  <!-- The furo-entity-agent will fetch the data from ProjectService and pass it in @-response to the furo-data-object.  -->
+ *  <furo-entity-agent service="ProjectService" ƒ-save="--saveClicked" ƒ-bind-request-data="--dataObject" @-response="--response" ></furo-entity-agent>
  *```
  *
  *
