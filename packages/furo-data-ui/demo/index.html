@@ -53,25 +53,25 @@
             <flow-bind>
                 <template>
                     <furo-button label="Load Data" autofocus @-click="--btnLoadPressed"></furo-button>
-                    <furo-data-table ƒ-bind-data="--data" type="vnd.com.acme.task"
+                    <furo-data-table ƒ-bind-data="--data" type="task.Task"
                                      ƒ-focus="--colResponded"
                                      @-tablerow-selected="--rowSelected"></furo-data-table>
 
                     <furo-pretty-json ƒ-inject-data="--rowSelected"></furo-pretty-json>
 
                     <furo-deep-link ƒ-trigger="--btnLoadPressed"
-                               service="tasks"
+                               service="TaskService"
                                @-hts-out="--hts"></furo-deep-link>
 
-                    <furo-collection-agent service="tasks"
+                    <furo-collection-agent service="TaskService"
                                       ƒ-hts-in="--hts"
                                       list-on-hts-in
                                       @-response="--colResponded"></furo-collection-agent>
 
-                    <collection-object type="vnd.com.acme.task"
+                    <furo-collection-object type="task.Task"
                                        ƒ-inject-raw="--colResponded"
                                        @-object-ready="--data">
-                    </collection-object>
+                    </furo-collection-object>
 
                 </template>
             </flow-bind>

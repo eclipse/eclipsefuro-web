@@ -44,13 +44,13 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <div><h2>Demo furo-data-number-input</h2>
-          <p>Bind the field from entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
-            The labels, hints, defaults are comming from the entity-object specs.</p>
-          <p>As you can see, the "data-binding" is done by the entity-object.</p>
+          <p>Bind the field from furo-entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
+            The labels, hints, defaults are comming from the furo-entity-object specs.</p>
+          <p>As you can see, the "data-binding" is done by the furo-entity-object.</p>
         </div>
         <furo-demo-snippet flex>
           <template>
-            <entity-object type="vnd.com.acme.task" @-object-ready="--entity"></entity-object>
+            <furo-entity-object type="task.Task" @-object-ready="--entity"></furo-entity-object>
             <furo-horizontal-flex>
               <furo-data-number-input autofocus ƒ-bind-data="--entity(*.fields.id)"
                                       hint="Hint should come from spec and overflows"></furo-data-number-input>
