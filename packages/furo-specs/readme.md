@@ -1,9 +1,16 @@
 # furo spec builder
 ## Prequisits
+If you have Go installed
+
 `simple-generator` has to be installed. Quick installation: `go get github.com/veith/simple-generator` .
 
+if not: https://golang.org/doc/install
+
 ## Manual Installation
-- Run `npm install --save-dev @furo/spec` to install the tools.
+- mkdir my-spec-project
+- cd my-spec-project
+- npm init
+- Run `npm install --save-dev @furo/specs` to install the tools.
 - Add a `furo.spec.conf.json` to the root folder of your spec project. 
   An example of a config file can be found in the `~/node_modules/@furo/spec/` folder. 
 
@@ -37,7 +44,13 @@ Following base types are available by default:
  
 
 > **TIPP** Add the scripts to your package.json so you can run `npm run init` , `npm run build`,... 
-> 
+>
+ ```
+  "scripts": {
+      "build": "node ./node_modules/@furo/specs/_scripts/build.js",
+      "init": "node ./node_modules/@furo/specs/_scripts/init.js"
+  },
+```
 ## Config
 
 - `packages` The name of the packages you use. This will be used for the protoc, swagger, specs folderstructure,... If your specs already exist, the init scripts wont touch them.
@@ -49,7 +62,7 @@ Following base types are available by default:
 - `build_output_dir` Specify the directory for the build output. 
 - `bundled` Options for the bundled build
     - `build` Set to true to generate and build a bundled version.
-    - `package_name` The name will be used as packagename for the bundled build.
+    - `package_name` The name will be used as package name for the bundled build.
     - `service_name` Name for your bundled service.
     - `proto_options` Individual declarations in a .proto file can be annotated here. [more about](https://developers.google.com/protocol-buffers/docs/proto3#options)
     - `imports` Add your imports for the service.proto and messages.proto
@@ -127,3 +140,5 @@ Following base types are available by default:
 
 
 ```
+## Additional scripts
+coming soon
