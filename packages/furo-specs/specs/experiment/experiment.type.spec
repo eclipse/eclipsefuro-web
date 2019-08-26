@@ -59,7 +59,8 @@
       "meta": {
         "label": "Label for furo_data_checkbox_input",
         "default": "",
-        "hint": "Hint"
+        "hint": "Hint",
+        "readonly": false
       },
       "constraints": {},
       "options": [],
@@ -73,12 +74,80 @@
       "type": "string",
       "meta": {
         "label": "Label for furo_data_text_input input",
-        "hint": "hint"
+        "hint": "hint",
+        "min": 3,
+        "max": 15,
+        "readonly": false
       },
       "constraints": {},
       "options": [],
       "__proto": {
         "number": 5
+      }
+    },
+    "furo_data_textarea_input": {
+      "description": "field for furo_data_textarea_input for testing",
+      "type": "string",
+      "meta": {
+        "label": "Label for furo_data_textarea_input input",
+        "hint": "hint",
+        "readonly": false
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 6
+      }
+    },
+    "furo-data-time-input": {
+      "description": "field for furo-data-time-input for testing",
+      "type": "google.type.Date",
+      "meta": {
+        "label": "Label for furo-data-time-input input",
+        "hint": "hint",
+        "readonly": false,
+        "min":null,
+        "max":null,
+        "step":""
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 7
+      }
+    },
+    "furo-data-range-input": {
+      "description": "field for furo-data-range-input for testing",
+      "type": "string",
+      "meta": {
+        "label": "Label for furo-data-range-input input",
+        "hint": "hint",
+        "readonly": false,
+        "min":null,
+        "max":null,
+        "step":""
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 8
+      }
+    },
+    "furo-data-number-input": {
+      "description": "field for furo-data-number-input for testing",
+      "type": "float",
+      "meta": {
+        "label": "Label for furo-data-number-input input",
+        "hint": "hint",
+        "readonly": false,
+        "min":null,
+        "max":null,
+        "step":""
+      },
+      "constraints": {},
+      "options": [],
+      "__proto": {
+        "number": 9
       }
     }
   }
