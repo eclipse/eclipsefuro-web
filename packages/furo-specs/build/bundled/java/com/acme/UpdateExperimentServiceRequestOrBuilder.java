@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface UpdateExperimentServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.UpdateExperimentServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.UpdateExperimentServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -18,15 +18,15 @@ public interface UpdateExperimentServiceRequestOrBuilder extends
       getExpBytes();
 
   /**
-   * <code>.bundled.Experiment data = 2;</code>
+   * <code>.com.acme.api.Experiment data = 2;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.Experiment data = 2;</code>
+   * <code>.com.acme.api.Experiment data = 2;</code>
    */
   com.acme.Experiment getData();
   /**
-   * <code>.bundled.Experiment data = 2;</code>
+   * <code>.com.acme.api.Experiment data = 2;</code>
    */
   com.acme.ExperimentOrBuilder getDataOrBuilder();
 }

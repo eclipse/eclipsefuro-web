@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface UpdateProjectServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.UpdateProjectServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.UpdateProjectServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -18,15 +18,15 @@ public interface UpdateProjectServiceRequestOrBuilder extends
       getPrjBytes();
 
   /**
-   * <code>.bundled.Project data = 2;</code>
+   * <code>.com.acme.api.Project data = 2;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.Project data = 2;</code>
+   * <code>.com.acme.api.Project data = 2;</code>
    */
   com.acme.Project getData();
   /**
-   * <code>.bundled.Project data = 2;</code>
+   * <code>.com.acme.api.Project data = 2;</code>
    */
   com.acme.ProjectOrBuilder getDataOrBuilder();
 }

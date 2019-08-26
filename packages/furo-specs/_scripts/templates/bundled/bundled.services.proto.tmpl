@@ -2,7 +2,7 @@
 // generation date: {{now | date "2006-01-02 15:04:05"}}
 
 syntax = "proto3";
-package bundled;
+package {{.config.package_name}};
 
 {{range $key, $option := .config.proto_options}}
 option {{$key}} = {{if  (typeOf $option | eq "bool")}}{{$option}};{{else}}"{{$option}}";{{end}}{{end}}
@@ -11,7 +11,7 @@ import "google/api/annotations.proto";
 {{range $import := .config.imports}}
 import "{{$import}}";{{end}}
 
-service dfddf {
+service {{.config.service_name}} {
 {{range $restlet := .services}}
 {{- $serviceName := camelcase (snakecase $restlet.name)}}
     // {{$restlet.description}}

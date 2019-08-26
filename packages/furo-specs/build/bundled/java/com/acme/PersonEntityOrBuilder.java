@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface PersonEntityOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.PersonEntity)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.PersonEntity)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface PersonEntityOrBuilder extends
    * contains a person.Person
    * </pre>
    *
-   * <code>.bundled.Person data = 1;</code>
+   * <code>.com.acme.api.Person data = 1;</code>
    */
   boolean hasData();
   /**
@@ -20,7 +20,7 @@ public interface PersonEntityOrBuilder extends
    * contains a person.Person
    * </pre>
    *
-   * <code>.bundled.Person data = 1;</code>
+   * <code>.com.acme.api.Person data = 1;</code>
    */
   com.acme.Person getData();
   /**
@@ -28,7 +28,7 @@ public interface PersonEntityOrBuilder extends
    * contains a person.Person
    * </pre>
    *
-   * <code>.bundled.Person data = 1;</code>
+   * <code>.com.acme.api.Person data = 1;</code>
    */
   com.acme.PersonOrBuilder getDataOrBuilder();
 

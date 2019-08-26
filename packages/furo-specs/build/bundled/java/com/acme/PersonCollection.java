@@ -8,11 +8,11 @@ package com.acme;
  * PersonCollection with repeated PersonEntity
  * </pre>
  *
- * Protobuf type {@code bundled.PersonCollection}
+ * Protobuf type {@code com.acme.api.PersonCollection}
  */
 public  final class PersonCollection extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.PersonCollection)
+    // @@protoc_insertion_point(message_implements:com.acme.api.PersonCollection)
     PersonCollectionOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use PersonCollection.newBuilder() to construct.
@@ -106,13 +106,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_PersonCollection_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_PersonCollection_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_PersonCollection_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_PersonCollection_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.PersonCollection.class, com.acme.PersonCollection.Builder.class);
   }
@@ -125,7 +125,7 @@ private static final long serialVersionUID = 0L;
    * Contains a person.PersonEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.PersonEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
    */
   public java.util.List<com.acme.PersonEntity> getEntitiesList() {
     return entities_;
@@ -135,7 +135,7 @@ private static final long serialVersionUID = 0L;
    * Contains a person.PersonEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.PersonEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
    */
   public java.util.List<? extends com.acme.PersonEntityOrBuilder> 
       getEntitiesOrBuilderList() {
@@ -146,7 +146,7 @@ private static final long serialVersionUID = 0L;
    * Contains a person.PersonEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.PersonEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
    */
   public int getEntitiesCount() {
     return entities_.size();
@@ -156,7 +156,7 @@ private static final long serialVersionUID = 0L;
    * Contains a person.PersonEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.PersonEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
    */
   public com.acme.PersonEntity getEntities(int index) {
     return entities_.get(index);
@@ -166,7 +166,7 @@ private static final long serialVersionUID = 0L;
    * Contains a person.PersonEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.PersonEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
    */
   public com.acme.PersonEntityOrBuilder getEntitiesOrBuilder(
       int index) {
@@ -452,21 +452,21 @@ private static final long serialVersionUID = 0L;
    * PersonCollection with repeated PersonEntity
    * </pre>
    *
-   * Protobuf type {@code bundled.PersonCollection}
+   * Protobuf type {@code com.acme.api.PersonCollection}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.PersonCollection)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.PersonCollection)
       com.acme.PersonCollectionOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_PersonCollection_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_PersonCollection_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_PersonCollection_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_PersonCollection_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.PersonCollection.class, com.acme.PersonCollection.Builder.class);
     }
@@ -515,7 +515,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_PersonCollection_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_PersonCollection_descriptor;
     }
 
     @java.lang.Override
@@ -711,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public java.util.List<com.acme.PersonEntity> getEntitiesList() {
       if (entitiesBuilder_ == null) {
@@ -725,7 +725,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public int getEntitiesCount() {
       if (entitiesBuilder_ == null) {
@@ -739,7 +739,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public com.acme.PersonEntity getEntities(int index) {
       if (entitiesBuilder_ == null) {
@@ -753,7 +753,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public Builder setEntities(
         int index, com.acme.PersonEntity value) {
@@ -774,7 +774,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public Builder setEntities(
         int index, com.acme.PersonEntity.Builder builderForValue) {
@@ -792,7 +792,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public Builder addEntities(com.acme.PersonEntity value) {
       if (entitiesBuilder_ == null) {
@@ -812,7 +812,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public Builder addEntities(
         int index, com.acme.PersonEntity value) {
@@ -833,7 +833,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public Builder addEntities(
         com.acme.PersonEntity.Builder builderForValue) {
@@ -851,7 +851,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public Builder addEntities(
         int index, com.acme.PersonEntity.Builder builderForValue) {
@@ -869,7 +869,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public Builder addAllEntities(
         java.lang.Iterable<? extends com.acme.PersonEntity> values) {
@@ -888,7 +888,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public Builder clearEntities() {
       if (entitiesBuilder_ == null) {
@@ -905,7 +905,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public Builder removeEntities(int index) {
       if (entitiesBuilder_ == null) {
@@ -922,7 +922,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public com.acme.PersonEntity.Builder getEntitiesBuilder(
         int index) {
@@ -933,7 +933,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public com.acme.PersonEntityOrBuilder getEntitiesOrBuilder(
         int index) {
@@ -947,7 +947,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public java.util.List<? extends com.acme.PersonEntityOrBuilder> 
          getEntitiesOrBuilderList() {
@@ -962,7 +962,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public com.acme.PersonEntity.Builder addEntitiesBuilder() {
       return getEntitiesFieldBuilder().addBuilder(
@@ -973,7 +973,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public com.acme.PersonEntity.Builder addEntitiesBuilder(
         int index) {
@@ -985,7 +985,7 @@ private static final long serialVersionUID = 0L;
      * Contains a person.PersonEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.PersonEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
      */
     public java.util.List<com.acme.PersonEntity.Builder> 
          getEntitiesBuilderList() {
@@ -1483,10 +1483,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.PersonCollection)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.PersonCollection)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.PersonCollection)
+  // @@protoc_insertion_point(class_scope:com.acme.api.PersonCollection)
   private static final com.acme.PersonCollection DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.PersonCollection();

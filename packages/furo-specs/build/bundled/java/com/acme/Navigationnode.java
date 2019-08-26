@@ -8,11 +8,11 @@ package com.acme;
  * Item of the navigationtree
  * </pre>
  *
- * Protobuf type {@code bundled.Navigationnode}
+ * Protobuf type {@code com.acme.api.Navigationnode}
  */
 public  final class Navigationnode extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.Navigationnode)
+    // @@protoc_insertion_point(message_implements:com.acme.api.Navigationnode)
     NavigationnodeOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use Navigationnode.newBuilder() to construct.
@@ -152,13 +152,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_Navigationnode_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_Navigationnode_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_Navigationnode_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_Navigationnode_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.Navigationnode.class, com.acme.Navigationnode.Builder.class);
   }
@@ -171,7 +171,7 @@ private static final long serialVersionUID = 0L;
    * Children of this node
    * </pre>
    *
-   * <code>repeated .bundled.Navigationnode children = 11;</code>
+   * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
    */
   public java.util.List<com.acme.Navigationnode> getChildrenList() {
     return children_;
@@ -181,7 +181,7 @@ private static final long serialVersionUID = 0L;
    * Children of this node
    * </pre>
    *
-   * <code>repeated .bundled.Navigationnode children = 11;</code>
+   * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
    */
   public java.util.List<? extends com.acme.NavigationnodeOrBuilder> 
       getChildrenOrBuilderList() {
@@ -192,7 +192,7 @@ private static final long serialVersionUID = 0L;
    * Children of this node
    * </pre>
    *
-   * <code>repeated .bundled.Navigationnode children = 11;</code>
+   * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
    */
   public int getChildrenCount() {
     return children_.size();
@@ -202,7 +202,7 @@ private static final long serialVersionUID = 0L;
    * Children of this node
    * </pre>
    *
-   * <code>repeated .bundled.Navigationnode children = 11;</code>
+   * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
    */
   public com.acme.Navigationnode getChildren(int index) {
     return children_.get(index);
@@ -212,7 +212,7 @@ private static final long serialVersionUID = 0L;
    * Children of this node
    * </pre>
    *
-   * <code>repeated .bundled.Navigationnode children = 11;</code>
+   * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
    */
   public com.acme.NavigationnodeOrBuilder getChildrenOrBuilder(
       int index) {
@@ -844,21 +844,21 @@ private static final long serialVersionUID = 0L;
    * Item of the navigationtree
    * </pre>
    *
-   * Protobuf type {@code bundled.Navigationnode}
+   * Protobuf type {@code com.acme.api.Navigationnode}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.Navigationnode)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.Navigationnode)
       com.acme.NavigationnodeOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_Navigationnode_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_Navigationnode_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_Navigationnode_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_Navigationnode_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.Navigationnode.class, com.acme.Navigationnode.Builder.class);
     }
@@ -918,7 +918,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_Navigationnode_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_Navigationnode_descriptor;
     }
 
     @java.lang.Override
@@ -1122,7 +1122,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public java.util.List<com.acme.Navigationnode> getChildrenList() {
       if (childrenBuilder_ == null) {
@@ -1136,7 +1136,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public int getChildrenCount() {
       if (childrenBuilder_ == null) {
@@ -1150,7 +1150,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public com.acme.Navigationnode getChildren(int index) {
       if (childrenBuilder_ == null) {
@@ -1164,7 +1164,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public Builder setChildren(
         int index, com.acme.Navigationnode value) {
@@ -1185,7 +1185,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public Builder setChildren(
         int index, com.acme.Navigationnode.Builder builderForValue) {
@@ -1203,7 +1203,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public Builder addChildren(com.acme.Navigationnode value) {
       if (childrenBuilder_ == null) {
@@ -1223,7 +1223,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public Builder addChildren(
         int index, com.acme.Navigationnode value) {
@@ -1244,7 +1244,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public Builder addChildren(
         com.acme.Navigationnode.Builder builderForValue) {
@@ -1262,7 +1262,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public Builder addChildren(
         int index, com.acme.Navigationnode.Builder builderForValue) {
@@ -1280,7 +1280,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public Builder addAllChildren(
         java.lang.Iterable<? extends com.acme.Navigationnode> values) {
@@ -1299,7 +1299,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public Builder clearChildren() {
       if (childrenBuilder_ == null) {
@@ -1316,7 +1316,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public Builder removeChildren(int index) {
       if (childrenBuilder_ == null) {
@@ -1333,7 +1333,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public com.acme.Navigationnode.Builder getChildrenBuilder(
         int index) {
@@ -1344,7 +1344,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public com.acme.NavigationnodeOrBuilder getChildrenOrBuilder(
         int index) {
@@ -1358,7 +1358,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public java.util.List<? extends com.acme.NavigationnodeOrBuilder> 
          getChildrenOrBuilderList() {
@@ -1373,7 +1373,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public com.acme.Navigationnode.Builder addChildrenBuilder() {
       return getChildrenFieldBuilder().addBuilder(
@@ -1384,7 +1384,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public com.acme.Navigationnode.Builder addChildrenBuilder(
         int index) {
@@ -1396,7 +1396,7 @@ private static final long serialVersionUID = 0L;
      * Children of this node
      * </pre>
      *
-     * <code>repeated .bundled.Navigationnode children = 11;</code>
+     * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
      */
     public java.util.List<com.acme.Navigationnode.Builder> 
          getChildrenBuilderList() {
@@ -2281,10 +2281,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.Navigationnode)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.Navigationnode)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.Navigationnode)
+  // @@protoc_insertion_point(class_scope:com.acme.api.Navigationnode)
   private static final com.acme.Navigationnode DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.Navigationnode();

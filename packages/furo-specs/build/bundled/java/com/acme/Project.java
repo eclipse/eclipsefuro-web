@@ -8,11 +8,11 @@ package com.acme;
  * Project description
  * </pre>
  *
- * Protobuf type {@code bundled.Project}
+ * Protobuf type {@code com.acme.api.Project}
  */
 public  final class Project extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.Project)
+    // @@protoc_insertion_point(message_implements:com.acme.api.Project)
     ProjectOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use Project.newBuilder() to construct.
@@ -140,13 +140,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_Project_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_Project_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_Project_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_Project_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.Project.class, com.acme.Project.Builder.class);
   }
@@ -351,7 +351,7 @@ private static final long serialVersionUID = 0L;
    * List of project members
    * </pre>
    *
-   * <code>repeated .bundled.Person members = 6;</code>
+   * <code>repeated .com.acme.api.Person members = 6;</code>
    */
   public java.util.List<com.acme.Person> getMembersList() {
     return members_;
@@ -361,7 +361,7 @@ private static final long serialVersionUID = 0L;
    * List of project members
    * </pre>
    *
-   * <code>repeated .bundled.Person members = 6;</code>
+   * <code>repeated .com.acme.api.Person members = 6;</code>
    */
   public java.util.List<? extends com.acme.PersonOrBuilder> 
       getMembersOrBuilderList() {
@@ -372,7 +372,7 @@ private static final long serialVersionUID = 0L;
    * List of project members
    * </pre>
    *
-   * <code>repeated .bundled.Person members = 6;</code>
+   * <code>repeated .com.acme.api.Person members = 6;</code>
    */
   public int getMembersCount() {
     return members_.size();
@@ -382,7 +382,7 @@ private static final long serialVersionUID = 0L;
    * List of project members
    * </pre>
    *
-   * <code>repeated .bundled.Person members = 6;</code>
+   * <code>repeated .com.acme.api.Person members = 6;</code>
    */
   public com.acme.Person getMembers(int index) {
     return members_.get(index);
@@ -392,7 +392,7 @@ private static final long serialVersionUID = 0L;
    * List of project members
    * </pre>
    *
-   * <code>repeated .bundled.Person members = 6;</code>
+   * <code>repeated .com.acme.api.Person members = 6;</code>
    */
   public com.acme.PersonOrBuilder getMembersOrBuilder(
       int index) {
@@ -672,21 +672,21 @@ private static final long serialVersionUID = 0L;
    * Project description
    * </pre>
    *
-   * Protobuf type {@code bundled.Project}
+   * Protobuf type {@code com.acme.api.Project}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.Project)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.Project)
       com.acme.ProjectOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_Project_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_Project_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_Project_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_Project_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.Project.class, com.acme.Project.Builder.class);
     }
@@ -746,7 +746,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_Project_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_Project_descriptor;
     }
 
     @java.lang.Override
@@ -1511,7 +1511,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public java.util.List<com.acme.Person> getMembersList() {
       if (membersBuilder_ == null) {
@@ -1525,7 +1525,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public int getMembersCount() {
       if (membersBuilder_ == null) {
@@ -1539,7 +1539,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public com.acme.Person getMembers(int index) {
       if (membersBuilder_ == null) {
@@ -1553,7 +1553,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public Builder setMembers(
         int index, com.acme.Person value) {
@@ -1574,7 +1574,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public Builder setMembers(
         int index, com.acme.Person.Builder builderForValue) {
@@ -1592,7 +1592,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public Builder addMembers(com.acme.Person value) {
       if (membersBuilder_ == null) {
@@ -1612,7 +1612,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public Builder addMembers(
         int index, com.acme.Person value) {
@@ -1633,7 +1633,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public Builder addMembers(
         com.acme.Person.Builder builderForValue) {
@@ -1651,7 +1651,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public Builder addMembers(
         int index, com.acme.Person.Builder builderForValue) {
@@ -1669,7 +1669,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public Builder addAllMembers(
         java.lang.Iterable<? extends com.acme.Person> values) {
@@ -1688,7 +1688,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public Builder clearMembers() {
       if (membersBuilder_ == null) {
@@ -1705,7 +1705,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public Builder removeMembers(int index) {
       if (membersBuilder_ == null) {
@@ -1722,7 +1722,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public com.acme.Person.Builder getMembersBuilder(
         int index) {
@@ -1733,7 +1733,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public com.acme.PersonOrBuilder getMembersOrBuilder(
         int index) {
@@ -1747,7 +1747,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public java.util.List<? extends com.acme.PersonOrBuilder> 
          getMembersOrBuilderList() {
@@ -1762,7 +1762,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public com.acme.Person.Builder addMembersBuilder() {
       return getMembersFieldBuilder().addBuilder(
@@ -1773,7 +1773,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public com.acme.Person.Builder addMembersBuilder(
         int index) {
@@ -1785,7 +1785,7 @@ private static final long serialVersionUID = 0L;
      * List of project members
      * </pre>
      *
-     * <code>repeated .bundled.Person members = 6;</code>
+     * <code>repeated .com.acme.api.Person members = 6;</code>
      */
     public java.util.List<com.acme.Person.Builder> 
          getMembersBuilderList() {
@@ -1971,10 +1971,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.Project)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.Project)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.Project)
+  // @@protoc_insertion_point(class_scope:com.acme.api.Project)
   private static final com.acme.Project DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.Project();

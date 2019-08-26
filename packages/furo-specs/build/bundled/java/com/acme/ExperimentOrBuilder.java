@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface ExperimentOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.Experiment)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.Experiment)
     com.google.protobuf.MessageOrBuilder {
 
   /**

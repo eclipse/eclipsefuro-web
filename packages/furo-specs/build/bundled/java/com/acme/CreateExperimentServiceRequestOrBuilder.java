@@ -4,19 +4,19 @@
 package com.acme;
 
 public interface CreateExperimentServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.CreateExperimentServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.CreateExperimentServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.bundled.Experiment data = 1;</code>
+   * <code>.com.acme.api.Experiment data = 1;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.Experiment data = 1;</code>
+   * <code>.com.acme.api.Experiment data = 1;</code>
    */
   com.acme.Experiment getData();
   /**
-   * <code>.bundled.Experiment data = 1;</code>
+   * <code>.com.acme.api.Experiment data = 1;</code>
    */
   com.acme.ExperimentOrBuilder getDataOrBuilder();
 }

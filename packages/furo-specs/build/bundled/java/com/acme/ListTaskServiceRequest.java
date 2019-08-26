@@ -4,11 +4,11 @@
 package com.acme;
 
 /**
- * Protobuf type {@code bundled.ListTaskServiceRequest}
+ * Protobuf type {@code com.acme.api.ListTaskServiceRequest}
  */
 public  final class ListTaskServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.ListTaskServiceRequest)
+    // @@protoc_insertion_point(message_implements:com.acme.api.ListTaskServiceRequest)
     ListTaskServiceRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use ListTaskServiceRequest.newBuilder() to construct.
@@ -120,13 +120,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_ListTaskServiceRequest_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_ListTaskServiceRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_ListTaskServiceRequest_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_ListTaskServiceRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.ListTaskServiceRequest.class, com.acme.ListTaskServiceRequest.Builder.class);
   }
@@ -665,21 +665,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code bundled.ListTaskServiceRequest}
+   * Protobuf type {@code com.acme.api.ListTaskServiceRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.ListTaskServiceRequest)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.ListTaskServiceRequest)
       com.acme.ListTaskServiceRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_ListTaskServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_ListTaskServiceRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_ListTaskServiceRequest_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_ListTaskServiceRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.ListTaskServiceRequest.class, com.acme.ListTaskServiceRequest.Builder.class);
     }
@@ -726,7 +726,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_ListTaskServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_ListTaskServiceRequest_descriptor;
     }
 
     @java.lang.Override
@@ -1535,10 +1535,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.ListTaskServiceRequest)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.ListTaskServiceRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.ListTaskServiceRequest)
+  // @@protoc_insertion_point(class_scope:com.acme.api.ListTaskServiceRequest)
   private static final com.acme.ListTaskServiceRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.ListTaskServiceRequest();

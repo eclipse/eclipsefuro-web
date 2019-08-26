@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface PersonOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.Person)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.Person)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -4,19 +4,19 @@
 package com.acme;
 
 public interface CreateTaskServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.CreateTaskServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.CreateTaskServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.bundled.Task data = 1;</code>
+   * <code>.com.acme.api.Task data = 1;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.Task data = 1;</code>
+   * <code>.com.acme.api.Task data = 1;</code>
    */
   com.acme.Task getData();
   /**
-   * <code>.bundled.Task data = 1;</code>
+   * <code>.com.acme.api.Task data = 1;</code>
    */
   com.acme.TaskOrBuilder getDataOrBuilder();
 }

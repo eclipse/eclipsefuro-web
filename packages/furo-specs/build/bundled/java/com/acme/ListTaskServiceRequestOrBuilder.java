@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface ListTaskServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.ListTaskServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.ListTaskServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

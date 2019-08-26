@@ -8,11 +8,11 @@ package com.acme;
  * ProjectEntity with Project
  * </pre>
  *
- * Protobuf type {@code bundled.ProjectEntity}
+ * Protobuf type {@code com.acme.api.ProjectEntity}
  */
 public  final class ProjectEntity extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.ProjectEntity)
+    // @@protoc_insertion_point(message_implements:com.acme.api.ProjectEntity)
     ProjectEntityOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use ProjectEntity.newBuilder() to construct.
@@ -106,13 +106,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_ProjectEntity_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_ProjectEntity_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_ProjectEntity_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_ProjectEntity_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.ProjectEntity.class, com.acme.ProjectEntity.Builder.class);
   }
@@ -125,7 +125,7 @@ private static final long serialVersionUID = 0L;
    * contains a project.Project
    * </pre>
    *
-   * <code>.bundled.Project data = 1;</code>
+   * <code>.com.acme.api.Project data = 1;</code>
    */
   public boolean hasData() {
     return data_ != null;
@@ -135,7 +135,7 @@ private static final long serialVersionUID = 0L;
    * contains a project.Project
    * </pre>
    *
-   * <code>.bundled.Project data = 1;</code>
+   * <code>.com.acme.api.Project data = 1;</code>
    */
   public com.acme.Project getData() {
     return data_ == null ? com.acme.Project.getDefaultInstance() : data_;
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
    * contains a project.Project
    * </pre>
    *
-   * <code>.bundled.Project data = 1;</code>
+   * <code>.com.acme.api.Project data = 1;</code>
    */
   public com.acme.ProjectOrBuilder getDataOrBuilder() {
     return getData();
@@ -433,21 +433,21 @@ private static final long serialVersionUID = 0L;
    * ProjectEntity with Project
    * </pre>
    *
-   * Protobuf type {@code bundled.ProjectEntity}
+   * Protobuf type {@code com.acme.api.ProjectEntity}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.ProjectEntity)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.ProjectEntity)
       com.acme.ProjectEntityOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_ProjectEntity_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_ProjectEntity_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_ProjectEntity_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_ProjectEntity_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.ProjectEntity.class, com.acme.ProjectEntity.Builder.class);
     }
@@ -495,7 +495,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_ProjectEntity_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_ProjectEntity_descriptor;
     }
 
     @java.lang.Override
@@ -655,7 +655,7 @@ private static final long serialVersionUID = 0L;
      * contains a project.Project
      * </pre>
      *
-     * <code>.bundled.Project data = 1;</code>
+     * <code>.com.acme.api.Project data = 1;</code>
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
@@ -665,7 +665,7 @@ private static final long serialVersionUID = 0L;
      * contains a project.Project
      * </pre>
      *
-     * <code>.bundled.Project data = 1;</code>
+     * <code>.com.acme.api.Project data = 1;</code>
      */
     public com.acme.Project getData() {
       if (dataBuilder_ == null) {
@@ -679,7 +679,7 @@ private static final long serialVersionUID = 0L;
      * contains a project.Project
      * </pre>
      *
-     * <code>.bundled.Project data = 1;</code>
+     * <code>.com.acme.api.Project data = 1;</code>
      */
     public Builder setData(com.acme.Project value) {
       if (dataBuilder_ == null) {
@@ -699,7 +699,7 @@ private static final long serialVersionUID = 0L;
      * contains a project.Project
      * </pre>
      *
-     * <code>.bundled.Project data = 1;</code>
+     * <code>.com.acme.api.Project data = 1;</code>
      */
     public Builder setData(
         com.acme.Project.Builder builderForValue) {
@@ -717,7 +717,7 @@ private static final long serialVersionUID = 0L;
      * contains a project.Project
      * </pre>
      *
-     * <code>.bundled.Project data = 1;</code>
+     * <code>.com.acme.api.Project data = 1;</code>
      */
     public Builder mergeData(com.acme.Project value) {
       if (dataBuilder_ == null) {
@@ -739,7 +739,7 @@ private static final long serialVersionUID = 0L;
      * contains a project.Project
      * </pre>
      *
-     * <code>.bundled.Project data = 1;</code>
+     * <code>.com.acme.api.Project data = 1;</code>
      */
     public Builder clearData() {
       if (dataBuilder_ == null) {
@@ -757,7 +757,7 @@ private static final long serialVersionUID = 0L;
      * contains a project.Project
      * </pre>
      *
-     * <code>.bundled.Project data = 1;</code>
+     * <code>.com.acme.api.Project data = 1;</code>
      */
     public com.acme.Project.Builder getDataBuilder() {
       
@@ -769,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * contains a project.Project
      * </pre>
      *
-     * <code>.bundled.Project data = 1;</code>
+     * <code>.com.acme.api.Project data = 1;</code>
      */
     public com.acme.ProjectOrBuilder getDataOrBuilder() {
       if (dataBuilder_ != null) {
@@ -784,7 +784,7 @@ private static final long serialVersionUID = 0L;
      * contains a project.Project
      * </pre>
      *
-     * <code>.bundled.Project data = 1;</code>
+     * <code>.com.acme.api.Project data = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.acme.Project, com.acme.Project.Builder, com.acme.ProjectOrBuilder> 
@@ -1277,10 +1277,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.ProjectEntity)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.ProjectEntity)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.ProjectEntity)
+  // @@protoc_insertion_point(class_scope:com.acme.api.ProjectEntity)
   private static final com.acme.ProjectEntity DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.ProjectEntity();

@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface NavigationnodeOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.Navigationnode)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.Navigationnode)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface NavigationnodeOrBuilder extends
    * Children of this node
    * </pre>
    *
-   * <code>repeated .bundled.Navigationnode children = 11;</code>
+   * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
    */
   java.util.List<com.acme.Navigationnode> 
       getChildrenList();
@@ -21,7 +21,7 @@ public interface NavigationnodeOrBuilder extends
    * Children of this node
    * </pre>
    *
-   * <code>repeated .bundled.Navigationnode children = 11;</code>
+   * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
    */
   com.acme.Navigationnode getChildren(int index);
   /**
@@ -29,7 +29,7 @@ public interface NavigationnodeOrBuilder extends
    * Children of this node
    * </pre>
    *
-   * <code>repeated .bundled.Navigationnode children = 11;</code>
+   * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
    */
   int getChildrenCount();
   /**
@@ -37,7 +37,7 @@ public interface NavigationnodeOrBuilder extends
    * Children of this node
    * </pre>
    *
-   * <code>repeated .bundled.Navigationnode children = 11;</code>
+   * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
    */
   java.util.List<? extends com.acme.NavigationnodeOrBuilder> 
       getChildrenOrBuilderList();
@@ -46,7 +46,7 @@ public interface NavigationnodeOrBuilder extends
    * Children of this node
    * </pre>
    *
-   * <code>repeated .bundled.Navigationnode children = 11;</code>
+   * <code>repeated .com.acme.api.Navigationnode children = 11;</code>
    */
   com.acme.NavigationnodeOrBuilder getChildrenOrBuilder(
       int index);

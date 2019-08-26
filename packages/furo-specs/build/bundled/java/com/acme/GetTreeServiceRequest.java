@@ -4,11 +4,11 @@
 package com.acme;
 
 /**
- * Protobuf type {@code bundled.GetTreeServiceRequest}
+ * Protobuf type {@code com.acme.api.GetTreeServiceRequest}
  */
 public  final class GetTreeServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.GetTreeServiceRequest)
+    // @@protoc_insertion_point(message_implements:com.acme.api.GetTreeServiceRequest)
     GetTreeServiceRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use GetTreeServiceRequest.newBuilder() to construct.
@@ -70,13 +70,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_GetTreeServiceRequest_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_GetTreeServiceRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_GetTreeServiceRequest_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_GetTreeServiceRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.GetTreeServiceRequest.class, com.acme.GetTreeServiceRequest.Builder.class);
   }
@@ -270,21 +270,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code bundled.GetTreeServiceRequest}
+   * Protobuf type {@code com.acme.api.GetTreeServiceRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.GetTreeServiceRequest)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.GetTreeServiceRequest)
       com.acme.GetTreeServiceRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_GetTreeServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_GetTreeServiceRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_GetTreeServiceRequest_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_GetTreeServiceRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.GetTreeServiceRequest.class, com.acme.GetTreeServiceRequest.Builder.class);
     }
@@ -315,7 +315,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_GetTreeServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_GetTreeServiceRequest_descriptor;
     }
 
     @java.lang.Override
@@ -498,10 +498,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.GetTreeServiceRequest)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.GetTreeServiceRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.GetTreeServiceRequest)
+  // @@protoc_insertion_point(class_scope:com.acme.api.GetTreeServiceRequest)
   private static final com.acme.GetTreeServiceRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.GetTreeServiceRequest();

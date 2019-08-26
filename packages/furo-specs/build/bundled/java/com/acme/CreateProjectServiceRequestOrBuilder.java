@@ -4,19 +4,19 @@
 package com.acme;
 
 public interface CreateProjectServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.CreateProjectServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.CreateProjectServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.bundled.Project data = 1;</code>
+   * <code>.com.acme.api.Project data = 1;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.Project data = 1;</code>
+   * <code>.com.acme.api.Project data = 1;</code>
    */
   com.acme.Project getData();
   /**
-   * <code>.bundled.Project data = 1;</code>
+   * <code>.com.acme.api.Project data = 1;</code>
    */
   com.acme.ProjectOrBuilder getDataOrBuilder();
 }

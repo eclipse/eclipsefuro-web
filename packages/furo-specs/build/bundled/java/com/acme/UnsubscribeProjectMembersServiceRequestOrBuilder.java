@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface UnsubscribeProjectMembersServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.UnsubscribeProjectMembersServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.UnsubscribeProjectMembersServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -28,15 +28,15 @@ public interface UnsubscribeProjectMembersServiceRequestOrBuilder extends
       getPrsBytes();
 
   /**
-   * <code>.bundled.PersonEntity data = 3;</code>
+   * <code>.com.acme.api.PersonEntity data = 3;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.PersonEntity data = 3;</code>
+   * <code>.com.acme.api.PersonEntity data = 3;</code>
    */
   com.acme.PersonEntity getData();
   /**
-   * <code>.bundled.PersonEntity data = 3;</code>
+   * <code>.com.acme.api.PersonEntity data = 3;</code>
    */
   com.acme.PersonEntityOrBuilder getDataOrBuilder();
 }

@@ -4,11 +4,11 @@
 package com.acme;
 
 /**
- * Protobuf type {@code bundled.DeleteProjectServiceRequest}
+ * Protobuf type {@code com.acme.api.DeleteProjectServiceRequest}
  */
 public  final class DeleteProjectServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.DeleteProjectServiceRequest)
+    // @@protoc_insertion_point(message_implements:com.acme.api.DeleteProjectServiceRequest)
     DeleteProjectServiceRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use DeleteProjectServiceRequest.newBuilder() to construct.
@@ -83,13 +83,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_DeleteProjectServiceRequest_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_DeleteProjectServiceRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_DeleteProjectServiceRequest_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_DeleteProjectServiceRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.DeleteProjectServiceRequest.class, com.acme.DeleteProjectServiceRequest.Builder.class);
   }
@@ -320,21 +320,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code bundled.DeleteProjectServiceRequest}
+   * Protobuf type {@code com.acme.api.DeleteProjectServiceRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.DeleteProjectServiceRequest)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.DeleteProjectServiceRequest)
       com.acme.DeleteProjectServiceRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_DeleteProjectServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_DeleteProjectServiceRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_DeleteProjectServiceRequest_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_DeleteProjectServiceRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.DeleteProjectServiceRequest.class, com.acme.DeleteProjectServiceRequest.Builder.class);
     }
@@ -371,7 +371,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_DeleteProjectServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_DeleteProjectServiceRequest_descriptor;
     }
 
     @java.lang.Override
@@ -679,10 +679,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.DeleteProjectServiceRequest)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.DeleteProjectServiceRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.DeleteProjectServiceRequest)
+  // @@protoc_insertion_point(class_scope:com.acme.api.DeleteProjectServiceRequest)
   private static final com.acme.DeleteProjectServiceRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.DeleteProjectServiceRequest();

@@ -8,11 +8,11 @@ package com.acme;
  * TreeCollection with repeated TreeEntity
  * </pre>
  *
- * Protobuf type {@code bundled.TreeCollection}
+ * Protobuf type {@code com.acme.api.TreeCollection}
  */
 public  final class TreeCollection extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.TreeCollection)
+    // @@protoc_insertion_point(message_implements:com.acme.api.TreeCollection)
     TreeCollectionOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use TreeCollection.newBuilder() to construct.
@@ -106,13 +106,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_TreeCollection_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_TreeCollection_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_TreeCollection_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_TreeCollection_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.TreeCollection.class, com.acme.TreeCollection.Builder.class);
   }
@@ -125,7 +125,7 @@ private static final long serialVersionUID = 0L;
    * Contains a tree.TreeEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TreeEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
    */
   public java.util.List<com.acme.TreeEntity> getEntitiesList() {
     return entities_;
@@ -135,7 +135,7 @@ private static final long serialVersionUID = 0L;
    * Contains a tree.TreeEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TreeEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
    */
   public java.util.List<? extends com.acme.TreeEntityOrBuilder> 
       getEntitiesOrBuilderList() {
@@ -146,7 +146,7 @@ private static final long serialVersionUID = 0L;
    * Contains a tree.TreeEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TreeEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
    */
   public int getEntitiesCount() {
     return entities_.size();
@@ -156,7 +156,7 @@ private static final long serialVersionUID = 0L;
    * Contains a tree.TreeEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TreeEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
    */
   public com.acme.TreeEntity getEntities(int index) {
     return entities_.get(index);
@@ -166,7 +166,7 @@ private static final long serialVersionUID = 0L;
    * Contains a tree.TreeEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TreeEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
    */
   public com.acme.TreeEntityOrBuilder getEntitiesOrBuilder(
       int index) {
@@ -452,21 +452,21 @@ private static final long serialVersionUID = 0L;
    * TreeCollection with repeated TreeEntity
    * </pre>
    *
-   * Protobuf type {@code bundled.TreeCollection}
+   * Protobuf type {@code com.acme.api.TreeCollection}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.TreeCollection)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.TreeCollection)
       com.acme.TreeCollectionOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_TreeCollection_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_TreeCollection_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_TreeCollection_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_TreeCollection_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.TreeCollection.class, com.acme.TreeCollection.Builder.class);
     }
@@ -515,7 +515,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_TreeCollection_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_TreeCollection_descriptor;
     }
 
     @java.lang.Override
@@ -711,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public java.util.List<com.acme.TreeEntity> getEntitiesList() {
       if (entitiesBuilder_ == null) {
@@ -725,7 +725,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public int getEntitiesCount() {
       if (entitiesBuilder_ == null) {
@@ -739,7 +739,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public com.acme.TreeEntity getEntities(int index) {
       if (entitiesBuilder_ == null) {
@@ -753,7 +753,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public Builder setEntities(
         int index, com.acme.TreeEntity value) {
@@ -774,7 +774,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public Builder setEntities(
         int index, com.acme.TreeEntity.Builder builderForValue) {
@@ -792,7 +792,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public Builder addEntities(com.acme.TreeEntity value) {
       if (entitiesBuilder_ == null) {
@@ -812,7 +812,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public Builder addEntities(
         int index, com.acme.TreeEntity value) {
@@ -833,7 +833,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public Builder addEntities(
         com.acme.TreeEntity.Builder builderForValue) {
@@ -851,7 +851,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public Builder addEntities(
         int index, com.acme.TreeEntity.Builder builderForValue) {
@@ -869,7 +869,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public Builder addAllEntities(
         java.lang.Iterable<? extends com.acme.TreeEntity> values) {
@@ -888,7 +888,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public Builder clearEntities() {
       if (entitiesBuilder_ == null) {
@@ -905,7 +905,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public Builder removeEntities(int index) {
       if (entitiesBuilder_ == null) {
@@ -922,7 +922,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public com.acme.TreeEntity.Builder getEntitiesBuilder(
         int index) {
@@ -933,7 +933,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public com.acme.TreeEntityOrBuilder getEntitiesOrBuilder(
         int index) {
@@ -947,7 +947,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public java.util.List<? extends com.acme.TreeEntityOrBuilder> 
          getEntitiesOrBuilderList() {
@@ -962,7 +962,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public com.acme.TreeEntity.Builder addEntitiesBuilder() {
       return getEntitiesFieldBuilder().addBuilder(
@@ -973,7 +973,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public com.acme.TreeEntity.Builder addEntitiesBuilder(
         int index) {
@@ -985,7 +985,7 @@ private static final long serialVersionUID = 0L;
      * Contains a tree.TreeEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.TreeEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
      */
     public java.util.List<com.acme.TreeEntity.Builder> 
          getEntitiesBuilderList() {
@@ -1483,10 +1483,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.TreeCollection)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.TreeCollection)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.TreeCollection)
+  // @@protoc_insertion_point(class_scope:com.acme.api.TreeCollection)
   private static final com.acme.TreeCollection DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.TreeCollection();

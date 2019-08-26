@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface TreeOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.Tree)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.Tree)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -66,7 +66,7 @@ public interface TreeOrBuilder extends
    * Rootnode of the tree
    * </pre>
    *
-   * <code>.bundled.Navigationnode root = 10;</code>
+   * <code>.com.acme.api.Navigationnode root = 10;</code>
    */
   boolean hasRoot();
   /**
@@ -74,7 +74,7 @@ public interface TreeOrBuilder extends
    * Rootnode of the tree
    * </pre>
    *
-   * <code>.bundled.Navigationnode root = 10;</code>
+   * <code>.com.acme.api.Navigationnode root = 10;</code>
    */
   com.acme.Navigationnode getRoot();
   /**
@@ -82,7 +82,7 @@ public interface TreeOrBuilder extends
    * Rootnode of the tree
    * </pre>
    *
-   * <code>.bundled.Navigationnode root = 10;</code>
+   * <code>.com.acme.api.Navigationnode root = 10;</code>
    */
   com.acme.NavigationnodeOrBuilder getRootOrBuilder();
 }

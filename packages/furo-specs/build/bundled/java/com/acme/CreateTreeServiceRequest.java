@@ -4,11 +4,11 @@
 package com.acme;
 
 /**
- * Protobuf type {@code bundled.CreateTreeServiceRequest}
+ * Protobuf type {@code com.acme.api.CreateTreeServiceRequest}
  */
 public  final class CreateTreeServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.CreateTreeServiceRequest)
+    // @@protoc_insertion_point(message_implements:com.acme.api.CreateTreeServiceRequest)
     CreateTreeServiceRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use CreateTreeServiceRequest.newBuilder() to construct.
@@ -76,13 +76,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_CreateTreeServiceRequest_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_CreateTreeServiceRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_CreateTreeServiceRequest_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_CreateTreeServiceRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.CreateTreeServiceRequest.class, com.acme.CreateTreeServiceRequest.Builder.class);
   }
@@ -90,19 +90,19 @@ private static final long serialVersionUID = 0L;
   public static final int DATA_FIELD_NUMBER = 1;
   private com.acme.Tree data_;
   /**
-   * <code>.bundled.Tree data = 1;</code>
+   * <code>.com.acme.api.Tree data = 1;</code>
    */
   public boolean hasData() {
     return data_ != null;
   }
   /**
-   * <code>.bundled.Tree data = 1;</code>
+   * <code>.com.acme.api.Tree data = 1;</code>
    */
   public com.acme.Tree getData() {
     return data_ == null ? com.acme.Tree.getDefaultInstance() : data_;
   }
   /**
-   * <code>.bundled.Tree data = 1;</code>
+   * <code>.com.acme.api.Tree data = 1;</code>
    */
   public com.acme.TreeOrBuilder getDataOrBuilder() {
     return getData();
@@ -269,21 +269,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code bundled.CreateTreeServiceRequest}
+   * Protobuf type {@code com.acme.api.CreateTreeServiceRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.CreateTreeServiceRequest)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.CreateTreeServiceRequest)
       com.acme.CreateTreeServiceRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_CreateTreeServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_CreateTreeServiceRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_CreateTreeServiceRequest_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_CreateTreeServiceRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.CreateTreeServiceRequest.class, com.acme.CreateTreeServiceRequest.Builder.class);
     }
@@ -318,7 +318,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_CreateTreeServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_CreateTreeServiceRequest_descriptor;
     }
 
     @java.lang.Override
@@ -427,13 +427,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.acme.Tree, com.acme.Tree.Builder, com.acme.TreeOrBuilder> dataBuilder_;
     /**
-     * <code>.bundled.Tree data = 1;</code>
+     * <code>.com.acme.api.Tree data = 1;</code>
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
-     * <code>.bundled.Tree data = 1;</code>
+     * <code>.com.acme.api.Tree data = 1;</code>
      */
     public com.acme.Tree getData() {
       if (dataBuilder_ == null) {
@@ -443,7 +443,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.bundled.Tree data = 1;</code>
+     * <code>.com.acme.api.Tree data = 1;</code>
      */
     public Builder setData(com.acme.Tree value) {
       if (dataBuilder_ == null) {
@@ -459,7 +459,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.bundled.Tree data = 1;</code>
+     * <code>.com.acme.api.Tree data = 1;</code>
      */
     public Builder setData(
         com.acme.Tree.Builder builderForValue) {
@@ -473,7 +473,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.bundled.Tree data = 1;</code>
+     * <code>.com.acme.api.Tree data = 1;</code>
      */
     public Builder mergeData(com.acme.Tree value) {
       if (dataBuilder_ == null) {
@@ -491,7 +491,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.bundled.Tree data = 1;</code>
+     * <code>.com.acme.api.Tree data = 1;</code>
      */
     public Builder clearData() {
       if (dataBuilder_ == null) {
@@ -505,7 +505,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.bundled.Tree data = 1;</code>
+     * <code>.com.acme.api.Tree data = 1;</code>
      */
     public com.acme.Tree.Builder getDataBuilder() {
       
@@ -513,7 +513,7 @@ private static final long serialVersionUID = 0L;
       return getDataFieldBuilder().getBuilder();
     }
     /**
-     * <code>.bundled.Tree data = 1;</code>
+     * <code>.com.acme.api.Tree data = 1;</code>
      */
     public com.acme.TreeOrBuilder getDataOrBuilder() {
       if (dataBuilder_ != null) {
@@ -524,7 +524,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.bundled.Tree data = 1;</code>
+     * <code>.com.acme.api.Tree data = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.acme.Tree, com.acme.Tree.Builder, com.acme.TreeOrBuilder> 
@@ -552,10 +552,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.CreateTreeServiceRequest)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.CreateTreeServiceRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.CreateTreeServiceRequest)
+  // @@protoc_insertion_point(class_scope:com.acme.api.CreateTreeServiceRequest)
   private static final com.acme.CreateTreeServiceRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.CreateTreeServiceRequest();

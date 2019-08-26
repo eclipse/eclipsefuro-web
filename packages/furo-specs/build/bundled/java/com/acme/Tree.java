@@ -8,11 +8,11 @@ package com.acme;
  * Navigation tree type with recursive navigation nodes
  * </pre>
  *
- * Protobuf type {@code bundled.Tree}
+ * Protobuf type {@code com.acme.api.Tree}
  */
 public  final class Tree extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.Tree)
+    // @@protoc_insertion_point(message_implements:com.acme.api.Tree)
     TreeOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use Tree.newBuilder() to construct.
@@ -101,13 +101,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_Tree_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_Tree_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_Tree_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_Tree_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.Tree.class, com.acme.Tree.Builder.class);
   }
@@ -245,7 +245,7 @@ private static final long serialVersionUID = 0L;
    * Rootnode of the tree
    * </pre>
    *
-   * <code>.bundled.Navigationnode root = 10;</code>
+   * <code>.com.acme.api.Navigationnode root = 10;</code>
    */
   public boolean hasRoot() {
     return root_ != null;
@@ -255,7 +255,7 @@ private static final long serialVersionUID = 0L;
    * Rootnode of the tree
    * </pre>
    *
-   * <code>.bundled.Navigationnode root = 10;</code>
+   * <code>.com.acme.api.Navigationnode root = 10;</code>
    */
   public com.acme.Navigationnode getRoot() {
     return root_ == null ? com.acme.Navigationnode.getDefaultInstance() : root_;
@@ -265,7 +265,7 @@ private static final long serialVersionUID = 0L;
    * Rootnode of the tree
    * </pre>
    *
-   * <code>.bundled.Navigationnode root = 10;</code>
+   * <code>.com.acme.api.Navigationnode root = 10;</code>
    */
   public com.acme.NavigationnodeOrBuilder getRootOrBuilder() {
     return getRoot();
@@ -466,21 +466,21 @@ private static final long serialVersionUID = 0L;
    * Navigation tree type with recursive navigation nodes
    * </pre>
    *
-   * Protobuf type {@code bundled.Tree}
+   * Protobuf type {@code com.acme.api.Tree}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.Tree)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.Tree)
       com.acme.TreeOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_Tree_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_Tree_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_Tree_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_Tree_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.Tree.class, com.acme.Tree.Builder.class);
     }
@@ -521,7 +521,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_Tree_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_Tree_descriptor;
     }
 
     @java.lang.Override
@@ -916,7 +916,7 @@ private static final long serialVersionUID = 0L;
      * Rootnode of the tree
      * </pre>
      *
-     * <code>.bundled.Navigationnode root = 10;</code>
+     * <code>.com.acme.api.Navigationnode root = 10;</code>
      */
     public boolean hasRoot() {
       return rootBuilder_ != null || root_ != null;
@@ -926,7 +926,7 @@ private static final long serialVersionUID = 0L;
      * Rootnode of the tree
      * </pre>
      *
-     * <code>.bundled.Navigationnode root = 10;</code>
+     * <code>.com.acme.api.Navigationnode root = 10;</code>
      */
     public com.acme.Navigationnode getRoot() {
       if (rootBuilder_ == null) {
@@ -940,7 +940,7 @@ private static final long serialVersionUID = 0L;
      * Rootnode of the tree
      * </pre>
      *
-     * <code>.bundled.Navigationnode root = 10;</code>
+     * <code>.com.acme.api.Navigationnode root = 10;</code>
      */
     public Builder setRoot(com.acme.Navigationnode value) {
       if (rootBuilder_ == null) {
@@ -960,7 +960,7 @@ private static final long serialVersionUID = 0L;
      * Rootnode of the tree
      * </pre>
      *
-     * <code>.bundled.Navigationnode root = 10;</code>
+     * <code>.com.acme.api.Navigationnode root = 10;</code>
      */
     public Builder setRoot(
         com.acme.Navigationnode.Builder builderForValue) {
@@ -978,7 +978,7 @@ private static final long serialVersionUID = 0L;
      * Rootnode of the tree
      * </pre>
      *
-     * <code>.bundled.Navigationnode root = 10;</code>
+     * <code>.com.acme.api.Navigationnode root = 10;</code>
      */
     public Builder mergeRoot(com.acme.Navigationnode value) {
       if (rootBuilder_ == null) {
@@ -1000,7 +1000,7 @@ private static final long serialVersionUID = 0L;
      * Rootnode of the tree
      * </pre>
      *
-     * <code>.bundled.Navigationnode root = 10;</code>
+     * <code>.com.acme.api.Navigationnode root = 10;</code>
      */
     public Builder clearRoot() {
       if (rootBuilder_ == null) {
@@ -1018,7 +1018,7 @@ private static final long serialVersionUID = 0L;
      * Rootnode of the tree
      * </pre>
      *
-     * <code>.bundled.Navigationnode root = 10;</code>
+     * <code>.com.acme.api.Navigationnode root = 10;</code>
      */
     public com.acme.Navigationnode.Builder getRootBuilder() {
       
@@ -1030,7 +1030,7 @@ private static final long serialVersionUID = 0L;
      * Rootnode of the tree
      * </pre>
      *
-     * <code>.bundled.Navigationnode root = 10;</code>
+     * <code>.com.acme.api.Navigationnode root = 10;</code>
      */
     public com.acme.NavigationnodeOrBuilder getRootOrBuilder() {
       if (rootBuilder_ != null) {
@@ -1045,7 +1045,7 @@ private static final long serialVersionUID = 0L;
      * Rootnode of the tree
      * </pre>
      *
-     * <code>.bundled.Navigationnode root = 10;</code>
+     * <code>.com.acme.api.Navigationnode root = 10;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.acme.Navigationnode, com.acme.Navigationnode.Builder, com.acme.NavigationnodeOrBuilder> 
@@ -1073,10 +1073,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.Tree)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.Tree)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.Tree)
+  // @@protoc_insertion_point(class_scope:com.acme.api.Tree)
   private static final com.acme.Tree DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.Tree();

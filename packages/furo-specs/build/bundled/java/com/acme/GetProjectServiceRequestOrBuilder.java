@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface GetProjectServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.GetProjectServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.GetProjectServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

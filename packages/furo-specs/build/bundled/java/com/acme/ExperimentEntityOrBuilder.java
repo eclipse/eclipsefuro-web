@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface ExperimentEntityOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.ExperimentEntity)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.ExperimentEntity)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface ExperimentEntityOrBuilder extends
    * contains a experiment.Experiment
    * </pre>
    *
-   * <code>.bundled.Experiment data = 1;</code>
+   * <code>.com.acme.api.Experiment data = 1;</code>
    */
   boolean hasData();
   /**
@@ -20,7 +20,7 @@ public interface ExperimentEntityOrBuilder extends
    * contains a experiment.Experiment
    * </pre>
    *
-   * <code>.bundled.Experiment data = 1;</code>
+   * <code>.com.acme.api.Experiment data = 1;</code>
    */
   com.acme.Experiment getData();
   /**
@@ -28,7 +28,7 @@ public interface ExperimentEntityOrBuilder extends
    * contains a experiment.Experiment
    * </pre>
    *
-   * <code>.bundled.Experiment data = 1;</code>
+   * <code>.com.acme.api.Experiment data = 1;</code>
    */
   com.acme.ExperimentOrBuilder getDataOrBuilder();
 

@@ -23,7 +23,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledPersonCollection"
+              "$ref": "#/definitions/apiPersonCollection"
             }
           }
         },
@@ -96,7 +96,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -108,7 +108,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledPersonCollection"
+              "$ref": "#/definitions/apiPersonCollection"
             }
           }
         },
@@ -130,12 +130,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/bundledPersonEntity"
+              "$ref": "#/definitions/apiPersonEntity"
             }
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -147,7 +147,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledExperimentCollection"
+              "$ref": "#/definitions/apiExperimentCollection"
             }
           }
         },
@@ -220,7 +220,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       },
       "post": {
@@ -230,7 +230,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledExperimentEntity"
+              "$ref": "#/definitions/apiExperimentEntity"
             }
           }
         },
@@ -240,12 +240,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/bundledExperiment"
+              "$ref": "#/definitions/apiExperiment"
             }
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -270,7 +270,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       },
       "patch": {
@@ -280,7 +280,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledExperimentEntity"
+              "$ref": "#/definitions/apiExperimentEntity"
             }
           }
         },
@@ -296,12 +296,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/bundledExperiment"
+              "$ref": "#/definitions/apiExperiment"
             }
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -313,7 +313,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledExperimentEntity"
+              "$ref": "#/definitions/apiExperimentEntity"
             }
           }
         },
@@ -326,7 +326,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -338,7 +338,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledPersonEntity"
+              "$ref": "#/definitions/apiPersonEntity"
             }
           }
         },
@@ -391,7 +391,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -403,7 +403,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledPersonCollection"
+              "$ref": "#/definitions/apiPersonCollection"
             }
           }
         },
@@ -476,7 +476,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -501,7 +501,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -513,7 +513,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledPersonEntity"
+              "$ref": "#/definitions/apiPersonEntity"
             }
           }
         },
@@ -526,7 +526,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -538,7 +538,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledPersonEntity"
+              "$ref": "#/definitions/apiPersonEntity"
             }
           }
         },
@@ -597,7 +597,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -609,7 +609,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledProjectEntity"
+              "$ref": "#/definitions/apiProjectEntity"
             }
           }
         },
@@ -729,7 +729,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -741,7 +741,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledProjectCollection"
+              "$ref": "#/definitions/apiProjectCollection"
             }
           }
         },
@@ -814,7 +814,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -839,7 +839,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -851,7 +851,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledProjectEntity"
+              "$ref": "#/definitions/apiProjectEntity"
             }
           }
         },
@@ -864,7 +864,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -876,7 +876,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledProjectEntity"
+              "$ref": "#/definitions/apiProjectEntity"
             }
           }
         },
@@ -1002,7 +1002,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -1014,7 +1014,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledTaskEntity"
+              "$ref": "#/definitions/apiTaskEntity"
             }
           }
         },
@@ -1092,7 +1092,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -1104,7 +1104,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledTaskCollection"
+              "$ref": "#/definitions/apiTaskCollection"
             }
           }
         },
@@ -1177,7 +1177,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -1202,7 +1202,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -1214,7 +1214,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledTaskEntity"
+              "$ref": "#/definitions/apiTaskEntity"
             }
           }
         },
@@ -1227,7 +1227,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -1239,7 +1239,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledTaskEntity"
+              "$ref": "#/definitions/apiTaskEntity"
             }
           }
         },
@@ -1323,7 +1323,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -1335,7 +1335,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledTreeCollection"
+              "$ref": "#/definitions/apiTreeCollection"
             }
           }
         },
@@ -1408,7 +1408,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       },
       "post": {
@@ -1418,7 +1418,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledTreeEntity"
+              "$ref": "#/definitions/apiTreeEntity"
             }
           }
         },
@@ -1428,12 +1428,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/bundledTree"
+              "$ref": "#/definitions/apiTree"
             }
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -1458,7 +1458,7 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       },
       "patch": {
@@ -1468,7 +1468,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledTreeEntity"
+              "$ref": "#/definitions/apiTreeEntity"
             }
           }
         },
@@ -1484,12 +1484,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/bundledTree"
+              "$ref": "#/definitions/apiTree"
             }
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     },
@@ -1501,7 +1501,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/bundledTreeEntity"
+              "$ref": "#/definitions/apiTreeEntity"
             }
           }
         },
@@ -1514,13 +1514,13 @@
           }
         ],
         "tags": [
-          "dfddf"
+          "BundledService"
         ]
       }
     }
   },
   "definitions": {
-    "bundledExperiment": {
+    "apiExperiment": {
       "type": "object",
       "properties": {
         "description": {
@@ -1547,13 +1547,13 @@
       },
       "title": "experiment spec for testing"
     },
-    "bundledExperimentCollection": {
+    "apiExperimentCollection": {
       "type": "object",
       "properties": {
         "entities": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/bundledExperimentEntity"
+            "$ref": "#/definitions/apiExperimentEntity"
           },
           "title": "Contains a experiment.ExperimentEntity repeated"
         },
@@ -1571,11 +1571,11 @@
       },
       "title": "ExperimentCollection with repeated ExperimentEntity"
     },
-    "bundledExperimentEntity": {
+    "apiExperimentEntity": {
       "type": "object",
       "properties": {
         "data": {
-          "$ref": "#/definitions/bundledExperiment",
+          "$ref": "#/definitions/apiExperiment",
           "title": "contains a experiment.Experiment"
         },
         "links": {
@@ -1592,13 +1592,13 @@
       },
       "title": "ExperimentEntity with Experiment"
     },
-    "bundledNavigationnode": {
+    "apiNavigationnode": {
       "type": "object",
       "properties": {
         "children": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/bundledNavigationnode"
+            "$ref": "#/definitions/apiNavigationnode"
           },
           "title": "Children of this node"
         },
@@ -1647,7 +1647,7 @@
       },
       "title": "Item of the navigationtree"
     },
-    "bundledPerson": {
+    "apiPerson": {
       "type": "object",
       "properties": {
         "display_name": {
@@ -1680,13 +1680,13 @@
       },
       "title": "Person message type"
     },
-    "bundledPersonCollection": {
+    "apiPersonCollection": {
       "type": "object",
       "properties": {
         "entities": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/bundledPersonEntity"
+            "$ref": "#/definitions/apiPersonEntity"
           },
           "title": "Contains a person.PersonEntity repeated"
         },
@@ -1704,11 +1704,11 @@
       },
       "title": "PersonCollection with repeated PersonEntity"
     },
-    "bundledPersonEntity": {
+    "apiPersonEntity": {
       "type": "object",
       "properties": {
         "data": {
-          "$ref": "#/definitions/bundledPerson",
+          "$ref": "#/definitions/apiPerson",
           "title": "contains a person.Person"
         },
         "links": {
@@ -1725,7 +1725,7 @@
       },
       "title": "PersonEntity with Person"
     },
-    "bundledProject": {
+    "apiProject": {
       "type": "object",
       "properties": {
         "cost_limit": {
@@ -1751,7 +1751,7 @@
         "members": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/bundledPerson"
+            "$ref": "#/definitions/apiPerson"
           },
           "title": "List of project members"
         },
@@ -1762,13 +1762,13 @@
       },
       "title": "Project description"
     },
-    "bundledProjectCollection": {
+    "apiProjectCollection": {
       "type": "object",
       "properties": {
         "entities": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/bundledProjectEntity"
+            "$ref": "#/definitions/apiProjectEntity"
           },
           "title": "Contains a project.ProjectEntity repeated"
         },
@@ -1786,11 +1786,11 @@
       },
       "title": "ProjectCollection with repeated ProjectEntity"
     },
-    "bundledProjectEntity": {
+    "apiProjectEntity": {
       "type": "object",
       "properties": {
         "data": {
-          "$ref": "#/definitions/bundledProject",
+          "$ref": "#/definitions/apiProject",
           "title": "contains a project.Project"
         },
         "links": {
@@ -1807,7 +1807,7 @@
       },
       "title": "ProjectEntity with Project"
     },
-    "bundledTask": {
+    "apiTask": {
       "type": "object",
       "properties": {
         "description": {
@@ -1834,20 +1834,20 @@
         "subtasks": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/bundledTask"
+            "$ref": "#/definitions/apiTask"
           },
           "title": "List of subtasks"
         }
       },
       "title": "Task data description"
     },
-    "bundledTaskCollection": {
+    "apiTaskCollection": {
       "type": "object",
       "properties": {
         "entities": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/bundledTaskEntity"
+            "$ref": "#/definitions/apiTaskEntity"
           },
           "title": "Contains a task.TaskEntity repeated"
         },
@@ -1865,11 +1865,11 @@
       },
       "title": "TaskCollection with repeated TaskEntity"
     },
-    "bundledTaskEntity": {
+    "apiTaskEntity": {
       "type": "object",
       "properties": {
         "data": {
-          "$ref": "#/definitions/bundledTask",
+          "$ref": "#/definitions/apiTask",
           "title": "contains a task.Task"
         },
         "links": {
@@ -1886,7 +1886,7 @@
       },
       "title": "TaskEntity with Task"
     },
-    "bundledTree": {
+    "apiTree": {
       "type": "object",
       "properties": {
         "description": {
@@ -1902,19 +1902,19 @@
           "title": "Id of the tree"
         },
         "root": {
-          "$ref": "#/definitions/bundledNavigationnode",
+          "$ref": "#/definitions/apiNavigationnode",
           "title": "Rootnode of the tree"
         }
       },
       "title": "Navigation tree type with recursive navigation nodes"
     },
-    "bundledTreeCollection": {
+    "apiTreeCollection": {
       "type": "object",
       "properties": {
         "entities": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/bundledTreeEntity"
+            "$ref": "#/definitions/apiTreeEntity"
           },
           "title": "Contains a tree.TreeEntity repeated"
         },
@@ -1932,11 +1932,11 @@
       },
       "title": "TreeCollection with repeated TreeEntity"
     },
-    "bundledTreeEntity": {
+    "apiTreeEntity": {
       "type": "object",
       "properties": {
         "data": {
-          "$ref": "#/definitions/bundledTree",
+          "$ref": "#/definitions/apiTree",
           "title": "contains a tree.Tree"
         },
         "links": {

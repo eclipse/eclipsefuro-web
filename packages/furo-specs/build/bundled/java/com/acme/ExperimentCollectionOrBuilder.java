@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface ExperimentCollectionOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.ExperimentCollection)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.ExperimentCollection)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface ExperimentCollectionOrBuilder extends
    * Contains a experiment.ExperimentEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
    */
   java.util.List<com.acme.ExperimentEntity> 
       getEntitiesList();
@@ -21,7 +21,7 @@ public interface ExperimentCollectionOrBuilder extends
    * Contains a experiment.ExperimentEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
    */
   com.acme.ExperimentEntity getEntities(int index);
   /**
@@ -29,7 +29,7 @@ public interface ExperimentCollectionOrBuilder extends
    * Contains a experiment.ExperimentEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
    */
   int getEntitiesCount();
   /**
@@ -37,7 +37,7 @@ public interface ExperimentCollectionOrBuilder extends
    * Contains a experiment.ExperimentEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
    */
   java.util.List<? extends com.acme.ExperimentEntityOrBuilder> 
       getEntitiesOrBuilderList();
@@ -46,7 +46,7 @@ public interface ExperimentCollectionOrBuilder extends
    * Contains a experiment.ExperimentEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
    */
   com.acme.ExperimentEntityOrBuilder getEntitiesOrBuilder(
       int index);

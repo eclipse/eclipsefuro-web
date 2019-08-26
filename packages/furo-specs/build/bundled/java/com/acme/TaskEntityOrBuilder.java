@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface TaskEntityOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.TaskEntity)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.TaskEntity)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface TaskEntityOrBuilder extends
    * contains a task.Task
    * </pre>
    *
-   * <code>.bundled.Task data = 1;</code>
+   * <code>.com.acme.api.Task data = 1;</code>
    */
   boolean hasData();
   /**
@@ -20,7 +20,7 @@ public interface TaskEntityOrBuilder extends
    * contains a task.Task
    * </pre>
    *
-   * <code>.bundled.Task data = 1;</code>
+   * <code>.com.acme.api.Task data = 1;</code>
    */
   com.acme.Task getData();
   /**
@@ -28,7 +28,7 @@ public interface TaskEntityOrBuilder extends
    * contains a task.Task
    * </pre>
    *
-   * <code>.bundled.Task data = 1;</code>
+   * <code>.com.acme.api.Task data = 1;</code>
    */
   com.acme.TaskOrBuilder getDataOrBuilder();
 

@@ -4,19 +4,19 @@
 package com.acme;
 
 public interface CreateTreeServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.CreateTreeServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.CreateTreeServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.bundled.Tree data = 1;</code>
+   * <code>.com.acme.api.Tree data = 1;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.Tree data = 1;</code>
+   * <code>.com.acme.api.Tree data = 1;</code>
    */
   com.acme.Tree getData();
   /**
-   * <code>.bundled.Tree data = 1;</code>
+   * <code>.com.acme.api.Tree data = 1;</code>
    */
   com.acme.TreeOrBuilder getDataOrBuilder();
 }

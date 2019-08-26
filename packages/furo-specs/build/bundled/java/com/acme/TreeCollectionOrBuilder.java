@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface TreeCollectionOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.TreeCollection)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.TreeCollection)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface TreeCollectionOrBuilder extends
    * Contains a tree.TreeEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TreeEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
    */
   java.util.List<com.acme.TreeEntity> 
       getEntitiesList();
@@ -21,7 +21,7 @@ public interface TreeCollectionOrBuilder extends
    * Contains a tree.TreeEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TreeEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
    */
   com.acme.TreeEntity getEntities(int index);
   /**
@@ -29,7 +29,7 @@ public interface TreeCollectionOrBuilder extends
    * Contains a tree.TreeEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TreeEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
    */
   int getEntitiesCount();
   /**
@@ -37,7 +37,7 @@ public interface TreeCollectionOrBuilder extends
    * Contains a tree.TreeEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TreeEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
    */
   java.util.List<? extends com.acme.TreeEntityOrBuilder> 
       getEntitiesOrBuilderList();
@@ -46,7 +46,7 @@ public interface TreeCollectionOrBuilder extends
    * Contains a tree.TreeEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TreeEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TreeEntity entities = 4;</code>
    */
   com.acme.TreeEntityOrBuilder getEntitiesOrBuilder(
       int index);

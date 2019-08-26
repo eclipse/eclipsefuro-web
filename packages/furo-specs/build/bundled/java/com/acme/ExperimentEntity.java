@@ -8,11 +8,11 @@ package com.acme;
  * ExperimentEntity with Experiment
  * </pre>
  *
- * Protobuf type {@code bundled.ExperimentEntity}
+ * Protobuf type {@code com.acme.api.ExperimentEntity}
  */
 public  final class ExperimentEntity extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.ExperimentEntity)
+    // @@protoc_insertion_point(message_implements:com.acme.api.ExperimentEntity)
     ExperimentEntityOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use ExperimentEntity.newBuilder() to construct.
@@ -106,13 +106,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_ExperimentEntity_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_ExperimentEntity_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_ExperimentEntity_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_ExperimentEntity_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.ExperimentEntity.class, com.acme.ExperimentEntity.Builder.class);
   }
@@ -125,7 +125,7 @@ private static final long serialVersionUID = 0L;
    * contains a experiment.Experiment
    * </pre>
    *
-   * <code>.bundled.Experiment data = 1;</code>
+   * <code>.com.acme.api.Experiment data = 1;</code>
    */
   public boolean hasData() {
     return data_ != null;
@@ -135,7 +135,7 @@ private static final long serialVersionUID = 0L;
    * contains a experiment.Experiment
    * </pre>
    *
-   * <code>.bundled.Experiment data = 1;</code>
+   * <code>.com.acme.api.Experiment data = 1;</code>
    */
   public com.acme.Experiment getData() {
     return data_ == null ? com.acme.Experiment.getDefaultInstance() : data_;
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
    * contains a experiment.Experiment
    * </pre>
    *
-   * <code>.bundled.Experiment data = 1;</code>
+   * <code>.com.acme.api.Experiment data = 1;</code>
    */
   public com.acme.ExperimentOrBuilder getDataOrBuilder() {
     return getData();
@@ -433,21 +433,21 @@ private static final long serialVersionUID = 0L;
    * ExperimentEntity with Experiment
    * </pre>
    *
-   * Protobuf type {@code bundled.ExperimentEntity}
+   * Protobuf type {@code com.acme.api.ExperimentEntity}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.ExperimentEntity)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.ExperimentEntity)
       com.acme.ExperimentEntityOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_ExperimentEntity_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_ExperimentEntity_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_ExperimentEntity_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_ExperimentEntity_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.ExperimentEntity.class, com.acme.ExperimentEntity.Builder.class);
     }
@@ -495,7 +495,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_ExperimentEntity_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_ExperimentEntity_descriptor;
     }
 
     @java.lang.Override
@@ -655,7 +655,7 @@ private static final long serialVersionUID = 0L;
      * contains a experiment.Experiment
      * </pre>
      *
-     * <code>.bundled.Experiment data = 1;</code>
+     * <code>.com.acme.api.Experiment data = 1;</code>
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
@@ -665,7 +665,7 @@ private static final long serialVersionUID = 0L;
      * contains a experiment.Experiment
      * </pre>
      *
-     * <code>.bundled.Experiment data = 1;</code>
+     * <code>.com.acme.api.Experiment data = 1;</code>
      */
     public com.acme.Experiment getData() {
       if (dataBuilder_ == null) {
@@ -679,7 +679,7 @@ private static final long serialVersionUID = 0L;
      * contains a experiment.Experiment
      * </pre>
      *
-     * <code>.bundled.Experiment data = 1;</code>
+     * <code>.com.acme.api.Experiment data = 1;</code>
      */
     public Builder setData(com.acme.Experiment value) {
       if (dataBuilder_ == null) {
@@ -699,7 +699,7 @@ private static final long serialVersionUID = 0L;
      * contains a experiment.Experiment
      * </pre>
      *
-     * <code>.bundled.Experiment data = 1;</code>
+     * <code>.com.acme.api.Experiment data = 1;</code>
      */
     public Builder setData(
         com.acme.Experiment.Builder builderForValue) {
@@ -717,7 +717,7 @@ private static final long serialVersionUID = 0L;
      * contains a experiment.Experiment
      * </pre>
      *
-     * <code>.bundled.Experiment data = 1;</code>
+     * <code>.com.acme.api.Experiment data = 1;</code>
      */
     public Builder mergeData(com.acme.Experiment value) {
       if (dataBuilder_ == null) {
@@ -739,7 +739,7 @@ private static final long serialVersionUID = 0L;
      * contains a experiment.Experiment
      * </pre>
      *
-     * <code>.bundled.Experiment data = 1;</code>
+     * <code>.com.acme.api.Experiment data = 1;</code>
      */
     public Builder clearData() {
       if (dataBuilder_ == null) {
@@ -757,7 +757,7 @@ private static final long serialVersionUID = 0L;
      * contains a experiment.Experiment
      * </pre>
      *
-     * <code>.bundled.Experiment data = 1;</code>
+     * <code>.com.acme.api.Experiment data = 1;</code>
      */
     public com.acme.Experiment.Builder getDataBuilder() {
       
@@ -769,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * contains a experiment.Experiment
      * </pre>
      *
-     * <code>.bundled.Experiment data = 1;</code>
+     * <code>.com.acme.api.Experiment data = 1;</code>
      */
     public com.acme.ExperimentOrBuilder getDataOrBuilder() {
       if (dataBuilder_ != null) {
@@ -784,7 +784,7 @@ private static final long serialVersionUID = 0L;
      * contains a experiment.Experiment
      * </pre>
      *
-     * <code>.bundled.Experiment data = 1;</code>
+     * <code>.com.acme.api.Experiment data = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.acme.Experiment, com.acme.Experiment.Builder, com.acme.ExperimentOrBuilder> 
@@ -1277,10 +1277,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.ExperimentEntity)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.ExperimentEntity)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.ExperimentEntity)
+  // @@protoc_insertion_point(class_scope:com.acme.api.ExperimentEntity)
   private static final com.acme.ExperimentEntity DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.ExperimentEntity();

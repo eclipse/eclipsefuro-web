@@ -4,11 +4,11 @@
 package com.acme;
 
 /**
- * Protobuf type {@code bundled.DeleteExperimentServiceRequest}
+ * Protobuf type {@code com.acme.api.DeleteExperimentServiceRequest}
  */
 public  final class DeleteExperimentServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.DeleteExperimentServiceRequest)
+    // @@protoc_insertion_point(message_implements:com.acme.api.DeleteExperimentServiceRequest)
     DeleteExperimentServiceRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use DeleteExperimentServiceRequest.newBuilder() to construct.
@@ -83,13 +83,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_DeleteExperimentServiceRequest_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_DeleteExperimentServiceRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_DeleteExperimentServiceRequest_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_DeleteExperimentServiceRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.DeleteExperimentServiceRequest.class, com.acme.DeleteExperimentServiceRequest.Builder.class);
   }
@@ -320,21 +320,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code bundled.DeleteExperimentServiceRequest}
+   * Protobuf type {@code com.acme.api.DeleteExperimentServiceRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.DeleteExperimentServiceRequest)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.DeleteExperimentServiceRequest)
       com.acme.DeleteExperimentServiceRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_DeleteExperimentServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_DeleteExperimentServiceRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_DeleteExperimentServiceRequest_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_DeleteExperimentServiceRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.DeleteExperimentServiceRequest.class, com.acme.DeleteExperimentServiceRequest.Builder.class);
     }
@@ -371,7 +371,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_DeleteExperimentServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_DeleteExperimentServiceRequest_descriptor;
     }
 
     @java.lang.Override
@@ -679,10 +679,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.DeleteExperimentServiceRequest)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.DeleteExperimentServiceRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.DeleteExperimentServiceRequest)
+  // @@protoc_insertion_point(class_scope:com.acme.api.DeleteExperimentServiceRequest)
   private static final com.acme.DeleteExperimentServiceRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.DeleteExperimentServiceRequest();

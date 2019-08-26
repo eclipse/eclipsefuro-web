@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface DeleteTaskServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.DeleteTaskServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.DeleteTaskServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface UpdateTaskServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.UpdateTaskServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.UpdateTaskServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -18,15 +18,15 @@ public interface UpdateTaskServiceRequestOrBuilder extends
       getTskBytes();
 
   /**
-   * <code>.bundled.Task data = 2;</code>
+   * <code>.com.acme.api.Task data = 2;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.Task data = 2;</code>
+   * <code>.com.acme.api.Task data = 2;</code>
    */
   com.acme.Task getData();
   /**
-   * <code>.bundled.Task data = 2;</code>
+   * <code>.com.acme.api.Task data = 2;</code>
    */
   com.acme.TaskOrBuilder getDataOrBuilder();
 }

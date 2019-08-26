@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface DeletePersonServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.DeletePersonServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.DeletePersonServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface TaskCollectionOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.TaskCollection)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.TaskCollection)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface TaskCollectionOrBuilder extends
    * Contains a task.TaskEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TaskEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TaskEntity entities = 4;</code>
    */
   java.util.List<com.acme.TaskEntity> 
       getEntitiesList();
@@ -21,7 +21,7 @@ public interface TaskCollectionOrBuilder extends
    * Contains a task.TaskEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TaskEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TaskEntity entities = 4;</code>
    */
   com.acme.TaskEntity getEntities(int index);
   /**
@@ -29,7 +29,7 @@ public interface TaskCollectionOrBuilder extends
    * Contains a task.TaskEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TaskEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TaskEntity entities = 4;</code>
    */
   int getEntitiesCount();
   /**
@@ -37,7 +37,7 @@ public interface TaskCollectionOrBuilder extends
    * Contains a task.TaskEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TaskEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TaskEntity entities = 4;</code>
    */
   java.util.List<? extends com.acme.TaskEntityOrBuilder> 
       getEntitiesOrBuilderList();
@@ -46,7 +46,7 @@ public interface TaskCollectionOrBuilder extends
    * Contains a task.TaskEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.TaskEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.TaskEntity entities = 4;</code>
    */
   com.acme.TaskEntityOrBuilder getEntitiesOrBuilder(
       int index);

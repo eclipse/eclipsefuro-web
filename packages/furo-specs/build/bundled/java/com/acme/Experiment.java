@@ -8,11 +8,11 @@ package com.acme;
  * experiment spec for testing
  * </pre>
  *
- * Protobuf type {@code bundled.Experiment}
+ * Protobuf type {@code com.acme.api.Experiment}
  */
 public  final class Experiment extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.Experiment)
+    // @@protoc_insertion_point(message_implements:com.acme.api.Experiment)
     ExperimentOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use Experiment.newBuilder() to construct.
@@ -100,13 +100,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_Experiment_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_Experiment_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_Experiment_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_Experiment_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.Experiment.class, com.acme.Experiment.Builder.class);
   }
@@ -492,21 +492,21 @@ private static final long serialVersionUID = 0L;
    * experiment spec for testing
    * </pre>
    *
-   * Protobuf type {@code bundled.Experiment}
+   * Protobuf type {@code com.acme.api.Experiment}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.Experiment)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.Experiment)
       com.acme.ExperimentOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_Experiment_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_Experiment_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_Experiment_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_Experiment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.Experiment.class, com.acme.Experiment.Builder.class);
     }
@@ -545,7 +545,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_Experiment_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_Experiment_descriptor;
     }
 
     @java.lang.Override
@@ -1072,10 +1072,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.Experiment)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.Experiment)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.Experiment)
+  // @@protoc_insertion_point(class_scope:com.acme.api.Experiment)
   private static final com.acme.Experiment DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.Experiment();

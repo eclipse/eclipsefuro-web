@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface ProjectOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.Project)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.Project)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -116,7 +116,7 @@ public interface ProjectOrBuilder extends
    * List of project members
    * </pre>
    *
-   * <code>repeated .bundled.Person members = 6;</code>
+   * <code>repeated .com.acme.api.Person members = 6;</code>
    */
   java.util.List<com.acme.Person> 
       getMembersList();
@@ -125,7 +125,7 @@ public interface ProjectOrBuilder extends
    * List of project members
    * </pre>
    *
-   * <code>repeated .bundled.Person members = 6;</code>
+   * <code>repeated .com.acme.api.Person members = 6;</code>
    */
   com.acme.Person getMembers(int index);
   /**
@@ -133,7 +133,7 @@ public interface ProjectOrBuilder extends
    * List of project members
    * </pre>
    *
-   * <code>repeated .bundled.Person members = 6;</code>
+   * <code>repeated .com.acme.api.Person members = 6;</code>
    */
   int getMembersCount();
   /**
@@ -141,7 +141,7 @@ public interface ProjectOrBuilder extends
    * List of project members
    * </pre>
    *
-   * <code>repeated .bundled.Person members = 6;</code>
+   * <code>repeated .com.acme.api.Person members = 6;</code>
    */
   java.util.List<? extends com.acme.PersonOrBuilder> 
       getMembersOrBuilderList();
@@ -150,7 +150,7 @@ public interface ProjectOrBuilder extends
    * List of project members
    * </pre>
    *
-   * <code>repeated .bundled.Person members = 6;</code>
+   * <code>repeated .com.acme.api.Person members = 6;</code>
    */
   com.acme.PersonOrBuilder getMembersOrBuilder(
       int index);

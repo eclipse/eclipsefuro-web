@@ -4,19 +4,19 @@
 package com.acme;
 
 public interface CreatePersonServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.CreatePersonServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.CreatePersonServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.bundled.Person data = 1;</code>
+   * <code>.com.acme.api.Person data = 1;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.Person data = 1;</code>
+   * <code>.com.acme.api.Person data = 1;</code>
    */
   com.acme.Person getData();
   /**
-   * <code>.bundled.Person data = 1;</code>
+   * <code>.com.acme.api.Person data = 1;</code>
    */
   com.acme.PersonOrBuilder getDataOrBuilder();
 }

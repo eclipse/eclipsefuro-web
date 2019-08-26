@@ -28,7 +28,7 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 
-func request_Dfddf_CreateTree_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_CreateTree_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -46,10 +46,10 @@ func request_Dfddf_CreateTree_0(ctx context.Context, marshaler runtime.Marshaler
 }
 
 var (
-	filter_Dfddf_DeleteTree_0 = &utilities.DoubleArray{Encoding: map[string]int{"tre": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_BundledService_DeleteTree_0 = &utilities.DoubleArray{Encoding: map[string]int{"tre": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Dfddf_DeleteTree_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_DeleteTree_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -71,7 +71,7 @@ func request_Dfddf_DeleteTree_0(ctx context.Context, marshaler runtime.Marshaler
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tre", err)
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_DeleteTree_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_DeleteTree_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -80,7 +80,7 @@ func request_Dfddf_DeleteTree_0(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func request_Dfddf_GetTree_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_GetTree_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -108,14 +108,14 @@ func request_Dfddf_GetTree_0(ctx context.Context, marshaler runtime.Marshaler, c
 }
 
 var (
-	filter_Dfddf_ListTrees_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_BundledService_ListTrees_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Dfddf_ListTrees_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_ListTrees_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_ListTrees_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListTrees_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -124,7 +124,7 @@ func request_Dfddf_ListTrees_0(ctx context.Context, marshaler runtime.Marshaler,
 
 }
 
-func request_Dfddf_UpdateTree_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_UpdateTree_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateTreeServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -160,14 +160,14 @@ func request_Dfddf_UpdateTree_0(ctx context.Context, marshaler runtime.Marshaler
 }
 
 var (
-	filter_Dfddf_CreatePerson_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_BundledService_CreatePerson_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Dfddf_CreatePerson_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_CreatePerson_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreatePersonServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_CreatePerson_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_CreatePerson_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -177,10 +177,10 @@ func request_Dfddf_CreatePerson_0(ctx context.Context, marshaler runtime.Marshal
 }
 
 var (
-	filter_Dfddf_DeletePerson_0 = &utilities.DoubleArray{Encoding: map[string]int{"prs": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_BundledService_DeletePerson_0 = &utilities.DoubleArray{Encoding: map[string]int{"prs": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Dfddf_DeletePerson_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_DeletePerson_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeletePersonServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -202,7 +202,7 @@ func request_Dfddf_DeletePerson_0(ctx context.Context, marshaler runtime.Marshal
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prs", err)
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_DeletePerson_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_DeletePerson_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -211,7 +211,7 @@ func request_Dfddf_DeletePerson_0(ctx context.Context, marshaler runtime.Marshal
 
 }
 
-func request_Dfddf_GetPerson_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_GetPerson_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetPersonServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -239,14 +239,14 @@ func request_Dfddf_GetPerson_0(ctx context.Context, marshaler runtime.Marshaler,
 }
 
 var (
-	filter_Dfddf_ListPersons_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_BundledService_ListPersons_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Dfddf_ListPersons_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_ListPersons_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListPersonServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_ListPersons_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListPersons_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -256,10 +256,10 @@ func request_Dfddf_ListPersons_0(ctx context.Context, marshaler runtime.Marshale
 }
 
 var (
-	filter_Dfddf_UpdatePerson_0 = &utilities.DoubleArray{Encoding: map[string]int{"prs": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_BundledService_UpdatePerson_0 = &utilities.DoubleArray{Encoding: map[string]int{"prs": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Dfddf_UpdatePerson_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_UpdatePerson_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdatePersonServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -281,7 +281,7 @@ func request_Dfddf_UpdatePerson_0(ctx context.Context, marshaler runtime.Marshal
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prs", err)
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_UpdatePerson_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_UpdatePerson_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -291,14 +291,14 @@ func request_Dfddf_UpdatePerson_0(ctx context.Context, marshaler runtime.Marshal
 }
 
 var (
-	filter_Dfddf_CreateProject_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_BundledService_CreateProject_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Dfddf_CreateProject_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_CreateProject_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateProjectServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_CreateProject_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_CreateProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -308,10 +308,10 @@ func request_Dfddf_CreateProject_0(ctx context.Context, marshaler runtime.Marsha
 }
 
 var (
-	filter_Dfddf_DeleteProject_0 = &utilities.DoubleArray{Encoding: map[string]int{"prj": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_BundledService_DeleteProject_0 = &utilities.DoubleArray{Encoding: map[string]int{"prj": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Dfddf_DeleteProject_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_DeleteProject_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteProjectServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -333,7 +333,7 @@ func request_Dfddf_DeleteProject_0(ctx context.Context, marshaler runtime.Marsha
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prj", err)
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_DeleteProject_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_DeleteProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -342,7 +342,7 @@ func request_Dfddf_DeleteProject_0(ctx context.Context, marshaler runtime.Marsha
 
 }
 
-func request_Dfddf_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_GetProject_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetProjectServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -370,14 +370,14 @@ func request_Dfddf_GetProject_0(ctx context.Context, marshaler runtime.Marshaler
 }
 
 var (
-	filter_Dfddf_ListProjects_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_BundledService_ListProjects_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Dfddf_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_ListProjects_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListProjectServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_ListProjects_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListProjects_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -387,10 +387,10 @@ func request_Dfddf_ListProjects_0(ctx context.Context, marshaler runtime.Marshal
 }
 
 var (
-	filter_Dfddf_UpdateProject_0 = &utilities.DoubleArray{Encoding: map[string]int{"prj": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_BundledService_UpdateProject_0 = &utilities.DoubleArray{Encoding: map[string]int{"prj": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Dfddf_UpdateProject_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_UpdateProject_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateProjectServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -412,7 +412,7 @@ func request_Dfddf_UpdateProject_0(ctx context.Context, marshaler runtime.Marsha
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "prj", err)
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_UpdateProject_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_UpdateProject_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -422,14 +422,14 @@ func request_Dfddf_UpdateProject_0(ctx context.Context, marshaler runtime.Marsha
 }
 
 var (
-	filter_Dfddf_List_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_BundledService_List_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Dfddf_List_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_List_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListProjectMembersServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_List_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_List_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -438,7 +438,7 @@ func request_Dfddf_List_0(ctx context.Context, marshaler runtime.Marshaler, clie
 
 }
 
-func request_Dfddf_Unsubscribe_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_Unsubscribe_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UnsubscribeProjectMembersServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -485,14 +485,14 @@ func request_Dfddf_Unsubscribe_0(ctx context.Context, marshaler runtime.Marshale
 }
 
 var (
-	filter_Dfddf_CreateTask_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_BundledService_CreateTask_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Dfddf_CreateTask_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_CreateTask_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateTaskServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_CreateTask_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_CreateTask_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -502,10 +502,10 @@ func request_Dfddf_CreateTask_0(ctx context.Context, marshaler runtime.Marshaler
 }
 
 var (
-	filter_Dfddf_DeleteTask_0 = &utilities.DoubleArray{Encoding: map[string]int{"tsk": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_BundledService_DeleteTask_0 = &utilities.DoubleArray{Encoding: map[string]int{"tsk": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Dfddf_DeleteTask_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_DeleteTask_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteTaskServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -527,7 +527,7 @@ func request_Dfddf_DeleteTask_0(ctx context.Context, marshaler runtime.Marshaler
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tsk", err)
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_DeleteTask_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_DeleteTask_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -536,7 +536,7 @@ func request_Dfddf_DeleteTask_0(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func request_Dfddf_GetTask_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_GetTask_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetTaskServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -564,14 +564,14 @@ func request_Dfddf_GetTask_0(ctx context.Context, marshaler runtime.Marshaler, c
 }
 
 var (
-	filter_Dfddf_ListTasks_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_BundledService_ListTasks_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Dfddf_ListTasks_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_ListTasks_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListTaskServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_ListTasks_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListTasks_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -581,10 +581,10 @@ func request_Dfddf_ListTasks_0(ctx context.Context, marshaler runtime.Marshaler,
 }
 
 var (
-	filter_Dfddf_UpdateTask_0 = &utilities.DoubleArray{Encoding: map[string]int{"tsk": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_BundledService_UpdateTask_0 = &utilities.DoubleArray{Encoding: map[string]int{"tsk": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Dfddf_UpdateTask_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_UpdateTask_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateTaskServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -606,7 +606,7 @@ func request_Dfddf_UpdateTask_0(ctx context.Context, marshaler runtime.Marshaler
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "tsk", err)
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_UpdateTask_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_UpdateTask_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -615,7 +615,7 @@ func request_Dfddf_UpdateTask_0(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func request_Dfddf_CreateExperiment_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_CreateExperiment_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq CreateExperimentServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -633,10 +633,10 @@ func request_Dfddf_CreateExperiment_0(ctx context.Context, marshaler runtime.Mar
 }
 
 var (
-	filter_Dfddf_DeleteExperiment_0 = &utilities.DoubleArray{Encoding: map[string]int{"exp": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_BundledService_DeleteExperiment_0 = &utilities.DoubleArray{Encoding: map[string]int{"exp": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Dfddf_DeleteExperiment_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_DeleteExperiment_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq DeleteExperimentServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -658,7 +658,7 @@ func request_Dfddf_DeleteExperiment_0(ctx context.Context, marshaler runtime.Mar
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "exp", err)
 	}
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_DeleteExperiment_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_DeleteExperiment_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -667,7 +667,7 @@ func request_Dfddf_DeleteExperiment_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func request_Dfddf_GetExperiment_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_GetExperiment_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetExperimentServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -695,14 +695,14 @@ func request_Dfddf_GetExperiment_0(ctx context.Context, marshaler runtime.Marsha
 }
 
 var (
-	filter_Dfddf_ListExperiments_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
+	filter_BundledService_ListExperiments_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 )
 
-func request_Dfddf_ListExperiments_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_ListExperiments_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq ListExperimentServiceRequest
 	var metadata runtime.ServerMetadata
 
-	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_Dfddf_ListExperiments_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.URL.Query(), filter_BundledService_ListExperiments_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -711,7 +711,7 @@ func request_Dfddf_ListExperiments_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func request_Dfddf_UpdateExperiment_0(ctx context.Context, marshaler runtime.Marshaler, client DfddfClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_BundledService_UpdateExperiment_0(ctx context.Context, marshaler runtime.Marshaler, client BundledServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq UpdateExperimentServiceRequest
 	var metadata runtime.ServerMetadata
 
@@ -746,9 +746,9 @@ func request_Dfddf_UpdateExperiment_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-// RegisterDfddfHandlerFromEndpoint is same as RegisterDfddfHandler but
+// RegisterBundledServiceHandlerFromEndpoint is same as RegisterBundledServiceHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterDfddfHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterBundledServiceHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -768,23 +768,23 @@ func RegisterDfddfHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux
 		}()
 	}()
 
-	return RegisterDfddfHandler(ctx, mux, conn)
+	return RegisterBundledServiceHandler(ctx, mux, conn)
 }
 
-// RegisterDfddfHandler registers the http handlers for service Dfddf to "mux".
+// RegisterBundledServiceHandler registers the http handlers for service BundledService to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterDfddfHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterDfddfHandlerClient(ctx, mux, NewDfddfClient(conn))
+func RegisterBundledServiceHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterBundledServiceHandlerClient(ctx, mux, NewBundledServiceClient(conn))
 }
 
-// RegisterDfddfHandlerClient registers the http handlers for service Dfddf
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "DfddfClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "DfddfClient"
+// RegisterBundledServiceHandlerClient registers the http handlers for service BundledService
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "BundledServiceClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "BundledServiceClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "DfddfClient" to call the correct interceptors.
-func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, client DfddfClient) error {
+// "BundledServiceClient" to call the correct interceptors.
+func RegisterBundledServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client BundledServiceClient) error {
 
-	mux.Handle("POST", pattern_Dfddf_CreateTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_BundledService_CreateTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -793,18 +793,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_CreateTree_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_CreateTree_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_CreateTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_CreateTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Dfddf_DeleteTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_BundledService_DeleteTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -813,18 +813,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_DeleteTree_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_DeleteTree_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_DeleteTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_DeleteTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_GetTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_GetTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -833,18 +833,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_GetTree_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_GetTree_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_GetTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_GetTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_ListTrees_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_ListTrees_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -853,18 +853,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_ListTrees_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_ListTrees_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_ListTrees_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_ListTrees_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PATCH", pattern_Dfddf_UpdateTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PATCH", pattern_BundledService_UpdateTree_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -873,18 +873,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_UpdateTree_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_UpdateTree_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_UpdateTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_UpdateTree_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_CreatePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_CreatePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -893,18 +893,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_CreatePerson_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_CreatePerson_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_CreatePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_CreatePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_DeletePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_DeletePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -913,18 +913,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_DeletePerson_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_DeletePerson_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_DeletePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_DeletePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_GetPerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_GetPerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -933,18 +933,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_GetPerson_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_GetPerson_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_GetPerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_GetPerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_ListPersons_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_ListPersons_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -953,18 +953,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_ListPersons_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_ListPersons_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_ListPersons_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_ListPersons_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_UpdatePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_UpdatePerson_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -973,18 +973,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_UpdatePerson_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_UpdatePerson_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_UpdatePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_UpdatePerson_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_CreateProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_CreateProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -993,18 +993,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_CreateProject_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_CreateProject_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_CreateProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_CreateProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_DeleteProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_DeleteProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1013,18 +1013,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_DeleteProject_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_DeleteProject_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_DeleteProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_DeleteProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_GetProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1033,18 +1033,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_GetProject_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_GetProject_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_GetProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_ListProjects_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1053,18 +1053,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_ListProjects_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_ListProjects_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_ListProjects_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_UpdateProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_UpdateProject_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1073,18 +1073,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_UpdateProject_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_UpdateProject_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_UpdateProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_UpdateProject_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_List_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_List_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1093,18 +1093,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_List_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_List_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_List_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_List_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Dfddf_Unsubscribe_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_BundledService_Unsubscribe_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1113,18 +1113,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_Unsubscribe_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_Unsubscribe_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_Unsubscribe_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_Unsubscribe_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_CreateTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_CreateTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1133,18 +1133,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_CreateTask_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_CreateTask_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_CreateTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_CreateTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_DeleteTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_DeleteTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1153,18 +1153,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_DeleteTask_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_DeleteTask_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_DeleteTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_DeleteTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_GetTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_GetTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1173,18 +1173,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_GetTask_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_GetTask_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_GetTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_GetTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_ListTasks_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_ListTasks_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1193,18 +1193,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_ListTasks_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_ListTasks_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_ListTasks_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_ListTasks_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_UpdateTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_UpdateTask_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1213,18 +1213,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_UpdateTask_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_UpdateTask_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_UpdateTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_UpdateTask_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Dfddf_CreateExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_BundledService_CreateExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1233,18 +1233,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_CreateExperiment_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_CreateExperiment_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_CreateExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_CreateExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("DELETE", pattern_Dfddf_DeleteExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("DELETE", pattern_BundledService_DeleteExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1253,18 +1253,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_DeleteExperiment_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_DeleteExperiment_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_DeleteExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_DeleteExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_GetExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_GetExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1273,18 +1273,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_GetExperiment_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_GetExperiment_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_GetExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_GetExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Dfddf_ListExperiments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_BundledService_ListExperiments_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1293,18 +1293,18 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_ListExperiments_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_ListExperiments_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_ListExperiments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_ListExperiments_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("PATCH", pattern_Dfddf_UpdateExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("PATCH", pattern_BundledService_UpdateExperiment_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -1313,14 +1313,14 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Dfddf_UpdateExperiment_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_BundledService_UpdateExperiment_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Dfddf_UpdateExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_BundledService_UpdateExperiment_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -1328,113 +1328,113 @@ func RegisterDfddfHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 }
 
 var (
-	pattern_Dfddf_CreateTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "trees"}, ""))
+	pattern_BundledService_CreateTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "trees"}, ""))
 
-	pattern_Dfddf_DeleteTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "trees", "tre"}, ""))
+	pattern_BundledService_DeleteTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "trees", "tre"}, ""))
 
-	pattern_Dfddf_GetTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "trees", "tre", "get.json"}, ""))
+	pattern_BundledService_GetTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "trees", "tre", "get.json"}, ""))
 
-	pattern_Dfddf_ListTrees_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "trees"}, ""))
+	pattern_BundledService_ListTrees_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "trees"}, ""))
 
-	pattern_Dfddf_UpdateTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "trees", "tre"}, ""))
+	pattern_BundledService_UpdateTree_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "trees", "tre"}, ""))
 
-	pattern_Dfddf_CreatePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "persons", "create.json"}, ""))
+	pattern_BundledService_CreatePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "persons", "create.json"}, ""))
 
-	pattern_Dfddf_DeletePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "delete.json"}, ""))
+	pattern_BundledService_DeletePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "delete.json"}, ""))
 
-	pattern_Dfddf_GetPerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "get.json"}, ""))
+	pattern_BundledService_GetPerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "get.json"}, ""))
 
-	pattern_Dfddf_ListPersons_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "persons", "list.json"}, ""))
+	pattern_BundledService_ListPersons_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "persons", "list.json"}, ""))
 
-	pattern_Dfddf_UpdatePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "update.json"}, ""))
+	pattern_BundledService_UpdatePerson_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "persons", "prs", "update.json"}, ""))
 
-	pattern_Dfddf_CreateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "projects", "create.json"}, ""))
+	pattern_BundledService_CreateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "projects", "create.json"}, ""))
 
-	pattern_Dfddf_DeleteProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "delete.json"}, ""))
+	pattern_BundledService_DeleteProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "delete.json"}, ""))
 
-	pattern_Dfddf_GetProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "get.json"}, ""))
+	pattern_BundledService_GetProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "get.json"}, ""))
 
-	pattern_Dfddf_ListProjects_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "projects", "list.json"}, ""))
+	pattern_BundledService_ListProjects_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "projects", "list.json"}, ""))
 
-	pattern_Dfddf_UpdateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "update.json"}, ""))
+	pattern_BundledService_UpdateProject_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "projects", "prj", "update.json"}, ""))
 
-	pattern_Dfddf_List_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "members"}, ""))
+	pattern_BundledService_List_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"api", "members"}, ""))
 
-	pattern_Dfddf_Unsubscribe_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "projects", "prj", "members", "prs"}, "unsubscribe"))
+	pattern_BundledService_Unsubscribe_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "projects", "prj", "members", "prs"}, "unsubscribe"))
 
-	pattern_Dfddf_CreateTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "tasks", "create.json"}, ""))
+	pattern_BundledService_CreateTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "tasks", "create.json"}, ""))
 
-	pattern_Dfddf_DeleteTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "delete.json"}, ""))
+	pattern_BundledService_DeleteTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "delete.json"}, ""))
 
-	pattern_Dfddf_GetTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "get.json"}, ""))
+	pattern_BundledService_GetTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "get.json"}, ""))
 
-	pattern_Dfddf_ListTasks_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "tasks", "list.json"}, ""))
+	pattern_BundledService_ListTasks_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"mockdata", "tasks", "list.json"}, ""))
 
-	pattern_Dfddf_UpdateTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "update.json"}, ""))
+	pattern_BundledService_UpdateTask_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "tasks", "tsk", "update.json"}, ""))
 
-	pattern_Dfddf_CreateExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "experiments"}, ""))
+	pattern_BundledService_CreateExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "experiments"}, ""))
 
-	pattern_Dfddf_DeleteExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "experiments", "exp"}, ""))
+	pattern_BundledService_DeleteExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "experiments", "exp"}, ""))
 
-	pattern_Dfddf_GetExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "experiments", "exp", "get.json"}, ""))
+	pattern_BundledService_GetExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"mockdata", "experiments", "exp", "get.json"}, ""))
 
-	pattern_Dfddf_ListExperiments_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "experiments"}, ""))
+	pattern_BundledService_ListExperiments_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"mockdata", "experiments"}, ""))
 
-	pattern_Dfddf_UpdateExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "experiments", "exp"}, ""))
+	pattern_BundledService_UpdateExperiment_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"mockdata", "experiments", "exp"}, ""))
 )
 
 var (
-	forward_Dfddf_CreateTree_0 = runtime.ForwardResponseMessage
+	forward_BundledService_CreateTree_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_DeleteTree_0 = runtime.ForwardResponseMessage
+	forward_BundledService_DeleteTree_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_GetTree_0 = runtime.ForwardResponseMessage
+	forward_BundledService_GetTree_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_ListTrees_0 = runtime.ForwardResponseMessage
+	forward_BundledService_ListTrees_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_UpdateTree_0 = runtime.ForwardResponseMessage
+	forward_BundledService_UpdateTree_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_CreatePerson_0 = runtime.ForwardResponseMessage
+	forward_BundledService_CreatePerson_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_DeletePerson_0 = runtime.ForwardResponseMessage
+	forward_BundledService_DeletePerson_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_GetPerson_0 = runtime.ForwardResponseMessage
+	forward_BundledService_GetPerson_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_ListPersons_0 = runtime.ForwardResponseMessage
+	forward_BundledService_ListPersons_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_UpdatePerson_0 = runtime.ForwardResponseMessage
+	forward_BundledService_UpdatePerson_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_CreateProject_0 = runtime.ForwardResponseMessage
+	forward_BundledService_CreateProject_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_DeleteProject_0 = runtime.ForwardResponseMessage
+	forward_BundledService_DeleteProject_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_GetProject_0 = runtime.ForwardResponseMessage
+	forward_BundledService_GetProject_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_ListProjects_0 = runtime.ForwardResponseMessage
+	forward_BundledService_ListProjects_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_UpdateProject_0 = runtime.ForwardResponseMessage
+	forward_BundledService_UpdateProject_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_List_0 = runtime.ForwardResponseMessage
+	forward_BundledService_List_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_Unsubscribe_0 = runtime.ForwardResponseMessage
+	forward_BundledService_Unsubscribe_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_CreateTask_0 = runtime.ForwardResponseMessage
+	forward_BundledService_CreateTask_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_DeleteTask_0 = runtime.ForwardResponseMessage
+	forward_BundledService_DeleteTask_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_GetTask_0 = runtime.ForwardResponseMessage
+	forward_BundledService_GetTask_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_ListTasks_0 = runtime.ForwardResponseMessage
+	forward_BundledService_ListTasks_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_UpdateTask_0 = runtime.ForwardResponseMessage
+	forward_BundledService_UpdateTask_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_CreateExperiment_0 = runtime.ForwardResponseMessage
+	forward_BundledService_CreateExperiment_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_DeleteExperiment_0 = runtime.ForwardResponseMessage
+	forward_BundledService_DeleteExperiment_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_GetExperiment_0 = runtime.ForwardResponseMessage
+	forward_BundledService_GetExperiment_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_ListExperiments_0 = runtime.ForwardResponseMessage
+	forward_BundledService_ListExperiments_0 = runtime.ForwardResponseMessage
 
-	forward_Dfddf_UpdateExperiment_0 = runtime.ForwardResponseMessage
+	forward_BundledService_UpdateExperiment_0 = runtime.ForwardResponseMessage
 )

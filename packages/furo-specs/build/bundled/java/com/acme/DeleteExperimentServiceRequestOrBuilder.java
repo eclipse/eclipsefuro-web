@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface DeleteExperimentServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.DeleteExperimentServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.DeleteExperimentServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

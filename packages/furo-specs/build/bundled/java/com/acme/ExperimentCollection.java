@@ -8,11 +8,11 @@ package com.acme;
  * ExperimentCollection with repeated ExperimentEntity
  * </pre>
  *
- * Protobuf type {@code bundled.ExperimentCollection}
+ * Protobuf type {@code com.acme.api.ExperimentCollection}
  */
 public  final class ExperimentCollection extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.ExperimentCollection)
+    // @@protoc_insertion_point(message_implements:com.acme.api.ExperimentCollection)
     ExperimentCollectionOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use ExperimentCollection.newBuilder() to construct.
@@ -106,13 +106,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_ExperimentCollection_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_ExperimentCollection_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_ExperimentCollection_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_ExperimentCollection_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.ExperimentCollection.class, com.acme.ExperimentCollection.Builder.class);
   }
@@ -125,7 +125,7 @@ private static final long serialVersionUID = 0L;
    * Contains a experiment.ExperimentEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
    */
   public java.util.List<com.acme.ExperimentEntity> getEntitiesList() {
     return entities_;
@@ -135,7 +135,7 @@ private static final long serialVersionUID = 0L;
    * Contains a experiment.ExperimentEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
    */
   public java.util.List<? extends com.acme.ExperimentEntityOrBuilder> 
       getEntitiesOrBuilderList() {
@@ -146,7 +146,7 @@ private static final long serialVersionUID = 0L;
    * Contains a experiment.ExperimentEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
    */
   public int getEntitiesCount() {
     return entities_.size();
@@ -156,7 +156,7 @@ private static final long serialVersionUID = 0L;
    * Contains a experiment.ExperimentEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
    */
   public com.acme.ExperimentEntity getEntities(int index) {
     return entities_.get(index);
@@ -166,7 +166,7 @@ private static final long serialVersionUID = 0L;
    * Contains a experiment.ExperimentEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
    */
   public com.acme.ExperimentEntityOrBuilder getEntitiesOrBuilder(
       int index) {
@@ -452,21 +452,21 @@ private static final long serialVersionUID = 0L;
    * ExperimentCollection with repeated ExperimentEntity
    * </pre>
    *
-   * Protobuf type {@code bundled.ExperimentCollection}
+   * Protobuf type {@code com.acme.api.ExperimentCollection}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.ExperimentCollection)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.ExperimentCollection)
       com.acme.ExperimentCollectionOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_ExperimentCollection_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_ExperimentCollection_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_ExperimentCollection_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_ExperimentCollection_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.ExperimentCollection.class, com.acme.ExperimentCollection.Builder.class);
     }
@@ -515,7 +515,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_ExperimentCollection_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_ExperimentCollection_descriptor;
     }
 
     @java.lang.Override
@@ -711,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public java.util.List<com.acme.ExperimentEntity> getEntitiesList() {
       if (entitiesBuilder_ == null) {
@@ -725,7 +725,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public int getEntitiesCount() {
       if (entitiesBuilder_ == null) {
@@ -739,7 +739,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public com.acme.ExperimentEntity getEntities(int index) {
       if (entitiesBuilder_ == null) {
@@ -753,7 +753,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public Builder setEntities(
         int index, com.acme.ExperimentEntity value) {
@@ -774,7 +774,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public Builder setEntities(
         int index, com.acme.ExperimentEntity.Builder builderForValue) {
@@ -792,7 +792,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public Builder addEntities(com.acme.ExperimentEntity value) {
       if (entitiesBuilder_ == null) {
@@ -812,7 +812,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public Builder addEntities(
         int index, com.acme.ExperimentEntity value) {
@@ -833,7 +833,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public Builder addEntities(
         com.acme.ExperimentEntity.Builder builderForValue) {
@@ -851,7 +851,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public Builder addEntities(
         int index, com.acme.ExperimentEntity.Builder builderForValue) {
@@ -869,7 +869,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public Builder addAllEntities(
         java.lang.Iterable<? extends com.acme.ExperimentEntity> values) {
@@ -888,7 +888,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public Builder clearEntities() {
       if (entitiesBuilder_ == null) {
@@ -905,7 +905,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public Builder removeEntities(int index) {
       if (entitiesBuilder_ == null) {
@@ -922,7 +922,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public com.acme.ExperimentEntity.Builder getEntitiesBuilder(
         int index) {
@@ -933,7 +933,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public com.acme.ExperimentEntityOrBuilder getEntitiesOrBuilder(
         int index) {
@@ -947,7 +947,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public java.util.List<? extends com.acme.ExperimentEntityOrBuilder> 
          getEntitiesOrBuilderList() {
@@ -962,7 +962,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public com.acme.ExperimentEntity.Builder addEntitiesBuilder() {
       return getEntitiesFieldBuilder().addBuilder(
@@ -973,7 +973,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public com.acme.ExperimentEntity.Builder addEntitiesBuilder(
         int index) {
@@ -985,7 +985,7 @@ private static final long serialVersionUID = 0L;
      * Contains a experiment.ExperimentEntity repeated
      * </pre>
      *
-     * <code>repeated .bundled.ExperimentEntity entities = 4;</code>
+     * <code>repeated .com.acme.api.ExperimentEntity entities = 4;</code>
      */
     public java.util.List<com.acme.ExperimentEntity.Builder> 
          getEntitiesBuilderList() {
@@ -1483,10 +1483,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.ExperimentCollection)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.ExperimentCollection)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.ExperimentCollection)
+  // @@protoc_insertion_point(class_scope:com.acme.api.ExperimentCollection)
   private static final com.acme.ExperimentCollection DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.ExperimentCollection();

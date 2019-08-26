@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface TreeEntityOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.TreeEntity)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.TreeEntity)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface TreeEntityOrBuilder extends
    * contains a tree.Tree
    * </pre>
    *
-   * <code>.bundled.Tree data = 1;</code>
+   * <code>.com.acme.api.Tree data = 1;</code>
    */
   boolean hasData();
   /**
@@ -20,7 +20,7 @@ public interface TreeEntityOrBuilder extends
    * contains a tree.Tree
    * </pre>
    *
-   * <code>.bundled.Tree data = 1;</code>
+   * <code>.com.acme.api.Tree data = 1;</code>
    */
   com.acme.Tree getData();
   /**
@@ -28,7 +28,7 @@ public interface TreeEntityOrBuilder extends
    * contains a tree.Tree
    * </pre>
    *
-   * <code>.bundled.Tree data = 1;</code>
+   * <code>.com.acme.api.Tree data = 1;</code>
    */
   com.acme.TreeOrBuilder getDataOrBuilder();
 

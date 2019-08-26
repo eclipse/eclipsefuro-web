@@ -8,11 +8,11 @@ package com.acme;
  * TaskEntity with Task
  * </pre>
  *
- * Protobuf type {@code bundled.TaskEntity}
+ * Protobuf type {@code com.acme.api.TaskEntity}
  */
 public  final class TaskEntity extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.TaskEntity)
+    // @@protoc_insertion_point(message_implements:com.acme.api.TaskEntity)
     TaskEntityOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use TaskEntity.newBuilder() to construct.
@@ -106,13 +106,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_TaskEntity_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_TaskEntity_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_TaskEntity_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_TaskEntity_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.TaskEntity.class, com.acme.TaskEntity.Builder.class);
   }
@@ -125,7 +125,7 @@ private static final long serialVersionUID = 0L;
    * contains a task.Task
    * </pre>
    *
-   * <code>.bundled.Task data = 1;</code>
+   * <code>.com.acme.api.Task data = 1;</code>
    */
   public boolean hasData() {
     return data_ != null;
@@ -135,7 +135,7 @@ private static final long serialVersionUID = 0L;
    * contains a task.Task
    * </pre>
    *
-   * <code>.bundled.Task data = 1;</code>
+   * <code>.com.acme.api.Task data = 1;</code>
    */
   public com.acme.Task getData() {
     return data_ == null ? com.acme.Task.getDefaultInstance() : data_;
@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
    * contains a task.Task
    * </pre>
    *
-   * <code>.bundled.Task data = 1;</code>
+   * <code>.com.acme.api.Task data = 1;</code>
    */
   public com.acme.TaskOrBuilder getDataOrBuilder() {
     return getData();
@@ -433,21 +433,21 @@ private static final long serialVersionUID = 0L;
    * TaskEntity with Task
    * </pre>
    *
-   * Protobuf type {@code bundled.TaskEntity}
+   * Protobuf type {@code com.acme.api.TaskEntity}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.TaskEntity)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.TaskEntity)
       com.acme.TaskEntityOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_TaskEntity_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_TaskEntity_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_TaskEntity_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_TaskEntity_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.TaskEntity.class, com.acme.TaskEntity.Builder.class);
     }
@@ -495,7 +495,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_TaskEntity_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_TaskEntity_descriptor;
     }
 
     @java.lang.Override
@@ -655,7 +655,7 @@ private static final long serialVersionUID = 0L;
      * contains a task.Task
      * </pre>
      *
-     * <code>.bundled.Task data = 1;</code>
+     * <code>.com.acme.api.Task data = 1;</code>
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
@@ -665,7 +665,7 @@ private static final long serialVersionUID = 0L;
      * contains a task.Task
      * </pre>
      *
-     * <code>.bundled.Task data = 1;</code>
+     * <code>.com.acme.api.Task data = 1;</code>
      */
     public com.acme.Task getData() {
       if (dataBuilder_ == null) {
@@ -679,7 +679,7 @@ private static final long serialVersionUID = 0L;
      * contains a task.Task
      * </pre>
      *
-     * <code>.bundled.Task data = 1;</code>
+     * <code>.com.acme.api.Task data = 1;</code>
      */
     public Builder setData(com.acme.Task value) {
       if (dataBuilder_ == null) {
@@ -699,7 +699,7 @@ private static final long serialVersionUID = 0L;
      * contains a task.Task
      * </pre>
      *
-     * <code>.bundled.Task data = 1;</code>
+     * <code>.com.acme.api.Task data = 1;</code>
      */
     public Builder setData(
         com.acme.Task.Builder builderForValue) {
@@ -717,7 +717,7 @@ private static final long serialVersionUID = 0L;
      * contains a task.Task
      * </pre>
      *
-     * <code>.bundled.Task data = 1;</code>
+     * <code>.com.acme.api.Task data = 1;</code>
      */
     public Builder mergeData(com.acme.Task value) {
       if (dataBuilder_ == null) {
@@ -739,7 +739,7 @@ private static final long serialVersionUID = 0L;
      * contains a task.Task
      * </pre>
      *
-     * <code>.bundled.Task data = 1;</code>
+     * <code>.com.acme.api.Task data = 1;</code>
      */
     public Builder clearData() {
       if (dataBuilder_ == null) {
@@ -757,7 +757,7 @@ private static final long serialVersionUID = 0L;
      * contains a task.Task
      * </pre>
      *
-     * <code>.bundled.Task data = 1;</code>
+     * <code>.com.acme.api.Task data = 1;</code>
      */
     public com.acme.Task.Builder getDataBuilder() {
       
@@ -769,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * contains a task.Task
      * </pre>
      *
-     * <code>.bundled.Task data = 1;</code>
+     * <code>.com.acme.api.Task data = 1;</code>
      */
     public com.acme.TaskOrBuilder getDataOrBuilder() {
       if (dataBuilder_ != null) {
@@ -784,7 +784,7 @@ private static final long serialVersionUID = 0L;
      * contains a task.Task
      * </pre>
      *
-     * <code>.bundled.Task data = 1;</code>
+     * <code>.com.acme.api.Task data = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.acme.Task, com.acme.Task.Builder, com.acme.TaskOrBuilder> 
@@ -1277,10 +1277,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.TaskEntity)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.TaskEntity)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.TaskEntity)
+  // @@protoc_insertion_point(class_scope:com.acme.api.TaskEntity)
   private static final com.acme.TaskEntity DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.TaskEntity();

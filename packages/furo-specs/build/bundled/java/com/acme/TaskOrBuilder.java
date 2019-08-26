@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface TaskOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.Task)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.Task)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -100,7 +100,7 @@ public interface TaskOrBuilder extends
    * List of subtasks
    * </pre>
    *
-   * <code>repeated .bundled.Task subtasks = 6;</code>
+   * <code>repeated .com.acme.api.Task subtasks = 6;</code>
    */
   java.util.List<com.acme.Task> 
       getSubtasksList();
@@ -109,7 +109,7 @@ public interface TaskOrBuilder extends
    * List of subtasks
    * </pre>
    *
-   * <code>repeated .bundled.Task subtasks = 6;</code>
+   * <code>repeated .com.acme.api.Task subtasks = 6;</code>
    */
   com.acme.Task getSubtasks(int index);
   /**
@@ -117,7 +117,7 @@ public interface TaskOrBuilder extends
    * List of subtasks
    * </pre>
    *
-   * <code>repeated .bundled.Task subtasks = 6;</code>
+   * <code>repeated .com.acme.api.Task subtasks = 6;</code>
    */
   int getSubtasksCount();
   /**
@@ -125,7 +125,7 @@ public interface TaskOrBuilder extends
    * List of subtasks
    * </pre>
    *
-   * <code>repeated .bundled.Task subtasks = 6;</code>
+   * <code>repeated .com.acme.api.Task subtasks = 6;</code>
    */
   java.util.List<? extends com.acme.TaskOrBuilder> 
       getSubtasksOrBuilderList();
@@ -134,7 +134,7 @@ public interface TaskOrBuilder extends
    * List of subtasks
    * </pre>
    *
-   * <code>repeated .bundled.Task subtasks = 6;</code>
+   * <code>repeated .com.acme.api.Task subtasks = 6;</code>
    */
   com.acme.TaskOrBuilder getSubtasksOrBuilder(
       int index);

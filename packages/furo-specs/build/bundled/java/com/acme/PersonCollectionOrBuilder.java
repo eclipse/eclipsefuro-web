@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface PersonCollectionOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.PersonCollection)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.PersonCollection)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface PersonCollectionOrBuilder extends
    * Contains a person.PersonEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.PersonEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
    */
   java.util.List<com.acme.PersonEntity> 
       getEntitiesList();
@@ -21,7 +21,7 @@ public interface PersonCollectionOrBuilder extends
    * Contains a person.PersonEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.PersonEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
    */
   com.acme.PersonEntity getEntities(int index);
   /**
@@ -29,7 +29,7 @@ public interface PersonCollectionOrBuilder extends
    * Contains a person.PersonEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.PersonEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
    */
   int getEntitiesCount();
   /**
@@ -37,7 +37,7 @@ public interface PersonCollectionOrBuilder extends
    * Contains a person.PersonEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.PersonEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
    */
   java.util.List<? extends com.acme.PersonEntityOrBuilder> 
       getEntitiesOrBuilderList();
@@ -46,7 +46,7 @@ public interface PersonCollectionOrBuilder extends
    * Contains a person.PersonEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.PersonEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.PersonEntity entities = 4;</code>
    */
   com.acme.PersonEntityOrBuilder getEntitiesOrBuilder(
       int index);

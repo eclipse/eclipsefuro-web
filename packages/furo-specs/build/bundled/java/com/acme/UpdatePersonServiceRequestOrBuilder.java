@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface UpdatePersonServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.UpdatePersonServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.UpdatePersonServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -18,15 +18,15 @@ public interface UpdatePersonServiceRequestOrBuilder extends
       getPrsBytes();
 
   /**
-   * <code>.bundled.Person data = 2;</code>
+   * <code>.com.acme.api.Person data = 2;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.Person data = 2;</code>
+   * <code>.com.acme.api.Person data = 2;</code>
    */
   com.acme.Person getData();
   /**
-   * <code>.bundled.Person data = 2;</code>
+   * <code>.com.acme.api.Person data = 2;</code>
    */
   com.acme.PersonOrBuilder getDataOrBuilder();
 }

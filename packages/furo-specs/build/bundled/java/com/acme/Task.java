@@ -8,11 +8,11 @@ package com.acme;
  * Task data description
  * </pre>
  *
- * Protobuf type {@code bundled.Task}
+ * Protobuf type {@code com.acme.api.Task}
  */
 public  final class Task extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.Task)
+    // @@protoc_insertion_point(message_implements:com.acme.api.Task)
     TaskOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use Task.newBuilder() to construct.
@@ -119,13 +119,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_Task_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_Task_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_Task_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_Task_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.Task.class, com.acme.Task.Builder.class);
   }
@@ -310,7 +310,7 @@ private static final long serialVersionUID = 0L;
    * List of subtasks
    * </pre>
    *
-   * <code>repeated .bundled.Task subtasks = 6;</code>
+   * <code>repeated .com.acme.api.Task subtasks = 6;</code>
    */
   public java.util.List<com.acme.Task> getSubtasksList() {
     return subtasks_;
@@ -320,7 +320,7 @@ private static final long serialVersionUID = 0L;
    * List of subtasks
    * </pre>
    *
-   * <code>repeated .bundled.Task subtasks = 6;</code>
+   * <code>repeated .com.acme.api.Task subtasks = 6;</code>
    */
   public java.util.List<? extends com.acme.TaskOrBuilder> 
       getSubtasksOrBuilderList() {
@@ -331,7 +331,7 @@ private static final long serialVersionUID = 0L;
    * List of subtasks
    * </pre>
    *
-   * <code>repeated .bundled.Task subtasks = 6;</code>
+   * <code>repeated .com.acme.api.Task subtasks = 6;</code>
    */
   public int getSubtasksCount() {
     return subtasks_.size();
@@ -341,7 +341,7 @@ private static final long serialVersionUID = 0L;
    * List of subtasks
    * </pre>
    *
-   * <code>repeated .bundled.Task subtasks = 6;</code>
+   * <code>repeated .com.acme.api.Task subtasks = 6;</code>
    */
   public com.acme.Task getSubtasks(int index) {
     return subtasks_.get(index);
@@ -351,7 +351,7 @@ private static final long serialVersionUID = 0L;
    * List of subtasks
    * </pre>
    *
-   * <code>repeated .bundled.Task subtasks = 6;</code>
+   * <code>repeated .com.acme.api.Task subtasks = 6;</code>
    */
   public com.acme.TaskOrBuilder getSubtasksOrBuilder(
       int index) {
@@ -577,21 +577,21 @@ private static final long serialVersionUID = 0L;
    * Task data description
    * </pre>
    *
-   * Protobuf type {@code bundled.Task}
+   * Protobuf type {@code com.acme.api.Task}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.Task)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.Task)
       com.acme.TaskOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_Task_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_Task_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_Task_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_Task_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.Task.class, com.acme.Task.Builder.class);
     }
@@ -641,7 +641,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_Task_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_Task_descriptor;
     }
 
     @java.lang.Override
@@ -1279,7 +1279,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public java.util.List<com.acme.Task> getSubtasksList() {
       if (subtasksBuilder_ == null) {
@@ -1293,7 +1293,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public int getSubtasksCount() {
       if (subtasksBuilder_ == null) {
@@ -1307,7 +1307,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public com.acme.Task getSubtasks(int index) {
       if (subtasksBuilder_ == null) {
@@ -1321,7 +1321,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public Builder setSubtasks(
         int index, com.acme.Task value) {
@@ -1342,7 +1342,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public Builder setSubtasks(
         int index, com.acme.Task.Builder builderForValue) {
@@ -1360,7 +1360,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public Builder addSubtasks(com.acme.Task value) {
       if (subtasksBuilder_ == null) {
@@ -1380,7 +1380,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public Builder addSubtasks(
         int index, com.acme.Task value) {
@@ -1401,7 +1401,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public Builder addSubtasks(
         com.acme.Task.Builder builderForValue) {
@@ -1419,7 +1419,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public Builder addSubtasks(
         int index, com.acme.Task.Builder builderForValue) {
@@ -1437,7 +1437,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public Builder addAllSubtasks(
         java.lang.Iterable<? extends com.acme.Task> values) {
@@ -1456,7 +1456,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public Builder clearSubtasks() {
       if (subtasksBuilder_ == null) {
@@ -1473,7 +1473,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public Builder removeSubtasks(int index) {
       if (subtasksBuilder_ == null) {
@@ -1490,7 +1490,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public com.acme.Task.Builder getSubtasksBuilder(
         int index) {
@@ -1501,7 +1501,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public com.acme.TaskOrBuilder getSubtasksOrBuilder(
         int index) {
@@ -1515,7 +1515,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public java.util.List<? extends com.acme.TaskOrBuilder> 
          getSubtasksOrBuilderList() {
@@ -1530,7 +1530,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public com.acme.Task.Builder addSubtasksBuilder() {
       return getSubtasksFieldBuilder().addBuilder(
@@ -1541,7 +1541,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public com.acme.Task.Builder addSubtasksBuilder(
         int index) {
@@ -1553,7 +1553,7 @@ private static final long serialVersionUID = 0L;
      * List of subtasks
      * </pre>
      *
-     * <code>repeated .bundled.Task subtasks = 6;</code>
+     * <code>repeated .com.acme.api.Task subtasks = 6;</code>
      */
     public java.util.List<com.acme.Task.Builder> 
          getSubtasksBuilderList() {
@@ -1586,10 +1586,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.Task)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.Task)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.Task)
+  // @@protoc_insertion_point(class_scope:com.acme.api.Task)
   private static final com.acme.Task DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.Task();

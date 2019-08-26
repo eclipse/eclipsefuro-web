@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface DeleteTreeServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.DeleteTreeServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.DeleteTreeServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

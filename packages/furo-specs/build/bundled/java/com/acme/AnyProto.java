@@ -15,220 +15,220 @@ public final class AnyProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_CreateTreeServiceRequest_descriptor;
+    internal_static_com_acme_api_CreateTreeServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_CreateTreeServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_CreateTreeServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_DeleteTreeServiceRequest_descriptor;
+    internal_static_com_acme_api_DeleteTreeServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_DeleteTreeServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_DeleteTreeServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_GetTreeServiceRequest_descriptor;
+    internal_static_com_acme_api_GetTreeServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_GetTreeServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_GetTreeServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_ListTreeServiceRequest_descriptor;
+    internal_static_com_acme_api_ListTreeServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_ListTreeServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_ListTreeServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_UpdateTreeServiceRequest_descriptor;
+    internal_static_com_acme_api_UpdateTreeServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_UpdateTreeServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_UpdateTreeServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_CreatePersonServiceRequest_descriptor;
+    internal_static_com_acme_api_CreatePersonServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_CreatePersonServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_CreatePersonServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_DeletePersonServiceRequest_descriptor;
+    internal_static_com_acme_api_DeletePersonServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_DeletePersonServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_DeletePersonServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_GetPersonServiceRequest_descriptor;
+    internal_static_com_acme_api_GetPersonServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_GetPersonServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_GetPersonServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_ListPersonServiceRequest_descriptor;
+    internal_static_com_acme_api_ListPersonServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_ListPersonServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_ListPersonServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_UpdatePersonServiceRequest_descriptor;
+    internal_static_com_acme_api_UpdatePersonServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_UpdatePersonServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_UpdatePersonServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_CreateProjectServiceRequest_descriptor;
+    internal_static_com_acme_api_CreateProjectServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_CreateProjectServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_CreateProjectServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_DeleteProjectServiceRequest_descriptor;
+    internal_static_com_acme_api_DeleteProjectServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_DeleteProjectServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_DeleteProjectServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_GetProjectServiceRequest_descriptor;
+    internal_static_com_acme_api_GetProjectServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_GetProjectServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_GetProjectServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_ListProjectServiceRequest_descriptor;
+    internal_static_com_acme_api_ListProjectServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_ListProjectServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_ListProjectServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_UpdateProjectServiceRequest_descriptor;
+    internal_static_com_acme_api_UpdateProjectServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_UpdateProjectServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_UpdateProjectServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_ListProjectMembersServiceRequest_descriptor;
+    internal_static_com_acme_api_ListProjectMembersServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_ListProjectMembersServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_ListProjectMembersServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_UnsubscribeProjectMembersServiceRequest_descriptor;
+    internal_static_com_acme_api_UnsubscribeProjectMembersServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_UnsubscribeProjectMembersServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_UnsubscribeProjectMembersServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_CreateTaskServiceRequest_descriptor;
+    internal_static_com_acme_api_CreateTaskServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_CreateTaskServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_CreateTaskServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_DeleteTaskServiceRequest_descriptor;
+    internal_static_com_acme_api_DeleteTaskServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_DeleteTaskServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_DeleteTaskServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_GetTaskServiceRequest_descriptor;
+    internal_static_com_acme_api_GetTaskServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_GetTaskServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_GetTaskServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_ListTaskServiceRequest_descriptor;
+    internal_static_com_acme_api_ListTaskServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_ListTaskServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_ListTaskServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_UpdateTaskServiceRequest_descriptor;
+    internal_static_com_acme_api_UpdateTaskServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_UpdateTaskServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_UpdateTaskServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_CreateExperimentServiceRequest_descriptor;
+    internal_static_com_acme_api_CreateExperimentServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_CreateExperimentServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_CreateExperimentServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_DeleteExperimentServiceRequest_descriptor;
+    internal_static_com_acme_api_DeleteExperimentServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_DeleteExperimentServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_DeleteExperimentServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_GetExperimentServiceRequest_descriptor;
+    internal_static_com_acme_api_GetExperimentServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_GetExperimentServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_GetExperimentServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_ListExperimentServiceRequest_descriptor;
+    internal_static_com_acme_api_ListExperimentServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_ListExperimentServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_ListExperimentServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_UpdateExperimentServiceRequest_descriptor;
+    internal_static_com_acme_api_UpdateExperimentServiceRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_UpdateExperimentServiceRequest_fieldAccessorTable;
+      internal_static_com_acme_api_UpdateExperimentServiceRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_Tree_descriptor;
+    internal_static_com_acme_api_Tree_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_Tree_fieldAccessorTable;
+      internal_static_com_acme_api_Tree_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_TreeEntity_descriptor;
+    internal_static_com_acme_api_TreeEntity_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_TreeEntity_fieldAccessorTable;
+      internal_static_com_acme_api_TreeEntity_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_Navigationnode_descriptor;
+    internal_static_com_acme_api_Navigationnode_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_Navigationnode_fieldAccessorTable;
+      internal_static_com_acme_api_Navigationnode_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_TreeCollection_descriptor;
+    internal_static_com_acme_api_TreeCollection_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_TreeCollection_fieldAccessorTable;
+      internal_static_com_acme_api_TreeCollection_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_Person_descriptor;
+    internal_static_com_acme_api_Person_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_Person_fieldAccessorTable;
+      internal_static_com_acme_api_Person_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_PersonCollection_descriptor;
+    internal_static_com_acme_api_PersonCollection_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_PersonCollection_fieldAccessorTable;
+      internal_static_com_acme_api_PersonCollection_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_PersonEntity_descriptor;
+    internal_static_com_acme_api_PersonEntity_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_PersonEntity_fieldAccessorTable;
+      internal_static_com_acme_api_PersonEntity_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_ProjectCollection_descriptor;
+    internal_static_com_acme_api_ProjectCollection_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_ProjectCollection_fieldAccessorTable;
+      internal_static_com_acme_api_ProjectCollection_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_ProjectEntity_descriptor;
+    internal_static_com_acme_api_ProjectEntity_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_ProjectEntity_fieldAccessorTable;
+      internal_static_com_acme_api_ProjectEntity_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_Project_descriptor;
+    internal_static_com_acme_api_Project_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_Project_fieldAccessorTable;
+      internal_static_com_acme_api_Project_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_TaskEntity_descriptor;
+    internal_static_com_acme_api_TaskEntity_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_TaskEntity_fieldAccessorTable;
+      internal_static_com_acme_api_TaskEntity_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_TaskCollection_descriptor;
+    internal_static_com_acme_api_TaskCollection_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_TaskCollection_fieldAccessorTable;
+      internal_static_com_acme_api_TaskCollection_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_Task_descriptor;
+    internal_static_com_acme_api_Task_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_Task_fieldAccessorTable;
+      internal_static_com_acme_api_Task_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_ExperimentEntity_descriptor;
+    internal_static_com_acme_api_ExperimentEntity_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_ExperimentEntity_fieldAccessorTable;
+      internal_static_com_acme_api_ExperimentEntity_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_Experiment_descriptor;
+    internal_static_com_acme_api_Experiment_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_Experiment_fieldAccessorTable;
+      internal_static_com_acme_api_Experiment_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bundled_ExperimentCollection_descriptor;
+    internal_static_com_acme_api_ExperimentCollection_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bundled_ExperimentCollection_fieldAccessorTable;
+      internal_static_com_acme_api_ExperimentCollection_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -238,202 +238,212 @@ public final class AnyProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022com.acme.api.proto\022\007bundled\032\034google/ap" +
-      "i/annotations.proto\032\033google/protobuf/emp" +
-      "ty.proto\032\031google/protobuf/any.proto\032\027goo" +
-      "gle/type/money.proto\032\026google/type/date.p" +
-      "roto\032\017furo/link.proto\032\017furo/meta.proto\032\024" +
-      "furo/reference.proto\"7\n\030CreateTreeServic" +
-      "eRequest\022\033\n\004data\030\001 \001(\0132\r.bundled.Tree\"M\n" +
-      "\030DeleteTreeServiceRequest\022\013\n\003tre\030\001 \001(\t\022$" +
-      "\n\004data\030\002 \001(\0132\026.google.protobuf.Empty\"$\n\025" +
-      "GetTreeServiceRequest\022\013\n\003tre\030\001 \001(\t\"\230\001\n\026L" +
-      "istTreeServiceRequest\022\016\n\006fields\030\001 \001(\t\022\014\n" +
-      "\004sort\030\002 \001(\t\022\016\n\006filter\030\003 \001(\t\022\014\n\004page\030\004 \001(" +
-      "\005\022\r\n\005limit\030\005 \001(\005\022\r\n\005count\030\006 \001(\010\022\013\n\003sum\030\007" +
-      " \001(\t\022\014\n\004view\030\010 \001(\t\022\t\n\001q\030\013 \001(\t\"D\n\030UpdateT" +
-      "reeServiceRequest\022\013\n\003tre\030\001 \001(\t\022\033\n\004data\030\002" +
-      " \001(\0132\r.bundled.Tree\";\n\032CreatePersonServi" +
-      "ceRequest\022\035\n\004data\030\001 \001(\0132\017.bundled.Person" +
-      "\"O\n\032DeletePersonServiceRequest\022\013\n\003prs\030\001 " +
-      "\001(\t\022$\n\004data\030\002 \001(\0132\026.google.protobuf.Empt" +
-      "y\"&\n\027GetPersonServiceRequest\022\013\n\003prs\030\001 \001(" +
-      "\t\"\232\001\n\030ListPersonServiceRequest\022\016\n\006fields" +
-      "\030\001 \001(\t\022\014\n\004sort\030\002 \001(\t\022\016\n\006filter\030\003 \001(\t\022\014\n\004" +
-      "page\030\004 \001(\005\022\r\n\005limit\030\005 \001(\005\022\r\n\005count\030\006 \001(\010" +
-      "\022\013\n\003sum\030\007 \001(\t\022\014\n\004view\030\010 \001(\t\022\t\n\001q\030\013 \001(\t\"H" +
-      "\n\032UpdatePersonServiceRequest\022\013\n\003prs\030\001 \001(" +
-      "\t\022\035\n\004data\030\002 \001(\0132\017.bundled.Person\"=\n\033Crea" +
-      "teProjectServiceRequest\022\036\n\004data\030\001 \001(\0132\020." +
-      "bundled.Project\"P\n\033DeleteProjectServiceR" +
-      "equest\022\013\n\003prj\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026.goog" +
-      "le.protobuf.Empty\"\'\n\030GetProjectServiceRe" +
-      "quest\022\013\n\003prj\030\001 \001(\t\"\233\001\n\031ListProjectServic" +
-      "eRequest\022\016\n\006fields\030\001 \001(\t\022\014\n\004sort\030\002 \001(\t\022\016" +
-      "\n\006filter\030\003 \001(\t\022\014\n\004page\030\004 \001(\005\022\r\n\005limit\030\005 " +
-      "\001(\005\022\r\n\005count\030\006 \001(\010\022\013\n\003sum\030\007 \001(\t\022\014\n\004view\030" +
-      "\010 \001(\t\022\t\n\001q\030\013 \001(\t\"J\n\033UpdateProjectService" +
-      "Request\022\013\n\003prj\030\001 \001(\t\022\036\n\004data\030\002 \001(\0132\020.bun" +
-      "dled.Project\"\242\001\n ListProjectMembersServi" +
-      "ceRequest\022\016\n\006fields\030\001 \001(\t\022\014\n\004sort\030\002 \001(\t\022" +
-      "\016\n\006filter\030\003 \001(\t\022\014\n\004page\030\004 \001(\005\022\r\n\005limit\030\005" +
-      " \001(\005\022\r\n\005count\030\006 \001(\010\022\013\n\003sum\030\007 \001(\t\022\014\n\004view" +
-      "\030\010 \001(\t\022\t\n\001q\030\013 \001(\t\"h\n\'UnsubscribeProjectM" +
-      "embersServiceRequest\022\013\n\003prj\030\001 \001(\t\022\013\n\003prs" +
-      "\030\002 \001(\t\022#\n\004data\030\003 \001(\0132\025.bundled.PersonEnt" +
-      "ity\"7\n\030CreateTaskServiceRequest\022\033\n\004data\030" +
-      "\001 \001(\0132\r.bundled.Task\"M\n\030DeleteTaskServic" +
-      "eRequest\022\013\n\003tsk\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026.go" +
-      "ogle.protobuf.Empty\"$\n\025GetTaskServiceReq" +
-      "uest\022\013\n\003tsk\030\001 \001(\t\"\230\001\n\026ListTaskServiceReq" +
+      "\n\022com.acme.api.proto\022\014com.acme.api\032\034goog" +
+      "le/api/annotations.proto\032\033google/protobu" +
+      "f/empty.proto\032\031google/protobuf/any.proto" +
+      "\032\027google/type/money.proto\032\026google/type/d" +
+      "ate.proto\032\017furo/link.proto\032\017furo/meta.pr" +
+      "oto\032\024furo/reference.proto\"<\n\030CreateTreeS" +
+      "erviceRequest\022 \n\004data\030\001 \001(\0132\022.com.acme.a" +
+      "pi.Tree\"M\n\030DeleteTreeServiceRequest\022\013\n\003t" +
+      "re\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026.google.protobuf" +
+      ".Empty\"$\n\025GetTreeServiceRequest\022\013\n\003tre\030\001" +
+      " \001(\t\"\230\001\n\026ListTreeServiceRequest\022\016\n\006field" +
+      "s\030\001 \001(\t\022\014\n\004sort\030\002 \001(\t\022\016\n\006filter\030\003 \001(\t\022\014\n" +
+      "\004page\030\004 \001(\005\022\r\n\005limit\030\005 \001(\005\022\r\n\005count\030\006 \001(" +
+      "\010\022\013\n\003sum\030\007 \001(\t\022\014\n\004view\030\010 \001(\t\022\t\n\001q\030\013 \001(\t\"" +
+      "I\n\030UpdateTreeServiceRequest\022\013\n\003tre\030\001 \001(\t" +
+      "\022 \n\004data\030\002 \001(\0132\022.com.acme.api.Tree\"@\n\032Cr" +
+      "eatePersonServiceRequest\022\"\n\004data\030\001 \001(\0132\024" +
+      ".com.acme.api.Person\"O\n\032DeletePersonServ" +
+      "iceRequest\022\013\n\003prs\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026." +
+      "google.protobuf.Empty\"&\n\027GetPersonServic" +
+      "eRequest\022\013\n\003prs\030\001 \001(\t\"\232\001\n\030ListPersonServ" +
+      "iceRequest\022\016\n\006fields\030\001 \001(\t\022\014\n\004sort\030\002 \001(\t" +
+      "\022\016\n\006filter\030\003 \001(\t\022\014\n\004page\030\004 \001(\005\022\r\n\005limit\030" +
+      "\005 \001(\005\022\r\n\005count\030\006 \001(\010\022\013\n\003sum\030\007 \001(\t\022\014\n\004vie" +
+      "w\030\010 \001(\t\022\t\n\001q\030\013 \001(\t\"M\n\032UpdatePersonServic" +
+      "eRequest\022\013\n\003prs\030\001 \001(\t\022\"\n\004data\030\002 \001(\0132\024.co" +
+      "m.acme.api.Person\"B\n\033CreateProjectServic" +
+      "eRequest\022#\n\004data\030\001 \001(\0132\025.com.acme.api.Pr" +
+      "oject\"P\n\033DeleteProjectServiceRequest\022\013\n\003" +
+      "prj\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026.google.protobu" +
+      "f.Empty\"\'\n\030GetProjectServiceRequest\022\013\n\003p" +
+      "rj\030\001 \001(\t\"\233\001\n\031ListProjectServiceRequest\022\016" +
+      "\n\006fields\030\001 \001(\t\022\014\n\004sort\030\002 \001(\t\022\016\n\006filter\030\003" +
+      " \001(\t\022\014\n\004page\030\004 \001(\005\022\r\n\005limit\030\005 \001(\005\022\r\n\005cou" +
+      "nt\030\006 \001(\010\022\013\n\003sum\030\007 \001(\t\022\014\n\004view\030\010 \001(\t\022\t\n\001q" +
+      "\030\013 \001(\t\"O\n\033UpdateProjectServiceRequest\022\013\n" +
+      "\003prj\030\001 \001(\t\022#\n\004data\030\002 \001(\0132\025.com.acme.api." +
+      "Project\"\242\001\n ListProjectMembersServiceReq" +
       "uest\022\016\n\006fields\030\001 \001(\t\022\014\n\004sort\030\002 \001(\t\022\016\n\006fi" +
       "lter\030\003 \001(\t\022\014\n\004page\030\004 \001(\005\022\r\n\005limit\030\005 \001(\005\022" +
       "\r\n\005count\030\006 \001(\010\022\013\n\003sum\030\007 \001(\t\022\014\n\004view\030\010 \001(" +
-      "\t\022\t\n\001q\030\013 \001(\t\"D\n\030UpdateTaskServiceRequest" +
-      "\022\013\n\003tsk\030\001 \001(\t\022\033\n\004data\030\002 \001(\0132\r.bundled.Ta" +
-      "sk\"C\n\036CreateExperimentServiceRequest\022!\n\004" +
-      "data\030\001 \001(\0132\023.bundled.Experiment\"S\n\036Delet" +
-      "eExperimentServiceRequest\022\013\n\003exp\030\001 \001(\t\022$" +
-      "\n\004data\030\002 \001(\0132\026.google.protobuf.Empty\"*\n\033" +
-      "GetExperimentServiceRequest\022\013\n\003exp\030\001 \001(\t" +
-      "\"\236\001\n\034ListExperimentServiceRequest\022\016\n\006fie" +
-      "lds\030\001 \001(\t\022\014\n\004sort\030\002 \001(\t\022\016\n\006filter\030\003 \001(\t\022" +
-      "\014\n\004page\030\004 \001(\005\022\r\n\005limit\030\005 \001(\005\022\r\n\005count\030\006 " +
-      "\001(\010\022\013\n\003sum\030\007 \001(\t\022\014\n\004view\030\010 \001(\t\022\t\n\001q\030\013 \001(" +
-      "\t\"P\n\036UpdateExperimentServiceRequest\022\013\n\003e" +
-      "xp\030\001 \001(\t\022!\n\004data\030\002 \001(\0132\023.bundled.Experim" +
-      "ent\"d\n\004Tree\022\023\n\013description\030\003 \001(\t\022\024\n\014disp" +
-      "lay_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022%\n\004root\030\n \001(\013" +
-      "2\027.bundled.Navigationnode\"^\n\nTreeEntity\022" +
-      "\033\n\004data\030\001 \001(\0132\r.bundled.Tree\022\031\n\005links\030\002 " +
-      "\003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Met" +
-      "a\"\365\001\n\016Navigationnode\022)\n\010children\030\013 \003(\0132\027" +
-      ".bundled.Navigationnode\022\023\n\013description\030\004" +
-      " \001(\t\022\024\n\014display_name\030\002 \001(\t\022\021\n\thas_error\030" +
-      "\010 \001(\010\022\014\n\004icon\030\005 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\tkey_w" +
-      "ords\030\007 \001(\t\022\030\n\004link\030\n \001(\0132\n.furo.Link\022\014\n\004" +
-      "open\030\t \001(\010\022\r\n\005panel\030\006 \001(\t\022\026\n\016secondary_t" +
-      "ext\030\003 \001(\t\"l\n\016TreeCollection\022%\n\010entities\030" +
-      "\004 \003(\0132\023.bundled.TreeEntity\022\031\n\005links\030\003 \003(" +
+      "\t\022\t\n\001q\030\013 \001(\t\"m\n\'UnsubscribeProjectMember" +
+      "sServiceRequest\022\013\n\003prj\030\001 \001(\t\022\013\n\003prs\030\002 \001(" +
+      "\t\022(\n\004data\030\003 \001(\0132\032.com.acme.api.PersonEnt" +
+      "ity\"<\n\030CreateTaskServiceRequest\022 \n\004data\030" +
+      "\001 \001(\0132\022.com.acme.api.Task\"M\n\030DeleteTaskS" +
+      "erviceRequest\022\013\n\003tsk\030\001 \001(\t\022$\n\004data\030\002 \001(\013" +
+      "2\026.google.protobuf.Empty\"$\n\025GetTaskServi" +
+      "ceRequest\022\013\n\003tsk\030\001 \001(\t\"\230\001\n\026ListTaskServi" +
+      "ceRequest\022\016\n\006fields\030\001 \001(\t\022\014\n\004sort\030\002 \001(\t\022" +
+      "\016\n\006filter\030\003 \001(\t\022\014\n\004page\030\004 \001(\005\022\r\n\005limit\030\005" +
+      " \001(\005\022\r\n\005count\030\006 \001(\010\022\013\n\003sum\030\007 \001(\t\022\014\n\004view" +
+      "\030\010 \001(\t\022\t\n\001q\030\013 \001(\t\"I\n\030UpdateTaskServiceRe" +
+      "quest\022\013\n\003tsk\030\001 \001(\t\022 \n\004data\030\002 \001(\0132\022.com.a" +
+      "cme.api.Task\"H\n\036CreateExperimentServiceR" +
+      "equest\022&\n\004data\030\001 \001(\0132\030.com.acme.api.Expe" +
+      "riment\"S\n\036DeleteExperimentServiceRequest" +
+      "\022\013\n\003exp\030\001 \001(\t\022$\n\004data\030\002 \001(\0132\026.google.pro" +
+      "tobuf.Empty\"*\n\033GetExperimentServiceReque" +
+      "st\022\013\n\003exp\030\001 \001(\t\"\236\001\n\034ListExperimentServic" +
+      "eRequest\022\016\n\006fields\030\001 \001(\t\022\014\n\004sort\030\002 \001(\t\022\016" +
+      "\n\006filter\030\003 \001(\t\022\014\n\004page\030\004 \001(\005\022\r\n\005limit\030\005 " +
+      "\001(\005\022\r\n\005count\030\006 \001(\010\022\013\n\003sum\030\007 \001(\t\022\014\n\004view\030" +
+      "\010 \001(\t\022\t\n\001q\030\013 \001(\t\"U\n\036UpdateExperimentServ" +
+      "iceRequest\022\013\n\003exp\030\001 \001(\t\022&\n\004data\030\002 \001(\0132\030." +
+      "com.acme.api.Experiment\"i\n\004Tree\022\023\n\013descr" +
+      "iption\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id" +
+      "\030\001 \001(\t\022*\n\004root\030\n \001(\0132\034.com.acme.api.Navi" +
+      "gationnode\"c\n\nTreeEntity\022 \n\004data\030\001 \001(\0132\022" +
+      ".com.acme.api.Tree\022\031\n\005links\030\002 \003(\0132\n.furo" +
+      ".Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\372\001\n\016Navi" +
+      "gationnode\022.\n\010children\030\013 \003(\0132\034.com.acme." +
+      "api.Navigationnode\022\023\n\013description\030\004 \001(\t\022" +
+      "\024\n\014display_name\030\002 \001(\t\022\021\n\thas_error\030\010 \001(\010" +
+      "\022\014\n\004icon\030\005 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\tkey_words\030" +
+      "\007 \001(\t\022\030\n\004link\030\n \001(\0132\n.furo.Link\022\014\n\004open\030" +
+      "\t \001(\010\022\r\n\005panel\030\006 \001(\t\022\026\n\016secondary_text\030\003" +
+      " \001(\t\"q\n\016TreeCollection\022*\n\010entities\030\004 \003(\013" +
+      "2\030.com.acme.api.TreeEntity\022\031\n\005links\030\003 \003(" +
       "\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"" +
       "n\n\006Person\022\024\n\014display_name\030\002 \001(\t\022\022\n\nfirst" +
       "_name\030\004 \001(\t\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\003 \001(\t\022\020\n" +
-      "\010phone_nr\030\005 \001(\t\022\016\n\006skills\030\006 \003(\t\"p\n\020Perso" +
-      "nCollection\022\'\n\010entities\030\004 \003(\0132\025.bundled." +
-      "PersonEntity\022\031\n\005links\030\003 \003(\0132\n.furo.Link\022" +
-      "\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"b\n\014PersonEntit" +
-      "y\022\035\n\004data\030\001 \001(\0132\017.bundled.Person\022\031\n\005link" +
-      "s\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo" +
-      ".Meta\"r\n\021ProjectCollection\022(\n\010entities\030\004" +
-      " \003(\0132\026.bundled.ProjectEntity\022\031\n\005links\030\003 " +
-      "\003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Met" +
-      "a\"d\n\rProjectEntity\022\036\n\004data\030\001 \001(\0132\020.bundl" +
-      "ed.Project\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n" +
-      "\004meta\030\003 \001(\0132\n.furo.Meta\"\314\001\n\007Project\022&\n\nc" +
-      "ost_limit\030\007 \001(\0132\022.google.type.Money\022\023\n\013d" +
-      "escription\030\005 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\036" +
-      "\n\003end\030\004 \001(\0132\021.google.type.Date\022\n\n\002id\030\001 \001" +
-      "(\t\022 \n\007members\030\006 \003(\0132\017.bundled.Person\022 \n\005" +
-      "start\030\003 \001(\0132\021.google.type.Date\"^\n\nTaskEn" +
-      "tity\022\033\n\004data\030\001 \001(\0132\r.bundled.Task\022\031\n\005lin" +
-      "ks\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.fur" +
-      "o.Meta\"l\n\016TaskCollection\022%\n\010entities\030\004 \003" +
-      "(\0132\023.bundled.TaskEntity\022\031\n\005links\030\003 \003(\0132\n" +
-      ".furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"\226\001\n" +
-      "\004Task\022\023\n\013description\030\003 \001(\t\022\024\n\014display_na" +
-      "me\030\002 \001(\t\022\026\n\016estimated_time\030\004 \001(\005\022\n\n\002id\030\001" +
-      " \001(\t\022\036\n\005owner\030\005 \001(\0132\017.furo.Reference\022\037\n\010" +
-      "subtasks\030\006 \003(\0132\r.bundled.Task\"j\n\020Experim" +
-      "entEntity\022!\n\004data\030\001 \001(\0132\023.bundled.Experi" +
-      "ment\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030" +
-      "\003 \001(\0132\n.furo.Meta\"\203\001\n\nExperiment\022\023\n\013desc" +
-      "ription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022 \n\030f" +
-      "uro_data_checkbox_input\030\004 \001(\005\022\034\n\024furo_da" +
-      "ta_text_input\030\005 \001(\t\022\n\n\002id\030\001 \001(\t\"x\n\024Exper" +
-      "imentCollection\022+\n\010entities\030\004 \003(\0132\031.bund" +
-      "led.ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n.fu" +
-      "ro.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta2\275\030\n\005df" +
-      "ddf\022c\n\nCreateTree\022!.bundled.CreateTreeSe" +
-      "rviceRequest\032\023.bundled.TreeEntity\"\035\202\323\344\223\002" +
-      "\027\"\017/mockdata/trees:\004data\022f\n\nDeleteTree\022!" +
-      ".bundled.DeleteTreeServiceRequest\032\026.goog" +
-      "le.protobuf.Empty\"\035\202\323\344\223\002\027*\025/mockdata/tre" +
-      "es/{tre}\022f\n\007GetTree\022\036.bundled.GetTreeSer" +
-      "viceRequest\032\023.bundled.TreeEntity\"&\202\323\344\223\002 " +
-      "\022\036/mockdata/trees/{tre}/get.json\022^\n\tList" +
-      "Trees\022\037.bundled.ListTreeServiceRequest\032\027" +
-      ".bundled.TreeCollection\"\027\202\323\344\223\002\021\022\017/mockda" +
-      "ta/trees\022i\n\nUpdateTree\022!.bundled.UpdateT" +
-      "reeServiceRequest\032\023.bundled.TreeEntity\"#" +
-      "\202\323\344\223\002\0352\025/mockdata/trees/{tre}:\004data\022q\n\014C" +
-      "reatePerson\022#.bundled.CreatePersonServic" +
-      "eRequest\032\025.bundled.PersonEntity\"%\202\323\344\223\002\037\022" +
-      "\035/mockdata/persons/create.json\022x\n\014Delete" +
-      "Person\022#.bundled.DeletePersonServiceRequ" +
-      "est\032\026.google.protobuf.Empty\"+\202\323\344\223\002%\022#/mo" +
-      "ckdata/persons/{prs}/delete.json\022n\n\tGetP" +
-      "erson\022 .bundled.GetPersonServiceRequest\032" +
-      "\025.bundled.PersonEntity\"(\202\323\344\223\002\"\022 /mockdat" +
-      "a/persons/{prs}/get.json\022p\n\013ListPersons\022" +
-      "!.bundled.ListPersonServiceRequest\032\031.bun" +
-      "dled.PersonCollection\"#\202\323\344\223\002\035\022\033/mockdata" +
-      "/persons/list.json\022w\n\014UpdatePerson\022#.bun" +
-      "dled.UpdatePersonServiceRequest\032\025.bundle" +
-      "d.PersonEntity\"+\202\323\344\223\002%\022#/mockdata/person" +
-      "s/{prs}/update.json\022u\n\rCreateProject\022$.b" +
-      "undled.CreateProjectServiceRequest\032\026.bun" +
-      "dled.ProjectEntity\"&\202\323\344\223\002 \022\036/mockdata/pr" +
-      "ojects/create.json\022{\n\rDeleteProject\022$.bu" +
-      "ndled.DeleteProjectServiceRequest\032\026.goog" +
-      "le.protobuf.Empty\",\202\323\344\223\002&\022$/mockdata/pro" +
-      "jects/{prj}/delete.json\022r\n\nGetProject\022!." +
-      "bundled.GetProjectServiceRequest\032\026.bundl" +
-      "ed.ProjectEntity\")\202\323\344\223\002#\022!/mockdata/proj" +
-      "ects/{prj}/get.json\022t\n\014ListProjects\022\".bu" +
-      "ndled.ListProjectServiceRequest\032\032.bundle" +
-      "d.ProjectCollection\"$\202\323\344\223\002\036\022\034/mockdata/p" +
-      "rojects/list.json\022{\n\rUpdateProject\022$.bun" +
-      "dled.UpdateProjectServiceRequest\032\026.bundl" +
-      "ed.ProjectEntity\",\202\323\344\223\002&\022$/mockdata/proj" +
-      "ects/{prj}/update.json\022b\n\004List\022).bundled" +
-      ".ListProjectMembersServiceRequest\032\031.bund" +
-      "led.PersonCollection\"\024\202\323\344\223\002\016\022\014/api/membe" +
-      "rs\022\227\001\n\013Unsubscribe\0220.bundled.Unsubscribe" +
-      "ProjectMembersServiceRequest\032\031.bundled.P" +
-      "ersonCollection\";\202\323\344\223\0025\"-/api/projects/{" +
-      "prj}/members/{prs}:unsubscribe:\004data\022i\n\n" +
-      "CreateTask\022!.bundled.CreateTaskServiceRe" +
-      "quest\032\023.bundled.TaskEntity\"#\202\323\344\223\002\035\022\033/moc" +
-      "kdata/tasks/create.json\022r\n\nDeleteTask\022!." +
-      "bundled.DeleteTaskServiceRequest\032\026.googl" +
-      "e.protobuf.Empty\")\202\323\344\223\002#\022!/mockdata/task" +
-      "s/{tsk}/delete.json\022f\n\007GetTask\022\036.bundled" +
-      ".GetTaskServiceRequest\032\023.bundled.TaskEnt" +
-      "ity\"&\202\323\344\223\002 \022\036/mockdata/tasks/{tsk}/get.j" +
-      "son\022h\n\tListTasks\022\037.bundled.ListTaskServi" +
-      "ceRequest\032\027.bundled.TaskCollection\"!\202\323\344\223" +
-      "\002\033\022\031/mockdata/tasks/list.json\022o\n\nUpdateT" +
-      "ask\022!.bundled.UpdateTaskServiceRequest\032\023" +
-      ".bundled.TaskEntity\")\202\323\344\223\002#\022!/mockdata/t" +
-      "asks/{tsk}/update.json\022{\n\020CreateExperime" +
-      "nt\022\'.bundled.CreateExperimentServiceRequ" +
-      "est\032\031.bundled.ExperimentEntity\"#\202\323\344\223\002\035\"\025" +
-      "/mockdata/experiments:\004data\022x\n\020DeleteExp" +
-      "eriment\022\'.bundled.DeleteExperimentServic" +
-      "eRequest\032\026.google.protobuf.Empty\"#\202\323\344\223\002\035" +
-      "*\033/mockdata/experiments/{exp}\022~\n\rGetExpe" +
-      "riment\022$.bundled.GetExperimentServiceReq" +
-      "uest\032\031.bundled.ExperimentEntity\",\202\323\344\223\002&\022" +
-      "$/mockdata/experiments/{exp}/get.json\022v\n" +
-      "\017ListExperiments\022%.bundled.ListExperimen" +
-      "tServiceRequest\032\035.bundled.ExperimentColl" +
-      "ection\"\035\202\323\344\223\002\027\022\025/mockdata/experiments\022\201\001" +
-      "\n\020UpdateExperiment\022\'.bundled.UpdateExper" +
-      "imentServiceRequest\032\031.bundled.Experiment" +
-      "Entity\")\202\323\344\223\002#2\033/mockdata/experiments/{e" +
-      "xp}:\004dataBK\n\010com.acmeB\010AnyProtoP\001Z\014com.a" +
-      "cme.api\242\002\003GPB\252\002\036Google.Protobuf.WellKnow" +
-      "nTypesb\006proto3"
+      "\010phone_nr\030\005 \001(\t\022\016\n\006skills\030\006 \003(\t\"u\n\020Perso" +
+      "nCollection\022,\n\010entities\030\004 \003(\0132\032.com.acme" +
+      ".api.PersonEntity\022\031\n\005links\030\003 \003(\0132\n.furo." +
+      "Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"g\n\014Person" +
+      "Entity\022\"\n\004data\030\001 \001(\0132\024.com.acme.api.Pers" +
+      "on\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 " +
+      "\001(\0132\n.furo.Meta\"w\n\021ProjectCollection\022-\n\010" +
+      "entities\030\004 \003(\0132\033.com.acme.api.ProjectEnt" +
+      "ity\022\031\n\005links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002" +
+      " \001(\0132\n.furo.Meta\"i\n\rProjectEntity\022#\n\004dat" +
+      "a\030\001 \001(\0132\025.com.acme.api.Project\022\031\n\005links\030" +
+      "\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.M" +
+      "eta\"\321\001\n\007Project\022&\n\ncost_limit\030\007 \001(\0132\022.go" +
+      "ogle.type.Money\022\023\n\013description\030\005 \001(\t\022\024\n\014" +
+      "display_name\030\002 \001(\t\022\036\n\003end\030\004 \001(\0132\021.google" +
+      ".type.Date\022\n\n\002id\030\001 \001(\t\022%\n\007members\030\006 \003(\0132" +
+      "\024.com.acme.api.Person\022 \n\005start\030\003 \001(\0132\021.g" +
+      "oogle.type.Date\"c\n\nTaskEntity\022 \n\004data\030\001 " +
+      "\001(\0132\022.com.acme.api.Task\022\031\n\005links\030\002 \003(\0132\n" +
+      ".furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"q\n\016" +
+      "TaskCollection\022*\n\010entities\030\004 \003(\0132\030.com.a" +
+      "cme.api.TaskEntity\022\031\n\005links\030\003 \003(\0132\n.furo" +
+      ".Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"\233\001\n\004Task" +
+      "\022\023\n\013description\030\003 \001(\t\022\024\n\014display_name\030\002 " +
+      "\001(\t\022\026\n\016estimated_time\030\004 \001(\005\022\n\n\002id\030\001 \001(\t\022" +
+      "\036\n\005owner\030\005 \001(\0132\017.furo.Reference\022$\n\010subta" +
+      "sks\030\006 \003(\0132\022.com.acme.api.Task\"o\n\020Experim" +
+      "entEntity\022&\n\004data\030\001 \001(\0132\030.com.acme.api.E" +
+      "xperiment\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004" +
+      "meta\030\003 \001(\0132\n.furo.Meta\"\203\001\n\nExperiment\022\023\n" +
+      "\013description\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t" +
+      "\022 \n\030furo_data_checkbox_input\030\004 \001(\005\022\034\n\024fu" +
+      "ro_data_text_input\030\005 \001(\t\022\n\n\002id\030\001 \001(\t\"}\n\024" +
+      "ExperimentCollection\0220\n\010entities\030\004 \003(\0132\036" +
+      ".com.acme.api.ExperimentEntity\022\031\n\005links\030" +
+      "\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.M" +
+      "eta2\301\032\n\016BundledService\022m\n\nCreateTree\022&.c" +
+      "om.acme.api.CreateTreeServiceRequest\032\030.c" +
+      "om.acme.api.TreeEntity\"\035\202\323\344\223\002\027\"\017/mockdat" +
+      "a/trees:\004data\022k\n\nDeleteTree\022&.com.acme.a" +
+      "pi.DeleteTreeServiceRequest\032\026.google.pro" +
+      "tobuf.Empty\"\035\202\323\344\223\002\027*\025/mockdata/trees/{tr" +
+      "e}\022p\n\007GetTree\022#.com.acme.api.GetTreeServ" +
+      "iceRequest\032\030.com.acme.api.TreeEntity\"&\202\323" +
+      "\344\223\002 \022\036/mockdata/trees/{tre}/get.json\022h\n\t" +
+      "ListTrees\022$.com.acme.api.ListTreeService" +
+      "Request\032\034.com.acme.api.TreeCollection\"\027\202" +
+      "\323\344\223\002\021\022\017/mockdata/trees\022s\n\nUpdateTree\022&.c" +
+      "om.acme.api.UpdateTreeServiceRequest\032\030.c" +
+      "om.acme.api.TreeEntity\"#\202\323\344\223\002\0352\025/mockdat" +
+      "a/trees/{tre}:\004data\022{\n\014CreatePerson\022(.co" +
+      "m.acme.api.CreatePersonServiceRequest\032\032." +
+      "com.acme.api.PersonEntity\"%\202\323\344\223\002\037\022\035/mock" +
+      "data/persons/create.json\022}\n\014DeletePerson" +
+      "\022(.com.acme.api.DeletePersonServiceReque" +
+      "st\032\026.google.protobuf.Empty\"+\202\323\344\223\002%\022#/moc" +
+      "kdata/persons/{prs}/delete.json\022x\n\tGetPe" +
+      "rson\022%.com.acme.api.GetPersonServiceRequ" +
+      "est\032\032.com.acme.api.PersonEntity\"(\202\323\344\223\002\"\022" +
+      " /mockdata/persons/{prs}/get.json\022z\n\013Lis" +
+      "tPersons\022&.com.acme.api.ListPersonServic" +
+      "eRequest\032\036.com.acme.api.PersonCollection" +
+      "\"#\202\323\344\223\002\035\022\033/mockdata/persons/list.json\022\201\001" +
+      "\n\014UpdatePerson\022(.com.acme.api.UpdatePers" +
+      "onServiceRequest\032\032.com.acme.api.PersonEn" +
+      "tity\"+\202\323\344\223\002%\022#/mockdata/persons/{prs}/up" +
+      "date.json\022\177\n\rCreateProject\022).com.acme.ap" +
+      "i.CreateProjectServiceRequest\032\033.com.acme" +
+      ".api.ProjectEntity\"&\202\323\344\223\002 \022\036/mockdata/pr" +
+      "ojects/create.json\022\200\001\n\rDeleteProject\022).c" +
+      "om.acme.api.DeleteProjectServiceRequest\032" +
+      "\026.google.protobuf.Empty\",\202\323\344\223\002&\022$/mockda" +
+      "ta/projects/{prj}/delete.json\022|\n\nGetProj" +
+      "ect\022&.com.acme.api.GetProjectServiceRequ" +
+      "est\032\033.com.acme.api.ProjectEntity\")\202\323\344\223\002#" +
+      "\022!/mockdata/projects/{prj}/get.json\022~\n\014L" +
+      "istProjects\022\'.com.acme.api.ListProjectSe" +
+      "rviceRequest\032\037.com.acme.api.ProjectColle" +
+      "ction\"$\202\323\344\223\002\036\022\034/mockdata/projects/list.j" +
+      "son\022\205\001\n\rUpdateProject\022).com.acme.api.Upd" +
+      "ateProjectServiceRequest\032\033.com.acme.api." +
+      "ProjectEntity\",\202\323\344\223\002&\022$/mockdata/project" +
+      "s/{prj}/update.json\022l\n\004List\022..com.acme.a" +
+      "pi.ListProjectMembersServiceRequest\032\036.co" +
+      "m.acme.api.PersonCollection\"\024\202\323\344\223\002\016\022\014/ap" +
+      "i/members\022\241\001\n\013Unsubscribe\0225.com.acme.api" +
+      ".UnsubscribeProjectMembersServiceRequest" +
+      "\032\036.com.acme.api.PersonCollection\";\202\323\344\223\0025" +
+      "\"-/api/projects/{prj}/members/{prs}:unsu" +
+      "bscribe:\004data\022s\n\nCreateTask\022&.com.acme.a" +
+      "pi.CreateTaskServiceRequest\032\030.com.acme.a" +
+      "pi.TaskEntity\"#\202\323\344\223\002\035\022\033/mockdata/tasks/c" +
+      "reate.json\022w\n\nDeleteTask\022&.com.acme.api." +
+      "DeleteTaskServiceRequest\032\026.google.protob" +
+      "uf.Empty\")\202\323\344\223\002#\022!/mockdata/tasks/{tsk}/" +
+      "delete.json\022p\n\007GetTask\022#.com.acme.api.Ge" +
+      "tTaskServiceRequest\032\030.com.acme.api.TaskE" +
+      "ntity\"&\202\323\344\223\002 \022\036/mockdata/tasks/{tsk}/get" +
+      ".json\022r\n\tListTasks\022$.com.acme.api.ListTa" +
+      "skServiceRequest\032\034.com.acme.api.TaskColl" +
+      "ection\"!\202\323\344\223\002\033\022\031/mockdata/tasks/list.jso" +
+      "n\022y\n\nUpdateTask\022&.com.acme.api.UpdateTas" +
+      "kServiceRequest\032\030.com.acme.api.TaskEntit" +
+      "y\")\202\323\344\223\002#\022!/mockdata/tasks/{tsk}/update." +
+      "json\022\205\001\n\020CreateExperiment\022,.com.acme.api" +
+      ".CreateExperimentServiceRequest\032\036.com.ac" +
+      "me.api.ExperimentEntity\"#\202\323\344\223\002\035\"\025/mockda" +
+      "ta/experiments:\004data\022}\n\020DeleteExperiment" +
+      "\022,.com.acme.api.DeleteExperimentServiceR" +
+      "equest\032\026.google.protobuf.Empty\"#\202\323\344\223\002\035*\033" +
+      "/mockdata/experiments/{exp}\022\210\001\n\rGetExper" +
+      "iment\022).com.acme.api.GetExperimentServic" +
+      "eRequest\032\036.com.acme.api.ExperimentEntity" +
+      "\",\202\323\344\223\002&\022$/mockdata/experiments/{exp}/ge" +
+      "t.json\022\200\001\n\017ListExperiments\022*.com.acme.ap" +
+      "i.ListExperimentServiceRequest\032\".com.acm" +
+      "e.api.ExperimentCollection\"\035\202\323\344\223\002\027\022\025/moc" +
+      "kdata/experiments\022\213\001\n\020UpdateExperiment\022," +
+      ".com.acme.api.UpdateExperimentServiceReq" +
+      "uest\032\036.com.acme.api.ExperimentEntity\")\202\323" +
+      "\344\223\002#2\033/mockdata/experiments/{exp}:\004dataB" +
+      "K\n\010com.acmeB\010AnyProtoP\001Z\014com.acme.api\242\002\003" +
+      "GPB\252\002\036Google.Protobuf.WellKnownTypesb\006pr" +
+      "oto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -455,263 +465,263 @@ public final class AnyProto {
           furo.MetaOuterClass.getDescriptor(),
           furo.ReferenceOuterClass.getDescriptor(),
         }, assigner);
-    internal_static_bundled_CreateTreeServiceRequest_descriptor =
+    internal_static_com_acme_api_CreateTreeServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_bundled_CreateTreeServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_CreateTreeServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_CreateTreeServiceRequest_descriptor,
+        internal_static_com_acme_api_CreateTreeServiceRequest_descriptor,
         new java.lang.String[] { "Data", });
-    internal_static_bundled_DeleteTreeServiceRequest_descriptor =
+    internal_static_com_acme_api_DeleteTreeServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_bundled_DeleteTreeServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_DeleteTreeServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_DeleteTreeServiceRequest_descriptor,
+        internal_static_com_acme_api_DeleteTreeServiceRequest_descriptor,
         new java.lang.String[] { "Tre", "Data", });
-    internal_static_bundled_GetTreeServiceRequest_descriptor =
+    internal_static_com_acme_api_GetTreeServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_bundled_GetTreeServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_GetTreeServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_GetTreeServiceRequest_descriptor,
+        internal_static_com_acme_api_GetTreeServiceRequest_descriptor,
         new java.lang.String[] { "Tre", });
-    internal_static_bundled_ListTreeServiceRequest_descriptor =
+    internal_static_com_acme_api_ListTreeServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_bundled_ListTreeServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_ListTreeServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_ListTreeServiceRequest_descriptor,
+        internal_static_com_acme_api_ListTreeServiceRequest_descriptor,
         new java.lang.String[] { "Fields", "Sort", "Filter", "Page", "Limit", "Count", "Sum", "View", "Q", });
-    internal_static_bundled_UpdateTreeServiceRequest_descriptor =
+    internal_static_com_acme_api_UpdateTreeServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_bundled_UpdateTreeServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_UpdateTreeServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_UpdateTreeServiceRequest_descriptor,
+        internal_static_com_acme_api_UpdateTreeServiceRequest_descriptor,
         new java.lang.String[] { "Tre", "Data", });
-    internal_static_bundled_CreatePersonServiceRequest_descriptor =
+    internal_static_com_acme_api_CreatePersonServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_bundled_CreatePersonServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_CreatePersonServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_CreatePersonServiceRequest_descriptor,
+        internal_static_com_acme_api_CreatePersonServiceRequest_descriptor,
         new java.lang.String[] { "Data", });
-    internal_static_bundled_DeletePersonServiceRequest_descriptor =
+    internal_static_com_acme_api_DeletePersonServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_bundled_DeletePersonServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_DeletePersonServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_DeletePersonServiceRequest_descriptor,
+        internal_static_com_acme_api_DeletePersonServiceRequest_descriptor,
         new java.lang.String[] { "Prs", "Data", });
-    internal_static_bundled_GetPersonServiceRequest_descriptor =
+    internal_static_com_acme_api_GetPersonServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_bundled_GetPersonServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_GetPersonServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_GetPersonServiceRequest_descriptor,
+        internal_static_com_acme_api_GetPersonServiceRequest_descriptor,
         new java.lang.String[] { "Prs", });
-    internal_static_bundled_ListPersonServiceRequest_descriptor =
+    internal_static_com_acme_api_ListPersonServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_bundled_ListPersonServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_ListPersonServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_ListPersonServiceRequest_descriptor,
+        internal_static_com_acme_api_ListPersonServiceRequest_descriptor,
         new java.lang.String[] { "Fields", "Sort", "Filter", "Page", "Limit", "Count", "Sum", "View", "Q", });
-    internal_static_bundled_UpdatePersonServiceRequest_descriptor =
+    internal_static_com_acme_api_UpdatePersonServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_bundled_UpdatePersonServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_UpdatePersonServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_UpdatePersonServiceRequest_descriptor,
+        internal_static_com_acme_api_UpdatePersonServiceRequest_descriptor,
         new java.lang.String[] { "Prs", "Data", });
-    internal_static_bundled_CreateProjectServiceRequest_descriptor =
+    internal_static_com_acme_api_CreateProjectServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_bundled_CreateProjectServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_CreateProjectServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_CreateProjectServiceRequest_descriptor,
+        internal_static_com_acme_api_CreateProjectServiceRequest_descriptor,
         new java.lang.String[] { "Data", });
-    internal_static_bundled_DeleteProjectServiceRequest_descriptor =
+    internal_static_com_acme_api_DeleteProjectServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_bundled_DeleteProjectServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_DeleteProjectServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_DeleteProjectServiceRequest_descriptor,
+        internal_static_com_acme_api_DeleteProjectServiceRequest_descriptor,
         new java.lang.String[] { "Prj", "Data", });
-    internal_static_bundled_GetProjectServiceRequest_descriptor =
+    internal_static_com_acme_api_GetProjectServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(12);
-    internal_static_bundled_GetProjectServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_GetProjectServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_GetProjectServiceRequest_descriptor,
+        internal_static_com_acme_api_GetProjectServiceRequest_descriptor,
         new java.lang.String[] { "Prj", });
-    internal_static_bundled_ListProjectServiceRequest_descriptor =
+    internal_static_com_acme_api_ListProjectServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(13);
-    internal_static_bundled_ListProjectServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_ListProjectServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_ListProjectServiceRequest_descriptor,
+        internal_static_com_acme_api_ListProjectServiceRequest_descriptor,
         new java.lang.String[] { "Fields", "Sort", "Filter", "Page", "Limit", "Count", "Sum", "View", "Q", });
-    internal_static_bundled_UpdateProjectServiceRequest_descriptor =
+    internal_static_com_acme_api_UpdateProjectServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(14);
-    internal_static_bundled_UpdateProjectServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_UpdateProjectServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_UpdateProjectServiceRequest_descriptor,
+        internal_static_com_acme_api_UpdateProjectServiceRequest_descriptor,
         new java.lang.String[] { "Prj", "Data", });
-    internal_static_bundled_ListProjectMembersServiceRequest_descriptor =
+    internal_static_com_acme_api_ListProjectMembersServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(15);
-    internal_static_bundled_ListProjectMembersServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_ListProjectMembersServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_ListProjectMembersServiceRequest_descriptor,
+        internal_static_com_acme_api_ListProjectMembersServiceRequest_descriptor,
         new java.lang.String[] { "Fields", "Sort", "Filter", "Page", "Limit", "Count", "Sum", "View", "Q", });
-    internal_static_bundled_UnsubscribeProjectMembersServiceRequest_descriptor =
+    internal_static_com_acme_api_UnsubscribeProjectMembersServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(16);
-    internal_static_bundled_UnsubscribeProjectMembersServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_UnsubscribeProjectMembersServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_UnsubscribeProjectMembersServiceRequest_descriptor,
+        internal_static_com_acme_api_UnsubscribeProjectMembersServiceRequest_descriptor,
         new java.lang.String[] { "Prj", "Prs", "Data", });
-    internal_static_bundled_CreateTaskServiceRequest_descriptor =
+    internal_static_com_acme_api_CreateTaskServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(17);
-    internal_static_bundled_CreateTaskServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_CreateTaskServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_CreateTaskServiceRequest_descriptor,
+        internal_static_com_acme_api_CreateTaskServiceRequest_descriptor,
         new java.lang.String[] { "Data", });
-    internal_static_bundled_DeleteTaskServiceRequest_descriptor =
+    internal_static_com_acme_api_DeleteTaskServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(18);
-    internal_static_bundled_DeleteTaskServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_DeleteTaskServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_DeleteTaskServiceRequest_descriptor,
+        internal_static_com_acme_api_DeleteTaskServiceRequest_descriptor,
         new java.lang.String[] { "Tsk", "Data", });
-    internal_static_bundled_GetTaskServiceRequest_descriptor =
+    internal_static_com_acme_api_GetTaskServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(19);
-    internal_static_bundled_GetTaskServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_GetTaskServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_GetTaskServiceRequest_descriptor,
+        internal_static_com_acme_api_GetTaskServiceRequest_descriptor,
         new java.lang.String[] { "Tsk", });
-    internal_static_bundled_ListTaskServiceRequest_descriptor =
+    internal_static_com_acme_api_ListTaskServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(20);
-    internal_static_bundled_ListTaskServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_ListTaskServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_ListTaskServiceRequest_descriptor,
+        internal_static_com_acme_api_ListTaskServiceRequest_descriptor,
         new java.lang.String[] { "Fields", "Sort", "Filter", "Page", "Limit", "Count", "Sum", "View", "Q", });
-    internal_static_bundled_UpdateTaskServiceRequest_descriptor =
+    internal_static_com_acme_api_UpdateTaskServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(21);
-    internal_static_bundled_UpdateTaskServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_UpdateTaskServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_UpdateTaskServiceRequest_descriptor,
+        internal_static_com_acme_api_UpdateTaskServiceRequest_descriptor,
         new java.lang.String[] { "Tsk", "Data", });
-    internal_static_bundled_CreateExperimentServiceRequest_descriptor =
+    internal_static_com_acme_api_CreateExperimentServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(22);
-    internal_static_bundled_CreateExperimentServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_CreateExperimentServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_CreateExperimentServiceRequest_descriptor,
+        internal_static_com_acme_api_CreateExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Data", });
-    internal_static_bundled_DeleteExperimentServiceRequest_descriptor =
+    internal_static_com_acme_api_DeleteExperimentServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(23);
-    internal_static_bundled_DeleteExperimentServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_DeleteExperimentServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_DeleteExperimentServiceRequest_descriptor,
+        internal_static_com_acme_api_DeleteExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Exp", "Data", });
-    internal_static_bundled_GetExperimentServiceRequest_descriptor =
+    internal_static_com_acme_api_GetExperimentServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(24);
-    internal_static_bundled_GetExperimentServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_GetExperimentServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_GetExperimentServiceRequest_descriptor,
+        internal_static_com_acme_api_GetExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Exp", });
-    internal_static_bundled_ListExperimentServiceRequest_descriptor =
+    internal_static_com_acme_api_ListExperimentServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(25);
-    internal_static_bundled_ListExperimentServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_ListExperimentServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_ListExperimentServiceRequest_descriptor,
+        internal_static_com_acme_api_ListExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Fields", "Sort", "Filter", "Page", "Limit", "Count", "Sum", "View", "Q", });
-    internal_static_bundled_UpdateExperimentServiceRequest_descriptor =
+    internal_static_com_acme_api_UpdateExperimentServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(26);
-    internal_static_bundled_UpdateExperimentServiceRequest_fieldAccessorTable = new
+    internal_static_com_acme_api_UpdateExperimentServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_UpdateExperimentServiceRequest_descriptor,
+        internal_static_com_acme_api_UpdateExperimentServiceRequest_descriptor,
         new java.lang.String[] { "Exp", "Data", });
-    internal_static_bundled_Tree_descriptor =
+    internal_static_com_acme_api_Tree_descriptor =
       getDescriptor().getMessageTypes().get(27);
-    internal_static_bundled_Tree_fieldAccessorTable = new
+    internal_static_com_acme_api_Tree_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_Tree_descriptor,
+        internal_static_com_acme_api_Tree_descriptor,
         new java.lang.String[] { "Description", "DisplayName", "Id", "Root", });
-    internal_static_bundled_TreeEntity_descriptor =
+    internal_static_com_acme_api_TreeEntity_descriptor =
       getDescriptor().getMessageTypes().get(28);
-    internal_static_bundled_TreeEntity_fieldAccessorTable = new
+    internal_static_com_acme_api_TreeEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_TreeEntity_descriptor,
+        internal_static_com_acme_api_TreeEntity_descriptor,
         new java.lang.String[] { "Data", "Links", "Meta", });
-    internal_static_bundled_Navigationnode_descriptor =
+    internal_static_com_acme_api_Navigationnode_descriptor =
       getDescriptor().getMessageTypes().get(29);
-    internal_static_bundled_Navigationnode_fieldAccessorTable = new
+    internal_static_com_acme_api_Navigationnode_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_Navigationnode_descriptor,
+        internal_static_com_acme_api_Navigationnode_descriptor,
         new java.lang.String[] { "Children", "Description", "DisplayName", "HasError", "Icon", "Id", "KeyWords", "Link", "Open", "Panel", "SecondaryText", });
-    internal_static_bundled_TreeCollection_descriptor =
+    internal_static_com_acme_api_TreeCollection_descriptor =
       getDescriptor().getMessageTypes().get(30);
-    internal_static_bundled_TreeCollection_fieldAccessorTable = new
+    internal_static_com_acme_api_TreeCollection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_TreeCollection_descriptor,
+        internal_static_com_acme_api_TreeCollection_descriptor,
         new java.lang.String[] { "Entities", "Links", "Meta", });
-    internal_static_bundled_Person_descriptor =
+    internal_static_com_acme_api_Person_descriptor =
       getDescriptor().getMessageTypes().get(31);
-    internal_static_bundled_Person_fieldAccessorTable = new
+    internal_static_com_acme_api_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_Person_descriptor,
+        internal_static_com_acme_api_Person_descriptor,
         new java.lang.String[] { "DisplayName", "FirstName", "Id", "Name", "PhoneNr", "Skills", });
-    internal_static_bundled_PersonCollection_descriptor =
+    internal_static_com_acme_api_PersonCollection_descriptor =
       getDescriptor().getMessageTypes().get(32);
-    internal_static_bundled_PersonCollection_fieldAccessorTable = new
+    internal_static_com_acme_api_PersonCollection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_PersonCollection_descriptor,
+        internal_static_com_acme_api_PersonCollection_descriptor,
         new java.lang.String[] { "Entities", "Links", "Meta", });
-    internal_static_bundled_PersonEntity_descriptor =
+    internal_static_com_acme_api_PersonEntity_descriptor =
       getDescriptor().getMessageTypes().get(33);
-    internal_static_bundled_PersonEntity_fieldAccessorTable = new
+    internal_static_com_acme_api_PersonEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_PersonEntity_descriptor,
+        internal_static_com_acme_api_PersonEntity_descriptor,
         new java.lang.String[] { "Data", "Links", "Meta", });
-    internal_static_bundled_ProjectCollection_descriptor =
+    internal_static_com_acme_api_ProjectCollection_descriptor =
       getDescriptor().getMessageTypes().get(34);
-    internal_static_bundled_ProjectCollection_fieldAccessorTable = new
+    internal_static_com_acme_api_ProjectCollection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_ProjectCollection_descriptor,
+        internal_static_com_acme_api_ProjectCollection_descriptor,
         new java.lang.String[] { "Entities", "Links", "Meta", });
-    internal_static_bundled_ProjectEntity_descriptor =
+    internal_static_com_acme_api_ProjectEntity_descriptor =
       getDescriptor().getMessageTypes().get(35);
-    internal_static_bundled_ProjectEntity_fieldAccessorTable = new
+    internal_static_com_acme_api_ProjectEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_ProjectEntity_descriptor,
+        internal_static_com_acme_api_ProjectEntity_descriptor,
         new java.lang.String[] { "Data", "Links", "Meta", });
-    internal_static_bundled_Project_descriptor =
+    internal_static_com_acme_api_Project_descriptor =
       getDescriptor().getMessageTypes().get(36);
-    internal_static_bundled_Project_fieldAccessorTable = new
+    internal_static_com_acme_api_Project_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_Project_descriptor,
+        internal_static_com_acme_api_Project_descriptor,
         new java.lang.String[] { "CostLimit", "Description", "DisplayName", "End", "Id", "Members", "Start", });
-    internal_static_bundled_TaskEntity_descriptor =
+    internal_static_com_acme_api_TaskEntity_descriptor =
       getDescriptor().getMessageTypes().get(37);
-    internal_static_bundled_TaskEntity_fieldAccessorTable = new
+    internal_static_com_acme_api_TaskEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_TaskEntity_descriptor,
+        internal_static_com_acme_api_TaskEntity_descriptor,
         new java.lang.String[] { "Data", "Links", "Meta", });
-    internal_static_bundled_TaskCollection_descriptor =
+    internal_static_com_acme_api_TaskCollection_descriptor =
       getDescriptor().getMessageTypes().get(38);
-    internal_static_bundled_TaskCollection_fieldAccessorTable = new
+    internal_static_com_acme_api_TaskCollection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_TaskCollection_descriptor,
+        internal_static_com_acme_api_TaskCollection_descriptor,
         new java.lang.String[] { "Entities", "Links", "Meta", });
-    internal_static_bundled_Task_descriptor =
+    internal_static_com_acme_api_Task_descriptor =
       getDescriptor().getMessageTypes().get(39);
-    internal_static_bundled_Task_fieldAccessorTable = new
+    internal_static_com_acme_api_Task_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_Task_descriptor,
+        internal_static_com_acme_api_Task_descriptor,
         new java.lang.String[] { "Description", "DisplayName", "EstimatedTime", "Id", "Owner", "Subtasks", });
-    internal_static_bundled_ExperimentEntity_descriptor =
+    internal_static_com_acme_api_ExperimentEntity_descriptor =
       getDescriptor().getMessageTypes().get(40);
-    internal_static_bundled_ExperimentEntity_fieldAccessorTable = new
+    internal_static_com_acme_api_ExperimentEntity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_ExperimentEntity_descriptor,
+        internal_static_com_acme_api_ExperimentEntity_descriptor,
         new java.lang.String[] { "Data", "Links", "Meta", });
-    internal_static_bundled_Experiment_descriptor =
+    internal_static_com_acme_api_Experiment_descriptor =
       getDescriptor().getMessageTypes().get(41);
-    internal_static_bundled_Experiment_fieldAccessorTable = new
+    internal_static_com_acme_api_Experiment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_Experiment_descriptor,
+        internal_static_com_acme_api_Experiment_descriptor,
         new java.lang.String[] { "Description", "DisplayName", "FuroDataCheckboxInput", "FuroDataTextInput", "Id", });
-    internal_static_bundled_ExperimentCollection_descriptor =
+    internal_static_com_acme_api_ExperimentCollection_descriptor =
       getDescriptor().getMessageTypes().get(42);
-    internal_static_bundled_ExperimentCollection_fieldAccessorTable = new
+    internal_static_com_acme_api_ExperimentCollection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bundled_ExperimentCollection_descriptor,
+        internal_static_com_acme_api_ExperimentCollection_descriptor,
         new java.lang.String[] { "Entities", "Links", "Meta", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();

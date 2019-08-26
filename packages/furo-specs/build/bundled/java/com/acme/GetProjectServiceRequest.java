@@ -4,11 +4,11 @@
 package com.acme;
 
 /**
- * Protobuf type {@code bundled.GetProjectServiceRequest}
+ * Protobuf type {@code com.acme.api.GetProjectServiceRequest}
  */
 public  final class GetProjectServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.GetProjectServiceRequest)
+    // @@protoc_insertion_point(message_implements:com.acme.api.GetProjectServiceRequest)
     GetProjectServiceRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use GetProjectServiceRequest.newBuilder() to construct.
@@ -70,13 +70,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_GetProjectServiceRequest_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_GetProjectServiceRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_GetProjectServiceRequest_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_GetProjectServiceRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.GetProjectServiceRequest.class, com.acme.GetProjectServiceRequest.Builder.class);
   }
@@ -270,21 +270,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code bundled.GetProjectServiceRequest}
+   * Protobuf type {@code com.acme.api.GetProjectServiceRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.GetProjectServiceRequest)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.GetProjectServiceRequest)
       com.acme.GetProjectServiceRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_GetProjectServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_GetProjectServiceRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_GetProjectServiceRequest_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_GetProjectServiceRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.GetProjectServiceRequest.class, com.acme.GetProjectServiceRequest.Builder.class);
     }
@@ -315,7 +315,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_GetProjectServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_GetProjectServiceRequest_descriptor;
     }
 
     @java.lang.Override
@@ -498,10 +498,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.GetProjectServiceRequest)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.GetProjectServiceRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.GetProjectServiceRequest)
+  // @@protoc_insertion_point(class_scope:com.acme.api.GetProjectServiceRequest)
   private static final com.acme.GetProjectServiceRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.GetProjectServiceRequest();

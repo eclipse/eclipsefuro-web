@@ -4,11 +4,11 @@
 package com.acme;
 
 /**
- * Protobuf type {@code bundled.UpdatePersonServiceRequest}
+ * Protobuf type {@code com.acme.api.UpdatePersonServiceRequest}
  */
 public  final class UpdatePersonServiceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:bundled.UpdatePersonServiceRequest)
+    // @@protoc_insertion_point(message_implements:com.acme.api.UpdatePersonServiceRequest)
     UpdatePersonServiceRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use UpdatePersonServiceRequest.newBuilder() to construct.
@@ -83,13 +83,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.acme.AnyProto.internal_static_bundled_UpdatePersonServiceRequest_descriptor;
+    return com.acme.AnyProto.internal_static_com_acme_api_UpdatePersonServiceRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.acme.AnyProto.internal_static_bundled_UpdatePersonServiceRequest_fieldAccessorTable
+    return com.acme.AnyProto.internal_static_com_acme_api_UpdatePersonServiceRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.acme.UpdatePersonServiceRequest.class, com.acme.UpdatePersonServiceRequest.Builder.class);
   }
@@ -131,19 +131,19 @@ private static final long serialVersionUID = 0L;
   public static final int DATA_FIELD_NUMBER = 2;
   private com.acme.Person data_;
   /**
-   * <code>.bundled.Person data = 2;</code>
+   * <code>.com.acme.api.Person data = 2;</code>
    */
   public boolean hasData() {
     return data_ != null;
   }
   /**
-   * <code>.bundled.Person data = 2;</code>
+   * <code>.com.acme.api.Person data = 2;</code>
    */
   public com.acme.Person getData() {
     return data_ == null ? com.acme.Person.getDefaultInstance() : data_;
   }
   /**
-   * <code>.bundled.Person data = 2;</code>
+   * <code>.com.acme.api.Person data = 2;</code>
    */
   public com.acme.PersonOrBuilder getDataOrBuilder() {
     return getData();
@@ -320,21 +320,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code bundled.UpdatePersonServiceRequest}
+   * Protobuf type {@code com.acme.api.UpdatePersonServiceRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:bundled.UpdatePersonServiceRequest)
+      // @@protoc_insertion_point(builder_implements:com.acme.api.UpdatePersonServiceRequest)
       com.acme.UpdatePersonServiceRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.acme.AnyProto.internal_static_bundled_UpdatePersonServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_UpdatePersonServiceRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.acme.AnyProto.internal_static_bundled_UpdatePersonServiceRequest_fieldAccessorTable
+      return com.acme.AnyProto.internal_static_com_acme_api_UpdatePersonServiceRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.acme.UpdatePersonServiceRequest.class, com.acme.UpdatePersonServiceRequest.Builder.class);
     }
@@ -371,7 +371,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.acme.AnyProto.internal_static_bundled_UpdatePersonServiceRequest_descriptor;
+      return com.acme.AnyProto.internal_static_com_acme_api_UpdatePersonServiceRequest_descriptor;
     }
 
     @java.lang.Override
@@ -554,13 +554,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.acme.Person, com.acme.Person.Builder, com.acme.PersonOrBuilder> dataBuilder_;
     /**
-     * <code>.bundled.Person data = 2;</code>
+     * <code>.com.acme.api.Person data = 2;</code>
      */
     public boolean hasData() {
       return dataBuilder_ != null || data_ != null;
     }
     /**
-     * <code>.bundled.Person data = 2;</code>
+     * <code>.com.acme.api.Person data = 2;</code>
      */
     public com.acme.Person getData() {
       if (dataBuilder_ == null) {
@@ -570,7 +570,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.bundled.Person data = 2;</code>
+     * <code>.com.acme.api.Person data = 2;</code>
      */
     public Builder setData(com.acme.Person value) {
       if (dataBuilder_ == null) {
@@ -586,7 +586,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.bundled.Person data = 2;</code>
+     * <code>.com.acme.api.Person data = 2;</code>
      */
     public Builder setData(
         com.acme.Person.Builder builderForValue) {
@@ -600,7 +600,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.bundled.Person data = 2;</code>
+     * <code>.com.acme.api.Person data = 2;</code>
      */
     public Builder mergeData(com.acme.Person value) {
       if (dataBuilder_ == null) {
@@ -618,7 +618,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.bundled.Person data = 2;</code>
+     * <code>.com.acme.api.Person data = 2;</code>
      */
     public Builder clearData() {
       if (dataBuilder_ == null) {
@@ -632,7 +632,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.bundled.Person data = 2;</code>
+     * <code>.com.acme.api.Person data = 2;</code>
      */
     public com.acme.Person.Builder getDataBuilder() {
       
@@ -640,7 +640,7 @@ private static final long serialVersionUID = 0L;
       return getDataFieldBuilder().getBuilder();
     }
     /**
-     * <code>.bundled.Person data = 2;</code>
+     * <code>.com.acme.api.Person data = 2;</code>
      */
     public com.acme.PersonOrBuilder getDataOrBuilder() {
       if (dataBuilder_ != null) {
@@ -651,7 +651,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.bundled.Person data = 2;</code>
+     * <code>.com.acme.api.Person data = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.acme.Person, com.acme.Person.Builder, com.acme.PersonOrBuilder> 
@@ -679,10 +679,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:bundled.UpdatePersonServiceRequest)
+    // @@protoc_insertion_point(builder_scope:com.acme.api.UpdatePersonServiceRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:bundled.UpdatePersonServiceRequest)
+  // @@protoc_insertion_point(class_scope:com.acme.api.UpdatePersonServiceRequest)
   private static final com.acme.UpdatePersonServiceRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.acme.UpdatePersonServiceRequest();

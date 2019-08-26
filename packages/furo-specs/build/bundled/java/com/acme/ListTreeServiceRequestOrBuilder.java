@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface ListTreeServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.ListTreeServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.ListTreeServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

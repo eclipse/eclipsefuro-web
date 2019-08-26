@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface UpdateTreeServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.UpdateTreeServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.UpdateTreeServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -18,15 +18,15 @@ public interface UpdateTreeServiceRequestOrBuilder extends
       getTreBytes();
 
   /**
-   * <code>.bundled.Tree data = 2;</code>
+   * <code>.com.acme.api.Tree data = 2;</code>
    */
   boolean hasData();
   /**
-   * <code>.bundled.Tree data = 2;</code>
+   * <code>.com.acme.api.Tree data = 2;</code>
    */
   com.acme.Tree getData();
   /**
-   * <code>.bundled.Tree data = 2;</code>
+   * <code>.com.acme.api.Tree data = 2;</code>
    */
   com.acme.TreeOrBuilder getDataOrBuilder();
 }

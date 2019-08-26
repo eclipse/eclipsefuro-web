@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface GetTaskServiceRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.GetTaskServiceRequest)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.GetTaskServiceRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface ProjectCollectionOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.ProjectCollection)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.ProjectCollection)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface ProjectCollectionOrBuilder extends
    * Contains a project.ProjectEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ProjectEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ProjectEntity entities = 4;</code>
    */
   java.util.List<com.acme.ProjectEntity> 
       getEntitiesList();
@@ -21,7 +21,7 @@ public interface ProjectCollectionOrBuilder extends
    * Contains a project.ProjectEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ProjectEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ProjectEntity entities = 4;</code>
    */
   com.acme.ProjectEntity getEntities(int index);
   /**
@@ -29,7 +29,7 @@ public interface ProjectCollectionOrBuilder extends
    * Contains a project.ProjectEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ProjectEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ProjectEntity entities = 4;</code>
    */
   int getEntitiesCount();
   /**
@@ -37,7 +37,7 @@ public interface ProjectCollectionOrBuilder extends
    * Contains a project.ProjectEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ProjectEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ProjectEntity entities = 4;</code>
    */
   java.util.List<? extends com.acme.ProjectEntityOrBuilder> 
       getEntitiesOrBuilderList();
@@ -46,7 +46,7 @@ public interface ProjectCollectionOrBuilder extends
    * Contains a project.ProjectEntity repeated
    * </pre>
    *
-   * <code>repeated .bundled.ProjectEntity entities = 4;</code>
+   * <code>repeated .com.acme.api.ProjectEntity entities = 4;</code>
    */
   com.acme.ProjectEntityOrBuilder getEntitiesOrBuilder(
       int index);

@@ -4,7 +4,7 @@
 package com.acme;
 
 public interface ProjectEntityOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:bundled.ProjectEntity)
+    // @@protoc_insertion_point(interface_extends:com.acme.api.ProjectEntity)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -12,7 +12,7 @@ public interface ProjectEntityOrBuilder extends
    * contains a project.Project
    * </pre>
    *
-   * <code>.bundled.Project data = 1;</code>
+   * <code>.com.acme.api.Project data = 1;</code>
    */
   boolean hasData();
   /**
@@ -20,7 +20,7 @@ public interface ProjectEntityOrBuilder extends
    * contains a project.Project
    * </pre>
    *
-   * <code>.bundled.Project data = 1;</code>
+   * <code>.com.acme.api.Project data = 1;</code>
    */
   com.acme.Project getData();
   /**
@@ -28,7 +28,7 @@ public interface ProjectEntityOrBuilder extends
    * contains a project.Project
    * </pre>
    *
-   * <code>.bundled.Project data = 1;</code>
+   * <code>.com.acme.api.Project data = 1;</code>
    */
   com.acme.ProjectOrBuilder getDataOrBuilder();
 
