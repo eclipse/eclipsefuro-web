@@ -63,6 +63,10 @@ class FuroVerticalFlex extends LitElement {
             -webkit-flex-basis: 0.000000001px;
             flex-basis: 0.000000001px;
         }
+        ::slotted([scroll]){
+            height: 100%;
+            overflow-y: auto;
+        }
     `
   }
 
