@@ -7,13 +7,12 @@
     "info": "This version is still valid"
   },
   "__proto": {
-    "package": "experiment",
+    "package": "experimentservice",
     "imports": [
-      "experiment.proto",
-      "experiment_entity.proto",
-      "experiment_collection.proto",
+      "experiment/experiment.proto",
       "google/protobuf/empty.proto"
-    ]
+    ],
+    "targetfile": "service.proto"
   },
   "services": {
     "List": {

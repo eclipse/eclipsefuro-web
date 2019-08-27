@@ -4,7 +4,8 @@
   "description": "Navigation tree type with recursive navigation nodes",
   "__proto": {
     "package": "tree",
-    "imports": ["navigationnode.proto"]
+    "imports": [],
+    "targetfile": "tree.proto"
   },
   "fields": {
     "id": {

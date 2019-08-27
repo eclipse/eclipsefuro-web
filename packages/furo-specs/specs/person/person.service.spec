@@ -7,13 +7,12 @@
     "info": "This version is still valid"
   },
   "__proto": {
-    "package": "person",
+    "package": "personservice",
     "imports": [
-      "person.proto",
-      "person_entity.proto",
-      "person_collection.proto",
+      "person/person.proto",
       "google/protobuf/empty.proto"
-    ]
+    ],
+    "targetfile": "service.proto"
   },
   "services": {
     "List": {

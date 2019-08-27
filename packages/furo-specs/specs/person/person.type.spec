@@ -4,7 +4,8 @@
   "description": "Person message type",
   "__proto": {
     "package": "person",
-    "imports": []
+    "imports": [],
+    "targetfile": "person.proto"
   },
   "fields": {
     "id": {

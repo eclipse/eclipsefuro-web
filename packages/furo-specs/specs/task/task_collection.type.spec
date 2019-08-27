@@ -5,10 +5,10 @@
   "__proto": {
     "package": "task",
     "imports": [
-     "task_entity.proto",
      "furo/meta.proto",
      "furo/link.proto"
-     ]
+     ],
+    "targetfile": "task.proto"
   },
   "fields": {
     "meta": {

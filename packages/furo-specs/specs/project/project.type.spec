@@ -8,7 +8,8 @@
       "google/type/money.proto",
       "google/type/date.proto",
       "person/person.proto"
-    ]
+    ],
+    "targetfile": "project.proto"
   },
   "fields": {
     "id": {

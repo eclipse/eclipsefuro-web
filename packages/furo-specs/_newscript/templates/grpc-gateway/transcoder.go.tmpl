@@ -1,0 +1,75 @@
+package main
+
+import (
+	 "./person"
+	"flag"
+	"github.com/golang/glog"
+	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	"golang.org/x/net/context"
+	_ "google.golang.org/genproto/googleapis/rpc/errdetails"
+	"google.golang.org/grpc"
+	"log"
+	"net/http"
+	"os"
+)
+
+var (
+	grpcserver = flag.String("grpcserver", os.Getenv("GRPC_SERVER_ADDRESS"), "grpc server for your services");
+	gwserver = flag.String("gwserver", os.Getenv("GW_SERVER_ADDRESS"), "Address and port for the gateway");
+)
+// header für client ohne prefixes
+func outgoingMatcher(headerName string) (mdName string, ok bool) {
+	return headerName, true
+}
+
+// header vom client im ctx des Servers ohne prefixes senden
+func incomingMatcher(headerName string) (mdName string, ok bool) {
+	return headerName, true
+}
+
+func run() error {
+	log.Printf(os.Getenv("GRPC_CLIENT_BF_ADDRESS"))
+
+	ctx := context.Background()
+	ctx, cancel := context.WithCancel(ctx)
+	defer cancel()
+
+	mux := runtime.NewServeMux(runtime.WithOutgoingHeaderMatcher(outgoingMatcher), runtime.WithIncomingHeaderMatcher(incomingMatcher))
+	opts := []grpc.DialOption{grpc.WithInsecure()}
+
+	// Services hier einfügen
+	// PersonService
+	err := person.RegisterPersonServiceHandlerFromEndpoint(ctx, mux, *grpcserver, opts)
+	if err != nil {
+		return err
+	}
+
+
+	return http.ListenAndServe(*gwserver, mux)
+}
+
+func main() {
+	log.Printf("Connecting to " + *grpcserver + " and listening to: " + *gwserver);
+	flag.Parse()
+	defer glog.Flush()
+
+	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
+	logger.Println("Server is starting...")
+
+	if err := run(); err != nil {
+		glog.Fatal(err)
+	}
+}
+
+
+func logging(logger *log.Logger) func(http.Handler) http.Handler {
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			defer func() {
+
+				logger.Println( r.Method, r.URL.Path, r.RemoteAddr, r.UserAgent())
+			}()
+			next.ServeHTTP(w, r)
+		})
+	}
+}

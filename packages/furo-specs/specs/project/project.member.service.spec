@@ -7,18 +7,19 @@
     "info": "This version is still valid"
   },
   "__proto": {
-    "package": "projectmember",
+    "package": "projectmemberservice",
     "imports": [
-      "person/person_entity.proto",
-      "person/person_collection.proto",
+      "person/person.proto",
       "furo/meta.proto",
       "furo/link.proto",
       "google/protobuf/empty.proto"
-    ]
+    ],
+    "targetfile": "service.proto"
   },
   "services": {
     "Unsubscribe": {
       "description": "Custom method to unsubscribe a member, complete PersonEntity is expected",
+      "rdpc_name": "UnsubscribeMember",
       "data": {
         "request": "person.PersonEntity",
         "response": "person.PersonCollection"
@@ -34,6 +35,7 @@
     },
     "List": {
       "description": "Get a collection with PersonEntities",
+      "rpc_name": "ListMembers",
       "data": {
         "request": null,
         "response": "person.PersonCollection"

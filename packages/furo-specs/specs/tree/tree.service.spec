@@ -7,13 +7,12 @@
     "info": "This version is still valid"
   },
   "__proto": {
-    "package": "tree",
+    "package": "treeservice",
     "imports": [
-      "tree.proto",
-      "tree_entity.proto",
-      "tree_collection.proto",
+      "tree/tree.proto",
       "google/protobuf/empty.proto"
-    ]
+    ],
+    "targetfile": "service.proto"
   },
   "services": {
     "List": {
