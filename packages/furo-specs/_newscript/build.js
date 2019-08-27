@@ -18,7 +18,7 @@ if (fs.existsSync('./furo.spec.conf.json')) {
 const TPLDirBundled = config.custom_template_dir || __dirname + "/templates/bundled";
 const TPLDirSingle = config.custom_template_dir || __dirname + "/templates/single";
 const TPLDirBase = config.custom_template_dir || __dirname + "/templates";
-
+const BuildDir = config.build_output_dir;
 
 function sh(command, arguments) {
     execSync(command + " " + arguments.join(" "), {stdio: 'inherit'});
@@ -70,18 +70,21 @@ speclist.types.forEach((filename) => {
     Typelist[target].types.push(spec);
 
 });
-
+// obj to create the protocHelper.sh
+let protoc = {mod:[], protoc_I:config.protoc_I, protoc_M:config.protoc_M, config:config};
 for(let target in Typelist){
     // make array from import set
     let type = Typelist[target];
     type.imports = Array.from(type.imports);
+    // fill protoc file
+    protoc.mod.push({"file":target, package: type.package} );
 
     // Write json files for messages
     sh("mkdir", ["-p", "./__tmp/_types/" + path.dirname(target)]);
     let jsonfilename = "./__tmp/_types/" + target + ".json";
     fs.writeFileSync(jsonfilename, JSON.stringify(type));
-    sh("mkdir", ["-p", config.build_output_dir + "/protos/" + path.dirname(target)]);
-    sh("simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.message.proto.tmpl", ">", config.build_output_dir + "/protos/" + target])
+    sh("mkdir", ["-p", BuildDir + "/protos/" + path.dirname(target)]);
+    sh("simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.message.proto.tmpl", ">", BuildDir + "/protos/" + target])
 }
 
 
@@ -119,8 +122,8 @@ for(let target in Servicelist.targets){
     let jsonfilename = "./__tmp/_services/" + target + ".json";
     fs.writeFileSync(jsonfilename, JSON.stringify(service));
 
-    sh("mkdir", ["-p", config.build_output_dir + "/protos/" + path.dirname(target)]);
-    sh("simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.service.proto.tmpl", ">", config.build_output_dir + "/protos/" + target])
+    sh("mkdir", ["-p", BuildDir + "/protos/" + path.dirname(target)]);
+    sh("simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.service.proto.tmpl", ">", BuildDir + "/protos/" + target])
 }
 
 if(config.bundled.build){
@@ -130,7 +133,23 @@ if(config.bundled.build){
     Servicelist.__bundled.options = config.bundled.proto_options;
     let jsonfilename = "./__tmp/_services/" + config.bundled.service_name + ".json";
     fs.writeFileSync(jsonfilename, JSON.stringify(Servicelist.__bundled));
-    sh("simple-generator", ["-d", jsonfilename, "-t", TPLDirBundled + "/bundled.services.proto.tmpl", ">", config.build_output_dir + "/protos/" + config.bundled.service_name + ".proto"])
+    sh("simple-generator", ["-d", jsonfilename, "-t", TPLDirBundled + "/bundled.services.proto.tmpl", ">", BuildDir + "/protos/__bundled/" + config.bundled.service_name + ".proto"])
 }
 
 
+// protoc helper
+let jsonfile = "./__tmp/protocHelper.sh.json";
+fs.writeFileSync(jsonfile, JSON.stringify(protoc));
+sh("simple-generator", ["-d", jsonfile,  "-t", TPLDirBase + "/protocHelper.sh.tmpl", ">" ,"./__tmp/protocHelper.sh"]);
+// make it executable
+sh("chmod",["755","./__tmp/protocHelper.sh"]);
+
+for(let target in Typelist){
+    sh("./__tmp/protocHelper.sh", [BuildDir + "/protos",target]);
+}
+for(let target in Servicelist.targets){
+    sh("./__tmp/protocHelper.sh", [BuildDir + "/protos",target]);
+}
+for(let target in Servicelist.targets){
+    sh("./__tmp/protocHelper.sh", [BuildDir + "/protos","__bundled/" + config.bundled.service_name + ".proto"]);
+}

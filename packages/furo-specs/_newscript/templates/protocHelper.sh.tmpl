@@ -5,9 +5,8 @@ then
   echo 'missing argument, package folder is required'
 exit 1
 fi
-PACKAGE=$2
 BUILDPATHPROTOS=$1
-THEPROTOFILE=$3
+THEPROTOFILE=$2
 
 if [ ! -d $BUILDPATHPROTOS ]
 then
@@ -29,8 +28,8 @@ protoc --proto_path=./ \
 --gogofast_out=.\
 {{- range $m := .protoc_M}}
 M{{$m}},\{{end}}
-{{- range $pkg := .packages}}
-M{{$pkg}}/{{$pkg}}.proto=../{{$pkg}},\{{end}}
+{{- range $m := .mod}}
+M{{$m.file}}=../{{$m.package}},\{{end}}
 plugins=grpc:../pb/ \
 {{- if .swagger}}--swagger_out=logtostderr=true:../swagger/ \{{end}}
 {{- if .java}}--java_out=../java/ \{{end}}
