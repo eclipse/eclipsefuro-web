@@ -309,7 +309,7 @@ class FuroTextareaInput extends FBP(LitElement) {
 
         label {
             position: absolute;
-            top: 8px;
+            top: 12px;
             color: rgba(0, 0, 0, .26);
             font-size: 12px;
             pointer-events: none;
@@ -324,7 +324,7 @@ class FuroTextareaInput extends FBP(LitElement) {
         
         label[float="true"] {
             color: var(--on-background, #333333);
-            font-size: 10px;
+            font-size: 12px;
             top: -4px;
             visibility: visible;
         }
@@ -336,7 +336,7 @@ class FuroTextareaInput extends FBP(LitElement) {
         .hint, .errortext {
             position: absolute;
             bottom: -17px;
-            font-size: 10px;
+            font-size: 12px;
             color: transparent;
             white-space: nowrap;
             pointer-events: none;

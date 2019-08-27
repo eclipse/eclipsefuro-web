@@ -17,3 +17,4 @@ import "./demo-furo-checkbox-input";
 import "./sample-furo-select-input";
 import "./demo-furo-select-input";
 import "./demo-furo-checkbox";
+import "./demo-condensed";

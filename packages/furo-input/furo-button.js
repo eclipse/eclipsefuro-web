@@ -152,7 +152,7 @@ class FuroButton extends FBP(LitElement) {
             box-sizing: border-box;
 
             min-width: 64px;
-            height: 36px;
+            height: 40px;
 
         }
 
