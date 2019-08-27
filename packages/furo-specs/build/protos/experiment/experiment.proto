@@ -6,7 +6,6 @@ package experiment;
 
 import "furo/meta.proto";
 import "furo/link.proto";
-import "furo/reference.proto";
 
 
 // ExperimentCollection with repeated ExperimentEntity

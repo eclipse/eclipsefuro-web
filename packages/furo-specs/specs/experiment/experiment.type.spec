@@ -5,7 +5,7 @@
   "__proto": {
     "package": "experiment",
     "imports": [
-      "furo/reference.proto"
+
     ],
     "targetfile": "experiment.proto"
   },

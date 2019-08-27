@@ -18,8 +18,8 @@ cd $BUILDPATHPROTOS
 
 
 mkdir -p ../pb/
-{{if .java}}mkdir -p ../java/{{end}}
-{{if .swagger}}mkdir -p ../swagger/{{end}}
+{{if .config.java}}mkdir -p ../java/{{end}}
+{{if .config.swagger}}mkdir -p ../swagger/{{end}}
 
 protoc --proto_path=./ \
 -I. \
@@ -31,7 +31,7 @@ M{{$m}},\{{end}}
 {{- range $m := .mod}}
 M{{$m.file}}=../{{$m.package}},\{{end}}
 plugins=grpc:../pb/ \
-{{- if .swagger}}--swagger_out=logtostderr=true:../swagger/ \{{end}}
-{{- if .java}}--java_out=../java/ \{{end}}
-{{- if .grpc_gateway}}--grpc-gateway_out=logtostderr=true:../pb/ \{{end}}
+{{- if .config.swagger}}--swagger_out=logtostderr=true:../swagger/ \{{end}}
+{{- if .config.java}}--java_out=../java/ \{{end}}
+{{- if .config.grpc_gateway}}--grpc-gateway_out=logtostderr=true:../pb/ \{{end}}
 $THEPROTOFILE

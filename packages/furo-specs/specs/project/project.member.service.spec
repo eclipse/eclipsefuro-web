@@ -9,10 +9,7 @@
   "__proto": {
     "package": "projectmemberservice",
     "imports": [
-      "person/person.proto",
-      "furo/meta.proto",
-      "furo/link.proto",
-      "google/protobuf/empty.proto"
+      "person/person.proto"
     ],
     "targetfile": "service.proto"
   },

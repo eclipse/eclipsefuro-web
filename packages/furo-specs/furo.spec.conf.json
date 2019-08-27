@@ -17,12 +17,12 @@
   "default_type_for_identities": "string",
   "bundled": {
     "build": true,
-    "package_name": "com.acme.api",
+    "package_name": "taskmanager",
     "service_name": "BundledService",
     "proto_options": {
       "csharp_namespace": "Google.Protobuf.WellKnownTypes",
-      "go_package": "com.acme.api",
-      "java_package": "com.acme",
+      "go_package": "taskmanager",
+      "java_package": "taskmanager",
       "java_outer_classname": "AnyProto",
       "java_multiple_files": true,
       "objc_class_prefix": "GPB"

@@ -8,9 +8,6 @@ package projectmemberservice;
 import "google/api/annotations.proto";
 
 import "person/person.proto";
-import "furo/meta.proto";
-import "furo/link.proto";
-import "google/protobuf/empty.proto";
 
 
 
