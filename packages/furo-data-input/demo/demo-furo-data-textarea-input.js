@@ -3,6 +3,11 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog"
+import "./produce-qp-data";
+import "@furo/data/furo-data-object";
+import "@furo/data/furo-deep-link";
+import "@furo/data/furo-entity-agent";
+
 /**
  * `demo-furo-data-textarea-input`
  *
@@ -44,11 +49,22 @@ class DemoFuroDataTextareaInput extends FBP(LitElement) {
       <p>Bind the field from furo-entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the furo-entity-object specs.</p>
       <furo-demo-snippet >
         <template>
-          <furo-entity-object type="project.Project" @-object-ready="--entity"></furo-entity-object>
-          <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.fields.description)"></furo-data-textarea-input>
-          <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.fields.description)" @-value-changed="--textareaChanged"></furo-data-textarea-input>
+          <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.furo_data_textarea_input)"></furo-data-textarea-input>
+          <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.furo_data_textarea_input)" @-value-changed="--textareaChanged"></furo-data-textarea-input>
           <!-- --textareaChanged only comes when data was typed in. -->
           <span ƒ-.inner-textarea="--textareaChanged"></span>
+
+          <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+
+          <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
+                            ƒ-inject-raw="--response(*.data)"></furo-data-object>
+          <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+          <furo-entity-agent service="ExperimentService"
+                             ƒ-hts-in="--hts"
+                             ƒ-load="--hts"
+                             ƒ-bind-request-data="--entity"
+                             @-response="--response">
+          </furo-entity-agent>
         </template>
       </furo-demo-snippet>
     `;

@@ -3,6 +3,10 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog"
+import "@furo/data/furo-data-object";
+import "@furo/data/furo-deep-link";
+import "./produce-qp-data";
+import "@furo/data/furo-entity-agent";
 
 /**
  * `demo-furo-data-number-input`
@@ -52,19 +56,31 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
           <template>
             <furo-entity-object type="task.Task" @-object-ready="--entity"></furo-entity-object>
             <furo-horizontal-flex>
-              <furo-data-number-input autofocus ƒ-bind-data="--entity(*.fields.id)"
+              <furo-data-number-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"
                                       hint="Hint should come from spec and overflows"></furo-data-number-input>
-              <furo-data-number-input label="with step" step="0.5" ƒ-bind-data="--entity(*.fields.id)"
+              <furo-data-number-input label="with step" step="0.5" ƒ-bind-data="--entity(*.furo_data_number_input)"
                                       @-value-changed="--numberChanged"
                                       hint="but that should be ok"></furo-data-number-input>
               <furo-data-number-input flex label="min max" min="1" max="9"
-                                      ƒ-bind-data="--entity(*.fields.id)"></furo-data-number-input>
+                                      ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
               <furo-data-number-input label="disabled" disabled label="with step" step="0.5"
-                                      ƒ-bind-data="--entity(*.fields.id)"></furo-data-number-input>
+                                      ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
             </furo-horizontal-flex>
             <hr>
             <!-- --numberChanged only comes when data was typed in. -->
             <span ƒ-.inner-text="--numberChanged"></span>
+
+            <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+
+            <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
+                              ƒ-inject-raw="--response(*.data)"></furo-data-object>
+            <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+            <furo-entity-agent service="ExperimentService"
+                               ƒ-hts-in="--hts"
+                               ƒ-load="--hts"
+                               ƒ-bind-request-data="--entity"
+                               @-response="--response">
+            </furo-entity-agent>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
