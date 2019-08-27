@@ -6,6 +6,7 @@ import "@furo/data/furo-data-object";
 import "@furo/data/furo-deep-link";
 import "@furo/layout/furo-horizontal-flex";
 import "../furo-catalog";
+import "./produce-qp-data";
 import "@furo/data/furo-entity-agent";
 
 /**
@@ -53,25 +54,24 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
                 The labels, hints, defaults are comming from the entity-object specs.</p>
             <furo-demo-snippet>
                 <template>
-                    <furo-data-checkbox-input trailing-icon="dashboard"
-                                              ƒ-bind-data="--entity(*.fields.open)"></furo-data-checkbox-input>
-                    <furo-data-checkbox-input leading-icon="dashboard" label="disabled" hint="disabled hint"
-                                              disabled=true
-                                              ƒ-bind-data="--entity(*.fields.open)"></furo-data-checkbox-input>
+                    <furo-data-checkbox-input label="invalid binding" ƒ-bind-data="--entity(*.xxx)"></furo-data-checkbox-input>
+                    <furo-data-checkbox-input label="disabled" hint="disabled hint"
+                                              disabled=true >
+                    </furo-data-checkbox-input>
                     <furo-horizontal-flex space>
+    
+                    <furo-data-checkbox-input style="margin-top:12px" autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                                              @-value-changed="--checkChanged"
+                                              hint="the checked value will be sent to text input"></furo-data-checkbox-input>
 
-                        <furo-data-checkbox-input style="margin-top:12px" autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
-                                                  @-value-changed="--checkChanged"
-                                                  hint="the checked value will be sent to text input"></furo-data-checkbox-input>
+                    <furo-text-input condensed label="wire the checkbox" ƒ-set-value="--checkChanged"></furo-text-input>
+                    <produce-qp-data  @-data="--qp" qp={"exp":1}></produce-qp-data>
 
-                        <furo-text-input condensed label="wire the checkbox" ƒ-set-value="--checkChanged"></furo-text-input>
-                        <furo-button style="margin-top:18px" @-click='--qpIn' label="load test data"  raised></furo-button>
                     </furo-horizontal-flex>
-
 
                     <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
                                       ƒ-inject-raw="--response(*.data)"></furo-data-object>
-                    <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-trigger="--qpIn" qp='{"exp": 1}'></furo-deep-link>
+                    <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
                     <furo-entity-agent service="ExperimentService"
                                   ƒ-hts-in="--hts"
                                   ƒ-load="--hts"

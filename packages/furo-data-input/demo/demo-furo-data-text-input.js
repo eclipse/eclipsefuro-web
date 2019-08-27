@@ -2,8 +2,12 @@ import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
-import "@furo/data/furo-data-object"
-import "../furo-catalog"
+import "@furo/data/furo-data-object";
+import "../furo-catalog";
+import "@furo/data/furo-deep-link";
+import "./produce-qp-data";
+import "@furo/data/furo-entity-agent";
+
 /**
  * `demo-furo-data-text-input`
  *
@@ -45,12 +49,24 @@ class DemoFuroDataTextInput extends FBP(LitElement) {
       <p>Bind the field from entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the entity-object specs.</p>
       <furo-demo-snippet >
         <template>
-          <furo-data-object type="vnd.com.acme.task" @-object-ready="--entity"></furo-data-object>
-          <furo-data-text-input trailing-icon="dashboard" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
-          <furo-data-text-input leading-icon="dashboard" float label="Always float" hint="Always float" ƒ-bind-data="--entity(*.fields.description)"></furo-data-text-input>
-          <furo-data-text-input autofocus ƒ-bind-data="--entity(*.fields.description)" @-value-changed="--textChanged"></furo-data-text-input>
+          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+          <furo-data-text-input trailing-icon="dashboard" hint="custom hint" ƒ-bind-data="--entity(*.display_name)"></furo-data-text-input>
+          <furo-data-text-input leading-icon="dashboard" float label="Always float" hint="Always float" ƒ-bind-data="--entity(*.description)"></furo-data-text-input>
+          <furo-data-text-input autofocus  ƒ-bind-data="--entity(*.furo_data_text_input)" @-value-changed="--textChanged"></furo-data-text-input>
           <!-- --textChanged only comes when data was typed in. -->
           <span ƒ-.inner-text="--textChanged"></span>
+
+          <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+
+          <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
+                            ƒ-inject-raw="--response(*.data)"></furo-data-object>
+          <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+          <furo-entity-agent service="ExperimentService"
+                             ƒ-hts-in="--hts"
+                             ƒ-load="--hts"
+                             ƒ-bind-request-data="--entity"
+                             @-response="--response">
+          </furo-entity-agent>
         </template>
       </furo-demo-snippet>
     `;

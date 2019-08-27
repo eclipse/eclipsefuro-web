@@ -104,7 +104,7 @@ class FuroDataTable extends FBP(LitElement) {
             /**
              * Typedefinition of incoming collection items
              * REST SPEC Type
-             * e.g. vnd.com.abc.[type]
+             * e.g. task.Task.[type]
              */
             type: {
                 type: String, attribute: "type"

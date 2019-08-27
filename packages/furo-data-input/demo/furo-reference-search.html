@@ -15,7 +15,7 @@
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
     import '@polymer/iron-demo-helpers/demo-snippet';
     import '@furo/data/furo-collection-agent';
-    import '@furo/data/entity-object';
+    import '@furo/data/furo-entity-object';
     import '@furo/fbp/flow-bind.js';
     import '@furo/fbp/flow-repeat.js';
     import '@furo/layout/furo-horizontal-flex.js';
@@ -41,8 +41,8 @@
       <flow-bind>
         <template>
           <hr>
-          <!--  entity-object will eine Referenz auflösen -->
-          <entity-object type="vnd.com.acme.task" @-object-ready="--entityReady"></entity-object>
+          <!--  furo-entity-object will eine Referenz auflösen -->
+          <furo-entity-object type="task.Task" @-object-ready="--entityReady"></furo-entity-object>
 
           <furo-horizontal-flex>
             <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
@@ -60,7 +60,7 @@
             <!-- Der furo-collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.
                 Die Resultate werden an furo-data-reference-search zurück gegeben.
             -->
-           <furo-collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></furo-collection-agent>
+           <furo-collection-agent service="TaskService" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></furo-collection-agent>
 
 
         </template>

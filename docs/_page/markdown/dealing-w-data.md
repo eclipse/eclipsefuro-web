@@ -10,7 +10,7 @@
 <furo-location ..></..>
 <furo-page ..></..>
 <furo-deep-link ƒ-qp-in="--pageQueryChanged(*.query)" 
-           service="task" 
+           service="TaskService" 
            @-hts-out="--hts"></furo-deep-link>
 ```           
            
@@ -22,27 +22,27 @@ after matching the service type the hts Link will be generated and a event hts-o
 This HATEOAS information can be used by `furo-entity-agent` or `furo-collection-agent` later. 
 ```html
 <!-- e.g. generated hts out link -->
-{rel: "delete", href: "/api/v1/tasks/5", method: "DELETE", type: vnd.com.furo.task}
+{rel: "delete", href: "/api/v1/tasks/5", method: "DELETE", type: task.Task}
 ```
 ## Entity Object
-Entity-Object receives the data from the furo-entity-agent and assigns those data to the internal entity-nodes.  
+furo-entity-object receives the data from the furo-entity-agent and assigns those data to the internal entity-nodes.  
 
 * ƒ-inject-raw receives the data from then furo-entity-agent
 * @-object-ready can be used to bind other components to the furo-entity-agent e.g. input-fields
 
 ```html
-<!-- bind a field of entity-node from entity-object to a input field -->
+<!-- bind a field of entity-node from furo-entity-object to a input field -->
 <furo-text-input  ƒ-bind-data="--data(*.fields.display_name)" label="display name"></furo-text-input>
 
-<furo-entity-agent service="task"
+<furo-entity-agent service="TaskService"
               ƒ-hts-in="--hts" 
               ƒ-load="--load"
               @-response="--entityResponded"></furo-entity-agent>
 
-<!-- inject the via furo-entity-agent received data to the entity-node of entity-object. after injecting send the entity-node 
+<!-- inject the via furo-entity-agent received data to the entity-node of furo-entity-object. after injecting send the entity-node 
 object via --data wire  -->
-<entity-object type="vnd.com.furo.task" ƒ-inject-raw="--entityResponded"
-               @-object-ready="--data"></entity-object>
+<furo-entity-object type="task.Task" ƒ-inject-raw="--entityResponded"
+               @-object-ready="--data"></furo-entity-object>
 ```
 ## Entity Agent
 An entity agent is an interface component to trigger entity requests. E.g. create, load, save and delete. 
@@ -57,18 +57,18 @@ An entity agent is an interface component to trigger entity requests. E.g. creat
 </furo-vertical-flex>
 
 <furo-deep-link ƒ-qp-in="--pageQueryChanged(*.query)"
-       service="task"
+       service="TaskService"
        @-hts-out="--hts"></furo-deep-link>
        
-<furo-entity-agent service="task"
+<furo-entity-agent service="TaskService"
               ƒ-hts-in="--hts" 
               ƒ-create="--create"
               ƒ-bind-request-object="--data"
               @-response="--entityResponded"></furo-entity-agent>
                                       
-<entity-object type="vnd.com.furo.task" ƒ-inject-raw="--entityResponded"
+<furo-entity-object type="task.Task" ƒ-inject-raw="--entityResponded"
                @-object-ready="--data">
-</entity-object>
+</furo-entity-object>
 ```
 
 ## Custom Method
@@ -82,7 +82,7 @@ the restlet specification.
   "description": "complete the task",
   "data": {
     "request": null,
-    "response": "vnd.com.furo.task"
+    "response": "task.TaskEntity"
   },
   "query": {},
   "deeplink": {
@@ -110,21 +110,21 @@ the restlet specification.
     </furo-horizontal-flex>        
 </furo-vertical-flex>        
 <furo-deep-link ƒ-qp-in="--pathChanged(*.query)"
-       service="task"
+       service="TaskService"
        @-hts-out="--hts"></furo-deep-link>
        
-<furo-custom-method service="task"  
+<furo-custom-method service="TaskService"  
            method="complete" 
            ƒ-bind-request-object="--data" 
            ƒ-hts-in="--hts" 
            ƒ-trigger="--complete" 
            @-response="--htsReady" ></furo-custom-method>
                                   
-<furo-entity-agent service="task"
+<furo-entity-agent service="TaskService"
               ƒ-hts-in="--hts" 
               ƒ-load="--htsReady"
               @-response="--taskCompleteResponded"></furo-entity-agent>
               
-<entity-object type="vnd.com.furo.task" ƒ-inject-raw="--taskCompleteResponded"
+<furo-entity-object type="task.Task" ƒ-inject-raw="--taskCompleteResponded"
        @-object-ready="--data">
 ```

@@ -23,7 +23,7 @@
       <template>
         <produce-data auto @-data="--data"></produce-data>
 
-        <entity-object type="vnd.com.acme.tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></entity-object>
+        <furo-entity-object type="tree.Tree" ƒ-inject-raw="--data" @-object-ready="--entityObj"></furo-entity-object>
 
 
 
@@ -117,8 +117,8 @@
 
     it('should bind the Tree', (done) => {
       expect(panelCoordinator._rootNode).to.have.a.property('children');
-      assert.equal(panelCoordinator._rootNode._spec.type, 'vnd.com.acme.treeitem');
-      assert.equal(panelCoordinator._tree._spec.type, 'vnd.com.acme.tree');
+      assert.equal(panelCoordinator._rootNode._spec.type, 'tree.Treeitem');
+      assert.equal(panelCoordinator._tree._spec.type, 'tree.Tree');
 
       done();
     });

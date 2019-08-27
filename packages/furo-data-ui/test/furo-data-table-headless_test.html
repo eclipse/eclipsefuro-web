@@ -82,10 +82,10 @@
 
             dataTable.addEventListener('spec-error', (e) => {
 
-                assert.equal(e.detail, "vnd.com.acme.invalid");
+                assert.equal(e.detail, "invalid.invalid");
                 done();
             });
-            dataTable.type = "vnd.com.acme.invalid";
+            dataTable.type = "invalid.invalid";
 
         });
 
