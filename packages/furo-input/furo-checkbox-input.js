@@ -406,33 +406,33 @@ class FuroCheckboxInput extends FBP(LitElement) {
             }
 
             :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-                line-height: 36px;
+                line-height: 40px;
                 font-size: 14px;
             }
 
             :host([condensed][filled]) input {
-                font-size: 13px;
+                top: 12px;
             }
 
             :host([condensed]) .wrapper {
-                height: 36px;
+                height: 40px;
             }
 
             :host([condensed]) .ripple-line {
-                top: 34px;
+                top: 38px;
             }
 
             :host([condensed]) .hint, :host([condensed]) .errortext {
-                font-size: 10px;
+                
             }
 
             :host([condensed]) {
-                height: 36px;
+                height: 40px;
             }
 
             furo-checkbox {
                 position: absolute;
-                top: 8px;
+                top: 12px;
             }
 
             label {

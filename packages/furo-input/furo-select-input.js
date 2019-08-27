@@ -572,11 +572,11 @@ class FuroSelectInput extends FBP(LitElement) {
         }
 
         :host([condensed]) select {
-            top: 8px;
+            top: 12px;
         }
 
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-            line-height: 36px;
+            line-height: 40px;
         }
 
         :host([condensed]) select {
@@ -584,11 +584,11 @@ class FuroSelectInput extends FBP(LitElement) {
         }
 
         :host([condensed][filled]) select {
-            font-size: 13px;
+            top: 12px;
         }
 
         :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-            height: 36px;
+            height: 40px;
         }
 
         :host([condensed]) furo-icon {
@@ -600,16 +600,16 @@ class FuroSelectInput extends FBP(LitElement) {
         }
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top: -15px;
-            font-size: 10px;
+            top: -12px;
+            
         }
         :host([condensed]) label span {
             top: -20px;
-            font-size: 10px;
+            
         }
 
         :host([condensed]) .hint, :host([condensed]) .errortext {
-            font-size: 10px;
+            
         }
 
         :host([condensed]) {

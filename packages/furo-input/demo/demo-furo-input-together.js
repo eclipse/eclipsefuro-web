@@ -110,7 +110,7 @@ class DemoFuroInputTogether extends FBP(LitElement) {
                     <furo-search-input leading-icon="arrow-downward" hint="jkhdsfkjsfdjk"
                                        label="Search"></furo-search-input>
                     <furo-date-input ƒ-set-value="--date" max="2020-12-31" min="2020-01-01" value="2020-02-02"
-                                     hint="Min max in 2020 only" label="Date input field"
+                                     hint="Min max in 2020 only" label="Date Input"
                                      @-value-changed="--date"></furo-date-input>
 
                     <furo-password-input

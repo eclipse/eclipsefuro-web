@@ -24,6 +24,7 @@ class DemoFuroTextInput extends FBP(LitElement) {
             display: block;
             height: 100%;
             padding-right: var(--spacing);
+            --surface-light:#FEA123;
         }
 
         :host([hidden]) {
