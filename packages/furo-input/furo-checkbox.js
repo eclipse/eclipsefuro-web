@@ -342,6 +342,16 @@ class FuroCheckbox extends FBP(LitElement) {
                 -ms-transform: rotate(45deg);
                 transform: rotate(45deg);
             }
+
+            :host([condensed]) .wrapper , :host([condensed]) .wrapper  input{
+                width: 32px;
+                height: 32px;
+            } 
+            
+            :host([condensed]) .checkbox-background {
+                top: 7px;
+                left: 7px;
+            }
         `
     }
 

@@ -55,9 +55,8 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
             <furo-demo-snippet>
                 <template>
                     <furo-data-checkbox-input label="invalid binding" ƒ-bind-data="--entity(*.xxx)"></furo-data-checkbox-input>
-                    <furo-data-checkbox-input label="disabled" hint="disabled hint"
-                                              disabled=true >
-                    </furo-data-checkbox-input>
+                    <furo-data-checkbox-input label="disabled" hint="disabled hint" disabled=true > </furo-data-checkbox-input>
+                    <furo-data-checkbox-input condensed label="condensed" hint="condensed hint"  > </furo-data-checkbox-input>
                     <furo-horizontal-flex space>
     
                     <furo-data-checkbox-input style="margin-top:12px" autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
