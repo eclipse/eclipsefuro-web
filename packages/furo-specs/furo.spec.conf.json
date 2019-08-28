@@ -1,12 +1,15 @@
 {
-  "packages": [
-    "person",
-    "project",
-    "task",
-    "tree",
-    "experiment"
-  ],
-  "excludes": [],
+  "init": {
+    "packages": [
+      "person",
+      "project",
+      "task",
+      "tree",
+      "experiment"
+    ],
+    "excludes": [],
+    "default_type_for_identities": "string"
+  },
   "spec_dir": "./specs",
   "_custom_tepmplate_dir": "./_scripts/templates",
   "swagger": true,
@@ -14,7 +17,6 @@
   "java": true,
   "build_output_dir": "./build",
   "furo_env_name": "data_environment.js",
-  "default_type_for_identities": "string",
   "bundled": {
     "build": true,
     "package_name": "taskmanager",
@@ -36,9 +38,6 @@
       "furo/meta.proto",
       "furo/reference.proto"
     ]
-  },
-  "single": {
-    "build": true
   },
   "protoc_I": [
     "/usr/local/include",

@@ -4,6 +4,7 @@
   "description": "TaskCollection with repeated TaskEntity",
   "__proto": {
     "package": "task",
+    "options": {},
     "imports": [
      "furo/meta.proto",
      "furo/link.proto"

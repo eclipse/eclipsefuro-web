@@ -5,14 +5,15 @@
   "__proto": {
     "package": "{{.name}}",
     "options": {},
-    "imports": []
+    "imports": [],
+    "targetfile": "{{.name}}.proto"
   },
   "fields": {
     "id": {
         "description": "Identity of {{.type}}",
         "type": "{{.identity_type}}",
         "meta": {
-          "label": "Name",
+          "label": "Id",
           "default": "",
           "hint": ""
         },
