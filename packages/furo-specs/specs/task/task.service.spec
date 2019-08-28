@@ -7,13 +7,12 @@
     "info": "This version is still valid"
   },
   "__proto": {
-    "package": "task",
+    "package": "taskservice",
     "imports": [
-      "task.proto",
-      "task_entity.proto",
-      "task_collection.proto",
+      "task/task.proto",
       "google/protobuf/empty.proto"
-    ]
+    ],
+    "targetfile": "service.proto"
   },
   "services": {
     "List": {

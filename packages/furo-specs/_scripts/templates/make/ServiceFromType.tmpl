@@ -7,13 +7,12 @@
     "info": "This version is still valid"
   },
   "__proto": {
-    "package": "{{.__proto.package}}",
+    "package": "{{.__proto.package}}service",
     "imports": [
-      "{{.name}}.proto",
-      "{{.name}}_entity.proto",
-      "{{.name}}_collection.proto",
+      "{{.name}}/{{.name}}.proto",
       "google/protobuf/empty.proto"
-    ]
+    ],
+    "targetfile": "{{.name}}service.proto"
   },
   "services": {
     "List": {

@@ -6,10 +6,10 @@
     "package": "experiment",
     "options": {},
     "imports": [
-      "experiment.proto",
       "furo/meta.proto",
       "furo/link.proto"
-    ]
+    ],
+    "targetfile": "experiment.proto"
   },
   "fields": {
     "data": {

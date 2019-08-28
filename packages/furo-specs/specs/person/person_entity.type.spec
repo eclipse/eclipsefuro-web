@@ -5,10 +5,10 @@
   "__proto": {
     "package": "person",
     "imports": [
-      "person.proto",
       "furo/meta.proto",
       "furo/link.proto"
-    ]
+    ],
+    "targetfile": "person.proto"
   },
   "fields": {
     "data": {

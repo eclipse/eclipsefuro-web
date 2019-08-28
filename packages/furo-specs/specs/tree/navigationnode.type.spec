@@ -4,7 +4,8 @@
   "description": "Item of the navigationtree",
   "__proto": {
     "package": "tree",
-    "imports": ["furo/link.proto"]
+    "imports": ["furo/link.proto"],
+    "targetfile": "tree.proto"
   },
   "fields": {
     "id": {

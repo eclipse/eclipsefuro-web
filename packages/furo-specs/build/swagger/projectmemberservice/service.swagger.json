@@ -1,0 +1,295 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "projectmemberservice/service.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/members": {
+      "get": {
+        "summary": "Get a collection with PersonEntities",
+        "operationId": "ListMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/personPersonCollection"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "fields",
+            "description": "Partielle Repräsentation fields=id,name // 10.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Filter.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "count",
+            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
+            "in": "query",
+            "required": false,
+            "type": "boolean",
+            "format": "boolean"
+          },
+          {
+            "name": "sum",
+            "description": "not implemented.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "view",
+            "description": "not implemented (ehemals context).",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "description": "Query term to search a member.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProjectMembersService"
+        ]
+      }
+    },
+    "/api/projects/{prj}/members/{prs}:unsubscribe": {
+      "post": {
+        "summary": "Custom method to unsubscribe a member, complete PersonEntity is expected",
+        "operationId": "UnsubscribeProjectMembersService",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/personPersonCollection"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "prj",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "prs",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/personPersonEntity"
+            }
+          }
+        ],
+        "tags": [
+          "ProjectMembersService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "furoFieldconstraint": {
+      "type": "object",
+      "properties": {
+        "constraint": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "constrain of a field"
+        }
+      },
+      "title": "constrains of fields"
+    },
+    "furoFieldmeta": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "meta information of a field"
+        }
+      },
+      "title": "meta"
+    },
+    "furoLink": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "title": "link"
+        },
+        "method": {
+          "type": "string",
+          "title": "method of curl"
+        },
+        "rel": {
+          "type": "string",
+          "title": "the relationship"
+        },
+        "type": {
+          "type": "string",
+          "title": "mime type"
+        }
+      },
+      "title": "link"
+    },
+    "furoMeta": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/furoMetafield"
+          },
+          "title": "fields of meta info"
+        }
+      },
+      "title": "meta info"
+    },
+    "furoMetafield": {
+      "type": "object",
+      "properties": {
+        "constraints": {
+          "$ref": "#/definitions/furoFieldconstraint",
+          "title": "constraints of a field"
+        },
+        "meta": {
+          "$ref": "#/definitions/furoFieldmeta",
+          "title": "meta information of a field"
+        }
+      },
+      "title": "fields of meta info"
+    },
+    "personPerson": {
+      "type": "object",
+      "properties": {
+        "display_name": {
+          "type": "string",
+          "title": "Localized String representation of a person"
+        },
+        "first_name": {
+          "type": "string",
+          "title": "First name of a person"
+        },
+        "id": {
+          "type": "string",
+          "title": "Identity of a person"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of a person"
+        },
+        "phone_nr": {
+          "type": "string",
+          "title": "Internal phone number"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "List of main skills of a person"
+        }
+      },
+      "title": "Person message type"
+    },
+    "personPersonCollection": {
+      "type": "object",
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/personPersonEntity"
+          },
+          "title": "Contains a person.PersonEntity repeated"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/furoLink"
+          },
+          "title": "Hateoas links"
+        },
+        "meta": {
+          "$ref": "#/definitions/furoMeta",
+          "title": "Meta for the response"
+        }
+      },
+      "title": "PersonCollection with repeated PersonEntity"
+    },
+    "personPersonEntity": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/personPerson",
+          "title": "contains a person.Person"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/furoLink"
+          },
+          "title": "Hateoas links"
+        },
+        "meta": {
+          "$ref": "#/definitions/furoMeta",
+          "title": "Meta for the response"
+        }
+      },
+      "title": "PersonEntity with Person"
+    }
+  }
+}

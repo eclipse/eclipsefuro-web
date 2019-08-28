@@ -5,10 +5,10 @@
   "__proto": {
     "package": "project",
     "imports": [
-     "project_entity.proto",
      "furo/meta.proto",
      "furo/link.proto"
-     ]
+     ],
+    "targetfile": "project.proto"
   },
   "fields": {
     "meta": {

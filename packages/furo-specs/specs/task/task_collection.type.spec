@@ -4,11 +4,12 @@
   "description": "TaskCollection with repeated TaskEntity",
   "__proto": {
     "package": "task",
+    "options": {},
     "imports": [
-     "task_entity.proto",
      "furo/meta.proto",
      "furo/link.proto"
-     ]
+     ],
+    "targetfile": "task.proto"
   },
   "fields": {
     "meta": {

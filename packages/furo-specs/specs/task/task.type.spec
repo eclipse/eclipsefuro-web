@@ -5,10 +5,9 @@
   "__proto": {
     "package": "task",
     "imports": [
-      "person/person.proto",
-      "project/project_collection.proto",
       "furo/reference.proto"
-    ]
+    ],
+    "targetfile": "task.proto"
   },
   "fields": {
     "id": {

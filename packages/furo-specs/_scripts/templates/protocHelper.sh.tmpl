@@ -5,34 +5,33 @@ then
   echo 'missing argument, package folder is required'
 exit 1
 fi
-PACKAGE=$2
 BUILDPATHPROTOS=$1
+THEPROTOFILE=$2
+
 if [ ! -d $BUILDPATHPROTOS ]
 then
     echo "Package folder /$BUILDPATHPROTOS DOES NOT exists."
     exit 1
 fi
 # https://github.com/gogo/protobuf/issues/325
-cd $BUILDPATHPROTOS/$PACKAGE
+cd $BUILDPATHPROTOS
 
 
-mkdir -p ../../pb/$PACKAGE
-{{if .java}}mkdir -p ../../java/$PACKAGE{{end}}
-{{if .swagger}}mkdir -p ../../swagger/$PACKAGE{{end}}
+mkdir -p ../pb/
+{{if .config.java}}mkdir -p ../java/{{end}}
+{{if .config.swagger}}mkdir -p ../swagger/{{end}}
 
-protoc --proto_path=../ \
+protoc --proto_path=./ \
 -I. \
 {{- range $import := .protoc_I}}
 -I{{$import}} \{{end}}
-{{- range $pkg := .packages}}
--I../{{$pkg}} \{{end}}
 --gogofast_out=.\
 {{- range $m := .protoc_M}}
-{{$m}},\{{end}}
-{{- range $pkg := .packages}}
-M{{$pkg}}/{{$pkg}}.proto=../{{$pkg}},\{{end}}
-plugins=grpc:../../pb/$PACKAGE \
-{{- if .swagger}}--swagger_out=logtostderr=true:../../swagger/$PACKAGE \{{end}}
-{{- if .java}}--java_out=../../java/ \{{end}}
-{{- if .grpc_gateway}}--grpc-gateway_out=logtostderr=true:../../pb/$PACKAGE \{{end}}
-*.proto
+M{{$m}},\{{end}}
+{{- range $m := .mod}}
+M{{$m.file}}=../{{$m.package}},\{{end}}
+plugins=grpc:../pb/ \
+{{- if .config.swagger}}--swagger_out=logtostderr=true:../swagger/ \{{end}}
+{{- if .config.java}}--java_out=../java/ \{{end}}
+{{- if .config.grpc_gateway}}--grpc-gateway_out=logtostderr=true:../pb/ \{{end}}
+$THEPROTOFILE
