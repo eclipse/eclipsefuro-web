@@ -172,7 +172,7 @@ class FuroTree extends FBP(LitElement) {
 
   _hoverHome() {
     let parent = this._hoveredField.getParentElement();
-    if (parent.nodeName !== "FURO-TREE") {
+    if (parent.triggerHover) {
       parent.triggerHover();
     }
   }
@@ -201,6 +201,30 @@ class FuroTree extends FBP(LitElement) {
     if (prev) {
       prev.triggerHover();
     }
+  }
+
+  qpIn(qpObject) {
+    if (qpObject[this.qp]) {
+      this.selectById(qpObject[this.qp]);
+    }
+  }
+
+  selectById(nodeID) {
+    this._flatTree.forEach((node) => {
+      if (node.id.value == nodeID) {
+        node.selectItem();
+
+        /**
+         * Fire event, when qp is set, because the selectItem will not fire
+         */
+        if (this.qp) {
+          let customEvent = new Event('node-selected', {composed: true, bubbles: true});
+          customEvent.detail = this._selectedField;
+          this.dispatchEvent(customEvent);
+        }
+        return node;
+      }
+    });
   }
 
   /**
@@ -305,6 +329,11 @@ class FuroTree extends FBP(LitElement) {
        * Maximal depth for the tree. Default is infinite.
        */
       depth: {type: Number},
+      /**
+       * Query param to watch. If you set this attribute, the node-selected event will only be fired on `ƒ-qp-in` or `ƒ-select-by-id`.
+       * If you select an item the `qp-change-request` will be fired.
+       */
+      qp: {type: String},
       /**
        * Sets the tabindex
        */
@@ -530,12 +559,32 @@ class FuroTree extends FBP(LitElement) {
 
       /**
        * @event node-selected
-       * Fired when
+       * Fired when the item gets selected, does not fire when you work with query params
        * detail payload:
        */
-      let customEvent = new Event('node-selected', {composed: true, bubbles: true});
-      customEvent.detail = this._selectedField;
-      this.dispatchEvent(customEvent);
+      if (!this.qp) {
+        let customEvent = new Event('node-selected', {composed: true, bubbles: true});
+        customEvent.detail = this._selectedField;
+        this.dispatchEvent(customEvent);
+      } else {
+
+        /**
+         * @event qp-change-requested
+         * Fired when qp mode is enabled. Nodes are only selectable with qpIn or selectById
+         *
+         * detail payload: Object {"this.qp": this._selectedField.id.value}
+         */
+        if(this.__lastQP !== this._selectedField.id.value){
+          let customEvent = new Event('qp-change-requested', {composed: true, bubbles: true});
+          let qp = {};
+          this.__lastQP = this._selectedField.id.value;
+          qp[this.qp] = this._selectedField.id.value;
+          customEvent.detail = qp;
+          this.dispatchEvent(customEvent)
+        }
+
+      }
+
       if (this._selectedField.isBranch()) {
         /**
          * @event branch-selected
@@ -609,7 +658,7 @@ class FuroTree extends FBP(LitElement) {
       // add openclose method to treeNode
       node.toggleOpenClose = () => {
         node.open.value = !node.open.value;
-        if(node.open.value){
+        if (node.open.value) {
           /**
            * @event node-opened
            * Fired when a node is opened
@@ -617,8 +666,8 @@ class FuroTree extends FBP(LitElement) {
           let customEvent = new Event('node-opened', {composed: true, bubbles: false});
           setTimeout(() => {
             this.dispatchEvent(customEvent);
-          },0);
-        }else{
+          }, 0);
+        } else {
           /**
            * @event node-closed
            * Fired when a node is closed
@@ -626,7 +675,7 @@ class FuroTree extends FBP(LitElement) {
           let customEvent = new Event('node-closed', {composed: true, bubbles: false});
           setTimeout(() => {
             this.dispatchEvent(customEvent);
-          },0);
+          }, 0);
         }
       };
 

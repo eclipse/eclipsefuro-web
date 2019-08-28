@@ -57,16 +57,22 @@ class DemoFuroTree extends FBP(LitElement) {
               width: 100%
             }</style>
 
-            <produce-data  @-data="--data"></produce-data>
+            <produce-data @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
-            <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data" @-object-ready="--entityObj"></furo-data-object>
-
+           <qp-changer ƒ-set-qp="--qpchangerequest"></qp-changer>
+            <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data"
+                              @-object-ready="--entityObj"></furo-data-object>
+            
             <furo-split-view style="height: 500px;">
               <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.data)"
+                         qp="t"
+                         ƒ-qp-in="--qp"
                          @-node-selected="--nodeSelected"
+                         @-qp-change-requested="--qp"
                          ƒ-select-next="--next"
+                         ƒ-select-by-id="--sel"
                          ƒ-select-prev="--prev"
                          ƒ-add-sub-node="--addSub"
                          ƒ-expand-node-recursive="--expandNode"
@@ -96,9 +102,9 @@ class DemoFuroTree extends FBP(LitElement) {
                 <furo-button danger outline @-click="--deleteNode" label="delete Node"></furo-button>
               </furo-card>
             </furo-split-view>
+            <furo-location url-space-regex="^/api/navigation/demo/demo-furo-tree"
+                           @-location-query-changed="--qp"></furo-location>
 
-
-            
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
