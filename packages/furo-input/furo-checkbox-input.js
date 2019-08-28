@@ -159,14 +159,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
              */
             condensed: {
                 type: Boolean
-            },
-            /**
-             * Set this attribute to switch to filled layout. Filled is without the borders around the field.
-             */
-            filled: {
-                type: Boolean
             }
-
         };
     }
 
@@ -290,23 +283,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
                 box-sizing: border-box;
                 height: 56px;
             }
-
-            :host([filled]) .wrapper {
-                background-color: var(--surface-light, #FEFEFE);
-            }
-
-            :host([filled]) .wrapper:hover {
-                background-color: var(--surface, #FCFCFC);
-            }
-
-            :host([filled]:focus-within) .wrapper {
-                background-color: var(--surface-dark, #FEA222);
-            }
-
-            :host(:not([filled]):hover) label {
-                border-color: var(--input-hover-color, #333333);
-            }
-
+            
             label {
                 line-height: 56px;
             }
@@ -320,16 +297,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
                 border: none;
                 border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
             }
-
-            :host([filled]) .ripple-line {
-                display: block;
-            }
-
-            :host([filled]) label {
-                line-height: 56px;
-                border: none;
-            }
-
+            
             * {
                 transition: all 200ms ease-out;
             }
@@ -364,7 +332,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
                 cursor: pointer;
             }
 
-            :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            :host(:focus-within) label, :host(:focus-within) label {
                 color: var(--input-active-label-color, var(--primary, #3f51b5));
                 border-color: var(--input-active-label-color, var(--primary, #3f51b5));
             }
@@ -374,7 +342,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
                 border-width: 2px;
             }
 
-            :host(:not([filled]):focus-within) label {
+            :host:focus-within) label {
                 border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
                 border-width: 2px;
             }
@@ -400,17 +368,11 @@ class FuroCheckboxInput extends FBP(LitElement) {
                 color: var(--input-error-text-color, var(--error, red));
             }
 
-            :host([condensed]) label {
-                top: 2px;
-                font-size: 14px;
-            }
-
-            :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+            :host([condensed]) label, :host([condensed]) label {
                 line-height: 40px;
-                font-size: 14px;
             }
 
-            :host([condensed][filled]) input {
+            :host([condensed]) input {
                 top: 12px;
             }
 
@@ -422,17 +384,13 @@ class FuroCheckboxInput extends FBP(LitElement) {
                 top: 38px;
             }
 
-            :host([condensed]) .hint, :host([condensed]) .errortext {
-                
-            }
-
             :host([condensed]) {
                 height: 40px;
             }
 
             furo-checkbox {
                 position: absolute;
-                top: 12px;
+                top: 8px;
             }
 
             label {
@@ -446,7 +404,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
             }
 
             :host([condensed]) furo-checkbox {
-                top: -2px;
+                top: 3px;
             }
 
         `
@@ -457,7 +415,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
         return html` 
       <div class="wrapper">
       
-        <furo-checkbox type="checkbox" id="input"  ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}  
+        <furo-checkbox type="checkbox" id="input"  ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}  ?condensed=${this.condensed}
           ƒ-set-value="--value" ƒ-focus="--focus"></furo-checkbox>
         <label for="input"  @-click="--toggle,--focus">${this.label}</label>
         
