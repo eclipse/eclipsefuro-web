@@ -51,8 +51,6 @@ class DemoFuroDataTextareaInput extends FBP(LitElement) {
         <template>
           <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.furo_data_textarea_input)"></furo-data-textarea-input>
           <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.furo_data_textarea_input)" @-value-changed="--textareaChanged"></furo-data-textarea-input>
-          <!-- --textareaChanged only comes when data was typed in. -->
-          <span ƒ-.inner-textarea="--textareaChanged"></span>
 
           <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
 

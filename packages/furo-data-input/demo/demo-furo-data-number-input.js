@@ -66,10 +66,7 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
               <furo-data-number-input label="disabled" disabled label="with step" step="0.5"
                                       ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
             </furo-horizontal-flex>
-            <hr>
-            <!-- --numberChanged only comes when data was typed in. -->
-            <span ƒ-.inner-text="--numberChanged"></span>
-
+              
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
 
             <furo-data-object type="experiment.Experiment" @-object-ready="--entity"

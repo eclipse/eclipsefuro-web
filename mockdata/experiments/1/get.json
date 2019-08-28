@@ -1,7 +1,7 @@
 {
   "data": {
     "description": "experiment data for testing",
-    "display_name": "test data",
+    "display_name": "display_name",
     "id": "1",
     "furo_data_checkbox_input": true,
     "furo_data_text_input": "hallo test",

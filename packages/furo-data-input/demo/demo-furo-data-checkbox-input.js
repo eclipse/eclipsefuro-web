@@ -55,20 +55,21 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
             <furo-demo-snippet>
                 <template>
                     <furo-data-checkbox-input label="invalid binding" ƒ-bind-data="--entity(*.xxx)"></furo-data-checkbox-input>
-                    <furo-data-checkbox-input label="disabled" hint="disabled hint" disabled=true > </furo-data-checkbox-input>
+                    <furo-data-checkbox-input label="disabled" hint="disabled hint" readonly=true ƒ-bind-data="--entity(*.furo_data_checkbox_input)"> </furo-data-checkbox-input>
                     <furo-data-checkbox-input condensed label="condensed" hint="condensed hint"  > </furo-data-checkbox-input>
                     <furo-horizontal-flex space>
     
-                    <furo-data-checkbox-input style="margin-top:12px" autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
-                                              @-value-changed="--checkChanged"
-                                              hint="the checked value will be sent to text input"></furo-data-checkbox-input>
-
-                    <furo-text-input condensed label="wire the checkbox" ƒ-set-value="--checkChanged"></furo-text-input>
-                    <produce-qp-data  @-data="--qp" qp={"exp":1}></produce-qp-data>
+                        <furo-data-checkbox-input style="margin-top:12px" autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                                                  @-value-changed="--checkChanged"
+                                                  hint="the checked value will be sent to text input"></furo-data-checkbox-input>
+    
+                        <furo-text-input condensed label="wire the checkbox" ƒ-set-value="--checkChanged"></furo-text-input>
 
                     </furo-horizontal-flex>
 
-                    <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
+                    <produce-qp-data  @-data="--qp" qp={"exp":1}></produce-qp-data>
+
+                    <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
                                       ƒ-inject-raw="--response(*.data)"></furo-data-object>
                     <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
                     <furo-entity-agent service="ExperimentService"

@@ -64,9 +64,7 @@ class DemoFuroDataTimeInput extends FBP(LitElement) {
               <furo-data-time-input label="disabled" disabled label="with step" step="0.5"
                                     ƒ-bind-data="--entity(*.furo_data_time_input)" ></furo-data-time-input>
             </furo-horizontal-flex>
-            <hr>
-            <!-- --timeChanged only comes when data was typed in. -->
-            <span ƒ-.inner-text="--timeChanged"></span>
+
 
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
 

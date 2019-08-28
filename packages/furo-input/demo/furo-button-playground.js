@@ -132,8 +132,8 @@ class FuroButtonPlayground extends FBP(LitElement) {
               
               
               <hr>
-              <furo-button raised label="disabled" ?primary="${this.disabled}" @-click="--toggledisabled"></furo-button>
-              
+               <furo-checkbox-input label="disabled" @-checked="--disable"  @-unchecked="--enable" ?checked="${this.disabled}"></furo-checkbox-input>
+
               <div>
               <hr>
               Methods</div>
