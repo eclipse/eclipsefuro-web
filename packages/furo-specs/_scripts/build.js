@@ -48,6 +48,8 @@ const Servicelist = {"__bundled": {"imports": new Set, "groupedservices": []}, "
 
 speclist.types.forEach((filename) => {
     let spec = JSON.parse(fs.readFileSync(filename));
+    // client needs unmodified
+    ClientEnv.types.push(JSON.parse(JSON.stringify(spec)));
     let target = spec.__proto.package.replace(".", "/") + "/" + spec.__proto.targetfile;
     // create if not exist
     if (!Typelist[target]) {
@@ -78,7 +80,7 @@ speclist.types.forEach((filename) => {
             field.__proto.map_to = field.__proto.map_to.replace(Typelist[target].package + ".", "");
         }
     }
-    ClientEnv.types.push(spec);
+
     Typelist[target].types.push(spec);
 
 });
