@@ -48,14 +48,14 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <div><h2>Demo furo-data-date-input</h2>
-          <p>Bind the field from furo-entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
-            The labels, hints, defaults are comming from the furo-entity-object specs.</p>
-          <p>As you can see, the "data-binding" is done by the furo-entity-object.</p>
+          <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
+            The labels, hints, defaults are comming from the furo-data-object specs.</p>
+          <p>As you can see, the "data-binding" is done by the furo-data-object.</p>
         </div>
         <furo-demo-snippet flex>
           <template>
-            <furo-entity-object type="task.Task" @-object-ready="--entity"></furo-entity-object>
-            <furo-horizontal-flex>
+            
+            <furo-form-layouter four>
               <furo-data-date-input autofocus ƒ-bind-data="--entity(*.furo_data_date_input)"
                                       hint="Hint should come from spec and overflows"></furo-data-date-input>
               <furo-data-date-input leading-icon="fingerprint" label="with step" step="30" ƒ-bind-data="--entity(*.furo_data_date_input)"
@@ -65,14 +65,12 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
                                       ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-date-input>
               <furo-data-date-input label="disabled" disabled label="with step" step="7"
                                       ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-date-input>
-            </furo-horizontal-flex>
+            </furo-form-layouter>
             <hr>
-            <!-- --dateChanged only comes when data was typed in. -->
-            <span ƒ-.inner-text="--dateChanged"></span>
-
+         
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
 
-            <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
+            <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
                               ƒ-inject-raw="--response(*.data)"></furo-data-object>
             <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
             <furo-entity-agent service="ExperimentService"

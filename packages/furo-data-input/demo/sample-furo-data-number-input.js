@@ -47,7 +47,7 @@ class SampleFuroDataNumberInput extends FBP(LitElement) {
       
       <furo-demo-snippet >
         <template>
-          <furo-entity-object type="task.Task" @-object-ready="--entity"></furo-entity-object>
+          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
           <furo-data-number-input autofocus ƒ-bind-data="--entity(*.fields.id)"></furo-data-number-input>
           <furo-data-number-input  hint="Type in a number" label="label" ƒ-bind-data="--entity(*.fields.id)"></furo-data-number-input>
         </template>

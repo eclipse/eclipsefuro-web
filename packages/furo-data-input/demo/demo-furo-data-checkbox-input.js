@@ -50,8 +50,8 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
         // language=HTML
         return html`
             <h2>Demo furo-data-checkbox-input</h2>
-            <p>Bind the field from entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
-                The labels, hints, defaults are comming from the entity-object specs.</p>
+            <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
+                The labels, hints, defaults are comming from the furo-data-object specs.</p>
             <furo-demo-snippet>
                 <template>
                     <furo-data-checkbox-input label="invalid binding" ƒ-bind-data="--entity(*.xxx)"></furo-data-checkbox-input>

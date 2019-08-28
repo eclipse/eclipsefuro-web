@@ -46,19 +46,18 @@ class DemoFuroDataTextInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <h2>Demo furo-data-text-input</h2>
-      <p>Bind the field from entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the entity-object specs.</p>
+      <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the furo-data-object specs.</p>
       <furo-demo-snippet >
         <template>
-          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+          
           <furo-data-text-input trailing-icon="dashboard" hint="custom hint" ƒ-bind-data="--entity(*.display_name)"></furo-data-text-input>
-          <furo-data-text-input leading-icon="dashboard" float label="Always float" hint="Always float" ƒ-bind-data="--entity(*.description)"></furo-data-text-input>
-          <furo-data-text-input autofocus  ƒ-bind-data="--entity(*.furo_data_text_input)" @-value-changed="--textChanged"></furo-data-text-input>
-          <!-- --textChanged only comes when data was typed in. -->
-          <span ƒ-.inner-text="--textChanged"></span>
-
+          <furo-data-text-input leading-icon="dashboard" ƒ-bind-data="--entity(*.description)"></furo-data-text-input>
+          <furo-data-text-input readonly ƒ-bind-data="--entity(*.description)"></furo-data-text-input>
+          <furo-data-text-input autofocus  ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
+          
           <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
 
-          <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
+          <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
                             ƒ-inject-raw="--response(*.data)"></furo-data-object>
           <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
           <furo-entity-agent service="ExperimentService"

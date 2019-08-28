@@ -12,8 +12,8 @@ import "./reference-search-item";
  *
  *
  *```
- * <!--  furo-entity-object will eine Referenz auflösen -->
- * <furo-entity-object type="task.Task" @-object-ready="--entityReady"></furo-entity-object>
+ * <!--  furo-data-object will eine Referenz auflösen -->
+ * <furo-data-object type="task.Task" @-object-ready="--entityReady"></furo-data-object>
  *
  *<furo-horizontal-flex>
  *    <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.

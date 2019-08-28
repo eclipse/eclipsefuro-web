@@ -46,7 +46,7 @@ class DemoFuroDataTextareaInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <h2>Demo furo-data-textarea-input</h2>
-      <p>Bind the field from furo-entity-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the furo-entity-object specs.</p>
+      <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>. The labels, hints, defaults are comming from the furo-data-object specs.</p>
       <furo-demo-snippet >
         <template>
           <furo-data-textarea-input autofocus ƒ-bind-data="--entity(*.furo_data_textarea_input)"></furo-data-textarea-input>
@@ -56,7 +56,7 @@ class DemoFuroDataTextareaInput extends FBP(LitElement) {
 
           <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
 
-          <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
+          <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
                             ƒ-inject-raw="--response(*.data)"></furo-data-object>
           <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
           <furo-entity-agent service="ExperimentService"

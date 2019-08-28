@@ -2,7 +2,7 @@ import {LitElement, html} from 'lit-element';
 import {FBP} from "@furo/fbp";
 
 /**
- * Use this component to interact with fields from an entity-object.
+ * Use this component to interact with fields from an furo-data-object.
  *
  * You can set the field value or listen to changes of a field.
  *
@@ -32,7 +32,7 @@ class FuroEntityField extends LitElement {
 
   /**
    * Bind a entity field to the date-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {

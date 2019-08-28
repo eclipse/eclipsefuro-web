@@ -48,7 +48,7 @@ class SampleFuroDataCollectionDropdown extends FBP(LitElement) {
       <furo-demo-snippet >
         <template>
           <furo-collection-object type="tree.Tree" @-response="--collection"></furo-collection-object>
-          <furo-entity-object type="tree.navigationnode" @-object-ready="--entity"></furo-entity-object>
+          <furo-data-object type="tree.navigationnode" @-object-ready="--entity"></furo-data-object>
           <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"  label="Label" ƒ-inject-data="--collection" ƒ-bind-data="--entity(*.fields.description)"></furo-data-collection-dropdown>
           <furo-data-collection-dropdown condensed label="Label" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-data="--collection" ƒ-bind-data="--entity(*.fields.description)"></furo-data-collection-dropdown>
         </template>

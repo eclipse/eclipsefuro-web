@@ -15,7 +15,7 @@
     import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
     import '@polymer/iron-demo-helpers/demo-snippet';
     import '@furo/data/furo-collection-agent';
-    import '@furo/data/furo-entity-object';
+    import '@furo/data/furo-data-object';
     import '@furo/fbp/flow-bind.js';
     import '@furo/fbp/flow-repeat.js';
     import '@furo/layout/furo-horizontal-flex.js';
@@ -41,8 +41,8 @@
       <flow-bind>
         <template>
           <hr>
-          <!--  furo-entity-object will eine Referenz auflösen -->
-          <furo-entity-object type="task.Task" @-object-ready="--entityReady"></furo-entity-object>
+          <!--  furo-data-object will eine Referenz auflösen -->
+          <furo-data-object type="task.Task" @-object-ready="--entityReady"></furo-data-object>
 
           <furo-horizontal-flex>
             <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
