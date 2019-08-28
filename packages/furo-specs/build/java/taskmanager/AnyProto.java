@@ -320,7 +320,7 @@ public final class AnyProto {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
           tree.TreeOuterClass.getDescriptor(),
-          com.google.protobuf.EmptyProto.getDescriptor(),
+          google.protobuf.EmptyOuterClass.getDescriptor(),
           person.PersonOuterClass.getDescriptor(),
           project.ProjectOuterClass.getDescriptor(),
           task.TaskOuterClass.getDescriptor(),
@@ -495,7 +495,7 @@ public final class AnyProto {
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
     tree.TreeOuterClass.getDescriptor();
-    com.google.protobuf.EmptyProto.getDescriptor();
+    google.protobuf.EmptyOuterClass.getDescriptor();
     person.PersonOuterClass.getDescriptor();
     project.ProjectOuterClass.getDescriptor();
     task.TaskOuterClass.getDescriptor();

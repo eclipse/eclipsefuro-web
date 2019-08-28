@@ -4,9 +4,7 @@
   "description": "experiment spec for testing",
   "__proto": {
     "package": "experiment",
-    "imports": [
-
-    ],
+    "imports": ["google/protobuf/any.proto"],
     "targetfile": "experiment.proto"
   },
   "fields": {
@@ -238,6 +236,22 @@
       "options": [],
       "__proto": {
         "number": 14
+      }
+    },
+
+    "the_any_type": {
+      "description": "field for testing any",
+      "type": "google.protobuf.Any",
+      "meta": {
+        "label": "can be anything",
+        "hint": "hint"
+      },
+      "constraints": {
+        "readonly": false
+      },
+      "options": [],
+      "__proto": {
+        "number": 15
       }
     }
   }

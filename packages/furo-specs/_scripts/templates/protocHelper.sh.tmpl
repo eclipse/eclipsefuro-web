@@ -25,11 +25,11 @@ protoc --proto_path=./ \
 -I. \
 {{- range $import := .protoc_I}}
 -I{{$import}} \{{end}}
---gogofast_out=.\
+--gogofast_out=\
+{{- range $m := .mod}}
+M{{$m.file}}={{$m.package}},\{{end}}
 {{- range $m := .protoc_M}}
 M{{$m}},\{{end}}
-{{- range $m := .mod}}
-M{{$m.file}}=../{{$m.package}},\{{end}}
 plugins=grpc:../pb/ \
 {{- if .config.swagger}}--swagger_out=logtostderr=true:../swagger/ \{{end}}
 {{- if .config.java}}--java_out=../java/ \{{end}}

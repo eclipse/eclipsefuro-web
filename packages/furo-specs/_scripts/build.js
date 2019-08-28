@@ -20,7 +20,7 @@ const TPLDirSingle = config.custom_template_dir || __dirname + "/templates/singl
 const TPLDirBase = config.custom_template_dir || __dirname + "/templates";
 const BuildDir = path.normalize(process.cwd() + "/" + config.build_output_dir);
 
-const ClientEnv = {services:[], types:[]};
+const ClientEnv = {services: [], types: []};
 let cwd = process.cwd();
 if (BuildDir.search(cwd) === -1) {
     // buildpath outside cwd
@@ -89,7 +89,7 @@ for (let target in Typelist) {
     let type = Typelist[target];
     type.imports = Array.from(type.imports);
     // fill protoc file
-    protoc.mod.push({"file": target, package: type.package.replace(".","/")});
+    protoc.mod.push({"file": target, package: "../" + type.package.replace(".", "/")});
 
     // Write json files for messages
     sh("mkdir", ["-p", "./__tmp/_types/" + path.dirname(target)]);
@@ -155,14 +155,13 @@ if (config.bundled.build) {
 }
 
 
-
 // environment build
 let apiSpecs = "";
 
 // add the services
 let s = {};
 
-ClientEnv.services.forEach((service)=>{
+ClientEnv.services.forEach((service) => {
     s[service.name] = service
 });
 apiSpecs = `export const Services =` + JSON.stringify(s);
@@ -170,15 +169,12 @@ apiSpecs = `export const Services =` + JSON.stringify(s);
 let t = {};
 
 
-ClientEnv.types.forEach((type)=>{
+ClientEnv.types.forEach((type) => {
     t[type.__proto.package + "." + type.type] = type
 });
 
 apiSpecs += `\nexport const Types =` + JSON.stringify(t);
-fs.writeFileSync(BuildDir+ "/" + config.furo_env_name , apiSpecs);
-
-
-
+fs.writeFileSync(BuildDir + "/" + config.furo_env_name, apiSpecs);
 
 
 // protoc helper
@@ -198,4 +194,10 @@ if (config.bundled.build) {
     for (let target in Servicelist.targets) {
         sh("./__tmp/protocHelper.sh", [BuildDir + "/protos", "__bundled/" + config.bundled.service_name + ".proto"]);
     }
+    // build the bundled gateway
+    sh("simple-generator", ["-d", "./furo.spec.conf.json", "-t", TPLDirBase + "/grpc-gateway/bundled_transcoder.go.tmpl", ">", BuildDir + "/pb/bundled_" + config.bundled.package_name + "_gw.go"])
+
+} else {
+    // build the single gateway
+    sh("simple-generator", ["-d", "./__tmp/_services/BundledService.json", "-t", TPLDirBase + "/grpc-gateway/single_transcoder.go.tmpl", ">", BuildDir + "/pb/single_gw.go"]);
 }

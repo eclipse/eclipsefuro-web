@@ -1,7 +1,7 @@
 package main
 
 import (
-	 "./person"
+	 "./__bundled"
 	"flag"
 	"github.com/golang/glog"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
@@ -28,8 +28,6 @@ func incomingMatcher(headerName string) (mdName string, ok bool) {
 }
 
 func run() error {
-	log.Printf(os.Getenv("GRPC_CLIENT_BF_ADDRESS"))
-
 	ctx := context.Background()
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
@@ -39,37 +37,23 @@ func run() error {
 
 	// Services hier einfügen
 	// PersonService
-	err := person.RegisterPersonServiceHandlerFromEndpoint(ctx, mux, *grpcserver, opts)
+	err := {{.bundled.proto_options.go_package}}.Register{{.bundled.service_name}}HandlerFromEndpoint(ctx, mux, *grpcserver, opts)
 	if err != nil {
 		return err
 	}
-
-
+	
 	return http.ListenAndServe(*gwserver, mux)
 }
 
 func main() {
-	log.Printf("Connecting to " + *grpcserver + " and listening to: " + *gwserver);
+	
 	flag.Parse()
 	defer glog.Flush()
 
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
 	logger.Println("Server is starting...")
-
+	logger.Printf("Connecting to " + *grpcserver + " and listening on: " + *gwserver);
 	if err := run(); err != nil {
 		glog.Fatal(err)
-	}
-}
-
-
-func logging(logger *log.Logger) func(http.Handler) http.Handler {
-	return func(next http.Handler) http.Handler {
-		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			defer func() {
-
-				logger.Println( r.Method, r.URL.Path, r.RemoteAddr, r.UserAgent())
-			}()
-			next.ServeHTTP(w, r)
-		})
 	}
 }

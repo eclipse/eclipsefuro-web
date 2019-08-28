@@ -24,9 +24,9 @@ public interface DeleteTaskServiceRequestOrBuilder extends
   /**
    * <code>.google.protobuf.Empty data = 2;</code>
    */
-  com.google.protobuf.Empty getData();
+  google.protobuf.EmptyOuterClass.Empty getData();
   /**
    * <code>.google.protobuf.Empty data = 2;</code>
    */
-  com.google.protobuf.EmptyOrBuilder getDataOrBuilder();
+  google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder();
 }

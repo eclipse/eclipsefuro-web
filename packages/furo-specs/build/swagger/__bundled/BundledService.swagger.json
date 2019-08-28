@@ -1581,6 +1581,10 @@
         "id": {
           "type": "string",
           "title": "Identity of a experiment"
+        },
+        "the_any_type": {
+          "$ref": "#/definitions/protobufAny",
+          "title": "field for testing any"
         }
       },
       "title": "experiment spec for testing"
@@ -1891,6 +1895,19 @@
         }
       },
       "title": "ProjectEntity with Project"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      },
+      "title": "Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
     },
     "taskTask": {
       "type": "object",

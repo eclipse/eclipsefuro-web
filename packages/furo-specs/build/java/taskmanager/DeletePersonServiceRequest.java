@@ -50,11 +50,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            com.google.protobuf.Empty.Builder subBuilder = null;
+            google.protobuf.EmptyOuterClass.Empty.Builder subBuilder = null;
             if (data_ != null) {
               subBuilder = data_.toBuilder();
             }
-            data_ = input.readMessage(com.google.protobuf.Empty.parser(), extensionRegistry);
+            data_ = input.readMessage(google.protobuf.EmptyOuterClass.Empty.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(data_);
               data_ = subBuilder.buildPartial();
@@ -129,7 +129,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_FIELD_NUMBER = 2;
-  private com.google.protobuf.Empty data_;
+  private google.protobuf.EmptyOuterClass.Empty data_;
   /**
    * <code>.google.protobuf.Empty data = 2;</code>
    */
@@ -139,13 +139,13 @@ private static final long serialVersionUID = 0L;
   /**
    * <code>.google.protobuf.Empty data = 2;</code>
    */
-  public com.google.protobuf.Empty getData() {
-    return data_ == null ? com.google.protobuf.Empty.getDefaultInstance() : data_;
+  public google.protobuf.EmptyOuterClass.Empty getData() {
+    return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
   }
   /**
    * <code>.google.protobuf.Empty data = 2;</code>
    */
-  public com.google.protobuf.EmptyOrBuilder getDataOrBuilder() {
+  public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
     return getData();
   }
 
@@ -550,9 +550,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Empty data_;
+    private google.protobuf.EmptyOuterClass.Empty data_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder> dataBuilder_;
+        google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> dataBuilder_;
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
@@ -562,9 +562,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
-    public com.google.protobuf.Empty getData() {
+    public google.protobuf.EmptyOuterClass.Empty getData() {
       if (dataBuilder_ == null) {
-        return data_ == null ? com.google.protobuf.Empty.getDefaultInstance() : data_;
+        return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
       } else {
         return dataBuilder_.getMessage();
       }
@@ -572,7 +572,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
-    public Builder setData(com.google.protobuf.Empty value) {
+    public Builder setData(google.protobuf.EmptyOuterClass.Empty value) {
       if (dataBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -589,7 +589,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Empty data = 2;</code>
      */
     public Builder setData(
-        com.google.protobuf.Empty.Builder builderForValue) {
+        google.protobuf.EmptyOuterClass.Empty.Builder builderForValue) {
       if (dataBuilder_ == null) {
         data_ = builderForValue.build();
         onChanged();
@@ -602,11 +602,11 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
-    public Builder mergeData(com.google.protobuf.Empty value) {
+    public Builder mergeData(google.protobuf.EmptyOuterClass.Empty value) {
       if (dataBuilder_ == null) {
         if (data_ != null) {
           data_ =
-            com.google.protobuf.Empty.newBuilder(data_).mergeFrom(value).buildPartial();
+            google.protobuf.EmptyOuterClass.Empty.newBuilder(data_).mergeFrom(value).buildPartial();
         } else {
           data_ = value;
         }
@@ -634,7 +634,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
-    public com.google.protobuf.Empty.Builder getDataBuilder() {
+    public google.protobuf.EmptyOuterClass.Empty.Builder getDataBuilder() {
       
       onChanged();
       return getDataFieldBuilder().getBuilder();
@@ -642,23 +642,23 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
-    public com.google.protobuf.EmptyOrBuilder getDataOrBuilder() {
+    public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
       if (dataBuilder_ != null) {
         return dataBuilder_.getMessageOrBuilder();
       } else {
         return data_ == null ?
-            com.google.protobuf.Empty.getDefaultInstance() : data_;
+            google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
       }
     }
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder> 
+        google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> 
         getDataFieldBuilder() {
       if (dataBuilder_ == null) {
         dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder>(
+            google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder>(
                 getData(),
                 getParentForChildren(),
                 isClean());

@@ -641,11 +641,11 @@ public final class Service {
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
-    com.google.protobuf.Empty getData();
+    google.protobuf.EmptyOuterClass.Empty getData();
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
-    com.google.protobuf.EmptyOrBuilder getDataOrBuilder();
+    google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder();
   }
   /**
    * Protobuf type {@code personservice.DeletePersonServiceRequest}
@@ -694,11 +694,11 @@ public final class Service {
               break;
             }
             case 18: {
-              com.google.protobuf.Empty.Builder subBuilder = null;
+              google.protobuf.EmptyOuterClass.Empty.Builder subBuilder = null;
               if (data_ != null) {
                 subBuilder = data_.toBuilder();
               }
-              data_ = input.readMessage(com.google.protobuf.Empty.parser(), extensionRegistry);
+              data_ = input.readMessage(google.protobuf.EmptyOuterClass.Empty.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(data_);
                 data_ = subBuilder.buildPartial();
@@ -773,7 +773,7 @@ public final class Service {
     }
 
     public static final int DATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.Empty data_;
+    private google.protobuf.EmptyOuterClass.Empty data_;
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
@@ -783,13 +783,13 @@ public final class Service {
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
-    public com.google.protobuf.Empty getData() {
-      return data_ == null ? com.google.protobuf.Empty.getDefaultInstance() : data_;
+    public google.protobuf.EmptyOuterClass.Empty getData() {
+      return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
     }
     /**
      * <code>.google.protobuf.Empty data = 2;</code>
      */
-    public com.google.protobuf.EmptyOrBuilder getDataOrBuilder() {
+    public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
       return getData();
     }
 
@@ -1194,9 +1194,9 @@ public final class Service {
         return this;
       }
 
-      private com.google.protobuf.Empty data_;
+      private google.protobuf.EmptyOuterClass.Empty data_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder> dataBuilder_;
+          google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> dataBuilder_;
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
        */
@@ -1206,9 +1206,9 @@ public final class Service {
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
        */
-      public com.google.protobuf.Empty getData() {
+      public google.protobuf.EmptyOuterClass.Empty getData() {
         if (dataBuilder_ == null) {
-          return data_ == null ? com.google.protobuf.Empty.getDefaultInstance() : data_;
+          return data_ == null ? google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
         } else {
           return dataBuilder_.getMessage();
         }
@@ -1216,7 +1216,7 @@ public final class Service {
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
        */
-      public Builder setData(com.google.protobuf.Empty value) {
+      public Builder setData(google.protobuf.EmptyOuterClass.Empty value) {
         if (dataBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1233,7 +1233,7 @@ public final class Service {
        * <code>.google.protobuf.Empty data = 2;</code>
        */
       public Builder setData(
-          com.google.protobuf.Empty.Builder builderForValue) {
+          google.protobuf.EmptyOuterClass.Empty.Builder builderForValue) {
         if (dataBuilder_ == null) {
           data_ = builderForValue.build();
           onChanged();
@@ -1246,11 +1246,11 @@ public final class Service {
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
        */
-      public Builder mergeData(com.google.protobuf.Empty value) {
+      public Builder mergeData(google.protobuf.EmptyOuterClass.Empty value) {
         if (dataBuilder_ == null) {
           if (data_ != null) {
             data_ =
-              com.google.protobuf.Empty.newBuilder(data_).mergeFrom(value).buildPartial();
+              google.protobuf.EmptyOuterClass.Empty.newBuilder(data_).mergeFrom(value).buildPartial();
           } else {
             data_ = value;
           }
@@ -1278,7 +1278,7 @@ public final class Service {
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
        */
-      public com.google.protobuf.Empty.Builder getDataBuilder() {
+      public google.protobuf.EmptyOuterClass.Empty.Builder getDataBuilder() {
         
         onChanged();
         return getDataFieldBuilder().getBuilder();
@@ -1286,23 +1286,23 @@ public final class Service {
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
        */
-      public com.google.protobuf.EmptyOrBuilder getDataOrBuilder() {
+      public google.protobuf.EmptyOuterClass.EmptyOrBuilder getDataOrBuilder() {
         if (dataBuilder_ != null) {
           return dataBuilder_.getMessageOrBuilder();
         } else {
           return data_ == null ?
-              com.google.protobuf.Empty.getDefaultInstance() : data_;
+              google.protobuf.EmptyOuterClass.Empty.getDefaultInstance() : data_;
         }
       }
       /**
        * <code>.google.protobuf.Empty data = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder> 
+          google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder> 
           getDataFieldBuilder() {
         if (dataBuilder_ == null) {
           dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder>(
+              google.protobuf.EmptyOuterClass.Empty, google.protobuf.EmptyOuterClass.Empty.Builder, google.protobuf.EmptyOuterClass.EmptyOrBuilder>(
                   getData(),
                   getParentForChildren(),
                   isClean());
@@ -4448,7 +4448,7 @@ public final class Service {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
           person.PersonOuterClass.getDescriptor(),
-          com.google.protobuf.EmptyProto.getDescriptor(),
+          google.protobuf.EmptyOuterClass.getDescriptor(),
         }, assigner);
     internal_static_personservice_CreatePersonServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -4487,7 +4487,7 @@ public final class Service {
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
     person.PersonOuterClass.getDescriptor();
-    com.google.protobuf.EmptyProto.getDescriptor();
+    google.protobuf.EmptyOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
