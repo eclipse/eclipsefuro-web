@@ -58,11 +58,10 @@
       "meta": {
         "label": "checkbox_input",
         "default": "",
-        "hint": "Hint"
-      },
-      "constraints": {
+        "hint": "Hint",
         "readonly": false
       },
+      "constraints": {},
       "options": [],
       "__proto": {
         "number": 4
@@ -90,11 +89,10 @@
       "type": "string",
       "meta": {
         "label": "textarea_input",
-        "hint": "hint"
-      },
-      "constraints": {
+        "hint": "hint",
         "readonly": false
       },
+      "constraints": {},
       "options": [],
       "__proto": {
         "number": 6
@@ -105,12 +103,12 @@
       "type": "string",
       "meta": {
         "label": "time-input",
-        "hint": "hint"
+        "hint": "hint",
+        "readonly": false
       },
       "constraints": {
-        "readonly": false,
-        "min":null,
-        "max":null,
+        "min":"00-00",
+        "max":"24:59",
         "step":""
       },
       "options": [],
@@ -123,13 +121,13 @@
       "type": "string",
       "meta": {
         "label": "range-input",
-        "hint": "hint"
+        "hint": "hint",
+        "readonly": false
       },
       "constraints": {
         "min":null,
         "max":null,
-        "step":"",
-        "readonly": false
+        "step":""
       },
       "options": [],
       "__proto": {
@@ -141,13 +139,13 @@
       "type": "float",
       "meta": {
         "label": "number-input",
-        "hint": "hint"
+        "hint": "hint",
+        "readonly": false
       },
       "constraints": {
         "min":1,
         "max":5,
-        "step":"",
-        "readonly": false
+        "step":""
       },
       "options": [],
       "__proto": {
@@ -159,11 +157,10 @@
       "type": "string",
       "meta": {
         "label": "color-input",
-        "hint": "hint"
-      },
-      "constraints": {
+        "hint": "hint",
         "readonly": false
       },
+      "constraints": {},
       "options": [],
       "__proto": {
         "number": 10
@@ -174,13 +171,13 @@
       "type": "string",
       "meta": {
         "label": "password-input",
-        "hint": "hint"
+        "hint": "hint",
+        "readonly": false
       },
       "constraints": {
         "min":6,
         "max":15,
-        "pattern":"",
-        "readonly": false
+        "pattern":""
       },
       "options": [],
       "__proto": {
@@ -192,13 +189,13 @@
       "type": "string",
       "meta": {
         "label": " search",
-        "hint": "hint"
+        "hint": "hint",
+        "readonly": false
       },
       "constraints": {
         "min":1,
         "max":15,
-        "pattern":"",
-        "readonly": false
+        "pattern":""
       },
       "options": [],
       "__proto": {
@@ -210,13 +207,13 @@
       "type": "string",
       "meta": {
         "label": "date-input",
-        "hint": "hint"
+        "hint": "hint",
+        "readonly": false
       },
       "constraints": {
-        "min":1,
-        "max":15,
-        "pattern":"",
-        "readonly": false
+        "min":"1800-01-01",
+        "max":"2099-12-31",
+        "pattern":""
       },
       "options": [],
       "__proto": {
@@ -228,11 +225,10 @@
       "type": "bool",
       "meta": {
         "label": "bool-icon input",
-        "hint": "hint"
-      },
-      "constraints": {
+        "hint": "hint",
         "readonly": false
       },
+      "constraints": {},
       "options": [],
       "__proto": {
         "number": 14
@@ -244,11 +240,10 @@
       "type": "google.protobuf.Any",
       "meta": {
         "label": "can be anything",
-        "hint": "hint"
-      },
-      "constraints": {
+        "hint": "hint",
         "readonly": false
       },
+      "constraints": {},
       "options": [],
       "__proto": {
         "number": 15
