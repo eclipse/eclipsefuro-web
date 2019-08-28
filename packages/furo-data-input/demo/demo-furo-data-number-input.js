@@ -54,7 +54,7 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+            
             <furo-horizontal-flex>
               <furo-data-number-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"
                                       hint="Hint should come from spec and overflows"></furo-data-number-input>
@@ -72,7 +72,7 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
 
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
 
-            <furo-data-object type="experiment.Experiment" @-data-injected="--entity"
+            <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
                               ƒ-inject-raw="--response(*.data)"></furo-data-object>
             <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
             <furo-entity-agent service="ExperimentService"

@@ -56,7 +56,7 @@
       "description": "field for furo_data_checkbox_input for testing",
       "type": "bool",
       "meta": {
-        "label": "Label for furo_data_checkbox_input",
+        "label": "checkbox_input",
         "default": "",
         "hint": "Hint"
       },
@@ -72,13 +72,13 @@
       "description": "field for furo_data_text_input for testing",
       "type": "string",
       "meta": {
-        "label": "Label for furo_data_text_input input",
-        "hint": "hint"
+        "label": "text_input",
+        "hint": "hint",
+        "readonly": false
       },
       "constraints": {
         "min": 3,
-        "max": 15,
-        "readonly": false
+        "max": 15
       },
       "options": [],
       "__proto": {
@@ -89,7 +89,7 @@
       "description": "field for furo_data_textarea_input for testing",
       "type": "string",
       "meta": {
-        "label": "Label for furo_data_textarea_input input",
+        "label": "textarea_input",
         "hint": "hint"
       },
       "constraints": {
@@ -104,7 +104,7 @@
       "description": "field for furo-data-time-input for testing",
       "type": "string",
       "meta": {
-        "label": "Label for furo-data-time-input input",
+        "label": "time-input",
         "hint": "hint"
       },
       "constraints": {
@@ -122,7 +122,7 @@
       "description": "field for furo-data-range-input for testing",
       "type": "string",
       "meta": {
-        "label": "Label for furo-data-range-input input",
+        "label": "range-input",
         "hint": "hint"
       },
       "constraints": {
@@ -140,7 +140,7 @@
       "description": "field for furo-data-number-input for testing",
       "type": "float",
       "meta": {
-        "label": "Label for furo-data-number-input input",
+        "label": "number-input",
         "hint": "hint"
       },
       "constraints": {
@@ -158,7 +158,7 @@
       "description": "field for furo-data-color-input for testing",
       "type": "string",
       "meta": {
-        "label": "Label for furo-data-color-input input",
+        "label": "color-input",
         "hint": "hint"
       },
       "constraints": {
@@ -173,7 +173,7 @@
       "description": "field for furo-data-password-input for testing",
       "type": "string",
       "meta": {
-        "label": "Label for furo-data-password-input input",
+        "label": "password-input",
         "hint": "hint"
       },
       "constraints": {
@@ -191,7 +191,7 @@
       "description": "field for furo-search-input for testing",
       "type": "string",
       "meta": {
-        "label": "Label for furo-search-input input",
+        "label": " search",
         "hint": "hint"
       },
       "constraints": {
@@ -209,7 +209,7 @@
       "description": "field for furo-data-date-input for testing",
       "type": "string",
       "meta": {
-        "label": "Label for furo-data-date-input input",
+        "label": "date-input",
         "hint": "hint"
       },
       "constraints": {
@@ -227,7 +227,7 @@
       "description": "field for furo-data-bool-icon for testing",
       "type": "bool",
       "meta": {
-        "label": "Label for furo-data-bool-icon input",
+        "label": "bool-icon input",
         "hint": "hint"
       },
       "constraints": {
