@@ -22,18 +22,45 @@ message ExperimentEntity {
 }
 
 // experiment spec for testing
-message Experiment {                            
+message Experiment {                                                                
     // Short experiment description
     string description = 3;
     
     // Localized String representation of a experiment
     string display_name = 2;
     
+    // field for furo-data-bool-icon for testing
+    bool furo_data_bool_icon = 14;
+    
     // field for furo_data_checkbox_input for testing
-    int32 furo_data_checkbox_input = 4;
+    bool furo_data_checkbox_input = 4;
+    
+    // field for furo-data-color-input for testing
+    string furo_data_color_input = 10;
+    
+    // field for furo-data-date-input for testing
+    string furo_data_date_input = 13;
+    
+    // field for furo-data-number-input for testing
+    float furo_data_number_input = 9;
+    
+    // field for furo-data-password-input for testing
+    string furo_data_password_input = 11;
+    
+    // field for furo-data-range-input for testing
+    string furo_data_range_input = 8;
+    
+    // field for furo-search-input for testing
+    string furo_data_search_input = 12;
     
     // field for furo_data_text_input for testing
     string furo_data_text_input = 5;
+    
+    // field for furo_data_textarea_input for testing
+    string furo_data_textarea_input = 6;
+    
+    // field for furo-data-time-input for testing
+    string furo_data_time_input = 7;
     
     // Identity of a experiment
     string id = 1;

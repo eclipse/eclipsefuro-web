@@ -163,7 +163,7 @@ let apiSpecs = "";
 let s = {};
 
 ClientEnv.services.forEach((service)=>{
-    s[service.__proto.package + "." + service.name] = service
+    s[service.name] = service
 });
 apiSpecs = `export const Services =` + JSON.stringify(s);
 

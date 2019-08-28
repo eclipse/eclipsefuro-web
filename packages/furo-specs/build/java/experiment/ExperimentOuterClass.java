@@ -1468,12 +1468,120 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * field for furo-data-bool-icon for testing
+     * </pre>
+     *
+     * <code>bool furo_data_bool_icon = 14;</code>
+     */
+    boolean getFuroDataBoolIcon();
+
+    /**
+     * <pre>
      * field for furo_data_checkbox_input for testing
      * </pre>
      *
-     * <code>int32 furo_data_checkbox_input = 4;</code>
+     * <code>bool furo_data_checkbox_input = 4;</code>
      */
-    int getFuroDataCheckboxInput();
+    boolean getFuroDataCheckboxInput();
+
+    /**
+     * <pre>
+     * field for furo-data-color-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_color_input = 10;</code>
+     */
+    java.lang.String getFuroDataColorInput();
+    /**
+     * <pre>
+     * field for furo-data-color-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_color_input = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getFuroDataColorInputBytes();
+
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_date_input = 13;</code>
+     */
+    java.lang.String getFuroDataDateInput();
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_date_input = 13;</code>
+     */
+    com.google.protobuf.ByteString
+        getFuroDataDateInputBytes();
+
+    /**
+     * <pre>
+     * field for furo-data-number-input for testing
+     * </pre>
+     *
+     * <code>float furo_data_number_input = 9;</code>
+     */
+    float getFuroDataNumberInput();
+
+    /**
+     * <pre>
+     * field for furo-data-password-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_password_input = 11;</code>
+     */
+    java.lang.String getFuroDataPasswordInput();
+    /**
+     * <pre>
+     * field for furo-data-password-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_password_input = 11;</code>
+     */
+    com.google.protobuf.ByteString
+        getFuroDataPasswordInputBytes();
+
+    /**
+     * <pre>
+     * field for furo-data-range-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_range_input = 8;</code>
+     */
+    java.lang.String getFuroDataRangeInput();
+    /**
+     * <pre>
+     * field for furo-data-range-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_range_input = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getFuroDataRangeInputBytes();
+
+    /**
+     * <pre>
+     * field for furo-search-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_search_input = 12;</code>
+     */
+    java.lang.String getFuroDataSearchInput();
+    /**
+     * <pre>
+     * field for furo-search-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_search_input = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getFuroDataSearchInputBytes();
 
     /**
      * <pre>
@@ -1492,6 +1600,42 @@ public final class ExperimentOuterClass {
      */
     com.google.protobuf.ByteString
         getFuroDataTextInputBytes();
+
+    /**
+     * <pre>
+     * field for furo_data_textarea_input for testing
+     * </pre>
+     *
+     * <code>string furo_data_textarea_input = 6;</code>
+     */
+    java.lang.String getFuroDataTextareaInput();
+    /**
+     * <pre>
+     * field for furo_data_textarea_input for testing
+     * </pre>
+     *
+     * <code>string furo_data_textarea_input = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getFuroDataTextareaInputBytes();
+
+    /**
+     * <pre>
+     * field for furo-data-time-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_time_input = 7;</code>
+     */
+    java.lang.String getFuroDataTimeInput();
+    /**
+     * <pre>
+     * field for furo-data-time-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_time_input = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getFuroDataTimeInputBytes();
 
     /**
      * <pre>
@@ -1530,7 +1674,14 @@ public final class ExperimentOuterClass {
     private Experiment() {
       description_ = "";
       displayName_ = "";
+      furoDataColorInput_ = "";
+      furoDataDateInput_ = "";
+      furoDataPasswordInput_ = "";
+      furoDataRangeInput_ = "";
+      furoDataSearchInput_ = "";
       furoDataTextInput_ = "";
+      furoDataTextareaInput_ = "";
+      furoDataTimeInput_ = "";
       id_ = "";
     }
 
@@ -1578,13 +1729,65 @@ public final class ExperimentOuterClass {
             }
             case 32: {
 
-              furoDataCheckboxInput_ = input.readInt32();
+              furoDataCheckboxInput_ = input.readBool();
               break;
             }
             case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
               furoDataTextInput_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              furoDataTextareaInput_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              furoDataTimeInput_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              furoDataRangeInput_ = s;
+              break;
+            }
+            case 77: {
+
+              furoDataNumberInput_ = input.readFloat();
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              furoDataColorInput_ = s;
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              furoDataPasswordInput_ = s;
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              furoDataSearchInput_ = s;
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              furoDataDateInput_ = s;
+              break;
+            }
+            case 112: {
+
+              furoDataBoolIcon_ = input.readBool();
               break;
             }
             default: {
@@ -1703,17 +1906,253 @@ public final class ExperimentOuterClass {
       }
     }
 
+    public static final int FURO_DATA_BOOL_ICON_FIELD_NUMBER = 14;
+    private boolean furoDataBoolIcon_;
+    /**
+     * <pre>
+     * field for furo-data-bool-icon for testing
+     * </pre>
+     *
+     * <code>bool furo_data_bool_icon = 14;</code>
+     */
+    public boolean getFuroDataBoolIcon() {
+      return furoDataBoolIcon_;
+    }
+
     public static final int FURO_DATA_CHECKBOX_INPUT_FIELD_NUMBER = 4;
-    private int furoDataCheckboxInput_;
+    private boolean furoDataCheckboxInput_;
     /**
      * <pre>
      * field for furo_data_checkbox_input for testing
      * </pre>
      *
-     * <code>int32 furo_data_checkbox_input = 4;</code>
+     * <code>bool furo_data_checkbox_input = 4;</code>
      */
-    public int getFuroDataCheckboxInput() {
+    public boolean getFuroDataCheckboxInput() {
       return furoDataCheckboxInput_;
+    }
+
+    public static final int FURO_DATA_COLOR_INPUT_FIELD_NUMBER = 10;
+    private volatile java.lang.Object furoDataColorInput_;
+    /**
+     * <pre>
+     * field for furo-data-color-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_color_input = 10;</code>
+     */
+    public java.lang.String getFuroDataColorInput() {
+      java.lang.Object ref = furoDataColorInput_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        furoDataColorInput_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * field for furo-data-color-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_color_input = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFuroDataColorInputBytes() {
+      java.lang.Object ref = furoDataColorInput_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        furoDataColorInput_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FURO_DATA_DATE_INPUT_FIELD_NUMBER = 13;
+    private volatile java.lang.Object furoDataDateInput_;
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_date_input = 13;</code>
+     */
+    public java.lang.String getFuroDataDateInput() {
+      java.lang.Object ref = furoDataDateInput_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        furoDataDateInput_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_date_input = 13;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFuroDataDateInputBytes() {
+      java.lang.Object ref = furoDataDateInput_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        furoDataDateInput_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FURO_DATA_NUMBER_INPUT_FIELD_NUMBER = 9;
+    private float furoDataNumberInput_;
+    /**
+     * <pre>
+     * field for furo-data-number-input for testing
+     * </pre>
+     *
+     * <code>float furo_data_number_input = 9;</code>
+     */
+    public float getFuroDataNumberInput() {
+      return furoDataNumberInput_;
+    }
+
+    public static final int FURO_DATA_PASSWORD_INPUT_FIELD_NUMBER = 11;
+    private volatile java.lang.Object furoDataPasswordInput_;
+    /**
+     * <pre>
+     * field for furo-data-password-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_password_input = 11;</code>
+     */
+    public java.lang.String getFuroDataPasswordInput() {
+      java.lang.Object ref = furoDataPasswordInput_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        furoDataPasswordInput_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * field for furo-data-password-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_password_input = 11;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFuroDataPasswordInputBytes() {
+      java.lang.Object ref = furoDataPasswordInput_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        furoDataPasswordInput_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FURO_DATA_RANGE_INPUT_FIELD_NUMBER = 8;
+    private volatile java.lang.Object furoDataRangeInput_;
+    /**
+     * <pre>
+     * field for furo-data-range-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_range_input = 8;</code>
+     */
+    public java.lang.String getFuroDataRangeInput() {
+      java.lang.Object ref = furoDataRangeInput_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        furoDataRangeInput_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * field for furo-data-range-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_range_input = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFuroDataRangeInputBytes() {
+      java.lang.Object ref = furoDataRangeInput_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        furoDataRangeInput_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FURO_DATA_SEARCH_INPUT_FIELD_NUMBER = 12;
+    private volatile java.lang.Object furoDataSearchInput_;
+    /**
+     * <pre>
+     * field for furo-search-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_search_input = 12;</code>
+     */
+    public java.lang.String getFuroDataSearchInput() {
+      java.lang.Object ref = furoDataSearchInput_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        furoDataSearchInput_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * field for furo-search-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_search_input = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFuroDataSearchInputBytes() {
+      java.lang.Object ref = furoDataSearchInput_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        furoDataSearchInput_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int FURO_DATA_TEXT_INPUT_FIELD_NUMBER = 5;
@@ -1752,6 +2191,90 @@ public final class ExperimentOuterClass {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         furoDataTextInput_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FURO_DATA_TEXTAREA_INPUT_FIELD_NUMBER = 6;
+    private volatile java.lang.Object furoDataTextareaInput_;
+    /**
+     * <pre>
+     * field for furo_data_textarea_input for testing
+     * </pre>
+     *
+     * <code>string furo_data_textarea_input = 6;</code>
+     */
+    public java.lang.String getFuroDataTextareaInput() {
+      java.lang.Object ref = furoDataTextareaInput_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        furoDataTextareaInput_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * field for furo_data_textarea_input for testing
+     * </pre>
+     *
+     * <code>string furo_data_textarea_input = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFuroDataTextareaInputBytes() {
+      java.lang.Object ref = furoDataTextareaInput_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        furoDataTextareaInput_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FURO_DATA_TIME_INPUT_FIELD_NUMBER = 7;
+    private volatile java.lang.Object furoDataTimeInput_;
+    /**
+     * <pre>
+     * field for furo-data-time-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_time_input = 7;</code>
+     */
+    public java.lang.String getFuroDataTimeInput() {
+      java.lang.Object ref = furoDataTimeInput_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        furoDataTimeInput_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * field for furo-data-time-input for testing
+     * </pre>
+     *
+     * <code>string furo_data_time_input = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFuroDataTimeInputBytes() {
+      java.lang.Object ref = furoDataTimeInput_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        furoDataTimeInput_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1823,11 +2346,38 @@ public final class ExperimentOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
       }
-      if (furoDataCheckboxInput_ != 0) {
-        output.writeInt32(4, furoDataCheckboxInput_);
+      if (furoDataCheckboxInput_ != false) {
+        output.writeBool(4, furoDataCheckboxInput_);
       }
       if (!getFuroDataTextInputBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, furoDataTextInput_);
+      }
+      if (!getFuroDataTextareaInputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, furoDataTextareaInput_);
+      }
+      if (!getFuroDataTimeInputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, furoDataTimeInput_);
+      }
+      if (!getFuroDataRangeInputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, furoDataRangeInput_);
+      }
+      if (furoDataNumberInput_ != 0F) {
+        output.writeFloat(9, furoDataNumberInput_);
+      }
+      if (!getFuroDataColorInputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, furoDataColorInput_);
+      }
+      if (!getFuroDataPasswordInputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, furoDataPasswordInput_);
+      }
+      if (!getFuroDataSearchInputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, furoDataSearchInput_);
+      }
+      if (!getFuroDataDateInputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, furoDataDateInput_);
+      }
+      if (furoDataBoolIcon_ != false) {
+        output.writeBool(14, furoDataBoolIcon_);
       }
       unknownFields.writeTo(output);
     }
@@ -1847,12 +2397,41 @@ public final class ExperimentOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
       }
-      if (furoDataCheckboxInput_ != 0) {
+      if (furoDataCheckboxInput_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, furoDataCheckboxInput_);
+          .computeBoolSize(4, furoDataCheckboxInput_);
       }
       if (!getFuroDataTextInputBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, furoDataTextInput_);
+      }
+      if (!getFuroDataTextareaInputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, furoDataTextareaInput_);
+      }
+      if (!getFuroDataTimeInputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, furoDataTimeInput_);
+      }
+      if (!getFuroDataRangeInputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, furoDataRangeInput_);
+      }
+      if (furoDataNumberInput_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(9, furoDataNumberInput_);
+      }
+      if (!getFuroDataColorInputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, furoDataColorInput_);
+      }
+      if (!getFuroDataPasswordInputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, furoDataPasswordInput_);
+      }
+      if (!getFuroDataSearchInputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, furoDataSearchInput_);
+      }
+      if (!getFuroDataDateInputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, furoDataDateInput_);
+      }
+      if (furoDataBoolIcon_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(14, furoDataBoolIcon_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1873,10 +2452,29 @@ public final class ExperimentOuterClass {
           .equals(other.getDescription())) return false;
       if (!getDisplayName()
           .equals(other.getDisplayName())) return false;
+      if (getFuroDataBoolIcon()
+          != other.getFuroDataBoolIcon()) return false;
       if (getFuroDataCheckboxInput()
           != other.getFuroDataCheckboxInput()) return false;
+      if (!getFuroDataColorInput()
+          .equals(other.getFuroDataColorInput())) return false;
+      if (!getFuroDataDateInput()
+          .equals(other.getFuroDataDateInput())) return false;
+      if (java.lang.Float.floatToIntBits(getFuroDataNumberInput())
+          != java.lang.Float.floatToIntBits(
+              other.getFuroDataNumberInput())) return false;
+      if (!getFuroDataPasswordInput()
+          .equals(other.getFuroDataPasswordInput())) return false;
+      if (!getFuroDataRangeInput()
+          .equals(other.getFuroDataRangeInput())) return false;
+      if (!getFuroDataSearchInput()
+          .equals(other.getFuroDataSearchInput())) return false;
       if (!getFuroDataTextInput()
           .equals(other.getFuroDataTextInput())) return false;
+      if (!getFuroDataTextareaInput()
+          .equals(other.getFuroDataTextareaInput())) return false;
+      if (!getFuroDataTimeInput()
+          .equals(other.getFuroDataTimeInput())) return false;
       if (!getId()
           .equals(other.getId())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -1894,10 +2492,31 @@ public final class ExperimentOuterClass {
       hash = (53 * hash) + getDescription().hashCode();
       hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDisplayName().hashCode();
+      hash = (37 * hash) + FURO_DATA_BOOL_ICON_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFuroDataBoolIcon());
       hash = (37 * hash) + FURO_DATA_CHECKBOX_INPUT_FIELD_NUMBER;
-      hash = (53 * hash) + getFuroDataCheckboxInput();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFuroDataCheckboxInput());
+      hash = (37 * hash) + FURO_DATA_COLOR_INPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getFuroDataColorInput().hashCode();
+      hash = (37 * hash) + FURO_DATA_DATE_INPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getFuroDataDateInput().hashCode();
+      hash = (37 * hash) + FURO_DATA_NUMBER_INPUT_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getFuroDataNumberInput());
+      hash = (37 * hash) + FURO_DATA_PASSWORD_INPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getFuroDataPasswordInput().hashCode();
+      hash = (37 * hash) + FURO_DATA_RANGE_INPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getFuroDataRangeInput().hashCode();
+      hash = (37 * hash) + FURO_DATA_SEARCH_INPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getFuroDataSearchInput().hashCode();
       hash = (37 * hash) + FURO_DATA_TEXT_INPUT_FIELD_NUMBER;
       hash = (53 * hash) + getFuroDataTextInput().hashCode();
+      hash = (37 * hash) + FURO_DATA_TEXTAREA_INPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getFuroDataTextareaInput().hashCode();
+      hash = (37 * hash) + FURO_DATA_TIME_INPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getFuroDataTimeInput().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -2041,9 +2660,27 @@ public final class ExperimentOuterClass {
 
         displayName_ = "";
 
-        furoDataCheckboxInput_ = 0;
+        furoDataBoolIcon_ = false;
+
+        furoDataCheckboxInput_ = false;
+
+        furoDataColorInput_ = "";
+
+        furoDataDateInput_ = "";
+
+        furoDataNumberInput_ = 0F;
+
+        furoDataPasswordInput_ = "";
+
+        furoDataRangeInput_ = "";
+
+        furoDataSearchInput_ = "";
 
         furoDataTextInput_ = "";
+
+        furoDataTextareaInput_ = "";
+
+        furoDataTimeInput_ = "";
 
         id_ = "";
 
@@ -2075,8 +2712,17 @@ public final class ExperimentOuterClass {
         experiment.ExperimentOuterClass.Experiment result = new experiment.ExperimentOuterClass.Experiment(this);
         result.description_ = description_;
         result.displayName_ = displayName_;
+        result.furoDataBoolIcon_ = furoDataBoolIcon_;
         result.furoDataCheckboxInput_ = furoDataCheckboxInput_;
+        result.furoDataColorInput_ = furoDataColorInput_;
+        result.furoDataDateInput_ = furoDataDateInput_;
+        result.furoDataNumberInput_ = furoDataNumberInput_;
+        result.furoDataPasswordInput_ = furoDataPasswordInput_;
+        result.furoDataRangeInput_ = furoDataRangeInput_;
+        result.furoDataSearchInput_ = furoDataSearchInput_;
         result.furoDataTextInput_ = furoDataTextInput_;
+        result.furoDataTextareaInput_ = furoDataTextareaInput_;
+        result.furoDataTimeInput_ = furoDataTimeInput_;
         result.id_ = id_;
         onBuilt();
         return result;
@@ -2134,11 +2780,45 @@ public final class ExperimentOuterClass {
           displayName_ = other.displayName_;
           onChanged();
         }
-        if (other.getFuroDataCheckboxInput() != 0) {
+        if (other.getFuroDataBoolIcon() != false) {
+          setFuroDataBoolIcon(other.getFuroDataBoolIcon());
+        }
+        if (other.getFuroDataCheckboxInput() != false) {
           setFuroDataCheckboxInput(other.getFuroDataCheckboxInput());
+        }
+        if (!other.getFuroDataColorInput().isEmpty()) {
+          furoDataColorInput_ = other.furoDataColorInput_;
+          onChanged();
+        }
+        if (!other.getFuroDataDateInput().isEmpty()) {
+          furoDataDateInput_ = other.furoDataDateInput_;
+          onChanged();
+        }
+        if (other.getFuroDataNumberInput() != 0F) {
+          setFuroDataNumberInput(other.getFuroDataNumberInput());
+        }
+        if (!other.getFuroDataPasswordInput().isEmpty()) {
+          furoDataPasswordInput_ = other.furoDataPasswordInput_;
+          onChanged();
+        }
+        if (!other.getFuroDataRangeInput().isEmpty()) {
+          furoDataRangeInput_ = other.furoDataRangeInput_;
+          onChanged();
+        }
+        if (!other.getFuroDataSearchInput().isEmpty()) {
+          furoDataSearchInput_ = other.furoDataSearchInput_;
+          onChanged();
         }
         if (!other.getFuroDataTextInput().isEmpty()) {
           furoDataTextInput_ = other.furoDataTextInput_;
+          onChanged();
+        }
+        if (!other.getFuroDataTextareaInput().isEmpty()) {
+          furoDataTextareaInput_ = other.furoDataTextareaInput_;
+          onChanged();
+        }
+        if (!other.getFuroDataTimeInput().isEmpty()) {
+          furoDataTimeInput_ = other.furoDataTimeInput_;
           onChanged();
         }
         if (!other.getId().isEmpty()) {
@@ -2352,15 +3032,53 @@ public final class ExperimentOuterClass {
         return this;
       }
 
-      private int furoDataCheckboxInput_ ;
+      private boolean furoDataBoolIcon_ ;
+      /**
+       * <pre>
+       * field for furo-data-bool-icon for testing
+       * </pre>
+       *
+       * <code>bool furo_data_bool_icon = 14;</code>
+       */
+      public boolean getFuroDataBoolIcon() {
+        return furoDataBoolIcon_;
+      }
+      /**
+       * <pre>
+       * field for furo-data-bool-icon for testing
+       * </pre>
+       *
+       * <code>bool furo_data_bool_icon = 14;</code>
+       */
+      public Builder setFuroDataBoolIcon(boolean value) {
+        
+        furoDataBoolIcon_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-bool-icon for testing
+       * </pre>
+       *
+       * <code>bool furo_data_bool_icon = 14;</code>
+       */
+      public Builder clearFuroDataBoolIcon() {
+        
+        furoDataBoolIcon_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean furoDataCheckboxInput_ ;
       /**
        * <pre>
        * field for furo_data_checkbox_input for testing
        * </pre>
        *
-       * <code>int32 furo_data_checkbox_input = 4;</code>
+       * <code>bool furo_data_checkbox_input = 4;</code>
        */
-      public int getFuroDataCheckboxInput() {
+      public boolean getFuroDataCheckboxInput() {
         return furoDataCheckboxInput_;
       }
       /**
@@ -2368,9 +3086,9 @@ public final class ExperimentOuterClass {
        * field for furo_data_checkbox_input for testing
        * </pre>
        *
-       * <code>int32 furo_data_checkbox_input = 4;</code>
+       * <code>bool furo_data_checkbox_input = 4;</code>
        */
-      public Builder setFuroDataCheckboxInput(int value) {
+      public Builder setFuroDataCheckboxInput(boolean value) {
         
         furoDataCheckboxInput_ = value;
         onChanged();
@@ -2381,11 +3099,494 @@ public final class ExperimentOuterClass {
        * field for furo_data_checkbox_input for testing
        * </pre>
        *
-       * <code>int32 furo_data_checkbox_input = 4;</code>
+       * <code>bool furo_data_checkbox_input = 4;</code>
        */
       public Builder clearFuroDataCheckboxInput() {
         
-        furoDataCheckboxInput_ = 0;
+        furoDataCheckboxInput_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object furoDataColorInput_ = "";
+      /**
+       * <pre>
+       * field for furo-data-color-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_color_input = 10;</code>
+       */
+      public java.lang.String getFuroDataColorInput() {
+        java.lang.Object ref = furoDataColorInput_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          furoDataColorInput_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-color-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_color_input = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFuroDataColorInputBytes() {
+        java.lang.Object ref = furoDataColorInput_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          furoDataColorInput_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-color-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_color_input = 10;</code>
+       */
+      public Builder setFuroDataColorInput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        furoDataColorInput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-color-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_color_input = 10;</code>
+       */
+      public Builder clearFuroDataColorInput() {
+        
+        furoDataColorInput_ = getDefaultInstance().getFuroDataColorInput();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-color-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_color_input = 10;</code>
+       */
+      public Builder setFuroDataColorInputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        furoDataColorInput_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object furoDataDateInput_ = "";
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_date_input = 13;</code>
+       */
+      public java.lang.String getFuroDataDateInput() {
+        java.lang.Object ref = furoDataDateInput_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          furoDataDateInput_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_date_input = 13;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFuroDataDateInputBytes() {
+        java.lang.Object ref = furoDataDateInput_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          furoDataDateInput_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_date_input = 13;</code>
+       */
+      public Builder setFuroDataDateInput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        furoDataDateInput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_date_input = 13;</code>
+       */
+      public Builder clearFuroDataDateInput() {
+        
+        furoDataDateInput_ = getDefaultInstance().getFuroDataDateInput();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_date_input = 13;</code>
+       */
+      public Builder setFuroDataDateInputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        furoDataDateInput_ = value;
+        onChanged();
+        return this;
+      }
+
+      private float furoDataNumberInput_ ;
+      /**
+       * <pre>
+       * field for furo-data-number-input for testing
+       * </pre>
+       *
+       * <code>float furo_data_number_input = 9;</code>
+       */
+      public float getFuroDataNumberInput() {
+        return furoDataNumberInput_;
+      }
+      /**
+       * <pre>
+       * field for furo-data-number-input for testing
+       * </pre>
+       *
+       * <code>float furo_data_number_input = 9;</code>
+       */
+      public Builder setFuroDataNumberInput(float value) {
+        
+        furoDataNumberInput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-number-input for testing
+       * </pre>
+       *
+       * <code>float furo_data_number_input = 9;</code>
+       */
+      public Builder clearFuroDataNumberInput() {
+        
+        furoDataNumberInput_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object furoDataPasswordInput_ = "";
+      /**
+       * <pre>
+       * field for furo-data-password-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_password_input = 11;</code>
+       */
+      public java.lang.String getFuroDataPasswordInput() {
+        java.lang.Object ref = furoDataPasswordInput_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          furoDataPasswordInput_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-password-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_password_input = 11;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFuroDataPasswordInputBytes() {
+        java.lang.Object ref = furoDataPasswordInput_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          furoDataPasswordInput_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-password-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_password_input = 11;</code>
+       */
+      public Builder setFuroDataPasswordInput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        furoDataPasswordInput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-password-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_password_input = 11;</code>
+       */
+      public Builder clearFuroDataPasswordInput() {
+        
+        furoDataPasswordInput_ = getDefaultInstance().getFuroDataPasswordInput();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-password-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_password_input = 11;</code>
+       */
+      public Builder setFuroDataPasswordInputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        furoDataPasswordInput_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object furoDataRangeInput_ = "";
+      /**
+       * <pre>
+       * field for furo-data-range-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_range_input = 8;</code>
+       */
+      public java.lang.String getFuroDataRangeInput() {
+        java.lang.Object ref = furoDataRangeInput_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          furoDataRangeInput_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-range-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_range_input = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFuroDataRangeInputBytes() {
+        java.lang.Object ref = furoDataRangeInput_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          furoDataRangeInput_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-range-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_range_input = 8;</code>
+       */
+      public Builder setFuroDataRangeInput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        furoDataRangeInput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-range-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_range_input = 8;</code>
+       */
+      public Builder clearFuroDataRangeInput() {
+        
+        furoDataRangeInput_ = getDefaultInstance().getFuroDataRangeInput();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-range-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_range_input = 8;</code>
+       */
+      public Builder setFuroDataRangeInputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        furoDataRangeInput_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object furoDataSearchInput_ = "";
+      /**
+       * <pre>
+       * field for furo-search-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_search_input = 12;</code>
+       */
+      public java.lang.String getFuroDataSearchInput() {
+        java.lang.Object ref = furoDataSearchInput_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          furoDataSearchInput_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-search-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_search_input = 12;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFuroDataSearchInputBytes() {
+        java.lang.Object ref = furoDataSearchInput_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          furoDataSearchInput_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-search-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_search_input = 12;</code>
+       */
+      public Builder setFuroDataSearchInput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        furoDataSearchInput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-search-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_search_input = 12;</code>
+       */
+      public Builder clearFuroDataSearchInput() {
+        
+        furoDataSearchInput_ = getDefaultInstance().getFuroDataSearchInput();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-search-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_search_input = 12;</code>
+       */
+      public Builder setFuroDataSearchInputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        furoDataSearchInput_ = value;
         onChanged();
         return this;
       }
@@ -2475,6 +3676,184 @@ public final class ExperimentOuterClass {
   checkByteStringIsUtf8(value);
         
         furoDataTextInput_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object furoDataTextareaInput_ = "";
+      /**
+       * <pre>
+       * field for furo_data_textarea_input for testing
+       * </pre>
+       *
+       * <code>string furo_data_textarea_input = 6;</code>
+       */
+      public java.lang.String getFuroDataTextareaInput() {
+        java.lang.Object ref = furoDataTextareaInput_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          furoDataTextareaInput_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo_data_textarea_input for testing
+       * </pre>
+       *
+       * <code>string furo_data_textarea_input = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFuroDataTextareaInputBytes() {
+        java.lang.Object ref = furoDataTextareaInput_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          furoDataTextareaInput_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo_data_textarea_input for testing
+       * </pre>
+       *
+       * <code>string furo_data_textarea_input = 6;</code>
+       */
+      public Builder setFuroDataTextareaInput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        furoDataTextareaInput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo_data_textarea_input for testing
+       * </pre>
+       *
+       * <code>string furo_data_textarea_input = 6;</code>
+       */
+      public Builder clearFuroDataTextareaInput() {
+        
+        furoDataTextareaInput_ = getDefaultInstance().getFuroDataTextareaInput();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo_data_textarea_input for testing
+       * </pre>
+       *
+       * <code>string furo_data_textarea_input = 6;</code>
+       */
+      public Builder setFuroDataTextareaInputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        furoDataTextareaInput_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object furoDataTimeInput_ = "";
+      /**
+       * <pre>
+       * field for furo-data-time-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_time_input = 7;</code>
+       */
+      public java.lang.String getFuroDataTimeInput() {
+        java.lang.Object ref = furoDataTimeInput_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          furoDataTimeInput_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-time-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_time_input = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFuroDataTimeInputBytes() {
+        java.lang.Object ref = furoDataTimeInput_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          furoDataTimeInput_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-time-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_time_input = 7;</code>
+       */
+      public Builder setFuroDataTimeInput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        furoDataTimeInput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-time-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_time_input = 7;</code>
+       */
+      public Builder clearFuroDataTimeInput() {
+        
+        furoDataTimeInput_ = getDefaultInstance().getFuroDataTimeInput();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-time-input for testing
+       * </pre>
+       *
+       * <code>string furo_data_time_input = 7;</code>
+       */
+      public Builder setFuroDataTimeInputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        furoDataTimeInput_ = value;
         onChanged();
         return this;
       }
@@ -4285,14 +5664,21 @@ public final class ExperimentOuterClass {
       "t\032\017furo/meta.proto\032\017furo/link.proto\"m\n\020E" +
       "xperimentEntity\022$\n\004data\030\001 \001(\0132\026.experime" +
       "nt.Experiment\022\031\n\005links\030\002 \003(\0132\n.furo.Link" +
-      "\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\203\001\n\nExperimen" +
+      "\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\236\003\n\nExperimen" +
       "t\022\023\n\013description\030\003 \001(\t\022\024\n\014display_name\030\002" +
-      " \001(\t\022 \n\030furo_data_checkbox_input\030\004 \001(\005\022\034" +
-      "\n\024furo_data_text_input\030\005 \001(\t\022\n\n\002id\030\001 \001(\t" +
-      "\"{\n\024ExperimentCollection\022.\n\010entities\030\004 \003" +
-      "(\0132\034.experiment.ExperimentEntity\022\031\n\005link" +
-      "s\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo" +
-      ".Metab\006proto3"
+      " \001(\t\022\033\n\023furo_data_bool_icon\030\016 \001(\010\022 \n\030fur" +
+      "o_data_checkbox_input\030\004 \001(\010\022\035\n\025furo_data" +
+      "_color_input\030\n \001(\t\022\034\n\024furo_data_date_inp" +
+      "ut\030\r \001(\t\022\036\n\026furo_data_number_input\030\t \001(\002" +
+      "\022 \n\030furo_data_password_input\030\013 \001(\t\022\035\n\025fu" +
+      "ro_data_range_input\030\010 \001(\t\022\036\n\026furo_data_s" +
+      "earch_input\030\014 \001(\t\022\034\n\024furo_data_text_inpu" +
+      "t\030\005 \001(\t\022 \n\030furo_data_textarea_input\030\006 \001(" +
+      "\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022\n\n\002id\030\001 " +
+      "\001(\t\"{\n\024ExperimentCollection\022.\n\010entities\030" +
+      "\004 \003(\0132\034.experiment.ExperimentEntity\022\031\n\005l" +
+      "inks\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.f" +
+      "uro.Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4319,7 +5705,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Experiment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Experiment_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "FuroDataCheckboxInput", "FuroDataTextInput", "Id", });
+        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", });
     internal_static_experiment_ExperimentCollection_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_ExperimentCollection_fieldAccessorTable = new
