@@ -5,10 +5,22 @@ import {Theme} from "@furo/framework/theme"
 
 import '@furo/fbp/flow-repeat.js';
 import '@furo/data';
+import '@furo/data-input';
+import '@furo/data-ui/furo-data-table-toggle';
 
 
-const tableHeaders = (fields) => html`${fields.map(f => html`<th class="head"><div class="cell">${f.meta.label}</div></th>`)}`;
-const tableDetails = (fields) => html`${fields.map(f => html`<td><div class="cell" ƒ-.inner-text="${f.name}"></div></td>`)}`;
+const tableHeaders = (fields) => html`${fields.map(f => html`<th class="head"><div class="cell">${f.meta.label} <furo-data-table-toggle field="${f.id}"></furo-data-table-toggle></div></th>`)}`;
+const tableDetails = (fields) => html`${fields.map(f => html`<td><div class="cell" ƒ-.inner-text="${f.wire}"></div></td>`)}`;
+
+const tdWRepeat = (fields) => html`
+  ${fields.map(f => html`
+    ${f.meta.repeated
+    ? html`<td><div class="cell">multiple values</div></td>`
+    : html`<td><div class="cell" ƒ-.inner-text="${f.wire}"></div></td>`
+}
+  `)}
+  
+`;
 
 /**
  * `furo-data-table`
@@ -69,6 +81,7 @@ class FuroDataTable extends FBP(LitElement) {
         super();
         this._specs = Env.api.specs;
         this.type = '';
+        this.fields = '';
         this.cols = [];
         this._selectedIndex = -1;
         this.hideHeader = false;
@@ -95,19 +108,26 @@ class FuroDataTable extends FBP(LitElement) {
      */
     _FBPReady() {
         super._FBPReady();
-        //this._FBPTraceWires();
-        this._FBPAddWireHook('--entity', (w)=>{console.log(w)})
     }
 
     static get properties() {
         return {
             /**
-             * Typedefinition of incoming collection items
+             * Typedefinition of row items
              * REST SPEC Type
              * e.g. task.Task.[type]
              */
             type: {
                 type: String, attribute: "type"
+            },
+            /**
+             * list of fields which columns should be displayed
+             * comma separated field list
+             */
+            fields: {
+                type: String,
+                attribute: "fields",
+                reflect: true
             },
             /**
              * Flag to show table header information
@@ -168,11 +188,18 @@ class FuroDataTable extends FBP(LitElement) {
                 position: relative;
             }
 
+            tr:nth-child(even) {
+                /** add here zebra style */
+            }
+
             tbody tr:hover {
-                box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+                box-shadow: inset 1px 0 0 var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
                 z-index: 1;
             }
 
+            .head:hover{
+                cursor: pointer;
+            }
             .cell {
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -216,6 +243,18 @@ class FuroDataTable extends FBP(LitElement) {
         this._type = type;
     }
 
+    attributeChangedCallback(name, oldval, newval) {
+        super.attributeChangedCallback(name, oldval, newval);
+        if (newval !== oldval) {
+            switch (name) {
+                case 'fields': {
+                    this._init(newval);
+                    break;
+                }
+            }
+        }
+    }
+
     /**
      * SPEC Type checker
      * Builds the column Array for the inner template
@@ -239,31 +278,72 @@ class FuroDataTable extends FBP(LitElement) {
             }, 0);
         }
 
-        for (const key in this._specs[this._type].fields) {
-            //optional check for properties from prototype chain
-            if (this._specs[this._type].fields.hasOwnProperty(key)) {
-                let field = {};
-                if (this._specs[this._specs[this._type].fields[key].type] === undefined) {
-                    field.name = '--entity(*.fields.' + key + ')';
-                } else {
-                    // append .display_name if the field type is a registered  type in data_environment
-                    field.name = '--entity(*.fields.' + key + '.display_name)';
-                }
-                field.meta = this._specs[this._type].fields[key].meta || {};
-                /**
-                 * Internationalisation if possible
-                 * @type {*|{}}
-                 */
-                field.meta.label = i18n.t(field.meta.label);
 
-                field.contraints = this._specs[this._type].fields[key].contraints || {};
-                field.id = key;
+    }
 
-                this.cols.push(field);
+    /**
+     * Prepare columns form attribute fields
+     * @param fields
+     * @private
+     */
+    _init(fields) {
+        if (fields && fields.length) {
+            let cols = fields.split(',');
+            if (cols.length > 0) {
+                this.cols = [];
+                cols.forEach(c => {
+                    this._internalAddColumn(c);
+                });
             }
+        }
+    }
+
+    /**
+     * Internal addColumn
+     */
+    _internalAddColumn(c) {
+        if (this._specs[this._type].fields[c]) {
+
+            let field = {};
+            if (this._specs[this._specs[this._type].fields[c].type] === undefined) {
+                field.wire = '--entity(*.data.' + c + ')';
+            } else {
+                // append .display_name if the field type is a registered  type in data_environment
+                field.wire = '--entity(*.data.' + c + '.display_name)';
+            }
+            field.meta = this._specs[this._type].fields[c].meta || {};
+            /**
+             * Internationalisation if possible
+             * @type {*|{}}
+             */
+            field.meta.label = i18n.t(field.meta.label);
+
+            field.contraints = this._specs[this._type].fields[c].contraints || {};
+            field.id = c;
+
+            this.cols.push(field);
         }
         this.requestUpdate();
 
+    }
+
+    /**
+     * add new column
+     */
+    addColumn(field) {
+        this.fields = this.fields.concat(',' + field);
+        this._init(this.fields);
+    }
+
+    /**
+     * remove column by name
+     * e.g. removeColumn('id');
+     * @param field
+     */
+    removeColumn(field) {
+        this.fields = this.fields.replace(',' + field, '');
+        this.cols = [];
+        this._init(this.fields);
     }
 
     /**
@@ -278,7 +358,6 @@ class FuroDataTable extends FBP(LitElement) {
         if (this._type) {
             this._checkType(this._type);
         }
-
         this.shadowRoot.querySelector('tbody').onclick = (e) => {
             this._selectRow(e);
         };
@@ -293,7 +372,9 @@ class FuroDataTable extends FBP(LitElement) {
         this.shadowRoot.querySelector('tbody').oncontextmenu = (e) => {
             e.preventDefault();
             this.dispatchEvent(new CustomEvent('contextmenu-requested', {
-                detail: this._collection.rawEntity.entities[e.target.parentElement.rowIndex], bubbles: false, composed: true
+                detail: this._collection.rawEntity.entities[e.target.parentElement.rowIndex],
+                bubbles: false,
+                composed: true
             }));
         };
 
@@ -308,17 +389,17 @@ class FuroDataTable extends FBP(LitElement) {
     }
 
     /**
-     * Binds collection-object to data-table
+     * Binds data-object to data-table
      * @param {CollectionNode} collectionNode
      */
     bindData(collectionNode) {
         this._collection = collectionNode;
-
         /**
          * new data arrived from CollectionNode
          */
         this._collection.addEventListener('data-injected', (data) => {
-            this._FBPTriggerWire('--collectionData', data.detail._rawEntity.entities);
+            this.data = data.detail.entities.repeats;
+            this._FBPTriggerWire('--collectionData', data.detail.entities.repeats);
         });
 
         this.dispatchEvent(new CustomEvent('data-loaded', {
@@ -344,14 +425,14 @@ class FuroDataTable extends FBP(LitElement) {
                     </tr>
                 </thead>
                 <tbody>
-                    <template is="flow-repeat" ƒ-inject-items="--collectionData()" internal-wire="--internal">
+                    <template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal">
                         <tr tabindex="0" ƒ-focus="--entity" draggable="true">
                             <td class="fx">
                                 <div><input type="checkbox"></div>
                             </td>
                             ${tableDetails(this.cols)}
-                            <span hidden></span>
-                            <furo-data-object type="${this._type}" 
+                             <span hidden></span>
+                            <furo-data-object type="${this._type}Entity" 
                                           ƒ-inject-raw="--internal(*.item)"
                                           @-object-ready="--entity"></furo-data-object>
                         </tr>
@@ -408,7 +489,7 @@ class FuroDataTable extends FBP(LitElement) {
 
             if (e.type === 'click') {
                 this.dispatchEvent(new CustomEvent('tablerow-selected', {
-                    detail:this._collection.rawEntity.entities[this._selectedIndex], bubbles: true, composed: true
+                    detail: this._collection.rawEntity.entities[this._selectedIndex], bubbles: true, composed: true
                 }));
             }
         } else if (e.target.nodeName === 'INPUT' && e.target.parentNode.parentElement.parentElement.rowIndex >= 0) {
