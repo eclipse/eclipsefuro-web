@@ -3,15 +3,15 @@
 
 package experiment
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import furo "../furo"
-import types "github.com/gogo/protobuf/types"
-
-import encoding_binary "encoding/binary"
-
-import io "io"
+import (
+	furo "../furo"
+	encoding_binary "encoding/binary"
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	types "github.com/gogo/protobuf/types"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -27,11 +27,11 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 // ExperimentEntity with Experiment
 type ExperimentEntity struct {
 	// contains a experiment.Experiment
-	Data *Experiment `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	Data *Experiment `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
 	// Hateoas links
-	Links []*furo.Link `protobuf:"bytes,2,rep,name=links" json:"links,omitempty"`
+	Links []*furo.Link `protobuf:"bytes,2,rep,name=links,proto3" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *furo.Meta `protobuf:"bytes,3,opt,name=meta" json:"meta,omitempty"`
+	Meta                 *furo.Meta `protobuf:"bytes,3,opt,name=meta,proto3" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -41,7 +41,7 @@ func (m *ExperimentEntity) Reset()         { *m = ExperimentEntity{} }
 func (m *ExperimentEntity) String() string { return proto.CompactTextString(m) }
 func (*ExperimentEntity) ProtoMessage()    {}
 func (*ExperimentEntity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_experiment_814ed6aa7f4d91ef, []int{0}
+	return fileDescriptor_70a8d16e5eaf290f, []int{0}
 }
 func (m *ExperimentEntity) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -58,8 +58,8 @@ func (m *ExperimentEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, er
 		return b[:n], nil
 	}
 }
-func (dst *ExperimentEntity) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ExperimentEntity.Merge(dst, src)
+func (m *ExperimentEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ExperimentEntity.Merge(m, src)
 }
 func (m *ExperimentEntity) XXX_Size() int {
 	return m.Size()
@@ -122,7 +122,7 @@ type Experiment struct {
 	// Identity of a experiment
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// field for testing any
-	TheAnyType           *types.Any `protobuf:"bytes,15,opt,name=the_any_type,json=theAnyType" json:"the_any_type,omitempty"`
+	TheAnyType           *types.Any `protobuf:"bytes,15,opt,name=the_any_type,json=theAnyType,proto3" json:"the_any_type,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -132,7 +132,7 @@ func (m *Experiment) Reset()         { *m = Experiment{} }
 func (m *Experiment) String() string { return proto.CompactTextString(m) }
 func (*Experiment) ProtoMessage()    {}
 func (*Experiment) Descriptor() ([]byte, []int) {
-	return fileDescriptor_experiment_814ed6aa7f4d91ef, []int{1}
+	return fileDescriptor_70a8d16e5eaf290f, []int{1}
 }
 func (m *Experiment) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -149,8 +149,8 @@ func (m *Experiment) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *Experiment) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Experiment.Merge(dst, src)
+func (m *Experiment) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Experiment.Merge(m, src)
 }
 func (m *Experiment) XXX_Size() int {
 	return m.Size()
@@ -269,11 +269,11 @@ func (m *Experiment) GetTheAnyType() *types.Any {
 // ExperimentCollection with repeated ExperimentEntity
 type ExperimentCollection struct {
 	// Contains a experiment.ExperimentEntity repeated
-	Entities []*ExperimentEntity `protobuf:"bytes,4,rep,name=entities" json:"entities,omitempty"`
+	Entities []*ExperimentEntity `protobuf:"bytes,4,rep,name=entities,proto3" json:"entities,omitempty"`
 	// Hateoas links
-	Links []*furo.Link `protobuf:"bytes,3,rep,name=links" json:"links,omitempty"`
+	Links []*furo.Link `protobuf:"bytes,3,rep,name=links,proto3" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *furo.Meta `protobuf:"bytes,2,opt,name=meta" json:"meta,omitempty"`
+	Meta                 *furo.Meta `protobuf:"bytes,2,opt,name=meta,proto3" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -283,7 +283,7 @@ func (m *ExperimentCollection) Reset()         { *m = ExperimentCollection{} }
 func (m *ExperimentCollection) String() string { return proto.CompactTextString(m) }
 func (*ExperimentCollection) ProtoMessage()    {}
 func (*ExperimentCollection) Descriptor() ([]byte, []int) {
-	return fileDescriptor_experiment_814ed6aa7f4d91ef, []int{2}
+	return fileDescriptor_70a8d16e5eaf290f, []int{2}
 }
 func (m *ExperimentCollection) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -300,8 +300,8 @@ func (m *ExperimentCollection) XXX_Marshal(b []byte, deterministic bool) ([]byte
 		return b[:n], nil
 	}
 }
-func (dst *ExperimentCollection) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ExperimentCollection.Merge(dst, src)
+func (m *ExperimentCollection) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ExperimentCollection.Merge(m, src)
 }
 func (m *ExperimentCollection) XXX_Size() int {
 	return m.Size()
@@ -338,6 +338,48 @@ func init() {
 	proto.RegisterType((*Experiment)(nil), "experiment.Experiment")
 	proto.RegisterType((*ExperimentCollection)(nil), "experiment.ExperimentCollection")
 }
+
+func init() { proto.RegisterFile("experiment/experiment.proto", fileDescriptor_70a8d16e5eaf290f) }
+
+var fileDescriptor_70a8d16e5eaf290f = []byte{
+	// 545 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x93, 0xcf, 0x6e, 0xd3, 0x40,
+	0x10, 0xc6, 0x65, 0x37, 0x29, 0xc9, 0x24, 0xb4, 0x65, 0x9b, 0x56, 0xe6, 0x8f, 0x22, 0x93, 0x53,
+	0x84, 0x84, 0x23, 0x5a, 0x09, 0xb8, 0xf6, 0xdf, 0xa1, 0x12, 0x54, 0xc8, 0xe4, 0x6e, 0x6d, 0xec,
+	0x69, 0xb2, 0x8a, 0xbd, 0x6b, 0xd9, 0x1b, 0x11, 0xdf, 0x78, 0x06, 0x9e, 0x8a, 0x23, 0x27, 0xce,
+	0x28, 0x4f, 0x82, 0x76, 0xbd, 0x8e, 0x13, 0x64, 0x89, 0x5b, 0x32, 0xdf, 0xfc, 0x76, 0xe6, 0xb3,
+	0xe6, 0x83, 0x97, 0xb8, 0x4e, 0x31, 0x63, 0x09, 0x72, 0x39, 0xa9, 0x7f, 0x7a, 0x69, 0x26, 0xa4,
+	0x20, 0x50, 0x57, 0x5e, 0x1c, 0x3f, 0xae, 0x32, 0x31, 0x49, 0x50, 0xd2, 0x52, 0x34, 0x85, 0x98,
+	0xf1, 0xa5, 0x29, 0x3c, 0x9f, 0x0b, 0x31, 0x8f, 0x71, 0xa2, 0xff, 0xcd, 0x56, 0x8f, 0x13, 0xca,
+	0x8b, 0x52, 0x1a, 0x7d, 0xb7, 0xe0, 0xe4, 0x6e, 0xfb, 0xd6, 0x1d, 0x97, 0x4c, 0x16, 0xe4, 0x0d,
+	0xb4, 0x22, 0x2a, 0xa9, 0x63, 0xb9, 0xd6, 0xb8, 0x77, 0x71, 0xee, 0xed, 0x8c, 0xaf, 0x7b, 0x7d,
+	0xdd, 0x43, 0x5c, 0x68, 0xab, 0x49, 0xb9, 0x63, 0xbb, 0x07, 0xe3, 0xde, 0x05, 0x78, 0x6a, 0xb8,
+	0xf7, 0x89, 0xf1, 0xa5, 0x5f, 0x0a, 0x64, 0x08, 0x2d, 0xb5, 0x9c, 0x73, 0xa0, 0x5f, 0x33, 0x0d,
+	0x9f, 0x51, 0x52, 0x5f, 0xd7, 0x47, 0xbf, 0xdb, 0x00, 0xf5, 0xb3, 0xc4, 0x85, 0x5e, 0x84, 0x79,
+	0x98, 0xb1, 0x54, 0x32, 0xc1, 0x35, 0xd5, 0xf5, 0x77, 0x4b, 0xe4, 0x35, 0xf4, 0x23, 0x96, 0xa7,
+	0x31, 0x2d, 0x02, 0x4e, 0x13, 0x74, 0x6c, 0xd3, 0x52, 0xd6, 0x1e, 0x68, 0x82, 0xe4, 0x2d, 0x9c,
+	0xaa, 0x31, 0x81, 0x5a, 0x31, 0x98, 0x09, 0x11, 0x07, 0x2c, 0x14, 0xdc, 0x39, 0x72, 0xad, 0x71,
+	0xc7, 0x3f, 0x51, 0xd2, 0x2d, 0x95, 0xf4, 0x5a, 0x88, 0xf8, 0x3e, 0x14, 0x9c, 0x7c, 0x00, 0xa7,
+	0x6e, 0x0f, 0x17, 0x18, 0x2e, 0x67, 0x62, 0x1d, 0x30, 0x9e, 0xae, 0xa4, 0xd3, 0xd2, 0xcc, 0x59,
+	0xc5, 0xdc, 0x18, 0xf5, 0x5e, 0x89, 0xe4, 0x1d, 0x9c, 0xed, 0x80, 0x22, 0x16, 0x99, 0xa1, 0x40,
+	0xef, 0x44, 0xb6, 0x94, 0x92, 0x4a, 0x64, 0x02, 0x83, 0x1a, 0x89, 0xa8, 0x44, 0x43, 0x3c, 0xd5,
+	0xc4, 0xb3, 0x8a, 0xb8, 0xa5, 0x12, 0x4b, 0xe0, 0x12, 0xce, 0x6b, 0x80, 0xaf, 0x92, 0x19, 0x56,
+	0x43, 0xba, 0xae, 0x35, 0xb6, 0xfd, 0xd3, 0x0a, 0x79, 0xd0, 0x5a, 0x09, 0xed, 0x39, 0x4a, 0x69,
+	0x9e, 0x7f, 0x13, 0x59, 0x64, 0xb0, 0x9e, 0x9e, 0xb4, 0x75, 0xf4, 0xc5, 0xa8, 0x0d, 0x8e, 0x32,
+	0xca, 0xe7, 0xd5, 0x7e, 0x9d, 0x7d, 0x47, 0xbe, 0x92, 0x1a, 0x16, 0xcc, 0x91, 0x66, 0xe1, 0xc2,
+	0x30, 0x7d, 0xcd, 0x6c, 0x17, 0xfc, 0xaa, 0xb5, 0x86, 0xcf, 0x20, 0x71, 0x2d, 0x0d, 0xd2, 0xde,
+	0xff, 0x0c, 0x53, 0x5c, 0xcb, 0x06, 0x47, 0x0a, 0xa0, 0x19, 0x52, 0x03, 0x1d, 0xee, 0x3b, 0x9a,
+	0x1a, 0xb5, 0x69, 0x12, 0x4b, 0x2a, 0x43, 0x4f, 0xfe, 0x99, 0xc4, 0x12, 0xe3, 0xe7, 0x08, 0x6c,
+	0x16, 0xe9, 0xe3, 0xef, 0xfa, 0x36, 0x8b, 0xc8, 0x7b, 0xe8, 0xcb, 0x05, 0x06, 0x94, 0x17, 0x81,
+	0x2c, 0x52, 0x74, 0x8e, 0xf5, 0x21, 0x0f, 0xbc, 0x32, 0x55, 0x5e, 0x95, 0x2a, 0xef, 0x8a, 0x17,
+	0x3e, 0xc8, 0x05, 0x5e, 0xf1, 0x62, 0x5a, 0xa4, 0x38, 0xfa, 0x61, 0xc1, 0xa0, 0x3e, 0xec, 0x1b,
+	0x11, 0xc7, 0x18, 0xea, 0x03, 0xfe, 0x08, 0x1d, 0x54, 0x49, 0x63, 0x98, 0x3b, 0x2d, 0x1d, 0x9b,
+	0x57, 0xcd, 0x19, 0x2b, 0xf3, 0xe8, 0x6f, 0xbb, 0xeb, 0xb4, 0x1d, 0xfc, 0x2f, 0x6d, 0x76, 0x73,
+	0xda, 0xae, 0xfb, 0x3f, 0x37, 0x43, 0xeb, 0xd7, 0x66, 0x68, 0xfd, 0xd9, 0x0c, 0xad, 0xd9, 0xa1,
+	0x5e, 0xfe, 0xf2, 0x6f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x10, 0x10, 0x68, 0x6d, 0x6d, 0x04, 0x00,
+	0x00,
+}
+
 func (m *ExperimentEntity) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -357,9 +399,9 @@ func (m *ExperimentEntity) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0xa
 		i++
 		i = encodeVarintExperiment(dAtA, i, uint64(m.Data.Size()))
-		n1, err := m.Data.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n1, err1 := m.Data.MarshalTo(dAtA[i:])
+		if err1 != nil {
+			return 0, err1
 		}
 		i += n1
 	}
@@ -379,9 +421,9 @@ func (m *ExperimentEntity) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x1a
 		i++
 		i = encodeVarintExperiment(dAtA, i, uint64(m.Meta.Size()))
-		n2, err := m.Meta.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n2, err2 := m.Meta.MarshalTo(dAtA[i:])
+		if err2 != nil {
+			return 0, err2
 		}
 		i += n2
 	}
@@ -502,9 +544,9 @@ func (m *Experiment) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x7a
 		i++
 		i = encodeVarintExperiment(dAtA, i, uint64(m.TheAnyType.Size()))
-		n3, err := m.TheAnyType.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n3, err3 := m.TheAnyType.MarshalTo(dAtA[i:])
+		if err3 != nil {
+			return 0, err3
 		}
 		i += n3
 	}
@@ -533,9 +575,9 @@ func (m *ExperimentCollection) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintExperiment(dAtA, i, uint64(m.Meta.Size()))
-		n4, err := m.Meta.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n4, err4 := m.Meta.MarshalTo(dAtA[i:])
+		if err4 != nil {
+			return 0, err4
 		}
 		i += n4
 	}
@@ -729,7 +771,7 @@ func (m *ExperimentEntity) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -757,7 +799,7 @@ func (m *ExperimentEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -766,6 +808,9 @@ func (m *ExperimentEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -790,7 +835,7 @@ func (m *ExperimentEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -799,6 +844,9 @@ func (m *ExperimentEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -821,7 +869,7 @@ func (m *ExperimentEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -830,6 +878,9 @@ func (m *ExperimentEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -847,6 +898,9 @@ func (m *ExperimentEntity) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthExperiment
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthExperiment
 			}
 			if (iNdEx + skippy) > l {
@@ -877,7 +931,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -905,7 +959,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -915,6 +969,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -934,7 +991,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -944,6 +1001,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -963,7 +1023,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -973,6 +1033,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -992,7 +1055,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				v |= (int(b) & 0x7F) << shift
+				v |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1012,7 +1075,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1022,6 +1085,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1041,7 +1107,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1051,6 +1117,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1070,7 +1139,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1080,6 +1149,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1099,7 +1171,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1109,6 +1181,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1139,7 +1214,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1149,6 +1224,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1168,7 +1246,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1178,6 +1256,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1197,7 +1278,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1207,6 +1288,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1226,7 +1310,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1236,6 +1320,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1255,7 +1342,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				v |= (int(b) & 0x7F) << shift
+				v |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1275,7 +1362,7 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1284,6 +1371,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1301,6 +1391,9 @@ func (m *Experiment) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthExperiment
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthExperiment
 			}
 			if (iNdEx + skippy) > l {
@@ -1331,7 +1424,7 @@ func (m *ExperimentCollection) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1359,7 +1452,7 @@ func (m *ExperimentCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1368,6 +1461,9 @@ func (m *ExperimentCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1392,7 +1488,7 @@ func (m *ExperimentCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1401,6 +1497,9 @@ func (m *ExperimentCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1423,7 +1522,7 @@ func (m *ExperimentCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1432,6 +1531,9 @@ func (m *ExperimentCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthExperiment
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthExperiment
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1447,6 +1549,9 @@ func (m *ExperimentCollection) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthExperiment
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthExperiment
 			}
 			if (iNdEx + skippy) > l {
@@ -1516,8 +1621,11 @@ func skipExperiment(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthExperiment
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthExperiment
 			}
 			return iNdEx, nil
@@ -1548,6 +1656,9 @@ func skipExperiment(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthExperiment
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -1566,46 +1677,3 @@ var (
 	ErrInvalidLengthExperiment = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowExperiment   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() {
-	proto.RegisterFile("experiment/experiment.proto", fileDescriptor_experiment_814ed6aa7f4d91ef)
-}
-
-var fileDescriptor_experiment_814ed6aa7f4d91ef = []byte{
-	// 545 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x93, 0xcf, 0x6e, 0xd3, 0x40,
-	0x10, 0xc6, 0x65, 0x27, 0x29, 0xe9, 0x24, 0xb4, 0xc5, 0x4d, 0x2a, 0xf3, 0x47, 0x91, 0xc9, 0x29,
-	0x42, 0xc2, 0x11, 0xad, 0x04, 0x5c, 0xdb, 0xb4, 0x87, 0x4a, 0x50, 0x21, 0xd3, 0xbb, 0xb5, 0xb1,
-	0xa7, 0xc9, 0x2a, 0xf6, 0xae, 0x65, 0x6f, 0x44, 0x7c, 0xe3, 0x19, 0x78, 0x2a, 0x8e, 0x9c, 0x38,
-	0xa3, 0x3c, 0x09, 0xda, 0xf5, 0x3a, 0xdb, 0x20, 0x73, 0xb3, 0xe7, 0x9b, 0xdf, 0x7e, 0xa3, 0xd1,
-	0x7c, 0xf0, 0x12, 0x37, 0x19, 0xe6, 0x34, 0x45, 0x26, 0xa6, 0xe6, 0xd3, 0xcf, 0x72, 0x2e, 0xb8,
-	0x03, 0xa6, 0xf2, 0xe2, 0xf8, 0x61, 0x9d, 0xf3, 0x69, 0x8a, 0x82, 0x54, 0xa2, 0x2e, 0x24, 0x94,
-	0xad, 0x74, 0xe1, 0xf9, 0x82, 0xf3, 0x45, 0x82, 0x53, 0xf5, 0x37, 0x5f, 0x3f, 0x4c, 0x09, 0x2b,
-	0x2b, 0x69, 0xfc, 0xdd, 0x82, 0x93, 0x9b, 0xdd, 0x5b, 0x37, 0x4c, 0x50, 0x51, 0x3a, 0x6f, 0xa0,
-	0x1d, 0x13, 0x41, 0x5c, 0xcb, 0xb3, 0x26, 0xbd, 0xf3, 0x33, 0xff, 0x91, 0xbd, 0xe9, 0x0d, 0x54,
-	0x8f, 0xe3, 0x41, 0x47, 0x3a, 0x15, 0xae, 0xed, 0xb5, 0x26, 0xbd, 0x73, 0xf0, 0xa5, 0xb9, 0xff,
-	0x89, 0xb2, 0x55, 0x50, 0x09, 0xce, 0x08, 0xda, 0x72, 0x38, 0xb7, 0xa5, 0x5e, 0xd3, 0x0d, 0x9f,
-	0x51, 0x90, 0x40, 0xd5, 0xc7, 0xbf, 0x3b, 0x00, 0xe6, 0x59, 0xe7, 0x08, 0x6c, 0x1a, 0x2b, 0xeb,
-	0xc3, 0xc0, 0xa6, 0xb1, 0xf3, 0x1a, 0xfa, 0x31, 0x2d, 0xb2, 0x84, 0x94, 0x21, 0x23, 0x29, 0xba,
-	0xb6, 0x52, 0x7a, 0xba, 0x76, 0x47, 0x52, 0x74, 0x3c, 0xe8, 0xc5, 0x58, 0x44, 0x39, 0xcd, 0x04,
-	0xe5, 0x4c, 0x19, 0xc9, 0x0e, 0x53, 0x72, 0x3e, 0x80, 0x2b, 0x6d, 0x43, 0x39, 0x72, 0x18, 0x2d,
-	0x31, 0x5a, 0xcd, 0xf9, 0x26, 0xa4, 0x2c, 0x5b, 0x0b, 0xb7, 0xed, 0x59, 0x93, 0x6e, 0x30, 0x94,
-	0xfa, 0x35, 0x11, 0x64, 0xa6, 0xd5, 0x5b, 0x29, 0x3a, 0x53, 0x18, 0x18, 0x50, 0xe0, 0x46, 0x68,
-	0xa8, 0xa3, 0x3c, 0x9e, 0xd5, 0xd0, 0x3d, 0x6e, 0x44, 0x05, 0xec, 0x39, 0x49, 0x80, 0xe4, 0x48,
-	0x34, 0x74, 0xa0, 0xa0, 0xe1, 0x63, 0x48, 0xaa, 0x4d, 0x4e, 0x34, 0x45, 0x0d, 0x3d, 0xf9, 0xc7,
-	0x89, 0xa6, 0x58, 0x01, 0xef, 0x60, 0x68, 0x80, 0x9c, 0xb0, 0x45, 0x4d, 0x74, 0x15, 0xe1, 0xd4,
-	0x44, 0x20, 0xa5, 0x0a, 0xb9, 0x80, 0x33, 0x83, 0xb0, 0x75, 0x3a, 0xc7, 0x5c, 0x33, 0x87, 0x9e,
-	0x35, 0xb1, 0x83, 0xd3, 0x9a, 0xb9, 0x53, 0x5a, 0x83, 0x4f, 0xc4, 0x13, 0x5e, 0x33, 0xb0, 0xef,
-	0x33, 0x93, 0x52, 0xc3, 0x12, 0x32, 0x52, 0x14, 0xdf, 0x78, 0x1e, 0x6b, 0xaa, 0xb7, 0xbf, 0x84,
-	0x2f, 0x5a, 0x6d, 0x18, 0xb0, 0x40, 0x92, 0x47, 0x4b, 0x8d, 0xf5, 0x15, 0xb6, 0x1b, 0xf0, 0xab,
-	0xd2, 0x1a, 0x36, 0x17, 0x13, 0x51, 0xef, 0xe1, 0xe9, 0xfe, 0xe6, 0xae, 0x89, 0xd0, 0x6b, 0x78,
-	0x0b, 0xa7, 0x06, 0x98, 0x73, 0x9e, 0x84, 0x34, 0xe2, 0xcc, 0x3d, 0x52, 0x87, 0x70, 0x52, 0xf7,
-	0x5f, 0x71, 0x9e, 0xdc, 0x46, 0x9c, 0x39, 0xef, 0xa1, 0x2f, 0x96, 0x18, 0x12, 0x56, 0x86, 0xa2,
-	0xcc, 0xd0, 0x3d, 0x56, 0x87, 0x3c, 0xf0, 0xab, 0x54, 0xf9, 0x75, 0xaa, 0xfc, 0x4b, 0x56, 0x06,
-	0x20, 0x96, 0x78, 0xc9, 0xca, 0xfb, 0x32, 0xc3, 0xf1, 0x0f, 0x0b, 0x06, 0xe6, 0xb0, 0x67, 0x3c,
-	0x49, 0x30, 0x52, 0xd7, 0x58, 0x27, 0xc2, 0x6e, 0x4e, 0x84, 0xc9, 0x54, 0xeb, 0x7f, 0x99, 0xfa,
-	0x08, 0x5d, 0x94, 0x59, 0xa5, 0x58, 0xb8, 0x6d, 0xd5, 0xf4, 0xaa, 0x39, 0xa5, 0x55, 0xa2, 0x83,
-	0x5d, 0xf7, 0x55, 0xff, 0xe7, 0x76, 0x64, 0xfd, 0xda, 0x8e, 0xac, 0x3f, 0xdb, 0x91, 0x35, 0x3f,
-	0x50, 0xc3, 0x5f, 0xfc, 0x0d, 0x00, 0x00, 0xff, 0xff, 0x71, 0x3c, 0x3c, 0x77, 0x6d, 0x04, 0x00,
-	0x00,
-}

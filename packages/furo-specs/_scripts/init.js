@@ -30,7 +30,8 @@ if (!fs.existsSync("./__tmp")) {
 }
 let tmpdir = "./__tmp/";
 let templateDir = config.custom_template_dir || __dirname + "/templates/make/";
-
+// set the path to the simple-generator binary, empty if locally available
+const pathToSimpleGeneratorBinary = config.path_to_simplegenerator || "";
 
 // loop all packages
 config.init.packages.forEach((pkg) => {
@@ -56,23 +57,23 @@ config.init.packages.forEach((pkg) => {
     // save to file
     fs.writeFileSync(tmpdir + "_tmptype.json", tmptypejson);
     // call the simple-generator to build
-    sh("simple-generator", ["-d", tmpdir + "_tmptype.json", "-t", templateDir + "MinimalType.tmpl", ">", typefilename])
+    sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", tmpdir + "_tmptype.json", "-t", templateDir + "MinimalType.tmpl", ">", typefilename])
   }
   // ignore files from ignore list
   if (config.init.excludes.indexOf(pkg) == -1) {
     // create non existing entities
     if (!fs.existsSync(entityfilename)) {
-      sh("simple-generator", ["-d", typefilename, "-t", templateDir + "EntityFromType.tmpl", ">", entityfilename])
+      sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", typefilename, "-t", templateDir + "EntityFromType.tmpl", ">", entityfilename])
     }
     // erstellen der noch nicht vorhandenen collectionen
 
     if (!fs.existsSync(collectionfilename)) {
-      sh("simple-generator", ["-d", typefilename, "-t", templateDir + "CollectionFromType.tmpl", ">", collectionfilename])
+      sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", typefilename, "-t", templateDir + "CollectionFromType.tmpl", ">", collectionfilename])
     }
 
     // erstellen der noch nicht vorhandenen services
     if (!fs.existsSync(servicefilename)) {
-      sh("simple-generator", ["-d", typefilename, "-t", templateDir + "ServiceFromType.tmpl", ">", servicefilename])
+      sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", typefilename, "-t", templateDir + "ServiceFromType.tmpl", ">", servicefilename])
     }
 
   } else {

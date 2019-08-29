@@ -20,7 +20,11 @@ if not: https://golang.org/doc/install
 ## Usage
 
 To add packages, just add them in the packages section of the conf. 
-Then run `./node_modules/@furo/specs/_scripts/init.js` to generate a initial structure for a spec. 
+Then run 
+```shell script
+./node_modules/@furo/specs/_scripts/init.js
+```
+to generate a initial structure for a spec. 
 This consists of the *minimal type*, a *minimal service definition*, a *default entity spec*
 and a *default collection spec*    
 
@@ -45,7 +49,7 @@ Following base types are available by default:
 
 > **TIPP** Add the scripts to your package.json so you can run `npm run init` , `npm run build`,... 
 >
- ```
+ ```json
   "scripts": {
       "build": "node ./node_modules/@furo/specs/_scripts/build.js",
       "init": "node ./node_modules/@furo/specs/_scripts/init.js"
@@ -53,7 +57,11 @@ Following base types are available by default:
 ```
 ## Config
 
-- `packages` The name of the packages you use. This will be used for the protoc, swagger, specs folderstructure,... If your specs already exist, the init scripts wont touch them.
+- `init` This section is used to configure the init process
+- `init.packages` The name of the packages you use. This will be used for the protoc, swagger, specs folderstructure,... If your specs already exist, the init scripts wont touch them.
+- `init.excludes` The name of the packages you will skip.
+- `ìnit.default_type_for_identities` Set here the identity type you want. Default value if not set: string
+- `path_to_simplegenerator` Set the path to your simple-generator binary if you don't have a local environment e.g. ./bin/
 - `spec_dir` Path to your spec directory.
 - `custom_template_dir` If you want to use your own templates, set the path to your template directory relative from your project root. You have to supply all templates if you use this feature flag.
 - `swagger` Generate swagger out when true 
@@ -75,30 +83,33 @@ Following base types are available by default:
 
 ```json
 {
-  "packages": [
-    "person",
-    "project",
-    "task",
-    "tree",
-    "experiment"
-  ],
-  "excludes": [],
+  "init": {
+    "packages": [
+      "person",
+      "project",
+      "task",
+      "tree",
+      "experiment"
+    ],
+    "excludes": [],
+    "default_type_for_identities": "string"
+  },
+  "path_to_simplegenerator": "./bin/simple-generator_linux_amd64",
   "spec_dir": "./specs",
-  "__custom_tepmplate_dir": "./_scripts/templates",
+  "_custom_tepmplate_dir": "./_scripts/templates",
   "swagger": true,
   "grpc_gateway": true,
   "java": true,
   "build_output_dir": "./build",
   "furo_env_name": "data_environment.js",
-  "default_type_for_identities": "string",
   "bundled": {
     "build": true,
-    "package_name": "com.acme.api",
+    "package_name": "taskmanager",
     "service_name": "BundledService",
     "proto_options": {
       "csharp_namespace": "Google.Protobuf.WellKnownTypes",
-      "go_package": "com.acme.api",
-      "java_package": "com.acme",
+      "go_package": "taskmanager",
+      "java_package": "taskmanager",
       "java_outer_classname": "AnyProto",
       "java_multiple_files": true,
       "objc_class_prefix": "GPB"
@@ -113,32 +124,21 @@ Following base types are available by default:
       "furo/reference.proto"
     ]
   },
-  "single": {
-    "build": true
-  },
   "protoc_I": [
     "/usr/local/include",
     "$GOPATH/src",
-    "$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis",
-    "../furo",
-    "../google"
+    "$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis"
   ],
   "protoc_M": [
-    "protobuf/any.proto=github.com/gogo/protobuf/types",
+    "google/protobuf/any.proto=github.com/gogo/protobuf/types",
     "protobuf/duration.proto=github.com/gogo/protobuf/types",
     "protobuf/struct.proto=github.com/gogo/protobuf/types",
     "protobuf/timestamp.proto=github.com/gogo/protobuf/types",
-    "protobuf/wrappers.proto=github.com/gogo/protobuf/types",
-    "furo/link.proto=../furo",
-    "furo/meta.proto=../furo",
-    "google/date.proto=../google",
-    "google/money.proto=../google",
-    "protobuf/empty.proto=../protobuf",
-    "protobuf/any.proto=../protobuf"
+    "protobuf/wrappers.proto=github.com/gogo/protobuf/types"
   ]
 }
 
 
 ```
-## Additional scripts
+## Hooks
 coming soon

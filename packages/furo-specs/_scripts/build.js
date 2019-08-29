@@ -20,6 +20,9 @@ const TPLDirSingle = config.custom_template_dir || __dirname + "/templates/singl
 const TPLDirBase = config.custom_template_dir || __dirname + "/templates";
 const BuildDir = path.normalize(process.cwd() + "/" + config.build_output_dir);
 
+// set the path to the simple-generator binary, empty if locally available
+const pathToSimpleGeneratorBinary = config.path_to_simplegenerator || "";
+
 const ClientEnv = {services: [], types: []};
 let cwd = process.cwd();
 if (BuildDir.search(cwd) === -1) {
@@ -98,7 +101,7 @@ for (let target in Typelist) {
     let jsonfilename = "./__tmp/_types/" + target + ".json";
     fs.writeFileSync(jsonfilename, JSON.stringify(type));
     sh("mkdir", ["-p", BuildDir + "/protos/" + path.dirname(target)]);
-    sh("simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.message.proto.tmpl", ">", BuildDir + "/protos/" + target])
+    sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.message.proto.tmpl", ">", BuildDir + "/protos/" + target])
 }
 
 
@@ -142,7 +145,7 @@ for (let target in Servicelist.targets) {
     fs.writeFileSync(jsonfilename, JSON.stringify(service));
 
     sh("mkdir", ["-p", BuildDir + "/protos/" + path.dirname(target)]);
-    sh("simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.service.proto.tmpl", ">", BuildDir + "/protos/" + target])
+    sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.service.proto.tmpl", ">", BuildDir + "/protos/" + target])
 }
 
 if (config.bundled.build) {
@@ -153,7 +156,7 @@ if (config.bundled.build) {
     let jsonfilename = "./__tmp/_services/" + config.bundled.service_name + ".json";
     fs.writeFileSync(jsonfilename, JSON.stringify(Servicelist.__bundled));
     sh("mkdir", ["-p", BuildDir + "/protos/__bundled/"]);
-    sh("simple-generator", ["-d", jsonfilename, "-t", TPLDirBundled + "/bundled.services.proto.tmpl", ">", BuildDir + "/protos/__bundled/" + config.bundled.service_name + ".proto"])
+    sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", jsonfilename, "-t", TPLDirBundled + "/bundled.services.proto.tmpl", ">", BuildDir + "/protos/__bundled/" + config.bundled.service_name + ".proto"])
 }
 
 
@@ -182,7 +185,7 @@ fs.writeFileSync(BuildDir + "/" + config.furo_env_name, apiSpecs);
 // protoc helper
 let jsonfile = "./__tmp/protocHelper.sh.json";
 fs.writeFileSync(jsonfile, JSON.stringify(protoc));
-sh("simple-generator", ["-d", jsonfile, "-t", TPLDirBase + "/protocHelper.sh.tmpl", ">", "./__tmp/protocHelper.sh"]);
+sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", jsonfile, "-t", TPLDirBase + "/protocHelper.sh.tmpl", ">", "./__tmp/protocHelper.sh"]);
 // make it executable
 sh("chmod", ["755", "./__tmp/protocHelper.sh"]);
 
@@ -197,9 +200,9 @@ if (config.bundled.build) {
         sh("./__tmp/protocHelper.sh", [BuildDir + "/protos", "__bundled/" + config.bundled.service_name + ".proto"]);
     }
     // build the bundled gateway
-    sh("simple-generator", ["-d", "./furo.spec.conf.json", "-t", TPLDirBase + "/grpc-gateway/bundled_transcoder.go.tmpl", ">", BuildDir + "/pb/bundled_" + config.bundled.package_name + "_gw.go"])
+    sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", "./furo.spec.conf.json", "-t", TPLDirBase + "/grpc-gateway/bundled_transcoder.go.tmpl", ">", BuildDir + "/pb/bundled_" + config.bundled.package_name + "_gw.go"])
 
 } else {
     // build the single gateway
-    sh("simple-generator", ["-d", "./__tmp/_services/BundledService.json", "-t", TPLDirBase + "/grpc-gateway/single_transcoder.go.tmpl", ">", BuildDir + "/pb/single_gw.go"]);
+    sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", "./__tmp/_services/BundledService.json", "-t", TPLDirBase + "/grpc-gateway/single_transcoder.go.tmpl", ">", BuildDir + "/pb/single_gw.go"]);
 }
