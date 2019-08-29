@@ -1,0 +1,23 @@
+{
+  "data": {
+    "description": "experiment data for testing",
+    "display_name": "display_name",
+    "id": "1",
+    "furo_data_checkbox_input": true,
+    "furo_data_text_input": "hallo test",
+    "furo_data_number_input": 12.55,
+    "furo_data_time_input": "17:34",
+    "furo_data_textarea_input": "hallo , this is textarea input",
+    "furo_data_date_input": "2019-02-22",
+    "furo_data_bool_icon": false
+
+  },
+  "links": [
+    {
+      "href": "/mockdata/experiments/1/get.json",
+      "method": "GET",
+      "rel": "self",
+      "type": "experiment.ExperimentEntity"
+    }
+  ]
+}
