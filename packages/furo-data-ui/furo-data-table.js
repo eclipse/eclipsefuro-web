@@ -205,7 +205,7 @@ class FuroDataTable extends FBP(LitElement) {
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 font-size: 12px;
-                margin-right: var(--spacing, 12px);
+                padding-right: var(--spacing, 12px);
             }
 
             .fx {
@@ -306,10 +306,10 @@ class FuroDataTable extends FBP(LitElement) {
 
             let field = {};
             if (this._specs[this._specs[this._type].fields[c].type] === undefined) {
-                field.wire = '--entity(*.data.' + c + ')';
+                field.wire = '--internal(*.item.data.' + c + ')';
             } else {
                 // append .display_name if the field type is a registered  type in data_environment
-                field.wire = '--entity(*.data.' + c + '.display_name)';
+                field.wire = '--internal(*.item.data.' + c + '.display_name)';
             }
             field.meta = this._specs[this._type].fields[c].meta || {};
             /**
@@ -426,15 +426,12 @@ class FuroDataTable extends FBP(LitElement) {
                 </thead>
                 <tbody>
                     <template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal">
-                        <tr tabindex="0" ƒ-focus="--entity" draggable="true">
+                        <tr tabindex="0" draggable="true">
                             <td class="fx">
                                 <div><input type="checkbox"></div>
                             </td>
                             ${tableDetails(this.cols)}
-                             <span hidden></span>
-                            <furo-data-object type="${this._type}Entity" 
-                                          ƒ-inject-raw="--internal(*.item)"
-                                          @-object-ready="--entity"></furo-data-object>
+                             <span hidden></span>                     
                         </tr>
                     </template>
                 </tbody>

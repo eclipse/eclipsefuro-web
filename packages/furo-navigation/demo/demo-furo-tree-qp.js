@@ -50,12 +50,12 @@ class DemoFuroTreeQp extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <h2>Demo demo-furo-tree</h2>
-        <p>description</p>
+        <p>Navigate and refresh the browser to see the deep-linking</p>
         <furo-demo-snippet flex>
           <template>
 
 
-            <produce-data @-data="--data"></produce-data>
+            <produce-data auto @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>

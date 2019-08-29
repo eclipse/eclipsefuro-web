@@ -54,7 +54,7 @@ class DemoFuroTree extends FBP(LitElement) {
         <p>description</p>
         <furo-demo-snippet flex>
           <template>
-            <produce-data @-data="--data"></produce-data>
+            <produce-data auto @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
