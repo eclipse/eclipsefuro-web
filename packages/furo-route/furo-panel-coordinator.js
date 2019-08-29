@@ -10,7 +10,7 @@ import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
  *
  * @summary todo shortdescription
  * @customElement
- * @demo demo/panel-coordinator.html
+ * @demo demo-furo-panel-coordinator Basic usage
  * @appliesMixin FBP
  */
 class FuroPanelCoordinator extends FBP(LitElement) {
@@ -19,133 +19,65 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     super();
     this._openPanels = [];
     this._furoPage = this.parentNode;
-    this._flatTree = [];
 
-
-    /**
-     * the Query param you use for the active page. ap stands for active panel. If it conflicts with your naming, change this property
-     * @type {string}
-     */
-    this.queryTag = this.getAttribute("query-tag") || "ap";
-
-    /**
-     * A regexp that defines the set of URLs that should be considered part
-     * of this web app.
-     *
-     * Clicking on a link that matches this regex won't result in a full page
-     * navigation, but will instead just update the URL state in place.
-     *
-     * This regexp is given everything after the origin in an absolute
-     * URL. So to match just URLs that start with /app/ do:
-     *     url-space-regex="^/app/"
-     *
-     * @type {string|RegExp}
-     */
-    this.urlSpaceRegex = this.getAttribute("url-space-regex") || "";
-
-
-    this._FBPAddWireHook("--locationChanged", (e) => {
-      this._handleDeepLink(e);
-    });
   }
 
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
 
-  bindTreeEntity(entityNode) {
+  }
 
-    this._tree = entityNode;
-    this._rootNode = entityNode.fields.root;
-    // set view as default panel
-    if (this._tree.fields.panel && this._tree.fields.panel.value) {
-      this._panel = this._tree.fields.panel.value;
-    } else {
-      this._panel = "view";
-    }
-
+  _notifiyOpenPanels(){
     /**
-     * set the query param for the active page.
+     * @event controls-ready
+     * Fired when Controls for panels are ready, initially it starts with an empty set
+     *
+     * detail payload: RepeaterNode with navigation nodes
      */
-    this._rootNode.addEventListener("tree-node-selected", (e) => {
-      let nodeID = e.detail.id.value;
-      let newQuery = window.location.search.slice(1);
-      let queryObject = {};
-      if (newQuery.length > 0) {
-        newQuery.split("&").forEach((qstr, i, a) => {
-          let p = qstr.split("=");
-          queryObject[p[0]] = p[1];
-        });
-      }
-      queryObject[this.queryTag] = "P" + nodeID;
-      let qp = [];
-      for (let segment in queryObject) {
-        if (queryObject.hasOwnProperty(segment)) {
-          qp.push(segment + "=" + queryObject[segment])
+    let customEvent = new Event('panels-changed', {composed: true, bubbles: true});
+    customEvent.detail = this._openPanels;
+    this.dispatchEvent(customEvent)
+  }
+  showPage(NavigationNode) {
+    let panelName = "P" + NavigationNode.id.value;
+    if (this._openPanels.indexOf(NavigationNode) === -1) {
+
+      let panelComponent = panelRegistry.getPanelName(NavigationNode.link.type.value, NavigationNode.panel.value);
+      if (panelComponent) {
+        //create element and set name,...
+        let panel = document.createElement(panelComponent);
+
+        panel.setAttribute("name", panelName);
+        panel.setAttribute("hidden", "");
+        panel._TreeNode = NavigationNode;
+
+        panel.removePanel = () => {
+          this._removeNodeById(NavigationNode.id.value);
+        };
+        this._openPanels.push(NavigationNode);
+        this._furoPage.appendChild(panel);
+
+        // trigger the --navNode wire on panel
+        if(panel._FBPTriggerWire){
+          panel._FBPTriggerWire("--navNode", NavigationNode);
         }
-      }
-      // notify furo location
-      window.history.pushState({}, '', window.location.pathname + "?" + qp.join("&") + window.location.hash);
-      let now = window.performance.now();
-      let customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});
-      customEvent.detail = now;
-      this.dispatchEvent(customEvent)
-    });
 
-    this._tree.addEventListener("data-injected", (e) => {
-      this._initTree()
-    });
 
-    this._initTree()
-  }
-
-  _initTree() {
-    this._flatTree = [this._rootNode];
-    if (this._rootNode.children.repeats.length > 0) {
-      this._parseTreeRecursive(this._rootNode);
-
-      if (this._flatTree.length > 0 && this._queueLocation) {
-        this._handleDeepLink(this._queueLocation);
-        this._queueLocation = undefined;
-      }
-    }
-  }
-
-  _parseTreeRecursive(tree) {
-
-    tree.children.repeats.forEach((node) => {
-      this._flatTree.push(node);
-
-      if (node.children.repeats.length > 0) {
-        this._parseTreeRecursive(node)
-      }
-    });
-  }
-
-  _handleDeepLink(location) {
-    if (location.query[this.queryTag]) {
-      if (this._flatTree.length > 0) {
-        let nodes = this._flatTree.filter((n) => {
-          return ("P" + n.id.value === location.query.ap)
-        });
-        if (nodes[0].link) {
-          // Mark Tree node
-          setTimeout(() => {
-            let node = nodes[0];
-            node.dispatchNodeEvent(new NodeEvent('this-node-selected', node, false));
-            // used to open the paths upwards from the selected node
-            node.__parentNode.dispatchNodeEvent(new NodeEvent('descendant-selected', this, true));
-            if (node.triggerHover) {
-              node.triggerHover();
-            }
-
-          }, 150);
-          this._activatePanelForNode(nodes[0]);
-
-        }
       } else {
-        this._queueLocation = location;
+        console.warn(NavigationNode.link.type.value, NavigationNode.panel.value, "is not in the registry", this);
       }
-
     }
+
+    // activate the panel
+    this._notifiyOpenPanels();
+    this._furoPage.activatePage(panelName);
+
+
   }
+
 
   /**
    * closes all open panels
@@ -153,8 +85,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   closeAll(event) {
     this._openPanels.forEach((panel) => {
       panel.dispatchNodeEvent(new NodeEvent('close-requested', this, false));
-    })
-
+    });
   }
 
   /**
@@ -162,7 +93,8 @@ class FuroPanelCoordinator extends FBP(LitElement) {
    * @param nodeName
    * @private
    */
-  _removeNodeByName(nodeName) {
+  _removeNodeById(id) {
+    let nodeName = "P" + id;
     // remove from dom
     let e = this._furoPage.querySelector("*[name=" + nodeName + "]");
 
@@ -179,52 +111,8 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     } else {
       //enable default page
       this._furoPage.activatePage("overview");
-
-      // update query params by removing the queryTag
-      let newQuery = window.location.search.slice(1);
-      let queryObject = {};
-      if (newQuery.length > 0) {
-        newQuery.split("&").forEach((qstr, i, a) => {
-          let p = qstr.split("=");
-          queryObject[p[0]] = p[1];
-        });
-      }
-
-      delete (queryObject[this.queryTag]);
-      let qp = [];
-      for (let segment in queryObject) {
-        if (queryObject.hasOwnProperty(segment)) {
-          qp.push(segment + "=" + queryObject[segment])
-        }
-      }
-      // notify furo location
-      window.history.pushState({}, '', window.location.pathname + "?" + qp.join("&") + window.location.hash);
-      let now = window.performance.now();
-      let customEvent = new Event('__furoLocationChanged', {composed: true, bubbles: true});
-      customEvent.detail = now;
-      this.dispatchEvent(customEvent)
-      // -- update query params
-
-
     }
-
-    /**
-     * @event panel-changed
-     * Fired when a panel was opened or is closed
-     * detail payload: array with open panels
-     */
-    let customEvent = new Event('panel-changed', {composed: true, bubbles: false});
-    customEvent.detail = this._openPanels;
-    this.dispatchEvent(customEvent);
-
-    /**
-     * @event panel-opened
-     * Fired when a panel was  closed
-     * detail payload: array with open panels
-     */
-    let closedEvent = new Event('panel-closed', {composed: true, bubbles: false});
-    closedEvent.detail = this._openPanels;
-    this.dispatchEvent(closedEvent);
+    this._notifiyOpenPanels();
   }
 
   _activatePanelForNode(node) {
@@ -244,25 +132,6 @@ class FuroPanelCoordinator extends FBP(LitElement) {
         };
         this._openPanels.push(node);
         this._furoPage.appendChild(panel);
-
-
-        /**
-         * @event panel-changed
-         * Fired when a panel was opened or is closed
-         * detail payload: array with open panels
-         */
-        let customEvent = new Event('panel-changed', {composed: true, bubbles: false});
-        customEvent.detail = this._openPanels;
-        this.dispatchEvent(customEvent);
-
-        /**
-         * @event panel-opened
-         * Fired when a panel was opened
-         * detail payload: array with open panels
-         */
-        let openedEvent = new Event('panel-opened', {composed: true, bubbles: false});
-        openedEvent.detail = this._openPanels;
-        this.dispatchEvent(openedEvent);
 
 
       } else {
@@ -289,25 +158,6 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
   }
 
-
-  /**
-   * @private
-   * @returns {TemplateResult}
-   */
-  render() {
-    // language=HTML
-    return html`
-      <furo-location @-location-changed="--locationChanged"  url-space-regex="${this.urlSpaceRegex}"></furo-location>
-    `;
-  }
-
-  /**
-   * flow is ready lifecycle method
-   */
-  _FBPReady() {
-    super._FBPReady();
-    //this._FBPTraceWires()
-  }
 }
 
 window.customElements.define('furo-panel-coordinator', FuroPanelCoordinator);

@@ -60,36 +60,7 @@ class QpChanger extends FBP(LitElement) {
       customEvent.detail = now;
       this.dispatchEvent(customEvent)
     }
-  /**
-   * Themable Styles
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: block;
-        }
 
-        :host([hidden]) {
-            display: none;
-        }
-    `
-  }
-
-
-  /**
-   * @private
-   * @returns {TemplateResult}
-   * @private
-   */
-  render() {
-    // language=HTML
-    return html`
-      <p>Hej, welcome</p>
-    `;
-  }
 }
 
 window.customElements.define('qp-changer', QpChanger);

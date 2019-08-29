@@ -227,6 +227,7 @@ export class FuroTreeItem extends FBP(LitElement) {
             display: block;
             line-height: 40px;
             cursor: pointer;
+            font-weight: 400;
             user-select: none;
             padding-left: var(--spacing-xs, 16px);
             border-radius: 2px;

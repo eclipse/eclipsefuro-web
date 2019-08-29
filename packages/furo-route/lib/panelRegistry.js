@@ -9,7 +9,7 @@ export class panelRegistry {
       if (this._registry[type]) {
         return this._registry[type][suffix];
       } else {
-        console.warn("type is not registred:", type);
+        console.warn("type is not registred:", type, suffix);
         return;
       }
 

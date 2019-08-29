@@ -1025,7 +1025,7 @@
               "column": 2
             },
             "end": {
-              "line": 238,
+              "line": 253,
               "column": 3
             }
           },
@@ -1041,11 +1041,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 246,
+              "line": 261,
               "column": 2
             },
             "end": {
-              "line": 257,
+              "line": 272,
               "column": 3
             }
           },
@@ -1065,11 +1065,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 263,
+              "line": 278,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 283,
               "column": 3
             }
           },
@@ -1094,7 +1094,7 @@
           "column": 0
         },
         "end": {
-          "line": 269,
+          "line": 284,
           "column": 1
         }
       },
@@ -1124,7 +1124,7 @@
         {
           "type": "CustomEvent",
           "name": "location-query-changed",
-          "description": "location-query-changed\nFired when Query portion of the location changed\ndetail payload: {Object} queryParams",
+          "description": "location-query-changed\nFired when Query portion of the location changed\ndetail payload: {Object} Location object",
           "metadata": {}
         }
       ],
@@ -3331,8 +3331,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/panel-coordinator.html",
-          "description": ""
+          "url": "demo-furo-panel-coordinator",
+          "description": "Basic usage"
         }
       ],
       "metadata": {},

@@ -13,11 +13,21 @@ import "@furo/util/furo-pretty-json"
  */
 class ExamplePanel extends FBP(LitElement) {
 
-    constructor() {
-        super();
-    }
+  constructor(){
+    super();
+    // register the close
+    // todo: do some checks
+    this._FBPAddWireHook("--navNode",(treeNode)=>{
+      this.treeNode = treeNode;
+      treeNode.addEventListener("close-requested",()=>{
+        this.treeNode.selectItem();
+        this.removePanel();
+      },{once:true});
+    });
+  }
 
-    /**
+
+  /**
      * @private
      * @return {Object}
      */
