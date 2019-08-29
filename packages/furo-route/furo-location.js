@@ -98,6 +98,10 @@ class FuroLocation extends HTMLElement {
     this._locationChangeNotyfier = (e) => {
       this._lastChangedAt = e.detail;
 
+      let sendHashChanged = false;
+      let sendQueryChanged = false;
+      let sendPathChanged = false;
+
       // ignore links outside urlSpaceRegex
       if (this.urlSpaceRegex !== "") {
         if (window.location.pathname.match(this.urlSpaceRegex) === null) {
@@ -123,16 +127,8 @@ class FuroLocation extends HTMLElement {
           this._location.pathSegments.push(m[1]);
         }
 
+        sendPathChanged = true;
 
-
-        /**
-         * @event location-path-changed
-         * Fired when Path portion of the location changed
-         * detail payload: {string} path
-         */
-        let customEvent = new Event('location-path-changed', {composed: true, bubbles: false});
-        customEvent.detail = newPath;
-        this.dispatchEvent(customEvent)
       }
       // hash-changed
       let newHash = window.decodeURIComponent(window.location.hash.slice(1));
@@ -145,14 +141,7 @@ class FuroLocation extends HTMLElement {
             this._location.hash[p[0]] = p[1];
           });
         }
-        /**
-         * @event location-hash-changed
-         * Fired when Hash portion of the location changed
-         * detail payload: {string} hash
-         */
-        let customEvent = new Event('location-hash-changed', {composed: true, bubbles: false});
-        customEvent.detail = newHash;
-        this.dispatchEvent(customEvent)
+       sendHashChanged = true;
       }
 
       // query-changed
@@ -166,17 +155,43 @@ class FuroLocation extends HTMLElement {
             this._location.query[p[0]] = p[1];
           });
         }
-        /**
-         * @event location-query-changed
-         * Fired when Query portion of the location changed
-         * detail payload: {Object} queryParams
-         */
-        let customEvent = new Event('location-query-changed', {composed: true, bubbles: false});
-        customEvent.detail = this._location.query;
+        sendQueryChanged = true;
+      }
 
+
+      if(sendPathChanged){
+      /**
+       * @event location-path-changed
+       * Fired when Path portion of the location changed
+       * detail payload: {string} path
+       */
+      let customEvent = new Event('location-path-changed', {composed: true, bubbles: false});
+      customEvent.detail = this._location;
+      this.dispatchEvent(customEvent)
+      }
+
+      if(sendHashChanged){
+        /**
+         * @event location-hash-changed
+         * Fired when Hash portion of the location changed
+         * detail payload: {string} hash
+         */
+        let customEvent = new Event('location-hash-changed', {composed: true, bubbles: false});
+        customEvent.detail = this._location;
         this.dispatchEvent(customEvent)
       }
 
+      if(sendQueryChanged){
+        /**
+         * @event location-query-changed
+         * Fired when Query portion of the location changed
+         * detail payload: {Object} Location object
+         */
+        let customEvent = new Event('location-query-changed', {composed: true, bubbles: false});
+        customEvent.detail = this._location;
+
+        this.dispatchEvent(customEvent)
+      }
       // location-changed
       /**
        * @event location-changed

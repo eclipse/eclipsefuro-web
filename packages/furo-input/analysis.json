@@ -3171,11 +3171,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 605,
+              "line": 604,
               "column": 2
             },
             "end": {
-              "line": 627,
+              "line": 626,
               "column": 3
             }
           },
@@ -3208,7 +3208,7 @@
           "column": 0
         },
         "end": {
-          "line": 629,
+          "line": 628,
           "column": 1
         }
       },
@@ -9500,11 +9500,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 596,
+              "line": 593,
               "column": 2
             },
             "end": {
-              "line": 621,
+              "line": 618,
               "column": 3
             }
           },
@@ -9533,7 +9533,7 @@
           "column": 0
         },
         "end": {
-          "line": 624,
+          "line": 621,
           "column": 1
         }
       },
@@ -14165,11 +14165,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 351,
+              "line": 361,
               "column": 4
             },
             "end": {
-              "line": 360,
+              "line": 370,
               "column": 5
             }
           },
@@ -14194,7 +14194,7 @@
           "column": 0
         },
         "end": {
-          "line": 361,
+          "line": 371,
           "column": 1
         }
       },
@@ -14363,11 +14363,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 205,
+              "line": 198,
               "column": 4
             },
             "end": {
-              "line": 207,
+              "line": 200,
               "column": 5
             }
           },
@@ -14534,27 +14534,6 @@
             },
             "end": {
               "line": 161,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "filled",
-          "type": "boolean | null | undefined",
-          "description": "Set this attribute to switch to filled layout. Filled is without the borders around the field.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 165,
-              "column": 12
-            },
-            "end": {
-              "line": 167,
               "column": 13
             }
           },
@@ -14984,11 +14963,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 169,
               "column": 4
             },
             "end": {
-              "line": 178,
+              "line": 171,
               "column": 5
             }
           },
@@ -15009,11 +14988,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 183,
+              "line": 176,
               "column": 4
             },
             "end": {
-              "line": 189,
+              "line": 182,
               "column": 5
             }
           },
@@ -15029,11 +15008,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 214,
+              "line": 207,
               "column": 4
             },
             "end": {
-              "line": 219,
+              "line": 212,
               "column": 5
             }
           },
@@ -15053,7 +15032,27 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 217,
+              "column": 4
+            },
+            "end": {
+              "line": 220,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "focus",
+          "description": "Sets the focus on the field.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 225,
               "column": 4
             },
             "end": {
@@ -15068,8 +15067,8 @@
           }
         },
         {
-          "name": "focus",
-          "description": "Sets the focus on the field.",
+          "name": "disable",
+          "description": "Sets the field to readonly",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -15088,8 +15087,8 @@
           }
         },
         {
-          "name": "disable",
-          "description": "Sets the field to readonly",
+          "name": "enable",
+          "description": "Makes the field writable.",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -15108,8 +15107,8 @@
           }
         },
         {
-          "name": "enable",
-          "description": "Makes the field writable.",
+          "name": "check",
+          "description": "check the checkbox",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -15128,8 +15127,8 @@
           }
         },
         {
-          "name": "check",
-          "description": "check the checkbox",
+          "name": "uncheck",
+          "description": "uncheck the checkbox",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -15148,36 +15147,16 @@
           }
         },
         {
-          "name": "uncheck",
-          "description": "uncheck the checkbox",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 260,
-              "column": 4
-            },
-            "end": {
-              "line": 262,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "render",
           "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 454,
+              "line": 412,
               "column": 4
             },
             "end": {
-              "line": 470,
+              "line": 428,
               "column": 5
             }
           },
@@ -15199,7 +15178,7 @@
           "column": 0
         },
         "end": {
-          "line": 471,
+          "line": 429,
           "column": 1
         }
       },
@@ -15361,22 +15340,6 @@
             },
             "end": {
               "line": 161,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "filled",
-          "description": "Set this attribute to switch to filled layout. Filled is without the borders around the field.",
-          "sourceRange": {
-            "start": {
-              "line": 165,
-              "column": 12
-            },
-            "end": {
-              "line": 167,
               "column": 13
             }
           },

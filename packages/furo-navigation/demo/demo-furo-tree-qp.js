@@ -9,7 +9,6 @@ import "../test/produce-data"
 import "@furo/data-input"
 import "@furo/layout"
 import "@furo/form"
-import "./helper/tree-demo-form"
 
 /**
  * `demo-furo-tree`
@@ -17,7 +16,7 @@ import "./helper/tree-demo-form"
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroTree extends FBP(LitElement) {
+class DemoFuroTreeQp extends FBP(LitElement) {
 
   /**
    * Themable Styles
@@ -54,24 +53,27 @@ class DemoFuroTree extends FBP(LitElement) {
         <p>description</p>
         <furo-demo-snippet flex>
           <template>
+
+
             <produce-data @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
-            <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data"
-                              @-object-ready="--entityObj"></furo-data-object>
+
 
             <furo-split-view style="height: 500px;">
               <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.data)"
+                         qp="t"
+                         ƒ-location-in="--qp"
                          @-node-selected="--nodeSelected"
+                         @-qp-change-requested="--qpchangerequest"
                          ƒ-select-next="--next"
                          ƒ-select-prev="--prev"
                          ƒ-add-sub-node="--addSub"
                          ƒ-expand-node-recursive="--expandNode"
                          ƒ-expand-all="--expandAll"
                          ƒ-collapse-all="--collapseAll"
-                         ƒ-delete-node="--deleteNode"
-                         @-node-hovered="--nodeHovered"></furo-tree>
+                         ƒ-delete-node="--deleteNode"></furo-tree>
 
               <tree-demo-form
                       ƒ-bind-data="--nodeSelected"
@@ -81,8 +83,15 @@ class DemoFuroTree extends FBP(LitElement) {
                       @-nav-expand-clicked="--expandNode"
                       @-nav-delete-clicked="--deleteNode"
               ></tree-demo-form>
+
             </furo-split-view>
 
+
+            <qp-changer ƒ-set-qp="--qpchangerequest"></qp-changer>
+            <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data"
+                              @-object-ready="--entityObj"></furo-data-object>
+            <furo-location url-space-regex="^/api/navigation/demo/demo-furo-tree"
+                           @-location-query-changed="--qp"></furo-location>
 
           </template>
         </furo-demo-snippet>
@@ -91,4 +100,4 @@ class DemoFuroTree extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-tree', DemoFuroTree);
+window.customElements.define('demo-furo-tree-qp', DemoFuroTreeQp);

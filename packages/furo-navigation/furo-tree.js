@@ -14,6 +14,7 @@ import "./furo-tree-item"
  * @summary tree menu
  * @customElement
  * @demo demo-furo-tree Basic usage
+ * @demo demo-furo-tree-qp Working with query params
  * @appliesMixin FBP
  */
 class FuroTree extends FBP(LitElement) {
@@ -209,8 +210,25 @@ class FuroTree extends FBP(LitElement) {
     }
   }
 
+  /**
+   * Inject a location object, which contains a query param property to select the current node.
+   * @param locationObject
+   * @return {*|boolean}
+   */
+  locationIn(locationObject) {
+    if (locationObject.query[this.qp]) {
+      let selected = this.selectById(locationObject.query[this.qp]);
+      if (!selected) {
+        // Store qp, for later binding
+        this.__tmpQP = locationObject.query[this.qp];
+      }
+      return selected;
+    }
+  }
+
   selectById(nodeID) {
-    this._flatTree.forEach((node) => {
+    for (let i = this._flatTree.length-1; i >= 0; i--) {
+      let node = this._flatTree[i];
       if (node.id.value == nodeID) {
         node.selectItem();
 
@@ -224,7 +242,8 @@ class FuroTree extends FBP(LitElement) {
         }
         return node;
       }
-    });
+    }
+    return false;
   }
 
   /**
@@ -267,18 +286,20 @@ class FuroTree extends FBP(LitElement) {
   }
 
   addSubNode(rawNode) {
-    let newnode = this._selectedField.children.add();
-    newnode.value = rawNode;
+
+    let newnode = this._selectedField.children.add(rawNode);
+    this._init();
 
     setTimeout(() => {
       newnode.selectItem();
-
-    }, 60)
+    }, 0)
   }
 
   deleteNode() {
     this._selectedField.__parentNode.deleteChild(this._selectedField.__index);
-    this._buildFlatTree(this._rootNode);
+    this.selectPrev();
+    this._init();
+
   }
 
   /**
@@ -482,11 +503,12 @@ class FuroTree extends FBP(LitElement) {
 
     this._rootNode = treeNode.root;
 
-    treeNode.addEventListener("repeated-fields-changed", (e) => {
+    this._rootNode.addEventListener("this-repeated-field-changed", (e) => {
       this._init();
     });
 
-    this._init()
+    this._init();
+
   }
 
   _init() {
@@ -506,7 +528,18 @@ class FuroTree extends FBP(LitElement) {
     this._hoveredField = this._flatTree[0];
     setTimeout(() => {
       this._hoveredField.triggerHover();
-    }, 0)
+    }, 0);
+
+
+    // select item if qp was set before
+    if (this.__tmpQP !== undefined) {
+      // because the tree is built async
+      setTimeout(() => {
+        this.selectById(this.__tmpQP);
+        this.__tmpQP = undefined;
+      }, 0);
+
+    }
 
   }
 
@@ -574,7 +607,7 @@ class FuroTree extends FBP(LitElement) {
          *
          * detail payload: Object {"this.qp": this._selectedField.id.value}
          */
-        if(this.__lastQP !== this._selectedField.id.value){
+        if (this.__lastQP !== this._selectedField.id.value) {
           let customEvent = new Event('qp-change-requested', {composed: true, bubbles: true});
           let qp = {};
           this.__lastQP = this._selectedField.id.value;

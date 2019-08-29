@@ -814,11 +814,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 27,
+              "line": 28,
               "column": 4
             },
             "end": {
-              "line": 27,
+              "line": 28,
               "column": 18
             }
           },
@@ -836,11 +836,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 38,
               "column": 4
             },
             "end": {
-              "line": 37,
+              "line": 38,
               "column": 26
             }
           },
@@ -858,11 +858,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 306,
+              "line": 331,
               "column": 6
             },
             "end": {
-              "line": 306,
+              "line": 331,
               "column": 27
             }
           },
@@ -873,17 +873,38 @@
           }
         },
         {
+          "name": "qp",
+          "type": "string | null | undefined",
+          "description": "Query param to watch. If you set this attribute, the node-selected event will only be fired on `ƒ-qp-in` or `ƒ-select-by-id`.\nIf you select an item the `qp-change-request` will be fired.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 336,
+              "column": 6
+            },
+            "end": {
+              "line": 336,
+              "column": 24
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
           "name": "tabindex",
           "type": "number | null | undefined",
           "description": "Sets the tabindex",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 310,
+              "line": 340,
               "column": 6
             },
             "end": {
-              "line": 310,
+              "line": 340,
               "column": 45
             }
           },
@@ -900,11 +921,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 314,
+              "line": 344,
               "column": 6
             },
             "end": {
-              "line": 314,
+              "line": 344,
               "column": 77
             }
           },
@@ -1138,11 +1159,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 328,
+              "line": 358,
               "column": 2
             },
             "end": {
-              "line": 331,
+              "line": 361,
               "column": 3
             }
           },
@@ -1334,11 +1355,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 129,
+              "line": 130,
               "column": 2
             },
             "end": {
-              "line": 137,
+              "line": 138,
               "column": 3
             }
           },
@@ -1354,11 +1375,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 140,
               "column": 2
             },
             "end": {
-              "line": 142,
+              "line": 143,
               "column": 3
             }
           },
@@ -1378,11 +1399,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 144,
+              "line": 145,
               "column": 2
             },
             "end": {
-              "line": 156,
+              "line": 157,
               "column": 3
             }
           },
@@ -1398,11 +1419,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 159,
               "column": 2
             },
             "end": {
-              "line": 163,
+              "line": 164,
               "column": 3
             }
           },
@@ -1418,11 +1439,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 165,
+              "line": 166,
               "column": 2
             },
             "end": {
-              "line": 170,
+              "line": 171,
               "column": 3
             }
           },
@@ -1438,11 +1459,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 173,
               "column": 2
             },
             "end": {
-              "line": 177,
+              "line": 178,
               "column": 3
             }
           },
@@ -1458,11 +1479,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 182,
+              "line": 183,
               "column": 2
             },
             "end": {
-              "line": 203,
+              "line": 204,
               "column": 3
             }
           },
@@ -1473,16 +1494,64 @@
           }
         },
         {
+          "name": "qpIn",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 206,
+              "column": 2
+            },
+            "end": {
+              "line": 210,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "qpObject"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "selectById",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 212,
+              "column": 2
+            },
+            "end": {
+              "line": 228,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "nodeID"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "selectPrev",
           "description": "select the previous visible item",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 208,
+              "line": 233,
               "column": 2
             },
             "end": {
-              "line": 213,
+              "line": 238,
               "column": 3
             }
           },
@@ -1498,11 +1567,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 243,
               "column": 2
             },
             "end": {
-              "line": 220,
+              "line": 245,
               "column": 3
             }
           },
@@ -1518,11 +1587,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 222,
+              "line": 247,
               "column": 2
             },
             "end": {
-              "line": 224,
+              "line": 249,
               "column": 3
             }
           },
@@ -1538,11 +1607,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 226,
+              "line": 251,
               "column": 2
             },
             "end": {
-              "line": 228,
+              "line": 253,
               "column": 3
             }
           },
@@ -1558,11 +1627,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 258,
               "column": 2
             },
             "end": {
-              "line": 235,
+              "line": 260,
               "column": 3
             }
           },
@@ -1578,11 +1647,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 240,
+              "line": 265,
               "column": 2
             },
             "end": {
-              "line": 242,
+              "line": 267,
               "column": 3
             }
           },
@@ -1598,11 +1667,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 244,
+              "line": 269,
               "column": 2
             },
             "end": {
-              "line": 252,
+              "line": 277,
               "column": 3
             }
           },
@@ -1622,11 +1691,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 279,
               "column": 2
             },
             "end": {
-              "line": 257,
+              "line": 282,
               "column": 3
             }
           },
@@ -1642,11 +1711,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 262,
+              "line": 287,
               "column": 2
             },
             "end": {
-              "line": 267,
+              "line": 292,
               "column": 3
             }
           },
@@ -1662,11 +1731,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 272,
+              "line": 297,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 320,
               "column": 3
             }
           },
@@ -1682,11 +1751,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 321,
+              "line": 351,
               "column": 2
             },
             "end": {
-              "line": 323,
+              "line": 353,
               "column": 3
             }
           },
@@ -1702,11 +1771,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 428,
+              "line": 458,
               "column": 2
             },
             "end": {
-              "line": 444,
+              "line": 474,
               "column": 3
             }
           },
@@ -1722,11 +1791,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 447,
+              "line": 477,
               "column": 2
             },
             "end": {
-              "line": 460,
+              "line": 490,
               "column": 3
             }
           },
@@ -1746,11 +1815,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 462,
+              "line": 492,
               "column": 2
             },
             "end": {
-              "line": 481,
+              "line": 511,
               "column": 3
             }
           },
@@ -1766,11 +1835,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 483,
+              "line": 513,
               "column": 2
             },
             "end": {
-              "line": 559,
+              "line": 609,
               "column": 3
             }
           },
@@ -1786,11 +1855,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 561,
+              "line": 611,
               "column": 2
             },
             "end": {
-              "line": 695,
+              "line": 745,
               "column": 3
             }
           },
@@ -1810,11 +1879,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 698,
+              "line": 748,
               "column": 2
             },
             "end": {
-              "line": 713,
+              "line": 763,
               "column": 3
             }
           },
@@ -1840,16 +1909,20 @@
         {
           "url": "demo-furo-tree",
           "description": "Basic usage"
+        },
+        {
+          "url": "demo-furo-tree-qp",
+          "description": "Working with query params"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 0
         },
         "end": {
-          "line": 714,
+          "line": 764,
           "column": 1
         }
       },
@@ -1862,11 +1935,11 @@
           "description": "Maximal depth for the tree. Default is infinite.",
           "sourceRange": {
             "start": {
-              "line": 306,
+              "line": 331,
               "column": 6
             },
             "end": {
-              "line": 306,
+              "line": 331,
               "column": 27
             }
           },
@@ -1874,15 +1947,31 @@
           "type": "number | null | undefined"
         },
         {
+          "name": "qp",
+          "description": "Query param to watch. If you set this attribute, the node-selected event will only be fired on `ƒ-qp-in` or `ƒ-select-by-id`.\nIf you select an item the `qp-change-request` will be fired.",
+          "sourceRange": {
+            "start": {
+              "line": 336,
+              "column": 6
+            },
+            "end": {
+              "line": 336,
+              "column": 24
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
           "name": "tabindex",
           "description": "Sets the tabindex",
           "sourceRange": {
             "start": {
-              "line": 310,
+              "line": 340,
               "column": 6
             },
             "end": {
-              "line": 310,
+              "line": 340,
               "column": 45
             }
           },
@@ -1936,7 +2025,7 @@
         {
           "type": "CustomEvent",
           "name": "node-selected",
-          "description": "node-selected\nFired when\ndetail payload:",
+          "description": "node-selected\nFired when the item gets selected, does not fire when you work with query params\ndetail payload:",
           "metadata": {}
         },
         {
@@ -1949,6 +2038,12 @@
           "type": "CustomEvent",
           "name": "nodes-expanded",
           "description": "nodes-expanded\nFired when nodes are expanded recursive",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "qp-change-requested",
+          "description": "qp-change-requested\nFired when qp mode is enabled. Nodes are only selectable with qpIn or selectById\n\ndetail payload: Object {\"this.qp\": this._selectedField.id.value}",
           "metadata": {}
         }
       ],
