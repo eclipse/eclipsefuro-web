@@ -50,10 +50,12 @@ Following base types are available by default:
 > **TIPP** Add the scripts to your package.json so you can run `npm run init` , `npm run build`,... 
 >
  ```json
+{ 
   "scripts": {
-      "build": "node ./node_modules/@furo/specs/_scripts/build.js",
-      "init": "node ./node_modules/@furo/specs/_scripts/init.js"
-  },
+    "build": "node ./node_modules/@furo/specs/_scripts/build.js",
+    "init": "node ./node_modules/@furo/specs/_scripts/init.js"
+  }
+}
 ```
 ## Config
 
