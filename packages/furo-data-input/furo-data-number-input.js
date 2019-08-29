@@ -205,19 +205,19 @@ class FuroDataNumberInput extends FBP(LitElement) {
 
     // min auf attr ist höher gewichtet
     if (!this.min) {
-      this._min = this.field._meta.min;
+      this._min = this.field._constraints.min;
     } else {
       this._min = this.min;
     }
     // max auf attr ist höher gewichtet
     if (!this.max) {
-      this._max = this.field._meta.max;
+      this._max = this.field._constraints.max;
     } else {
       this._max = this.max;
     }
     // step auf attr ist höher gewichtet
     if (!this.step) {
-      this._step = this.field._meta.step;
+      this._step = this.field._constraints.step;
     } else {
       this._step = this.step;
     }

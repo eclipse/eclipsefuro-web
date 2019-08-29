@@ -44,7 +44,7 @@ class DemoFuroDataTable extends FBP(LitElement) {
 
     _FBPReady() {
         super._FBPReady();
-        //this._FBPTraceWires();
+        this._FBPTraceWires();
     }
 
     /**
@@ -60,10 +60,16 @@ class DemoFuroDataTable extends FBP(LitElement) {
                     <furo-button label="List data" primary unelevated @-click="--btnListClicked">
                 </div>
                 <div class="flex">
-                    <furo-data-table type="project.Project" 
+                    <furo-data-table type="project.Project" fields="display_name,id,start,end,cost_limit"
                                      ƒ-bind-data="--data" @-tablerow-selected="--rowSelected"></furo-data-table>
-                   
                 </div>
+                <template is="flow-repeat" ƒ-inject-items="--collectionResponse(*.entities)" internal-wire="--internal">
+                    <furo-data-text-input condensed ƒ-bind-data="--entity(*.data.display_name)"></furo-data-text-input>
+                    <furo-data-object type="project.ProjectEntity"
+                                      ƒ-inject-raw="--internal(*.item)"
+                                      @-object-ready="--entity"></furo-data-object>
+
+                </template>
                 <furo-pretty-json ƒ-inject-data="--rowSelected"></furo-pretty-json>
             </furo-vertical-flex>
 

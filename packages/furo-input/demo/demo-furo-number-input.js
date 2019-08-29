@@ -65,8 +65,6 @@ class DemoFuroNumberInput extends FBP(LitElement) {
 
         </template>
       </furo-demo-snippet>
-      
-     
     `;
   }
 }

@@ -209,13 +209,13 @@ class FuroDataTextInput extends FBP(LitElement) {
 
     // min auf attr ist höher gewichtet
     if (!this.min) {
-      this._min = this.field._meta.min;
+      this._min = this.field._constraints.min;
     } else {
       this._min = this.min;
     }
     // max auf attr ist höher gewichtet
     if (!this.max) {
-      this._max = this.field._meta.max;
+      this._max = this.field._constraints.max;
     } else {
       this._max = this.max;
     }

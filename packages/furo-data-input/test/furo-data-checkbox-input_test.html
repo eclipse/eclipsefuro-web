@@ -20,11 +20,12 @@
     <test-bind>
       <template>
 
-        <furo-data-object type="experiment.Experiment" @-data-injected="--entity"  ƒ-inject-raw="--response(*.data)"></furo-data-object>
-        <furo-data-checkbox-input ƒ-bind-data="--entity(*.furo_data_checkbox_input)"></furo-data-checkbox-input>
+        <furo-data-checkbox-input ƒ-bind-data="--entityReady(*.furo_data_checkbox_input)"></furo-data-checkbox-input>
         <furo-data-checkbox-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
                               @-value-changed="--valueChanged"></furo-data-checkbox-input>
 
+        <furo-data-object type="experiment.Experiment" @-object-ready="--entityReady" ƒ-inject-raw="--response(*.data)"></furo-data-object>
+        <furo-data-object type="experiment.Experiment" @-data-injected="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
 
         <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
         <furo-entity-agent service="ExperimentService"
@@ -56,21 +57,26 @@
     describe('furo-data-checkbox-input_test tests ', function () {
 
 
-        let dataCheckboxInput, host, entityObject, secondCheckboxInput, deeplink;
+        let dataCheckboxInput, host, entityObject, secondCheckboxInput, deeplink, entityObject2;
 
         beforeEach(async () => {
             let fix = fixture('basic');
             host = fix[0]._host;
-            entityObject = fix[1];
-            await entityObject.updateComplete;
 
-            dataCheckboxInput = fix[2];
+
+            dataCheckboxInput = fix[1];
             await dataCheckboxInput.updateComplete;
 
-            secondCheckboxInput = fix[3];
+            secondCheckboxInput = fix[2];
             await secondCheckboxInput.updateComplete;
 
-            deeplink = fix[4];
+            entityObject = fix[3];
+            await entityObject.updateComplete;
+
+            entityObject2 = fix[4];
+            await entityObject2.updateComplete;
+
+            deeplink = fix[5];
             await deeplink.updateComplete;
 
         });
@@ -86,9 +92,26 @@
             });
         });
 
+
+        it('should receive label from meta in spec by entity object ready', (done) => {
+
+            dataCheckboxInput._FBPAddWireHook("--value", (val) => {
+                assert.equal(dataCheckboxInput._label, "checkbox_input");
+                done();
+            });
+        });
+
+        it('should receive hint from meta in spec by entity object ready', (done) => {
+
+            dataCheckboxInput._FBPAddWireHook("--value", (val) => {
+                assert.equal(dataCheckboxInput._hint, "Hint");
+                done();
+            });
+        });
+
         it('should receive value with bind', (done) => {
             deeplink.qpIn({"exp":1});
-            dataCheckboxInput._FBPAddWireHook("--value", (val) => {
+            secondCheckboxInput._FBPAddWireHook("--value", (val) => {
                 assert.equal(val, true)
                 done();
             });

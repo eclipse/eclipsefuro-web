@@ -604,15 +604,17 @@ class FuroNumberInput extends FBP(LitElement) {
     return html` 
       <div class="wrapper">
       
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
-       <div class="iwrap">    
-           <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-       type="number"       
-       ƒ-.value="--value" 
-       @-input="--inputInput(*)"   
-       ƒ-focus="--focus">
-       </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+           <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+           <div class="iwrap">    
+               <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
+                   min="${this.min}" 
+                   max="${this.max}"
+                   type="number"       
+                   ƒ-.value="--value" 
+                   @-input="--inputInput(*)"   
+                   ƒ-focus="--focus">
+           </div>
+           <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -623,7 +625,7 @@ class FuroNumberInput extends FBP(LitElement) {
       <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
+
     `;
   }
 
