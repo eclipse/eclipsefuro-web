@@ -5,8 +5,9 @@ import "@furo/doc-helper"
 import "../furo-catalog"
 
 
-import '../test/example-panel';
-import '../test/example-panel-b';
+import '../test/helper/example-panel';
+import '../test/helper/example-panel-b';
+import '../test/helper/edit-example'
 import "@furo/navigation";
 import "@furo/navigation/furo-mini-tabs";
 

@@ -30,7 +30,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
   }
 
-  _notifiyOpenPanels(){
+  _notifiyOpenPanels() {
     /**
      * @event controls-ready
      * Fired when Controls for panels are ready, initially it starts with an empty set
@@ -41,7 +41,8 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     customEvent.detail = this._openPanels;
     this.dispatchEvent(customEvent)
   }
-  showPage(NavigationNode) {
+
+  async showPage(NavigationNode) {
     let panelName = "P" + NavigationNode.id.value;
     if (this._openPanels.indexOf(NavigationNode) === -1) {
 
@@ -49,22 +50,25 @@ class FuroPanelCoordinator extends FBP(LitElement) {
       if (panelComponent) {
         //create element and set name,...
         let panel = document.createElement(panelComponent);
+        if (panel.closePanel) {
+          panel.setAttribute("name", panelName);
+          panel.setAttribute("hidden", "");
+          panel._TreeNode = NavigationNode;
 
-        panel.setAttribute("name", panelName);
-        panel.setAttribute("hidden", "");
-        panel._TreeNode = NavigationNode;
+          panel.removePanel = () => {
+            this._removeNodeById(NavigationNode.id.value);
+          };
+          this._openPanels.push(NavigationNode);
+          this._furoPage.appendChild(panel);
 
-        panel.removePanel = () => {
-          this._removeNodeById(NavigationNode.id.value);
-        };
-        this._openPanels.push(NavigationNode);
-        this._furoPage.appendChild(panel);
-
-        // trigger the --navNode wire on panel
-        if(panel._FBPTriggerWire){
-          panel._FBPTriggerWire("--navNode", NavigationNode);
+          await panel.updateComplete;
+          // trigger the --navNode wire on panel
+          if (panel._FBPTriggerWire) {
+            panel._FBPTriggerWire("--navNode", NavigationNode);
+          }
+        }else{
+          console.warn("panel does not have a closePanel method, implement panel interfaces or extend from BasePanel.js")
         }
-
 
       } else {
         console.warn(NavigationNode.link.type.value, NavigationNode.panel.value, "is not in the registry", this);

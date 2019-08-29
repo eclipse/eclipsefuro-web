@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/util/furo-pretty-json"
+import {BasePanel} from "../../lib/BasePanel";
 /**
  * `example-panel-b`
  * todo Describe your element
@@ -11,7 +12,7 @@ import "@furo/util/furo-pretty-json"
  * @demo demo/example-panel-b.html
  * @appliesMixin FBP
  */
-class ExamplePanelB extends FBP(LitElement) {
+class ExamplePanelB extends BasePanel {
 
   constructor(){
     super();
