@@ -608,7 +608,7 @@ class FuroTextInput extends FBP(LitElement) {
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} minlength="${this.min}" maxlength="${this.max}"
         type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>

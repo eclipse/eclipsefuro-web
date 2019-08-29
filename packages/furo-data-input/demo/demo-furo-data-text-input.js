@@ -51,7 +51,7 @@ class DemoFuroDataTextInput extends FBP(LitElement) {
         <template>
           
           <furo-data-text-input trailing-icon="dashboard" hint="custom hint" ƒ-bind-data="--entity(*.display_name)"></furo-data-text-input>
-          <furo-data-text-input leading-icon="dashboard" ƒ-bind-data="--entity(*.description)"></furo-data-text-input>
+          <furo-data-text-input leading-icon="dashboard" ƒ-bind-data="--entity(*.description)" min="4" max="7"></furo-data-text-input>
           <furo-data-text-input readonly ƒ-bind-data="--entity(*.description)"></furo-data-text-input>
           <furo-data-text-input autofocus  ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
           

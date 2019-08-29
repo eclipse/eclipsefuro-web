@@ -53,13 +53,13 @@ class DemoFuroDataCheckboxInput extends FBP(LitElement) {
             <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
                 The labels, hints, defaults are comming from the furo-data-object specs.</p>
             <furo-demo-snippet>
-                <template>
-                    <furo-data-checkbox-input label="invalid binding" ƒ-bind-data="--entity(*.xxx)"></furo-data-checkbox-input>
-                    <furo-data-checkbox-input label="disabled" hint="disabled hint" readonly=true ƒ-bind-data="--entity(*.furo_data_checkbox_input)"> </furo-data-checkbox-input>
-                    <furo-data-checkbox-input condensed label="condensed" hint="condensed hint"  > </furo-data-checkbox-input>
+                <template style="position: relative">
+                    <furo-data-checkbox-input label="console warning by invalid binding" ƒ-bind-data="--entity(*.xxxy)"></furo-data-checkbox-input>
+                    <furo-data-checkbox-input label="bindable no matter Disabled" readonly=true ƒ-bind-data="--entity(*.furo_data_checkbox_input)"> </furo-data-checkbox-input>
+                    <furo-data-checkbox-input style="position: relative;top:-8px" condensed label="condensed" hint="condensed hint" ƒ-bind-data="--entity(*.furo_data_checkbox_input)" > </furo-data-checkbox-input>
                     <furo-horizontal-flex space>
     
-                        <furo-data-checkbox-input style="margin-top:12px" autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                        <furo-data-checkbox-input autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
                                                   @-value-changed="--checkChanged"
                                                   hint="the checked value will be sent to text input"></furo-data-checkbox-input>
     
