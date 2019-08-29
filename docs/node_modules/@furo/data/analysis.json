@@ -5017,7 +5017,7 @@
       ]
     },
     {
-      "description": "Use this component to interact with fields from an entity-object.\n\nYou can set the field value or listen to changes of a field.",
+      "description": "Use this component to interact with fields from an furo-data-object.\n\nYou can set the field value or listen to changes of a field.",
       "summary": "non visual field",
       "path": "packages/furo-data/furo-entity-field.js",
       "properties": [
@@ -6043,7 +6043,7 @@
         },
         {
           "name": "bindData",
-          "description": "Bind a entity field to the date-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `entity-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
+          "description": "Bind a entity field to the date-input. You can use the entity even when no data was received.\nWhen you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`",
           "privacy": "public",
           "sourceRange": {
             "start": {

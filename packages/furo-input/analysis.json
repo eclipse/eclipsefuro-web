@@ -723,11 +723,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 360,
+              "line": 359,
               "column": 2
             },
             "end": {
-              "line": 367,
+              "line": 366,
               "column": 3
             }
           },
@@ -760,7 +760,7 @@
           "column": 0
         },
         "end": {
-          "line": 368,
+          "line": 367,
           "column": 1
         }
       },
