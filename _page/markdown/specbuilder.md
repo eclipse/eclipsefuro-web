@@ -6,6 +6,39 @@ If you have Go installed
 
 if not: https://golang.org/doc/install
 
+### Installing protoc
+proto-lens
+API for protocol buffers using modern Haskell language and library patterns.
+
+```
+brew install protobuf
+```
+Alternately, run the following commands:
+```
+PROTOC_ZIP=protoc-3.7.1-osx-x86_64.zip
+curl -OL https://github.com/google/protobuf/releases/download/v3.7.1/$PROTOC_ZIP
+sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+rm -f $PROTOC_ZIP
+```
+
+### Installing grpc-ecosystem
+
+```
+go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+go get github.com/golang/protobuf/protoc-gen-go
+go get github.com/gogo/protobuf/protoc-gen-gogo
+go get github.com/gogo/protobuf/protoc-gen-gogofast
+
+```
+This will place three binaries in your $GOBIN;
+
+* protoc-gen-grpc-gateway
+* protoc-gen-grpc-swagger
+* protoc-gen-go
+
+Make sure that your $GOBIN is in your $PATH.
+
 ## Manual Installation
 - mkdir my-spec-project
 - cd my-spec-project
