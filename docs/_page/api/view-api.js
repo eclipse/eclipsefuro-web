@@ -756,8 +756,6 @@ return _furoShell.html`
 
         </template>
       </furo-demo-snippet>
-      
-     
     `}}window.customElements.define("demo-furo-number-input",DemoFuroNumberInput);class DemoFuroRangeInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
@@ -833,7 +831,7 @@ return _furoShell.html`
         <furo-horizontal-scroller flex>
           
             <div style="background-color:var(--surface); padding: 30px">
-              <furo-text-input min="5" leading-icon="send" label="Label" hint="Hint"></furo-text-input>
+              <furo-text-input min="5" max="8" leading-icon="send" label="Label" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="send" filled label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="send" leading-icon="send"  error label="Label" errortext="errortext"></furo-text-input>
               <furo-text-input trailing-icon="send" leading-icon="send"  filled error label="Label" value="Val" errortext="errortext"></furo-text-input>
@@ -2702,8 +2700,8 @@ this.error=!1;this.requestUpdate()})}// label setter and getter are needed for r
 set label(l){this._l=l;this._label=l}get label(){return this._l}_updateField(){// label auf attr ist höher gewichtet
 if(!this.label){this._label=this.field._meta.label}else{this._label=this.label}// hint auf attr ist höher gewichtet
 if(!this.hint){this._hint=this.field._meta.hint}else{this._hint=this.hint}this.disabled=this.field._meta.readonly?!0:!1;// min auf attr ist höher gewichtet
-if(!this.min){this._min=this.field._meta.min}else{this._min=this.min}// max auf attr ist höher gewichtet
-if(!this.max){this._max=this.field._meta.max}else{this._max=this.max}// readonly auf attr ist höher gewichtet
+if(!this.min){this._min=this.field._constraints.min}else{this._min=this.min}// max auf attr ist höher gewichtet
+if(!this.max){this._max=this.field._constraints.max}else{this._max=this.max}// readonly auf attr ist höher gewichtet
 if(!this.readonly){this._readonly=this.field._meta.readonly}else{this._readonly=this.readonly}//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.message}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
      *
@@ -3025,9 +3023,9 @@ this.error=!0;this.errortext=this.field._validity.message;this.requestUpdate()})
 this.error=!1;this.requestUpdate()})}_updateField(){// label auf attr ist höher gewichtet
 if(!this.label){this._label=this.field._meta.label}else{this._label=this.label}// hint auf attr ist höher gewichtet
 if(!this.hint){this._hint=this.field._meta.hint}else{this._hint=this.hint}this.disabled=this.field._meta.readonly?!0:!1;// min auf attr ist höher gewichtet
-if(!this.min){this._min=this.field._meta.min}else{this._min=this.min}// max auf attr ist höher gewichtet
-if(!this.max){this._max=this.field._meta.max}else{this._max=this.max}// step auf attr ist höher gewichtet
-if(!this.step){this._step=this.field._meta.step}else{this._step=this.step}// readonly auf attr ist höher gewichtet
+if(!this.min){this._min=this.field._constraints.min}else{this._min=this.min}// max auf attr ist höher gewichtet
+if(!this.max){this._max=this.field._constraints.max}else{this._max=this.max}// step auf attr ist höher gewichtet
+if(!this.step){this._step=this.field._constraints.step}else{this._step=this.step}// readonly auf attr ist höher gewichtet
 if(!this.readonly){this._readonly=this.field._meta.readonly}else{this._readonly=this.readonly}//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.message}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
      *
@@ -3687,7 +3685,7 @@ return _furoShell.html`
         <template>
           
           <furo-data-text-input trailing-icon="dashboard" hint="custom hint" ƒ-bind-data="--entity(*.display_name)"></furo-data-text-input>
-          <furo-data-text-input leading-icon="dashboard" ƒ-bind-data="--entity(*.description)"></furo-data-text-input>
+          <furo-data-text-input leading-icon="dashboard" ƒ-bind-data="--entity(*.description)" min="4" max="7"></furo-data-text-input>
           <furo-data-text-input readonly ƒ-bind-data="--entity(*.description)"></furo-data-text-input>
           <furo-data-text-input autofocus  ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
           
@@ -3972,13 +3970,13 @@ return _furoShell.html`
             <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
                 The labels, hints, defaults are comming from the furo-data-object specs.</p>
             <furo-demo-snippet>
-                <template>
-                    <furo-data-checkbox-input label="invalid binding" ƒ-bind-data="--entity(*.xxx)"></furo-data-checkbox-input>
-                    <furo-data-checkbox-input label="disabled" hint="disabled hint" readonly=true ƒ-bind-data="--entity(*.furo_data_checkbox_input)"> </furo-data-checkbox-input>
-                    <furo-data-checkbox-input condensed label="condensed" hint="condensed hint"  > </furo-data-checkbox-input>
+                <template style="position: relative">
+                    <furo-data-checkbox-input label="console warning by invalid binding" ƒ-bind-data="--entity(*.xxxy)"></furo-data-checkbox-input>
+                    <furo-data-checkbox-input label="bindable no matter Disabled" readonly=true ƒ-bind-data="--entity(*.furo_data_checkbox_input)"> </furo-data-checkbox-input>
+                    <furo-data-checkbox-input style="position: relative;top:-8px" condensed label="condensed" hint="condensed hint" ƒ-bind-data="--entity(*.furo_data_checkbox_input)" > </furo-data-checkbox-input>
                     <furo-horizontal-flex space>
     
-                        <furo-data-checkbox-input style="margin-top:12px" autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                        <furo-data-checkbox-input autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
                                                   @-value-changed="--checkChanged"
                                                   hint="the checked value will be sent to text input"></furo-data-checkbox-input>
     
@@ -4031,30 +4029,62 @@ return _furoShell.html`
           <furo-data-collection-dropdown condensed label="Label" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-data="--collection" ƒ-bind-data="--entity(*.fields.description)"></furo-data-collection-dropdown>
         </template>
       </furo-demo-snippet>
-    `}}window.customElements.define("sample-furo-data-collection-dropdown",SampleFuroDataCollectionDropdown);const tableHeaders=fields=>_furoShell.html`${fields.map(f=>_furoShell.html`<th class="head"><div class="cell">${f.meta.label}</div></th>`)}`,tableDetails=fields=>_furoShell.html`${fields.map(f=>_furoShell.html`<td><div class="cell" ƒ-.inner-text="${f.name}"></div></td>`)}`;/**
-                                                                                                                             * `furo-data-table`
-                                                                                                                             * Read only data table based on the response type from the rest api spec.
-                                                                                                                             *
-                                                                                                                             * ```
-                                                                                                                             * <furo-data-table type="project.Project"
-                                                                                                                             *                  ƒ-bind-data="--data"></furo-data-table>
-                                                                                                                             * ```
-                                                                                                                             *
-                                                                                                                             * Custom property | Description | Default  | Fallback
-                                                                                                                             * ----------------|-------------|----------|----------
-                                                                                                                             * `--furo-data-table-background` | Background color of the element | --background | white
-                                                                                                                             * `--furo-data-table-select-color` | Background color of the focused table row element | --accent-light | lightgrey
-                                                                                                                             *
-                                                                                                                             * Configuration:
-                                                                                                                             * Attribute: hide-header | hides the table header row
-                                                                                                                             *
-                                                                                                                             * Tags: data-ui
-                                                                                                                             *
-                                                                                                                             * @summary datatable
-                                                                                                                             * @demo demo-furo-data-table Simple data table demo
-                                                                                                                             * @customElement
-                                                                                                                             * @mixes FBP
-                                                                                                                             */class FuroDataTable extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("sample-furo-data-collection-dropdown",SampleFuroDataCollectionDropdown);class FuroDataTableToggle extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.on=!0;this.field=""}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+this._FBPAddWireHook("--Pressed",()=>{this.toggle()})}static get properties(){return{field:{type:String,attribute:!0,reflect:!0}}}static get styles(){// language=CSS
+return[_furoShell.css`
+                :host {
+                    display: inline-block;
+                }
+
+                :host([hidden]) {
+                    display: none;
+                }
+            `]}/**
+     * Sets an identity
+     * @param name
+     */setField(name){this.field=name;this.setAttribute("field",name)}attributeChangedCallback(name,oldval,newval){super.attributeChangedCallback(name,oldval,newval)}/**
+     * Toggle state
+     * @event up Payload: identity
+     * @event down Payload: identity
+     */toggle(){this.on=!this.on;this.requestUpdate();if(this.on){this.dispatchEvent(new CustomEvent("down",{detail:this.field,bubbles:!0,composed:!0}))}else{this.dispatchEvent(new CustomEvent("up",{detail:this.field,bubbles:!0,composed:!0}))}}/**
+     * @private
+     * @returns {TemplateResult|TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+         <div @-click="--Pressed">
+        ${this.on?_furoShell.html`<span>&bigtriangledown;</span>`:_furoShell.html`<span>&bigtriangleup;</span>`}
+        </div>
+    `}}window.customElements.define("furo-data-table-toggle",FuroDataTableToggle);const tableHeaders=fields=>_furoShell.html`${fields.map(f=>_furoShell.html`<th class="head"><div class="cell">${f.meta.label} <furo-data-table-toggle field="${f.id}"></furo-data-table-toggle></div></th>`)}`,tableDetails=fields=>_furoShell.html`${fields.map(f=>_furoShell.html`<td><div class="cell" ƒ-.inner-text="${f.wire}"></div></td>`)}`,tdWRepeat=fields=>_furoShell.html`
+  ${fields.map(f=>_furoShell.html`
+    ${f.meta.repeated?_furoShell.html`<td><div class="cell">multiple values</div></td>`:_furoShell.html`<td><div class="cell" ƒ-.inner-text="${f.wire}"></div></td>`}
+  `)}
+  
+`;/**
+    * `furo-data-table`
+    * Read only data table based on the response type from the rest api spec.
+    *
+    * ```
+    * <furo-data-table type="project.Project"
+    *                  ƒ-bind-data="--data"></furo-data-table>
+    * ```
+    *
+    * Custom property | Description | Default  | Fallback
+    * ----------------|-------------|----------|----------
+    * `--furo-data-table-background` | Background color of the element | --background | white
+    * `--furo-data-table-select-color` | Background color of the focused table row element | --accent-light | lightgrey
+    *
+    * Configuration:
+    * Attribute: hide-header | hides the table header row
+    *
+    * Tags: data-ui
+    *
+    * @summary datatable
+    * @demo demo-furo-data-table Simple data table demo
+    * @customElement
+    * @mixes FBP
+    */class FuroDataTable extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Fired when a table row has been selected.
    * Payload: Entity
    * @event tablerow-selected
@@ -4074,14 +4104,16 @@ return _furoShell.html`
                    * Fired when a row is checked or unchecked
                    * Payload: Array of raw Entities
                    * @event checkstate-changed
-                   */constructor(){super();this._specs=_furoShell.Env.api.specs;this.type="";this.cols=[];this._selectedIndex=-1;this.hideHeader=!1;this._checkedRows=[];this._collection=[];this._FBPAddWireHook("--rowCheckChanged",r=>{if("INPUT"===r.composedPath()[0].nodeName){if(r.composedPath()[0].checked){this._checkedRows.push(this._collection.rawEntity.entities[this._selectedIndex])}else{this._checkedRows.pop(this._collection.rawEntity.entities[this._selectedIndex])}}this.dispatchEvent(new CustomEvent("checkstate-changed",{detail:this._checkedRows,bubbles:!0,composed:!0}))})}/**
+                   */constructor(){super();this._specs=_furoShell.Env.api.specs;this.type="";this.fields="";this.cols=[];this._selectedIndex=-1;this.hideHeader=!1;this._checkedRows=[];this._collection=[];this._FBPAddWireHook("--rowCheckChanged",r=>{if("INPUT"===r.composedPath()[0].nodeName){if(r.composedPath()[0].checked){this._checkedRows.push(this._collection.rawEntity.entities[this._selectedIndex])}else{this._checkedRows.pop(this._collection.rawEntity.entities[this._selectedIndex])}}this.dispatchEvent(new CustomEvent("checkstate-changed",{detail:this._checkedRows,bubbles:!0,composed:!0}))})}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
-this._FBPAddWireHook("--entity",w=>{console.log(w)})}static get properties(){return{/**
-       * Typedefinition of incoming collection items
+     */_FBPReady(){super._FBPReady()}static get properties(){return{/**
+       * Typedefinition of row items
        * REST SPEC Type
        * e.g. task.Task.[type]
        */type:{type:String,attribute:"type"},/**
+       * list of fields which columns should be displayed
+       * comma separated field list
+       */fields:{type:String,attribute:"fields",reflect:!0},/**
        * Flag to show table header information
        * TRUE => shows header
        */hideHeader:{type:Boolean,attribute:"hide-header"}}}/**
@@ -4131,17 +4163,24 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
                 position: relative;
             }
 
+            tr:nth-child(even) {
+                /** add here zebra style */
+            }
+
             tbody tr:hover {
-                box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+                box-shadow: inset 1px 0 0 var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
                 z-index: 1;
             }
 
+            .head:hover{
+                cursor: pointer;
+            }
             .cell {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 font-size: 12px;
-                margin-right: var(--spacing, 12px);
+                padding-right: var(--spacing, 12px);
             }
 
             .fx {
@@ -4169,7 +4208,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
                 overflow-x: auto;
             }
 
-        `}set type(type){if(this._type){this._checkType(type)}this._type=type}/**
+        `}set type(type){if(this._type){this._checkType(type)}this._type=type}attributeChangedCallback(name,oldval,newval){super.attributeChangedCallback(name,oldval,newval);if(newval!==oldval){switch(name){case"fields":{this._init(newval);break}}}}/**
      * SPEC Type checker
      * Builds the column Array for the inner template
      * @param type
@@ -4178,12 +4217,23 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
        * @event spec-error
        * Fired when spec could not be loaded
        * detail payload: {string} spec name
-       */let customEvent=new Event("spec-error",{composed:!0,bubbles:!0});customEvent.detail=type;setTimeout(()=>{this.dispatchEvent(customEvent);console.warn("spec-error: Could not find specification of type: "+type)},0)}for(const key in this._specs[this._type].fields){//optional check for properties from prototype chain
-if(this._specs[this._type].fields.hasOwnProperty(key)){let field={};if(this._specs[this._specs[this._type].fields[key].type]===void 0){field.name="--entity(*.fields."+key+")"}else{// append .display_name if the field type is a registered  type in data_environment
-field.name="--entity(*.fields."+key+".display_name)"}field.meta=this._specs[this._type].fields[key].meta||{};/**
-                                                                      * Internationalisation if possible
-                                                                      * @type {*|{}}
-                                                                      */field.meta.label=_furoShell.i18n.t(field.meta.label);field.contraints=this._specs[this._type].fields[key].contraints||{};field.id=key;this.cols.push(field)}}this.requestUpdate()}/**
+       */let customEvent=new Event("spec-error",{composed:!0,bubbles:!0});customEvent.detail=type;setTimeout(()=>{this.dispatchEvent(customEvent);console.warn("spec-error: Could not find specification of type: "+type)},0)}}/**
+     * Prepare columns form attribute fields
+     * @param fields
+     * @private
+     */_init(fields){if(fields&&fields.length){let cols=fields.split(",");if(0<cols.length){this.cols=[];cols.forEach(c=>{this._internalAddColumn(c)})}}}/**
+     * Internal addColumn
+     */_internalAddColumn(c){if(this._specs[this._type].fields[c]){let field={};if(this._specs[this._specs[this._type].fields[c].type]===void 0){field.wire="--internal(*.item.data."+c+")"}else{// append .display_name if the field type is a registered  type in data_environment
+field.wire="--internal(*.item.data."+c+".display_name)"}field.meta=this._specs[this._type].fields[c].meta||{};/**
+                                                                  * Internationalisation if possible
+                                                                  * @type {*|{}}
+                                                                  */field.meta.label=_furoShell.i18n.t(field.meta.label);field.contraints=this._specs[this._type].fields[c].contraints||{};field.id=c;this.cols.push(field)}this.requestUpdate()}/**
+     * add new column
+     */addColumn(field){this.fields=this.fields.concat(","+field);this._init(this.fields)}/**
+     * remove column by name
+     * e.g. removeColumn('id');
+     * @param field
+     */removeColumn(field){this.fields=this.fields.replace(","+field,"");this.cols=[];this._init(this.fields)}/**
      * Event listening and type check
      * @private
      * @param changedProps
@@ -4191,11 +4241,11 @@ field.name="--entity(*.fields."+key+".display_name)"}field.meta=this._specs[this
 if(this._type){this._checkType(this._type)}this.shadowRoot.querySelector("tbody").onclick=e=>{this._selectRow(e)};this.shadowRoot.querySelector("tbody").onkeydown=e=>{this._navigate(e)};this.shadowRoot.querySelector("tbody").onkeypress=e=>{this.dispatchEvent(new CustomEvent("key-pressed",{detail:e,bubbles:!1,composed:!0}))};this.shadowRoot.querySelector("tbody").oncontextmenu=e=>{e.preventDefault();this.dispatchEvent(new CustomEvent("contextmenu-requested",{detail:this._collection.rawEntity.entities[e.target.parentElement.rowIndex],bubbles:!1,composed:!0}))}}/**
      * Triggers wire name --focus for internal use
      */focus(){this._selectRowByIndex(0);this._FBPTriggerWire("--focus")}/**
-     * Binds collection-object to data-table
+     * Binds data-object to data-table
      * @param {CollectionNode} collectionNode
      */bindData(collectionNode){this._collection=collectionNode;/**
                                         * new data arrived from CollectionNode
-                                        */this._collection.addEventListener("data-injected",data=>{this._FBPTriggerWire("--collectionData",data.detail._rawEntity.entities)});this.dispatchEvent(new CustomEvent("data-loaded",{detail:this,bubbles:!0,composed:!0}))}/**
+                                        */this._collection.addEventListener("data-injected",data=>{this.data=data.detail.entities.repeats;this._FBPTriggerWire("--collectionData",data.detail.entities.repeats)});this.dispatchEvent(new CustomEvent("data-loaded",{detail:this,bubbles:!0,composed:!0}))}/**
      * Template rendering
      * @private
      * @returns {TemplateResult|TemplateResult}
@@ -4210,16 +4260,13 @@ return _furoShell.html`
                     </tr>
                 </thead>
                 <tbody>
-                    <template is="flow-repeat" ƒ-inject-items="--collectionData()" internal-wire="--internal">
-                        <tr tabindex="0" ƒ-focus="--entity" draggable="true">
+                    <template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal">
+                        <tr tabindex="0" draggable="true">
                             <td class="fx">
                                 <div><input type="checkbox"></div>
                             </td>
                             ${tableDetails(this.cols)}
-                            <span hidden></span>
-                            <furo-data-object type="${this._type}" 
-                                          ƒ-inject-raw="--internal(*.item)"
-                                          @-object-ready="--entity"></furo-data-object>
+                             <span hidden></span>                     
                         </tr>
                     </template>
                 </tbody>
@@ -4352,8 +4399,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
                 display: none;
             }
 
-        `,_furoShell.Styling.theme]}constructor(){super()}_FBPReady(){super._FBPReady();//this._FBPTraceWires();
-}/**
+        `,_furoShell.Styling.theme]}constructor(){super()}_FBPReady(){super._FBPReady();this._FBPTraceWires()}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -4364,10 +4410,10 @@ return _furoShell.html`
                     <furo-button label="List data" primary unelevated @-click="--btnListClicked">
                 </div>
                 <div class="flex">
-                    <furo-data-table type="project.Project" 
+                    <furo-data-table type="project.Project" fields="display_name,id,start,end,cost_limit"
                                      ƒ-bind-data="--data" @-tablerow-selected="--rowSelected"></furo-data-table>
-                   
                 </div>
+     
                 <furo-pretty-json ƒ-inject-data="--rowSelected"></furo-pretty-json>
             </furo-vertical-flex>
 
@@ -5378,7 +5424,7 @@ return _furoShell.html`
         <p>description</p>
         <furo-demo-snippet flex>
           <template>
-            <produce-data @-data="--data"></produce-data>
+            <produce-data auto @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>
@@ -5435,12 +5481,12 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html`
       <furo-vertical-flex>
         <h2>Demo demo-furo-tree</h2>
-        <p>description</p>
+        <p>Navigate and refresh the browser to see the deep-linking</p>
         <furo-demo-snippet flex>
           <template>
 
 
-            <produce-data @-data="--data"></produce-data>
+            <produce-data auto @-data="--data"></produce-data>
             <furo-button @-click="--focusClicked" label="focus"></furo-button>
             <furo-button @-click="--expandAll" label="expand all"></furo-button>
             <furo-button @-click="--collapseAll" label="collapse all"></furo-button>

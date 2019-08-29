@@ -11139,15 +11139,17 @@ return Theme.getThemeForComponent(this.name)||css`
 return html` 
       <div class="wrapper">
       
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
-       <div class="iwrap">    
-           <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly} 
-       type="number"       
-       ƒ-.value="--value" 
-       @-input="--inputInput(*)"   
-       ƒ-focus="--focus">
-       </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+           <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+           <div class="iwrap">    
+               <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly} 
+                   min="${this.min}" 
+                   max="${this.max}"
+                   type="number"       
+                   ƒ-.value="--value" 
+                   @-input="--inputInput(*)"   
+                   ƒ-focus="--focus">
+           </div>
+           <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -11158,7 +11160,7 @@ return html`
       <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
- 
+
     `}}window.customElements.define("furo-number-input",FuroNumberInput);class FuroTextInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.valid=input.validity.valid;this._float=!!input.value;if(input.validity.valid){this.value=input.value;/**
                                    * @event value-changed
                                    * Fired when value has changed from inside the component
@@ -11556,7 +11558,7 @@ return html`
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly} 
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled||this.readonly} minlength="${this.min}" maxlength="${this.max}"
         type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>

@@ -1912,7 +1912,7 @@
               "column": 2
             },
             "end": {
-              "line": 627,
+              "line": 629,
               "column": 3
             }
           },
@@ -1937,7 +1937,7 @@
           "column": 0
         },
         "end": {
-          "line": 629,
+          "line": 631,
           "column": 1
         }
       },
@@ -14314,7 +14314,7 @@
       ]
     },
     {
-      "description": "`furo-checkbox-input`\n\n# WORK IN PROGRESS\n\nCheckbox input element which uses a native `<input type=\"checkbox\">` tag.\n\nCheckboxes allow the user to select multiple options from a set.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-checkbox-input label=\"This is the Label\"></furo-checkbox-input>\n  </template>\n </furo-demo-snippet>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-label-color` | Color of the label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5",
+      "description": "`furo-checkbox-input`\n\nCheckbox input element which uses a native `<input type=\"checkbox\">` tag.\n\nCheckboxes allow the user to select multiple options from a set.\n\n### Sample\n <furo-demo-snippet>\n  <template>\n   <furo-checkbox-input label=\"This is the Label\"></furo-checkbox-input>\n  </template>\n </furo-demo-snippet>\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--input-hint-color` | Color of hint text | #999999 | --\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-label-color` | Color of the label when active  | `--primary` | #3f51b5\n`--input-activation-indicator-color` | Color of activation indicator when not selected| `--disabled` | #333333\n`--input-error-activation-indicator-color` | Color of activation indicator in error state | `--error` | red\n`--input-error-text-color` | Color of error text | `--error` | red\n`--input-active-activation-indicator-color` | Color of factivation indicator in active  state   | `--primary` | #3f51b5",
       "summary": "checkbox input",
       "path": "packages/furo-input/furo-checkbox-input.js",
       "properties": [
@@ -14325,11 +14325,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 74,
               "column": 4
             },
             "end": {
-              "line": 78,
+              "line": 76,
               "column": 5
             }
           },
@@ -14344,11 +14344,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 78,
               "column": 4
             },
             "end": {
-              "line": 86,
+              "line": 84,
               "column": 5
             }
           },
@@ -14363,11 +14363,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 196,
               "column": 4
             },
             "end": {
-              "line": 200,
+              "line": 198,
               "column": 5
             }
           },
@@ -14382,11 +14382,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 92,
               "column": 12
             },
             "end": {
-              "line": 94,
+              "line": 92,
               "column": 49
             }
           },
@@ -14403,11 +14403,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 105,
               "column": 12
             },
             "end": {
-              "line": 110,
+              "line": 108,
               "column": 13
             }
           },
@@ -14424,11 +14424,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 120,
               "column": 12
             },
             "end": {
-              "line": 124,
+              "line": 122,
               "column": 13
             }
           },
@@ -14445,11 +14445,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 126,
               "column": 12
             },
             "end": {
-              "line": 130,
+              "line": 128,
               "column": 13
             }
           },
@@ -14466,11 +14466,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 134,
+              "line": 132,
               "column": 12
             },
             "end": {
-              "line": 136,
+              "line": 134,
               "column": 13
             }
           },
@@ -14487,11 +14487,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 140,
+              "line": 138,
               "column": 12
             },
             "end": {
-              "line": 142,
+              "line": 140,
               "column": 13
             }
           },
@@ -14508,11 +14508,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 150,
               "column": 12
             },
             "end": {
-              "line": 155,
+              "line": 153,
               "column": 13
             }
           },
@@ -14529,11 +14529,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 157,
               "column": 12
             },
             "end": {
-              "line": 161,
+              "line": 159,
               "column": 13
             }
           },
@@ -14767,11 +14767,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 57,
               "column": 4
             },
             "end": {
-              "line": 69,
+              "line": 67,
               "column": 5
             }
           },
@@ -14963,11 +14963,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 167,
               "column": 4
             },
             "end": {
-              "line": 171,
+              "line": 169,
               "column": 5
             }
           },
@@ -14988,11 +14988,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 174,
               "column": 4
             },
             "end": {
-              "line": 182,
+              "line": 180,
               "column": 5
             }
           },
@@ -15008,11 +15008,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 207,
+              "line": 205,
               "column": 4
             },
             "end": {
-              "line": 212,
+              "line": 210,
               "column": 5
             }
           },
@@ -15032,11 +15032,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 215,
               "column": 4
             },
             "end": {
-              "line": 220,
+              "line": 218,
               "column": 5
             }
           },
@@ -15052,11 +15052,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 223,
               "column": 4
             },
             "end": {
-              "line": 227,
+              "line": 225,
               "column": 5
             }
           },
@@ -15072,11 +15072,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 230,
               "column": 4
             },
             "end": {
-              "line": 234,
+              "line": 232,
               "column": 5
             }
           },
@@ -15092,11 +15092,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 237,
               "column": 4
             },
             "end": {
-              "line": 241,
+              "line": 239,
               "column": 5
             }
           },
@@ -15112,11 +15112,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 246,
+              "line": 244,
               "column": 4
             },
             "end": {
-              "line": 248,
+              "line": 246,
               "column": 5
             }
           },
@@ -15132,11 +15132,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 253,
+              "line": 251,
               "column": 4
             },
             "end": {
-              "line": 255,
+              "line": 253,
               "column": 5
             }
           },
@@ -15152,11 +15152,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 412,
+              "line": 410,
               "column": 4
             },
             "end": {
-              "line": 428,
+              "line": 426,
               "column": 5
             }
           },
@@ -15174,11 +15174,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 40,
+          "line": 38,
           "column": 0
         },
         "end": {
-          "line": 429,
+          "line": 427,
           "column": 1
         }
       },
@@ -15191,11 +15191,11 @@
           "description": "The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event\nThis is different from the native attribute `value` of the input checkbox",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 74,
               "column": 4
             },
             "end": {
-              "line": 78,
+              "line": 76,
               "column": 5
             }
           },
@@ -15207,11 +15207,11 @@
           "description": "A Boolean attribute which, if present, means this checkbox is checked.",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 78,
               "column": 4
             },
             "end": {
-              "line": 86,
+              "line": 84,
               "column": 5
             }
           },
@@ -15223,11 +15223,11 @@
           "description": "set this to true to indicate errors",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 92,
               "column": 12
             },
             "end": {
-              "line": 94,
+              "line": 92,
               "column": 49
             }
           },
@@ -15239,11 +15239,11 @@
           "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 105,
               "column": 12
             },
             "end": {
-              "line": 110,
+              "line": 108,
               "column": 13
             }
           },
@@ -15255,11 +15255,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 120,
               "column": 12
             },
             "end": {
-              "line": 124,
+              "line": 122,
               "column": 13
             }
           },
@@ -15271,11 +15271,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 126,
               "column": 12
             },
             "end": {
-              "line": 130,
+              "line": 128,
               "column": 13
             }
           },
@@ -15287,11 +15287,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 134,
+              "line": 132,
               "column": 12
             },
             "end": {
-              "line": 136,
+              "line": 134,
               "column": 13
             }
           },
@@ -15303,11 +15303,11 @@
           "description": "The hint text for the field.",
           "sourceRange": {
             "start": {
-              "line": 140,
+              "line": 138,
               "column": 12
             },
             "end": {
-              "line": 142,
+              "line": 140,
               "column": 13
             }
           },
@@ -15319,11 +15319,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 150,
               "column": 12
             },
             "end": {
-              "line": 155,
+              "line": 153,
               "column": 13
             }
           },
@@ -15335,11 +15335,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 157,
               "column": 12
             },
             "end": {
-              "line": 161,
+              "line": 159,
               "column": 13
             }
           },
