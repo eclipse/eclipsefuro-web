@@ -32,6 +32,7 @@ export const nav = [
       {"label": "...Navigation", "icon": "tab", "href": "md/navigation/"},
       {"label": "Routing", "icon": "arrow-forward", "href": "md/route/"},
       {"label": "...Util", "icon": "star-border", "href": "md/util/"},
+      {"label": "Spec builder", "icon": "av:fiber-new", "href": "md/specbuilder/"},
     ]
   },
 
