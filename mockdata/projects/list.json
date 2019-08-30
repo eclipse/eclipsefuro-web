@@ -29,6 +29,14 @@
               "Kotlin",
               "JS"
             ]
+          },
+          {
+            "display_name": "Tari Sakota",
+            "first_name": "Tari",
+            "id": "2",
+            "name": "Sakota",
+            "phone_nr": "+41791532244",
+            "skills": []
           }
         ],
         "start": {

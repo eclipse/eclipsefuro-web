@@ -15,7 +15,11 @@ const tableDetails = (fields) => html`${fields.map(f => html`<td><div class="cel
 const tdWRepeat = (fields) => html`
   ${fields.map(f => html`
     ${f.meta.repeated
-    ? html`<td><div class="cell">multiple values</div></td>`
+    ? html`<td><div class="cell">
+        <template is="flow-repeat" ƒ-inject-items="${f.wire}" internal-wire="--internal">
+        <div ƒ-.inner-text="--internal(*.item.display_name)"></div>
+        </template>
+`
     : html`<td><div class="cell" ƒ-.inner-text="${f.wire}"></div></td>`
 }
   `)}
@@ -82,6 +86,11 @@ class FuroDataTable extends FBP(LitElement) {
         this._specs = Env.api.specs;
         this.type = '';
         this.fields = '';
+        /**
+         * Column meta information
+         * used to render all the column stuff
+         * @type {Array}
+         */
         this.cols = [];
         this._selectedIndex = -1;
         this.hideHeader = false;
@@ -195,6 +204,10 @@ class FuroDataTable extends FBP(LitElement) {
             tbody tr:hover {
                 box-shadow: inset 1px 0 0 var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
                 z-index: 1;
+            }
+            
+            td{
+                vertical-align: baseline;
             }
 
             .head:hover{
@@ -310,6 +323,10 @@ class FuroDataTable extends FBP(LitElement) {
             } else {
                 // append .display_name if the field type is a registered  type in data_environment
                 field.wire = '--internal(*.item.data.' + c + '.display_name)';
+            }
+            // Special treatment for repeated fields
+            if (this._specs[this._type].fields[c].meta && this._specs[this._type].fields[c].meta.repeated){
+                field.wire = '--internal(*.item.data.' + c + '.repeats)';
             }
             field.meta = this._specs[this._type].fields[c].meta || {};
             /**
@@ -430,7 +447,7 @@ class FuroDataTable extends FBP(LitElement) {
                             <td class="fx">
                                 <div><input type="checkbox"></div>
                             </td>
-                            ${tableDetails(this.cols)}
+                            ${tdWRepeat(this.cols)}
                              <span hidden></span>                     
                         </tr>
                     </template>

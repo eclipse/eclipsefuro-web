@@ -57,27 +57,31 @@ class DemoFuroDataTable extends FBP(LitElement) {
             <furo-vertical-flex>
                 <div>
                     <h2>furo-data-table playground</h2>
-                    <furo-button label="List data" primary unelevated @-click="--btnListClicked">
+
                 </div>
-                <div class="flex">
-                    <furo-data-table type="project.Project" fields="display_name,id,start,end,cost_limit"
+                <furo-card title="Project Overview" secondary-text="All your project data" class="flex">
+
+                    <furo-data-table type="project.Project" fields="display_name,members,start,end,cost_limit"
                                      ƒ-bind-data="--data" @-tablerow-selected="--rowSelected"></furo-data-table>
-                </div>
-     
+                    <furo-horizontal-flex space slot="action">
+                        <furo-button label="List data" primary @-click="--btnListClicked"></furo-button>
+                    </furo-horizontal-flex>
+                </furo-card>
+
                 <furo-pretty-json ƒ-inject-data="--rowSelected"></furo-pretty-json>
             </furo-vertical-flex>
 
             <furo-deep-link ƒ-trigger="--btnListClicked" service="ProjectService" @-hts-out="--hts"></furo-deep-link>
             <furo-collection-agent service="ProjectService"
-                              ƒ-hts-in="--hts"
-                              list-on-hts-in
-                              @-response-hts-updated="--responseHts"
-                              @-response="--collectionResponse">
+                                   ƒ-hts-in="--hts"
+                                   list-on-hts-in
+                                   @-response-hts-updated="--responseHts"
+                                   @-response="--collectionResponse">
             </furo-collection-agent>
 
             <furo-data-object type="project.ProjectCollection"
-                               ƒ-inject-raw="--collectionResponse"
-                               @-object-ready="--data">
+                              ƒ-inject-raw="--collectionResponse"
+                              @-object-ready="--data">
             </furo-data-object>
 
         `;
