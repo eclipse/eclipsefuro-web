@@ -8,7 +8,7 @@ export class FieldNode extends EventTreeNode {
     super(parentNode);
     this.__specdefinitions = parentNode.__specdefinitions;
 
-    this._spec = fieldSpec;
+    this._spec = JSON.parse(JSON.stringify(fieldSpec));
     this._meta = fieldSpec.meta || {};
     this._constraints = fieldSpec.constraints;
     this._options = fieldSpec.options;
@@ -84,7 +84,7 @@ export class FieldNode extends EventTreeNode {
         let furoMetaDetected = false;
         for (let index in this.__childNodes) {
           let field = this.__childNodes[index];
-          if(field._spec.type === "furo.Meta"){
+          if (field._spec.type === "furo.Meta") {
             // we have meta declaration on this layer
             furoMetaDetected = val[field._name];
           }
@@ -96,7 +96,7 @@ export class FieldNode extends EventTreeNode {
         /**
          * if we have meta on this layer, we should update the siblings
          */
-        if(furoMetaDetected){
+        if (furoMetaDetected) {
           this.__updateMetaAndConstraints(furoMetaDetected);
         }
 
@@ -132,7 +132,6 @@ export class FieldNode extends EventTreeNode {
       }
 
     }
-
 
 
   }
@@ -329,7 +328,11 @@ export class FieldNode extends EventTreeNode {
   }
 
   toString() {
-    //todo parse format rules from _meta...
-    return this._value;
+    if (this.value !== null) {
+      return this.value;
+    } else {
+      return ""
+    }
+
   };
 }

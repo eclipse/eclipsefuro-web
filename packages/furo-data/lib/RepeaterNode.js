@@ -8,7 +8,7 @@ export class RepeaterNode extends EventTreeNode {
     this.__specdefinitions = parentNode.__specdefinitions;
     this._isRepeater = true;
     this.repeats = [];
-    this._spec = spec;
+    this._spec = JSON.parse(JSON.stringify(spec));
     this._name = fieldName;
 
     this._meta = spec.meta || {};
@@ -55,6 +55,17 @@ export class RepeaterNode extends EventTreeNode {
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed", this.repeats, false));
   }
 
+
+  deleteNode() {
+
+    let index = this.__parentNode.__childNodes.indexOf(this);
+    this.__parentNode.__childNodes.splice(index, 1);
+    delete (this.__parentNode[this._name]);
+
+    //notify
+    this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted", this._name, false));
+    this.dispatchNodeEvent(new NodeEvent("node-field-deleted", this._name, true));
+  }
 
   set value(val) {
     val.forEach((repdata, i) => {

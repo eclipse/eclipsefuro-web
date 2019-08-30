@@ -93,6 +93,33 @@ class FuroDataObject extends (LitElement) {
   }
 
   /**
+   * get the data from the data object as raw json
+   */
+  get json(){
+      return this.data.json;
+  }
+
+  /**
+   * Reset the model to the last injected state.
+   *
+   * To set the model to the initial state use init
+   */
+  reset(){
+    this.data.reset();
+  }
+
+  /**
+   * Sets the model to an initial state according to the given type.
+   *
+   * To reset changed data to the last injected state, please use reset();
+   */
+  init(){
+
+    this.data.init();
+  }
+
+
+  /**
    *
    * @param type
    * @private
@@ -108,8 +135,8 @@ class FuroDataObject extends (LitElement) {
      * create the entity node
      * @type {EntityNode}
      */
-    this.data = new DataObject(null, type, this._specs);
 
+    this.data = new DataObject(null, type, this._specs);
     // if data is on queue inject it.
     if (this._queue !== undefined) {
       this.data.injectRaw(this._queue);

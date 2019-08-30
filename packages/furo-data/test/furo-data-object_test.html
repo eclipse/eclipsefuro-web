@@ -42,7 +42,79 @@
       await element.updateComplete;
     });
 
+    it('should print out the type on toString', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+      assert.equal(element.data.toString(),"ProjectEntity");
+      element.data.data.display_name.value ="yes";
+      assert.equal(element.data.data.display_name.toString(),'yes');
 
+      done();
+    });
+
+    it('should be possible to reset to last injected state', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+
+        assert.equal(element.json.data.display_name, response.data.display_name);
+
+        done();
+      })
+
+    });
+
+    xit('should be possible to set the model to the inital empty state', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+
+        let initalLabel = element.data.data.display_name._meta.label;
+
+        assert.equal(element.json.data.display_name, response.data.display_name);
+        p.then((ObjectDataRoot) => {
+          let EntityRoot = ObjectDataRoot.data;
+          assert.equal(EntityRoot , element.data.data);
+          element.data.data.display_name._meta.label = "Something";
+
+
+          element.init();
+
+          assert.equal(element.data.data.display_name._meta.label, initalLabel);
+          done();
+        })
+
+      })
+
+    });
+
+
+    it('should be possible to read the current model as json', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+
+        assert.equal(element.json.data.display_name, response.data.display_name);
+        p.then((ObjectDataRoot) => {
+          let EntityRoot = ObjectDataRoot.data;
+          EntityRoot.description.value = "New";
+          let oldlabel = EntityRoot.description._meta.label;
+          assert.equal(EntityRoot.description._meta.label, oldlabel);
+          EntityRoot.description._meta.label = "Something";
+
+          assert.equal(element.json.data.description, "New");
+          assert.equal(EntityRoot.description._meta.label, "Something");
+          element.reset();
+
+          assert.equal(EntityRoot.description._meta.label, oldlabel);
+          done();
+        })
+
+      })
+
+    });
 
 
     it('should update meta on server meta data', (done) => {

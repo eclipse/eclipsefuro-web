@@ -11,10 +11,10 @@ export class DataObject extends EventTreeNode {
     super(parentNode);
 
     this.__specdefinitions = specs;
-    this._spec = this.__specdefinitions[type];
+    this._spec = JSON.parse(JSON.stringify(this.__specdefinitions[type]));;
 
-    this.__specdefinitions = this.__specdefinitions;
     this._initFieldsFromSpec(this, this._spec.fields);
+
     this._pristine = true;
     this._isValid = true;
 
@@ -87,9 +87,14 @@ export class DataObject extends EventTreeNode {
   }
 
   /**
-   * Inits the EntityNode without breaking the reference
+   * Inits the EntityNode
    */
   init() {
+
+    for(let i = this.__childNodes.length-1; i >= 0; i--){
+      this.__childNodes[i].deleteNode();
+    }
+
     this._initFieldsFromSpec(this, this._spec.fields);
     this._pristine = true;
     this._isValid = true;
@@ -127,7 +132,7 @@ export class DataObject extends EventTreeNode {
     for (let fieldName in data) {
       let fieldNode = node[fieldName];
 
-      if(fieldNode._spec.type === "furo.Meta"){
+      if (fieldNode._spec.type === "furo.Meta") {
         furoMetaDetected = data[fieldName];
       }
       if (!fieldNode) {
@@ -176,7 +181,7 @@ export class DataObject extends EventTreeNode {
         }
       }
     }
-    if(furoMetaDetected){
+    if (furoMetaDetected) {
       this.__updateMetaAndConstraints(furoMetaDetected);
     }
 
@@ -187,11 +192,11 @@ export class DataObject extends EventTreeNode {
     // on this layer you can only pass the constraint to the children
     // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
     // a field which is targeted we delegate the sub request to  this field
-    for(let fieldname in metaAndConstraints.fields) {
+    for (let fieldname in metaAndConstraints.fields) {
       let mc = metaAndConstraints.fields[fieldname];
       let f = fieldname.split(".");
       let target = f[0];
-      let subMetaAndConstraints = {fields:{}};
+      let subMetaAndConstraints = {fields: {}};
       subMetaAndConstraints.fields[f.slice(1).join(".")] = mc;
       this[target].__updateMetaAndConstraints(subMetaAndConstraints);
     }
@@ -224,6 +229,7 @@ export class DataObject extends EventTreeNode {
    * @private
    */
   _initFieldsFromSpec(node, fieldSpec) {
+
     for (let fieldName in fieldSpec) {
       if (fieldSpec[fieldName].meta && fieldSpec[fieldName].meta.repeated) {
         node[fieldName] = new RepeaterNode(node, fieldSpec[fieldName], fieldName);
@@ -236,6 +242,6 @@ export class DataObject extends EventTreeNode {
 
 
   toString() {
-    return this.spec.mimetype;
+    return this._spec.type;
   };
 }
