@@ -37,8 +37,10 @@ const tdWRepeat = (fields) => html`
  *
  * Custom property | Description | Default  | Fallback
  * ----------------|-------------|----------|----------
- * `--furo-data-table-background` | Background color of the element | --background | white
- * `--furo-data-table-select-color` | Background color of the focused table row element | --accent-light | lightgrey
+ * `--furo-data-table-background` | Background color of the element | --surface | transparent
+ * `--furo-data-table-on-background` | Color of the element | --on-surface | black
+ * `--furo-data-table-select-background` | Background color of the focused table row element | --accent-light | lightgrey
+ * `--furo-data-table-select-on-background` | Color of the focused table row element | --on-accent | black
  *
  * Configuration:
  * Attribute: hide-header | hides the table header row
@@ -159,7 +161,8 @@ class FuroDataTable extends FBP(LitElement) {
             :host {
                 display: block;
                 height: 100%;
-                background-color: var(--furo-data-table-background, var(--background, white));
+                background-color: var(--furo-data-table-background, var(--surface, transparent));
+                color: var(--furo-data-table-on-background, var(--on-surface, black));
             }
 
             :host([hidden]) {
@@ -202,7 +205,7 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             tbody tr:hover {
-                box-shadow: inset 1px 0 0 var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+                box-shadow: inset 1px 0 0 var(--furo-data-table-select-background, var(--accent-light, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-background, var(--accent-light, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
                 z-index: 1;
             }
             
@@ -230,8 +233,8 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             tbody tr[selected=true] {
-                background-color: var(--furo-data-table-select-backgroundcolor, var(--accent-light, lightgrey));
-                color: var(--furo-data-table-select-color, var(--on-accent, black));
+                background-color: var(--furo-data-table-select-background, var(--accent-light, lightgrey));
+                color: var(--furo-data-table-select-on-background, var(--on-accent, black));
             }
 
             input[type=checkbox] {
