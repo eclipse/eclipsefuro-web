@@ -53,8 +53,13 @@ export class Styling {
 
                 /* project specific */
                 --blockquote: #ffc247;
-                --furo-data-table-select-backgroundcolor: var(--accent);
-                --furo-data-table-select-color: var(--on-accent);
+
+                --furo-data-table-background: white;
+                --furo-data-table-on-background: var(--on-background);
+                --furo-data-table-select-background: var(--accent);
+                --furo-data-table-select-on-background: var(--on-accent);
+
+                --furo-card-background: white;
 
             }
 
