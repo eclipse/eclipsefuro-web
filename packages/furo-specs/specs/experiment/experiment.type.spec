@@ -107,9 +107,9 @@
         "readonly": false
       },
       "constraints": {
-        "min":"00-00",
-        "max":"24:59",
-        "step":""
+        "min":"05:00",
+        "max":"19:00",
+        "step":"5"
       },
       "options": [],
       "__proto": {
