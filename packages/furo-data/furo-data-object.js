@@ -156,8 +156,9 @@ class FuroDataObject extends (LitElement) {
        *
        *   **bubbles**
        */
+
       let customEvent = new Event('data-changed', {composed: true, bubbles: true});
-      customEvent.detail = this.data.rawData;
+      customEvent.detail = e.detail;
       this.dispatchEvent(customEvent);
 
 
