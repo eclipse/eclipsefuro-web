@@ -14,77 +14,135 @@ public final class MetaOuterClass {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface MetafieldOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:furo.Metafield)
+  public interface MetaFieldOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.MetaField)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
-     * constraints of a field
+     * constrain of a field
      * </pre>
      *
-     * <code>.furo.Fieldconstraint constraints = 4;</code>
+     * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
      */
-    boolean hasConstraints();
+    int getConstraintsCount();
     /**
      * <pre>
-     * constraints of a field
+     * constrain of a field
      * </pre>
      *
-     * <code>.furo.Fieldconstraint constraints = 4;</code>
+     * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
      */
-    furo.MetaOuterClass.Fieldconstraint getConstraints();
+    boolean containsConstraints(
+        java.lang.String key);
+    /**
+     * Use {@link #getConstraintsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint>
+    getConstraints();
     /**
      * <pre>
-     * constraints of a field
+     * constrain of a field
      * </pre>
      *
-     * <code>.furo.Fieldconstraint constraints = 4;</code>
+     * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
      */
-    furo.MetaOuterClass.FieldconstraintOrBuilder getConstraintsOrBuilder();
+    java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint>
+    getConstraintsMap();
+    /**
+     * <pre>
+     * constrain of a field
+     * </pre>
+     *
+     * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
+     */
+
+    furo.MetaOuterClass.FieldConstraint getConstraintsOrDefault(
+        java.lang.String key,
+        furo.MetaOuterClass.FieldConstraint defaultValue);
+    /**
+     * <pre>
+     * constrain of a field
+     * </pre>
+     *
+     * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
+     */
+
+    furo.MetaOuterClass.FieldConstraint getConstraintsOrThrow(
+        java.lang.String key);
 
     /**
      * <pre>
      * meta information of a field
      * </pre>
      *
-     * <code>.furo.Fieldmeta meta = 3;</code>
+     * <code>map&lt;string, string&gt; meta = 1;</code>
      */
-    boolean hasMeta();
+    int getMetaCount();
     /**
      * <pre>
      * meta information of a field
      * </pre>
      *
-     * <code>.furo.Fieldmeta meta = 3;</code>
+     * <code>map&lt;string, string&gt; meta = 1;</code>
      */
-    furo.MetaOuterClass.Fieldmeta getMeta();
+    boolean containsMeta(
+        java.lang.String key);
+    /**
+     * Use {@link #getMetaMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getMeta();
     /**
      * <pre>
      * meta information of a field
      * </pre>
      *
-     * <code>.furo.Fieldmeta meta = 3;</code>
+     * <code>map&lt;string, string&gt; meta = 1;</code>
      */
-    furo.MetaOuterClass.FieldmetaOrBuilder getMetaOrBuilder();
+    java.util.Map<java.lang.String, java.lang.String>
+    getMetaMap();
+    /**
+     * <pre>
+     * meta information of a field
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; meta = 1;</code>
+     */
+
+    java.lang.String getMetaOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <pre>
+     * meta information of a field
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; meta = 1;</code>
+     */
+
+    java.lang.String getMetaOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
    * fields of meta info
    * </pre>
    *
-   * Protobuf type {@code furo.Metafield}
+   * Protobuf type {@code furo.MetaField}
    */
-  public  static final class Metafield extends
+  public  static final class MetaField extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:furo.Metafield)
-      MetafieldOrBuilder {
+      // @@protoc_insertion_point(message_implements:furo.MetaField)
+      MetaFieldOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Metafield.newBuilder() to construct.
-    private Metafield(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use MetaField.newBuilder() to construct.
+    private MetaField(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Metafield() {
+    private MetaField() {
     }
 
     @java.lang.Override
@@ -92,7 +150,7 @@ public final class MetaOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Metafield(
+    private MetaField(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -111,30 +169,30 @@ public final class MetaOuterClass {
             case 0:
               done = true;
               break;
-            case 26: {
-              furo.MetaOuterClass.Fieldmeta.Builder subBuilder = null;
-              if (meta_ != null) {
-                subBuilder = meta_.toBuilder();
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                meta_ = com.google.protobuf.MapField.newMapField(
+                    MetaDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000002;
               }
-              meta_ = input.readMessage(furo.MetaOuterClass.Fieldmeta.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(meta_);
-                meta_ = subBuilder.buildPartial();
-              }
-
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              meta__ = input.readMessage(
+                  MetaDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              meta_.getMutableMap().put(
+                  meta__.getKey(), meta__.getValue());
               break;
             }
-            case 34: {
-              furo.MetaOuterClass.Fieldconstraint.Builder subBuilder = null;
-              if (constraints_ != null) {
-                subBuilder = constraints_.toBuilder();
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                constraints_ = com.google.protobuf.MapField.newMapField(
+                    ConstraintsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
               }
-              constraints_ = input.readMessage(furo.MetaOuterClass.Fieldconstraint.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(constraints_);
-                constraints_ = subBuilder.buildPartial();
-              }
-
+              com.google.protobuf.MapEntry<java.lang.String, furo.MetaOuterClass.FieldConstraint>
+              constraints__ = input.readMessage(
+                  ConstraintsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              constraints_.getMutableMap().put(
+                  constraints__.getKey(), constraints__.getValue());
               break;
             }
             default: {
@@ -158,81 +216,213 @@ public final class MetaOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return furo.MetaOuterClass.internal_static_furo_Metafield_descriptor;
+      return furo.MetaOuterClass.internal_static_furo_MetaField_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 2:
+          return internalGetConstraints();
+        case 1:
+          return internalGetMeta();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return furo.MetaOuterClass.internal_static_furo_Metafield_fieldAccessorTable
+      return furo.MetaOuterClass.internal_static_furo_MetaField_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              furo.MetaOuterClass.Metafield.class, furo.MetaOuterClass.Metafield.Builder.class);
+              furo.MetaOuterClass.MetaField.class, furo.MetaOuterClass.MetaField.Builder.class);
     }
 
-    public static final int CONSTRAINTS_FIELD_NUMBER = 4;
-    private furo.MetaOuterClass.Fieldconstraint constraints_;
-    /**
-     * <pre>
-     * constraints of a field
-     * </pre>
-     *
-     * <code>.furo.Fieldconstraint constraints = 4;</code>
-     */
-    public boolean hasConstraints() {
-      return constraints_ != null;
+    public static final int CONSTRAINTS_FIELD_NUMBER = 2;
+    private static final class ConstraintsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, furo.MetaOuterClass.FieldConstraint> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, furo.MetaOuterClass.FieldConstraint>newDefaultInstance(
+                  furo.MetaOuterClass.internal_static_furo_MetaField_ConstraintsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  furo.MetaOuterClass.FieldConstraint.getDefaultInstance());
     }
-    /**
-     * <pre>
-     * constraints of a field
-     * </pre>
-     *
-     * <code>.furo.Fieldconstraint constraints = 4;</code>
-     */
-    public furo.MetaOuterClass.Fieldconstraint getConstraints() {
-      return constraints_ == null ? furo.MetaOuterClass.Fieldconstraint.getDefaultInstance() : constraints_;
-    }
-    /**
-     * <pre>
-     * constraints of a field
-     * </pre>
-     *
-     * <code>.furo.Fieldconstraint constraints = 4;</code>
-     */
-    public furo.MetaOuterClass.FieldconstraintOrBuilder getConstraintsOrBuilder() {
-      return getConstraints();
+    private com.google.protobuf.MapField<
+        java.lang.String, furo.MetaOuterClass.FieldConstraint> constraints_;
+    private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.FieldConstraint>
+    internalGetConstraints() {
+      if (constraints_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ConstraintsDefaultEntryHolder.defaultEntry);
+      }
+      return constraints_;
     }
 
-    public static final int META_FIELD_NUMBER = 3;
-    private furo.MetaOuterClass.Fieldmeta meta_;
+    public int getConstraintsCount() {
+      return internalGetConstraints().getMap().size();
+    }
     /**
      * <pre>
-     * meta information of a field
+     * constrain of a field
      * </pre>
      *
-     * <code>.furo.Fieldmeta meta = 3;</code>
+     * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
      */
-    public boolean hasMeta() {
-      return meta_ != null;
+
+    public boolean containsConstraints(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetConstraints().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getConstraintsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> getConstraints() {
+      return getConstraintsMap();
+    }
+    /**
+     * <pre>
+     * constrain of a field
+     * </pre>
+     *
+     * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
+     */
+
+    public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> getConstraintsMap() {
+      return internalGetConstraints().getMap();
+    }
+    /**
+     * <pre>
+     * constrain of a field
+     * </pre>
+     *
+     * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
+     */
+
+    public furo.MetaOuterClass.FieldConstraint getConstraintsOrDefault(
+        java.lang.String key,
+        furo.MetaOuterClass.FieldConstraint defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> map =
+          internalGetConstraints().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * constrain of a field
+     * </pre>
+     *
+     * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
+     */
+
+    public furo.MetaOuterClass.FieldConstraint getConstraintsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> map =
+          internalGetConstraints().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int META_FIELD_NUMBER = 1;
+    private static final class MetaDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  furo.MetaOuterClass.internal_static_furo_MetaField_MetaEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> meta_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetMeta() {
+      if (meta_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            MetaDefaultEntryHolder.defaultEntry);
+      }
+      return meta_;
+    }
+
+    public int getMetaCount() {
+      return internalGetMeta().getMap().size();
     }
     /**
      * <pre>
      * meta information of a field
      * </pre>
      *
-     * <code>.furo.Fieldmeta meta = 3;</code>
+     * <code>map&lt;string, string&gt; meta = 1;</code>
      */
-    public furo.MetaOuterClass.Fieldmeta getMeta() {
-      return meta_ == null ? furo.MetaOuterClass.Fieldmeta.getDefaultInstance() : meta_;
+
+    public boolean containsMeta(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetMeta().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getMetaMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getMeta() {
+      return getMetaMap();
     }
     /**
      * <pre>
      * meta information of a field
      * </pre>
      *
-     * <code>.furo.Fieldmeta meta = 3;</code>
+     * <code>map&lt;string, string&gt; meta = 1;</code>
      */
-    public furo.MetaOuterClass.FieldmetaOrBuilder getMetaOrBuilder() {
-      return getMeta();
+
+    public java.util.Map<java.lang.String, java.lang.String> getMetaMap() {
+      return internalGetMeta().getMap();
+    }
+    /**
+     * <pre>
+     * meta information of a field
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; meta = 1;</code>
+     */
+
+    public java.lang.String getMetaOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetMeta().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * meta information of a field
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; meta = 1;</code>
+     */
+
+    public java.lang.String getMetaOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetMeta().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -249,12 +439,18 @@ public final class MetaOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (meta_ != null) {
-        output.writeMessage(3, getMeta());
-      }
-      if (constraints_ != null) {
-        output.writeMessage(4, getConstraints());
-      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetMeta(),
+          MetaDefaultEntryHolder.defaultEntry,
+          1);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetConstraints(),
+          ConstraintsDefaultEntryHolder.defaultEntry,
+          2);
       unknownFields.writeTo(output);
     }
 
@@ -264,13 +460,25 @@ public final class MetaOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (meta_ != null) {
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetMeta().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        meta__ = MetaDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getMeta());
+            .computeMessageSize(1, meta__);
       }
-      if (constraints_ != null) {
+      for (java.util.Map.Entry<java.lang.String, furo.MetaOuterClass.FieldConstraint> entry
+           : internalGetConstraints().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, furo.MetaOuterClass.FieldConstraint>
+        constraints__ = ConstraintsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getConstraints());
+            .computeMessageSize(2, constraints__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -282,21 +490,15 @@ public final class MetaOuterClass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof furo.MetaOuterClass.Metafield)) {
+      if (!(obj instanceof furo.MetaOuterClass.MetaField)) {
         return super.equals(obj);
       }
-      furo.MetaOuterClass.Metafield other = (furo.MetaOuterClass.Metafield) obj;
+      furo.MetaOuterClass.MetaField other = (furo.MetaOuterClass.MetaField) obj;
 
-      if (hasConstraints() != other.hasConstraints()) return false;
-      if (hasConstraints()) {
-        if (!getConstraints()
-            .equals(other.getConstraints())) return false;
-      }
-      if (hasMeta() != other.hasMeta()) return false;
-      if (hasMeta()) {
-        if (!getMeta()
-            .equals(other.getMeta())) return false;
-      }
+      if (!internalGetConstraints().equals(
+          other.internalGetConstraints())) return false;
+      if (!internalGetMeta().equals(
+          other.internalGetMeta())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -308,82 +510,82 @@ public final class MetaOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasConstraints()) {
+      if (!internalGetConstraints().getMap().isEmpty()) {
         hash = (37 * hash) + CONSTRAINTS_FIELD_NUMBER;
-        hash = (53 * hash) + getConstraints().hashCode();
+        hash = (53 * hash) + internalGetConstraints().hashCode();
       }
-      if (hasMeta()) {
+      if (!internalGetMeta().getMap().isEmpty()) {
         hash = (37 * hash) + META_FIELD_NUMBER;
-        hash = (53 * hash) + getMeta().hashCode();
+        hash = (53 * hash) + internalGetMeta().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static furo.MetaOuterClass.Metafield parseFrom(
+    public static furo.MetaOuterClass.MetaField parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static furo.MetaOuterClass.Metafield parseFrom(
+    public static furo.MetaOuterClass.MetaField parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static furo.MetaOuterClass.Metafield parseFrom(
+    public static furo.MetaOuterClass.MetaField parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static furo.MetaOuterClass.Metafield parseFrom(
+    public static furo.MetaOuterClass.MetaField parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static furo.MetaOuterClass.Metafield parseFrom(byte[] data)
+    public static furo.MetaOuterClass.MetaField parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static furo.MetaOuterClass.Metafield parseFrom(
+    public static furo.MetaOuterClass.MetaField parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static furo.MetaOuterClass.Metafield parseFrom(java.io.InputStream input)
+    public static furo.MetaOuterClass.MetaField parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static furo.MetaOuterClass.Metafield parseFrom(
+    public static furo.MetaOuterClass.MetaField parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static furo.MetaOuterClass.Metafield parseDelimitedFrom(java.io.InputStream input)
+    public static furo.MetaOuterClass.MetaField parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static furo.MetaOuterClass.Metafield parseDelimitedFrom(
+    public static furo.MetaOuterClass.MetaField parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static furo.MetaOuterClass.Metafield parseFrom(
+    public static furo.MetaOuterClass.MetaField parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static furo.MetaOuterClass.Metafield parseFrom(
+    public static furo.MetaOuterClass.MetaField parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -396,7 +598,7 @@ public final class MetaOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(furo.MetaOuterClass.Metafield prototype) {
+    public static Builder newBuilder(furo.MetaOuterClass.MetaField prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -416,26 +618,52 @@ public final class MetaOuterClass {
      * fields of meta info
      * </pre>
      *
-     * Protobuf type {@code furo.Metafield}
+     * Protobuf type {@code furo.MetaField}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:furo.Metafield)
-        furo.MetaOuterClass.MetafieldOrBuilder {
+        // @@protoc_insertion_point(builder_implements:furo.MetaField)
+        furo.MetaOuterClass.MetaFieldOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return furo.MetaOuterClass.internal_static_furo_Metafield_descriptor;
+        return furo.MetaOuterClass.internal_static_furo_MetaField_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetConstraints();
+          case 1:
+            return internalGetMeta();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetMutableConstraints();
+          case 1:
+            return internalGetMutableMeta();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return furo.MetaOuterClass.internal_static_furo_Metafield_fieldAccessorTable
+        return furo.MetaOuterClass.internal_static_furo_MetaField_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                furo.MetaOuterClass.Metafield.class, furo.MetaOuterClass.Metafield.Builder.class);
+                furo.MetaOuterClass.MetaField.class, furo.MetaOuterClass.MetaField.Builder.class);
       }
 
-      // Construct using furo.MetaOuterClass.Metafield.newBuilder()
+      // Construct using furo.MetaOuterClass.MetaField.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -453,35 +681,25 @@ public final class MetaOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (constraintsBuilder_ == null) {
-          constraints_ = null;
-        } else {
-          constraints_ = null;
-          constraintsBuilder_ = null;
-        }
-        if (metaBuilder_ == null) {
-          meta_ = null;
-        } else {
-          meta_ = null;
-          metaBuilder_ = null;
-        }
+        internalGetMutableConstraints().clear();
+        internalGetMutableMeta().clear();
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return furo.MetaOuterClass.internal_static_furo_Metafield_descriptor;
+        return furo.MetaOuterClass.internal_static_furo_MetaField_descriptor;
       }
 
       @java.lang.Override
-      public furo.MetaOuterClass.Metafield getDefaultInstanceForType() {
-        return furo.MetaOuterClass.Metafield.getDefaultInstance();
+      public furo.MetaOuterClass.MetaField getDefaultInstanceForType() {
+        return furo.MetaOuterClass.MetaField.getDefaultInstance();
       }
 
       @java.lang.Override
-      public furo.MetaOuterClass.Metafield build() {
-        furo.MetaOuterClass.Metafield result = buildPartial();
+      public furo.MetaOuterClass.MetaField build() {
+        furo.MetaOuterClass.MetaField result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -489,18 +707,13 @@ public final class MetaOuterClass {
       }
 
       @java.lang.Override
-      public furo.MetaOuterClass.Metafield buildPartial() {
-        furo.MetaOuterClass.Metafield result = new furo.MetaOuterClass.Metafield(this);
-        if (constraintsBuilder_ == null) {
-          result.constraints_ = constraints_;
-        } else {
-          result.constraints_ = constraintsBuilder_.build();
-        }
-        if (metaBuilder_ == null) {
-          result.meta_ = meta_;
-        } else {
-          result.meta_ = metaBuilder_.build();
-        }
+      public furo.MetaOuterClass.MetaField buildPartial() {
+        furo.MetaOuterClass.MetaField result = new furo.MetaOuterClass.MetaField(this);
+        int from_bitField0_ = bitField0_;
+        result.constraints_ = internalGetConstraints();
+        result.constraints_.makeImmutable();
+        result.meta_ = internalGetMeta();
+        result.meta_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -539,22 +752,20 @@ public final class MetaOuterClass {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof furo.MetaOuterClass.Metafield) {
-          return mergeFrom((furo.MetaOuterClass.Metafield)other);
+        if (other instanceof furo.MetaOuterClass.MetaField) {
+          return mergeFrom((furo.MetaOuterClass.MetaField)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(furo.MetaOuterClass.Metafield other) {
-        if (other == furo.MetaOuterClass.Metafield.getDefaultInstance()) return this;
-        if (other.hasConstraints()) {
-          mergeConstraints(other.getConstraints());
-        }
-        if (other.hasMeta()) {
-          mergeMeta(other.getMeta());
-        }
+      public Builder mergeFrom(furo.MetaOuterClass.MetaField other) {
+        if (other == furo.MetaOuterClass.MetaField.getDefaultInstance()) return this;
+        internalGetMutableConstraints().mergeFrom(
+            other.internalGetConstraints());
+        internalGetMutableMeta().mergeFrom(
+            other.internalGetMeta());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -570,11 +781,11 @@ public final class MetaOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        furo.MetaOuterClass.Metafield parsedMessage = null;
+        furo.MetaOuterClass.MetaField parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (furo.MetaOuterClass.Metafield) e.getUnfinishedMessage();
+          parsedMessage = (furo.MetaOuterClass.MetaField) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -583,263 +794,254 @@ public final class MetaOuterClass {
         }
         return this;
       }
+      private int bitField0_;
 
-      private furo.MetaOuterClass.Fieldconstraint constraints_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          furo.MetaOuterClass.Fieldconstraint, furo.MetaOuterClass.Fieldconstraint.Builder, furo.MetaOuterClass.FieldconstraintOrBuilder> constraintsBuilder_;
-      /**
-       * <pre>
-       * constraints of a field
-       * </pre>
-       *
-       * <code>.furo.Fieldconstraint constraints = 4;</code>
-       */
-      public boolean hasConstraints() {
-        return constraintsBuilder_ != null || constraints_ != null;
-      }
-      /**
-       * <pre>
-       * constraints of a field
-       * </pre>
-       *
-       * <code>.furo.Fieldconstraint constraints = 4;</code>
-       */
-      public furo.MetaOuterClass.Fieldconstraint getConstraints() {
-        if (constraintsBuilder_ == null) {
-          return constraints_ == null ? furo.MetaOuterClass.Fieldconstraint.getDefaultInstance() : constraints_;
-        } else {
-          return constraintsBuilder_.getMessage();
+      private com.google.protobuf.MapField<
+          java.lang.String, furo.MetaOuterClass.FieldConstraint> constraints_;
+      private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.FieldConstraint>
+      internalGetConstraints() {
+        if (constraints_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ConstraintsDefaultEntryHolder.defaultEntry);
         }
+        return constraints_;
       }
-      /**
-       * <pre>
-       * constraints of a field
-       * </pre>
-       *
-       * <code>.furo.Fieldconstraint constraints = 4;</code>
-       */
-      public Builder setConstraints(furo.MetaOuterClass.Fieldconstraint value) {
-        if (constraintsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          constraints_ = value;
-          onChanged();
-        } else {
-          constraintsBuilder_.setMessage(value);
+      private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.FieldConstraint>
+      internalGetMutableConstraints() {
+        onChanged();;
+        if (constraints_ == null) {
+          constraints_ = com.google.protobuf.MapField.newMapField(
+              ConstraintsDefaultEntryHolder.defaultEntry);
         }
+        if (!constraints_.isMutable()) {
+          constraints_ = constraints_.copy();
+        }
+        return constraints_;
+      }
 
-        return this;
+      public int getConstraintsCount() {
+        return internalGetConstraints().getMap().size();
       }
       /**
        * <pre>
-       * constraints of a field
+       * constrain of a field
        * </pre>
        *
-       * <code>.furo.Fieldconstraint constraints = 4;</code>
+       * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
        */
-      public Builder setConstraints(
-          furo.MetaOuterClass.Fieldconstraint.Builder builderForValue) {
-        if (constraintsBuilder_ == null) {
-          constraints_ = builderForValue.build();
-          onChanged();
-        } else {
-          constraintsBuilder_.setMessage(builderForValue.build());
-        }
 
-        return this;
+      public boolean containsConstraints(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetConstraints().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getConstraintsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> getConstraints() {
+        return getConstraintsMap();
       }
       /**
        * <pre>
-       * constraints of a field
+       * constrain of a field
        * </pre>
        *
-       * <code>.furo.Fieldconstraint constraints = 4;</code>
+       * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
        */
-      public Builder mergeConstraints(furo.MetaOuterClass.Fieldconstraint value) {
-        if (constraintsBuilder_ == null) {
-          if (constraints_ != null) {
-            constraints_ =
-              furo.MetaOuterClass.Fieldconstraint.newBuilder(constraints_).mergeFrom(value).buildPartial();
-          } else {
-            constraints_ = value;
-          }
-          onChanged();
-        } else {
-          constraintsBuilder_.mergeFrom(value);
-        }
 
-        return this;
+      public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> getConstraintsMap() {
+        return internalGetConstraints().getMap();
       }
       /**
        * <pre>
-       * constraints of a field
+       * constrain of a field
        * </pre>
        *
-       * <code>.furo.Fieldconstraint constraints = 4;</code>
+       * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
        */
+
+      public furo.MetaOuterClass.FieldConstraint getConstraintsOrDefault(
+          java.lang.String key,
+          furo.MetaOuterClass.FieldConstraint defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> map =
+            internalGetConstraints().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * constrain of a field
+       * </pre>
+       *
+       * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
+       */
+
+      public furo.MetaOuterClass.FieldConstraint getConstraintsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> map =
+            internalGetConstraints().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
       public Builder clearConstraints() {
-        if (constraintsBuilder_ == null) {
-          constraints_ = null;
-          onChanged();
-        } else {
-          constraints_ = null;
-          constraintsBuilder_ = null;
-        }
-
+        internalGetMutableConstraints().getMutableMap()
+            .clear();
         return this;
       }
       /**
        * <pre>
-       * constraints of a field
+       * constrain of a field
        * </pre>
        *
-       * <code>.furo.Fieldconstraint constraints = 4;</code>
+       * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
        */
-      public furo.MetaOuterClass.Fieldconstraint.Builder getConstraintsBuilder() {
-        
-        onChanged();
-        return getConstraintsFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * constraints of a field
-       * </pre>
-       *
-       * <code>.furo.Fieldconstraint constraints = 4;</code>
-       */
-      public furo.MetaOuterClass.FieldconstraintOrBuilder getConstraintsOrBuilder() {
-        if (constraintsBuilder_ != null) {
-          return constraintsBuilder_.getMessageOrBuilder();
-        } else {
-          return constraints_ == null ?
-              furo.MetaOuterClass.Fieldconstraint.getDefaultInstance() : constraints_;
-        }
-      }
-      /**
-       * <pre>
-       * constraints of a field
-       * </pre>
-       *
-       * <code>.furo.Fieldconstraint constraints = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          furo.MetaOuterClass.Fieldconstraint, furo.MetaOuterClass.Fieldconstraint.Builder, furo.MetaOuterClass.FieldconstraintOrBuilder> 
-          getConstraintsFieldBuilder() {
-        if (constraintsBuilder_ == null) {
-          constraintsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              furo.MetaOuterClass.Fieldconstraint, furo.MetaOuterClass.Fieldconstraint.Builder, furo.MetaOuterClass.FieldconstraintOrBuilder>(
-                  getConstraints(),
-                  getParentForChildren(),
-                  isClean());
-          constraints_ = null;
-        }
-        return constraintsBuilder_;
-      }
 
-      private furo.MetaOuterClass.Fieldmeta meta_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          furo.MetaOuterClass.Fieldmeta, furo.MetaOuterClass.Fieldmeta.Builder, furo.MetaOuterClass.FieldmetaOrBuilder> metaBuilder_;
+      public Builder removeConstraints(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableConstraints().getMutableMap()
+            .remove(key);
+        return this;
+      }
       /**
-       * <pre>
-       * meta information of a field
-       * </pre>
-       *
-       * <code>.furo.Fieldmeta meta = 3;</code>
+       * Use alternate mutation accessors instead.
        */
-      public boolean hasMeta() {
-        return metaBuilder_ != null || meta_ != null;
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint>
+      getMutableConstraints() {
+        return internalGetMutableConstraints().getMutableMap();
       }
       /**
        * <pre>
-       * meta information of a field
+       * constrain of a field
        * </pre>
        *
-       * <code>.furo.Fieldmeta meta = 3;</code>
+       * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
        */
-      public furo.MetaOuterClass.Fieldmeta getMeta() {
-        if (metaBuilder_ == null) {
-          return meta_ == null ? furo.MetaOuterClass.Fieldmeta.getDefaultInstance() : meta_;
-        } else {
-          return metaBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * meta information of a field
-       * </pre>
-       *
-       * <code>.furo.Fieldmeta meta = 3;</code>
-       */
-      public Builder setMeta(furo.MetaOuterClass.Fieldmeta value) {
-        if (metaBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          meta_ = value;
-          onChanged();
-        } else {
-          metaBuilder_.setMessage(value);
-        }
-
+      public Builder putConstraints(
+          java.lang.String key,
+          furo.MetaOuterClass.FieldConstraint value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableConstraints().getMutableMap()
+            .put(key, value);
         return this;
       }
       /**
        * <pre>
-       * meta information of a field
+       * constrain of a field
        * </pre>
        *
-       * <code>.furo.Fieldmeta meta = 3;</code>
+       * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
        */
-      public Builder setMeta(
-          furo.MetaOuterClass.Fieldmeta.Builder builderForValue) {
-        if (metaBuilder_ == null) {
-          meta_ = builderForValue.build();
-          onChanged();
-        } else {
-          metaBuilder_.setMessage(builderForValue.build());
-        }
 
+      public Builder putAllConstraints(
+          java.util.Map<java.lang.String, furo.MetaOuterClass.FieldConstraint> values) {
+        internalGetMutableConstraints().getMutableMap()
+            .putAll(values);
         return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> meta_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMeta() {
+        if (meta_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              MetaDefaultEntryHolder.defaultEntry);
+        }
+        return meta_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableMeta() {
+        onChanged();;
+        if (meta_ == null) {
+          meta_ = com.google.protobuf.MapField.newMapField(
+              MetaDefaultEntryHolder.defaultEntry);
+        }
+        if (!meta_.isMutable()) {
+          meta_ = meta_.copy();
+        }
+        return meta_;
+      }
+
+      public int getMetaCount() {
+        return internalGetMeta().getMap().size();
       }
       /**
        * <pre>
        * meta information of a field
        * </pre>
        *
-       * <code>.furo.Fieldmeta meta = 3;</code>
+       * <code>map&lt;string, string&gt; meta = 1;</code>
        */
-      public Builder mergeMeta(furo.MetaOuterClass.Fieldmeta value) {
-        if (metaBuilder_ == null) {
-          if (meta_ != null) {
-            meta_ =
-              furo.MetaOuterClass.Fieldmeta.newBuilder(meta_).mergeFrom(value).buildPartial();
-          } else {
-            meta_ = value;
-          }
-          onChanged();
-        } else {
-          metaBuilder_.mergeFrom(value);
-        }
 
-        return this;
+      public boolean containsMeta(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetMeta().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getMetaMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getMeta() {
+        return getMetaMap();
       }
       /**
        * <pre>
        * meta information of a field
        * </pre>
        *
-       * <code>.furo.Fieldmeta meta = 3;</code>
+       * <code>map&lt;string, string&gt; meta = 1;</code>
        */
+
+      public java.util.Map<java.lang.String, java.lang.String> getMetaMap() {
+        return internalGetMeta().getMap();
+      }
+      /**
+       * <pre>
+       * meta information of a field
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; meta = 1;</code>
+       */
+
+      public java.lang.String getMetaOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetMeta().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * meta information of a field
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; meta = 1;</code>
+       */
+
+      public java.lang.String getMetaOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetMeta().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
       public Builder clearMeta() {
-        if (metaBuilder_ == null) {
-          meta_ = null;
-          onChanged();
-        } else {
-          meta_ = null;
-          metaBuilder_ = null;
-        }
-
+        internalGetMutableMeta().getMutableMap()
+            .clear();
         return this;
       }
       /**
@@ -847,47 +1049,53 @@ public final class MetaOuterClass {
        * meta information of a field
        * </pre>
        *
-       * <code>.furo.Fieldmeta meta = 3;</code>
+       * <code>map&lt;string, string&gt; meta = 1;</code>
        */
-      public furo.MetaOuterClass.Fieldmeta.Builder getMetaBuilder() {
-        
-        onChanged();
-        return getMetaFieldBuilder().getBuilder();
+
+      public Builder removeMeta(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableMeta().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableMeta() {
+        return internalGetMutableMeta().getMutableMap();
       }
       /**
        * <pre>
        * meta information of a field
        * </pre>
        *
-       * <code>.furo.Fieldmeta meta = 3;</code>
+       * <code>map&lt;string, string&gt; meta = 1;</code>
        */
-      public furo.MetaOuterClass.FieldmetaOrBuilder getMetaOrBuilder() {
-        if (metaBuilder_ != null) {
-          return metaBuilder_.getMessageOrBuilder();
-        } else {
-          return meta_ == null ?
-              furo.MetaOuterClass.Fieldmeta.getDefaultInstance() : meta_;
-        }
+      public Builder putMeta(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableMeta().getMutableMap()
+            .put(key, value);
+        return this;
       }
       /**
        * <pre>
        * meta information of a field
        * </pre>
        *
-       * <code>.furo.Fieldmeta meta = 3;</code>
+       * <code>map&lt;string, string&gt; meta = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          furo.MetaOuterClass.Fieldmeta, furo.MetaOuterClass.Fieldmeta.Builder, furo.MetaOuterClass.FieldmetaOrBuilder> 
-          getMetaFieldBuilder() {
-        if (metaBuilder_ == null) {
-          metaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              furo.MetaOuterClass.Fieldmeta, furo.MetaOuterClass.Fieldmeta.Builder, furo.MetaOuterClass.FieldmetaOrBuilder>(
-                  getMeta(),
-                  getParentForChildren(),
-                  isClean());
-          meta_ = null;
-        }
-        return metaBuilder_;
+
+      public Builder putAllMeta(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableMeta().getMutableMap()
+            .putAll(values);
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -902,41 +1110,41 @@ public final class MetaOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:furo.Metafield)
+      // @@protoc_insertion_point(builder_scope:furo.MetaField)
     }
 
-    // @@protoc_insertion_point(class_scope:furo.Metafield)
-    private static final furo.MetaOuterClass.Metafield DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:furo.MetaField)
+    private static final furo.MetaOuterClass.MetaField DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new furo.MetaOuterClass.Metafield();
+      DEFAULT_INSTANCE = new furo.MetaOuterClass.MetaField();
     }
 
-    public static furo.MetaOuterClass.Metafield getDefaultInstance() {
+    public static furo.MetaOuterClass.MetaField getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Metafield>
-        PARSER = new com.google.protobuf.AbstractParser<Metafield>() {
+    private static final com.google.protobuf.Parser<MetaField>
+        PARSER = new com.google.protobuf.AbstractParser<MetaField>() {
       @java.lang.Override
-      public Metafield parsePartialFrom(
+      public MetaField parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Metafield(input, extensionRegistry);
+        return new MetaField(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Metafield> parser() {
+    public static com.google.protobuf.Parser<MetaField> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Metafield> getParserForType() {
+    public com.google.protobuf.Parser<MetaField> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public furo.MetaOuterClass.Metafield getDefaultInstanceForType() {
+    public furo.MetaOuterClass.MetaField getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -951,53 +1159,53 @@ public final class MetaOuterClass {
      * fields of meta info
      * </pre>
      *
-     * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
-    int getMetaCount();
+    int getFieldsCount();
     /**
      * <pre>
      * fields of meta info
      * </pre>
      *
-     * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
-    boolean containsMeta(
+    boolean containsFields(
         java.lang.String key);
     /**
-     * Use {@link #getMetaMap()} instead.
+     * Use {@link #getFieldsMap()} instead.
      */
     @java.lang.Deprecated
-    java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield>
-    getMeta();
+    java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField>
+    getFields();
     /**
      * <pre>
      * fields of meta info
      * </pre>
      *
-     * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
-    java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield>
-    getMetaMap();
+    java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField>
+    getFieldsMap();
     /**
      * <pre>
      * fields of meta info
      * </pre>
      *
-     * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
 
-    furo.MetaOuterClass.Metafield getMetaOrDefault(
+    furo.MetaOuterClass.MetaField getFieldsOrDefault(
         java.lang.String key,
-        furo.MetaOuterClass.Metafield defaultValue);
+        furo.MetaOuterClass.MetaField defaultValue);
     /**
      * <pre>
      * fields of meta info
      * </pre>
      *
-     * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
 
-    furo.MetaOuterClass.Metafield getMetaOrThrow(
+    furo.MetaOuterClass.MetaField getFieldsOrThrow(
         java.lang.String key);
   }
   /**
@@ -1045,15 +1253,15 @@ public final class MetaOuterClass {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                meta_ = com.google.protobuf.MapField.newMapField(
-                    MetaDefaultEntryHolder.defaultEntry);
+                fields_ = com.google.protobuf.MapField.newMapField(
+                    FieldsDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000001;
               }
-              com.google.protobuf.MapEntry<java.lang.String, furo.MetaOuterClass.Metafield>
-              meta__ = input.readMessage(
-                  MetaDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              meta_.getMutableMap().put(
-                  meta__.getKey(), meta__.getValue());
+              com.google.protobuf.MapEntry<java.lang.String, furo.MetaOuterClass.MetaField>
+              fields__ = input.readMessage(
+                  FieldsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              fields_.getMutableMap().put(
+                  fields__.getKey(), fields__.getValue());
               break;
             }
             default: {
@@ -1086,7 +1294,7 @@ public final class MetaOuterClass {
         int number) {
       switch (number) {
         case 1:
-          return internalGetMeta();
+          return internalGetFields();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -1100,77 +1308,77 @@ public final class MetaOuterClass {
               furo.MetaOuterClass.Meta.class, furo.MetaOuterClass.Meta.Builder.class);
     }
 
-    public static final int META_FIELD_NUMBER = 1;
-    private static final class MetaDefaultEntryHolder {
+    public static final int FIELDS_FIELD_NUMBER = 1;
+    private static final class FieldsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          java.lang.String, furo.MetaOuterClass.Metafield> defaultEntry =
+          java.lang.String, furo.MetaOuterClass.MetaField> defaultEntry =
               com.google.protobuf.MapEntry
-              .<java.lang.String, furo.MetaOuterClass.Metafield>newDefaultInstance(
-                  furo.MetaOuterClass.internal_static_furo_Meta_MetaEntry_descriptor, 
+              .<java.lang.String, furo.MetaOuterClass.MetaField>newDefaultInstance(
+                  furo.MetaOuterClass.internal_static_furo_Meta_FieldsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  furo.MetaOuterClass.Metafield.getDefaultInstance());
+                  furo.MetaOuterClass.MetaField.getDefaultInstance());
     }
     private com.google.protobuf.MapField<
-        java.lang.String, furo.MetaOuterClass.Metafield> meta_;
-    private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.Metafield>
-    internalGetMeta() {
-      if (meta_ == null) {
+        java.lang.String, furo.MetaOuterClass.MetaField> fields_;
+    private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.MetaField>
+    internalGetFields() {
+      if (fields_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
-            MetaDefaultEntryHolder.defaultEntry);
+            FieldsDefaultEntryHolder.defaultEntry);
       }
-      return meta_;
+      return fields_;
     }
 
-    public int getMetaCount() {
-      return internalGetMeta().getMap().size();
+    public int getFieldsCount() {
+      return internalGetFields().getMap().size();
     }
     /**
      * <pre>
      * fields of meta info
      * </pre>
      *
-     * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
 
-    public boolean containsMeta(
+    public boolean containsFields(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetMeta().getMap().containsKey(key);
+      return internalGetFields().getMap().containsKey(key);
     }
     /**
-     * Use {@link #getMetaMap()} instead.
+     * Use {@link #getFieldsMap()} instead.
      */
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield> getMeta() {
-      return getMetaMap();
+    public java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> getFields() {
+      return getFieldsMap();
     }
     /**
      * <pre>
      * fields of meta info
      * </pre>
      *
-     * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
 
-    public java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield> getMetaMap() {
-      return internalGetMeta().getMap();
+    public java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> getFieldsMap() {
+      return internalGetFields().getMap();
     }
     /**
      * <pre>
      * fields of meta info
      * </pre>
      *
-     * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
 
-    public furo.MetaOuterClass.Metafield getMetaOrDefault(
+    public furo.MetaOuterClass.MetaField getFieldsOrDefault(
         java.lang.String key,
-        furo.MetaOuterClass.Metafield defaultValue) {
+        furo.MetaOuterClass.MetaField defaultValue) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield> map =
-          internalGetMeta().getMap();
+      java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> map =
+          internalGetFields().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
     /**
@@ -1178,14 +1386,14 @@ public final class MetaOuterClass {
      * fields of meta info
      * </pre>
      *
-     * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
      */
 
-    public furo.MetaOuterClass.Metafield getMetaOrThrow(
+    public furo.MetaOuterClass.MetaField getFieldsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield> map =
-          internalGetMeta().getMap();
+      java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> map =
+          internalGetFields().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
       }
@@ -1209,8 +1417,8 @@ public final class MetaOuterClass {
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
-          internalGetMeta(),
-          MetaDefaultEntryHolder.defaultEntry,
+          internalGetFields(),
+          FieldsDefaultEntryHolder.defaultEntry,
           1);
       unknownFields.writeTo(output);
     }
@@ -1221,15 +1429,15 @@ public final class MetaOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      for (java.util.Map.Entry<java.lang.String, furo.MetaOuterClass.Metafield> entry
-           : internalGetMeta().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, furo.MetaOuterClass.Metafield>
-        meta__ = MetaDefaultEntryHolder.defaultEntry.newBuilderForType()
+      for (java.util.Map.Entry<java.lang.String, furo.MetaOuterClass.MetaField> entry
+           : internalGetFields().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, furo.MetaOuterClass.MetaField>
+        fields__ = FieldsDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
             .build();
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(1, meta__);
+            .computeMessageSize(1, fields__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1246,8 +1454,8 @@ public final class MetaOuterClass {
       }
       furo.MetaOuterClass.Meta other = (furo.MetaOuterClass.Meta) obj;
 
-      if (!internalGetMeta().equals(
-          other.internalGetMeta())) return false;
+      if (!internalGetFields().equals(
+          other.internalGetFields())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1259,9 +1467,9 @@ public final class MetaOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (!internalGetMeta().getMap().isEmpty()) {
-        hash = (37 * hash) + META_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetMeta().hashCode();
+      if (!internalGetFields().getMap().isEmpty()) {
+        hash = (37 * hash) + FIELDS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetFields().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1379,7 +1587,7 @@ public final class MetaOuterClass {
           int number) {
         switch (number) {
           case 1:
-            return internalGetMeta();
+            return internalGetFields();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -1390,7 +1598,7 @@ public final class MetaOuterClass {
           int number) {
         switch (number) {
           case 1:
-            return internalGetMutableMeta();
+            return internalGetMutableFields();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -1422,7 +1630,7 @@ public final class MetaOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        internalGetMutableMeta().clear();
+        internalGetMutableFields().clear();
         return this;
       }
 
@@ -1450,8 +1658,8 @@ public final class MetaOuterClass {
       public furo.MetaOuterClass.Meta buildPartial() {
         furo.MetaOuterClass.Meta result = new furo.MetaOuterClass.Meta(this);
         int from_bitField0_ = bitField0_;
-        result.meta_ = internalGetMeta();
-        result.meta_.makeImmutable();
+        result.fields_ = internalGetFields();
+        result.fields_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -1500,8 +1708,8 @@ public final class MetaOuterClass {
 
       public Builder mergeFrom(furo.MetaOuterClass.Meta other) {
         if (other == furo.MetaOuterClass.Meta.getDefaultInstance()) return this;
-        internalGetMutableMeta().mergeFrom(
-            other.internalGetMeta());
+        internalGetMutableFields().mergeFrom(
+            other.internalGetFields());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1533,76 +1741,76 @@ public final class MetaOuterClass {
       private int bitField0_;
 
       private com.google.protobuf.MapField<
-          java.lang.String, furo.MetaOuterClass.Metafield> meta_;
-      private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.Metafield>
-      internalGetMeta() {
-        if (meta_ == null) {
+          java.lang.String, furo.MetaOuterClass.MetaField> fields_;
+      private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.MetaField>
+      internalGetFields() {
+        if (fields_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
-              MetaDefaultEntryHolder.defaultEntry);
+              FieldsDefaultEntryHolder.defaultEntry);
         }
-        return meta_;
+        return fields_;
       }
-      private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.Metafield>
-      internalGetMutableMeta() {
+      private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.MetaField>
+      internalGetMutableFields() {
         onChanged();;
-        if (meta_ == null) {
-          meta_ = com.google.protobuf.MapField.newMapField(
-              MetaDefaultEntryHolder.defaultEntry);
+        if (fields_ == null) {
+          fields_ = com.google.protobuf.MapField.newMapField(
+              FieldsDefaultEntryHolder.defaultEntry);
         }
-        if (!meta_.isMutable()) {
-          meta_ = meta_.copy();
+        if (!fields_.isMutable()) {
+          fields_ = fields_.copy();
         }
-        return meta_;
+        return fields_;
       }
 
-      public int getMetaCount() {
-        return internalGetMeta().getMap().size();
+      public int getFieldsCount() {
+        return internalGetFields().getMap().size();
       }
       /**
        * <pre>
        * fields of meta info
        * </pre>
        *
-       * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
 
-      public boolean containsMeta(
+      public boolean containsFields(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetMeta().getMap().containsKey(key);
+        return internalGetFields().getMap().containsKey(key);
       }
       /**
-       * Use {@link #getMetaMap()} instead.
+       * Use {@link #getFieldsMap()} instead.
        */
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield> getMeta() {
-        return getMetaMap();
+      public java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> getFields() {
+        return getFieldsMap();
       }
       /**
        * <pre>
        * fields of meta info
        * </pre>
        *
-       * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
 
-      public java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield> getMetaMap() {
-        return internalGetMeta().getMap();
+      public java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> getFieldsMap() {
+        return internalGetFields().getMap();
       }
       /**
        * <pre>
        * fields of meta info
        * </pre>
        *
-       * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
 
-      public furo.MetaOuterClass.Metafield getMetaOrDefault(
+      public furo.MetaOuterClass.MetaField getFieldsOrDefault(
           java.lang.String key,
-          furo.MetaOuterClass.Metafield defaultValue) {
+          furo.MetaOuterClass.MetaField defaultValue) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield> map =
-            internalGetMeta().getMap();
+        java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> map =
+            internalGetFields().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
       /**
@@ -1610,22 +1818,22 @@ public final class MetaOuterClass {
        * fields of meta info
        * </pre>
        *
-       * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
 
-      public furo.MetaOuterClass.Metafield getMetaOrThrow(
+      public furo.MetaOuterClass.MetaField getFieldsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield> map =
-            internalGetMeta().getMap();
+        java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> map =
+            internalGetFields().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
 
-      public Builder clearMeta() {
-        internalGetMutableMeta().getMutableMap()
+      public Builder clearFields() {
+        internalGetMutableFields().getMutableMap()
             .clear();
         return this;
       }
@@ -1634,13 +1842,13 @@ public final class MetaOuterClass {
        * fields of meta info
        * </pre>
        *
-       * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
 
-      public Builder removeMeta(
+      public Builder removeFields(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableMeta().getMutableMap()
+        internalGetMutableFields().getMutableMap()
             .remove(key);
         return this;
       }
@@ -1648,23 +1856,23 @@ public final class MetaOuterClass {
        * Use alternate mutation accessors instead.
        */
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield>
-      getMutableMeta() {
-        return internalGetMutableMeta().getMutableMap();
+      public java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField>
+      getMutableFields() {
+        return internalGetMutableFields().getMutableMap();
       }
       /**
        * <pre>
        * fields of meta info
        * </pre>
        *
-       * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
-      public Builder putMeta(
+      public Builder putFields(
           java.lang.String key,
-          furo.MetaOuterClass.Metafield value) {
+          furo.MetaOuterClass.MetaField value) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableMeta().getMutableMap()
+        internalGetMutableFields().getMutableMap()
             .put(key, value);
         return this;
       }
@@ -1673,12 +1881,12 @@ public final class MetaOuterClass {
        * fields of meta info
        * </pre>
        *
-       * <code>map&lt;string, .furo.Metafield&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.MetaField&gt; fields = 1;</code>
        */
 
-      public Builder putAllMeta(
-          java.util.Map<java.lang.String, furo.MetaOuterClass.Metafield> values) {
-        internalGetMutableMeta().getMutableMap()
+      public Builder putAllFields(
+          java.util.Map<java.lang.String, furo.MetaOuterClass.MetaField> values) {
+        internalGetMutableFields().getMutableMap()
             .putAll(values);
         return this;
       }
@@ -1735,601 +1943,8 @@ public final class MetaOuterClass {
 
   }
 
-  public interface FieldmetaOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:furo.Fieldmeta)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * meta information of a field
-     * </pre>
-     *
-     * <code>string label = 1;</code>
-     */
-    java.lang.String getLabel();
-    /**
-     * <pre>
-     * meta information of a field
-     * </pre>
-     *
-     * <code>string label = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getLabelBytes();
-  }
-  /**
-   * <pre>
-   * meta
-   * </pre>
-   *
-   * Protobuf type {@code furo.Fieldmeta}
-   */
-  public  static final class Fieldmeta extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:furo.Fieldmeta)
-      FieldmetaOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Fieldmeta.newBuilder() to construct.
-    private Fieldmeta(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Fieldmeta() {
-      label_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Fieldmeta(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              label_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return furo.MetaOuterClass.internal_static_furo_Fieldmeta_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return furo.MetaOuterClass.internal_static_furo_Fieldmeta_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              furo.MetaOuterClass.Fieldmeta.class, furo.MetaOuterClass.Fieldmeta.Builder.class);
-    }
-
-    public static final int LABEL_FIELD_NUMBER = 1;
-    private volatile java.lang.Object label_;
-    /**
-     * <pre>
-     * meta information of a field
-     * </pre>
-     *
-     * <code>string label = 1;</code>
-     */
-    public java.lang.String getLabel() {
-      java.lang.Object ref = label_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        label_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * meta information of a field
-     * </pre>
-     *
-     * <code>string label = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getLabelBytes() {
-      java.lang.Object ref = label_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        label_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getLabelBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, label_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getLabelBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, label_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof furo.MetaOuterClass.Fieldmeta)) {
-        return super.equals(obj);
-      }
-      furo.MetaOuterClass.Fieldmeta other = (furo.MetaOuterClass.Fieldmeta) obj;
-
-      if (!getLabel()
-          .equals(other.getLabel())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + LABEL_FIELD_NUMBER;
-      hash = (53 * hash) + getLabel().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static furo.MetaOuterClass.Fieldmeta parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static furo.MetaOuterClass.Fieldmeta parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(furo.MetaOuterClass.Fieldmeta prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * meta
-     * </pre>
-     *
-     * Protobuf type {@code furo.Fieldmeta}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:furo.Fieldmeta)
-        furo.MetaOuterClass.FieldmetaOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return furo.MetaOuterClass.internal_static_furo_Fieldmeta_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return furo.MetaOuterClass.internal_static_furo_Fieldmeta_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                furo.MetaOuterClass.Fieldmeta.class, furo.MetaOuterClass.Fieldmeta.Builder.class);
-      }
-
-      // Construct using furo.MetaOuterClass.Fieldmeta.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        label_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return furo.MetaOuterClass.internal_static_furo_Fieldmeta_descriptor;
-      }
-
-      @java.lang.Override
-      public furo.MetaOuterClass.Fieldmeta getDefaultInstanceForType() {
-        return furo.MetaOuterClass.Fieldmeta.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public furo.MetaOuterClass.Fieldmeta build() {
-        furo.MetaOuterClass.Fieldmeta result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public furo.MetaOuterClass.Fieldmeta buildPartial() {
-        furo.MetaOuterClass.Fieldmeta result = new furo.MetaOuterClass.Fieldmeta(this);
-        result.label_ = label_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof furo.MetaOuterClass.Fieldmeta) {
-          return mergeFrom((furo.MetaOuterClass.Fieldmeta)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(furo.MetaOuterClass.Fieldmeta other) {
-        if (other == furo.MetaOuterClass.Fieldmeta.getDefaultInstance()) return this;
-        if (!other.getLabel().isEmpty()) {
-          label_ = other.label_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        furo.MetaOuterClass.Fieldmeta parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (furo.MetaOuterClass.Fieldmeta) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object label_ = "";
-      /**
-       * <pre>
-       * meta information of a field
-       * </pre>
-       *
-       * <code>string label = 1;</code>
-       */
-      public java.lang.String getLabel() {
-        java.lang.Object ref = label_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          label_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * meta information of a field
-       * </pre>
-       *
-       * <code>string label = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getLabelBytes() {
-        java.lang.Object ref = label_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          label_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * meta information of a field
-       * </pre>
-       *
-       * <code>string label = 1;</code>
-       */
-      public Builder setLabel(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        label_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * meta information of a field
-       * </pre>
-       *
-       * <code>string label = 1;</code>
-       */
-      public Builder clearLabel() {
-        
-        label_ = getDefaultInstance().getLabel();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * meta information of a field
-       * </pre>
-       *
-       * <code>string label = 1;</code>
-       */
-      public Builder setLabelBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        label_ = value;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:furo.Fieldmeta)
-    }
-
-    // @@protoc_insertion_point(class_scope:furo.Fieldmeta)
-    private static final furo.MetaOuterClass.Fieldmeta DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new furo.MetaOuterClass.Fieldmeta();
-    }
-
-    public static furo.MetaOuterClass.Fieldmeta getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Fieldmeta>
-        PARSER = new com.google.protobuf.AbstractParser<Fieldmeta>() {
-      @java.lang.Override
-      public Fieldmeta parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Fieldmeta(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Fieldmeta> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Fieldmeta> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public furo.MetaOuterClass.Fieldmeta getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface FieldconstraintOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:furo.Fieldconstraint)
+  public interface FieldConstraintOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.FieldConstraint)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2391,18 +2006,18 @@ public final class MetaOuterClass {
    * constrains of fields
    * </pre>
    *
-   * Protobuf type {@code furo.Fieldconstraint}
+   * Protobuf type {@code furo.FieldConstraint}
    */
-  public  static final class Fieldconstraint extends
+  public  static final class FieldConstraint extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:furo.Fieldconstraint)
-      FieldconstraintOrBuilder {
+      // @@protoc_insertion_point(message_implements:furo.FieldConstraint)
+      FieldConstraintOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Fieldconstraint.newBuilder() to construct.
-    private Fieldconstraint(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use FieldConstraint.newBuilder() to construct.
+    private FieldConstraint(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Fieldconstraint() {
+    private FieldConstraint() {
     }
 
     @java.lang.Override
@@ -2410,7 +2025,7 @@ public final class MetaOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Fieldconstraint(
+    private FieldConstraint(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2463,7 +2078,7 @@ public final class MetaOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return furo.MetaOuterClass.internal_static_furo_Fieldconstraint_descriptor;
+      return furo.MetaOuterClass.internal_static_furo_FieldConstraint_descriptor;
     }
 
     @SuppressWarnings({"rawtypes"})
@@ -2481,9 +2096,9 @@ public final class MetaOuterClass {
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return furo.MetaOuterClass.internal_static_furo_Fieldconstraint_fieldAccessorTable
+      return furo.MetaOuterClass.internal_static_furo_FieldConstraint_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              furo.MetaOuterClass.Fieldconstraint.class, furo.MetaOuterClass.Fieldconstraint.Builder.class);
+              furo.MetaOuterClass.FieldConstraint.class, furo.MetaOuterClass.FieldConstraint.Builder.class);
     }
 
     public static final int CONSTRAINT_FIELD_NUMBER = 1;
@@ -2492,7 +2107,7 @@ public final class MetaOuterClass {
           java.lang.String, java.lang.String> defaultEntry =
               com.google.protobuf.MapEntry
               .<java.lang.String, java.lang.String>newDefaultInstance(
-                  furo.MetaOuterClass.internal_static_furo_Fieldconstraint_ConstraintEntry_descriptor, 
+                  furo.MetaOuterClass.internal_static_furo_FieldConstraint_ConstraintEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.STRING,
@@ -2627,10 +2242,10 @@ public final class MetaOuterClass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof furo.MetaOuterClass.Fieldconstraint)) {
+      if (!(obj instanceof furo.MetaOuterClass.FieldConstraint)) {
         return super.equals(obj);
       }
-      furo.MetaOuterClass.Fieldconstraint other = (furo.MetaOuterClass.Fieldconstraint) obj;
+      furo.MetaOuterClass.FieldConstraint other = (furo.MetaOuterClass.FieldConstraint) obj;
 
       if (!internalGetConstraint().equals(
           other.internalGetConstraint())) return false;
@@ -2654,69 +2269,69 @@ public final class MetaOuterClass {
       return hash;
     }
 
-    public static furo.MetaOuterClass.Fieldconstraint parseFrom(
+    public static furo.MetaOuterClass.FieldConstraint parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseFrom(
+    public static furo.MetaOuterClass.FieldConstraint parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseFrom(
+    public static furo.MetaOuterClass.FieldConstraint parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseFrom(
+    public static furo.MetaOuterClass.FieldConstraint parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseFrom(byte[] data)
+    public static furo.MetaOuterClass.FieldConstraint parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseFrom(
+    public static furo.MetaOuterClass.FieldConstraint parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseFrom(java.io.InputStream input)
+    public static furo.MetaOuterClass.FieldConstraint parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseFrom(
+    public static furo.MetaOuterClass.FieldConstraint parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseDelimitedFrom(java.io.InputStream input)
+    public static furo.MetaOuterClass.FieldConstraint parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseDelimitedFrom(
+    public static furo.MetaOuterClass.FieldConstraint parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseFrom(
+    public static furo.MetaOuterClass.FieldConstraint parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static furo.MetaOuterClass.Fieldconstraint parseFrom(
+    public static furo.MetaOuterClass.FieldConstraint parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2729,7 +2344,7 @@ public final class MetaOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(furo.MetaOuterClass.Fieldconstraint prototype) {
+    public static Builder newBuilder(furo.MetaOuterClass.FieldConstraint prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2749,15 +2364,15 @@ public final class MetaOuterClass {
      * constrains of fields
      * </pre>
      *
-     * Protobuf type {@code furo.Fieldconstraint}
+     * Protobuf type {@code furo.FieldConstraint}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:furo.Fieldconstraint)
-        furo.MetaOuterClass.FieldconstraintOrBuilder {
+        // @@protoc_insertion_point(builder_implements:furo.FieldConstraint)
+        furo.MetaOuterClass.FieldConstraintOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return furo.MetaOuterClass.internal_static_furo_Fieldconstraint_descriptor;
+        return furo.MetaOuterClass.internal_static_furo_FieldConstraint_descriptor;
       }
 
       @SuppressWarnings({"rawtypes"})
@@ -2785,12 +2400,12 @@ public final class MetaOuterClass {
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return furo.MetaOuterClass.internal_static_furo_Fieldconstraint_fieldAccessorTable
+        return furo.MetaOuterClass.internal_static_furo_FieldConstraint_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                furo.MetaOuterClass.Fieldconstraint.class, furo.MetaOuterClass.Fieldconstraint.Builder.class);
+                furo.MetaOuterClass.FieldConstraint.class, furo.MetaOuterClass.FieldConstraint.Builder.class);
       }
 
-      // Construct using furo.MetaOuterClass.Fieldconstraint.newBuilder()
+      // Construct using furo.MetaOuterClass.FieldConstraint.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2815,17 +2430,17 @@ public final class MetaOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return furo.MetaOuterClass.internal_static_furo_Fieldconstraint_descriptor;
+        return furo.MetaOuterClass.internal_static_furo_FieldConstraint_descriptor;
       }
 
       @java.lang.Override
-      public furo.MetaOuterClass.Fieldconstraint getDefaultInstanceForType() {
-        return furo.MetaOuterClass.Fieldconstraint.getDefaultInstance();
+      public furo.MetaOuterClass.FieldConstraint getDefaultInstanceForType() {
+        return furo.MetaOuterClass.FieldConstraint.getDefaultInstance();
       }
 
       @java.lang.Override
-      public furo.MetaOuterClass.Fieldconstraint build() {
-        furo.MetaOuterClass.Fieldconstraint result = buildPartial();
+      public furo.MetaOuterClass.FieldConstraint build() {
+        furo.MetaOuterClass.FieldConstraint result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2833,8 +2448,8 @@ public final class MetaOuterClass {
       }
 
       @java.lang.Override
-      public furo.MetaOuterClass.Fieldconstraint buildPartial() {
-        furo.MetaOuterClass.Fieldconstraint result = new furo.MetaOuterClass.Fieldconstraint(this);
+      public furo.MetaOuterClass.FieldConstraint buildPartial() {
+        furo.MetaOuterClass.FieldConstraint result = new furo.MetaOuterClass.FieldConstraint(this);
         int from_bitField0_ = bitField0_;
         result.constraint_ = internalGetConstraint();
         result.constraint_.makeImmutable();
@@ -2876,16 +2491,16 @@ public final class MetaOuterClass {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof furo.MetaOuterClass.Fieldconstraint) {
-          return mergeFrom((furo.MetaOuterClass.Fieldconstraint)other);
+        if (other instanceof furo.MetaOuterClass.FieldConstraint) {
+          return mergeFrom((furo.MetaOuterClass.FieldConstraint)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(furo.MetaOuterClass.Fieldconstraint other) {
-        if (other == furo.MetaOuterClass.Fieldconstraint.getDefaultInstance()) return this;
+      public Builder mergeFrom(furo.MetaOuterClass.FieldConstraint other) {
+        if (other == furo.MetaOuterClass.FieldConstraint.getDefaultInstance()) return this;
         internalGetMutableConstraint().mergeFrom(
             other.internalGetConstraint());
         this.mergeUnknownFields(other.unknownFields);
@@ -2903,11 +2518,11 @@ public final class MetaOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        furo.MetaOuterClass.Fieldconstraint parsedMessage = null;
+        furo.MetaOuterClass.FieldConstraint parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (furo.MetaOuterClass.Fieldconstraint) e.getUnfinishedMessage();
+          parsedMessage = (furo.MetaOuterClass.FieldConstraint) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3081,76 +2696,81 @@ public final class MetaOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:furo.Fieldconstraint)
+      // @@protoc_insertion_point(builder_scope:furo.FieldConstraint)
     }
 
-    // @@protoc_insertion_point(class_scope:furo.Fieldconstraint)
-    private static final furo.MetaOuterClass.Fieldconstraint DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:furo.FieldConstraint)
+    private static final furo.MetaOuterClass.FieldConstraint DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new furo.MetaOuterClass.Fieldconstraint();
+      DEFAULT_INSTANCE = new furo.MetaOuterClass.FieldConstraint();
     }
 
-    public static furo.MetaOuterClass.Fieldconstraint getDefaultInstance() {
+    public static furo.MetaOuterClass.FieldConstraint getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Fieldconstraint>
-        PARSER = new com.google.protobuf.AbstractParser<Fieldconstraint>() {
+    private static final com.google.protobuf.Parser<FieldConstraint>
+        PARSER = new com.google.protobuf.AbstractParser<FieldConstraint>() {
       @java.lang.Override
-      public Fieldconstraint parsePartialFrom(
+      public FieldConstraint parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Fieldconstraint(input, extensionRegistry);
+        return new FieldConstraint(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Fieldconstraint> parser() {
+    public static com.google.protobuf.Parser<FieldConstraint> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Fieldconstraint> getParserForType() {
+    public com.google.protobuf.Parser<FieldConstraint> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public furo.MetaOuterClass.Fieldconstraint getDefaultInstanceForType() {
+    public furo.MetaOuterClass.FieldConstraint getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_furo_Metafield_descriptor;
+    internal_static_furo_MetaField_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_furo_Metafield_fieldAccessorTable;
+      internal_static_furo_MetaField_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_furo_MetaField_ConstraintsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_furo_MetaField_ConstraintsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_furo_MetaField_MetaEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_furo_MetaField_MetaEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_furo_Meta_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_furo_Meta_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_furo_Meta_MetaEntry_descriptor;
+    internal_static_furo_Meta_FieldsEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_furo_Meta_MetaEntry_fieldAccessorTable;
+      internal_static_furo_Meta_FieldsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_furo_Fieldmeta_descriptor;
+    internal_static_furo_FieldConstraint_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_furo_Fieldmeta_fieldAccessorTable;
+      internal_static_furo_FieldConstraint_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_furo_Fieldconstraint_descriptor;
+    internal_static_furo_FieldConstraint_ConstraintEntry_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_furo_Fieldconstraint_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_furo_Fieldconstraint_ConstraintEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_furo_Fieldconstraint_ConstraintEntry_fieldAccessorTable;
+      internal_static_furo_FieldConstraint_ConstraintEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3160,14 +2780,17 @@ public final class MetaOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017furo/meta.proto\022\004furo\"V\n\tMetafield\022*\n\013" +
-      "constraints\030\004 \001(\0132\025.furo.Fieldconstraint" +
-      "\022\035\n\004meta\030\003 \001(\0132\017.furo.Fieldmeta\"h\n\004Meta\022" +
-      "\"\n\004meta\030\001 \003(\0132\024.furo.Meta.MetaEntry\032<\n\tM" +
-      "etaEntry\022\013\n\003key\030\001 \001(\t\022\036\n\005value\030\002 \001(\0132\017.f" +
-      "uro.Metafield:\0028\001\"\032\n\tFieldmeta\022\r\n\005label\030" +
-      "\001 \001(\t\"\177\n\017Fieldconstraint\0229\n\nconstraint\030\001" +
-      " \003(\0132%.furo.Fieldconstraint.ConstraintEn" +
+      "\n\017furo/meta.proto\022\004furo\"\343\001\n\tMetaField\0225\n" +
+      "\013constraints\030\002 \003(\0132 .furo.MetaField.Cons" +
+      "traintsEntry\022\'\n\004meta\030\001 \003(\0132\031.furo.MetaFi" +
+      "eld.MetaEntry\032I\n\020ConstraintsEntry\022\013\n\003key" +
+      "\030\001 \001(\t\022$\n\005value\030\002 \001(\0132\025.furo.FieldConstr" +
+      "aint:\0028\001\032+\n\tMetaEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t:\0028\001\"n\n\004Meta\022&\n\006fields\030\001 \003(\0132\026." +
+      "furo.Meta.FieldsEntry\032>\n\013FieldsEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\036\n\005value\030\002 \001(\0132\017.furo.MetaFiel" +
+      "d:\0028\001\"\177\n\017FieldConstraint\0229\n\nconstraint\030\001" +
+      " \003(\0132%.furo.FieldConstraint.ConstraintEn" +
       "try\0321\n\017ConstraintEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
       "alue\030\002 \001(\t:\0028\001b\006proto3"
     };
@@ -3183,41 +2806,47 @@ public final class MetaOuterClass {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_furo_Metafield_descriptor =
+    internal_static_furo_MetaField_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_furo_Metafield_fieldAccessorTable = new
+    internal_static_furo_MetaField_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_furo_Metafield_descriptor,
+        internal_static_furo_MetaField_descriptor,
         new java.lang.String[] { "Constraints", "Meta", });
+    internal_static_furo_MetaField_ConstraintsEntry_descriptor =
+      internal_static_furo_MetaField_descriptor.getNestedTypes().get(0);
+    internal_static_furo_MetaField_ConstraintsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_furo_MetaField_ConstraintsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_furo_MetaField_MetaEntry_descriptor =
+      internal_static_furo_MetaField_descriptor.getNestedTypes().get(1);
+    internal_static_furo_MetaField_MetaEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_furo_MetaField_MetaEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_furo_Meta_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_furo_Meta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_Meta_descriptor,
-        new java.lang.String[] { "Meta", });
-    internal_static_furo_Meta_MetaEntry_descriptor =
+        new java.lang.String[] { "Fields", });
+    internal_static_furo_Meta_FieldsEntry_descriptor =
       internal_static_furo_Meta_descriptor.getNestedTypes().get(0);
-    internal_static_furo_Meta_MetaEntry_fieldAccessorTable = new
+    internal_static_furo_Meta_FieldsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_furo_Meta_MetaEntry_descriptor,
+        internal_static_furo_Meta_FieldsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_furo_Fieldmeta_descriptor =
+    internal_static_furo_FieldConstraint_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_furo_Fieldmeta_fieldAccessorTable = new
+    internal_static_furo_FieldConstraint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_furo_Fieldmeta_descriptor,
-        new java.lang.String[] { "Label", });
-    internal_static_furo_Fieldconstraint_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_furo_Fieldconstraint_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_furo_Fieldconstraint_descriptor,
+        internal_static_furo_FieldConstraint_descriptor,
         new java.lang.String[] { "Constraint", });
-    internal_static_furo_Fieldconstraint_ConstraintEntry_descriptor =
-      internal_static_furo_Fieldconstraint_descriptor.getNestedTypes().get(0);
-    internal_static_furo_Fieldconstraint_ConstraintEntry_fieldAccessorTable = new
+    internal_static_furo_FieldConstraint_ConstraintEntry_descriptor =
+      internal_static_furo_FieldConstraint_descriptor.getNestedTypes().get(0);
+    internal_static_furo_FieldConstraint_ConstraintEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_furo_Fieldconstraint_ConstraintEntry_descriptor,
+        internal_static_furo_FieldConstraint_ConstraintEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
   }
 

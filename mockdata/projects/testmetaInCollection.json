@@ -1,4 +1,5 @@
 {
+  "entities": [{
   "meta": {
     "fields": {
       "data.description": {
@@ -78,6 +79,15 @@
       "method": "GET",
       "rel": "self",
       "type": "project.ProjectEntity"
+    }
+  ]
+}],
+  "links": [
+    {
+      "href": "/mockdata/projects/list.json",
+      "method": "GET",
+      "rel": "LIST",
+      "type": "project.ProjectCollection"
     }
   ]
 }

@@ -52,13 +52,7 @@ export class DataObject extends EventTreeNode {
    */
   injectRaw(rawEntity) {
     this._rawEntity = rawEntity;
-    let meta = {};
-
-    if (rawEntity.meta) {
-      meta = rawEntity.meta.fields;
-    }
-
-    this._updateFieldValuesAndMetaFromRawEntity(this, rawEntity, meta);
+    this._updateFieldValuesAndMetaFromRawEntity(this, rawEntity);
     this._pristine = true;
     this._isValid = true;
 
@@ -80,7 +74,7 @@ export class DataObject extends EventTreeNode {
      *
      * detail payload: **{NodeEvent}**
      */
-    this.dispatchNodeEvent(new NodeEvent("data-injected", this,true));
+    this.dispatchNodeEvent(new NodeEvent("data-injected", this, true));
   }
 
   /**
@@ -128,13 +122,14 @@ export class DataObject extends EventTreeNode {
   }
 
 
-
-
-  _updateFieldValuesAndMetaFromRawEntity(node, data, dynamicFieldMeta) {
-
+  _updateFieldValuesAndMetaFromRawEntity(node, data) {
+    let furoMetaDetected = false;
     for (let fieldName in data) {
       let fieldNode = node[fieldName];
 
+      if(fieldNode._spec.type === "furo.Meta"){
+        furoMetaDetected = data[fieldName];
+      }
       if (!fieldNode) {
         console.warn("unspecified field", fieldName)
       } else {
@@ -149,12 +144,7 @@ export class DataObject extends EventTreeNode {
             if (!fieldNode.repeats[i]) {
               fieldNode._addSilent();
             }
-            let repMeta = {};
-            if (dynamicFieldMeta[fieldName]) {
-              if (dynamicFieldMeta[fieldName].fields) {
-                repMeta = dynamicFieldMeta[fieldName].fields;
-              }
-            }
+
 
             // Werte aktualisieren
             fieldNode.repeats[i].value = repdata;
@@ -178,49 +168,34 @@ export class DataObject extends EventTreeNode {
           if (fieldNode) {
             fieldNode._clearInvalidity();
 
-            let meta = {};
-            let submeta = {};
-
-
-            // Kommen neue metas von draussen rein
-            if (dynamicFieldMeta[fieldName]) {
-              meta = dynamicFieldMeta[fieldName];
-              // setze node Meta wenn neue metas gekommen sind
-              // TODO @veith Metas mischen und nicht überklatschen, ev immer von spec meta aus und nicht von runtime meta
-
-              if (meta.constraints) {
-                for (let key in meta.constraints) {
-                  fieldNode._constraints[key] = meta.constraints[key];
-                }
-              }
-
-              if (meta.meta) {
-                for (let key in meta.meta) {
-                  fieldNode._meta[key] = meta.meta[key];
-                }
-              }
-              if (meta.options) {
-                for (let key in meta.options) {
-                  fieldNode._options[key] = meta.options[key];
-                }
-              }
-
-              // hat es meta für subfelder
-              if (meta.fields) {
-                submeta = meta.fields
-              }
-            }
-
-
             // Werte aktualisieren
             fieldNode.value = data[fieldName];
+
             fieldNode._pristine = true;
           }
         }
-
-
       }
     }
+    if(furoMetaDetected){
+      this.__updateMetaAndConstraints(furoMetaDetected);
+    }
+
+  }
+
+
+  __updateMetaAndConstraints(metaAndConstraints) {
+    // on this layer you can only pass the constraint to the children
+    // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
+    // a field which is targeted we delegate the sub request to  this field
+    for(let fieldname in metaAndConstraints.fields) {
+      let mc = metaAndConstraints.fields[fieldname];
+      let f = fieldname.split(".");
+      let target = f[0];
+      let subMetaAndConstraints = {fields:{}};
+      subMetaAndConstraints.fields[f.slice(1).join(".")] = mc;
+      this[target].__updateMetaAndConstraints(subMetaAndConstraints);
+    }
+
   }
 
 

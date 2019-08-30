@@ -338,7 +338,7 @@
     }
   },
   "definitions": {
-    "furoFieldconstraint": {
+    "furoFieldConstraint": {
       "type": "object",
       "properties": {
         "constraint": {
@@ -350,16 +350,6 @@
         }
       },
       "title": "constrains of fields"
-    },
-    "furoFieldmeta": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "meta information of a field"
-        }
-      },
-      "title": "meta"
     },
     "furoLink": {
       "type": "object",
@@ -386,25 +376,31 @@
     "furoMeta": {
       "type": "object",
       "properties": {
-        "meta": {
+        "fields": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/furoMetafield"
+            "$ref": "#/definitions/furoMetaField"
           },
           "title": "fields of meta info"
         }
       },
       "title": "meta info"
     },
-    "furoMetafield": {
+    "furoMetaField": {
       "type": "object",
       "properties": {
         "constraints": {
-          "$ref": "#/definitions/furoFieldconstraint",
-          "title": "constraints of a field"
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/furoFieldConstraint"
+          },
+          "title": "constrain of a field"
         },
         "meta": {
-          "$ref": "#/definitions/furoFieldmeta",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
           "title": "meta information of a field"
         }
       },

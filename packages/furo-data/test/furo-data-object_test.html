@@ -40,8 +40,55 @@
       let fix = fixture('basic');
       element = fix[1];
       await element.updateComplete;
-
     });
+
+
+
+
+    it('should update meta on server meta data', (done) => {
+      element.setAttribute("type", "project.ProjectEntity");
+
+      fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+
+          assert.equal(ObjectDataRoot._pristine, true);
+          let EntityRoot = ObjectDataRoot.data;
+
+          assert.equal(EntityRoot.description.value, "Furo Foundation");
+
+          assert.equal(EntityRoot.description._meta.label, "ID label from response");
+          assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
+          assert.equal(EntityRoot.description._constraints.min.value, 5);
+          assert.equal(EntityRoot.description._constraints.max.value, 20);
+          assert.equal(EntityRoot.members.repeats[0].first_name._meta.label, "firstname label from response");
+
+          done();
+        });
+      });
+    });
+    it('should update meta on server meta data', (done) => {
+      element.setAttribute("type", "project.ProjectCollection");
+
+      fetch("/mockdata/projects/testmetaInCollection.json").then(res => res.json()).then(response => {
+        let p = element.injectRaw(response);
+        p.then((ObjectDataRoot) => {
+
+          assert.equal(ObjectDataRoot._pristine, true);
+          let EntityRoot = ObjectDataRoot.entities.repeats[0].data;
+          assert.equal(EntityRoot.description.value, "Furo Foundation");
+
+          assert.equal(EntityRoot.description._meta.label, "ID label from response");
+          assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
+          assert.equal(EntityRoot.description._constraints.min.value, 5);
+          assert.equal(EntityRoot.description._constraints.max.value, 20);
+          assert.equal(EntityRoot.members.repeats[0].first_name._meta.label, "firstname label from response");
+
+          done();
+        });
+      });
+    });
+
     it('should log to console on non existing type', (done) => {
       element.type = "unknown";
       assert.equal(element._type, undefined);
@@ -290,6 +337,7 @@
       };
       element.addEventListener("object-ready", handler);
     });
+
 
 
   });

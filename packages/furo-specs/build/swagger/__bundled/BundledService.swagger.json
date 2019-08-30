@@ -139,195 +139,6 @@
         ]
       }
     },
-    "/api/tests": {
-      "get": {
-        "summary": "The List method takes zero or more parameters as input, and returns a TestCollection of TestEntity that match the input parameters.",
-        "operationId": "ListTests",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/testTestCollection"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "Partielle Repräsentation fields=id,name // 10.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "sort",
-            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "filter",
-            "description": "Filter.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "page",
-            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "limit",
-            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "name": "count",
-            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
-            "in": "query",
-            "required": false,
-            "type": "boolean",
-            "format": "boolean"
-          },
-          {
-            "name": "sum",
-            "description": "not implemented.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "view",
-            "description": "not implemented (ehemals context).",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "q",
-            "description": "Query term to search a test.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "BundledService"
-        ]
-      },
-      "post": {
-        "summary": "Creates a new Test",
-        "operationId": "CreateTest",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/testTestEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/testTest"
-            }
-          }
-        ],
-        "tags": [
-          "BundledService"
-        ]
-      }
-    },
-    "/api/tests/{tst}": {
-      "get": {
-        "summary": "The Get method takes zero or more parameters, and returns a TestEntity which contains a Test",
-        "operationId": "GetTest",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/testTestEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "tst",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "BundledService"
-        ]
-      },
-      "delete": {
-        "summary": "Delete a Test",
-        "operationId": "DeleteTest",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "properties": {}
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "tst",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "BundledService"
-        ]
-      },
-      "patch": {
-        "summary": "Updates a Test, partial updates are supported",
-        "operationId": "UpdateTest",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/testTestEntity"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "tst",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/testTest"
-            }
-          }
-        ],
-        "tags": [
-          "BundledService"
-        ]
-      }
-    },
     "/mockdata/experiments": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",
@@ -1823,7 +1634,7 @@
       },
       "title": "ExperimentEntity with Experiment"
     },
-    "furoFieldconstraint": {
+    "furoFieldConstraint": {
       "type": "object",
       "properties": {
         "constraint": {
@@ -1835,16 +1646,6 @@
         }
       },
       "title": "constrains of fields"
-    },
-    "furoFieldmeta": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "meta information of a field"
-        }
-      },
-      "title": "meta"
     },
     "furoLink": {
       "type": "object",
@@ -1871,25 +1672,31 @@
     "furoMeta": {
       "type": "object",
       "properties": {
-        "meta": {
+        "fields": {
           "type": "object",
           "additionalProperties": {
-            "$ref": "#/definitions/furoMetafield"
+            "$ref": "#/definitions/furoMetaField"
           },
           "title": "fields of meta info"
         }
       },
       "title": "meta info"
     },
-    "furoMetafield": {
+    "furoMetaField": {
       "type": "object",
       "properties": {
         "constraints": {
-          "$ref": "#/definitions/furoFieldconstraint",
-          "title": "constraints of a field"
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/furoFieldConstraint"
+          },
+          "title": "constrain of a field"
         },
         "meta": {
-          "$ref": "#/definitions/furoFieldmeta",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
           "title": "meta information of a field"
         }
       },
@@ -2176,65 +1983,6 @@
         }
       },
       "title": "TaskEntity with Task"
-    },
-    "testTest": {
-      "type": "object",
-      "properties": {
-        "display_name": {
-          "type": "string",
-          "title": "Localized String representation of a Test"
-        },
-        "id": {
-          "type": "string",
-          "title": "Identity of Test"
-        }
-      },
-      "title": "autogenerated"
-    },
-    "testTestCollection": {
-      "type": "object",
-      "properties": {
-        "entities": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/testTestEntity"
-          },
-          "title": "Contains a test.TestEntity repeated"
-        },
-        "links": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/furoLink"
-          },
-          "title": "Hateoas links"
-        },
-        "meta": {
-          "$ref": "#/definitions/furoMeta",
-          "title": "Meta for the response"
-        }
-      },
-      "title": "TestCollection with repeated TestEntity"
-    },
-    "testTestEntity": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/testTest",
-          "title": "contains a test.Test"
-        },
-        "links": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/furoLink"
-          },
-          "title": "Hateoas links"
-        },
-        "meta": {
-          "$ref": "#/definitions/furoMeta",
-          "title": "Meta for the response"
-        }
-      },
-      "title": "TestEntity with Test"
     },
     "treeNavigationnode": {
       "type": "object",

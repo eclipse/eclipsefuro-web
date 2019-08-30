@@ -8,13 +8,13 @@
     "targetfile": "meta.proto"
   },
   "fields": {
-    "meta": {
+    "fields": {
       "description": "fields of meta info",
-      "type": "keyValuePair",
+      "type": "map<string, furo.MetaField>",
       "__proto": {
         "number": 1,
         "map_from": "string",
-        "map_to": "Metafield"
+        "map_to": "furo.MetaField"
       }
     }
   }

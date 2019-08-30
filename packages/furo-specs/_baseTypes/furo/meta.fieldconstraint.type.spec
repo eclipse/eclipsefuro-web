@@ -1,6 +1,6 @@
 {
   "name": "fieldconstraint",
-  "type": "Fieldconstraint",
+  "type": "FieldConstraint",
   "description": "constrains of fields",
   "__proto": {
     "package": "furo",
@@ -10,7 +10,7 @@
   "fields": {
     "constraint": {
       "description": "constrain of a field",
-      "type": "keyValuePair",
+      "type": "map<string,string>",
       "__proto": {
         "number": 1,
         "map_from": "string",

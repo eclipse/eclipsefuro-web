@@ -3,17 +3,19 @@
 
 package treeservice
 
+import proto "github.com/gogo/protobuf/proto"
+import fmt "fmt"
+import math "math"
+import protobuf "../google/protobuf"
+import tree "../tree"
+import _ "google.golang.org/genproto/googleapis/api/annotations"
+
 import (
-	protobuf "../google/protobuf"
-	tree "../tree"
-	context "context"
-	fmt "fmt"
-	proto "github.com/gogo/protobuf/proto"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
+	context "golang.org/x/net/context"
 	grpc "google.golang.org/grpc"
-	io "io"
-	math "math"
 )
+
+import io "io"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -27,7 +29,7 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 
 type CreateTreeServiceRequest struct {
-	Data                 *tree.Tree `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Data                 *tree.Tree `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -37,7 +39,7 @@ func (m *CreateTreeServiceRequest) Reset()         { *m = CreateTreeServiceReque
 func (m *CreateTreeServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateTreeServiceRequest) ProtoMessage()    {}
 func (*CreateTreeServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_9dd10294fe0b6ab0, []int{0}
+	return fileDescriptor_service_90acd7e17c794a2d, []int{0}
 }
 func (m *CreateTreeServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -54,8 +56,8 @@ func (m *CreateTreeServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (m *CreateTreeServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateTreeServiceRequest.Merge(m, src)
+func (dst *CreateTreeServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTreeServiceRequest.Merge(dst, src)
 }
 func (m *CreateTreeServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -75,7 +77,7 @@ func (m *CreateTreeServiceRequest) GetData() *tree.Tree {
 
 type DeleteTreeServiceRequest struct {
 	Tre                  string          `protobuf:"bytes,1,opt,name=tre,proto3" json:"tre,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
 	XXX_sizecache        int32           `json:"-"`
@@ -85,7 +87,7 @@ func (m *DeleteTreeServiceRequest) Reset()         { *m = DeleteTreeServiceReque
 func (m *DeleteTreeServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteTreeServiceRequest) ProtoMessage()    {}
 func (*DeleteTreeServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_9dd10294fe0b6ab0, []int{1}
+	return fileDescriptor_service_90acd7e17c794a2d, []int{1}
 }
 func (m *DeleteTreeServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -102,8 +104,8 @@ func (m *DeleteTreeServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (m *DeleteTreeServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteTreeServiceRequest.Merge(m, src)
+func (dst *DeleteTreeServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteTreeServiceRequest.Merge(dst, src)
 }
 func (m *DeleteTreeServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -139,7 +141,7 @@ func (m *GetTreeServiceRequest) Reset()         { *m = GetTreeServiceRequest{} }
 func (m *GetTreeServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*GetTreeServiceRequest) ProtoMessage()    {}
 func (*GetTreeServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_9dd10294fe0b6ab0, []int{2}
+	return fileDescriptor_service_90acd7e17c794a2d, []int{2}
 }
 func (m *GetTreeServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -156,8 +158,8 @@ func (m *GetTreeServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]byt
 		return b[:n], nil
 	}
 }
-func (m *GetTreeServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTreeServiceRequest.Merge(m, src)
+func (dst *GetTreeServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetTreeServiceRequest.Merge(dst, src)
 }
 func (m *GetTreeServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -176,25 +178,25 @@ func (m *GetTreeServiceRequest) GetTre() string {
 }
 
 type ListTreeServiceRequest struct {
-	//Partielle Repräsentation fields=id,name // 10
+	// Partielle Repräsentation fields=id,name // 10
 	Fields string `protobuf:"bytes,1,opt,name=fields,proto3" json:"fields,omitempty"`
-	//Sortierung nach feldern
-	//**?filter=-completed** um completed absteigend zu bekommen
-	//**?filter=completed** um completed aufsteigend zu bekommen
+	// Sortierung nach feldern
+	// **?filter=-completed** um completed absteigend zu bekommen
+	// **?filter=completed** um completed aufsteigend zu bekommen
 	Sort string `protobuf:"bytes,2,opt,name=sort,proto3" json:"sort,omitempty"`
-	//Filter
+	// Filter
 	Filter string `protobuf:"bytes,3,opt,name=filter,proto3" json:"filter,omitempty"`
-	//Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+	// Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
 	Page int32 `protobuf:"varint,4,opt,name=page,proto3" json:"page,omitempty"`
-	//Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+	// Anzahl Elemente pro Seite, maximal sind 99 erlaubt
 	Limit int32 `protobuf:"varint,5,opt,name=limit,proto3" json:"limit,omitempty"`
-	//Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
+	// Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
 	Count bool `protobuf:"varint,6,opt,name=count,proto3" json:"count,omitempty"`
-	//not implemented
+	// not implemented
 	Sum string `protobuf:"bytes,7,opt,name=sum,proto3" json:"sum,omitempty"`
-	//not implemented (ehemals context)
+	// not implemented (ehemals context)
 	View string `protobuf:"bytes,8,opt,name=view,proto3" json:"view,omitempty"`
-	//Query term to search a tree
+	// Query term to search a tree
 	Q                    string   `protobuf:"bytes,11,opt,name=q,proto3" json:"q,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -205,7 +207,7 @@ func (m *ListTreeServiceRequest) Reset()         { *m = ListTreeServiceRequest{}
 func (m *ListTreeServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*ListTreeServiceRequest) ProtoMessage()    {}
 func (*ListTreeServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_9dd10294fe0b6ab0, []int{3}
+	return fileDescriptor_service_90acd7e17c794a2d, []int{3}
 }
 func (m *ListTreeServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -222,8 +224,8 @@ func (m *ListTreeServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]by
 		return b[:n], nil
 	}
 }
-func (m *ListTreeServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListTreeServiceRequest.Merge(m, src)
+func (dst *ListTreeServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListTreeServiceRequest.Merge(dst, src)
 }
 func (m *ListTreeServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -299,7 +301,7 @@ func (m *ListTreeServiceRequest) GetQ() string {
 
 type UpdateTreeServiceRequest struct {
 	Tre                  string     `protobuf:"bytes,1,opt,name=tre,proto3" json:"tre,omitempty"`
-	Data                 *tree.Tree `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	Data                 *tree.Tree `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -309,7 +311,7 @@ func (m *UpdateTreeServiceRequest) Reset()         { *m = UpdateTreeServiceReque
 func (m *UpdateTreeServiceRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateTreeServiceRequest) ProtoMessage()    {}
 func (*UpdateTreeServiceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_9dd10294fe0b6ab0, []int{4}
+	return fileDescriptor_service_90acd7e17c794a2d, []int{4}
 }
 func (m *UpdateTreeServiceRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -326,8 +328,8 @@ func (m *UpdateTreeServiceRequest) XXX_Marshal(b []byte, deterministic bool) ([]
 		return b[:n], nil
 	}
 }
-func (m *UpdateTreeServiceRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UpdateTreeServiceRequest.Merge(m, src)
+func (dst *UpdateTreeServiceRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateTreeServiceRequest.Merge(dst, src)
 }
 func (m *UpdateTreeServiceRequest) XXX_Size() int {
 	return m.Size()
@@ -358,44 +360,6 @@ func init() {
 	proto.RegisterType((*GetTreeServiceRequest)(nil), "treeservice.GetTreeServiceRequest")
 	proto.RegisterType((*ListTreeServiceRequest)(nil), "treeservice.ListTreeServiceRequest")
 	proto.RegisterType((*UpdateTreeServiceRequest)(nil), "treeservice.UpdateTreeServiceRequest")
-}
-
-func init() { proto.RegisterFile("treeservice/service.proto", fileDescriptor_9dd10294fe0b6ab0) }
-
-var fileDescriptor_9dd10294fe0b6ab0 = []byte{
-	// 511 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0xc1, 0x6e, 0xd3, 0x40,
-	0x10, 0xd5, 0xb6, 0x49, 0xda, 0x4c, 0x2a, 0xb5, 0xac, 0xda, 0x74, 0x31, 0xd4, 0x8a, 0x5c, 0x81,
-	0x42, 0x0f, 0xb6, 0x14, 0x6e, 0x3d, 0x52, 0x2a, 0x2e, 0x3d, 0x19, 0x90, 0xb8, 0x21, 0x37, 0x99,
-	0x5a, 0x2e, 0xb6, 0xd7, 0xd9, 0x5d, 0x17, 0x55, 0x88, 0x0b, 0xbf, 0x80, 0xf8, 0x27, 0x8e, 0x95,
-	0xf8, 0x01, 0x14, 0xf1, 0x21, 0x68, 0x77, 0x1d, 0x39, 0x49, 0x1d, 0x29, 0x97, 0x64, 0x66, 0xf6,
-	0xed, 0x7b, 0xb3, 0x33, 0xcf, 0xf0, 0x54, 0x09, 0x44, 0x89, 0xe2, 0x2e, 0x19, 0x63, 0x50, 0xfd,
-	0xfb, 0x85, 0xe0, 0x8a, 0xd3, 0xde, 0xc2, 0x91, 0xf3, 0x3c, 0xe6, 0x3c, 0x4e, 0x31, 0x88, 0x8a,
-	0x24, 0x88, 0xf2, 0x9c, 0xab, 0x48, 0x25, 0x3c, 0x97, 0x16, 0xea, 0xec, 0x6b, 0x68, 0xa0, 0x7f,
-	0xaa, 0xc2, 0xb3, 0x0a, 0x6e, 0xb2, 0xeb, 0xf2, 0x26, 0xc0, 0xac, 0x50, 0xf7, 0xf6, 0xd0, 0x3b,
-	0x07, 0x76, 0x21, 0x30, 0x52, 0xf8, 0x41, 0x20, 0xbe, 0xb7, 0x02, 0x21, 0x4e, 0x4b, 0x94, 0x8a,
-	0xba, 0xd0, 0x9a, 0x44, 0x2a, 0x62, 0x64, 0x40, 0x86, 0xbd, 0x11, 0xf8, 0x86, 0x53, 0xe3, 0x42,
-	0x53, 0xf7, 0x3e, 0x01, 0x7b, 0x8b, 0x29, 0x36, 0xde, 0x3d, 0x80, 0x6d, 0x25, 0xd0, 0x5c, 0xed,
-	0x86, 0x3a, 0xa4, 0x67, 0x15, 0xdb, 0x96, 0x61, 0xeb, 0xfb, 0xb6, 0x2b, 0x7f, 0xde, 0x95, 0x7f,
-	0xa9, 0xbb, 0xaa, 0x98, 0x5f, 0xc1, 0xd1, 0x3b, 0x54, 0x9b, 0xd0, 0x7a, 0x0f, 0x04, 0xfa, 0x57,
-	0x89, 0x6c, 0x02, 0xf7, 0xa1, 0x73, 0x93, 0x60, 0x3a, 0x91, 0x15, 0xbe, 0xca, 0x28, 0x85, 0x96,
-	0xe4, 0x42, 0x99, 0x4e, 0xba, 0xa1, 0x89, 0x2d, 0x36, 0x55, 0x28, 0xd8, 0xf6, 0x1c, 0xab, 0x33,
-	0x8d, 0x2d, 0xa2, 0x18, 0x59, 0x6b, 0x40, 0x86, 0xed, 0xd0, 0xc4, 0xf4, 0x10, 0xda, 0x69, 0x92,
-	0x25, 0x8a, 0xb5, 0x4d, 0xd1, 0x26, 0xba, 0x3a, 0xe6, 0x65, 0xae, 0x58, 0x67, 0x40, 0x86, 0xbb,
-	0xa1, 0x4d, 0x74, 0xc3, 0xb2, 0xcc, 0xd8, 0x8e, 0x6d, 0x58, 0x96, 0x99, 0x66, 0xbc, 0x4b, 0xf0,
-	0x2b, 0xdb, 0xb5, 0xea, 0x3a, 0xa6, 0x7b, 0x40, 0xa6, 0xac, 0x67, 0x0a, 0x64, 0xea, 0x5d, 0x01,
-	0xfb, 0x58, 0x4c, 0xa2, 0x0d, 0xe7, 0xea, 0x2e, 0xcd, 0xf5, 0xd1, 0x96, 0x46, 0xbf, 0x5a, 0xd0,
-	0x5b, 0x20, 0xa2, 0x13, 0x80, 0x7a, 0xe3, 0xf4, 0x85, 0xbf, 0xe0, 0x2c, 0x7f, 0x9d, 0x15, 0x9c,
-	0x83, 0x9a, 0xf6, 0x32, 0x57, 0x89, 0xba, 0xf7, 0x4e, 0x7e, 0xfc, 0xf9, 0xf7, 0x73, 0xeb, 0xd8,
-	0xdb, 0x0f, 0x32, 0x3e, 0xfe, 0xa2, 0x95, 0x8c, 0xe7, 0xe4, 0xb9, 0x51, 0xa5, 0xb7, 0x00, 0xb5,
-	0x37, 0x56, 0x54, 0xd6, 0x99, 0xc6, 0x59, 0x63, 0x8a, 0xb9, 0xd6, 0xd9, 0xd1, 0x8a, 0x56, 0xf0,
-	0x4d, 0x09, 0xfc, 0x4e, 0x63, 0xd8, 0xa9, 0xdc, 0x42, 0xbd, 0x25, 0xa1, 0x46, 0x0f, 0x35, 0xbc,
-	0xe5, 0xa5, 0xe1, 0x1f, 0x50, 0xb7, 0x91, 0x3f, 0x88, 0x51, 0xf9, 0xb7, 0x92, 0xe7, 0xf4, 0x33,
-	0x74, 0xe7, 0x56, 0x93, 0xf4, 0x74, 0x49, 0xaa, 0xd9, 0x82, 0xce, 0x61, 0xad, 0x75, 0xc1, 0xd3,
-	0x14, 0xc7, 0xfa, 0x4b, 0xf5, 0x8e, 0x8d, 0xde, 0x13, 0xba, 0x3a, 0x3b, 0x3d, 0xb5, 0x7a, 0xf3,
-	0x2b, 0x53, 0x5b, 0x67, 0x89, 0x86, 0xf7, 0x9c, 0x1a, 0xfe, 0x93, 0x51, 0xf3, 0xbc, 0xec, 0x86,
-	0xde, 0xec, 0xfd, 0x9e, 0xb9, 0xe4, 0x61, 0xe6, 0x92, 0xbf, 0x33, 0x97, 0x5c, 0x77, 0xcc, 0xc8,
-	0x5f, 0xff, 0x0f, 0x00, 0x00, 0xff, 0xff, 0x14, 0x32, 0x58, 0x5f, 0x84, 0x04, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -631,9 +595,9 @@ func (m *CreateTreeServiceRequest) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0xa
 		i++
 		i = encodeVarintService(dAtA, i, uint64(m.Data.Size()))
-		n1, err1 := m.Data.MarshalTo(dAtA[i:])
-		if err1 != nil {
-			return 0, err1
+		n1, err := m.Data.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
 		}
 		i += n1
 	}
@@ -668,9 +632,9 @@ func (m *DeleteTreeServiceRequest) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintService(dAtA, i, uint64(m.Data.Size()))
-		n2, err2 := m.Data.MarshalTo(dAtA[i:])
-		if err2 != nil {
-			return 0, err2
+		n2, err := m.Data.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
 		}
 		i += n2
 	}
@@ -809,9 +773,9 @@ func (m *UpdateTreeServiceRequest) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintService(dAtA, i, uint64(m.Data.Size()))
-		n3, err3 := m.Data.MarshalTo(dAtA[i:])
-		if err3 != nil {
-			return 0, err3
+		n3, err := m.Data.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
 		}
 		i += n3
 	}
@@ -975,7 +939,7 @@ func (m *CreateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= uint64(b&0x7F) << shift
+			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1003,7 +967,7 @@ func (m *CreateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1012,9 +976,6 @@ func (m *CreateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1032,9 +993,6 @@ func (m *CreateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
-				return ErrInvalidLengthService
-			}
-			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthService
 			}
 			if (iNdEx + skippy) > l {
@@ -1065,7 +1023,7 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= uint64(b&0x7F) << shift
+			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1093,7 +1051,7 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1103,9 +1061,6 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1125,7 +1080,7 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1134,9 +1089,6 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1154,9 +1106,6 @@ func (m *DeleteTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
-				return ErrInvalidLengthService
-			}
-			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthService
 			}
 			if (iNdEx + skippy) > l {
@@ -1187,7 +1136,7 @@ func (m *GetTreeServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= uint64(b&0x7F) << shift
+			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1215,7 +1164,7 @@ func (m *GetTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1225,9 +1174,6 @@ func (m *GetTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1240,9 +1186,6 @@ func (m *GetTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
-				return ErrInvalidLengthService
-			}
-			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthService
 			}
 			if (iNdEx + skippy) > l {
@@ -1273,7 +1216,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= uint64(b&0x7F) << shift
+			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1301,7 +1244,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1311,9 +1254,6 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1333,7 +1273,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1343,9 +1283,6 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1365,7 +1302,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1375,9 +1312,6 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1397,7 +1331,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Page |= int32(b&0x7F) << shift
+				m.Page |= (int32(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1416,7 +1350,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.Limit |= int32(b&0x7F) << shift
+				m.Limit |= (int32(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1435,7 +1369,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				v |= int(b&0x7F) << shift
+				v |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1455,7 +1389,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1465,9 +1399,6 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1487,7 +1418,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1497,9 +1428,6 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1519,7 +1447,7 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1529,9 +1457,6 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1544,9 +1469,6 @@ func (m *ListTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
-				return ErrInvalidLengthService
-			}
-			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthService
 			}
 			if (iNdEx + skippy) > l {
@@ -1577,7 +1499,7 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= uint64(b&0x7F) << shift
+			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -1605,7 +1527,7 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1615,9 +1537,6 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1637,7 +1556,7 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1646,9 +1565,6 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthService
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthService
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1666,9 +1582,6 @@ func (m *UpdateTreeServiceRequest) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
-				return ErrInvalidLengthService
-			}
-			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthService
 			}
 			if (iNdEx + skippy) > l {
@@ -1738,11 +1651,8 @@ func skipService(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			if length < 0 {
-				return 0, ErrInvalidLengthService
-			}
 			iNdEx += length
-			if iNdEx < 0 {
+			if length < 0 {
 				return 0, ErrInvalidLengthService
 			}
 			return iNdEx, nil
@@ -1773,9 +1683,6 @@ func skipService(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
-				if iNdEx < 0 {
-					return 0, ErrInvalidLengthService
-				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -1794,3 +1701,41 @@ var (
 	ErrInvalidLengthService = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowService   = fmt.Errorf("proto: integer overflow")
 )
+
+func init() { proto.RegisterFile("treeservice/service.proto", fileDescriptor_service_90acd7e17c794a2d) }
+
+var fileDescriptor_service_90acd7e17c794a2d = []byte{
+	// 511 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x53, 0xc1, 0x6e, 0xd3, 0x40,
+	0x10, 0xd5, 0xb6, 0x49, 0xda, 0x4c, 0x2a, 0xb5, 0xac, 0xda, 0x74, 0x31, 0xd4, 0x8a, 0x5c, 0x81,
+	0x42, 0x0f, 0xb6, 0x14, 0x6e, 0x3d, 0x52, 0x2a, 0x2e, 0x3d, 0x19, 0x90, 0xb8, 0x21, 0x37, 0x99,
+	0x5a, 0x2e, 0xb6, 0xd7, 0xd9, 0x5d, 0x17, 0x55, 0x88, 0x0b, 0xbf, 0x80, 0xf8, 0x27, 0x8e, 0x95,
+	0xf8, 0x01, 0x14, 0xf1, 0x21, 0x68, 0x77, 0x1d, 0x39, 0x49, 0x1d, 0x29, 0x97, 0x64, 0x66, 0xf6,
+	0xed, 0x7b, 0xb3, 0x33, 0xcf, 0xf0, 0x54, 0x09, 0x44, 0x89, 0xe2, 0x2e, 0x19, 0x63, 0x50, 0xfd,
+	0xfb, 0x85, 0xe0, 0x8a, 0xd3, 0xde, 0xc2, 0x91, 0xf3, 0x3c, 0xe6, 0x3c, 0x4e, 0x31, 0x88, 0x8a,
+	0x24, 0x88, 0xf2, 0x9c, 0xab, 0x48, 0x25, 0x3c, 0x97, 0x16, 0xea, 0xec, 0x6b, 0x68, 0xa0, 0x7f,
+	0xaa, 0xc2, 0xb3, 0x0a, 0x6e, 0xb2, 0xeb, 0xf2, 0x26, 0xc0, 0xac, 0x50, 0xf7, 0xf6, 0xd0, 0x3b,
+	0x07, 0x76, 0x21, 0x30, 0x52, 0xf8, 0x41, 0x20, 0xbe, 0xb7, 0x02, 0x21, 0x4e, 0x4b, 0x94, 0x8a,
+	0xba, 0xd0, 0x9a, 0x44, 0x2a, 0x62, 0x64, 0x40, 0x86, 0xbd, 0x11, 0xf8, 0x86, 0x53, 0xe3, 0x42,
+	0x53, 0xf7, 0x3e, 0x01, 0x7b, 0x8b, 0x29, 0x36, 0xde, 0x3d, 0x80, 0x6d, 0x25, 0xd0, 0x5c, 0xed,
+	0x86, 0x3a, 0xa4, 0x67, 0x15, 0xdb, 0x96, 0x61, 0xeb, 0xfb, 0xb6, 0x2b, 0x7f, 0xde, 0x95, 0x7f,
+	0xa9, 0xbb, 0xaa, 0x98, 0x5f, 0xc1, 0xd1, 0x3b, 0x54, 0x9b, 0xd0, 0x7a, 0x0f, 0x04, 0xfa, 0x57,
+	0x89, 0x6c, 0x02, 0xf7, 0xa1, 0x73, 0x93, 0x60, 0x3a, 0x91, 0x15, 0xbe, 0xca, 0x28, 0x85, 0x96,
+	0xe4, 0x42, 0x99, 0x4e, 0xba, 0xa1, 0x89, 0x2d, 0x36, 0x55, 0x28, 0xd8, 0xf6, 0x1c, 0xab, 0x33,
+	0x8d, 0x2d, 0xa2, 0x18, 0x59, 0x6b, 0x40, 0x86, 0xed, 0xd0, 0xc4, 0xf4, 0x10, 0xda, 0x69, 0x92,
+	0x25, 0x8a, 0xb5, 0x4d, 0xd1, 0x26, 0xba, 0x3a, 0xe6, 0x65, 0xae, 0x58, 0x67, 0x40, 0x86, 0xbb,
+	0xa1, 0x4d, 0x74, 0xc3, 0xb2, 0xcc, 0xd8, 0x8e, 0x6d, 0x58, 0x96, 0x99, 0x66, 0xbc, 0x4b, 0xf0,
+	0x2b, 0xdb, 0xb5, 0xea, 0x3a, 0xa6, 0x7b, 0x40, 0xa6, 0xac, 0x67, 0x0a, 0x64, 0xea, 0x5d, 0x01,
+	0xfb, 0x58, 0x4c, 0xa2, 0x0d, 0xe7, 0xea, 0x2e, 0xcd, 0xf5, 0xd1, 0x96, 0x46, 0xbf, 0x5a, 0xd0,
+	0x5b, 0x20, 0xa2, 0x13, 0x80, 0x7a, 0xe3, 0xf4, 0x85, 0xbf, 0xe0, 0x2c, 0x7f, 0x9d, 0x15, 0x9c,
+	0x83, 0x9a, 0xf6, 0x32, 0x57, 0x89, 0xba, 0xf7, 0x4e, 0x7e, 0xfc, 0xf9, 0xf7, 0x73, 0xeb, 0xd8,
+	0xdb, 0x0f, 0x32, 0x3e, 0xfe, 0xa2, 0x95, 0x8c, 0xe7, 0xe4, 0xb9, 0x51, 0xa5, 0xb7, 0x00, 0xb5,
+	0x37, 0x56, 0x54, 0xd6, 0x99, 0xc6, 0x59, 0x63, 0x8a, 0xb9, 0xd6, 0xd9, 0xd1, 0x8a, 0x56, 0xf0,
+	0x4d, 0x09, 0xfc, 0x4e, 0x63, 0xd8, 0xa9, 0xdc, 0x42, 0xbd, 0x25, 0xa1, 0x46, 0x0f, 0x35, 0xbc,
+	0xe5, 0xa5, 0xe1, 0x1f, 0x50, 0xb7, 0x91, 0x3f, 0x88, 0x51, 0xf9, 0xb7, 0x92, 0xe7, 0xf4, 0x33,
+	0x74, 0xe7, 0x56, 0x93, 0xf4, 0x74, 0x49, 0xaa, 0xd9, 0x82, 0xce, 0x61, 0xad, 0x75, 0xc1, 0xd3,
+	0x14, 0xc7, 0xfa, 0x4b, 0xf5, 0x8e, 0x8d, 0xde, 0x13, 0xba, 0x3a, 0x3b, 0x3d, 0xb5, 0x7a, 0xf3,
+	0x2b, 0x53, 0x5b, 0x67, 0x89, 0x86, 0xf7, 0x9c, 0x1a, 0xfe, 0x93, 0x51, 0xf3, 0xbc, 0xec, 0x86,
+	0xde, 0xec, 0xfd, 0x9e, 0xb9, 0xe4, 0x61, 0xe6, 0x92, 0xbf, 0x33, 0x97, 0x5c, 0x77, 0xcc, 0xc8,
+	0x5f, 0xff, 0x0f, 0x00, 0x00, 0xff, 0xff, 0x14, 0x32, 0x58, 0x5f, 0x84, 0x04, 0x00, 0x00,
+}

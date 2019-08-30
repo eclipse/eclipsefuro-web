@@ -1,6 +1,6 @@
 {
   "name": "metafield",
-  "type": "Metafield",
+  "type": "MetaField",
   "description": "fields of meta info",
   "__proto": {
     "package": "furo",
@@ -11,17 +11,20 @@
   "fields": {
     "meta": {
       "description": "meta information of a field",
-      "type": "Fieldmeta",
+      "type": "map<string,string>",
       "__proto": {
-        "number": 3
+        "number": 1,
+        "map_from": "string",
+        "map_to": "string"
       }
     },
     "constraints": {
-      "description": "constraints of a field",
-      "type": "Fieldconstraint",
+      "description": "constrain of a field",
+      "type": "map<string,furo.FieldConstraint>",
       "__proto": {
-        "number": 4,
-        "repeated": true
+        "number": 2,
+        "map_from": "string",
+        "map_to": "furo.FieldConstraint"
       }
     }
   }

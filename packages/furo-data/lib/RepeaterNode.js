@@ -57,7 +57,6 @@ export class RepeaterNode extends EventTreeNode {
 
 
   set value(val) {
-
     val.forEach((repdata, i) => {
       if (!this.repeats[i]) {
         this._addSilent();
@@ -67,11 +66,64 @@ export class RepeaterNode extends EventTreeNode {
       this.repeats[i]._pristine = true;
 
     });
+
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
     this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
 
   }
 
+
+  __updateMetaAndConstraints(metaAndConstraints) {
+    for (let fieldname in metaAndConstraints.fields) {
+      let mc = metaAndConstraints.fields[fieldname];
+      let f = fieldname.split(".");
+
+      let target = f[0];
+      let targetfield = f[1];
+
+      if (f.length === 2) {
+        // typo protection
+        if (this.repeats[parseInt(target)][targetfield]) {
+          // we are on the parent of a endpoint. Update the metas in this
+          let field = this.repeats[parseInt(target)][targetfield];
+
+          for (let m in mc.meta) {
+            // update the metas
+            field._meta[m] = mc.meta[m];
+          }
+          for (let c in mc.constraints) {
+            // update the constraints
+            field._constraints[c] = mc.constraints[c];
+          }
+          for (let o in mc.options) {
+            // update the options
+            field._options[o] = mc.options[o];
+          }
+          /**
+           * @event this-metas-changed INTERNAL Event
+           *
+           * Fired when field metas, constraints or options changed
+           * detail payload:
+           */
+          field.dispatchNodeEvent(new NodeEvent('this-metas-changed', field, false));
+
+          // exit here, it does not go deeper
+          return;
+        }
+
+      }
+
+
+      let subMetaAndConstraints = {fields: {}};
+      subMetaAndConstraints.fields[f.slice(2).join(".")] = mc;
+      // typo protection
+      if (this.repeats[parseInt(target)][targetfield]) {
+        this.repeats[parseInt(target)][targetfield].__updateMetaAndConstraints(subMetaAndConstraints);
+      }
+    }
+
+
+  }
 
   get value() {
     return this.repeats.map(f => {
@@ -83,8 +135,8 @@ export class RepeaterNode extends EventTreeNode {
    * Deletes a repeated item by index
    * @param index
    */
-  deleteChild(index){
-    this.repeats.splice(index,1);
+  deleteChild(index) {
+    this.repeats.splice(index, 1);
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, true));
     this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed", this.repeats, false));
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed", this.repeats, true));
@@ -100,8 +152,6 @@ export class RepeaterNode extends EventTreeNode {
     fieldNode._deleteFromList = () => {
       this.deleteChild(this.repeats.indexOf(fieldNode));
     };
-
-
 
 
     return index;
@@ -123,7 +173,7 @@ export class RepeaterNode extends EventTreeNode {
     let index = this._addSilent();
     this._pristine = false;
     // set data if given
-    if(data){
+    if (data) {
       let child = this.repeats[index];
       child.value = data;
     }

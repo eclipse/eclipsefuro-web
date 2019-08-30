@@ -1,5 +1,6 @@
 import {EventTreeNode, NodeEvent} from "./EventTreeNode";
 import {RepeaterNode} from "./RepeaterNode";
+import {set} from "@polymer/polymer/lib/utils/path";
 
 export class FieldNode extends EventTreeNode {
 
@@ -18,14 +19,22 @@ export class FieldNode extends EventTreeNode {
     this._isValid = true;
 
 
+    switch (this._spec.type) {
+      case "Object":
+        this._value = {};
+        break;
+      case "Array":
+        this._value = [];
+        break;
+    }
     // Build custom type if a spec exists
-    if(this.__specdefinitions[this._spec.type] !== undefined ){
+    if (this.__specdefinitions[this._spec.type] !== undefined) {
+
       this._createVendorType(this._spec.type);
     }
 
     // set default value from meta
     if (this._meta && this._meta.default) {
-
       this.defaultvalue = this._meta.default;
       this._pristine = false;
     }
@@ -63,6 +72,7 @@ export class FieldNode extends EventTreeNode {
   }
 
   set value(val) {
+
     // type any
     this._createAnyType(val);
 
@@ -71,13 +81,27 @@ export class FieldNode extends EventTreeNode {
       this._updateKeyValueMap(val, this._spec.type)
     } else {
       if (this.__childNodes.length > 0) {
+        let furoMetaDetected = false;
         for (let index in this.__childNodes) {
           let field = this.__childNodes[index];
+          if(field._spec.type === "furo.Meta"){
+            // we have meta declaration on this layer
+            furoMetaDetected = val[field._name];
+          }
           if (val.hasOwnProperty(field._name)) {
             field.value = val[field._name];
           }
         }
+
+        /**
+         * if we have meta on this layer, we should update the siblings
+         */
+        if(furoMetaDetected){
+          this.__updateMetaAndConstraints(furoMetaDetected);
+        }
+
         this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
+
       } else {
         // update the primitive type
         this.oldvalue = this.value;
@@ -108,12 +132,59 @@ export class FieldNode extends EventTreeNode {
       }
 
     }
+
+
+
   }
 
+  __updateMetaAndConstraints(metaAndConstraints) {
+    // on this layer you can only pass the constraint to the children
+    // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
+    // a field which is targeted we delegate the sub request to  this field
+    for (let fieldname in metaAndConstraints.fields) {
+      let mc = metaAndConstraints.fields[fieldname];
+      let f = fieldname.split(".");
+
+      if (f.length === 1) {
+        // we are on the parent of a endpoint. Update the metas in this
+        let field = f[0];
+        for (let m in mc.meta) {
+          // update the metas
+          this[field]._meta[m] = mc.meta[m];
+        }
+        for (let c in mc.constraints) {
+          // update the constraints
+          this[field]._constraints[c] = mc.constraints[c];
+        }
+        for (let o in mc.options) {
+          // update the options
+          this[field]._options[o] = mc.options[o];
+        }
+        /**
+         * @event this-metas-changed INTERNAL Event
+         *
+         * Fired when field metas, constraints or options changed
+         * detail payload:
+         */
+        this[field].dispatchNodeEvent(new NodeEvent('this-metas-changed', this[field], false));
+
+        // exit here, it does not go deeper
+        return;
+      }
+      let target = f[0];
+      let subMetaAndConstraints = {fields: {}};
+      subMetaAndConstraints.fields[f.slice(1).join(".")] = mc;
+      let x = this[target];
+
+      this[target].__updateMetaAndConstraints(subMetaAndConstraints);
+
+    }
+
+  }
 
   _createAnyType(val) {
     // remove if type changes
-    if(this.__anyCreated && this["@type"] !== val["@type"]){
+    if (this.__anyCreated && this["@type"] !== val["@type"]) {
       for (let i = this.__childNodes.length - 1; i >= 0; i--) {
         let field = this.__childNodes[i];
         if (!val[field._name]) {
@@ -164,7 +235,7 @@ export class FieldNode extends EventTreeNode {
     delete (this.__parentNode[this._name]);
 
     // remove from list if this is a repeated item
-    if(typeof this._deleteFromList === "function"){
+    if (typeof this._deleteFromList === "function") {
       this._deleteFromList();
     }
     //notify

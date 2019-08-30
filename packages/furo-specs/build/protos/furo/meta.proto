@@ -7,31 +7,24 @@ package furo;
 
 
 // fields of meta info
-message Metafield {                
-    // constraints of a field
-    Fieldconstraint constraints = 4;
+message MetaField {                
+    // constrain of a field
+    map<string,FieldConstraint> constraints = 2;
     
     // meta information of a field
-    Fieldmeta meta = 3;
+    map<string,string> meta = 1;
 
 }
 
 // meta info
 message Meta {            
     // fields of meta info
-    map<string,Metafield> meta = 1;
-
-}
-
-// meta
-message Fieldmeta {            
-    // meta information of a field
-    string label = 1;
+    map<string,MetaField> fields = 1;
 
 }
 
 // constrains of fields
-message Fieldconstraint {            
+message FieldConstraint {            
     // constrain of a field
     map<string,string> constraint = 1;
 
