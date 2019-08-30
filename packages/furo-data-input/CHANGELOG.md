@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.4...@furo/data-input@0.48.5) (2019-08-30)
+
+
+### Bug Fixes
+
+* rename deprecated types and services ([fed08cb](https://github.com/veith/FuroBaseComponents/commit/fed08cb))
+
+
+
+
+
 ## [0.48.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.3...@furo/data-input@0.48.4) (2019-08-20)
 
 **Note:** Version bump only for package @furo/data-input

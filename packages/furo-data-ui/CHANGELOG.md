@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.5.3...@furo/data-ui@0.5.4) (2019-08-30)
+
+
+### Bug Fixes
+
+* furo-data-table cells ([d4e6244](https://github.com/veith/FuroBaseComponents/commit/d4e6244))
+* rename deprecated types and services ([fed08cb](https://github.com/veith/FuroBaseComponents/commit/fed08cb))
+* styling ([b6a8055](https://github.com/veith/FuroBaseComponents/commit/b6a8055))
+* wire trace removed ([70eac51](https://github.com/veith/FuroBaseComponents/commit/70eac51))
+
+
+
+
+
 ## [0.5.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.5.2...@furo/data-ui@0.5.3) (2019-08-12)
 
 **Note:** Version bump only for package @furo/data-ui

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.51.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.50.2...@furo/data@0.51.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* rename deprecated types and services ([fed08cb](https://github.com/veith/FuroBaseComponents/commit/fed08cb))
+
+
+### Features
+
+* tree with qp and qp-change-request ([5fe9e10](https://github.com/veith/FuroBaseComponents/commit/5fe9e10))
+
+
+
+
+
 ## [0.50.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.50.1...@furo/data@0.50.2) (2019-08-19)
 
 

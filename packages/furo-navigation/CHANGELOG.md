@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.32.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.31.13...@furo/navigation@0.32.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* furo-data-table cells ([d4e6244](https://github.com/veith/FuroBaseComponents/commit/d4e6244))
+
+
+### Features
+
+* tree with qp and qp-change-request ([5fe9e10](https://github.com/veith/FuroBaseComponents/commit/5fe9e10))
+
+
+
+
+
 ## [0.31.13](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.31.12...@furo/navigation@0.31.13) (2019-08-20)
 
 **Note:** Version bump only for package @furo/navigation

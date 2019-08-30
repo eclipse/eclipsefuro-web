@@ -1,6 +1,6 @@
 {
   "name": "@furo/input",
-  "version": "0.52.1",
+  "version": "0.53.0",
   "description": "Base input components",
   "homepage": "",
   "author": {
@@ -10,9 +10,6 @@
   },
   "license": "MIT",
   "main": "furo-catalog.js",
-  "devDependencies": {
-
-  },
   "publishConfig": {
     "access": "public"
   },

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.34.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.33.0...@furo/layout@0.34.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* styling ([b6a8055](https://github.com/veith/FuroBaseComponents/commit/b6a8055))
+
+
+### Features
+
+* furo-button can be labeled inside tag ([87cc66b](https://github.com/veith/FuroBaseComponents/commit/87cc66b))
+* scroll attribute on furo-vertical-scroller ([e898583](https://github.com/veith/FuroBaseComponents/commit/e898583))
+* tree with qp and qp-change-request ([5fe9e10](https://github.com/veith/FuroBaseComponents/commit/5fe9e10))
+
+
+
+
+
 # [0.33.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.32.4...@furo/layout@0.33.0) (2019-08-20)
 
 
