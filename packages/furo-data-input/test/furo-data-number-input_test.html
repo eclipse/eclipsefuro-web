@@ -16,28 +16,41 @@
 <body>
 
 <test-fixture id="basic">
-  <template>
-    <test-bind>
-      <template>
-        <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-        <furo-data-number-input  ƒ-bind-data="--entity(*.id)"></furo-data-number-input>
-        <furo-data-number-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.id)"
-                                min="1"
-                                max="10"
-                                step="0.5"
-                              @-value-changed="--textChanged"></furo-data-number-input>
-        <furo-data-number-input  ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-number-input>
-      </template>
-    </test-bind>
+    <template>
+        <test-bind>
+            <template>
+                <furo-data-number-input  ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
+                <furo-data-number-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entityReady(*.furo_data_number_input)"
+                                        min="1"
+                                        max="10"
+                                        step="0.5"
+                                        @-value-changed="--textChanged"></furo-data-number-input>
+                <furo-data-number-input  ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-number-input>
 
-  </template>
+                <furo-data-object type="experiment.Experiment" @-object-ready="--entityReady" ƒ-inject-raw="--response(*.data)"></furo-data-object>
+                <furo-data-object type="experiment.Experiment" @-data-injected="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
+
+                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+                <furo-entity-agent service="ExperimentService"
+                                   ƒ-hts-in="--hts"
+                                   ƒ-load="--hts"
+                                   ƒ-bind-request-data="--entity"
+                                   @-response="--response">
+                </furo-entity-agent>
+
+            </template>
+        </test-bind>
+
+    </template>
 </test-fixture>
 
 <script type="module">
   import "@furo/fbp/testhelper/test-bind";
   import "../furo-catalog.js"
   import "@furo/testhelper/initEnv.js"
-  import "@furo/data/furo-data-object.js"
+  import "@furo/data/furo-data-object.js";
+  import "@furo/data/furo-entity-agent";
+  import "@furo/data/furo-deep-link";
   import '/node_modules/axe-core/axe.min.js';
 
   import '/node_modules/axe-core/axe.min.js';
@@ -46,23 +59,25 @@
   describe('furo-data-number-input_test tests ', function () {
 
 
-    let dataNumberInput, host, entityObject, secondNumberInput, invalidNumberInput;
+      let dataNumberInput, host, entityObject, secondNumberInput, invalidNumberInput, deeplink;
 
-    beforeEach(async () => {
-      let fix = fixture('basic');
-      host = fix[0]._host;
-      entityObject = fix[1];
-      await entityObject.updateComplete;
+      beforeEach(async () => {
+          let fix = fixture('basic');
+          host = fix[0]._host;
+          entityObject = fix[4];
+          await entityObject.updateComplete;
 
-      dataNumberInput = fix[2];
-      await dataNumberInput.updateComplete;
+          dataNumberInput = fix[1];
+          await dataNumberInput.updateComplete;
 
-      secondNumberInput = fix[3];
-      await secondNumberInput.updateComplete;
+          secondNumberInput = fix[2];
+          await secondNumberInput.updateComplete;
 
-      invalidNumberInput = fix[4];
-      await invalidNumberInput.updateComplete;
+          invalidNumberInput = fix[3];
+          await invalidNumberInput.updateComplete;
 
+          deeplink = fix[6];
+          await deeplink.updateComplete;
     });
 
     it('should override hints ', (done) => {
@@ -100,19 +115,21 @@
 
 
     it('should receive value with bind', (done) => {
-      entityObject.data.id.value = 2332;
+      deeplink.qpIn({"exp":1});
       dataNumberInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(val, 2332);
+        assert.equal(val, 12.55);
         done();
       });
     });
 
 
     it('should bind the field description', (done) => {
-      host._FBPAddWireHook("--entity", () => {
-        assert.equal(dataNumberInput._label, "Id");
-        done();
-      })
+
+        deeplink.qpIn({"exp":1});
+        dataNumberInput._FBPAddWireHook("--value", (val) => {
+            assert.equal(dataNumberInput._label, "number-input");
+            done();
+        });
     });
 
 
@@ -126,18 +143,6 @@
       });
     });
 
-    it('should update the entity when values changed', (done) => {
-      // ignore the init values
-      setTimeout(() => {
-        secondNumberInput._FBPAddWireHook("--value", (val) => {
-          assert.equal(val, "newText");
-          done();
-        });
-
-        dataNumberInput._FBPTriggerWire("--valueChanged", "newText");
-      }, 10)
-
-    });
     // a11y tests
     it('a11y', () => {
       return axeReport(fixture('basic'));

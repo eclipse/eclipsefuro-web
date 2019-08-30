@@ -609,6 +609,7 @@ class FuroNumberInput extends FBP(LitElement) {
                <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
                    min="${this.min}" 
                    max="${this.max}"
+                   step="${this.step}"
                    type="number"       
                    ƒ-.value="--value" 
                    @-input="--inputInput(*)"   

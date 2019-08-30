@@ -46,7 +46,7 @@ class DemoFuroNumberInput extends FBP(LitElement) {
       <furo-demo-snippet style="height: 600px">
         <template>
           <div style="background-color: #e5e5e5; padding: 30px">
-            <furo-number-input min="5" leading-icon="send" label="Label" hint="Hint"></furo-number-input>
+            <furo-number-input min="5" step="4" leading-icon="send" label="Label" hint="Hint"></furo-number-input>
             <furo-number-input trailing-icon="send" filled label="Label" value="Val" hint="Hint"></furo-number-input>
             <furo-number-input trailing-icon="send" leading-icon="send"  error label="Label" errortext="errortext"></furo-number-input>
             <furo-number-input trailing-icon="send" leading-icon="send"  filled error label="Label" value="Val" errortext="errortext"></furo-number-input>

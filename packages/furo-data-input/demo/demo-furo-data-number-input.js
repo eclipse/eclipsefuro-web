@@ -57,13 +57,15 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
             
             <furo-horizontal-flex>
               <furo-data-number-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"
-                                      hint="Hint should come from spec and overflows"></furo-data-number-input>
+                                      hint="min, max and step come from spec"></furo-data-number-input>
               <furo-data-number-input label="with step" step="0.5" ƒ-bind-data="--entity(*.furo_data_number_input)"
+                                      hint="min and max come from spec, custom step 0.5"
                                       @-value-changed="--numberChanged"
                                       hint="but that should be ok"></furo-data-number-input>
-              <furo-data-number-input flex label="min max" min="1" max="9"
+              <furo-data-number-input flex label="min max" min="1" max="9" hint="min 1, max 9, step from sepc"
                                       ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
-              <furo-data-number-input label="disabled" disabled label="with step" step="0.5"
+              <furo-data-number-input label="disabled" disabled label="with step" step="3"
+                                      hint="min and max come from spec, custom step 3"
                                       ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
             </furo-horizontal-flex>
               

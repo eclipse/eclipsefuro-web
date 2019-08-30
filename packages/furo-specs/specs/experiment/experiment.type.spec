@@ -144,8 +144,8 @@
       },
       "constraints": {
         "min":1,
-        "max":5,
-        "step":""
+        "max":555,
+        "step":"3"
       },
       "options": [],
       "__proto": {
