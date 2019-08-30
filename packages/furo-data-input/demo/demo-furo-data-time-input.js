@@ -54,14 +54,12 @@ class DemoFuroDataTimeInput extends FBP(LitElement) {
           <template>
             
             <furo-horizontal-flex>
-              <furo-data-time-input autofocus ƒ-bind-data="--entity(*.furo_data_time_input)"
-                                    hint="Hint should come from spec and overflows"></furo-data-time-input>
-              <furo-data-time-input label="with step" step="0.5"  ƒ-bind-data="--entity(*.furo_data_time_input)"
-                                    @-value-changed="--timeChanged"
-                                      hint="but that should be ok"></furo-data-time-input>
-              <furo-data-time-input flex label="min max" min="1" max="9"
+              <furo-data-time-input autofocus ƒ-bind-data="--entity(*.furo_data_time_input)"  hint="custom hint"></furo-data-time-input>
+              <furo-data-time-input label="step 10" step="10"     ƒ-bind-data="--entity(*.furo_data_time_input)"
+                                    @-value-changed="--timeChanged" ></furo-data-time-input>
+              <furo-data-time-input flex label="min 12:00 max 20:00" min="12:00" max="20:00"
                                     ƒ-bind-data="--entity(*.furo_data_time_input)" ></furo-data-time-input>
-              <furo-data-time-input label="disabled" disabled label="with step" step="0.5"
+              <furo-data-time-input label="disabled" disabled label="with step" step="2"
                                     ƒ-bind-data="--entity(*.furo_data_time_input)" ></furo-data-time-input>
             </furo-horizontal-flex>
 

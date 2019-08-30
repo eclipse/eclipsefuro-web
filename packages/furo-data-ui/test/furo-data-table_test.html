@@ -21,18 +21,18 @@
     <template>
         <test-bind>
             <template>
-                <furo-deep-link service="TaskService"
+                <furo-deep-link service="ProjectService"
                            @-hts-out="--hts">
                 </furo-deep-link>
 
-                <furo-collection-agent service="TaskService"
+                <furo-collection-agent service="ProjectService"
                                   ƒ-hts-in="--hts"
                                   list-on-hts-in
                                   @-response="--colResponded">
                 </furo-collection-agent>
-                <furo-data-object type="task.TaskCollection" ƒ-inject-raw="--colResponded"
+                <furo-data-object type="project.ProjectCollection" ƒ-inject-raw="--colResponded"
                                    @-object-ready="--data"></furo-data-object>
-                <furo-data-table ƒ-bind-data="--data"></furo-data-table>
+                <furo-data-table ƒ-bind-data="--data" type="project.Project" fields="display_name,id,members,start,end"></furo-data-table>
             </template>
         </test-bind>
 
@@ -63,7 +63,6 @@
             fix = fixture('basic');
 
             dataTable = fix[4];
-            dataTable.type = "task.Task";
             await dataTable.updateComplete;
             linker = fix[1];
             await linker.updateComplete;
@@ -71,15 +70,15 @@
         });
 
         it('should have the correct type information', (done) => {
-            assert.equal(dataTable._type, "task.Task");
-            assert.equal(dataTable.cols.length, 6);
-            done()
+            assert.equal(dataTable._type, "project.Project");
+            assert.equal(dataTable.cols.length, 5);
+            done();
 
         });
 
         it('should show a table header', (done) => {
-            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').childElementCount, 7);
-            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').querySelectorAll('th')[2].innerText, 'TASK****');
+            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').childElementCount, 6);
+            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').querySelectorAll('th')[2].innerText, 'ID**** ');
             assert.notEqual(dataTable.shadowRoot.querySelector('table').querySelector('thead').offsetHeight, 0);
 
             done();
@@ -137,18 +136,18 @@
                 });
             });
             dataTable.addEventListener('tablerow-selected', (r) =>{
-                assert.equal(r.detail.data.description, "Increase test coverage");
+                assert.equal(r.detail.data.description, "Build Documentation");
                 done();
             });
             linker.trigger();
         });
 
-        it('should have 3 entity items', (done) => {
+        it('should have 4 entity items', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
                 dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
-                    assert.equal(dataTable._collection.rawEntity.entities.length, 2);
+                    assert.equal(dataTable._collection.rawEntity.entities.length, 4);
 
                     done();
                 });
@@ -167,19 +166,19 @@
 
             });
             dataTable.addEventListener('checkstate-changed', (r) =>{
-                assert.equal(r.detail[0].data.description, "Apply new documentation structure");
+                assert.equal(r.detail[0].data.description, "Furo Foundation");
                 done();
             });
             linker.trigger();
         });
 
-        it('should render 3 table rows', (done) => {
+        it('table row should have columns', (done) => {
 
             dataTable.addEventListener('data-loaded', () => {
                 dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
 
-                    assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('tbody').children.length, 7);
+                    assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('tbody').children.length, 9);
                     done();
                 });
 

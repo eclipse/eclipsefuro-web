@@ -584,7 +584,10 @@ class FuroRangeInput extends FBP(LitElement) {
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
-       type="range"       
+       type="range"    
+       min=${this.min}   
+       max=${this.max}   
+       step="${this.step}"   
        ƒ-.value="--value" 
        @-input="--inputInput(*)"   
        ƒ-focus="--focus">

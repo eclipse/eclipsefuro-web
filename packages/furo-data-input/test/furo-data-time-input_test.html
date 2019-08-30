@@ -19,14 +19,24 @@
   <template>
     <test-bind>
       <template>
-        <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-        <furo-data-time-input  ƒ-bind-data="--entity(*.id)"></furo-data-time-input>
+        <furo-data-time-input  ƒ-bind-data="--entity(*.furo_data_time_input)"></furo-data-time-input>
         <furo-data-time-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.id)"
-                                min="1"
-                                max="10"
-                                step="0.5"
+                                min="01:00"
+                                max="10:00"
+                                step="5"
                               @-value-changed="--textChanged"></furo-data-time-input>
         <furo-data-time-input  ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-time-input>
+
+        <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                        ƒ-inject-raw="--response(*.data)"></furo-data-object>
+
+        <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+        <furo-entity-agent service="ExperimentService"
+                         ƒ-hts-in="--hts"
+                         ƒ-load="--hts"
+                         ƒ-bind-request-data="--entity"
+                         @-response="--response">
+        </furo-entity-agent>
       </template>
     </test-bind>
 
@@ -37,7 +47,9 @@
   import "@furo/fbp/testhelper/test-bind";
   import "../furo-catalog.js"
   import "@furo/testhelper/initEnv.js"
-  import "@furo/data/furo-data-object.js"
+  import "@furo/data/furo-data-object.js";
+  import "@furo/data/furo-entity-agent";
+  import "@furo/data/furo-deep-link";
   import '/node_modules/axe-core/axe.min.js';
 
   import '/node_modules/axe-core/axe.min.js';
@@ -46,23 +58,26 @@
   describe('furo-data-time-input_test tests ', function () {
 
 
-    let dataTimeInput, host, entityObject, secondTimeInput, invalidTimeInput;
+    let dataTimeInput, host, entityObject, secondTimeInput, invalidTimeInput, deeplink;
 
     beforeEach(async () => {
       let fix = fixture('basic');
       host = fix[0]._host;
-      entityObject = fix[1];
-      await entityObject.updateComplete;
 
-      dataTimeInput = fix[2];
+      dataTimeInput = fix[1];
       await dataTimeInput.updateComplete;
 
-      secondTimeInput = fix[3];
+      secondTimeInput = fix[2];
       await secondTimeInput.updateComplete;
 
-      invalidTimeInput = fix[4];
+      invalidTimeInput = fix[3];
       await invalidTimeInput.updateComplete;
 
+      entityObject = fix[4];
+      await entityObject.updateComplete;
+
+      deeplink = fix[5];
+      await deeplink.updateComplete;
     });
 
     it('should override hints ', (done) => {
@@ -81,40 +96,46 @@
     });
     it('should override min ', (done) => {
       secondTimeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondTimeInput.min, 1);
+        assert.equal(secondTimeInput.min, "01:00");
         done();
       });
     });
     it('should override max ', (done) => {
       secondTimeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondTimeInput.max, 10);
+        assert.equal(secondTimeInput.max, "10:00");
         done();
       });
     });
     it('should override step ', (done) => {
       secondTimeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondTimeInput.step, 0.5);
+        assert.equal(secondTimeInput.step, "5");
         done();
       });
     });
+
 
 
     it('should receive value with bind', (done) => {
-      entityObject.data.id.value = 2332;
-      dataTimeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(val, 2332);
-        done();
+      entityObject.addEventListener("data-injected", (e) => {
+          assert.equal(dataTimeInput.shadowRoot.querySelector("*").value, "17:34");
+
+          done();
       });
+
+      deeplink.qpIn({"exp": 1});
     });
 
 
-    it('should bind the field description', (done) => {
+      it('should bind the field label, hint, min, max and step', (done) => {
       host._FBPAddWireHook("--entity", () => {
-        assert.equal(dataTimeInput._label, "Id");
+          assert.equal(dataTimeInput._label, "time-input");
+          assert.equal(dataTimeInput._hint, "hint");
+          assert.equal(dataTimeInput._min, "05:00");
+          assert.equal(dataTimeInput._max, "19:00");
+          assert.equal(dataTimeInput._step, "5");
         done();
       })
     });
-
 
     it('should log invalid bindings', (done) => {
       secondTimeInput._FBPAddWireHook("--value", (val) => {
@@ -128,16 +149,17 @@
 
     it('should update the entity when values changed', (done) => {
       // ignore the init values
-      setTimeout(() => {
-        secondTimeInput._FBPAddWireHook("--value", (val) => {
-          assert.equal(val, "newText");
-          done();
-        });
+        setTimeout(()=>{
 
-        dataTimeInput._FBPTriggerWire("--valueChanged", "newText");
-      }, 10)
+            secondTimeInput._FBPAddWireHook("--value", (val) => {
+                assert.equal(val, "18:33");
+                done();
+            });
 
+            secondTimeInput._FBPTriggerWire("--valueChanged", "18:33");
+        },10);
     });
+
     // a11y tests
     it('a11y', () => {
       return axeReport(fixture('basic'));

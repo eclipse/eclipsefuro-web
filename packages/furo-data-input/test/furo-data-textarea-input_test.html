@@ -16,26 +16,39 @@
 <body>
 
 <test-fixture id="basic">
-  <template>
-    <test-bind>
-      <template>
-        <furo-data-object type="person.Person" @-object-ready="--entity"></furo-data-object>
-        <furo-data-textarea-input ƒ-bind-data="--entity(*.name)"></furo-data-textarea-input>
-        <furo-data-textarea-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.name)"
-                              @-value-changed="--textareaChanged"></furo-data-textarea-input>
+    <template>
+        <test-bind>
+            <template>
+                <furo-data-textarea-input ƒ-bind-data="--entity(*.furo_data_textarea_input)"></furo-data-textarea-input>
+                <furo-data-textarea-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_textarea_input)"
+                                          @-value-changed="--textareaChanged"></furo-data-textarea-input>
 
-        <furo-data-textarea-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-textarea-input>
-      </template>
-    </test-bind>
+                <furo-data-textarea-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-textarea-input>
 
-  </template>
+                <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                                  ƒ-inject-raw="--response(*.data)"></furo-data-object>
+
+
+                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+                <furo-entity-agent service="ExperimentService"
+                                   ƒ-hts-in="--hts"
+                                   ƒ-load="--hts"
+                                   ƒ-bind-request-data="--entity"
+                                   @-response="--response">
+                </furo-entity-agent>
+            </template>
+        </test-bind>
+
+    </template>
 </test-fixture>
 
 <script type="module">
   import "../furo-catalog.js"
   import "@furo/fbp/testhelper/test-bind";
   import "@furo/testhelper/initEnv.js"
-  import "@furo/data/furo-data-object.js"
+  import "@furo/data/furo-data-object.js";
+  import "@furo/data/furo-entity-agent";
+  import "@furo/data/furo-deep-link";
   import '/node_modules/axe-core/axe.min.js';
 
   import '/node_modules/axe-core/axe.min.js';
@@ -44,23 +57,27 @@
   describe('furo-data-textarea-input_test tests ', function () {
 
 
-    let dataTextareaInput, host, entityObject, secondTextareaInput, invalidTextareaInput;
+    let dataTextareaInput, host, entityObject, secondTextareaInput, invalidTextareaInput,deeplink;
 
     beforeEach(async () => {
       let fix = fixture('basic');
       host = fix[0]._host;
-      entityObject = fix[1];
-      await entityObject.updateComplete;
 
-      dataTextareaInput = fix[2];
+
+      dataTextareaInput = fix[1];
       await dataTextareaInput.updateComplete;
 
-      secondTextareaInput = fix[3];
+      secondTextareaInput = fix[2];
       await secondTextareaInput.updateComplete;
 
-      invalidTextareaInput = fix[4];
+      invalidTextareaInput = fix[3];
       await invalidTextareaInput.updateComplete;
 
+      entityObject = fix[4];
+      await entityObject.updateComplete;
+
+      deeplink = fix[5];
+      await deeplink.updateComplete;
     });
 
     it('should log invalid bindings', (done) => {
@@ -85,21 +102,17 @@
       });
 
     });
+
     it('should receive value with bind', (done) => {
-      entityObject.data.name.value = "YES"
-      dataTextareaInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(val, "YES")
-        done();
+      entityObject.addEventListener("data-injected", (e) => {
+          assert.equal(dataTextareaInput.shadowRoot.querySelector("*").value, "hallo , this is textarea input");
+          assert.equal(dataTextareaInput._label, "textarea_input");
+          assert.equal(dataTextareaInput._hint, "hint");
+          done();
       });
 
+      deeplink.qpIn({"exp": 1});
     });
-    it('should bind the field description', (done) => {
-      host._FBPAddWireHook("--entity", () => {
-        assert.equal(dataTextareaInput._label, "Name");
-        done();
-      })
-    });
-
 
     it('should update the entity when values changed', (done) => {
       // ignore the init values

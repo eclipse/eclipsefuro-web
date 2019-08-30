@@ -7,14 +7,15 @@ import "@furo/data/furo-data-object";
 import "@furo/data/furo-deep-link";
 import "./produce-qp-data";
 import "@furo/data/furo-entity-agent";
+import "@furo/input/furo-text-input";
 
 /**
- * `demo-furo-data-number-input`
+ * `demo-furo-data-range-input`
  *
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroDataNumberInput extends FBP(LitElement) {
+class DemoFuroDataRangeInput extends FBP(LitElement) {
 
   /**
    * Themable Styles
@@ -47,8 +48,8 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-vertical-flex>
-        <div><h2>Demo furo-data-number-input</h2>
-          <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
+        <div><h2>Demo furo-data-range-input</h2>
+          <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fieldname)"</strong>.
             The labels, hints, defaults are comming from the furo-data-object specs.</p>
           <p>As you can see, the "data-binding" is done by the furo-data-object.</p>
         </div>
@@ -56,16 +57,17 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
           <template>
             
             <furo-horizontal-flex>
-              <furo-data-number-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"
-                                      hint="min, max and step come from spec"></furo-data-number-input>
-              <furo-data-number-input label="with step" step="0.5" ƒ-bind-data="--entity(*.furo_data_number_input)"
+              <furo-data-range-input autofocus ƒ-bind-data="--entity(*.furo_data_range_input)"
+                                      hint="min, max and step come from spec" @-value-changed="--numberChanged"></furo-data-range-input>
+              <furo-data-range-input label="with custom step" step="0.5" ƒ-bind-data="--entity(*.furo_data_range_input)"
                                       hint="min and max come from spec, custom step 0.5"
-                                      @-value-changed="--numberChanged"></furo-data-number-input>
-              <furo-data-number-input flex label="min max" min="1" max="9" hint="min 1, max 9, step from sepc"
-                                      ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
-              <furo-data-number-input label="disabled" disabled label="with step" step="3"
+                                      @-value-changed="--numberChanged"></furo-data-range-input>
+              <furo-data-range-input flex label="min max" min="1" max="9" hint="min 1, max 9, step from sepc"
+                                      ƒ-bind-data="--entity(*.furo_data_range_input)"></furo-data-range-input>
+              <furo-data-range-input label="disabled" disabled label="with step" step="3"
                                       hint="min and max come from spec, custom step 3"
-                                      ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
+                                      ƒ-bind-data="--entity(*.furo_data_range_input)"></furo-data-range-input>
+             <furo-data-number-input label="range value" ƒ-bind-data="--entity(*.furo_data_range_input)"></furo-data-number-input>
             </furo-horizontal-flex>
               
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
@@ -86,4 +88,4 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-data-number-input', DemoFuroDataNumberInput);
+window.customElements.define('demo-furo-data-range-input', DemoFuroDataRangeInput);

@@ -66,7 +66,7 @@ class FuroDataRangeInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       min: {
-        type: Range,
+        type: Number,
       },
       /**
        * Overrides the max value from the **specs**.
@@ -74,7 +74,7 @@ class FuroDataRangeInput extends FBP(LitElement) {
        * Use with caution, normally the specs defines this value.
        */
       max: {
-        type: Range,
+        type: Number,
       },
       /**
        * Overrides the step value from the **specs**.
@@ -205,19 +205,19 @@ class FuroDataRangeInput extends FBP(LitElement) {
 
     // min auf attr ist höher gewichtet
     if (!this.min) {
-      this._min = this.field._meta.min;
+      this._min = this.field._constraints.min;
     } else {
       this._min = this.min;
     }
     // max auf attr ist höher gewichtet
     if (!this.max) {
-      this._max = this.field._meta.max;
+      this._max = this.field._constraints.max;
     } else {
       this._max = this.max;
     }
     // step auf attr ist höher gewichtet
     if (!this.step) {
-      this._step = this.field._meta.step;
+      this._step = this.field._constraints.step;
     } else {
       this._step = this.step;
     }

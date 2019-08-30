@@ -304,7 +304,7 @@ class FuroDataTable extends FBP(LitElement) {
      */
     _init(fields) {
         if (fields && fields.length) {
-            let cols = fields.split(',');
+            let cols = fields.replace(/ /g, "").split(',');
             if (cols.length > 0) {
                 this.cols = [];
                 cols.forEach(c => {
