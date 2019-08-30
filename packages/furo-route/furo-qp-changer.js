@@ -13,7 +13,7 @@ import {FBP} from "@furo/fbp";
  * @demo demo/qp-changer.html
  * @appliesMixin FBP
  */
-class QpChanger extends FBP(LitElement) {
+class FuroQpChanger extends FBP(LitElement) {
 
     /**
      * @private
@@ -63,4 +63,4 @@ class QpChanger extends FBP(LitElement) {
 
 }
 
-window.customElements.define('qp-changer', QpChanger);
+window.customElements.define('furo-qp-changer', FuroQpChanger);
