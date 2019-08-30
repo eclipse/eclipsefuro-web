@@ -117,15 +117,14 @@
 
 
     it('should receive value with bind', (done) => {
-        entityObject.addEventListener("data-injected",(e)=>{
-            assert.equal(dataNumberInput.shadowRoot.querySelector("*").value, 12.55);
-          assert.equal(dataNumberInput._hint, "hint");
-          assert.equal(dataNumberInput._min, 1);
-          assert.equal(dataNumberInput._max, 555);
-          assert.equal(dataNumberInput._step, 3);
-
-          done();
-        });
+      entityObject.addEventListener("data-injected", (e) => {
+        assert.equal(dataNumberInput.shadowRoot.querySelector("*").value, 12.55);
+        assert.equal(dataNumberInput._hint, "hint");
+        assert.equal(dataNumberInput._min, 1);
+        assert.equal(dataNumberInput._max, 555);
+        assert.equal(dataNumberInput._step, 3);
+        done();
+      });
 
       deeplink.qpIn({"exp": 1});
     });
@@ -150,9 +149,6 @@
         done();
       });
     });
-
-
-
 
 
     // a11y tests
