@@ -116,22 +116,24 @@
     });
 
 
-    it('should receive value with bind', (done) => {
 
-      host._FBPAddWireHook("--hts", (e) => {
-        entityObject.addEventListener("data-changed",(e)=>{
-          dataNumberInput._FBPAddWireHook("--value", (val) => {
-            assert.equal(val, 12.55);
-            done();
-          });
+    it('should bind the field min, max, hint and step', (done) => {
 
-        },{once:true});
+        host._FBPAddWireHook("--hts", (e) => {
+            entityObject.addEventListener("data-changed",(e)=>{
+                dataNumberInput._FBPAddWireHook("--value", (val) => {
+                    assert.equal(dataNumberInput._hint, "hint");
+                    assert.equal(dataNumberInput._min, 1);
+                    assert.equal(dataNumberInput._max, 555);
+                    assert.equal(dataNumberInput._step, 3);
+                    done();
+                });
 
-      });
-      deeplink.qpIn({"exp": 1});
+            },{once:true});
 
+        });
+        deeplink.qpIn({"exp": 1});
     });
-
 
     it('should bind the field description', (done) => {
 
@@ -141,7 +143,6 @@
         done();
       });
     });
-
 
     it('should log invalid bindings', (done) => {
       secondNumberInput._FBPAddWireHook("--value", (val) => {

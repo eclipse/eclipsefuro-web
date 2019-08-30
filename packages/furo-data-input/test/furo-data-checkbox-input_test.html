@@ -20,13 +20,11 @@
     <test-bind>
       <template>
 
-        <furo-data-checkbox-input ƒ-bind-data="--entityReady(*.furo_data_checkbox_input)"></furo-data-checkbox-input>
+        <furo-data-checkbox-input ƒ-bind-data="--entity(*.furo_data_checkbox_input)"></furo-data-checkbox-input>
         <furo-data-checkbox-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
                               @-value-changed="--valueChanged"></furo-data-checkbox-input>
 
-        <furo-data-object type="experiment.Experiment" @-object-ready="--entityReady" ƒ-inject-raw="--response(*.data)"></furo-data-object>
-        <furo-data-object type="experiment.Experiment" @-data-injected="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
-
+        <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
         <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
         <furo-entity-agent service="ExperimentService"
                           ƒ-hts-in="--hts"
@@ -57,7 +55,7 @@
     describe('furo-data-checkbox-input_test tests ', function () {
 
 
-        let dataCheckboxInput, host, entityObject, secondCheckboxInput, deeplink, entityObject2;
+        let dataCheckboxInput, host, entityObject, secondCheckboxInput, deeplink;
 
         beforeEach(async () => {
             let fix = fixture('basic');
@@ -73,19 +71,14 @@
             entityObject = fix[3];
             await entityObject.updateComplete;
 
-            entityObject2 = fix[4];
-            await entityObject2.updateComplete;
-
-            deeplink = fix[5];
+            deeplink = fix[4];
             await deeplink.updateComplete;
 
         });
 
         //those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata
         it('should override labels ', (done) => {
-            console.log("those tests are base on the mockdata/experiment/1/get.json");
 
-            deeplink.qpIn({"exp":1});
             secondCheckboxInput._FBPAddWireHook("--value", (val) => {
                 assert.equal(secondCheckboxInput._label, "FromTPL")
                 done();
@@ -110,11 +103,19 @@
         });
 
         it('should receive value with bind', (done) => {
-            deeplink.qpIn({"exp":1});
-            secondCheckboxInput._FBPAddWireHook("--value", (val) => {
-                assert.equal(val, true)
-                done();
+            console.log("those tests are base on the mockdata/experiment/1/get.json");
+
+            host._FBPAddWireHook("--hts", (e) => {
+                entityObject.addEventListener("data-changed",(e)=>{
+                    secondCheckboxInput._FBPAddWireHook("--value", (val) => {
+                        assert.equal(val, true);
+                        done();
+                    });
+
+                },{once:true});
+
             });
+            deeplink.qpIn({"exp": 1});
         });
 
         // a11y tests
