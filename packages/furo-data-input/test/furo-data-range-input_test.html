@@ -19,14 +19,26 @@
   <template>
     <test-bind>
       <template>
-        <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-        <furo-data-range-input  ƒ-bind-data="--entity(*.id)"></furo-data-range-input>
-        <furo-data-range-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.id)"
+        <furo-data-range-input  ƒ-bind-data="--entity(*.furo_data_range_input)"></furo-data-range-input>
+        <furo-data-range-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_range_input)"
                                 min="1"
                                 max="10"
                                 step="0.5"
                               @-value-changed="--textChanged"></furo-data-range-input>
         <furo-data-range-input  ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-range-input>
+
+
+        <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                        ƒ-inject-raw="--response(*.data)"></furo-data-object>
+
+
+        <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+        <furo-entity-agent service="ExperimentService"
+                         ƒ-hts-in="--hts"
+                         ƒ-load="--hts"
+                         ƒ-bind-request-data="--entity"
+                         @-response="--response">
+        </furo-entity-agent>
       </template>
     </test-bind>
 
@@ -37,7 +49,9 @@
   import "@furo/fbp/testhelper/test-bind";
   import "../furo-catalog.js"
   import "@furo/testhelper/initEnv.js"
-  import "@furo/data/furo-data-object.js"
+  import "@furo/data/furo-data-object.js";
+  import "@furo/data/furo-entity-agent";
+  import "@furo/data/furo-deep-link";
   import '/node_modules/axe-core/axe.min.js';
 
   import '/node_modules/axe-core/axe.min.js';
@@ -46,24 +60,28 @@
   describe('furo-data-range-input_test tests ', function () {
 
 
-    let dataRangeInput, host, entityObject, secondRangeInput, invalidRangeInput;
+      let dataRangeInput, host, entityObject, secondRangeInput, invalidRangeInput,deeplink;
 
-    beforeEach(async () => {
-      let fix = fixture('basic');
-      host = fix[0]._host;
-      entityObject = fix[1];
-      await entityObject.updateComplete;
+      beforeEach(async () => {
+          let fix = fixture('basic');
+          host = fix[0]._host;
 
-      dataRangeInput = fix[2];
-      await dataRangeInput.updateComplete;
 
-      secondRangeInput = fix[3];
-      await secondRangeInput.updateComplete;
+          dataRangeInput = fix[1];
+          await dataRangeInput.updateComplete;
 
-      invalidRangeInput = fix[4];
-      await invalidRangeInput.updateComplete;
+          secondRangeInput = fix[2];
+          await secondRangeInput.updateComplete;
 
-    });
+          invalidRangeInput = fix[3];
+          await invalidRangeInput.updateComplete;
+
+          entityObject = fix[4];
+          await entityObject.updateComplete;
+
+          deeplink = fix[5];
+          await deeplink.updateComplete;
+      });
 
     it('should override hints ', (done) => {
       secondRangeInput._FBPAddWireHook("--value", (val) => {
@@ -98,23 +116,28 @@
       });
     });
 
-
     it('should receive value with bind', (done) => {
-      entityObject.data.id.value = 2332;
-      dataRangeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(val, 2332);
-        done();
+      entityObject.addEventListener("data-injected", (e) => {
+          assert.equal(dataRangeInput.shadowRoot.querySelector("*").value, 31);
+          done();
       });
+
+      deeplink.qpIn({"exp": 1});
     });
 
 
     it('should bind the field description', (done) => {
-      host._FBPAddWireHook("--entity", () => {
-        assert.equal(dataRangeInput._label, "Id");
-        done();
-      })
-    });
 
+      deeplink.qpIn({"exp": 1});
+        dataRangeInput._FBPAddWireHook("--value", (val) => {
+          assert.equal(dataRangeInput._label, "range-input");
+          assert.equal(dataRangeInput._hint, "hint");
+          assert.equal(dataRangeInput._min, 20);
+          assert.equal(dataRangeInput._max, 50);
+          assert.equal(dataRangeInput._step, "2.5");
+          done();
+      });
+    });
 
     it('should log invalid bindings', (done) => {
       secondRangeInput._FBPAddWireHook("--value", (val) => {

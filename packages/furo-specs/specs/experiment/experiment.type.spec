@@ -125,9 +125,9 @@
         "readonly": false
       },
       "constraints": {
-        "min":null,
-        "max":null,
-        "step":""
+        "min":20,
+        "max":50,
+        "step":"2.5"
       },
       "options": [],
       "__proto": {
