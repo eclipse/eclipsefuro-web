@@ -117,19 +117,12 @@
 
 
     it('should receive value with bind', (done) => {
-
-      host._FBPAddWireHook("--hts", (e) => {
-        entityObject.addEventListener("data-changed",(e)=>{
-          dataNumberInput._FBPAddWireHook("--value", (val) => {
-            assert.equal(val, 12.55);
+        entityObject.addEventListener("data-injected",(e)=>{
+            assert.equal(dataNumberInput.shadowRoot.querySelector("*").value, 12.55);
             done();
-          });
+        });
 
-        },{once:true});
-
-      });
       deeplink.qpIn({"exp": 1});
-
     });
 
 
