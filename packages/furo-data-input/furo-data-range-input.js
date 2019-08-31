@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/input/furo-range-input";
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 
 /**
  * `furo-data-range-input`
@@ -31,13 +32,31 @@ class FuroDataRangeInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
     this.errortext = "";
-    this.hint = "";
+
 
     this._FBPAddWireHook("--valueChanged", (val) => {
       if (this.field) {
         this.field.value = val;
       }
     });
+  }
+
+
+
+  // label setter and getter are needed for rendering on the first time
+  set label(l) {
+    this._label = l;
+    this._l = l;
+  }
+  set hint(v) {
+    this._hint = v;
+    this._h = v;
+  }
+  get label(){
+    return this._l;
+  }
+  get hint(){
+    return this._h;
   }
 
   static get properties() {
@@ -50,7 +69,6 @@ class FuroDataRangeInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -165,11 +183,16 @@ class FuroDataRangeInput extends FBP(LitElement) {
       console.log(this);
       return
     }
-
     this.field = fieldNode;
     this._updateField();
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     this.field.addEventListener('field-value-changed', (e) => {
       this._updateField();
+    });
+
+    // update meta and constraints when they change
+    this.field.addEventListener('this-metas-changed', (e) => {
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     });
 
     this.field.addEventListener('field-became-invalid', (e) => {
@@ -188,47 +211,6 @@ class FuroDataRangeInput extends FBP(LitElement) {
 
 
   _updateField() {
-    // label auf attr ist höher gewichtet
-    if (!this.label) {
-      this._label = this.field._meta.label;
-    } else {
-      this._label = this.label;
-    }
-
-    // hint auf attr ist höher gewichtet
-    if (!this.hint) {
-      this._hint = this.field._meta.hint;
-    } else {
-      this._hint = this.hint;
-    }
-    this.disabled = this.field._meta.readonly ? true : false;
-
-    // min auf attr ist höher gewichtet
-    if (!this.min) {
-      this._min = this.field._constraints.min;
-    } else {
-      this._min = this.min;
-    }
-    // max auf attr ist höher gewichtet
-    if (!this.max) {
-      this._max = this.field._constraints.max;
-    } else {
-      this._max = this.max;
-    }
-    // step auf attr ist höher gewichtet
-    if (!this.step) {
-      this._step = this.field._constraints.step;
-    } else {
-      this._step = this.step;
-    }
-    // readonly auf attr ist höher gewichtet
-    if (!this.readonly) {
-      this._readonly = this.field._meta.readonly;
-    } else {
-      this._readonly = this.readonly;
-    }
-
-
 
     //mark incomming error
     if (!this.field._isValid) {

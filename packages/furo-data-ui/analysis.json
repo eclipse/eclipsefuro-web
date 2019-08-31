@@ -2,10 +2,32 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-data-table`\nRead only data table based on the response type from the rest api spec.\n\n```\n<furo-data-table type=\"project.Project\"\n                 ƒ-bind-data=\"--data\"></furo-data-table>\n```\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-data-table-background` | Background color of the element | --background | white\n`--furo-data-table-select-color` | Background color of the focused table row element | --accent-light | lightgrey\n\nConfiguration:\nAttribute: hide-header | hides the table header row\n\nTags: data-ui",
+      "description": "`furo-data-table`\nRead only data table based on the response type from the rest api spec.\n\n```\n<furo-data-table type=\"project.Project\"\n                 ƒ-bind-data=\"--data\"></furo-data-table>\n```\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`--furo-data-table-background` | Background color of the element | --surface | transparent\n`--furo-data-table-on-background` | Color of the element | --on-surface | black\n`--furo-data-table-select-background` | Background color of the focused table row element | --accent-light | lightgrey\n`--furo-data-table-select-on-background` | Color of the focused table row element | --on-accent | black\n\nConfiguration:\nAttribute: hide-header | hides the table header row\n\nTags: data-ui",
       "summary": "datatable",
       "path": "packages/furo-data-ui/furo-data-table.js",
       "properties": [
+        {
+          "name": "cols",
+          "type": "Array",
+          "description": "Column meta information\nused to render all the column stuff",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 95,
+              "column": 8
+            },
+            "end": {
+              "line": 95,
+              "column": 17
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          },
+          "defaultValue": "[]"
+        },
         {
           "name": "type",
           "type": "string | null | undefined",
@@ -13,11 +35,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 254,
               "column": 4
             },
             "end": {
-              "line": 243,
+              "line": 259,
               "column": 5
             }
           },
@@ -32,11 +54,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 137,
               "column": 12
             },
             "end": {
-              "line": 130,
+              "line": 141,
               "column": 13
             }
           },
@@ -53,11 +75,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 135,
+              "line": 146,
               "column": 12
             },
             "end": {
-              "line": 137,
+              "line": 148,
               "column": 13
             }
           },
@@ -101,11 +123,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 353,
+              "line": 373,
               "column": 4
             },
             "end": {
-              "line": 380,
+              "line": 400,
               "column": 5
             }
           },
@@ -289,11 +311,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 119,
               "column": 4
             },
             "end": {
-              "line": 110,
+              "line": 121,
               "column": 5
             }
           },
@@ -485,11 +507,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 261,
               "column": 4
             },
             "end": {
-              "line": 255,
+              "line": 271,
               "column": 5
             }
           },
@@ -515,11 +537,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 263,
+              "line": 279,
               "column": 4
             },
             "end": {
-              "line": 281,
+              "line": 297,
               "column": 5
             }
           },
@@ -539,11 +561,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 304,
               "column": 4
             },
             "end": {
-              "line": 298,
+              "line": 314,
               "column": 5
             }
           },
@@ -563,11 +585,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 303,
+              "line": 319,
               "column": 4
             },
             "end": {
-              "line": 327,
+              "line": 347,
               "column": 5
             }
           },
@@ -587,11 +609,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 332,
+              "line": 352,
               "column": 4
             },
             "end": {
-              "line": 335,
+              "line": 355,
               "column": 5
             }
           },
@@ -611,11 +633,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 342,
+              "line": 362,
               "column": 4
             },
             "end": {
-              "line": 346,
+              "line": 366,
               "column": 5
             }
           },
@@ -635,11 +657,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 385,
+              "line": 405,
               "column": 4
             },
             "end": {
-              "line": 388,
+              "line": 408,
               "column": 5
             }
           },
@@ -655,11 +677,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 394,
+              "line": 414,
               "column": 4
             },
             "end": {
-              "line": 408,
+              "line": 428,
               "column": 5
             }
           },
@@ -680,11 +702,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 415,
+              "line": 435,
               "column": 4
             },
             "end": {
-              "line": 439,
+              "line": 459,
               "column": 5
             }
           },
@@ -700,11 +722,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 446,
+              "line": 466,
               "column": 4
             },
             "end": {
-              "line": 468,
+              "line": 488,
               "column": 5
             }
           },
@@ -724,11 +746,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 475,
+              "line": 495,
               "column": 4
             },
             "end": {
-              "line": 495,
+              "line": 515,
               "column": 5
             }
           },
@@ -748,11 +770,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 503,
+              "line": 523,
               "column": 4
             },
             "end": {
-              "line": 515,
+              "line": 535,
               "column": 5
             }
           },
@@ -777,11 +799,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 48,
+          "line": 54,
           "column": 0
         },
         "end": {
-          "line": 517,
+          "line": 537,
           "column": 1
         }
       },
@@ -794,11 +816,11 @@
           "description": "Typedefinition of row items\nREST SPEC Type\ne.g. task.Task.[type]",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 254,
               "column": 4
             },
             "end": {
-              "line": 243,
+              "line": 259,
               "column": 5
             }
           },
@@ -810,11 +832,11 @@
           "description": "list of fields which columns should be displayed\ncomma separated field list",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 137,
               "column": 12
             },
             "end": {
-              "line": 130,
+              "line": 141,
               "column": 13
             }
           },
@@ -826,11 +848,11 @@
           "description": "Flag to show table header information\nTRUE => shows header",
           "sourceRange": {
             "start": {
-              "line": 135,
+              "line": 146,
               "column": 12
             },
             "end": {
-              "line": 137,
+              "line": 148,
               "column": 13
             }
           },

@@ -84,14 +84,14 @@
       });
 
     it('should override hints ', (done) => {
-      secondRangeInput._FBPAddWireHook("--value", (val) => {
+      host._FBPAddWireHook('--entity', (e) => {
         assert.equal(secondRangeInput._hint, "FromTPL");
         done();
       });
     });
 
     it('should override labels ', (done) => {
-      secondRangeInput._FBPAddWireHook("--value", (val) => {
+      host._FBPAddWireHook('--entity', (e) => {
         assert.equal(secondRangeInput._label, "FromTPL");
         done();
       });
@@ -128,8 +128,8 @@
 
     it('should bind the field description', (done) => {
 
-      deeplink.qpIn({"exp": 1});
-        dataRangeInput._FBPAddWireHook("--value", (val) => {
+
+      host._FBPAddWireHook('--entity', (e) => {
           assert.equal(dataRangeInput._label, "range-input");
           assert.equal(dataRangeInput._hint, "hint");
           assert.equal(dataRangeInput._min, 20);
@@ -137,6 +137,7 @@
           assert.equal(dataRangeInput._step, "2.5");
           done();
       });
+      deeplink.qpIn({"exp": 1});
     });
 
     it('should log invalid bindings', (done) => {

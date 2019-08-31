@@ -24,14 +24,14 @@
                               @-value-changed="--textChanged"></furo-data-text-input>
 
         <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
-                        ƒ-inject-raw="--response(*.data)"></furo-data-object>
+                          ƒ-inject-raw="--response(*.data)"></furo-data-object>
 
         <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
         <furo-entity-agent service="ExperimentService"
-                         ƒ-hts-in="--hts"
-                         ƒ-load="--hts"
-                         ƒ-bind-request-data="--entity"
-                         @-response="--response">
+                           ƒ-hts-in="--hts"
+                           ƒ-load="--hts"
+                           ƒ-bind-request-data="--entity"
+                           @-response="--response">
         </furo-entity-agent>
 
       </template>
@@ -54,89 +54,88 @@
 
   describe('furo-data-text-input_test tests ', function () {
 
-      let dataTextInput, host, entityObject, secondTextInput, deeplink;
+    let dataTextInput, host, entityObject, secondTextInput, deeplink;
 
-      beforeEach(async () => {
-          let fix = fixture('basic');
-          host = fix[0]._host;
-          entityObject = fix[3];
-          await entityObject.updateComplete;
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      host = fix[0]._host;
+      entityObject = fix[3];
+      await entityObject.updateComplete;
 
-          dataTextInput = fix[1];
-          await dataTextInput.updateComplete;
+      dataTextInput = fix[1];
+      await dataTextInput.updateComplete;
 
-          secondTextInput = fix[2];
-          await secondTextInput.updateComplete;
+      secondTextInput = fix[2];
+      await secondTextInput.updateComplete;
 
-          deeplink = fix[4];
-          await deeplink.updateComplete;
+      deeplink = fix[4];
+      await deeplink.updateComplete;
 
-          entityObject = fix[3];
-          await entityObject.updateComplete;
+      entityObject = fix[3];
+      await entityObject.updateComplete;
+    });
+
+
+    it('should override labels ', (done) => {
+      host._FBPAddWireHook('--entity', (e) => {
+        assert.equal(secondTextInput._label, "FromTPL");
+        done();
       });
+    });
 
+    it('should override hints ', (done) => {
+      host._FBPAddWireHook('--entity', (e) => {
+        assert.equal(secondTextInput._hint, "FromTPL");
+        done();
+      });
+    });
+    it('should receive value with bind', (done) => {
 
-      it('should override hints ', (done) => {
+      host._FBPAddWireHook("--hts", (e) => {
+        entityObject.addEventListener("data-changed", (e) => {
           secondTextInput._FBPAddWireHook("--value", (val) => {
-              assert.equal(secondTextInput._hint, "FromTPL")
-              done();
-          });
-      });
-      it('should override labels ', (done) => {
-          secondTextInput._FBPAddWireHook("--value", (val) => {
-              assert.equal(secondTextInput._label, "FromTPL")
-              done();
+            assert.equal(val, "hallo test");
+            done();
           });
 
-      });
-
-      it('should receive value with bind', (done) => {
-
-          host._FBPAddWireHook("--hts", (e) => {
-              entityObject.addEventListener("data-changed",(e)=>{
-                  secondTextInput._FBPAddWireHook("--value", (val) => {
-                      assert.equal(val, "hallo test");
-                      done();
-                  });
-
-              },{once:true});
-
-          });
-          deeplink.qpIn({"exp": 1});
-      });
-
-      it('should bind the field label, hint , min and max', (done) => {
-          host._FBPAddWireHook("--entity", () => {
-              assert.equal(dataTextInput._label, "text_input");
-              assert.equal(dataTextInput._hint, "hint");
-              assert.equal(dataTextInput._min, 3);
-              assert.equal(dataTextInput._max, 15);
-              done();
-          })
-      });
-
-
-      it('should update the entity when values changed', (done) => {
-          // ignore the init values
-          setTimeout(() => {
-              secondTextInput._FBPAddWireHook("--value", (val) => {
-                  assert.equal(val, "newText");
-                  done();
-              });
-
-              dataTextInput._FBPTriggerWire("--valueChanged", "newText");
-          }, 10)
+        }, {once: true});
 
       });
-      // a11y tests
-      it('a11y', () => {
-          return axeReport(fixture('basic'));
-      });
+      deeplink.qpIn({"exp": 1});
+    });
 
-      it('should be a furo-data-text-input_test', (done) => {
-          assert.equal(dataTextInput.nodeName.toLowerCase(), "furo-data-text-input");
-          done()
-      });
+    it('should bind the field label, hint , min and max', (done) => {
+      host._FBPAddWireHook("--entity", () => {
+        assert.equal(dataTextInput._label, "text_input");
+        assert.equal(dataTextInput._hint, "hint");
+        assert.equal(dataTextInput._min, 3);
+        assert.equal(dataTextInput._max, 15);
+        done();
+      })
+    });
+
+
+    it('should update the entity when values changed', (done) => {
+      // ignore the init values
+      setTimeout(() => {
+        secondTextInput._FBPAddWireHook("--value", (val) => {
+          assert.equal(val, "newText");
+          done();
+        });
+
+        dataTextInput._FBPTriggerWire("--valueChanged", "newText");
+      }, 10)
+
+    });
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+    it('should be a furo-data-text-input_test', (done) => {
+      assert.equal(dataTextInput.nodeName.toLowerCase(), "furo-data-text-input");
+      done()
+    });
 
 
   })

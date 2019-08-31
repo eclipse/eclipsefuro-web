@@ -4,7 +4,9 @@
   "description": "experiment spec for testing",
   "__proto": {
     "package": "experiment",
-    "imports": ["google/protobuf/any.proto"],
+    "imports": [
+      "google/protobuf/any.proto"
+    ],
     "targetfile": "experiment.proto"
   },
   "fields": {
@@ -76,8 +78,14 @@
         "readonly": false
       },
       "constraints": {
-        "min": 3,
-        "max": 15
+        "min": {
+          "value": 3,
+          "message": "3 Zeichen sind zwingend"
+        },
+        "max": {
+          "value": 15,
+          "message": "15 sind genug"
+        }
       },
       "options": [],
       "__proto": {
@@ -104,12 +112,18 @@
       "meta": {
         "label": "time-input",
         "hint": "hint",
-        "readonly": false
+        "readonly": false,
+        "step": "5"
       },
       "constraints": {
-        "min":"05:00",
-        "max":"19:00",
-        "step":"5"
+        "min": {
+          "value": "05:00",
+          "message": "From 05:00"
+        },
+        "max": {
+          "value": "19:00",
+          "message": "to 19:00"
+        }
       },
       "options": [],
       "__proto": {
@@ -122,12 +136,18 @@
       "meta": {
         "label": "range-input",
         "hint": "hint",
-        "readonly": false
+        "readonly": false,
+        "step": "2.5"
       },
       "constraints": {
-        "min":20,
-        "max":50,
-        "step":"2.5"
+        "min": {
+          "value": 20,
+          "message": "From 20"
+        },
+        "max": {
+          "value": 50,
+          "message": "to50"
+        }
       },
       "options": [],
       "__proto": {
@@ -140,12 +160,18 @@
       "meta": {
         "label": "number-input",
         "hint": "hint",
-        "readonly": false
+        "readonly": false,
+        "step": "3"
       },
       "constraints": {
-        "min":1,
-        "max":555,
-        "step":"3"
+        "min": {
+          "value": 1,
+          "message": "from 1"
+        },
+        "max": {
+          "value": 555,
+          "message": "to 555"
+        }
       },
       "options": [],
       "__proto": {
@@ -175,9 +201,15 @@
         "readonly": false
       },
       "constraints": {
-        "min":6,
-        "max":15,
-        "pattern":""
+        "min": {
+          "value": 6,
+          "message": "min 6"
+        },
+        "max": {
+          "value": 15,
+          "message": "max 15"
+        },
+        "pattern": ""
       },
       "options": [],
       "__proto": {
@@ -193,9 +225,18 @@
         "readonly": false
       },
       "constraints": {
-        "min":1,
-        "max":15,
-        "pattern":""
+        "min": {
+          "value": 1,
+          "message": "min 1"
+        },
+        "max": {
+          "value": 15,
+          "message": "max 15"
+        },
+        "pattern": {
+          "value": "a",
+          "message": "must start with a"
+        }
       },
       "options": [],
       "__proto": {
@@ -211,9 +252,14 @@
         "readonly": false
       },
       "constraints": {
-        "min":"1800-01-01",
-        "max":"2099-12-31",
-        "pattern":""
+        "min": {
+          "value": "1800-01-01",
+          "message": "min 1800-01-01"
+        },
+        "max": {
+          "value": "2099-12-31",
+          "message": "min 2099-12-31"
+        }
       },
       "options": [],
       "__proto": {
@@ -234,7 +280,6 @@
         "number": 14
       }
     },
-
     "the_any_type": {
       "description": "field for testing any",
       "type": "google.protobuf.Any",

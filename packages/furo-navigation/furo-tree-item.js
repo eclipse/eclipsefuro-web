@@ -190,11 +190,13 @@ export class FuroTreeItem extends FBP(LitElement) {
 
     this.fieldNode.addEventListener("this-node-hovered", (e) => {
       this.hovered = true;
+      //this.scrollIntoViewIfNeeded();
     });
 
     this.fieldNode.addEventListener("this-node-selected", (e) => {
       this.selected = true;
       this.fieldNode._isSelected = true;
+      //this.scrollIntoViewIfNeeded();
     });
 
     // This item is not or no more in the search results

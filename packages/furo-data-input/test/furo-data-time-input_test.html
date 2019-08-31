@@ -81,17 +81,17 @@
     });
 
     it('should override hints ', (done) => {
-      secondTimeInput._FBPAddWireHook("--value", (val) => {
+
         assert.equal(secondTimeInput._hint, "FromTPL");
         done();
-      });
+
     });
 
     it('should override labels ', (done) => {
-      secondTimeInput._FBPAddWireHook("--value", (val) => {
+
         assert.equal(secondTimeInput._label, "FromTPL");
         done();
-      });
+
 
     });
     it('should override min ', (done) => {

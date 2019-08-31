@@ -83,14 +83,15 @@
     });
 
     it('should override hints ', (done) => {
-      secondNumberInput._FBPAddWireHook("--value", (val) => {
+
+      host._FBPAddWireHook('--entityReady', (e) => {
         assert.equal(secondNumberInput._hint, "FromTPL");
         done();
       });
     });
 
     it('should override labels ', (done) => {
-      secondNumberInput._FBPAddWireHook("--value", (val) => {
+      host._FBPAddWireHook('--entityReady', (e) => {
         assert.equal(secondNumberInput._label, "FromTPL");
         done();
       });
@@ -132,11 +133,12 @@
 
     it('should bind the field description', (done) => {
 
-      deeplink.qpIn({"exp": 1});
-      dataNumberInput._FBPAddWireHook("--value", (val) => {
+
+      host._FBPAddWireHook('--entityReady', (e) => {
         assert.equal(dataNumberInput._label, "number-input");
         done();
       });
+      deeplink.qpIn({"exp": 1});
     });
 
 

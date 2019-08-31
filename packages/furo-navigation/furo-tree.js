@@ -392,7 +392,7 @@ class FuroTree extends FBP(LitElement) {
         :host {
             display: block;
             box-sizing: border-box;
-
+            height: 100%;
             outline: none;
             position: relative;
         }

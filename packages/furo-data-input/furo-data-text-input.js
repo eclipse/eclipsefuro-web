@@ -3,6 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/input/furo-text-input";
 
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 /**
  * `furo-data-text-input`
  * Binds a entityObject field to a furo-text-input field
@@ -31,15 +32,45 @@ class FuroDataTextInput extends FBP(LitElement) {
     this.error = false;
     this.disabled = false;
     this.errortext = "";
-    this.hint = "";
-
-
     this._FBPAddWireHook("--valueChanged", (val) => {
       if (this.field) {
         this.field.value = val;
       }
     });
   }
+
+
+  // label setter and getter are needed for rendering on the first time
+  set label(l) {
+    this._label = l;
+    this._l = l;
+  }
+  set hint(v) {
+    this._hint = v;
+    this._h = v;
+  }
+  get label(){
+    return this._l;
+  }
+  get hint(){
+    return this._h;
+  }
+
+  /**
+   * Sets the field to readonly
+   */
+  disable() {
+    this._readonly = true;
+  }
+
+  /**
+   * Makes the field writable.
+   */
+  enable() {
+    this._readonly = false;
+  }
+
+
 
   static get properties() {
     return {
@@ -51,7 +82,6 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-        attribute: true
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -135,20 +165,6 @@ class FuroDataTextInput extends FBP(LitElement) {
   }
 
   /**
-   * Sets the field to readonly
-   */
-  disable() {
-    this._readonly = true;
-  }
-
-  /**
-   * Makes the field writable.
-   */
-  enable() {
-    this._readonly = false;
-  }
-
-  /**
    * Bind a entity field to the number-input. You can use the entity even when no data was received.
    * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
    * @param {Object|FieldNode} fieldNode a Field object
@@ -161,9 +177,16 @@ class FuroDataTextInput extends FBP(LitElement) {
     }
 
     this.field = fieldNode;
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     this._updateField();
+
     this.field.addEventListener('field-value-changed', (e) => {
       this._updateField();
+    });
+
+    // update meta and constraints when they change
+    this.field.addEventListener('this-metas-changed', (e) => {
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     });
 
     this.field.addEventListener('field-became-invalid', (e) => {
@@ -180,53 +203,9 @@ class FuroDataTextInput extends FBP(LitElement) {
     });
   }
 
-  // label setter and getter are needed for rendering on the first time
-  set label(l) {
-    this._l = l;
-    this._label = l;
-  }
 
-  get label() {
-    return this._l;
-  }
 
   _updateField() {
-    // label auf attr ist höher gewichtet
-
-    if (!this.label) {
-      this._label = this.field._meta.label;
-    } else {
-      this._label = this.label;
-    }
-
-    // hint auf attr ist höher gewichtet
-    if (!this.hint) {
-      this._hint = this.field._meta.hint;
-    } else {
-      this._hint = this.hint;
-    }
-    this.disabled = this.field._meta.readonly ? true : false;
-
-    // min auf attr ist höher gewichtet
-    if (!this.min) {
-      this._min = this.field._constraints.min;
-    } else {
-      this._min = this.min;
-    }
-    // max auf attr ist höher gewichtet
-    if (!this.max) {
-      this._max = this.field._constraints.max;
-    } else {
-      this._max = this.max;
-    }
-    // readonly auf attr ist höher gewichtet
-    if (!this.readonly) {
-      this._readonly = this.field._meta.readonly;
-    } else {
-      this._readonly = this.readonly;
-    }
-
-
     //mark incomming error
     if (!this.field._isValid) {
       this.error = true;
