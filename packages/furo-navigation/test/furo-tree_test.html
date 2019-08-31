@@ -64,6 +64,18 @@
     });
 
 
+
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+    it('should be a furo-tree_test', (done) => {
+      assert.equal(tree.nodeName.toLowerCase(), "furo-tree");
+      done()
+    });
+
+
   });
 </script>
 </body>

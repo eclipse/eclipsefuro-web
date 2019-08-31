@@ -34,6 +34,7 @@
                 "packages/furo-config/*.js",
                 "packages/furo-data/*.js",
                 "packages/furo-data/lib/*.js",
+                "packages/furo-data-input/lib/*.js",
                 "packages/furo-data-input/*.js",
                 "packages/furo-data-ui/*.js",
                 "packages/furo-data-util/*.js",
