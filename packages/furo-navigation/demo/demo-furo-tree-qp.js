@@ -87,7 +87,7 @@ class DemoFuroTreeQp extends FBP(LitElement) {
             </furo-split-view>
 
 
-            <qp-changer ƒ-set-qp="--qpchangerequest"></qp-changer>
+            <furo-qp-changer ƒ-set-qp="--qpchangerequest"></furo-qp-changer>
             <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data"
                               @-object-ready="--entityObj"></furo-data-object>
             <furo-location url-space-regex="^/api/navigation/demo/demo-furo-tree"
