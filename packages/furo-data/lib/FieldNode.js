@@ -9,14 +9,21 @@ export class FieldNode extends EventTreeNode {
     this.__specdefinitions = parentNode.__specdefinitions;
 
     this._spec = fieldSpec;
+    //-------- auto translate here
     if(this._spec.meta){
-      this._meta = JSON.parse(JSON.stringify(this._spec.meta))
+      this._meta = JSON.parse(JSON.stringify(this._spec.meta));
+      // translate label, hint
     }else{
       this._meta = function (){return {}}();
     }
+    if(this._spec.constraints){
+      this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
+    }else{
+      this._constraints = function (){return {}}();
+    }
 
-    this._constraints = fieldSpec.constraints;
-    this._options = fieldSpec.options;
+
+
 
     this._name = fieldName;
     this._value = null;
@@ -159,10 +166,6 @@ export class FieldNode extends EventTreeNode {
         for (let c in mc.constraints) {
           // update the constraints
           this[field]._constraints[c] = mc.constraints[c];
-        }
-        for (let o in mc.options) {
-          // update the options
-          this[field]._options[o] = mc.options[o];
         }
         /**
          * @event this-metas-changed INTERNAL Event

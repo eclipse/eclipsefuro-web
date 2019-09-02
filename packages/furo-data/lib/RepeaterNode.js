@@ -111,10 +111,6 @@ export class RepeaterNode extends EventTreeNode {
             // update the constraints
             field._constraints[c] = mc.constraints[c];
           }
-          for (let o in mc.options) {
-            // update the options
-            field._options[o] = mc.options[o];
-          }
           /**
            * @event this-metas-changed INTERNAL Event
            *
