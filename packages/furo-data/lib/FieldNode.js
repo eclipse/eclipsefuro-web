@@ -9,10 +9,8 @@ export class FieldNode extends EventTreeNode {
     this.__specdefinitions = parentNode.__specdefinitions;
 
     this._spec = fieldSpec;
-    //-------- auto translate here
     if(this._spec.meta){
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
-      // translate label, hint
     }else{
       this._meta = function (){return {}}();
     }
@@ -21,9 +19,6 @@ export class FieldNode extends EventTreeNode {
     }else{
       this._constraints = function (){return {}}();
     }
-
-
-
 
     this._name = fieldName;
     this._value = null;
@@ -41,7 +36,6 @@ export class FieldNode extends EventTreeNode {
     }
     // Build custom type if a spec exists
     if (this.__specdefinitions[this._spec.type] !== undefined) {
-
       this._createVendorType(this._spec.type);
     }
 

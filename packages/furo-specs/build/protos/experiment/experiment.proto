@@ -71,6 +71,19 @@ message Experiment {
 
 }
 
+// Test the default value
+message Default {                    
+    // Short experiment description
+    string description = 3;
+    
+    // Localized String representation of a experiment
+    string display_name = 2;
+    
+    // Identity of a experiment
+    string id = 1;
+
+}
+
 // ExperimentCollection with repeated ExperimentEntity
 message ExperimentCollection {                    
     // Contains a experiment.ExperimentEntity repeated

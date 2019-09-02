@@ -13,7 +13,6 @@ export class RepeaterNode extends EventTreeNode {
 
     if(this._spec.meta){
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
-      // translate label, hint
     }else{
       this._meta = function (){return {}}();
     }
