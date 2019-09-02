@@ -12,10 +12,17 @@ export class RepeaterNode extends EventTreeNode {
     this._name = fieldName;
 
     if(this._spec.meta){
-      this._meta = JSON.parse(JSON.stringify(this._spec.meta))
+      this._meta = JSON.parse(JSON.stringify(this._spec.meta));
+      // translate label, hint
     }else{
       this._meta = function (){return {}}();
     }
+    if(this._spec.constraints){
+      this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
+    }else{
+      this._constraints = function (){return {}}();
+    }
+
 
     this._pristine = true;
     this._isValid = true;
