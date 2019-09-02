@@ -8,8 +8,13 @@ export class FieldNode extends EventTreeNode {
     super(parentNode);
     this.__specdefinitions = parentNode.__specdefinitions;
 
-    this._spec = JSON.parse(JSON.stringify(fieldSpec));
-    this._meta = fieldSpec.meta || {};
+    this._spec = fieldSpec;
+    if(this._spec.meta){
+      this._meta = JSON.parse(JSON.stringify(this._spec.meta))
+    }else{
+      this._meta = function (){return {}}();
+    }
+
     this._constraints = fieldSpec.constraints;
     this._options = fieldSpec.options;
 

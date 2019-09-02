@@ -8,10 +8,15 @@ export class RepeaterNode extends EventTreeNode {
     this.__specdefinitions = parentNode.__specdefinitions;
     this._isRepeater = true;
     this.repeats = [];
-    this._spec = JSON.parse(JSON.stringify(spec));
+    this._spec = spec;
     this._name = fieldName;
 
-    this._meta = spec.meta || {};
+    if(this._spec.meta){
+      this._meta = JSON.parse(JSON.stringify(this._spec.meta))
+    }else{
+      this._meta = function (){return {}}();
+    }
+
     this._pristine = true;
     this._isValid = true;
 

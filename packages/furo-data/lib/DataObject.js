@@ -11,7 +11,7 @@ export class DataObject extends EventTreeNode {
     super(parentNode);
 
     this.__specdefinitions = specs;
-    this._spec = JSON.parse(JSON.stringify(this.__specdefinitions[type]));;
+    this._spec = this.__specdefinitions[type];
 
     this._initFieldsFromSpec(this, this._spec.fields);
 

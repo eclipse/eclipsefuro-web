@@ -64,7 +64,7 @@
 
     });
 
-    xit('should be possible to set the model to the inital empty state', (done) => {
+    it('should be possible to set the model to the inital empty state', (done) => {
       element.setAttribute("type", "project.ProjectEntity");
 
       fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
@@ -77,7 +77,6 @@
           let EntityRoot = ObjectDataRoot.data;
           assert.equal(EntityRoot , element.data.data);
           element.data.data.display_name._meta.label = "Something";
-
 
           element.init();
 
