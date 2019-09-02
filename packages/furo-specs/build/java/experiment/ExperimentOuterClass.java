@@ -4310,6 +4310,41 @@ public final class ExperimentOuterClass {
      */
     com.google.protobuf.ByteString
         getIdBytes();
+
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 4;</code>
+     */
+    java.util.List<java.lang.String>
+        getRepstringList();
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 4;</code>
+     */
+    int getRepstringCount();
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 4;</code>
+     */
+    java.lang.String getRepstring(int index);
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getRepstringBytes(int index);
   }
   /**
    * <pre>
@@ -4331,6 +4366,7 @@ public final class ExperimentOuterClass {
       description_ = "";
       displayName_ = "";
       id_ = "";
+      repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -4375,6 +4411,15 @@ public final class ExperimentOuterClass {
               description_ = s;
               break;
             }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+                repstring_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              repstring_.add(s);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -4390,6 +4435,9 @@ public final class ExperimentOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+          repstring_ = repstring_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -4407,6 +4455,7 @@ public final class ExperimentOuterClass {
               experiment.ExperimentOuterClass.Default.class, experiment.ExperimentOuterClass.Default.Builder.class);
     }
 
+    private int bitField0_;
     public static final int DESCRIPTION_FIELD_NUMBER = 3;
     private volatile java.lang.Object description_;
     /**
@@ -4533,6 +4582,51 @@ public final class ExperimentOuterClass {
       }
     }
 
+    public static final int REPSTRING_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList repstring_;
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 4;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRepstringList() {
+      return repstring_;
+    }
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 4;</code>
+     */
+    public int getRepstringCount() {
+      return repstring_.size();
+    }
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 4;</code>
+     */
+    public java.lang.String getRepstring(int index) {
+      return repstring_.get(index);
+    }
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRepstringBytes(int index) {
+      return repstring_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4556,6 +4650,9 @@ public final class ExperimentOuterClass {
       if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
       }
+      for (int i = 0; i < repstring_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, repstring_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4573,6 +4670,14 @@ public final class ExperimentOuterClass {
       }
       if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < repstring_.size(); i++) {
+          dataSize += computeStringSizeNoTag(repstring_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getRepstringList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4595,6 +4700,8 @@ public final class ExperimentOuterClass {
           .equals(other.getDisplayName())) return false;
       if (!getId()
           .equals(other.getId())) return false;
+      if (!getRepstringList()
+          .equals(other.getRepstringList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4612,6 +4719,10 @@ public final class ExperimentOuterClass {
       hash = (53 * hash) + getDisplayName().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
+      if (getRepstringCount() > 0) {
+        hash = (37 * hash) + REPSTRING_FIELD_NUMBER;
+        hash = (53 * hash) + getRepstringList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4755,6 +4866,8 @@ public final class ExperimentOuterClass {
 
         id_ = "";
 
+        repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -4781,9 +4894,17 @@ public final class ExperimentOuterClass {
       @java.lang.Override
       public experiment.ExperimentOuterClass.Default buildPartial() {
         experiment.ExperimentOuterClass.Default result = new experiment.ExperimentOuterClass.Default(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.description_ = description_;
         result.displayName_ = displayName_;
         result.id_ = id_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          repstring_ = repstring_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.repstring_ = repstring_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4844,6 +4965,16 @@ public final class ExperimentOuterClass {
           id_ = other.id_;
           onChanged();
         }
+        if (!other.repstring_.isEmpty()) {
+          if (repstring_.isEmpty()) {
+            repstring_ = other.repstring_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureRepstringIsMutable();
+            repstring_.addAll(other.repstring_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -4872,6 +5003,7 @@ public final class ExperimentOuterClass {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object description_ = "";
       /**
@@ -5136,6 +5268,136 @@ public final class ExperimentOuterClass {
   checkByteStringIsUtf8(value);
         
         id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureRepstringIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          repstring_ = new com.google.protobuf.LazyStringArrayList(repstring_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 4;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getRepstringList() {
+        return repstring_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 4;</code>
+       */
+      public int getRepstringCount() {
+        return repstring_.size();
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 4;</code>
+       */
+      public java.lang.String getRepstring(int index) {
+        return repstring_.get(index);
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRepstringBytes(int index) {
+        return repstring_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 4;</code>
+       */
+      public Builder setRepstring(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRepstringIsMutable();
+        repstring_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 4;</code>
+       */
+      public Builder addRepstring(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRepstringIsMutable();
+        repstring_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 4;</code>
+       */
+      public Builder addAllRepstring(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureRepstringIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, repstring_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 4;</code>
+       */
+      public Builder clearRepstring() {
+        repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 4;</code>
+       */
+      public Builder addRepstringBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureRepstringIsMutable();
+        repstring_.add(value);
         onChanged();
         return this;
       }
@@ -6874,12 +7136,13 @@ public final class ExperimentOuterClass {
       " \001(\t\022\034\n\024furo_data_text_input\030\005 \001(\t\022 \n\030fu" +
       "ro_data_textarea_input\030\006 \001(\t\022\034\n\024furo_dat" +
       "a_time_input\030\007 \001(\t\022\n\n\002id\030\001 \001(\t\022*\n\014the_an" +
-      "y_type\030\017 \001(\0132\024.google.protobuf.Any\"@\n\007De" +
+      "y_type\030\017 \001(\0132\024.google.protobuf.Any\"S\n\007De" +
       "fault\022\023\n\013description\030\003 \001(\t\022\024\n\014display_na" +
-      "me\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\"{\n\024ExperimentCollec" +
-      "tion\022.\n\010entities\030\004 \003(\0132\034.experiment.Expe" +
-      "rimentEntity\022\031\n\005links\030\003 \003(\0132\n.furo.Link\022" +
-      "\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
+      "me\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"" +
+      "{\n\024ExperimentCollection\022.\n\010entities\030\004 \003(" +
+      "\0132\034.experiment.ExperimentEntity\022\031\n\005links" +
+      "\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo." +
+      "Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6913,7 +7176,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Default_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Default_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "Id", });
+        new java.lang.String[] { "Description", "DisplayName", "Id", "Repstring", });
     internal_static_experiment_ExperimentCollection_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_experiment_ExperimentCollection_fieldAccessorTable = new

@@ -5,12 +5,6 @@
   "__proto": {
     "package": "google.protobuf",
     "options": {
-      "csharp_namespace": "Google.Protobuf.WellKnownTypes",
-      "go_package": "github.com/golang/protobuf/ptypes/any",
-      "java_package": "com.google.protobuf",
-      "java_outer_classname": "AnyProto",
-      "java_multiple_files": true,
-      "objc_class_prefix": "GPB"
     },
     "imports": [],
     "targetfile": "any.proto"
