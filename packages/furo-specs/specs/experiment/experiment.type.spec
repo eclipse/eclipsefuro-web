@@ -20,7 +20,6 @@
         "readonly": true
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 1
       }
@@ -35,7 +34,6 @@
         "readonly": true
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 2
       }
@@ -49,7 +47,6 @@
         "hint": ""
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 3
       }
@@ -64,7 +61,6 @@
         "readonly": false
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 4
       }
@@ -87,7 +83,6 @@
           "message": "15 sind genug"
         }
       },
-      "options": [],
       "__proto": {
         "number": 5
       }
@@ -101,7 +96,6 @@
         "readonly": false
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 6
       }
@@ -125,7 +119,6 @@
           "message": "to 19:00"
         }
       },
-      "options": [],
       "__proto": {
         "number": 7
       }
@@ -149,7 +142,6 @@
           "message": "to50"
         }
       },
-      "options": [],
       "__proto": {
         "number": 8
       }
@@ -173,7 +165,6 @@
           "message": "to 555"
         }
       },
-      "options": [],
       "__proto": {
         "number": 9
       }
@@ -187,7 +178,6 @@
         "readonly": false
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 10
       }
@@ -211,7 +201,6 @@
         },
         "pattern": ""
       },
-      "options": [],
       "__proto": {
         "number": 11
       }
@@ -238,7 +227,6 @@
           "message": "must start with a"
         }
       },
-      "options": [],
       "__proto": {
         "number": 12
       }
@@ -258,10 +246,9 @@
         },
         "max": {
           "value": "2099-12-31",
-          "message": "min 2099-12-31"
+          "message": "max 2099-12-31"
         }
       },
-      "options": [],
       "__proto": {
         "number": 13
       }
@@ -275,7 +262,6 @@
         "readonly": false
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 14
       }
@@ -289,7 +275,6 @@
         "readonly": false
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 15
       }

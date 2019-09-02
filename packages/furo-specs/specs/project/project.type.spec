@@ -22,7 +22,6 @@
         "readonly": true
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 1
       }
@@ -37,7 +36,6 @@
         "readonly": true
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 2
       }
@@ -51,7 +49,6 @@
         "hint": ""
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 3
       }
@@ -65,7 +62,6 @@
         "hint": ""
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 4
       }
@@ -79,7 +75,6 @@
         "hint": ""
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 5
       }
@@ -94,7 +89,6 @@
         "repeated": true
       },
       "constraints": {},
-      "options": [],
       "__proto": {
         "number": 6
       }
@@ -111,7 +105,6 @@
       "constraints": {
         "max": 25000
       },
-      "options": [],
       "__proto": {
         "number": 7
       }
