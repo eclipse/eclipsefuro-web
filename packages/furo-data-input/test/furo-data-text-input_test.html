@@ -34,6 +34,9 @@
                            @-response="--response">
         </furo-entity-agent>
 
+        <furo-data-text-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-text-input>
+
+
       </template>
     </test-bind>
 
@@ -52,9 +55,11 @@
   import '/node_modules/axe-core/axe.min.js';
   import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
+  // those tests are base on the spec `experiment.type.spec` and the mockdata `mockdata/experiment/1/get.json`
+
   describe('furo-data-text-input_test tests ', function () {
 
-    let dataTextInput, host, entityObject, secondTextInput, deeplink;
+    let dataTextInput, host, entityObject, secondTextInput, invalidBoundTextInput, deeplink;
 
     beforeEach(async () => {
       let fix = fixture('basic');
@@ -71,10 +76,21 @@
       deeplink = fix[4];
       await deeplink.updateComplete;
 
-      entityObject = fix[3];
-      await entityObject.updateComplete;
+
+      invalidBoundTextInput = fix[5];
+      await invalidBoundTextInput.updateComplete;
     });
 
+
+    it('should log invalid bindings', (done) => {
+      dataTextInput._FBPAddWireHook("--value", (val) => {
+          // invalid binding
+          assert.equal(invalidBoundTextInput.field, undefined);
+          // valid binding
+          assert.equal(dataTextInput.field._isValid, true);
+          done();
+      });
+    });
 
     it('should override labels ', (done) => {
       host._FBPAddWireHook('--entity', (e) => {
@@ -103,6 +119,48 @@
       });
       deeplink.qpIn({"exp": 1});
     });
+
+    it('should set hint message when pattern mismatched', (done) => {
+      host._FBPAddWireHook("--entity", () => {
+          dataTextInput._FBPTriggerWire("--inputInvalid", {"patternMismatch":true});
+          setTimeout(()=>{
+              assert.equal(dataTextInput._hint, "must start with a");
+                done();
+          }, 0)
+      })
+    });
+
+    it('should set hint message when input under minlength', (done) => {
+      host._FBPAddWireHook("--entity", () => {
+          dataTextInput._FBPTriggerWire("--inputInvalid", {"tooShort":true});
+          setTimeout(()=>{
+              assert.equal(dataTextInput._hint, "at least 3 characters");
+              done();
+          }, 0)
+      })
+    });
+
+    it('should set hint message when input over maxlength', (done) => {
+      host._FBPAddWireHook("--entity", () => {
+          dataTextInput._FBPTriggerWire("--inputInvalid", {"tooLong":true});
+          setTimeout(()=>{
+              assert.equal(dataTextInput._hint, "15 characters maximum");
+              done();
+          }, 0)
+      })
+    });
+
+    it('should set readonly via disable method', (done) => {
+        dataTextInput.disable();
+        assert.equal(dataTextInput._readonly, true);
+        done();
+    });
+
+      it('should remove readonly via enable method', (done) => {
+          dataTextInput.enable();
+          assert.equal(dataTextInput._readonly, false);
+          done();
+      });
 
     it('should bind the field label, hint , min and max', (done) => {
       host._FBPAddWireHook("--entity", () => {

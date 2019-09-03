@@ -76,11 +76,11 @@
       "constraints": {
         "min": {
           "value": 3,
-          "message": "3 Zeichen sind zwingend"
+          "message": "at least 3 characters"
         },
         "max": {
           "value": 15,
-          "message": "15 Zeichen sind genug"
+          "message": "15 characters maximum"
         },
         "pattern": {
           "value": "a.*",
