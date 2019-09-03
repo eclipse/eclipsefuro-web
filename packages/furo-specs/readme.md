@@ -96,9 +96,8 @@ Following base types are available by default:
     "excludes": [],
     "default_type_for_identities": "string"
   },
-  "path_to_simplegenerator": "./bin/simple-generator_linux_amd64",
   "spec_dir": "./specs",
-  "_custom_tepmplate_dir": "./_scripts/templates",
+  "__custom_tepmplate_dir": "./path/to/your/tpldir",
   "swagger": true,
   "grpc_gateway": true,
   "java": true,
@@ -132,11 +131,7 @@ Following base types are available by default:
     "$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis"
   ],
   "protoc_M": [
-    "google/protobuf/any.proto=github.com/gogo/protobuf/types",
-    "protobuf/duration.proto=github.com/gogo/protobuf/types",
-    "protobuf/struct.proto=github.com/gogo/protobuf/types",
-    "protobuf/timestamp.proto=github.com/gogo/protobuf/types",
-    "protobuf/wrappers.proto=github.com/gogo/protobuf/types"
+
   ]
 }
 
