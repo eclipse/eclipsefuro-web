@@ -42,6 +42,19 @@
       await element.updateComplete;
     });
 
+    it('should have the default value setted', (done) => {
+      element.setAttribute("type", "experiment.Default");
+      assert.equal(element.data.description.value,"Ein text per default");
+
+      element.data.repstring.add();
+      assert.equal(element.data._pristine,false);
+      assert.equal(element.data.repstring.repeats[0].value,"Ein text per default");
+      element.data.repstring.add("new");
+
+      assert.equal(element.data.repstring.repeats[1].value,"new");
+      done();
+    });
+
     it('should print out the type on toString', (done) => {
       element.setAttribute("type", "project.ProjectEntity");
       assert.equal(element.data.toString(),"ProjectEntity");

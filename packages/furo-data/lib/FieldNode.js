@@ -42,7 +42,7 @@ export class FieldNode extends EventTreeNode {
     // set default value from meta
     if (this._meta && this._meta.default) {
       this.defaultvalue = this._meta.default;
-      this._pristine = false;
+
     }
 
     /**
@@ -263,8 +263,6 @@ export class FieldNode extends EventTreeNode {
         this._value = val;
         this._pristine = true;
       }
-
-
     }
   }
 
