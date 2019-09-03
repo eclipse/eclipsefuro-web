@@ -37,16 +37,16 @@ func run() error {
 
 	// Services hier einfügen
 	// PersonService
-	err := {{.bundled.proto_options.go_package}}.Register{{.bundled.service_name}}HandlerFromEndpoint(ctx, mux, *grpcserver, opts)
+	err := {{.bundled.proto_options.go_package | replace "." "_"}}.Register{{.bundled.service_name}}HandlerFromEndpoint(ctx, mux, *grpcserver, opts)
 	if err != nil {
 		return err
 	}
-	
+
 	return http.ListenAndServe(*gwserver, mux)
 }
 
 func main() {
-	
+
 	flag.Parse()
 	defer glog.Flush()
 

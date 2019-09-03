@@ -33,6 +33,7 @@ if (BuildDir.search(cwd) === -1) {
 // clean the build folder
 sh("rm -rf", [BuildDir + "/*"]);
 sh("mkdir -p", [BuildDir]);
+sh("mkdir -p", ["./__tmp"]);
 
 
 function sh(command, arguments) {
@@ -148,13 +149,15 @@ for (let target in Servicelist.targets) {
     sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.service.proto.tmpl", ">", BuildDir + "/protos/" + target])
 }
 
-if (config.bundled.build) {
+
     Servicelist.__bundled.imports = Array.from(Servicelist.__bundled.imports);
     Servicelist.__bundled.config = config.bundled;
     Servicelist.__bundled.package = config.bundled.package_name;
     Servicelist.__bundled.options = config.bundled.proto_options;
     let jsonfilename = "./__tmp/_services/" + config.bundled.service_name + ".json";
     fs.writeFileSync(jsonfilename, JSON.stringify(Servicelist.__bundled));
+
+if (config.bundled.build) {
     sh("mkdir", ["-p", BuildDir + "/protos/__bundled/"]);
     sh(pathToSimpleGeneratorBinary+"simple-generator", ["-d", jsonfilename, "-t", TPLDirBundled + "/bundled.services.proto.tmpl", ">", BuildDir + "/protos/__bundled/" + config.bundled.service_name + ".proto"])
 }

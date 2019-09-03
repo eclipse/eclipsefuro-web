@@ -40,7 +40,7 @@ func run() error {
 
 	{{range $imports := .groupedservices}}
 	// {{$imports.name}} {{$imports.description}}
-	err = {{$imports.__proto.package}}.Register{{$imports.name}}HandlerFromEndpoint(ctx, mux, *grpcserver, opts)
+	err = {{$imports.__proto.package | replace "." "_"}}.Register{{$imports.name}}HandlerFromEndpoint(ctx, mux, *grpcserver, opts)
 	if err != nil {
 		return err
 	}
@@ -50,7 +50,7 @@ func run() error {
 }
 
 func main() {
-	
+
 	flag.Parse()
 	defer glog.Flush()
 
