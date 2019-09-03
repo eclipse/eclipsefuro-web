@@ -11,6 +11,8 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -23,7 +25,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type CreatePersonServiceRequest struct {
 	Data                 *person.Person `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
@@ -446,6 +448,26 @@ type PersonServiceServer interface {
 	ListPersons(context.Context, *ListPersonServiceRequest) (*person.PersonCollection, error)
 	// Updates a Person, partial updates are supported
 	UpdatePerson(context.Context, *UpdatePersonServiceRequest) (*person.PersonEntity, error)
+}
+
+// UnimplementedPersonServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedPersonServiceServer struct {
+}
+
+func (*UnimplementedPersonServiceServer) CreatePerson(ctx context.Context, req *CreatePersonServiceRequest) (*person.PersonEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePerson not implemented")
+}
+func (*UnimplementedPersonServiceServer) DeletePerson(ctx context.Context, req *DeletePersonServiceRequest) (*protobuf.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePerson not implemented")
+}
+func (*UnimplementedPersonServiceServer) GetPerson(ctx context.Context, req *GetPersonServiceRequest) (*person.PersonEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPerson not implemented")
+}
+func (*UnimplementedPersonServiceServer) ListPersons(ctx context.Context, req *ListPersonServiceRequest) (*person.PersonCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPersons not implemented")
+}
+func (*UnimplementedPersonServiceServer) UpdatePerson(ctx context.Context, req *UpdatePersonServiceRequest) (*person.PersonEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePerson not implemented")
 }
 
 func RegisterPersonServiceServer(s *grpc.Server, srv PersonServiceServer) {

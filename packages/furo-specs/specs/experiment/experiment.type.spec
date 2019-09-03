@@ -285,6 +285,25 @@
       "__proto": {
         "number": 15
       }
+    },
+    "type_with_options": {
+      "description": "field for testing static options",
+      "type": "string",
+      "meta": {
+        "label": "String options",
+        "hint": "Choose one",
+        "options": {
+          "list": [
+            "option_1",
+            "option_2",
+            "option_3"
+          ]
+        }
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 16
+      }
     }
   }
 }

@@ -1679,6 +1679,24 @@ public final class ExperimentOuterClass {
      * <code>.google.protobuf.Any the_any_type = 15;</code>
      */
     google.protobuf.AnyOuterClass.AnyOrBuilder getTheAnyTypeOrBuilder();
+
+    /**
+     * <pre>
+     * field for testing static options
+     * </pre>
+     *
+     * <code>string type_with_options = 16;</code>
+     */
+    java.lang.String getTypeWithOptions();
+    /**
+     * <pre>
+     * field for testing static options
+     * </pre>
+     *
+     * <code>string type_with_options = 16;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypeWithOptionsBytes();
   }
   /**
    * <pre>
@@ -1708,6 +1726,7 @@ public final class ExperimentOuterClass {
       furoDataTextareaInput_ = "";
       furoDataTimeInput_ = "";
       id_ = "";
+      typeWithOptions_ = "";
     }
 
     @java.lang.Override
@@ -1826,6 +1845,12 @@ public final class ExperimentOuterClass {
                 theAnyType_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 130: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              typeWithOptions_ = s;
               break;
             }
             default: {
@@ -2394,6 +2419,48 @@ public final class ExperimentOuterClass {
       return getTheAnyType();
     }
 
+    public static final int TYPE_WITH_OPTIONS_FIELD_NUMBER = 16;
+    private volatile java.lang.Object typeWithOptions_;
+    /**
+     * <pre>
+     * field for testing static options
+     * </pre>
+     *
+     * <code>string type_with_options = 16;</code>
+     */
+    public java.lang.String getTypeWithOptions() {
+      java.lang.Object ref = typeWithOptions_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        typeWithOptions_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * field for testing static options
+     * </pre>
+     *
+     * <code>string type_with_options = 16;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypeWithOptionsBytes() {
+      java.lang.Object ref = typeWithOptions_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        typeWithOptions_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2453,6 +2520,9 @@ public final class ExperimentOuterClass {
       if (theAnyType_ != null) {
         output.writeMessage(15, getTheAnyType());
       }
+      if (!getTypeWithOptionsBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 16, typeWithOptions_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2511,6 +2581,9 @@ public final class ExperimentOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(15, getTheAnyType());
       }
+      if (!getTypeWithOptionsBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, typeWithOptions_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2560,6 +2633,8 @@ public final class ExperimentOuterClass {
         if (!getTheAnyType()
             .equals(other.getTheAnyType())) return false;
       }
+      if (!getTypeWithOptions()
+          .equals(other.getTypeWithOptions())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2606,6 +2681,8 @@ public final class ExperimentOuterClass {
         hash = (37 * hash) + THE_ANY_TYPE_FIELD_NUMBER;
         hash = (53 * hash) + getTheAnyType().hashCode();
       }
+      hash = (37 * hash) + TYPE_WITH_OPTIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getTypeWithOptions().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2777,6 +2854,8 @@ public final class ExperimentOuterClass {
           theAnyType_ = null;
           theAnyTypeBuilder_ = null;
         }
+        typeWithOptions_ = "";
+
         return this;
       }
 
@@ -2822,6 +2901,7 @@ public final class ExperimentOuterClass {
         } else {
           result.theAnyType_ = theAnyTypeBuilder_.build();
         }
+        result.typeWithOptions_ = typeWithOptions_;
         onBuilt();
         return result;
       }
@@ -2925,6 +3005,10 @@ public final class ExperimentOuterClass {
         }
         if (other.hasTheAnyType()) {
           mergeTheAnyType(other.getTheAnyType());
+        }
+        if (!other.getTypeWithOptions().isEmpty()) {
+          typeWithOptions_ = other.typeWithOptions_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4199,6 +4283,95 @@ public final class ExperimentOuterClass {
           theAnyType_ = null;
         }
         return theAnyTypeBuilder_;
+      }
+
+      private java.lang.Object typeWithOptions_ = "";
+      /**
+       * <pre>
+       * field for testing static options
+       * </pre>
+       *
+       * <code>string type_with_options = 16;</code>
+       */
+      public java.lang.String getTypeWithOptions() {
+        java.lang.Object ref = typeWithOptions_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          typeWithOptions_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for testing static options
+       * </pre>
+       *
+       * <code>string type_with_options = 16;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypeWithOptionsBytes() {
+        java.lang.Object ref = typeWithOptions_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          typeWithOptions_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * field for testing static options
+       * </pre>
+       *
+       * <code>string type_with_options = 16;</code>
+       */
+      public Builder setTypeWithOptions(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        typeWithOptions_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing static options
+       * </pre>
+       *
+       * <code>string type_with_options = 16;</code>
+       */
+      public Builder clearTypeWithOptions() {
+        
+        typeWithOptions_ = getDefaultInstance().getTypeWithOptions();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing static options
+       * </pre>
+       *
+       * <code>string type_with_options = 16;</code>
+       */
+      public Builder setTypeWithOptionsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        typeWithOptions_ = value;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -7125,7 +7298,7 @@ public final class ExperimentOuterClass {
       "gle/protobuf/any.proto\"m\n\020ExperimentEnti" +
       "ty\022$\n\004data\030\001 \001(\0132\026.experiment.Experiment" +
       "\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(" +
-      "\0132\n.furo.Meta\"\312\003\n\nExperiment\022\023\n\013descript" +
+      "\0132\n.furo.Meta\"\345\003\n\nExperiment\022\023\n\013descript" +
       "ion\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023furo_" +
       "data_bool_icon\030\016 \001(\010\022 \n\030furo_data_checkb" +
       "ox_input\030\004 \001(\010\022\035\n\025furo_data_color_input\030" +
@@ -7136,13 +7309,13 @@ public final class ExperimentOuterClass {
       " \001(\t\022\034\n\024furo_data_text_input\030\005 \001(\t\022 \n\030fu" +
       "ro_data_textarea_input\030\006 \001(\t\022\034\n\024furo_dat" +
       "a_time_input\030\007 \001(\t\022\n\n\002id\030\001 \001(\t\022*\n\014the_an" +
-      "y_type\030\017 \001(\0132\024.google.protobuf.Any\"S\n\007De" +
-      "fault\022\023\n\013description\030\003 \001(\t\022\024\n\014display_na" +
-      "me\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"" +
-      "{\n\024ExperimentCollection\022.\n\010entities\030\004 \003(" +
-      "\0132\034.experiment.ExperimentEntity\022\031\n\005links" +
-      "\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo." +
-      "Metab\006proto3"
+      "y_type\030\017 \001(\0132\024.google.protobuf.Any\022\031\n\021ty" +
+      "pe_with_options\030\020 \001(\t\"S\n\007Default\022\023\n\013desc" +
+      "ription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\n\n\002i" +
+      "d\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"{\n\024Experiment" +
+      "Collection\022.\n\010entities\030\004 \003(\0132\034.experimen" +
+      "t.ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n.furo" +
+      ".Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -7170,7 +7343,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Experiment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Experiment_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "TheAnyType", });
+        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "TheAnyType", "TypeWithOptions", });
     internal_static_experiment_Default_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Default_fieldAccessorTable = new

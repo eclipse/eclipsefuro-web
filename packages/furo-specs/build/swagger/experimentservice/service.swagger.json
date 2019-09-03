@@ -273,6 +273,10 @@
         "the_any_type": {
           "$ref": "#/definitions/protobufAny",
           "title": "field for testing any"
+        },
+        "type_with_options": {
+          "type": "string",
+          "title": "field for testing static options"
         }
       },
       "title": "experiment spec for testing"
