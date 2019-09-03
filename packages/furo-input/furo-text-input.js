@@ -73,24 +73,12 @@ class FuroTextInput extends FBP(LitElement) {
         this.dispatchEvent(customEvent);
       }
     });
-
-    // set pattern, min, max
-    let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
-    if (this.min) {
-      inputField.setAttribute("minlength", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
-    }
   }
 
 
   set _value(v) {
     this._float = !!v;
-    this._FBPTriggerWire("--value", v)
+    this._FBPTriggerWire("--value", v);
   }
 
   static get properties() {

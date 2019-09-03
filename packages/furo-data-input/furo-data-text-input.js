@@ -43,17 +43,17 @@ class FuroDataTextInput extends FBP(LitElement) {
 
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
-      if (val) {
 
+        if (val) {
           if(val.patternMismatch) {
-              this.hint = this._patternErrorMessage;
+              this._hint = this._patternErrorMessage;
           }
           else if (val.tooShort) {
-              this.hint = this._minErrorMessage;
+              this._hint = this._minErrorMessage;
           }
           else if(val.tooLong)
           {
-              this.hint = this._maxErrorMessage;
+              this._hint = this._maxErrorMessage;
           }
 
           this.requestUpdate();
