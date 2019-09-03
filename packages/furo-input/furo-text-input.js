@@ -61,6 +61,17 @@ class FuroTextInput extends FBP(LitElement) {
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
       }
+      else{
+
+        /**
+        * @event input-invalid
+        * Fired when input value is invalid
+        * detail payload: {Object} the validity object of input
+        */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity ;
+        this.dispatchEvent(customEvent);
+      }
     });
 
     // set pattern, min, max
@@ -608,7 +619,8 @@ class FuroTextInput extends FBP(LitElement) {
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} minlength="${this.min}" maxlength="${this.max}"
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} minlength="${this.min}" 
+        maxlength="${this.max}"  pattern="${this.pattern}"
         type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>

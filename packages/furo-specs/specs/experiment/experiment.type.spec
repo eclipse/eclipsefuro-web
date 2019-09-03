@@ -80,7 +80,11 @@
         },
         "max": {
           "value": 15,
-          "message": "15 sind genug"
+          "message": "15 Zeichen sind genug"
+        },
+        "pattern": {
+          "value": "a.*",
+          "message": "must start with a"
         }
       },
       "__proto": {
@@ -198,8 +202,7 @@
         "max": {
           "value": 15,
           "message": "max 15"
-        },
-        "pattern": ""
+        }
       },
       "__proto": {
         "number": 11
@@ -223,7 +226,7 @@
           "message": "max 15"
         },
         "pattern": {
-          "value": "a",
+          "value": "a.*",
           "message": "must start with a"
         }
       },
