@@ -143,7 +143,7 @@
         },
         "max": {
           "value": 50,
-          "message": "to50"
+          "message": "to 50"
         }
       },
       "__proto": {
@@ -167,6 +167,10 @@
         "max": {
           "value": 555,
           "message": "to 555"
+        },
+        "pattern": {
+          "value": "^.*[02468]$",
+          "message": "even Numbers"
         }
       },
       "__proto": {
@@ -245,11 +249,11 @@
       "constraints": {
         "min": {
           "value": "1800-01-01",
-          "message": "min 1800-01-01"
+          "message": "from 1800-01-01"
         },
         "max": {
           "value": "2099-12-31",
-          "message": "max 2099-12-31"
+          "message": "to 2099-12-31"
         }
       },
       "__proto": {

@@ -3,15 +3,14 @@
 
 package project
 
-import (
-	furo "../furo"
-	_type "../google/type"
-	person "../person"
-	fmt "fmt"
-	proto "github.com/gogo/protobuf/proto"
-	io "io"
-	math "math"
-)
+import proto "github.com/gogo/protobuf/proto"
+import fmt "fmt"
+import math "math"
+import furo "../furo"
+import _type "../google/type"
+import person "../person"
+
+import io "io"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -27,11 +26,11 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 // ProjectCollection with repeated ProjectEntity
 type ProjectCollection struct {
 	// Contains a project.ProjectEntity repeated
-	Entities []*ProjectEntity `protobuf:"bytes,4,rep,name=entities,proto3" json:"entities,omitempty"`
+	Entities []*ProjectEntity `protobuf:"bytes,4,rep,name=entities" json:"entities,omitempty"`
 	// Hateoas links
-	Links []*furo.Link `protobuf:"bytes,3,rep,name=links,proto3" json:"links,omitempty"`
+	Links []*furo.Link `protobuf:"bytes,3,rep,name=links" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *furo.Meta `protobuf:"bytes,2,opt,name=meta,proto3" json:"meta,omitempty"`
+	Meta                 *furo.Meta `protobuf:"bytes,2,opt,name=meta" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -41,7 +40,7 @@ func (m *ProjectCollection) Reset()         { *m = ProjectCollection{} }
 func (m *ProjectCollection) String() string { return proto.CompactTextString(m) }
 func (*ProjectCollection) ProtoMessage()    {}
 func (*ProjectCollection) Descriptor() ([]byte, []int) {
-	return fileDescriptor_2cf0ca921a221351, []int{0}
+	return fileDescriptor_project_17b74cda049b401a, []int{0}
 }
 func (m *ProjectCollection) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -58,8 +57,8 @@ func (m *ProjectCollection) XXX_Marshal(b []byte, deterministic bool) ([]byte, e
 		return b[:n], nil
 	}
 }
-func (m *ProjectCollection) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ProjectCollection.Merge(m, src)
+func (dst *ProjectCollection) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ProjectCollection.Merge(dst, src)
 }
 func (m *ProjectCollection) XXX_Size() int {
 	return m.Size()
@@ -94,11 +93,11 @@ func (m *ProjectCollection) GetMeta() *furo.Meta {
 // ProjectEntity with Project
 type ProjectEntity struct {
 	// contains a project.Project
-	Data *Project `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Data *Project `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
 	// Hateoas links
-	Links []*furo.Link `protobuf:"bytes,2,rep,name=links,proto3" json:"links,omitempty"`
+	Links []*furo.Link `protobuf:"bytes,2,rep,name=links" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *furo.Meta `protobuf:"bytes,3,opt,name=meta,proto3" json:"meta,omitempty"`
+	Meta                 *furo.Meta `protobuf:"bytes,3,opt,name=meta" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -108,7 +107,7 @@ func (m *ProjectEntity) Reset()         { *m = ProjectEntity{} }
 func (m *ProjectEntity) String() string { return proto.CompactTextString(m) }
 func (*ProjectEntity) ProtoMessage()    {}
 func (*ProjectEntity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_2cf0ca921a221351, []int{1}
+	return fileDescriptor_project_17b74cda049b401a, []int{1}
 }
 func (m *ProjectEntity) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -125,8 +124,8 @@ func (m *ProjectEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error
 		return b[:n], nil
 	}
 }
-func (m *ProjectEntity) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ProjectEntity.Merge(m, src)
+func (dst *ProjectEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ProjectEntity.Merge(dst, src)
 }
 func (m *ProjectEntity) XXX_Size() int {
 	return m.Size()
@@ -161,19 +160,19 @@ func (m *ProjectEntity) GetMeta() *furo.Meta {
 // Project description
 type Project struct {
 	// Project cost limit
-	CostLimit *_type.Money `protobuf:"bytes,7,opt,name=cost_limit,json=costLimit,proto3" json:"cost_limit,omitempty"`
+	CostLimit *_type.Money `protobuf:"bytes,7,opt,name=cost_limit,json=costLimit" json:"cost_limit,omitempty"`
 	// Short project description
 	Description string `protobuf:"bytes,5,opt,name=description,proto3" json:"description,omitempty"`
 	// Localized String representation of a project
 	DisplayName string `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
 	// Prospective end date of the project
-	End *_type.Date `protobuf:"bytes,4,opt,name=end,proto3" json:"end,omitempty"`
+	End *_type.Date `protobuf:"bytes,4,opt,name=end" json:"end,omitempty"`
 	// Identity of a project
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// List of project members
-	Members []*person.Person `protobuf:"bytes,6,rep,name=members,proto3" json:"members,omitempty"`
+	Members []*person.Person `protobuf:"bytes,6,rep,name=members" json:"members,omitempty"`
 	// Start date of the project
-	Start                *_type.Date `protobuf:"bytes,3,opt,name=start,proto3" json:"start,omitempty"`
+	Start                *_type.Date `protobuf:"bytes,3,opt,name=start" json:"start,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
 	XXX_sizecache        int32       `json:"-"`
@@ -183,7 +182,7 @@ func (m *Project) Reset()         { *m = Project{} }
 func (m *Project) String() string { return proto.CompactTextString(m) }
 func (*Project) ProtoMessage()    {}
 func (*Project) Descriptor() ([]byte, []int) {
-	return fileDescriptor_2cf0ca921a221351, []int{2}
+	return fileDescriptor_project_17b74cda049b401a, []int{2}
 }
 func (m *Project) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -200,8 +199,8 @@ func (m *Project) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (m *Project) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Project.Merge(m, src)
+func (dst *Project) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Project.Merge(dst, src)
 }
 func (m *Project) XXX_Size() int {
 	return m.Size()
@@ -266,38 +265,6 @@ func init() {
 	proto.RegisterType((*ProjectEntity)(nil), "project.ProjectEntity")
 	proto.RegisterType((*Project)(nil), "project.Project")
 }
-
-func init() { proto.RegisterFile("project/project.proto", fileDescriptor_2cf0ca921a221351) }
-
-var fileDescriptor_2cf0ca921a221351 = []byte{
-	// 390 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x52, 0x5b, 0x6e, 0xd4, 0x30,
-	0x14, 0x55, 0x1e, 0xd3, 0x30, 0xb7, 0xa5, 0x50, 0x23, 0x8a, 0xc5, 0x47, 0x14, 0x0a, 0x12, 0xf3,
-	0xe5, 0x88, 0xb2, 0x03, 0x1e, 0x7f, 0x2d, 0xaa, 0xbc, 0x81, 0xca, 0x93, 0x5c, 0x46, 0x66, 0x12,
-	0x3b, 0x8a, 0x8d, 0x50, 0x96, 0x30, 0x3b, 0xe3, 0x93, 0x25, 0xa0, 0x59, 0x09, 0xf2, 0x63, 0x98,
-	0x19, 0x04, 0xe2, 0xeb, 0x2a, 0xe7, 0x9c, 0xeb, 0x73, 0x7c, 0x62, 0x78, 0x3a, 0x8c, 0xfa, 0x0b,
-	0x36, 0xb6, 0x8e, 0x93, 0x0d, 0xa3, 0xb6, 0x9a, 0x14, 0xf1, 0xf3, 0xf9, 0xa3, 0xcf, 0x5f, 0x47,
-	0x5d, 0xf7, 0x68, 0x45, 0x60, 0x22, 0xd0, 0x49, 0xb5, 0x8e, 0xc0, 0xb3, 0x95, 0xd6, 0xab, 0x0e,
-	0x6b, 0x3b, 0x0d, 0x58, 0xf7, 0x5a, 0xe1, 0x14, 0x89, 0xcb, 0x43, 0xa2, 0x15, 0x16, 0x23, 0xfe,
-	0x64, 0xc0, 0xd1, 0x68, 0x55, 0x87, 0x11, 0xc0, 0xab, 0x4d, 0x02, 0x17, 0x77, 0xc1, 0xf3, 0xbd,
-	0xee, 0x3a, 0x6c, 0xac, 0xd4, 0x8a, 0x5c, 0xc3, 0x03, 0x54, 0x56, 0x5a, 0x89, 0x86, 0xe6, 0x55,
-	0xb6, 0x38, 0xbd, 0xbe, 0x64, 0xbb, 0xa0, 0x51, 0xfd, 0xd1, 0xf1, 0x13, 0xff, 0xad, 0x23, 0x15,
-	0xcc, 0x5c, 0x3a, 0x43, 0x33, 0xbf, 0x00, 0xcc, 0x05, 0x66, 0x37, 0x52, 0xad, 0x79, 0x20, 0x48,
-	0x09, 0xb9, 0xbb, 0x10, 0x4d, 0xab, 0x64, 0x2f, 0xb8, 0x45, 0x2b, 0xb8, 0xc7, 0xaf, 0xbe, 0xc1,
-	0xc3, 0xa3, 0xc3, 0xc9, 0x2b, 0xc8, 0x5b, 0x61, 0x05, 0x4d, 0xfc, 0xc2, 0xe3, 0x3f, 0x23, 0x70,
-	0xcf, 0xee, 0x8d, 0xd3, 0xff, 0x19, 0x67, 0xff, 0x30, 0xde, 0xa4, 0x50, 0xc4, 0x33, 0xc9, 0x1b,
-	0x80, 0x46, 0x1b, 0x7b, 0xdf, 0xc9, 0x5e, 0x5a, 0x5a, 0xf8, 0x0d, 0xc2, 0x42, 0xa5, 0xcc, 0x55,
-	0xca, 0x6e, 0x5d, 0xd7, 0x7c, 0xee, 0x54, 0x37, 0x4e, 0x44, 0x2a, 0x38, 0x6d, 0xd1, 0x34, 0xa3,
-	0x1c, 0x5c, 0x79, 0x74, 0x56, 0x25, 0x8b, 0x39, 0x3f, 0x84, 0xc8, 0x0b, 0x38, 0x6b, 0xa5, 0x19,
-	0x3a, 0x31, 0xdd, 0x2b, 0xd1, 0xa3, 0x6f, 0xc0, 0x49, 0x02, 0xf6, 0x49, 0xf4, 0x48, 0x5e, 0x42,
-	0x86, 0xaa, 0xa5, 0xb9, 0x37, 0xbc, 0x38, 0x32, 0xfc, 0x20, 0x2c, 0x72, 0xc7, 0x92, 0x73, 0x48,
-	0x65, 0xeb, 0xeb, 0x98, 0xf3, 0x54, 0xb6, 0x64, 0x01, 0x45, 0x8f, 0xfd, 0x12, 0x47, 0x43, 0x4f,
-	0xfc, 0xe5, 0xcf, 0x59, 0xfc, 0xbb, 0x77, 0x7e, 0xf0, 0x1d, 0x4d, 0x5e, 0xc3, 0xcc, 0x58, 0x31,
-	0xda, 0xd8, 0xc1, 0x5f, 0x0c, 0x02, 0xff, 0xee, 0xec, 0xfb, 0xb6, 0x4c, 0x7e, 0x6c, 0xcb, 0xe4,
-	0xe7, 0xb6, 0x4c, 0x96, 0x27, 0xfe, 0x95, 0xbc, 0xfd, 0x15, 0x00, 0x00, 0xff, 0xff, 0x43, 0x14,
-	0x45, 0xe9, 0xaf, 0x02, 0x00, 0x00,
-}
-
 func (m *ProjectCollection) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -317,9 +284,9 @@ func (m *ProjectCollection) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintProject(dAtA, i, uint64(m.Meta.Size()))
-		n1, err1 := m.Meta.MarshalTo(dAtA[i:])
-		if err1 != nil {
-			return 0, err1
+		n1, err := m.Meta.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
 		}
 		i += n1
 	}
@@ -372,9 +339,9 @@ func (m *ProjectEntity) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0xa
 		i++
 		i = encodeVarintProject(dAtA, i, uint64(m.Data.Size()))
-		n2, err2 := m.Data.MarshalTo(dAtA[i:])
-		if err2 != nil {
-			return 0, err2
+		n2, err := m.Data.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
 		}
 		i += n2
 	}
@@ -394,9 +361,9 @@ func (m *ProjectEntity) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x1a
 		i++
 		i = encodeVarintProject(dAtA, i, uint64(m.Meta.Size()))
-		n3, err3 := m.Meta.MarshalTo(dAtA[i:])
-		if err3 != nil {
-			return 0, err3
+		n3, err := m.Meta.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
 		}
 		i += n3
 	}
@@ -437,9 +404,9 @@ func (m *Project) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x1a
 		i++
 		i = encodeVarintProject(dAtA, i, uint64(m.Start.Size()))
-		n4, err4 := m.Start.MarshalTo(dAtA[i:])
-		if err4 != nil {
-			return 0, err4
+		n4, err := m.Start.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
 		}
 		i += n4
 	}
@@ -447,9 +414,9 @@ func (m *Project) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x22
 		i++
 		i = encodeVarintProject(dAtA, i, uint64(m.End.Size()))
-		n5, err5 := m.End.MarshalTo(dAtA[i:])
-		if err5 != nil {
-			return 0, err5
+		n5, err := m.End.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
 		}
 		i += n5
 	}
@@ -475,9 +442,9 @@ func (m *Project) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x3a
 		i++
 		i = encodeVarintProject(dAtA, i, uint64(m.CostLimit.Size()))
-		n6, err6 := m.CostLimit.MarshalTo(dAtA[i:])
-		if err6 != nil {
-			return 0, err6
+		n6, err := m.CostLimit.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
 		}
 		i += n6
 	}
@@ -620,7 +587,7 @@ func (m *ProjectCollection) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= uint64(b&0x7F) << shift
+			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -648,7 +615,7 @@ func (m *ProjectCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -657,9 +624,6 @@ func (m *ProjectCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -684,7 +648,7 @@ func (m *ProjectCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -693,9 +657,6 @@ func (m *ProjectCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -718,7 +679,7 @@ func (m *ProjectCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -727,9 +688,6 @@ func (m *ProjectCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -745,9 +703,6 @@ func (m *ProjectCollection) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
-				return ErrInvalidLengthProject
-			}
-			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthProject
 			}
 			if (iNdEx + skippy) > l {
@@ -778,7 +733,7 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= uint64(b&0x7F) << shift
+			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -806,7 +761,7 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -815,9 +770,6 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -842,7 +794,7 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -851,9 +803,6 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -876,7 +825,7 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -885,9 +834,6 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -905,9 +851,6 @@ func (m *ProjectEntity) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
-				return ErrInvalidLengthProject
-			}
-			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthProject
 			}
 			if (iNdEx + skippy) > l {
@@ -938,7 +881,7 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= uint64(b&0x7F) << shift
+			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -966,7 +909,7 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -976,9 +919,6 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -998,7 +938,7 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1008,9 +948,6 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1030,7 +967,7 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1039,9 +976,6 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1066,7 +1000,7 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1075,9 +1009,6 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1102,7 +1033,7 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1112,9 +1043,6 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1134,7 +1062,7 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1143,9 +1071,6 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1168,7 +1093,7 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= int(b&0x7F) << shift
+				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1177,9 +1102,6 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthProject
 			}
 			postIndex := iNdEx + msglen
-			if postIndex < 0 {
-				return ErrInvalidLengthProject
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1197,9 +1119,6 @@ func (m *Project) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
-				return ErrInvalidLengthProject
-			}
-			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthProject
 			}
 			if (iNdEx + skippy) > l {
@@ -1269,11 +1188,8 @@ func skipProject(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			if length < 0 {
-				return 0, ErrInvalidLengthProject
-			}
 			iNdEx += length
-			if iNdEx < 0 {
+			if length < 0 {
 				return 0, ErrInvalidLengthProject
 			}
 			return iNdEx, nil
@@ -1304,9 +1220,6 @@ func skipProject(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
-				if iNdEx < 0 {
-					return 0, ErrInvalidLengthProject
-				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -1325,3 +1238,34 @@ var (
 	ErrInvalidLengthProject = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowProject   = fmt.Errorf("proto: integer overflow")
 )
+
+func init() { proto.RegisterFile("project/project.proto", fileDescriptor_project_17b74cda049b401a) }
+
+var fileDescriptor_project_17b74cda049b401a = []byte{
+	// 389 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x92, 0x5f, 0x8e, 0xd3, 0x30,
+	0x10, 0xc6, 0x95, 0x3f, 0xdd, 0xd0, 0xe9, 0xb2, 0xb0, 0x46, 0x2c, 0x16, 0x0f, 0x51, 0x28, 0x48,
+	0xec, 0x93, 0x23, 0x96, 0x1b, 0xf0, 0xe7, 0x6d, 0x8b, 0x2a, 0x5f, 0xa0, 0x72, 0x93, 0xa1, 0x32,
+	0x4d, 0xec, 0x28, 0x36, 0x42, 0x39, 0x42, 0x6f, 0xc6, 0x23, 0x47, 0x40, 0x3d, 0x09, 0xb2, 0xe3,
+	0x52, 0x8a, 0xb6, 0x4f, 0xa3, 0x7c, 0xbf, 0x4f, 0xf3, 0xcd, 0x64, 0x0c, 0xcf, 0xbb, 0x5e, 0x7f,
+	0xc3, 0xca, 0x96, 0xa1, 0xb2, 0xae, 0xd7, 0x56, 0x93, 0x2c, 0x7c, 0xbe, 0x7c, 0xf2, 0xf5, 0x7b,
+	0xaf, 0xcb, 0x16, 0xad, 0x18, 0x49, 0x10, 0x1a, 0xa9, 0xb6, 0x41, 0x78, 0xb1, 0xd1, 0x7a, 0xd3,
+	0x60, 0x69, 0x87, 0x0e, 0xcb, 0x56, 0x2b, 0x1c, 0x02, 0xb8, 0xf9, 0x17, 0xd4, 0xc2, 0x62, 0xd0,
+	0x9f, 0x75, 0xd8, 0x1b, 0xad, 0xca, 0xb1, 0x8c, 0xe2, 0x7c, 0x17, 0xc1, 0xf5, 0x72, 0xcc, 0xfc,
+	0xa8, 0x9b, 0x06, 0x2b, 0x2b, 0xb5, 0x22, 0x39, 0xa4, 0x2e, 0x9a, 0xc6, 0x45, 0x74, 0x3b, 0xbb,
+	0x03, 0xe6, 0xb2, 0xd9, 0x02, 0xad, 0xe0, 0x5e, 0x27, 0x05, 0x4c, 0xdc, 0x24, 0x86, 0x26, 0x45,
+	0x72, 0x34, 0xdc, 0x4b, 0xb5, 0xe5, 0x23, 0x20, 0x77, 0xf0, 0x08, 0x95, 0x95, 0x56, 0xa2, 0xa1,
+	0xa9, 0x37, 0xdd, 0xb0, 0xc3, 0xaa, 0x21, 0xef, 0xb3, 0xe3, 0x03, 0xff, 0xeb, 0x9b, 0xff, 0x80,
+	0xc7, 0x27, 0x88, 0xbc, 0x81, 0xb4, 0x16, 0x56, 0xd0, 0xc8, 0x8f, 0xf1, 0xf4, 0xff, 0x06, 0xdc,
+	0xd3, 0xe3, 0x30, 0xf1, 0xb9, 0x61, 0x0e, 0xeb, 0x24, 0x0f, 0xaf, 0x33, 0xdf, 0xc5, 0x90, 0x85,
+	0x9e, 0xe4, 0x0a, 0x62, 0x59, 0xfb, 0xc4, 0x29, 0x8f, 0x65, 0x4d, 0x5e, 0xc1, 0x65, 0x2d, 0x4d,
+	0xd7, 0x88, 0x61, 0xa5, 0x44, 0x8b, 0xfe, 0x97, 0x4c, 0xf9, 0x2c, 0x68, 0x5f, 0x44, 0x8b, 0xe4,
+	0x2d, 0x4c, 0x8c, 0x15, 0xbd, 0x0d, 0xfd, 0xaf, 0xd9, 0x78, 0x00, 0xe6, 0x0e, 0xc0, 0x3e, 0x09,
+	0x8b, 0x7c, 0xe4, 0xe4, 0x35, 0x24, 0xa8, 0x6a, 0x9a, 0x9e, 0xb3, 0x39, 0x4a, 0x0a, 0x98, 0xd5,
+	0x68, 0xaa, 0x5e, 0x76, 0xee, 0x14, 0x74, 0x12, 0xf2, 0x8e, 0x12, 0xb9, 0x85, 0xac, 0xc5, 0x76,
+	0x8d, 0xbd, 0xa1, 0x17, 0x7e, 0xe5, 0x2b, 0x16, 0x6e, 0xba, 0xf4, 0x85, 0x1f, 0x30, 0x79, 0x07,
+	0x50, 0x69, 0x63, 0x57, 0x8d, 0x6c, 0xa5, 0xa5, 0x99, 0xcf, 0x25, 0x27, 0xb9, 0x0b, 0xf7, 0x70,
+	0xf8, 0xd4, 0xb9, 0xee, 0x9d, 0xe9, 0xc3, 0xe5, 0xcf, 0x7d, 0x1e, 0xfd, 0xda, 0xe7, 0xd1, 0xef,
+	0x7d, 0x1e, 0xad, 0x2f, 0xfc, 0x2b, 0x79, 0xff, 0x27, 0x00, 0x00, 0xff, 0xff, 0x5a, 0x0b, 0xd0,
+	0xc5, 0xaf, 0x02, 0x00, 0x00,
+}

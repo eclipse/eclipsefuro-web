@@ -3,12 +3,11 @@
 
 package google_protobuf
 
-import (
-	fmt "fmt"
-	proto "github.com/gogo/protobuf/proto"
-	io "io"
-	math "math"
-)
+import proto "github.com/gogo/protobuf/proto"
+import fmt "fmt"
+import math "math"
+
+import io "io"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -37,7 +36,7 @@ func (m *Any) Reset()         { *m = Any{} }
 func (m *Any) String() string { return proto.CompactTextString(m) }
 func (*Any) ProtoMessage()    {}
 func (*Any) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b53526c13ae22eb4, []int{0}
+	return fileDescriptor_any_2a0f8b03f751c0e6, []int{0}
 }
 func (*Any) XXX_WellKnownType() string { return "Any" }
 func (m *Any) XXX_Unmarshal(b []byte) error {
@@ -55,8 +54,8 @@ func (m *Any) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (m *Any) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Any.Merge(m, src)
+func (dst *Any) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Any.Merge(dst, src)
 }
 func (m *Any) XXX_Size() int {
 	return m.Size()
@@ -84,21 +83,6 @@ func (m *Any) GetValue() []byte {
 func init() {
 	proto.RegisterType((*Any)(nil), "google.protobuf.Any")
 }
-
-func init() { proto.RegisterFile("google/protobuf/any.proto", fileDescriptor_b53526c13ae22eb4) }
-
-var fileDescriptor_b53526c13ae22eb4 = []byte{
-	// 124 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4c, 0xcf, 0xcf, 0x4f,
-	0xcf, 0x49, 0xd5, 0x2f, 0x28, 0xca, 0x2f, 0xc9, 0x4f, 0x2a, 0x4d, 0xd3, 0x4f, 0xcc, 0xab, 0xd4,
-	0x03, 0x73, 0x84, 0xf8, 0x21, 0x52, 0x7a, 0x30, 0x29, 0x25, 0x33, 0x2e, 0x66, 0xc7, 0xbc, 0x4a,
-	0x21, 0x49, 0x2e, 0x8e, 0x92, 0xca, 0x82, 0xd4, 0xf8, 0xd2, 0xa2, 0x1c, 0x09, 0x46, 0x05, 0x46,
-	0x0d, 0xce, 0x20, 0x76, 0x10, 0x3f, 0xb4, 0x28, 0x47, 0x48, 0x84, 0x8b, 0xb5, 0x2c, 0x31, 0xa7,
-	0x34, 0x55, 0x82, 0x49, 0x81, 0x51, 0x83, 0x27, 0x08, 0xc2, 0x71, 0xe2, 0x39, 0xf1, 0x48, 0x8e,
-	0xf1, 0xc2, 0x23, 0x39, 0xc6, 0x07, 0x8f, 0xe4, 0x18, 0x93, 0xd8, 0xc0, 0xe6, 0x19, 0x03, 0x02,
-	0x00, 0x00, 0xff, 0xff, 0x83, 0x94, 0xff, 0xf3, 0x7a, 0x00, 0x00, 0x00,
-}
-
 func (m *Any) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -189,7 +173,7 @@ func (m *Any) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= uint64(b&0x7F) << shift
+			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -217,7 +201,7 @@ func (m *Any) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
+				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -227,9 +211,6 @@ func (m *Any) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthAny
 			}
 			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthAny
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -249,7 +230,7 @@ func (m *Any) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				byteLen |= int(b&0x7F) << shift
+				byteLen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -258,9 +239,6 @@ func (m *Any) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthAny
 			}
 			postIndex := iNdEx + byteLen
-			if postIndex < 0 {
-				return ErrInvalidLengthAny
-			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -276,9 +254,6 @@ func (m *Any) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
-				return ErrInvalidLengthAny
-			}
-			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthAny
 			}
 			if (iNdEx + skippy) > l {
@@ -348,11 +323,8 @@ func skipAny(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			if length < 0 {
-				return 0, ErrInvalidLengthAny
-			}
 			iNdEx += length
-			if iNdEx < 0 {
+			if length < 0 {
 				return 0, ErrInvalidLengthAny
 			}
 			return iNdEx, nil
@@ -383,9 +355,6 @@ func skipAny(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
-				if iNdEx < 0 {
-					return 0, ErrInvalidLengthAny
-				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -404,3 +373,17 @@ var (
 	ErrInvalidLengthAny = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowAny   = fmt.Errorf("proto: integer overflow")
 )
+
+func init() { proto.RegisterFile("google/protobuf/any.proto", fileDescriptor_any_2a0f8b03f751c0e6) }
+
+var fileDescriptor_any_2a0f8b03f751c0e6 = []byte{
+	// 124 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4c, 0xcf, 0xcf, 0x4f,
+	0xcf, 0x49, 0xd5, 0x2f, 0x28, 0xca, 0x2f, 0xc9, 0x4f, 0x2a, 0x4d, 0xd3, 0x4f, 0xcc, 0xab, 0xd4,
+	0x03, 0x73, 0x84, 0xf8, 0x21, 0x52, 0x7a, 0x30, 0x29, 0x25, 0x33, 0x2e, 0x66, 0xc7, 0xbc, 0x4a,
+	0x21, 0x49, 0x2e, 0x8e, 0x92, 0xca, 0x82, 0xd4, 0xf8, 0xd2, 0xa2, 0x1c, 0x09, 0x46, 0x05, 0x46,
+	0x0d, 0xce, 0x20, 0x76, 0x10, 0x3f, 0xb4, 0x28, 0x47, 0x48, 0x84, 0x8b, 0xb5, 0x2c, 0x31, 0xa7,
+	0x34, 0x55, 0x82, 0x49, 0x81, 0x51, 0x83, 0x27, 0x08, 0xc2, 0x71, 0xe2, 0x39, 0xf1, 0x48, 0x8e,
+	0xf1, 0xc2, 0x23, 0x39, 0xc6, 0x07, 0x8f, 0xe4, 0x18, 0x93, 0xd8, 0xc0, 0xe6, 0x19, 0x03, 0x02,
+	0x00, 0x00, 0xff, 0xff, 0x83, 0x94, 0xff, 0xf3, 0x7a, 0x00, 0x00, 0x00,
+}
