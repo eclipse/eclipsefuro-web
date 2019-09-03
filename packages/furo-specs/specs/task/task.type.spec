@@ -28,9 +28,9 @@
       "description": "Localized String representation of a task",
       "type": "string",
       "meta": {
-        "label": "Task",
+        "label": "task.display_name.label",
         "default": "",
-        "hint": "",
+        "hint": "task.display_name.hint",
         "readonly": true
       },
       "constraints": {},
@@ -42,11 +42,16 @@
       "description": "Short task description",
       "type": "string",
       "meta": {
-        "label": "Description",
+        "label": "task.desc.label",
         "default": "",
         "hint": ""
       },
-      "constraints": {},
+      "constraints": {
+        "max": {
+          "value": 180,
+          "message": "task.desc.maxlength"
+        }
+      },
       "__proto": {
         "number": 3
       }

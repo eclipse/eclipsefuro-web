@@ -71,7 +71,8 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -276,7 +277,8 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [

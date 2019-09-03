@@ -10,8 +10,6 @@ import '@furo/data-ui/furo-data-table-toggle';
 
 
 const tableHeaders = (fields) => html`${fields.map(f => html`<th class="head"><div class="cell">${f.meta.label} <furo-data-table-toggle field="${f.id}"></furo-data-table-toggle></div></th>`)}`;
-const tableDetails = (fields) => html`${fields.map(f => html`<td><div class="cell" ƒ-.inner-text="${f.wire}"></div></td>`)}`;
-
 const tdWRepeat = (fields) => html`
   ${fields.map(f => html`
     ${f.meta.repeated

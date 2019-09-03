@@ -3,12 +3,13 @@
 
 package task
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import furo "../furo"
-
-import io "io"
+import (
+	furo "../furo"
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -24,11 +25,11 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 // TaskEntity with Task
 type TaskEntity struct {
 	// contains a task.Task
-	Data *Task `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	Data *Task `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
 	// Hateoas links
-	Links []*furo.Link `protobuf:"bytes,2,rep,name=links" json:"links,omitempty"`
+	Links []*furo.Link `protobuf:"bytes,2,rep,name=links,proto3" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *furo.Meta `protobuf:"bytes,3,opt,name=meta" json:"meta,omitempty"`
+	Meta                 *furo.Meta `protobuf:"bytes,3,opt,name=meta,proto3" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -38,7 +39,7 @@ func (m *TaskEntity) Reset()         { *m = TaskEntity{} }
 func (m *TaskEntity) String() string { return proto.CompactTextString(m) }
 func (*TaskEntity) ProtoMessage()    {}
 func (*TaskEntity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_c9bbe5a119d8c5a6, []int{0}
+	return fileDescriptor_8e8f2b86464a95fe, []int{0}
 }
 func (m *TaskEntity) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -55,8 +56,8 @@ func (m *TaskEntity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *TaskEntity) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TaskEntity.Merge(dst, src)
+func (m *TaskEntity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskEntity.Merge(m, src)
 }
 func (m *TaskEntity) XXX_Size() int {
 	return m.Size()
@@ -91,11 +92,11 @@ func (m *TaskEntity) GetMeta() *furo.Meta {
 // TaskCollection with repeated TaskEntity
 type TaskCollection struct {
 	// Contains a task.TaskEntity repeated
-	Entities []*TaskEntity `protobuf:"bytes,4,rep,name=entities" json:"entities,omitempty"`
+	Entities []*TaskEntity `protobuf:"bytes,4,rep,name=entities,proto3" json:"entities,omitempty"`
 	// Hateoas links
-	Links []*furo.Link `protobuf:"bytes,3,rep,name=links" json:"links,omitempty"`
+	Links []*furo.Link `protobuf:"bytes,3,rep,name=links,proto3" json:"links,omitempty"`
 	// Meta for the response
-	Meta                 *furo.Meta `protobuf:"bytes,2,opt,name=meta" json:"meta,omitempty"`
+	Meta                 *furo.Meta `protobuf:"bytes,2,opt,name=meta,proto3" json:"meta,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -105,7 +106,7 @@ func (m *TaskCollection) Reset()         { *m = TaskCollection{} }
 func (m *TaskCollection) String() string { return proto.CompactTextString(m) }
 func (*TaskCollection) ProtoMessage()    {}
 func (*TaskCollection) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_c9bbe5a119d8c5a6, []int{1}
+	return fileDescriptor_8e8f2b86464a95fe, []int{1}
 }
 func (m *TaskCollection) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -122,8 +123,8 @@ func (m *TaskCollection) XXX_Marshal(b []byte, deterministic bool) ([]byte, erro
 		return b[:n], nil
 	}
 }
-func (dst *TaskCollection) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TaskCollection.Merge(dst, src)
+func (m *TaskCollection) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TaskCollection.Merge(m, src)
 }
 func (m *TaskCollection) XXX_Size() int {
 	return m.Size()
@@ -166,9 +167,9 @@ type Task struct {
 	// Identity of a task
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Owner of a task
-	Owner *furo.Reference `protobuf:"bytes,5,opt,name=owner" json:"owner,omitempty"`
+	Owner *furo.Reference `protobuf:"bytes,5,opt,name=owner,proto3" json:"owner,omitempty"`
 	// List of subtasks
-	Subtasks             []*Task  `protobuf:"bytes,6,rep,name=subtasks" json:"subtasks,omitempty"`
+	Subtasks             []*Task  `protobuf:"bytes,6,rep,name=subtasks,proto3" json:"subtasks,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -178,7 +179,7 @@ func (m *Task) Reset()         { *m = Task{} }
 func (m *Task) String() string { return proto.CompactTextString(m) }
 func (*Task) ProtoMessage()    {}
 func (*Task) Descriptor() ([]byte, []int) {
-	return fileDescriptor_task_c9bbe5a119d8c5a6, []int{2}
+	return fileDescriptor_8e8f2b86464a95fe, []int{2}
 }
 func (m *Task) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -195,8 +196,8 @@ func (m *Task) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *Task) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Task.Merge(dst, src)
+func (m *Task) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Task.Merge(m, src)
 }
 func (m *Task) XXX_Size() int {
 	return m.Size()
@@ -254,6 +255,35 @@ func init() {
 	proto.RegisterType((*TaskCollection)(nil), "task.TaskCollection")
 	proto.RegisterType((*Task)(nil), "task.Task")
 }
+
+func init() { proto.RegisterFile("task/task.proto", fileDescriptor_8e8f2b86464a95fe) }
+
+var fileDescriptor_8e8f2b86464a95fe = []byte{
+	// 339 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x91, 0xc1, 0x6a, 0xf2, 0x40,
+	0x10, 0xc7, 0xd9, 0x98, 0x88, 0x8e, 0x7e, 0xfa, 0xb1, 0xf4, 0xb0, 0x78, 0x08, 0xa9, 0x60, 0xf1,
+	0x50, 0x14, 0xda, 0x37, 0x68, 0xe9, 0xad, 0xed, 0x61, 0xf1, 0x2e, 0xab, 0x19, 0x61, 0x31, 0xd9,
+	0x48, 0x76, 0xa5, 0x78, 0xeb, 0xe3, 0xf5, 0xd8, 0xbe, 0x41, 0xf1, 0x49, 0xca, 0xec, 0xa6, 0xda,
+	0x4b, 0xe9, 0x45, 0xe4, 0x37, 0x7f, 0xfe, 0xf3, 0xcb, 0x0e, 0x0c, 0x9d, 0xb2, 0xdb, 0x39, 0xfd,
+	0xcc, 0x76, 0x75, 0xe5, 0x2a, 0x1e, 0xd3, 0xff, 0xd1, 0x70, 0xb3, 0xaf, 0xab, 0x79, 0x89, 0x4e,
+	0x05, 0xdc, 0x80, 0x42, 0x9b, 0x26, 0x37, 0xba, 0xf0, 0xa0, 0xc6, 0x0d, 0xd6, 0x68, 0xd6, 0x18,
+	0xe8, 0xd8, 0x00, 0x2c, 0x94, 0xdd, 0x3e, 0x18, 0xa7, 0xdd, 0x81, 0xa7, 0x10, 0xe7, 0xca, 0x29,
+	0xc1, 0x32, 0x36, 0xed, 0xdd, 0xc0, 0xcc, 0xaf, 0xa1, 0xb9, 0xf4, 0x9c, 0x67, 0x90, 0x50, 0xa3,
+	0x15, 0x51, 0xd6, 0xf2, 0x01, 0xea, 0x9c, 0x3d, 0x6a, 0xb3, 0x95, 0x61, 0x40, 0x0d, 0x24, 0x21,
+	0x5a, 0x4d, 0x83, 0x0f, 0x3c, 0xa1, 0x53, 0xd2, 0xf3, 0xf1, 0x2b, 0x83, 0x01, 0x15, 0xde, 0x57,
+	0x45, 0x81, 0x6b, 0xa7, 0x2b, 0xc3, 0xaf, 0xa1, 0x83, 0xb4, 0x5e, 0xa3, 0x15, 0xb1, 0xef, 0xfd,
+	0x7f, 0x5e, 0x1c, 0xc4, 0xe4, 0x29, 0x71, 0x56, 0x68, 0xfd, 0xa5, 0x10, 0xfd, 0xa2, 0xf0, 0xc1,
+	0x20, 0xa6, 0x6a, 0x9e, 0x41, 0x2f, 0x47, 0xbb, 0xae, 0xf5, 0x8e, 0x3c, 0xbc, 0x72, 0x57, 0xfe,
+	0x44, 0xfc, 0x12, 0xfa, 0xb9, 0xb6, 0xbb, 0x42, 0x1d, 0x96, 0x46, 0x95, 0xe8, 0x2b, 0x29, 0x12,
+	0xd8, 0xb3, 0x2a, 0x91, 0x4f, 0x60, 0x80, 0xd6, 0xe9, 0x52, 0x39, 0xcc, 0x97, 0x4e, 0x97, 0x28,
+	0xe2, 0x8c, 0x4d, 0x13, 0xf9, 0xef, 0x44, 0x17, 0xba, 0x44, 0x3e, 0x80, 0x48, 0xe7, 0xfe, 0x5d,
+	0xbb, 0x32, 0xd2, 0x39, 0x9f, 0x40, 0x52, 0xbd, 0x18, 0xac, 0x45, 0xe2, 0x2d, 0x87, 0xc1, 0x52,
+	0x7e, 0x5f, 0x47, 0x86, 0x29, 0xbf, 0x82, 0x8e, 0xdd, 0xaf, 0xe8, 0x35, 0xac, 0x68, 0x37, 0x1f,
+	0x7c, 0x3e, 0xca, 0x69, 0x76, 0xd7, 0x7f, 0x3b, 0xa6, 0xec, 0xfd, 0x98, 0xb2, 0xcf, 0x63, 0xca,
+	0x56, 0x6d, 0x7f, 0xdb, 0xdb, 0xaf, 0x00, 0x00, 0x00, 0xff, 0xff, 0xd1, 0x9b, 0xab, 0xf0, 0x2c,
+	0x02, 0x00, 0x00,
+}
+
 func (m *TaskEntity) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -273,9 +303,9 @@ func (m *TaskEntity) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0xa
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(m.Data.Size()))
-		n1, err := m.Data.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n1, err1 := m.Data.MarshalTo(dAtA[i:])
+		if err1 != nil {
+			return 0, err1
 		}
 		i += n1
 	}
@@ -295,9 +325,9 @@ func (m *TaskEntity) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x1a
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(m.Meta.Size()))
-		n2, err := m.Meta.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n2, err2 := m.Meta.MarshalTo(dAtA[i:])
+		if err2 != nil {
+			return 0, err2
 		}
 		i += n2
 	}
@@ -326,9 +356,9 @@ func (m *TaskCollection) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x12
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(m.Meta.Size()))
-		n3, err := m.Meta.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n3, err3 := m.Meta.MarshalTo(dAtA[i:])
+		if err3 != nil {
+			return 0, err3
 		}
 		i += n3
 	}
@@ -404,9 +434,9 @@ func (m *Task) MarshalTo(dAtA []byte) (int, error) {
 		dAtA[i] = 0x2a
 		i++
 		i = encodeVarintTask(dAtA, i, uint64(m.Owner.Size()))
-		n4, err := m.Owner.MarshalTo(dAtA[i:])
-		if err != nil {
-			return 0, err
+		n4, err4 := m.Owner.MarshalTo(dAtA[i:])
+		if err4 != nil {
+			return 0, err4
 		}
 		i += n4
 	}
@@ -556,7 +586,7 @@ func (m *TaskEntity) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -584,7 +614,7 @@ func (m *TaskEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -593,6 +623,9 @@ func (m *TaskEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -617,7 +650,7 @@ func (m *TaskEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -626,6 +659,9 @@ func (m *TaskEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -648,7 +684,7 @@ func (m *TaskEntity) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -657,6 +693,9 @@ func (m *TaskEntity) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -674,6 +713,9 @@ func (m *TaskEntity) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTask
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTask
 			}
 			if (iNdEx + skippy) > l {
@@ -704,7 +746,7 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -732,7 +774,7 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -741,6 +783,9 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -765,7 +810,7 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -774,6 +819,9 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -796,7 +844,7 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -805,6 +853,9 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -820,6 +871,9 @@ func (m *TaskCollection) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTask
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTask
 			}
 			if (iNdEx + skippy) > l {
@@ -850,7 +904,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -878,7 +932,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -888,6 +942,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -907,7 +964,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -917,6 +974,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -936,7 +996,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
+				stringLen |= uint64(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -946,6 +1006,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -965,7 +1028,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				m.EstimatedTime |= (int32(b) & 0x7F) << shift
+				m.EstimatedTime |= int32(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -984,7 +1047,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -993,6 +1056,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1017,7 +1083,7 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -1026,6 +1092,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthTask
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTask
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -1041,6 +1110,9 @@ func (m *Task) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthTask
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthTask
 			}
 			if (iNdEx + skippy) > l {
@@ -1110,8 +1182,11 @@ func skipTask(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthTask
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthTask
 			}
 			return iNdEx, nil
@@ -1142,6 +1217,9 @@ func skipTask(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthTask
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -1160,31 +1238,3 @@ var (
 	ErrInvalidLengthTask = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowTask   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() { proto.RegisterFile("task/task.proto", fileDescriptor_task_c9bbe5a119d8c5a6) }
-
-var fileDescriptor_task_c9bbe5a119d8c5a6 = []byte{
-	// 340 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x91, 0xc1, 0x4a, 0xc3, 0x40,
-	0x10, 0x86, 0xd9, 0x34, 0x29, 0xed, 0xb4, 0xb6, 0xb2, 0x78, 0x58, 0x7a, 0x08, 0xb1, 0x50, 0xe9,
-	0x41, 0x5a, 0xd0, 0x37, 0x50, 0xbc, 0xa9, 0x87, 0xa5, 0xf7, 0xb2, 0x6d, 0xa6, 0xb0, 0x34, 0xd9,
-	0x94, 0xec, 0x16, 0xe9, 0xcd, 0xc7, 0xf3, 0xa8, 0x6f, 0x20, 0x7d, 0x12, 0x99, 0x4d, 0x4c, 0x2e,
-	0x7a, 0x09, 0xe1, 0xfb, 0xff, 0xfd, 0x67, 0x7e, 0x06, 0xc6, 0x4e, 0xd9, 0xfd, 0x92, 0x3e, 0x8b,
-	0x43, 0x59, 0xb8, 0x82, 0x87, 0xf4, 0x3f, 0x19, 0xef, 0x8e, 0x65, 0xb1, 0xcc, 0xd1, 0xa9, 0x0a,
-	0xd7, 0x20, 0xd3, 0xa6, 0xf6, 0x4d, 0xae, 0x3c, 0x28, 0x71, 0x87, 0x25, 0x9a, 0x2d, 0x56, 0x74,
-	0x6a, 0x00, 0x56, 0xca, 0xee, 0x9f, 0x8c, 0xd3, 0xee, 0xc4, 0x63, 0x08, 0x53, 0xe5, 0x94, 0x60,
-	0x09, 0x9b, 0x0f, 0xee, 0x60, 0xe1, 0xc7, 0x90, 0x2e, 0x3d, 0xe7, 0x09, 0x44, 0x94, 0x68, 0x45,
-	0x90, 0x74, 0xbc, 0x81, 0x32, 0x17, 0xcf, 0xda, 0xec, 0x65, 0x25, 0x50, 0x02, 0x2d, 0x21, 0x3a,
-	0x75, 0x82, 0x37, 0xbc, 0xa0, 0x53, 0xd2, 0xf3, 0xe9, 0x3b, 0x83, 0x11, 0x05, 0x3e, 0x16, 0x59,
-	0x86, 0x5b, 0xa7, 0x0b, 0xd3, 0x3c, 0x09, 0xfe, 0x7e, 0xd2, 0x0e, 0xed, 0xfc, 0x37, 0xf4, 0x16,
-	0x7a, 0x48, 0x05, 0x34, 0x5a, 0x11, 0x7a, 0xd3, 0x65, 0xbb, 0x7a, 0x55, 0x4d, 0x36, 0x8e, 0xe9,
-	0x17, 0x83, 0x90, 0x04, 0x3e, 0x82, 0x40, 0xa7, 0xbe, 0x6b, 0x5f, 0x06, 0x3a, 0xe5, 0xd7, 0x30,
-	0x4c, 0xb5, 0x3d, 0x64, 0xea, 0xb4, 0x36, 0x2a, 0x47, 0xbf, 0x50, 0x5f, 0x0e, 0x6a, 0xf6, 0xaa,
-	0x72, 0xe4, 0x09, 0x0c, 0x52, 0xb4, 0xdb, 0x52, 0x1f, 0x68, 0x75, 0xdf, 0x92, 0x1c, 0x2d, 0xe2,
-	0x33, 0x18, 0xa1, 0x75, 0x3a, 0x57, 0x0e, 0xd3, 0xb5, 0xd3, 0x39, 0x8a, 0x30, 0x61, 0xf3, 0x48,
-	0x5e, 0x34, 0x74, 0xa5, 0x73, 0xe4, 0x33, 0x88, 0x8a, 0x37, 0x83, 0xa5, 0x88, 0x7c, 0xeb, 0x71,
-	0x55, 0x4a, 0xfe, 0x5e, 0x47, 0x56, 0x2a, 0xbf, 0x81, 0x9e, 0x3d, 0x6e, 0xa8, 0x8b, 0x15, 0xdd,
-	0xba, 0x7e, 0x7b, 0x94, 0x46, 0x7b, 0x18, 0x7e, 0x9c, 0x63, 0xf6, 0x79, 0x8e, 0xd9, 0xf7, 0x39,
-	0x66, 0x9b, 0xae, 0xbf, 0xed, 0xfd, 0x4f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xba, 0xb3, 0x56, 0xbe,
-	0x2c, 0x02, 0x00, 0x00,
-}

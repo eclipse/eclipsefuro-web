@@ -3,11 +3,12 @@
 
 package furo
 
-import proto "github.com/gogo/protobuf/proto"
-import fmt "fmt"
-import math "math"
-
-import io "io"
+import (
+	fmt "fmt"
+	proto "github.com/gogo/protobuf/proto"
+	io "io"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -23,9 +24,9 @@ const _ = proto.GoGoProtoPackageIsVersion2 // please upgrade the proto package
 // fields of meta info
 type MetaField struct {
 	// constrain of a field
-	Constraints map[string]*FieldConstraint `protobuf:"bytes,2,rep,name=constraints" json:"constraints,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value"`
+	Constraints map[string]*FieldConstraint `protobuf:"bytes,2,rep,name=constraints,proto3" json:"constraints,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// meta information of a field
-	Meta                 map[string]string `protobuf:"bytes,1,rep,name=meta" json:"meta,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Meta                 map[string]string `protobuf:"bytes,1,rep,name=meta,proto3" json:"meta,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`
@@ -35,7 +36,7 @@ func (m *MetaField) Reset()         { *m = MetaField{} }
 func (m *MetaField) String() string { return proto.CompactTextString(m) }
 func (*MetaField) ProtoMessage()    {}
 func (*MetaField) Descriptor() ([]byte, []int) {
-	return fileDescriptor_meta_bef3e49e57db3401, []int{0}
+	return fileDescriptor_16348e1ffea5108d, []int{0}
 }
 func (m *MetaField) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -52,8 +53,8 @@ func (m *MetaField) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *MetaField) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MetaField.Merge(dst, src)
+func (m *MetaField) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MetaField.Merge(m, src)
 }
 func (m *MetaField) XXX_Size() int {
 	return m.Size()
@@ -81,7 +82,7 @@ func (m *MetaField) GetMeta() map[string]string {
 // meta info
 type Meta struct {
 	// fields of meta info
-	Fields               map[string]*MetaField `protobuf:"bytes,1,rep,name=fields" json:"fields,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value"`
+	Fields               map[string]*MetaField `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
 	XXX_unrecognized     []byte                `json:"-"`
 	XXX_sizecache        int32                 `json:"-"`
@@ -91,7 +92,7 @@ func (m *Meta) Reset()         { *m = Meta{} }
 func (m *Meta) String() string { return proto.CompactTextString(m) }
 func (*Meta) ProtoMessage()    {}
 func (*Meta) Descriptor() ([]byte, []int) {
-	return fileDescriptor_meta_bef3e49e57db3401, []int{1}
+	return fileDescriptor_16348e1ffea5108d, []int{1}
 }
 func (m *Meta) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -108,8 +109,8 @@ func (m *Meta) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (dst *Meta) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Meta.Merge(dst, src)
+func (m *Meta) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Meta.Merge(m, src)
 }
 func (m *Meta) XXX_Size() int {
 	return m.Size()
@@ -130,7 +131,7 @@ func (m *Meta) GetFields() map[string]*MetaField {
 // constrains of fields
 type FieldConstraint struct {
 	// constrain of a field
-	Constraint           map[string]string `protobuf:"bytes,1,rep,name=constraint" json:"constraint,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Constraint           map[string]string `protobuf:"bytes,1,rep,name=constraint,proto3" json:"constraint,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`
@@ -140,7 +141,7 @@ func (m *FieldConstraint) Reset()         { *m = FieldConstraint{} }
 func (m *FieldConstraint) String() string { return proto.CompactTextString(m) }
 func (*FieldConstraint) ProtoMessage()    {}
 func (*FieldConstraint) Descriptor() ([]byte, []int) {
-	return fileDescriptor_meta_bef3e49e57db3401, []int{2}
+	return fileDescriptor_16348e1ffea5108d, []int{2}
 }
 func (m *FieldConstraint) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -157,8 +158,8 @@ func (m *FieldConstraint) XXX_Marshal(b []byte, deterministic bool) ([]byte, err
 		return b[:n], nil
 	}
 }
-func (dst *FieldConstraint) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_FieldConstraint.Merge(dst, src)
+func (m *FieldConstraint) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_FieldConstraint.Merge(m, src)
 }
 func (m *FieldConstraint) XXX_Size() int {
 	return m.Size()
@@ -185,6 +186,31 @@ func init() {
 	proto.RegisterType((*FieldConstraint)(nil), "furo.FieldConstraint")
 	proto.RegisterMapType((map[string]string)(nil), "furo.FieldConstraint.ConstraintEntry")
 }
+
+func init() { proto.RegisterFile("furo/meta.proto", fileDescriptor_16348e1ffea5108d) }
+
+var fileDescriptor_16348e1ffea5108d = []byte{
+	// 284 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4f, 0x2b, 0x2d, 0xca,
+	0xd7, 0xcf, 0x4d, 0x2d, 0x49, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x01, 0x09, 0x28,
+	0xf5, 0x31, 0x71, 0x71, 0xfa, 0xa6, 0x96, 0x24, 0xba, 0x65, 0xa6, 0xe6, 0xa4, 0x08, 0x39, 0x71,
+	0x71, 0x27, 0xe7, 0xe7, 0x15, 0x97, 0x14, 0x25, 0x66, 0xe6, 0x95, 0x14, 0x4b, 0x30, 0x29, 0x30,
+	0x6b, 0x70, 0x1b, 0x29, 0xe8, 0x81, 0x54, 0xea, 0xc1, 0x55, 0xe9, 0x39, 0x23, 0x94, 0xb8, 0xe6,
+	0x95, 0x14, 0x55, 0x06, 0x21, 0x6b, 0x12, 0xd2, 0xe5, 0x62, 0x01, 0xd9, 0x22, 0xc1, 0x08, 0xd6,
+	0x2c, 0x89, 0xae, 0x19, 0xc4, 0x82, 0xe8, 0x02, 0x2b, 0x93, 0x0a, 0xe5, 0x12, 0x40, 0x37, 0x4f,
+	0x48, 0x80, 0x8b, 0x39, 0x3b, 0xb5, 0x52, 0x82, 0x51, 0x81, 0x51, 0x83, 0x33, 0x08, 0xc4, 0x14,
+	0xd2, 0xe6, 0x62, 0x2d, 0x4b, 0xcc, 0x29, 0x4d, 0x95, 0x60, 0x52, 0x60, 0xd4, 0xe0, 0x36, 0x12,
+	0x85, 0x98, 0x0a, 0x36, 0x11, 0xa1, 0x3b, 0x08, 0xa2, 0xc6, 0x8a, 0xc9, 0x82, 0x51, 0xca, 0x1c,
+	0xe2, 0x2d, 0x5c, 0xe6, 0x89, 0x20, 0x9b, 0xc7, 0x89, 0xa4, 0x51, 0xa9, 0x89, 0x91, 0x8b, 0x05,
+	0xa4, 0x53, 0x48, 0x8f, 0x8b, 0x2d, 0x0d, 0x64, 0x7e, 0x31, 0xd4, 0x27, 0x62, 0x08, 0x9f, 0x40,
+	0x2c, 0x86, 0x7a, 0x1e, 0xaa, 0x4a, 0xca, 0x8b, 0x8b, 0x1b, 0x49, 0x18, 0x8b, 0x9d, 0xaa, 0xa8,
+	0x7e, 0xe0, 0x47, 0x0b, 0x19, 0x64, 0x47, 0x4c, 0x67, 0xe4, 0xe2, 0x47, 0xf3, 0x9c, 0x90, 0x2b,
+	0x17, 0x17, 0x22, 0x98, 0xa1, 0x6e, 0x52, 0xc5, 0x1a, 0x0e, 0x48, 0x11, 0x04, 0x71, 0x22, 0x92,
+	0x46, 0x29, 0x5b, 0x2e, 0x7e, 0x34, 0x69, 0x52, 0x82, 0xc7, 0x89, 0xe7, 0xc4, 0x23, 0x39, 0xc6,
+	0x0b, 0x8f, 0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x4c, 0x62, 0x03, 0x27, 0x25, 0x63, 0x40, 0x00,
+	0x00, 0x00, 0xff, 0xff, 0xba, 0x15, 0x0d, 0x46, 0x5d, 0x02, 0x00, 0x00,
+}
+
 func (m *MetaField) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
@@ -237,9 +263,9 @@ func (m *MetaField) MarshalTo(dAtA []byte) (int, error) {
 				dAtA[i] = 0x12
 				i++
 				i = encodeVarintMeta(dAtA, i, uint64(v.Size()))
-				n1, err := v.MarshalTo(dAtA[i:])
-				if err != nil {
-					return 0, err
+				n1, err1 := v.MarshalTo(dAtA[i:])
+				if err1 != nil {
+					return 0, err1
 				}
 				i += n1
 			}
@@ -286,9 +312,9 @@ func (m *Meta) MarshalTo(dAtA []byte) (int, error) {
 				dAtA[i] = 0x12
 				i++
 				i = encodeVarintMeta(dAtA, i, uint64(v.Size()))
-				n2, err := v.MarshalTo(dAtA[i:])
-				if err != nil {
-					return 0, err
+				n2, err2 := v.MarshalTo(dAtA[i:])
+				if err2 != nil {
+					return 0, err2
 				}
 				i += n2
 			}
@@ -453,7 +479,7 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -481,7 +507,7 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -490,6 +516,9 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthMeta
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMeta
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -510,7 +539,7 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					wire |= (uint64(b) & 0x7F) << shift
+					wire |= uint64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
@@ -527,7 +556,7 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 						}
 						b := dAtA[iNdEx]
 						iNdEx++
-						stringLenmapkey |= (uint64(b) & 0x7F) << shift
+						stringLenmapkey |= uint64(b&0x7F) << shift
 						if b < 0x80 {
 							break
 						}
@@ -537,6 +566,9 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 						return ErrInvalidLengthMeta
 					}
 					postStringIndexmapkey := iNdEx + intStringLenmapkey
+					if postStringIndexmapkey < 0 {
+						return ErrInvalidLengthMeta
+					}
 					if postStringIndexmapkey > l {
 						return io.ErrUnexpectedEOF
 					}
@@ -553,7 +585,7 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 						}
 						b := dAtA[iNdEx]
 						iNdEx++
-						stringLenmapvalue |= (uint64(b) & 0x7F) << shift
+						stringLenmapvalue |= uint64(b&0x7F) << shift
 						if b < 0x80 {
 							break
 						}
@@ -563,6 +595,9 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 						return ErrInvalidLengthMeta
 					}
 					postStringIndexmapvalue := iNdEx + intStringLenmapvalue
+					if postStringIndexmapvalue < 0 {
+						return ErrInvalidLengthMeta
+					}
 					if postStringIndexmapvalue > l {
 						return io.ErrUnexpectedEOF
 					}
@@ -599,7 +634,7 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -608,6 +643,9 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthMeta
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMeta
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -628,7 +666,7 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					wire |= (uint64(b) & 0x7F) << shift
+					wire |= uint64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
@@ -645,7 +683,7 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 						}
 						b := dAtA[iNdEx]
 						iNdEx++
-						stringLenmapkey |= (uint64(b) & 0x7F) << shift
+						stringLenmapkey |= uint64(b&0x7F) << shift
 						if b < 0x80 {
 							break
 						}
@@ -655,6 +693,9 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 						return ErrInvalidLengthMeta
 					}
 					postStringIndexmapkey := iNdEx + intStringLenmapkey
+					if postStringIndexmapkey < 0 {
+						return ErrInvalidLengthMeta
+					}
 					if postStringIndexmapkey > l {
 						return io.ErrUnexpectedEOF
 					}
@@ -671,7 +712,7 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 						}
 						b := dAtA[iNdEx]
 						iNdEx++
-						mapmsglen |= (int(b) & 0x7F) << shift
+						mapmsglen |= int(b&0x7F) << shift
 						if b < 0x80 {
 							break
 						}
@@ -680,7 +721,7 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 						return ErrInvalidLengthMeta
 					}
 					postmsgIndex := iNdEx + mapmsglen
-					if mapmsglen < 0 {
+					if postmsgIndex < 0 {
 						return ErrInvalidLengthMeta
 					}
 					if postmsgIndex > l {
@@ -717,6 +758,9 @@ func (m *MetaField) Unmarshal(dAtA []byte) error {
 			if skippy < 0 {
 				return ErrInvalidLengthMeta
 			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthMeta
+			}
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -745,7 +789,7 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -773,7 +817,7 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -782,6 +826,9 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthMeta
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMeta
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -802,7 +849,7 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					wire |= (uint64(b) & 0x7F) << shift
+					wire |= uint64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
@@ -819,7 +866,7 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 						}
 						b := dAtA[iNdEx]
 						iNdEx++
-						stringLenmapkey |= (uint64(b) & 0x7F) << shift
+						stringLenmapkey |= uint64(b&0x7F) << shift
 						if b < 0x80 {
 							break
 						}
@@ -829,6 +876,9 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 						return ErrInvalidLengthMeta
 					}
 					postStringIndexmapkey := iNdEx + intStringLenmapkey
+					if postStringIndexmapkey < 0 {
+						return ErrInvalidLengthMeta
+					}
 					if postStringIndexmapkey > l {
 						return io.ErrUnexpectedEOF
 					}
@@ -845,7 +895,7 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 						}
 						b := dAtA[iNdEx]
 						iNdEx++
-						mapmsglen |= (int(b) & 0x7F) << shift
+						mapmsglen |= int(b&0x7F) << shift
 						if b < 0x80 {
 							break
 						}
@@ -854,7 +904,7 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 						return ErrInvalidLengthMeta
 					}
 					postmsgIndex := iNdEx + mapmsglen
-					if mapmsglen < 0 {
+					if postmsgIndex < 0 {
 						return ErrInvalidLengthMeta
 					}
 					if postmsgIndex > l {
@@ -891,6 +941,9 @@ func (m *Meta) Unmarshal(dAtA []byte) error {
 			if skippy < 0 {
 				return ErrInvalidLengthMeta
 			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthMeta
+			}
 			if (iNdEx + skippy) > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -919,7 +972,7 @@ func (m *FieldConstraint) Unmarshal(dAtA []byte) error {
 			}
 			b := dAtA[iNdEx]
 			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
+			wire |= uint64(b&0x7F) << shift
 			if b < 0x80 {
 				break
 			}
@@ -947,7 +1000,7 @@ func (m *FieldConstraint) Unmarshal(dAtA []byte) error {
 				}
 				b := dAtA[iNdEx]
 				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
+				msglen |= int(b&0x7F) << shift
 				if b < 0x80 {
 					break
 				}
@@ -956,6 +1009,9 @@ func (m *FieldConstraint) Unmarshal(dAtA []byte) error {
 				return ErrInvalidLengthMeta
 			}
 			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMeta
+			}
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
@@ -976,7 +1032,7 @@ func (m *FieldConstraint) Unmarshal(dAtA []byte) error {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					wire |= (uint64(b) & 0x7F) << shift
+					wire |= uint64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
@@ -993,7 +1049,7 @@ func (m *FieldConstraint) Unmarshal(dAtA []byte) error {
 						}
 						b := dAtA[iNdEx]
 						iNdEx++
-						stringLenmapkey |= (uint64(b) & 0x7F) << shift
+						stringLenmapkey |= uint64(b&0x7F) << shift
 						if b < 0x80 {
 							break
 						}
@@ -1003,6 +1059,9 @@ func (m *FieldConstraint) Unmarshal(dAtA []byte) error {
 						return ErrInvalidLengthMeta
 					}
 					postStringIndexmapkey := iNdEx + intStringLenmapkey
+					if postStringIndexmapkey < 0 {
+						return ErrInvalidLengthMeta
+					}
 					if postStringIndexmapkey > l {
 						return io.ErrUnexpectedEOF
 					}
@@ -1019,7 +1078,7 @@ func (m *FieldConstraint) Unmarshal(dAtA []byte) error {
 						}
 						b := dAtA[iNdEx]
 						iNdEx++
-						stringLenmapvalue |= (uint64(b) & 0x7F) << shift
+						stringLenmapvalue |= uint64(b&0x7F) << shift
 						if b < 0x80 {
 							break
 						}
@@ -1029,6 +1088,9 @@ func (m *FieldConstraint) Unmarshal(dAtA []byte) error {
 						return ErrInvalidLengthMeta
 					}
 					postStringIndexmapvalue := iNdEx + intStringLenmapvalue
+					if postStringIndexmapvalue < 0 {
+						return ErrInvalidLengthMeta
+					}
 					if postStringIndexmapvalue > l {
 						return io.ErrUnexpectedEOF
 					}
@@ -1058,6 +1120,9 @@ func (m *FieldConstraint) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			if skippy < 0 {
+				return ErrInvalidLengthMeta
+			}
+			if (iNdEx + skippy) < 0 {
 				return ErrInvalidLengthMeta
 			}
 			if (iNdEx + skippy) > l {
@@ -1127,8 +1192,11 @@ func skipMeta(dAtA []byte) (n int, err error) {
 					break
 				}
 			}
-			iNdEx += length
 			if length < 0 {
+				return 0, ErrInvalidLengthMeta
+			}
+			iNdEx += length
+			if iNdEx < 0 {
 				return 0, ErrInvalidLengthMeta
 			}
 			return iNdEx, nil
@@ -1159,6 +1227,9 @@ func skipMeta(dAtA []byte) (n int, err error) {
 					return 0, err
 				}
 				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthMeta
+				}
 			}
 			return iNdEx, nil
 		case 4:
@@ -1177,27 +1248,3 @@ var (
 	ErrInvalidLengthMeta = fmt.Errorf("proto: negative length found during unmarshaling")
 	ErrIntOverflowMeta   = fmt.Errorf("proto: integer overflow")
 )
-
-func init() { proto.RegisterFile("furo/meta.proto", fileDescriptor_meta_bef3e49e57db3401) }
-
-var fileDescriptor_meta_bef3e49e57db3401 = []byte{
-	// 282 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4f, 0x2b, 0x2d, 0xca,
-	0xd7, 0xcf, 0x4d, 0x2d, 0x49, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x01, 0x09, 0x28,
-	0xf5, 0x31, 0x71, 0x71, 0xfa, 0xa6, 0x96, 0x24, 0xba, 0x65, 0xa6, 0xe6, 0xa4, 0x08, 0xe9, 0x72,
-	0xb1, 0x80, 0x54, 0x48, 0x30, 0x2a, 0x30, 0x6b, 0x70, 0x1b, 0x49, 0xea, 0x81, 0x94, 0xe8, 0xc1,
-	0xa5, 0xc1, 0x2c, 0xd7, 0xbc, 0x92, 0xa2, 0xca, 0x20, 0xb0, 0x32, 0x21, 0x27, 0x2e, 0xee, 0xe4,
-	0xfc, 0xbc, 0xe2, 0x92, 0xa2, 0xc4, 0xcc, 0xbc, 0x92, 0x62, 0x09, 0x26, 0xb0, 0x2e, 0x05, 0x74,
-	0x5d, 0xce, 0x08, 0x25, 0x10, 0xcd, 0xc8, 0x9a, 0xa4, 0x42, 0xb9, 0x04, 0xd0, 0x15, 0x08, 0x09,
-	0x70, 0x31, 0x67, 0xa7, 0x56, 0x4a, 0x30, 0x2a, 0x30, 0x6a, 0x70, 0x06, 0x81, 0x98, 0x42, 0xda,
-	0x5c, 0xac, 0x65, 0x89, 0x39, 0xa5, 0xa9, 0x12, 0x4c, 0x0a, 0x8c, 0x1a, 0xdc, 0x46, 0xa2, 0x10,
-	0x3b, 0xc0, 0xe6, 0x23, 0x74, 0x07, 0x41, 0xd4, 0x58, 0x31, 0x59, 0x30, 0x4a, 0x99, 0x43, 0xbc,
-	0x85, 0xcb, 0x3c, 0x11, 0x64, 0xf3, 0x38, 0x91, 0x34, 0x2a, 0x35, 0x31, 0x72, 0xb1, 0x80, 0x74,
-	0x0a, 0xe9, 0x71, 0xb1, 0xa5, 0x81, 0xcc, 0x2f, 0x86, 0x86, 0x86, 0x18, 0xc2, 0x5f, 0x10, 0x8b,
-	0xa1, 0xbe, 0x81, 0xaa, 0x92, 0xf2, 0xe2, 0xe2, 0x46, 0x12, 0xc6, 0x62, 0xa7, 0x2a, 0xaa, 0x1f,
-	0xf8, 0xd1, 0xc2, 0x09, 0xd9, 0x11, 0xd3, 0x19, 0xb9, 0xf8, 0xd1, 0x3c, 0x27, 0xe4, 0xca, 0xc5,
-	0x85, 0x08, 0x37, 0xa8, 0x9b, 0x54, 0xb1, 0x86, 0x03, 0x52, 0x88, 0x43, 0x9c, 0x88, 0xa4, 0x51,
-	0xca, 0x96, 0x8b, 0x1f, 0x4d, 0x9a, 0x94, 0xe0, 0x71, 0xe2, 0x39, 0xf1, 0x48, 0x8e, 0xf1, 0xc2,
-	0x23, 0x39, 0xc6, 0x07, 0x8f, 0xe4, 0x18, 0x93, 0xd8, 0xc0, 0x49, 0xc9, 0x18, 0x10, 0x00, 0x00,
-	0xff, 0xff, 0xa1, 0x2e, 0xbb, 0xc8, 0x5d, 0x02, 0x00, 0x00,
-}
