@@ -76,11 +76,15 @@
       "constraints": {
         "min": {
           "value": 3,
-          "message": "3 Zeichen sind zwingend"
+          "message": "at least 3 characters"
         },
         "max": {
           "value": 15,
-          "message": "15 sind genug"
+          "message": "15 characters maximum"
+        },
+        "pattern": {
+          "value": "a.*",
+          "message": "must start with a"
         }
       },
       "__proto": {
@@ -139,7 +143,7 @@
         },
         "max": {
           "value": 50,
-          "message": "to50"
+          "message": "to 50"
         }
       },
       "__proto": {
@@ -163,6 +167,10 @@
         "max": {
           "value": 555,
           "message": "to 555"
+        },
+        "pattern": {
+          "value": "^.*[02468]$",
+          "message": "even Numbers"
         }
       },
       "__proto": {
@@ -198,8 +206,7 @@
         "max": {
           "value": 15,
           "message": "max 15"
-        },
-        "pattern": ""
+        }
       },
       "__proto": {
         "number": 11
@@ -223,7 +230,7 @@
           "message": "max 15"
         },
         "pattern": {
-          "value": "a",
+          "value": "a.*",
           "message": "must start with a"
         }
       },
@@ -242,11 +249,11 @@
       "constraints": {
         "min": {
           "value": "1800-01-01",
-          "message": "min 1800-01-01"
+          "message": "from 1800-01-01"
         },
         "max": {
           "value": "2099-12-31",
-          "message": "max 2099-12-31"
+          "message": "to 2099-12-31"
         }
       },
       "__proto": {

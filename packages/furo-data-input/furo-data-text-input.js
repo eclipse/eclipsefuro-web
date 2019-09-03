@@ -33,8 +33,30 @@ class FuroDataTextInput extends FBP(LitElement) {
     this.disabled = false;
     this.errortext = "";
     this._FBPAddWireHook("--valueChanged", (val) => {
+
+      // by valid input reset meta and constraints
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
       if (this.field) {
         this.field.value = val;
+      }
+    });
+
+
+    this._FBPAddWireHook("--inputInvalid", (val) => {
+
+        if (val) {
+          if(val.patternMismatch) {
+              this._hint = this._patternErrorMessage;
+          }
+          else if (val.tooShort) {
+              this._hint = this._minErrorMessage;
+          }
+          else if(val.tooLong)
+          {
+              this._hint = this._maxErrorMessage;
+          }
+
+          this.requestUpdate();
       }
     });
   }
@@ -247,6 +269,7 @@ class FuroDataTextInput extends FBP(LitElement) {
           label="${this._label}" 
           min="${this._min}" 
           max="${this._max}" 
+          pattern="${this._pattern}"
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
@@ -255,6 +278,7 @@ class FuroDataTextInput extends FBP(LitElement) {
           errortext="${this.errortext}" 
           hint="${this._hint}" 
           @-value-changed="--valueChanged"
+          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-text-input>      
     `;
   }

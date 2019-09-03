@@ -24,12 +24,16 @@ export class CheckMetaAndOverrides {
     if (element.field._constraints) {
       if (element.field._constraints.max) {
         element._max = element.field._constraints.max.value;
-        // todo: use element for the message
         element._maxErrorMessage = element.field._constraints.max.message;
       }
       if (element.field._constraints.min) {
         element._min = element.field._constraints.min.value;
         element._minErrorMessage = element.field._constraints.min.message;
+      }
+
+      if (element.field._constraints.pattern) {
+        element._pattern = element.field._constraints.pattern.value;
+        element._patternErrorMessage = element.field._constraints.pattern.message;
       }
     }
 

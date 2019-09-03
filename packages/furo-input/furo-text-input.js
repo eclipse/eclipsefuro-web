@@ -61,25 +61,24 @@ class FuroTextInput extends FBP(LitElement) {
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
       }
-    });
+      else{
 
-    // set pattern, min, max
-    let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
-    if (this.min) {
-      inputField.setAttribute("minlength", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
-    }
+        /**
+        * @event input-invalid
+        * Fired when input value is invalid
+        * detail payload: {Object} the validity object of input
+        */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity ;
+        this.dispatchEvent(customEvent);
+      }
+    });
   }
 
 
   set _value(v) {
     this._float = !!v;
-    this._FBPTriggerWire("--value", v)
+    this._FBPTriggerWire("--value", v);
   }
 
   static get properties() {
@@ -608,7 +607,8 @@ class FuroTextInput extends FBP(LitElement) {
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} minlength="${this.min}" maxlength="${this.max}"
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} minlength="${this.min}" 
+        maxlength="${this.max}"  pattern="${this.pattern}"
         type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
