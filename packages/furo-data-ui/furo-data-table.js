@@ -330,12 +330,6 @@ class FuroDataTable extends FBP(LitElement) {
                 field.wire = '--internal(*.item.data.' + c + '.repeats)';
             }
             field.meta = this._specs[this._type].fields[c].meta || {};
-            /**
-             * Internationalisation if possible
-             * @type {*|{}}
-             */
-            field.meta.label = i18n.t(field.meta.label);
-
             field.contraints = this._specs[this._type].fields[c].contraints || {};
             field.id = c;
 

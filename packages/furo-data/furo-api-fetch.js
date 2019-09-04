@@ -300,13 +300,13 @@ class FuroApiFetch extends HTMLElement {
     /**
      * parses response object according to lastRequest heaader informationen `content-type`
      * you will find the supported content-types in the declaration area
-     * respone Fetch API response object [https://developer.mozilla.org/en-US/docs/Web/API/Response]
+     * response Fetch API response object [https://developer.mozilla.org/en-US/docs/Web/API/Response]
      * Default response handler is json!
      * @param response
      */
     _parseResponse(response) {
 
-        var _self = this;
+        let _self = this;
         if (response) {
 
             let contentType = this.lastRequest.headers.get('content-type');

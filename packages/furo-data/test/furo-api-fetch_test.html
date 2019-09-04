@@ -32,19 +32,129 @@
   describe('furo-api-fetch tests ', function () {
 
 
-    let element = {};
+    let fetcher = {};
 
     beforeEach(async () => {
       let fix = fixture('basic');
-      element = fix[1];
-      await element.updateComplete;
+      fetcher = fix[1];
+      await fetcher.updateComplete;
 
     });
 
 
     it('should be a furo-api-fetch', (done) => {
-      assert.equal(element.nodeName.toLowerCase(), "furo-api-fetch");
+      assert.equal(fetcher.nodeName.toLowerCase(), "furo-api-fetch");
       done()
+    });
+
+    it('invoke request should fire events', (done) => {
+      const request = new Request('http://httpbin.org/get', {method: 'GET'});
+      fetcher.addEventListener('request-started', (r)=>{
+        assert.equal(r.detail.url, "http://httpbin.org/get");
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('successful request should fire events', (done) => {
+      const request = new Request('http://httpbin.org/get', {method: 'GET'});
+      fetcher.addEventListener('response-raw', (r)=>{
+        assert.equal(r.detail.url, "http://httpbin.org/get");
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('aborted request should fire events', (done) => {
+      let controller = new AbortController();
+      let signal = controller.signal;
+      const request = new Request('http://httpbin.org/get', {signal, method: 'GET'});
+      fetcher.addEventListener('request-aborted', (r)=>{
+        assert.equal(r.detail.url, "http://httpbin.org/get");
+        done();
+      });
+      fetcher.invokeRequest(request);
+      fetcher.abortRequest(controller);
+
+    });
+
+    it('status codes from 300 up should fire error events', (done) => {
+      const request = new Request('http://httpbin.org/status/400', {method: 'GET'});
+      fetcher.addEventListener('response-error-raw', (r)=>{
+        assert.equal(r.detail.ok, false);
+        assert.equal(r.detail.status, 400);
+        assert.equal(r.detail.statusText, "BAD REQUEST");
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('should fallback to XHR if window.fetch is not available', (done) => {
+      fetcher.xhrFallback = true;
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+
+      const request = new Request('http://httpbin.org/json', {
+        method: 'GET',
+        headers: headers
+      });
+      fetcher.addEventListener('response', (r)=>{
+        assert.equal(r.detail.slideshow.author, 'Yours Truly');
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('should be able to parse json', (done) => {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+
+      const request = new Request('http://httpbin.org/json', {
+        method: 'GET',
+        headers: headers
+      });
+      fetcher.addEventListener('response', (r)=>{
+        assert.equal(r.detail.slideshow.author, 'Yours Truly');
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('should be able to parse jpeg', (done) => {
+      let headers = new Headers();
+      headers.append('Content-Type', 'image/jpeg');
+
+      const request = new Request('http://httpbin.org/image/jpeg', {
+        method: 'GET',
+        headers: headers
+      });
+      fetcher.addEventListener('response', (r)=>{
+        assert.equal(r.detail.includes('blob:http://'), true);
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('should be able to parse bytes[]', (done) => {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/octet-stream');
+
+      const request = new Request('http://httpbin.org/bytes/100', {
+        method: 'GET',
+        headers: headers
+      });
+      fetcher.addEventListener('response', (r)=>{
+        assert.equal(r.detail.byteLength, 100);
+        done();
+      });
+      fetcher.invokeRequest(request);
+
     });
 
 
