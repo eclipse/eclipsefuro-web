@@ -118,6 +118,19 @@
             checkbox.setValue(true);
         });
 
+        it('should unfocuse when received wire `--focusOutReceived`', (done) => {
+
+            checkbox._FBPTriggerWire("--focusOutReceived",{});
+            assert.equal(checkbox.focused, false);
+            done();
+        });
+
+        it('should focuse when received wire `--focusReceived`', (done) => {
+
+            checkbox._FBPTriggerWire("--focusReceived");
+            assert.equal(checkbox.focused, true);
+            done();
+        });
     });
 
 

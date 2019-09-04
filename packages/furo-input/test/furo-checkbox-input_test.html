@@ -117,6 +117,22 @@
             done();
         });
 
+        it('should be via wire `--toggle` toggleable', (done) => {
+            checkboxInput.setValue(true);
+            assert.equal(checkboxInput.value,true);
+            checkboxInput._FBPTriggerWire("--toggle");
+            assert.equal(checkboxInput.value,false);
+            done();
+        });
+
+        it('should be set value by checked', (done) => {
+            checkboxInput.checked = true;
+            assert.equal(checkboxInput.value,true);
+            checkboxInput.checked = false ;
+            assert.equal(checkboxInput.value,false);
+            done();
+        });
+
         it('should be possible to set value when checkbox is disabled ', (done) => {
             checkboxInput.disabled = true;
             checkboxInput.toggle();

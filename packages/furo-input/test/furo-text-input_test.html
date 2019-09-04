@@ -119,6 +119,22 @@
 
     });
 
+    it('should emit event `input-invalid` with validity object by invalid input', (done) => {
+
+      textInput.addEventListener("input-invalid",e=>{
+        assert.equal(JSON.stringify(e.detail),JSON.stringify({valid:false}));
+        done();
+      });
+      textInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:"Simulated input", validity:{valid:false}}]}});
+    });
+
+    it('shoud remove pattern when it is undefined', (done) => {
+      textInput.pattern = undefined;
+      textInput.updateInputAttributes();
+      assert.equal(textInput.shadowRoot.getElementById("input").getAttribute("pattern"), undefined);
+      done();
+    });
+
     it('instantiating furo-text-input with default properties works', () => {
 
       assert.equal(textInput.tagName.toLowerCase(), 'furo-text-input');
