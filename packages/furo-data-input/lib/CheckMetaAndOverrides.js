@@ -69,5 +69,9 @@ export class CheckMetaAndOverrides {
     if (element.step) {
       element._step = element.step;
     }
+
+    if (element.pattern) {
+      element._pattern = element.pattern;
+    }
   }
 }

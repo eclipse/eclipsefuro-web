@@ -73,8 +73,17 @@ class FuroTextInput extends FBP(LitElement) {
         this.dispatchEvent(customEvent);
       }
     });
+    this.updateInputAttributes();
   }
 
+  updateInputAttributes() {
+
+    // remove pattern when it is undefined to avoid validate problem
+    let inputField = this.shadowRoot.getElementById("input");
+    if (this.pattern === undefined ) {
+      inputField.removeAttribute("pattern");
+    }
+  }
 
   set _value(v) {
     this._float = !!v;

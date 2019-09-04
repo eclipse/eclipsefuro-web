@@ -71,13 +71,59 @@ class FuroDataTextInput extends FBP(LitElement) {
     this._hint = v;
     this._h = v;
   }
+
+  set pattern(p) {
+    this._pattern = p;
+    this._p = p;
+  }
+
+  set min(i) {
+    this._min = i;
+    this._i = i;
+  }
+
+  set max(x) {
+    this._max = x;
+    this._x = x;
+  }
+
+  set step(s) {
+    this._step = s;
+    this._s = s;
+  }
+
+  set readonly(r) {
+    this._readonly = r;
+    this._r = r;
+  }
+
   get label(){
     return this._l;
   }
+
   get hint(){
     return this._h;
   }
 
+  get pattern() {
+    return this._p;
+  }
+
+  get min() {
+    return this._i;
+  }
+
+  get max() {
+    return this._x;
+  }
+
+  get step() {
+    return this._s;
+  }
+
+  get readonly() {
+    return this._r;
+  }
   /**
    * Sets the field to readonly
    */
@@ -93,7 +139,9 @@ class FuroDataTextInput extends FBP(LitElement) {
   }
 
 
-
+  /**
+  * todo , add properties for pattern.error.hint , min.error.hint and max.error.hint
+  */
   static get properties() {
     return {
 
@@ -104,6 +152,14 @@ class FuroDataTextInput extends FBP(LitElement) {
        */
       label: {
         type: String,
+      },
+      /**
+      * Overrides the pattern from the **specs**.
+      *
+      * Use with caution, normally the specs defines this value.
+      */
+      pattern: {
+        type: String
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -223,6 +279,8 @@ class FuroDataTextInput extends FBP(LitElement) {
       this.error = false;
       this.requestUpdate();
     });
+
+    this._FBPTriggerWire('--value', this.field.value);
   }
 
 
