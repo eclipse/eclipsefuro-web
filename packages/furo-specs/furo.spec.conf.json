@@ -14,6 +14,7 @@
   "_custom_tepmplate_dir": "./_scripts/templates",
   "swagger": true,
   "grpc_gateway": true,
+  "grpc_gateway_blind_imports": [""],
   "java": true,
   "build_output_dir": "./build",
   "furo_env_name": "data_environment.js",

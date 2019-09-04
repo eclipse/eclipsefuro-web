@@ -7,7 +7,7 @@
         "flowbased",
         "flow"
     ],
-    "homepage": "https://veith.github.io/flowbased-polymer/",
+    "homepage": "https://furo.pro",
     "name": "@furo/fbp",
     "version": "4.26.3",
     "resolutions": {
@@ -22,16 +22,13 @@
         "doc": "docs",
         "test": "test"
     },
-    "scripts": {
-        "test": "./node_modules/polymer-cli/bin/polymer.js test"
-    },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/veith/flowbased-polymer.git"
+        "url": "git+https://github.com/veith/FuroBaseComponents"
     },
     "author": "veith",
     "bugs": {
-        "url": "https://github.com/veith/flowbased-polymer/issues"
+        "url": "https://github.com/veith/FuroBaseComponents/issues"
     },
     "publishConfig": {
         "access": "public"
