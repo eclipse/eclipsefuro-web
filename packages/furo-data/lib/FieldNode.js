@@ -323,8 +323,6 @@ export class FieldNode extends EventTreeNode {
       this._validity = error;
       this.dispatchNodeEvent(new NodeEvent("field-became-invalid", this));
     }
-
-
   }
 
   toString() {

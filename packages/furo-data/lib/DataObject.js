@@ -227,6 +227,26 @@ export class DataObject extends EventTreeNode {
     });
   }
 
+
+  _setInvalid(error) {
+    // set field empty, if not defined
+    error.field = error.field || "";
+    let path = error.field.split(".");
+    if (path.length > 0 && path[0] !== "") {
+      // rest wieder in error reinwerfen
+      error.field = path.slice(1).join(".");
+      if (this[path[0]]) {
+        this[path[0]]._setInvalid(error);
+      } else {
+        console.warn("Unknown field", path, this._name)
+      }
+    } else {
+      this._isValid = false;
+      this._validity = error;
+      this.dispatchNodeEvent(new NodeEvent("field-became-invalid", this));
+    }
+  }
+
   /**
    * Baut die Felder aufgrund der spec auf
    * @param node
