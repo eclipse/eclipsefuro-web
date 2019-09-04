@@ -33,31 +33,234 @@
   describe('furo-collection-agent tests ', function () {
 
 
-    let element = {};
+    let collectionAgent = {};
 
     beforeEach(async () => {
       let fix = fixture('basic');
-      element = fix[1];
-      await element.updateComplete;
+      collectionAgent = fix[1];
+      await collectionAgent.updateComplete;
 
     });
 
 
     it('should not accept an unkonwn service', (done) => {
-      element.setAttribute("service","unknown");
-      assert.equal(element._service,undefined);
+      collectionAgent.setAttribute("service","unknown");
+      assert.equal(collectionAgent._service,undefined);
       done();
     });
 
 
+    it('should accept additional QueryParams Object', (done) => {
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.updateQp({"on":true});
+      collectionAgent.updateQp({"level":"5"});
+
+      /**
+       * Register hook on wire --triggerLoad to
+       *
+       */
+      collectionAgent._FBPAddWireHook("--triggerLoad",(req)=>{
+        assert.equal(req.url.indexOf("on=true")>0, true);
+        assert.equal(req.url.indexOf("level=5")>0, true);
+        done()
+      });
+
+      collectionAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      collectionAgent.load();
+    });
+
+    it('should accept clearing of QueryParams ', (done) => {
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.updateQp({"on":true});
+      collectionAgent.updateQp({"level":"5"});
+      collectionAgent.clearQp();
+
+      /**
+       * Register hook on wire --triggerLoad to
+       *
+       */
+      collectionAgent._FBPAddWireHook("--triggerLoad",(req)=>{
+        assert.equal(req.url.indexOf("on=true")>0, false);
+        assert.equal(req.url.indexOf("level=5")>0, false);
+        done()
+      });
+
+      collectionAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      collectionAgent.load();
+    });
+
+    it('should send search with ?q= ', (done) => {
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.setOrderBy("id,    -display_name");
+      collectionAgent.setFields("display_name");
+      /**
+       * Register hook on wire --triggerLoad to
+       *
+       */
+      collectionAgent._FBPAddWireHook("--triggerLoad",(req)=>{
+
+        assert.equal(req.url.indexOf("order_by=id,-display_name")>0, true);
+        assert.equal(req.url.indexOf("fields=display_name")>0, true);
+        assert.equal(req.url.indexOf("q=a%20better%20life")>0, true);
+        done()
+      });
+
+      collectionAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      collectionAgent.search("a better life");
+    });
+
+    it('should send filter, field, order together ', (done) => {
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.setFilter([["id","eq","1"]]);
+      collectionAgent.setOrderBy("id,    -display_name");
+      collectionAgent.setFields("display_name");
+      /**
+       * Register hook on wire --triggerLoad to
+       *
+       */
+      collectionAgent._FBPAddWireHook("--triggerLoad",(req)=>{
+
+        assert.equal(req.url.indexOf("order_by=id,-display_name")>0, true);
+       assert.equal(req.url.indexOf("filter=[[%22id%22,%22eq%22,%221%22]]")>0, true);
+        assert.equal(req.url.indexOf("fields=display_name")>0, true);
+        done()
+      });
+
+      collectionAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      collectionAgent.load();
+    });
+
+    it('should send filter request URL friendly', (done) => {
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.setFilter([["id","eq","33333"], ["display_name","con", "done"]]);
+      collectionAgent.setFilter([["id","eq","1"], ["display_name","con", "done"]]);
+
+      /**
+       * Register hook on wire --triggerLoad to
+       *
+       */
+      collectionAgent._FBPAddWireHook("--triggerLoad",(req)=>{
+       assert.equal(req.url.indexOf("filter=[[%22id%22,%22eq%22,%221%22],[%22display_name%22,%22con%22,%22done%22]]")>0, true);
+        done()
+      });
+
+      collectionAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      collectionAgent.load();
+    });
+    it('should clear filter ', (done) => {
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.setFilter([["id","eq","1"], ["display_name","con", "done"]]);
+      collectionAgent.clearFilter();
+      /**
+       * Register hook on wire --triggerLoad to
+       *
+       */
+      collectionAgent._FBPAddWireHook("--triggerLoad",(req)=>{
+       assert.equal(req.url.indexOf("filter=[[%22id%22,%22eq%22,%221%22],[%22display_name%22,%22con%22,%22done%22]]")>0, false);
+        done()
+      });
+
+      collectionAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      collectionAgent.load();
+    });
+
+    it('should request ordering', (done) => {
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.setOrderBy("id,    -display_name");
+
+      /**
+       * Register hook on wire --triggerLoad to
+       *
+       */
+      collectionAgent._FBPAddWireHook("--triggerLoad",(req)=>{
+       assert.equal(req.url.indexOf("order_by=id,-display_name")>0, true);
+        done()
+      });
+
+      collectionAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      collectionAgent.load();
+    });
+
+    it('should request partial fields', (done) => {
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.setFields("display_name");
+
+      /**
+       * Register hook on wire --triggerLoad to
+       *
+       */
+      collectionAgent._FBPAddWireHook("--triggerLoad",(req)=>{
+       assert.equal(req.url.indexOf("fields=display_name")>0, true);
+        done()
+      });
+
+      collectionAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "list",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      collectionAgent.load();
+    });
 
 
     it('should do  next if rel is  set', (done) => {
-      element.setAttribute("service","TaskService");
-      element.addEventListener("next-success",()=>{
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.addEventListener("next-success",()=>{
         done();
       });
-      element.htsIn([
+      collectionAgent.htsIn([
         {
           "href": "/mockdata/tasks/list.json",
           "method": "GET",
@@ -65,14 +268,14 @@
           "type": "task.TaskEntity"
         }
       ]);
-      element.next();
+      collectionAgent.next();
     });
     it('should do  first if rel is  set', (done) => {
-      element.setAttribute("service","TaskService");
-      element.addEventListener("first-success",()=>{
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.addEventListener("first-success",()=>{
         done();
       });
-      element.htsIn([
+      collectionAgent.htsIn([
         {
           "href": "/mockdata/tasks/list.json",
           "method": "GET",
@@ -80,14 +283,14 @@
           "type": "task.TaskEntity"
         }
       ]);
-      element.first();
+      collectionAgent.first();
     });
     it('should do  prev if rel is  set', (done) => {
-      element.setAttribute("service","TaskService");
-      element.addEventListener("prev-success",()=>{
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.addEventListener("prev-success",()=>{
         done();
       });
-      element.htsIn([
+      collectionAgent.htsIn([
         {
           "href": "/mockdata/tasks/list.json",
           "method": "GET",
@@ -95,14 +298,14 @@
           "type": "task.TaskEntity"
         }
       ]);
-      element.prev();
+      collectionAgent.prev();
     });
     it('should do  last if rel is  set', (done) => {
-      element.setAttribute("service","TaskService");
-      element.addEventListener("last-success",()=>{
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.addEventListener("last-success",()=>{
         done();
       });
-      element.htsIn([
+      collectionAgent.htsIn([
         {
           "href": "/mockdata/tasks/list.json",
           "method": "GET",
@@ -110,16 +313,16 @@
           "type": "task.TaskEntity"
         }
       ]);
-      element.last();
+      collectionAgent.last();
     });
 
 
     it('should do nothing on first if rel is not set', (done) => {
-      element.setAttribute("service","TaskService");
-      element.addEventListener("missing-hts-first",()=>{
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.addEventListener("missing-hts-first",()=>{
         done();
       });
-      element.htsIn([
+      collectionAgent.htsIn([
         {
           "href": "/mockdata/tasks/list.json",
           "method": "GET",
@@ -127,14 +330,14 @@
           "type": "task.TaskEntity"
         }
       ]);
-      element.first();
+      collectionAgent.first();
     });
     it('should do nothing on last if rel is not set', (done) => {
-      element.setAttribute("service","TaskService");
-      element.addEventListener("missing-hts-last",()=>{
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.addEventListener("missing-hts-last",()=>{
         done();
       });
-      element.htsIn([
+      collectionAgent.htsIn([
         {
           "href": "/mockdata/tasks/list.json",
           "method": "GET",
@@ -142,14 +345,14 @@
           "type": "task.TaskEntity"
         }
       ]);
-      element.last();
+      collectionAgent.last();
     });
     it('should do nothing on prev if rel is not set', (done) => {
-      element.setAttribute("service","TaskService");
-      element.addEventListener("missing-hts-prev",()=>{
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.addEventListener("missing-hts-prev",()=>{
         done();
       });
-      element.htsIn([
+      collectionAgent.htsIn([
         {
           "href": "/mockdata/tasks/list.json",
           "method": "GET",
@@ -157,14 +360,14 @@
           "type": "task.TaskEntity"
         }
       ]);
-      element.prev();
+      collectionAgent.prev();
     });
     it('should do nothin on next if rel is not set', (done) => {
-      element.setAttribute("service","TaskService");
-      element.addEventListener("missing-hts-next",()=>{
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.addEventListener("missing-hts-next",()=>{
         done();
       });
-      element.htsIn([
+      collectionAgent.htsIn([
         {
           "href": "/mockdata/tasks/list.json",
           "method": "GET",
@@ -172,15 +375,15 @@
           "type": "task.TaskEntity"
         }
       ]);
-      element.next();
+      collectionAgent.next();
     });
 
     it('should a collection for the defined service when hts is set', (done) => {
-      element.setAttribute("service","TaskService");
-      element.addEventListener("list-success",()=>{
+      collectionAgent.setAttribute("service","TaskService");
+      collectionAgent.addEventListener("list-success",()=>{
         done();
       });
-      element.htsIn([
+      collectionAgent.htsIn([
         {
           "href": "/mockdata/tasks/list.json",
           "method": "GET",
@@ -188,11 +391,11 @@
           "type": "task.TaskEntity"
         }
       ]);
-      element.list();
+      collectionAgent.list();
     });
 
     it('should be a furo-collection-agent', (done) => {
-      assert.equal(element.nodeName.toLowerCase(), "furo-collection-agent");
+      assert.equal(collectionAgent.nodeName.toLowerCase(), "furo-collection-agent");
       done()
     });
 

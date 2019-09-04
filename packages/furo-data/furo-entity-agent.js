@@ -58,7 +58,6 @@ class FuroEntityAgent extends FBP(LitElement) {
       return;
     }
     this._service = this._servicedefinitions[service];
-
     if (this._service.lifecycle && this._service.lifecycle.deprecated) {
       console.warn("You are using a deprecated service (" + service + ") " + this._service.lifecycle.info);
     }
@@ -72,7 +71,7 @@ class FuroEntityAgent extends FBP(LitElement) {
    * @param dataObject
    */
   bindRequestData(dataObject) {
-    this._entityTree = dataObject;
+    this._requestDataObject = dataObject;
   }
 
 
@@ -183,12 +182,14 @@ class FuroEntityAgent extends FBP(LitElement) {
    * loads the entity if hts is available
    */
   save() {
+
     // wen kein rel self vorhanden ist, aber ein rel create existiert, verwendenn wir create
     // rel self ist bewusst gewählt
     if (!this._hts["self"] && this._hts["create"]) {
       this.create();
       return;
     }
+
     if (this._checkServiceAndHateoasLinkError("update", "Update")) {
       let customEvent = new Event( 'missing-hts-update', {composed: true, bubbles: false});
       this.dispatchEvent(customEvent);
@@ -197,7 +198,8 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     this._attachListeners("save");
     // TODO nur modifizierte daten senden (.pristine)
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._entityTree.rawData));
+
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._requestDataObject.value));
 
   }
 
@@ -221,7 +223,7 @@ class FuroEntityAgent extends FBP(LitElement) {
       return
     }
     this._attachListeners("create");
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.create, this._entityTree.rawData));
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.create, this._requestDataObject.rawData));
 
   }
 
@@ -245,11 +247,39 @@ class FuroEntityAgent extends FBP(LitElement) {
     };
 
     let failed = (e) => {
+
+      // append error to the _requestDataObject (set the fields invalid)
+      let err = e.detail;
+      if (err.error && err.details) {
+        err.details.forEach((errorSet) => {
+          if (errorSet["field_violations"]) {
+
+            errorSet["field_violations"] && errorSet["field_violations"].map((error) => {
+              if (error.description) {
+                error.message = error.description;
+              }
+              let path = error.field.split(".");
+              if (path.length > 0) {
+                // rest wieder in error reinwerfen
+                error.field = path.slice(1).join(".");
+                if (this._requestDataObject[path[0]]) {
+                  this._requestDataObject[path[0]]._setInvalid(error);
+                } else {
+                  console.warn("Unknown field", path)
+                }
+              }
+            });
+          }
+        });
+      }
+
+
       // we do not want req-success and req-failed outside of this component
       e.stopPropagation();
       let customEvent = new Event(eventPrefix + '-failed', {composed: true, bubbles: true});
       customEvent.detail = e.detail;
       this.dispatchEvent(customEvent);
+
 
       // remove listeners
       this.removeEventListener("req-success", success, true);
@@ -262,6 +292,9 @@ class FuroEntityAgent extends FBP(LitElement) {
     this.addEventListener("req-success", success, true);
     this.addEventListener("req-failed", failed, true);
   }
+
+
+
 
   _updateInternalHTS(hts) {
     // convert link object to hts array

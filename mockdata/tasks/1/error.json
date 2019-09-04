@@ -1,0 +1,16 @@
+{
+  "error": "Constraint violation",
+  "message": "we do not support strange methods",
+  "code": 9,
+  "details": [
+    {
+      "@type": "type.googleapis.com/google.rpc.BadRequest",
+      "field_violations": [
+        {
+          "field": "description",
+          "description": "Ping is a strange Method"
+        }
+      ]
+    }
+  ]
+}

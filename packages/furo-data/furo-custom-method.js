@@ -49,12 +49,8 @@ class FuroCustomMethod extends FBP(LitElement) {
         }
     }
 
-    bindRequestObject(entityTree) {
-        this._entityTree = entityTree;
-    }
-
-    bindData(entityTree) {
-        this._entityTree = entityTree;
+    bindRequestData(dataObject) {
+        this._requestObject = dataObject;
     }
 
 
@@ -101,8 +97,8 @@ class FuroCustomMethod extends FBP(LitElement) {
      */
     trigger() {
 
-        if(this._entityTree){
-            this.triggerWithBody(this._entityTree.rawData);
+        if(this._requestObject){
+            this.triggerWithBody(this._requestObject.value);
         }else{
             this.triggerEmpty();
         }
@@ -156,8 +152,7 @@ class FuroCustomMethod extends FBP(LitElement) {
       </style>
       <furo-api-fetch
               ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abort-demanded"
-              @-response="--responseParsed">
+              ƒ-abort-request="--abort-demanded">
       </furo-api-fetch>
     `;
     }

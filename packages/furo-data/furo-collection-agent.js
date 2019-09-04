@@ -236,7 +236,13 @@ class furoCollectionAgent extends FBP(LitElement) {
       customEvent.detail = this._queryParams;
       this.dispatchEvent(customEvent)
     }
+  }
 
+  /**
+   * clear the query params that you have setted before
+   */
+  clearQp(){
+    this._queryParams = {};
   }
 
   _makeRequest(link, body) {
@@ -340,6 +346,13 @@ class furoCollectionAgent extends FBP(LitElement) {
    */
   list() {
    return this._followRelService("list", "List");
+  }
+
+  /**
+   * loads the entity if hts is available
+   */
+  load() {
+   return this.list();
   }
 
   search(term) {

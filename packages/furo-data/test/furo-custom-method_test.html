@@ -33,18 +33,37 @@
   describe('furo-custom-method tests ', function () {
 
 
-    let element = {};
+    let customMethod = {};
 
     beforeEach(async () => {
       let fix = fixture('basic');
-      element = fix[1];
-      await element.updateComplete;
+      customMethod = fix[1];
+      await customMethod.updateComplete;
 
     });
 
+    it('should request a custom method', (done) => {
+      customMethod.setAttribute("service","TaskService");
+      customMethod.setAttribute("method","custom");
+
+      customMethod.addEventListener("response",(e)=>{
+        debugger
+        done();
+      });
+      customMethod.htsIn([
+        {
+          "href": "/mockdata/tasks/list.json",
+          "method": "GET",
+          "rel": "custom",
+          "type": "task.TaskEntity"
+        }
+      ]);
+      customMethod.trigger();
+      done();
+    });
 
     it('should be a furo-custom-method', (done) => {
-      assert.equal(element.nodeName.toLowerCase(), "furo-custom-method");
+      assert.equal(customMethod.nodeName.toLowerCase(), "furo-custom-method");
       done()
     });
 
