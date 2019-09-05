@@ -11,6 +11,8 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -428,6 +430,26 @@ type TaskServiceServer interface {
 	ListTasks(context.Context, *ListTaskServiceRequest) (*task.TaskCollection, error)
 	// Updates a Task, partial updates are supported
 	UpdateTask(context.Context, *UpdateTaskServiceRequest) (*task.TaskEntity, error)
+}
+
+// UnimplementedTaskServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedTaskServiceServer struct {
+}
+
+func (*UnimplementedTaskServiceServer) CreateTask(ctx context.Context, req *CreateTaskServiceRequest) (*task.TaskEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
+}
+func (*UnimplementedTaskServiceServer) DeleteTask(ctx context.Context, req *DeleteTaskServiceRequest) (*protobuf.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteTask not implemented")
+}
+func (*UnimplementedTaskServiceServer) GetTask(ctx context.Context, req *GetTaskServiceRequest) (*task.TaskEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTask not implemented")
+}
+func (*UnimplementedTaskServiceServer) ListTasks(ctx context.Context, req *ListTaskServiceRequest) (*task.TaskCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListTasks not implemented")
+}
+func (*UnimplementedTaskServiceServer) UpdateTask(ctx context.Context, req *UpdateTaskServiceRequest) (*task.TaskEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateTask not implemented")
 }
 
 func RegisterTaskServiceServer(s *grpc.Server, srv TaskServiceServer) {

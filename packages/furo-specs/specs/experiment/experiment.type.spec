@@ -72,10 +72,13 @@
       "meta": {
         "label": "text_input",
         "hint": "hint",
-        "readonly": false,
-        "required": true
+        "readonly": false
       },
       "constraints": {
+        "required": {
+          "value": true,
+          "message": "This value must be set"
+        },
         "min": {
           "value": 3,
           "message": "at least 3 characters"
