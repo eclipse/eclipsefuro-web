@@ -7,6 +7,7 @@ package experiment;
 import "furo/meta.proto";
 import "furo/link.proto";
 import "google/protobuf/any.proto";
+import "furo/property.proto";
 
 
 // ExperimentEntity with Experiment
@@ -23,7 +24,7 @@ message ExperimentEntity {
 }
 
 // experiment spec for testing
-message Experiment {                                                                        
+message Experiment {                                                                            
     // Short experiment description
     string description = 3;
     
@@ -68,6 +69,9 @@ message Experiment {
     
     // field for testing any
     google.protobuf.Any the_any_type = 15;
+    
+    // field for testing property
+    repeated furo.Property type_property = 17;
     
     // field for testing static options
     string type_with_options = 16;

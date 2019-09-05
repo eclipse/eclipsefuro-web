@@ -77,6 +77,11 @@ class FuroDataTextInput extends FBP(LitElement) {
     this._p = p;
   }
 
+  set required(r) {
+    this._required = r;
+    this._r = r;
+  }
+
   set min(i) {
     this._min = i;
     this._i = i;
@@ -85,11 +90,6 @@ class FuroDataTextInput extends FBP(LitElement) {
   set max(x) {
     this._max = x;
     this._x = x;
-  }
-
-  set step(s) {
-    this._step = s;
-    this._s = s;
   }
 
   set readonly(r) {
@@ -109,16 +109,16 @@ class FuroDataTextInput extends FBP(LitElement) {
     return this._p;
   }
 
+  get required() {
+    return this._r;
+  }
+
   get min() {
     return this._i;
   }
 
   get max() {
     return this._x;
-  }
-
-  get step() {
-    return this._s;
   }
 
   get readonly() {
@@ -160,6 +160,14 @@ class FuroDataTextInput extends FBP(LitElement) {
       */
       pattern: {
         type: String
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -279,8 +287,6 @@ class FuroDataTextInput extends FBP(LitElement) {
       this.error = false;
       this.requestUpdate();
     });
-
-    this._FBPTriggerWire('--value', this.field.value);
   }
 
 
@@ -333,6 +339,7 @@ class FuroDataTextInput extends FBP(LitElement) {
           ?condensed="${this.condensed}"          
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
+          ?required=${this._required}
           errortext="${this.errortext}" 
           hint="${this._hint}" 
           @-value-changed="--valueChanged"

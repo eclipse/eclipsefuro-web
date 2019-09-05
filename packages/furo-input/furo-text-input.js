@@ -111,6 +111,13 @@ class FuroTextInput extends FBP(LitElement) {
         type: String
       },
       /**
+       * The required attribute, the value true means this field must be filled in
+       *
+       */
+      required: {
+        type: Boolean
+      },
+      /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
        */
       label: {
@@ -606,7 +613,7 @@ class FuroTextInput extends FBP(LitElement) {
   }
 
   /**
-   *
+   * toto add option to hide `*` when the field is required
    * @return {TemplateResult | TemplateResult}
    * @private
    */
@@ -617,14 +624,14 @@ class FuroTextInput extends FBP(LitElement) {
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} minlength="${this.min}" 
-        maxlength="${this.max}"  pattern="${this.pattern}"
+        maxlength="${this.max}"  pattern="${this.pattern}" ?required=${this.required} 
         type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float || this.float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float || this.float}" for="input"><span>${this.label} ${this.required ? html`*` : html``}</span></label>
       <div class="right-border"></div>
       </div>
       

@@ -1682,6 +1682,50 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>repeated .furo.Property type_property = 17;</code>
+     */
+    java.util.List<furo.PropertyOuterClass.Property> 
+        getTypePropertyList();
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>repeated .furo.Property type_property = 17;</code>
+     */
+    furo.PropertyOuterClass.Property getTypeProperty(int index);
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>repeated .furo.Property type_property = 17;</code>
+     */
+    int getTypePropertyCount();
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>repeated .furo.Property type_property = 17;</code>
+     */
+    java.util.List<? extends furo.PropertyOuterClass.PropertyOrBuilder> 
+        getTypePropertyOrBuilderList();
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>repeated .furo.Property type_property = 17;</code>
+     */
+    furo.PropertyOuterClass.PropertyOrBuilder getTypePropertyOrBuilder(
+        int index);
+
+    /**
+     * <pre>
      * field for testing static options
      * </pre>
      *
@@ -1726,6 +1770,7 @@ public final class ExperimentOuterClass {
       furoDataTextareaInput_ = "";
       furoDataTimeInput_ = "";
       id_ = "";
+      typeProperty_ = java.util.Collections.emptyList();
       typeWithOptions_ = "";
     }
 
@@ -1853,6 +1898,15 @@ public final class ExperimentOuterClass {
               typeWithOptions_ = s;
               break;
             }
+            case 138: {
+              if (!((mutable_bitField0_ & 0x00008000) != 0)) {
+                typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>();
+                mutable_bitField0_ |= 0x00008000;
+              }
+              typeProperty_.add(
+                  input.readMessage(furo.PropertyOuterClass.Property.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1868,6 +1922,9 @@ public final class ExperimentOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00008000) != 0)) {
+          typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1885,6 +1942,7 @@ public final class ExperimentOuterClass {
               experiment.ExperimentOuterClass.Experiment.class, experiment.ExperimentOuterClass.Experiment.Builder.class);
     }
 
+    private int bitField0_;
     public static final int DESCRIPTION_FIELD_NUMBER = 3;
     private volatile java.lang.Object description_;
     /**
@@ -2419,6 +2477,61 @@ public final class ExperimentOuterClass {
       return getTheAnyType();
     }
 
+    public static final int TYPE_PROPERTY_FIELD_NUMBER = 17;
+    private java.util.List<furo.PropertyOuterClass.Property> typeProperty_;
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>repeated .furo.Property type_property = 17;</code>
+     */
+    public java.util.List<furo.PropertyOuterClass.Property> getTypePropertyList() {
+      return typeProperty_;
+    }
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>repeated .furo.Property type_property = 17;</code>
+     */
+    public java.util.List<? extends furo.PropertyOuterClass.PropertyOrBuilder> 
+        getTypePropertyOrBuilderList() {
+      return typeProperty_;
+    }
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>repeated .furo.Property type_property = 17;</code>
+     */
+    public int getTypePropertyCount() {
+      return typeProperty_.size();
+    }
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>repeated .furo.Property type_property = 17;</code>
+     */
+    public furo.PropertyOuterClass.Property getTypeProperty(int index) {
+      return typeProperty_.get(index);
+    }
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>repeated .furo.Property type_property = 17;</code>
+     */
+    public furo.PropertyOuterClass.PropertyOrBuilder getTypePropertyOrBuilder(
+        int index) {
+      return typeProperty_.get(index);
+    }
+
     public static final int TYPE_WITH_OPTIONS_FIELD_NUMBER = 16;
     private volatile java.lang.Object typeWithOptions_;
     /**
@@ -2523,6 +2636,9 @@ public final class ExperimentOuterClass {
       if (!getTypeWithOptionsBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 16, typeWithOptions_);
       }
+      for (int i = 0; i < typeProperty_.size(); i++) {
+        output.writeMessage(17, typeProperty_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2584,6 +2700,10 @@ public final class ExperimentOuterClass {
       if (!getTypeWithOptionsBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, typeWithOptions_);
       }
+      for (int i = 0; i < typeProperty_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(17, typeProperty_.get(i));
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2633,6 +2753,8 @@ public final class ExperimentOuterClass {
         if (!getTheAnyType()
             .equals(other.getTheAnyType())) return false;
       }
+      if (!getTypePropertyList()
+          .equals(other.getTypePropertyList())) return false;
       if (!getTypeWithOptions()
           .equals(other.getTypeWithOptions())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -2680,6 +2802,10 @@ public final class ExperimentOuterClass {
       if (hasTheAnyType()) {
         hash = (37 * hash) + THE_ANY_TYPE_FIELD_NUMBER;
         hash = (53 * hash) + getTheAnyType().hashCode();
+      }
+      if (getTypePropertyCount() > 0) {
+        hash = (37 * hash) + TYPE_PROPERTY_FIELD_NUMBER;
+        hash = (53 * hash) + getTypePropertyList().hashCode();
       }
       hash = (37 * hash) + TYPE_WITH_OPTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getTypeWithOptions().hashCode();
@@ -2815,6 +2941,7 @@ public final class ExperimentOuterClass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getTypePropertyFieldBuilder();
         }
       }
       @java.lang.Override
@@ -2854,6 +2981,12 @@ public final class ExperimentOuterClass {
           theAnyType_ = null;
           theAnyTypeBuilder_ = null;
         }
+        if (typePropertyBuilder_ == null) {
+          typeProperty_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00008000);
+        } else {
+          typePropertyBuilder_.clear();
+        }
         typeWithOptions_ = "";
 
         return this;
@@ -2882,6 +3015,8 @@ public final class ExperimentOuterClass {
       @java.lang.Override
       public experiment.ExperimentOuterClass.Experiment buildPartial() {
         experiment.ExperimentOuterClass.Experiment result = new experiment.ExperimentOuterClass.Experiment(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.description_ = description_;
         result.displayName_ = displayName_;
         result.furoDataBoolIcon_ = furoDataBoolIcon_;
@@ -2901,7 +3036,17 @@ public final class ExperimentOuterClass {
         } else {
           result.theAnyType_ = theAnyTypeBuilder_.build();
         }
+        if (typePropertyBuilder_ == null) {
+          if (((bitField0_ & 0x00008000) != 0)) {
+            typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
+            bitField0_ = (bitField0_ & ~0x00008000);
+          }
+          result.typeProperty_ = typeProperty_;
+        } else {
+          result.typeProperty_ = typePropertyBuilder_.build();
+        }
         result.typeWithOptions_ = typeWithOptions_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -3006,6 +3151,32 @@ public final class ExperimentOuterClass {
         if (other.hasTheAnyType()) {
           mergeTheAnyType(other.getTheAnyType());
         }
+        if (typePropertyBuilder_ == null) {
+          if (!other.typeProperty_.isEmpty()) {
+            if (typeProperty_.isEmpty()) {
+              typeProperty_ = other.typeProperty_;
+              bitField0_ = (bitField0_ & ~0x00008000);
+            } else {
+              ensureTypePropertyIsMutable();
+              typeProperty_.addAll(other.typeProperty_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.typeProperty_.isEmpty()) {
+            if (typePropertyBuilder_.isEmpty()) {
+              typePropertyBuilder_.dispose();
+              typePropertyBuilder_ = null;
+              typeProperty_ = other.typeProperty_;
+              bitField0_ = (bitField0_ & ~0x00008000);
+              typePropertyBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTypePropertyFieldBuilder() : null;
+            } else {
+              typePropertyBuilder_.addAllMessages(other.typeProperty_);
+            }
+          }
+        }
         if (!other.getTypeWithOptions().isEmpty()) {
           typeWithOptions_ = other.typeWithOptions_;
           onChanged();
@@ -3038,6 +3209,7 @@ public final class ExperimentOuterClass {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object description_ = "";
       /**
@@ -4283,6 +4455,318 @@ public final class ExperimentOuterClass {
           theAnyType_ = null;
         }
         return theAnyTypeBuilder_;
+      }
+
+      private java.util.List<furo.PropertyOuterClass.Property> typeProperty_ =
+        java.util.Collections.emptyList();
+      private void ensureTypePropertyIsMutable() {
+        if (!((bitField0_ & 0x00008000) != 0)) {
+          typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>(typeProperty_);
+          bitField0_ |= 0x00008000;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder> typePropertyBuilder_;
+
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public java.util.List<furo.PropertyOuterClass.Property> getTypePropertyList() {
+        if (typePropertyBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(typeProperty_);
+        } else {
+          return typePropertyBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public int getTypePropertyCount() {
+        if (typePropertyBuilder_ == null) {
+          return typeProperty_.size();
+        } else {
+          return typePropertyBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public furo.PropertyOuterClass.Property getTypeProperty(int index) {
+        if (typePropertyBuilder_ == null) {
+          return typeProperty_.get(index);
+        } else {
+          return typePropertyBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public Builder setTypeProperty(
+          int index, furo.PropertyOuterClass.Property value) {
+        if (typePropertyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTypePropertyIsMutable();
+          typeProperty_.set(index, value);
+          onChanged();
+        } else {
+          typePropertyBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public Builder setTypeProperty(
+          int index, furo.PropertyOuterClass.Property.Builder builderForValue) {
+        if (typePropertyBuilder_ == null) {
+          ensureTypePropertyIsMutable();
+          typeProperty_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          typePropertyBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public Builder addTypeProperty(furo.PropertyOuterClass.Property value) {
+        if (typePropertyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTypePropertyIsMutable();
+          typeProperty_.add(value);
+          onChanged();
+        } else {
+          typePropertyBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public Builder addTypeProperty(
+          int index, furo.PropertyOuterClass.Property value) {
+        if (typePropertyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTypePropertyIsMutable();
+          typeProperty_.add(index, value);
+          onChanged();
+        } else {
+          typePropertyBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public Builder addTypeProperty(
+          furo.PropertyOuterClass.Property.Builder builderForValue) {
+        if (typePropertyBuilder_ == null) {
+          ensureTypePropertyIsMutable();
+          typeProperty_.add(builderForValue.build());
+          onChanged();
+        } else {
+          typePropertyBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public Builder addTypeProperty(
+          int index, furo.PropertyOuterClass.Property.Builder builderForValue) {
+        if (typePropertyBuilder_ == null) {
+          ensureTypePropertyIsMutable();
+          typeProperty_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          typePropertyBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public Builder addAllTypeProperty(
+          java.lang.Iterable<? extends furo.PropertyOuterClass.Property> values) {
+        if (typePropertyBuilder_ == null) {
+          ensureTypePropertyIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, typeProperty_);
+          onChanged();
+        } else {
+          typePropertyBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public Builder clearTypeProperty() {
+        if (typePropertyBuilder_ == null) {
+          typeProperty_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00008000);
+          onChanged();
+        } else {
+          typePropertyBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public Builder removeTypeProperty(int index) {
+        if (typePropertyBuilder_ == null) {
+          ensureTypePropertyIsMutable();
+          typeProperty_.remove(index);
+          onChanged();
+        } else {
+          typePropertyBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public furo.PropertyOuterClass.Property.Builder getTypePropertyBuilder(
+          int index) {
+        return getTypePropertyFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public furo.PropertyOuterClass.PropertyOrBuilder getTypePropertyOrBuilder(
+          int index) {
+        if (typePropertyBuilder_ == null) {
+          return typeProperty_.get(index);  } else {
+          return typePropertyBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public java.util.List<? extends furo.PropertyOuterClass.PropertyOrBuilder> 
+           getTypePropertyOrBuilderList() {
+        if (typePropertyBuilder_ != null) {
+          return typePropertyBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(typeProperty_);
+        }
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public furo.PropertyOuterClass.Property.Builder addTypePropertyBuilder() {
+        return getTypePropertyFieldBuilder().addBuilder(
+            furo.PropertyOuterClass.Property.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public furo.PropertyOuterClass.Property.Builder addTypePropertyBuilder(
+          int index) {
+        return getTypePropertyFieldBuilder().addBuilder(
+            index, furo.PropertyOuterClass.Property.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>repeated .furo.Property type_property = 17;</code>
+       */
+      public java.util.List<furo.PropertyOuterClass.Property.Builder> 
+           getTypePropertyBuilderList() {
+        return getTypePropertyFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder> 
+          getTypePropertyFieldBuilder() {
+        if (typePropertyBuilder_ == null) {
+          typePropertyBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder>(
+                  typeProperty_,
+                  ((bitField0_ & 0x00008000) != 0),
+                  getParentForChildren(),
+                  isClean());
+          typeProperty_ = null;
+        }
+        return typePropertyBuilder_;
       }
 
       private java.lang.Object typeWithOptions_ = "";
@@ -7295,27 +7779,29 @@ public final class ExperimentOuterClass {
     java.lang.String[] descriptorData = {
       "\n\033experiment/experiment.proto\022\nexperimen" +
       "t\032\017furo/meta.proto\032\017furo/link.proto\032\031goo" +
-      "gle/protobuf/any.proto\"m\n\020ExperimentEnti" +
-      "ty\022$\n\004data\030\001 \001(\0132\026.experiment.Experiment" +
-      "\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(" +
-      "\0132\n.furo.Meta\"\345\003\n\nExperiment\022\023\n\013descript" +
-      "ion\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023furo_" +
-      "data_bool_icon\030\016 \001(\010\022 \n\030furo_data_checkb" +
-      "ox_input\030\004 \001(\010\022\035\n\025furo_data_color_input\030" +
-      "\n \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t\022\036\n\026f" +
-      "uro_data_number_input\030\t \001(\002\022 \n\030furo_data" +
-      "_password_input\030\013 \001(\t\022\035\n\025furo_data_range" +
-      "_input\030\010 \001(\t\022\036\n\026furo_data_search_input\030\014" +
-      " \001(\t\022\034\n\024furo_data_text_input\030\005 \001(\t\022 \n\030fu" +
-      "ro_data_textarea_input\030\006 \001(\t\022\034\n\024furo_dat" +
-      "a_time_input\030\007 \001(\t\022\n\n\002id\030\001 \001(\t\022*\n\014the_an" +
-      "y_type\030\017 \001(\0132\024.google.protobuf.Any\022\031\n\021ty" +
-      "pe_with_options\030\020 \001(\t\"S\n\007Default\022\023\n\013desc" +
-      "ription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\n\n\002i" +
-      "d\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"{\n\024Experiment" +
-      "Collection\022.\n\010entities\030\004 \003(\0132\034.experimen" +
-      "t.ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n.furo" +
-      ".Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
+      "gle/protobuf/any.proto\032\023furo/property.pr" +
+      "oto\"m\n\020ExperimentEntity\022$\n\004data\030\001 \001(\0132\026." +
+      "experiment.Experiment\022\031\n\005links\030\002 \003(\0132\n.f" +
+      "uro.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\214\004\n\nE" +
+      "xperiment\022\023\n\013description\030\003 \001(\t\022\024\n\014displa" +
+      "y_name\030\002 \001(\t\022\033\n\023furo_data_bool_icon\030\016 \001(" +
+      "\010\022 \n\030furo_data_checkbox_input\030\004 \001(\010\022\035\n\025f" +
+      "uro_data_color_input\030\n \001(\t\022\034\n\024furo_data_" +
+      "date_input\030\r \001(\t\022\036\n\026furo_data_number_inp" +
+      "ut\030\t \001(\002\022 \n\030furo_data_password_input\030\013 \001" +
+      "(\t\022\035\n\025furo_data_range_input\030\010 \001(\t\022\036\n\026fur" +
+      "o_data_search_input\030\014 \001(\t\022\034\n\024furo_data_t" +
+      "ext_input\030\005 \001(\t\022 \n\030furo_data_textarea_in" +
+      "put\030\006 \001(\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022" +
+      "\n\n\002id\030\001 \001(\t\022*\n\014the_any_type\030\017 \001(\0132\024.goog" +
+      "le.protobuf.Any\022%\n\rtype_property\030\021 \003(\0132\016" +
+      ".furo.Property\022\031\n\021type_with_options\030\020 \001(" +
+      "\t\"S\n\007Default\022\023\n\013description\030\003 \001(\t\022\024\n\014dis" +
+      "play_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring" +
+      "\030\004 \003(\t\"{\n\024ExperimentCollection\022.\n\010entiti" +
+      "es\030\004 \003(\0132\034.experiment.ExperimentEntity\022\031" +
+      "\n\005links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132" +
+      "\n.furo.Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -7331,6 +7817,7 @@ public final class ExperimentOuterClass {
           furo.MetaOuterClass.getDescriptor(),
           furo.LinkOuterClass.getDescriptor(),
           google.protobuf.AnyOuterClass.getDescriptor(),
+          furo.PropertyOuterClass.getDescriptor(),
         }, assigner);
     internal_static_experiment_ExperimentEntity_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -7343,7 +7830,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Experiment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Experiment_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "TheAnyType", "TypeWithOptions", });
+        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "TheAnyType", "TypeProperty", "TypeWithOptions", });
     internal_static_experiment_Default_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Default_fieldAccessorTable = new
@@ -7359,6 +7846,7 @@ public final class ExperimentOuterClass {
     furo.MetaOuterClass.getDescriptor();
     furo.LinkOuterClass.getDescriptor();
     google.protobuf.AnyOuterClass.getDescriptor();
+    furo.PropertyOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
