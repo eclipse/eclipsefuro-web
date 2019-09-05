@@ -71,7 +71,8 @@
       "meta": {
         "label": "text_input",
         "hint": "hint",
-        "readonly": false
+        "readonly": false,
+        "required": true
       },
       "constraints": {
         "min": {

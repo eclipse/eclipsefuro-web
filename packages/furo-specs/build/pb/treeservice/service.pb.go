@@ -11,8 +11,6 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -447,26 +445,6 @@ type TreeServiceServer interface {
 	ListTrees(context.Context, *ListTreeServiceRequest) (*tree.TreeCollection, error)
 	// Updates a Tree, partial updates are supported
 	UpdateTree(context.Context, *UpdateTreeServiceRequest) (*tree.TreeEntity, error)
-}
-
-// UnimplementedTreeServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedTreeServiceServer struct {
-}
-
-func (*UnimplementedTreeServiceServer) CreateTree(ctx context.Context, req *CreateTreeServiceRequest) (*tree.TreeEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateTree not implemented")
-}
-func (*UnimplementedTreeServiceServer) DeleteTree(ctx context.Context, req *DeleteTreeServiceRequest) (*protobuf.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteTree not implemented")
-}
-func (*UnimplementedTreeServiceServer) GetTree(ctx context.Context, req *GetTreeServiceRequest) (*tree.TreeEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTree not implemented")
-}
-func (*UnimplementedTreeServiceServer) ListTrees(ctx context.Context, req *ListTreeServiceRequest) (*tree.TreeCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListTrees not implemented")
-}
-func (*UnimplementedTreeServiceServer) UpdateTree(ctx context.Context, req *UpdateTreeServiceRequest) (*tree.TreeEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateTree not implemented")
 }
 
 func RegisterTreeServiceServer(s *grpc.Server, srv TreeServiceServer) {

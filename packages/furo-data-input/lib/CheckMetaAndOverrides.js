@@ -18,7 +18,9 @@ export class CheckMetaAndOverrides {
       if (element.field._meta.step) {
         element._step = element.field._meta.step;
       }
-
+      if (element.field._meta.required) {
+        element._required = element.field._meta.required.value;
+      }
     }
     // check if constraints ara available
     if (element.field._constraints) {
@@ -72,6 +74,10 @@ export class CheckMetaAndOverrides {
 
     if (element.pattern) {
       element._pattern = element.pattern;
+    }
+
+    if (element.required) {
+      element._required = element.required;
     }
   }
 }

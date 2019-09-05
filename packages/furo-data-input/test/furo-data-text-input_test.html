@@ -21,7 +21,7 @@
             <template>
                 <furo-data-text-input ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
                 <furo-data-text-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_text_input)"
-                                      pattern="a.*" min=2 max=5 readonly
+                                      pattern="a.*" min=2 max=5 readonly required
                                       @-value-changed="--textChanged"></furo-data-text-input>
 
                 <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
@@ -121,6 +121,13 @@
       host._FBPAddWireHook('--entity', (e) => {
         assert.equal(secondTextInput._min, 2);
         assert.equal(secondTextInput._max, 5);
+        done();
+      });
+    });
+
+    it('should override required field ', (done) => {
+      host._FBPAddWireHook('--entity', (e) => {
+        assert.equal(secondTextInput._required, true);
         done();
       });
     });

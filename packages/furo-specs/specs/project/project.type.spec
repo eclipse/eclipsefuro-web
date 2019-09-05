@@ -103,7 +103,10 @@
         "required": true
       },
       "constraints": {
-        "max": 25000
+        "max": {
+          "value": 25000,
+          "message":"max 25000"
+        }
       },
       "__proto": {
         "number": 7
