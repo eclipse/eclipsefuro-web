@@ -1,6 +1,4 @@
-
-
-import {Init, Env, i18n} from "@furo/framework/furo.js";
+import {Init, Env, i18n,Sys} from "@furo/framework/furo.js";
 import {Services, Types} from "@furo/specs/build/data_environment.js"
 import {Translations} from "./translations.js";
 
@@ -15,5 +13,8 @@ Init.translateStaticTypeMessages(Env.locale);
 export class Tst {
     static getEnv() {
         return Env;
+    }
+    static getSys() {
+        return Sys;
     }
 }

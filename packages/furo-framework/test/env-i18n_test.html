@@ -46,6 +46,15 @@
             done();
         });
 
+        it('should change the locale and update the translations', (done) => {
+            Tst.getSys().setLocale("de-DE");
+            assert.equal(Tst.getEnv().api.specs['task.Task'].fields['display_name'].meta.hint, 'task.display_name.hint**');
+            Tst.getEnv().api.specs['task.Task'].fields['display_name'].meta.hint = "qqqqqqqqqq";
+            assert.equal(Tst.getEnv().api.specs['task.Task'].fields['display_name'].meta.hint, 'qqqqqqqqqq');
+            Tst.getSys().setLocale("en-US");
+            assert.equal(Tst.getEnv().api.specs['task.Task'].fields['display_name'].meta.hint, 'task.display_name.hint**');
+            done();
+        });
 
     });
 </script>

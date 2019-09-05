@@ -161,7 +161,7 @@ export const FuroInputBase = (superClass) => {
       //mark incomming error
       if (!this.field._isValid) {
         this.error = true;
-        this.hint = this.field._validity.message;
+        this.hint = this.field._validity.description;
       }
 
       this.field.addEventListener('field-value-changed', (e) => {
@@ -188,7 +188,7 @@ export const FuroInputBase = (superClass) => {
         // updates wieder einspielen
         this.error = true;
         this._oldhint = this.hint;
-        this.hint = this.field._validity.message;
+        this.hint = this.field._validity.description;
       });
 
       this.field.addEventListener('field-became-valid', (e) => {

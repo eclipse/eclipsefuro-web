@@ -24,6 +24,13 @@ export class Init {
      * @param locale
      */
     static translateStaticTypeMessages(locale) {
+        // read from original spec to apply locale
+        if(this._raw_spec){
+            Env.api.specs = JSON.parse(this._raw_spec);
+        }else{
+            this._raw_spec = JSON.stringify(Env.api.specs);
+        }
+
         for (let type in Env.api.specs) {
             for (let field in Env.api.specs[type].fields) {
                 // translate static meta messagess
@@ -64,7 +71,7 @@ export class Init {
 export class Sys {
     static setLocale(locale) {
         //todo: checks
-        console.log("Set locale from", Env.locale)
+        console.log("Set locale from", Env.locale);
         Env.locale = locale;
         Init.translateStaticTypeMessages(Env.locale);
         console.log("to", Env.locale)

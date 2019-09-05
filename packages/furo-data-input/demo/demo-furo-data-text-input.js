@@ -54,7 +54,7 @@ class DemoFuroDataTextInput extends FBP(LitElement) {
           <template>
             <simulate-error ƒ-bind-data="--entity"></simulate-error>
             <furo-data-text-input trailing-icon="dashboard" hint="custom hint"
-                                  ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
+                                  ƒ-bind-data="--entity(*.display_name)"></furo-data-text-input>
             <furo-data-text-input leading-icon="dashboard" ƒ-bind-data="--entity(*.furo_data_text_input)" min="4"
                                   max="7"></furo-data-text-input>
             <furo-data-text-input readonly ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>

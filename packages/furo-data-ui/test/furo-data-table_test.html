@@ -78,7 +78,7 @@
 
         it('should show a table header', (done) => {
             assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').childElementCount, 6);
-            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').querySelectorAll('th')[2].innerText, 'ID**** ');
+            assert.equal(dataTable.shadowRoot.querySelector('table').querySelector('thead').querySelector('tr').querySelectorAll('th')[2].innerText, 'ID ');
             assert.notEqual(dataTable.shadowRoot.querySelector('table').querySelector('thead').offsetHeight, 0);
 
             done();

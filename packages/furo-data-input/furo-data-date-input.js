@@ -174,7 +174,7 @@ class FuroDataDateInput extends FBP(LitElement) {
     this.field.addEventListener('field-became-invalid', (e) => {
       // updates wieder einspielen
       this.error = true;
-      this.errortext = this.field._validity.message;
+      this.errortext = this.field._validity.description;
       this.requestUpdate();
     });
 
@@ -232,7 +232,7 @@ class FuroDataDateInput extends FBP(LitElement) {
     //mark incomming error
     if (!this.field._isValid) {
       this.error = true;
-      this.errortext = this.field._validity.message;
+      this.errortext = this.field._validity.description;
     }
     this._FBPTriggerWire('--value', this.field.value);
     this.requestUpdate();
