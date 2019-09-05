@@ -124,8 +124,16 @@
         assert.equal(numberInput.value,1337);
         done();
       });
-      numberInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:1337, validity:{}}]}});
+      numberInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:1337, validity:{"valid":true}}]}});
+    });
 
+    it('should emit event `input-invalid` with validity object by invalid input', (done) => {
+
+      numberInput.addEventListener("input-invalid",e=>{
+        assert.equal(JSON.stringify(e.detail),JSON.stringify({valid:false}));
+        done();
+      });
+      numberInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:"d", validity:{valid:false}}]}});
     });
 
     it('instantiating furo-number-input with default properties works', () => {

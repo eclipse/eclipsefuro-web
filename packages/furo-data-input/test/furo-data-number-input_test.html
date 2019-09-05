@@ -21,7 +21,7 @@
       <template>
         <furo-data-number-input ƒ-bind-data="--entityReady(*.furo_data_number_input)"></furo-data-number-input>
         <furo-data-number-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entityReady(*.furo_data_number_input)"
-                                min="1"
+                                min="1" pattern="^.*[02468]$" required readonly
                                 max="10"
                                 step="0.5"
                                 @-value-changed="--textChanged"></furo-data-number-input>
@@ -82,6 +82,16 @@
 
     });
 
+    it('should log invalid bindings', (done) => {
+      dataNumberInput._FBPAddWireHook("--value", (val) => {
+        // invalid binding
+        assert.equal(invalidNumberInput.field, undefined);
+        // valid binding
+        assert.equal(dataNumberInput.field._isValid, true);
+        done();
+      });
+    });
+
     it('should override hints ', (done) => {
 
       host._FBPAddWireHook('--entityReady', (e) => {
@@ -116,6 +126,24 @@
       });
     });
 
+    it('should override readonly ', (done) => {
+      secondNumberInput._FBPAddWireHook("--value", (val) => {
+        assert.equal(secondNumberInput.readonly, true);
+        done();
+      });
+    });
+
+    it('should set readonly via disable method', (done) => {
+      secondNumberInput.disable();
+      assert.equal(secondNumberInput._readonly, true);
+      done();
+    });
+
+    it('should remove readonly via enable method', (done) => {
+      secondNumberInput.enable();
+      assert.equal(secondNumberInput._readonly, false);
+      done();
+    });
 
     it('should receive value with bind', (done) => {
       entityObject.addEventListener("data-injected", (e) => {

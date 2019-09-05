@@ -77,9 +77,9 @@ class FuroDataTextInput extends FBP(LitElement) {
     this._p = p;
   }
 
-  set required(r) {
-    this._required = r;
-    this._r = r;
+  set required(rd) {
+    this._required = rd;
+    this._rd = rd;
   }
 
   set min(i) {
@@ -110,7 +110,7 @@ class FuroDataTextInput extends FBP(LitElement) {
   }
 
   get required() {
-    return this._r;
+    return this._rd;
   }
 
   get min() {

@@ -39,7 +39,26 @@ class FuroDataNumberInput extends FBP(LitElement) {
         this.field.value = val;
       }
     });
+
+    this._FBPAddWireHook("--inputInvalid", (val) => {
+
+      if (val) {
+        if(val.patternMismatch) {
+          this._hint = this._patternErrorMessage;
+        }
+        else if (val.tooShort) {
+          this._hint = this._minErrorMessage;
+        }
+        else if(val.tooLong)
+        {
+          this._hint = this._maxErrorMessage;
+        }
+
+        this.requestUpdate();
+      }
+    });
   }
+
 
   // label setter and getter are needed for rendering on the first time
   set label(l) {
@@ -50,11 +69,67 @@ class FuroDataNumberInput extends FBP(LitElement) {
     this._hint = v;
     this._h = v;
   }
+
+  set pattern(p) {
+    this._pattern = p;
+    this._p = p;
+  }
+
+  set required(rd) {
+    this._required = rd;
+    this._rd = rd;
+  }
+
+  set min(i) {
+    this._min = i;
+    this._i = i;
+  }
+
+  set max(x) {
+    this._max = x;
+    this._x = x;
+  }
+
+  set readonly(r) {
+    this._readonly = r;
+    this._r = r;
+  }
+
+  set step(s) {
+    this._step = s;
+    this._s = s;
+  }
+
   get label(){
     return this._l;
   }
+
   get hint(){
     return this._h;
+  }
+
+  get pattern() {
+    return this._p;
+  }
+
+  get required() {
+    return this._rd;
+  }
+
+  get min() {
+    return this._i;
+  }
+
+  get max() {
+    return this._x;
+  }
+
+  get readonly() {
+    return this._r;
+  }
+
+  get step() {
+    return this._s;
   }
 
   static get properties() {
@@ -67,6 +142,22 @@ class FuroDataNumberInput extends FBP(LitElement) {
        */
       label: {
         type: String,
+      },
+      /**
+       * Overrides the pattern from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      pattern: {
+        type: String
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -260,6 +351,7 @@ class FuroDataNumberInput extends FBP(LitElement) {
           ?condensed="${this.condensed}"          
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
+          ?required=${this._required}
           errortext="${this.errortext}" 
           hint="${this._hint}" 
           @-value-changed="--valueChanged"

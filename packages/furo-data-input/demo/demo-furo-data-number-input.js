@@ -7,6 +7,7 @@ import "@furo/data/furo-data-object";
 import "@furo/data/furo-deep-link";
 import "./produce-qp-data";
 import "@furo/data/furo-entity-agent";
+import "./helper/simulate-error"
 
 /**
  * `demo-furo-data-number-input`
@@ -56,8 +57,9 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
           <template>
             
             <furo-horizontal-flex>
+
               <furo-data-number-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"
-                                      hint="min, max and step come from spec"></furo-data-number-input>
+                                        hint="min, max and step come from spec"></furo-data-number-input>
               <furo-data-number-input label="with step" step="0.5" ƒ-bind-data="--entity(*.furo_data_number_input)"
                                       hint="min and max come from spec, custom step 0.5"
                                       @-value-changed="--numberChanged"></furo-data-number-input>
@@ -66,9 +68,11 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
               <furo-data-number-input label="disabled" disabled label="with step" step="3"
                                       hint="min and max come from spec, custom step 3"
                                       ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
+
             </furo-horizontal-flex>
               
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+            <simulate-error ƒ-bind-data="--entity" error='{"field":"furo_data_number_input","description":"pattern not match"}'></simulate-error>
 
             <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
                               ƒ-inject-raw="--response(*.data)"></furo-data-object>

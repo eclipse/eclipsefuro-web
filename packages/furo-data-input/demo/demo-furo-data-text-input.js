@@ -53,7 +53,7 @@ class DemoFuroDataTextInput extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <simulate-error ƒ-bind-data="--entity" error='{"field":"furo_data_text_input","description":"pattern not match"}'></simulate-error>
-            <furo-data-text-input trailing-icon="dashboard" hint="custom hint"
+            <furo-data-text-input trailing-icon="dashboard" hint="custom hint" required
                                   ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
             <furo-data-text-input leading-icon="dashboard" ƒ-bind-data="--entity(*.furo_data_text_input)" min="4"
                                   max="7"></furo-data-text-input>

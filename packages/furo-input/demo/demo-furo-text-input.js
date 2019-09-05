@@ -52,8 +52,8 @@ class DemoFuroTextInput extends FBP(LitElement) {
         <furo-horizontal-scroller flex>
           
             <div style="background-color:var(--surface); padding: 30px">
-              <furo-text-input min="5" max="8" leading-icon="send" label="Label" hint="Hint: length between 5 and 8"></furo-text-input>
-              <furo-text-input trailing-icon="send" filled label="Label" value="Val" hint="Hint: filled"></furo-text-input>
+              <furo-text-input min="5" max="8" leading-icon="send" label="Label" hint="Hint: length between 5 and 8" ></furo-text-input>
+              <furo-text-input trailing-icon="send" filled label="Label" value="Val" hint="Hint: filled, required" required></furo-text-input>
               <furo-text-input trailing-icon="send" leading-icon="send"  error label="Label" errortext="errortext"></furo-text-input>
               <furo-text-input trailing-icon="send" leading-icon="send"  filled error label="Label" value="Val" errortext="errortext"></furo-text-input>
             </div>

@@ -49,7 +49,7 @@ class FuroNumberInput extends FBP(LitElement) {
       // mark min max error
       this.valid = !(input.validity.rangeOverflow || input.validity.rangeUnderflow);
 
-      if (!input.validity.badInput) {
+      if (input.validity.valid) {
         this.value = input.value;
         this._float = !!input.value;
         /**
@@ -61,24 +61,31 @@ class FuroNumberInput extends FBP(LitElement) {
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
       }
+      else{
+
+        /**
+         * @event input-invalid
+         * Fired when input value is invalid
+         * detail payload: {Object} the validity object of input
+         */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity ;
+        this.dispatchEvent(customEvent);
+      }
     });
+    this.updateInputAttributes();
 
-    // set pattern, min, max, step
-    let inputField = this.shadowRoot.querySelector("#input");
-
-
-    if (this.min) {
-      inputField.setAttribute("min", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("max", this.max);
-    }
-    if (this.step) {
-      inputField.setAttribute("step", this.step);
-    }
   }
 
 
+  updateInputAttributes() {
+
+    // remove pattern when it is undefined to avoid validate problem
+    let inputField = this.shadowRoot.getElementById("input");
+    if (this.pattern === undefined ) {
+      inputField.removeAttribute("pattern");
+    }
+  }
 
   set _value(v) {
     this._float = !!v;
@@ -121,6 +128,13 @@ class FuroNumberInput extends FBP(LitElement) {
        */
       min: {
         type: Number
+      },
+      /**
+       * The required attribute, the value true means this field must be filled in
+       *
+       */
+      required: {
+        type: Boolean
       },
       /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
@@ -611,6 +625,7 @@ class FuroNumberInput extends FBP(LitElement) {
                    max="${this.max}"
                    step="${this.step}"
                    type="number"       
+                   ?required=${this.required} 
                    ƒ-.value="--value" 
                    @-input="--inputInput(*)"   
                    ƒ-focus="--focus">
@@ -619,7 +634,7 @@ class FuroNumberInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label} ${this.required ? html `*` : html``}</span></label>
       <div class="right-border"></div>
       </div>
       
