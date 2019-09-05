@@ -13,7 +13,13 @@
     "furo_data_bool_icon": false,
     "type_property": [
       {
-
+        "data": {
+          "type_url": "string",
+          "value": "string"
+        },
+        "display_name": "string",
+        "id": "string",
+        "meta": {}
       }
     ]
   },
@@ -25,17 +31,4 @@
       "type": "experiment.ExperimentEntity"
     }
   ]
-}
-
-
-
-
-{
-  "data": {
-    "type_url": "string",
-    "value": "string"
-  },
-  "display_name": "string",
-  "id": "string",
-  "meta": {}
 }
