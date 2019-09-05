@@ -199,7 +199,7 @@ class FuroEntityAgent extends FBP(LitElement) {
     this._attachListeners("save");
     // TODO nur modifizierte daten senden (.pristine)
 
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._requestDataObject.json));
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._requestDataObject.value));
 
   }
 
@@ -223,7 +223,7 @@ class FuroEntityAgent extends FBP(LitElement) {
       return
     }
     this._attachListeners("create");
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.create, this._requestDataObject.json));
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.create, this._requestDataObject.value));
 
   }
 
