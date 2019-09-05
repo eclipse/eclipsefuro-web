@@ -5,7 +5,6 @@
   "__proto": {
     "package": "furo",
     "imports": [
-      "furo/meta.proto",
       "google/protobuf/any.proto"
     ],
     "targetfile": "property.proto"
@@ -42,18 +41,6 @@
       "constraints": {},
       "__proto": {
         "number": 3
-      }
-    },
-    "meta": {
-      "description": "meta part of the property",
-      "type": "furo.Meta",
-      "meta": {
-        "label": "",
-        "hint": ""
-      },
-      "constraints": {},
-      "__proto": {
-        "number": 4
       }
     }
   }

@@ -5,11 +5,63 @@ package furo;
 
 
 import "furo/meta.proto";
+import "google/type/date.proto";
+import "google/type/money.proto";
 import "google/protobuf/any.proto";
 
 
+// Decimal type with embedded meta
+message PropertyDecimal {                
+    // Decimal data part
+    string data = 1;
+    
+    // Meta for the property
+    Meta meta = 2;
+
+}
+
+// Date type with embedded meta
+message PropertyDate {                
+    // Date data part
+    google.type.Date data = 1;
+    
+    // Meta for the property
+    Meta meta = 2;
+
+}
+
+// String type with embedded meta
+message PropertyString {                
+    // data part
+    string data = 1;
+    
+    // Meta for the property string
+    Meta meta = 2;
+
+}
+
+// Integer type with embedded meta
+message PropertyInteger {                
+    // Integer data part
+    int32 data = 1;
+    
+    // Meta for the property string
+    Meta meta = 2;
+
+}
+
+// Money type with embedded meta
+message PropertyMoney {                
+    // Money data part
+    google.type.Money data = 1;
+    
+    // Meta for the property
+    Meta meta = 2;
+
+}
+
 // Type to define property values with type information
-message Property {                        
+message Property {                    
     // data part of the property
     google.protobuf.Any data = 3;
     
@@ -18,8 +70,5 @@ message Property {
     
     // Id of the property
     string id = 1;
-    
-    // meta part of the property
-    Meta meta = 4;
 
 }

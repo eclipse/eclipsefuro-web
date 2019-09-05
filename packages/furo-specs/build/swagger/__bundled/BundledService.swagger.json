@@ -1496,6 +1496,13 @@
           "$ref": "#/definitions/protobufAny",
           "title": "field for testing any"
         },
+        "type_property": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/furoProperty"
+          },
+          "title": "field for testing property"
+        },
         "type_with_options": {
           "type": "string",
           "title": "field for testing static options"
@@ -1615,6 +1622,28 @@
         }
       },
       "title": "fields of meta info"
+    },
+    "furoProperty": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/protobufAny",
+          "title": "data part of the property"
+        },
+        "display_name": {
+          "type": "string",
+          "title": "String representation of the property"
+        },
+        "id": {
+          "type": "string",
+          "title": "Id of the property"
+        },
+        "meta": {
+          "$ref": "#/definitions/furoMeta",
+          "title": "meta part of the property"
+        }
+      },
+      "title": "Type to define property values with type information"
     },
     "furoReference": {
       "type": "object",

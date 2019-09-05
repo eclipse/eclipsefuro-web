@@ -400,10 +400,6 @@
         "id": {
           "type": "string",
           "title": "Id of the property"
-        },
-        "meta": {
-          "$ref": "#/definitions/furoMeta",
-          "title": "meta part of the property"
         }
       },
       "title": "Type to define property values with type information"

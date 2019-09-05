@@ -14,6 +14,4312 @@ public final class PropertyOuterClass {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface PropertyDecimalOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.PropertyDecimal)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Decimal data part
+     * </pre>
+     *
+     * <code>string data = 1;</code>
+     */
+    java.lang.String getData();
+    /**
+     * <pre>
+     * Decimal data part
+     * </pre>
+     *
+     * <code>string data = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getDataBytes();
+
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    boolean hasMeta();
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    furo.MetaOuterClass.Meta getMeta();
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder();
+  }
+  /**
+   * <pre>
+   * Decimal type with embedded meta
+   * </pre>
+   *
+   * Protobuf type {@code furo.PropertyDecimal}
+   */
+  public  static final class PropertyDecimal extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:furo.PropertyDecimal)
+      PropertyDecimalOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PropertyDecimal.newBuilder() to construct.
+    private PropertyDecimal(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PropertyDecimal() {
+      data_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PropertyDecimal(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              data_ = s;
+              break;
+            }
+            case 18: {
+              furo.MetaOuterClass.Meta.Builder subBuilder = null;
+              if (meta_ != null) {
+                subBuilder = meta_.toBuilder();
+              }
+              meta_ = input.readMessage(furo.MetaOuterClass.Meta.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(meta_);
+                meta_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return furo.PropertyOuterClass.internal_static_furo_PropertyDecimal_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return furo.PropertyOuterClass.internal_static_furo_PropertyDecimal_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              furo.PropertyOuterClass.PropertyDecimal.class, furo.PropertyOuterClass.PropertyDecimal.Builder.class);
+    }
+
+    public static final int DATA_FIELD_NUMBER = 1;
+    private volatile java.lang.Object data_;
+    /**
+     * <pre>
+     * Decimal data part
+     * </pre>
+     *
+     * <code>string data = 1;</code>
+     */
+    public java.lang.String getData() {
+      java.lang.Object ref = data_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        data_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Decimal data part
+     * </pre>
+     *
+     * <code>string data = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDataBytes() {
+      java.lang.Object ref = data_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        data_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int META_FIELD_NUMBER = 2;
+    private furo.MetaOuterClass.Meta meta_;
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public boolean hasMeta() {
+      return meta_ != null;
+    }
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public furo.MetaOuterClass.Meta getMeta() {
+      return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+    }
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+      return getMeta();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getDataBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, data_);
+      }
+      if (meta_ != null) {
+        output.writeMessage(2, getMeta());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getDataBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, data_);
+      }
+      if (meta_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getMeta());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof furo.PropertyOuterClass.PropertyDecimal)) {
+        return super.equals(obj);
+      }
+      furo.PropertyOuterClass.PropertyDecimal other = (furo.PropertyOuterClass.PropertyDecimal) obj;
+
+      if (!getData()
+          .equals(other.getData())) return false;
+      if (hasMeta() != other.hasMeta()) return false;
+      if (hasMeta()) {
+        if (!getMeta()
+            .equals(other.getMeta())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData().hashCode();
+      if (hasMeta()) {
+        hash = (37 * hash) + META_FIELD_NUMBER;
+        hash = (53 * hash) + getMeta().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static furo.PropertyOuterClass.PropertyDecimal parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyDecimal parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(furo.PropertyOuterClass.PropertyDecimal prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Decimal type with embedded meta
+     * </pre>
+     *
+     * Protobuf type {@code furo.PropertyDecimal}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:furo.PropertyDecimal)
+        furo.PropertyOuterClass.PropertyDecimalOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyDecimal_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyDecimal_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                furo.PropertyOuterClass.PropertyDecimal.class, furo.PropertyOuterClass.PropertyDecimal.Builder.class);
+      }
+
+      // Construct using furo.PropertyOuterClass.PropertyDecimal.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        data_ = "";
+
+        if (metaBuilder_ == null) {
+          meta_ = null;
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyDecimal_descriptor;
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyDecimal getDefaultInstanceForType() {
+        return furo.PropertyOuterClass.PropertyDecimal.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyDecimal build() {
+        furo.PropertyOuterClass.PropertyDecimal result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyDecimal buildPartial() {
+        furo.PropertyOuterClass.PropertyDecimal result = new furo.PropertyOuterClass.PropertyDecimal(this);
+        result.data_ = data_;
+        if (metaBuilder_ == null) {
+          result.meta_ = meta_;
+        } else {
+          result.meta_ = metaBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof furo.PropertyOuterClass.PropertyDecimal) {
+          return mergeFrom((furo.PropertyOuterClass.PropertyDecimal)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(furo.PropertyOuterClass.PropertyDecimal other) {
+        if (other == furo.PropertyOuterClass.PropertyDecimal.getDefaultInstance()) return this;
+        if (!other.getData().isEmpty()) {
+          data_ = other.data_;
+          onChanged();
+        }
+        if (other.hasMeta()) {
+          mergeMeta(other.getMeta());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        furo.PropertyOuterClass.PropertyDecimal parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (furo.PropertyOuterClass.PropertyDecimal) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object data_ = "";
+      /**
+       * <pre>
+       * Decimal data part
+       * </pre>
+       *
+       * <code>string data = 1;</code>
+       */
+      public java.lang.String getData() {
+        java.lang.Object ref = data_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          data_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Decimal data part
+       * </pre>
+       *
+       * <code>string data = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDataBytes() {
+        java.lang.Object ref = data_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          data_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Decimal data part
+       * </pre>
+       *
+       * <code>string data = 1;</code>
+       */
+      public Builder setData(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Decimal data part
+       * </pre>
+       *
+       * <code>string data = 1;</code>
+       */
+      public Builder clearData() {
+        
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Decimal data part
+       * </pre>
+       *
+       * <code>string data = 1;</code>
+       */
+      public Builder setDataBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        data_ = value;
+        onChanged();
+        return this;
+      }
+
+      private furo.MetaOuterClass.Meta meta_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> metaBuilder_;
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public boolean hasMeta() {
+        return metaBuilder_ != null || meta_ != null;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.Meta getMeta() {
+        if (metaBuilder_ == null) {
+          return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        } else {
+          return metaBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder setMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          meta_ = value;
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder setMeta(
+          furo.MetaOuterClass.Meta.Builder builderForValue) {
+        if (metaBuilder_ == null) {
+          meta_ = builderForValue.build();
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder mergeMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (meta_ != null) {
+            meta_ =
+              furo.MetaOuterClass.Meta.newBuilder(meta_).mergeFrom(value).buildPartial();
+          } else {
+            meta_ = value;
+          }
+          onChanged();
+        } else {
+          metaBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder clearMeta() {
+        if (metaBuilder_ == null) {
+          meta_ = null;
+          onChanged();
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.Meta.Builder getMetaBuilder() {
+        
+        onChanged();
+        return getMetaFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+        if (metaBuilder_ != null) {
+          return metaBuilder_.getMessageOrBuilder();
+        } else {
+          return meta_ == null ?
+              furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> 
+          getMetaFieldBuilder() {
+        if (metaBuilder_ == null) {
+          metaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder>(
+                  getMeta(),
+                  getParentForChildren(),
+                  isClean());
+          meta_ = null;
+        }
+        return metaBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:furo.PropertyDecimal)
+    }
+
+    // @@protoc_insertion_point(class_scope:furo.PropertyDecimal)
+    private static final furo.PropertyOuterClass.PropertyDecimal DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new furo.PropertyOuterClass.PropertyDecimal();
+    }
+
+    public static furo.PropertyOuterClass.PropertyDecimal getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PropertyDecimal>
+        PARSER = new com.google.protobuf.AbstractParser<PropertyDecimal>() {
+      @java.lang.Override
+      public PropertyDecimal parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PropertyDecimal(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PropertyDecimal> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PropertyDecimal> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public furo.PropertyOuterClass.PropertyDecimal getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PropertyDateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.PropertyDate)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Date data part
+     * </pre>
+     *
+     * <code>.google.type.Date data = 1;</code>
+     */
+    boolean hasData();
+    /**
+     * <pre>
+     * Date data part
+     * </pre>
+     *
+     * <code>.google.type.Date data = 1;</code>
+     */
+    google.type.DateOuterClass.Date getData();
+    /**
+     * <pre>
+     * Date data part
+     * </pre>
+     *
+     * <code>.google.type.Date data = 1;</code>
+     */
+    google.type.DateOuterClass.DateOrBuilder getDataOrBuilder();
+
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    boolean hasMeta();
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    furo.MetaOuterClass.Meta getMeta();
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder();
+  }
+  /**
+   * <pre>
+   * Date type with embedded meta
+   * </pre>
+   *
+   * Protobuf type {@code furo.PropertyDate}
+   */
+  public  static final class PropertyDate extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:furo.PropertyDate)
+      PropertyDateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PropertyDate.newBuilder() to construct.
+    private PropertyDate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PropertyDate() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PropertyDate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              google.type.DateOuterClass.Date.Builder subBuilder = null;
+              if (data_ != null) {
+                subBuilder = data_.toBuilder();
+              }
+              data_ = input.readMessage(google.type.DateOuterClass.Date.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(data_);
+                data_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              furo.MetaOuterClass.Meta.Builder subBuilder = null;
+              if (meta_ != null) {
+                subBuilder = meta_.toBuilder();
+              }
+              meta_ = input.readMessage(furo.MetaOuterClass.Meta.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(meta_);
+                meta_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return furo.PropertyOuterClass.internal_static_furo_PropertyDate_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return furo.PropertyOuterClass.internal_static_furo_PropertyDate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              furo.PropertyOuterClass.PropertyDate.class, furo.PropertyOuterClass.PropertyDate.Builder.class);
+    }
+
+    public static final int DATA_FIELD_NUMBER = 1;
+    private google.type.DateOuterClass.Date data_;
+    /**
+     * <pre>
+     * Date data part
+     * </pre>
+     *
+     * <code>.google.type.Date data = 1;</code>
+     */
+    public boolean hasData() {
+      return data_ != null;
+    }
+    /**
+     * <pre>
+     * Date data part
+     * </pre>
+     *
+     * <code>.google.type.Date data = 1;</code>
+     */
+    public google.type.DateOuterClass.Date getData() {
+      return data_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : data_;
+    }
+    /**
+     * <pre>
+     * Date data part
+     * </pre>
+     *
+     * <code>.google.type.Date data = 1;</code>
+     */
+    public google.type.DateOuterClass.DateOrBuilder getDataOrBuilder() {
+      return getData();
+    }
+
+    public static final int META_FIELD_NUMBER = 2;
+    private furo.MetaOuterClass.Meta meta_;
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public boolean hasMeta() {
+      return meta_ != null;
+    }
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public furo.MetaOuterClass.Meta getMeta() {
+      return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+    }
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+      return getMeta();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (data_ != null) {
+        output.writeMessage(1, getData());
+      }
+      if (meta_ != null) {
+        output.writeMessage(2, getMeta());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (data_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getData());
+      }
+      if (meta_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getMeta());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof furo.PropertyOuterClass.PropertyDate)) {
+        return super.equals(obj);
+      }
+      furo.PropertyOuterClass.PropertyDate other = (furo.PropertyOuterClass.PropertyDate) obj;
+
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
+      }
+      if (hasMeta() != other.hasMeta()) return false;
+      if (hasMeta()) {
+        if (!getMeta()
+            .equals(other.getMeta())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      if (hasMeta()) {
+        hash = (37 * hash) + META_FIELD_NUMBER;
+        hash = (53 * hash) + getMeta().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static furo.PropertyOuterClass.PropertyDate parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyDate parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(furo.PropertyOuterClass.PropertyDate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Date type with embedded meta
+     * </pre>
+     *
+     * Protobuf type {@code furo.PropertyDate}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:furo.PropertyDate)
+        furo.PropertyOuterClass.PropertyDateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyDate_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyDate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                furo.PropertyOuterClass.PropertyDate.class, furo.PropertyOuterClass.PropertyDate.Builder.class);
+      }
+
+      // Construct using furo.PropertyOuterClass.PropertyDate.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (dataBuilder_ == null) {
+          data_ = null;
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
+        }
+        if (metaBuilder_ == null) {
+          meta_ = null;
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyDate_descriptor;
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyDate getDefaultInstanceForType() {
+        return furo.PropertyOuterClass.PropertyDate.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyDate build() {
+        furo.PropertyOuterClass.PropertyDate result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyDate buildPartial() {
+        furo.PropertyOuterClass.PropertyDate result = new furo.PropertyOuterClass.PropertyDate(this);
+        if (dataBuilder_ == null) {
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
+        }
+        if (metaBuilder_ == null) {
+          result.meta_ = meta_;
+        } else {
+          result.meta_ = metaBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof furo.PropertyOuterClass.PropertyDate) {
+          return mergeFrom((furo.PropertyOuterClass.PropertyDate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(furo.PropertyOuterClass.PropertyDate other) {
+        if (other == furo.PropertyOuterClass.PropertyDate.getDefaultInstance()) return this;
+        if (other.hasData()) {
+          mergeData(other.getData());
+        }
+        if (other.hasMeta()) {
+          mergeMeta(other.getMeta());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        furo.PropertyOuterClass.PropertyDate parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (furo.PropertyOuterClass.PropertyDate) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private google.type.DateOuterClass.Date data_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder> dataBuilder_;
+      /**
+       * <pre>
+       * Date data part
+       * </pre>
+       *
+       * <code>.google.type.Date data = 1;</code>
+       */
+      public boolean hasData() {
+        return dataBuilder_ != null || data_ != null;
+      }
+      /**
+       * <pre>
+       * Date data part
+       * </pre>
+       *
+       * <code>.google.type.Date data = 1;</code>
+       */
+      public google.type.DateOuterClass.Date getData() {
+        if (dataBuilder_ == null) {
+          return data_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : data_;
+        } else {
+          return dataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Date data part
+       * </pre>
+       *
+       * <code>.google.type.Date data = 1;</code>
+       */
+      public Builder setData(google.type.DateOuterClass.Date value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Date data part
+       * </pre>
+       *
+       * <code>.google.type.Date data = 1;</code>
+       */
+      public Builder setData(
+          google.type.DateOuterClass.Date.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Date data part
+       * </pre>
+       *
+       * <code>.google.type.Date data = 1;</code>
+       */
+      public Builder mergeData(google.type.DateOuterClass.Date value) {
+        if (dataBuilder_ == null) {
+          if (data_ != null) {
+            data_ =
+              google.type.DateOuterClass.Date.newBuilder(data_).mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          dataBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Date data part
+       * </pre>
+       *
+       * <code>.google.type.Date data = 1;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = null;
+          onChanged();
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Date data part
+       * </pre>
+       *
+       * <code>.google.type.Date data = 1;</code>
+       */
+      public google.type.DateOuterClass.Date.Builder getDataBuilder() {
+        
+        onChanged();
+        return getDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Date data part
+       * </pre>
+       *
+       * <code>.google.type.Date data = 1;</code>
+       */
+      public google.type.DateOuterClass.DateOrBuilder getDataOrBuilder() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilder();
+        } else {
+          return data_ == null ?
+              google.type.DateOuterClass.Date.getDefaultInstance() : data_;
+        }
+      }
+      /**
+       * <pre>
+       * Date data part
+       * </pre>
+       *
+       * <code>.google.type.Date data = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder>(
+                  getData(),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
+      }
+
+      private furo.MetaOuterClass.Meta meta_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> metaBuilder_;
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public boolean hasMeta() {
+        return metaBuilder_ != null || meta_ != null;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.Meta getMeta() {
+        if (metaBuilder_ == null) {
+          return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        } else {
+          return metaBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder setMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          meta_ = value;
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder setMeta(
+          furo.MetaOuterClass.Meta.Builder builderForValue) {
+        if (metaBuilder_ == null) {
+          meta_ = builderForValue.build();
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder mergeMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (meta_ != null) {
+            meta_ =
+              furo.MetaOuterClass.Meta.newBuilder(meta_).mergeFrom(value).buildPartial();
+          } else {
+            meta_ = value;
+          }
+          onChanged();
+        } else {
+          metaBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder clearMeta() {
+        if (metaBuilder_ == null) {
+          meta_ = null;
+          onChanged();
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.Meta.Builder getMetaBuilder() {
+        
+        onChanged();
+        return getMetaFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+        if (metaBuilder_ != null) {
+          return metaBuilder_.getMessageOrBuilder();
+        } else {
+          return meta_ == null ?
+              furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> 
+          getMetaFieldBuilder() {
+        if (metaBuilder_ == null) {
+          metaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder>(
+                  getMeta(),
+                  getParentForChildren(),
+                  isClean());
+          meta_ = null;
+        }
+        return metaBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:furo.PropertyDate)
+    }
+
+    // @@protoc_insertion_point(class_scope:furo.PropertyDate)
+    private static final furo.PropertyOuterClass.PropertyDate DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new furo.PropertyOuterClass.PropertyDate();
+    }
+
+    public static furo.PropertyOuterClass.PropertyDate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PropertyDate>
+        PARSER = new com.google.protobuf.AbstractParser<PropertyDate>() {
+      @java.lang.Override
+      public PropertyDate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PropertyDate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PropertyDate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PropertyDate> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public furo.PropertyOuterClass.PropertyDate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PropertyStringOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.PropertyString)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * data part
+     * </pre>
+     *
+     * <code>string data = 1;</code>
+     */
+    java.lang.String getData();
+    /**
+     * <pre>
+     * data part
+     * </pre>
+     *
+     * <code>string data = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getDataBytes();
+
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    boolean hasMeta();
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    furo.MetaOuterClass.Meta getMeta();
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder();
+  }
+  /**
+   * <pre>
+   * String type with embedded meta
+   * </pre>
+   *
+   * Protobuf type {@code furo.PropertyString}
+   */
+  public  static final class PropertyString extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:furo.PropertyString)
+      PropertyStringOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PropertyString.newBuilder() to construct.
+    private PropertyString(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PropertyString() {
+      data_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PropertyString(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              data_ = s;
+              break;
+            }
+            case 18: {
+              furo.MetaOuterClass.Meta.Builder subBuilder = null;
+              if (meta_ != null) {
+                subBuilder = meta_.toBuilder();
+              }
+              meta_ = input.readMessage(furo.MetaOuterClass.Meta.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(meta_);
+                meta_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return furo.PropertyOuterClass.internal_static_furo_PropertyString_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return furo.PropertyOuterClass.internal_static_furo_PropertyString_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              furo.PropertyOuterClass.PropertyString.class, furo.PropertyOuterClass.PropertyString.Builder.class);
+    }
+
+    public static final int DATA_FIELD_NUMBER = 1;
+    private volatile java.lang.Object data_;
+    /**
+     * <pre>
+     * data part
+     * </pre>
+     *
+     * <code>string data = 1;</code>
+     */
+    public java.lang.String getData() {
+      java.lang.Object ref = data_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        data_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * data part
+     * </pre>
+     *
+     * <code>string data = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDataBytes() {
+      java.lang.Object ref = data_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        data_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int META_FIELD_NUMBER = 2;
+    private furo.MetaOuterClass.Meta meta_;
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public boolean hasMeta() {
+      return meta_ != null;
+    }
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public furo.MetaOuterClass.Meta getMeta() {
+      return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+    }
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+      return getMeta();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getDataBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, data_);
+      }
+      if (meta_ != null) {
+        output.writeMessage(2, getMeta());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getDataBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, data_);
+      }
+      if (meta_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getMeta());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof furo.PropertyOuterClass.PropertyString)) {
+        return super.equals(obj);
+      }
+      furo.PropertyOuterClass.PropertyString other = (furo.PropertyOuterClass.PropertyString) obj;
+
+      if (!getData()
+          .equals(other.getData())) return false;
+      if (hasMeta() != other.hasMeta()) return false;
+      if (hasMeta()) {
+        if (!getMeta()
+            .equals(other.getMeta())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData().hashCode();
+      if (hasMeta()) {
+        hash = (37 * hash) + META_FIELD_NUMBER;
+        hash = (53 * hash) + getMeta().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static furo.PropertyOuterClass.PropertyString parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyString parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(furo.PropertyOuterClass.PropertyString prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * String type with embedded meta
+     * </pre>
+     *
+     * Protobuf type {@code furo.PropertyString}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:furo.PropertyString)
+        furo.PropertyOuterClass.PropertyStringOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyString_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyString_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                furo.PropertyOuterClass.PropertyString.class, furo.PropertyOuterClass.PropertyString.Builder.class);
+      }
+
+      // Construct using furo.PropertyOuterClass.PropertyString.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        data_ = "";
+
+        if (metaBuilder_ == null) {
+          meta_ = null;
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyString_descriptor;
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyString getDefaultInstanceForType() {
+        return furo.PropertyOuterClass.PropertyString.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyString build() {
+        furo.PropertyOuterClass.PropertyString result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyString buildPartial() {
+        furo.PropertyOuterClass.PropertyString result = new furo.PropertyOuterClass.PropertyString(this);
+        result.data_ = data_;
+        if (metaBuilder_ == null) {
+          result.meta_ = meta_;
+        } else {
+          result.meta_ = metaBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof furo.PropertyOuterClass.PropertyString) {
+          return mergeFrom((furo.PropertyOuterClass.PropertyString)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(furo.PropertyOuterClass.PropertyString other) {
+        if (other == furo.PropertyOuterClass.PropertyString.getDefaultInstance()) return this;
+        if (!other.getData().isEmpty()) {
+          data_ = other.data_;
+          onChanged();
+        }
+        if (other.hasMeta()) {
+          mergeMeta(other.getMeta());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        furo.PropertyOuterClass.PropertyString parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (furo.PropertyOuterClass.PropertyString) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object data_ = "";
+      /**
+       * <pre>
+       * data part
+       * </pre>
+       *
+       * <code>string data = 1;</code>
+       */
+      public java.lang.String getData() {
+        java.lang.Object ref = data_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          data_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * data part
+       * </pre>
+       *
+       * <code>string data = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDataBytes() {
+        java.lang.Object ref = data_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          data_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * data part
+       * </pre>
+       *
+       * <code>string data = 1;</code>
+       */
+      public Builder setData(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * data part
+       * </pre>
+       *
+       * <code>string data = 1;</code>
+       */
+      public Builder clearData() {
+        
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * data part
+       * </pre>
+       *
+       * <code>string data = 1;</code>
+       */
+      public Builder setDataBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        data_ = value;
+        onChanged();
+        return this;
+      }
+
+      private furo.MetaOuterClass.Meta meta_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> metaBuilder_;
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public boolean hasMeta() {
+        return metaBuilder_ != null || meta_ != null;
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.Meta getMeta() {
+        if (metaBuilder_ == null) {
+          return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        } else {
+          return metaBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder setMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          meta_ = value;
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder setMeta(
+          furo.MetaOuterClass.Meta.Builder builderForValue) {
+        if (metaBuilder_ == null) {
+          meta_ = builderForValue.build();
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder mergeMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (meta_ != null) {
+            meta_ =
+              furo.MetaOuterClass.Meta.newBuilder(meta_).mergeFrom(value).buildPartial();
+          } else {
+            meta_ = value;
+          }
+          onChanged();
+        } else {
+          metaBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder clearMeta() {
+        if (metaBuilder_ == null) {
+          meta_ = null;
+          onChanged();
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.Meta.Builder getMetaBuilder() {
+        
+        onChanged();
+        return getMetaFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+        if (metaBuilder_ != null) {
+          return metaBuilder_.getMessageOrBuilder();
+        } else {
+          return meta_ == null ?
+              furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> 
+          getMetaFieldBuilder() {
+        if (metaBuilder_ == null) {
+          metaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder>(
+                  getMeta(),
+                  getParentForChildren(),
+                  isClean());
+          meta_ = null;
+        }
+        return metaBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:furo.PropertyString)
+    }
+
+    // @@protoc_insertion_point(class_scope:furo.PropertyString)
+    private static final furo.PropertyOuterClass.PropertyString DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new furo.PropertyOuterClass.PropertyString();
+    }
+
+    public static furo.PropertyOuterClass.PropertyString getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PropertyString>
+        PARSER = new com.google.protobuf.AbstractParser<PropertyString>() {
+      @java.lang.Override
+      public PropertyString parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PropertyString(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PropertyString> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PropertyString> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public furo.PropertyOuterClass.PropertyString getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PropertyIntegerOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.PropertyInteger)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Integer data part
+     * </pre>
+     *
+     * <code>int32 data = 1;</code>
+     */
+    int getData();
+
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    boolean hasMeta();
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    furo.MetaOuterClass.Meta getMeta();
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder();
+  }
+  /**
+   * <pre>
+   * Integer type with embedded meta
+   * </pre>
+   *
+   * Protobuf type {@code furo.PropertyInteger}
+   */
+  public  static final class PropertyInteger extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:furo.PropertyInteger)
+      PropertyIntegerOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PropertyInteger.newBuilder() to construct.
+    private PropertyInteger(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PropertyInteger() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PropertyInteger(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              data_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              furo.MetaOuterClass.Meta.Builder subBuilder = null;
+              if (meta_ != null) {
+                subBuilder = meta_.toBuilder();
+              }
+              meta_ = input.readMessage(furo.MetaOuterClass.Meta.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(meta_);
+                meta_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return furo.PropertyOuterClass.internal_static_furo_PropertyInteger_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return furo.PropertyOuterClass.internal_static_furo_PropertyInteger_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              furo.PropertyOuterClass.PropertyInteger.class, furo.PropertyOuterClass.PropertyInteger.Builder.class);
+    }
+
+    public static final int DATA_FIELD_NUMBER = 1;
+    private int data_;
+    /**
+     * <pre>
+     * Integer data part
+     * </pre>
+     *
+     * <code>int32 data = 1;</code>
+     */
+    public int getData() {
+      return data_;
+    }
+
+    public static final int META_FIELD_NUMBER = 2;
+    private furo.MetaOuterClass.Meta meta_;
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public boolean hasMeta() {
+      return meta_ != null;
+    }
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public furo.MetaOuterClass.Meta getMeta() {
+      return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+    }
+    /**
+     * <pre>
+     * Meta for the property string
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+      return getMeta();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (data_ != 0) {
+        output.writeInt32(1, data_);
+      }
+      if (meta_ != null) {
+        output.writeMessage(2, getMeta());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (data_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, data_);
+      }
+      if (meta_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getMeta());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof furo.PropertyOuterClass.PropertyInteger)) {
+        return super.equals(obj);
+      }
+      furo.PropertyOuterClass.PropertyInteger other = (furo.PropertyOuterClass.PropertyInteger) obj;
+
+      if (getData()
+          != other.getData()) return false;
+      if (hasMeta() != other.hasMeta()) return false;
+      if (hasMeta()) {
+        if (!getMeta()
+            .equals(other.getMeta())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData();
+      if (hasMeta()) {
+        hash = (37 * hash) + META_FIELD_NUMBER;
+        hash = (53 * hash) + getMeta().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static furo.PropertyOuterClass.PropertyInteger parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyInteger parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(furo.PropertyOuterClass.PropertyInteger prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Integer type with embedded meta
+     * </pre>
+     *
+     * Protobuf type {@code furo.PropertyInteger}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:furo.PropertyInteger)
+        furo.PropertyOuterClass.PropertyIntegerOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyInteger_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyInteger_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                furo.PropertyOuterClass.PropertyInteger.class, furo.PropertyOuterClass.PropertyInteger.Builder.class);
+      }
+
+      // Construct using furo.PropertyOuterClass.PropertyInteger.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        data_ = 0;
+
+        if (metaBuilder_ == null) {
+          meta_ = null;
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyInteger_descriptor;
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyInteger getDefaultInstanceForType() {
+        return furo.PropertyOuterClass.PropertyInteger.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyInteger build() {
+        furo.PropertyOuterClass.PropertyInteger result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyInteger buildPartial() {
+        furo.PropertyOuterClass.PropertyInteger result = new furo.PropertyOuterClass.PropertyInteger(this);
+        result.data_ = data_;
+        if (metaBuilder_ == null) {
+          result.meta_ = meta_;
+        } else {
+          result.meta_ = metaBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof furo.PropertyOuterClass.PropertyInteger) {
+          return mergeFrom((furo.PropertyOuterClass.PropertyInteger)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(furo.PropertyOuterClass.PropertyInteger other) {
+        if (other == furo.PropertyOuterClass.PropertyInteger.getDefaultInstance()) return this;
+        if (other.getData() != 0) {
+          setData(other.getData());
+        }
+        if (other.hasMeta()) {
+          mergeMeta(other.getMeta());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        furo.PropertyOuterClass.PropertyInteger parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (furo.PropertyOuterClass.PropertyInteger) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int data_ ;
+      /**
+       * <pre>
+       * Integer data part
+       * </pre>
+       *
+       * <code>int32 data = 1;</code>
+       */
+      public int getData() {
+        return data_;
+      }
+      /**
+       * <pre>
+       * Integer data part
+       * </pre>
+       *
+       * <code>int32 data = 1;</code>
+       */
+      public Builder setData(int value) {
+        
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Integer data part
+       * </pre>
+       *
+       * <code>int32 data = 1;</code>
+       */
+      public Builder clearData() {
+        
+        data_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private furo.MetaOuterClass.Meta meta_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> metaBuilder_;
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public boolean hasMeta() {
+        return metaBuilder_ != null || meta_ != null;
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.Meta getMeta() {
+        if (metaBuilder_ == null) {
+          return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        } else {
+          return metaBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder setMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          meta_ = value;
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder setMeta(
+          furo.MetaOuterClass.Meta.Builder builderForValue) {
+        if (metaBuilder_ == null) {
+          meta_ = builderForValue.build();
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder mergeMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (meta_ != null) {
+            meta_ =
+              furo.MetaOuterClass.Meta.newBuilder(meta_).mergeFrom(value).buildPartial();
+          } else {
+            meta_ = value;
+          }
+          onChanged();
+        } else {
+          metaBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder clearMeta() {
+        if (metaBuilder_ == null) {
+          meta_ = null;
+          onChanged();
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.Meta.Builder getMetaBuilder() {
+        
+        onChanged();
+        return getMetaFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+        if (metaBuilder_ != null) {
+          return metaBuilder_.getMessageOrBuilder();
+        } else {
+          return meta_ == null ?
+              furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the property string
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> 
+          getMetaFieldBuilder() {
+        if (metaBuilder_ == null) {
+          metaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder>(
+                  getMeta(),
+                  getParentForChildren(),
+                  isClean());
+          meta_ = null;
+        }
+        return metaBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:furo.PropertyInteger)
+    }
+
+    // @@protoc_insertion_point(class_scope:furo.PropertyInteger)
+    private static final furo.PropertyOuterClass.PropertyInteger DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new furo.PropertyOuterClass.PropertyInteger();
+    }
+
+    public static furo.PropertyOuterClass.PropertyInteger getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PropertyInteger>
+        PARSER = new com.google.protobuf.AbstractParser<PropertyInteger>() {
+      @java.lang.Override
+      public PropertyInteger parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PropertyInteger(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PropertyInteger> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PropertyInteger> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public furo.PropertyOuterClass.PropertyInteger getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PropertyMoneyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.PropertyMoney)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Money data part
+     * </pre>
+     *
+     * <code>.google.type.Money data = 1;</code>
+     */
+    boolean hasData();
+    /**
+     * <pre>
+     * Money data part
+     * </pre>
+     *
+     * <code>.google.type.Money data = 1;</code>
+     */
+    google.type.MoneyOuterClass.Money getData();
+    /**
+     * <pre>
+     * Money data part
+     * </pre>
+     *
+     * <code>.google.type.Money data = 1;</code>
+     */
+    google.type.MoneyOuterClass.MoneyOrBuilder getDataOrBuilder();
+
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    boolean hasMeta();
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    furo.MetaOuterClass.Meta getMeta();
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder();
+  }
+  /**
+   * <pre>
+   * Money type with embedded meta
+   * </pre>
+   *
+   * Protobuf type {@code furo.PropertyMoney}
+   */
+  public  static final class PropertyMoney extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:furo.PropertyMoney)
+      PropertyMoneyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PropertyMoney.newBuilder() to construct.
+    private PropertyMoney(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PropertyMoney() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PropertyMoney(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              google.type.MoneyOuterClass.Money.Builder subBuilder = null;
+              if (data_ != null) {
+                subBuilder = data_.toBuilder();
+              }
+              data_ = input.readMessage(google.type.MoneyOuterClass.Money.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(data_);
+                data_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              furo.MetaOuterClass.Meta.Builder subBuilder = null;
+              if (meta_ != null) {
+                subBuilder = meta_.toBuilder();
+              }
+              meta_ = input.readMessage(furo.MetaOuterClass.Meta.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(meta_);
+                meta_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return furo.PropertyOuterClass.internal_static_furo_PropertyMoney_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return furo.PropertyOuterClass.internal_static_furo_PropertyMoney_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              furo.PropertyOuterClass.PropertyMoney.class, furo.PropertyOuterClass.PropertyMoney.Builder.class);
+    }
+
+    public static final int DATA_FIELD_NUMBER = 1;
+    private google.type.MoneyOuterClass.Money data_;
+    /**
+     * <pre>
+     * Money data part
+     * </pre>
+     *
+     * <code>.google.type.Money data = 1;</code>
+     */
+    public boolean hasData() {
+      return data_ != null;
+    }
+    /**
+     * <pre>
+     * Money data part
+     * </pre>
+     *
+     * <code>.google.type.Money data = 1;</code>
+     */
+    public google.type.MoneyOuterClass.Money getData() {
+      return data_ == null ? google.type.MoneyOuterClass.Money.getDefaultInstance() : data_;
+    }
+    /**
+     * <pre>
+     * Money data part
+     * </pre>
+     *
+     * <code>.google.type.Money data = 1;</code>
+     */
+    public google.type.MoneyOuterClass.MoneyOrBuilder getDataOrBuilder() {
+      return getData();
+    }
+
+    public static final int META_FIELD_NUMBER = 2;
+    private furo.MetaOuterClass.Meta meta_;
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public boolean hasMeta() {
+      return meta_ != null;
+    }
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public furo.MetaOuterClass.Meta getMeta() {
+      return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+    }
+    /**
+     * <pre>
+     * Meta for the property
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 2;</code>
+     */
+    public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+      return getMeta();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (data_ != null) {
+        output.writeMessage(1, getData());
+      }
+      if (meta_ != null) {
+        output.writeMessage(2, getMeta());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (data_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getData());
+      }
+      if (meta_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getMeta());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof furo.PropertyOuterClass.PropertyMoney)) {
+        return super.equals(obj);
+      }
+      furo.PropertyOuterClass.PropertyMoney other = (furo.PropertyOuterClass.PropertyMoney) obj;
+
+      if (hasData() != other.hasData()) return false;
+      if (hasData()) {
+        if (!getData()
+            .equals(other.getData())) return false;
+      }
+      if (hasMeta() != other.hasMeta()) return false;
+      if (hasMeta()) {
+        if (!getMeta()
+            .equals(other.getMeta())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      if (hasMeta()) {
+        hash = (37 * hash) + META_FIELD_NUMBER;
+        hash = (53 * hash) + getMeta().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static furo.PropertyOuterClass.PropertyMoney parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.PropertyOuterClass.PropertyMoney parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(furo.PropertyOuterClass.PropertyMoney prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Money type with embedded meta
+     * </pre>
+     *
+     * Protobuf type {@code furo.PropertyMoney}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:furo.PropertyMoney)
+        furo.PropertyOuterClass.PropertyMoneyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyMoney_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyMoney_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                furo.PropertyOuterClass.PropertyMoney.class, furo.PropertyOuterClass.PropertyMoney.Builder.class);
+      }
+
+      // Construct using furo.PropertyOuterClass.PropertyMoney.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (dataBuilder_ == null) {
+          data_ = null;
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
+        }
+        if (metaBuilder_ == null) {
+          meta_ = null;
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return furo.PropertyOuterClass.internal_static_furo_PropertyMoney_descriptor;
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyMoney getDefaultInstanceForType() {
+        return furo.PropertyOuterClass.PropertyMoney.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyMoney build() {
+        furo.PropertyOuterClass.PropertyMoney result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public furo.PropertyOuterClass.PropertyMoney buildPartial() {
+        furo.PropertyOuterClass.PropertyMoney result = new furo.PropertyOuterClass.PropertyMoney(this);
+        if (dataBuilder_ == null) {
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
+        }
+        if (metaBuilder_ == null) {
+          result.meta_ = meta_;
+        } else {
+          result.meta_ = metaBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof furo.PropertyOuterClass.PropertyMoney) {
+          return mergeFrom((furo.PropertyOuterClass.PropertyMoney)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(furo.PropertyOuterClass.PropertyMoney other) {
+        if (other == furo.PropertyOuterClass.PropertyMoney.getDefaultInstance()) return this;
+        if (other.hasData()) {
+          mergeData(other.getData());
+        }
+        if (other.hasMeta()) {
+          mergeMeta(other.getMeta());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        furo.PropertyOuterClass.PropertyMoney parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (furo.PropertyOuterClass.PropertyMoney) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private google.type.MoneyOuterClass.Money data_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.MoneyOuterClass.Money, google.type.MoneyOuterClass.Money.Builder, google.type.MoneyOuterClass.MoneyOrBuilder> dataBuilder_;
+      /**
+       * <pre>
+       * Money data part
+       * </pre>
+       *
+       * <code>.google.type.Money data = 1;</code>
+       */
+      public boolean hasData() {
+        return dataBuilder_ != null || data_ != null;
+      }
+      /**
+       * <pre>
+       * Money data part
+       * </pre>
+       *
+       * <code>.google.type.Money data = 1;</code>
+       */
+      public google.type.MoneyOuterClass.Money getData() {
+        if (dataBuilder_ == null) {
+          return data_ == null ? google.type.MoneyOuterClass.Money.getDefaultInstance() : data_;
+        } else {
+          return dataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Money data part
+       * </pre>
+       *
+       * <code>.google.type.Money data = 1;</code>
+       */
+      public Builder setData(google.type.MoneyOuterClass.Money value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Money data part
+       * </pre>
+       *
+       * <code>.google.type.Money data = 1;</code>
+       */
+      public Builder setData(
+          google.type.MoneyOuterClass.Money.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Money data part
+       * </pre>
+       *
+       * <code>.google.type.Money data = 1;</code>
+       */
+      public Builder mergeData(google.type.MoneyOuterClass.Money value) {
+        if (dataBuilder_ == null) {
+          if (data_ != null) {
+            data_ =
+              google.type.MoneyOuterClass.Money.newBuilder(data_).mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          dataBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Money data part
+       * </pre>
+       *
+       * <code>.google.type.Money data = 1;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = null;
+          onChanged();
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Money data part
+       * </pre>
+       *
+       * <code>.google.type.Money data = 1;</code>
+       */
+      public google.type.MoneyOuterClass.Money.Builder getDataBuilder() {
+        
+        onChanged();
+        return getDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Money data part
+       * </pre>
+       *
+       * <code>.google.type.Money data = 1;</code>
+       */
+      public google.type.MoneyOuterClass.MoneyOrBuilder getDataOrBuilder() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilder();
+        } else {
+          return data_ == null ?
+              google.type.MoneyOuterClass.Money.getDefaultInstance() : data_;
+        }
+      }
+      /**
+       * <pre>
+       * Money data part
+       * </pre>
+       *
+       * <code>.google.type.Money data = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.MoneyOuterClass.Money, google.type.MoneyOuterClass.Money.Builder, google.type.MoneyOuterClass.MoneyOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.type.MoneyOuterClass.Money, google.type.MoneyOuterClass.Money.Builder, google.type.MoneyOuterClass.MoneyOrBuilder>(
+                  getData(),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
+        }
+        return dataBuilder_;
+      }
+
+      private furo.MetaOuterClass.Meta meta_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> metaBuilder_;
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public boolean hasMeta() {
+        return metaBuilder_ != null || meta_ != null;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.Meta getMeta() {
+        if (metaBuilder_ == null) {
+          return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        } else {
+          return metaBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder setMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          meta_ = value;
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder setMeta(
+          furo.MetaOuterClass.Meta.Builder builderForValue) {
+        if (metaBuilder_ == null) {
+          meta_ = builderForValue.build();
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder mergeMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (meta_ != null) {
+            meta_ =
+              furo.MetaOuterClass.Meta.newBuilder(meta_).mergeFrom(value).buildPartial();
+          } else {
+            meta_ = value;
+          }
+          onChanged();
+        } else {
+          metaBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public Builder clearMeta() {
+        if (metaBuilder_ == null) {
+          meta_ = null;
+          onChanged();
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.Meta.Builder getMetaBuilder() {
+        
+        onChanged();
+        return getMetaFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+        if (metaBuilder_ != null) {
+          return metaBuilder_.getMessageOrBuilder();
+        } else {
+          return meta_ == null ?
+              furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the property
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> 
+          getMetaFieldBuilder() {
+        if (metaBuilder_ == null) {
+          metaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder>(
+                  getMeta(),
+                  getParentForChildren(),
+                  isClean());
+          meta_ = null;
+        }
+        return metaBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:furo.PropertyMoney)
+    }
+
+    // @@protoc_insertion_point(class_scope:furo.PropertyMoney)
+    private static final furo.PropertyOuterClass.PropertyMoney DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new furo.PropertyOuterClass.PropertyMoney();
+    }
+
+    public static furo.PropertyOuterClass.PropertyMoney getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PropertyMoney>
+        PARSER = new com.google.protobuf.AbstractParser<PropertyMoney>() {
+      @java.lang.Override
+      public PropertyMoney parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PropertyMoney(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PropertyMoney> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PropertyMoney> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public furo.PropertyOuterClass.PropertyMoney getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PropertyOrBuilder extends
       // @@protoc_insertion_point(interface_extends:furo.Property)
       com.google.protobuf.MessageOrBuilder {
@@ -78,31 +4384,6 @@ public final class PropertyOuterClass {
      */
     com.google.protobuf.ByteString
         getIdBytes();
-
-    /**
-     * <pre>
-     * meta part of the property
-     * </pre>
-     *
-     * <code>.furo.Meta meta = 4;</code>
-     */
-    boolean hasMeta();
-    /**
-     * <pre>
-     * meta part of the property
-     * </pre>
-     *
-     * <code>.furo.Meta meta = 4;</code>
-     */
-    furo.MetaOuterClass.Meta getMeta();
-    /**
-     * <pre>
-     * meta part of the property
-     * </pre>
-     *
-     * <code>.furo.Meta meta = 4;</code>
-     */
-    furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder();
   }
   /**
    * <pre>
@@ -170,19 +4451,6 @@ public final class PropertyOuterClass {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(data_);
                 data_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              furo.MetaOuterClass.Meta.Builder subBuilder = null;
-              if (meta_ != null) {
-                subBuilder = meta_.toBuilder();
-              }
-              meta_ = input.readMessage(furo.MetaOuterClass.Meta.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(meta_);
-                meta_ = subBuilder.buildPartial();
               }
 
               break;
@@ -336,39 +4604,6 @@ public final class PropertyOuterClass {
       }
     }
 
-    public static final int META_FIELD_NUMBER = 4;
-    private furo.MetaOuterClass.Meta meta_;
-    /**
-     * <pre>
-     * meta part of the property
-     * </pre>
-     *
-     * <code>.furo.Meta meta = 4;</code>
-     */
-    public boolean hasMeta() {
-      return meta_ != null;
-    }
-    /**
-     * <pre>
-     * meta part of the property
-     * </pre>
-     *
-     * <code>.furo.Meta meta = 4;</code>
-     */
-    public furo.MetaOuterClass.Meta getMeta() {
-      return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
-    }
-    /**
-     * <pre>
-     * meta part of the property
-     * </pre>
-     *
-     * <code>.furo.Meta meta = 4;</code>
-     */
-    public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
-      return getMeta();
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -392,9 +4627,6 @@ public final class PropertyOuterClass {
       if (data_ != null) {
         output.writeMessage(3, getData());
       }
-      if (meta_ != null) {
-        output.writeMessage(4, getMeta());
-      }
       unknownFields.writeTo(output);
     }
 
@@ -413,10 +4645,6 @@ public final class PropertyOuterClass {
       if (data_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getData());
-      }
-      if (meta_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getMeta());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -442,11 +4670,6 @@ public final class PropertyOuterClass {
           .equals(other.getDisplayName())) return false;
       if (!getId()
           .equals(other.getId())) return false;
-      if (hasMeta() != other.hasMeta()) return false;
-      if (hasMeta()) {
-        if (!getMeta()
-            .equals(other.getMeta())) return false;
-      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -466,10 +4689,6 @@ public final class PropertyOuterClass {
       hash = (53 * hash) + getDisplayName().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
-      if (hasMeta()) {
-        hash = (37 * hash) + META_FIELD_NUMBER;
-        hash = (53 * hash) + getMeta().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -617,12 +4836,6 @@ public final class PropertyOuterClass {
 
         id_ = "";
 
-        if (metaBuilder_ == null) {
-          meta_ = null;
-        } else {
-          meta_ = null;
-          metaBuilder_ = null;
-        }
         return this;
       }
 
@@ -656,11 +4869,6 @@ public final class PropertyOuterClass {
         }
         result.displayName_ = displayName_;
         result.id_ = id_;
-        if (metaBuilder_ == null) {
-          result.meta_ = meta_;
-        } else {
-          result.meta_ = metaBuilder_.build();
-        }
         onBuilt();
         return result;
       }
@@ -719,9 +4927,6 @@ public final class PropertyOuterClass {
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
-        }
-        if (other.hasMeta()) {
-          mergeMeta(other.getMeta());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1082,159 +5287,6 @@ public final class PropertyOuterClass {
         onChanged();
         return this;
       }
-
-      private furo.MetaOuterClass.Meta meta_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> metaBuilder_;
-      /**
-       * <pre>
-       * meta part of the property
-       * </pre>
-       *
-       * <code>.furo.Meta meta = 4;</code>
-       */
-      public boolean hasMeta() {
-        return metaBuilder_ != null || meta_ != null;
-      }
-      /**
-       * <pre>
-       * meta part of the property
-       * </pre>
-       *
-       * <code>.furo.Meta meta = 4;</code>
-       */
-      public furo.MetaOuterClass.Meta getMeta() {
-        if (metaBuilder_ == null) {
-          return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
-        } else {
-          return metaBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * meta part of the property
-       * </pre>
-       *
-       * <code>.furo.Meta meta = 4;</code>
-       */
-      public Builder setMeta(furo.MetaOuterClass.Meta value) {
-        if (metaBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          meta_ = value;
-          onChanged();
-        } else {
-          metaBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * meta part of the property
-       * </pre>
-       *
-       * <code>.furo.Meta meta = 4;</code>
-       */
-      public Builder setMeta(
-          furo.MetaOuterClass.Meta.Builder builderForValue) {
-        if (metaBuilder_ == null) {
-          meta_ = builderForValue.build();
-          onChanged();
-        } else {
-          metaBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * meta part of the property
-       * </pre>
-       *
-       * <code>.furo.Meta meta = 4;</code>
-       */
-      public Builder mergeMeta(furo.MetaOuterClass.Meta value) {
-        if (metaBuilder_ == null) {
-          if (meta_ != null) {
-            meta_ =
-              furo.MetaOuterClass.Meta.newBuilder(meta_).mergeFrom(value).buildPartial();
-          } else {
-            meta_ = value;
-          }
-          onChanged();
-        } else {
-          metaBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * meta part of the property
-       * </pre>
-       *
-       * <code>.furo.Meta meta = 4;</code>
-       */
-      public Builder clearMeta() {
-        if (metaBuilder_ == null) {
-          meta_ = null;
-          onChanged();
-        } else {
-          meta_ = null;
-          metaBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * meta part of the property
-       * </pre>
-       *
-       * <code>.furo.Meta meta = 4;</code>
-       */
-      public furo.MetaOuterClass.Meta.Builder getMetaBuilder() {
-        
-        onChanged();
-        return getMetaFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * meta part of the property
-       * </pre>
-       *
-       * <code>.furo.Meta meta = 4;</code>
-       */
-      public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
-        if (metaBuilder_ != null) {
-          return metaBuilder_.getMessageOrBuilder();
-        } else {
-          return meta_ == null ?
-              furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
-        }
-      }
-      /**
-       * <pre>
-       * meta part of the property
-       * </pre>
-       *
-       * <code>.furo.Meta meta = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> 
-          getMetaFieldBuilder() {
-        if (metaBuilder_ == null) {
-          metaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder>(
-                  getMeta(),
-                  getParentForChildren(),
-                  isClean());
-          meta_ = null;
-        }
-        return metaBuilder_;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1289,6 +5341,31 @@ public final class PropertyOuterClass {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_furo_PropertyDecimal_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_furo_PropertyDecimal_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_furo_PropertyDate_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_furo_PropertyDate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_furo_PropertyString_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_furo_PropertyString_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_furo_PropertyInteger_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_furo_PropertyInteger_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_furo_PropertyMoney_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_furo_PropertyMoney_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_furo_Property_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -1303,10 +5380,19 @@ public final class PropertyOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\023furo/property.proto\022\004furo\032\017furo/meta.p" +
-      "roto\032\031google/protobuf/any.proto\"j\n\010Prope" +
-      "rty\022\"\n\004data\030\003 \001(\0132\024.google.protobuf.Any\022" +
-      "\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\030\n\004met" +
-      "a\030\004 \001(\0132\n.furo.Metab\006proto3"
+      "roto\032\026google/type/date.proto\032\027google/typ" +
+      "e/money.proto\032\031google/protobuf/any.proto" +
+      "\"9\n\017PropertyDecimal\022\014\n\004data\030\001 \001(\t\022\030\n\004met" +
+      "a\030\002 \001(\0132\n.furo.Meta\"I\n\014PropertyDate\022\037\n\004d" +
+      "ata\030\001 \001(\0132\021.google.type.Date\022\030\n\004meta\030\002 \001" +
+      "(\0132\n.furo.Meta\"8\n\016PropertyString\022\014\n\004data" +
+      "\030\001 \001(\t\022\030\n\004meta\030\002 \001(\0132\n.furo.Meta\"9\n\017Prop" +
+      "ertyInteger\022\014\n\004data\030\001 \001(\005\022\030\n\004meta\030\002 \001(\0132" +
+      "\n.furo.Meta\"K\n\rPropertyMoney\022 \n\004data\030\001 \001" +
+      "(\0132\022.google.type.Money\022\030\n\004meta\030\002 \001(\0132\n.f" +
+      "uro.Meta\"P\n\010Property\022\"\n\004data\030\003 \001(\0132\024.goo" +
+      "gle.protobuf.Any\022\024\n\014display_name\030\002 \001(\t\022\n" +
+      "\n\002id\030\001 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1320,15 +5406,49 @@ public final class PropertyOuterClass {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           furo.MetaOuterClass.getDescriptor(),
+          google.type.DateOuterClass.getDescriptor(),
+          google.type.MoneyOuterClass.getDescriptor(),
           google.protobuf.AnyOuterClass.getDescriptor(),
         }, assigner);
-    internal_static_furo_Property_descriptor =
+    internal_static_furo_PropertyDecimal_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_furo_PropertyDecimal_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_furo_PropertyDecimal_descriptor,
+        new java.lang.String[] { "Data", "Meta", });
+    internal_static_furo_PropertyDate_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_furo_PropertyDate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_furo_PropertyDate_descriptor,
+        new java.lang.String[] { "Data", "Meta", });
+    internal_static_furo_PropertyString_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_furo_PropertyString_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_furo_PropertyString_descriptor,
+        new java.lang.String[] { "Data", "Meta", });
+    internal_static_furo_PropertyInteger_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_furo_PropertyInteger_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_furo_PropertyInteger_descriptor,
+        new java.lang.String[] { "Data", "Meta", });
+    internal_static_furo_PropertyMoney_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_furo_PropertyMoney_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_furo_PropertyMoney_descriptor,
+        new java.lang.String[] { "Data", "Meta", });
+    internal_static_furo_Property_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_furo_Property_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_Property_descriptor,
-        new java.lang.String[] { "Data", "DisplayName", "Id", "Meta", });
+        new java.lang.String[] { "Data", "DisplayName", "Id", });
     furo.MetaOuterClass.getDescriptor();
+    google.type.DateOuterClass.getDescriptor();
+    google.type.MoneyOuterClass.getDescriptor();
     google.protobuf.AnyOuterClass.getDescriptor();
   }
 

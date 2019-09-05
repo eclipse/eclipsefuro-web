@@ -217,3 +217,4 @@ if (config.bundled.build) {
 // clean up
 sh("cp", ["-r", BuildDir + "/pb/*", BuildDir + "/pb_single"]);
 sh("rm", ["-rf", BuildDir + "/pb"]);
+sh("rm", ["-rf", BuildDir + "/pb_single/__bundled"]);

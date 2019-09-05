@@ -10,6 +10,8 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -264,6 +266,17 @@ type ProjectMembersServiceServer interface {
 	ListMembers(context.Context, *ListProjectMembersServiceRequest) (*person.PersonCollection, error)
 	// Custom method to unsubscribe a member, complete PersonEntity is expected
 	UnsubscribeProjectMembersService(context.Context, *UnsubscribeProjectMembersServiceRequest) (*person.PersonCollection, error)
+}
+
+// UnimplementedProjectMembersServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedProjectMembersServiceServer struct {
+}
+
+func (*UnimplementedProjectMembersServiceServer) ListMembers(ctx context.Context, req *ListProjectMembersServiceRequest) (*person.PersonCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListMembers not implemented")
+}
+func (*UnimplementedProjectMembersServiceServer) UnsubscribeProjectMembersService(ctx context.Context, req *UnsubscribeProjectMembersServiceRequest) (*person.PersonCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnsubscribeProjectMembersService not implemented")
 }
 
 func RegisterProjectMembersServiceServer(s *grpc.Server, srv ProjectMembersServiceServer) {
