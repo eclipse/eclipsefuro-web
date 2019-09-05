@@ -201,20 +201,20 @@ for (let target in Servicelist.targets) {
 
 
 // build the single gateway
-sh("mkdir", ["-p", BuildDir + "/pb_single"]);
-sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", "./__tmp/_services/BundledService.json", "-t", TPLDirBase + "/grpc-gateway/single_transcoder.go.tmpl", ">", BuildDir + "/pb_single/gateway.go"]);
+sh("mkdir", ["-p", BuildDir + "/single/pb"]);
+sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", "./__tmp/_services/BundledService.json", "-t", TPLDirBase + "/grpc-gateway/single_transcoder.go.tmpl", ">", BuildDir + "/single/pb/gateway.go"]);
 
 if (config.bundled.build) {
-  sh("mkdir", ["-p", BuildDir + "/pb_bundled"]);
+  sh("mkdir", ["-p", BuildDir + "/bundled/pb"]);
   for (let target in Servicelist.targets) {
     sh("./__tmp/protocHelper.sh", [BuildDir + "/protos", "__bundled/" + config.bundled.service_name + ".proto"]);
   }
   // build the bundled gateway
-  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", "./furo.spec.conf.json", "-t", TPLDirBase + "/grpc-gateway/bundled_transcoder.go.tmpl", ">", BuildDir + "/pb_bundled/gateway.go"])
-  sh("cp", ["-r", BuildDir + "/pb/*", BuildDir + "/pb_bundled"]);
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", "./furo.spec.conf.json", "-t", TPLDirBase + "/grpc-gateway/bundled_transcoder.go.tmpl", ">", BuildDir + "/bundled/pb/gateway.go"])
+  sh("cp", ["-r", BuildDir + "/pb/*", BuildDir + "/bundled/pb"]);
 }
 
 // clean up
-sh("cp", ["-r", BuildDir + "/pb/*", BuildDir + "/pb_single"]);
+sh("cp", ["-r", BuildDir + "/pb/*", BuildDir + "/single/pb"]);
 sh("rm", ["-rf", BuildDir + "/pb"]);
-sh("rm", ["-rf", BuildDir + "/pb_single/__bundled"]);
+sh("rm", ["-rf", BuildDir + "/single/pb/__bundled"]);
