@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.9.0...@furo/specs@0.11.0) (2019-09-05)
+
+
+### Bug Fixes
+
+* create ([7418cfa](https://github.com/veith/FuroBaseComponents/commit/7418cfa))
+* fix furo-range-input, modify test and demo ([63f17fa](https://github.com/veith/FuroBaseComponents/commit/63f17fa))
+* fix furo-time-input, modify test and demo ([b3b11e7](https://github.com/veith/FuroBaseComponents/commit/b3b11e7))
+* github urls ([db7491c](https://github.com/veith/FuroBaseComponents/commit/db7491c))
+* options deleted ([2968b7f](https://github.com/veith/FuroBaseComponents/commit/2968b7f))
+* type any base-type ([9f9695a](https://github.com/veith/FuroBaseComponents/commit/9f9695a))
+* type any support ([ff12632](https://github.com/veith/FuroBaseComponents/commit/ff12632))
+* type any support ([b76e3c2](https://github.com/veith/FuroBaseComponents/commit/b76e3c2))
+
+
+### Features
+
+* __tmp autocreate ([738a884](https://github.com/veith/FuroBaseComponents/commit/738a884))
+* apply meta, options, constraints from the server to override specs ([f2e789c](https://github.com/veith/FuroBaseComponents/commit/f2e789c))
+* apply meta, options, constraints from the server to override specs ([bff3542](https://github.com/veith/FuroBaseComponents/commit/bff3542))
+* build bundled and single gw ([70c7a91](https://github.com/veith/FuroBaseComponents/commit/70c7a91))
+* new furo basetype furo.Property to define dynamic property values ([ab4454d](https://github.com/veith/FuroBaseComponents/commit/ab4454d))
+* new property types for type Property (data part) ([3928fb9](https://github.com/veith/FuroBaseComponents/commit/3928fb9))
+* translation of static text in env.api.specs added ([91922e6](https://github.com/veith/FuroBaseComponents/commit/91922e6))
+
+
+
+
+
 # [0.9.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.0.4...@furo/specs@0.9.0) (2019-08-30)
 
 

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.5.4...@furo/data-ui@0.6.0) (2019-09-05)
+
+
+### Bug Fixes
+
+* error message changed to description, like it is used in google status protobuf ([8147af0](https://github.com/veith/FuroBaseComponents/commit/8147af0))
+* no translation needed, spec is already translated ([5d034dc](https://github.com/veith/FuroBaseComponents/commit/5d034dc))
+* tests updated ([621c7b5](https://github.com/veith/FuroBaseComponents/commit/621c7b5))
+
+
+### Features
+
+* translation of static text in env.api.specs added ([91922e6](https://github.com/veith/FuroBaseComponents/commit/91922e6))
+
+
+
+
+
 ## [0.5.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.5.3...@furo/data-ui@0.5.4) (2019-08-30)
 
 

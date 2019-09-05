@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.6](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.5...@furo/data-input@0.48.6) (2019-09-05)
+
+
+### Bug Fixes
+
+* data-object meta dereferenced from spec meta ([9f32d4f](https://github.com/veith/FuroBaseComponents/commit/9f32d4f))
+* error message changed to description, like it is used in google status protobuf ([8147af0](https://github.com/veith/FuroBaseComponents/commit/8147af0))
+* fix furo-range-input, modify test and demo ([63f17fa](https://github.com/veith/FuroBaseComponents/commit/63f17fa))
+* fix furo-time-input, modify test and demo ([b3b11e7](https://github.com/veith/FuroBaseComponents/commit/b3b11e7))
+
+
+
+
+
 ## [0.48.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.4...@furo/data-input@0.48.5) (2019-08-30)
 
 

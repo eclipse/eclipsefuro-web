@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.10.2...@furo/framework@0.11.0) (2019-09-05)
+
+
+### Bug Fixes
+
+* error message changed to description, like it is used in google status protobuf ([8147af0](https://github.com/veith/FuroBaseComponents/commit/8147af0))
+
+
+### Features
+
+* translation of static text in env.api.specs added ([91922e6](https://github.com/veith/FuroBaseComponents/commit/91922e6))
+
+
+
+
+
 ## [0.10.2](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.10.1...@furo/framework@0.10.2) (2019-08-12)
 
 **Note:** Version bump only for package @furo/framework

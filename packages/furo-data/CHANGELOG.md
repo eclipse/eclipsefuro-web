@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.52.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.51.0...@furo/data@0.52.0) (2019-09-05)
+
+
+### Bug Fixes
+
+* create ([7418cfa](https://github.com/veith/FuroBaseComponents/commit/7418cfa))
+* data-object meta dereferenced from spec meta ([475a8cb](https://github.com/veith/FuroBaseComponents/commit/475a8cb))
+* data-object meta dereferenced from spec meta ([f8bd7bf](https://github.com/veith/FuroBaseComponents/commit/f8bd7bf))
+* data-object meta dereferenced from spec meta ([9f32d4f](https://github.com/veith/FuroBaseComponents/commit/9f32d4f))
+* error message changed to description, like it is used in google status protobuf ([03a5b83](https://github.com/veith/FuroBaseComponents/commit/03a5b83))
+* fix mockdata and furo-api-fetch-test ([62398dc](https://github.com/veith/FuroBaseComponents/commit/62398dc))
+* no translation needed, spec is already translated ([5d034dc](https://github.com/veith/FuroBaseComponents/commit/5d034dc))
+
+
+### Features
+
+* apply meta, options, constraints from the server to override specs ([bff3542](https://github.com/veith/FuroBaseComponents/commit/bff3542))
+
+
+
+
+
 # [0.51.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.50.2...@furo/data@0.51.0) (2019-08-30)
 
 
