@@ -78,7 +78,9 @@ class FuroTextInput extends FBP(LitElement) {
   }
 
   /**
-   * Updater for the pattern attr
+   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+   * becaue it set "undefined" (as a Sting!)
+   *
    * @param value
    */
   set pattern(value) {
@@ -87,6 +89,8 @@ class FuroTextInput extends FBP(LitElement) {
 
   /**
    * Updater for the min => minlength attr
+   * same problem like in pattern
+   *
    * @param value
    */
   set min(value) {
@@ -95,6 +99,8 @@ class FuroTextInput extends FBP(LitElement) {
 
   /**
    * Updater for the max => maxlength attr
+   * * same problem like in pattern
+   *
    * @param value
    */
   set max(value) {
@@ -118,9 +124,7 @@ class FuroTextInput extends FBP(LitElement) {
         // remove the attribute on null value
         this._theInputElement.removeAttribute(attribute);
       }
-
     })
-
   }
 
 
