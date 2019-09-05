@@ -5,7 +5,8 @@
   "__proto": {
     "package": "experiment",
     "imports": [
-      "google/protobuf/any.proto"
+      "google/protobuf/any.proto",
+      "furo/property.proto"
     ],
     "targetfile": "experiment.proto"
   },
@@ -304,6 +305,18 @@
       "constraints": {},
       "__proto": {
         "number": 16
+      }
+    },
+    "type_property": {
+      "description": "field for testing property",
+      "type": "furo.Property",
+      "meta": {
+        "label": "Additional fields",
+        "repeated": true
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 17
       }
     }
   }
