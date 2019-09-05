@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.11.0...@furo/specs@0.11.1) (2019-09-05)
+
+
+### Bug Fixes
+
+* data-input ([8630ebe](https://github.com/veith/FuroBaseComponents/commit/8630ebe))
+
+
+
+
+
 # [0.11.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.9.0...@furo/specs@0.11.0) (2019-09-05)
 
 
