@@ -82,7 +82,7 @@ class FuroNumberInput extends FBP(LitElement) {
 
     // remove pattern when it is undefined to avoid validate problem
     let inputField = this.shadowRoot.getElementById("input");
-    if (this.pattern === undefined ) {
+    if (this.pattern === undefined || this.pattern =="undefined") {
       inputField.removeAttribute("pattern");
     }
   }
