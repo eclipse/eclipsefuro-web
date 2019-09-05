@@ -19,7 +19,7 @@
   "build_output_dir": "./build",
   "furo_env_name": "data_environment.js",
   "bundled": {
-    "build": false,
+    "build": true,
     "package_name": "taskmanager",
     "service_name": "BundledService",
     "proto_options": {

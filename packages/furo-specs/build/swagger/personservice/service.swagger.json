@@ -95,14 +95,14 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "Partielle Repräsentation fields=id,name // 10.",
+            "description": "Partial representation, fields=id,name.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "sort",
-            "description": "Sortierung nach feldern\n**?filter=-completed** um completed absteigend zu bekommen\n**?filter=completed** um completed aufsteigend zu bekommen.",
+            "name": "order_by",
+            "description": "*\nSort fields, comma separated list for the ordering\nuse **?filter=-display_name** with a dash to sort descending\nuse **?filter=display_name** to sort ascending.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -116,7 +116,7 @@
           },
           {
             "name": "page",
-            "description": "Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...",
+            "description": "Page number for paginated content. Tipp: follow the HATEOAS next, prev,...",
             "in": "query",
             "required": false,
             "type": "integer",
@@ -124,30 +124,15 @@
           },
           {
             "name": "limit",
-            "description": "Anzahl Elemente pro Seite, maximal sind 99 erlaubt.",
+            "description": "Number of elements to return per page.",
             "in": "query",
             "required": false,
             "type": "integer",
             "format": "int32"
           },
           {
-            "name": "count",
-            "description": "Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt.",
-            "in": "query",
-            "required": false,
-            "type": "boolean",
-            "format": "boolean"
-          },
-          {
-            "name": "sum",
-            "description": "not implemented.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "view",
-            "description": "not implemented (ehemals context).",
+            "description": "https://cloud.google.com/apis/design/design_patterns#resource_view.",
             "in": "query",
             "required": false,
             "type": "string"

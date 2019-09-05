@@ -35,23 +35,21 @@ service {{.config.service_name}} {
 {{range $key := sortAlpha $keyList }} {{ $values := pick $rpcDict $key }} {{ $valueTmp := values $values }} {{ $method := index $valueTmp 0 }}
 message {{$key}}{{$serviceName}}Request { {{ $params := regexFindAll  "{[a-zA-Z]*}" $method.deeplink.href 10}}{{$reservedIdx := 0}}
     {{if eq $key "List"}}{{$reservedIdx = 10}}
-    //Partielle Repräsentation fields=id,name // {{$reservedIdx}}
+    //Partial representation, fields=id,name
     string fields = 1;
-    //Sortierung nach feldern
-    //**?filter=-completed** um completed absteigend zu bekommen
-    //**?filter=completed** um completed aufsteigend zu bekommen
-    string sort = 2;
+    /**
+     * Sort fields, comma separated list for the ordering
+     * use **?filter=-display_name** with a dash to sort descending
+     * use **?filter=display_name** to sort ascending
+     */
+    string order_by = 2;
     //Filter
     string filter = 3;
-    //Gewünschte Seite. Tipp: Folge dem HATEOAS next, prev,...
+    //Page number for paginated content. Tipp: follow the HATEOAS next, prev,...
     int32 page = 4;
-    //Anzahl Elemente pro Seite, maximal sind 99 erlaubt
+    //Number of elements to return per page
     int32 limit = 5;
-    //Meta für die Anzahl der Elemente der Resource, bei true ist in der Antwort Meta der count aufgeführt
-    bool count = 6;
-    //not implemented
-    string sum = 7;
-    //not implemented (ehemals context)
+    //https://cloud.google.com/apis/design/design_patterns#resource_view
     string view = 8;{{range $index, $value := $params}}
     string {{ trimAll "}" (trimAll "{" $value ) }} = {{add 11 $index}};{{$length := $index}}{{end}} {{else}}{{range $index, $value := $params}}
     string {{ trimAll "}" (trimAll "{" $value ) }} = {{add1 $index}};{{$length :=$index}}{{end}}{{ if $method.data.request}}
