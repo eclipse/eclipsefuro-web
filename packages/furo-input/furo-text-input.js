@@ -38,7 +38,9 @@ class FuroTextInput extends FBP(LitElement) {
   constructor() {
     super();
     this.valid = true;
+
   }
+
 
   _FBPReady() {
     super._FBPReady();
@@ -60,30 +62,58 @@ class FuroTextInput extends FBP(LitElement) {
         let customEvent = new Event('value-changed', {composed: true, bubbles: true});
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
-      }
-      else{
+      } else {
 
         /**
-        * @event input-invalid
-        * Fired when input value is invalid
-        * detail payload: {Object} the validity object of input
-        */
+         * @event input-invalid
+         * Fired when input value is invalid
+         * detail payload: {Object} the validity object of input
+         */
         let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
-        customEvent.detail = input.validity ;
+        customEvent.detail = input.validity;
         this.dispatchEvent(customEvent);
       }
     });
-    this.updateInputAttributes();
+
   }
 
-  updateInputAttributes() {
+  /**
+   * Updater for the pattern attr
+   * @param value
+   */
+  set pattern(value) {
+    this._updateInputAttribute("pattern", value);
+  }
 
-    // remove pattern when it is undefined to avoid validate problem
-    let inputField = this.shadowRoot.getElementById("input");
-    if (this.pattern === undefined || this.pattern =="undefined") {
-      inputField.removeAttribute("pattern");
+  /**
+   * Updater for the min => minlength attr
+   * @param value
+   */
+  set min(value) {
+    this._updateInputAttribute("minlength", value);
+  }
+
+  /**
+   * Updater for the max => maxlength attr
+   * @param value
+   */
+  set max(value) {
+    this._updateInputAttribute("maxlength", value);
+  }
+
+  /**
+   * update Attribute on input element actively, so we dont have things like pattern="undefined" on the native element.
+   * @param attribute
+   * @param value
+   * @private
+   */
+  _updateInputAttribute(attribute, value) {
+    if (!this._theInputElement) {
+      this._theInputElement = this.shadowRoot.getElementById("input");
     }
+    this._theInputElement.setAttribute(attribute, value)
   }
+
 
   set _value(v) {
     this._float = !!v;
@@ -598,13 +628,13 @@ class FuroTextInput extends FBP(LitElement) {
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
             top: -12px;
-             
+
         }
 
         :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
             top: -24px;
         }
-        
+
         :host([condensed]) {
             height: 40px;
         }
@@ -623,9 +653,8 @@ class FuroTextInput extends FBP(LitElement) {
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} minlength="${this.min}" 
-        maxlength="${this.max}"  pattern="${this.pattern}" ?required=${this.required} 
-        type="text" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} ?required=${this.required} 
+        type="text" ƒ-.value="--value" @-input="--inputInput(*)" ƒ-focus="--focus">
        </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>
