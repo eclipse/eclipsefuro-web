@@ -60,13 +60,6 @@ export class DataObject extends EventTreeNode {
     this._pristine = true;
     this._isValid = true;
 
-    if (rawEntity.error && rawEntity.details) {
-      rawEntity.details.forEach((errorSet) => {
-        if (errorSet["field_violations"]) {
-          this._handleErrorsFromRawEntity(this, errorSet["field_violations"]);
-        }
-      });
-    }
     /**
      * @event (data-injected)
      *
@@ -206,25 +199,6 @@ export class DataObject extends EventTreeNode {
       this[target].__updateMetaAndConstraints(subMetaAndConstraints);
     }
 
-  }
-
-
-  _handleErrorsFromRawEntity(fields, fieldErrors) {
-    fieldErrors && fieldErrors.map((error) => {
-      if (error.description) {
-        error.message = error.description;
-      }
-      let path = error.field.split(".");
-      if (path.length > 0) {
-        // rest wieder in error reinwerfen
-        error.field = path.slice(1).join(".");
-        if (fields[path[0]]) {
-          fields[path[0]]._setInvalid(error);
-        } else {
-          console.warn("Unknown field", path)
-        }
-      }
-    });
   }
 
 
