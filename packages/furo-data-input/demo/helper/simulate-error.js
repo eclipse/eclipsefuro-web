@@ -16,13 +16,15 @@ class SimulateError extends FBP(LitElement) {
   constructor() {
     super();
     this.addEventListener("click",()=>{
-      let error = {
-        "field": "display_name",
-        "description": "Ping is a strange Method"
-      };
-      this.fields._setInvalid(error);
 
-
+      /**
+       * error example
+       * {
+       * "field": "display_name",
+       * "description": "display name can not be empty"
+       *};
+       */
+      this.fields._setInvalid(this.error);
     })
   }
 
@@ -30,6 +32,20 @@ class SimulateError extends FBP(LitElement) {
   bindData(d) {
     this.fields = d;
 
+  }
+
+  static get properties() {
+    return {
+
+      /**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      error: {
+        type: Object
+      }
+    }
   }
 
   /**
@@ -59,7 +75,7 @@ class SimulateError extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <button>set error</button>
+        <button>set error</button>
     `;
   }
 }

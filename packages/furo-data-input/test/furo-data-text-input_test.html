@@ -2,45 +2,46 @@
 
 <html>
 <head>
-  <title>test for furo-data-text-input_test</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="/node_modules/mocha/mocha.js"></script>
-  <script src="/node_modules/chai/chai.js"></script>
-  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
-  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
-  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+    <title>test for furo-data-text-input_test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
 </head>
 <body>
 
 <test-fixture id="basic">
-  <template>
-    <test-bind>
-      <template>
-        <furo-data-text-input ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
-        <furo-data-text-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_text_input)"
-                              @-value-changed="--textChanged"></furo-data-text-input>
+    <template>
+        <test-bind>
+            <template>
+                <furo-data-text-input ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
+                <furo-data-text-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_text_input)"
+                                      pattern="a.*" min=2 max=5 readonly
+                                      @-value-changed="--textChanged"></furo-data-text-input>
 
-        <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
-                          ƒ-inject-raw="--response(*.data)"></furo-data-object>
+                <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                                  ƒ-inject-raw="--response(*.data)"></furo-data-object>
 
-        <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
-        <furo-entity-agent service="ExperimentService"
-                           ƒ-hts-in="--hts"
-                           ƒ-load="--hts"
-                           ƒ-bind-request-data="--entity"
-                           @-response="--response">
-        </furo-entity-agent>
+                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+                <furo-entity-agent service="ExperimentService"
+                                   ƒ-hts-in="--hts"
+                                   ƒ-load="--hts"
+                                   ƒ-bind-request-data="--entity"
+                                   @-response="--response">
+                </furo-entity-agent>
 
-        <furo-data-text-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-text-input>
+                <furo-data-text-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-text-input>
 
 
-      </template>
-    </test-bind>
+            </template>
+        </test-bind>
 
-  </template>
+    </template>
 </test-fixture>
 
 <script type="module">
@@ -59,13 +60,11 @@
 
   describe('furo-data-text-input_test tests ', function () {
 
-    let dataTextInput, host, entityObject, secondTextInput, invalidBoundTextInput, deeplink;
+    let dataTextInput, host, entityObject, secondTextInput, invalidBoundTextInput, deeplink, entityAgent;
 
     beforeEach(async () => {
       let fix = fixture('basic');
       host = fix[0]._host;
-      entityObject = fix[3];
-      await entityObject.updateComplete;
 
       dataTextInput = fix[1];
       await dataTextInput.updateComplete;
@@ -73,22 +72,27 @@
       secondTextInput = fix[2];
       await secondTextInput.updateComplete;
 
+      entityObject = fix[3];
+      await entityObject.updateComplete;
+
       deeplink = fix[4];
       await deeplink.updateComplete;
 
+      entityAgent = fix[5];
+      await entityAgent.updateComplete;
 
-      invalidBoundTextInput = fix[5];
+      invalidBoundTextInput = fix[6];
       await invalidBoundTextInput.updateComplete;
     });
 
 
     it('should log invalid bindings', (done) => {
       dataTextInput._FBPAddWireHook("--value", (val) => {
-          // invalid binding
-          assert.equal(invalidBoundTextInput.field, undefined);
-          // valid binding
-          assert.equal(dataTextInput.field._isValid, true);
-          done();
+        // invalid binding
+        assert.equal(invalidBoundTextInput.field, undefined);
+        // valid binding
+        assert.equal(dataTextInput.field._isValid, true);
+        done();
       });
     });
 
@@ -105,6 +109,22 @@
         done();
       });
     });
+
+    it('should override pattern ', (done) => {
+      host._FBPAddWireHook('--entity', (e) => {
+        assert.equal(secondTextInput._pattern, "a.*");
+        done();
+      });
+    });
+
+    it('should override min and max ', (done) => {
+      host._FBPAddWireHook('--entity', (e) => {
+        assert.equal(secondTextInput._min, 2);
+        assert.equal(secondTextInput._max, 5);
+        done();
+      });
+    });
+
     it('should receive value with bind', (done) => {
 
       host._FBPAddWireHook("--hts", (e) => {
@@ -122,45 +142,45 @@
 
     it('should set hint message when pattern mismatched', (done) => {
       host._FBPAddWireHook("--entity", () => {
-          dataTextInput._FBPTriggerWire("--inputInvalid", {"patternMismatch":true});
-          setTimeout(()=>{
-              assert.equal(dataTextInput._hint, "must start with a");
-                done();
-          }, 0)
+        dataTextInput._FBPTriggerWire("--inputInvalid", {"patternMismatch":true});
+        setTimeout(()=>{
+          assert.equal(dataTextInput._hint, "must start with a");
+          done();
+        }, 0)
       })
     });
 
     it('should set hint message when input under minlength', (done) => {
       host._FBPAddWireHook("--entity", () => {
-          dataTextInput._FBPTriggerWire("--inputInvalid", {"tooShort":true});
-          setTimeout(()=>{
-              assert.equal(dataTextInput._hint, "at least 3 characters");
-              done();
-          }, 0)
+        dataTextInput._FBPTriggerWire("--inputInvalid", {"tooShort":true});
+        setTimeout(()=>{
+          assert.equal(dataTextInput._hint, "at least 3 characters");
+          done();
+        }, 0)
       })
     });
 
     it('should set hint message when input over maxlength', (done) => {
       host._FBPAddWireHook("--entity", () => {
-          dataTextInput._FBPTriggerWire("--inputInvalid", {"tooLong":true});
-          setTimeout(()=>{
-              assert.equal(dataTextInput._hint, "15 characters maximum");
-              done();
-          }, 0)
+        dataTextInput._FBPTriggerWire("--inputInvalid", {"tooLong":true});
+        setTimeout(()=>{
+          assert.equal(dataTextInput._hint, "15 characters maximum");
+          done();
+        }, 0)
       })
     });
 
     it('should set readonly via disable method', (done) => {
-        dataTextInput.disable();
-        assert.equal(dataTextInput._readonly, true);
-        done();
+      dataTextInput.disable();
+      assert.equal(dataTextInput._readonly, true);
+      done();
     });
 
-      it('should remove readonly via enable method', (done) => {
-          dataTextInput.enable();
-          assert.equal(dataTextInput._readonly, false);
-          done();
-      });
+    it('should remove readonly via enable method', (done) => {
+      dataTextInput.enable();
+      assert.equal(dataTextInput._readonly, false);
+      done();
+    });
 
     it('should bind the field label, hint , min and max', (done) => {
       host._FBPAddWireHook("--entity", () => {
@@ -185,6 +205,45 @@
       }, 10)
 
     });
+
+
+    it('should set error text when field became invalid', (done) => {
+
+      entityObject.addEventListener("object-ready", () => {
+        /**
+         * @event req-failed
+         * Fired when
+         * detail payload:
+         */
+        let customEvent = new Event('req-failed', {composed:true, bubbles: true});
+        customEvent.detail = {
+          "error": "invalid furo_data_text_input",
+          "message": "invalid furo_data_text_input",
+          "code": 3,
+          "details": [
+            {
+              "@type": "e.g. type.googleapis.com/google.rpc.BadRequest",
+              "field_violations": [
+                {
+                  "field": "furo_data_text_input",
+                  "description": "furo_data_text_input error"
+                }
+              ]
+            }
+          ]
+        };
+
+        entityAgent.dispatchEvent(customEvent);
+      });
+
+      setTimeout(() => {
+        assert.equal(dataTextInput.error, true);
+        assert.equal(dataTextInput.errortext, "furo_data_text_input error");
+        done();
+      }, 0)
+      deeplink.qpIn({"exp": 1});
+    });
+
     // a11y tests
     it('a11y', () => {
       return axeReport(fixture('basic'));

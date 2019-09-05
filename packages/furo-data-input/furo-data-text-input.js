@@ -87,11 +87,6 @@ class FuroDataTextInput extends FBP(LitElement) {
     this._x = x;
   }
 
-  set step(s) {
-    this._step = s;
-    this._s = s;
-  }
-
   set readonly(r) {
     this._readonly = r;
     this._r = r;
@@ -115,10 +110,6 @@ class FuroDataTextInput extends FBP(LitElement) {
 
   get max() {
     return this._x;
-  }
-
-  get step() {
-    return this._s;
   }
 
   get readonly() {
@@ -279,8 +270,6 @@ class FuroDataTextInput extends FBP(LitElement) {
       this.error = false;
       this.requestUpdate();
     });
-
-    this._FBPTriggerWire('--value', this.field.value);
   }
 
 
