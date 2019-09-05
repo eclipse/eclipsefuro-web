@@ -14,7 +14,7 @@
   <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
   <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
- </head>
+</head>
 <body>
 
 
@@ -30,7 +30,6 @@
   import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
 
-
   describe('furo-text-input', () => {
     let textInput;
     let inputField;
@@ -42,11 +41,21 @@
     });
 
 
+    it('shoud remove pattern when it is undefined', (done) => {
+      textInput.removeAttribute("pattern");
+      setTimeout(()=>{
+        assert.equal(textInput.shadowRoot.getElementById("input").getAttribute("pattern"), undefined);
+        done();
+      },0)
+
+    });
+
+
     it('should be possible to set a error with setError', (done) => {
 
       textInput.setError("Text from outside");
-      assert.equal(textInput.errortext,"Text from outside");
-      assert.equal(textInput.error,true);
+      assert.equal(textInput.errortext, "Text from outside");
+      assert.equal(textInput.error, true);
       done();
     });
 
@@ -54,43 +63,43 @@
       textInput.errortext = "Initial Error Text";
       textInput.setError("Text from outside");
       textInput.clearError();
-      assert.equal(textInput.errortext,"Initial Error Text");
-      assert.equal(textInput.error,false);
+      assert.equal(textInput.errortext, "Initial Error Text");
+      assert.equal(textInput.error, false);
       done();
     });
 
     it('should have a minlength on the inputField', (done) => {
-      assert.equal(inputField.getAttribute("minlength"),1);
+      assert.equal(inputField.getAttribute("minlength"), 1);
       done();
     });
     it('should have a maxlength on the inputField', (done) => {
-      assert.equal(inputField.getAttribute("maxlength"),100);
+      assert.equal(inputField.getAttribute("maxlength"), 100);
       done();
     });
 
     it('should have a pattern on the inputField', (done) => {
-      assert.equal(inputField.getAttribute("pattern"),'[^@]');
+      assert.equal(inputField.getAttribute("pattern"), '[^@]');
       done();
     });
 
 
     it('should be disablealble with method disable', (done) => {
       textInput.disable();
-      setTimeout(()=>{
-        assert.equal(inputField.getAttribute("readonly"),"");
-        assert.equal(textInput.readonly,true);
+      setTimeout(() => {
+        assert.equal(inputField.getAttribute("readonly"), "");
+        assert.equal(textInput.readonly, true);
         done();
-      },5)
+      }, 5)
     });
 
     it('should be enablealble with method enable', (done) => {
       textInput.readonly = true;
       textInput.enable();
-      setTimeout(()=>{
-        assert.equal(inputField.getAttribute("readonly"),null);
-        assert.equal(textInput.readonly,false);
+      setTimeout(() => {
+        assert.equal(inputField.getAttribute("readonly"), null);
+        assert.equal(textInput.readonly, false);
         done();
-      },5)
+      }, 5)
     });
 
     it('a11y', () => {
@@ -99,41 +108,43 @@
 
     it('should accept a value with setValue', (done) => {
       textInput.setValue("Test");
-      assert.equal(textInput.value,"Test");
-      assert.equal(inputField.value,"Test");
+      assert.equal(textInput.value, "Test");
+      assert.equal(inputField.value, "Test");
       done();
     });
 
     it('should be focusable', (done) => {
       textInput.focus();
-      assert.equal(textInput,document.activeElement);
+      assert.equal(textInput, document.activeElement);
       done();
     });
     it('should emit value-changed on every keystroke', (done) => {
 
-      textInput.addEventListener("value-changed",e=>{
-        assert.equal(textInput.value,"Simulated input");
+      textInput.addEventListener("value-changed", e => {
+        assert.equal(textInput.value, "Simulated input");
         done();
       });
-      textInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:"Simulated input", validity:{valid:true}}]}});
+      textInput._FBPTriggerWire("--inputInput", {
+        composedPath: () => {
+          return [{value: "Simulated input", validity: {valid: true}}]
+        }
+      });
 
     });
 
     it('should emit event `input-invalid` with validity object by invalid input', (done) => {
 
-      textInput.addEventListener("input-invalid",e=>{
-        assert.equal(JSON.stringify(e.detail),JSON.stringify({valid:false}));
+      textInput.addEventListener("input-invalid", e => {
+        assert.equal(JSON.stringify(e.detail), JSON.stringify({valid: false}));
         done();
       });
-      textInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:"Simulated input", validity:{valid:false}}]}});
+      textInput._FBPTriggerWire("--inputInput", {
+        composedPath: () => {
+          return [{value: "Simulated input", validity: {valid: false}}]
+        }
+      });
     });
 
-    it('shoud remove pattern when it is undefined', (done) => {
-      textInput.pattern = undefined;
-      textInput.updateInputAttributes();
-      assert.equal(textInput.shadowRoot.getElementById("input").getAttribute("pattern"), undefined);
-      done();
-    });
 
     it('instantiating furo-text-input with default properties works', () => {
 

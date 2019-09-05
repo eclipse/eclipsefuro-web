@@ -108,10 +108,19 @@ class FuroTextInput extends FBP(LitElement) {
    * @private
    */
   _updateInputAttribute(attribute, value) {
-    if (!this._theInputElement) {
-      this._theInputElement = this.shadowRoot.getElementById("input");
-    }
-    this._theInputElement.setAttribute(attribute, value)
+    this.updateComplete.then((d)=>{
+      if (!this._theInputElement) {
+        this._theInputElement = this.shadowRoot.getElementById("input");
+      }
+      if(value !== null){
+        this._theInputElement.setAttribute(attribute, value)
+      }else{
+        // remove the attribute on null value
+        this._theInputElement.removeAttribute(attribute);
+      }
+
+    })
+
   }
 
 
