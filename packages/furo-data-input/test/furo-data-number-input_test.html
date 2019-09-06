@@ -95,15 +95,19 @@
     it('should override hints ', (done) => {
 
       host._FBPAddWireHook('--entityReady', (e) => {
-        assert.equal(secondNumberInput._hint, "FromTPL");
-        done();
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("hint"), "FromTPL");
+          done();
+        },0)
       });
     });
 
     it('should override labels ', (done) => {
       host._FBPAddWireHook('--entityReady', (e) => {
-        assert.equal(secondNumberInput._label, "FromTPL");
-        done();
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("label"), "FromTPL");
+          done();
+        },0)
       });
 
     });
@@ -148,10 +152,10 @@
     it('should receive value with bind', (done) => {
       entityObject.addEventListener("data-injected", (e) => {
         assert.equal(dataNumberInput.shadowRoot.querySelector("*").value, 12.55);
-        assert.equal(dataNumberInput._hint, "hint");
-        assert.equal(dataNumberInput._min, 1);
-        assert.equal(dataNumberInput._max, 555);
-        assert.equal(dataNumberInput._step, 3);
+        assert.equal(dataNumberInput._theInputElement.getAttribute("hint"), "hint");
+        assert.equal(dataNumberInput._theInputElement.getAttribute("min"), 1);
+        assert.equal(dataNumberInput._theInputElement.getAttribute("max"), 555);
+        assert.equal(dataNumberInput._theInputElement.getAttribute("step"), 3);
         done();
       });
 

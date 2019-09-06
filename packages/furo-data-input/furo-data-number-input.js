@@ -3,6 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/input/furo-number-input";
 import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-data-number-input`
@@ -43,13 +44,10 @@ class FuroDataNumberInput extends FBP(LitElement) {
     this._FBPAddWireHook("--inputInvalid", (val) => {
 
       if (val) {
-        if(val.patternMismatch) {
-          this._hint = this._patternErrorMessage;
-        }
-        else if (val.tooShort) {
+        if(val.rangeUnderflow) {
           this._hint = this._minErrorMessage;
         }
-        else if(val.tooLong)
+        else if(val.rangeOverflow)
         {
           this._hint = this._maxErrorMessage;
         }
@@ -59,78 +57,70 @@ class FuroDataNumberInput extends FBP(LitElement) {
     });
   }
 
-
-  // label setter and getter are needed for rendering on the first time
-  set label(l) {
-    this._label = l;
-    this._l = l;
-  }
-  set hint(v) {
-    this._hint = v;
-    this._h = v;
+  /**
+   * Updater for the min => minlength attr*
+   * @param value
+   */
+  set _min(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
   }
 
-  set pattern(p) {
-    this._pattern = p;
-    this._p = p;
+  /**
+   * Updater for the max attr*
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
   }
 
-  set required(rd) {
-    this._required = rd;
-    this._rd = rd;
+  /**
+   * Updater for the label attr
+   * @param value
+   */
+  set _label(value) {
+    Helper.UpdateInputAttribute(this, "label", value);
   }
 
-  set min(i) {
-    this._min = i;
-    this._i = i;
+  /**
+   * Updater for the hint attr
+   * @param value
+   */
+  set _hint(value) {
+    Helper.UpdateInputAttribute(this, "hint", value);
   }
 
-  set max(x) {
-    this._max = x;
-    this._x = x;
+  /**
+   * Updater for the leadingIcon attr
+   * @param value
+   */
+  set leadingIcon(value) {
+    Helper.UpdateInputAttribute(this, "leading-icon", value);
   }
 
-  set readonly(r) {
-    this._readonly = r;
-    this._r = r;
+  /**
+   * Updater for the trailingIcon attr
+   * @param value
+   */
+  set trailingIcon(value) {
+    Helper.UpdateInputAttribute(this, "trailing-icon", value);
   }
 
-  set step(s) {
-    this._step = s;
-    this._s = s;
+  /**
+   * Updater for the errortext attr
+   * @param value
+   */
+  set errortext(value) {
+    Helper.UpdateInputAttribute(this, "errortext", value);
   }
 
-  get label(){
-    return this._l;
+  /**
+   * Updater for the step attr
+   * @param value
+   */
+  set errortext(value) {
+    Helper.UpdateInputAttribute(this, "step", value);
   }
 
-  get hint(){
-    return this._h;
-  }
-
-  get pattern() {
-    return this._p;
-  }
-
-  get required() {
-    return this._rd;
-  }
-
-  get min() {
-    return this._i;
-  }
-
-  get max() {
-    return this._x;
-  }
-
-  get readonly() {
-    return this._r;
-  }
-
-  get step() {
-    return this._s;
-  }
 
   static get properties() {
     return {
@@ -142,14 +132,6 @@ class FuroDataNumberInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-      },
-      /**
-       * Overrides the pattern from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      pattern: {
-        type: String
       },
       /**
        * Overrides the required value from the **specs**.
@@ -339,22 +321,17 @@ class FuroDataNumberInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html` 
-       <furo-number-input 
+       <furo-number-input id="input"
           ?autofocus=${this.autofocus} 
           ?readonly=${this._readonly || this.disabled} 
-          label="${this._label}" 
-          min="${this._min}" 
-          max="${this._max}" 
-          step="${this._step}" 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
           ?required=${this._required}
-          errortext="${this.errortext}" 
-          hint="${this._hint}" 
           @-value-changed="--valueChanged"
+          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-number-input>      
     `;
   }
