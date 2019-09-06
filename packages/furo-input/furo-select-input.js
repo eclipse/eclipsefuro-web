@@ -319,8 +319,8 @@ class FuroSelectInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 14px 0 0 0;
-            height: 75px;
+            margin: 10px 0 15px 0;
+            height: 56px;
             font-family: "Roboto", "Noto", sans-serif;
             width: 190px;
         }
@@ -419,7 +419,7 @@ class FuroSelectInput extends FBP(LitElement) {
         :host(:not([filled])) label span {
             position: relative;
             font-size: 12px;
-            top: -30px;
+            top: -28px;
             left: 0;
         }
 
@@ -477,7 +477,7 @@ class FuroSelectInput extends FBP(LitElement) {
 
         .hint, .errortext {
             position: absolute;
-            bottom: 0;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
             padding-left: 12px;
@@ -613,7 +613,7 @@ class FuroSelectInput extends FBP(LitElement) {
         }
 
         :host([condensed]) {
-            height: 53px;
+            height: 40px;
         }
 
     `

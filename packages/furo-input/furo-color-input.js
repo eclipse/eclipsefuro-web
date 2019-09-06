@@ -251,7 +251,7 @@ class FuroColorInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 19px 0 0 0;
+            margin: 10px 0 15px 0;
             height: 56px;
             width: 104px;
         }
@@ -345,7 +345,7 @@ class FuroColorInput extends FBP(LitElement) {
         :host(:not([filled])) label span {
             position: relative;
             font-size: 12px;
-            top: -30px;
+            top: -28px;
             left: 0;
         }
 
