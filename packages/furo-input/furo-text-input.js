@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-text-input`
@@ -84,7 +85,7 @@ class FuroTextInput extends FBP(LitElement) {
    * @param value
    */
   set pattern(value) {
-    this._updateInputAttribute("pattern", value);
+    Helper.UpdateInputAttribute(this,"pattern", value);
   }
 
   /**
@@ -94,7 +95,7 @@ class FuroTextInput extends FBP(LitElement) {
    * @param value
    */
   set min(value) {
-    this._updateInputAttribute("minlength", value);
+    Helper.UpdateInputAttribute(this,"minlength", value);
   }
 
   /**
@@ -104,29 +105,8 @@ class FuroTextInput extends FBP(LitElement) {
    * @param value
    */
   set max(value) {
-    this._updateInputAttribute("maxlength", value);
+    Helper.UpdateInputAttribute(this,"maxlength", value);
   }
-
-  /**
-   * update Attribute on input element actively, so we dont have things like pattern="undefined" on the native element.
-   * @param attribute
-   * @param value
-   * @private
-   */
-  _updateInputAttribute(attribute, value) {
-    this.updateComplete.then((d)=>{
-      if (!this._theInputElement) {
-        this._theInputElement = this.shadowRoot.getElementById("input");
-      }
-      if(value !== null){
-        this._theInputElement.setAttribute(attribute, value)
-      }else{
-        // remove the attribute on null value
-        this._theInputElement.removeAttribute(attribute);
-      }
-    })
-  }
-
 
   set _value(v) {
     this._float = !!v;

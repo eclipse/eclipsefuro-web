@@ -86,7 +86,7 @@ class FuroDataTextInput extends FBP(LitElement) {
   }
 
   /**
-   * Updater for the max => maxlength attr
+   * Updater for the max attr
    * * same problem like in pattern
    *
    * @param value
@@ -95,22 +95,42 @@ class FuroDataTextInput extends FBP(LitElement) {
     Helper.UpdateInputAttribute(this, "max", value);
   }
 
+  /**
+   * Updater for the label attr
+   * @param value
+   */
   set _label(value) {
     Helper.UpdateInputAttribute(this, "label", value);
   }
 
+  /**
+   * Updater for the hint attr
+   * @param value
+   */
   set _hint(value) {
     Helper.UpdateInputAttribute(this, "hint", value);
   }
 
+  /**
+   * Updater for the leadingIcon attr
+   * @param value
+   */
   set leadingIcon(value) {
     Helper.UpdateInputAttribute(this, "leading-icon", value);
   }
 
+  /**
+   * Updater for the trailingIcon attr
+   * @param value
+   */
   set trailingIcon(value) {
     Helper.UpdateInputAttribute(this, "trailing-icon", value);
   }
 
+  /**
+   * Updater for the errortext attr
+   * @param value
+   */
   set errortext(value) {
     Helper.UpdateInputAttribute(this, "errortext", value);
   }

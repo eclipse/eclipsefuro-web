@@ -108,23 +108,29 @@
 
     it('should override hints ', (done) => {
       host._FBPAddWireHook('--entity', (e) => {
-        assert.equal(secondTextInput._hint, "FromTPL");
-        done();
+        setTimeout(()=>{
+          assert.equal(secondTextInput._theInputElement.getAttribute("hint"), "FromTPL");
+          done();
+        },0)
       });
     });
 
     it('should override pattern ', (done) => {
       host._FBPAddWireHook('--entity', (e) => {
-        assert.equal(secondTextInput._pattern, "a.*");
-        done();
+        setTimeout(()=>{
+          assert.equal(secondTextInput._theInputElement.getAttribute("pattern"), "a.*");
+          done();
+        },0)
       });
     });
 
     it('should override min and max ', (done) => {
       host._FBPAddWireHook('--entity', (e) => {
-        assert.equal(secondTextInput._min, 2);
-        assert.equal(secondTextInput._max, 5);
-        done();
+        setTimeout(()=>{
+          assert.equal(secondTextInput._theInputElement.getAttribute("min"), 2);
+          assert.equal(secondTextInput._theInputElement.getAttribute("max"), 5);
+          done();
+        },0)
       });
     });
 
@@ -154,7 +160,7 @@
       host._FBPAddWireHook("--entity", () => {
         dataTextInput._FBPTriggerWire("--inputInvalid", {"patternMismatch": true});
         setTimeout(() => {
-          assert.equal(dataTextInput._hint, "must start with a");
+          assert.equal(dataTextInput._theInputElement.getAttribute("hint"), "must start with a");
           done();
         }, 0)
       })
@@ -164,7 +170,7 @@
       host._FBPAddWireHook("--entity", () => {
         dataTextInput._FBPTriggerWire("--inputInvalid", {"tooShort": true});
         setTimeout(() => {
-          assert.equal(dataTextInput._hint, "at least 3 characters");
+          assert.equal(dataTextInput._theInputElement.getAttribute("hint"), "at least 3 characters");
           done();
         }, 0)
       })
@@ -174,7 +180,7 @@
       host._FBPAddWireHook("--entity", () => {
         dataTextInput._FBPTriggerWire("--inputInvalid", {"tooLong": true});
         setTimeout(() => {
-          assert.equal(dataTextInput._hint, "15 characters maximum");
+          assert.equal(dataTextInput._theInputElement.getAttribute("hint"), "15 characters maximum");
           done();
         }, 0)
       })
@@ -194,11 +200,14 @@
 
     it('should bind the field label, hint , min and max', (done) => {
       host._FBPAddWireHook("--entity", () => {
-        assert.equal(dataTextInput._label, "text_input");
-        assert.equal(dataTextInput._hint, "hint");
-        assert.equal(dataTextInput._min, 3);
-        assert.equal(dataTextInput._max, 15);
-        done();
+        setTimeout(()=>{
+
+          assert.equal(dataTextInput._theInputElement.getAttribute("label"), "text_input");
+          assert.equal(dataTextInput._theInputElement.getAttribute("hint"), "hint");
+          assert.equal(dataTextInput._theInputElement.getAttribute("min"), 3);
+          assert.equal(dataTextInput._theInputElement.getAttribute("max"), 15);
+          done();
+        },0);
       })
     });
 
@@ -248,7 +257,7 @@
 
       setTimeout(() => {
         assert.equal(dataTextInput.error, true);
-        assert.equal(dataTextInput.errortext, "furo_data_text_input error");
+        assert.equal(dataTextInput._theInputElement.getAttribute("errortext"), "furo_data_text_input error");
         done();
       }, 0)
       deeplink.qpIn({"exp": 1});

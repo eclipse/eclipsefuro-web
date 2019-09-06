@@ -47,10 +47,31 @@ class SampleFuroDataCollectionDropdown extends FBP(LitElement) {
       
       <furo-demo-snippet >
         <template>
-          <furo-collection-object type="tree.Tree" @-response="--collection"></furo-collection-object>
+          <furo-data-object type="tree.Tree" @-response="--collection"></furo-data-object>
           <furo-data-object type="tree.navigationnode" @-object-ready="--entity"></furo-data-object>
           <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"  label="Label" ƒ-inject-data="--collection" ƒ-bind-data="--entity(*.fields.description)"></furo-data-collection-dropdown>
           <furo-data-collection-dropdown condensed label="Label" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-data="--collection" ƒ-bind-data="--entity(*.fields.description)"></furo-data-collection-dropdown>
+
+            <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+
+            <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                              ƒ-inject-raw="--response(*.data)"></furo-data-object>
+            <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+            
+            <furo-entity-agent service="TreeService"
+                               ƒ-hts-in="--hts"
+                               ƒ-load="--hts"
+                               ƒ-bind-request-data="--entity"
+                               @-response="--response">
+            </furo-entity-agent>
+
+
+            <furo-collection-agent service="TreeService"
+                               ƒ-hts-in="--hts"
+                               ƒ-load="--hts"
+                               ƒ-bind-request-data="--collection"
+                               @-response="--response">
+            </furo-collection-agent>
         </template>
       </furo-demo-snippet>
     `;
