@@ -34,7 +34,6 @@ class FuroNumberInput extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.step = "any";
     this.valid = true;
   }
 

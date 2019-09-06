@@ -117,7 +117,7 @@ class FuroDataNumberInput extends FBP(LitElement) {
    * Updater for the step attr
    * @param value
    */
-  set errortext(value) {
+  set step(value) {
     Helper.UpdateInputAttribute(this, "step", value);
   }
 
