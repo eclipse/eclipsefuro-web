@@ -3,6 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/input/furo-range-input";
 import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-data-range-input`
@@ -35,29 +36,102 @@ class FuroDataRangeInput extends FBP(LitElement) {
 
 
     this._FBPAddWireHook("--valueChanged", (val) => {
+
+      // by valid input reset meta and constraints
+      CheckMetaAndOverrides.CheckAttributeOverrides(this);
+
       if (this.field) {
         this.field.value = val;
+      }
+    });
+
+    this._FBPAddWireHook("--inputInvalid", (val) => {
+      // val is a ValidityState
+      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
+      if (val) {
+        if(val.rangeUnderflow) {
+          this._hint = this._minErrorMessage;
+        }
+        else if(val.rangeOverflow)
+        {
+          this._hint = this._maxErrorMessage;
+        }
+        else if(val.stepMismatch) {
+          this._hint = this._stepErrorMessage;
+        }
+
+        this.requestUpdate();
       }
     });
   }
 
 
 
-  // label setter and getter are needed for rendering on the first time
-  set label(l) {
-    this._label = l;
-    this._l = l;
+
+  /**
+   * Updater for the min => minlength attr*
+   * @param value
+   */
+  set _min(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
   }
-  set hint(v) {
-    this._hint = v;
-    this._h = v;
+
+  /**
+   * Updater for the max attr*
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
   }
-  get label(){
-    return this._l;
+
+  /**
+   * Updater for the label attr
+   * @param value
+   */
+  set _label(value) {
+    Helper.UpdateInputAttribute(this, "label", value);
   }
-  get hint(){
-    return this._h;
+
+  /**
+   * Updater for the hint attr
+   * @param value
+   */
+  set _hint(value) {
+    Helper.UpdateInputAttribute(this, "hint", value);
   }
+
+  /**
+   * Updater for the leadingIcon attr
+   * @param value
+   */
+  set leadingIcon(value) {
+    Helper.UpdateInputAttribute(this, "leading-icon", value);
+  }
+
+  /**
+   * Updater for the trailingIcon attr
+   * @param value
+   */
+  set trailingIcon(value) {
+    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+  }
+
+  /**
+   * Updater for the errortext attr
+   * @param value
+   */
+  set errortext(value) {
+    Helper.UpdateInputAttribute(this, "errortext", value);
+  }
+
+  /**
+   * Updater for the step attr
+   * @param value
+   */
+  set step(value) {
+    Helper.UpdateInputAttribute(this, "step", value);
+  }
+
 
   static get properties() {
     return {
@@ -246,20 +320,14 @@ class FuroDataRangeInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html` 
-       <furo-range-input 
+       <furo-range-input id="input"
           ?autofocus=${this.autofocus} 
           ?readonly=${this._readonly||this.disabled} 
-          label="${this._label}" 
-          min="${this._min}" 
-          max="${this._max}" 
-          step="${this._step}" 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
-          errortext="${this.errortext}" 
-          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-range-input>      
     `;

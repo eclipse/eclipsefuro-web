@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import  "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-range-input`
@@ -63,22 +64,34 @@ class FuroRangeInput extends FBP(LitElement) {
         this.dispatchEvent(customEvent);
       }
     });
-
-    // set pattern, min, max, step
-    let inputField = this.shadowRoot.querySelector("#input");
-
-
-    if (this.min) {
-      inputField.setAttribute("min", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("max", this.max);
-    }
-    if (this.step) {
-      inputField.setAttribute("step", this.step);
-    }
   }
 
+  /**
+   * Updater for the min attr
+   *
+   * @param value
+   */
+  set min(value) {
+    Helper.UpdateInputAttribute(this,"min", value);
+  }
+
+  /**
+   * Updater for the max attr
+   *
+   * @param value
+   */
+  set max(value) {
+    Helper.UpdateInputAttribute(this,"max", value);
+  }
+
+  /**
+   * Updater for the step attr
+   *
+   * @param value
+   */
+  set step(value) {
+    Helper.UpdateInputAttribute(this,"step", value);
+  }
 
   set _value(v) {
     this._float = !!v;
@@ -584,10 +597,7 @@ class FuroRangeInput extends FBP(LitElement) {
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
-       type="range"    
-       min=${this.min}   
-       max=${this.max}   
-       step="${this.step}"   
+       type="range"      
        ƒ-.value="--value" 
        @-input="--inputInput(*)"   
        ƒ-focus="--focus">

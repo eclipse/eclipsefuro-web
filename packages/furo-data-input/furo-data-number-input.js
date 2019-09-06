@@ -36,13 +36,16 @@ class FuroDataNumberInput extends FBP(LitElement) {
 
 
     this._FBPAddWireHook("--valueChanged", (val) => {
+      // by valid input reset meta and constraints
+      CheckMetaAndOverrides.CheckAttributeOverrides(this);
       if (this.field) {
         this.field.value = val;
       }
     });
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
-
+      // val is a ValidityState
+      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
       if (val) {
         if(val.rangeUnderflow) {
           this._hint = this._minErrorMessage;
@@ -50,6 +53,9 @@ class FuroDataNumberInput extends FBP(LitElement) {
         else if(val.rangeOverflow)
         {
           this._hint = this._maxErrorMessage;
+        }
+        else if(val.stepMismatch) {
+          this._hint = this._stepErrorMessage;
         }
 
         this.requestUpdate();
