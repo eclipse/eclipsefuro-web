@@ -340,7 +340,7 @@ class FuroTextInput extends FBP(LitElement) {
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: 19px 0 0 0;
+            margin: 10px 0 15px 0;
             height: 56px;
             width: 190px;
         }
@@ -444,7 +444,7 @@ class FuroTextInput extends FBP(LitElement) {
 
         :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
             font-size: 12px;
-            top: -30px;
+            top: -28px;
             left: 0;
             position: relative;
         }
@@ -626,7 +626,7 @@ class FuroTextInput extends FBP(LitElement) {
         :host([condensed][filled]) input {
             top: 12px;
         }
-
+        
         :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
             height: 40px;
         }
@@ -645,7 +645,7 @@ class FuroTextInput extends FBP(LitElement) {
         }
 
         :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top: -24px;
+            top: -20px;
         }
 
         :host([condensed]) {
