@@ -2,46 +2,46 @@
 
 <html>
 <head>
-    <title>test for furo-data-text-input_test</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="/node_modules/mocha/mocha.js"></script>
-    <script src="/node_modules/chai/chai.js"></script>
-    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
-    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
-    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+  <title>test for furo-data-text-input_test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
 
 </head>
 <body>
 
 <test-fixture id="basic">
-    <template>
-        <test-bind>
-            <template>
-                <furo-data-text-input ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
-                <furo-data-text-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_text_input)"
-                                      pattern="a.*" min=2 max=5 readonly required
-                                      @-value-changed="--textChanged"></furo-data-text-input>
+  <template>
+    <test-bind>
+      <template>
+        <furo-data-text-input ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
+        <furo-data-text-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_text_input)"
+                              pattern="a.*" min=2 max=5 readonly required
+                              @-value-changed="--textChanged"></furo-data-text-input>
 
-                <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
-                                  ƒ-inject-raw="--response(*.data)"></furo-data-object>
+        <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                          ƒ-inject-raw="--response(*.data)"></furo-data-object>
 
-                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
-                <furo-entity-agent service="ExperimentService"
-                                   ƒ-hts-in="--hts"
-                                   ƒ-load="--hts"
-                                   ƒ-bind-request-data="--entity"
-                                   @-response="--response">
-                </furo-entity-agent>
+        <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+        <furo-entity-agent service="ExperimentService"
+                           ƒ-hts-in="--hts"
+                           ƒ-load="--hts"
+                           ƒ-bind-request-data="--entity"
+                           @-response="--response">
+        </furo-entity-agent>
 
-                <furo-data-text-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-text-input>
+        <furo-data-text-input ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-text-input>
 
 
-            </template>
-        </test-bind>
+      </template>
+    </test-bind>
 
-    </template>
+  </template>
 </test-fixture>
 
 <script type="module">
@@ -86,6 +86,15 @@
     });
 
 
+    it('should override labels ', (done) => {
+      host._FBPAddWireHook('--entity', (e) => {
+         setTimeout(()=>{
+             assert.equal(secondTextInput._theInputElement.getAttribute("label"), "FromTPL");
+             done();
+         },0)
+      });
+    });
+
     it('should log invalid bindings', (done) => {
       dataTextInput._FBPAddWireHook("--value", (val) => {
         // invalid binding
@@ -96,12 +105,6 @@
       });
     });
 
-    it('should override labels ', (done) => {
-      host._FBPAddWireHook('--entity', (e) => {
-        assert.equal(secondTextInput._label, "FromTPL");
-        done();
-      });
-    });
 
     it('should override hints ', (done) => {
       host._FBPAddWireHook('--entity', (e) => {
@@ -149,8 +152,8 @@
 
     it('should set hint message when pattern mismatched', (done) => {
       host._FBPAddWireHook("--entity", () => {
-        dataTextInput._FBPTriggerWire("--inputInvalid", {"patternMismatch":true});
-        setTimeout(()=>{
+        dataTextInput._FBPTriggerWire("--inputInvalid", {"patternMismatch": true});
+        setTimeout(() => {
           assert.equal(dataTextInput._hint, "must start with a");
           done();
         }, 0)
@@ -159,8 +162,8 @@
 
     it('should set hint message when input under minlength', (done) => {
       host._FBPAddWireHook("--entity", () => {
-        dataTextInput._FBPTriggerWire("--inputInvalid", {"tooShort":true});
-        setTimeout(()=>{
+        dataTextInput._FBPTriggerWire("--inputInvalid", {"tooShort": true});
+        setTimeout(() => {
           assert.equal(dataTextInput._hint, "at least 3 characters");
           done();
         }, 0)
@@ -169,8 +172,8 @@
 
     it('should set hint message when input over maxlength', (done) => {
       host._FBPAddWireHook("--entity", () => {
-        dataTextInput._FBPTriggerWire("--inputInvalid", {"tooLong":true});
-        setTimeout(()=>{
+        dataTextInput._FBPTriggerWire("--inputInvalid", {"tooLong": true});
+        setTimeout(() => {
           assert.equal(dataTextInput._hint, "15 characters maximum");
           done();
         }, 0)
@@ -222,7 +225,7 @@
          * Fired when
          * detail payload:
          */
-        let customEvent = new Event('req-failed', {composed:true, bubbles: true});
+        let customEvent = new Event('req-failed', {composed: true, bubbles: true});
         customEvent.detail = {
           "error": "invalid furo_data_text_input",
           "message": "invalid furo_data_text_input",

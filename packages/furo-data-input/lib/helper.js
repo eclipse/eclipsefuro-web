@@ -21,7 +21,8 @@ export class Helper {
         caller._theInputElement = caller.shadowRoot.getElementById("input");
       }
       if (value !== null) {
-        caller._theInputElement.setAttribute(attribute, value)
+        caller._theInputElement.setAttribute(attribute, value);
+
       } else {
         // remove the attribute on null value
         caller._theInputElement.removeAttribute(attribute);

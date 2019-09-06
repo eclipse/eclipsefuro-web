@@ -3,7 +3,6 @@ export class CheckMetaAndOverrides {
 
   static UpdateMetaAndConstraints(element) {
     // options are available for text inputs at the moment
-
     // check if metas ara available
     if (element.field._meta) {
       if (element.field._meta.readonly) {

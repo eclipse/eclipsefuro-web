@@ -33,11 +33,11 @@ class FuroDataTextInput extends FBP(LitElement) {
     super();
     this.error = false;
     this.disabled = false;
-    this.errortext = "";
+
     this._FBPAddWireHook("--valueChanged", (val) => {
 
       // by valid input reset meta and constraints
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+      CheckMetaAndOverrides.CheckAttributeOverrides(this);
       if (this.field) {
         this.field.value = val;
       }
