@@ -6,9 +6,9 @@ package taskmanager;
 
 option csharp_namespace = "Google.Protobuf.WellKnownTypes";
 option go_package = "taskmanager";
-option java_multiple_files = true;
-option java_outer_classname = "AnyProto";
 option java_package = "taskmanager";
+option java_outer_classname = "AnyProto";
+option java_multiple_files = true;
 option objc_class_prefix = "GPB";
 
 import "google/api/annotations.proto";

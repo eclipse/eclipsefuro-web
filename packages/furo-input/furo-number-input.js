@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import  "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-number-input`
@@ -33,7 +34,6 @@ class FuroNumberInput extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.step = "any";
     this.valid = true;
   }
 
@@ -73,18 +73,33 @@ class FuroNumberInput extends FBP(LitElement) {
         this.dispatchEvent(customEvent);
       }
     });
-    this.updateInputAttributes();
-
   }
 
+  /**
+   * Updater for the min attr
+   *
+   * @param value
+   */
+  set min(value) {
+    Helper.UpdateInputAttribute(this,"min", value);
+  }
 
-  updateInputAttributes() {
+  /**
+   * Updater for the max attr
+   *
+   * @param value
+   */
+  set max(value) {
+    Helper.UpdateInputAttribute(this,"max", value);
+  }
 
-    // remove pattern when it is undefined to avoid validate problem
-    let inputField = this.shadowRoot.getElementById("input");
-    if (this.pattern === undefined || this.pattern =="undefined") {
-      inputField.removeAttribute("pattern");
-    }
+  /**
+   * Updater for the step attr
+   *
+   * @param value
+   */
+  set step(value) {
+    Helper.UpdateInputAttribute(this,"step", value);
   }
 
   set _value(v) {
@@ -621,9 +636,6 @@ class FuroNumberInput extends FBP(LitElement) {
            <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
            <div class="iwrap">    
                <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-                   min="${this.min}" 
-                   max="${this.max}"
-                   step="${this.step}"
                    type="number"       
                    ?required=${this.required} 
                    ƒ-.value="--value" 

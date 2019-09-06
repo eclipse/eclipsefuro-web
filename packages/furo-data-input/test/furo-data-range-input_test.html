@@ -85,34 +85,45 @@
 
     it('should override hints ', (done) => {
       host._FBPAddWireHook('--entity', (e) => {
-        assert.equal(secondRangeInput._hint, "FromTPL");
-        done();
+
+        setTimeout(()=>{
+          assert.equal(secondRangeInput._theInputElement.getAttribute("hint"), "FromTPL");
+          done();
+        },0)
       });
     });
 
     it('should override labels ', (done) => {
       host._FBPAddWireHook('--entity', (e) => {
-        assert.equal(secondRangeInput._label, "FromTPL");
-        done();
+        setTimeout(()=>{
+          assert.equal(secondRangeInput._theInputElement.getAttribute("label"), "FromTPL");
+          done();
+        },0)
       });
 
     });
     it('should override min ', (done) => {
-      secondRangeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondRangeInput.min, 1);
-        done();
+      host._FBPAddWireHook('--entity', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondRangeInput._theInputElement.getAttribute("min"), 1);
+          done();
+        },0)
       });
     });
     it('should override max ', (done) => {
-      secondRangeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondRangeInput.max, 10);
-        done();
+      host._FBPAddWireHook('--entity', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondRangeInput._theInputElement.getAttribute("max"), 10);
+          done();
+        },0)
       });
     });
     it('should override step ', (done) => {
-      secondRangeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondRangeInput.step, 0.5);
-        done();
+      host._FBPAddWireHook('--entity', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondRangeInput._theInputElement.getAttribute("step"), 0.5);
+          done();
+        },0)
       });
     });
 
@@ -130,14 +141,16 @@
 
 
       host._FBPAddWireHook('--entity', (e) => {
-          assert.equal(dataRangeInput._label, "range-input");
-          assert.equal(dataRangeInput._hint, "hint");
-          assert.equal(dataRangeInput._min, 20);
-          assert.equal(dataRangeInput._max, 50);
-          assert.equal(dataRangeInput._step, "2.5");
+        setTimeout(()=>{
+          assert.equal(dataRangeInput._theInputElement.getAttribute("label"), "range-input");
+          assert.equal(dataRangeInput._theInputElement.getAttribute("hint"), "hint");
+          assert.equal(dataRangeInput._theInputElement.getAttribute("min"), 20);
+          assert.equal(dataRangeInput._theInputElement.getAttribute("max"), 50);
+          //assert.equal(dataRangeInput._theInputElement.getAttribute("step"), "2.5");
           done();
+        },0)
       });
-      deeplink.qpIn({"exp": 1});
+     // deeplink.qpIn({"exp": 1});
     });
 
     it('should log invalid bindings', (done) => {

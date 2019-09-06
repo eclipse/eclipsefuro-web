@@ -14,9 +14,6 @@ export class CheckMetaAndOverrides {
       if (element.field._meta.hint) {
         element._hint = element.field._meta.hint;
       }
-      if (element.field._meta.step) {
-        element._step = element.field._meta.step;
-      }
       if (element.field._meta.required) {
         element._required = element.field._meta.required.value;
       }
@@ -31,7 +28,10 @@ export class CheckMetaAndOverrides {
         element._min = element.field._constraints.min.value;
         element._minErrorMessage = element.field._constraints.min.message;
       }
-
+      if (element.field._constraints.step) {
+        element._step = element.field._constraints.step.value;
+        element._stepErrorMessage = element.field._constraints.step.message;
+      }
       if (element.field._constraints.pattern) {
         element._pattern = element.field._constraints.pattern.value;
         element._patternErrorMessage = element.field._constraints.pattern.message;

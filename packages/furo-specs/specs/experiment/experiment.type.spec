@@ -115,8 +115,7 @@
       "meta": {
         "label": "time-input",
         "hint": "hint",
-        "readonly": false,
-        "step": "5"
+        "readonly": false
       },
       "constraints": {
         "min": {
@@ -126,6 +125,10 @@
         "max": {
           "value": "19:00",
           "message": "to 19:00"
+        },
+        "step": {
+          "value":"5",
+          "message": "step 5"
         }
       },
       "__proto": {
@@ -138,8 +141,7 @@
       "meta": {
         "label": "range-input",
         "hint": "hint",
-        "readonly": false,
-        "step": "2.5"
+        "readonly": false
       },
       "constraints": {
         "min": {
@@ -149,7 +151,12 @@
         "max": {
           "value": 50,
           "message": "to 50"
+        },
+        "step": {
+          "value": "2.5",
+          "message":"step 2.5"
         }
+
       },
       "__proto": {
         "number": 8
@@ -161,8 +168,7 @@
       "meta": {
         "label": "number-input",
         "hint": "hint",
-        "readonly": false,
-        "step": "3"
+        "readonly": false
       },
       "constraints": {
         "min": {
@@ -173,9 +179,9 @@
           "value": 555,
           "message": "to 555"
         },
-        "pattern": {
-          "value": "^.*[02468]$",
-          "message": "even Numbers"
+        "step": {
+          "value": "3",
+          "message":"step 3"
         }
       },
       "__proto": {

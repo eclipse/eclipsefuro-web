@@ -72,7 +72,7 @@ class DemoFuroDataNumberInput extends FBP(LitElement) {
             </furo-horizontal-flex>
               
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
-            <simulate-error ƒ-bind-data="--entity" error='{"field":"furo_data_number_input","description":"pattern not match"}'></simulate-error>
+            <simulate-error ƒ-bind-data="--entity" error='{"field":"furo_data_number_input","description":"min not match"}'></simulate-error>
 
             <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
                               ƒ-inject-raw="--response(*.data)"></furo-data-object>

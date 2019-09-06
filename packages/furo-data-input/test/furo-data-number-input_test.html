@@ -21,7 +21,7 @@
       <template>
         <furo-data-number-input ƒ-bind-data="--entityReady(*.furo_data_number_input)"></furo-data-number-input>
         <furo-data-number-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entityReady(*.furo_data_number_input)"
-                                min="1" pattern="^.*[02468]$" required readonly
+                                min="1" required readonly
                                 max="10"
                                 step="0.5"
                                 @-value-changed="--textChanged"></furo-data-number-input>
@@ -95,34 +95,44 @@
     it('should override hints ', (done) => {
 
       host._FBPAddWireHook('--entityReady', (e) => {
-        assert.equal(secondNumberInput._hint, "FromTPL");
-        done();
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("hint"), "FromTPL");
+          done();
+        },0)
       });
     });
 
     it('should override labels ', (done) => {
       host._FBPAddWireHook('--entityReady', (e) => {
-        assert.equal(secondNumberInput._label, "FromTPL");
-        done();
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("label"), "FromTPL");
+          done();
+        },0)
       });
 
     });
     it('should override min ', (done) => {
-      secondNumberInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondNumberInput.min, 1);
-        done();
+      host._FBPAddWireHook('--entityReady', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("min"), 1);
+          done();
+        },0)
       });
     });
     it('should override max ', (done) => {
-      secondNumberInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondNumberInput.max, 10);
-        done();
+      host._FBPAddWireHook('--entityReady', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("max"), 10);
+          done();
+        },0)
       });
     });
     it('should override step ', (done) => {
-      secondNumberInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondNumberInput.step, 0.5);
-        done();
+      host._FBPAddWireHook('--entityReady', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondNumberInput._theInputElement.getAttribute("step"), "0.5");
+          done();
+        },0)
       });
     });
 
@@ -147,12 +157,16 @@
 
     it('should receive value with bind', (done) => {
       entityObject.addEventListener("data-injected", (e) => {
-        assert.equal(dataNumberInput.shadowRoot.querySelector("*").value, 12.55);
-        assert.equal(dataNumberInput._hint, "hint");
-        assert.equal(dataNumberInput._min, 1);
-        assert.equal(dataNumberInput._max, 555);
-        assert.equal(dataNumberInput._step, 3);
-        done();
+
+        setTimeout(()=>{
+          assert.equal(dataNumberInput.shadowRoot.querySelector("*").value, 12.55);
+          assert.equal(dataNumberInput._theInputElement.getAttribute("hint"), "hint");
+          assert.equal(dataNumberInput._theInputElement.getAttribute("min"), 1);
+          assert.equal(dataNumberInput._theInputElement.getAttribute("max"), 555);
+          //assert.equal(dataNumberInput._theInputElement.getAttribute("step"), "3");
+          done();
+        },0);
+
       });
 
       deeplink.qpIn({"exp": 1});
@@ -163,8 +177,12 @@
 
 
       host._FBPAddWireHook('--entityReady', (e) => {
-        assert.equal(dataNumberInput._label, "number-input");
-        done();
+        setTimeout(()=>{
+
+          assert.equal(dataNumberInput._theInputElement.getAttribute("label"), "number-input");
+          done();
+        },0);
+
       });
       deeplink.qpIn({"exp": 1});
     });
