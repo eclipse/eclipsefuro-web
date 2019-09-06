@@ -4,6 +4,8 @@ import {FBP} from "@furo/fbp";
 import "@furo/input/furo-text-input";
 
 import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import {Helper} from "./lib/helper";
+
 /**
  * `furo-data-text-input`
  * Binds a entityObject field to a furo-text-input field
@@ -62,25 +64,6 @@ class FuroDataTextInput extends FBP(LitElement) {
     });
   }
 
-  /**
-   * update Attribute on input element actively, so we dont have things like pattern="undefined" on the native element.
-   * @param attribute
-   * @param value
-   * @private
-   */
-  _updateInputAttribute(attribute, value) {
-    this.updateComplete.then((d)=>{
-      if (!this._theInputElement) {
-        this._theInputElement = this.shadowRoot.getElementById("input");
-      }
-      if(value !== null){
-        this._theInputElement.setAttribute(attribute, value)
-      }else{
-        // remove the attribute on null value
-        this._theInputElement.removeAttribute(attribute);
-      }
-    })
-  }
 
   /**
    * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
@@ -89,7 +72,7 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set _pattern(value) {
-    this._updateInputAttribute("pattern", value);
+    Helper.UpdateInputAttribute(this, "pattern", value);
   }
 
   /**
@@ -99,7 +82,7 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set _min(value) {
-    this._updateInputAttribute("min", value);
+    Helper.UpdateInputAttribute(this, "min", value);
   }
 
   /**
@@ -109,27 +92,27 @@ class FuroDataTextInput extends FBP(LitElement) {
    * @param value
    */
   set _max(value) {
-    this._updateInputAttribute("max", value);
+    Helper.UpdateInputAttribute(this, "max", value);
   }
 
   set _label(value) {
-    this._updateInputAttribute("label", value);
+    Helper.UpdateInputAttribute(this, "label", value);
   }
 
   set _hint(value) {
-    this._updateInputAttribute("hint", value);
+    Helper.UpdateInputAttribute(this, "hint", value);
   }
 
   set leadingIcon(value) {
-    this._updateInputAttribute("leading-icon", value);
+    Helper.UpdateInputAttribute(this, "leading-icon", value);
   }
 
   set trailingIcon(value) {
-    this._updateInputAttribute("trailing-icon", value);
+    Helper.UpdateInputAttribute(this, "trailing-icon", value);
   }
 
   set errortext(value) {
-    this._updateInputAttribute("errortext", value);
+    Helper.UpdateInputAttribute(this, "errortext", value);
   }
 
   /**
