@@ -49,7 +49,6 @@ export class CheckMetaAndOverrides {
      */
 
     if (element.min) {
-
       element._min = element.min;
     }
 

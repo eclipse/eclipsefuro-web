@@ -43,7 +43,8 @@ class FuroDataTextInput extends FBP(LitElement) {
 
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
-
+      // val is a ValidityState
+      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
         if (val) {
           if(val.patternMismatch) {
               this._hint = this._patternErrorMessage;
@@ -61,69 +62,76 @@ class FuroDataTextInput extends FBP(LitElement) {
     });
   }
 
-
-  // label setter and getter are needed for rendering on the first time
-  set label(l) {
-    this._label = l;
-    this._l = l;
-  }
-  set hint(v) {
-    this._hint = v;
-    this._h = v;
-  }
-
-  set pattern(p) {
-    this._pattern = p;
-    this._p = p;
-  }
-
-  set required(rd) {
-    this._required = rd;
-    this._rd = rd;
-  }
-
-  set min(i) {
-    this._min = i;
-    this._i = i;
+  /**
+   * update Attribute on input element actively, so we dont have things like pattern="undefined" on the native element.
+   * @param attribute
+   * @param value
+   * @private
+   */
+  _updateInputAttribute(attribute, value) {
+    this.updateComplete.then((d)=>{
+      if (!this._theInputElement) {
+        this._theInputElement = this.shadowRoot.getElementById("input");
+      }
+      if(value !== null){
+        this._theInputElement.setAttribute(attribute, value)
+      }else{
+        // remove the attribute on null value
+        this._theInputElement.removeAttribute(attribute);
+      }
+    })
   }
 
-  set max(x) {
-    this._max = x;
-    this._x = x;
+  /**
+   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+   * becaue it set "undefined" (as a Sting!)
+   *
+   * @param value
+   */
+  set _pattern(value) {
+    this._updateInputAttribute("pattern", value);
   }
 
-  set readonly(r) {
-    this._readonly = r;
-    this._r = r;
+  /**
+   * Updater for the min => minlength attr
+   * same problem like in pattern
+   *
+   * @param value
+   */
+  set _min(value) {
+    this._updateInputAttribute("min", value);
   }
 
-  get label(){
-    return this._l;
+  /**
+   * Updater for the max => maxlength attr
+   * * same problem like in pattern
+   *
+   * @param value
+   */
+  set _max(value) {
+    this._updateInputAttribute("max", value);
   }
 
-  get hint(){
-    return this._h;
+  set _label(value) {
+    this._updateInputAttribute("label", value);
   }
 
-  get pattern() {
-    return this._p;
+  set _hint(value) {
+    this._updateInputAttribute("hint", value);
   }
 
-  get required() {
-    return this._rd;
+  set leadingIcon(value) {
+    this._updateInputAttribute("leading-icon", value);
   }
 
-  get min() {
-    return this._i;
+  set trailingIcon(value) {
+    this._updateInputAttribute("trailing-icon", value);
   }
 
-  get max() {
-    return this._x;
+  set errortext(value) {
+    this._updateInputAttribute("errortext", value);
   }
 
-  get readonly() {
-    return this._r;
-  }
   /**
    * Sets the field to readonly
    */
@@ -327,21 +335,13 @@ class FuroDataTextInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-       <furo-text-input 
+       <furo-text-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly || this.disabled} 
-          label="${this._label}" 
-          min="${this._min}" 
-          max="${this._max}" 
-          pattern="${this._pattern}"
+          ?readonly=${this._readonly || this.disabled}                 
           ?error="${this.error}" 
           ?float="${this.float}" 
-          ?condensed="${this.condensed}"          
-          leading-icon="${this.leadingIcon}" 
-          trailing-icon="${this.trailingIcon}" 
-          ?required=${this._required}
-          errortext="${this.errortext}" 
-          hint="${this._hint}" 
+          ?condensed="${this.condensed}"                         
+          ?required=${this._required}                   
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-text-input>      
