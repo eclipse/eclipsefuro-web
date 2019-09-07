@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import "@furo/fbp/flow-repeat"
 import "@furo/input/furo-button"
 import "@furo/layout/furo-icon"
 import "@furo/doc-helper/graph/furo-show-flow"
@@ -26,27 +27,16 @@ class ViewViz extends FBP(LitElement) {
             this._readClippboard();
           }
         });
+
+        this._store = [];
     }
 
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Description
-             */
-            myBool: {type: Boolean}
-        };
-    }
 
   /**
   * flow is ready lifecycle method
   */
   _FBPReady(){
     super._FBPReady();
-    //this._FBPTraceWires()
     /**
      * Register hook on wire --readClipboardClicked to
      *
@@ -54,15 +44,29 @@ class ViewViz extends FBP(LitElement) {
     this._FBPAddWireHook("--readClipboardClicked",(e)=>{
           this._readClippboard();
     });
+
+    this.addEventListener("nav",(e)=>{
+      this._transformSource(e.detail);
+    })
   }
 
   _readClippboard(){
     navigator.clipboard.readText().then(
         clipText => {
-          let tpl =   document.createElement("div");
-          tpl.innerHTML = clipText;
-          this._FBPTriggerWire("--template", tpl);
+          this._addToStore(clipText);
+          this._transformSource(clipText);
   })};
+
+  _addToStore(source){
+    this._store.push(source);
+    this._FBPTriggerWire("--storeUpdated", this._store);
+  }
+
+  _transformSource(source){
+    let tpl =   document.createElement("div");
+    tpl.innerHTML = source;
+    this._FBPTriggerWire("--template", tpl);
+  }
 
   /**
    * Themable Styles
@@ -85,10 +89,21 @@ class ViewViz extends FBP(LitElement) {
             height: 100vh;
         }
 
-        furo-button{
+        furo-button.clip{
             position: absolute;
             left: 24px;
             top:16px
+        }
+        .navigator{
+            position: absolute;
+            left: 24px;
+            top:64px
+        }
+        .navigator furo-button{
+            display: block;
+            margin-bottom: 12px;
+            min-width: 40px;
+            padding: 0;
         }
         
     `
@@ -103,7 +118,13 @@ class ViewViz extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`        
-        <furo-button autofocus raised primary @-click="--readClipboardClicked">render from clippboard</furo-button>
+        <furo-button class="clip" autofocus raised primary @-click="--readClipboardClicked">render from clippboard</furo-button>
+        <div class="navigator">
+          <template is="flow-repeat" ƒ-inject-items="--storeUpdated">
+            <furo-button raised ƒ-.label="--index" @-click="^^nav(item)"></furo-button>
+          </template>
+         
+        </div>
         <furo-show-flow id="flow" ƒ-parse-template="--template"></furo-show-flow>
        
     `;
