@@ -1,6 +1,6 @@
 {
   "name": "@furo/collection",
-  "version": "0.20.25",
+  "version": "0.20.26",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
