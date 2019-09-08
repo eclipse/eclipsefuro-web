@@ -8,7 +8,6 @@ import "./furo-graph-renderer"
  * `furo-show-flow`
  * Renders a flow from dom node or html source
  *
- * @summary todo shortdescription
  * @customElement
  * @demo demo/furo-show-flow.html
  * @appliesMixin FBP
