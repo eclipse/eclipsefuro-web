@@ -1,10 +1,11 @@
-import { LitElement, html, css } from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat"
 import "@furo/input/furo-button"
 import "@furo/layout/furo-icon"
 import "@furo/doc-helper/graph/furo-show-flow"
+
 /**
  * `view-viz`
  * Visualize your flow
@@ -15,55 +16,56 @@ import "@furo/doc-helper/graph/furo-show-flow"
  */
 class ViewViz extends FBP(LitElement) {
 
-    constructor() {
-        super();
-        this.addEventListener("keypress",(key)=>{
-          if(key.code==="KeyF"){
-            this.requestFullscreen();
-          }
-        });
-        this.addEventListener("keydown",(key)=>{
-          if(key.code==="KeyV"){
-            this._readClippboard();
-          }
-        });
+  constructor() {
+    super();
+    this.addEventListener("keypress", (key) => {
+      if (key.code === "KeyF") {
+        this.requestFullscreen();
+      }
+    });
+    this.addEventListener("keydown", (key) => {
+      if (key.code === "KeyV") {
+        this._readClippboard();
+      }
+    });
 
-        this._store = [];
-    }
+    this._store = [];
+  }
 
 
   /**
-  * flow is ready lifecycle method
-  */
-  _FBPReady(){
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
     super._FBPReady();
     /**
      * Register hook on wire --readClipboardClicked to
      *
      */
-    this._FBPAddWireHook("--readClipboardClicked",(e)=>{
-          this._readClippboard();
+    this._FBPAddWireHook("--readClipboardClicked", (e) => {
+      this._readClippboard();
     });
 
-    this.addEventListener("nav",(e)=>{
+    this.addEventListener("nav", (e) => {
       this._transformSource(e.detail);
     })
   }
 
-  _readClippboard(){
+  _readClippboard() {
     navigator.clipboard.readText().then(
         clipText => {
           this._addToStore(clipText);
           this._transformSource(clipText);
-  })};
+        })
+  };
 
-  _addToStore(source){
+  _addToStore(source) {
     this._store.push(source);
     this._FBPTriggerWire("--storeUpdated", this._store);
   }
 
-  _transformSource(source){
-    let tpl =   document.createElement("div");
+  _transformSource(source) {
+    let tpl = document.createElement("div");
     tpl.innerHTML = source;
     this._FBPTriggerWire("--template", tpl);
   }
@@ -89,23 +91,25 @@ class ViewViz extends FBP(LitElement) {
             height: 100vh;
         }
 
-        furo-button.clip{
+        furo-button.clip {
             position: absolute;
             left: 24px;
-            top:16px
+            top: 16px
         }
-        .navigator{
+
+        .navigator {
             position: absolute;
             left: 24px;
-            top:64px
+            top: 64px
         }
-        .navigator furo-button{
+
+        .navigator furo-button {
             display: block;
             margin-bottom: 12px;
             min-width: 40px;
             padding: 0;
         }
-        
+
     `
   }
 
@@ -117,16 +121,17 @@ class ViewViz extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html`        
-        <furo-button class="clip" autofocus raised primary @-click="--readClipboardClicked">render from clippboard</furo-button>
-        <div class="navigator">
-          <template is="flow-repeat" ƒ-inject-items="--storeUpdated">
-            <furo-button raised ƒ-.label="--index" @-click="^^nav(item)"></furo-button>
-          </template>
-         
-        </div>
-        <furo-show-flow id="flow" ƒ-parse-template="--template"></furo-show-flow>
-       
+    return html`
+      <furo-button class="clip" autofocus raised primary @-click="--readClipboardClicked">render from clippboard
+      </furo-button>
+      <div class="navigator">
+        <template is="flow-repeat" ƒ-inject-items="--storeUpdated">
+          <furo-button raised ƒ-.label="--index" @-click="^^nav(item)"></furo-button>
+        </template>
+
+      </div>
+      <furo-show-flow id="flow" ƒ-parse-template="--template"></furo-show-flow>
+
     `;
   }
 }
