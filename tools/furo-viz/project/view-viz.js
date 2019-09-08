@@ -105,19 +105,23 @@ class ViewViz extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      
+      <!-- This is the button, you see on the top left corner of the app. Everything starts with pressing this button (as long you have some content in your clipboard) -->
       <furo-button class="clip" autofocus raised primary @-click="--clipboardContentRequested">render from clippboard
       </furo-button>
-      <!-- The help button just links to /man. Thats all. -->
+      <!-- The help button ot the top right side just links to /man. Thats all. -->
       <a href="/man">
         <furo-button outline>help</furo-button>
       </a>
+      <!-- The nav event is fired from the repeated content and contains the pasted contents -->
       <div class="navigator" @-nav="--storedContent">
+        <!-- Repeat the stack to fire a nav event with the current item. You can only see what is defined in the current component. For documentation purposes, this is the content of the template:  
+<furo-button raised ƒ-.label="--index" @-click="^^nav(item)"></furo-button>   -->
         <template is="flow-repeat" ƒ-inject-items="--stackChanged">
           <furo-button raised ƒ-.label="--index" @-click="^^nav(item)"></furo-button>
         </template>
       </div>
       
+      <!-- This component shows the graphed flow of the injected content. -->
       <furo-show-flow id="flow" ƒ-request-fullscreen="--fullscreenRequested"
                       ƒ-parse-html="--clipboardContent, --storedContent"></furo-show-flow>
 
