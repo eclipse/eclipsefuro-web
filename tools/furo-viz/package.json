@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@furo/collection": "0.21.0",
-    "@furo/logic": "^0.3.5"
+    "@furo/logic": "^0.4.0"
   },
   "devDependencies": {
     "@polymer/test-fixture": "^4.0.2",
