@@ -6,7 +6,7 @@ import "./furo-graph-renderer"
 
 /**
  * `furo-show-flow`
- * todo Describe your element
+ * Renders a flow from dom node or html source
  *
  * @summary todo shortdescription
  * @customElement
@@ -15,11 +15,20 @@ import "./furo-graph-renderer"
  */
 class FuroShowFlow extends FBP(LitElement) {
 
-  constructor() {
-    super();
-
+  /**
+   * Parse html content
+   * @param {string} source
+   */
+  parseHtml(source) {
+    let tpl = document.createElement("div");
+    tpl.innerHTML = source;
+    this.parseTemplate(tpl);
   }
 
+  /**
+   * Parse a dom node
+   * @param {dom} dom node
+   */
   parseTemplate(template) {
     this.graph = new dagre.graphlib.Graph({multigraph: false, compound: true});
     // graph settings
