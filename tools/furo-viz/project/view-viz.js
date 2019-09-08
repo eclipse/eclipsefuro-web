@@ -108,6 +108,7 @@ class ViewViz extends FBP(LitElement) {
       
       <furo-button class="clip" autofocus raised primary @-click="--clipboardContentRequested">render from clippboard
       </furo-button>
+      <!-- The help button just links to /man. Thats all. -->
       <a href="/man">
         <furo-button outline>help</furo-button>
       </a>

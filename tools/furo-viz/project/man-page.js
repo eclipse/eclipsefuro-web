@@ -37,7 +37,7 @@ class ManPage extends FBP(LitElement) {
             display: block;
             background: var(--surface);
             padding: 16px 140px 24px 24px;
-            
+
             height: 100%;
             overflow: auto;
             box-sizing: border-box;
@@ -46,13 +46,15 @@ class ManPage extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-        a{
+
+        a.close {
             position: absolute;
             right: 24px;
             top: 16px;
             outline: none;
         }
-        h1{
+
+        h1 {
             margin-top: 0;
         }
     `
@@ -70,7 +72,7 @@ class ManPage extends FBP(LitElement) {
       <h1>man viz.furo.pro</h1>
       <p>With viz.furo.pro you can inspect fbp flows. You can paste in the template from your source code or paste
         live flows from your running apps.</p>
-      <p>On start, you will see the flow of viz.furo.pro itself.</p>
+      <p>When you start the app, you will see the current flow of viz.furo.pro itself.</p>
       <h3>Getting the template from running apps</h3>
       <ol>
         <li>Select the element in the elements tab of your chrome dev toos</li>
@@ -79,7 +81,32 @@ class ManPage extends FBP(LitElement) {
         </li>
         <li>Then paste the received content (already in clipboard) in viz.furo.pro to inspect live apps</li>
       </ol>
-        
+
+      <h2>Reading the flow graph</h2>
+      <p>If you are familiar with fbp, you should not have any problem to read the graph. Otherwise we recommend to read
+        <a target="_blank" href="https://furo.pro/guide/md/fbp-wires/">the guide</a> to learn more about</p>
+      <p>The <strong>boxes</strong> represent the used components.</p>
+      <p> Boxes with <strong>dashed lines</strong> have a comment in the source. Hover on the box to read the comment
+      </p>
+      <p>The <strong>blue lines</strong> are the wires. Hover on them to read the wire name, like --clipboardContent.
+      </p>
+      <p>The <strong>small blue boxes</strong> with an <strong>@-</strong> are the catched events. Hover on them to read
+        the used name and more.</p>
+      <p>The <strong>small green boxes</strong> with an <strong>ƒ-</strong> are the triggerer for the methods of the
+        component.</p>
+      <p>The <strong>small black boxes</strong> are <strong>boolean</strong> flags of the component which are setted.
+      </p>
+      <p>The <strong>small orange boxes</strong> are <strong>string</strong> attributes of the component which are
+        setted. Hover on them to read the setted string.</p>
+
+      <p>The <strong>orange dots</strong> are indicating a wire from nowhere or a wire which was triggered from the
+        source (like <strong>this._FBPTriggerWire("--dataReceived",data)</strong>) or from outside (like <strong>--pageEntered</strong>
+        from furo-pages).
+      </p>
+      <p>The <strong>orange dots</strong> are indicating a wire which goes nowhere or a wire which is cathced in the
+        source
+        (like <strong>this._FBPAddWireHook("--wireName",(e)=>{ ... });</strong></p>
+
       <h2>Keyboard shortcuts</h2>
       <p><strong>f</strong> on the buttons toggles the fullscreen mode. Press "esc" to get back.</p>
       <p><strong>ctrl v</strong> or <strong>cmd v</strong> renders the clipboard content.</p>
@@ -96,8 +123,8 @@ class ManPage extends FBP(LitElement) {
       <p><strong>pinch out</strong> zooms the flow out.</p>
       <p><strong>paning</strong> (with 2 fingers) pans the flow.</p>
 
-      <a href="/">
-        <furo-button  outline>close help</furo-button>
+      <a class="close" href="/">
+        <furo-button outline>close help</furo-button>
       </a>
     `;
   }
