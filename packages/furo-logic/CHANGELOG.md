@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/veith/FuroBaseComponents/compare/@furo/logic@0.3.5...@furo/logic@0.4.0) (2019-09-08)
+
+
+### Features
+
+* notify stack change ([f3e1fb2](https://github.com/veith/FuroBaseComponents/commit/f3e1fb2))
+
+
+
+
+
 ## [0.3.5](https://github.com/veith/FuroBaseComponents/compare/@furo/logic@0.3.4...@furo/logic@0.3.5) (2019-09-08)
 
 **Note:** Version bump only for package @furo/logic
