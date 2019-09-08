@@ -1,5 +1,5 @@
 import {Env} from "./environment";
-import {i18n} from "@furo/framework/furo.js";
+import {i18n} from "./furo.js";
 
 /**
  * Todo Describe and explain

@@ -2,18 +2,15 @@
   "name": "@furo/input",
   "version": "0.53.2",
   "description": "Base input components",
-  "homepage": "",
-  "author": {
-    "name": "",
-    "email": "",
-    "url": ""
+  "dependencies": {
+    "@furo/fbp": "^4.26.4",
+    "@furo/framework": "^0",
+    "@furo/layout": "^0",
+    "lit-element": "^2.2.1"
   },
   "license": "MIT",
   "main": "furo-catalog.js",
   "publishConfig": {
     "access": "public"
-  },
-  "engines": {
-    "node": ">=8.0"
   }
 }

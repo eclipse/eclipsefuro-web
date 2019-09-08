@@ -43,6 +43,11 @@ main();
 function main() {
   globSync('packages/furo-*/*.js')
     .filter((p) => !(/\/node_modules\/|\/dist\//).test(p))
+    .filter((p) => {
+      // check for package.json
+      return fs.existsSync(path.dirname(p) + "/package.json")
+
+    })
     .forEach(check);
   process.exit(exitCode);
 }

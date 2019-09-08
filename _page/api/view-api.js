@@ -101,6 +101,7 @@ class ViewApi extends FBP(LitElement) {
 
       <furo-split-view>
         <div slot="master" scroll>
+          <!-- --nav comes from import {nav} from "./nav_config"; -->
           <side-navigation ƒ-inject-nav-config="--nav" base-path="/api/"></side-navigation>
         </div>
         <furo-pages ƒ-inject-location="--pathChanged" default="default">
