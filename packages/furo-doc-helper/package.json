@@ -2,7 +2,7 @@
   "name": "@furo/doc-helper",
   "description": "Helper components for the furo documentation system",
   "main": "furo-catalog.js",
-  "version": "0.11.10",
+  "version": "0.12.0",
   "dependencies": {
     "@furo/fbp": "^4.26.4",
     "@furo/framework": "^0.11.1",
