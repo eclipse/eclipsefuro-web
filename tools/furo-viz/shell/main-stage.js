@@ -5,6 +5,7 @@ import {Styling} from "./styling";
 
 
 import "../project/view-viz";
+import "../project/man-page";
 import '@furo/layout/furo-vertical-flex';
 import '@furo/route/furo-location';
 import '@furo/route/furo-pages';
@@ -46,7 +47,7 @@ class MainStage extends FBP(LitElement) {
               height: 100%;
               display: block;
               margin: 0;
-              color: var(--on-primary, #212121);
+              color: #212121;
               background-color: var(--background);
               font-family: "Roboto", "Noto", sans-serif;
               line-height: 1.5;
@@ -73,6 +74,7 @@ class MainStage extends FBP(LitElement) {
     return html`
       <furo-pages flex ƒ-inject-location="--locationChanged" default="viz">
         <view-viz name="viz"></view-viz>
+        <man-page name="man"></man-page>
       </furo-pages>
       <furo-location @-location-changed="--locationChanged"></furo-location>
     `;

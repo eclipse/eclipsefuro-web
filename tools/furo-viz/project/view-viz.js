@@ -86,6 +86,13 @@ class ViewViz extends FBP(LitElement) {
             padding: 0;
         }
 
+        a{
+            position: absolute;
+            right: 24px;
+            top: 16px;
+            outline: none;
+        }
+
     `
   }
 
@@ -101,7 +108,9 @@ class ViewViz extends FBP(LitElement) {
       
       <furo-button class="clip" autofocus raised primary @-click="--clipboardContentRequested">render from clippboard
       </furo-button>
-      
+      <a href="/man">
+        <furo-button outline>help</furo-button>
+      </a>
       <div class="navigator" @-nav="--storedContent">
         <template is="flow-repeat" ƒ-inject-items="--stackChanged">
           <furo-button raised ƒ-.label="--index" @-click="^^nav(item)"></furo-button>
