@@ -15,7 +15,7 @@
     "lint": "polymer lint */**.js"
   },
   "dependencies": {
-    "@furo/collection": "*"
+    "@furo/collection": "0.20.26"
   },
   "devDependencies": {
     "@polymer/test-fixture": "^4.0.2",

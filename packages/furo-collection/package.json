@@ -9,7 +9,7 @@
     "@furo/data-input": "^0.48.9",
     "@furo/data-ui": "^0.6.2",
     "@furo/data-util": "^0.1.5",
-    "@furo/doc-helper": "^0.13",
+    "@furo/doc-helper": "^0.13.0",
     "@furo/fbp": "^4.26.4",
     "@furo/form": "^0.23.13",
     "@furo/framework": "^0.11.1",
@@ -17,7 +17,7 @@
     "@furo/layout": "^0.34.2",
     "@furo/navigation": "^0.32.4",
     "@furo/route": "^0.17.3",
-    "@furo/util": "^0.17.3"
+    "@furo/util": "^0.15.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
