@@ -5,6 +5,10 @@ import "@furo/fbp/flow-repeat"
 import "@furo/input/furo-button"
 import "@furo/layout/furo-icon"
 import "@furo/doc-helper/graph/furo-show-flow"
+import "@furo/util/furo-get-clipboard"
+import "@furo/util/furo-key-filter"
+import "@furo/logic/furo-forth-stack"
+
 
 /**
  * `view-viz`
@@ -20,16 +24,14 @@ class ViewViz extends FBP(LitElement) {
     super();
     this.addEventListener("keypress", (key) => {
       if (key.code === "KeyF") {
-        this.requestFullscreen();
+        this._FBPTriggerWire("--keypress", key);
       }
     });
     this.addEventListener("keydown", (key) => {
       if (key.code === "KeyV") {
-        this._readClippboard();
+        this._FBPTriggerWire("--clipboardContentRequested");
       }
     });
-
-    this._store = [];
   }
 
 
@@ -38,37 +40,10 @@ class ViewViz extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    /**
-     * Register hook on wire --readClipboardClicked to
-     *
-     */
-    this._FBPAddWireHook("--readClipboardClicked", (e) => {
-      this._readClippboard();
-    });
-
-    this.addEventListener("nav", (e) => {
-      this._transformSource(e.detail);
-    })
+    // describe view-viz itself
+    this._FBPTriggerWire("--storedContent", this.shadowRoot.innerHTML);
   }
 
-  _readClippboard() {
-    navigator.clipboard.readText().then(
-        clipText => {
-          this._addToStore(clipText);
-          this._transformSource(clipText);
-        })
-  };
-
-  _addToStore(source) {
-    this._store.push(source);
-    this._FBPTriggerWire("--storeUpdated", this._store);
-  }
-
-  _transformSource(source) {
-    let tpl = document.createElement("div");
-    tpl.innerHTML = source;
-    this._FBPTriggerWire("--template", tpl);
-  }
 
   /**
    * Themable Styles
@@ -80,7 +55,7 @@ class ViewViz extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
-            background: var(--surface);
+
         }
 
         :host([hidden]) {
@@ -89,6 +64,7 @@ class ViewViz extends FBP(LitElement) {
 
         furo-show-flow {
             height: 100vh;
+            background: var(--surface);
         }
 
         furo-button.clip {
@@ -122,16 +98,25 @@ class ViewViz extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-button class="clip" autofocus raised primary @-click="--readClipboardClicked">render from clippboard
+      
+      <furo-button class="clip" autofocus raised primary @-click="--clipboardContentRequested">render from clippboard
       </furo-button>
-      <div class="navigator">
-        <template is="flow-repeat" ƒ-inject-items="--storeUpdated">
+      
+      <div class="navigator" @-nav="--storedContent">
+        <template is="flow-repeat" ƒ-inject-items="--stackChanged">
           <furo-button raised ƒ-.label="--index" @-click="^^nav(item)"></furo-button>
         </template>
-
       </div>
-      <furo-show-flow id="flow" ƒ-parse-template="--template"></furo-show-flow>
+      
+      <furo-show-flow id="flow" ƒ-request-fullscreen="--fullscreenRequested"
+                      ƒ-parse-html="--clipboardContent, --storedContent"></furo-show-flow>
 
+      <!-- read the content from clipboard -->
+      <furo-get-clipboard ƒ-trigger="--clipboardContentRequested" @-content="--clipboardContent"></furo-get-clipboard>
+      <!-- keypress wire comes from event listener in constructor -->
+      <furo-key-filter ƒ-filter="--keypress" @-matched="--fullscreenRequested" keys="f"></furo-key-filter>
+      <!-- Misuse the stack as storage for clipboard contents -->
+      <furo-forth-stack ƒ-put="--clipboardContent" @-stack-changed="--stackChanged"></furo-forth-stack>
     `;
   }
 }
