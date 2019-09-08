@@ -25,23 +25,34 @@ class FuroForthStack extends (LitElement) {
     this.size = 0;
   }
 
-  set size(val){
+  set size(val) {
     this._size = val;
     /**
-    * @event stack-size-changed
-    * Fired when the stack size changes
-    * detail payload: {Number} Integer with the current size of the stack
-    */
-    let customEvent = new Event('stack-size-changed', {composed:true, bubbles: true});
+     * @event stack-size-changed
+     * Fired when the stack size changes
+     * detail payload: {Number} Integer with the current size of the stack
+     */
+    let customEvent = new Event('stack-size-changed', {composed: true, bubbles: true});
     customEvent.detail = val;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
+
+    /**
+     * @event stack-changed
+     * Fired when the stack contents changes after put, drop,...
+     *
+     * detail payload: the stack
+     */
+    let stackEvent = new Event('stack-changed', {composed: true, bubbles: true});
+    stackEvent.detail = this._stack;
+    this.dispatchEvent(stackEvent)
   }
+
   /**
    * Empties the stack and set the stack-size to 0
    */
   clearStack() {
     this._stack = [];
-    this.size =  0;
+    this.size = 0;
   }
 
   /**
