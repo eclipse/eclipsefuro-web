@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.11.10...@furo/doc-helper@0.13.0) (2019-09-08)
+
+
+### Features
+
+* render from html string ([5b17bca](https://github.com/veith/FuroBaseComponents/commit/5b17bca))
+* render from html string ([f3101fd](https://github.com/veith/FuroBaseComponents/commit/f3101fd))
+
+
+
+
+
 ## [0.11.10](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.11.9...@furo/doc-helper@0.11.10) (2019-09-08)
 
 **Note:** Version bump only for package @furo/doc-helper

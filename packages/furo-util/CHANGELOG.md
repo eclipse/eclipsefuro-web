@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.13.6...@furo/util@0.15.0) (2019-09-08)
+
+
+### Features
+
+* furo-get-clipboard ([13237f3](https://github.com/veith/FuroBaseComponents/commit/13237f3))
+
+
+
+
+
 ## [0.13.6](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.13.5...@furo/util@0.13.6) (2019-09-08)
 
 **Note:** Version bump only for package @furo/util
