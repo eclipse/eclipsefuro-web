@@ -2,6 +2,7 @@
   "class_name": "PersonPersonForm",
   "component_name": "person-person-form",
   "description": "Form Description",
+  "source_type": "person.Person",
   "imports": [
     "@furo/data-input",
     "@furo/form"
