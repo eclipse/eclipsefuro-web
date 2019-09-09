@@ -2,7 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/input/furo-checkbox-input";
-
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-data-checkbox-input`
@@ -35,16 +36,41 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
     constructor() {
         super();
         this.disabled = false;
-        this.hint = "";
 
         this._FBPAddWireHook("--valueChanged", (val) => {
+          // by valid input reset meta and constraints
+          CheckMetaAndOverrides.CheckAttributeOverrides(this);
             if (this.field) {
                 this.field.value = val;
             }
         });
     }
 
-    /**
+  /**
+   * Updater for the label attr
+   * @param value
+   */
+  set _label(value) {
+    Helper.UpdateInputAttribute(this, "label", value);
+  }
+
+  /**
+   * Updater for the hint attr
+   * @param value
+   */
+  set _hint(value) {
+    Helper.UpdateInputAttribute(this, "hint", value);
+  }
+
+  /**
+   * Updater for the errortext attr
+   * @param value
+   */
+  set errortext(value) {
+    Helper.UpdateInputAttribute(this, "errortext", value);
+  }
+
+  /**
      * Sets the field to readonly
      */
     disable() {
@@ -70,13 +96,19 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
             return
         }
         this.field = fieldNode;
+        CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
 
         this._updateField();
         this.field.addEventListener('field-value-changed', (e) => {
             this._updateField();
         });
 
-        this.field.addEventListener('field-became-invalid', (e) => {
+      // update meta and constraints when they change
+      this.field.addEventListener('this-metas-changed', (e) => {
+        CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+      });
+
+      this.field.addEventListener('field-became-invalid', (e) => {
             // updates wieder einspielen
             this.error = true;
             this.errortext = this.field._validity.description;
@@ -88,16 +120,6 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
             this.error = false;
             this.requestUpdate();
         });
-    }
-
-    // label setter and getter are needed for rendering on the first time
-    set label(l) {
-        this._l = l;
-        this._label = l;
-    }
-
-    get label() {
-        return this._l;
     }
 
     _updateField() {
@@ -217,15 +239,11 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-             <furo-checkbox-input 
-                id="input"
+             <furo-checkbox-input id="input"
                 ?autofocus=${this.autofocus} 
                 ?disabled=${this._readonly || this.disabled} 
-                label="${this._label}" 
                 ?error="${this.error}" 
                 ?condensed="${this.condensed}"          
-                errortext="${this.errortext}" 
-                hint="${this._hint}" 
                 @-value-changed="--valueChanged"
                 ƒ-set-value="--value"></furo-checkbox-input>      
           `;

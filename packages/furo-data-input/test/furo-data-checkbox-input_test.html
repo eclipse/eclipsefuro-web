@@ -79,27 +79,32 @@
         //those tests are base on the mockdata/trees/1/get.json. the field tree.root.open should be true in mockdata
         it('should override labels ', (done) => {
 
-            secondCheckboxInput._FBPAddWireHook("--value", (val) => {
-                assert.equal(secondCheckboxInput._label, "FromTPL")
-                done();
-            });
+          host._FBPAddWireHook('--entity', (e) => {
+            setTimeout(()=>{
+              assert.equal(secondCheckboxInput._theInputElement.getAttribute("label"), "FromTPL")
+              done();
+            },0)
+          });
         });
 
 
         it('should receive label from meta in spec by entity object ready', (done) => {
-
-            dataCheckboxInput._FBPAddWireHook("--value", (val) => {
-                assert.equal(dataCheckboxInput._label, "checkbox_input");
-                done();
-            });
+          host._FBPAddWireHook('--entity', (e) => {
+            setTimeout(()=>{
+              assert.equal(dataCheckboxInput._theInputElement.getAttribute("label"), "checkbox_input");
+              done();
+            },0)
+          });
         });
 
         it('should receive hint from meta in spec by entity object ready', (done) => {
 
-            dataCheckboxInput._FBPAddWireHook("--value", (val) => {
-                assert.equal(dataCheckboxInput._hint, "Hint");
-                done();
-            });
+          host._FBPAddWireHook('--entity', (e) => {
+            setTimeout(()=>{
+              assert.equal(dataCheckboxInput._theInputElement.getAttribute("hint"), "Hint");
+              done();
+            },0)
+          });
         });
 
         it('should receive value with bind', (done) => {
