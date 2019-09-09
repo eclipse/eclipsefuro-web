@@ -2,6 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/input/furo-date-input";
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-data-date-input`
@@ -33,10 +35,103 @@ class FuroDataDateInput extends FBP(LitElement) {
     this.hint = "";
 
     this._FBPAddWireHook("--valueChanged", (val) => {
+
+      // by valid input reset meta and constraints
+      CheckMetaAndOverrides.CheckAttributeOverrides(this);
+
       if (this.field) {
+
+        if(this.field._spec.type == "google.type.Date") {
+
+          val = this._convertStringToDateObj(val,  this.field.value  );
+        }
+
         this.field.value = val;
       }
     });
+
+    this._FBPAddWireHook("--inputInvalid", (val) => {
+      // val is a ValidityState
+      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
+      if (val) {
+        if(val.rangeUnderflow) {
+          this._hint = this._minErrorMessage;
+        }
+        else if(val.rangeOverflow)
+        {
+          this._hint = this._maxErrorMessage;
+        }
+        else if(val.stepMismatch) {
+          this._hint = this._stepErrorMessage;
+        }
+
+        this.requestUpdate();
+      }
+    });
+  }
+
+  /**
+   * Updater for the min => minlength attr*
+   * @param value
+   */
+  set _min(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
+  }
+
+  /**
+   * Updater for the max attr*
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
+  }
+
+  /**
+   * Updater for the label attr
+   * @param value
+   */
+  set _label(value) {
+    Helper.UpdateInputAttribute(this, "label", value);
+  }
+
+  /**
+   * Updater for the hint attr
+   * @param value
+   */
+  set _hint(value) {
+    Helper.UpdateInputAttribute(this, "hint", value);
+  }
+
+  /**
+   * Updater for the leadingIcon attr
+   * @param value
+   */
+  set leadingIcon(value) {
+    Helper.UpdateInputAttribute(this, "leading-icon", value);
+  }
+
+  /**
+   * Updater for the trailingIcon attr
+   * @param value
+   */
+  set trailingIcon(value) {
+    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+  }
+
+  /**
+   * Updater for the errortext attr
+   * @param value
+   */
+  set errortext(value) {
+    Helper.UpdateInputAttribute(this, "errortext", value);
+  }
+
+  /**
+   * Updater for the step attr
+   * @param value
+   */
+  set _step(value) {
+    Helper.UpdateInputAttribute(this, "step", value);
   }
 
   static get properties() {
@@ -227,15 +322,64 @@ class FuroDataDateInput extends FBP(LitElement) {
       this._readonly = this.readonly;
     }
 
-
-
     //mark incomming error
     if (!this.field._isValid) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    this._FBPTriggerWire('--value', this.field.value);
+
+    let dateValue = this.field.value;
+
+    // convert value when date type is google.type.Date
+    if(this.field._spec.type == "google.type.Date") {
+      dateValue = this._convertDateObjToString(dateValue);
+    }
+
+    this._FBPTriggerWire('--value', dateValue);
     this.requestUpdate();
+  }
+
+  // convert google date object to ISO 8601
+  _convertDateObjToString(obj) {
+
+    let date ="";
+
+    if(  obj && obj.day && obj.month && obj.year)  {
+      let month = String(obj.month);
+      let day = String(obj.day);
+      let year = String(obj.year);
+
+      if( month.length < 2 ) {
+        month = "0" + month;
+      }
+
+      if( day.length < 2  ) {
+        day = "0" + day;
+      }
+
+      if( year.length < 4  ) {
+        var l = 4-year.length;
+        for(var i=0;  i<l ; i++) {
+          year = "0" + year;
+        }
+      }
+      date = year + "-" + month + "-" + day;
+    }
+
+    return date;
+  }
+
+  // convert date string ISO 8601 to object for google.type.Dates
+  _convertStringToDateObj(str, obj){
+
+    let arr = str.split("-",3);
+    // only override properties: day, month, year
+    if (arr.length === 3) {
+      obj.day = Number(arr[2]);
+      obj.month = Number(arr[1]);
+      obj.year = Number(arr[0]);
+    }
+    return obj;
   }
 
   /**
@@ -264,20 +408,14 @@ class FuroDataDateInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html` 
-       <furo-date-input 
+       <furo-date-input id="input"  
           ?autofocus=${this.autofocus} 
           ?readonly=${this._readonly||this.disabled} 
-          label="${this._label}" 
-          min="${this._min}" 
-          max="${this._max}" 
-          step="${this._step}" 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
-          errortext="${this.errortext}" 
-          hint="${this._hint}" 
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-date-input>      
     `;

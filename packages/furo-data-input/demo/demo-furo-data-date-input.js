@@ -65,6 +65,9 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
                                       ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-date-input>
               <furo-data-date-input label="disabled" disabled label="with step" step="7"
                                       ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-date-input>
+
+                <furo-data-date-input 
+                                      ƒ-bind-data="--entity(*.furo_data_date_input_google)"></furo-data-date-input>
             </furo-form-layouter>
          
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>

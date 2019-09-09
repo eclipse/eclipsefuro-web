@@ -6,6 +6,7 @@
     "package": "experiment",
     "imports": [
       "google/protobuf/any.proto",
+      "google/type/date.proto",
       "furo/property.proto"
     ],
     "targetfile": "experiment.proto"
@@ -260,11 +261,15 @@
       "constraints": {
         "min": {
           "value": "1800-01-01",
-          "message": "from 1800-01-01"
+          "message": "The earliest date to accept is 1800-01-01"
         },
         "max": {
           "value": "2099-12-31",
-          "message": "to 2099-12-31"
+          "message": "The latest date to accept is 2099-12-31"
+        },
+        "step": {
+          "value":"5",
+          "message": "step 5"
         }
       },
       "__proto": {
@@ -326,6 +331,32 @@
       "constraints": {},
       "__proto": {
         "number": 17
+      }
+    },
+    "furo_data_date_input_google": {
+      "description": "field for furo-data-date-input for testing",
+      "type": "google.type.Date",
+      "meta": {
+        "label": "gogole-date-input",
+        "hint": "hint",
+        "readonly": false
+      },
+      "constraints": {
+        "min": {
+          "value": "1800-01-01",
+          "message": "The earliest date to accept is 1800-01-01"
+        },
+        "max": {
+          "value": "2099-12-31",
+          "message": "The latest date to accept is 2099-12-31"
+        },
+        "step": {
+          "value":"2",
+          "message": "step 2"
+        }
+      },
+      "__proto": {
+        "number": 18
       }
     }
   }

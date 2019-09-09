@@ -222,6 +222,10 @@
           "type": "string",
           "title": "field for furo-data-date-input for testing"
         },
+        "furo_data_date_input_google": {
+          "$ref": "#/definitions/typeDate",
+          "title": "field for furo-data-date-input for testing"
+        },
         "furo_data_number_input": {
           "type": "number",
           "format": "float",
@@ -416,6 +420,31 @@
         }
       },
       "title": "Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
+    },
+    "typeDate": {
+      "type": "object",
+      "properties": {
+        "day": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant."
+        },
+        "display_name": {
+          "type": "string",
+          "title": "Localized String representation of date"
+        },
+        "month": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day."
+        },
+        "year": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year."
+        }
+      },
+      "title": "Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto"
     }
   }
 }
