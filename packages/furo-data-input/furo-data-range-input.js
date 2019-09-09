@@ -128,7 +128,7 @@ class FuroDataRangeInput extends FBP(LitElement) {
    * Updater for the step attr
    * @param value
    */
-  set step(value) {
+  set _step(value) {
     Helper.UpdateInputAttribute(this, "step", value);
   }
 
@@ -329,6 +329,7 @@ class FuroDataRangeInput extends FBP(LitElement) {
           leading-icon="${this.leadingIcon}" 
           trailing-icon="${this.trailingIcon}" 
           @-value-changed="--valueChanged"
+          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-range-input>      
     `;
   }
