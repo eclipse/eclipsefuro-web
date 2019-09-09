@@ -11,7 +11,10 @@
       "description": "",
       "title": "Fieldgroup title",
       "secondary_text": "Secondary fieldgroup text",
-      "grid_size": "four",
+      "component": "furo-form-layouter",
+      "attrs": [
+        "four"
+      ],
       "fields": [
         {
           "field": "name",
@@ -39,7 +42,10 @@
       "description": "",
       "title": null,
       "secondary_text": null,
-      "grid_size": "four",
+      "component": "furo-form-layouter",
+      "attrs": [
+        "four"
+      ],
       "fields": [
         {
           "field": "phone_nr",

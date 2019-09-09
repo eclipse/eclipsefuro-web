@@ -42,9 +42,9 @@ class {{.class_name}} extends FBP(LitElement) {
         return html`
 
             {{range $fieldgroup := .fieldgroups}}
-            <furo-form-layouter {{$fieldgroup.grid_size}}>
-                {{range $field := $fieldgroup.fields}}{{"<" | noescape}}{{$field.component}} {{range $attr := $field.attrs}}{{$attr}} {{end}}ƒ-bind-data="--data(*.{{$field.field}})">{{"<" | noescape}}/{{$field.component}}>
-                {{end}}
+            {{"<" | noescape}}{{$fieldgroup.component}}{{range $attr := $fieldgroup.attrs}} {{$attr}}{{end}}>
+                {{range $field := $fieldgroup.fields}}
+                {{"<" | noescape}}{{$field.component}} {{range $attr := $field.attrs}}{{$attr}} {{end}}ƒ-bind-data="--data(*.{{$field.field}})">{{"<" | noescape}}/{{$field.component}}>{{end}}
             </furo-form-layouter>
             {{end}}
 
