@@ -57,17 +57,17 @@ if (!fs.existsSync(BuildDir+"/forms/")) {
 // Loop form specs
 formSpecFileList.forEach((file) => {
 
-    // create form components
-    if (fs.existsSync(FormSpecDir+"/"+file)) {
-        specFile = JSON.parse(fs.readFileSync(FormSpecDir+"/"+file));
-        let formFileName = specFile.component_name+".js";
-        // call the simple-generator to build
-        sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", FormSpecDir+"/"+file, "-t", TPLDirForms + "/form.tmpl", ">", BuildDir+"/forms/"+formFileName]);
+    // create form components if config.forms set to true
+    if (config.forms){
+        if (fs.existsSync(FormSpecDir+"/"+file)) {
+            specFile = JSON.parse(fs.readFileSync(FormSpecDir+"/"+file));
+            let formFileName = specFile.component_name+".js";
+            // call the simple-generator to build
+            sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", FormSpecDir+"/"+file, "-t", TPLDirForms + "/form.tmpl", ">", BuildDir+"/forms/"+formFileName]);
 
-    } else {
-        console.log(file + " not found.");
+        } else {
+            console.log(file + " not found.");
+        }
     }
-
-
 
 });
