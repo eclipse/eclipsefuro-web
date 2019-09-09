@@ -4,7 +4,6 @@
       "person",
       "project",
       "task",
-      "tree",
       "experiment"
     ],
     "excludes": [ "experiment"]

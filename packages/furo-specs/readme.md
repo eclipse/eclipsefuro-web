@@ -17,7 +17,7 @@ if not: https://golang.org/doc/install
 > **TIPP** copy the example file, remove the packages, add your packages.
     
 
-## Usage
+## Usage of spec builder
 
 To add packages, just add them in the packages section of the conf. 
 Then run 
@@ -137,5 +137,50 @@ Following base types are available by default:
 
 
 ```
-## Hooks
-coming soon
+## Usage of panel builder
+
+> **TIPP** Add the scripts to your package.json so you can run `npm run init` , `npm run build`,... 
+>
+ ```json
+{ 
+  "scripts": {
+    "form_init": "node ./node_modules/@furo/specs/_scripts/panel_init.js",
+    "form_build": "node ./node_modules/@furo/specs/_scripts/panel_build.js"
+  }
+}
+```
+## Config
+
+- `init` This section is used to configure the init process
+- `init.types` The name of the types you use. This will be used for form specs,... If your specs already exist, the init scripts wont touch them.
+- `init.excludes` The name of the types you will skip.
+- `path_to_simplegenerator` Set the path to your simple-generator binary if you don't have a local environment e.g. ./bin/
+- `spec_dir` Path to your spec directory.
+- `custom_template_dir` If you want to use your own templates, set the path to your template directory relative from your project root. You have to supply all templates if you use this feature flag.
+- `forms_spec_out` Output path for your form specs
+- `build_output_dir` Build output path
+- `forms` Generate forms if true
+- `actions` Generate action bars if true
+- `panels` Generate panels if true   
+
+### Example panel spec config
+``` json
+{
+  "init": {
+    "types": [
+      "person",
+      "project",
+      "task",
+      "experiment"
+    ],
+    "excludes": [ "experiment"]
+  },
+  "spec_dir": "./specs",
+  "forms_spec_out": "./form_specs",
+  "_custom_tepmplate_dir": "./_scripts/templates",
+  "build_output_dir": "./build",
+  "forms": true,
+  "actions": true,
+  "panels": true
+}
+```
