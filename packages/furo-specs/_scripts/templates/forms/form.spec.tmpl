@@ -10,6 +10,7 @@
   "fieldgroups": [
     {
       "description": "",
+      "component": "furo-form-layouter",
       "title": null,
       "secondary_text": null,
       "attrs": ["four"],
@@ -25,8 +26,8 @@
             "double"
           ],
           "field_spec": {
-            "type":{{ $field.type}},
-            "repeated":{{if $field.meta.repeated}}true{{else}}false{{end}}
+            "type": "{{ $field.type}}",
+            "repeated": {{if $field.meta.repeated}}true{{else}}false{{end}}
           }
         }{{end}}
       ]

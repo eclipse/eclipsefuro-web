@@ -1,8 +1,8 @@
 {
-  "class_name": "PersonPersonForm",
-  "component_name": "person-person-form",
-  "description": "Form Description",
-  "source_type": "person.Person",
+
+  "class_name": "TreeTreeForm",
+  "component_name": "tree-tree-form",
+  "description": "Navigation tree type with recursive navigation nodes",
   "imports": [
     "@furo/data-input",
     "@furo/form"
@@ -10,63 +10,63 @@
   "fieldgroups": [
     {
       "description": "",
-      "title": "Fieldgroup title",
-      "secondary_text": "Secondary fieldgroup text",
       "component": "furo-form-layouter",
-      "attrs": [
-        "four"
-      ],
-      "fields": [
-        {
-          "field": "name",
-          "size": "double",
-          "component": "furo-data-text-input",
-          "attrs": [
-            "condensed",
-            "double"
-          ],
-          "field_spec": {}
-        },
-        {
-          "field": "first_name",
-          "size": "double",
-          "component": "furo-data-text-input",
-          "attrs": [
-            "condensed",
-            "double"
-          ],
-          "field_spec": {}
-        }
-      ]
-    },
-    {
-      "description": "",
       "title": null,
       "secondary_text": null,
-      "component": "furo-form-layouter",
-      "attrs": [
-        "four"
-      ],
+      "attrs": ["four"],
       "fields": [
+      
         {
-          "field": "phone_nr",
+          "field": "description",
           "size": "double",
           "component": "furo-data-text-input",
           "attrs": [
             "condensed",
             "double"
           ],
-          "field_spec": {}
+          "field_spec": {
+            "type": "string",
+            "repeated": false
+          }
         },
         {
-          "field": "skills",
+          "field": "display_name",
           "size": "double",
-          "component": "furo-data-text-input-repeated",
+          "component": "furo-data-text-input",
           "attrs": [
             "condensed",
             "double"
           ],
-          "field_spec": {}
+          "field_spec": {
+            "type": "string",
+            "repeated": false
+          }
+        },
+        {
+          "field": "id",
+          "size": "double",
+          "component": "furo-data-text-input",
+          "attrs": [
+            "condensed",
+            "double"
+          ],
+          "field_spec": {
+            "type": "string",
+            "repeated": false
+          }
+        },
+        {
+          "field": "root",
+          "size": "double",
+          "component": "furo-data-text-input",
+          "attrs": [
+            "condensed",
+            "double"
+          ],
+          "field_spec": {
+            "type": "tree.Navigationnode",
+            "repeated": false
+          }
         }
       ]
     }

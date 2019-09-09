@@ -2,17 +2,18 @@ import {html, css, LitElement} from 'lit-element';
 import {FBP} from "@furo/fbp";
 import {Theme} from "@furo/framework/theme"
 
-{{range $import := .imports}}
-import "{{$import}}";{{end}}
+
+import "@furo/data-input";
+import "@furo/form";
 
 /**
- * `{{.component_name}}`
- * {{.description}}
+ * `tree-tree-form`
+ * Navigation tree type with recursive navigation nodes
  *
  * @customElement
  * @appliesMixin FBP
  */
-export class {{.class_name}} extends FBP(LitElement) {
+export class TreeTreeForm extends FBP(LitElement) {
     static get styles() {
         // language=CSS
         return Theme.getThemeForComponent('FormBaseTheme') || css`
@@ -41,15 +42,18 @@ export class {{.class_name}} extends FBP(LitElement) {
         // language=HTML
         return html`
 
-            {{range $fieldgroup := .fieldgroups}}
-            {{"<" | noescape}}{{$fieldgroup.component}}{{range $attr := $fieldgroup.attrs}} {{$attr}}{{end}}>
-                {{range $field := $fieldgroup.fields}}
-                {{"<" | noescape}}{{$field.component}} {{range $attr := $field.attrs}}{{$attr}} {{end}}ƒ-bind-data="--data(*.{{$field.field}})">{{"<" | noescape}}/{{$field.component}}>{{end}}
+            
+            <furo-form-layouter four>
+                
+                <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)"></furo-data-text-input>
+                <furo-data-text-input condensed double ƒ-bind-data="--data(*.display_name)"></furo-data-text-input>
+                <furo-data-text-input condensed double ƒ-bind-data="--data(*.id)"></furo-data-text-input>
+                <furo-data-text-input condensed double ƒ-bind-data="--data(*.root)"></furo-data-text-input>
             </furo-form-layouter>
-            {{end}}
+            
 
         `;
     }
 }
 
-window.customElements.define('{{.component_name}}', {{.class_name}});
+window.customElements.define('tree-tree-form', TreeTreeForm);
