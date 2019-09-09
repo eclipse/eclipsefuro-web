@@ -24,7 +24,10 @@
             "condensed",
             "double"
           ],
-          "field_spec": {}
+          "field_spec": {
+            "type":{{ $field.type}},
+            "repeated":{{if $field.meta.repeated}}true{{else}}false{{end}}
+          }
         }{{end}}
       ]
     }
