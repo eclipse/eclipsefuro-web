@@ -157,6 +157,10 @@ class FuroFormLayouter extends FBP(LitElement) {
                 width: 100%;
             }
 
+            ::slotted(*[double]) {
+                grid-column: span 2;
+            }
+
         `
     }
 
