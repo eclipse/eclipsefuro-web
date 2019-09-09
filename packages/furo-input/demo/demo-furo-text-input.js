@@ -24,7 +24,7 @@ class DemoFuroTextInput extends FBP(LitElement) {
             display: block;
             height: 100%;
             padding-right: var(--spacing);
-            --surface-light:#FEA123;
+            --surface-light: #f2f2f2;
         }
 
         :host([hidden]) {
@@ -62,8 +62,8 @@ class DemoFuroTextInput extends FBP(LitElement) {
               <furo-text-input label="Label" value="Val" pattern="a.*" hint="Pattern hint: shoud beginn with a"></furo-text-input>
               <furo-text-input filled label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input error label="Label" value="Val" hint="tex" errortext="errortext"></furo-text-input>
-              <furo-checkbox></furo-checkbox>
-              <furo-text-input trailing-icon="send" filled condensed error label="Label" value="Val" errortext="errortext"></furo-text-input>
+              <furo-checkbox-input label="This is the Label" hint="This is the hint"></furo-checkbox-input>
+
             </div> 
             <div style="padding:30px">
               
@@ -71,6 +71,7 @@ class DemoFuroTextInput extends FBP(LitElement) {
               <furo-text-input trailing-icon="fingerprint"  condensed label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="fingerprint"  condensed filled label="Label" value="Val" hint="Hint"></furo-text-input>
               <furo-text-input trailing-icon="fingerprint"  condensed float label="Floating"  hint="Hint"></furo-text-input>
+              <furo-checkbox-input condensed label="This is the Label" hint="This is the hint"></furo-checkbox-input>
             </div>
           
         </furo-horizontal-scroller>

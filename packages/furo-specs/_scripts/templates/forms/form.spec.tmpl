@@ -1,0 +1,32 @@
+{
+
+  "class_name": "{{camelcase (print .__proto.package "_" .name "_form")}}",
+  "component_name": "{{.__proto.package}}-{{.name}}-form",
+  "description": "{{.description}}",
+  "imports": [
+    "@furo/data-input",
+    "@furo/form"
+  ],
+  "fieldgroups": [
+    {
+      "description": "",
+      "title": null,
+      "secondary_text": null,
+      "attrs": ["four"],
+      "fields": [
+      {{range $fieldname, $field:=.fields}}
+        {
+          "field": "{{$fieldname}}",
+          "size": "double",
+          "component": "furo-data-text-input",
+          "attrs": [
+            "condensed",
+            "double"
+          ],
+          "field_spec": {}
+        },
+        {{end}}
+      ]
+    }
+  ]
+}
