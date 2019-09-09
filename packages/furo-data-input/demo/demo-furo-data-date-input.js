@@ -56,18 +56,18 @@ class DemoFuroDataDateInput extends FBP(LitElement) {
           <template>
             
             <furo-form-layouter four>
-              <furo-data-date-input autofocus ƒ-bind-data="--entity(*.furo_data_date_input)"
+                <furo-data-date-input autofocus ƒ-bind-data="--entity(*.furo_data_date_input)"
                                       hint="Hint should come from spec and overflows"></furo-data-date-input>
-              <furo-data-date-input leading-icon="fingerprint" label="with step" step="30" ƒ-bind-data="--entity(*.furo_data_date_input)"
+                <furo-data-date-input leading-icon="fingerprint" label="with step" step="30" ƒ-bind-data="--entity(*.furo_data_date_input)"
                                       @-value-changed="--dateChanged"
                                       hint="but that should be ok"></furo-data-date-input>
-              <furo-data-date-input flex label="min max" min="2012-01-01" max="2025-12-08"
+                <furo-data-date-input flex label="min max" min="2012-01-01" max="2025-12-08"
                                       ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-date-input>
-              <furo-data-date-input label="disabled" disabled label="with step" step="7"
+                <furo-data-date-input label="disabled" disabled label="with step" step="7"
                                       ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-date-input>
 
-                <furo-data-date-input 
-                                      ƒ-bind-data="--entity(*.furo_data_date_input_google)"></furo-data-date-input>
+                <furo-data-date-input  ƒ-bind-data="--entity(*.furo_data_date_input_google)"></furo-data-date-input>
+                <furo-data-date-input></furo-data-date-input>
             </furo-form-layouter>
          
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>

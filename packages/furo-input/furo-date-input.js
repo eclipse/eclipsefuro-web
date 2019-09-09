@@ -94,20 +94,6 @@ class FuroDateInput extends FBP(LitElement) {
         this.dispatchEvent(customEvent);
       }
     });
-
-    // set pattern, min, max, step
-    let inputField = this.shadowRoot.querySelector("#input");
-
-
-    if (this.min) {
-      inputField.setAttribute("min", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("max", this.max);
-    }
-    if (this.step) {
-      inputField.setAttribute("step", this.step);
-    }
   }
 
 

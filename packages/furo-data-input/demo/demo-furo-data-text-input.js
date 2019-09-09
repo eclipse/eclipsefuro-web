@@ -59,7 +59,7 @@ class DemoFuroDataTextInput extends FBP(LitElement) {
                                   max="7"></furo-data-text-input>
             <furo-data-text-input readonly ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
             <furo-data-text-input autofocus ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
-
+            <furo-data-text-input></furo-data-text-input>
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
 
             <furo-data-object type="experiment.Experiment" @-object-ready="--entity"

@@ -19,13 +19,24 @@
   <template>
     <test-bind>
       <template>
-        <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-        <furo-data-date-input  ƒ-bind-data="--entity(*.id)"></furo-data-date-input>
-        <furo-data-date-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.id)"
-                                min="1"
-                                max="10"
-                                step="0.5"
-                              @-value-changed="--textChanged"></furo-data-date-input>
+          <furo-data-date-input  ƒ-bind-data="--entityReady(*.furo_data_date_input)"></furo-data-date-input>
+          <furo-data-date-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entityReady(*.furo_data_date_input_google)"
+                                min="1999-01-01"
+                                max="2099-12-31"
+                                step="5"
+                                @-value-changed="--textChanged"></furo-data-date-input>
+
+          <furo-data-object type="experiment.Experiment" @-object-ready="--entityReady"
+                            ƒ-inject-raw="--response(*.data)"></furo-data-object>
+
+
+          <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+          <furo-entity-agent service="ExperimentService"
+                             ƒ-hts-in="--hts"
+                             ƒ-load="--hts"
+                             ƒ-bind-request-data="--entity"
+                             @-response="--response">
+          </furo-entity-agent>
 
       </template>
     </test-bind>
@@ -37,7 +48,9 @@
   import "@furo/fbp/testhelper/test-bind";
   import "../furo-catalog.js"
   import "@furo/testhelper/initEnv.js"
-  import "@furo/data/furo-data-object.js"
+  import "@furo/data/furo-data-object.js";
+  import "@furo/data/furo-entity-agent";
+  import "@furo/data/furo-deep-link";
   import '/node_modules/axe-core/axe.min.js';
 
   import '/node_modules/axe-core/axe.min.js';
@@ -45,86 +58,89 @@
 
   describe('furo-data-date-input_test tests ', function () {
 
-
-    let dataDateInput, host, entityObject, secondDateInput;
+    let dataDateInput, host, entityObject, secondDateInput, deeplink;
 
     beforeEach(async () => {
       let fix = fixture('basic');
       host = fix[0]._host;
-      entityObject = fix[1];
-      await entityObject.updateComplete;
 
-      dataDateInput = fix[2];
+      dataDateInput = fix[1];
       await dataDateInput.updateComplete;
 
-      secondDateInput = fix[3];
+      secondDateInput = fix[2];
       await secondDateInput.updateComplete;
 
+      entityObject = fix[3];
+      await entityObject.updateComplete;
 
+      deeplink = fix[4];
+      await deeplink.updateComplete;
     });
 
     it('should override hints ', (done) => {
-      secondDateInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondDateInput._hint, "FromTPL");
+      setTimeout(()=>{
+        console.log(secondDateInput._theInputElement);
+        assert.equal(secondDateInput._theInputElement.getAttribute("hint"), "FromTPL");
         done();
-      });
+      },0)
     });
 
     it('should override labels ', (done) => {
-      secondDateInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondDateInput._label, "FromTPL");
+      setTimeout(()=>{
+        assert.equal(secondDateInput._theInputElement.getAttribute("label"), "FromTPL");
         done();
-      });
-
+      },0)
     });
+
     it('should override min ', (done) => {
-      secondDateInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondDateInput.min, 1);
+      setTimeout(()=>{
+        assert.equal(secondDateInput._theInputElement.getAttribute("min"), "1999-01-01");
         done();
-      });
+      },0)
     });
+
     it('should override max ', (done) => {
-      secondDateInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondDateInput.max, 10);
+      setTimeout(()=>{
+        assert.equal(secondDateInput._theInputElement.getAttribute("max"), "2099-12-31");
         done();
-      });
+      },0)
     });
+
     it('should override step ', (done) => {
-      secondDateInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondDateInput.step, 0.5);
+      setTimeout(()=>{
+        assert.equal(secondDateInput._theInputElement.getAttribute("step"), "5");
         done();
-      });
-    });
-    it('should receive value with bind', (done) => {
-      entityObject.data.id.value = 2332;
-      dataDateInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(val, 2332);
-        done();
-      });
-
-    });
-    it('should bind the field description', (done) => {
-      host._FBPAddWireHook("--entity", () => {
-        assert.equal(dataDateInput._label, "Id");
-        done();
-      })
+      },0)
     });
 
+    it('should receive date (ISO 8601 d) value with bind', (done) => {
+      entityObject.addEventListener("data-injected", (e) => {
 
-
-
-    it('should update the entity when values changed', (done) => {
-      // ignore the init values
-      setTimeout(() => {
-        secondDateInput._FBPAddWireHook("--value", (val) => {
-          assert.equal(val, "newText");
+        setTimeout(()=>{
+          assert.equal(dataDateInput.shadowRoot.querySelector("*").value, "2019-02-22");
           done();
-        });
+        },0);
 
-        dataDateInput._FBPTriggerWire("--valueChanged", "newText");
-      }, 10)
+      });
 
+      deeplink.qpIn({"exp": 1});
     });
+
+    it('should receive date (google.type.Date) value with bind', (done) => {
+      entityObject.addEventListener("data-injected", (e) => {
+
+        setTimeout(()=>{
+          assert.equal(secondDateInput.shadowRoot.querySelector("*").value, "2020-12-31");
+          done();
+        },0);
+
+      });
+
+      deeplink.qpIn({"exp": 1});
+    });
+
+
+
     // a11y tests
     it('a11y', () => {
       return axeReport(fixture('basic'));

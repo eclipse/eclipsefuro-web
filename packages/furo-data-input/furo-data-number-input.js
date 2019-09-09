@@ -333,8 +333,6 @@ class FuroDataNumberInput extends FBP(LitElement) {
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
-          leading-icon="${this.leadingIcon}" 
-          trailing-icon="${this.trailingIcon}" 
           ?required=${this._required}
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
