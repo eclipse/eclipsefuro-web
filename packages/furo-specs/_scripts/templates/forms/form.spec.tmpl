@@ -14,7 +14,8 @@
       "secondary_text": null,
       "attrs": ["four"],
       "fields": [
-      {{range $fieldname, $field:=.fields}}
+      {{$first := true}}{{range $fieldname, $field:=.fields}}
+      {{- if $first}}{{$first = false}}{{else}},{{end}}
         {
           "field": "{{$fieldname}}",
           "size": "double",
@@ -24,8 +25,7 @@
             "double"
           ],
           "field_spec": {}
-        },
-        {{end}}
+        }{{end}}
       ]
     }
   ]
