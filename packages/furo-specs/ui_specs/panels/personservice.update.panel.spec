@@ -3,13 +3,17 @@
   "component_name": "personservice-update-panel",
   "description": "Updates a Person, partial updates are supported",
   "source": "./specs/person/person.service.spec",
+  "service_name": "PersonService",
+  "response_type": "person.PersonEntity",
   "imports": [
     "../forms/person-person-form",
     "../actions/person-person-update-action"
   ],
   "form": {
     "name": "person-person-form",
-    "attrs": []
+    "attrs": [
+      "flex"
+    ]
   },
   "action": {
     "name": "person-person-update-action",
@@ -17,5 +21,6 @@
       "update"
     ],
     "attrs": []
-  }
+  },
+  "request_type": "person.Person"
 }

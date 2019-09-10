@@ -134,6 +134,9 @@ servicelist.forEach((service) => {
     updatespec.component_name = serviceSpec.__proto.package + "-update-panel";
     updatespec.description = serviceSpec.services.Update.description;
     updatespec.source = "./" + service;
+    updatespec.service_name = serviceSpec.name;
+    updatespec.request_type = serviceSpec.services.Update.data.request;
+    updatespec.response_type = serviceSpec.services.Update.data.response;
     updatespec.form.name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-form";
     updatespec.imports.push("../forms/" + updatespec.form.name);
     let updateAction = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-action";

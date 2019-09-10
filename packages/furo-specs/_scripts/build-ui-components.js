@@ -19,6 +19,7 @@ function sh(command, arguments) {
 
 const TplDir = config.custom_template_dir || __dirname + "/templates/ui";
 const FormSpecDir = config.form_spec_out;
+const PanelSpecDir = config.panel_spec_out;
 const SpecDir = config.spec_dir;
 const BuildDir = path.normalize(process.cwd() + "/" + config.build_output_dir);
 const TmpDir = "./__tmp/ui";
@@ -90,8 +91,21 @@ list.forEach((filepath) => {
   // run generator
   sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/form.tmpl", ">", BuildDir + "/ui/forms/" + formspec.component_name + ".js"]);
 
-
 });
 
 
-//
+/**
+ * Panel section
+ */
+
+let panellist = walkSync(PanelSpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("panel.spec") > 0)
+});
+
+// generate tmp data file for each file in list
+panellist.forEach((datafile) => {
+
+  let panelspec = JSON.parse(fs.readFileSync(datafile));
+
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.panel.tmpl", ">", BuildDir + "/ui/panels/" + panelspec.component_name + ".js"]);
+});

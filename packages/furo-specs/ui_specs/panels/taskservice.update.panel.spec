@@ -3,13 +3,17 @@
   "component_name": "taskservice-update-panel",
   "description": "Updates a Task, partial updates are not supported",
   "source": "./specs/task/task.service.spec",
+  "service_name": "TaskService",
+  "response_type": "task.TaskEntity",
   "imports": [
     "../forms/task-task-form",
     "../actions/task-task-update-action"
   ],
   "form": {
     "name": "task-task-form",
-    "attrs": []
+    "attrs": [
+      "flex"
+    ]
   },
   "action": {
     "name": "task-task-update-action",
@@ -17,5 +21,6 @@
       "update"
     ],
     "attrs": []
-  }
+  },
+  "request_type": "task.Task"
 }
