@@ -129,7 +129,7 @@
         assert.equal(timeInput.value,1337);
         done();
       });
-      timeInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:1337, validity:{}}]}});
+      timeInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:1337, validity:{valid: true}}]}});
 
     });
 

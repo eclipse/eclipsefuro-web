@@ -130,7 +130,7 @@
         assert.equal(dateInput.value,1337);
         done();
       });
-      dateInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:1337, validity:{}}]}});
+      dateInput._FBPTriggerWire("--inputInput",{composedPath:()=>{return[{value:1337, validity:{valid: true}}]}});
 
     });
 
