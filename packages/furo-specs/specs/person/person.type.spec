@@ -60,6 +60,9 @@
       "constraints": {},
       "__proto": {
         "number": 4
+      },
+      "__ui": {
+        "component": "furo-data-text-input"
       }
     },
     "phone_nr": {
