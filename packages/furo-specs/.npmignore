@@ -18,3 +18,4 @@ test
 analysis.json
 wct.conf.json
 furo.spec.conf.json
+ui.spec.conf.json
