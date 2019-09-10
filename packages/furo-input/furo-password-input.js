@@ -2,6 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import  "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
+
 
 /**
  * `furo-password-input`
@@ -57,21 +59,56 @@ class FuroPasswordInput extends FBP(LitElement) {
       customEvent.detail = this.value;
       this.dispatchEvent(customEvent);
       }
-    });
+      else {
 
-    // set pattern, min, max
-    let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
-    if (this.min) {
-      inputField.setAttribute("minlength", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
-    }
+        /**
+         * @event input-invalid
+         * Fired when input value is invalid
+         * detail payload: {Object} the validity object of input
+         */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity;
+        this.dispatchEvent(customEvent);
+      }
+    });
   }
 
+  /**
+   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+   * becaue it set "undefined" (as a Sting!)
+   *
+   * @param value
+   */
+  set pattern(value) {
+    Helper.UpdateInputAttribute(this,"pattern", value);
+  }
+
+  /**
+   * Updater for the min attr
+   *
+   * @param value
+   */
+  set min(value) {
+    Helper.UpdateInputAttribute(this,"minlength", value);
+  }
+
+  /**
+   * Updater for the max attr
+   *
+   * @param value
+   */
+  set max(value) {
+    Helper.UpdateInputAttribute(this,"maxlength", value);
+  }
+
+  /**
+   * Updater for the step attr
+   *
+   * @param value
+   */
+  set step(value) {
+    Helper.UpdateInputAttribute(this,"step", value);
+  }
 
 
   set _value(v){

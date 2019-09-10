@@ -38,7 +38,6 @@ class FuroDateInput extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.step = "any";
     this.valid = true;
   }
 
@@ -78,10 +77,10 @@ class FuroDateInput extends FBP(LitElement) {
     this._FBPAddWireHook("--inputInput", (e) => {
       let input = e.composedPath()[0];
 
-      // mark min max step error
-      this.valid = !(input.validity.rangeOverflow || input.validity.rangeUnderflow || input.validity.stepMismatch);
+      // mark error
+      this.valid = input.validity.valid;
 
-      if (!input.validity.badInput) {
+      if (input.validity.valid) {
         this.value = input.value;
         this._float = !!input.value;
         /**
@@ -91,6 +90,17 @@ class FuroDateInput extends FBP(LitElement) {
          */
         let customEvent = new Event('value-changed', {composed: true, bubbles: true});
         customEvent.detail = this.value;
+        this.dispatchEvent(customEvent);
+      }
+      else{
+
+        /**
+         * @event input-invalid
+         * Fired when input value is invalid
+         * detail payload: {Object} the validity object of input
+         */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity ;
         this.dispatchEvent(customEvent);
       }
     });

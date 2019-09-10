@@ -32,7 +32,6 @@ class FuroDataNumberInput extends FBP(LitElement) {
     super();
     this.error = false;
     this.disabled = false;
-    this.errortext = "";
 
 
     this._FBPAddWireHook("--valueChanged", (val) => {

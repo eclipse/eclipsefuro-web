@@ -2,18 +2,20 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
-import "../furo-catalog"
 import "@furo/data/furo-data-object";
+import "../furo-catalog";
 import "@furo/data/furo-deep-link";
 import "./produce-qp-data";
 import "@furo/data/furo-entity-agent";
+import "./helper/simulate-error"
+
 /**
- * `demo-furo-data-time-input`
+ * `demo-furo-data-password-input`
  *
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroDataTimeInput extends FBP(LitElement) {
+class DemoFuroDataPasswordInput extends FBP(LitElement) {
 
   /**
    * Themable Styles
@@ -45,27 +47,20 @@ class DemoFuroDataTimeInput extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-vertical-flex>
-        <div><h2>Demo furo-data-time-input</h2>
-          <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
-            The labels, hints, defaults are comming from the furo-data-object specs.</p>
-          <p>As you can see, the "data-binding" is done by the furo-data-object.</p>
-        </div>
+        <h2>Demo furo-data-password-input</h2>
+        <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
+          The labels, hints, defaults are comming from the furo-data-object specs.</p>
         <furo-demo-snippet flex>
           <template>
-            
-            <furo-horizontal-flex>
-              <furo-data-time-input autofocus ƒ-bind-data="--entity(*.furo_data_time_input)"  hint="custom hint"></furo-data-time-input>
-              <furo-data-time-input label="step 10" step="10"     ƒ-bind-data="--entity(*.furo_data_time_input)"
-                                    @-value-changed="--timeChanged" ></furo-data-time-input>
-              <furo-data-time-input flex label="min 12:00 max 20:00" min="12:00" max="20:00"
-                                    ƒ-bind-data="--entity(*.furo_data_time_input)" ></furo-data-time-input>
-              <furo-data-time-input label="disabled" disabled label="with step" step="2"
-                                    ƒ-bind-data="--entity(*.furo_data_time_input)" ></furo-data-time-input>
-            </furo-horizontal-flex>
-              <furo-data-time-input ></furo-data-time-input>
-
-
-              <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+            <simulate-error ƒ-bind-data="--entity" error='{"field":"furo_data_text_input","description":"pattern not match"}'></simulate-error>
+            <furo-data-password-input trailing-icon="dashboard" hint="custom hint" required
+                                  ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-password-input>
+            <furo-data-password-input leading-icon="dashboard" ƒ-bind-data="--entity(*.furo_data_text_input)" min="4"
+                                  max="7"></furo-data-password-input>
+            <furo-data-password-input readonly ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-password-input>
+            <furo-data-password-input autofocus ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-password-input>
+            <furo-data-password-input></furo-data-password-input>
+            <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
 
             <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
                               ƒ-inject-raw="--response(*.data)"></furo-data-object>
@@ -77,10 +72,11 @@ class DemoFuroDataTimeInput extends FBP(LitElement) {
                                @-response="--response">
             </furo-entity-agent>
           </template>
+
         </furo-demo-snippet>
       </furo-vertical-flex>
     `;
   }
 }
 
-window.customElements.define('demo-furo-data-time-input', DemoFuroDataTimeInput);
+window.customElements.define('demo-furo-data-password-input', DemoFuroDataPasswordInput);

@@ -2,6 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/input/furo-password-input";
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-data-password-input`
@@ -30,14 +32,102 @@ class FuroDataPasswordInput extends FBP(LitElement) {
     super();
     this.error = false;
     this.disabled = false;
-    this.errortext = "";
-    this.hint = "";
 
     this._FBPAddWireHook("--valueChanged", (val) => {
+
+      // by valid input reset meta and constraints
+      CheckMetaAndOverrides.CheckAttributeOverrides(this);
+
       if (this.field) {
         this.field.value = val;
       }
     });
+
+    this._FBPAddWireHook("--inputInvalid", (val) => {
+      // val is a ValidityState
+      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
+      if (val) {
+        if(val.patternMismatch) {
+          this._hint = this._patternErrorMessage;
+        }
+        else if (val.tooShort) {
+          this._hint = this._minErrorMessage;
+        }
+        else if(val.tooLong)
+        {
+          this._hint = this._maxErrorMessage;
+        }
+
+        this.requestUpdate();
+      }
+    });
+  }
+
+
+  /**
+   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+   * becaue it set "undefined" (as a Sting!)
+   *
+   * @param value
+   */
+  set _pattern(value) {
+    Helper.UpdateInputAttribute(this, "pattern", value);
+  }
+
+  /**
+   * Updater for the min => minlength attr*
+   * @param value
+   */
+  set _min(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
+  }
+
+  /**
+   * Updater for the max attr*
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
+  }
+
+  /**
+   * Updater for the label attr
+   * @param value
+   */
+  set _label(value) {
+    Helper.UpdateInputAttribute(this, "label", value);
+  }
+
+  /**
+   * Updater for the hint attr
+   * @param value
+   */
+  set _hint(value) {
+    Helper.UpdateInputAttribute(this, "hint", value);
+  }
+
+  /**
+   * Updater for the leadingIcon attr
+   * @param value
+   */
+  set leadingIcon(value) {
+    Helper.UpdateInputAttribute(this, "leading-icon", value);
+  }
+
+  /**
+   * Updater for the trailingIcon attr
+   * @param value
+   */
+  set trailingIcon(value) {
+    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+  }
+
+  /**
+   * Updater for the errortext attr
+   * @param value
+   */
+  set errortext(value) {
+    Helper.UpdateInputAttribute(this, "errortext", value);
   }
 
   static get properties() {
@@ -51,6 +141,14 @@ class FuroDataPasswordInput extends FBP(LitElement) {
       label: {
         type: String,
         attribute: true
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean
       },
       /**
        * Overrides the hint text from the **specs**.
@@ -159,9 +257,15 @@ class FuroDataPasswordInput extends FBP(LitElement) {
     }
 
     this.field = fieldNode;
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     this._updateField();
     this.field.addEventListener('field-value-changed', (e) => {
       this._updateField();
+    });
+
+    // update meta and constraints when they change
+    this.field.addEventListener('this-metas-changed', (e) => {
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     });
 
     this.field.addEventListener('field-became-invalid', (e) => {
@@ -180,40 +284,6 @@ class FuroDataPasswordInput extends FBP(LitElement) {
 
 
   _updateField() {
-    // label auf attr ist höher gewichtet
-    if (!this.label) {
-      this._label = this.field._meta.label;
-    } else {
-      this._label = this.label;
-    }
-
-    // hint auf attr ist höher gewichtet
-    if (!this.hint) {
-      this._hint = this.field._meta.hint;
-    } else {
-      this._hint = this.hint;
-    }
-    this.disabled = this.field._meta.readonly ? true : false;
-
-    // min auf attr ist höher gewichtet
-    if (!this.min) {
-      this._min = this.field._meta.min;
-    } else {
-      this._min = this.min;
-    }
-    // max auf attr ist höher gewichtet
-    if (!this.max) {
-      this._max = this.field._meta.max;
-    } else {
-      this._max = this.max;
-    }
-    // readonly auf attr ist höher gewichtet
-    if (!this.readonly) {
-      this._readonly = this.field._meta.readonly;
-    } else {
-      this._readonly = this.readonly;
-    }
-
 
     //mark incomming error
     if (!this.field._isValid) {
@@ -250,20 +320,15 @@ class FuroDataPasswordInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html` 
-       <furo-password-input 
+       <furo-password-input id="input"
           ?autofocus=${this.autofocus} 
           ?readonly=${this._readonly||this.disabled} 
-          label="${this._label}" 
-          min="${this._min}" 
-          max="${this._max}" 
           ?error="${this.error}" 
           ?float="${this.float}" 
-          ?condensed="${this.condensed}"          
-          leading-icon="${this.leadingIcon}" 
-          trailing-icon="${this.trailingIcon}" 
-          errortext="${this.errortext}" 
-          hint="${this._hint}" 
+          ?condensed="${this.condensed}" 
+          ?required=${this._required}         
           @-value-changed="--valueChanged"
+          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-password-input>      
     `;
   }

@@ -46,8 +46,8 @@ class FuroNumberInput extends FBP(LitElement) {
     this._FBPAddWireHook("--inputInput", (e) => {
       let input = e.composedPath()[0];
 
-      // mark min max error
-      this.valid = !(input.validity.rangeOverflow || input.validity.rangeUnderflow);
+      // mark error
+      this.valid = input.validity.valid;
 
       if (input.validity.valid) {
         this.value = input.value;
