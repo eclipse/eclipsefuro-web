@@ -326,8 +326,6 @@ class FuroDataRangeInput extends FBP(LitElement) {
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
-          leading-icon="${this.leadingIcon}" 
-          trailing-icon="${this.trailingIcon}" 
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-range-input>      

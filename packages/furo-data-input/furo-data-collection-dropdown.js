@@ -1,5 +1,9 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
+import "@furo/input/furo-select-input";
+
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import {Helper} from "./lib/helper";
 
 import {FBP} from "@furo/fbp";
 
@@ -28,18 +32,79 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     super();
     this.error = false;
     this.disabled = false;
-    this.errortext = "";
-    this.hint = "";
     this.displayField = "display_name";
     this.valueField = "id";
 
-
     this._FBPAddWireHook("--valueChanged", (val) => {
+
+      // by valid input reset meta and constraints
+      CheckMetaAndOverrides.CheckAttributeOverrides(this);
+
       if (this.field) {
         this.field.value = val;
       }
     });
   }
+
+
+  /**
+   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+   * becaue it set "undefined" (as a Sting!)
+   *
+   * @param value
+   */
+  set _pattern(value) {
+    Helper.UpdateInputAttribute(this, "pattern", value);
+  }
+
+  /**
+   * Updater for the label attr
+   * @param value
+   */
+  set _label(value) {
+    Helper.UpdateInputAttribute(this, "label", value);
+  }
+
+  /**
+   * Updater for the hint attr
+   * @param value
+   */
+  set _hint(value) {
+    Helper.UpdateInputAttribute(this, "hint", value);
+  }
+
+  /**
+   * Updater for the leadingIcon attr
+   * @param value
+   */
+  set leadingIcon(value) {
+    Helper.UpdateInputAttribute(this, "leading-icon", value);
+  }
+
+  /**
+   * Updater for the trailingIcon attr
+   * @param value
+   */
+  set trailingIcon(value) {
+    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+  }
+
+  /**
+   * Updater for the errortext attr
+   * @param value
+   */
+  set errortext(value) {
+    Helper.UpdateInputAttribute(this, "errortext", value);
+  }
+
+  /**
+   * Updater for the list attr
+   * @param value
+   */
+  set list(value) {
+    Helper.UpdateInputAttribute(this, "list", value);
+  }
+
 
   static get properties() {
     return {
@@ -119,6 +184,13 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       condensed: {
         type: Boolean
       },
+      /**
+       * Set a string list as options:
+       *
+       * "A, B, C"
+       *
+       * This will convert to options ["A","B","C"] by furo-select-input
+       */
       list: {
         type: String
       }
@@ -152,10 +224,16 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     }
 
     this.field = fieldNode;
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     this._updateField();
 
     this.field.addEventListener('field-value-changed', (e) => {
       this._updateField();
+    });
+
+    // update meta and constraints when they change
+    this.field.addEventListener('this-metas-changed', (e) => {
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     });
 
     this.field.addEventListener('field-became-invalid', (e) => {
@@ -174,41 +252,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   }
 
 
-  // label setter and getter are needed for rendering on the first time
-  set label(l) {
-    this._l = l;
-    this._label = l;
-  }
-
-  get label() {
-    return this._l;
-  }
-
   _updateField() {
-    // label auf attr ist höher gewichtet
-
-    if (!this.label) {
-      this._label = this.field._meta.label;
-    } else {
-      this._label = this.label;
-    }
-
-    // hint auf attr ist höher gewichtet
-    if (!this.hint) {
-      this._hint = this.field._meta.hint;
-    } else {
-      this._hint = this.hint;
-    }
-    this.disabled = this.field._meta.readonly ? true : false;
-
-
-    // readonly auf attr ist höher gewichtet
-    if (!this.readonly) {
-      this._readonly = this.field._meta.readonly;
-    } else {
-      this._readonly = this.readonly;
-    }
-
 
     //mark incomming error
     if (!this.field._isValid) {
@@ -247,20 +291,12 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-       <furo-select-input 
+       <furo-select-input id="input"
           ?autofocus=${this.autofocus} 
           ?readonly=${this._readonly || this.disabled} 
-          label="${this._label}" 
-          min="${this._min}" 
-          max="${this._max}" 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
-          leading-icon="${this.leadingIcon}" 
-          trailing-icon="${this.trailingIcon}" 
-          errortext="${this.errortext}" 
-          list="${this.list}"
-          hint="${this._hint}" 
           ƒ-set-options="--selection"
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-select-input>      
@@ -274,11 +310,11 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   injectCollection(collection) {
 
     // map
-    let arr = collection.data.map((e) => {
+    let arr = collection.entities.map((e) => {
       return {
         "id": e.data[this.valueField],
         "label": e.data[this.displayField],
-        "selected": (this.value == e.data[val])
+        "selected": (this.value ==  e.data[this.valueField])
       }
     });
 
