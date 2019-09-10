@@ -1,0 +1,83 @@
+import {html, css} from 'lit-element';
+import {FBP} from "@furo/fbp";
+import {BasePanel} from "@furo/route/lib/BasePanel";
+
+import '@furo/data';
+import '@furo/layout';
+
+import '../ui/forms/task-task-form'
+import '../actions/action-task-task'
+
+/**
+ * `panel-edit-task-task`
+ * Desc
+ *
+ * @customElement
+ * @appliesMixin FBP
+ */
+class PanelEditTaskTask extends FBP(BasePanel) {
+
+    static get styles() {
+        // language=CSS
+        return [
+            css`
+                :host {
+                    display: block;
+                    height: 100%;
+                    background-color: var(--surface-light);
+                    color: var(--on-surface);
+                    padding-top: var(--spacing);
+                }
+
+                :host([hidden]) {
+                    display: none;
+                }
+
+                furo-card {
+                    margin: 0 var(--spacing);
+                    margin-bottom: var(--spacing);
+                }
+
+
+
+            `
+        ];
+    }
+
+    /**
+     * @private
+     * @returns {TemplateResult|TemplateResult}
+     */
+    render() {
+        // language=HTML
+        return html`
+          <furo-vertical-flex>
+            <furo-card>
+              <!-- FORM -->
+              <task-task-form flex ƒ-bind-data="--data(*.data)"></task-task-form>
+            </furo-card>
+            <!-- ACTION -->
+            <action-task-task @-update="--updateRequested"></action-task-task>
+            <!-- SUBS -->
+
+          </furo-vertical-flex>
+
+          <!-- non visuell components -->
+          <furo-entity-agent service="TaskService"
+                             ƒ-hts-in="--navNode(*.value.link)"
+                             ƒ-save="--updateRequested"
+                             ƒ-bind-request-data="--data(*.data)"
+                             load-on-hts-in
+                             @-response="--response"></furo-entity-agent>
+
+          <furo-data-object type="task.TaskEntity"
+                            @-object-ready="--data"
+                            ƒ-inject-raw="--response"></furo-data-object>
+
+        `;
+    }
+
+
+}
+
+window.customElements.define('panel-edit-task-task', PanelEditTaskTask);

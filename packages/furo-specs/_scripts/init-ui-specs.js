@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const execSync = require('child_process').execSync;
+const path = require('path');
 
 let config;
 // config öffnen
@@ -12,11 +13,26 @@ if (fs.existsSync('./ui.spec.conf.json')) {
   process.exit(1);
 }
 
-let templateDir = config.custom_template_dir || __dirname + "/templates/ui/";
-let formsSpecDir = config.forms_spec_out;
+
+const TplDir = config.custom_template_dir || __dirname + "/templates/ui";
+const FormSpecDir = config.form_spec_out;
+const PanelSpecDir = config.panel_spec_out;
+const SpecDir = config.spec_dir;
+const TmpDir = "./__tmp/ui";
+
+const walkSync = (dir, filelist = []) => {
+  fs.readdirSync(dir).forEach(file => {
+
+    filelist = fs.statSync(path.join(dir, file)).isDirectory()
+        ? walkSync(path.join(dir, file), filelist)
+        : filelist.concat(path.join(dir, file));
+
+  });
+  return filelist;
+};
 
 //load template structure
-let TPL = fs.readFileSync(templateDir + "form.spec.json");
+let TPL = fs.readFileSync(TplDir + "/form.spec.json");
 
 // loop all types in config
 config.init.types.forEach((type) => {
@@ -55,12 +71,39 @@ config.init.types.forEach((type) => {
         ]
       })
     }
+
+
     formSpec.fieldgroups[0].fields = fields;
-    let target = formsSpecDir + "/" + t.join(".") + ".form.spec";
+    let target = FormSpecDir + "/" + t.join(".") + ".form.spec";
     if (!fs.existsSync(target)) {
       fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
     }
 
+    formSpec.class_name = spec.__proto.package + spec.type + "CreateForm";
+    formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
+    formSpec.component_name = (spec.__proto.package + "-" + spec.type + "-create-form").toLowerCase();
+    // fields for the create form (only req fields)
+    let createFields = [];
+    for (fieldname in spec.fields) {
+      let field = spec.fields[fieldname];
+      if (field.constraints && field.constraints.required) {
+        createFields.push({
+          "field": fieldname, "attrs": [
+            "condensed",
+            "double"
+          ]
+        })
+      } else {
+        delete field;
+      }
+
+
+    }
+    formSpec.fieldgroups[0].fields = createFields;
+    target = FormSpecDir + "/" + t.join(".") + ".create.form.spec";
+    if (!fs.existsSync(target)) {
+      fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
+    }
 
   } else {
     console.log(type + " skipped, because it is in exclude list");
@@ -68,4 +111,44 @@ config.init.types.forEach((type) => {
 
 
 });
+
+
+/**
+ * PANELS Section
+ */
+
+
+//load template structure
+let UpdateTPL = fs.readFileSync(TplDir + "/update.panel.spec.json");
+
+let servicelist = walkSync(SpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("service.spec") > 0)
+});
+
+servicelist.forEach((service) => {
+
+  let updatespec = JSON.parse(UpdateTPL);
+  let serviceSpec = JSON.parse(fs.readFileSync(service));
+  if (serviceSpec.services.Update) {
+    updatespec.class_name = serviceSpec.name + "UpdatePanel";
+    updatespec.component_name = serviceSpec.__proto.package + "-update-panel";
+    updatespec.description = serviceSpec.services.Update.description;
+    updatespec.source = "./" + service;
+    updatespec.form.name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-form";
+    updatespec.imports.push("../forms/" + updatespec.form.name);
+    let updateAction = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-action";
+    updatespec.imports.push("../actions/" + updateAction);
+    updatespec.action.name = updateAction;
+
+
+    let target = PanelSpecDir + "/" + serviceSpec.__proto.package + ".update.panel.spec";
+    if (!fs.existsSync(target)) {
+      fs.writeFileSync(target, JSON.stringify(updatespec, null, 2));
+    }
+  }
+});
+
+
+
+
 

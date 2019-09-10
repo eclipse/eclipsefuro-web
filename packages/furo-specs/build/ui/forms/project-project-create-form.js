@@ -9,13 +9,13 @@ import "@furo/data-input";
 import "@furo/form";
 
 /**
- * `project-project-form`
+ * `project-project-create-form`
  * Project description
  *
  * @customElement
  * @appliesMixin FBP
  */
-export class ProjectProjectForm extends FBP(LitElement) {
+export class ProjectProjectCreateForm extends FBP(LitElement) {
     static get styles() {
         // language=CSS
         return Theme.getThemeForComponent('FormBaseTheme') || css`
@@ -61,14 +61,6 @@ export class ProjectProjectForm extends FBP(LitElement) {
             
             
             <furo-form-layouter four>
-                <!-- Start date of the project  -->
-                <furo-data-text-input condensed double ƒ-bind-data="--data(*.start)"></furo-data-text-input>
-                <!-- Prospective end date of the project  -->
-                <furo-data-text-input condensed double ƒ-bind-data="--data(*.end)"></furo-data-text-input>
-                <!-- Short project description  -->
-                <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)"></furo-data-text-input>
-                <!-- List of project members  -->
-                <furo-data-text-input condensed double ƒ-bind-data="--data(*.members)"></furo-data-text-input>
                 <!-- Project cost limit  -->
                 <furo-data-text-input condensed double ƒ-bind-data="--data(*.cost_limit)"></furo-data-text-input>
             </furo-form-layouter>
@@ -77,4 +69,4 @@ export class ProjectProjectForm extends FBP(LitElement) {
     }
 }
 
-window.customElements.define('project-project-form', ProjectProjectForm);
+window.customElements.define('project-project-create-form', ProjectProjectCreateForm);

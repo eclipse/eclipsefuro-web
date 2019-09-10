@@ -76,10 +76,7 @@
         "readonly": false
       },
       "constraints": {
-        "required": {
-          "value": true,
-          "message": "This value must be set"
-        },
+        "required": true,
         "min": {
           "value": 3,
           "message": "at least 3 characters"

@@ -47,6 +47,7 @@
         "hint": ""
       },
       "constraints": {
+        "required": true,
         "max": {
           "value": 180,
           "message": "task.desc.maxlength"

@@ -9,7 +9,9 @@
     "excludes": [ "experiment.Experiment"]
   },
   "spec_dir": "./specs",
-  "forms_spec_out": "./form_specs",
+  "form_spec_out": "./ui_specs/forms",
+  "panel_spec_out": "./ui_specs/panels",
+  "action_spec_out": "./ui_specs/action",
   "_custom_tepmplate_dir": "./_scripts/templates",
   "build_output_dir": "./build"
 }

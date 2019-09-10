@@ -99,10 +99,10 @@
       "meta": {
         "label": "Cost limit",
         "default": "",
-        "hint": "",
-        "required": true
+        "hint": ""
       },
       "constraints": {
+        "required": true,
         "max": {
           "value": 25000,
           "message":"max 25000"

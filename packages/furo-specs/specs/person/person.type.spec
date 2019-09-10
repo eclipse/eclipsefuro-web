@@ -44,7 +44,9 @@
         "default": "",
         "hint": ""
       },
-      "constraints": {},
+      "constraints": {
+        "required": true
+      },
       "__proto": {
         "number": 3
       }

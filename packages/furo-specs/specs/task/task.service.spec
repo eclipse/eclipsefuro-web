@@ -73,7 +73,7 @@
       }
     },
     "Update": {
-      "description": "Updates a Task, partial updates are supported",
+      "description": "Updates a Task, partial updates are not supported",
       "rpc_name": "UpdateTask",
       "data": {
         "request": "task.Task",
