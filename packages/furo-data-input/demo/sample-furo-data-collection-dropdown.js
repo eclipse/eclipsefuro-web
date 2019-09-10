@@ -5,6 +5,7 @@ import "@furo/doc-helper"
 import "@furo/data"
 
 import "../furo-catalog"
+import "./produce-qp-data"
 /**
  * `sample-furo-text-input`
  *
@@ -49,20 +50,20 @@ class SampleFuroDataCollectionDropdown extends FBP(LitElement) {
           <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"  value-field="id" display-field="phone_nr" label="Label" ƒ-inject-collection="--response" ƒ-bind-data="--entity(*.owner.id)"></furo-data-collection-dropdown>
           <furo-data-collection-dropdown condensed label="Label" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-collection="--response" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
 
-            <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
-
-            <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-            
-            <furo-data-object type="project.ProjectCollection" @-object-ready="--collection"
-                              ƒ-inject-raw="--response"></furo-data-object>
-            
-            <furo-deep-link service="PersonService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
-            
-            <furo-collection-agent service="PersonService"
-                               ƒ-hts-in="--hts"
-                               ƒ-list="--hts"
-                               @-response="--response">
-            </furo-collection-agent>
+          <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+      
+          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+      
+          <furo-data-object type="project.ProjectCollection" @-object-ready="--collection"
+                            ƒ-inject-raw="--response"></furo-data-object>
+      
+          <furo-deep-link service="PersonService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+      
+          <furo-collection-agent service="PersonService"
+                                 ƒ-hts-in="--hts"
+                                 ƒ-list="--hts"
+                                 @-response="--response">
+          </furo-collection-agent>
         </template>
       </furo-demo-snippet>
     `;

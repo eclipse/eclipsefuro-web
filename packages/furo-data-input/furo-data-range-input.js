@@ -65,9 +65,6 @@ class FuroDataRangeInput extends FBP(LitElement) {
     });
   }
 
-
-
-
   /**
    * Updater for the min => minlength attr*
    * @param value

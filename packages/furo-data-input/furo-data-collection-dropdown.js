@@ -46,17 +46,6 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     });
   }
 
-
-  /**
-   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-   * becaue it set "undefined" (as a Sting!)
-   *
-   * @param value
-   */
-  set _pattern(value) {
-    Helper.UpdateInputAttribute(this, "pattern", value);
-  }
-
   /**
    * Updater for the label attr
    * @param value
