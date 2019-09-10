@@ -143,6 +143,14 @@ class FuroDataPasswordInput extends FBP(LitElement) {
         attribute: true
       },
       /**
+       * Overrides the pattern from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      pattern: {
+        type: String
+      },
+      /**
        * Overrides the required value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
