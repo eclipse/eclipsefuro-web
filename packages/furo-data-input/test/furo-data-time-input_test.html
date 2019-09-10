@@ -82,17 +82,21 @@
 
     it('should override hints ', (done) => {
 
-        assert.equal(secondTimeInput._hint, "FromTPL");
-        done();
+      host._FBPAddWireHook('--entity', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondTimeInput._theInputElement.getAttribute("hint"), "FromTPL");
+          done();
+        },0)
+      });
 
     });
 
     it('should override labels ', (done) => {
 
-        assert.equal(secondTimeInput._label, "FromTPL");
+      setTimeout(()=>{
+        assert.equal(secondTimeInput._theInputElement.getAttribute("label"), "FromTPL");
         done();
-
-
+      },0)
     });
     it('should override min ', (done) => {
       secondTimeInput._FBPAddWireHook("--value", (val) => {
@@ -128,12 +132,14 @@
 
       it('should bind the field label, hint, min, max and step', (done) => {
       host._FBPAddWireHook("--entity", () => {
-          assert.equal(dataTimeInput._label, "time-input");
-          assert.equal(dataTimeInput._hint, "hint");
-          assert.equal(dataTimeInput._min, "05:00");
-          assert.equal(dataTimeInput._max, "19:00");
-          assert.equal(dataTimeInput._step, "5");
+        setTimeout(()=>{
+          assert.equal(dataTimeInput._theInputElement.getAttribute("label"), "time-input");
+          assert.equal(dataTimeInput._theInputElement.getAttribute("hint"), "hint");
+          assert.equal(dataTimeInput._theInputElement.getAttribute("min"), "05:00");
+          assert.equal(dataTimeInput._theInputElement.getAttribute("max"), "19:00");
+          assert.equal(dataTimeInput._theInputElement.getAttribute("step"), "5");
         done();
+        },0);
       })
     });
 
