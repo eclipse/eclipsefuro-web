@@ -3,6 +3,7 @@
 import {html, css, LitElement} from 'lit-element';
 import {FBP} from "@furo/fbp";
 import {Theme} from "@furo/framework/theme"
+import {i18n} from "@furo/framework/i18n"
 
 {{range $import := .imports}}
 import "{{$import}}";{{end}}
@@ -57,8 +58,8 @@ export class {{.class_name}} extends FBP(LitElement) {
         // language=HTML
         return html`
             {{range $fieldgroup := .fieldgroups}}{{"<" | noescape}}!-- {{$fieldgroup.description}}  -->
-            {{if $fieldgroup.title}}{{"<" | noescape}}h1>{{$fieldgroup.title}}</h1>{{end}}
-            {{if $fieldgroup.secondary_text}}{{"<" | noescape}}span class="secondary">{{$fieldgroup.secondary_text}}</span>{{end}}
+            {{if $fieldgroup.title}}{{"<" | noescape}}h1>${i18n.t("{{$fieldgroup.title}}")}</h1>{{end}}
+            {{if $fieldgroup.secondary_text}}{{"<" | noescape}}span class="secondary">${i18n.t("{{$fieldgroup.secondary_text}}")}</span>{{end}}
             {{"<" | noescape}}{{$fieldgroup.component}}{{range $attr := $fieldgroup.attrs}} {{$attr}}{{end}}>
                 {{- range $field := $fieldgroup.fields}}
                 {{"<" | noescape}}!-- {{$field.spec.description}}  -->

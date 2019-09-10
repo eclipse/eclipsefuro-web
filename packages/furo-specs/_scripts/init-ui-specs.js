@@ -130,8 +130,8 @@ servicelist.forEach((service) => {
   let updatespec = JSON.parse(UpdateTPL);
   let serviceSpec = JSON.parse(fs.readFileSync(service));
   if (serviceSpec.services.Update) {
-    updatespec.class_name = serviceSpec.name + "UpdatePanel";
-    updatespec.component_name = serviceSpec.__proto.package + "-update-panel";
+    updatespec.class_name = serviceSpec.services.Update.data.request.replace(".", "") + "UpdatePanel";
+    updatespec.component_name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-panel";
     updatespec.description = serviceSpec.services.Update.description;
     updatespec.source = "./" + service;
     updatespec.service_name = serviceSpec.name;
@@ -144,7 +144,7 @@ servicelist.forEach((service) => {
     updatespec.action.name = updateAction;
 
 
-    let target = PanelSpecDir + "/" + serviceSpec.__proto.package + ".update.panel.spec";
+    let target = PanelSpecDir + "/" + serviceSpec.services.Update.data.request.toLowerCase() + ".update.panel.spec";
     if (!fs.existsSync(target)) {
       fs.writeFileSync(target, JSON.stringify(updatespec, null, 2));
     }

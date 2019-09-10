@@ -3,6 +3,7 @@
 import {html, css, LitElement} from 'lit-element';
 import {FBP} from "@furo/fbp";
 import {Theme} from "@furo/framework/theme"
+import {i18n} from "@furo/framework/i18n"
 
 
 import "@furo/data-input";
@@ -58,8 +59,8 @@ export class TaskTaskForm extends FBP(LitElement) {
         // language=HTML
         return html`
             <!-- Hauptgruppe  -->
-            <h1>Title</h1>
-            <span class="secondary">secondary</span>
+            <h1>${i18n.t("Title")}</h1>
+            <span class="secondary">${i18n.t("secondary")}</span>
             <furo-form-layouter four>
                 <!-- Short task description  -->
                 <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)"></furo-data-text-input>
