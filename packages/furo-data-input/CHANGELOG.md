@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.12](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.11...@furo/data-input@0.48.12) (2019-09-11)
+
+
+### Bug Fixes
+
+* CollectionDropdown inject entities ([65d5401](https://github.com/veith/FuroBaseComponents/commit/65d5401))
+
+
+
+
+
 ## [0.48.11](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.10...@furo/data-input@0.48.11) (2019-09-11)
 
 **Note:** Version bump only for package @furo/data-input
