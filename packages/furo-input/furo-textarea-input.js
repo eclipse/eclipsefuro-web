@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import  "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-textarea-input`
@@ -39,20 +40,68 @@ class FuroTextareaInput extends FBP(LitElement) {
         let customEvent = new Event('value-changed', {composed: true, bubbles: true});
         customEvent.detail = this.value;
         this.dispatchEvent(customEvent);
+      }else {
+
+        /**
+         * @event input-invalid
+         * Fired when input value is invalid
+         * detail payload: {Object} the validity object of input
+         */
+        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+        customEvent.detail = input.validity;
+        this.dispatchEvent(customEvent);
       }
     });
+  }
 
-    // set pattern, min, max
-    let inputField = this.shadowRoot.querySelector("#input");
-    if (this.pattern) {
-      inputField.setAttribute("pattern", this.pattern);
-    }
-    if (this.min) {
-      inputField.setAttribute("minlength", this.min);
-    }
-    if (this.max) {
-      inputField.setAttribute("maxlength", this.max);
-    }
+  /**
+   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+   * becaue it set "undefined" (as a Sting!)
+   *
+   * @param value
+   */
+  set pattern(value) {
+    Helper.UpdateInputAttribute(this,"pattern", value);
+  }
+
+  /**
+   * Updater for the min => minlength attr
+   * same problem like in pattern
+   *
+   * @param value
+   */
+  set min(value) {
+    Helper.UpdateInputAttribute(this,"minlength", value);
+  }
+
+  /**
+   * Updater for the max => maxlength attr
+   * * same problem like in pattern
+   *
+   * @param value
+   */
+  set max(value) {
+    Helper.UpdateInputAttribute(this,"maxlength", value);
+  }
+
+  /**
+   * Updater for the rows attr
+   * same problem like in pattern
+   *
+   * @param value
+   */
+  set rows(value) {
+    Helper.UpdateInputAttribute(this,"rows", value);
+  }
+
+  /**
+   * Updater for the cols attr
+   * same problem like in pattern
+   *
+   * @param value
+   */
+  set cols(value) {
+    Helper.UpdateInputAttribute(this,"cols", value);
   }
 
 
@@ -390,7 +439,7 @@ class FuroTextareaInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-        ƒ-.value="--value" rows="${this.rows}" cols="${this.cols}" @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>
+        ƒ-.value="--value"  @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>
       <div class="border"></div>
       <label float="${this._float}" for="input">${this.label}</label>  
       <div class="hint">${this.hint}</div>
