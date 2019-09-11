@@ -47,10 +47,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
       // val is a ValidityState
       // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
       if (val) {
-        if(val.patternMismatch) {
-          this._hint = this._patternErrorMessage;
-        }
-        else if (val.tooShort) {
+        if (val.tooShort) {
           this._hint = this._minErrorMessage;
         }
         else if(val.tooLong)
@@ -63,20 +60,9 @@ class FuroDataTextareaInput extends FBP(LitElement) {
     });
   }
 
-  /**
-   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-   * becaue it set "undefined" (as a Sting!)
-   *
-   * @param value
-   */
-  set _pattern(value) {
-    Helper.UpdateInputAttribute(this, "pattern", value);
-  }
 
   /**
    * Updater for the min => minlength attr
-   * same problem like in pattern
-   *
    * @param value
    */
   set _min(value) {
@@ -85,8 +71,6 @@ class FuroDataTextareaInput extends FBP(LitElement) {
 
   /**
    * Updater for the max attr
-   * * same problem like in pattern
-   *
    * @param value
    */
   set _max(value) {
@@ -95,8 +79,6 @@ class FuroDataTextareaInput extends FBP(LitElement) {
 
   /**
    * Updater for the cols attr
-   * same problem like in pattern
-   *
    * @param value
    */
   set _cols(value) {
@@ -104,9 +86,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
   }
 
   /**
-   * Updater for the rows attr
-   * * same problem like in pattern
-   *
+   * Updater for the rows attr*
    * @param value
    */
   set _rows(value) {
@@ -152,14 +132,6 @@ class FuroDataTextareaInput extends FBP(LitElement) {
        */
       label: {
         type: String,
-      },
-      /**
-       * Overrides the pattern from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      pattern: {
-        type: String
       },
       /**
        * Overrides the required value from the **specs**.
@@ -298,10 +270,13 @@ class FuroDataTextareaInput extends FBP(LitElement) {
     return html` 
        <furo-textarea-input  id="input"
           ?autofocus=${this.autofocus} 
-          ?disabled=${this.disabled} 
-          label="${this._label}" 
+          ?readonly=${this._readonly || this.disabled}                 
           ?error="${this.error}" 
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}"                         
+          ?required=${this._required}    
           @-value-changed="--valueChanged"
+          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-textarea-input>      
     `;
   }

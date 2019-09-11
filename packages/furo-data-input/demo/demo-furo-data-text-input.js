@@ -67,7 +67,7 @@ class DemoFuroDataTextInput extends FBP(LitElement) {
             <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
             <furo-entity-agent service="ExperimentService"
                                ƒ-hts-in="--hts"
-                               ƒ-load="--hts"
+                               load-on-hts-in
                                ƒ-bind-request-data="--entity"
                                @-response="--response">
             </furo-entity-agent>
