@@ -52,16 +52,16 @@ export class taskTaskUpdatePanel extends FBP(BasePanel) {
         return html`
           <furo-vertical-flex>
             <furo-card>
-              <!-- FORM -->
+
               <task-task-form flex ƒ-bind-data="--entity(*.data)"></task-task-form>
             </furo-card>
-            <!-- ACTION -->
-            <task-task-update-action @-update="--updateRequested" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></task-task-update-action>
-            <!-- SUBS -->
+
+            <task-task-update-action @-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></task-task-update-action>
+
 
           </furo-vertical-flex>
 
-          <!-- non visuell components -->
+
           <furo-entity-agent service="TaskService"
                              @-response="--response"
                              ƒ-hts-in="TRIGGERED--navNode(*.value.link)"

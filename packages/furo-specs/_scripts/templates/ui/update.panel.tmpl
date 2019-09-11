@@ -51,16 +51,16 @@ export class {{.class_name}} extends FBP(BasePanel) {
         return html`
           {{"<" | noescape}}furo-vertical-flex>
             {{"<" | noescape}}furo-card>
-              {{"<" | noescape}}!-- FORM -->
+
               {{"<" | noescape}}{{.form.name}}{{range $attr := .form.attrs}} {{$attr}}{{end}} ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
             </furo-card>
-            {{"<" | noescape}}!-- ACTION -->
-            {{"<" | noescape}}{{.action.name}}{{range $attr := .action.attrs}} {{$attr}}{{end}} @-update="--updateRequested" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
-            {{"<" | noescape}}!-- SUBS -->
+
+            {{"<" | noescape}}{{.action.name}}{{range $attr := .action.attrs}} {{$attr}}{{end}} @-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
+
 
           </furo-vertical-flex>
 
-          {{"<" | noescape}}!-- non visuell components -->
+
           {{"<" | noescape}}furo-entity-agent service="{{.service_name}}"
                              @-response="--response"
                              ƒ-hts-in="TRIGGERED--navNode(*.value.link)"

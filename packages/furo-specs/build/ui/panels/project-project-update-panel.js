@@ -52,16 +52,16 @@ export class projectProjectUpdatePanel extends FBP(BasePanel) {
         return html`
           <furo-vertical-flex>
             <furo-card>
-              <!-- FORM -->
+
               <project-project-form flex ƒ-bind-data="--entity(*.data)"></project-project-form>
             </furo-card>
-            <!-- ACTION -->
-            <project-project-update-action @-update="--updateRequested" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></project-project-update-action>
-            <!-- SUBS -->
+
+            <project-project-update-action @-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></project-project-update-action>
+
 
           </furo-vertical-flex>
 
-          <!-- non visuell components -->
+
           <furo-entity-agent service="ProjectService"
                              @-response="--response"
                              ƒ-hts-in="TRIGGERED--navNode(*.value.link)"

@@ -52,16 +52,16 @@ export class treeTreeUpdatePanel extends FBP(BasePanel) {
         return html`
           <furo-vertical-flex>
             <furo-card>
-              <!-- FORM -->
+
               <tree-tree-form flex ƒ-bind-data="--entity(*.data)"></tree-tree-form>
             </furo-card>
-            <!-- ACTION -->
-            <tree-tree-update-action @-update="--updateRequested" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></tree-tree-update-action>
-            <!-- SUBS -->
+
+            <tree-tree-update-action @-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></tree-tree-update-action>
+
 
           </furo-vertical-flex>
 
-          <!-- non visuell components -->
+
           <furo-entity-agent service="TreeService"
                              @-response="--response"
                              ƒ-hts-in="TRIGGERED--navNode(*.value.link)"

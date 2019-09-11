@@ -52,16 +52,16 @@ export class experimentExperimentUpdatePanel extends FBP(BasePanel) {
         return html`
           <furo-vertical-flex>
             <furo-card>
-              <!-- FORM -->
+
               <experiment-experiment-form flex ƒ-bind-data="--entity(*.data)"></experiment-experiment-form>
             </furo-card>
-            <!-- ACTION -->
-            <experiment-experiment-update-action @-update="--updateRequested" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></experiment-experiment-update-action>
-            <!-- SUBS -->
+
+            <experiment-experiment-update-action @-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></experiment-experiment-update-action>
+
 
           </furo-vertical-flex>
 
-          <!-- non visuell components -->
+
           <furo-entity-agent service="ExperimentService"
                              @-response="--response"
                              ƒ-hts-in="TRIGGERED--navNode(*.value.link)"

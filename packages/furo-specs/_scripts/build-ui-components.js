@@ -102,14 +102,21 @@ list.forEach((filepath) => {
 let panellist = walkSync(PanelSpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("panel.spec") > 0)
 });
+// collect data for the panel registry
+let registry = {"imports": new Set, panels: {}};
 
 // generate tmp data file for each file in list
 panellist.forEach((datafile) => {
-
   let panelspec = JSON.parse(fs.readFileSync(datafile));
-
+  // register imports for registry
+  registry.imports.add("./panels/" + panelspec.component_name);
+  if (!registry.panels[panelspec.response_type.replace("Entity", "")]) {
+    registry.panels[panelspec.response_type.replace("Entity", "")] = {};
+  }
+  registry.panels[panelspec.response_type.replace("Entity", "")].edit = panelspec.component_name;
   sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.panel.tmpl", ">", BuildDir + "/ui/panels/" + panelspec.component_name + ".js"]);
 });
+
 
 /**
  * Action section
@@ -123,6 +130,17 @@ let actionlist = walkSync(ActionSpecDir).filter((filepath) => {
 actionlist.forEach((datafile) => {
 
   let actionspec = JSON.parse(fs.readFileSync(datafile));
-
   sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.action.tmpl", ">", BuildDir + "/ui/actions/" + actionspec.component_name + ".js"]);
 });
+
+
+/**
+ * Registry
+ */
+
+// convert imports to array
+registry.imports = Array.from(registry.imports);
+let registryjson = TmpDir + "/registry.json";
+fs.writeFileSync(registryjson, JSON.stringify(registry));
+
+sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", registryjson, "-t", TplDir + "/registry.tmpl", ">", BuildDir + "/ui/registry.js"]);

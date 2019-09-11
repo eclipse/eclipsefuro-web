@@ -185,7 +185,7 @@ servicelist.forEach((service) => {
         "rel": "update",
         "icon": null,
         "component": "furo-button",
-        "onclick": "updateReq",
+        "onclick": "-^update-req",
         "attrs": [
           "primary",
           "unelevated"
@@ -200,7 +200,7 @@ servicelist.forEach((service) => {
         "rel": "self",
         "icon": null,
         "component": "furo-button",
-        "onclick": "selfReq",
+        "onclick": "-^self-req",
         "attrs": [
           "unelevated"
         ]
@@ -213,7 +213,7 @@ servicelist.forEach((service) => {
       "rel": "reset",
       "icon": null,
       "component": "furo-button",
-      "onclick": "resetReq",
+      "onclick": "-^reset-req",
       "attrs": [
         "unelevated"
       ]
@@ -226,7 +226,7 @@ servicelist.forEach((service) => {
         "rel": "delete",
         "icon": "delete",
         "component": "furo-button",
-        "onclick": "deleteReq",
+        "onclick": "-^delete-req",
         "attrs": [
           "unelevated",
           "danger",

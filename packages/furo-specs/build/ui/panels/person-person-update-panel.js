@@ -52,16 +52,16 @@ export class personPersonUpdatePanel extends FBP(BasePanel) {
         return html`
           <furo-vertical-flex>
             <furo-card>
-              <!-- FORM -->
+
               <person-person-form flex ƒ-bind-data="--entity(*.data)"></person-person-form>
             </furo-card>
-            <!-- ACTION -->
-            <person-person-update-action @-update="--updateRequested" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></person-person-update-action>
-            <!-- SUBS -->
+
+            <person-person-update-action @-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></person-person-update-action>
+
 
           </furo-vertical-flex>
 
-          <!-- non visuell components -->
+
           <furo-entity-agent service="PersonService"
                              @-response="--response"
                              ƒ-hts-in="TRIGGERED--navNode(*.value.link)"
