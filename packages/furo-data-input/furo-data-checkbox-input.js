@@ -90,59 +90,12 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
      * @param {Object|FieldNode} fieldNode a Field object
      */
     bindData(fieldNode) {
-        if (fieldNode === undefined) {
-            console.warn("Invalid binding ");
-            console.log(this);
-            return
-        }
-        this.field = fieldNode;
-        CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-
-        this._updateField();
-        this.field.addEventListener('field-value-changed', (e) => {
-            this._updateField();
-        });
-
-      // update meta and constraints when they change
-      this.field.addEventListener('this-metas-changed', (e) => {
-        CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-      });
-
-      this.field.addEventListener('field-became-invalid', (e) => {
-            // updates wieder einspielen
-            this.error = true;
-            this.errortext = this.field._validity.description;
-            this.requestUpdate();
-        });
-
-        this.field.addEventListener('field-became-valid', (e) => {
-            // updates wieder einspielen
-            this.error = false;
-            this.requestUpdate();
-        });
+      Helper.BindData(this, fieldNode);
     }
 
     _updateField() {
 
-        if (!this.label) {
-            this._label = this.field._meta.label;
-        } else {
-            this._label = this.label;
-        }
-        if (!this.hint) {
-            this._hint = this.field._meta.hint;
-        } else {
-            this._hint = this.hint;
-        }
         this.disabled = this.field._meta.readonly ? true : false;
-
-        // readonly auf attr ist höher gewichtet
-        if (!this.readonly) {
-            this._readonly = this.field._meta.readonly;
-        } else {
-            this._readonly = this.readonly;
-        }
-
 
         //mark incomming error
         if (!this.field._isValid) {

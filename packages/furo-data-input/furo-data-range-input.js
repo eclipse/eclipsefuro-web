@@ -249,36 +249,9 @@ class FuroDataRangeInput extends FBP(LitElement) {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
-    if (fieldNode === undefined) {
-      console.warn("Invalid binding ");
-      console.log(this);
-      return
-    }
-    this.field = fieldNode;
-    this._updateField();
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-    this.field.addEventListener('field-value-changed', (e) => {
-      this._updateField();
-    });
-
-    // update meta and constraints when they change
-    this.field.addEventListener('this-metas-changed', (e) => {
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-    });
-
-    this.field.addEventListener('field-became-invalid', (e) => {
-      // updates wieder einspielen
-      this.error = true;
-      this.errortext = this.field._validity.description;
-      this.requestUpdate();
-    });
-
-    this.field.addEventListener('field-became-valid', (e) => {
-      // updates wieder einspielen
-      this.error = false;
-      this.requestUpdate();
-    });
+    Helper.BindData(this, fieldNode);
   }
+
 
 
   _updateField() {

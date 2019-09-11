@@ -101,16 +101,6 @@ class FuroSearchInput extends FBP(LitElement) {
     Helper.UpdateInputAttribute(this,"maxlength", value);
   }
 
-  /**
-   * Updater for size attr
-   * * same problem like in pattern
-   *
-   * @param value
-   */
-  set size(value) {
-    Helper.UpdateInputAttribute(this,"size", value);
-  }
-
   set _value(v) {
     this._float = !!v;
     this._FBPTriggerWire("--value", v)
@@ -153,12 +143,6 @@ class FuroSearchInput extends FBP(LitElement) {
        * The minimum number of characters (as UTF-16 code units) the user can enter into the search input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the search input has no minimum length.
        */
       min: {
-        type: Number
-      },
-      /**
-       * The Size of the input indicating how many characters wide the input field should be
-       */
-      size: {
         type: Number
       },
       /**
