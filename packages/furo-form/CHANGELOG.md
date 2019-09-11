@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.23.13...@furo/form@0.24.0) (2019-09-11)
+
+
+### Features
+
+* attr double added to slot elements to double the size of the element ([31d41a3](https://github.com/veith/FuroBaseComponents/commit/31d41a3))
+* entity-agent put ([c9ba6ec](https://github.com/veith/FuroBaseComponents/commit/c9ba6ec))
+
+
+
+
+
 ## [0.23.13](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.23.12...@furo/form@0.23.13) (2019-09-08)
 
 **Note:** Version bump only for package @furo/form

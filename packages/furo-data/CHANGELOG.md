@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.52.2...@furo/data@0.53.0) (2019-09-11)
+
+
+### Features
+
+* entity-agent put ([c9ba6ec](https://github.com/veith/FuroBaseComponents/commit/c9ba6ec))
+
+
+
+
+
 ## [0.52.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.52.1...@furo/data@0.52.2) (2019-09-08)
 
 **Note:** Version bump only for package @furo/data
