@@ -1,7 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import  "@furo/layout/furo-icon";
 import {Helper} from "./lib/helper";
 
 /**
@@ -281,113 +280,243 @@ class FuroTextareaInput extends FBP(LitElement) {
         :host {
             display: inline-block;
             position: relative;
-            font-size: 12px;
             box-sizing: border-box;
-            margin: 0 0 10px 0;
-            padding: 9px 0 0 0;
-            font-family: "Roboto", "Noto", sans-serif;
-            line-height: 1.5;
+            margin: 10px 0 15px 0;
+            min-height: 56px;
         }
-       
 
         :host([hidden]) {
             display: none;
         }
 
+        .wrapper {
+            position: relative;
+            padding: 0 12px;
+            box-sizing: border-box;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        
 
         textarea {
+            
+            display: block;
             border: none;
             background: none;
-            font-size: 12px;
-            margin: 0;
-            line-height: normal;
+            box-sizing: border-box;
+            
+            margin: 16px 0;
             padding: 0;
-            width: 100%;
-            text-align: left;
+            line-height: 24px;
             color: inherit;
             outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
+        }
+  
+        
+        :host([filled]) .wrapper {
+            background-color: var(--surface-light, #FEFEFE);
+        }
+
+        :host([filled]) .wrapper:hover {
+            background-color: var(--surface, #FCFCFC);
+        }
+
+        :host([filled]:focus-within) .wrapper {
+            background-color: var(--surface-dark, #FEA222);
+        }
+
+        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+            border-color: var(--input-hover-color, #333333);
         }
 
 
-        .border {
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 100%;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        :host(:not([filled])) label span {
+            top: 0;
+            position: relative;
+        }
+
+        :host(:not([filled])) label {
+            padding: 0 4px;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-right: none;
+            line-height: 56px;
+        }
+
+        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
+            border-top: none;
+        }
+
+        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+            font-size: 12px;
+            top: -28px;
+            left: 0;
+            position: relative;
+        }
+
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        .ripple-line {
+            display: none;
             position: absolute;
             width: 100%;
             height: 1px;
-            bottom: -2px;
-            border-bottom: 1px solid rgba(0, 0, 0, .12);
+            top: 54px;
+            border: none;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
         }
 
-        label {
-            position: absolute;
-            top: 12px;
-            color: rgba(0, 0, 0, .26);
-            font-size: 12px;
-            pointer-events: none;
+        :host([filled]) .ripple-line {
             display: block;
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            text-align: left;
         }
 
-     
-        
-        label[float="true"] {
-            color: var(--on-background, #333333);
-            font-size: 12px;
-            top: -4px;
-            visibility: visible;
+        :host([filled]) .right-border, :host([filled]) .left-border {
+            display: none;
         }
+
+        :host([filled]) label {
+            border: none;
+        }
+
+
+        :host([filled]) label {
+            padding: 0 12px;
+            line-height: 56px;
+        }
+
+        :host([filled]) label span {
+            position: relative;
+            top: 0;
+        }
+
+        :host([filled]) label[float] span, :host(:focus-within) label span {
+            font-size: 12px;
+            font-weight: 400;
+            top: -20px;
+            position: relative;
+        }
+
 
         * {
-            transition: all 150ms ease-out;
+            transition: all 200ms ease-out;
         }
 
         .hint, .errortext {
             position: absolute;
-            bottom: -17px;
+            bottom: -19px;
             font-size: 12px;
             color: transparent;
+            padding-left: 12px;
             white-space: nowrap;
             pointer-events: none;
         }
 
         :host(:focus-within) .hint {
-            color: var(--app-hint-color);
+            color: var(--input-hint-color, #999999);
             transition: all 550ms ease-in;
         }
 
-        
-        :host([error]) .border {
-            border-color: var(--error, red);
-            border-width: 1px;
-        }
 
         :host([error]) .errortext {
             display: block;
         }
+
         .errortext {
-            color: var(--error, red);
+            color: var(--input-error-text-color, var(--error, red));
             display: none;
         }
 
 
-        :host(:focus-within)  .errortext{
+        label {
+            color: var(--input-hint-color, var(--disabled, #DEDEDE));
+        }
+
+        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        }
+
+
+        :host(:focus-within) .ripple-line {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+            border-color: var(--input-error-text-color, var(--error, red));
+            border-width: 2px;
+        }
+
+        :host([error]:focus-within) label {
+            color: var(--input-error-text-color, var(--error, red));
+        }
+
+        :host([error]:focus-within) .hint {
             display: none;
         }
+
+        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+            border-color: var(--input-error-activation-indicator-color, var(--error, red));
+        }
+
         
-        :host(:focus-within) label[float="true"] {
-            color: var(--accent, #333333);
-        }
+
         
-        :host(:focus-within) .border {
-            border-color: var(--accent, #3f51b5);
-            border-width: 1px;
+
+        :host(:focus-within:not([valid])) label {
+            color: var(--input-error-text-color, var(--error, red));
         }
-        :host([error]:focus-within) .border {
-            border-color: var(--error, red);
-            border-width: 1px;
-        }
+
     `
   }
 
@@ -399,10 +528,24 @@ class FuroTextareaInput extends FBP(LitElement) {
   render() {
     // language=HTML
     return html` 
-      <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
-        ƒ-.value="--value"  @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>
-      <div class="border"></div>
-      <label float="${this._float}" for="input">${this.label}</label>  
+       <div class="wrapper">           
+         <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
+        ƒ-.value="--value"  @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>          
+      </div>
+      
+      
+   
+      
+      
+      
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label ?float="${this._float || this.float}" for="input"><span>${this.label} ${this.required ? html`*` : html``}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      
+      <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
     `;
