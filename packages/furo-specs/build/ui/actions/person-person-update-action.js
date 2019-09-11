@@ -43,7 +43,7 @@ class personPersonUpdateAction extends FBP(LitElement) {
      * @param entity
      */
     bindEntity(entity){
-        this._FBPTriggerWire("TRIGGERED--entityObjectInjected",entity)
+        this._FBPTriggerWire("--entityObjectInjected",entity)
     }
 
     /**
@@ -53,7 +53,7 @@ class personPersonUpdateAction extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-          <furo-button-bar ƒ-bind-entity="TRIGGERED--entityObjectInjected">
+          <furo-button-bar ƒ-bind-entity="--entityObjectInjected">
            <furo-button rel="update" primary unelevated label="${i18n.t('save')}" @-click="-^update-req"></furo-button>
            <furo-button rel="self" unelevated label="${i18n.t('reload')}" @-click="-^self-req"></furo-button>
            <furo-empty-spacer></furo-empty-spacer>
