@@ -3255,7 +3255,7 @@
     {
       "description": "`qp-changer`\nUpdates the query params\n\n# work in progress",
       "summary": "todo shortdescription",
-      "path": "packages/furo-route/qp-changer.js",
+      "path": "packages/furo-route/furo-qp-changer.js",
       "properties": [
         {
           "name": "myBool",
@@ -3739,7 +3739,7 @@
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "QpChanger",
+      "name": "FuroQpChanger",
       "attributes": [
         {
           "name": "my-bool",
@@ -3764,7 +3764,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "qp-changer",
+      "tagname": "furo-qp-changer",
       "mixins": [
         "FBP"
       ]

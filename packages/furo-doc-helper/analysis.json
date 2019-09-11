@@ -7583,8 +7583,8 @@
       ]
     },
     {
-      "description": "`furo-show-flow`\ntodo Describe your element",
-      "summary": "todo shortdescription",
+      "description": "`furo-show-flow`\nRenders a flow from dom node or html source",
+      "summary": "",
       "path": "packages/furo-doc-helper/graph/furo-show-flow.js",
       "properties": [
         {
@@ -7594,11 +7594,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 262,
               "column": 6
             },
             "end": {
-              "line": 254,
+              "line": 262,
               "column": 29
             }
           },
@@ -7832,11 +7832,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 261,
+              "line": 269,
               "column": 2
             },
             "end": {
-              "line": 264,
+              "line": 272,
               "column": 3
             }
           },
@@ -8023,16 +8023,41 @@
           "inheritedFrom": "FBP"
         },
         {
-          "name": "parseTemplate",
-          "description": "",
+          "name": "parseHtml",
+          "description": "Parse html content",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 22,
+              "line": 20,
               "column": 2
             },
             "end": {
-              "line": 42,
+              "line": 24,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "source",
+              "type": "string"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "parseTemplate",
+          "description": "Parse a dom node",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 30,
+              "column": 2
+            },
+            "end": {
+              "line": 50,
               "column": 3
             }
           },
@@ -8052,11 +8077,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 44,
+              "line": 52,
               "column": 2
             },
             "end": {
-              "line": 177,
+              "line": 185,
               "column": 3
             }
           },
@@ -8072,11 +8097,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 179,
+              "line": 187,
               "column": 2
             },
             "end": {
-              "line": 243,
+              "line": 251,
               "column": 3
             }
           },
@@ -8099,11 +8124,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 290,
+              "line": 298,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 303,
               "column": 3
             }
           },
@@ -8124,11 +8149,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 15,
+          "line": 14,
           "column": 0
         },
         "end": {
-          "line": 296,
+          "line": 304,
           "column": 1
         }
       },
@@ -8141,11 +8166,11 @@
           "description": "Description",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 262,
               "column": 6
             },
             "end": {
-              "line": 254,
+              "line": 262,
               "column": 29
             }
           },

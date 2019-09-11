@@ -1888,11 +1888,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 170,
               "column": 4
             },
             "end": {
-              "line": 171,
+              "line": 175,
               "column": 5
             }
           },
@@ -1917,7 +1917,7 @@
           "column": 0
         },
         "end": {
-          "line": 172,
+          "line": 176,
           "column": 1
         }
       },
@@ -2599,16 +2599,40 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 42,
+              "line": 46,
               "column": 2
             },
             "end": {
-              "line": 49,
+              "line": 53,
               "column": 3
             }
           },
           "metadata": {},
           "params": []
+        },
+        {
+          "name": "bindEntity",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 15,
+              "column": 4
+            },
+            "end": {
+              "line": 17,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "entity"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
         }
       ],
       "staticMethods": [
@@ -2827,7 +2851,7 @@
           "column": 0
         },
         "end": {
-          "line": 51,
+          "line": 55,
           "column": 1
         }
       },

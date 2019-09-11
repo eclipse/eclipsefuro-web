@@ -128,12 +128,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 8,
-              "column": 2
+              "line": 9,
+              "column": 4
             },
             "end": {
-              "line": 10,
-              "column": 3
+              "line": 11,
+              "column": 5
             }
           },
           "metadata": {},
@@ -155,12 +155,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 12,
-              "column": 2
+              "line": 13,
+              "column": 4
             },
             "end": {
-              "line": 14,
-              "column": 3
+              "line": 15,
+              "column": 5
             }
           },
           "metadata": {},
@@ -179,12 +179,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 16,
-              "column": 2
+              "line": 17,
+              "column": 4
             },
             "end": {
-              "line": 18,
-              "column": 3
+              "line": 19,
+              "column": 5
             }
           },
           "metadata": {},
@@ -196,17 +196,41 @@
           "return": {
             "type": "void"
           }
+        },
+        {
+          "name": "translateStaticTypeMessages",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 25,
+              "column": 4
+            },
+            "end": {
+              "line": 62,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "locale"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
         }
       ],
       "demos": [],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 6,
+          "line": 7,
           "column": 7
         },
         "end": {
-          "line": 20,
+          "line": 64,
           "column": 1
         }
       },
@@ -226,12 +250,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 27,
-              "column": 2
+              "line": 71,
+              "column": 4
             },
             "end": {
-              "line": 32,
-              "column": 3
+              "line": 77,
+              "column": 5
             }
           },
           "metadata": {},
@@ -249,11 +273,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 26,
+          "line": 70,
           "column": 7
         },
         "end": {
-          "line": 33,
+          "line": 78,
           "column": 1
         }
       },
