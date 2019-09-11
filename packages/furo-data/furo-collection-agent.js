@@ -165,7 +165,7 @@ class furoCollectionAgent extends FBP(LitElement) {
   set filter(f) {
     this._filter = f;
     /**
-     * @event filter-updated
+     * @event filter-changed
      * Fired when filter was updated with ƒ-set-filter
      * detail payload:
      */
@@ -423,7 +423,7 @@ class furoCollectionAgent extends FBP(LitElement) {
   htsIn(hts) {
     if (this._updateInternalHTS(hts)) {
       /**
-       * @event hts-updated
+       * @event hts-injected
        * Fired when hateoas is updated
        * detail payload: Hateoas links
        */

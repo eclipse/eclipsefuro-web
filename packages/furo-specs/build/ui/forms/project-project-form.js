@@ -19,7 +19,7 @@ import "@furo/form";
 export class ProjectProjectForm extends FBP(LitElement) {
     static get styles() {
         // language=CSS
-        return Theme.getThemeForComponent('FormBaseTheme') || css`
+       return Theme.getThemeForComponent('') || css`
             :host {
                 display: block;
             }

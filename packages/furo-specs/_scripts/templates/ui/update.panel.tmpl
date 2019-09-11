@@ -2,6 +2,8 @@
 // source: {{.source}}
 import {html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
+import {Theme} from "@furo/framework/theme"
+import {i18n} from "@furo/framework/i18n"
 import {BasePanel} from "@furo/route/lib/BasePanel";
 
 import '@furo/data';
@@ -20,8 +22,7 @@ export class {{.class_name}} extends FBP(BasePanel) {
 
     static get styles() {
         // language=CSS
-        return [
-            css`
+        return Theme.getThemeForComponent('{{.theme}}') || css`
                 :host {
                     display: block;
                     height: 100%;
@@ -39,7 +40,6 @@ export class {{.class_name}} extends FBP(BasePanel) {
                     margin-bottom: var(--spacing);
                 }
             `
-        ];
     }
 
     /**
@@ -52,24 +52,27 @@ export class {{.class_name}} extends FBP(BasePanel) {
           {{"<" | noescape}}furo-vertical-flex>
             {{"<" | noescape}}furo-card>
               {{"<" | noescape}}!-- FORM -->
-              {{"<" | noescape}}{{.form.name}}{{range $attr := .form.attrs}} {{$attr}}{{end}} ƒ-bind-data="--data(*.data)">{{"<" | noescape}}/{{.form.name}}>
+              {{"<" | noescape}}{{.form.name}}{{range $attr := .form.attrs}} {{$attr}}{{end}} ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
             </furo-card>
             {{"<" | noescape}}!-- ACTION -->
-            {{"<" | noescape}}{{.action.name}}{{range $attr := .action.attrs}} {{$attr}}{{end}} @-update="--updateRequested">{{"<" | noescape}}/{{.action.name}}>
+            {{"<" | noescape}}{{.action.name}}{{range $attr := .action.attrs}} {{$attr}}{{end}} @-update="--updateRequested" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
             {{"<" | noescape}}!-- SUBS -->
 
           </furo-vertical-flex>
 
           {{"<" | noescape}}!-- non visuell components -->
           {{"<" | noescape}}furo-entity-agent service="{{.service_name}}"
-                             ƒ-hts-in="--navNode(*.value.link)"
-                             ƒ-save="--updateRequested"
-                             ƒ-bind-request-data="--data(*.data)"
-                             load-on-hts-in
-                             @-response="--response"></furo-entity-agent>
+                             @-response="--response"
+                             ƒ-hts-in="TRIGGERED--navNode(*.value.link)"
+                             ƒ-bind-request-data="--entity(*.data)"
+                             ƒ-update="--updateReq"
+                             ƒ-load="--selfReq"
+                             ƒ-delete="--deleteReq"
+                             load-on-hts-in></furo-entity-agent>
 
           {{"<" | noescape}}furo-data-object type="{{.response_type}}"
-                            @-object-ready="--data"
+                            @-object-ready="--entity"
+                            ƒ-reset="--resetReq"
                             ƒ-inject-raw="--response"></furo-data-object>
 
         `;

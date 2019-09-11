@@ -2,6 +2,8 @@
 // source: ./specs/project/project.service.spec
 import {html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
+import {Theme} from "@furo/framework/theme"
+import {i18n} from "@furo/framework/i18n"
 import {BasePanel} from "@furo/route/lib/BasePanel";
 
 import '@furo/data';
@@ -17,12 +19,11 @@ import "../actions/project-project-update-action";
  * @customElement
  * @appliesMixin FBP
  */
-class projectProjectUpdatePanel extends FBP(BasePanel) {
+export class projectProjectUpdatePanel extends FBP(BasePanel) {
 
     static get styles() {
         // language=CSS
-        return [
-            css`
+        return Theme.getThemeForComponent('') || css`
                 :host {
                     display: block;
                     height: 100%;
@@ -40,7 +41,6 @@ class projectProjectUpdatePanel extends FBP(BasePanel) {
                     margin-bottom: var(--spacing);
                 }
             `
-        ];
     }
 
     /**
@@ -53,24 +53,27 @@ class projectProjectUpdatePanel extends FBP(BasePanel) {
           <furo-vertical-flex>
             <furo-card>
               <!-- FORM -->
-              <project-project-form flex ƒ-bind-data="--data(*.data)"></project-project-form>
+              <project-project-form flex ƒ-bind-data="--entity(*.data)"></project-project-form>
             </furo-card>
             <!-- ACTION -->
-            <project-project-update-action @-update="--updateRequested"></project-project-update-action>
+            <project-project-update-action @-update="--updateRequested" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></project-project-update-action>
             <!-- SUBS -->
 
           </furo-vertical-flex>
 
           <!-- non visuell components -->
           <furo-entity-agent service="ProjectService"
-                             ƒ-hts-in="--navNode(*.value.link)"
-                             ƒ-save="--updateRequested"
-                             ƒ-bind-request-data="--data(*.data)"
-                             load-on-hts-in
-                             @-response="--response"></furo-entity-agent>
+                             @-response="--response"
+                             ƒ-hts-in="TRIGGERED--navNode(*.value.link)"
+                             ƒ-bind-request-data="--entity(*.data)"
+                             ƒ-update="--updateReq"
+                             ƒ-load="--selfReq"
+                             ƒ-delete="--deleteReq"
+                             load-on-hts-in></furo-entity-agent>
 
           <furo-data-object type="project.ProjectEntity"
-                            @-object-ready="--data"
+                            @-object-ready="--entity"
+                            ƒ-reset="--resetReq"
                             ƒ-inject-raw="--response"></furo-data-object>
 
         `;

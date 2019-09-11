@@ -2,6 +2,8 @@
 // source: ./specs/tree/tree.service.spec
 import {html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
+import {Theme} from "@furo/framework/theme"
+import {i18n} from "@furo/framework/i18n"
 import {BasePanel} from "@furo/route/lib/BasePanel";
 
 import '@furo/data';
@@ -17,12 +19,11 @@ import "../actions/tree-tree-update-action";
  * @customElement
  * @appliesMixin FBP
  */
-class treeTreeUpdatePanel extends FBP(BasePanel) {
+export class treeTreeUpdatePanel extends FBP(BasePanel) {
 
     static get styles() {
         // language=CSS
-        return [
-            css`
+        return Theme.getThemeForComponent('') || css`
                 :host {
                     display: block;
                     height: 100%;
@@ -40,7 +41,6 @@ class treeTreeUpdatePanel extends FBP(BasePanel) {
                     margin-bottom: var(--spacing);
                 }
             `
-        ];
     }
 
     /**
@@ -53,24 +53,27 @@ class treeTreeUpdatePanel extends FBP(BasePanel) {
           <furo-vertical-flex>
             <furo-card>
               <!-- FORM -->
-              <tree-tree-form flex ƒ-bind-data="--data(*.data)"></tree-tree-form>
+              <tree-tree-form flex ƒ-bind-data="--entity(*.data)"></tree-tree-form>
             </furo-card>
             <!-- ACTION -->
-            <tree-tree-update-action @-update="--updateRequested"></tree-tree-update-action>
+            <tree-tree-update-action @-update="--updateRequested" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></tree-tree-update-action>
             <!-- SUBS -->
 
           </furo-vertical-flex>
 
           <!-- non visuell components -->
           <furo-entity-agent service="TreeService"
-                             ƒ-hts-in="--navNode(*.value.link)"
-                             ƒ-save="--updateRequested"
-                             ƒ-bind-request-data="--data(*.data)"
-                             load-on-hts-in
-                             @-response="--response"></furo-entity-agent>
+                             @-response="--response"
+                             ƒ-hts-in="TRIGGERED--navNode(*.value.link)"
+                             ƒ-bind-request-data="--entity(*.data)"
+                             ƒ-update="--updateReq"
+                             ƒ-load="--selfReq"
+                             ƒ-delete="--deleteReq"
+                             load-on-hts-in></furo-entity-agent>
 
           <furo-data-object type="tree.TreeEntity"
-                            @-object-ready="--data"
+                            @-object-ready="--entity"
+                            ƒ-reset="--resetReq"
                             ƒ-inject-raw="--response"></furo-data-object>
 
         `;

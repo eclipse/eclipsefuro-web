@@ -1,4 +1,5 @@
 {
+  "theme": "PanelBaseTheme",
   "class_name": "TaskServiceUpdatePanel",
   "component_name": "taskservice-update-panel",
   "description": "Updates a Task, partial updates are supported",

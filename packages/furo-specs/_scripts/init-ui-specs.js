@@ -16,6 +16,7 @@ if (fs.existsSync('./ui.spec.conf.json')) {
 
 const TplDir = config.custom_template_dir || __dirname + "/templates/ui";
 const FormSpecDir = config.form_spec_out;
+const ActionSpecDir = config.action_spec_out;
 const PanelSpecDir = config.panel_spec_out;
 const SpecDir = config.spec_dir;
 const TmpDir = "./__tmp/ui";
@@ -152,6 +153,91 @@ servicelist.forEach((service) => {
 });
 
 
+/**
+ * ACTIONS Section
+ */
 
+
+//load template structure
+let ActionUpdateTPL = fs.readFileSync(TplDir + "/update.action.spec.json");
+
+
+
+servicelist.forEach((service) => {
+
+  let updatespec = JSON.parse(ActionUpdateTPL);
+  let serviceSpec = JSON.parse(fs.readFileSync(service));
+  if (serviceSpec.services.Update) {
+    let target = ActionSpecDir + "/" + serviceSpec.services.Update.data.request.toLowerCase() + ".update.action.spec";
+
+    updatespec.class_name = serviceSpec.services.Update.data.request.replace(".", "") + "UpdateAction";
+    updatespec.component_name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-action";
+    updatespec.description = serviceSpec.description;
+    updatespec.source = target;
+    updatespec.service_name = serviceSpec.name;
+    updatespec.request_type = serviceSpec.services.Update.data.request;
+    updatespec.response_type = serviceSpec.services.Update.data.response;
+
+    // items based on spec
+    if (serviceSpec.services.Update) {
+      updatespec.items.push({
+        "label": "save",
+        "rel": "update",
+        "icon": null,
+        "component": "furo-button",
+        "onclick": "updateReq",
+        "attrs": [
+          "primary",
+          "unelevated"
+        ]
+      })
+    }
+
+    // items based on spec
+    if (serviceSpec.services.Get) {
+      updatespec.items.push({
+        "label": "reload",
+        "rel": "self",
+        "icon": null,
+        "component": "furo-button",
+        "onclick": "selfReq",
+        "attrs": [
+          "unelevated"
+        ]
+      })
+    }
+
+    updatespec.items.push({"component": "furo-empty-spacer"});
+    updatespec.items.push({
+      "label": "cancel",
+      "rel": "reset",
+      "icon": null,
+      "component": "furo-button",
+      "onclick": "resetReq",
+      "attrs": [
+        "unelevated"
+      ]
+    });
+
+    // items based on spec
+    if (serviceSpec.services.Delete) {
+      updatespec.items.push({
+        "label": "delete",
+        "rel": "delete",
+        "icon": "delete",
+        "component": "furo-button",
+        "onclick": "deleteReq",
+        "attrs": [
+          "unelevated",
+          "danger",
+        ]
+      })
+    }
+
+    if (!fs.existsSync(target)) {
+      fs.writeFileSync(target, JSON.stringify(updatespec, null, 2));
+    }
+  }
+});
 
 

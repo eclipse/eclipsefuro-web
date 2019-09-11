@@ -11,7 +11,7 @@
   "spec_dir": "./specs",
   "form_spec_out": "./ui_specs/forms",
   "panel_spec_out": "./ui_specs/panels",
-  "action_spec_out": "./ui_specs/action",
+  "action_spec_out": "./ui_specs/actions",
   "_custom_tepmplate_dir": "./_scripts/templates",
   "build_output_dir": "./build"
 }

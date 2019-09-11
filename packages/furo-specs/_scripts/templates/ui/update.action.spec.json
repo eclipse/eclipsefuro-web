@@ -1,0 +1,11 @@
+{
+  "theme": "ActionBaseTheme",
+  "class_name": "PersonPersonUpdateAction",
+  "component_name": "person-person-update-action",
+  "description": "Updates a Person, partial updates are supported",
+  "source": "uispecdir/person.person.update.action.spec",
+  "service_name": "PersonService",
+  "response_type": "person.PersonEntity",
+  "imports": [],
+  "items": []
+}

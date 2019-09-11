@@ -43,7 +43,11 @@ class FuroEntityAgent extends FBP(LitElement) {
       /**
        * Name des Services
        */
-      service: {type: String, attribute: true}
+      service: {type: String, attribute: true},
+      /**
+       * triggers a load when link rel="self" is in the injected hts (after hts-injected is fired)
+       */
+      loadOnHtsIn: {type: Boolean, attribute: "load-on-hts-in"},
     };
   }
 
@@ -203,20 +207,45 @@ class FuroEntityAgent extends FBP(LitElement) {
 
   }
 
+
+
   /**
-   * @event create-success
-   * Fired when load was successful
+   * @event update-success
+   * Fired when update was successful
    * detail payload: response
    */
 
   /**
-   * @event create-failed
-   * Fired when load was not successful
+   * @event update-failed
+   * Fired when update was not successful
    * detail payload: response
    */
 
   /**
    * loads the entity if hts is available
+   */
+  update() {
+    if (this._checkServiceAndHateoasLinkError("update", "update")) {
+      return
+    }
+    this._attachListeners("update");
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._requestDataObject.value));
+  }
+
+  /**
+   * @event create-success
+   * Fired when creating was successful
+   * detail payload: response
+   */
+
+  /**
+   * @event create-failed
+   * Fired when creating was not successful
+   * detail payload: response
+   */
+
+  /**
+   * creating the entity if hts rel="create" is available
    */
   create() {
     if (this._checkServiceAndHateoasLinkError("create", "Create")) {
@@ -224,7 +253,6 @@ class FuroEntityAgent extends FBP(LitElement) {
     }
     this._attachListeners("create");
     this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.create, this._requestDataObject.value));
-
   }
 
   /**
@@ -327,6 +355,10 @@ class FuroEntityAgent extends FBP(LitElement) {
       let customEvent = new Event('hts-injected', {composed: true, bubbles: false});
       customEvent.detail = hts;
       this.dispatchEvent(customEvent);
+
+      if (this.loadOnHtsIn) {
+        this.load();
+      }
 
       // there was a list,last,next call before the hts was set
       if (this._singleElementQueue.length > 0) {
