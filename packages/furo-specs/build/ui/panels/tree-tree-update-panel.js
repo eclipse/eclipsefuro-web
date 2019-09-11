@@ -64,9 +64,9 @@ export class treeTreeUpdatePanel extends FBP(BasePanel) {
 
           <furo-entity-agent service="TreeService"
                              @-response="--response"
-                             ƒ-hts-in="TRIGGERED--navNode(*.value.link)"
+                             ƒ-hts-in="--navNode(*.value.link)"
                              ƒ-bind-request-data="--entity(*.data)"
-                             ƒ-update="--updateReq"
+                             ƒ-put="--updateReq"
                              ƒ-load="--selfReq"
                              ƒ-delete="--deleteReq"
                              load-on-hts-in></furo-entity-agent>

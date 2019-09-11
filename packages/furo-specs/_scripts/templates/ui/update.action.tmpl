@@ -44,7 +44,7 @@ class {{.class_name}} extends FBP(LitElement) {
      * @param entity
      */
     bindEntity(entity){
-        this._FBPTriggerWire("TRIGGERED--entityObjectInjected",entity)
+        this._FBPTriggerWire("--entityObjectInjected",entity)
     }
 
     /**
@@ -54,7 +54,7 @@ class {{.class_name}} extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-          <furo-button-bar ƒ-bind-entity="TRIGGERED--entityObjectInjected">
+          <furo-button-bar ƒ-bind-entity="--entityObjectInjected">
           {{- range $item := .items}}
            {{"<" | noescape}}{{$item.component}}{{if $item.rel}} rel="{{$item.rel}}"{{end}}{{range $attr := $item.attrs}} {{$attr}}{{end}}
                           {{- if $item.label}} label="${i18n.t('{{$item.label}}')}"{{end}}{{if $item.onclick}} @-click="{{$item.onclick}}"{{end}}>{{"<" | noescape}}/{{$item.component}}>{{end}}

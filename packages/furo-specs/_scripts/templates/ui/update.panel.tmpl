@@ -63,7 +63,7 @@ export class {{.class_name}} extends FBP(BasePanel) {
 
           {{"<" | noescape}}furo-entity-agent service="{{.service_name}}"
                              @-response="--response"
-                             ƒ-hts-in="TRIGGERED--navNode(*.value.link)"
+                             ƒ-hts-in="--navNode(*.value.link)"
                              ƒ-bind-request-data="--entity(*.data)"
                              ƒ-put="--updateReq"
                              ƒ-load="--selfReq"
