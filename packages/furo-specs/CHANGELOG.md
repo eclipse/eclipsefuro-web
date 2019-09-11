@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.11.2...@furo/specs@0.15.0) (2019-09-11)
+
+
+### Bug Fixes
+
+* flag if generating forms is activated ([ace89c2](https://github.com/veith/FuroBaseComponents/commit/ace89c2))
+
+
+### Features
+
+* entity-agent put ([b879c9b](https://github.com/veith/FuroBaseComponents/commit/b879c9b))
+* entity-agent put ([c9ba6ec](https://github.com/veith/FuroBaseComponents/commit/c9ba6ec))
+* form generator ([745a6bb](https://github.com/veith/FuroBaseComponents/commit/745a6bb))
+* form generator release ([ca33cda](https://github.com/veith/FuroBaseComponents/commit/ca33cda))
+* form.spec.tmpl ([53b621e](https://github.com/veith/FuroBaseComponents/commit/53b621e))
+* form.spec.tmpl ([dde7961](https://github.com/veith/FuroBaseComponents/commit/dde7961))
+* form.spec.tmpl ([527c7a2](https://github.com/veith/FuroBaseComponents/commit/527c7a2))
+* init form spec and form building step added ([6c6d406](https://github.com/veith/FuroBaseComponents/commit/6c6d406))
+* panel generator ([496f82e](https://github.com/veith/FuroBaseComponents/commit/496f82e))
+* panel generator ([3e63b95](https://github.com/veith/FuroBaseComponents/commit/3e63b95))
+* update panels with better name (task-task-update-panel) ([2ea9f47](https://github.com/veith/FuroBaseComponents/commit/2ea9f47))
+* wip, dynamic form-container with attributes ([10b9a57](https://github.com/veith/FuroBaseComponents/commit/10b9a57))
+* wip, form templater ([062b674](https://github.com/veith/FuroBaseComponents/commit/062b674))
+* wip, informal type information added ([bbefcc5](https://github.com/veith/FuroBaseComponents/commit/bbefcc5))
+
+
+
+
+
 ## [0.11.2](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.11.1...@furo/specs@0.11.2) (2019-09-08)
 
 **Note:** Version bump only for package @furo/specs

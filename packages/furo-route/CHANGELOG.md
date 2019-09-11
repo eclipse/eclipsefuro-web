@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.17.3...@furo/route@0.18.0) (2019-09-11)
+
+
+### Features
+
+* entity-agent put ([b879c9b](https://github.com/veith/FuroBaseComponents/commit/b879c9b))
+* entity-agent put ([c9ba6ec](https://github.com/veith/FuroBaseComponents/commit/c9ba6ec))
+
+
+
+
+
 ## [0.17.3](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.17.2...@furo/route@0.17.3) (2019-09-08)
 
 **Note:** Version bump only for package @furo/route
