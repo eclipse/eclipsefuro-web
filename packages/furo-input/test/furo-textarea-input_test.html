@@ -20,7 +20,7 @@
 
 <test-fixture id="Basic">
   <template>
-    <furo-textarea-input min="1" max="100" pattern="[^@]"></furo-textarea-input>
+    <furo-textarea-input min="1" max="100"></furo-textarea-input>
   </template>
 </test-fixture>
 
@@ -65,11 +65,6 @@
     });
     it('should have a maxlength on the inputField', (done) => {
       assert.equal(inputField.getAttribute("maxlength"),100);
-      done();
-    });
-
-    it('should have a pattern on the inputField', (done) => {
-      assert.equal(inputField.getAttribute("pattern"),'[^@]');
       done();
     });
 

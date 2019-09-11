@@ -90,27 +90,35 @@
       });
     });
     it('should override hints ', (done) => {
-      secondTextareaInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondTextareaInput._hint, "FromTPL")
-        done();
+
+      host._FBPAddWireHook('--entity', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondTextareaInput._theInputElement.getAttribute("hint"), "FromTPL");
+          done();
+        },0)
       });
     });
     it('should override labels ', (done) => {
-      secondTextareaInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondTextareaInput._label, "FromTPL")
-        done();
+      host._FBPAddWireHook('--entity', (e) => {
+        setTimeout(()=>{
+          assert.equal(secondTextareaInput._theInputElement.getAttribute("label"), "FromTPL");
+          done();
+        },0)
       });
-
     });
 
     it('should receive value with bind', (done) => {
-      entityObject.addEventListener("data-injected", (e) => {
-          assert.equal(dataTextareaInput.shadowRoot.querySelector("*").value, "hallo , this is textarea input");
-          assert.equal(dataTextareaInput._label, "textarea_input");
-          assert.equal(dataTextareaInput._hint, "hint");
-          done();
-      });
 
+      host._FBPAddWireHook("--hts", (e) => {
+        entityObject.addEventListener("data-changed", (e) => {
+          dataTextareaInput._FBPAddWireHook("--value", (val) => {
+            assert.equal(val, 'hallo , this is textarea input');
+            done();
+          });
+
+        }, {once: true});
+
+      });
       deeplink.qpIn({"exp": 1});
     });
 
