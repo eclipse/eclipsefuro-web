@@ -265,6 +265,28 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * Exposes --injectCollection
    * @param {collection} det
    */
+  injectEntities(entities) {
+
+    // map
+    let arr = entities.map((e) => {
+      return {
+        "id": e.data[this.valueField],
+        "label": e.data[this.displayField],
+        "selected": (this.value ==  e.data[this.valueField])
+      }
+    });
+
+    if (!this.value) {
+      this.field.value = arr[0].id;
+    }
+
+    this._FBPTriggerWire("--selection", arr);
+  }
+
+  /**
+   * Exposes --injectCollection
+   * @param {collection} det
+   */
   injectCollection(collection) {
 
     // map

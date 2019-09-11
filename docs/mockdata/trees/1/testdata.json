@@ -209,6 +209,16 @@
     ]
   }
 },
+  "meta": {
+    "fields": {
+      "data.root.display_name": {
+        "meta": {
+          "readonly": false
+        }
+
+      }
+    }
+  },
   "links": [
     {
       "href": "/mockdata/trees/1/get.json",
