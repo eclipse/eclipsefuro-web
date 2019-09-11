@@ -100,7 +100,9 @@
       "meta": {
         "label": "textarea_input",
         "hint": "hint",
-        "readonly": false
+        "readonly": false,
+        "rows": 3,
+        "cols": 100
       },
       "constraints": {},
       "__proto": {

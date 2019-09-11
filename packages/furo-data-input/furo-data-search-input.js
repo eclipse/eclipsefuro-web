@@ -145,6 +145,14 @@ class FuroDataSearchInput extends FBP(LitElement) {
         type: String,
       },
       /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean
+      },
+      /**
        * Overrides the pattern from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
