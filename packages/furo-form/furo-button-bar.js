@@ -13,6 +13,10 @@ import "@furo/layout/furo-horizontal-flex"
  */
 class FuroButtonBar extends (LitElement) {
 
+    bindEntity(entity){
+        // todo bind entity to do some state management
+    }
+
   /**
    *
    * @private

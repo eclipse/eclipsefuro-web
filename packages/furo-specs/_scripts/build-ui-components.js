@@ -110,10 +110,10 @@ panellist.forEach((datafile) => {
   let panelspec = JSON.parse(fs.readFileSync(datafile));
   // register imports for registry
   registry.imports.add("./panels/" + panelspec.component_name);
-  if (!registry.panels[panelspec.response_type.replace("Entity", "")]) {
-    registry.panels[panelspec.response_type.replace("Entity", "")] = {};
+  if (!registry.panels[panelspec.response_type]) {
+    registry.panels[panelspec.response_type] = {};
   }
-  registry.panels[panelspec.response_type.replace("Entity", "")].edit = panelspec.component_name;
+  registry.panels[panelspec.response_type].edit = panelspec.component_name;
   sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.panel.tmpl", ">", BuildDir + "/ui/panels/" + panelspec.component_name + ".js"]);
 });
 

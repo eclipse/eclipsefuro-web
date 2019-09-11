@@ -210,25 +210,25 @@ class FuroEntityAgent extends FBP(LitElement) {
 
 
   /**
-   * @event update-success
+   * @event put-success
    * Fired when update was successful
    * detail payload: response
    */
 
   /**
-   * @event update-failed
+   * @event put-failed
    * Fired when update was not successful
    * detail payload: response
    */
 
   /**
-   * loads the entity if hts is available
+   * saves the entity with method put if hts is available
    */
-  update() {
-    if (this._checkServiceAndHateoasLinkError("update", "update")) {
+  put() {
+    if (this._checkServiceAndHateoasLinkError("update", "Update")) {
       return
     }
-    this._attachListeners("update");
+    this._attachListeners("put");
     this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._requestDataObject.value));
   }
 

@@ -64,7 +64,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
           await panel.updateComplete;
           // trigger the --navNode wire on panel
           if (panel._FBPTriggerWire) {
-            panel._FBPTriggerWire("--navNode", NavigationNode);
+            panel._FBPTriggerWire("TRIGGERED--navNode", NavigationNode);
           }
         }else{
           console.warn("panel does not have a closePanel method, implement panel interfaces or extend from BasePanel.js")
@@ -151,11 +151,11 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
 
         if (!currentPanel.__panelInitSent) {
-          currentPanel._FBPTriggerWire('--panelInit', node.link.value);
-          currentPanel._FBPTriggerWire('--treeNode', node);
+          currentPanel._FBPTriggerWire('TRIGGERED--panelInit', node.link.value);
+          currentPanel._FBPTriggerWire('TRIGGERED--treeNode', node);
           currentPanel.__panelInitSent = true;
         }
-        currentPanel._FBPTriggerWire('--panelActivated', node.link.value);
+        currentPanel._FBPTriggerWire('TRIGGERED--panelActivated', node.link.value);
       }
     }, 0);
 

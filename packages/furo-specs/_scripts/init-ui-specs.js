@@ -202,7 +202,7 @@ servicelist.forEach((service) => {
         "component": "furo-button",
         "onclick": "-^self-req",
         "attrs": [
-          "unelevated"
+          "outline"
         ]
       })
     }
@@ -215,7 +215,7 @@ servicelist.forEach((service) => {
       "component": "furo-button",
       "onclick": "-^reset-req",
       "attrs": [
-        "unelevated"
+        "outline"
       ]
     });
 
