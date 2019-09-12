@@ -571,7 +571,7 @@ class FuroDateInput extends FBP(LitElement) {
         }
 
         :host([condensed]) input {
-            top: 12px;
+            top: 11px;
             font-size: 14px;
         }
 
@@ -589,7 +589,7 @@ class FuroDateInput extends FBP(LitElement) {
         }
 
         :host([condensed]) furo-icon {
-            top: 6px;
+            top: 10px;
         }
 
         :host([condensed]) .ripple-line {

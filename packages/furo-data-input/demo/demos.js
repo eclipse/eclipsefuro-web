@@ -1,3 +1,4 @@
+import "./demo-furo-data-display";
 import "./demo-furo-data-bool-icon";
 import "./sample-furo-data-text-input";
 import "./sample-furo-data-password-input";
@@ -13,3 +14,4 @@ import "./demo-furo-data-time-input"
 import "./demo-furo-data-checkbox-input"
 import "./demo-furo-data-range-input"
 import "./sample-furo-data-collection-dropdown"
+import "./demo-furo-data-display-condensed"
