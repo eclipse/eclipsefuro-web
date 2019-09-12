@@ -514,7 +514,7 @@ class FuroColorInput extends FBP(LitElement) {
         }
 
         :host([condensed]) furo-icon {
-            top: 6px;
+            top: 10px;
         }
 
         :host([condensed]) .ripple-line {
