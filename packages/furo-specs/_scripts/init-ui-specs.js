@@ -66,10 +66,12 @@ config.init.types.forEach((type) => {
         continue
       }
       fields.push({
-        "field": fieldname, "flags": [
-          "condensed",
-          "double"
-        ]
+        "field": fieldname,
+          "flags": [
+            "condensed",
+            "double"
+          ],
+          "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })
     }
 
@@ -89,10 +91,12 @@ config.init.types.forEach((type) => {
       let field = spec.fields[fieldname];
       if (field.constraints && field.constraints.required) {
         createFields.push({
-          "field": fieldname, "flags": [
-            "condensed",
-            "double"
-          ]
+            "field": fieldname,
+            "flags": [
+                "condensed",
+                "double"
+            ],
+            "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
         })
       } else {
         delete field;
@@ -189,7 +193,8 @@ servicelist.forEach((service) => {
         "flags": [
           "primary",
           "unelevated"
-        ]
+        ],
+        "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })
     }
 
@@ -203,7 +208,8 @@ servicelist.forEach((service) => {
         "onclick": "-^self-req",
         "flags": [
           "outline"
-        ]
+        ],
+        "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })
     }
 
@@ -216,7 +222,8 @@ servicelist.forEach((service) => {
       "onclick": "-^reset-req",
       "flags": [
         "outline"
-      ]
+      ],
+      "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
     });
 
     // items based on spec
@@ -230,7 +237,8 @@ servicelist.forEach((service) => {
         "flags": [
           "unelevated",
           "danger",
-        ]
+        ],
+        "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })
     }
 

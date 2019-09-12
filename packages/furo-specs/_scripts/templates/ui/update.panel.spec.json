@@ -10,13 +10,15 @@
   ],
   "form": {
     "name": "task-task-form",
-    "flags": ["flex"]
+    "flags": ["flex"],
+    "attrs": []
   },
   "action": {
     "name": "task-task-update-action",
     "listen_to": [
       "update"
     ],
-    "flags": []
+    "flags": [],
+    "attrs": []
   }
 }
