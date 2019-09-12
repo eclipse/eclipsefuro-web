@@ -66,7 +66,7 @@ config.init.types.forEach((type) => {
         continue
       }
       fields.push({
-        "field": fieldname, "attrs": [
+        "field": fieldname, "flags": [
           "condensed",
           "double"
         ]
@@ -89,7 +89,7 @@ config.init.types.forEach((type) => {
       let field = spec.fields[fieldname];
       if (field.constraints && field.constraints.required) {
         createFields.push({
-          "field": fieldname, "attrs": [
+          "field": fieldname, "flags": [
             "condensed",
             "double"
           ]
@@ -186,7 +186,7 @@ servicelist.forEach((service) => {
         "icon": null,
         "component": "furo-button",
         "onclick": "-^update-req",
-        "attrs": [
+        "flags": [
           "primary",
           "unelevated"
         ]
@@ -201,7 +201,7 @@ servicelist.forEach((service) => {
         "icon": null,
         "component": "furo-button",
         "onclick": "-^self-req",
-        "attrs": [
+        "flags": [
           "outline"
         ]
       })
@@ -214,7 +214,7 @@ servicelist.forEach((service) => {
       "icon": null,
       "component": "furo-button",
       "onclick": "-^reset-req",
-      "attrs": [
+      "flags": [
         "outline"
       ]
     });
@@ -227,7 +227,7 @@ servicelist.forEach((service) => {
         "icon": "delete",
         "component": "furo-button",
         "onclick": "-^delete-req",
-        "attrs": [
+        "flags": [
           "unelevated",
           "danger",
         ]

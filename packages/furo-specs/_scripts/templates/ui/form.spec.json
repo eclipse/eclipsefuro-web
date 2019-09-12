@@ -14,7 +14,7 @@
       "component": "furo-form-layouter",
       "title": null,
       "secondary_text": null,
-      "attrs": [
+      "flags": [
         "four"
       ],
       "fields": []
