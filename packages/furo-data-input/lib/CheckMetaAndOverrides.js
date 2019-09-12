@@ -2,6 +2,7 @@ export class CheckMetaAndOverrides {
 
 
   static UpdateMetaAndConstraints(element) {
+
     // options are available for text inputs at the moment
     // check if metas ara available
     if (element.field._meta) {
@@ -48,6 +49,7 @@ export class CheckMetaAndOverrides {
   }
 
   static CheckAttributeOverrides(element) {
+
     /**
      * Attribute overrides
      * hint, min, max, readonly or disabled on the element are higher ranked then field metas from spec or server
