@@ -59,7 +59,7 @@ class DemoFuroDataDisplayCondensed extends FBP(LitElement) {
                                    max="7"></furo-data-display>
                 <furo-data-display condensed readonly ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-display>
                 <furo-data-display condensed ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-display>
-                <furo-data-display condensed ƒ-bind-data="--entity(*.furo_data_date_input_google)"></furo-data-display>
+                <furo-data-display noborder condensed ƒ-bind-data="--entity(*.furo_data_date_input_google)"></furo-data-display>
                 <furo-data-display condensed ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-display>
                 <furo-data-display condensed ƒ-bind-data="--entity(*.furo_data_date_input_google)" trailing-icon="dashboard" leading-icon="dashboard"></furo-data-display>
                 <furo-data-date-input condensed ƒ-bind-data="--entity(*.furo_data_date_input_google)" leading-icon="dashboard"></furo-data-date-input>

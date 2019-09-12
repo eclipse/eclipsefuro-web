@@ -277,7 +277,6 @@ class FuroDataDisplay extends FBP(LitElement) {
         :host([condensed]) furo-icon {
             top: 10px;
         }
-
          
         
         :host([condensed]) label  span  {
@@ -285,6 +284,10 @@ class FuroDataDisplay extends FBP(LitElement) {
         }
         :host([condensed]) {
             height: 40px;
+        }
+
+        :host([noborder]) label, :host([noborder]) .left-border, :host([noborder]) .right-border{
+            border: none;
         }
 
     `

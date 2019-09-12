@@ -58,7 +58,7 @@ class DemoFuroDataDisplay extends FBP(LitElement) {
                 <furo-data-display leading-icon="dashboard" ƒ-bind-data="--entity(*.furo_data_text_input)" min="4"
                                    max="7"></furo-data-display>
                 <furo-data-display readonly ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-display>
-                <furo-data-display  ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-display>
+                <furo-data-display noborder ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-display>
                 <furo-data-display  ƒ-bind-data="--entity(*.furo_data_date_input_google)"></furo-data-display>
                 <furo-data-display  ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-display>
                 <furo-data-display  ƒ-bind-data="--entity(*.furo_data_date_input_google)"></furo-data-display>
