@@ -127,6 +127,13 @@ class FuroSearchInput extends FBP(LitElement) {
         type: String
       },
       /**
+       * The required attribute, the value true means this field must be filled in
+       *
+       */
+      required: {
+        type: Boolean
+      },
+      /**
        * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
        */
       label: {
@@ -634,7 +641,7 @@ class FuroSearchInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label ?float="${this._float||this.float}" for="input"><span>${this.label}</span></label>
+      <label ?float="${this._float||this.float}" for="input"><span>${this.label} ${this.required ? html`*` : html``}</span></label>
       <div class="right-border"></div>
       </div>
       

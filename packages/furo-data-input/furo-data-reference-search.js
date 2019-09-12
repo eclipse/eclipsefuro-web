@@ -2,9 +2,10 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat";
-import "./furo-data-search-input"
-import {FuroInputBase} from "./FuroInputBase";
+import "@furo/input/furo-search-input";
 import "./reference-search-item";
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-data-reference-search`
@@ -33,16 +34,32 @@ import "./reference-search-item";
  *
  * @summary shortdescription
  * @customElement
- * @demo furo-data-reference-search
+ * @demo demo-furo-data-reference-search
  * @appliesMixin FBP
  */
-class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
+class FuroDataReferenceSearch extends FBP(LitElement) {
 
   constructor() {
     super();
     this.minTermLength = 0;
     this.idField = "id";
-    this.displayField = "display_name";
+
+    this._FBPAddWireHook("--inputInvalid", (val) => {
+      // val is a ValidityState
+      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
+      if (val) {
+
+        if (val.tooShort) {
+          this._hint = this._minErrorMessage;
+        }
+        else if(val.tooLong)
+        {
+          this._hint = this._maxErrorMessage;
+        }
+
+        this.requestUpdate();
+      }
+    });
   }
 
   attributeChangedCallback(name, oldval, newval) {
@@ -53,17 +70,18 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
       case "id-field":
         this.idField = newval;
         break;
+      case "display-field":
+        this.displayField = newval;
+        break;
     }
-
   }
 
   _init() {
-    super._init();
-
 
     this.addEventListener("searchInput", (e) => {
       this._searchTerm = e.detail;
-      if (this._searchTerm.length > this.minTermLength) {
+      debugger
+      if (this._searchTerm.length > this._minTermLength) {
         /**
          * @event search
          * Fired when term is entered and bigger then min-term-length
@@ -164,6 +182,48 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
     this.removeAttribute("show-list");
   }
 
+
+  /**
+   * Updater for the minTermLength => min attr*
+   * @param value
+   */
+  set minTermLength(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
+    this._minTermLength = value;
+  }
+
+  /**
+   * Updater for the max attr*
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
+  }
+
+  /**
+   * Updater for the label attr
+   * @param value
+   */
+  set _label(value) {
+    Helper.UpdateInputAttribute(this, "label", value);
+  }
+
+  /**
+   * Updater for the hint attr
+   * @param value
+   */
+  set _hint(value) {
+    Helper.UpdateInputAttribute(this, "hint", value);
+  }
+
+  /**
+   * Updater for the errortext attr
+   * @param value
+   */
+  set errortext(value) {
+    Helper.UpdateInputAttribute(this, "errortext", value);
+  }
+
   /**
    * @private
    * @return {Object}
@@ -172,12 +232,114 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
     return {
       /**
-       * min-term-length before fire the search event
+       * the field name of reference-item which should be used to asign to id field of the the data entity object
        */
-      minTermLength: {type: Number, attribute: 'min-term-length'},
-      idField: {type: String, attribute: 'id-field'}
+      idField: {type: String, attribute: 'id-field'},
 
+      /**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      label: {
+        type: String,
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean
+      },
+      /**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      hint: {
+        type: String,
+      },
+      /**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      minTermLength: {
+        type: Number,
+        attribute: 'min-term-length'
+      },
+      /**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      max: {
+        type: Number,
+      },
+      /**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      readonly: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean, reflect: true
+      },
+
+      /**
+       * Set this attribute to autofocus the input field.
+       */
+      autofocus: {
+        type: Boolean
+      },
+      /**
+       * html input validity
+       */
+      valid: {
+        type: Boolean,
+        reflect: true
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed: {
+        type: Boolean, reflect: true
+      },
+      /**
+       * passes always float the label
+       */
+      float: {
+        type: Boolean
+      }
+      
     };
+  }
+
+  /**
+   * Bind a entity field to the search-input. You can use the entity even when no data was received.
+   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * @param {Object|FieldNode} fieldNode a Field object
+   */
+  bindData(fieldNode) {
+    Helper.BindData(this, fieldNode);
+  }
+
+  _updateField() {
+
+    this._init();
+    //mark incomming error
+    if (!this.field._isValid) {
+      this.error = true;
+      this.errortext = this.field._validity.description;
+    }
+    this._FBPTriggerWire('--value', this.field.display_name.value);
+    this.requestUpdate();
   }
 
   collectionIn(collection) {
@@ -235,9 +397,16 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
   render() {
     // language=HTML
     return html`
-    <furo-search-input trailing-icon="search" ?autofocus=${this.autofocus} 
-    ?condensed=${this.condensed} label="${this._label}" 
-    value="${this.display}" @-value-changed="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"></furo-search-input>
+    <furo-search-input id="input"
+      trailing-icon="search" 
+      ?autofocus=${this.autofocus} 
+      ?condensed=${this.condensed} 
+      ƒ-set-value="--value"
+      @-value-changed="^^searchInput" 
+      @-blur="--blured" 
+      @-input-invalid="--inputInvalid"
+      @-focus="--focused" 
+      ƒ-focus="--focusReceived"></furo-search-input>
     <div class="list" @-item-selected="--itemSelected"   >
        
         <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressed">
