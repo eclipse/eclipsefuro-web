@@ -4,7 +4,9 @@
   "description": "reference",
   "__proto": {
     "package": "furo",
-    "imports": [],
+    "imports": [
+      "furo/link.proto"
+    ],
     "targetfile": "reference.proto"
   },
   "fields": {
@@ -26,32 +28,11 @@
         "number": 2
       }
     },
-    "rel": {
-      "description": "the relationship",
-      "type": "string",
+    "link": {
+      "description": "Hateoas link",
+      "type": "furo.Link",
       "__proto": {
         "number": 3
-      }
-    },
-    "method": {
-      "description": "method of curl GET, POST, PUT, PATCH, DELETE",
-      "type": "string",
-      "__proto": {
-        "number": 4
-      }
-    },
-    "href": {
-      "description": "link",
-      "type": "string",
-      "__proto": {
-        "number": 5
-      }
-    },
-    "type": {
-      "description": "mime type",
-      "type": "string",
-      "__proto": {
-        "number": 6
       }
     }
   }

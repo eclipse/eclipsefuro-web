@@ -79,10 +79,12 @@
         "default": {
           "display_name": "Owner",
           "id": "",
-          "rel": "List",
-          "href": "/api/v1/persons",
-          "method": "GET",
-          "type": "person.Person"
+          "link":{
+            "rel": "List",
+            "href": "/api/v1/persons",
+            "method": "GET",
+            "type": "person.Person"
+          }
         },
         "hint": ""
       },
