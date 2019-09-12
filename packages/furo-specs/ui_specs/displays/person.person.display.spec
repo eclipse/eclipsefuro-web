@@ -1,9 +1,9 @@
 {
-  "theme": "FormBaseTheme",
-  "class_name": "ProjectProjectForm",
-  "component_name": "project-project-form",
-  "description": "Project description",
-  "source": "./specs/project/project.type.spec",
+  "theme": "DisplayBaseTheme",
+  "class_name": "PersonPersonDisplay",
+  "component_name": "person-person-display",
+  "description": "Person message type",
+  "source": "./specs/person/person.type.spec",
   "imports": [
     "@furo/data-input",
     "@furo/form"
@@ -20,7 +20,8 @@
       "attrs": [],
       "fields": [
         {
-          "field": "start",
+          "field": "name",
+          "component": "furo-data-display",
           "flags": [
             "condensed",
             "double"
@@ -28,7 +29,8 @@
           "attrs": []
         },
         {
-          "field": "end",
+          "field": "first_name",
+          "component": "furo-data-display",
           "flags": [
             "condensed",
             "double"
@@ -36,7 +38,8 @@
           "attrs": []
         },
         {
-          "field": "description",
+          "field": "phone_nr",
+          "component": "furo-data-display",
           "flags": [
             "condensed",
             "double"
@@ -44,15 +47,8 @@
           "attrs": []
         },
         {
-          "field": "members",
-          "flags": [
-            "condensed",
-            "double"
-          ],
-          "attrs": []
-        },
-        {
-          "field": "cost_limit",
+          "field": "skills",
+          "component": "furo-data-display",
           "flags": [
             "condensed",
             "double"

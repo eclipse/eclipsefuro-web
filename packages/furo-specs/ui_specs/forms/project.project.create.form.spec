@@ -1,4 +1,5 @@
 {
+  "theme": "FormBaseTheme",
   "class_name": "ProjectProjectCreateForm",
   "component_name": "project-project-create-form",
   "description": "Project description",
@@ -13,16 +14,18 @@
       "component": "furo-form-layouter",
       "title": null,
       "secondary_text": null,
-      "attrs": [
+      "flags": [
         "four"
       ],
+      "attrs": [],
       "fields": [
         {
           "field": "cost_limit",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
+          ],
+          "attrs": []
         }
       ]
     }

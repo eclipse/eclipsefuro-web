@@ -1,4 +1,5 @@
 {
+  "theme": "PanelBaseTheme",
   "class_name": "treeTreeUpdatePanel",
   "component_name": "tree-tree-update-panel",
   "description": "Updates a Tree, partial updates are supported",
@@ -11,15 +12,17 @@
   ],
   "form": {
     "name": "tree-tree-form",
-    "attrs": [
+    "flags": [
       "flex"
-    ]
+    ],
+    "attrs": []
   },
   "action": {
     "name": "tree-tree-update-action",
     "listen_to": [
       "update"
     ],
+    "flags": [],
     "attrs": []
   },
   "request_type": "tree.Tree"

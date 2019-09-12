@@ -19,6 +19,7 @@ function sh(command, arguments) {
 
 const TplDir = config.custom_template_dir || __dirname + "/templates/ui";
 const FormSpecDir = config.form_spec_out;
+const DisplaySpecDir = config.display_spec_out;
 const PanelSpecDir = config.panel_spec_out;
 const ActionSpecDir = config.action_spec_out;
 const SpecDir = config.spec_dir;
@@ -41,6 +42,7 @@ sh("rm -rf", [BuildDir + "/ui/*"]);
 sh("mkdir -p", [BuildDir + "/ui/forms"]);
 sh("mkdir -p", [BuildDir + "/ui/actions"]);
 sh("mkdir -p", [BuildDir + "/ui/panels"]);
+sh("mkdir -p", [BuildDir + "/ui/displays"]);
 sh("mkdir -p", [TmpDir]);
 
 // get all *.form.spec and build temporal data file
@@ -91,6 +93,51 @@ list.forEach((filepath) => {
   fs.writeFileSync(datafile, JSON.stringify(formspec));
   // run generator
   sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/form.tmpl", ">", BuildDir + "/ui/forms/" + formspec.component_name + ".js"]);
+
+});
+
+/**
+ * DISPLAY SECTION
+ *
+ */
+
+
+list = walkSync(DisplaySpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("display.spec") > 0)
+});
+
+// generate tmp data file for each file in list
+list.forEach((filepath) => {
+
+  let displayspec = JSON.parse(fs.readFileSync(filepath));
+  // load spec
+  let typespec = JSON.parse(fs.readFileSync(displayspec.source));
+  //mix specs with displayspec
+  displayspec.fieldgroups.forEach((group) => {
+    group.fields.forEach((field) => {
+      if (field.field) {
+        // use component from typespec, when not in displayspec
+        if (!field.component) {
+
+          if (typespec.fields[field.field] && typespec.fields[field.field].__ui && typespec.fields[field.field].__ui.component) {
+            field.component = typespec.fields[field.field].__ui.component;
+          } else {
+            // use furo-data-text-input as fallback
+            field.component = "furo-data-display";
+          }
+        }
+        if (typespec.fields[field.field]) {
+          field.spec = typespec.fields[field.field];
+        }
+      }
+    });
+  });
+
+  // save to __tmp
+  let datafile = [TmpDir, path.basename(filepath)].join("/");
+  fs.writeFileSync(datafile, JSON.stringify(displayspec));
+  // run generator
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/display.tmpl", ">", BuildDir + "/ui/displays/" + displayspec.component_name + ".js"]);
 
 });
 

@@ -1,4 +1,5 @@
 {
+  "theme": "FormBaseTheme",
   "class_name": "TaskTaskForm",
   "component_name": "task-task-form",
   "description": "Task data description",
@@ -9,47 +10,46 @@
   ],
   "fieldgroups": [
     {
-      "description": "Hauptgruppe",
+      "description": "",
       "component": "furo-form-layouter",
-      "title": "Title",
-      "secondary_text": "secondary",
-      "attrs": [
+      "title": null,
+      "secondary_text": null,
+      "flags": [
         "four"
       ],
+      "attrs": [],
       "fields": [
         {
           "field": "description",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
-        },
-        {
-          "component": "furo-empty-spacer",
-          "attrs": [
-            "spacing-xl"
-          ]
+          ],
+          "attrs": []
         },
         {
           "field": "estimated_time",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
+          ],
+          "attrs": []
         },
         {
           "field": "owner",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
+          ],
+          "attrs": []
         },
         {
           "field": "subtasks",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
+          ],
+          "attrs": []
         }
       ]
     }

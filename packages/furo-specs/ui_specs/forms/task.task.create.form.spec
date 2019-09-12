@@ -1,4 +1,5 @@
 {
+  "theme": "FormBaseTheme",
   "class_name": "TaskTaskCreateForm",
   "component_name": "task-task-create-form",
   "description": "Task data description",
@@ -13,16 +14,18 @@
       "component": "furo-form-layouter",
       "title": null,
       "secondary_text": null,
-      "attrs": [
+      "flags": [
         "four"
       ],
+      "attrs": [],
       "fields": [
         {
           "field": "description",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
+          ],
+          "attrs": []
         }
       ]
     }

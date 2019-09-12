@@ -1,4 +1,5 @@
 {
+  "theme": "PanelBaseTheme",
   "class_name": "taskTaskUpdatePanel",
   "component_name": "task-task-update-panel",
   "description": "Updates a Task, partial updates are not supported",
@@ -11,15 +12,17 @@
   ],
   "form": {
     "name": "task-task-form",
-    "attrs": [
+    "flags": [
       "flex"
-    ]
+    ],
+    "attrs": []
   },
   "action": {
     "name": "task-task-update-action",
     "listen_to": [
       "update"
     ],
+    "flags": [],
     "attrs": []
   },
   "request_type": "task.Task"

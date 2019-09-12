@@ -19,7 +19,7 @@ import "@furo/form";
 export class TaskTaskForm extends FBP(LitElement) {
     static get styles() {
         // language=CSS
-       return Theme.getThemeForComponent('') || css`
+       return Theme.getThemeForComponent('FormBaseTheme') || css`
             :host {
                 display: block;
             }
@@ -58,14 +58,12 @@ export class TaskTaskForm extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-            <!-- Hauptgruppe  -->
-            <h1>${i18n.t("Title")}</h1>
-            <span class="secondary">${i18n.t("secondary")}</span>
+            <!--   -->
+            
+            
             <furo-form-layouter four>
                 <!-- Short task description  -->
                 <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)"></furo-data-text-input>
-                <!--   -->
-                <furo-empty-spacer spacing-xl ></furo-empty-spacer>
                 <!-- Estimated time in days  -->
                 <furo-data-text-input condensed double ƒ-bind-data="--data(*.estimated_time)"></furo-data-text-input>
                 <!-- Owner of a task  -->

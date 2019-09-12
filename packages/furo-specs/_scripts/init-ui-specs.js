@@ -14,12 +14,22 @@ if (fs.existsSync('./ui.spec.conf.json')) {
 }
 
 
+function sh(command, arguments) {
+  execSync(command + " " + arguments.join(" "), {stdio: 'inherit'});
+}
+
 const TplDir = config.custom_template_dir || __dirname + "/templates/ui";
 const FormSpecDir = config.form_spec_out;
+const DisplaySpecDir = config.display_spec_out;
 const ActionSpecDir = config.action_spec_out;
 const PanelSpecDir = config.panel_spec_out;
 const SpecDir = config.spec_dir;
 const TmpDir = "./__tmp/ui";
+
+sh("mkdir -p", [FormSpecDir]);
+sh("mkdir -p", [DisplaySpecDir]);
+sh("mkdir -p", [ActionSpecDir]);
+sh("mkdir -p", [PanelSpecDir]);
 
 const walkSync = (dir, filelist = []) => {
   fs.readdirSync(dir).forEach(file => {
@@ -33,7 +43,8 @@ const walkSync = (dir, filelist = []) => {
 };
 
 //load template structure
-let TPL = fs.readFileSync(TplDir + "/form.spec.json");
+let FORMTPL = fs.readFileSync(TplDir + "/form.spec.json");
+let DISPLAYTPL = fs.readFileSync(TplDir + "/display.spec.json");
 
 // loop all types in config
 config.init.types.forEach((type) => {
@@ -49,7 +60,10 @@ config.init.types.forEach((type) => {
 
   // exclude types in exclude list
   if (config.init.excludes.indexOf(type) == -1) {
-    let formSpec = JSON.parse(TPL);
+    /**
+     * Form
+     */
+    let formSpec = JSON.parse(FORMTPL);
     let spec = JSON.parse(fs.readFileSync(pathToTypeSpec));
     formSpec.class_name = spec.__proto.package + spec.type + "Form";
     formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
@@ -109,6 +123,44 @@ config.init.types.forEach((type) => {
     if (!fs.existsSync(target)) {
       fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
     }
+
+
+    /**
+     * Display
+     */
+    let displaySpec = JSON.parse(DISPLAYTPL);
+    displaySpec.class_name = spec.__proto.package + spec.type + "Display";
+    displaySpec.class_name = displaySpec.class_name[0].toUpperCase() + displaySpec.class_name.substr(1);
+    displaySpec.component_name = (spec.__proto.package + "-" + spec.type + "-display").toLowerCase();
+    displaySpec.description = spec.description;
+    displaySpec.source = pathToTypeSpec;
+
+    // filter out readonly fields like id, display_name,...
+    fields = [];
+    for (fieldname in spec.fields) {
+      let field = spec.fields[fieldname];
+      if (field.meta && field.meta.readonly) {
+        delete field;
+        continue
+      }
+      fields.push({
+        "field": fieldname,
+        "component":"furo-data-display",
+        "flags": [
+          "condensed",
+          "double"
+        ],
+        "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
+      })
+    }
+
+
+    displaySpec.fieldgroups[0].fields = fields;
+    target = DisplaySpecDir + "/" + t.join(".") + ".display.spec";
+    if (!fs.existsSync(target)) {
+      fs.writeFileSync(target, JSON.stringify(displaySpec, null, 2));
+    }
+
 
   } else {
     console.log(type + " skipped, because it is in exclude list");

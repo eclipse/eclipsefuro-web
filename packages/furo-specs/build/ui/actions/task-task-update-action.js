@@ -54,11 +54,11 @@ class taskTaskUpdateAction extends FBP(LitElement) {
         // language=HTML
         return html`
           <furo-button-bar ƒ-bind-entity="--entityObjectInjected">
-           <furo-button rel="update" primary unelevated label="${i18n.t('save')}" @-click="-^update-req"></furo-button>
-           <furo-button rel="self" unelevated label="${i18n.t('reload')}" @-click="-^self-req"></furo-button>
-           <furo-empty-spacer></furo-empty-spacer>
-           <furo-button rel="reset" unelevated label="${i18n.t('cancel')}" @-click="-^reset-req"></furo-button>
-           <furo-button rel="delete" unelevated danger label="${i18n.t('delete')}" @-click="-^delete-req"></furo-button>
+           <furo-button rel="update" primary unelevated  label="${i18n.t('save')}" @-click="-^update-req"></furo-button>
+           <furo-button rel="self" outline  label="${i18n.t('reload')}" @-click="-^self-req"></furo-button>
+           <furo-empty-spacer ></furo-empty-spacer>
+           <furo-button rel="reset" outline  label="${i18n.t('cancel')}" @-click="-^reset-req"></furo-button>
+           <furo-button rel="delete" unelevated danger  label="${i18n.t('delete')}" @-click="-^delete-req"></furo-button>
           </furo-button-bar>
         `;
     }

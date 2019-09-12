@@ -1,0 +1,24 @@
+{
+  "theme": "DisplayBaseTheme",
+  "class_name": "replace with ClassName",
+  "component_name": "replace with component-name-form",
+  "description": "",
+  "source": "package/typename.type.spec",
+  "imports": [
+    "@furo/data-input",
+    "@furo/form"
+  ],
+  "fieldgroups": [
+    {
+      "description": "",
+      "component": "furo-form-layouter",
+      "title": null,
+      "secondary_text": null,
+      "flags": [
+        "four"
+      ],
+      "attrs": [],
+      "fields": []
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 {
+  "theme": "PanelBaseTheme",
   "class_name": "personPersonUpdatePanel",
   "component_name": "person-person-update-panel",
   "description": "Updates a Person, partial updates are supported",
@@ -11,15 +12,17 @@
   ],
   "form": {
     "name": "person-person-form",
-    "attrs": [
+    "flags": [
       "flex"
-    ]
+    ],
+    "attrs": []
   },
   "action": {
     "name": "person-person-update-action",
     "listen_to": [
       "update"
     ],
+    "flags": [],
     "attrs": []
   },
   "request_type": "person.Person"

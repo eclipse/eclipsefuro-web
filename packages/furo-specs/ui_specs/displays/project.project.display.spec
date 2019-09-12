@@ -1,7 +1,7 @@
 {
-  "theme": "FormBaseTheme",
-  "class_name": "ProjectProjectForm",
-  "component_name": "project-project-form",
+  "theme": "DisplayBaseTheme",
+  "class_name": "ProjectProjectDisplay",
+  "component_name": "project-project-display",
   "description": "Project description",
   "source": "./specs/project/project.type.spec",
   "imports": [
@@ -21,6 +21,7 @@
       "fields": [
         {
           "field": "start",
+          "component": "furo-data-display",
           "flags": [
             "condensed",
             "double"
@@ -29,6 +30,7 @@
         },
         {
           "field": "end",
+          "component": "furo-data-display",
           "flags": [
             "condensed",
             "double"
@@ -37,6 +39,7 @@
         },
         {
           "field": "description",
+          "component": "furo-data-display",
           "flags": [
             "condensed",
             "double"
@@ -45,6 +48,7 @@
         },
         {
           "field": "members",
+          "component": "furo-data-display",
           "flags": [
             "condensed",
             "double"
@@ -53,6 +57,7 @@
         },
         {
           "field": "cost_limit",
+          "component": "furo-data-display",
           "flags": [
             "condensed",
             "double"

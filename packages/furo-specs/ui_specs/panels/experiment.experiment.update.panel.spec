@@ -1,4 +1,5 @@
 {
+  "theme": "PanelBaseTheme",
   "class_name": "experimentExperimentUpdatePanel",
   "component_name": "experiment-experiment-update-panel",
   "description": "Updates a Experiment, partial updates are supported",
@@ -11,15 +12,17 @@
   ],
   "form": {
     "name": "experiment-experiment-form",
-    "attrs": [
+    "flags": [
       "flex"
-    ]
+    ],
+    "attrs": []
   },
   "action": {
     "name": "experiment-experiment-update-action",
     "listen_to": [
       "update"
     ],
+    "flags": [],
     "attrs": []
   },
   "request_type": "experiment.Experiment"

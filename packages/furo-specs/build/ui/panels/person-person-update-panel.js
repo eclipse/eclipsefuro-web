@@ -23,7 +23,7 @@ export class personPersonUpdatePanel extends FBP(BasePanel) {
 
     static get styles() {
         // language=CSS
-        return Theme.getThemeForComponent('') || css`
+        return Theme.getThemeForComponent('PanelBaseTheme') || css`
                 :host {
                     display: block;
                     height: 100%;

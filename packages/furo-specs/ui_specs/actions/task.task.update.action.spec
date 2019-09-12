@@ -14,10 +14,11 @@
       "icon": null,
       "component": "furo-button",
       "onclick": "-^update-req",
-      "attrs": [
+      "flags": [
         "primary",
         "unelevated"
-      ]
+      ],
+      "attrs": []
     },
     {
       "label": "reload",
@@ -25,9 +26,10 @@
       "icon": null,
       "component": "furo-button",
       "onclick": "-^self-req",
-      "attrs": [
-        "unelevated"
-      ]
+      "flags": [
+        "outline"
+      ],
+      "attrs": []
     },
     {
       "component": "furo-empty-spacer"
@@ -38,9 +40,10 @@
       "icon": null,
       "component": "furo-button",
       "onclick": "-^reset-req",
-      "attrs": [
-        "unelevated"
-      ]
+      "flags": [
+        "outline"
+      ],
+      "attrs": []
     },
     {
       "label": "delete",
@@ -48,10 +51,11 @@
       "icon": "delete",
       "component": "furo-button",
       "onclick": "-^delete-req",
-      "attrs": [
+      "flags": [
         "unelevated",
         "danger"
-      ]
+      ],
+      "attrs": []
     }
   ],
   "request_type": "task.Task"

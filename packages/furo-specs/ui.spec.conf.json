@@ -10,6 +10,7 @@
   },
   "spec_dir": "./specs",
   "form_spec_out": "./ui_specs/forms",
+  "display_spec_out": "./ui_specs/displays",
   "panel_spec_out": "./ui_specs/panels",
   "action_spec_out": "./ui_specs/actions",
   "_custom_tepmplate_dir": "./_scripts/templates",

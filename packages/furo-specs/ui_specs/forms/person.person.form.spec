@@ -1,4 +1,5 @@
 {
+  "theme": "FormBaseTheme",
   "class_name": "PersonPersonForm",
   "component_name": "person-person-form",
   "description": "Person message type",
@@ -13,37 +14,42 @@
       "component": "furo-form-layouter",
       "title": null,
       "secondary_text": null,
-      "attrs": [
+      "flags": [
         "four"
       ],
+      "attrs": [],
       "fields": [
         {
           "field": "name",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
+          ],
+          "attrs": []
         },
         {
           "field": "first_name",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
+          ],
+          "attrs": []
         },
         {
           "field": "phone_nr",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
+          ],
+          "attrs": []
         },
         {
           "field": "skills",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
+          ],
+          "attrs": []
         }
       ]
     }

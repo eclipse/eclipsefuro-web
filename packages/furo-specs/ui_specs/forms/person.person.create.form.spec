@@ -1,4 +1,5 @@
 {
+  "theme": "FormBaseTheme",
   "class_name": "PersonPersonCreateForm",
   "component_name": "person-person-create-form",
   "description": "Person message type",
@@ -13,16 +14,18 @@
       "component": "furo-form-layouter",
       "title": null,
       "secondary_text": null,
-      "attrs": [
+      "flags": [
         "four"
       ],
+      "attrs": [],
       "fields": [
         {
           "field": "name",
-          "attrs": [
+          "flags": [
             "condensed",
             "double"
-          ]
+          ],
+          "attrs": []
         }
       ]
     }

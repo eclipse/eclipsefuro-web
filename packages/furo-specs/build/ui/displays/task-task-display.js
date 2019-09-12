@@ -10,16 +10,16 @@ import "@furo/data-input";
 import "@furo/form";
 
 /**
- * `task-task-create-form`
+ * `task-task-display`
  * Task data description
  *
  * @customElement
  * @appliesMixin FBP
  */
-export class TaskTaskCreateForm extends FBP(LitElement) {
+export class TaskTaskDisplay extends FBP(LitElement) {
     static get styles() {
         // language=CSS
-       return Theme.getThemeForComponent('FormBaseTheme') || css`
+       return Theme.getThemeForComponent('DisplayBaseTheme') || css`
             :host {
                 display: block;
             }
@@ -63,11 +63,17 @@ export class TaskTaskCreateForm extends FBP(LitElement) {
             
             <furo-form-layouter four>
                 <!-- Short task description  -->
-                <furo-data-text-input condensed double ƒ-bind-data="--data(*.description)"></furo-data-text-input>
+                <furo-data-display condensed double ƒ-bind-data="--data(*.description)"></furo-data-display>
+                <!-- Estimated time in days  -->
+                <furo-data-display condensed double ƒ-bind-data="--data(*.estimated_time)"></furo-data-display>
+                <!-- Owner of a task  -->
+                <furo-data-display condensed double ƒ-bind-data="--data(*.owner)"></furo-data-display>
+                <!-- List of subtasks  -->
+                <furo-data-display condensed double ƒ-bind-data="--data(*.subtasks)"></furo-data-display>
             </furo-form-layouter>
             
         `;
     }
 }
 
-window.customElements.define('task-task-create-form', TaskTaskCreateForm);
+window.customElements.define('task-task-display', TaskTaskDisplay);
