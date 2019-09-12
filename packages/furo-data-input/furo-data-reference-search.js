@@ -45,8 +45,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     this.idField = "id";
 
-
-
     this._FBPAddWireHook("--inputInvalid", (val) => {
       // val is a ValidityState
       // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
@@ -181,14 +179,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   }
 
   /**
-   * Updater for the max attr*
-   * @param value
-   */
-  set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
-  }
-
-  /**
    * Updater for the label attr
    * @param value
    */
@@ -256,14 +246,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       minTermLength: {
         type: Number,
         attribute: 'min-term-length'
-      },
-      /**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      max: {
-        type: Number,
       },
       /**
        * Overrides the readonly value from the **specs**.

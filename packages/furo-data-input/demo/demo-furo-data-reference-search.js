@@ -8,7 +8,6 @@ import "@furo/data/furo-deep-link";
 import "./produce-qp-data";
 import "@furo/data/furo-entity-agent";
 import "@furo/data/furo-collection-agent";
-import "./helper/simulate-error"
 
 /**
  * `demo-furo-data-reference-search`
