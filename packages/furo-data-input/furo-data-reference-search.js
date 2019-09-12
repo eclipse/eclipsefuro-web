@@ -42,7 +42,10 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   constructor() {
     super();
     this.minTermLength = 0;
+
     this.idField = "id";
+
+
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
       // val is a ValidityState
@@ -62,25 +65,10 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     });
   }
 
-  attributeChangedCallback(name, oldval, newval) {
-    switch (name) {
-      case "min-term-length":
-        this.minTermLength = Number(newval);
-        break;
-      case "id-field":
-        this.idField = newval;
-        break;
-      case "display-field":
-        this.displayField = newval;
-        break;
-    }
-  }
-
   _init() {
 
     this.addEventListener("searchInput", (e) => {
       this._searchTerm = e.detail;
-      debugger
       if (this._searchTerm.length > this._minTermLength) {
         /**
          * @event search
@@ -317,7 +305,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       float: {
         type: Boolean
       }
-      
+
     };
   }
 
@@ -327,6 +315,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
    * @param {Object|FieldNode} fieldNode a Field object
    */
   bindData(fieldNode) {
+
     Helper.BindData(this, fieldNode);
   }
 

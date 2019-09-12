@@ -52,8 +52,7 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
         <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
           The labels, hints, defaults are comming from the furo-data-object specs.</p>
         <div flex>
-          
-             <furo-data-reference-search  flex ƒ-bind-data="--entity(*.owner)" min-term-length="2" label="test"  @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
+             <furo-data-reference-search  label="test"  flex ƒ-bind-data="--entity(*.owner)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
              <furo-data-reference-search hint="please search the owner with name" label="task owner search" flex ƒ-bind-data="--entity(*.owner)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
               
             <produce-qp-data @-data="--qp" qp={"tsk":1}></produce-qp-data>
