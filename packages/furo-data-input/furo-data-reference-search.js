@@ -31,8 +31,6 @@ import "./reference-search-item";
  *
  * ```
  *
- *![alt text](demo/assets/ref-search.png "Logo Title Text 1")
- *
  * @summary shortdescription
  * @customElement
  * @demo furo-data-reference-search
@@ -237,9 +235,9 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
   render() {
     // language=HTML
     return html`
-    <furo-data-search-input trailing-icon="search" ?autofocus=${this.autofocus} 
-    ?condensed=${this.condensed} label="${this._label}" readonly="false"
-    ƒ-bind-data="--field(*.display_name)" @-value-changed="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"></furo-data-search-input>
+    <furo-search-input trailing-icon="search" ?autofocus=${this.autofocus} 
+    ?condensed=${this.condensed} label="${this._label}" 
+    value="${this.display}" @-value-changed="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"></furo-search-input>
     <div class="list" @-item-selected="--itemSelected"   >
        
         <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressed">

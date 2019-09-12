@@ -51,8 +51,8 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
         <h2>Demo furo-data-reference-search</h2>
         <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
           The labels, hints, defaults are comming from the furo-data-object specs.</p>
-        <furo-demo-snippet flex>
-          <template>
+        <div flex>
+          
              <furo-data-reference-search  flex ƒ-bind-data="--entity(*.owner)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
               
             <produce-qp-data @-data="--qp" qp={"tsk":1}></produce-qp-data>
@@ -61,6 +61,7 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
                               ƒ-inject-raw="--response(*.data)"></furo-data-object>
             <furo-deep-link service="TaskService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
             <furo-deep-link service="PersonService" @-hts-out="--Phts" ƒ-qp-in="--qp"></furo-deep-link>
+           
             <furo-entity-agent service="TaskService"
                                ƒ-hts-in="--hts"
                                ƒ-load="--hts"
@@ -68,11 +69,11 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
                                @-response="--response">
             </furo-entity-agent>
               
-            <furo-collection-agent service="PersonService" ƒ-search="--term" ƒ-hts-in="--entity(*.owner.link)" @-response="--refCol"></furo-collection-agent>
+            <furo-collection-agent service="PersonService" ƒ-search="--term" ƒ-hts-in="--entity(*.owner.link.value)" @-response="--refCol"></furo-collection-agent>
               
-          </template>
+        
 
-        </furo-demo-snippet>
+        </div>
       </furo-vertical-flex>
     `;
   }
