@@ -1,0 +1,24 @@
+{
+  "theme": "PanelBaseTheme",
+  "class_name": "TaskServiceUpdatePanel",
+  "component_name": "taskservice-update-panel",
+  "description": "Updates a Task, partial updates are supported",
+  "source": "./specs/task/task.service.spec",
+  "service_name": "",
+  "response_type": "",
+  "imports": [
+  ],
+  "display": {
+    "name": "task-task-display",
+    "flags": ["flex"],
+    "attrs": []
+  },
+  "action": {
+    "name": "task-task-update-action",
+    "listen_to": [
+      "update"
+    ],
+    "flags": [],
+    "attrs": []
+  }
+}

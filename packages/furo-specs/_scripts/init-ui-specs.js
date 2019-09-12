@@ -23,6 +23,7 @@ const FormSpecDir = config.form_spec_out;
 const DisplaySpecDir = config.display_spec_out;
 const ActionSpecDir = config.action_spec_out;
 const PanelSpecDir = config.panel_spec_out;
+const DisplayPanelSpecDir = config.displaypanel_spec_out;
 const SpecDir = config.spec_dir;
 const TmpDir = "./__tmp/ui";
 
@@ -30,6 +31,7 @@ sh("mkdir -p", [FormSpecDir]);
 sh("mkdir -p", [DisplaySpecDir]);
 sh("mkdir -p", [ActionSpecDir]);
 sh("mkdir -p", [PanelSpecDir]);
+sh("mkdir -p", [DisplayPanelSpecDir]);
 
 const walkSync = (dir, filelist = []) => {
   fs.readdirSync(dir).forEach(file => {
@@ -173,8 +175,6 @@ config.init.types.forEach((type) => {
 /**
  * PANELS Section
  */
-
-
 //load template structure
 let UpdateTPL = fs.readFileSync(TplDir + "/update.panel.spec.json");
 
@@ -207,6 +207,47 @@ servicelist.forEach((service) => {
     }
   }
 });
+
+
+/**
+ * DISPLAY PANELS Section
+ */
+//load template structure
+let DisplayTPL = fs.readFileSync(TplDir + "/display.panel.spec.json");
+
+servicelist = walkSync(SpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("service.spec") > 0)
+});
+
+servicelist.forEach((service) => {
+
+  let displayspec = JSON.parse(DisplayTPL);
+  let serviceSpec = JSON.parse(fs.readFileSync(service));
+  if (serviceSpec.services.Get) {
+    displayspec.class_name = serviceSpec.services.Get.data.response.replace("Entity","").replace(".", "") + "DisplayPanel";
+    displayspec.component_name = serviceSpec.services.Get.data.response.replace("Entity","").toLowerCase().replace(".", "-") + "-display-panel";
+    displayspec.description = serviceSpec.services.Get.description;
+    displayspec.source = "./" + service;
+    displayspec.service_name = serviceSpec.name;
+    displayspec.request_type = serviceSpec.services.Get.data.request;
+    displayspec.response_type = serviceSpec.services.Get.data.response;
+    displayspec.display.name = serviceSpec.services.Get.data.response.replace("Entity","").toLowerCase().replace(".", "-") + "-display";
+    displayspec.imports.push("../displays/" + displayspec.display.name);
+
+
+    let target = DisplayPanelSpecDir + "/" + serviceSpec.services.Get.data.response.replace("Entity","").toLowerCase() + ".display.panel.spec";
+    if (!fs.existsSync(target)) {
+      fs.writeFileSync(target, JSON.stringify(displayspec, null, 2));
+    }
+  }
+});
+
+
+
+
+
+
+
 
 
 /**

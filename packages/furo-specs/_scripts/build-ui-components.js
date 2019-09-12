@@ -22,6 +22,7 @@ const FormSpecDir = config.form_spec_out;
 const DisplaySpecDir = config.display_spec_out;
 const PanelSpecDir = config.panel_spec_out;
 const ActionSpecDir = config.action_spec_out;
+const DisplayPanelSpecDir = config.displaypanel_spec_out;
 const SpecDir = config.spec_dir;
 const BuildDir = path.normalize(process.cwd() + "/" + config.build_output_dir);
 const TmpDir = "./__tmp/ui";
@@ -43,6 +44,7 @@ sh("mkdir -p", [BuildDir + "/ui/forms"]);
 sh("mkdir -p", [BuildDir + "/ui/actions"]);
 sh("mkdir -p", [BuildDir + "/ui/panels"]);
 sh("mkdir -p", [BuildDir + "/ui/displays"]);
+sh("mkdir -p", [BuildDir + "/ui/displaypanels"]);
 sh("mkdir -p", [TmpDir]);
 
 // get all *.form.spec and build temporal data file
@@ -162,6 +164,31 @@ panellist.forEach((datafile) => {
   }
   registry.panels[panelspec.response_type].edit = panelspec.component_name;
   sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.panel.tmpl", ">", BuildDir + "/ui/panels/" + panelspec.component_name + ".js"]);
+});
+
+
+/**
+ * Displaypanel section
+ */
+
+let displaypanellist = walkSync(DisplayPanelSpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("display.panel.spec") > 0)
+});
+// collect data for the displaypanel registry
+
+
+// generate tmp data file for each file in list
+displaypanellist.forEach((datafile) => {
+  let displaypanelspec = JSON.parse(fs.readFileSync(datafile));
+  // register imports for registry
+  registry.imports.add("./displaypanels/" + displaypanelspec.component_name);
+
+  if (!registry.panels[displaypanelspec.response_type]) {
+    registry.panels[displaypanelspec.response_type] = {};
+  }
+  registry.panels[displaypanelspec.response_type].display = displaypanelspec.component_name;
+
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/display.panel.tmpl", ">", BuildDir + "/ui/displaypanels/" + displaypanelspec.component_name + ".js"]);
 });
 
 
