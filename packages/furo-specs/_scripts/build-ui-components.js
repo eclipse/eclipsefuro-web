@@ -6,10 +6,10 @@ const execSync = require('child_process').execSync;
 
 let config;
 // config öffnen
-if (fs.existsSync('./ui.spec.conf.json')) {
-  config = JSON.parse(fs.readFileSync('./ui.spec.conf.json'));
+if (fs.existsSync('./furo.ui.spec.conf.json')) {
+  config = JSON.parse(fs.readFileSync('./furo.ui.spec.conf.json'));
 } else {
-  console.log("ui.spec.conf.json not found, you can copy an example from " + path.normalize(__dirname + "/../"));
+  console.log("furo.ui.spec.conf.json not found, you can copy an example from " + path.normalize(__dirname + "/../"));
   process.exit(1);
 }
 

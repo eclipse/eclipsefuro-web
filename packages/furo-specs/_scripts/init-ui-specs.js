@@ -6,10 +6,10 @@ const path = require('path');
 
 let config;
 // config öffnen
-if (fs.existsSync('./ui.spec.conf.json')) {
-  config = JSON.parse(fs.readFileSync('./ui.spec.conf.json'));
+if (fs.existsSync('./furo.ui.spec.conf.json')) {
+  config = JSON.parse(fs.readFileSync('./furo.ui.spec.conf.json'));
 } else {
-  console.log("ui.spec.conf.json not found, you can copy an example from " + path.normalize(__dirname + "/../"));
+  console.log("furo.ui.spec.conf.json not found, you can copy an example from " + path.normalize(__dirname + "/../"));
   process.exit(1);
 }
 
@@ -48,124 +48,122 @@ const walkSync = (dir, filelist = []) => {
 let FORMTPL = fs.readFileSync(TplDir + "/form.spec.json");
 let DISPLAYTPL = fs.readFileSync(TplDir + "/display.spec.json");
 
+
+let typelist = walkSync(SpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("type.spec") > 0)
+});
+
 // loop all types in config
-config.init.types.forEach((type) => {
+typelist.forEach((pathToTypeSpec) => {
   // types are defined as package.Typename ==> ~/package/typename.type.spec
-  console.log("checking " + type);
-  let t = type.split(".");
+  let t = path.basename(pathToTypeSpec).split(".");
   t = t.map((s) => {
     return s.toLowerCase()
   });
 
-  let pathToTypeSpec = config.spec_dir + "/" + t.join("/") + ".type.spec";
+
+  /**
+   * Form
+   */
+  let formSpec = JSON.parse(FORMTPL);
+  let spec = JSON.parse(fs.readFileSync(pathToTypeSpec));
+  formSpec.class_name = spec.__proto.package + spec.type + "Form";
+  formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
+  formSpec.component_name = (spec.__proto.package + "-" + spec.type + "-form").toLowerCase();
+  formSpec.description = spec.description;
+  formSpec.source = pathToTypeSpec;
+
+  // filter out readonly fields like id, display_name,...
+  let fields = [];
+  for (fieldname in spec.fields) {
+    let field = spec.fields[fieldname];
+    if (field.meta && field.meta.readonly) {
+      delete field;
+      continue
+    }
+    fields.push({
+      "field": fieldname,
+      "flags": [
+        "condensed",
+        "double"
+      ],
+      "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
+    })
+  }
 
 
-  // exclude types in exclude list
-  if (config.init.excludes.indexOf(type) == -1) {
-    /**
-     * Form
-     */
-    let formSpec = JSON.parse(FORMTPL);
-    let spec = JSON.parse(fs.readFileSync(pathToTypeSpec));
-    formSpec.class_name = spec.__proto.package + spec.type + "Form";
-    formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
-    formSpec.component_name = (spec.__proto.package + "-" + spec.type + "-form").toLowerCase();
-    formSpec.description = spec.description;
-    formSpec.source = pathToTypeSpec;
+  formSpec.fieldgroups[0].fields = fields;
+  let target = FormSpecDir + "/" + t.join(".") + ".form.spec";
+  if (!fs.existsSync(target)) {
+    fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
+  }
 
-    // filter out readonly fields like id, display_name,...
-    let fields = [];
-    for (fieldname in spec.fields) {
-      let field = spec.fields[fieldname];
-      if (field.meta && field.meta.readonly) {
-        delete field;
-        continue
-      }
-      fields.push({
+  formSpec.class_name = spec.__proto.package + spec.type + "CreateForm";
+  formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
+  formSpec.component_name = (spec.__proto.package + "-" + spec.type + "-create-form").toLowerCase();
+  // fields for the create form (only req fields)
+  let createFields = [];
+  for (fieldname in spec.fields) {
+    let field = spec.fields[fieldname];
+    if (field.constraints && field.constraints.required) {
+      createFields.push({
         "field": fieldname,
-          "flags": [
-            "condensed",
-            "double"
-          ],
-          "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
-      })
-    }
-
-
-    formSpec.fieldgroups[0].fields = fields;
-    let target = FormSpecDir + "/" + t.join(".") + ".form.spec";
-    if (!fs.existsSync(target)) {
-      fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
-    }
-
-    formSpec.class_name = spec.__proto.package + spec.type + "CreateForm";
-    formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
-    formSpec.component_name = (spec.__proto.package + "-" + spec.type + "-create-form").toLowerCase();
-    // fields for the create form (only req fields)
-    let createFields = [];
-    for (fieldname in spec.fields) {
-      let field = spec.fields[fieldname];
-      if (field.constraints && field.constraints.required) {
-        createFields.push({
-            "field": fieldname,
-            "flags": [
-                "condensed",
-                "double"
-            ],
-            "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
-        })
-      } else {
-        delete field;
-      }
-
-
-    }
-    formSpec.fieldgroups[0].fields = createFields;
-    target = FormSpecDir + "/" + t.join(".") + ".create.form.spec";
-    if (!fs.existsSync(target)) {
-      fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
-    }
-
-
-    /**
-     * Display
-     */
-    let displaySpec = JSON.parse(DISPLAYTPL);
-    displaySpec.class_name = spec.__proto.package + spec.type + "Display";
-    displaySpec.class_name = displaySpec.class_name[0].toUpperCase() + displaySpec.class_name.substr(1);
-    displaySpec.component_name = (spec.__proto.package + "-" + spec.type + "-display").toLowerCase();
-    displaySpec.description = spec.description;
-    displaySpec.source = pathToTypeSpec;
-
-    // filter out readonly fields like id, display_name,...
-    fields = [];
-    for (fieldname in spec.fields) {
-      let field = spec.fields[fieldname];
-      if (field.meta && field.meta.readonly) {
-        delete field;
-        continue
-      }
-      fields.push({
-        "field": fieldname,
-        "component":"furo-data-display",
         "flags": [
           "condensed",
           "double"
         ],
         "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })
+    } else {
+      delete field;
     }
 
 
-    displaySpec.fieldgroups[0].fields = fields;
-    target = DisplaySpecDir + "/" + t.join(".") + ".display.spec";
-    if (!fs.existsSync(target)) {
-      fs.writeFileSync(target, JSON.stringify(displaySpec, null, 2));
-    }
-
-
+  }
+  formSpec.fieldgroups[0].fields = createFields;
+  target = FormSpecDir + "/" + t.join(".") + ".create.form.spec";
+  if (!fs.existsSync(target)) {
+    fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
   } else {
-    console.log(type + " skipped, because it is in exclude list");
+    console.log("skip " + target);
+  }
+
+
+  /**
+   * Display
+   */
+  let displaySpec = JSON.parse(DISPLAYTPL);
+  displaySpec.class_name = spec.__proto.package + spec.type + "Display";
+  displaySpec.class_name = displaySpec.class_name[0].toUpperCase() + displaySpec.class_name.substr(1);
+  displaySpec.component_name = (spec.__proto.package + "-" + spec.type + "-display").toLowerCase();
+  displaySpec.description = spec.description;
+  displaySpec.source = pathToTypeSpec;
+
+  // filter out readonly fields like id, display_name,...
+  fields = [];
+  for (fieldname in spec.fields) {
+    let field = spec.fields[fieldname];
+    if (field.meta && field.meta.readonly) {
+      delete field;
+      continue
+    }
+    fields.push({
+      "field": fieldname,
+      "component": "furo-data-display",
+      "flags": [
+        "condensed",
+        "double",
+        "noborder"
+      ],
+      "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
+    })
+  }
+
+
+  displaySpec.fieldgroups[0].fields = fields;
+  target = DisplaySpecDir + "/" + t.join(".") + ".display.spec";
+  if (!fs.existsSync(target)) {
+    fs.writeFileSync(target, JSON.stringify(displaySpec, null, 2));
   }
 
 
@@ -224,30 +222,23 @@ servicelist.forEach((service) => {
   let displayspec = JSON.parse(DisplayTPL);
   let serviceSpec = JSON.parse(fs.readFileSync(service));
   if (serviceSpec.services.Get) {
-    displayspec.class_name = serviceSpec.services.Get.data.response.replace("Entity","").replace(".", "") + "DisplayPanel";
-    displayspec.component_name = serviceSpec.services.Get.data.response.replace("Entity","").toLowerCase().replace(".", "-") + "-display-panel";
+    displayspec.class_name = serviceSpec.services.Get.data.response.replace("Entity", "").replace(".", "") + "DisplayPanel";
+    displayspec.component_name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().replace(".", "-") + "-display-panel";
     displayspec.description = serviceSpec.services.Get.description;
     displayspec.source = "./" + service;
     displayspec.service_name = serviceSpec.name;
     displayspec.request_type = serviceSpec.services.Get.data.request;
     displayspec.response_type = serviceSpec.services.Get.data.response;
-    displayspec.display.name = serviceSpec.services.Get.data.response.replace("Entity","").toLowerCase().replace(".", "-") + "-display";
+    displayspec.display.name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().replace(".", "-") + "-display";
     displayspec.imports.push("../displays/" + displayspec.display.name);
 
 
-    let target = DisplayPanelSpecDir + "/" + serviceSpec.services.Get.data.response.replace("Entity","").toLowerCase() + ".display.panel.spec";
+    let target = DisplayPanelSpecDir + "/" + serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase() + ".display.panel.spec";
     if (!fs.existsSync(target)) {
       fs.writeFileSync(target, JSON.stringify(displayspec, null, 2));
     }
   }
 });
-
-
-
-
-
-
-
 
 
 /**
@@ -257,7 +248,6 @@ servicelist.forEach((service) => {
 
 //load template structure
 let ActionUpdateTPL = fs.readFileSync(TplDir + "/update.action.spec.json");
-
 
 
 servicelist.forEach((service) => {
