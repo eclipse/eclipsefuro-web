@@ -79,8 +79,9 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   _init() {
 
     this.addEventListener("searchInput", (e) => {
+      // by valid input reset meta and constraints
+      CheckMetaAndOverrides.CheckAttributeOverrides(this);
       this._searchTerm = e.detail;
-      debugger
       if (this._searchTerm.length > this._minTermLength) {
         /**
          * @event search
@@ -136,9 +137,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         if (key === "ArrowDown") {
           this._showList();
         }
-
       }
-
     });
 
 
