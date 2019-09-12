@@ -9,7 +9,7 @@ import '@furo/data-input';
 import '@furo/data-ui/furo-data-table-toggle';
 
 
-const tableHeaders = (fields) => html`${fields.map(f => html`<th class="head"><div class="cell">${f.meta.label} <furo-data-table-toggle field="${f.id}"></furo-data-table-toggle></div></th>`)}`;
+const tableHeaders = (fields) => html`${fields.map(f => html`<th class="head"><div class="cell">${f.meta.label}<furo-data-table-toggle sortable="${f.sortable}" field="${f.id}"></furo-data-table-toggle></div></th>`)}`;
 const tdWRepeat = (fields) => html`
   ${fields.map(f => html`
     ${f.meta.repeated
@@ -23,6 +23,7 @@ const tdWRepeat = (fields) => html`
   `)}
   
 `;
+
 
 /**
  * `furo-data-table`
@@ -86,6 +87,7 @@ class FuroDataTable extends FBP(LitElement) {
         this._specs = Env.api.specs;
         this.type = '';
         this.fields = '';
+        this.sortableFields = '';
         /**
          * Column meta information
          * used to render all the column stuff
@@ -137,6 +139,16 @@ class FuroDataTable extends FBP(LitElement) {
                 type: String,
                 attribute: "fields",
                 reflect: true
+            },
+            /**
+             * list of sortable fields
+             * comma separated field list
+             */
+            sortableFields: {
+                type: String,
+                attribute: "sortable-fields",
+                reflect: true
+
             },
             /**
              * Flag to show table header information
@@ -206,14 +218,15 @@ class FuroDataTable extends FBP(LitElement) {
                 box-shadow: inset 1px 0 0 var(--furo-data-table-select-background, var(--accent-light, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-background, var(--accent-light, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
                 z-index: 1;
             }
-            
-            td{
+
+            td {
                 vertical-align: baseline;
             }
 
-            .head:hover{
+            .head:hover {
                 cursor: pointer;
             }
+
             .cell {
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -265,6 +278,10 @@ class FuroDataTable extends FBP(LitElement) {
                     this._init(newval);
                     break;
                 }
+                case 'sortable-fields': {
+                    this._applySortableFields(newval);
+                    break;
+                }
             }
         }
     }
@@ -313,6 +330,24 @@ class FuroDataTable extends FBP(LitElement) {
     }
 
     /**
+     * parses the attribute sortable-fields
+     * and creates an internal array of sortable fields
+     * @param fields
+     * @private
+     */
+    _applySortableFields(fields) {
+        if (fields && fields.length) {
+            let sortableCols = fields.replace(/ /g, "").split(',');
+            sortableCols.forEach((f)=>{
+                let column = this.cols.filter(obj => {
+                    return obj.id === f;
+                });
+                column[0].sortable = true;
+            });
+        }
+    }
+
+    /**
      * Internal addColumn
      */
     _internalAddColumn(c) {
@@ -326,9 +361,10 @@ class FuroDataTable extends FBP(LitElement) {
                 field.wire = '--internal(*.item.data.' + c + '.display_name)';
             }
             // Special treatment for repeated fields
-            if (this._specs[this._type].fields[c].meta && this._specs[this._type].fields[c].meta.repeated){
+            if (this._specs[this._type].fields[c].meta && this._specs[this._type].fields[c].meta.repeated) {
                 field.wire = '--internal(*.item.data.' + c + '.repeats)';
             }
+            field.sortable = false;
             field.meta = this._specs[this._type].fields[c].meta || {};
             field.contraints = this._specs[this._type].fields[c].contraints || {};
             field.id = c;

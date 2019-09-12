@@ -52,10 +52,10 @@ export class {{.class_name}} extends FBP(BasePanel) {
           {{"<" | noescape}}furo-vertical-flex>
             {{"<" | noescape}}furo-card>
 
-              {{"<" | noescape}}{{.form.name}}{{range $attr := .form.attrs}} {{$attr}}{{end}} ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
+              {{"<" | noescape}}{{.form.name}}{{range $attr := .form.flags}} {{$attr}}{{end}} ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
             </furo-card>
 
-            {{"<" | noescape}}{{.action.name}}{{range $attr := .action.attrs}} {{$attr}}{{end}} @-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
+            {{"<" | noescape}}{{.action.name}}{{range $attr := .action.flags}} {{$attr}}{{end}} @-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
 
 
           </furo-vertical-flex>
