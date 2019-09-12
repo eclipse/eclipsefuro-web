@@ -6,6 +6,7 @@ import "./demo-furo-data-password-input";
 import "./demo-furo-data-date-input";
 import "./demo-furo-data-search-input";
 import "./demo-furo-data-textarea-input";
+import "./demo-furo-data-reference-search";
 import "./sample-furo-data-number-input"
 import "./demo-furo-data-number-input"
 import "./demo-furo-data-time-input"

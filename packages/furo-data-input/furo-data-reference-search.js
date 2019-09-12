@@ -35,7 +35,7 @@ import "./reference-search-item";
  *
  * @summary shortdescription
  * @customElement
- * @demo demo/furo-data-reference-search.html
+ * @demo furo-data-reference-search
  * @appliesMixin FBP
  */
 class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
@@ -184,7 +184,7 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
 
   collectionIn(collection) {
 
-    this._FBPTriggerWire("--listItemsIjnected", collection.data);
+    this._FBPTriggerWire("--listItemsIjnected", collection.entities);
     this._hasCollection = true;
 
     if (this._focused) {
@@ -237,9 +237,9 @@ class FuroDataReferenceSearch extends FBP(FuroInputBase(LitElement)) {
   render() {
     // language=HTML
     return html`
-    <furo-data-text-input trailing-icon="search" ?autofocus=${this.autofocus} ?disabled=${this.disabled} display-only 
-    label="${this._label}" 
-    ƒ-bind-data="--field(*.display_name)" @-value-changed="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"></furo-data-text-input>
+    <furo-data-search-input trailing-icon="search" ?autofocus=${this.autofocus} 
+    ?condensed=${this.condensed} label="${this._label}" readonly="false"
+    ƒ-bind-data="--field(*.display_name)" @-value-changed="^^searchInput" @-blur="--blured" @-focus="--focused" ƒ-focus="--focusReceived"></furo-data-search-input>
     <div class="list" @-item-selected="--itemSelected"   >
        
         <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressed">

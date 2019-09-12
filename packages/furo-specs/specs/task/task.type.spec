@@ -80,9 +80,9 @@
           "display_name": "Owner",
           "id": "",
           "link":{
-            "rel": "List",
-            "href": "/api/v1/persons",
-            "method": "GET",
+            "rel": "list",
+            "href": "/mockdata/persons/list.json",
+            "method": "Get",
             "type": "person.Person"
           }
         },

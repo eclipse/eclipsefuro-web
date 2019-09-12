@@ -399,6 +399,9 @@ class furoCollectionAgent extends FBP(LitElement) {
   _updateInternalHTS(hts) {
     // convert link object to hts array
     if (hts && hts.rel && hts.method && hts.type && hts.href) {
+      if(typeof hts.href== "object") {
+        hts.href = hts.href.value;
+      }
       hts = [hts];
     }
 

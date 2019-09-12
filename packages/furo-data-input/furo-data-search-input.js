@@ -161,14 +161,6 @@ class FuroDataSearchInput extends FBP(LitElement) {
         type: String
       },
       /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean
-      },
-      /**
        * Overrides the hint text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -238,7 +230,7 @@ class FuroDataSearchInput extends FBP(LitElement) {
        * The default style (md like) supports a condensed form. It is a little bit smaller then the default
        */
       condensed: {
-        type: Boolean
+        type: Boolean, reflect: true
       },
       /**
        * passes always float the label
