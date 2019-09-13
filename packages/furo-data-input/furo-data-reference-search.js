@@ -41,7 +41,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
   constructor() {
     super();
-    this.minTermLength = 0;
+    this._minTermLength = 0;
     this.idField = "id";
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
