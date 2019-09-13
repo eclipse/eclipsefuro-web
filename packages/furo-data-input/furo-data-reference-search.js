@@ -288,11 +288,11 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   bindData(fieldNode) {
 
     Helper.BindData(this, fieldNode);
+    this._init();
   }
 
   _updateField() {
 
-    this._init();
     //mark incomming error
     if (!this.field._isValid) {
       this.error = true;
