@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.14](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.13...@furo/data-input@0.48.14) (2019-09-13)
+
+
+### Bug Fixes
+
+* scroll position, undefined text not shown as "undefined" ([05209b0](https://github.com/veith/FuroBaseComponents/commit/05209b0))
+
+
+
+
+
 ## [0.48.13](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.12...@furo/data-input@0.48.13) (2019-09-13)
 
 
