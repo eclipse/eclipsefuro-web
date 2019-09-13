@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.24.7](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.24.6...@furo/form@0.24.7) (2019-09-13)
+
+
+### Bug Fixes
+
+* uneeded dependency removed ([aa560a0](https://github.com/veith/FuroBaseComponents/commit/aa560a0))
+
+
+
+
+
 ## [0.24.6](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.24.5...@furo/form@0.24.6) (2019-09-13)
 
 **Note:** Version bump only for package @furo/form
