@@ -38,8 +38,8 @@ message Experiment {
     // field for furo_data_checkbox_input for testing
     bool furo_data_checkbox_input = 4;
     
-    // field for furo-data-color-input for testing
-    string furo_data_color_input = 10;
+    // field for furo_data_color_input for testing
+    string furo_data_color_input = 19;
     
     // field for furo-data-date-input for testing
     string furo_data_date_input = 13;

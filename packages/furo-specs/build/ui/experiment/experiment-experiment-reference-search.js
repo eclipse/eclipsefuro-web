@@ -38,10 +38,22 @@ class ExperimentExperimentReferenceSearch extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
+        furo-data-reference-search{
+            width:100%;
+        }
     `
   }
 
-
+  static get properties() {
+    return {
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed: {
+        type: Boolean
+      }
+    };
+  }
   /**
    * @private
    * @returns {TemplateResult}
@@ -52,6 +64,7 @@ class ExperimentExperimentReferenceSearch extends FBP(LitElement) {
     return html`
       <furo-data-reference-search ƒ-bind-data="--field-injected"
                                   @-search="--term"
+                                  ?condensed="${this.condensed}"
                                   ƒ-collection-in="--collection">
       </furo-data-reference-search>
       <furo-collection-agent

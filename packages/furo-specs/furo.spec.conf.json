@@ -18,6 +18,11 @@
   "java": true,
   "build_output_dir": "./build",
   "furo_env_name": "data_environment.js",
+  "hooks": {
+    "_type_completed": "./sample-hook.js",
+    "_service_completed": "./sample-hook.js",
+    "_build_completed": "./sample-hook.js"
+  },
   "bundled": {
     "build": true,
     "package_name": "taskmanager",

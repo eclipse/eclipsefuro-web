@@ -1486,18 +1486,18 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
-     * field for furo-data-color-input for testing
+     * field for furo_data_color_input for testing
      * </pre>
      *
-     * <code>string furo_data_color_input = 10;</code>
+     * <code>string furo_data_color_input = 19;</code>
      */
     java.lang.String getFuroDataColorInput();
     /**
      * <pre>
-     * field for furo-data-color-input for testing
+     * field for furo_data_color_input for testing
      * </pre>
      *
-     * <code>string furo_data_color_input = 10;</code>
+     * <code>string furo_data_color_input = 19;</code>
      */
     com.google.protobuf.ByteString
         getFuroDataColorInputBytes();
@@ -1875,12 +1875,6 @@ public final class ExperimentOuterClass {
               furoDataNumberInput_ = input.readFloat();
               break;
             }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              furoDataColorInput_ = s;
-              break;
-            }
             case 90: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -1943,6 +1937,12 @@ public final class ExperimentOuterClass {
                 furoDataDateInputGoogle_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 154: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              furoDataColorInput_ = s;
               break;
             }
             default: {
@@ -2091,14 +2091,14 @@ public final class ExperimentOuterClass {
       return furoDataCheckboxInput_;
     }
 
-    public static final int FURO_DATA_COLOR_INPUT_FIELD_NUMBER = 10;
+    public static final int FURO_DATA_COLOR_INPUT_FIELD_NUMBER = 19;
     private volatile java.lang.Object furoDataColorInput_;
     /**
      * <pre>
-     * field for furo-data-color-input for testing
+     * field for furo_data_color_input for testing
      * </pre>
      *
-     * <code>string furo_data_color_input = 10;</code>
+     * <code>string furo_data_color_input = 19;</code>
      */
     public java.lang.String getFuroDataColorInput() {
       java.lang.Object ref = furoDataColorInput_;
@@ -2114,10 +2114,10 @@ public final class ExperimentOuterClass {
     }
     /**
      * <pre>
-     * field for furo-data-color-input for testing
+     * field for furo_data_color_input for testing
      * </pre>
      *
-     * <code>string furo_data_color_input = 10;</code>
+     * <code>string furo_data_color_input = 19;</code>
      */
     public com.google.protobuf.ByteString
         getFuroDataColorInputBytes() {
@@ -2686,9 +2686,6 @@ public final class ExperimentOuterClass {
       if (furoDataNumberInput_ != 0F) {
         output.writeFloat(9, furoDataNumberInput_);
       }
-      if (!getFuroDataColorInputBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, furoDataColorInput_);
-      }
       if (!getFuroDataPasswordInputBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, furoDataPasswordInput_);
       }
@@ -2712,6 +2709,9 @@ public final class ExperimentOuterClass {
       }
       if (furoDataDateInputGoogle_ != null) {
         output.writeMessage(18, getFuroDataDateInputGoogle());
+      }
+      if (!getFuroDataColorInputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 19, furoDataColorInput_);
       }
       unknownFields.writeTo(output);
     }
@@ -2751,9 +2751,6 @@ public final class ExperimentOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(9, furoDataNumberInput_);
       }
-      if (!getFuroDataColorInputBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, furoDataColorInput_);
-      }
       if (!getFuroDataPasswordInputBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, furoDataPasswordInput_);
       }
@@ -2781,6 +2778,9 @@ public final class ExperimentOuterClass {
       if (furoDataDateInputGoogle_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(18, getFuroDataDateInputGoogle());
+      }
+      if (!getFuroDataColorInputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, furoDataColorInput_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3569,10 +3569,10 @@ public final class ExperimentOuterClass {
       private java.lang.Object furoDataColorInput_ = "";
       /**
        * <pre>
-       * field for furo-data-color-input for testing
+       * field for furo_data_color_input for testing
        * </pre>
        *
-       * <code>string furo_data_color_input = 10;</code>
+       * <code>string furo_data_color_input = 19;</code>
        */
       public java.lang.String getFuroDataColorInput() {
         java.lang.Object ref = furoDataColorInput_;
@@ -3588,10 +3588,10 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for furo-data-color-input for testing
+       * field for furo_data_color_input for testing
        * </pre>
        *
-       * <code>string furo_data_color_input = 10;</code>
+       * <code>string furo_data_color_input = 19;</code>
        */
       public com.google.protobuf.ByteString
           getFuroDataColorInputBytes() {
@@ -3608,10 +3608,10 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for furo-data-color-input for testing
+       * field for furo_data_color_input for testing
        * </pre>
        *
-       * <code>string furo_data_color_input = 10;</code>
+       * <code>string furo_data_color_input = 19;</code>
        */
       public Builder setFuroDataColorInput(
           java.lang.String value) {
@@ -3625,10 +3625,10 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for furo-data-color-input for testing
+       * field for furo_data_color_input for testing
        * </pre>
        *
-       * <code>string furo_data_color_input = 10;</code>
+       * <code>string furo_data_color_input = 19;</code>
        */
       public Builder clearFuroDataColorInput() {
         
@@ -3638,10 +3638,10 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for furo-data-color-input for testing
+       * field for furo_data_color_input for testing
        * </pre>
        *
-       * <code>string furo_data_color_input = 10;</code>
+       * <code>string furo_data_color_input = 19;</code>
        */
       public Builder setFuroDataColorInputBytes(
           com.google.protobuf.ByteString value) {
@@ -8041,7 +8041,7 @@ public final class ExperimentOuterClass {
       "cription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023" +
       "furo_data_bool_icon\030\016 \001(\010\022 \n\030furo_data_c" +
       "heckbox_input\030\004 \001(\010\022\035\n\025furo_data_color_i" +
-      "nput\030\n \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t" +
+      "nput\030\023 \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t" +
       "\0226\n\033furo_data_date_input_google\030\022 \001(\0132\021." +
       "google.type.Date\022\036\n\026furo_data_number_inp" +
       "ut\030\t \001(\002\022 \n\030furo_data_password_input\030\013 \001" +

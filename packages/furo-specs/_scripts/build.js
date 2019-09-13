@@ -86,7 +86,9 @@ speclist.types.forEach((filename) => {
   }
 
   Typelist[target].types.push(spec);
-
+  if(config.hooks.type_completed){
+    sh(config.hooks.type_completed, [path.normalize(filename),path.normalize(target)]);
+  }
 });
 // obj to create the protocHelper.sh
 let protoc = {mod: [], protoc_I: config.protoc_I, protoc_M: config.protoc_M, config: config};
@@ -133,6 +135,7 @@ speclist.services.forEach((filename) => {
   Servicelist.targets[target].groupedservices.push(spec);
   Servicelist.__bundled.groupedservices.push(spec);
   ClientEnv.services.push(spec);
+
 });
 
 for (let target in Servicelist.targets) {
@@ -146,7 +149,10 @@ for (let target in Servicelist.targets) {
   fs.writeFileSync(jsonfilename, JSON.stringify(service));
 
   sh("mkdir", ["-p", BuildDir + "/protos/" + path.dirname(target)]);
-  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.service.proto.tmpl", ">", BuildDir + "/protos/" + target])
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", jsonfilename, "-t", TPLDirSingle + "/single.service.proto.tmpl", ">", BuildDir + "/protos/" + target]);
+  if(config.hooks.service_completed){
+    sh(config.hooks.service_completed, [path.normalize(jsonfilename),path.normalize(target)]);
+  }
 }
 
 
@@ -218,3 +224,7 @@ if (config.bundled.build) {
 sh("cp", ["-r", BuildDir + "/pb/*", BuildDir + "/single/pb"]);
 sh("rm", ["-rf", BuildDir + "/pb"]);
 sh("rm", ["-rf", BuildDir + "/single/pb/__bundled"]);
+
+if(config.hooks.build_completed){
+  sh(config.hooks.build_completed, [path.normalize(BuildDir)]);
+}

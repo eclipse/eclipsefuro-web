@@ -216,7 +216,7 @@
         },
         "furo_data_color_input": {
           "type": "string",
-          "title": "field for furo-data-color-input for testing"
+          "title": "field for furo_data_color_input for testing"
         },
         "furo_data_date_input": {
           "type": "string",
