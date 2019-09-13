@@ -346,7 +346,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
             display: block;
         }
 
-        furo-data-text-input {
+        furo-search-input {
             width: 100%;
         }
     `

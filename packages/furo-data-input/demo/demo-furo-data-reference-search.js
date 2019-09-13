@@ -46,31 +46,37 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-        <furo-vertical-flex>
-            <h2>Demo furo-data-reference-search</h2>
-            <p>Bind the reference field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.refFieldName)"</strong>.
-                The labels, hints, defaults are comming from the furo-data-object specs.</p>
-            <furo-demo-snippet flex>
-                <template>
-                    <furo-data-reference-search  
-                            ƒ-bind-data="--entityReady(*.owner)"  
-                            @-search="--term"
-                            ƒ-collection-in="--refCol">
-                    </furo-data-reference-search>
-                    <furo-data-object 
-                            type="task.Task" 
-                            @-object-ready="--entityReady">
-                    </furo-data-object>
-                    <furo-collection-agent 
-                            service="PersonService" 
-                            ƒ-hts-in="--entityReady(*.owner.link.value)"
-                            ƒ-search="--term"
-                            @-response="--refCol">
-                    </furo-collection-agent>
-                  <furo-data-display ƒ-bind-data="--entityReady(*.owner)"></furo-data-display>
-                </template>
-            </furo-demo-snippet>
-        </furo-vertical-flex>
+      <furo-vertical-flex>
+        <h2>Demo furo-data-reference-search</h2>
+        <p>Bind the reference field from furo-data-object with
+          <strong>ƒ-bind-data="--entityReady(*.refFieldName)"</strong>.
+          The labels, hints, defaults are comming from the furo-data-object specs.</p>
+        <furo-demo-snippet flex>
+          <template>
+            <furo-form-layouter two>
+              <furo-data-reference-search condensed
+                      ƒ-bind-data="--entityReady(*.owner)"
+                      @-search="--term"
+                      ƒ-collection-in="--refCol">
+              </furo-data-reference-search>
+              
+              <furo-data-display leading-icon="search" condensed ƒ-bind-data="--entityReady(*.owner)"></furo-data-display>
+              
+            </furo-form-layouter>
+            <furo-data-object
+                    type="task.Task"
+                    @-object-ready="--entityReady">
+            </furo-data-object>
+            <furo-collection-agent
+                    service="PersonService"
+                    ƒ-hts-in="--entityReady(*.owner.link.value)"
+                    ƒ-search="--term"
+                    @-response="--refCol">
+            </furo-collection-agent>
+
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
     `;
   }
 }
