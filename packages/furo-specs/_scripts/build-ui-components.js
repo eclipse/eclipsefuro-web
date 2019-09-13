@@ -18,11 +18,7 @@ function sh(command, arguments) {
 }
 
 const TplDir = config.custom_template_dir || __dirname + "/templates/ui";
-const FormSpecDir = config.form_spec_out;
-const DisplaySpecDir = config.display_spec_out;
-const PanelSpecDir = config.panel_spec_out;
-const ActionSpecDir = config.action_spec_out;
-const DisplayPanelSpecDir = config.displaypanel_spec_out;
+const UiSpecDir = config.ui_spec_out;
 const SpecDir = config.spec_dir;
 const BuildDir = path.normalize(process.cwd() + "/" + config.build_output_dir);
 const TmpDir = "./__tmp/ui";
@@ -39,12 +35,6 @@ if (BuildDir.search(cwd) === -1) {
 
 // clean the build folder of the forms
 sh("rm -rf", [BuildDir + "/ui/*"]);
-
-sh("mkdir -p", [BuildDir + "/ui/forms"]);
-sh("mkdir -p", [BuildDir + "/ui/actions"]);
-sh("mkdir -p", [BuildDir + "/ui/panels"]);
-sh("mkdir -p", [BuildDir + "/ui/displays"]);
-sh("mkdir -p", [BuildDir + "/ui/displaypanels"]);
 sh("mkdir -p", [TmpDir]);
 
 // get all *.form.spec and build temporal data file
@@ -60,7 +50,7 @@ const walkSync = (dir, filelist = []) => {
   return filelist;
 };
 
-let list = walkSync(FormSpecDir).filter((filepath) => {
+let list = walkSync(UiSpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("form.spec") > 0)
 });
 
@@ -93,8 +83,11 @@ list.forEach((filepath) => {
   // save to __tmp
   let datafile = [TmpDir, path.basename(filepath)].join("/");
   fs.writeFileSync(datafile, JSON.stringify(formspec));
+  let targetfile = BuildDir + "/" + formspec.component_name.split("-")[0] + "/" + formspec.component_name + ".js";
+  sh("mkdir -p", [BuildDir + "/" + formspec.component_name.split("-")[0]]);
+
   // run generator
-  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/form.tmpl", ">", BuildDir + "/ui/forms/" + formspec.component_name + ".js"]);
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/form.tmpl", ">", targetfile]);
 
 });
 
@@ -104,7 +97,7 @@ list.forEach((filepath) => {
  */
 
 
-list = walkSync(DisplaySpecDir).filter((filepath) => {
+list = walkSync(UiSpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("display.spec") > 0)
 });
 
@@ -138,8 +131,11 @@ list.forEach((filepath) => {
   // save to __tmp
   let datafile = [TmpDir, path.basename(filepath)].join("/");
   fs.writeFileSync(datafile, JSON.stringify(displayspec));
+  let targetfile = BuildDir + "/" + displayspec.component_name.split("-")[0] + "/" + displayspec.component_name + ".js";
+  sh("mkdir -p", [BuildDir + "/" + displayspec.component_name.split("-")[0]]);
+
   // run generator
-  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/display.tmpl", ">", BuildDir + "/ui/displays/" + displayspec.component_name + ".js"]);
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/display.tmpl", ">", targetfile]);
 
 });
 
@@ -148,7 +144,7 @@ list.forEach((filepath) => {
  * Panel section
  */
 
-let panellist = walkSync(PanelSpecDir).filter((filepath) => {
+let panellist = walkSync(UiSpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("panel.spec") > 0)
 });
 // collect data for the panel registry
@@ -158,12 +154,14 @@ let registry = {"imports": new Set, panels: {}};
 panellist.forEach((datafile) => {
   let panelspec = JSON.parse(fs.readFileSync(datafile));
   // register imports for registry
-  registry.imports.add("./panels/" + panelspec.component_name);
+  registry.imports.add("./" + panelspec.component_name.split("-")[0] + "/" +panelspec.component_name);
   if (!registry.panels[panelspec.response_type]) {
     registry.panels[panelspec.response_type] = {};
   }
   registry.panels[panelspec.response_type].edit = panelspec.component_name;
-  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.panel.tmpl", ">", BuildDir + "/ui/panels/" + panelspec.component_name + ".js"]);
+  let targetfile = BuildDir + "/" + panelspec.component_name.split("-")[0] + "/" + panelspec.component_name + ".js";
+  sh("mkdir -p", [BuildDir + "/" + panelspec.component_name.split("-")[0]]);
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.panel.tmpl", ">", targetfile]);
 });
 
 
@@ -171,7 +169,7 @@ panellist.forEach((datafile) => {
  * Displaypanel section
  */
 
-let displaypanellist = walkSync(DisplayPanelSpecDir).filter((filepath) => {
+let displaypanellist = walkSync(UiSpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("display.panel.spec") > 0)
 });
 // collect data for the displaypanel registry
@@ -181,14 +179,14 @@ let displaypanellist = walkSync(DisplayPanelSpecDir).filter((filepath) => {
 displaypanellist.forEach((datafile) => {
   let displaypanelspec = JSON.parse(fs.readFileSync(datafile));
   // register imports for registry
-  registry.imports.add("./displaypanels/" + displaypanelspec.component_name);
-
+  registry.imports.add("./" + displaypanelspec.component_name.split("-")[0] + "/" +displaypanelspec.component_name);
   if (!registry.panels[displaypanelspec.response_type]) {
     registry.panels[displaypanelspec.response_type] = {};
   }
   registry.panels[displaypanelspec.response_type].display = displaypanelspec.component_name;
-
-  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/display.panel.tmpl", ">", BuildDir + "/ui/displaypanels/" + displaypanelspec.component_name + ".js"]);
+  let targetfile = BuildDir + "/" + displaypanelspec.component_name.split("-")[0] + "/" + displaypanelspec.component_name + ".js";
+  sh("mkdir -p", [BuildDir + "/" + displaypanelspec.component_name.split("-")[0]]);
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/display.panel.tmpl", ">", targetfile]);
 });
 
 
@@ -196,7 +194,7 @@ displaypanellist.forEach((datafile) => {
  * Action section
  */
 
-let actionlist = walkSync(ActionSpecDir).filter((filepath) => {
+let actionlist = walkSync(UiSpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("action.spec") > 0)
 });
 
@@ -204,7 +202,9 @@ let actionlist = walkSync(ActionSpecDir).filter((filepath) => {
 actionlist.forEach((datafile) => {
 
   let actionspec = JSON.parse(fs.readFileSync(datafile));
-  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.action.tmpl", ">", BuildDir + "/ui/actions/" + actionspec.component_name + ".js"]);
+  let targetfile = BuildDir + "/" + actionspec.component_name.split("-")[0] + "/" + actionspec.component_name + ".js";
+  sh("mkdir -p", [BuildDir + "/" + actionspec.component_name.split("-")[0]]);
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.action.tmpl", ">", targetfile]);
 });
 
 
@@ -217,4 +217,4 @@ registry.imports = Array.from(registry.imports);
 let registryjson = TmpDir + "/registry.json";
 fs.writeFileSync(registryjson, JSON.stringify(registry));
 
-sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", registryjson, "-t", TplDir + "/registry.tmpl", ">", BuildDir + "/ui/registry.js"]);
+sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", registryjson, "-t", TplDir + "/registry.tmpl", ">", BuildDir + "/registry.js"]);

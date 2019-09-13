@@ -19,19 +19,10 @@ function sh(command, arguments) {
 }
 
 const TplDir = config.custom_template_dir || __dirname + "/templates/ui";
-const FormSpecDir = config.form_spec_out;
-const DisplaySpecDir = config.display_spec_out;
-const ActionSpecDir = config.action_spec_out;
-const PanelSpecDir = config.panel_spec_out;
-const DisplayPanelSpecDir = config.displaypanel_spec_out;
 const SpecDir = config.spec_dir;
-const TmpDir = "./__tmp/ui";
+const UiSpecDir = config.ui_spec_out;
 
-sh("mkdir -p", [FormSpecDir]);
-sh("mkdir -p", [DisplaySpecDir]);
-sh("mkdir -p", [ActionSpecDir]);
-sh("mkdir -p", [PanelSpecDir]);
-sh("mkdir -p", [DisplayPanelSpecDir]);
+sh("mkdir -p", [UiSpecDir]);
 
 const walkSync = (dir, filelist = []) => {
   fs.readdirSync(dir).forEach(file => {
@@ -50,6 +41,10 @@ let DISPLAYTPL = fs.readFileSync(TplDir + "/display.spec.json");
 
 
 let typelist = walkSync(SpecDir).filter((filepath) => {
+  if (path.basename(filepath).indexOf("_") >= 0) {
+    // ignore type_collection or type_entity
+    return false;
+  }
   return (path.basename(filepath).indexOf("type.spec") > 0)
 });
 
@@ -61,6 +56,10 @@ typelist.forEach((pathToTypeSpec) => {
     return s.toLowerCase()
   });
 
+  t.pop();
+  // create package folder
+  sh("mkdir -p", [UiSpecDir + "/" + t[0]]);
+  const PKGDIR = UiSpecDir + "/" + t[0];
 
   /**
    * Form
@@ -93,7 +92,8 @@ typelist.forEach((pathToTypeSpec) => {
 
 
   formSpec.fieldgroups[0].fields = fields;
-  let target = FormSpecDir + "/" + t.join(".") + ".form.spec";
+
+  let target = PKGDIR + "/" + t.join(".") + ".form.spec";
   if (!fs.existsSync(target)) {
     fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
   }
@@ -121,7 +121,8 @@ typelist.forEach((pathToTypeSpec) => {
 
   }
   formSpec.fieldgroups[0].fields = createFields;
-  target = FormSpecDir + "/" + t.join(".") + ".create.form.spec";
+
+  target = PKGDIR + "/" + t.join(".") + ".create.form.spec";
   if (!fs.existsSync(target)) {
     fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
   } else {
@@ -161,7 +162,7 @@ typelist.forEach((pathToTypeSpec) => {
 
 
   displaySpec.fieldgroups[0].fields = fields;
-  target = DisplaySpecDir + "/" + t.join(".") + ".display.spec";
+  target = PKGDIR + "/" + t.join(".") + ".display.spec";
   if (!fs.existsSync(target)) {
     fs.writeFileSync(target, JSON.stringify(displaySpec, null, 2));
   }
@@ -180,26 +181,27 @@ let servicelist = walkSync(SpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("service.spec") > 0)
 });
 
-servicelist.forEach((service) => {
-
+servicelist.forEach((pathToService) => {
+  let t = path.basename(pathToService).split(".");
+  const PKGDIR = UiSpecDir + "/" + t[0];
   let updatespec = JSON.parse(UpdateTPL);
-  let serviceSpec = JSON.parse(fs.readFileSync(service));
+  let serviceSpec = JSON.parse(fs.readFileSync(pathToService));
   if (serviceSpec.services.Update) {
     updatespec.class_name = serviceSpec.services.Update.data.request.replace(".", "") + "UpdatePanel";
     updatespec.component_name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-panel";
     updatespec.description = serviceSpec.services.Update.description;
-    updatespec.source = "./" + service;
+    updatespec.source = "./" + pathToService;
     updatespec.service_name = serviceSpec.name;
     updatespec.request_type = serviceSpec.services.Update.data.request;
     updatespec.response_type = serviceSpec.services.Update.data.response;
     updatespec.form.name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-form";
-    updatespec.imports.push("../forms/" + updatespec.form.name);
+    updatespec.imports.push("./" + updatespec.form.name);
     let updateAction = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-action";
-    updatespec.imports.push("../actions/" + updateAction);
+    updatespec.imports.push("./" + updateAction);
     updatespec.action.name = updateAction;
 
 
-    let target = PanelSpecDir + "/" + serviceSpec.services.Update.data.request.toLowerCase() + ".update.panel.spec";
+    let target = PKGDIR + "/" + serviceSpec.services.Update.data.request.toLowerCase() + ".update.panel.spec";
     if (!fs.existsSync(target)) {
       fs.writeFileSync(target, JSON.stringify(updatespec, null, 2));
     }
@@ -217,23 +219,25 @@ servicelist = walkSync(SpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("service.spec") > 0)
 });
 
-servicelist.forEach((service) => {
+servicelist.forEach((pathToService) => {
+  let t = path.basename(pathToService).split(".");
+  const PKGDIR = UiSpecDir + "/" + t[0];
 
   let displayspec = JSON.parse(DisplayTPL);
-  let serviceSpec = JSON.parse(fs.readFileSync(service));
+  let serviceSpec = JSON.parse(fs.readFileSync(pathToService));
   if (serviceSpec.services.Get) {
     displayspec.class_name = serviceSpec.services.Get.data.response.replace("Entity", "").replace(".", "") + "DisplayPanel";
     displayspec.component_name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().replace(".", "-") + "-display-panel";
     displayspec.description = serviceSpec.services.Get.description;
-    displayspec.source = "./" + service;
+    displayspec.source = "./" + pathToService;
     displayspec.service_name = serviceSpec.name;
     displayspec.request_type = serviceSpec.services.Get.data.request;
     displayspec.response_type = serviceSpec.services.Get.data.response;
     displayspec.display.name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().replace(".", "-") + "-display";
-    displayspec.imports.push("../displays/" + displayspec.display.name);
+    displayspec.imports.push("./" + displayspec.display.name);
 
 
-    let target = DisplayPanelSpecDir + "/" + serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase() + ".display.panel.spec";
+    let target = PKGDIR + "/" + serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase() + ".display.panel.spec";
     if (!fs.existsSync(target)) {
       fs.writeFileSync(target, JSON.stringify(displayspec, null, 2));
     }
@@ -250,12 +254,14 @@ servicelist.forEach((service) => {
 let ActionUpdateTPL = fs.readFileSync(TplDir + "/update.action.spec.json");
 
 
-servicelist.forEach((service) => {
+servicelist.forEach((pathToService) => {
+  let t = path.basename(pathToService).split(".");
+  const PKGDIR = UiSpecDir + "/" + t[0];
 
   let updatespec = JSON.parse(ActionUpdateTPL);
-  let serviceSpec = JSON.parse(fs.readFileSync(service));
+  let serviceSpec = JSON.parse(fs.readFileSync(pathToService));
   if (serviceSpec.services.Update) {
-    let target = ActionSpecDir + "/" + serviceSpec.services.Update.data.request.toLowerCase() + ".update.action.spec";
+    let target = PKGDIR + "/" + serviceSpec.services.Update.data.request.toLowerCase() + ".update.action.spec";
 
     updatespec.class_name = serviceSpec.services.Update.data.request.replace(".", "") + "UpdateAction";
     updatespec.component_name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-action";
