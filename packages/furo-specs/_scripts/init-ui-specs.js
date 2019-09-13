@@ -80,14 +80,26 @@ typelist.forEach((pathToTypeSpec) => {
       delete field;
       continue
     }
-    fields.push({
+    let fld = {
       "field": fieldname,
       "flags": [
         "condensed",
         "double"
       ],
       "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
-    })
+    };
+
+    if(field.type === "furo.Reference"){
+      if(field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type){
+        let t = field.meta.default.link.type;
+        fld.component = t.toLowerCase().replace(".","-") + "-reference-search";
+        formSpec.imports.push("../" + t.split(".")[0] + "/" + fld.component);
+
+      }
+    }
+
+    fields.push(fld);
+
   }
 
 
@@ -188,6 +200,7 @@ servicelist.forEach((pathToService) => {
   let serviceSpec = JSON.parse(fs.readFileSync(pathToService));
   if (serviceSpec.services.Update) {
     updatespec.class_name = serviceSpec.services.Update.data.request.replace(".", "") + "UpdatePanel";
+    updatespec.class_name = updatespec.class_name[0].toUpperCase() + updatespec.class_name.substr(1);
     updatespec.component_name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-panel";
     updatespec.description = serviceSpec.services.Update.description;
     updatespec.source = "./" + pathToService;
@@ -227,6 +240,7 @@ servicelist.forEach((pathToService) => {
   let serviceSpec = JSON.parse(fs.readFileSync(pathToService));
   if (serviceSpec.services.Get) {
     displayspec.class_name = serviceSpec.services.Get.data.response.replace("Entity", "").replace(".", "") + "DisplayPanel";
+    displayspec.class_name = displayspec.class_name[0].toUpperCase() + displayspec.class_name.substr(1);
     displayspec.component_name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().replace(".", "-") + "-display-panel";
     displayspec.description = serviceSpec.services.Get.description;
     displayspec.source = "./" + pathToService;
@@ -246,10 +260,42 @@ servicelist.forEach((pathToService) => {
 
 
 /**
+ * Reference-searcher Section
+ */
+//load template structure
+let ReferencesearchTPL = fs.readFileSync(TplDir + "/referencesearch.spec.json");
+
+let refservicelist = walkSync(SpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("service.spec") > 0)
+});
+
+refservicelist.forEach((pathToService) => {
+  let t = path.basename(pathToService).split(".");
+  const PKGDIR = UiSpecDir + "/" + t[0];
+  let referencesearchspec = JSON.parse(ReferencesearchTPL);
+
+  let serviceSpec = JSON.parse(fs.readFileSync(pathToService));
+  // check for param q
+  if (serviceSpec.services.List && serviceSpec.services.List.query && serviceSpec.services.List.query.q) {
+    let type = serviceSpec.services.List.data.response.replace("Collection", "");
+    referencesearchspec.class_name =  type.replace(".", "") + "ReferenceSearch";
+    referencesearchspec.class_name = referencesearchspec.class_name[0].toUpperCase() + referencesearchspec.class_name.substr(1);
+    referencesearchspec.component_name = type.toLowerCase().replace(".", "-") + "-reference-search";
+    referencesearchspec.source = type.toLowerCase() + ".referencesearch.spec";
+    referencesearchspec.service_name = serviceSpec.name;
+    referencesearchspec.type = type;
+    let target = PKGDIR + "/" + type.toLowerCase() + ".referencesearch.spec";
+    if (!fs.existsSync(target)) {
+      fs.writeFileSync(target, JSON.stringify(referencesearchspec, null, 2));
+    }
+
+  }
+});
+
+
+/**
  * ACTIONS Section
  */
-
-
 //load template structure
 let ActionUpdateTPL = fs.readFileSync(TplDir + "/update.action.spec.json");
 
@@ -264,6 +310,7 @@ servicelist.forEach((pathToService) => {
     let target = PKGDIR + "/" + serviceSpec.services.Update.data.request.toLowerCase() + ".update.action.spec";
 
     updatespec.class_name = serviceSpec.services.Update.data.request.replace(".", "") + "UpdateAction";
+    updatespec.class_name = updatespec.class_name[0].toUpperCase() + updatespec.class_name.substr(1);
     updatespec.component_name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-action";
     updatespec.description = serviceSpec.description;
     updatespec.source = target;

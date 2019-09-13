@@ -173,8 +173,6 @@ let displaypanellist = walkSync(UiSpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("display.panel.spec") > 0)
 });
 // collect data for the displaypanel registry
-
-
 // generate tmp data file for each file in list
 displaypanellist.forEach((datafile) => {
   let displaypanelspec = JSON.parse(fs.readFileSync(datafile));
@@ -205,6 +203,23 @@ actionlist.forEach((datafile) => {
   let targetfile = BuildDir + "/" + actionspec.component_name.split("-")[0] + "/" + actionspec.component_name + ".js";
   sh("mkdir -p", [BuildDir + "/" + actionspec.component_name.split("-")[0]]);
   sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.action.tmpl", ">", targetfile]);
+});
+
+
+/**
+ * Referencesearch section
+ */
+
+let referencesearchlist = walkSync(UiSpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("referencesearch.spec") > 0)
+});
+
+// generate tmp data file for each file in list
+referencesearchlist.forEach((datafile) => {
+  let referencesearchspec = JSON.parse(fs.readFileSync(datafile));
+  let targetfile = BuildDir + "/" + referencesearchspec.component_name.split("-")[0] + "/" + referencesearchspec.component_name + ".js";
+  sh("mkdir -p", [BuildDir + "/" + referencesearchspec.component_name.split("-")[0]]);
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/reference-search.tmpl", ">", targetfile]);
 });
 
 

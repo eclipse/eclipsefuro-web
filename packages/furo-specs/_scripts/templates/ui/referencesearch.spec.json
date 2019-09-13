@@ -1,0 +1,10 @@
+{
+  "theme": "ReferenceBaseTheme",
+  "class_name": "PersonPersonReferenceSearch",
+  "component_name": "person-person-reference-search",
+  "description": "",
+  "source": "uispecdir/person.person.update.action.spec",
+  "service_name": "PersonService",
+  "type": "person.PersonEntity",
+  "imports": []
+}
