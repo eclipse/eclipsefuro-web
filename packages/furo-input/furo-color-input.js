@@ -43,7 +43,7 @@ class FuroColorInput extends FBP(LitElement) {
     this._FBPAddWireHook("--inputInput", (e) => {
 
       let input = e.composedPath()[0];
-      this.error = input.validity.rangeOverflow || input.validity.rangeUnderflow || input.validity.patternMismatch;
+      this.error = !input.validity.valid;
       this._float = !!input.value;
 
       if (input.validity.valid) {

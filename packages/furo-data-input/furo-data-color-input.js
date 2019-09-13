@@ -1,21 +1,243 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
-
 import {FBP} from "@furo/fbp";
-import {FuroInputBase} from "./FuroInputBase.js";
+import "@furo/input/furo-color-input";
+
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
+import {Helper} from "./lib/helper";
+
 
 /**
  * `furo-input-color`
- * Simple color input element which uses a native `<input type="color">` tag
+ *   Binds a entityObject field to a furo-color-input field
  *
  * Tags: input
- * @summary color input element
+ * @summary Binds a entityObject field to a furo-color-input field
  * @customElement
  * @polymer
+ * @demo demo-furo-data-color-input Data binding
  * @mixes FBP
  * @mixes FuroInputBase
  */
-class FuroDataColorInput extends FBP(FuroInputBase(LitElement)) {
+class FuroDataColorInput extends FBP(LitElement) {
+
+
+  /**
+   * @event value-changed
+   * Fired when value has changed from inside the input field.
+   *
+   * detail payload: {String} the text value
+   *
+   * Comes from underlying component furo-text-input. **bubbles**
+   */
+
+  constructor() {
+    super();
+    this.error = false;
+    this.disabled = false;
+
+    this._FBPAddWireHook("--valueChanged", (val) => {
+
+      // by valid input reset meta and constraints
+      CheckMetaAndOverrides.CheckAttributeOverrides(this);
+      if (this.field) {
+        this.field.value = val;
+      }
+    });
+
+  }
+
+
+  /**
+   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+   * becaue it set "undefined" (as a Sting!)
+   *
+   * @param value
+   */
+  set _pattern(value) {
+    Helper.UpdateInputAttribute(this, "pattern", value);
+  }
+
+  /**
+   * Updater for the min => minlength attr
+   * same problem like in pattern
+   *
+   * @param value
+   */
+  set _min(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
+  }
+
+  /**
+   * Updater for the max attr
+   * * same problem like in pattern
+   *
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
+  }
+
+  /**
+   * Updater for the label attr
+   * @param value
+   */
+  set _label(value) {
+    Helper.UpdateInputAttribute(this, "label", value);
+  }
+
+  /**
+   * Updater for the hint attr
+   * @param value
+   */
+  set _hint(value) {
+    Helper.UpdateInputAttribute(this, "hint", value);
+  }
+
+  /**
+   * Updater for the leadingIcon attr
+   * @param value
+   */
+  set leadingIcon(value) {
+    Helper.UpdateInputAttribute(this, "leading-icon", value);
+  }
+
+  /**
+   * Updater for the trailingIcon attr
+   * @param value
+   */
+  set trailingIcon(value) {
+    Helper.UpdateInputAttribute(this, "trailing-icon", value);
+  }
+
+  /**
+   * Updater for the errortext attr
+   * @param value
+   */
+  set errortext(value) {
+    Helper.UpdateInputAttribute(this, "errortext", value);
+  }
+
+  /**
+   * Sets the field to readonly
+   */
+  disable() {
+    this._readonly = true;
+  }
+
+  /**
+   * Makes the field writable.
+   */
+  enable() {
+    this._readonly = false;
+  }
+
+
+  /**
+   */
+  static get properties() {
+    return {
+
+      /**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      label: {
+        type: String,
+      },
+      /**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      required: {
+        type: Boolean
+      },
+      /**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      hint: {
+        type: String,
+      },
+      /**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      readonly: {
+        type: Boolean,
+      },
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean, reflect: true
+      },
+
+      /**
+       * Set this attribute to autofocus the input field.
+       */
+      autofocus: {
+        type: Boolean
+      },
+      /**
+       * Icon on the left side
+       */
+      leadingIcon: {
+        type: String,
+        attribute: "leading-icon"
+      },
+      /**
+       * Icon on the right side
+       */
+      trailingIcon: {
+        type: String,
+        attribute: "trailing-icon"
+      },
+      /**
+       * html input validity
+       */
+      valid: {
+        type: Boolean,
+        reflect: true
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed: {
+        type: Boolean
+      },
+      /**
+       * passes always float the label
+       */
+      float: {
+        type: Boolean
+      }
+    }
+  }
+
+  /**
+   * Bind a entity field to the text-input. You can use the entity even when no data was received.
+   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+   * @param {Object|FieldNode} fieldNode a Field object
+   */
+  bindData(fieldNode) {
+    Helper.BindData(this, fieldNode);
+  }
+
+
+  _updateField() {
+    //mark incomming error
+    if (!this.field._isValid) {
+      this.error = true;
+      this.errortext = this.field._validity.description;
+    }
+    this._FBPTriggerWire('--value', this.field.value);
+    this.requestUpdate();
+  }
 
   /**
    *
@@ -109,24 +331,19 @@ class FuroDataColorInput extends FBP(FuroInputBase(LitElement)) {
 
   render() {
     // language=HTML
-    return html`      
-      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  type="color" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focusReceived">
-      <div class="border"></div>
-      <label float="${this._float}" for="input">${this._label}</label>  
-      <div class="hint">${this.hint}</div>
- 
+    return html`
+       <furo-color-input id="input"
+          ?autofocus=${this.autofocus} 
+          ?readonly=${this._readonly || this.disabled}                 
+          ?error="${this.error}" 
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}"                         
+          ?required=${this._required}                   
+          @-value-changed="--valueChanged"
+          ƒ-set-value="--value"></furo-color-input>      
     `;
   }
 
-  constructor() {
-    super();
-  }
-
-
-  _init() {
-    super._init();
-    this._float = true;
-  }
 }
 
 customElements.define('furo-data-color-input', FuroDataColorInput);

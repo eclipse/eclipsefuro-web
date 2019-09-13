@@ -42,7 +42,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   constructor() {
     super();
     this.minTermLength = 0;
-
     this.idField = "id";
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
@@ -166,16 +165,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   _closeList() {
     this._listIsOpen = false;
     this.removeAttribute("show-list");
-  }
-
-
-  /**
-   * Updater for the minTermLength => min attr*
-   * @param value
-   */
-  set minTermLength(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
-    this._minTermLength = value;
   }
 
   /**
@@ -309,7 +298,10 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    this._FBPTriggerWire('--value', this.field.display_name.value);
+    if(this.field.display_name.value) {
+
+      this._FBPTriggerWire('--value', this.field.display_name.value);
+    }
     this.requestUpdate();
   }
 
