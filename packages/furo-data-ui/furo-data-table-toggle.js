@@ -52,6 +52,12 @@ class FuroDataTableToggle extends FBP(LitElement) {
                 :host([hidden]) {
                     display: none;
                 }
+                :host([sortable=false]) {
+                    display: none;
+                }
+                span{
+                    margin-left: var(--spacing, 8px);
+                }
             `
         ];
     }
@@ -70,18 +76,18 @@ class FuroDataTableToggle extends FBP(LitElement) {
     }
     /**
      * Toggle state
-     * @event up Payload: identity
-     * @event down Payload: identity
+     * @event descending Payload: identity
+     * @event ascending Payload: identity
      */
     toggle() {
         this.on = !this.on;
         this.requestUpdate();
         if (this.on){
-            this.dispatchEvent(new CustomEvent('down', {
+            this.dispatchEvent(new CustomEvent('ascending', {
                 detail: this.field, bubbles: true, composed: true
             }));
         } else {
-            this.dispatchEvent(new CustomEvent('up', {
+            this.dispatchEvent(new CustomEvent('descending', {
                 detail: this.field, bubbles: true, composed: true
             }));
         }

@@ -61,8 +61,9 @@ class DemoFuroDataTable extends FBP(LitElement) {
                 </div>
                 <furo-card title="Project Overview" secondary-text="All your project data" class="flex">
 
-                    <furo-data-table type="project.Project" fields="display_name,members,start,end,cost_limit"
+                    <furo-data-table type="project.Project" fields="display_name, members, start,end,cost_limit" sortable-fields="cost_limit,start"
                                      ƒ-bind-data="--data" @-tablerow-selected="--rowSelected"></furo-data-table>
+                    
                     <furo-horizontal-flex space slot="action">
                         <furo-button label="List data" primary @-click="--btnListClicked"></furo-button>
                     </furo-horizontal-flex>
