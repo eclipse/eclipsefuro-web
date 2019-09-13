@@ -75,6 +75,7 @@
       "description": "Owner of a task",
       "type": "furo.Reference",
       "meta": {
+        "min_term_length": 4,
         "label": "Owner",
         "default": {
           "link":{

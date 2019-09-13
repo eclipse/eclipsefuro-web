@@ -21,6 +21,9 @@ export class CheckMetaAndOverrides {
       if (element.field._meta.rows) {
         element._rows = element.field._meta.rows;
       }
+      if (element.field._meta.min_term_length) {
+        element._minTermLength = element.field._meta.min_term_length;
+      }
     }
     // check if constraints ara available
     if (element.field._constraints) {
@@ -92,6 +95,10 @@ export class CheckMetaAndOverrides {
 
     if (element.rows) {
       element._rows = element.rows;
+    }
+
+    if (element.minTermLength) {
+      element._minTermLength = element.minTermLength;
     }
   }
 }
