@@ -35,15 +35,17 @@ class FuroDataDisplay extends FBP(LitElement) {
     this.text = this.field.value;
 
 
-    if(this.displayfield && this.field[this.displayfield]){
+    if (this.displayfield && this.field[this.displayfield]) {
       this.text = this.field[this.displayfield];
-    }else{
-      if(this.field.display_name){
+    } else {
+      if (this.field.display_name) {
         this.text = this.field.display_name;
       }
     }
 
-
+    if (this.text.toString() == undefined) {
+      this.text = "";
+    }
 
     this.requestUpdate();
   }
@@ -252,8 +254,8 @@ class FuroDataDisplay extends FBP(LitElement) {
             top: -10px;
             position: relative;
         }
-        /** Condensed **/
 
+        /** Condensed **/
 
 
         :host([condensed]) .text {
@@ -277,16 +279,17 @@ class FuroDataDisplay extends FBP(LitElement) {
         :host([condensed]) furo-icon {
             top: 10px;
         }
-         
-        
-        :host([condensed]) label  span  {
+
+
+        :host([condensed]) label span {
             top: -20px;
         }
+
         :host([condensed]) {
             height: 40px;
         }
 
-        :host([noborder]) label, :host([noborder]) .left-border, :host([noborder]) .right-border{
+        :host([noborder]) label, :host([noborder]) .left-border, :host([noborder]) .right-border {
             border: none;
         }
 

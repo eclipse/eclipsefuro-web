@@ -52,7 +52,7 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
                 The labels, hints, defaults are comming from the furo-data-object specs.</p>
             <furo-demo-snippet flex>
                 <template>
-                    <furo-data-reference-search style="position:absolute"
+                    <furo-data-reference-search  
                             ƒ-bind-data="--entityReady(*.owner)"  
                             @-search="--term"
                             ƒ-collection-in="--refCol">
@@ -67,6 +67,7 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
                             ƒ-search="--term"
                             @-response="--refCol">
                     </furo-collection-agent>
+                  <furo-data-display ƒ-bind-data="--entityReady(*.owner)"></furo-data-display>
                 </template>
             </furo-demo-snippet>
         </furo-vertical-flex>

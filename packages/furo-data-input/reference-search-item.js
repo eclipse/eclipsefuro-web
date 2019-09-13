@@ -74,7 +74,7 @@ class ReferenceSearchItem extends FBP(LitElement) {
 
   preselect() {
     this.setAttribute("hover", "");
-    this.scrollIntoView({block: "start", behavior: "smooth"});
+    this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
   }
 
   select() {
