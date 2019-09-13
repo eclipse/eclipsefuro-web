@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.15](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.14...@furo/data-input@0.48.15) (2019-09-13)
+
+
+### Bug Fixes
+
+* condensed size ([9ae2795](https://github.com/veith/FuroBaseComponents/commit/9ae2795))
+* condensed size ([5d2e7b7](https://github.com/veith/FuroBaseComponents/commit/5d2e7b7))
+
+
+
+
+
 ## [0.48.14](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.13...@furo/data-input@0.48.14) (2019-09-13)
 
 

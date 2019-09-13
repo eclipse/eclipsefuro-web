@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.2](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.19.0...@furo/specs@0.19.2) (2019-09-13)
+
+
+### Bug Fixes
+
+* condensed size ([9ae2795](https://github.com/veith/FuroBaseComponents/commit/9ae2795))
+
+
+
+
+
 # [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.15.0...@furo/specs@0.19.0) (2019-09-13)
 
 
