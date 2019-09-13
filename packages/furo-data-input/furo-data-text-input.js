@@ -150,12 +150,9 @@ class FuroDataTextInput extends FBP(LitElement) {
   }
 
 
-  /**
-  * todo , add properties for pattern.error.hint , min.error.hint and max.error.hint
-  */
+
   static get properties() {
     return {
-
       /**
        * Overrides the label text from the **specs**.
        *
