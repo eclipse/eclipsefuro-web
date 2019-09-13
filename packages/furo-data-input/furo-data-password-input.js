@@ -15,6 +15,7 @@ import {Helper} from "./lib/helper";
  * @summary Bind a entityObject.field to a password input
  * @customElement
  * @demo demo-furo-data-password-input Data binding
+ * @demo demo-furo-data-input-together Data binding
  * @mixes FBP
  */
 class FuroDataPasswordInput extends FBP(LitElement) {
