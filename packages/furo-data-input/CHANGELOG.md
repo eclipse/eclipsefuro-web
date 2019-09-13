@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.13](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.12...@furo/data-input@0.48.13) (2019-09-13)
+
+
+### Bug Fixes
+
+* condensed aligning of icons ([d199942](https://github.com/veith/FuroBaseComponents/commit/d199942))
+* condensed aligning of icons ([6bc090d](https://github.com/veith/FuroBaseComponents/commit/6bc090d))
+* label ([73fc1ca](https://github.com/veith/FuroBaseComponents/commit/73fc1ca))
+* ref search ([f267c97](https://github.com/veith/FuroBaseComponents/commit/f267c97))
+
+
+
+
+
 ## [0.48.12](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.11...@furo/data-input@0.48.12) (2019-09-11)
 
 

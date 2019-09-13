@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.55.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.55.1...@furo/input@0.55.2) (2019-09-13)
+
+
+### Bug Fixes
+
+* condensed aligning of icons ([6bc090d](https://github.com/veith/FuroBaseComponents/commit/6bc090d))
+
+
+
+
+
 ## [0.55.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.55.0...@furo/input@0.55.1) (2019-09-11)
 
 **Note:** Version bump only for package @furo/input

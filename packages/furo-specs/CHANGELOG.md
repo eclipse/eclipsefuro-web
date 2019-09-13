@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.15.0...@furo/specs@0.19.0) (2019-09-13)
+
+
+### Bug Fixes
+
+* rename config ([78611cc](https://github.com/veith/FuroBaseComponents/commit/78611cc))
+* smaller npm package ([4a04c6e](https://github.com/veith/FuroBaseComponents/commit/4a04c6e))
+
+
+### Features
+
+* attributes added. obj with name and value (https://html.spec.whatwg.org/multipage/syntax.html#attributes-2) ([87eabda](https://github.com/veith/FuroBaseComponents/commit/87eabda)), closes [/html.spec.whatwg.org/multipage/syntax.html#attributes-2](https://github.com//html.spec.whatwg.org/multipage/syntax.html/issues/attributes-2)
+* build reference search ([9ba86df](https://github.com/veith/FuroBaseComponents/commit/9ba86df))
+* build reference search ([4d4f23b](https://github.com/veith/FuroBaseComponents/commit/4d4f23b))
+* generate display panels ([4efcf99](https://github.com/veith/FuroBaseComponents/commit/4efcf99))
+* generate display units ([84fc07d](https://github.com/veith/FuroBaseComponents/commit/84fc07d))
+* package structure ([e503236](https://github.com/veith/FuroBaseComponents/commit/e503236))
+
+
+
+
+
 # [0.15.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.11.2...@furo/specs@0.15.0) (2019-09-11)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.6.4...@furo/data-ui@0.7.0) (2019-09-13)
+
+
+### Bug Fixes
+
+* condensed aligning of icons ([6bc090d](https://github.com/veith/FuroBaseComponents/commit/6bc090d))
+
+
+### Features
+
+* changed event names to ascending/descending ([2352597](https://github.com/veith/FuroBaseComponents/commit/2352597))
+
+
+
+
+
 ## [0.6.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.6.3...@furo/data-ui@0.6.4) (2019-09-11)
 
 **Note:** Version bump only for package @furo/data-ui
