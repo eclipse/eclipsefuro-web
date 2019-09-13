@@ -46,20 +46,30 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-vertical-flex>
-        <h2>Demo furo-data-reference-search</h2>
-        <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
-          The labels, hints, defaults are comming from the furo-data-object specs.</p>
-        <div flex>
-          <furo-data-reference-search 
-                                      ƒ-bind-data="--entity(*.owner)"  @-search="--term"
-                                      ƒ-collection-in="--refCol"></furo-data-reference-search>
-          <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-          <furo-collection-agent service="PersonService" ƒ-hts-in="--entity(*.owner.link.value)"
-                                 ƒ-search="--term"
-                                 @-response="--refCol"></furo-collection-agent>
-        </div>
-      </furo-vertical-flex>
+        <furo-vertical-flex>
+            <h2>Demo furo-data-reference-search</h2>
+            <p>Bind the reference field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.refFieldName)"</strong>.
+                The labels, hints, defaults are comming from the furo-data-object specs.</p>
+            <furo-demo-snippet flex>
+                <template>
+                    <furo-data-reference-search style="position:absolute"
+                            ƒ-bind-data="--entityReady(*.owner)"  
+                            @-search="--term"
+                            ƒ-collection-in="--refCol">
+                    </furo-data-reference-search>
+                    <furo-data-object 
+                            type="task.Task" 
+                            @-object-ready="--entityReady">
+                    </furo-data-object>
+                    <furo-collection-agent 
+                            service="PersonService" 
+                            ƒ-hts-in="--entityReady(*.owner.link.value)"
+                            ƒ-search="--term"
+                            @-response="--refCol">
+                    </furo-collection-agent>
+                </template>
+            </furo-demo-snippet>
+        </furo-vertical-flex>
     `;
   }
 }

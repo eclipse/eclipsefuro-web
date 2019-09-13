@@ -357,6 +357,19 @@
       "__proto": {
         "number": 18
       }
+    },
+    "furo_data_color_input": {
+      "description": "field for furo_data_color_input for testing",
+      "type": "string",
+      "meta": {
+        "label": "data-color input",
+        "hint": "hint",
+        "readonly": false
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 19
+      }
     }
   }
 }
