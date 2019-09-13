@@ -1522,6 +1522,31 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    boolean hasFuroDataDateInputGoogle();
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    google.type.DateOuterClass.Date getFuroDataDateInputGoogle();
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    google.type.DateOuterClass.DateOrBuilder getFuroDataDateInputGoogleOrBuilder();
+
+    /**
+     * <pre>
      * field for furo-data-number-input for testing
      * </pre>
      *
@@ -1899,12 +1924,25 @@ public final class ExperimentOuterClass {
               break;
             }
             case 138: {
-              if (!((mutable_bitField0_ & 0x00008000) != 0)) {
+              if (!((mutable_bitField0_ & 0x00010000) != 0)) {
                 typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>();
-                mutable_bitField0_ |= 0x00008000;
+                mutable_bitField0_ |= 0x00010000;
               }
               typeProperty_.add(
                   input.readMessage(furo.PropertyOuterClass.Property.parser(), extensionRegistry));
+              break;
+            }
+            case 146: {
+              google.type.DateOuterClass.Date.Builder subBuilder = null;
+              if (furoDataDateInputGoogle_ != null) {
+                subBuilder = furoDataDateInputGoogle_.toBuilder();
+              }
+              furoDataDateInputGoogle_ = input.readMessage(google.type.DateOuterClass.Date.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(furoDataDateInputGoogle_);
+                furoDataDateInputGoogle_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -1922,7 +1960,7 @@ public final class ExperimentOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00008000) != 0)) {
+        if (((mutable_bitField0_ & 0x00010000) != 0)) {
           typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
         }
         this.unknownFields = unknownFields.build();
@@ -2135,6 +2173,39 @@ public final class ExperimentOuterClass {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int FURO_DATA_DATE_INPUT_GOOGLE_FIELD_NUMBER = 18;
+    private google.type.DateOuterClass.Date furoDataDateInputGoogle_;
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    public boolean hasFuroDataDateInputGoogle() {
+      return furoDataDateInputGoogle_ != null;
+    }
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    public google.type.DateOuterClass.Date getFuroDataDateInputGoogle() {
+      return furoDataDateInputGoogle_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : furoDataDateInputGoogle_;
+    }
+    /**
+     * <pre>
+     * field for furo-data-date-input for testing
+     * </pre>
+     *
+     * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+     */
+    public google.type.DateOuterClass.DateOrBuilder getFuroDataDateInputGoogleOrBuilder() {
+      return getFuroDataDateInputGoogle();
     }
 
     public static final int FURO_DATA_NUMBER_INPUT_FIELD_NUMBER = 9;
@@ -2639,6 +2710,9 @@ public final class ExperimentOuterClass {
       for (int i = 0; i < typeProperty_.size(); i++) {
         output.writeMessage(17, typeProperty_.get(i));
       }
+      if (furoDataDateInputGoogle_ != null) {
+        output.writeMessage(18, getFuroDataDateInputGoogle());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2704,6 +2778,10 @@ public final class ExperimentOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(17, typeProperty_.get(i));
       }
+      if (furoDataDateInputGoogle_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(18, getFuroDataDateInputGoogle());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2731,6 +2809,11 @@ public final class ExperimentOuterClass {
           .equals(other.getFuroDataColorInput())) return false;
       if (!getFuroDataDateInput()
           .equals(other.getFuroDataDateInput())) return false;
+      if (hasFuroDataDateInputGoogle() != other.hasFuroDataDateInputGoogle()) return false;
+      if (hasFuroDataDateInputGoogle()) {
+        if (!getFuroDataDateInputGoogle()
+            .equals(other.getFuroDataDateInputGoogle())) return false;
+      }
       if (java.lang.Float.floatToIntBits(getFuroDataNumberInput())
           != java.lang.Float.floatToIntBits(
               other.getFuroDataNumberInput())) return false;
@@ -2782,6 +2865,10 @@ public final class ExperimentOuterClass {
       hash = (53 * hash) + getFuroDataColorInput().hashCode();
       hash = (37 * hash) + FURO_DATA_DATE_INPUT_FIELD_NUMBER;
       hash = (53 * hash) + getFuroDataDateInput().hashCode();
+      if (hasFuroDataDateInputGoogle()) {
+        hash = (37 * hash) + FURO_DATA_DATE_INPUT_GOOGLE_FIELD_NUMBER;
+        hash = (53 * hash) + getFuroDataDateInputGoogle().hashCode();
+      }
       hash = (37 * hash) + FURO_DATA_NUMBER_INPUT_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getFuroDataNumberInput());
@@ -2959,6 +3046,12 @@ public final class ExperimentOuterClass {
 
         furoDataDateInput_ = "";
 
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          furoDataDateInputGoogle_ = null;
+        } else {
+          furoDataDateInputGoogle_ = null;
+          furoDataDateInputGoogleBuilder_ = null;
+        }
         furoDataNumberInput_ = 0F;
 
         furoDataPasswordInput_ = "";
@@ -2983,7 +3076,7 @@ public final class ExperimentOuterClass {
         }
         if (typePropertyBuilder_ == null) {
           typeProperty_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00010000);
         } else {
           typePropertyBuilder_.clear();
         }
@@ -3023,6 +3116,11 @@ public final class ExperimentOuterClass {
         result.furoDataCheckboxInput_ = furoDataCheckboxInput_;
         result.furoDataColorInput_ = furoDataColorInput_;
         result.furoDataDateInput_ = furoDataDateInput_;
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          result.furoDataDateInputGoogle_ = furoDataDateInputGoogle_;
+        } else {
+          result.furoDataDateInputGoogle_ = furoDataDateInputGoogleBuilder_.build();
+        }
         result.furoDataNumberInput_ = furoDataNumberInput_;
         result.furoDataPasswordInput_ = furoDataPasswordInput_;
         result.furoDataRangeInput_ = furoDataRangeInput_;
@@ -3037,9 +3135,9 @@ public final class ExperimentOuterClass {
           result.theAnyType_ = theAnyTypeBuilder_.build();
         }
         if (typePropertyBuilder_ == null) {
-          if (((bitField0_ & 0x00008000) != 0)) {
+          if (((bitField0_ & 0x00010000) != 0)) {
             typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
-            bitField0_ = (bitField0_ & ~0x00008000);
+            bitField0_ = (bitField0_ & ~0x00010000);
           }
           result.typeProperty_ = typeProperty_;
         } else {
@@ -3117,6 +3215,9 @@ public final class ExperimentOuterClass {
           furoDataDateInput_ = other.furoDataDateInput_;
           onChanged();
         }
+        if (other.hasFuroDataDateInputGoogle()) {
+          mergeFuroDataDateInputGoogle(other.getFuroDataDateInputGoogle());
+        }
         if (other.getFuroDataNumberInput() != 0F) {
           setFuroDataNumberInput(other.getFuroDataNumberInput());
         }
@@ -3155,7 +3256,7 @@ public final class ExperimentOuterClass {
           if (!other.typeProperty_.isEmpty()) {
             if (typeProperty_.isEmpty()) {
               typeProperty_ = other.typeProperty_;
-              bitField0_ = (bitField0_ & ~0x00008000);
+              bitField0_ = (bitField0_ & ~0x00010000);
             } else {
               ensureTypePropertyIsMutable();
               typeProperty_.addAll(other.typeProperty_);
@@ -3168,7 +3269,7 @@ public final class ExperimentOuterClass {
               typePropertyBuilder_.dispose();
               typePropertyBuilder_ = null;
               typeProperty_ = other.typeProperty_;
-              bitField0_ = (bitField0_ & ~0x00008000);
+              bitField0_ = (bitField0_ & ~0x00010000);
               typePropertyBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTypePropertyFieldBuilder() : null;
@@ -3641,6 +3742,159 @@ public final class ExperimentOuterClass {
         furoDataDateInput_ = value;
         onChanged();
         return this;
+      }
+
+      private google.type.DateOuterClass.Date furoDataDateInputGoogle_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder> furoDataDateInputGoogleBuilder_;
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public boolean hasFuroDataDateInputGoogle() {
+        return furoDataDateInputGoogleBuilder_ != null || furoDataDateInputGoogle_ != null;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public google.type.DateOuterClass.Date getFuroDataDateInputGoogle() {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          return furoDataDateInputGoogle_ == null ? google.type.DateOuterClass.Date.getDefaultInstance() : furoDataDateInputGoogle_;
+        } else {
+          return furoDataDateInputGoogleBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public Builder setFuroDataDateInputGoogle(google.type.DateOuterClass.Date value) {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          furoDataDateInputGoogle_ = value;
+          onChanged();
+        } else {
+          furoDataDateInputGoogleBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public Builder setFuroDataDateInputGoogle(
+          google.type.DateOuterClass.Date.Builder builderForValue) {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          furoDataDateInputGoogle_ = builderForValue.build();
+          onChanged();
+        } else {
+          furoDataDateInputGoogleBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public Builder mergeFuroDataDateInputGoogle(google.type.DateOuterClass.Date value) {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          if (furoDataDateInputGoogle_ != null) {
+            furoDataDateInputGoogle_ =
+              google.type.DateOuterClass.Date.newBuilder(furoDataDateInputGoogle_).mergeFrom(value).buildPartial();
+          } else {
+            furoDataDateInputGoogle_ = value;
+          }
+          onChanged();
+        } else {
+          furoDataDateInputGoogleBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public Builder clearFuroDataDateInputGoogle() {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          furoDataDateInputGoogle_ = null;
+          onChanged();
+        } else {
+          furoDataDateInputGoogle_ = null;
+          furoDataDateInputGoogleBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public google.type.DateOuterClass.Date.Builder getFuroDataDateInputGoogleBuilder() {
+        
+        onChanged();
+        return getFuroDataDateInputGoogleFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      public google.type.DateOuterClass.DateOrBuilder getFuroDataDateInputGoogleOrBuilder() {
+        if (furoDataDateInputGoogleBuilder_ != null) {
+          return furoDataDateInputGoogleBuilder_.getMessageOrBuilder();
+        } else {
+          return furoDataDateInputGoogle_ == null ?
+              google.type.DateOuterClass.Date.getDefaultInstance() : furoDataDateInputGoogle_;
+        }
+      }
+      /**
+       * <pre>
+       * field for furo-data-date-input for testing
+       * </pre>
+       *
+       * <code>.google.type.Date furo_data_date_input_google = 18;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder> 
+          getFuroDataDateInputGoogleFieldBuilder() {
+        if (furoDataDateInputGoogleBuilder_ == null) {
+          furoDataDateInputGoogleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.type.DateOuterClass.Date, google.type.DateOuterClass.Date.Builder, google.type.DateOuterClass.DateOrBuilder>(
+                  getFuroDataDateInputGoogle(),
+                  getParentForChildren(),
+                  isClean());
+          furoDataDateInputGoogle_ = null;
+        }
+        return furoDataDateInputGoogleBuilder_;
       }
 
       private float furoDataNumberInput_ ;
@@ -4460,9 +4714,9 @@ public final class ExperimentOuterClass {
       private java.util.List<furo.PropertyOuterClass.Property> typeProperty_ =
         java.util.Collections.emptyList();
       private void ensureTypePropertyIsMutable() {
-        if (!((bitField0_ & 0x00008000) != 0)) {
+        if (!((bitField0_ & 0x00010000) != 0)) {
           typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>(typeProperty_);
-          bitField0_ |= 0x00008000;
+          bitField0_ |= 0x00010000;
          }
       }
 
@@ -4656,7 +4910,7 @@ public final class ExperimentOuterClass {
       public Builder clearTypeProperty() {
         if (typePropertyBuilder_ == null) {
           typeProperty_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00010000);
           onChanged();
         } else {
           typePropertyBuilder_.clear();
@@ -4761,7 +5015,7 @@ public final class ExperimentOuterClass {
           typePropertyBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder>(
                   typeProperty_,
-                  ((bitField0_ & 0x00008000) != 0),
+                  ((bitField0_ & 0x00010000) != 0),
                   getParentForChildren(),
                   isClean());
           typeProperty_ = null;
@@ -7779,15 +8033,17 @@ public final class ExperimentOuterClass {
     java.lang.String[] descriptorData = {
       "\n\033experiment/experiment.proto\022\nexperimen" +
       "t\032\017furo/meta.proto\032\017furo/link.proto\032\031goo" +
-      "gle/protobuf/any.proto\032\023furo/property.pr" +
-      "oto\"m\n\020ExperimentEntity\022$\n\004data\030\001 \001(\0132\026." +
-      "experiment.Experiment\022\031\n\005links\030\002 \003(\0132\n.f" +
-      "uro.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\214\004\n\nE" +
-      "xperiment\022\023\n\013description\030\003 \001(\t\022\024\n\014displa" +
-      "y_name\030\002 \001(\t\022\033\n\023furo_data_bool_icon\030\016 \001(" +
-      "\010\022 \n\030furo_data_checkbox_input\030\004 \001(\010\022\035\n\025f" +
-      "uro_data_color_input\030\n \001(\t\022\034\n\024furo_data_" +
-      "date_input\030\r \001(\t\022\036\n\026furo_data_number_inp" +
+      "gle/protobuf/any.proto\032\026google/type/date" +
+      ".proto\032\023furo/property.proto\"m\n\020Experimen" +
+      "tEntity\022$\n\004data\030\001 \001(\0132\026.experiment.Exper" +
+      "iment\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta" +
+      "\030\003 \001(\0132\n.furo.Meta\"\304\004\n\nExperiment\022\023\n\013des" +
+      "cription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023" +
+      "furo_data_bool_icon\030\016 \001(\010\022 \n\030furo_data_c" +
+      "heckbox_input\030\004 \001(\010\022\035\n\025furo_data_color_i" +
+      "nput\030\n \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t" +
+      "\0226\n\033furo_data_date_input_google\030\022 \001(\0132\021." +
+      "google.type.Date\022\036\n\026furo_data_number_inp" +
       "ut\030\t \001(\002\022 \n\030furo_data_password_input\030\013 \001" +
       "(\t\022\035\n\025furo_data_range_input\030\010 \001(\t\022\036\n\026fur" +
       "o_data_search_input\030\014 \001(\t\022\034\n\024furo_data_t" +
@@ -7817,6 +8073,7 @@ public final class ExperimentOuterClass {
           furo.MetaOuterClass.getDescriptor(),
           furo.LinkOuterClass.getDescriptor(),
           google.protobuf.AnyOuterClass.getDescriptor(),
+          google.type.DateOuterClass.getDescriptor(),
           furo.PropertyOuterClass.getDescriptor(),
         }, assigner);
     internal_static_experiment_ExperimentEntity_descriptor =
@@ -7830,7 +8087,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Experiment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Experiment_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "TheAnyType", "TypeProperty", "TypeWithOptions", });
+        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataDateInputGoogle", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "TheAnyType", "TypeProperty", "TypeWithOptions", });
     internal_static_experiment_Default_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Default_fieldAccessorTable = new
@@ -7846,6 +8103,7 @@ public final class ExperimentOuterClass {
     furo.MetaOuterClass.getDescriptor();
     furo.LinkOuterClass.getDescriptor();
     google.protobuf.AnyOuterClass.getDescriptor();
+    google.type.DateOuterClass.getDescriptor();
     furo.PropertyOuterClass.getDescriptor();
   }
 

@@ -6,9 +6,9 @@ package taskmanager;
 
 option csharp_namespace = "Google.Protobuf.WellKnownTypes";
 option go_package = "taskmanager";
-option java_package = "taskmanager";
-option java_outer_classname = "AnyProto";
 option java_multiple_files = true;
+option java_outer_classname = "AnyProto";
+option java_package = "taskmanager";
 option objc_class_prefix = "GPB";
 
 import "google/api/annotations.proto";
@@ -205,7 +205,7 @@ service BundledService {
             get: "/mockdata/tasks/list.json"
         };
     }   
-    // Updates a Task, partial updates are supported
+    // Updates a Task, partial updates are not supported
     rpc UpdateTask (UpdateTaskServiceRequest) returns (task.TaskEntity){
         //
         option (google.api.http) = {

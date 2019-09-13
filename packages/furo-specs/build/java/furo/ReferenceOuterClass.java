@@ -38,24 +38,6 @@ public final class ReferenceOuterClass {
 
     /**
      * <pre>
-     * link
-     * </pre>
-     *
-     * <code>string href = 5;</code>
-     */
-    java.lang.String getHref();
-    /**
-     * <pre>
-     * link
-     * </pre>
-     *
-     * <code>string href = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getHrefBytes();
-
-    /**
-     * <pre>
      * Id of the reference
      * </pre>
      *
@@ -74,57 +56,28 @@ public final class ReferenceOuterClass {
 
     /**
      * <pre>
-     * method of curl GET, POST, PUT, PATCH, DELETE
+     * Hateoas link
      * </pre>
      *
-     * <code>string method = 4;</code>
+     * <code>.furo.Link link = 3;</code>
      */
-    java.lang.String getMethod();
+    boolean hasLink();
     /**
      * <pre>
-     * method of curl GET, POST, PUT, PATCH, DELETE
+     * Hateoas link
      * </pre>
      *
-     * <code>string method = 4;</code>
+     * <code>.furo.Link link = 3;</code>
      */
-    com.google.protobuf.ByteString
-        getMethodBytes();
-
+    furo.LinkOuterClass.Link getLink();
     /**
      * <pre>
-     * the relationship
+     * Hateoas link
      * </pre>
      *
-     * <code>string rel = 3;</code>
+     * <code>.furo.Link link = 3;</code>
      */
-    java.lang.String getRel();
-    /**
-     * <pre>
-     * the relationship
-     * </pre>
-     *
-     * <code>string rel = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getRelBytes();
-
-    /**
-     * <pre>
-     * mime type
-     * </pre>
-     *
-     * <code>string type = 6;</code>
-     */
-    java.lang.String getType();
-    /**
-     * <pre>
-     * mime type
-     * </pre>
-     *
-     * <code>string type = 6;</code>
-     */
-    com.google.protobuf.ByteString
-        getTypeBytes();
+    furo.LinkOuterClass.LinkOrBuilder getLinkOrBuilder();
   }
   /**
    * <pre>
@@ -144,11 +97,7 @@ public final class ReferenceOuterClass {
     }
     private Reference() {
       displayName_ = "";
-      href_ = "";
       id_ = "";
-      method_ = "";
-      rel_ = "";
-      type_ = "";
     }
 
     @java.lang.Override
@@ -188,27 +137,16 @@ public final class ReferenceOuterClass {
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+              furo.LinkOuterClass.Link.Builder subBuilder = null;
+              if (link_ != null) {
+                subBuilder = link_.toBuilder();
+              }
+              link_ = input.readMessage(furo.LinkOuterClass.Link.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(link_);
+                link_ = subBuilder.buildPartial();
+              }
 
-              rel_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              method_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              href_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              type_ = s;
               break;
             }
             default: {
@@ -285,48 +223,6 @@ public final class ReferenceOuterClass {
       }
     }
 
-    public static final int HREF_FIELD_NUMBER = 5;
-    private volatile java.lang.Object href_;
-    /**
-     * <pre>
-     * link
-     * </pre>
-     *
-     * <code>string href = 5;</code>
-     */
-    public java.lang.String getHref() {
-      java.lang.Object ref = href_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        href_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * link
-     * </pre>
-     *
-     * <code>string href = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getHrefBytes() {
-      java.lang.Object ref = href_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        href_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     public static final int ID_FIELD_NUMBER = 2;
     private volatile java.lang.Object id_;
     /**
@@ -369,130 +265,37 @@ public final class ReferenceOuterClass {
       }
     }
 
-    public static final int METHOD_FIELD_NUMBER = 4;
-    private volatile java.lang.Object method_;
+    public static final int LINK_FIELD_NUMBER = 3;
+    private furo.LinkOuterClass.Link link_;
     /**
      * <pre>
-     * method of curl GET, POST, PUT, PATCH, DELETE
+     * Hateoas link
      * </pre>
      *
-     * <code>string method = 4;</code>
+     * <code>.furo.Link link = 3;</code>
      */
-    public java.lang.String getMethod() {
-      java.lang.Object ref = method_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        method_ = s;
-        return s;
-      }
+    public boolean hasLink() {
+      return link_ != null;
     }
     /**
      * <pre>
-     * method of curl GET, POST, PUT, PATCH, DELETE
+     * Hateoas link
      * </pre>
      *
-     * <code>string method = 4;</code>
+     * <code>.furo.Link link = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getMethodBytes() {
-      java.lang.Object ref = method_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        method_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int REL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object rel_;
-    /**
-     * <pre>
-     * the relationship
-     * </pre>
-     *
-     * <code>string rel = 3;</code>
-     */
-    public java.lang.String getRel() {
-      java.lang.Object ref = rel_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        rel_ = s;
-        return s;
-      }
+    public furo.LinkOuterClass.Link getLink() {
+      return link_ == null ? furo.LinkOuterClass.Link.getDefaultInstance() : link_;
     }
     /**
      * <pre>
-     * the relationship
+     * Hateoas link
      * </pre>
      *
-     * <code>string rel = 3;</code>
+     * <code>.furo.Link link = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getRelBytes() {
-      java.lang.Object ref = rel_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        rel_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TYPE_FIELD_NUMBER = 6;
-    private volatile java.lang.Object type_;
-    /**
-     * <pre>
-     * mime type
-     * </pre>
-     *
-     * <code>string type = 6;</code>
-     */
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        type_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * mime type
-     * </pre>
-     *
-     * <code>string type = 6;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        type_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public furo.LinkOuterClass.LinkOrBuilder getLinkOrBuilder() {
+      return getLink();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -515,17 +318,8 @@ public final class ReferenceOuterClass {
       if (!getIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, id_);
       }
-      if (!getRelBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, rel_);
-      }
-      if (!getMethodBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, method_);
-      }
-      if (!getHrefBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, href_);
-      }
-      if (!getTypeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, type_);
+      if (link_ != null) {
+        output.writeMessage(3, getLink());
       }
       unknownFields.writeTo(output);
     }
@@ -542,17 +336,9 @@ public final class ReferenceOuterClass {
       if (!getIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, id_);
       }
-      if (!getRelBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, rel_);
-      }
-      if (!getMethodBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, method_);
-      }
-      if (!getHrefBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, href_);
-      }
-      if (!getTypeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, type_);
+      if (link_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getLink());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -571,16 +357,13 @@ public final class ReferenceOuterClass {
 
       if (!getDisplayName()
           .equals(other.getDisplayName())) return false;
-      if (!getHref()
-          .equals(other.getHref())) return false;
       if (!getId()
           .equals(other.getId())) return false;
-      if (!getMethod()
-          .equals(other.getMethod())) return false;
-      if (!getRel()
-          .equals(other.getRel())) return false;
-      if (!getType()
-          .equals(other.getType())) return false;
+      if (hasLink() != other.hasLink()) return false;
+      if (hasLink()) {
+        if (!getLink()
+            .equals(other.getLink())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -594,16 +377,12 @@ public final class ReferenceOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDisplayName().hashCode();
-      hash = (37 * hash) + HREF_FIELD_NUMBER;
-      hash = (53 * hash) + getHref().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
-      hash = (37 * hash) + METHOD_FIELD_NUMBER;
-      hash = (53 * hash) + getMethod().hashCode();
-      hash = (37 * hash) + REL_FIELD_NUMBER;
-      hash = (53 * hash) + getRel().hashCode();
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getType().hashCode();
+      if (hasLink()) {
+        hash = (37 * hash) + LINK_FIELD_NUMBER;
+        hash = (53 * hash) + getLink().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -743,16 +522,14 @@ public final class ReferenceOuterClass {
         super.clear();
         displayName_ = "";
 
-        href_ = "";
-
         id_ = "";
 
-        method_ = "";
-
-        rel_ = "";
-
-        type_ = "";
-
+        if (linkBuilder_ == null) {
+          link_ = null;
+        } else {
+          link_ = null;
+          linkBuilder_ = null;
+        }
         return this;
       }
 
@@ -780,11 +557,12 @@ public final class ReferenceOuterClass {
       public furo.ReferenceOuterClass.Reference buildPartial() {
         furo.ReferenceOuterClass.Reference result = new furo.ReferenceOuterClass.Reference(this);
         result.displayName_ = displayName_;
-        result.href_ = href_;
         result.id_ = id_;
-        result.method_ = method_;
-        result.rel_ = rel_;
-        result.type_ = type_;
+        if (linkBuilder_ == null) {
+          result.link_ = link_;
+        } else {
+          result.link_ = linkBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -837,25 +615,12 @@ public final class ReferenceOuterClass {
           displayName_ = other.displayName_;
           onChanged();
         }
-        if (!other.getHref().isEmpty()) {
-          href_ = other.href_;
-          onChanged();
-        }
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
           onChanged();
         }
-        if (!other.getMethod().isEmpty()) {
-          method_ = other.method_;
-          onChanged();
-        }
-        if (!other.getRel().isEmpty()) {
-          rel_ = other.rel_;
-          onChanged();
-        }
-        if (!other.getType().isEmpty()) {
-          type_ = other.type_;
-          onChanged();
+        if (other.hasLink()) {
+          mergeLink(other.getLink());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -975,95 +740,6 @@ public final class ReferenceOuterClass {
         return this;
       }
 
-      private java.lang.Object href_ = "";
-      /**
-       * <pre>
-       * link
-       * </pre>
-       *
-       * <code>string href = 5;</code>
-       */
-      public java.lang.String getHref() {
-        java.lang.Object ref = href_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          href_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * link
-       * </pre>
-       *
-       * <code>string href = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getHrefBytes() {
-        java.lang.Object ref = href_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          href_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * link
-       * </pre>
-       *
-       * <code>string href = 5;</code>
-       */
-      public Builder setHref(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        href_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * link
-       * </pre>
-       *
-       * <code>string href = 5;</code>
-       */
-      public Builder clearHref() {
-        
-        href_ = getDefaultInstance().getHref();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * link
-       * </pre>
-       *
-       * <code>string href = 5;</code>
-       */
-      public Builder setHrefBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        href_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object id_ = "";
       /**
        * <pre>
@@ -1153,271 +829,157 @@ public final class ReferenceOuterClass {
         return this;
       }
 
-      private java.lang.Object method_ = "";
+      private furo.LinkOuterClass.Link link_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder> linkBuilder_;
       /**
        * <pre>
-       * method of curl GET, POST, PUT, PATCH, DELETE
+       * Hateoas link
        * </pre>
        *
-       * <code>string method = 4;</code>
+       * <code>.furo.Link link = 3;</code>
        */
-      public java.lang.String getMethod() {
-        java.lang.Object ref = method_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          method_ = s;
-          return s;
+      public boolean hasLink() {
+        return linkBuilder_ != null || link_ != null;
+      }
+      /**
+       * <pre>
+       * Hateoas link
+       * </pre>
+       *
+       * <code>.furo.Link link = 3;</code>
+       */
+      public furo.LinkOuterClass.Link getLink() {
+        if (linkBuilder_ == null) {
+          return link_ == null ? furo.LinkOuterClass.Link.getDefaultInstance() : link_;
         } else {
-          return (java.lang.String) ref;
+          return linkBuilder_.getMessage();
         }
       }
       /**
        * <pre>
-       * method of curl GET, POST, PUT, PATCH, DELETE
+       * Hateoas link
        * </pre>
        *
-       * <code>string method = 4;</code>
+       * <code>.furo.Link link = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getMethodBytes() {
-        java.lang.Object ref = method_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          method_ = b;
-          return b;
+      public Builder setLink(furo.LinkOuterClass.Link value) {
+        if (linkBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          link_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          linkBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <pre>
-       * method of curl GET, POST, PUT, PATCH, DELETE
-       * </pre>
-       *
-       * <code>string method = 4;</code>
-       */
-      public Builder setMethod(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        method_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * method of curl GET, POST, PUT, PATCH, DELETE
-       * </pre>
-       *
-       * <code>string method = 4;</code>
-       */
-      public Builder clearMethod() {
-        
-        method_ = getDefaultInstance().getMethod();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * method of curl GET, POST, PUT, PATCH, DELETE
-       * </pre>
-       *
-       * <code>string method = 4;</code>
-       */
-      public Builder setMethodBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        method_ = value;
-        onChanged();
-        return this;
-      }
 
-      private java.lang.Object rel_ = "";
+        return this;
+      }
       /**
        * <pre>
-       * the relationship
+       * Hateoas link
        * </pre>
        *
-       * <code>string rel = 3;</code>
+       * <code>.furo.Link link = 3;</code>
        */
-      public java.lang.String getRel() {
-        java.lang.Object ref = rel_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          rel_ = s;
-          return s;
+      public Builder setLink(
+          furo.LinkOuterClass.Link.Builder builderForValue) {
+        if (linkBuilder_ == null) {
+          link_ = builderForValue.build();
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          linkBuilder_.setMessage(builderForValue.build());
         }
-      }
-      /**
-       * <pre>
-       * the relationship
-       * </pre>
-       *
-       * <code>string rel = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getRelBytes() {
-        java.lang.Object ref = rel_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          rel_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * the relationship
-       * </pre>
-       *
-       * <code>string rel = 3;</code>
-       */
-      public Builder setRel(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        rel_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * the relationship
-       * </pre>
-       *
-       * <code>string rel = 3;</code>
-       */
-      public Builder clearRel() {
-        
-        rel_ = getDefaultInstance().getRel();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * the relationship
-       * </pre>
-       *
-       * <code>string rel = 3;</code>
-       */
-      public Builder setRelBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        rel_ = value;
-        onChanged();
-        return this;
-      }
 
-      private java.lang.Object type_ = "";
+        return this;
+      }
       /**
        * <pre>
-       * mime type
+       * Hateoas link
        * </pre>
        *
-       * <code>string type = 6;</code>
+       * <code>.furo.Link link = 3;</code>
        */
-      public java.lang.String getType() {
-        java.lang.Object ref = type_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          type_ = s;
-          return s;
+      public Builder mergeLink(furo.LinkOuterClass.Link value) {
+        if (linkBuilder_ == null) {
+          if (link_ != null) {
+            link_ =
+              furo.LinkOuterClass.Link.newBuilder(link_).mergeFrom(value).buildPartial();
+          } else {
+            link_ = value;
+          }
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          linkBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas link
+       * </pre>
+       *
+       * <code>.furo.Link link = 3;</code>
+       */
+      public Builder clearLink() {
+        if (linkBuilder_ == null) {
+          link_ = null;
+          onChanged();
+        } else {
+          link_ = null;
+          linkBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Hateoas link
+       * </pre>
+       *
+       * <code>.furo.Link link = 3;</code>
+       */
+      public furo.LinkOuterClass.Link.Builder getLinkBuilder() {
+        
+        onChanged();
+        return getLinkFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Hateoas link
+       * </pre>
+       *
+       * <code>.furo.Link link = 3;</code>
+       */
+      public furo.LinkOuterClass.LinkOrBuilder getLinkOrBuilder() {
+        if (linkBuilder_ != null) {
+          return linkBuilder_.getMessageOrBuilder();
+        } else {
+          return link_ == null ?
+              furo.LinkOuterClass.Link.getDefaultInstance() : link_;
         }
       }
       /**
        * <pre>
-       * mime type
+       * Hateoas link
        * </pre>
        *
-       * <code>string type = 6;</code>
+       * <code>.furo.Link link = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        java.lang.Object ref = type_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          type_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder> 
+          getLinkFieldBuilder() {
+        if (linkBuilder_ == null) {
+          linkBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.LinkOuterClass.Link, furo.LinkOuterClass.Link.Builder, furo.LinkOuterClass.LinkOrBuilder>(
+                  getLink(),
+                  getParentForChildren(),
+                  isClean());
+          link_ = null;
         }
-      }
-      /**
-       * <pre>
-       * mime type
-       * </pre>
-       *
-       * <code>string type = 6;</code>
-       */
-      public Builder setType(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * mime type
-       * </pre>
-       *
-       * <code>string type = 6;</code>
-       */
-      public Builder clearType() {
-        
-        type_ = getDefaultInstance().getType();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * mime type
-       * </pre>
-       *
-       * <code>string type = 6;</code>
-       */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        type_ = value;
-        onChanged();
-        return this;
+        return linkBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1486,10 +1048,10 @@ public final class ReferenceOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024furo/reference.proto\022\004furo\"f\n\tReferenc" +
-      "e\022\024\n\014display_name\030\001 \001(\t\022\014\n\004href\030\005 \001(\t\022\n\n" +
-      "\002id\030\002 \001(\t\022\016\n\006method\030\004 \001(\t\022\013\n\003rel\030\003 \001(\t\022\014" +
-      "\n\004type\030\006 \001(\tb\006proto3"
+      "\n\024furo/reference.proto\022\004furo\032\017furo/link." +
+      "proto\"G\n\tReference\022\024\n\014display_name\030\001 \001(\t" +
+      "\022\n\n\002id\030\002 \001(\t\022\030\n\004link\030\003 \001(\0132\n.furo.Linkb\006" +
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1502,13 +1064,15 @@ public final class ReferenceOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          furo.LinkOuterClass.getDescriptor(),
         }, assigner);
     internal_static_furo_Reference_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_furo_Reference_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_Reference_descriptor,
-        new java.lang.String[] { "DisplayName", "Href", "Id", "Method", "Rel", "Type", });
+        new java.lang.String[] { "DisplayName", "Id", "Link", });
+    furo.LinkOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

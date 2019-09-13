@@ -65,13 +65,6 @@
             "type": "string"
           },
           {
-            "name": "data.owner.href",
-            "description": "link.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "data.owner.id",
             "description": "Id of the reference.",
             "in": "query",
@@ -79,21 +72,28 @@
             "type": "string"
           },
           {
-            "name": "data.owner.method",
-            "description": "method of curl GET, POST, PUT, PATCH, DELETE.",
+            "name": "data.owner.link.href",
+            "description": "link.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "data.owner.rel",
+            "name": "data.owner.link.method",
+            "description": "method of curl.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.link.rel",
             "description": "the relationship.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "data.owner.type",
+            "name": "data.owner.link.type",
             "description": "mime type.",
             "in": "query",
             "required": false,
@@ -227,7 +227,7 @@
     },
     "/mockdata/tasks/{tsk}/update.json": {
       "get": {
-        "summary": "Updates a Task, partial updates are supported",
+        "summary": "Updates a Task, partial updates are not supported",
         "operationId": "UpdateTask",
         "responses": {
           "200": {
@@ -281,13 +281,6 @@
             "type": "string"
           },
           {
-            "name": "data.owner.href",
-            "description": "link.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "data.owner.id",
             "description": "Id of the reference.",
             "in": "query",
@@ -295,21 +288,28 @@
             "type": "string"
           },
           {
-            "name": "data.owner.method",
-            "description": "method of curl GET, POST, PUT, PATCH, DELETE.",
+            "name": "data.owner.link.href",
+            "description": "link.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "data.owner.rel",
+            "name": "data.owner.link.method",
+            "description": "method of curl.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.link.rel",
             "description": "the relationship.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "data.owner.type",
+            "name": "data.owner.link.type",
             "description": "mime type.",
             "in": "query",
             "required": false,
@@ -398,25 +398,13 @@
           "type": "string",
           "title": "String representation of the reference"
         },
-        "href": {
-          "type": "string",
-          "title": "link"
-        },
         "id": {
           "type": "string",
           "title": "Id of the reference"
         },
-        "method": {
-          "type": "string",
-          "title": "method of curl GET, POST, PUT, PATCH, DELETE"
-        },
-        "rel": {
-          "type": "string",
-          "title": "the relationship"
-        },
-        "type": {
-          "type": "string",
-          "title": "mime type"
+        "link": {
+          "$ref": "#/definitions/furoLink",
+          "title": "Hateoas link"
         }
       },
       "title": "reference"

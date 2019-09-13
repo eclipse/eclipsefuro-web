@@ -23,7 +23,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type CreateTaskServiceRequest struct {
 	Data                 *task.Task `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
@@ -359,7 +359,7 @@ type TaskServiceClient interface {
 	GetTask(ctx context.Context, in *GetTaskServiceRequest, opts ...grpc.CallOption) (*task.TaskEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.
 	ListTasks(ctx context.Context, in *ListTaskServiceRequest, opts ...grpc.CallOption) (*task.TaskCollection, error)
-	// Updates a Task, partial updates are supported
+	// Updates a Task, partial updates are not supported
 	UpdateTask(ctx context.Context, in *UpdateTaskServiceRequest, opts ...grpc.CallOption) (*task.TaskEntity, error)
 }
 
@@ -426,7 +426,7 @@ type TaskServiceServer interface {
 	GetTask(context.Context, *GetTaskServiceRequest) (*task.TaskEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.
 	ListTasks(context.Context, *ListTaskServiceRequest) (*task.TaskCollection, error)
-	// Updates a Task, partial updates are supported
+	// Updates a Task, partial updates are not supported
 	UpdateTask(context.Context, *UpdateTaskServiceRequest) (*task.TaskEntity, error)
 }
 

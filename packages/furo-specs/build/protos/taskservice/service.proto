@@ -45,7 +45,7 @@ service TaskService {
             get: "/mockdata/tasks/list.json"
         };
     }   
-    // Updates a Task, partial updates are supported
+    // Updates a Task, partial updates are not supported
     rpc UpdateTask (UpdateTaskServiceRequest) returns (task.TaskEntity){
         //
         option (google.api.http) = {

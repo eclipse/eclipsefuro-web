@@ -77,8 +77,6 @@
       "meta": {
         "label": "Owner",
         "default": {
-          "display_name": "Owner",
-          "id": "",
           "link":{
             "rel": "list",
             "href": "/mockdata/persons/list.json",
