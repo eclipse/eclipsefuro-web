@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.15.1...@furo/util@0.16.0) (2019-09-14)
+
+
+### Features
+
+* furo-keydown ([4997d2b](https://github.com/veith/FuroBaseComponents/commit/4997d2b))
+
+
+
+
+
 ## [0.15.1](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.15.0...@furo/util@0.15.1) (2019-09-11)
 
 **Note:** Version bump only for package @furo/util
