@@ -31,7 +31,18 @@ class ViewViz extends FBP(LitElement) {
       if (key.code === "KeyV") {
         this._FBPTriggerWire("--clipboardContentRequested");
       }
+      if (key.code === "ArrowLeft") {
+        this._FBPTriggerWire("--rotateLeft");
+      }
+      if (key.code === "ArrowRight") {
+        this._FBPTriggerWire("--rotateRight");
+      }
+      if (key.code === "Backspace") {
+        this._FBPTriggerWire("--remove");
+      }
+
     });
+
   }
 
 
@@ -41,7 +52,7 @@ class ViewViz extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     // describe view-viz itself
-    this._FBPTriggerWire("--storedContent", this.shadowRoot.innerHTML);
+    this._FBPTriggerWire("--initialContent", this.shadowRoot.innerHTML);
   }
 
 
@@ -67,26 +78,19 @@ class ViewViz extends FBP(LitElement) {
             background: var(--surface);
         }
 
-        furo-button.clip {
+        .clip {
             position: absolute;
             left: 24px;
             top: 16px
         }
 
-        .navigator {
-            position: absolute;
-            left: 24px;
-            top: 64px
-        }
-
-        .navigator furo-button {
-            display: block;
-            margin-bottom: 12px;
-            min-width: 40px;
+        
+        .nav {
+            min-width: 35px;
             padding: 0;
         }
 
-        a{
+        a {
             position: absolute;
             right: 24px;
             top: 16px;
@@ -106,31 +110,33 @@ class ViewViz extends FBP(LitElement) {
     // language=HTML
     return html`
       <!-- This is the button, you see on the top left corner of the app. Everything starts with pressing this button (as long you have some content in your clipboard) -->
-      <furo-button class="clip" autofocus raised primary @-click="--clipboardContentRequested">render from clippboard
-      </furo-button>
+      <div class="clip">
+        <furo-button  autofocus raised primary @-click="--clipboardContentRequested">render from clippboard</furo-button>
+        <furo-button class="nav" raised  label="◀" @-click="--rotateLeft"></furo-button>
+        <furo-button class="nav" raised  label="▶" @-click="--rotateRight"></furo-button>
+        <furo-button class="nav" raised  label="✘" @-click="--remove"></furo-button>
+      </div>
+      
       <!-- The help button ot the top right side just links to /man. Thats all. -->
       <a href="/man">
         <furo-button outline>help</furo-button>
       </a>
       <!-- The nav event is fired from the repeated content and contains the pasted contents -->
-      <div class="navigator" @-nav="--storedContent">
-        <!-- Repeat the stack to fire a nav event with the current item. You can only see what is defined in the current component. For documentation purposes, this is the content of the template:  
-<furo-button raised ƒ-.label="--index" @-click="^^nav(item)"></furo-button>   -->
-        <template is="flow-repeat" ƒ-inject-items="--stackChanged">
-          <furo-button raised ƒ-.label="--index" @-click="^^nav(item)"></furo-button>
-        </template>
-      </div>
+    
       
       <!-- This component shows the graphed flow of the injected content. -->
       <furo-show-flow id="flow" ƒ-request-fullscreen="--fullscreenRequested"
-                      ƒ-parse-html="--clipboardContent, --storedContent"></furo-show-flow>
+                      ƒ-parse-html="--stackChanged, --initialContent"></furo-show-flow>
 
       <!-- read the content from clipboard -->
       <furo-get-clipboard ƒ-trigger="--clipboardContentRequested" @-content="--clipboardContent"></furo-get-clipboard>
+      
       <!-- keypress wire comes from event listener in constructor -->
       <furo-key-filter ƒ-filter="--keypress" @-matched="--fullscreenRequested" keys="f"></furo-key-filter>
-      <!-- Misuse the stack as storage for clipboard contents -->
-      <furo-forth-stack ƒ-put="--clipboardContent" @-stack-changed="--stackChanged"></furo-forth-stack>
+      
+      <!-- use the stack as storage for clipboard contents -->
+      <furo-forth-stack ƒ-put="--clipboardContent" ƒ-drop="--remove" ƒ-rot="--rotateLeft" ƒ-rrot="--rotateRight"
+                        @-stack-changed="--stackChanged"></furo-forth-stack>
     `;
   }
 }

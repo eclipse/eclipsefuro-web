@@ -69,7 +69,8 @@ class ManPage extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <h1>man viz.furo.pro</h1>
+      <h1>man viz.furo.pro </h1>
+      <p><strong>v 1.5.1</strong></p>
       <p>With viz.furo.pro you can inspect fbp flows. You can paste in the template from your source code or paste
         live flows from your running apps.</p>
       <p>When you start the app, you will see the current flow of viz.furo.pro itself.</p>
@@ -110,7 +111,8 @@ class ManPage extends FBP(LitElement) {
       <h2>Keyboard shortcuts</h2>
       <p><strong>f</strong> on the buttons toggles the fullscreen mode. Press "esc" to get back.</p>
       <p><strong>ctrl v</strong> or <strong>cmd v</strong> renders the clipboard content.</p>
-      <p><strong>enter</strong> on the navigation buttons [0...n] re renders the last pasted content.</p>
+      <p><strong>enter</strong> on the navigation buttons or arrow-left, arrow-right ◀, ▶ re renders the last pasted content.</p>
+      <p><strong>enter</strong> on the ✘ button or Backspace removes the current view.</p>
       <p><strong>enter</strong> on the parse button renders the clipboard content.</p>
 
       <h2>Mouse controls</h2>
