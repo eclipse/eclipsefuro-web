@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/veith/FuroBaseComponents/compare/@furo/logic@0.5.0...@furo/logic@0.5.1) (2019-09-14)
+
+
+### Bug Fixes
+
+* furo-forth-stack swap notifies twice corrected ([1c92066](https://github.com/veith/FuroBaseComponents/commit/1c92066))
+
+
+
+
+
 # [0.5.0](https://github.com/veith/FuroBaseComponents/compare/@furo/logic@0.4.1...@furo/logic@0.5.0) (2019-09-14)
 
 
