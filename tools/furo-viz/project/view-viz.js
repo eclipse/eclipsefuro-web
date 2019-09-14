@@ -8,7 +8,7 @@ import "@furo/doc-helper/graph/furo-show-flow"
 import "@furo/util/furo-get-clipboard"
 import "@furo/util/furo-key-filter"
 import "@furo/logic/furo-forth-stack"
-
+import "../furo-keydown"
 
 /**
  * `view-viz`
@@ -20,31 +20,6 @@ import "@furo/logic/furo-forth-stack"
  */
 class ViewViz extends FBP(LitElement) {
 
-  constructor() {
-    super();
-    this.addEventListener("keypress", (key) => {
-      if (key.code === "KeyF") {
-        this._FBPTriggerWire("--keypress", key);
-      }
-    });
-    this.addEventListener("keydown", (key) => {
-      if (key.code === "KeyV") {
-        this._FBPTriggerWire("--clipboardContentRequested");
-      }
-      if (key.code === "ArrowLeft") {
-        this._FBPTriggerWire("--rotateLeft");
-      }
-      if (key.code === "ArrowRight") {
-        this._FBPTriggerWire("--rotateRight");
-      }
-      if (key.code === "Backspace") {
-        this._FBPTriggerWire("--remove");
-      }
-
-    });
-
-  }
-
 
   /**
    * flow is ready lifecycle method
@@ -52,7 +27,7 @@ class ViewViz extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     // describe view-viz itself
-    this._FBPTriggerWire("--initialContent", this.shadowRoot.innerHTML);
+    this._FBPTriggerWire("--stackChanged", this.shadowRoot.innerHTML);
   }
 
 
@@ -112,31 +87,38 @@ class ViewViz extends FBP(LitElement) {
       <!-- This is the button, you see on the top left corner of the app. Everything starts with pressing this button (as long you have some content in your clipboard) -->
       <div class="clip">
         <furo-button  autofocus raised primary @-click="--clipboardContentRequested">render from clippboard</furo-button>
-        <furo-button class="nav" raised  label="◀" @-click="--rotateLeft"></furo-button>
-        <furo-button class="nav" raised  label="▶" @-click="--rotateRight"></furo-button>
-        <furo-button class="nav" raised  label="✘" @-click="--remove"></furo-button>
+        <furo-keydown global key="v" @-key="--clipboardContentRequested"></furo-keydown>
+        
+        <furo-button class="nav" raised  label="◀" @-click="--arrowLeft"></furo-button>
+        <furo-keydown global key="ArrowLeft" @-key="--arrowLeft"></furo-keydown>
+        
+        <furo-button class="nav" raised  label="▶" @-click="--arrowRight"></furo-button>
+        <furo-keydown global key="ArrowRight" @-key="--arrowRight"></furo-keydown>
+        
+        <furo-button class="nav" raised  label="✘" @-click="--Backspace"></furo-button>
+        <furo-keydown global key="Backspace" @-key="--Backspace"></furo-keydown>
+        
       </div>
       
       <!-- The help button ot the top right side just links to /man. Thats all. -->
       <a href="/man">
         <furo-button outline>help</furo-button>
       </a>
-      <!-- The nav event is fired from the repeated content and contains the pasted contents -->
-    
+
+      <!-- use the stack as storage for clipboard contents -->
+      <furo-forth-stack ƒ-put="--clipboardContent" ƒ-rot="--arrowLeft" ƒ-rrot="--arrowRight" ƒ-drop="--Backspace"
+                        @-stack-changed="--stackChanged"></furo-forth-stack>
       
       <!-- This component shows the graphed flow of the injected content. -->
-      <furo-show-flow id="flow" ƒ-request-fullscreen="--fullscreenRequested"
-                      ƒ-parse-html="--stackChanged, --initialContent"></furo-show-flow>
-
+      <furo-show-flow id="flow" ƒ-request-fullscreen="--keyF"
+                      ƒ-parse-html="--stackChanged"></furo-show-flow>
+      
       <!-- read the content from clipboard -->
       <furo-get-clipboard ƒ-trigger="--clipboardContentRequested" @-content="--clipboardContent"></furo-get-clipboard>
       
-      <!-- keypress wire comes from event listener in constructor -->
-      <furo-key-filter ƒ-filter="--keypress" @-matched="--fullscreenRequested" keys="f"></furo-key-filter>
-      
-      <!-- use the stack as storage for clipboard contents -->
-      <furo-forth-stack ƒ-put="--clipboardContent" ƒ-drop="--remove" ƒ-rot="--rotateLeft" ƒ-rrot="--rotateRight"
-                        @-stack-changed="--stackChanged"></furo-forth-stack>
+
+      <furo-keydown global key="f" @-key="--keyF"></furo-keydown>
+
     `;
   }
 }
