@@ -26,6 +26,7 @@ class FuroForthStack extends (LitElement) {
   }
 
   set size(val) {
+    if (this._size !== val) {
     this._size = val;
     /**
      * @event stack-size-changed
@@ -35,16 +36,8 @@ class FuroForthStack extends (LitElement) {
     let customEvent = new Event('stack-size-changed', {composed: true, bubbles: true});
     customEvent.detail = val;
     this.dispatchEvent(customEvent);
-
-    /**
-     * @event stack-changed
-     * Fired when the stack contents changes after put, drop,...
-     *
-     * detail payload: the stack
-     */
-    let stackEvent = new Event('stack-changed', {composed: true, bubbles: true});
-    stackEvent.detail = this._stack;
-    this.dispatchEvent(stackEvent)
+      this._notifyStackChange();
+    }
   }
 
   /**
@@ -79,13 +72,16 @@ class FuroForthStack extends (LitElement) {
    *
    */
   swap() {
+    if (this._stack.length > 1) {
     this._move(this._stack, this._stack.length - 1, this._stack.length - 2);
     /**
      * Fired when stack was swapped
      * @event swapped
      */
     let customEvent = new Event('swapped', {composed: true, bubbles: false});
-    this.dispatchEvent(customEvent)
+      this.dispatchEvent(customEvent);
+      this._notifyStackChange();
+    }
   }
 
   /**
@@ -166,12 +162,43 @@ class FuroForthStack extends (LitElement) {
     } else {
       this.swap();
     }
+    if (this._stack.length > 1) {
     /**
      * Fired when stack was rotated
      * @event rotated
      */
     let customEvent = new Event('rotated', {composed: true, bubbles: false});
-    this.dispatchEvent(customEvent)
+      customEvent.detail = this._stack[this._stack.length - 1];
+      this.dispatchEvent(customEvent);
+    }
+  }
+
+  /**
+   * rrot **( n1 n2 n3 -- n3 n1 n2 )**
+   *
+   *    Reverse rotation or right rotation rrot “rotates” the elements of the stack inverse to rot.
+   *    The top elemen the stack gets moved to the bottom of the stack.
+   *
+   *    1 2 3 rot
+   *    gives you:
+   *
+   *    2 3* 1 <- Top
+   */
+  rrot() {
+    if (this._stack.length >= 3) {
+      this._move(this._stack, this._stack.length - 1, 0);
+    } else {
+      this.swap();
+    }
+    if (this._stack.length > 1) {
+      /**
+       * Fired when stack was rotated
+       * @event rotated
+       */
+      let customEvent = new Event('rotated', {composed: true, bubbles: false});
+      customEvent.detail = this._stack[this._stack.length - 1];
+      this.dispatchEvent(customEvent);
+    }
   }
 
   /**
@@ -185,6 +212,19 @@ class FuroForthStack extends (LitElement) {
     var e = arr[fromIndex];
     arr.splice(fromIndex, 1);
     arr.splice(toIndex, 0, e);
+    this._notifyStackChange();
+  }
+
+  _notifyStackChange() {
+    /**
+     * @event stack-changed
+     * Fired when the stack contents changes after put, drop,...
+     *
+     * detail payload: the top element
+     */
+    let stackEvent = new Event('stack-changed', {composed: true, bubbles: true});
+    stackEvent.detail = this._stack[this._stack.length - 1];
+    this.dispatchEvent(stackEvent);
   }
 }
 
