@@ -9,6 +9,7 @@ import "@furo/util/furo-get-clipboard"
 import "@furo/util/furo-key-filter"
 import "@furo/util/furo-keydown"
 import "@furo/logic/furo-forth-stack"
+import "./viz-nav"
 
 
 /**
@@ -16,7 +17,6 @@ import "@furo/logic/furo-forth-stack"
  * Visualize your flow
  *
  * @customElement
- * @demo demo/view-viz.html
  * @appliesMixin FBP
  */
 class ViewViz extends FBP(LitElement) {
@@ -54,25 +54,13 @@ class ViewViz extends FBP(LitElement) {
             background: var(--surface);
         }
 
-        .clip {
+        viz-nav {
             position: absolute;
             left: 24px;
-            top: 16px
-        }
-
-        
-        .nav {
-            min-width: 35px;
-            padding: 0;
-        }
-
-        a {
-            position: absolute;
-            right: 24px;
             top: 16px;
-            outline: none;
+            right:24px;
         }
-
+        
     `
   }
 
@@ -85,29 +73,11 @@ class ViewViz extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <!-- This is the button, you see on the top left corner of the app. Everything starts with pressing this button (as long you have some content in your clipboard) -->
-      <div class="clip">
-        <furo-button  autofocus raised primary @-click="--clipboardContentRequested">render from clippboard</furo-button>
-        <furo-keydown global key="v" @-key="--clipboardContentRequested"></furo-keydown>
-        
-        <furo-button class="nav" raised  label="◀" @-click="--arrowLeft"></furo-button>
-        <furo-keydown global key="ArrowLeft" @-key="--arrowLeft"></furo-keydown>
-        
-        <furo-button class="nav" raised  label="▶" @-click="--arrowRight"></furo-button>
-        <furo-keydown global key="ArrowRight" @-key="--arrowRight"></furo-keydown>
-        
-        <furo-button class="nav" raised  label="✘" @-click="--Backspace"></furo-button>
-        <furo-keydown global key="Backspace" @-key="--Backspace"></furo-keydown>
-        
-      </div>
+        <!-- The navigation bar on top of the screen -->
+      <viz-nav @-arrow-right="--arrowRight" @-arrow-left="--arrowLeft" @-delete-current="--deleteCurrentViz" @-clipboard-requested="--clipboardContentRequested"></viz-nav>
       
-      <!-- The help button ot the top right side just links to /man. Thats all. -->
-      <a href="/man">
-        <furo-button outline>help</furo-button>
-      </a>
-
       <!-- use the stack as storage for clipboard contents -->
-      <furo-forth-stack ƒ-put="--clipboardContent" ƒ-rot="--arrowLeft" ƒ-rrot="--arrowRight" ƒ-drop="--Backspace"
+      <furo-forth-stack ƒ-put="--clipboardContent" ƒ-rot="--arrowLeft" ƒ-rrot="--arrowRight" ƒ-drop="--deleteCurrentViz"
                         @-stack-changed="--stackChanged"></furo-forth-stack>
       
       <!-- This component shows the graphed flow of the injected content. -->
@@ -117,8 +87,8 @@ class ViewViz extends FBP(LitElement) {
       <!-- read the content from clipboard -->
       <furo-get-clipboard ƒ-trigger="--clipboardContentRequested" @-content="--clipboardContent"></furo-get-clipboard>
       
-
-      <furo-keydown global key="f" @-key="--keyF"></furo-keydown>
+      <!-- Listen to the f key to turn on fullscreen -->
+      <furo-keydown  key="f" @-key="--keyF"></furo-keydown>
 
     `;
   }

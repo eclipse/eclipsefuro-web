@@ -70,7 +70,7 @@ class ManPage extends FBP(LitElement) {
     // language=HTML
     return html`
       <h1>man viz.furo.pro </h1>
-      <p><strong>v 1.6.0</strong></p>
+      <p><strong>v 1.6.1</strong></p>
       <p>With viz.furo.pro you can inspect fbp flows. You can paste in the template from your source code or paste
         live flows from your running apps.</p>
       <p>When you start the app, you will see the current flow of viz.furo.pro itself.</p>
