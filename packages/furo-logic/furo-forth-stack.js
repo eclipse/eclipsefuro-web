@@ -80,7 +80,6 @@ class FuroForthStack extends (LitElement) {
      */
     let customEvent = new Event('swapped', {composed: true, bubbles: false});
       this.dispatchEvent(customEvent);
-      this._notifyStackChange();
     }
   }
 

@@ -7,8 +7,9 @@ import "@furo/layout/furo-icon"
 import "@furo/doc-helper/graph/furo-show-flow"
 import "@furo/util/furo-get-clipboard"
 import "@furo/util/furo-key-filter"
+import "@furo/util/furo-keydown"
 import "@furo/logic/furo-forth-stack"
-import "../furo-keydown"
+
 
 /**
  * `view-viz`
