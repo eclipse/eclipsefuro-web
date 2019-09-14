@@ -76,7 +76,7 @@ class ViewViz extends FBP(LitElement) {
         <!-- The navigation bar on top of the screen -->
       <viz-nav @-arrow-right="--arrowRight" @-arrow-left="--arrowLeft" @-delete-current="--deleteCurrentViz" @-clipboard-requested="--clipboardContentRequested"></viz-nav>
       
-      <!-- use the stack as storage for clipboard contents -->
+      <!-- Even the stack was built for mathematical operation, we use the stack as storage for clipboard contents -->
       <furo-forth-stack ƒ-put="--clipboardContent" ƒ-rot="--arrowLeft" ƒ-rrot="--arrowRight" ƒ-drop="--deleteCurrentViz"
                         @-stack-changed="--stackChanged"></furo-forth-stack>
       
