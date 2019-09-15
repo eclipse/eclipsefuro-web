@@ -1415,11 +1415,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 68,
               "column": 4
             },
             "end": {
-              "line": 65,
+              "line": 71,
               "column": 5
             }
           },
@@ -1439,11 +1439,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 73,
               "column": 4
             },
             "end": {
-              "line": 69,
+              "line": 75,
               "column": 5
             }
           },
@@ -1469,11 +1469,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 75,
+              "line": 81,
               "column": 4
             },
             "end": {
-              "line": 87,
+              "line": 93,
               "column": 5
             }
           },
@@ -1489,11 +1489,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 99,
               "column": 4
             },
             "end": {
-              "line": 103,
+              "line": 109,
               "column": 5
             }
           },
@@ -1513,7 +1513,7 @@
           "column": 0
         },
         "end": {
-          "line": 105,
+          "line": 111,
           "column": 1
         }
       },
@@ -1541,7 +1541,7 @@
       "events": [
         {
           "type": "CustomEvent",
-          "name": "up",
+          "name": "descending",
           "description": "Toggle state",
           "metadata": {}
         }
