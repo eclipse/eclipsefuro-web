@@ -19,6 +19,7 @@ export class FuroTreeItem extends FBP(LitElement) {
   constructor() {
     super();
     this.hidden = true;
+    this.isGroupLabel = false;
   }
 
 
@@ -70,7 +71,8 @@ export class FuroTreeItem extends FBP(LitElement) {
       inedit: {type: Boolean, reflect: true},
       haserror: {type: Boolean, reflect: true},
       selected: {type: Boolean, reflect: true},
-      noicon: {type: Boolean}
+      noicon: {type: Boolean},
+      isGroupLabel: {type: Boolean, reflect: true, attribute: "is-group-label"}
 
     };
   }
@@ -114,6 +116,10 @@ export class FuroTreeItem extends FBP(LitElement) {
   bindData(fieldNode) {
     this.fieldNode = fieldNode;
     this.fieldNode._isHidden = true;
+    this.isGroupLabel = fieldNode.is_group_label.value;
+    if (!fieldNode.icon.value) {
+      this.noicon = true
+    }
 
     // reflect visible close state to attr
     this.fieldNode.addEventListener("ancestor-invisible", (e) => {
@@ -176,7 +182,13 @@ export class FuroTreeItem extends FBP(LitElement) {
     //this._FBPTraceWires()
 
     this._FBPAddWireHook("--labelClicked", (e) => {
+      if(this.isGroupLabel){
+        // just toggle if this is a label
+        this.fieldNode.open.value = !this.fieldNode.open.value;
+      }else{
       this.fieldNode.selectItem();
+      }
+
     });
 
     this.fieldNode.addEventListener("tree-node-unselection-requested", (e) => {
@@ -320,6 +332,17 @@ export class FuroTreeItem extends FBP(LitElement) {
                 fill: var(--on-primary, #46150f);
             }
 
+        }
+
+        :host([is-group-label]) {
+            border-top: 1px solid var(--separator,#cdcdcd);
+        }
+
+        :host([is-group-label]) .label {
+            font-weight: 500;
+            font-size: 11px;
+            color:var(--separator,#cdcdcd);
+            text-transform: uppercase;
         }
 
     `
