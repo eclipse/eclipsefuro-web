@@ -5,6 +5,8 @@ import {FBP} from "@furo/fbp";
  * `furo-key-press`
  *  Listen to keypress events on parent element
  *
+ *  [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)
+ *
  * @summary keypress listener
  * @customElement
  * @demo demo-furo-key-press
