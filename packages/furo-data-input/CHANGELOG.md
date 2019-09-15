@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.19](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.18...@furo/data-input@0.48.19) (2019-09-15)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
 ## [0.48.18](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.17...@furo/data-input@0.48.18) (2019-09-14)
 
 **Note:** Version bump only for package @furo/data-input

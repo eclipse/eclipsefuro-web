@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.54.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.53.1...@furo/data@0.54.0) (2019-09-15)
+
+
+### Bug Fixes
+
+* ref search ([f267c97](https://github.com/veith/FuroBaseComponents/commit/f267c97))
+
+
+### Features
+
+* using recursive types is now possible ([e27354a](https://github.com/veith/FuroBaseComponents/commit/e27354a))
+
+
+
+
+
 ## [0.53.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.53.0...@furo/data@0.53.1) (2019-09-11)
 
 **Note:** Version bump only for package @furo/data

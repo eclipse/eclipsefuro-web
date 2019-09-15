@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.20.0...@furo/specs@0.21.0) (2019-09-15)
+
+
+### Features
+
+* using recursive types is now possible ([e27354a](https://github.com/veith/FuroBaseComponents/commit/e27354a))
+
+
+
+
+
 # [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.19.3...@furo/specs@0.20.0) (2019-09-14)
 
 
