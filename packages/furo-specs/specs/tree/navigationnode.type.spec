@@ -95,6 +95,16 @@
         "number": 10
       }
     },
+    "is_group_label": {
+      "description": "This node is a group label",
+      "type": "bool",
+      "meta": {
+        "default": false
+      },
+      "__proto": {
+        "number": 11
+      }
+    },
     "children": {
       "description": "Children of this node",
       "type": "tree.Navigationnode",
@@ -102,7 +112,7 @@
         "repeated": true
       },
       "__proto": {
-        "number": 11
+        "number": 12
       }
     }
 
