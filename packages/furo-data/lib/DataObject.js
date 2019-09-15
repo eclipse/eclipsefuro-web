@@ -12,6 +12,7 @@ export class DataObject extends EventTreeNode {
 
     this.__specdefinitions = specs;
     this._spec = this.__specdefinitions[type];
+    this._type = type;
 
     this._initFieldsFromSpec(this, this._spec.fields);
 
@@ -83,6 +84,9 @@ export class DataObject extends EventTreeNode {
     }
   }
 
+  _hasAncestorOfType(type){
+    return this._type === type;
+  }
   /**
    * Inits the EntityNode
    */

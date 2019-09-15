@@ -9,15 +9,19 @@ export class FieldNode extends EventTreeNode {
     this.__specdefinitions = parentNode.__specdefinitions;
 
     this._spec = fieldSpec;
-    if(this._spec.meta){
+    if (this._spec.meta) {
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
-    }else{
-      this._meta = function (){return {}}();
+    } else {
+      this._meta = function () {
+        return {}
+      }();
     }
-    if(this._spec.constraints){
+    if (this._spec.constraints) {
       this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
-    }else{
-      this._constraints = function (){return {}}();
+    } else {
+      this._constraints = function () {
+        return {}
+      }();
     }
 
     this._name = fieldName;
@@ -26,17 +30,15 @@ export class FieldNode extends EventTreeNode {
     this._isValid = true;
 
 
-    switch (this._spec.type) {
-      case "Object":
-        this._value = {};
-        break;
-      case "Array":
-        this._value = [];
-        break;
-    }
     // Build custom type if a spec exists
     if (this.__specdefinitions[this._spec.type] !== undefined) {
-      this._createVendorType(this._spec.type);
+      // check for recursion
+
+      if (!this.__parentNode._hasAncestorOfType(this._spec.type)) {
+        this._createVendorType(this._spec.type);
+      } else {
+        this._isRecursion = true;
+      }
     }
 
     // set default value from meta
@@ -63,6 +65,18 @@ export class FieldNode extends EventTreeNode {
     });
   }
 
+  /**
+   * infinite recursive element protection
+   */
+  _hasAncestorOfType(type) {
+    if (this._type === type) {
+      return true;
+    } else {
+      return this.__parentNode._hasAncestorOfType(type);
+    }
+  }
+
+
   _createVendorType(type) {
     if (this.__specdefinitions[type]) {
       for (let fieldName in this.__specdefinitions[type].fields) {
@@ -79,6 +93,11 @@ export class FieldNode extends EventTreeNode {
 
   set value(val) {
 
+    // create vendor type if this field is a recusion an was not generated
+    if (this._isRecursion && val) {
+      this._createVendorType(this._spec.type)
+    }
+
     // type any
     this._createAnyType(val);
 
@@ -94,6 +113,7 @@ export class FieldNode extends EventTreeNode {
             // we have meta declaration on this layer
             furoMetaDetected = val[field._name];
           }
+
           if (val.hasOwnProperty(field._name)) {
             field.value = val[field._name];
           }

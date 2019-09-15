@@ -98,6 +98,19 @@ message Default {
 
 }
 
+// recursive type for testing
+message Recursive {                    
+    // Localized String representation
+    string display_name = 2;
+    
+    // Identity
+    string id = 1;
+    
+    // The recursion
+    Recursive recursion = 3;
+
+}
+
 // ExperimentCollection with repeated ExperimentEntity
 message ExperimentCollection {                    
     // Contains a experiment.ExperimentEntity repeated

@@ -11,15 +11,19 @@ export class RepeaterNode extends EventTreeNode {
     this._spec = spec;
     this._name = fieldName;
 
-    if(this._spec.meta){
+    if (this._spec.meta) {
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
-    }else{
-      this._meta = function (){return {}}();
+    } else {
+      this._meta = function () {
+        return {}
+      }();
     }
-    if(this._spec.constraints){
+    if (this._spec.constraints) {
       this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
-    }else{
-      this._constraints = function (){return {}}();
+    } else {
+      this._constraints = function () {
+        return {}
+      }();
     }
 
 
@@ -66,6 +70,13 @@ export class RepeaterNode extends EventTreeNode {
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed", this.repeats, false));
   }
 
+  /**
+   * infinite recursive element protection
+   * we can return false here, because a repeater node is not created automatically
+   */
+  _hasAncestorOfType(type) {
+    return false;
+  }
 
   deleteNode() {
 

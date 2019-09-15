@@ -42,24 +42,53 @@
       await element.updateComplete;
     });
 
+    it('should be possible to create deep recursive object from data', (done) => {
+      element.setAttribute("type", "experiment.Recursive");
+
+      element.injectRaw({
+        "id": 1,
+        "display_name": "A",
+        "recursion": {
+          "id": 11,
+          "display_name": "Aa",
+          "recursion": null
+        }
+      });
+      assert.equal(element.data.display_name.value, "A");
+      assert.equal(element.data.recursion.display_name.value, "Aa");
+
+      let deep = element.data.recursion;
+      deep.recursion.value = {"display_name": "Aaa"};
+      assert.equal(element.data.recursion.recursion.display_name.value, "Aaa");
+
+      done();
+    });
+
+    it('should create a recursive data object from spec without stack overflow', (done) => {
+      element.setAttribute("type", "experiment.Recursive");
+
+      done();
+    });
+
+
     it('should have the default value setted', (done) => {
       element.setAttribute("type", "experiment.Default");
-      assert.equal(element.data.description.value,"Ein text per default");
+      assert.equal(element.data.description.value, "Ein text per default");
 
       element.data.repstring.add();
-      assert.equal(element.data._pristine,false);
-      assert.equal(element.data.repstring.repeats[0].value,"Ein text per default");
+      assert.equal(element.data._pristine, false);
+      assert.equal(element.data.repstring.repeats[0].value, "Ein text per default");
       element.data.repstring.add("new");
 
-      assert.equal(element.data.repstring.repeats[1].value,"new");
+      assert.equal(element.data.repstring.repeats[1].value, "new");
       done();
     });
 
     it('should print out the type on toString', (done) => {
       element.setAttribute("type", "project.ProjectEntity");
-      assert.equal(element.data.toString(),"ProjectEntity");
-      element.data.data.display_name.value ="yes";
-      assert.equal(element.data.data.display_name.toString(),'yes');
+      assert.equal(element.data.toString(), "ProjectEntity");
+      element.data.data.display_name.value = "yes";
+      assert.equal(element.data.data.display_name.toString(), 'yes');
 
       done();
     });
@@ -88,7 +117,7 @@
         assert.equal(element.json.data.display_name, response.data.display_name);
         p.then((ObjectDataRoot) => {
           let EntityRoot = ObjectDataRoot.data;
-          assert.equal(EntityRoot , element.data.data);
+          assert.equal(EntityRoot, element.data.data);
           element.data.data.display_name._meta.label = "Something";
 
           element.init();
@@ -177,7 +206,7 @@
       element.type = "unknown";
       assert.equal(element._type, undefined);
       element.type = "project.ProjectEntity";
-      assert.equal(element._type,  "project.ProjectEntity");
+      assert.equal(element._type, "project.ProjectEntity");
       done();
     });
     it('should be possible to get the --json value-- of any node', (done) => {
@@ -191,7 +220,7 @@
 
           EntityRoot.members.add(val[0]);
           // set on the repeats
-          EntityRoot.members.repeats[1].first_name.value="Kyra";
+          EntityRoot.members.repeats[1].first_name.value = "Kyra";
           // read on value
           assert.equal(EntityRoot.members.value[0].first_name, "John");
           assert.equal(EntityRoot.members.value[1].first_name, "Kyra");
@@ -211,7 +240,7 @@
 
           assert.equal(ObjectDataRoot._pristine, true);
           let EntityRoot = ObjectDataRoot.data;
-          EntityRoot.members.repeats[0].first_name.value= "new";
+          EntityRoot.members.repeats[0].first_name.value = "new";
           assert.equal(ObjectDataRoot._pristine, false);
 
           done();
@@ -228,8 +257,8 @@
           assert.equal(ObjectDataRoot._isValid, true);
           let EntityRoot = ObjectDataRoot.data;
 
-          EntityRoot.members.repeats[0].first_name._setInvalid({message:"this first name does not exist"});
-          EntityRoot.members.repeats[0].display_name._setInvalid({message:"this first name does not exist"});
+          EntityRoot.members.repeats[0].first_name._setInvalid({message: "this first name does not exist"});
+          EntityRoot.members.repeats[0].display_name._setInvalid({message: "this first name does not exist"});
           assert.equal(ObjectDataRoot._isValid, false);
           EntityRoot.members.repeats[0].first_name._clearInvalidity();
           assert.equal(ObjectDataRoot._isValid, false);
@@ -249,7 +278,7 @@
           assert.equal(ObjectDataRoot._isValid, true);
           let EntityRoot = ObjectDataRoot.data;
 
-          EntityRoot.members.repeats[0].first_name._setInvalid({message:"this first name does not exist"});
+          EntityRoot.members.repeats[0].first_name._setInvalid({message: "this first name does not exist"});
           assert.equal(ObjectDataRoot._isValid, false);
           done();
         });
@@ -332,7 +361,7 @@
             element.removeEventListener("data-changed", handler);
             done();
           };
-          element.addEventListener("data-changed", handler,true);
+          element.addEventListener("data-changed", handler, true);
 
           EntityRoot.members.repeats[0].first_name.value = "Lysander";
         });
@@ -421,7 +450,6 @@
       };
       element.addEventListener("object-ready", handler);
     });
-
 
 
   });
