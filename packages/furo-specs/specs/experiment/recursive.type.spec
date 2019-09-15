@@ -32,7 +32,7 @@
         "label": "experiment",
         "default": "",
         "hint": "",
-        "readonly": true
+        "readonly": false
       },
       "constraints": {},
       "__proto": {
@@ -43,7 +43,7 @@
       "description": "The recursion",
       "type": "experiment.Recursive",
       "meta": {
-        "label": "Description"
+        "label": "Recursio"
       },
       "constraints": {},
       "__proto": {

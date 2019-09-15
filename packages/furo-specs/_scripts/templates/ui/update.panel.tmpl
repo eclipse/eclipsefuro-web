@@ -29,6 +29,7 @@ export class {{.class_name}} extends FBP(BasePanel) {
                     background-color: var(--surface-light);
                     color: var(--on-surface);
                     padding-top: var(--spacing);
+                    box-sizing:border-box;
                 }
 
                 :host([hidden]) {
@@ -50,7 +51,7 @@ export class {{.class_name}} extends FBP(BasePanel) {
         // language=HTML
         return html`
           {{"<" | noescape}}furo-vertical-flex>
-            {{"<" | noescape}}furo-card>
+            {{"<" | noescape}}furo-card{{if .title}} title="${i18n.t("{{.title}}")}"{{end}}{{if .secondary_text}} secondary-text="${i18n.t("{{.secondary_text}}")}"{{end}}>
 
               {{"<" | noescape}}{{.form.name}}{{range $flag := .form.flags}} {{$flag}}{{end}} {{range $attr := .form.attrs}} {{$attr.name}}="{{$attr.value}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
             </furo-card>
