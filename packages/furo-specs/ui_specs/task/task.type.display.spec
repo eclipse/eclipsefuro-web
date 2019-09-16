@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "DisplayBaseTheme",
   "class_name": "TaskTaskDisplay",
   "component_name": "task-task-display",

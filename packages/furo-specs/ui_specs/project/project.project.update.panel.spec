@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "PanelBaseTheme",
   "class_name": "ProjectProjectUpdatePanel",
   "component_name": "project-project-update-panel",

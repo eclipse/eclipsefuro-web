@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "ReferenceBaseTheme",
   "class_name": "TreeTreeReferenceSearch",
   "component_name": "tree-tree-reference-search",

@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "ActionBaseTheme",
   "class_name": "TreeTreeUpdateAction",
   "component_name": "tree-tree-update-action",

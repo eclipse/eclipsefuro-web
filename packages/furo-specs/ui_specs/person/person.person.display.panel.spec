@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "PanelBaseTheme",
   "class_name": "PersonPersonDisplayPanel",
   "component_name": "person-person-display-panel",

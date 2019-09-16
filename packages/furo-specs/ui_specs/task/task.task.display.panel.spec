@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "PanelBaseTheme",
   "class_name": "TaskTaskDisplayPanel",
   "component_name": "task-task-display-panel",

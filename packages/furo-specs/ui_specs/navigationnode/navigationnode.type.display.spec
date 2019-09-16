@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "DisplayBaseTheme",
   "class_name": "TreeNavigationnodeDisplay",
   "component_name": "tree-navigationnode-display",
@@ -91,6 +92,16 @@
         },
         {
           "field": "link",
+          "component": "furo-data-display",
+          "flags": [
+            "condensed",
+            "double",
+            "noborder"
+          ],
+          "attrs": []
+        },
+        {
+          "field": "is_group_label",
           "component": "furo-data-display",
           "flags": [
             "condensed",

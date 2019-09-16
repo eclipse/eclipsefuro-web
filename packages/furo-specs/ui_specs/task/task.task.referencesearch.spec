@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "ReferenceBaseTheme",
   "class_name": "TaskTaskReferenceSearch",
   "component_name": "task-task-reference-search",

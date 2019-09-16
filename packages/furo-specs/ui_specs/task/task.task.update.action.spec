@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "ActionBaseTheme",
   "class_name": "TaskTaskUpdateAction",
   "component_name": "task-task-update-action",

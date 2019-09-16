@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "DisplayBaseTheme",
   "class_name": "ExperimentRecursiveDisplay",
   "component_name": "experiment-recursive-display",

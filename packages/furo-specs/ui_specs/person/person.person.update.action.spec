@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "ActionBaseTheme",
   "class_name": "PersonPersonUpdateAction",
   "component_name": "person-person-update-action",

@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "ReferenceBaseTheme",
   "class_name": "ProjectProjectReferenceSearch",
   "component_name": "project-project-reference-search",

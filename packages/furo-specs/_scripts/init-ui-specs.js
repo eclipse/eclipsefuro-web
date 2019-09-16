@@ -89,10 +89,10 @@ typelist.forEach((pathToTypeSpec) => {
       "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
     };
 
-    if(field.type === "furo.Reference"){
-      if(field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type){
+    if (field.type === "furo.Reference") {
+      if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
         let t = field.meta.default.link.type;
-        fld.component = t.toLowerCase().replace(".","-") + "-reference-search";
+        fld.component = t.toLowerCase().replace(".", "-") + "-reference-search";
         formSpec.imports.push("../" + t.split(".")[0] + "/" + fld.component);
 
       }
@@ -108,6 +108,14 @@ typelist.forEach((pathToTypeSpec) => {
   let target = PKGDIR + "/" + t.join(".") + ".form.spec";
   if (!fs.existsSync(target)) {
     fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
+  } else {
+    // open file and check for "_writeprotection": false,
+    let f = JSON.parse(fs.readFileSync(target));
+    if (f._writeprotection === false) {
+      fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
+    } else {
+      console.log("skip " + target);
+    }
   }
 
   formSpec.class_name = spec.__proto.package + spec.type + "CreateForm";
@@ -138,7 +146,13 @@ typelist.forEach((pathToTypeSpec) => {
   if (!fs.existsSync(target)) {
     fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
   } else {
-    console.log("skip " + target);
+    // open file and check for "_writeprotection": false,
+    let f = JSON.parse(fs.readFileSync(target));
+    if (f._writeprotection === false) {
+      fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
+    } else {
+      console.log("skip " + target);
+    }
   }
 
 
@@ -177,6 +191,14 @@ typelist.forEach((pathToTypeSpec) => {
   target = PKGDIR + "/" + t.join(".") + ".display.spec";
   if (!fs.existsSync(target)) {
     fs.writeFileSync(target, JSON.stringify(displaySpec, null, 2));
+  } else {
+    // open file and check for "_writeprotection": false,
+    let f = JSON.parse(fs.readFileSync(target));
+    if (f._writeprotection === false) {
+      fs.writeFileSync(target, JSON.stringify(displaySpec, null, 2));
+    } else {
+      console.log("skip " + target);
+    }
   }
 
 
@@ -217,6 +239,14 @@ servicelist.forEach((pathToService) => {
     let target = PKGDIR + "/" + serviceSpec.services.Update.data.request.toLowerCase() + ".update.panel.spec";
     if (!fs.existsSync(target)) {
       fs.writeFileSync(target, JSON.stringify(updatespec, null, 2));
+    } else {
+      // open file and check for "_writeprotection": false,
+      let f = JSON.parse(fs.readFileSync(target));
+      if (f._writeprotection === false) {
+        fs.writeFileSync(target, JSON.stringify(updatespec, null, 2));
+      } else {
+        console.log("skip " + target);
+      }
     }
   }
 });
@@ -254,6 +284,14 @@ servicelist.forEach((pathToService) => {
     let target = PKGDIR + "/" + serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase() + ".display.panel.spec";
     if (!fs.existsSync(target)) {
       fs.writeFileSync(target, JSON.stringify(displayspec, null, 2));
+    } else {
+      // open file and check for "_writeprotection": false,
+      let f = JSON.parse(fs.readFileSync(target));
+      if (f._writeprotection === false) {
+        fs.writeFileSync(target, JSON.stringify(displayspec, null, 2));
+      } else {
+        console.log("skip " + target);
+      }
     }
   }
 });
@@ -278,7 +316,7 @@ refservicelist.forEach((pathToService) => {
   // check for param q
   if (serviceSpec.services.List && serviceSpec.services.List.query && serviceSpec.services.List.query.q) {
     let type = serviceSpec.services.List.data.response.replace("Collection", "");
-    referencesearchspec.class_name =  type.replace(".", "") + "ReferenceSearch";
+    referencesearchspec.class_name = type.replace(".", "") + "ReferenceSearch";
     referencesearchspec.class_name = referencesearchspec.class_name[0].toUpperCase() + referencesearchspec.class_name.substr(1);
     referencesearchspec.component_name = type.toLowerCase().replace(".", "-") + "-reference-search";
     referencesearchspec.source = type.toLowerCase() + ".referencesearch.spec";
@@ -287,6 +325,14 @@ refservicelist.forEach((pathToService) => {
     let target = PKGDIR + "/" + type.toLowerCase() + ".referencesearch.spec";
     if (!fs.existsSync(target)) {
       fs.writeFileSync(target, JSON.stringify(referencesearchspec, null, 2));
+    } else {
+      // open file and check for "_writeprotection": false,
+      let f = JSON.parse(fs.readFileSync(target));
+      if (f._writeprotection === false) {
+        fs.writeFileSync(target, JSON.stringify(referencesearchspec, null, 2));
+      } else {
+        console.log("skip " + target);
+      }
     }
 
   }
@@ -380,6 +426,14 @@ servicelist.forEach((pathToService) => {
 
     if (!fs.existsSync(target)) {
       fs.writeFileSync(target, JSON.stringify(updatespec, null, 2));
+    } else {
+      // open file and check for "_writeprotection": false,
+      let f = JSON.parse(fs.readFileSync(target));
+      if (f._writeprotection === false) {
+        fs.writeFileSync(target, JSON.stringify(updatespec, null, 2));
+      } else {
+        console.log("skip " + target);
+      }
     }
   }
 });

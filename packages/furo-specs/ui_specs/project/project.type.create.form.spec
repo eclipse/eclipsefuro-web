@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "ProjectProjectCreateForm",
   "component_name": "project-project-create-form",

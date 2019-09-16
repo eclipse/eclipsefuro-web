@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "PanelBaseTheme",
   "class_name": "PersonPersonUpdatePanel",
   "component_name": "person-person-update-panel",

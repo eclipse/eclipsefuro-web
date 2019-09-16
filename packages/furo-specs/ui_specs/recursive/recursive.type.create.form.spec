@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "ExperimentRecursiveCreateForm",
   "component_name": "experiment-recursive-create-form",

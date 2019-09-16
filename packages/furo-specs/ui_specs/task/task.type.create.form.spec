@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "TaskTaskCreateForm",
   "component_name": "task-task-create-form",

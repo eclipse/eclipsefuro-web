@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "ExperimentDefaultCreateForm",
   "component_name": "experiment-default-create-form",
