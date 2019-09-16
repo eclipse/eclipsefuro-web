@@ -37,10 +37,23 @@
     "data": {
       "description": "data part of the property",
       "type": "google.protobuf.Any",
-      "meta": {},
       "constraints": {},
       "__proto": {
         "number": 3
+      }
+    },
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.Meta",
+      "__proto": {
+        "number": 4
+      }
+    },
+    "code": {
+      "description": "property code for additional settings",
+      "type": "string",
+      "__proto": {
+        "number": 5
       }
     }
   }

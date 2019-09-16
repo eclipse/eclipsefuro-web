@@ -1630,6 +1630,10 @@
     "furoProperty": {
       "type": "object",
       "properties": {
+        "code": {
+          "type": "string",
+          "title": "property code for additional settings"
+        },
         "data": {
           "$ref": "#/definitions/protobufAny",
           "title": "data part of the property"
@@ -1641,6 +1645,10 @@
         "id": {
           "type": "string",
           "title": "Id of the property"
+        },
+        "meta": {
+          "$ref": "#/definitions/furoMeta",
+          "title": "Meta for the response"
         }
       },
       "title": "Type to define property values with type information"
@@ -1945,6 +1953,11 @@
         "id": {
           "type": "string",
           "title": "Id of the node"
+        },
+        "is_group_label": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "This node is a group label"
         },
         "key_words": {
           "type": "string",

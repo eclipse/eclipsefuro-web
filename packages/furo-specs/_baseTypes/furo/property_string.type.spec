@@ -1,7 +1,7 @@
 {
-  "name": "property_string",
-  "type": "PropertyString",
-  "description": "String type with embedded meta",
+  "name": "string_property",
+  "type": "StringProperty",
+  "description": "String type to use in property",
   "__proto": {
     "package": "furo",
     "imports": [
@@ -15,13 +15,6 @@
       "type": "string",
       "__proto": {
         "number": 1
-      }
-    },
-    "meta": {
-      "description": "Meta for the property string",
-      "type": "furo.Meta",
-      "__proto": {
-        "number": 2
       }
     }
   }
