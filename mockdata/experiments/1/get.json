@@ -20,11 +20,12 @@
     "type_property": [
       {
         "data": {
-          "type_url": "string",
-          "value": "string"
+          "@type": "google.type.Date",
+          "value": {"display_name": "32 32 23"}
         },
-        "display_name": "string",
-        "id": "string",
+        "display_name": "a date",
+        "id": "date",
+        "code": "date",
         "meta": {}
       }
     ]

@@ -214,7 +214,7 @@ export class FieldNode extends EventTreeNode {
       }
       this.__anyCreated = false;
     }
-    if (this._spec.type === "any" && val["@type"] && !this.__anyCreated) {
+    if (this._spec.type === "google.protobuf.Any" && val["@type"] && !this.__anyCreated) {
       // create custom type if not exist
       // any can only be a complex type
       this._createVendorType(val["@type"]);
