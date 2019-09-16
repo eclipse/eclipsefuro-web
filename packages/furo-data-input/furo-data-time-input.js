@@ -202,6 +202,26 @@ class FuroDataTimeInput extends FBP(LitElement) {
        */
       autofocus: {
         type: Boolean
+      },
+      /**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */
+      condensed: {
+        type: Boolean
+      },
+      /**
+       * Icon on the left side
+       */
+      leadingIcon: {
+        type: String,
+        attribute: "leading-icon"
+      },
+      /**
+       * Icon on the right side
+       */
+      trailingIcon: {
+        type: String,
+        attribute: "trailing-icon"
       }
     }
   }
@@ -270,6 +290,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
           ?readonly=${this._readonly || this.disabled} 
           ?error="${this.error}" 
           ?required=${this._required}
+          ?condensed="${this.condensed}"                         
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-time-input>      

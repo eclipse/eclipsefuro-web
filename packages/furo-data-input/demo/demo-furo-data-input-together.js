@@ -60,7 +60,7 @@ class DemoFuroDataInputTogether extends FBP(LitElement) {
 
                         <furo-data-number-input leading-icon="apps"  autofocus ƒ-bind-data="--entity(*.furo_data_number_input)" min="4"
                                                 max="7" trailing-icon="apps"></furo-data-number-input>
-                        <furo-data-date-input leading-icon="apps" readonly ƒ-bind-data="--entity(*.furo_data_date_input)"
+                        <furo-data-date-input leading-icon="apps"  ƒ-bind-data="--entity(*.furo_data_date_input)"
                                               trailing-icon="apps"></furo-data-date-input>
                         <furo-data-color-input  leading-icon="apps"  ƒ-bind-data="--entity(*.furo_data_color_input)"
                                                 trailing-icon="apps"></furo-data-color-input>
@@ -103,7 +103,7 @@ class DemoFuroDataInputTogether extends FBP(LitElement) {
 
                         <furo-data-number-input condensed leading-icon="apps"  autofocus leading-icon="dashboard" ƒ-bind-data="--entity(*.furo_data_number_input)" min="4"
                                                 max="7" trailing-icon="apps"></furo-data-number-input>
-                        <furo-data-date-input condensed leading-icon="apps" readonly ƒ-bind-data="--entity(*.furo_data_date_input)"
+                        <furo-data-date-input condensed leading-icon="apps"  ƒ-bind-data="--entity(*.furo_data_date_input)"
                                               trailing-icon="apps"></furo-data-date-input>
                         <furo-data-color-input condensed  leading-icon="apps"  ƒ-bind-data="--entity(*.furo_data_color_input)"
                                                 trailing-icon="apps"></furo-data-color-input>

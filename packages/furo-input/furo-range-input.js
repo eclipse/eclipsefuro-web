@@ -322,7 +322,7 @@ class FuroRangeInput extends FBP(LitElement) {
 
         input {
             position: absolute;
-            top: 20px;
+            top: 21px;
             border: none;
             background: none;
             box-sizing: border-box;
@@ -544,7 +544,7 @@ class FuroRangeInput extends FBP(LitElement) {
         }
 
         :host([condensed]) input {
-            top: 12px;
+            top: 15px;
             font-size: 14px;
         }
 
