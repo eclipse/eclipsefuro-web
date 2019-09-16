@@ -252,9 +252,6 @@ class FuroDataColorInput extends FBP(LitElement) {
             position: relative;
             font-size: 12px;
             box-sizing: border-box;
-            margin: 0 0 14px 0;
-            padding: 8px 0 2px 0;
-            height: 28px;
             font-family: "Roboto", "Noto", sans-serif;
             line-height: 1.5;
         }

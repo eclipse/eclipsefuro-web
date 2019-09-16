@@ -604,7 +604,7 @@ class FuroPasswordInput extends FBP(LitElement) {
 
 
         :host([condensed]) input{
-            top:8px;
+            top:10px;
             font-size: 14px;
         }
         :host([condensed]:not([filled])) label, :host([filled][condensed]) label{
@@ -619,7 +619,7 @@ class FuroPasswordInput extends FBP(LitElement) {
         }  
         
         :host([condensed])  furo-icon {
-            top:6px;
+            top:10px;
         }
         
         :host([condensed]) .ripple-line {
