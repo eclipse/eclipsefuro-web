@@ -127,7 +127,7 @@
           "message": "to 19:00"
         },
         "step": {
-          "value":"5",
+          "value": "5",
           "message": "step 5"
         }
       },
@@ -154,9 +154,8 @@
         },
         "step": {
           "value": "2.5",
-          "message":"step 2.5"
+          "message": "step 2.5"
         }
-
       },
       "__proto": {
         "number": 8
@@ -181,7 +180,7 @@
         },
         "step": {
           "value": "3",
-          "message":"step 3"
+          "message": "step 3"
         }
       },
       "__proto": {
@@ -267,7 +266,7 @@
           "message": "The latest date to accept is 2099-12-31"
         },
         "step": {
-          "value":"5",
+          "value": "5",
           "message": "step 5"
         }
       },
@@ -350,7 +349,7 @@
           "message": "The latest date to accept is 2099-12-31"
         },
         "step": {
-          "value":"2",
+          "value": "2",
           "message": "step 2"
         }
       },
@@ -358,13 +357,11 @@
         "number": 18
       }
     },
-    "furo_data_color_input": {
-      "description": "field for furo_data_color_input for testing",
-      "type": "string",
+    "single_type_property": {
+      "description": "field for testing property",
+      "type": "furo.Property",
       "meta": {
-        "label": "data-color input",
-        "hint": "hint",
-        "readonly": false
+        "label": "Additional fields"
       },
       "constraints": {},
       "__proto": {

@@ -39,7 +39,7 @@ class FuroDataDateInput extends FBP(LitElement) {
 
       if (this.field) {
 
-        if(this.field._spec.type == "google.type.Date") {
+        if(this.field._spec.type === "google.type.Date" || this.field["@type"] === "google.type.Date") {
 
           val = this._convertStringToDateObj(val,  this.field.value  );
         }
@@ -274,8 +274,9 @@ class FuroDataDateInput extends FBP(LitElement) {
 
     let dateValue = this.field.value;
 
+
     // convert value when date type is google.type.Date
-    if(this.field._spec.type == "google.type.Date") {
+    if(this.field._spec.type === "google.type.Date" || this.field["@type"] === "google.type.Date") {
       dateValue = this._convertDateObjToString(dateValue);
     }
 

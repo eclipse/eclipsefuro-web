@@ -1,4 +1,5 @@
 
+import "./furo-data-property"
 import "./furo-data-password-input"
 import "./furo-data-date-input"
 import "./furo-data-text-input"

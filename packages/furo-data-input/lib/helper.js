@@ -54,7 +54,7 @@ export class Helper {
     });
 
     // update meta and constraints when they change
-    caller.field.addEventListener('caller-metas-changed', (e) => {
+    caller.field.addEventListener('this-metas-changed', (e) => {
       CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);
     });
 
