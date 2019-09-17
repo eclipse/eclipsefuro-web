@@ -47,12 +47,48 @@ import {RepeaterNode} from "@furo/data/lib/RepeaterNode";
  *    }
  *  }
  *  ```
+ * ## Example StringOptions Field
+ *
+ * ```json
+ * {
+ *   "data": {
+ *        "@type": "furo.StringOptionProperty",
+ *        "id": "bb",
+ *        "display_name": "Display"
+ *      },
+ *      "display_name": "Display",
+ *      "id": "opt",
+ *      "code": "option",
+ *      "meta": {
+ *        "fields": {
+ *          "data": {
+ *            "meta": {
+ *              "label": "Please select",
+ *              "hint": "datehint is data",
+ *              "repeated": false,
+ *              "options": [
+ *                {
+ *                  "id": "aa",
+ *                  "display_name": "The display a"
+ *                },
+ *                {
+ *                  "id": "bb",
+ *                  "display_name": "The display b"
+ *                }
+ *              ]
+ *            }
+ *          }
+ *        }
+ *      }
+ *    }
+ *
+ * ```
  *
  *  The current type mappings are:
  *
- *  -  "google.type.Date": "furo-data-date-input",
- "  -  furo.StringProperty": "furo-data-text-input",
- "  -  furo.NumberProperty": "furo-data-number-input"
+ * -  "google.type.Date": "furo-data-date-input",
+ " -  furo.StringProperty": "furo-data-text-input",
+ " -  furo.NumberProperty": "furo-data-number-input"
 
  *
  * @summary property input
