@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.50.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.49.0...@furo/data-input@0.50.0) (2019-09-17)
+
+
+### Features
+
+* int type for properties ([8b59c5e](https://github.com/veith/FuroBaseComponents/commit/8b59c5e))
+* int type for properties ([73e15d6](https://github.com/veith/FuroBaseComponents/commit/73e15d6))
+
+
+
+
+
 # [0.49.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.19...@furo/data-input@0.49.0) (2019-09-17)
 
 
