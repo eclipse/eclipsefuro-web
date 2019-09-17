@@ -1001,7 +1001,7 @@
         },
         {
           "name": "step",
-          "type": "string | null | undefined",
+          "type": "number | null | undefined",
           "description": "The step attribute is a number that specifies the granularity that the value must adhere to, or the special value any, which is described below. Only values which are equal to the basis for stepping (min if specified, value otherwise, and an appropriate default value if neither of those is provided) are valid.\n\nA string value of any means that no stepping is implied, and any value is allowed (barring other constraints, such as min and max).",
           "privacy": "public",
           "sourceRange": {
@@ -1927,7 +1927,7 @@
               "column": 2
             },
             "end": {
-              "line": 657,
+              "line": 658,
               "column": 3
             }
           },
@@ -1952,7 +1952,7 @@
           "column": 0
         },
         "end": {
-          "line": 659,
+          "line": 660,
           "column": 1
         }
       },
@@ -2006,7 +2006,7 @@
             }
           },
           "metadata": {},
-          "type": "string | null | undefined"
+          "type": "number | null | undefined"
         },
         {
           "name": "error",

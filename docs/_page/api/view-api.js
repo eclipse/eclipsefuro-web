@@ -2035,7 +2035,8 @@ if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}r
      * we can return false here, because a repeater node is not created automatically
      */_hasAncestorOfType(type){return!1}deleteNode(){let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name];//notify
 this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0))}set value(val){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
-this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],targetfield=f[1];if(2===f.length){// typo protection
+this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));//TODO check the tree
+this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],targetfield=f[1];if(2===f.length){// typo protection
 if(this.repeats[parseInt(target)][targetfield]){// we are on the parent of a endpoint. Update the metas in this
 let field=this.repeats[parseInt(target)][targetfield];for(let m in mc.meta){// update the metas
 field._meta[m]=mc.meta[m]}for(let c in mc.constraints){// update the constraints
@@ -3866,16 +3867,27 @@ return _furoShell.html`
       </div>
       
       
-    `}}window.customElements.define("furo-data-display",FuroDataDisplay);class FuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-date-input","furo.StringProperty":"furo-data-text-input","furo.NumberProperty":"furo-data-number-input"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
+    `}}window.customElements.define("furo-data-display",FuroDataDisplay);class FuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-date-input","furo.StringProperty":"furo-data-text-input","furo.IntegerProperty":"furo-data-number-input","furo.NumberProperty":"furo-data-number-input","furo.StringOptionProperty":"furo-data-collection-dropdown"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
 // repeated
-let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id.value");r.innerHTML="<template><furo-data-property \u0192-bind-data=\"--item\"></furo-data-property></template>";let repeater=this.parentNode.insertBefore(r,this);this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)})}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
-if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"]]);switch(propertyField.data["@type"]){// the input elements for string and number are just working with scalar values
-case"furo.StringProperty":case"furo.NumberProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}}static get styles(){// language=CSS
+let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id.value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property \u0192-bind-data=\"--item\" "+attrs+"></furo-data-property></template>";let repeater=this.parentNode.insertBefore(r,this);this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)})}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
+if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"]]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
+for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"]){// the input elements for string and number are just working with scalar values
+case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"],"not in map",this)}}}static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: none;
         }
-    `}}window.customElements.define("furo-data-property",FuroDataProperty);class FuroDataColorInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("furo-data-property",FuroDataProperty);class FuroDataPropertyDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-display","furo.StringProperty":"furo-data-display","furo.IntegerProperty":"furo-data-display","furo.NumberProperty":"furo-data-display","furo.StringOptionProperty":"furo-data-display"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
+// repeated
+let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id.value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property-display \u0192-bind-data=\"--item\" "+attrs+"></furo-data-property-display></template>";let repeater=this.parentNode.insertBefore(r,this);this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)})}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
+if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"]]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
+for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"]){// the input elements for string and number are just working with scalar values
+case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"],"not in map",this)}}}static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: none;
+        }
+    `}}window.customElements.define("furo-data-property-display",FuroDataPropertyDisplay);class FuroDataColorInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
@@ -4181,7 +4193,8 @@ CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.va
      * Bind a entity field to the furo input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+     */bindData(fieldNode){Helper.BindData(this,fieldNode);// update meta and constraints when they change
+this.field.addEventListener("this-metas-changed",e=>{this._buildListWithMetaOptions(this.field._meta.options)})}_updateField(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
      *
      * @private
@@ -4212,6 +4225,10 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-select-input>      
     `}/**
+     * Build the dropdown list with given options from meta
+     * @param {options} list of options with id and display_name
+     */_buildListWithMetaOptions(entities){// map
+let arr=entities.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField].value==e[this.valueField]}});if(!this.field[this.valueField].value){this.field.value=arr[0].id}this._FBPTriggerWire("--selection",arr)}/**
      * Exposes --injectCollection
      * @param {collection} det
      */injectEntities(entities){// map
@@ -4405,7 +4422,62 @@ this.field.addEventListener("field-value-changed",e=>{this._updateSymbol()});thi
      */render(){// language=HTML
 return _furoShell.html`
       ${this._ocSymbol}
-    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class DemoFuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class DemoFuroDataPropertyDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-vertical-flex>
+        <div>
+          <h2>Demo furo-data-property-display</h2>
+          <p>Bind your fields as usual.</p>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+            <furo-vertical-scroller>
+              <furo-form-layouter two>
+                <!-- single Property -->
+                <furo-data-property-display condensed noborder ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property-display>
+                  
+                <!-- repeated Property -->
+                <furo-data-property-display condensed noborder something ƒ-bind-data="--entity(*.type_property)"></furo-data-property-display>
+                   
+                <!-- single Property -->
+                <furo-data-property-display ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property-display>
+              </furo-form-layouter>
+              
+
+              <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
+              <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                                ƒ-inject-raw="--response(*.data)"></furo-data-object>
+              <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+              <furo-entity-agent service="ExperimentService"
+                                 ƒ-hts-in="--hts"
+                                 ƒ-load="--hts"
+                                 ƒ-bind-request-data="--entity"
+                                 @-response="--response">
+              </furo-entity-agent>
+            </furo-vertical-scroller>
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-property-display",DemoFuroDataPropertyDisplay);class DemoFuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -4438,6 +4510,7 @@ return _furoShell.html`
                 <!-- single Property -->
                 <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
                 <!-- repeated Property -->
+                <furo-data-property condensed ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
                 <furo-data-property ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
                 <!-- single Property -->
                 <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>

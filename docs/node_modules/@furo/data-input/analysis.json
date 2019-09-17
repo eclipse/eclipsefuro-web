@@ -4749,11 +4749,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 69,
               "column": 2
             },
             "end": {
-              "line": 70,
+              "line": 71,
               "column": 3
             }
           },
@@ -4770,11 +4770,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 77,
               "column": 2
             },
             "end": {
-              "line": 78,
+              "line": 79,
               "column": 3
             }
           },
@@ -4791,11 +4791,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 85,
               "column": 2
             },
             "end": {
-              "line": 86,
+              "line": 87,
               "column": 3
             }
           },
@@ -4812,11 +4812,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 95,
               "column": 3
             }
           },
@@ -4833,11 +4833,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 100,
+              "line": 101,
               "column": 2
             },
             "end": {
-              "line": 102,
+              "line": 103,
               "column": 3
             }
           },
@@ -4852,11 +4852,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 109,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 111,
               "column": 3
             }
           },
@@ -4871,11 +4871,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 119,
               "column": 3
             }
           },
@@ -4892,11 +4892,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 125,
               "column": 2
             },
             "end": {
-              "line": 126,
+              "line": 127,
               "column": 3
             }
           },
@@ -4913,11 +4913,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 138,
               "column": 6
             },
             "end": {
-              "line": 139,
+              "line": 140,
               "column": 7
             }
           },
@@ -4934,11 +4934,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 146,
               "column": 6
             },
             "end": {
-              "line": 147,
+              "line": 148,
               "column": 7
             }
           },
@@ -4955,11 +4955,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 153,
+              "line": 154,
               "column": 6
             },
             "end": {
-              "line": 155,
+              "line": 156,
               "column": 7
             }
           },
@@ -4976,11 +4976,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 161,
+              "line": 162,
               "column": 6
             },
             "end": {
-              "line": 163,
+              "line": 164,
               "column": 7
             }
           },
@@ -4997,11 +4997,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 170,
               "column": 6
             },
             "end": {
-              "line": 171,
+              "line": 172,
               "column": 7
             }
           },
@@ -5018,11 +5018,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 178,
               "column": 6
             },
             "end": {
-              "line": 179,
+              "line": 180,
               "column": 7
             }
           },
@@ -5039,11 +5039,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 185,
+              "line": 186,
               "column": 6
             },
             "end": {
-              "line": 187,
+              "line": 188,
               "column": 7
             }
           },
@@ -5060,11 +5060,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 191,
+              "line": 192,
               "column": 6
             },
             "end": {
-              "line": 193,
+              "line": 194,
               "column": 7
             }
           },
@@ -5081,11 +5081,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 199,
               "column": 6
             },
             "end": {
-              "line": 200,
+              "line": 201,
               "column": 7
             }
           },
@@ -5102,11 +5102,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 219,
               "column": 6
             },
             "end": {
-              "line": 221,
+              "line": 222,
               "column": 7
             }
           },
@@ -5123,11 +5123,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 226,
               "column": 6
             },
             "end": {
-              "line": 227,
+              "line": 228,
               "column": 7
             }
           },
@@ -5144,11 +5144,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 232,
               "column": 6
             },
             "end": {
-              "line": 233,
+              "line": 234,
               "column": 7
             }
           },
@@ -5580,11 +5580,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 240,
+              "line": 241,
               "column": 2
             },
             "end": {
-              "line": 242,
+              "line": 243,
               "column": 3
             }
           },
@@ -5600,11 +5600,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 248,
               "column": 2
             },
             "end": {
-              "line": 249,
+              "line": 250,
               "column": 3
             }
           },
@@ -5620,11 +5620,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 257,
               "column": 2
             },
             "end": {
-              "line": 258,
+              "line": 259,
               "column": 3
             }
           },
@@ -5646,11 +5646,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 260,
+              "line": 261,
               "column": 2
             },
             "end": {
-              "line": 269,
+              "line": 270,
               "column": 3
             }
           },
@@ -5666,11 +5666,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 294,
+              "line": 295,
               "column": 2
             },
             "end": {
-              "line": 308,
+              "line": 309,
               "column": 3
             }
           },
@@ -5692,7 +5692,7 @@
           "column": 0
         },
         "end": {
-          "line": 310,
+          "line": 311,
           "column": 1
         }
       },
@@ -5705,11 +5705,11 @@
           "description": "Updater for the leadingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 100,
+              "line": 101,
               "column": 2
             },
             "end": {
-              "line": 102,
+              "line": 103,
               "column": 3
             }
           },
@@ -5721,11 +5721,11 @@
           "description": "Updater for the trailingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 109,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 111,
               "column": 3
             }
           },
@@ -5737,11 +5737,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 138,
               "column": 6
             },
             "end": {
-              "line": 139,
+              "line": 140,
               "column": 7
             }
           },
@@ -5753,11 +5753,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 146,
               "column": 6
             },
             "end": {
-              "line": 147,
+              "line": 148,
               "column": 7
             }
           },
@@ -5769,11 +5769,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 153,
+              "line": 154,
               "column": 6
             },
             "end": {
-              "line": 155,
+              "line": 156,
               "column": 7
             }
           },
@@ -5785,11 +5785,11 @@
           "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 161,
+              "line": 162,
               "column": 6
             },
             "end": {
-              "line": 163,
+              "line": 164,
               "column": 7
             }
           },
@@ -5801,11 +5801,11 @@
           "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 170,
               "column": 6
             },
             "end": {
-              "line": 171,
+              "line": 172,
               "column": 7
             }
           },
@@ -5817,11 +5817,11 @@
           "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 178,
               "column": 6
             },
             "end": {
-              "line": 179,
+              "line": 180,
               "column": 7
             }
           },
@@ -5833,11 +5833,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 185,
+              "line": 186,
               "column": 6
             },
             "end": {
-              "line": 187,
+              "line": 188,
               "column": 7
             }
           },
@@ -5849,11 +5849,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 191,
+              "line": 192,
               "column": 6
             },
             "end": {
-              "line": 193,
+              "line": 194,
               "column": 7
             }
           },
@@ -5865,11 +5865,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 199,
               "column": 6
             },
             "end": {
-              "line": 200,
+              "line": 201,
               "column": 7
             }
           },
@@ -5881,11 +5881,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 219,
               "column": 6
             },
             "end": {
-              "line": 221,
+              "line": 222,
               "column": 7
             }
           },
@@ -5897,11 +5897,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 226,
               "column": 6
             },
             "end": {
-              "line": 227,
+              "line": 228,
               "column": 7
             }
           },
@@ -5913,11 +5913,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 232,
               "column": 6
             },
             "end": {
-              "line": 233,
+              "line": 234,
               "column": 7
             }
           },
@@ -10281,7 +10281,7 @@
       ]
     },
     {
-      "description": "`furo-data-property`\n Field for type furo.Property. It works with repeated types an nonrepeating type. Supported\n\n ```html\n <!-- single Property -->\n <furo-data-property ƒ-bind-data=\"--entity(*.single_type_property)\"></furo-data-property>\n <!-- repeated Property -->\n <furo-data-property ƒ-bind-data=\"--entity(*.type_property)\"></furo-data-property>\n\n ```\n\n ## Example data for the data-object looks like this\n\n ```json\n \"single_type_property\": {\n   \"data\": {\n     \"@type\": \"google.type.Date\",\n     \"day\": 8,\n     \"month\":  11,\n     \"year\": 2022\n   },\n   \"display_name\": \"a date\",\n   \"id\": \"date\",\n   \"code\": \"date\",\n   \"meta\": {\n     \"fields\": {\n       \"data\": {\n         \"meta\": {\n           \"label\": \"Additional fields\",\n           \"hint\": \"this is data\"\n         },\n         \"constraints\": {\n           \"min\": {\n             \"value\": \"2019-09-09\",\n             \"message\": \"to small\"\n           }\n         }\n       }\n     }\n   }\n }\n ```\n\n The current type mappings are:\n\n -  \"google.type.Date\": \"furo-data-date-input\",\n \"  -  furo.StringProperty\": \"furo-data-text-input\",\n \"  -  furo.NumberProperty\": \"furo-data-number-input\"",
+      "description": "`furo-data-property`\n Field for type furo.Property. It works with repeated types an nonrepeating type. Supported\n\n ```html\n <!-- single Property -->\n <furo-data-property ƒ-bind-data=\"--entity(*.single_type_property)\"></furo-data-property>\n <!-- repeated Property -->\n <furo-data-property ƒ-bind-data=\"--entity(*.type_property)\"></furo-data-property>\n\n ```\n\n ## Example data for the data-object looks like this\n\n ```json\n \"single_type_property\": {\n   \"data\": {\n     \"@type\": \"google.type.Date\",\n     \"day\": 8,\n     \"month\":  11,\n     \"year\": 2022\n   },\n   \"display_name\": \"a date\",\n   \"id\": \"date\",\n   \"code\": \"date\",\n   \"meta\": {\n     \"fields\": {\n       \"data\": {\n         \"meta\": {\n           \"label\": \"Additional fields\",\n           \"hint\": \"this is data\"\n         },\n         \"constraints\": {\n           \"min\": {\n             \"value\": \"2019-09-09\",\n             \"message\": \"to small\"\n           }\n         }\n       }\n     }\n   }\n }\n ```\n## Example StringOptions Field\n\n```json\n{\n  \"data\": {\n       \"@type\": \"furo.StringOptionProperty\",\n       \"id\": \"bb\",\n       \"display_name\": \"Display\"\n     },\n     \"display_name\": \"Display\",\n     \"id\": \"opt\",\n     \"code\": \"option\",\n     \"meta\": {\n       \"fields\": {\n         \"data\": {\n           \"meta\": {\n             \"label\": \"Please select\",\n             \"hint\": \"datehint is data\",\n             \"repeated\": false,\n             \"options\": [\n               {\n                 \"id\": \"aa\",\n                 \"display_name\": \"The display a\"\n               },\n               {\n                 \"id\": \"bb\",\n                 \"display_name\": \"The display b\"\n               }\n             ]\n           }\n         }\n       }\n     }\n   }\n\n```\n\n The current type mappings are:\n\n-  \"google.type.Date\": \"furo-data-date-input\",\n \" -  furo.StringProperty\": \"furo-data-text-input\",\n \" -  furo.NumberProperty\": \"furo-data-number-input\"",
       "summary": "property input",
       "path": "packages/furo-data-input/furo-data-property.js",
       "properties": [],
@@ -10706,11 +10706,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 111,
               "column": 2
             },
             "end": {
-              "line": 105,
+              "line": 153,
               "column": 3
             }
           },
@@ -10730,11 +10730,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 155,
               "column": 2
             },
             "end": {
-              "line": 124,
+              "line": 188,
               "column": 3
             }
           },
@@ -10759,11 +10759,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 62,
+          "line": 98,
           "column": 0
         },
         "end": {
-          "line": 135,
+          "line": 199,
           "column": 1
         }
       },
@@ -10778,6 +10778,508 @@
       },
       "slots": [],
       "tagname": "furo-data-property",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
+      "description": "`furo-data-property-display`\n Field for type furo.Property. It works with repeated types an nonrepeating type. Supported\n\n ```html\n <!-- single Property -->\n <furo-data-property ƒ-bind-data=\"--entity(*.single_type_property)\"></furo-data-property>\n <!-- repeated Property -->\n <furo-data-property ƒ-bind-data=\"--entity(*.type_property)\"></furo-data-property>\n\n ```\n\n ## Example data for the data-object looks like this\n\n ```json\n \"single_type_property\": {\n   \"data\": {\n     \"@type\": \"google.type.Date\",\n     \"day\": 8,\n     \"month\":  11,\n     \"year\": 2022\n   },\n   \"display_name\": \"a date\",\n   \"id\": \"date\",\n   \"code\": \"date\",\n   \"meta\": {\n     \"fields\": {\n       \"data\": {\n         \"meta\": {\n           \"label\": \"Additional fields\",\n           \"hint\": \"this is data\"\n         },\n         \"constraints\": {\n           \"min\": {\n             \"value\": \"2019-09-09\",\n             \"message\": \"to small\"\n           }\n         }\n       }\n     }\n   }\n }\n ```\n## Example StringOptions Field\n\n```json\n{\n  \"data\": {\n       \"@type\": \"furo.StringOptionProperty\",\n       \"id\": \"bb\",\n       \"display_name\": \"Display\"\n     },\n     \"display_name\": \"Display\",\n     \"id\": \"opt\",\n     \"code\": \"option\",\n     \"meta\": {\n       \"fields\": {\n         \"data\": {\n           \"meta\": {\n             \"label\": \"Please select\",\n             \"hint\": \"datehint is data\",\n             \"repeated\": false,\n             \"options\": [\n               {\n                 \"id\": \"aa\",\n                 \"display_name\": \"The display a\"\n               },\n               {\n                 \"id\": \"bb\",\n                 \"display_name\": \"The display b\"\n               }\n             ]\n           }\n         }\n       }\n     }\n   }\n\n```\n\n The current type mappings are:\n\n-  \"google.type.Date\": \"furo-data-date-input\",\n \" -  furo.StringProperty\": \"furo-data-text-input\",\n \" -  furo.NumberProperty\": \"furo-data-number-input\"",
+      "summary": "property input",
+      "path": "packages/furo-data-input/furo-data-property-display.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "_attachDom",
+          "description": "Auto append fbp for Polymer",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 47,
+              "column": 8
+            },
+            "end": {
+              "line": 50,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "dom"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "firstUpdated",
+          "description": "Auto append fbp for lit elements",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 53,
+              "column": 8
+            },
+            "end": {
+              "line": 61,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "changedProperties"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPTriggerWire",
+          "description": "Triggers a wire",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 69,
+              "column": 8
+            },
+            "end": {
+              "line": 115,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire",
+              "description": "(String) Name of the wire like --buttonClicked"
+            },
+            {
+              "name": "detailData",
+              "description": "(*) data to pass"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPAddWireHook",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 125,
+              "column": 8
+            },
+            "end": {
+              "line": 142,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire",
+              "description": "(String) Name of the wire"
+            },
+            {
+              "name": "cb",
+              "description": "(function) Callback function cb(detailData)"
+            },
+            {
+              "name": "before"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPTraceWires",
+          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 151,
+              "column": 8
+            },
+            "end": {
+              "line": 187,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPDebug",
+          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 197,
+              "column": 8
+            },
+            "end": {
+              "line": 233,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire"
+            },
+            {
+              "name": "openDebugger",
+              "description": "opens the debugger console, so you can inspect your component."
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "__toCamelCase",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 235,
+              "column": 8
+            },
+            "end": {
+              "line": 239,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "str"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_appendFBP",
+          "description": "parses the dom for flowbased programming tags",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 246,
+              "column": 8
+            },
+            "end": {
+              "line": 524,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "dom",
+              "description": "dom node"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPReady",
+          "description": "Livecycle method\nThis method is called, when the wires are ready",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 530,
+              "column": 8
+            },
+            "end": {
+              "line": 532,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "__enqueueTrigger",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 534,
+              "column": 8
+            },
+            "end": {
+              "line": 536,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire"
+            },
+            {
+              "name": "detailData"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "__resolveWireAndPath",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 538,
+              "column": 8
+            },
+            "end": {
+              "line": 546,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "w"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "disconnectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 548,
+              "column": 8
+            },
+            "end": {
+              "line": 562,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_pathGet",
+          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 573,
+              "column": 8
+            },
+            "end": {
+              "line": 586,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root",
+              "type": "Object",
+              "description": "Object from which to dereference path from"
+            },
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Path to read"
+            }
+          ],
+          "return": {
+            "type": "*",
+            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_pathSet",
+          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 597,
+              "column": 8
+            },
+            "end": {
+              "line": 619,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root",
+              "type": "Object",
+              "description": "Object from which to dereference path from"
+            },
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Path to set"
+            },
+            {
+              "name": "value",
+              "type": "*",
+              "description": "Value to set to path"
+            }
+          ],
+          "return": {
+            "type": "(string | undefined)",
+            "desc": "The normalized version of the input path"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_split",
+          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 637,
+              "column": 8
+            },
+            "end": {
+              "line": 639,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Input path"
+            }
+          ],
+          "return": {
+            "type": "!Array.<string>",
+            "desc": "Array of path parts"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "bindData",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 111,
+              "column": 2
+            },
+            "end": {
+              "line": 151,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "propertyField"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_createPropComponent",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 153,
+              "column": 2
+            },
+            "end": {
+              "line": 187,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "propertyField"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo-furo-data-property-display",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 98,
+          "column": 0
+        },
+        "end": {
+          "line": 198,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroDataPropertyDisplay",
+      "attributes": [],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-data-property-display",
       "mixins": [
         "FBP"
       ]
@@ -12779,11 +13281,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 52,
+              "line": 55,
               "column": 2
             },
             "end": {
-              "line": 54,
+              "line": 57,
               "column": 3
             }
           },
@@ -12800,11 +13302,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 63,
               "column": 2
             },
             "end": {
-              "line": 62,
+              "line": 65,
               "column": 3
             }
           },
@@ -12821,11 +13323,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 70,
+              "line": 73,
               "column": 3
             }
           },
@@ -12840,11 +13342,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 78,
+              "line": 81,
               "column": 3
             }
           },
@@ -12859,11 +13361,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 87,
               "column": 2
             },
             "end": {
-              "line": 86,
+              "line": 89,
               "column": 3
             }
           },
@@ -12880,11 +13382,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 95,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 97,
               "column": 3
             }
           },
@@ -12899,11 +13401,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 108,
               "column": 6
             },
             "end": {
-              "line": 108,
+              "line": 111,
               "column": 7
             }
           },
@@ -12920,11 +13422,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 115,
               "column": 6
             },
             "end": {
-              "line": 115,
+              "line": 118,
               "column": 7
             }
           },
@@ -12941,11 +13443,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 122,
               "column": 6
             },
             "end": {
-              "line": 122,
+              "line": 125,
               "column": 7
             }
           },
@@ -12962,11 +13464,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 131,
               "column": 6
             },
             "end": {
-              "line": 130,
+              "line": 133,
               "column": 7
             }
           },
@@ -12983,11 +13485,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 135,
               "column": 6
             },
             "end": {
-              "line": 134,
+              "line": 137,
               "column": 7
             }
           },
@@ -13004,11 +13506,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 141,
               "column": 6
             },
             "end": {
-              "line": 140,
+              "line": 143,
               "column": 7
             }
           },
@@ -13025,11 +13527,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 148,
               "column": 6
             },
             "end": {
-              "line": 147,
+              "line": 150,
               "column": 7
             }
           },
@@ -13046,11 +13548,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 165,
+              "line": 168,
               "column": 6
             },
             "end": {
-              "line": 168,
+              "line": 171,
               "column": 7
             }
           },
@@ -13067,11 +13569,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 175,
               "column": 6
             },
             "end": {
-              "line": 174,
+              "line": 177,
               "column": 7
             }
           },
@@ -13503,11 +14005,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 191,
+              "line": 194,
               "column": 2
             },
             "end": {
-              "line": 193,
+              "line": 196,
               "column": 3
             }
           },
@@ -13523,11 +14025,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 201,
               "column": 2
             },
             "end": {
-              "line": 200,
+              "line": 203,
               "column": 3
             }
           },
@@ -13543,11 +14045,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 207,
+              "line": 210,
               "column": 2
             },
             "end": {
-              "line": 209,
+              "line": 218,
               "column": 3
             }
           },
@@ -13569,11 +14071,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 221,
               "column": 2
             },
             "end": {
-              "line": 223,
+              "line": 232,
               "column": 3
             }
           },
@@ -13589,11 +14091,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 248,
+              "line": 257,
               "column": 2
             },
             "end": {
-              "line": 261,
+              "line": 270,
               "column": 3
             }
           },
@@ -13601,16 +14103,40 @@
           "params": []
         },
         {
+          "name": "_buildListWithMetaOptions",
+          "description": "Build the dropdown list with given options from meta",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 276,
+              "column": 2
+            },
+            "end": {
+              "line": 292,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "entities"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "injectEntities",
           "description": "Exposes --injectCollection",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 267,
+              "line": 298,
               "column": 2
             },
             "end": {
-              "line": 283,
+              "line": 314,
               "column": 3
             }
           },
@@ -13630,11 +14156,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 289,
+              "line": 320,
               "column": 2
             },
             "end": {
-              "line": 305,
+              "line": 336,
               "column": 3
             }
           },
@@ -13654,11 +14180,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 20,
+          "line": 19,
           "column": 0
         },
         "end": {
-          "line": 306,
+          "line": 337,
           "column": 1
         }
       },
@@ -13671,11 +14197,11 @@
           "description": "Updater for the leadingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 70,
+              "line": 73,
               "column": 3
             }
           },
@@ -13687,11 +14213,11 @@
           "description": "Updater for the trailingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 76,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 78,
+              "line": 81,
               "column": 3
             }
           },
@@ -13703,11 +14229,11 @@
           "description": "Set a string list as options:\n\n\"A, B, C\"\n\nThis will convert to options [\"A\",\"B\",\"C\"] by furo-select-input",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 95,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 97,
               "column": 3
             }
           },
@@ -13719,11 +14245,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 108,
               "column": 6
             },
             "end": {
-              "line": 108,
+              "line": 111,
               "column": 7
             }
           },
@@ -13735,11 +14261,11 @@
           "description": "The name of the field from the injected collection that contains the label for the dropdown array.",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 115,
               "column": 6
             },
             "end": {
-              "line": 115,
+              "line": 118,
               "column": 7
             }
           },
@@ -13751,11 +14277,11 @@
           "description": "The name of the field from the injected collection that contains the value you want to assign to the attribute value and the binded field.",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 122,
               "column": 6
             },
             "end": {
-              "line": 122,
+              "line": 125,
               "column": 7
             }
           },
@@ -13767,11 +14293,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 131,
               "column": 6
             },
             "end": {
-              "line": 130,
+              "line": 133,
               "column": 7
             }
           },
@@ -13783,11 +14309,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 135,
               "column": 6
             },
             "end": {
-              "line": 134,
+              "line": 137,
               "column": 7
             }
           },
@@ -13799,11 +14325,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 141,
               "column": 6
             },
             "end": {
-              "line": 140,
+              "line": 143,
               "column": 7
             }
           },
@@ -13815,11 +14341,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 148,
               "column": 6
             },
             "end": {
-              "line": 147,
+              "line": 150,
               "column": 7
             }
           },
@@ -13831,11 +14357,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 165,
+              "line": 168,
               "column": 6
             },
             "end": {
-              "line": 168,
+              "line": 171,
               "column": 7
             }
           },
@@ -13847,11 +14373,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 175,
               "column": 6
             },
             "end": {
-              "line": 174,
+              "line": 177,
               "column": 7
             }
           },
