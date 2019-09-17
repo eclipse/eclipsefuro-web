@@ -102,6 +102,9 @@
                 "repeated": false,
                 "options": [
                   {
+                    "id": "",
+                    "display_name": "Please select"
+                  }, {
                     "id": "aa",
                     "display_name": "The display a"
                   },

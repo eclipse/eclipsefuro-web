@@ -55,6 +55,7 @@ class DemoFuroDataProperty extends FBP(LitElement) {
                 <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
                 <!-- repeated Property -->
                 <furo-data-property ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
+                <furo-data-property ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
                 <!-- single Property -->
                 <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
               </furo-form-layouter>

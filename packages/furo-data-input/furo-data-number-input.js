@@ -43,6 +43,7 @@ class FuroDataNumberInput extends FBP(LitElement) {
     });
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
+
       // val is a ValidityState
       // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
       if (val) {
