@@ -266,9 +266,13 @@ class FuroCheckboxInput extends FBP(LitElement) {
                 display: inline-block;
                 position: relative;
                 box-sizing: border-box;
-                margin: 0;
+                margin: 10px 0 15px 0;
                 height: 56px;
                 width: 300px;
+            }
+
+            :host([condensed]) {
+                margin-top: 12px;
             }
 
             :host([hidden]) {
@@ -368,6 +372,7 @@ class FuroCheckboxInput extends FBP(LitElement) {
 
             :host([condensed]) label, :host([condensed]) label {
                 line-height: 40px;
+                font-size: 14px;
             }
 
             :host([condensed]) input {
@@ -404,7 +409,6 @@ class FuroCheckboxInput extends FBP(LitElement) {
             :host([condensed]) furo-checkbox {
                 top: 3px;
             }
-
         `
     }
 

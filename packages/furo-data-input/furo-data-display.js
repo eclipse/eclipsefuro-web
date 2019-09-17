@@ -34,7 +34,6 @@ class FuroDataDisplay extends FBP(LitElement) {
   _updateField() {
     this.text = this.field.value;
 
-
     if (this.displayfield && this.field[this.displayfield]) {
       this.text = this.field[this.displayfield];
     } else {
@@ -43,7 +42,7 @@ class FuroDataDisplay extends FBP(LitElement) {
       }
     }
 
-    if (this.text.toString() == undefined) {
+    if (this.text && this.text.toString() == undefined) {
       this.text = "";
     }
 
