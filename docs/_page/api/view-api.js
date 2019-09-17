@@ -2240,7 +2240,7 @@ this[field]._constraints[c]=mc.constraints[c]}/**
            * detail payload:
            */this[field].dispatchNodeEvent(new NodeEvent("this-metas-changed",this[field],!1));// exit here, it does not go deeper
 return}let target=f[0],subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.slice(1).join(".")]=mc;let x=this[target];this[target].__updateMetaAndConstraints(subMetaAndConstraints)}}_createAnyType(val){// remove if type changes
-if(this.__anyCreated&&this["@type"]!==val["@type"]){for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("any"===this._spec.type&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
+if(this.__anyCreated&&this["@type"]!==val["@type"]){for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("google.protobuf.Any"===this._spec.type&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
 // any can only be a complex type
 this._createVendorType(val["@type"]);this.__anyCreated=!0;this["@type"]=val["@type"]}}_updateKeyValueMap(val,spec){let vType=spec.match(/,\s*(.*)>/)[1],fieldSpec={type:vType};// create if not exist
 for(let fieldName in val){if(this[fieldName]==void 0){this[fieldName]=new FieldNode(this,fieldSpec,fieldName)}//update data
@@ -2730,246 +2730,9 @@ caller._theInputElement.removeAttribute(attribute)}})}/**
      * @param {Object|caller} furo input element
      * @param {Object|FieldNode} fieldNode a Field object
      */static BindData(caller,fieldNode){if(fieldNode===void 0){console.warn("Invalid binding ");console.log(caller);return}caller.field=fieldNode;CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);caller._updateField();caller.field.addEventListener("field-value-changed",e=>{caller._updateField()});// update meta and constraints when they change
-caller.field.addEventListener("caller-metas-changed",e=>{CheckMetaAndOverrides.UpdateMetaAndConstraints(caller)});caller.field.addEventListener("field-became-invalid",e=>{// updates wieder einspielen
+caller.field.addEventListener("this-metas-changed",e=>{CheckMetaAndOverrides.UpdateMetaAndConstraints(caller)});caller.field.addEventListener("field-became-invalid",e=>{// updates wieder einspielen
 caller.error=!0;caller.errortext=caller.field._validity.description;caller.requestUpdate()});caller.field.addEventListener("field-became-valid",e=>{// updates wieder einspielen
-caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroDataPasswordInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {String} the text value
-   *
-   * Comes from underlying component furo-password-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
-     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-     * becaue it set "undefined" (as a Sting!)
-     *
-     * @param value
-     */set _pattern(value){Helper.UpdateInputAttribute(this,"pattern",value)}/**
-     * Updater for the min => minlength attr*
-     * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr*
-     * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
-     * Updater for the label attr
-     * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
-     * Updater for the hint attr
-     * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
-     * Updater for the leadingIcon attr
-     * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
-     * Updater for the trailingIcon attr
-     * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
-     * Updater for the errortext attr
-     * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */label:{type:String,attribute:!0},/**
-       * Overrides the pattern from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */pattern:{type:String},/**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */required:{type:Boolean},/**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:Number},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:Number},/**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */readonly:{type:Boolean},/**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */disabled:{type:Boolean,reflect:!0},/**
-       * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
-       * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
-       * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
-       * html input validity
-       */valid:{type:Boolean,reflect:!0},/**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
-       * passes always float the label
-       */float:{type:Boolean}}}/**
-     * Sets the field to readonly
-     */disable(){this._readonly=!0}/**
-     * Makes the field writable.
-     */enable(){this._readonly=!1}/**
-     * Bind a entity field to the number-input. You can use the entity even when no data was received.
-     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-     * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
-     *
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-        :host {
-            display: inline-block;
-            width: 190px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        furo-password-input{
-            width: 100%;
-        }
-    `}render(){// language=HTML
-return _furoShell.html` 
-       <furo-password-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}" 
-          ?required=${this._required}         
-          @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
-          ƒ-set-value="--value"></furo-password-input>      
-    `}}customElements.define("furo-data-password-input",FuroDataPasswordInput);class FuroDataDateInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {Date} the date value
-   *
-   * Comes from underlying component furo-date-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){if("google.type.Date"==this.field._spec.type){val=this._convertStringToDateObj(val,this.field.value)}this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
-     * Updater for the min => minlength attr*
-     * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr*
-     * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
-     * Updater for the label attr
-     * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
-     * Updater for the hint attr
-     * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
-     * Updater for the leadingIcon attr
-     * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
-     * Updater for the trailingIcon attr
-     * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
-     * Updater for the errortext attr
-     * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
-     * Updater for the step attr
-     * @param value
-     */set _step(value){Helper.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */label:{type:String,attribute:!0},/**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */required:{type:Boolean},/**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:Date},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:Date},/**
-       * Overrides the step value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */step:{type:String// string, because "any" is also a valid step
-},/**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */readonly:{type:Boolean},/**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */disabled:{type:Boolean,reflect:!0},/**
-       * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
-       * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
-       * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
-       * html input validity
-       */valid:{type:Boolean,reflect:!0},/**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
-       * passes always float the label
-       */float:{type:Boolean}}}/**
-     * Sets the field to readonly
-     */disable(){this._readonly=!0}/**
-     * Makes the field writable.
-     */enable(){this._readonly=!1}/**
-     * Bind a entity field to the date-input. You can use the entity even when no data was received.
-     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-     * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}let dateValue=this.field.value;// convert value when date type is google.type.Date
-if("google.type.Date"==this.field._spec.type){dateValue=this._convertDateObjToString(dateValue)}this._FBPTriggerWire("--value",dateValue);this.requestUpdate()}// convert google date object to ISO 8601
-_convertDateObjToString(obj){let date="";if(obj&&obj.day&&obj.month&&obj.year){let month=obj.month+"",day=obj.day+"",year=obj.year+"";if(2>month.length){month="0"+month}if(2>day.length){day="0"+day}if(4>year.length){for(var l=4-year.length,i=0;i<l;i++){year="0"+year}}date=year+"-"+month+"-"+day}return date}// convert date string ISO 8601 to object for google.type.Dates
-_convertStringToDateObj(str,obj){let arr=str.split("-",3);// only override properties: day, month, year
-if(3===arr.length){obj.day=+arr[2];obj.month=+arr[1];obj.year=+arr[0]}return obj}/**
-     *
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-        :host {
-            display: inline-block;
-            width: 190px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-        
-        furo-date-input{
-            width: 100%;
-        }
-    `}render(){// language=HTML
-return _furoShell.html` 
-       <furo-date-input id="input"  
-          ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}"     
-          ?required=${this._required}     
-          @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
-          ƒ-set-value="--value"></furo-date-input>      
-    `}}customElements.define("furo-data-date-input",FuroDataDateInput);class FuroDataTextInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroDataTextInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
@@ -3196,7 +2959,124 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-textarea-input>      
-    `}}customElements.define("furo-data-textarea-input",FuroDataTextareaInput);class FuroDataSearchInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}customElements.define("furo-data-textarea-input",FuroDataTextareaInput);class FuroDataPasswordInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @event value-changed
+   * Fired when value has changed from inside the input field.
+   *
+   * detail payload: {String} the text value
+   *
+   * Comes from underlying component furo-password-input. **bubbles**
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
+CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
+if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+     * becaue it set "undefined" (as a Sting!)
+     *
+     * @param value
+     */set _pattern(value){Helper.UpdateInputAttribute(this,"pattern",value)}/**
+     * Updater for the min => minlength attr*
+     * @param value
+     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr*
+     * @param value
+     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     * Updater for the label attr
+     * @param value
+     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     * Updater for the hint attr
+     * @param value
+     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     * Updater for the leadingIcon attr
+     * @param value
+     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     * Updater for the trailingIcon attr
+     * @param value
+     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     * Updater for the errortext attr
+     * @param value
+     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */label:{type:String,attribute:!0},/**
+       * Overrides the pattern from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */pattern:{type:String},/**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */required:{type:Boolean},/**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:Number},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:Number},/**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */readonly:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean},/**
+       * passes always float the label
+       */float:{type:Boolean}}}/**
+     * Sets the field to readonly
+     */disable(){this._readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this._readonly=!1}/**
+     * Bind a entity field to the number-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: inline-block;
+            width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        furo-password-input{
+            width: 100%;
+        }
+    `}render(){// language=HTML
+return _furoShell.html` 
+       <furo-password-input id="input"
+          ?autofocus=${this.autofocus} 
+          ?readonly=${this._readonly||this.disabled} 
+          ?error="${this.error}" 
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}" 
+          ?required=${this._required}         
+          @-value-changed="--valueChanged"
+          @-input-invalid="--inputInvalid"
+          ƒ-set-value="--value"></furo-password-input>      
+    `}}customElements.define("furo-data-password-input",FuroDataPasswordInput);class FuroDataSearchInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
@@ -3309,181 +3189,7 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-search-input>      
-    `}}customElements.define("furo-data-search-input",FuroDataSearchInput);class FuroDataColorInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
-   * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {String} the text value
-   *
-   * Comes from underlying component furo-text-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}})}/**
-     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-     * becaue it set "undefined" (as a Sting!)
-     *
-     * @param value
-     */set _pattern(value){Helper.UpdateInputAttribute(this,"pattern",value)}/**
-     * Updater for the min => minlength attr
-     * same problem like in pattern
-     *
-     * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr
-     * * same problem like in pattern
-     *
-     * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
-     * Updater for the label attr
-     * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
-     * Updater for the hint attr
-     * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
-     * Updater for the leadingIcon attr
-     * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
-     * Updater for the trailingIcon attr
-     * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
-     * Updater for the errortext attr
-     * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
-     * Sets the field to readonly
-     */disable(){this._readonly=!0}/**
-     * Makes the field writable.
-     */enable(){this._readonly=!1}/**
-     */static get properties(){return{/**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */label:{type:String},/**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */required:{type:Boolean},/**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */hint:{type:String},/**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */readonly:{type:Boolean},/**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */disabled:{type:Boolean,reflect:!0},/**
-       * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
-       * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
-       * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
-       * html input validity
-       */valid:{type:Boolean,reflect:!0},/**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
-       * passes always float the label
-       */float:{type:Boolean}}}/**
-     * Bind a entity field to the text-input. You can use the entity even when no data was received.
-     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-     * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
-     *
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-        :host {
-            display: inline-block;
-            position: relative;
-            font-size: 12px;
-            box-sizing: border-box;
-            margin: 0 0 14px 0;
-            padding: 8px 0 2px 0;
-            height: 28px;
-            font-family: "Roboto", "Noto", sans-serif;
-            line-height: 1.5;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        :host([error]) .border {
-            border-color: red;
-            border-width: 1px;
-        }
-
-
-        input {
-            border: none;
-            background: 0 0;
-            font-size: 12px;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            text-align: left;
-            color: inherit;
-            outline: none;
-            width:30px;
-            height: 19px;
-         }
-
-        .border {
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 28px;
-            border: none;
-            border-bottom: 1px solid rgba(0, 0, 0, .12);
-         }
-
-        label {
-            position: unset;
-            top: unset;
-            color: unset;
-            pointer-events: unset;
-            display: unset;
-            width: unset;
-            overflow: unset;
-            padding-left: 12px;
-        }
-        
-
-        * {
-            transition: all 150ms ease-out;
-        }
-
-        .hint {
-            position: absolute;
-            top: 30px;
-            font-size: 10px;
-            color: transparent;
-            white-space: nowrap;
-            pointer-events: none;
-         }
-
-        :host(:focus-within) .hint {
-            color: var(--app-hint-color);
-            transition: all 550ms ease-in;
-        }
-        
-        :host(:focus-within) .border {
-            border-color: var(--primary, #3f51b5);
-            border-width: 1px;
-        }
-    `}render(){// language=HTML
-return _furoShell.html`
-       <furo-color-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled}                 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}"                         
-          ?required=${this._required}                   
-          @-value-changed="--valueChanged"
-          ƒ-set-value="--value"></furo-color-input>      
-    `}}customElements.define("furo-data-color-input",FuroDataColorInput);class FuroDataNumberInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}customElements.define("furo-data-search-input",FuroDataSearchInput);class FuroDataNumberInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
@@ -3599,7 +3305,238 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-number-input>      
-    `}}customElements.define("furo-data-number-input",FuroDataNumberInput);class FuroDataRangeInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}customElements.define("furo-data-number-input",FuroDataNumberInput);class FuroDataDateInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @event value-changed
+   * Fired when value has changed from inside the input field.
+   *
+   * detail payload: {Date} the date value
+   *
+   * Comes from underlying component furo-date-input. **bubbles**
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
+CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){if("google.type.Date"===this.field._spec.type||"google.type.Date"===this.field["@type"]){val=this._convertStringToDateObj(val,this.field.value)}this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
+if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
+     * Updater for the min => minlength attr*
+     * @param value
+     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr*
+     * @param value
+     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     * Updater for the label attr
+     * @param value
+     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     * Updater for the hint attr
+     * @param value
+     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     * Updater for the leadingIcon attr
+     * @param value
+     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     * Updater for the trailingIcon attr
+     * @param value
+     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     * Updater for the errortext attr
+     * @param value
+     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     * Updater for the step attr
+     * @param value
+     */set _step(value){Helper.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */label:{type:String,attribute:!0},/**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */required:{type:Boolean},/**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:Date},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:Date},/**
+       * Overrides the step value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */step:{type:String// string, because "any" is also a valid step
+},/**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */readonly:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean},/**
+       * passes always float the label
+       */float:{type:Boolean}}}/**
+     * Sets the field to readonly
+     */disable(){this._readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this._readonly=!1}/**
+     * Bind a entity field to the date-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}let dateValue=this.field.value;// convert value when date type is google.type.Date
+if("google.type.Date"===this.field._spec.type||"google.type.Date"===this.field["@type"]){dateValue=this._convertDateObjToString(dateValue)}this._FBPTriggerWire("--value",dateValue);this.requestUpdate()}// convert google date object to ISO 8601
+_convertDateObjToString(obj){let date="";if(obj&&obj.day&&obj.month&&obj.year){let month=obj.month+"",day=obj.day+"",year=obj.year+"";if(2>month.length){month="0"+month}if(2>day.length){day="0"+day}if(4>year.length){for(var l=4-year.length,i=0;i<l;i++){year="0"+year}}date=year+"-"+month+"-"+day}return date}// convert date string ISO 8601 to object for google.type.Dates
+_convertStringToDateObj(str,obj){let arr=str.split("-",3);// only override properties: day, month, year
+if(3===arr.length){obj.day=+arr[2];obj.month=+arr[1];obj.year=+arr[0]}return obj}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: inline-block;
+            width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+        
+        furo-date-input{
+            width: 100%;
+        }
+    `}render(){// language=HTML
+return _furoShell.html` 
+       <furo-date-input id="input"  
+          ?autofocus=${this.autofocus} 
+          ?readonly=${this._readonly||this.disabled} 
+          ?error="${this.error}" 
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}"     
+          ?required=${this._required}     
+          @-value-changed="--valueChanged"
+          @-input-invalid="--inputInvalid"
+          ƒ-set-value="--value"></furo-date-input>      
+    `}}customElements.define("furo-data-date-input",FuroDataDateInput);class FuroDataTimeInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @event value-changed
+   * Fired when value has changed from inside the input field.
+   *
+   * detail payload: {String} the time value
+   *
+   * Comes from underlying component furo-time-input. **bubbles**
+   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
+CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
+if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
+     * Updater for the min => minlength attr*
+     * @param value
+     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr*
+     * @param value
+     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     * Updater for the label attr
+     * @param value
+     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     * Updater for the hint attr
+     * @param value
+     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     * Updater for the leadingIcon attr
+     * @param value
+     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     * Updater for the trailingIcon attr
+     * @param value
+     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     * Updater for the errortext attr
+     * @param value
+     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     * Updater for the step attr
+     * @param value
+     */set _step(value){Helper.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */label:{type:String},/**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */required:{type:Boolean},/**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:String},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:String},/**
+       * Overrides the step value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */step:{type:String// string, because "any" is also a valid step
+},/**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */readonly:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"}}}/**
+     * Sets the field to readonly
+     */disable(){this._readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this._readonly=!1}/**
+     * Bind a entity field to the time-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: inline-block;
+            width: 104px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        furo-time-input {
+            width: 100%;
+        }
+    `}render(){// language=HTML
+return _furoShell.html` 
+       <furo-time-input id="input"
+          ?autofocus=${this.autofocus} 
+          ?readonly=${this._readonly||this.disabled} 
+          ?error="${this.error}" 
+          ?required=${this._required}
+          ?condensed="${this.condensed}"                         
+          @-value-changed="--valueChanged"
+          @-input-invalid="--inputInvalid"
+          ƒ-set-value="--value"></furo-time-input>      
+    `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class FuroDataRangeInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
@@ -3709,21 +3646,257 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-range-input>      
-    `}}customElements.define("furo-data-range-input",FuroDataRangeInput);class FuroDataTimeInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}customElements.define("furo-data-range-input",FuroDataRangeInput);class FuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--valueChanged",val=>{CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this.field={}}_updateField(){this.text=this.field.value;if(this.displayfield&&this.field[this.displayfield]){this.text=this.field[this.displayfield]}else{if(this.field.display_name){this.text=this.field.display_name}}if(this.text&&this.text.toString()==void 0){this.text=""}this.requestUpdate()}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * If your field type does not have a display_name, use this attribute to set the field that should be used
+       * instead of display_name.
+       */displayfield:{type:String},/**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */label:{type:String},/**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */hint:{type:String},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean},/**
+       * passes always float the label
+       */float:{type:Boolean}}}/**
+     * Bind a entity field to the text-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){Helper.BindData(this,fieldNode)}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            margin: 10px 0 15px 0;
+            height: 56px;
+            width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        .wrapper {
+            position: relative;
+            padding: 0 12px;
+            box-sizing: border-box;
+            height: 56px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .iwrap {
+            position: relative;
+        }
+
+        .text {
+            position: absolute;
+            top: 16px;
+            border: none;
+            background: none;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            line-height: 24px;
+            color: inherit;
+            outline: none;
+            font-family: "Roboto", "Noto", sans-serif;
+            font-kerning: auto;
+            font-size: 16px;
+            font-stretch: 100%;
+            font-style: normal;
+        }
+
+
+        furo-icon {
+            display: none;
+            top: 16px;
+        }
+
+        furo-icon.lead {
+            position: absolute;
+
+            left: 8px;
+        }
+
+        furo-icon.trail {
+            position: absolute;
+            right: 8px;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+            display: block;
+        }
+
+        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+            padding-left: 36px;
+        }
+
+        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+            padding-right: 36px;
+        }
+
+
+        .borderlabel {
+            pointer-events: none;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 56px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .left-border {
+            width: 8px;
+            box-sizing: border-box;
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-right: none;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .right-border {
+            pointer-events: none;
+            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+            border-left: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -ms-flex: 1 1 0.000000001px;
+            -webkit-flex: 1;
+            flex: 1;
+            -webkit-flex-basis: 0.000000001px;
+            flex-basis: 0.000000001px;
+        }
+
+
+        label {
+            color: var(--display-label-color, var(--disabled, #8c8c8c));
+            font-size: 12px;
+            padding: 0 4px;
+            font-weight: 400;
+            position: relative;
+            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        }
+
+        label span {
+            font-size: 12px;
+            top: -10px;
+            position: relative;
+        }
+
+        /** Condensed **/
+
+
+        :host([condensed]) .text {
+            top: 12px;
+            font-size: 14px;
+        }
+
+        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+            line-height: 40px;
+            font-size: 14px;
+        }
+
+        :host([condensed][filled]) .text {
+            top: 12px;
+        }
+
+        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+            height: 40px;
+        }
+
+        :host([condensed]) furo-icon {
+            top: 10px;
+        }
+
+
+        :host([condensed]) label span {
+            top: -20px;
+        }
+
+        :host([condensed]) {
+            height: 40px;
+        }
+
+        :host([noborder]) label, :host([noborder]) .left-border, :host([noborder]) .right-border {
+            border: none;
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     * @private
+     */render(){// language=HTML
+return _furoShell.html`
+       <div class="wrapper">
+       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <div class="iwrap">
+        <div class="text">  ${this.text}</div>
+       </div>
+       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+      </div>
+      <div class="borderlabel">
+      <div class="left-border"></div>
+      <label title="${this._hint}"><span>${this._label}</span></label>
+      <div class="right-border"></div>
+      </div>
+      
+      
+    `}}window.customElements.define("furo-data-display",FuroDataDisplay);class FuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-date-input","furo.StringProperty":"furo-data-text-input","furo.NumberProperty":"furo-data-number-input"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
+// repeated
+let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id.value");r.innerHTML="<template><furo-data-property \u0192-bind-data=\"--item\"></furo-data-property></template>";let repeater=this.parentNode.insertBefore(r,this);this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)})}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
+if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"]]);switch(propertyField.data["@type"]){// the input elements for string and number are just working with scalar values
+case"furo.StringProperty":case"furo.NumberProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}}static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: none;
+        }
+    `}}window.customElements.define("furo-data-property",FuroDataProperty);class FuroDataColorInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from inside the input field.
    *
-   * detail payload: {String} the time value
+   * detail payload: {String} the text value
    *
-   * Comes from underlying component furo-time-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
-     * Updater for the min => minlength attr*
+   * Comes from underlying component furo-text-input. **bubbles**
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
+CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}})}/**
+     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+     * becaue it set "undefined" (as a Sting!)
+     *
+     * @param value
+     */set _pattern(value){Helper.UpdateInputAttribute(this,"pattern",value)}/**
+     * Updater for the min => minlength attr
+     * same problem like in pattern
+     *
      * @param value
      */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr*
+     * Updater for the max attr
+     * * same problem like in pattern
+     *
      * @param value
      */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
@@ -3741,9 +3914,11 @@ if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rang
      * Updater for the errortext attr
      * @param value
      */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
-     * Updater for the step attr
-     * @param value
-     */set _step(value){Helper.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+     * Sets the field to readonly
+     */disable(){this._readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this._readonly=!1}/**
+     */static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3756,19 +3931,6 @@ if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rang
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:String},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:String},/**
-       * Overrides the step value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */step:{type:String// string, because "any" is also a valid step
-},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3776,12 +3938,18 @@ if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rang
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */disabled:{type:Boolean,reflect:!0},/**
        * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean}}}/**
-     * Sets the field to readonly
-     */disable(){this._readonly=!0}/**
-     * Makes the field writable.
-     */enable(){this._readonly=!1}/**
-     * Bind a entity field to the time-input. You can use the entity even when no data was received.
+       */autofocus:{type:Boolean},/**
+       * Icon on the left side
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * Icon on the right side
+       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean},/**
+       * passes always float the label
+       */float:{type:Boolean}}}/**
+     * Bind a entity field to the text-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
@@ -3793,27 +3961,92 @@ if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.descr
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: inline-block;
-            width: 104px;
+            position: relative;
+            font-size: 12px;
+            box-sizing: border-box;
+            font-family: "Roboto", "Noto", sans-serif;
+            line-height: 1.5;
         }
 
         :host([hidden]) {
             display: none;
         }
 
-        furo-time-input {
+        :host([error]) .border {
+            border-color: red;
+            border-width: 1px;
+        }
+
+
+        input {
+            border: none;
+            background: 0 0;
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
             width: 100%;
+            text-align: left;
+            color: inherit;
+            outline: none;
+            width:30px;
+            height: 19px;
+         }
+
+        .border {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 28px;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, .12);
+         }
+
+        label {
+            position: unset;
+            top: unset;
+            color: unset;
+            pointer-events: unset;
+            display: unset;
+            width: unset;
+            overflow: unset;
+            padding-left: 12px;
+        }
+        
+
+        * {
+            transition: all 150ms ease-out;
+        }
+
+        .hint {
+            position: absolute;
+            top: 30px;
+            font-size: 10px;
+            color: transparent;
+            white-space: nowrap;
+            pointer-events: none;
+         }
+
+        :host(:focus-within) .hint {
+            color: var(--app-hint-color);
+            transition: all 550ms ease-in;
+        }
+        
+        :host(:focus-within) .border {
+            border-color: var(--primary, #3f51b5);
+            border-width: 1px;
         }
     `}render(){// language=HTML
-return _furoShell.html` 
-       <furo-time-input id="input"
+return _furoShell.html`
+       <furo-color-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?readonly=${this._readonly||this.disabled}                 
           ?error="${this.error}" 
-          ?required=${this._required}
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}"                         
+          ?required=${this._required}                   
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
-          ƒ-set-value="--value"></furo-time-input>      
-    `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+          ƒ-set-value="--value"></furo-color-input>      
+    `}}customElements.define("furo-data-color-input",FuroDataColorInput);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox-input
    *
    * All bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.
@@ -4172,227 +4405,60 @@ this.field.addEventListener("field-value-changed",e=>{this._updateSymbol()});thi
      */render(){// language=HTML
 return _furoShell.html`
       ${this._ocSymbol}
-    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class FuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--valueChanged",val=>{CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this.field={}}_updateField(){this.text=this.field.value;if(this.displayfield&&this.field[this.displayfield]){this.text=this.field[this.displayfield]}else{if(this.field.display_name){this.text=this.field.display_name}}if(this.text.toString()==void 0){this.text=""}this.requestUpdate()}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * If your field type does not have a display_name, use this attribute to set the field that should be used
-       * instead of display_name.
-       */displayfield:{type:String},/**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */label:{type:String},/**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */hint:{type:String},/**
-       * Icon on the left side
-       */leadingIcon:{type:String,attribute:"leading-icon"},/**
-       * Icon on the right side
-       */trailingIcon:{type:String,attribute:"trailing-icon"},/**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */condensed:{type:Boolean},/**
-       * passes always float the label
-       */float:{type:Boolean}}}/**
-     * Bind a entity field to the text-input. You can use the entity even when no data was received.
-     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-     * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
+    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class DemoFuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 190px;
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
         }
 
         :host([hidden]) {
             display: none;
         }
 
-        .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
-
-        .iwrap {
-            position: relative;
-        }
-
-        .text {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-        }
-
-
-        furo-icon {
-            display: none;
-            top: 16px;
-        }
-
-        furo-icon.lead {
-            position: absolute;
-
-            left: 8px;
-        }
-
-        furo-icon.trail {
-            position: absolute;
-            right: 8px;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
-        }
-
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
-        }
-
-
-        .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-        }
-
-        .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
-
-        .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-        }
-
-
-        label {
-            color: var(--display-label-color, var(--disabled, #8c8c8c));
-            font-size: 12px;
-            padding: 0 4px;
-            font-weight: 400;
-            position: relative;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        }
-
-        label span {
-            font-size: 12px;
-            top: -10px;
-            position: relative;
-        }
-
-        /** Condensed **/
-
-
-        :host([condensed]) .text {
-            top: 12px;
-            font-size: 14px;
-        }
-
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-            line-height: 40px;
-            font-size: 14px;
-        }
-
-        :host([condensed][filled]) .text {
-            top: 12px;
-        }
-
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-            height: 40px;
-        }
-
-        :host([condensed]) furo-icon {
-            top: 10px;
-        }
-
-
-        :host([condensed]) label span {
-            top: -20px;
-        }
-
-        :host([condensed]) {
-            height: 40px;
-        }
-
-        :host([noborder]) label, :host([noborder]) .left-border, :host([noborder]) .right-border {
-            border: none;
-        }
-
     `}/**
      * @private
      * @returns {TemplateResult}
-     * @private
      */render(){// language=HTML
 return _furoShell.html`
-       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
-       <div class="iwrap">
-        <div class="text">  ${this.text}</div>
-       </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
-      </div>
-      <div class="borderlabel">
-      <div class="left-border"></div>
-      <label title="${this._hint}"><span>${this._label}</span></label>
-      <div class="right-border"></div>
-      </div>
-      
-      
-    `}}window.customElements.define("furo-data-display",FuroDataDisplay);class DemoFuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+      <furo-vertical-flex>
+        <div>
+          <h2>Demo furo-data-property</h2>
+          <p>Bind your fields as usual.</p>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+            <furo-vertical-scroller>
+              <furo-form-layouter two>
+                <!-- single Property -->
+                <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
+                <!-- repeated Property -->
+                <furo-data-property ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
+                <!-- single Property -->
+                <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
+              </furo-form-layouter>
+              
+
+              <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
+              <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                                ƒ-inject-raw="--response(*.data)"></furo-data-object>
+              <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+              <furo-entity-agent service="ExperimentService"
+                                 ƒ-hts-in="--hts"
+                                 ƒ-load="--hts"
+                                 ƒ-bind-request-data="--entity"
+                                 @-response="--response">
+              </furo-entity-agent>
+            </furo-vertical-scroller>
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-property",DemoFuroDataProperty);class DemoFuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -5359,7 +5425,7 @@ return _furoShell.html`
 
                         <furo-data-number-input leading-icon="apps"  autofocus ƒ-bind-data="--entity(*.furo_data_number_input)" min="4"
                                                 max="7" trailing-icon="apps"></furo-data-number-input>
-                        <furo-data-date-input leading-icon="apps" readonly ƒ-bind-data="--entity(*.furo_data_date_input)"
+                        <furo-data-date-input leading-icon="apps"  ƒ-bind-data="--entity(*.furo_data_date_input)"
                                               trailing-icon="apps"></furo-data-date-input>
                         <furo-data-color-input  leading-icon="apps"  ƒ-bind-data="--entity(*.furo_data_color_input)"
                                                 trailing-icon="apps"></furo-data-color-input>
@@ -5402,7 +5468,7 @@ return _furoShell.html`
 
                         <furo-data-number-input condensed leading-icon="apps"  autofocus leading-icon="dashboard" ƒ-bind-data="--entity(*.furo_data_number_input)" min="4"
                                                 max="7" trailing-icon="apps"></furo-data-number-input>
-                        <furo-data-date-input condensed leading-icon="apps" readonly ƒ-bind-data="--entity(*.furo_data_date_input)"
+                        <furo-data-date-input condensed leading-icon="apps"  ƒ-bind-data="--entity(*.furo_data_date_input)"
                                               trailing-icon="apps"></furo-data-date-input>
                         <furo-data-color-input condensed  leading-icon="apps"  ƒ-bind-data="--entity(*.furo_data_color_input)"
                                                 trailing-icon="apps"></furo-data-color-input>

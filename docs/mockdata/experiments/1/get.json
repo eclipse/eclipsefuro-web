@@ -20,14 +20,78 @@
     "type_property": [
       {
         "data": {
-          "type_url": "string",
-          "value": "string"
+          "@type": "google.type.Date",
+          "day": 8,
+          "month":  11,
+          "year": 2022
         },
-        "display_name": "string",
-        "id": "string",
-        "meta": {}
+        "display_name": "a date",
+        "id": "a",
+        "code": "date",
+        "meta": {
+          "fields": {
+            "data": {
+              "meta": {
+                "label": "datelabel",
+                "hint": "datehint is data"
+              },
+              "constraints": {
+                "min": {
+                  "value": "2019-09-09",
+                  "message": "to small"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "data": {
+          "@type": "furo.StringProperty",
+          "data": "32 32 23",
+          "display_name": "a date"
+        },
+        "id": "b",
+        "code": "date",
+        "meta": {
+          "fields": {
+            "data.data": {
+              "meta": {
+                "label": "repeated fields",
+                "hint": "this is data"
+              }
+            }
+          }
+        }
       }
-    ]
+    ],
+    "single_type_property": {
+      "data": {
+        "@type": "google.type.Date",
+        "day": 8,
+        "month":  11,
+        "year": 2022
+      },
+      "display_name": "a date",
+      "id": "date",
+      "code": "date",
+      "meta": {
+        "fields": {
+          "data": {
+            "meta": {
+              "label": "Additional fields",
+              "hint": "this is data"
+            },
+            "constraints": {
+              "min": {
+                "value": "2019-09-09",
+                "message": "to small"
+              }
+            }
+          }
+        }
+      }
+    }
   },
   "links": [
     {

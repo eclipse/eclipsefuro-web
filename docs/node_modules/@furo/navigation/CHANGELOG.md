@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.33.0](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.32.14...@furo/navigation@0.33.0) (2019-09-17)
+
+
+### Features
+
+* tree with group label ([acf4361](https://github.com/veith/FuroBaseComponents/commit/acf4361))
+
+
+
+
+
 ## [0.32.14](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.32.13...@furo/navigation@0.32.14) (2019-09-15)
 
 **Note:** Version bump only for package @furo/navigation
