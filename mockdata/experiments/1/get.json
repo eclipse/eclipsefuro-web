@@ -32,8 +32,8 @@
           "fields": {
             "data": {
               "meta": {
-                "label": "Additional fields",
-                "hint": "this is data"
+                "label": "datelabel",
+                "hint": "datehint is data"
               },
               "constraints": {
                 "min": {
@@ -51,7 +51,6 @@
           "data": "32 32 23",
           "display_name": "a date"
         },
-
         "id": "b",
         "code": "date",
         "meta": {
