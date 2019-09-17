@@ -26,9 +26,9 @@ import "@furo/layout/furo-ripple";
  * `--input-checkbox-unselected-hover-bg-color` | background color of the unchecked checkbox by hovering | `--surface-light` | #F5F5F5
  * `--input-checkbox-unselected-focus-bg-color` | background color of the unchecked checkbox by focusing | `--surface-dark` | #DDDDDD
  * `--input-checkbox-unselected-active-bg-color` | background color of the unchecked checkbox by pressing | `--surface-dark` | #C0C0C0
- * `--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--accent` | #6200FD
- * `--input-checkbox-selected-hover-bg-color` | background color of the checked checkbox by hovering | `--on-accent` | #D5C6E9
- * `--input-checkbox-selected-focus-bg-color` | background color of the checked checkbox by focusing | `--accent` | #6200FD
+ * `--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--primary-light` | #6200FD
+ * `--input-checkbox-selected-hover-bg-color` | background color of the checked checkbox by hovering | `--primary-variant` | #D5C6E9
+ * `--input-checkbox-selected-focus-bg-color` | background color of the checked checkbox by focusing | `--primary-light` | #6200FD
  * `--input-checkbox-disabled-selected-bg-color` | background color of the checked disabled checkbox | `--disable` | #B9B9B9
  * `--input-checkbox-disabled-selected-border-color` | border color of the checked disabled checkbox | `--disable` | #B9B9B9
  * `--input-checkbox-disabled-unselected-bg-color` | background color of the unchecked disabled checkbox | `--background` | #ffffff
@@ -44,161 +44,161 @@ import "@furo/layout/furo-ripple";
 class FuroCheckbox extends FBP(LitElement) {
 
 
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    _FBPReady() {
-        super._FBPReady();
-        this._FBPAddWireHook("--inputInput", (e) => {
+  _FBPReady() {
+    super._FBPReady();
+    this._FBPAddWireHook("--inputInput", (e) => {
 
-            let input = e.composedPath()[0];
+      let input = e.composedPath()[0];
 
-            this.checked = input.checked;
-            this.value = input.checked;
+      this.checked = input.checked;
+      this.value = input.checked;
 
-        });
+    });
 
-        this._FBPAddWireHook("--focusReceived", (e) => {
-            this.focused = true;
-        });
+    this._FBPAddWireHook("--focusReceived", (e) => {
+      this.focused = true;
+    });
 
-        this._FBPAddWireHook("--focusOutReceived", (e) => {
-            this.focused = false;
-        });
+    this._FBPAddWireHook("--focusOutReceived", (e) => {
+      this.focused = false;
+    });
 
-    }
+  }
 
-    /**
-     * Sets the focus on the checkbox.
-     */
-    focus() {
-        this._FBPTriggerWire("--focus");
-    }
+  /**
+   * Sets the focus on the checkbox.
+   */
+  focus() {
+    this._FBPTriggerWire("--focus");
+  }
 
-    /**
-     * check the checkbox
-     */
-    check() {
-        this.checked = true;
-        this.value = true;
-    }
+  /**
+   * check the checkbox
+   */
+  check() {
+    this.checked = true;
+    this.value = true;
+  }
 
-    /**
-     * uncheck the checkbox
-     */
-    uncheck() {
-        this.checked = false;
-        this.value = false;
-    }
+  /**
+   * uncheck the checkbox
+   */
+  uncheck() {
+    this.checked = false;
+    this.value = false;
+  }
 
-    /**
-     * toggle the checkbox
-     */
-    toggle() {
-        this.shadowRoot.getElementById("input").click();
-    }
+  /**
+   * toggle the checkbox
+   */
+  toggle() {
+    this.shadowRoot.getElementById("input").click();
+  }
 
-    /**
-     * Sets the value for the checkbox
-     * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
-     * This is different from the native attribute `value` of the input checkbox
-     * @param {boolean} v
-     */
-    setValue(v) {
-        this.checked = !!v;
-        this.value = !!v;
-    }
+  /**
+   * Sets the value for the checkbox
+   * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+   * This is different from the native attribute `value` of the input checkbox
+   * @param {boolean} v
+   */
+  setValue(v) {
+    this.checked = !!v;
+    this.value = !!v;
+  }
 
-    set value(v) {
+  set value(v) {
 
-        this._value = !!v;
-
-        /**
-         * @event value-changed
-         * Fired when value has changed from inside the component
-         * detail payload: {String} the text value
-         */
-        let customEvent = new Event('value-changed', {composed: true, bubbles: true});
-        customEvent.detail = this.value;
-        this.dispatchEvent(customEvent);
-
-        if (this.checked) {
-
-            /**
-             * @event checked
-             * Fired when the checkbox is checked
-             * detail payload: {String} the text value
-             */
-            let customEvent = new Event('checked', {composed: true, bubbles: true});
-            customEvent.detail = this.value;
-            this.dispatchEvent(customEvent);
-        }
-        else {
-            /**
-             * @event unchecked
-             * Fired when the checkbox is unchecked
-             * detail payload: {String} the text value
-             */
-            let customEvent = new Event('unchecked', {composed: true, bubbles: true});
-            customEvent.detail = this.value;
-            this.dispatchEvent(customEvent);
-        }
-    }
-
-    get value() {
-        return this._value;
-    }
-
-    static get properties() {
-        return {
-
-            /**
-             * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
-             * This is different from the native attribute `value` of the input checkbox
-             */
-            value: {
-                type: Boolean
-            },
-
-            /**
-             * Set this attribute to autofocus the input field.
-             */
-            autofocus: {
-                type: Boolean
-            },
-
-            /**
-             * A Boolean attribute which, if present, means this field cannot be edited by the user.
-             */
-            disabled: {
-                type: Boolean
-            },
-
-            /**
-             * A Boolean attribute which, if present, means this checkbox is checked.
-             */
-            checked: {
-                type: Boolean, reflect: true
-            },
-
-            /**
-             * A Boolean attribute which, if present, means this is focused.
-             */
-            focused: {
-                type: Boolean
-            }
-        };
-    }
+    this._value = !!v;
 
     /**
-     *
-     * @private
-     * @return {CSSResult}
+     * @event value-changed
+     * Fired when value has changed from inside the component
+     * detail payload: {String} the text value
      */
-    static get styles() {
-        // language=CSS
-        return Theme.getThemeForComponent(this.name) || css`
+    let customEvent = new Event('value-changed', {composed: true, bubbles: true});
+    customEvent.detail = this.value;
+    this.dispatchEvent(customEvent);
+
+    if (this.checked) {
+
+      /**
+       * @event checked
+       * Fired when the checkbox is checked
+       * detail payload: {String} the text value
+       */
+      let customEvent = new Event('checked', {composed: true, bubbles: true});
+      customEvent.detail = this.value;
+      this.dispatchEvent(customEvent);
+    }
+    else {
+      /**
+       * @event unchecked
+       * Fired when the checkbox is unchecked
+       * detail payload: {String} the text value
+       */
+      let customEvent = new Event('unchecked', {composed: true, bubbles: true});
+      customEvent.detail = this.value;
+      this.dispatchEvent(customEvent);
+    }
+  }
+
+  get value() {
+    return this._value;
+  }
+
+  static get properties() {
+    return {
+
+      /**
+       * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+       * This is different from the native attribute `value` of the input checkbox
+       */
+      value: {
+        type: Boolean
+      },
+
+      /**
+       * Set this attribute to autofocus the input field.
+       */
+      autofocus: {
+        type: Boolean
+      },
+
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      disabled: {
+        type: Boolean
+      },
+
+      /**
+       * A Boolean attribute which, if present, means this checkbox is checked.
+       */
+      checked: {
+        type: Boolean, reflect: true
+      },
+
+      /**
+       * A Boolean attribute which, if present, means this is focused.
+       */
+      focused: {
+        type: Boolean
+      }
+    };
+  }
+
+  /**
+   *
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return Theme.getThemeForComponent(this.name) || css`
             /* https://material.io/design/components/text-fields.html#theming */
             :host {
                 display: inline-block;
@@ -281,22 +281,22 @@ class FuroCheckbox extends FBP(LitElement) {
 
             /* selected checkbox  */
             .wrapper[checked] input ~ .checkbox-background {
-                background-color: var(--input-checkbox-selected-bg-color, var(--accent, #6200FD));
-                border-color: var(--input-checkbox-selected-bg-color, var(--accent, #6200FD));
+                background-color: var(--input-checkbox-selected-bg-color, var(--primary-light, #6200FD));
+                border-color: var(--input-checkbox-selected-bg-color, var(--primary-light, #6200FD));
             }
 
             /* selected checkbox when focusing */
             .wrapper[checked][focused] {
-                background-color: var(--input-checkbox-selected-hover-bg-color, var(--on-accent, #D5C6E9));
+                background-color: var(--input-checkbox-selected-hover-bg-color, var(--primary-variant, #D5C6E9));
             }
 
             .wrapper[checked][focused] input ~ .checkbox-background {
-                background-color: var(--input-checkbox-selected-focus-bg-color, var(--accent, #6200FD));
+                background-color: var(--input-checkbox-selected-focus-bg-color, var(--primary-light, #6200FD));
             }
 
             /* selected checkbox when hovering */
             .wrapper[checked]:hover {
-                background-color: var(--input-checkbox-selected-hover-bg-color, var(--on-accent, #E4DBE6));
+                background-color: var(--input-checkbox-selected-hover-bg-color, var(--primary-variant, #E4DBE6));
             }
 
             /* disabled checkbox selected */
@@ -353,14 +353,14 @@ class FuroCheckbox extends FBP(LitElement) {
                 left: 7px;
             }
         `
-    }
+  }
 
-    /**
-     * @private
-     * @returns {TemplateResult}
-     */
-    render() {
-        return html`
+  /**
+   * @private
+   * @returns {TemplateResult}
+   */
+  render() {
+    return html`
           <div id="wrapper" class="wrapper" ?focused=${this.focused} ?checked=${this.checked} ?disabled=${this.disabled}>
               <input id="input" type="checkbox" ?checked=${this.checked}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
                      ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
@@ -368,7 +368,7 @@ class FuroCheckbox extends FBP(LitElement) {
               <furo-ripple></furo-ripple>
           </div>
         `;
-    }
+  }
 }
 
 customElements.define('furo-checkbox', FuroCheckbox);
