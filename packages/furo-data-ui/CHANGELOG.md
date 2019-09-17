@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.7.1...@furo/data-ui@0.7.2) (2019-09-17)
+
+
+### Bug Fixes
+
+* better null checking by scalar values ([ad59699](https://github.com/veith/FuroBaseComponents/commit/ad59699))
+
+
+
+
+
 ## [0.7.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.7.0...@furo/data-ui@0.7.1) (2019-09-15)
 
 **Note:** Version bump only for package @furo/data-ui

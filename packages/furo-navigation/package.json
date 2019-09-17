@@ -3,10 +3,10 @@
   "description": "Furo navigation components",
   "main": "furo-catalog.js",
   "license": "MIT",
-  "version": "0.32.14",
+  "version": "0.33.0",
   "dependencies": {
-    "@furo/data": "^0.54.0",
-    "@furo/data-input": "^0.48.19",
+    "@furo/data": "^0.55.0",
+    "@furo/data-input": "^0.49.0",
     "@furo/fbp": "^4.26.4",
     "@furo/framework": "^0.11.2",
     "@furo/layout": "^0.34.3",

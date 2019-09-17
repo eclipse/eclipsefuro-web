@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.49.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.19...@furo/data-input@0.49.0) (2019-09-17)
+
+
+### Bug Fixes
+
+* better null checking by scalar values ([ad59699](https://github.com/veith/FuroBaseComponents/commit/ad59699))
+
+
+### Features
+
+* property field init ([cb3937b](https://github.com/veith/FuroBaseComponents/commit/cb3937b))
+
+
+
+
+
 ## [0.48.19](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.48.18...@furo/data-input@0.48.19) (2019-09-15)
 
 **Note:** Version bump only for package @furo/data-input

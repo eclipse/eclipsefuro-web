@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.21.0...@furo/specs@0.24.0) (2019-09-17)
+
+
+### Bug Fixes
+
+* panels with border-box ([479daaa](https://github.com/veith/FuroBaseComponents/commit/479daaa))
+
+
+### Features
+
+* group-label in tree spec ([7d7133e](https://github.com/veith/FuroBaseComponents/commit/7d7133e))
+* property type ([fcfdc34](https://github.com/veith/FuroBaseComponents/commit/fcfdc34))
+* property type ([64f150e](https://github.com/veith/FuroBaseComponents/commit/64f150e))
+* ui-specs with writeprotection ([a3dfe61](https://github.com/veith/FuroBaseComponents/commit/a3dfe61))
+* ui-specs with writeprotection ([1e62ec2](https://github.com/veith/FuroBaseComponents/commit/1e62ec2))
+
+
+
+
+
 # [0.21.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.20.0...@furo/specs@0.21.0) (2019-09-15)
 
 

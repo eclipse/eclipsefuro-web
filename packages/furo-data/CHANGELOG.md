@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.55.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.54.0...@furo/data@0.55.0) (2019-09-17)
+
+
+### Bug Fixes
+
+* better null checking by scalar values ([ad59699](https://github.com/veith/FuroBaseComponents/commit/ad59699))
+
+
+### Features
+
+* property type ([fcfdc34](https://github.com/veith/FuroBaseComponents/commit/fcfdc34))
+
+
+
+
+
 # [0.54.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.53.1...@furo/data@0.54.0) (2019-09-15)
 
 
