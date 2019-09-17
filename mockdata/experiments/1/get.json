@@ -22,7 +22,7 @@
         "data": {
           "@type": "google.type.Date",
           "day": 8,
-          "month":  11,
+          "month": 11,
           "year": 2022
         },
         "display_name": "a date",
@@ -40,6 +40,37 @@
                   "value": "2019-09-09",
                   "message": "to small"
                 }
+              }
+            }
+          }
+        }
+      },
+      {
+        "data": {
+          "@type": "furo.StringOptionProperty",
+          "id": "bb",
+          "display_name": "Display"
+        },
+        "display_name": "Display",
+        "id": "opt",
+        "code": "option",
+        "meta": {
+          "fields": {
+            "data": {
+              "meta": {
+                "label": "Please select",
+                "hint": "datehint is data",
+                "repeated": false,
+                "options": [
+                  {
+                    "id": "aa",
+                    "display_name": "The display a"
+                  },
+                  {
+                    "id": "bb",
+                    "display_name": "The display b"
+                  }
+                ]
               }
             }
           }
@@ -69,7 +100,7 @@
       "data": {
         "@type": "google.type.Date",
         "day": 8,
-        "month":  11,
+        "month": 11,
         "year": 2022
       },
       "display_name": "a date",

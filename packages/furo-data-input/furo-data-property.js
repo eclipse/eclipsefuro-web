@@ -67,7 +67,8 @@ class FuroDataProperty extends FBP(LitElement) {
     this.typemap = {
       "google.type.Date": "furo-data-date-input",
       "furo.StringProperty": "furo-data-text-input",
-      "furo.NumberProperty": "furo-data-number-input"
+      "furo.NumberProperty": "furo-data-number-input",
+      "furo.StringOptionProperty": "furo-data-collection-dropdown"
     };
   }
 

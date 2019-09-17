@@ -15,7 +15,6 @@ import {FBP} from "@furo/fbp";
  * Tags: input
  * @summary text input element
  * @customElement
- * @polymer
  * @mixes FBP
  */
 class FuroDataCollectionDropdown extends FBP(LitElement) {
@@ -45,6 +44,10 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       }
     });
   }
+
+
+
+
 
   /**
    * Updater for the label attr
@@ -207,6 +210,12 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
+
+
+    // update meta and constraints when they change
+    this.field.addEventListener('this-metas-changed', (e) => {
+      this._buildListWithMetaOptions(this.field._meta.options);
+    });
   }
 
 
@@ -219,8 +228,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     }
 
     this._FBPTriggerWire('--value', this.field.value);
-
     this.requestUpdate();
+
   }
 
   /**
@@ -259,6 +268,28 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-select-input>      
     `;
+  }
+
+  /**
+   * Build the dropdown list with given options from meta
+   * @param {options} list of options with id and display_name
+   */
+  _buildListWithMetaOptions(entities) {
+    // map
+    let arr = entities.map((e) => {
+      return {
+        "id": e[this.valueField],
+        "label": e[this.displayField],
+        "selected": (this.field[this.valueField].value ==  e[this.valueField])
+      }
+    });
+
+
+    if (!this.field[this.valueField].value) {
+      this.field.value = arr[0].id;
+    }
+
+    this._FBPTriggerWire("--selection", arr);
   }
 
   /**
