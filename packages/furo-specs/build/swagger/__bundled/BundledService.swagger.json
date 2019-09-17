@@ -1453,7 +1453,7 @@
         },
         "furo_data_color_input": {
           "type": "string",
-          "title": "field for furo_data_color_input for testing"
+          "title": "field for furo-data-color-input for testing"
         },
         "furo_data_date_input": {
           "type": "string",
@@ -1495,6 +1495,10 @@
         "id": {
           "type": "string",
           "title": "Identity of a experiment"
+        },
+        "single_type_property": {
+          "$ref": "#/definitions/furoProperty",
+          "title": "field for testing property"
         },
         "the_any_type": {
           "$ref": "#/definitions/protobufAny",
@@ -1630,6 +1634,10 @@
     "furoProperty": {
       "type": "object",
       "properties": {
+        "code": {
+          "type": "string",
+          "title": "property code for additional settings"
+        },
         "data": {
           "$ref": "#/definitions/protobufAny",
           "title": "data part of the property"
@@ -1641,6 +1649,10 @@
         "id": {
           "type": "string",
           "title": "Id of the property"
+        },
+        "meta": {
+          "$ref": "#/definitions/furoMeta",
+          "title": "Meta for the response"
         }
       },
       "title": "Type to define property values with type information"
@@ -1945,6 +1957,11 @@
         "id": {
           "type": "string",
           "title": "Id of the node"
+        },
+        "is_group_label": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "This node is a group label"
         },
         "key_words": {
           "type": "string",

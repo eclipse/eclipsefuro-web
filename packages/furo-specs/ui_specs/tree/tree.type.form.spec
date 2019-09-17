@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "TreeTreeForm",
   "component_name": "tree-tree-form",

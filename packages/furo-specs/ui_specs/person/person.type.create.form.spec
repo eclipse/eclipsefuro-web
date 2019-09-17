@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "PersonPersonCreateForm",
   "component_name": "person-person-create-form",

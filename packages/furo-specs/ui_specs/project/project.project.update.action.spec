@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "ActionBaseTheme",
   "class_name": "ProjectProjectUpdateAction",
   "component_name": "project-project-update-action",

@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "ActionBaseTheme",
   "class_name": "ExperimentExperimentUpdateAction",
   "component_name": "experiment-experiment-update-action",

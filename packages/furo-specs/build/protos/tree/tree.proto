@@ -38,9 +38,9 @@ message TreeEntity {
 }
 
 // Item of the navigationtree
-message Navigationnode {                                                    
+message Navigationnode {                                                        
     // Children of this node
-    repeated Navigationnode children = 11;
+    repeated Navigationnode children = 12;
     
     // description of the node
     string description = 4;
@@ -56,6 +56,9 @@ message Navigationnode {
     
     // Id of the node
     string id = 1;
+    
+    // This node is a group label
+    bool is_group_label = 11;
     
     // key words of the node
     string key_words = 7;

@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "ReferenceBaseTheme",
   "class_name": "PersonPersonReferenceSearch",
   "component_name": "person-person-reference-search",

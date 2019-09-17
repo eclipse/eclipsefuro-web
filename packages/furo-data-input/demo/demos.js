@@ -1,3 +1,4 @@
+import "./demo-furo-data-property";
 import "./demo-furo-data-display";
 import "./demo-furo-data-bool-icon";
 import "./sample-furo-data-text-input";

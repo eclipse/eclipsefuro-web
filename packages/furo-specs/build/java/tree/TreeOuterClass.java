@@ -2628,7 +2628,7 @@ public final class TreeOuterClass {
      * Children of this node
      * </pre>
      *
-     * <code>repeated .tree.Navigationnode children = 11;</code>
+     * <code>repeated .tree.Navigationnode children = 12;</code>
      */
     java.util.List<tree.TreeOuterClass.Navigationnode> 
         getChildrenList();
@@ -2637,7 +2637,7 @@ public final class TreeOuterClass {
      * Children of this node
      * </pre>
      *
-     * <code>repeated .tree.Navigationnode children = 11;</code>
+     * <code>repeated .tree.Navigationnode children = 12;</code>
      */
     tree.TreeOuterClass.Navigationnode getChildren(int index);
     /**
@@ -2645,7 +2645,7 @@ public final class TreeOuterClass {
      * Children of this node
      * </pre>
      *
-     * <code>repeated .tree.Navigationnode children = 11;</code>
+     * <code>repeated .tree.Navigationnode children = 12;</code>
      */
     int getChildrenCount();
     /**
@@ -2653,7 +2653,7 @@ public final class TreeOuterClass {
      * Children of this node
      * </pre>
      *
-     * <code>repeated .tree.Navigationnode children = 11;</code>
+     * <code>repeated .tree.Navigationnode children = 12;</code>
      */
     java.util.List<? extends tree.TreeOuterClass.NavigationnodeOrBuilder> 
         getChildrenOrBuilderList();
@@ -2662,7 +2662,7 @@ public final class TreeOuterClass {
      * Children of this node
      * </pre>
      *
-     * <code>repeated .tree.Navigationnode children = 11;</code>
+     * <code>repeated .tree.Navigationnode children = 12;</code>
      */
     tree.TreeOuterClass.NavigationnodeOrBuilder getChildrenOrBuilder(
         int index);
@@ -2747,6 +2747,15 @@ public final class TreeOuterClass {
      */
     com.google.protobuf.ByteString
         getIdBytes();
+
+    /**
+     * <pre>
+     * This node is a group label
+     * </pre>
+     *
+     * <code>bool is_group_label = 11;</code>
+     */
+    boolean getIsGroupLabel();
 
     /**
      * <pre>
@@ -2952,7 +2961,12 @@ public final class TreeOuterClass {
 
               break;
             }
-            case 90: {
+            case 88: {
+
+              isGroupLabel_ = input.readBool();
+              break;
+            }
+            case 98: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 children_ = new java.util.ArrayList<tree.TreeOuterClass.Navigationnode>();
                 mutable_bitField0_ |= 0x00000001;
@@ -2997,14 +3011,14 @@ public final class TreeOuterClass {
     }
 
     private int bitField0_;
-    public static final int CHILDREN_FIELD_NUMBER = 11;
+    public static final int CHILDREN_FIELD_NUMBER = 12;
     private java.util.List<tree.TreeOuterClass.Navigationnode> children_;
     /**
      * <pre>
      * Children of this node
      * </pre>
      *
-     * <code>repeated .tree.Navigationnode children = 11;</code>
+     * <code>repeated .tree.Navigationnode children = 12;</code>
      */
     public java.util.List<tree.TreeOuterClass.Navigationnode> getChildrenList() {
       return children_;
@@ -3014,7 +3028,7 @@ public final class TreeOuterClass {
      * Children of this node
      * </pre>
      *
-     * <code>repeated .tree.Navigationnode children = 11;</code>
+     * <code>repeated .tree.Navigationnode children = 12;</code>
      */
     public java.util.List<? extends tree.TreeOuterClass.NavigationnodeOrBuilder> 
         getChildrenOrBuilderList() {
@@ -3025,7 +3039,7 @@ public final class TreeOuterClass {
      * Children of this node
      * </pre>
      *
-     * <code>repeated .tree.Navigationnode children = 11;</code>
+     * <code>repeated .tree.Navigationnode children = 12;</code>
      */
     public int getChildrenCount() {
       return children_.size();
@@ -3035,7 +3049,7 @@ public final class TreeOuterClass {
      * Children of this node
      * </pre>
      *
-     * <code>repeated .tree.Navigationnode children = 11;</code>
+     * <code>repeated .tree.Navigationnode children = 12;</code>
      */
     public tree.TreeOuterClass.Navigationnode getChildren(int index) {
       return children_.get(index);
@@ -3045,7 +3059,7 @@ public final class TreeOuterClass {
      * Children of this node
      * </pre>
      *
-     * <code>repeated .tree.Navigationnode children = 11;</code>
+     * <code>repeated .tree.Navigationnode children = 12;</code>
      */
     public tree.TreeOuterClass.NavigationnodeOrBuilder getChildrenOrBuilder(
         int index) {
@@ -3231,6 +3245,19 @@ public final class TreeOuterClass {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int IS_GROUP_LABEL_FIELD_NUMBER = 11;
+    private boolean isGroupLabel_;
+    /**
+     * <pre>
+     * This node is a group label
+     * </pre>
+     *
+     * <code>bool is_group_label = 11;</code>
+     */
+    public boolean getIsGroupLabel() {
+      return isGroupLabel_;
     }
 
     public static final int KEY_WORDS_FIELD_NUMBER = 7;
@@ -3449,8 +3476,11 @@ public final class TreeOuterClass {
       if (link_ != null) {
         output.writeMessage(10, getLink());
       }
+      if (isGroupLabel_ != false) {
+        output.writeBool(11, isGroupLabel_);
+      }
       for (int i = 0; i < children_.size(); i++) {
-        output.writeMessage(11, children_.get(i));
+        output.writeMessage(12, children_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -3494,9 +3524,13 @@ public final class TreeOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, getLink());
       }
+      if (isGroupLabel_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(11, isGroupLabel_);
+      }
       for (int i = 0; i < children_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, children_.get(i));
+          .computeMessageSize(12, children_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3525,6 +3559,8 @@ public final class TreeOuterClass {
           .equals(other.getIcon())) return false;
       if (!getId()
           .equals(other.getId())) return false;
+      if (getIsGroupLabel()
+          != other.getIsGroupLabel()) return false;
       if (!getKeyWords()
           .equals(other.getKeyWords())) return false;
       if (hasLink() != other.hasLink()) return false;
@@ -3564,6 +3600,9 @@ public final class TreeOuterClass {
       hash = (53 * hash) + getIcon().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + IS_GROUP_LABEL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsGroupLabel());
       hash = (37 * hash) + KEY_WORDS_FIELD_NUMBER;
       hash = (53 * hash) + getKeyWords().hashCode();
       if (hasLink()) {
@@ -3731,6 +3770,8 @@ public final class TreeOuterClass {
 
         id_ = "";
 
+        isGroupLabel_ = false;
+
         keyWords_ = "";
 
         if (linkBuilder_ == null) {
@@ -3787,6 +3828,7 @@ public final class TreeOuterClass {
         result.hasError_ = hasError_;
         result.icon_ = icon_;
         result.id_ = id_;
+        result.isGroupLabel_ = isGroupLabel_;
         result.keyWords_ = keyWords_;
         if (linkBuilder_ == null) {
           result.link_ = link_;
@@ -3890,6 +3932,9 @@ public final class TreeOuterClass {
           id_ = other.id_;
           onChanged();
         }
+        if (other.getIsGroupLabel() != false) {
+          setIsGroupLabel(other.getIsGroupLabel());
+        }
         if (!other.getKeyWords().isEmpty()) {
           keyWords_ = other.keyWords_;
           onChanged();
@@ -3955,7 +4000,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public java.util.List<tree.TreeOuterClass.Navigationnode> getChildrenList() {
         if (childrenBuilder_ == null) {
@@ -3969,7 +4014,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public int getChildrenCount() {
         if (childrenBuilder_ == null) {
@@ -3983,7 +4028,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public tree.TreeOuterClass.Navigationnode getChildren(int index) {
         if (childrenBuilder_ == null) {
@@ -3997,7 +4042,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public Builder setChildren(
           int index, tree.TreeOuterClass.Navigationnode value) {
@@ -4018,7 +4063,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public Builder setChildren(
           int index, tree.TreeOuterClass.Navigationnode.Builder builderForValue) {
@@ -4036,7 +4081,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public Builder addChildren(tree.TreeOuterClass.Navigationnode value) {
         if (childrenBuilder_ == null) {
@@ -4056,7 +4101,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public Builder addChildren(
           int index, tree.TreeOuterClass.Navigationnode value) {
@@ -4077,7 +4122,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public Builder addChildren(
           tree.TreeOuterClass.Navigationnode.Builder builderForValue) {
@@ -4095,7 +4140,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public Builder addChildren(
           int index, tree.TreeOuterClass.Navigationnode.Builder builderForValue) {
@@ -4113,7 +4158,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public Builder addAllChildren(
           java.lang.Iterable<? extends tree.TreeOuterClass.Navigationnode> values) {
@@ -4132,7 +4177,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public Builder clearChildren() {
         if (childrenBuilder_ == null) {
@@ -4149,7 +4194,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public Builder removeChildren(int index) {
         if (childrenBuilder_ == null) {
@@ -4166,7 +4211,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public tree.TreeOuterClass.Navigationnode.Builder getChildrenBuilder(
           int index) {
@@ -4177,7 +4222,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public tree.TreeOuterClass.NavigationnodeOrBuilder getChildrenOrBuilder(
           int index) {
@@ -4191,7 +4236,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public java.util.List<? extends tree.TreeOuterClass.NavigationnodeOrBuilder> 
            getChildrenOrBuilderList() {
@@ -4206,7 +4251,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public tree.TreeOuterClass.Navigationnode.Builder addChildrenBuilder() {
         return getChildrenFieldBuilder().addBuilder(
@@ -4217,7 +4262,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public tree.TreeOuterClass.Navigationnode.Builder addChildrenBuilder(
           int index) {
@@ -4229,7 +4274,7 @@ public final class TreeOuterClass {
        * Children of this node
        * </pre>
        *
-       * <code>repeated .tree.Navigationnode children = 11;</code>
+       * <code>repeated .tree.Navigationnode children = 12;</code>
        */
       public java.util.List<tree.TreeOuterClass.Navigationnode.Builder> 
            getChildrenBuilderList() {
@@ -4640,6 +4685,44 @@ public final class TreeOuterClass {
   checkByteStringIsUtf8(value);
         
         id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean isGroupLabel_ ;
+      /**
+       * <pre>
+       * This node is a group label
+       * </pre>
+       *
+       * <code>bool is_group_label = 11;</code>
+       */
+      public boolean getIsGroupLabel() {
+        return isGroupLabel_;
+      }
+      /**
+       * <pre>
+       * This node is a group label
+       * </pre>
+       *
+       * <code>bool is_group_label = 11;</code>
+       */
+      public Builder setIsGroupLabel(boolean value) {
+        
+        isGroupLabel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * This node is a group label
+       * </pre>
+       *
+       * <code>bool is_group_label = 11;</code>
+       */
+      public Builder clearIsGroupLabel() {
+        
+        isGroupLabel_ = false;
         onChanged();
         return this;
       }
@@ -6826,16 +6909,16 @@ public final class TreeOuterClass {
       "\022\"\n\004root\030\n \001(\0132\024.tree.Navigationnode\"[\n\n" +
       "TreeEntity\022\030\n\004data\030\001 \001(\0132\n.tree.Tree\022\031\n\005" +
       "links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n." +
-      "furo.Meta\"\362\001\n\016Navigationnode\022&\n\010children" +
-      "\030\013 \003(\0132\024.tree.Navigationnode\022\023\n\013descript" +
+      "furo.Meta\"\212\002\n\016Navigationnode\022&\n\010children" +
+      "\030\014 \003(\0132\024.tree.Navigationnode\022\023\n\013descript" +
       "ion\030\004 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\021\n\thas_e" +
-      "rror\030\010 \001(\010\022\014\n\004icon\030\005 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\t" +
-      "key_words\030\007 \001(\t\022\030\n\004link\030\n \001(\0132\n.furo.Lin" +
-      "k\022\014\n\004open\030\t \001(\010\022\r\n\005panel\030\006 \001(\t\022\026\n\016second" +
-      "ary_text\030\003 \001(\t\"i\n\016TreeCollection\022\"\n\010enti" +
-      "ties\030\004 \003(\0132\020.tree.TreeEntity\022\031\n\005links\030\003 " +
-      "\003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Met" +
-      "ab\006proto3"
+      "rror\030\010 \001(\010\022\014\n\004icon\030\005 \001(\t\022\n\n\002id\030\001 \001(\t\022\026\n\016" +
+      "is_group_label\030\013 \001(\010\022\021\n\tkey_words\030\007 \001(\t\022" +
+      "\030\n\004link\030\n \001(\0132\n.furo.Link\022\014\n\004open\030\t \001(\010\022" +
+      "\r\n\005panel\030\006 \001(\t\022\026\n\016secondary_text\030\003 \001(\t\"i" +
+      "\n\016TreeCollection\022\"\n\010entities\030\004 \003(\0132\020.tre" +
+      "e.TreeEntity\022\031\n\005links\030\003 \003(\0132\n.furo.Link\022" +
+      "\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6868,7 +6951,7 @@ public final class TreeOuterClass {
     internal_static_tree_Navigationnode_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tree_Navigationnode_descriptor,
-        new java.lang.String[] { "Children", "Description", "DisplayName", "HasError", "Icon", "Id", "KeyWords", "Link", "Open", "Panel", "SecondaryText", });
+        new java.lang.String[] { "Children", "Description", "DisplayName", "HasError", "Icon", "Id", "IsGroupLabel", "KeyWords", "Link", "Open", "Panel", "SecondaryText", });
     internal_static_tree_TreeCollection_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_tree_TreeCollection_fieldAccessorTable = new

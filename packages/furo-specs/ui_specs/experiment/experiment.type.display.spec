@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "DisplayBaseTheme",
   "class_name": "ExperimentExperimentDisplay",
   "component_name": "experiment-experiment-display",

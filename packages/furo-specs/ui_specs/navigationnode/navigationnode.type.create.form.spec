@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "TreeNavigationnodeCreateForm",
   "component_name": "tree-navigationnode-create-form",

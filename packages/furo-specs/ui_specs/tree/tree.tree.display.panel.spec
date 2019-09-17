@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "PanelBaseTheme",
   "class_name": "TreeTreeDisplayPanel",
   "component_name": "tree-tree-display-panel",

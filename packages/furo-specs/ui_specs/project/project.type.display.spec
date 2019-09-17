@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "DisplayBaseTheme",
   "class_name": "ProjectProjectDisplay",
   "component_name": "project-project-display",

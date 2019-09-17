@@ -1486,18 +1486,18 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
-     * field for furo_data_color_input for testing
+     * field for furo-data-color-input for testing
      * </pre>
      *
-     * <code>string furo_data_color_input = 19;</code>
+     * <code>string furo_data_color_input = 10;</code>
      */
     java.lang.String getFuroDataColorInput();
     /**
      * <pre>
-     * field for furo_data_color_input for testing
+     * field for furo-data-color-input for testing
      * </pre>
      *
-     * <code>string furo_data_color_input = 19;</code>
+     * <code>string furo_data_color_input = 10;</code>
      */
     com.google.protobuf.ByteString
         getFuroDataColorInputBytes();
@@ -1679,6 +1679,31 @@ public final class ExperimentOuterClass {
      */
     com.google.protobuf.ByteString
         getIdBytes();
+
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    boolean hasSingleTypeProperty();
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    furo.PropertyOuterClass.Property getSingleTypeProperty();
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    furo.PropertyOuterClass.PropertyOrBuilder getSingleTypePropertyOrBuilder();
 
     /**
      * <pre>
@@ -1875,6 +1900,12 @@ public final class ExperimentOuterClass {
               furoDataNumberInput_ = input.readFloat();
               break;
             }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              furoDataColorInput_ = s;
+              break;
+            }
             case 90: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -1918,9 +1949,9 @@ public final class ExperimentOuterClass {
               break;
             }
             case 138: {
-              if (!((mutable_bitField0_ & 0x00010000) != 0)) {
+              if (!((mutable_bitField0_ & 0x00020000) != 0)) {
                 typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>();
-                mutable_bitField0_ |= 0x00010000;
+                mutable_bitField0_ |= 0x00020000;
               }
               typeProperty_.add(
                   input.readMessage(furo.PropertyOuterClass.Property.parser(), extensionRegistry));
@@ -1940,9 +1971,16 @@ public final class ExperimentOuterClass {
               break;
             }
             case 154: {
-              java.lang.String s = input.readStringRequireUtf8();
+              furo.PropertyOuterClass.Property.Builder subBuilder = null;
+              if (singleTypeProperty_ != null) {
+                subBuilder = singleTypeProperty_.toBuilder();
+              }
+              singleTypeProperty_ = input.readMessage(furo.PropertyOuterClass.Property.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(singleTypeProperty_);
+                singleTypeProperty_ = subBuilder.buildPartial();
+              }
 
-              furoDataColorInput_ = s;
               break;
             }
             default: {
@@ -1960,7 +1998,7 @@ public final class ExperimentOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00010000) != 0)) {
+        if (((mutable_bitField0_ & 0x00020000) != 0)) {
           typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
         }
         this.unknownFields = unknownFields.build();
@@ -2091,14 +2129,14 @@ public final class ExperimentOuterClass {
       return furoDataCheckboxInput_;
     }
 
-    public static final int FURO_DATA_COLOR_INPUT_FIELD_NUMBER = 19;
+    public static final int FURO_DATA_COLOR_INPUT_FIELD_NUMBER = 10;
     private volatile java.lang.Object furoDataColorInput_;
     /**
      * <pre>
-     * field for furo_data_color_input for testing
+     * field for furo-data-color-input for testing
      * </pre>
      *
-     * <code>string furo_data_color_input = 19;</code>
+     * <code>string furo_data_color_input = 10;</code>
      */
     public java.lang.String getFuroDataColorInput() {
       java.lang.Object ref = furoDataColorInput_;
@@ -2114,10 +2152,10 @@ public final class ExperimentOuterClass {
     }
     /**
      * <pre>
-     * field for furo_data_color_input for testing
+     * field for furo-data-color-input for testing
      * </pre>
      *
-     * <code>string furo_data_color_input = 19;</code>
+     * <code>string furo_data_color_input = 10;</code>
      */
     public com.google.protobuf.ByteString
         getFuroDataColorInputBytes() {
@@ -2515,6 +2553,39 @@ public final class ExperimentOuterClass {
       }
     }
 
+    public static final int SINGLE_TYPE_PROPERTY_FIELD_NUMBER = 19;
+    private furo.PropertyOuterClass.Property singleTypeProperty_;
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    public boolean hasSingleTypeProperty() {
+      return singleTypeProperty_ != null;
+    }
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    public furo.PropertyOuterClass.Property getSingleTypeProperty() {
+      return singleTypeProperty_ == null ? furo.PropertyOuterClass.Property.getDefaultInstance() : singleTypeProperty_;
+    }
+    /**
+     * <pre>
+     * field for testing property
+     * </pre>
+     *
+     * <code>.furo.Property single_type_property = 19;</code>
+     */
+    public furo.PropertyOuterClass.PropertyOrBuilder getSingleTypePropertyOrBuilder() {
+      return getSingleTypeProperty();
+    }
+
     public static final int THE_ANY_TYPE_FIELD_NUMBER = 15;
     private google.protobuf.AnyOuterClass.Any theAnyType_;
     /**
@@ -2686,6 +2757,9 @@ public final class ExperimentOuterClass {
       if (furoDataNumberInput_ != 0F) {
         output.writeFloat(9, furoDataNumberInput_);
       }
+      if (!getFuroDataColorInputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, furoDataColorInput_);
+      }
       if (!getFuroDataPasswordInputBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, furoDataPasswordInput_);
       }
@@ -2710,8 +2784,8 @@ public final class ExperimentOuterClass {
       if (furoDataDateInputGoogle_ != null) {
         output.writeMessage(18, getFuroDataDateInputGoogle());
       }
-      if (!getFuroDataColorInputBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 19, furoDataColorInput_);
+      if (singleTypeProperty_ != null) {
+        output.writeMessage(19, getSingleTypeProperty());
       }
       unknownFields.writeTo(output);
     }
@@ -2751,6 +2825,9 @@ public final class ExperimentOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(9, furoDataNumberInput_);
       }
+      if (!getFuroDataColorInputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, furoDataColorInput_);
+      }
       if (!getFuroDataPasswordInputBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, furoDataPasswordInput_);
       }
@@ -2779,8 +2856,9 @@ public final class ExperimentOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(18, getFuroDataDateInputGoogle());
       }
-      if (!getFuroDataColorInputBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(19, furoDataColorInput_);
+      if (singleTypeProperty_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(19, getSingleTypeProperty());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2831,6 +2909,11 @@ public final class ExperimentOuterClass {
           .equals(other.getFuroDataTimeInput())) return false;
       if (!getId()
           .equals(other.getId())) return false;
+      if (hasSingleTypeProperty() != other.hasSingleTypeProperty()) return false;
+      if (hasSingleTypeProperty()) {
+        if (!getSingleTypeProperty()
+            .equals(other.getSingleTypeProperty())) return false;
+      }
       if (hasTheAnyType() != other.hasTheAnyType()) return false;
       if (hasTheAnyType()) {
         if (!getTheAnyType()
@@ -2886,6 +2969,10 @@ public final class ExperimentOuterClass {
       hash = (53 * hash) + getFuroDataTimeInput().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
+      if (hasSingleTypeProperty()) {
+        hash = (37 * hash) + SINGLE_TYPE_PROPERTY_FIELD_NUMBER;
+        hash = (53 * hash) + getSingleTypeProperty().hashCode();
+      }
       if (hasTheAnyType()) {
         hash = (37 * hash) + THE_ANY_TYPE_FIELD_NUMBER;
         hash = (53 * hash) + getTheAnyType().hashCode();
@@ -3068,6 +3155,12 @@ public final class ExperimentOuterClass {
 
         id_ = "";
 
+        if (singleTypePropertyBuilder_ == null) {
+          singleTypeProperty_ = null;
+        } else {
+          singleTypeProperty_ = null;
+          singleTypePropertyBuilder_ = null;
+        }
         if (theAnyTypeBuilder_ == null) {
           theAnyType_ = null;
         } else {
@@ -3076,7 +3169,7 @@ public final class ExperimentOuterClass {
         }
         if (typePropertyBuilder_ == null) {
           typeProperty_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00010000);
+          bitField0_ = (bitField0_ & ~0x00020000);
         } else {
           typePropertyBuilder_.clear();
         }
@@ -3129,15 +3222,20 @@ public final class ExperimentOuterClass {
         result.furoDataTextareaInput_ = furoDataTextareaInput_;
         result.furoDataTimeInput_ = furoDataTimeInput_;
         result.id_ = id_;
+        if (singleTypePropertyBuilder_ == null) {
+          result.singleTypeProperty_ = singleTypeProperty_;
+        } else {
+          result.singleTypeProperty_ = singleTypePropertyBuilder_.build();
+        }
         if (theAnyTypeBuilder_ == null) {
           result.theAnyType_ = theAnyType_;
         } else {
           result.theAnyType_ = theAnyTypeBuilder_.build();
         }
         if (typePropertyBuilder_ == null) {
-          if (((bitField0_ & 0x00010000) != 0)) {
+          if (((bitField0_ & 0x00020000) != 0)) {
             typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
-            bitField0_ = (bitField0_ & ~0x00010000);
+            bitField0_ = (bitField0_ & ~0x00020000);
           }
           result.typeProperty_ = typeProperty_;
         } else {
@@ -3249,6 +3347,9 @@ public final class ExperimentOuterClass {
           id_ = other.id_;
           onChanged();
         }
+        if (other.hasSingleTypeProperty()) {
+          mergeSingleTypeProperty(other.getSingleTypeProperty());
+        }
         if (other.hasTheAnyType()) {
           mergeTheAnyType(other.getTheAnyType());
         }
@@ -3256,7 +3357,7 @@ public final class ExperimentOuterClass {
           if (!other.typeProperty_.isEmpty()) {
             if (typeProperty_.isEmpty()) {
               typeProperty_ = other.typeProperty_;
-              bitField0_ = (bitField0_ & ~0x00010000);
+              bitField0_ = (bitField0_ & ~0x00020000);
             } else {
               ensureTypePropertyIsMutable();
               typeProperty_.addAll(other.typeProperty_);
@@ -3269,7 +3370,7 @@ public final class ExperimentOuterClass {
               typePropertyBuilder_.dispose();
               typePropertyBuilder_ = null;
               typeProperty_ = other.typeProperty_;
-              bitField0_ = (bitField0_ & ~0x00010000);
+              bitField0_ = (bitField0_ & ~0x00020000);
               typePropertyBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTypePropertyFieldBuilder() : null;
@@ -3569,10 +3670,10 @@ public final class ExperimentOuterClass {
       private java.lang.Object furoDataColorInput_ = "";
       /**
        * <pre>
-       * field for furo_data_color_input for testing
+       * field for furo-data-color-input for testing
        * </pre>
        *
-       * <code>string furo_data_color_input = 19;</code>
+       * <code>string furo_data_color_input = 10;</code>
        */
       public java.lang.String getFuroDataColorInput() {
         java.lang.Object ref = furoDataColorInput_;
@@ -3588,10 +3689,10 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for furo_data_color_input for testing
+       * field for furo-data-color-input for testing
        * </pre>
        *
-       * <code>string furo_data_color_input = 19;</code>
+       * <code>string furo_data_color_input = 10;</code>
        */
       public com.google.protobuf.ByteString
           getFuroDataColorInputBytes() {
@@ -3608,10 +3709,10 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for furo_data_color_input for testing
+       * field for furo-data-color-input for testing
        * </pre>
        *
-       * <code>string furo_data_color_input = 19;</code>
+       * <code>string furo_data_color_input = 10;</code>
        */
       public Builder setFuroDataColorInput(
           java.lang.String value) {
@@ -3625,10 +3726,10 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for furo_data_color_input for testing
+       * field for furo-data-color-input for testing
        * </pre>
        *
-       * <code>string furo_data_color_input = 19;</code>
+       * <code>string furo_data_color_input = 10;</code>
        */
       public Builder clearFuroDataColorInput() {
         
@@ -3638,10 +3739,10 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for furo_data_color_input for testing
+       * field for furo-data-color-input for testing
        * </pre>
        *
-       * <code>string furo_data_color_input = 19;</code>
+       * <code>string furo_data_color_input = 10;</code>
        */
       public Builder setFuroDataColorInputBytes(
           com.google.protobuf.ByteString value) {
@@ -4558,6 +4659,159 @@ public final class ExperimentOuterClass {
         return this;
       }
 
+      private furo.PropertyOuterClass.Property singleTypeProperty_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder> singleTypePropertyBuilder_;
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public boolean hasSingleTypeProperty() {
+        return singleTypePropertyBuilder_ != null || singleTypeProperty_ != null;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public furo.PropertyOuterClass.Property getSingleTypeProperty() {
+        if (singleTypePropertyBuilder_ == null) {
+          return singleTypeProperty_ == null ? furo.PropertyOuterClass.Property.getDefaultInstance() : singleTypeProperty_;
+        } else {
+          return singleTypePropertyBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public Builder setSingleTypeProperty(furo.PropertyOuterClass.Property value) {
+        if (singleTypePropertyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          singleTypeProperty_ = value;
+          onChanged();
+        } else {
+          singleTypePropertyBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public Builder setSingleTypeProperty(
+          furo.PropertyOuterClass.Property.Builder builderForValue) {
+        if (singleTypePropertyBuilder_ == null) {
+          singleTypeProperty_ = builderForValue.build();
+          onChanged();
+        } else {
+          singleTypePropertyBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public Builder mergeSingleTypeProperty(furo.PropertyOuterClass.Property value) {
+        if (singleTypePropertyBuilder_ == null) {
+          if (singleTypeProperty_ != null) {
+            singleTypeProperty_ =
+              furo.PropertyOuterClass.Property.newBuilder(singleTypeProperty_).mergeFrom(value).buildPartial();
+          } else {
+            singleTypeProperty_ = value;
+          }
+          onChanged();
+        } else {
+          singleTypePropertyBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public Builder clearSingleTypeProperty() {
+        if (singleTypePropertyBuilder_ == null) {
+          singleTypeProperty_ = null;
+          onChanged();
+        } else {
+          singleTypeProperty_ = null;
+          singleTypePropertyBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public furo.PropertyOuterClass.Property.Builder getSingleTypePropertyBuilder() {
+        
+        onChanged();
+        return getSingleTypePropertyFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      public furo.PropertyOuterClass.PropertyOrBuilder getSingleTypePropertyOrBuilder() {
+        if (singleTypePropertyBuilder_ != null) {
+          return singleTypePropertyBuilder_.getMessageOrBuilder();
+        } else {
+          return singleTypeProperty_ == null ?
+              furo.PropertyOuterClass.Property.getDefaultInstance() : singleTypeProperty_;
+        }
+      }
+      /**
+       * <pre>
+       * field for testing property
+       * </pre>
+       *
+       * <code>.furo.Property single_type_property = 19;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder> 
+          getSingleTypePropertyFieldBuilder() {
+        if (singleTypePropertyBuilder_ == null) {
+          singleTypePropertyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder>(
+                  getSingleTypeProperty(),
+                  getParentForChildren(),
+                  isClean());
+          singleTypeProperty_ = null;
+        }
+        return singleTypePropertyBuilder_;
+      }
+
       private google.protobuf.AnyOuterClass.Any theAnyType_;
       private com.google.protobuf.SingleFieldBuilderV3<
           google.protobuf.AnyOuterClass.Any, google.protobuf.AnyOuterClass.Any.Builder, google.protobuf.AnyOuterClass.AnyOrBuilder> theAnyTypeBuilder_;
@@ -4714,9 +4968,9 @@ public final class ExperimentOuterClass {
       private java.util.List<furo.PropertyOuterClass.Property> typeProperty_ =
         java.util.Collections.emptyList();
       private void ensureTypePropertyIsMutable() {
-        if (!((bitField0_ & 0x00010000) != 0)) {
+        if (!((bitField0_ & 0x00020000) != 0)) {
           typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>(typeProperty_);
-          bitField0_ |= 0x00010000;
+          bitField0_ |= 0x00020000;
          }
       }
 
@@ -4910,7 +5164,7 @@ public final class ExperimentOuterClass {
       public Builder clearTypeProperty() {
         if (typePropertyBuilder_ == null) {
           typeProperty_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00010000);
+          bitField0_ = (bitField0_ & ~0x00020000);
           onChanged();
         } else {
           typePropertyBuilder_.clear();
@@ -5015,7 +5269,7 @@ public final class ExperimentOuterClass {
           typePropertyBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder>(
                   typeProperty_,
-                  ((bitField0_ & 0x00010000) != 0),
+                  ((bitField0_ & 0x00020000) != 0),
                   getParentForChildren(),
                   isClean());
           typeProperty_ = null;
@@ -9062,11 +9316,11 @@ public final class ExperimentOuterClass {
       ".proto\032\023furo/property.proto\"m\n\020Experimen" +
       "tEntity\022$\n\004data\030\001 \001(\0132\026.experiment.Exper" +
       "iment\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta" +
-      "\030\003 \001(\0132\n.furo.Meta\"\304\004\n\nExperiment\022\023\n\013des" +
+      "\030\003 \001(\0132\n.furo.Meta\"\362\004\n\nExperiment\022\023\n\013des" +
       "cription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023" +
       "furo_data_bool_icon\030\016 \001(\010\022 \n\030furo_data_c" +
       "heckbox_input\030\004 \001(\010\022\035\n\025furo_data_color_i" +
-      "nput\030\023 \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t" +
+      "nput\030\n \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t" +
       "\0226\n\033furo_data_date_input_google\030\022 \001(\0132\021." +
       "google.type.Date\022\036\n\026furo_data_number_inp" +
       "ut\030\t \001(\002\022 \n\030furo_data_password_input\030\013 \001" +
@@ -9074,17 +9328,18 @@ public final class ExperimentOuterClass {
       "o_data_search_input\030\014 \001(\t\022\034\n\024furo_data_t" +
       "ext_input\030\005 \001(\t\022 \n\030furo_data_textarea_in" +
       "put\030\006 \001(\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022" +
-      "\n\n\002id\030\001 \001(\t\022*\n\014the_any_type\030\017 \001(\0132\024.goog" +
-      "le.protobuf.Any\022%\n\rtype_property\030\021 \003(\0132\016" +
-      ".furo.Property\022\031\n\021type_with_options\030\020 \001(" +
-      "\t\"S\n\007Default\022\023\n\013description\030\003 \001(\t\022\024\n\014dis" +
-      "play_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring" +
-      "\030\004 \003(\t\"W\n\tRecursive\022\024\n\014display_name\030\002 \001(" +
-      "\t\022\n\n\002id\030\001 \001(\t\022(\n\trecursion\030\003 \001(\0132\025.exper" +
-      "iment.Recursive\"{\n\024ExperimentCollection\022" +
-      ".\n\010entities\030\004 \003(\0132\034.experiment.Experimen" +
-      "tEntity\022\031\n\005links\030\003 \003(\0132\n.furo.Link\022\030\n\004me" +
-      "ta\030\002 \001(\0132\n.furo.Metab\006proto3"
+      "\n\n\002id\030\001 \001(\t\022,\n\024single_type_property\030\023 \001(" +
+      "\0132\016.furo.Property\022*\n\014the_any_type\030\017 \001(\0132" +
+      "\024.google.protobuf.Any\022%\n\rtype_property\030\021" +
+      " \003(\0132\016.furo.Property\022\031\n\021type_with_option" +
+      "s\030\020 \001(\t\"S\n\007Default\022\023\n\013description\030\003 \001(\t\022" +
+      "\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trep" +
+      "string\030\004 \003(\t\"W\n\tRecursive\022\024\n\014display_nam" +
+      "e\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\trecursion\030\003 \001(\0132\025" +
+      ".experiment.Recursive\"{\n\024ExperimentColle" +
+      "ction\022.\n\010entities\030\004 \003(\0132\034.experiment.Exp" +
+      "erimentEntity\022\031\n\005links\030\003 \003(\0132\n.furo.Link" +
+      "\022\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -9114,7 +9369,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Experiment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Experiment_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataDateInputGoogle", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "TheAnyType", "TypeProperty", "TypeWithOptions", });
+        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataDateInputGoogle", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "SingleTypeProperty", "TheAnyType", "TypeProperty", "TypeWithOptions", });
     internal_static_experiment_Default_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Default_fieldAccessorTable = new

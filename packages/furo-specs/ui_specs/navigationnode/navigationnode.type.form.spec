@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "TreeNavigationnodeForm",
   "component_name": "tree-navigationnode-form",
@@ -77,6 +78,14 @@
         },
         {
           "field": "link",
+          "flags": [
+            "condensed",
+            "double"
+          ],
+          "attrs": []
+        },
+        {
+          "field": "is_group_label",
           "flags": [
             "condensed",
             "double"

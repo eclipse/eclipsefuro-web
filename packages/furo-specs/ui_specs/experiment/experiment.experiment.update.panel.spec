@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "PanelBaseTheme",
   "class_name": "ExperimentExperimentUpdatePanel",
   "component_name": "experiment-experiment-update-panel",

@@ -1,6 +1,6 @@
 {
-  "name": "property_integer",
-  "type": "PropertyInteger",
+  "name": "integer_property",
+  "type": "IntegerProperty",
   "description": "Integer type with embedded meta",
   "__proto": {
     "package": "furo",
@@ -16,13 +16,6 @@
       "__proto": {
         "number": 1,
         "type": "int32"
-      }
-    },
-    "meta": {
-      "description": "Meta for the property string",
-      "type": "furo.Meta",
-      "__proto": {
-        "number": 2
       }
     }
   }

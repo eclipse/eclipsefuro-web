@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "TaskTaskForm",
   "component_name": "task-task-form",

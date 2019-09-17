@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "ExperimentExperimentForm",
   "component_name": "experiment-experiment-form",

@@ -109,6 +109,7 @@ export class FieldNode extends EventTreeNode {
         let furoMetaDetected = false;
         for (let index in this.__childNodes) {
           let field = this.__childNodes[index];
+
           if (field._spec.type === "furo.Meta") {
             // we have meta declaration on this layer
             furoMetaDetected = val[field._name];
@@ -154,6 +155,7 @@ export class FieldNode extends EventTreeNode {
            * detail payload: **{NodeEvent}** with reference to the FieldNode
            */
           this.dispatchNodeEvent(new NodeEvent('this-field-value-changed', this, false));
+
         }
       }
 
@@ -214,7 +216,7 @@ export class FieldNode extends EventTreeNode {
       }
       this.__anyCreated = false;
     }
-    if (this._spec.type === "any" && val["@type"] && !this.__anyCreated) {
+    if (this._spec.type === "google.protobuf.Any" && val["@type"] && !this.__anyCreated) {
       // create custom type if not exist
       // any can only be a complex type
       this._createVendorType(val["@type"]);

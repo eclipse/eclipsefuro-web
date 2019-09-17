@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "PanelBaseTheme",
   "class_name": "TreeTreeUpdatePanel",
   "component_name": "tree-tree-update-panel",

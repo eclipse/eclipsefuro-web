@@ -292,6 +292,11 @@
           "type": "string",
           "title": "Id of the node"
         },
+        "is_group_label": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "This node is a group label"
+        },
         "key_words": {
           "type": "string",
           "title": "key words of the node"

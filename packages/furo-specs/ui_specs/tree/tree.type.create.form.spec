@@ -1,4 +1,5 @@
 {
+  "_writeprotection": false,
   "theme": "FormBaseTheme",
   "class_name": "TreeTreeCreateForm",
   "component_name": "tree-tree-create-form",

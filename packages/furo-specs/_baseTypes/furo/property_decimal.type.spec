@@ -1,12 +1,11 @@
 {
-  "name": "property_decimal",
-  "type": "PropertyDecimal",
+  "name": "decimal_property",
+  "type": "DecimalProperty",
   "description": "Decimal type with embedded meta",
   "__proto": {
     "package": "furo",
     "imports": [
-      "furo/meta.proto",
-      "google/type/date.proto"
+      "furo/meta.proto"
     ],
     "targetfile": "property.proto"
   },
@@ -16,13 +15,6 @@
       "type": "string",
       "__proto": {
         "number": 1
-      }
-    },
-    "meta": {
-      "description": "Meta for the property",
-      "type": "furo.Meta",
-      "__proto": {
-        "number": 2
       }
     }
   }
