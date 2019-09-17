@@ -780,46 +780,36 @@ public final class PropertyOuterClass {
 
   }
 
-  public interface DecimalPropertyOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:furo.DecimalProperty)
+  public interface NumberPropertyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.NumberProperty)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
-     * Decimal data part
+     * data part
      * </pre>
      *
-     * <code>string data = 1;</code>
+     * <code>float data = 1;</code>
      */
-    java.lang.String getData();
-    /**
-     * <pre>
-     * Decimal data part
-     * </pre>
-     *
-     * <code>string data = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getDataBytes();
+    float getData();
   }
   /**
    * <pre>
-   * Decimal type with embedded meta
+   * Number type with embedded meta
    * </pre>
    *
-   * Protobuf type {@code furo.DecimalProperty}
+   * Protobuf type {@code furo.NumberProperty}
    */
-  public  static final class DecimalProperty extends
+  public  static final class NumberProperty extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:furo.DecimalProperty)
-      DecimalPropertyOrBuilder {
+      // @@protoc_insertion_point(message_implements:furo.NumberProperty)
+      NumberPropertyOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use DecimalProperty.newBuilder() to construct.
-    private DecimalProperty(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use NumberProperty.newBuilder() to construct.
+    private NumberProperty(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private DecimalProperty() {
-      data_ = "";
+    private NumberProperty() {
     }
 
     @java.lang.Override
@@ -827,7 +817,7 @@ public final class PropertyOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DecimalProperty(
+    private NumberProperty(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -846,10 +836,9 @@ public final class PropertyOuterClass {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 13: {
 
-              data_ = s;
+              data_ = input.readFloat();
               break;
             }
             default: {
@@ -873,57 +862,28 @@ public final class PropertyOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return furo.PropertyOuterClass.internal_static_furo_DecimalProperty_descriptor;
+      return furo.PropertyOuterClass.internal_static_furo_NumberProperty_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return furo.PropertyOuterClass.internal_static_furo_DecimalProperty_fieldAccessorTable
+      return furo.PropertyOuterClass.internal_static_furo_NumberProperty_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              furo.PropertyOuterClass.DecimalProperty.class, furo.PropertyOuterClass.DecimalProperty.Builder.class);
+              furo.PropertyOuterClass.NumberProperty.class, furo.PropertyOuterClass.NumberProperty.Builder.class);
     }
 
     public static final int DATA_FIELD_NUMBER = 1;
-    private volatile java.lang.Object data_;
+    private float data_;
     /**
      * <pre>
-     * Decimal data part
+     * data part
      * </pre>
      *
-     * <code>string data = 1;</code>
+     * <code>float data = 1;</code>
      */
-    public java.lang.String getData() {
-      java.lang.Object ref = data_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        data_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * Decimal data part
-     * </pre>
-     *
-     * <code>string data = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getDataBytes() {
-      java.lang.Object ref = data_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        data_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public float getData() {
+      return data_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -940,8 +900,8 @@ public final class PropertyOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getDataBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, data_);
+      if (data_ != 0F) {
+        output.writeFloat(1, data_);
       }
       unknownFields.writeTo(output);
     }
@@ -952,8 +912,9 @@ public final class PropertyOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getDataBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, data_);
+      if (data_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(1, data_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -965,13 +926,14 @@ public final class PropertyOuterClass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof furo.PropertyOuterClass.DecimalProperty)) {
+      if (!(obj instanceof furo.PropertyOuterClass.NumberProperty)) {
         return super.equals(obj);
       }
-      furo.PropertyOuterClass.DecimalProperty other = (furo.PropertyOuterClass.DecimalProperty) obj;
+      furo.PropertyOuterClass.NumberProperty other = (furo.PropertyOuterClass.NumberProperty) obj;
 
-      if (!getData()
-          .equals(other.getData())) return false;
+      if (java.lang.Float.floatToIntBits(getData())
+          != java.lang.Float.floatToIntBits(
+              other.getData())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -984,75 +946,76 @@ public final class PropertyOuterClass {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + DATA_FIELD_NUMBER;
-      hash = (53 * hash) + getData().hashCode();
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getData());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static furo.PropertyOuterClass.DecimalProperty parseFrom(
+    public static furo.PropertyOuterClass.NumberProperty parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseFrom(
+    public static furo.PropertyOuterClass.NumberProperty parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseFrom(
+    public static furo.PropertyOuterClass.NumberProperty parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseFrom(
+    public static furo.PropertyOuterClass.NumberProperty parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseFrom(byte[] data)
+    public static furo.PropertyOuterClass.NumberProperty parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseFrom(
+    public static furo.PropertyOuterClass.NumberProperty parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseFrom(java.io.InputStream input)
+    public static furo.PropertyOuterClass.NumberProperty parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseFrom(
+    public static furo.PropertyOuterClass.NumberProperty parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseDelimitedFrom(java.io.InputStream input)
+    public static furo.PropertyOuterClass.NumberProperty parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseDelimitedFrom(
+    public static furo.PropertyOuterClass.NumberProperty parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseFrom(
+    public static furo.PropertyOuterClass.NumberProperty parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static furo.PropertyOuterClass.DecimalProperty parseFrom(
+    public static furo.PropertyOuterClass.NumberProperty parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1065,7 +1028,7 @@ public final class PropertyOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(furo.PropertyOuterClass.DecimalProperty prototype) {
+    public static Builder newBuilder(furo.PropertyOuterClass.NumberProperty prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -1082,29 +1045,29 @@ public final class PropertyOuterClass {
     }
     /**
      * <pre>
-     * Decimal type with embedded meta
+     * Number type with embedded meta
      * </pre>
      *
-     * Protobuf type {@code furo.DecimalProperty}
+     * Protobuf type {@code furo.NumberProperty}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:furo.DecimalProperty)
-        furo.PropertyOuterClass.DecimalPropertyOrBuilder {
+        // @@protoc_insertion_point(builder_implements:furo.NumberProperty)
+        furo.PropertyOuterClass.NumberPropertyOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return furo.PropertyOuterClass.internal_static_furo_DecimalProperty_descriptor;
+        return furo.PropertyOuterClass.internal_static_furo_NumberProperty_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return furo.PropertyOuterClass.internal_static_furo_DecimalProperty_fieldAccessorTable
+        return furo.PropertyOuterClass.internal_static_furo_NumberProperty_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                furo.PropertyOuterClass.DecimalProperty.class, furo.PropertyOuterClass.DecimalProperty.Builder.class);
+                furo.PropertyOuterClass.NumberProperty.class, furo.PropertyOuterClass.NumberProperty.Builder.class);
       }
 
-      // Construct using furo.PropertyOuterClass.DecimalProperty.newBuilder()
+      // Construct using furo.PropertyOuterClass.NumberProperty.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1122,7 +1085,7 @@ public final class PropertyOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        data_ = "";
+        data_ = 0F;
 
         return this;
       }
@@ -1130,17 +1093,17 @@ public final class PropertyOuterClass {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return furo.PropertyOuterClass.internal_static_furo_DecimalProperty_descriptor;
+        return furo.PropertyOuterClass.internal_static_furo_NumberProperty_descriptor;
       }
 
       @java.lang.Override
-      public furo.PropertyOuterClass.DecimalProperty getDefaultInstanceForType() {
-        return furo.PropertyOuterClass.DecimalProperty.getDefaultInstance();
+      public furo.PropertyOuterClass.NumberProperty getDefaultInstanceForType() {
+        return furo.PropertyOuterClass.NumberProperty.getDefaultInstance();
       }
 
       @java.lang.Override
-      public furo.PropertyOuterClass.DecimalProperty build() {
-        furo.PropertyOuterClass.DecimalProperty result = buildPartial();
+      public furo.PropertyOuterClass.NumberProperty build() {
+        furo.PropertyOuterClass.NumberProperty result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -1148,8 +1111,8 @@ public final class PropertyOuterClass {
       }
 
       @java.lang.Override
-      public furo.PropertyOuterClass.DecimalProperty buildPartial() {
-        furo.PropertyOuterClass.DecimalProperty result = new furo.PropertyOuterClass.DecimalProperty(this);
+      public furo.PropertyOuterClass.NumberProperty buildPartial() {
+        furo.PropertyOuterClass.NumberProperty result = new furo.PropertyOuterClass.NumberProperty(this);
         result.data_ = data_;
         onBuilt();
         return result;
@@ -1189,19 +1152,18 @@ public final class PropertyOuterClass {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof furo.PropertyOuterClass.DecimalProperty) {
-          return mergeFrom((furo.PropertyOuterClass.DecimalProperty)other);
+        if (other instanceof furo.PropertyOuterClass.NumberProperty) {
+          return mergeFrom((furo.PropertyOuterClass.NumberProperty)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(furo.PropertyOuterClass.DecimalProperty other) {
-        if (other == furo.PropertyOuterClass.DecimalProperty.getDefaultInstance()) return this;
-        if (!other.getData().isEmpty()) {
-          data_ = other.data_;
-          onChanged();
+      public Builder mergeFrom(furo.PropertyOuterClass.NumberProperty other) {
+        if (other == furo.PropertyOuterClass.NumberProperty.getDefaultInstance()) return this;
+        if (other.getData() != 0F) {
+          setData(other.getData());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1218,11 +1180,11 @@ public final class PropertyOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        furo.PropertyOuterClass.DecimalProperty parsedMessage = null;
+        furo.PropertyOuterClass.NumberProperty parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (furo.PropertyOuterClass.DecimalProperty) e.getUnfinishedMessage();
+          parsedMessage = (furo.PropertyOuterClass.NumberProperty) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1232,91 +1194,40 @@ public final class PropertyOuterClass {
         return this;
       }
 
-      private java.lang.Object data_ = "";
+      private float data_ ;
       /**
        * <pre>
-       * Decimal data part
+       * data part
        * </pre>
        *
-       * <code>string data = 1;</code>
+       * <code>float data = 1;</code>
        */
-      public java.lang.String getData() {
-        java.lang.Object ref = data_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          data_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public float getData() {
+        return data_;
       }
       /**
        * <pre>
-       * Decimal data part
+       * data part
        * </pre>
        *
-       * <code>string data = 1;</code>
+       * <code>float data = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getDataBytes() {
-        java.lang.Object ref = data_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          data_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * Decimal data part
-       * </pre>
-       *
-       * <code>string data = 1;</code>
-       */
-      public Builder setData(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setData(float value) {
+        
         data_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Decimal data part
+       * data part
        * </pre>
        *
-       * <code>string data = 1;</code>
+       * <code>float data = 1;</code>
        */
       public Builder clearData() {
         
-        data_ = getDefaultInstance().getData();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Decimal data part
-       * </pre>
-       *
-       * <code>string data = 1;</code>
-       */
-      public Builder setDataBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        data_ = value;
+        data_ = 0F;
         onChanged();
         return this;
       }
@@ -1333,41 +1244,41 @@ public final class PropertyOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:furo.DecimalProperty)
+      // @@protoc_insertion_point(builder_scope:furo.NumberProperty)
     }
 
-    // @@protoc_insertion_point(class_scope:furo.DecimalProperty)
-    private static final furo.PropertyOuterClass.DecimalProperty DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:furo.NumberProperty)
+    private static final furo.PropertyOuterClass.NumberProperty DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new furo.PropertyOuterClass.DecimalProperty();
+      DEFAULT_INSTANCE = new furo.PropertyOuterClass.NumberProperty();
     }
 
-    public static furo.PropertyOuterClass.DecimalProperty getDefaultInstance() {
+    public static furo.PropertyOuterClass.NumberProperty getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DecimalProperty>
-        PARSER = new com.google.protobuf.AbstractParser<DecimalProperty>() {
+    private static final com.google.protobuf.Parser<NumberProperty>
+        PARSER = new com.google.protobuf.AbstractParser<NumberProperty>() {
       @java.lang.Override
-      public DecimalProperty parsePartialFrom(
+      public NumberProperty parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DecimalProperty(input, extensionRegistry);
+        return new NumberProperty(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<DecimalProperty> parser() {
+    public static com.google.protobuf.Parser<NumberProperty> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DecimalProperty> getParserForType() {
+    public com.google.protobuf.Parser<NumberProperty> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public furo.PropertyOuterClass.DecimalProperty getDefaultInstanceForType() {
+    public furo.PropertyOuterClass.NumberProperty getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3921,10 +3832,10 @@ public final class PropertyOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_furo_StringOptionProperty_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_furo_DecimalProperty_descriptor;
+    internal_static_furo_NumberProperty_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_furo_DecimalProperty_fieldAccessorTable;
+      internal_static_furo_NumberProperty_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_furo_StringProperty_descriptor;
   private static final 
@@ -3952,12 +3863,12 @@ public final class PropertyOuterClass {
       "\n\023furo/property.proto\022\004furo\032\017furo/meta.p" +
       "roto\032\031google/protobuf/any.proto\"8\n\024Strin" +
       "gOptionProperty\022\024\n\014display_name\030\001 \001(\t\022\n\n" +
-      "\002id\030\002 \001(\t\"\037\n\017DecimalProperty\022\014\n\004data\030\001 \001" +
-      "(\t\"\036\n\016StringProperty\022\014\n\004data\030\001 \001(\t\"\037\n\017In" +
-      "tegerProperty\022\014\n\004data\030\001 \001(\005\"x\n\010Property\022" +
-      "\014\n\004code\030\005 \001(\t\022\"\n\004data\030\003 \001(\0132\024.google.pro" +
-      "tobuf.Any\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 " +
-      "\001(\t\022\030\n\004meta\030\004 \001(\0132\n.furo.Metab\006proto3"
+      "\002id\030\002 \001(\t\"\036\n\016NumberProperty\022\014\n\004data\030\001 \001(" +
+      "\002\"\036\n\016StringProperty\022\014\n\004data\030\001 \001(\t\"\037\n\017Int" +
+      "egerProperty\022\014\n\004data\030\001 \001(\005\"x\n\010Property\022\014" +
+      "\n\004code\030\005 \001(\t\022\"\n\004data\030\003 \001(\0132\024.google.prot" +
+      "obuf.Any\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001" +
+      "(\t\022\030\n\004meta\030\004 \001(\0132\n.furo.Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3979,11 +3890,11 @@ public final class PropertyOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_StringOptionProperty_descriptor,
         new java.lang.String[] { "DisplayName", "Id", });
-    internal_static_furo_DecimalProperty_descriptor =
+    internal_static_furo_NumberProperty_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_furo_DecimalProperty_fieldAccessorTable = new
+    internal_static_furo_NumberProperty_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_furo_DecimalProperty_descriptor,
+        internal_static_furo_NumberProperty_descriptor,
         new java.lang.String[] { "Data", });
     internal_static_furo_StringProperty_descriptor =
       getDescriptor().getMessageTypes().get(2);

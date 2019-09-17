@@ -18,10 +18,10 @@ message StringOptionProperty {
 
 }
 
-// Decimal type with embedded meta
-message DecimalProperty {            
-    // Decimal data part
-    string data = 1;
+// Number type with embedded meta
+message NumberProperty {            
+    // data part
+    float data = 1;
 
 }
 

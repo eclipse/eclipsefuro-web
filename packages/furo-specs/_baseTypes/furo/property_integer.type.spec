@@ -4,15 +4,18 @@
   "description": "Integer type with embedded meta",
   "__proto": {
     "package": "furo",
-    "imports": [
-      "furo/meta.proto"
-    ],
+    "imports": [],
     "targetfile": "property.proto"
   },
   "fields": {
     "data": {
       "description": "Integer data part",
       "type": "number",
+      "constraints": {
+        "step": {
+          "value": 1
+        }
+      },
       "__proto": {
         "number": 1,
         "type": "int32"

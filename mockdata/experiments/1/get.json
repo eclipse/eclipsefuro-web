@@ -47,6 +47,45 @@
       },
       {
         "data": {
+          "@type": "furo.NumberProperty",
+          "data": 34.23,
+          "display_name": "34.23"
+        },
+        "display_name": "Display",
+        "id": "opt",
+        "code": "option",
+        "meta": {
+          "fields": {
+            "data.data": {
+              "meta": {
+                "label": "Float",
+                "hint": "Type in int"
+              }
+            }
+          }
+        }
+      },{
+        "data": {
+          "@type": "furo.IntegerProperty",
+          "data": 342,
+          "display_name": "342"
+        },
+        "display_name": "Display",
+        "id": "opt",
+        "code": "option",
+        "meta": {
+          "fields": {
+            "data.data": {
+              "meta": {
+                "label": "Integer",
+                "hint": "Type in int"
+              }
+            }
+          }
+        }
+      },
+      {
+        "data": {
           "@type": "furo.StringOptionProperty",
           "id": "bb",
           "display_name": "Display"

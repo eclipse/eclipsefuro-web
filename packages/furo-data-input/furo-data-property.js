@@ -103,6 +103,7 @@ class FuroDataProperty extends FBP(LitElement) {
     this.typemap = {
       "google.type.Date": "furo-data-date-input",
       "furo.StringProperty": "furo-data-text-input",
+      "furo.IntegerProperty": "furo-data-number-input",
       "furo.NumberProperty": "furo-data-number-input",
       "furo.StringOptionProperty": "furo-data-collection-dropdown"
     };
@@ -145,19 +146,24 @@ class FuroDataProperty extends FBP(LitElement) {
   _createPropComponent(propertyField) {
     if (!this._property_created) {
       let e = document.createElement(this.typemap[propertyField.data["@type"]]);
-      switch (propertyField.data["@type"]) {
-          // the input elements for string and number are just working with scalar values
-        case "furo.StringProperty":
-        case "furo.NumberProperty":
-          e.bindData(propertyField.data.data);
-          break;
-        default:
-          e.bindData(propertyField.data);
-      }
+      if (e.bindData) {
+        switch (propertyField.data["@type"]) {
+            // the input elements for string and number are just working with scalar values
+          case "furo.StringProperty":
+          case "furo.NumberProperty":
+          case "furo.IntegerProperty":
+            e.bindData(propertyField.data.data);
+            break;
+          default:
+            e.bindData(propertyField.data);
+        }
 
-      this.parentNode.insertBefore(e, this);
-      propertyField.data.dispatchNodeEvent(new NodeEvent('this-metas-changed', propertyField.data, false));
-      this._property_created = true;
+        this.parentNode.insertBefore(e, this);
+        propertyField.data.dispatchNodeEvent(new NodeEvent('this-metas-changed', propertyField.data, false));
+        this._property_created = true;
+      }else{
+        console.warn(propertyField.data["@type"], "not in map", this);
+      }
     }
   }
 
