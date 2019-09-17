@@ -5,7 +5,7 @@ import {NodeEvent} from "@furo/data/lib/EventTreeNode";
 import {RepeaterNode} from "@furo/data/lib/RepeaterNode";
 
 /**
- * `furo-data-property`
+ * `furo-data-property-display`
  *  Field for type furo.Property. It works with repeated types an nonrepeating type. Supported
  *
  *  ```html
@@ -93,19 +93,19 @@ import {RepeaterNode} from "@furo/data/lib/RepeaterNode";
  *
  * @summary property input
  * @customElement
- * @demo demo-furo-data-property
+ * @demo demo-furo-data-property-display
  * @appliesMixin FBP
  */
-class FuroDataProperty extends FBP(LitElement) {
+class FuroDataPropertyDisplay extends FBP(LitElement) {
 
   constructor() {
     super();
     this.typemap = {
-      "google.type.Date": "furo-data-date-input",
-      "furo.StringProperty": "furo-data-text-input",
-      "furo.IntegerProperty": "furo-data-number-input",
-      "furo.NumberProperty": "furo-data-number-input",
-      "furo.StringOptionProperty": "furo-data-collection-dropdown"
+      "google.type.Date": "furo-data-display",
+      "furo.StringProperty": "furo-data-display",
+      "furo.IntegerProperty": "furo-data-display",
+      "furo.NumberProperty": "furo-data-display",
+      "furo.StringOptionProperty": "furo-data-display"
     };
   }
 
@@ -125,10 +125,10 @@ class FuroDataProperty extends FBP(LitElement) {
         var nodeName = this.attributes.item(i).nodeName;
         var nodeValue = this.attributes.item(i).nodeValue;
         if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
-          attrs += nodeName + '="' + nodeValue + '"';
+          attrs += nodeName +'="' + nodeValue +'"';
         }
       }
-      r.innerHTML = '<template><furo-data-property ƒ-bind-data="--item" ' + attrs + '></furo-data-property></template>';
+      r.innerHTML = '<template><furo-data-property-display ƒ-bind-data="--item" ' + attrs +'></furo-data-property-display></template>';
 
       let repeater = this.parentNode.insertBefore(r, this);
 
@@ -139,9 +139,7 @@ class FuroDataProperty extends FBP(LitElement) {
 
     } else {
       this.field.data.addEventListener('branch-value-changed', (d) => {
-
         this._createPropComponent(propertyField);
-
       }, {once: true});
 
 
@@ -156,6 +154,7 @@ class FuroDataProperty extends FBP(LitElement) {
   _createPropComponent(propertyField) {
     if (!this._property_created) {
       let e = document.createElement(this.typemap[propertyField.data["@type"]]);
+
 
       // Grab all of the original's attributes, and pass them to the replacement
       let l = this.attributes.length;
@@ -199,4 +198,4 @@ class FuroDataProperty extends FBP(LitElement) {
 
 }
 
-window.customElements.define('furo-data-property', FuroDataProperty);
+window.customElements.define('furo-data-property-display', FuroDataPropertyDisplay);

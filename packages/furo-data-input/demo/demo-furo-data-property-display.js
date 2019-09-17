@@ -11,7 +11,7 @@ import "../furo-catalog"
  * @customElement
  * @appliesMixin FBP
  */
-class DemoFuroDataProperty extends FBP(LitElement) {
+class DemoFuroDataPropertyDisplay extends FBP(LitElement) {
 
   /**
    * Themable Styles
@@ -44,7 +44,7 @@ class DemoFuroDataProperty extends FBP(LitElement) {
     return html`
       <furo-vertical-flex>
         <div>
-          <h2>Demo furo-data-property</h2>
+          <h2>Demo furo-data-property-display</h2>
           <p>Bind your fields as usual.</p>
         </div>
         <furo-demo-snippet flex>
@@ -52,12 +52,13 @@ class DemoFuroDataProperty extends FBP(LitElement) {
             <furo-vertical-scroller>
               <furo-form-layouter two>
                 <!-- single Property -->
-                <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
+                <furo-data-property-display condensed noborder ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property-display>
+                  
                 <!-- repeated Property -->
-                <furo-data-property condensed ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
-                <furo-data-property ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
+                <furo-data-property-display condensed noborder something ƒ-bind-data="--entity(*.type_property)"></furo-data-property-display>
+                   
                 <!-- single Property -->
-                <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
+                <furo-data-property-display ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property-display>
               </furo-form-layouter>
               
 
@@ -79,4 +80,4 @@ class DemoFuroDataProperty extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-data-property', DemoFuroDataProperty);
+window.customElements.define('demo-furo-data-property-display', DemoFuroDataPropertyDisplay);

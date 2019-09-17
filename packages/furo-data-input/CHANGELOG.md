@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.51.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.50.0...@furo/data-input@0.51.0) (2019-09-17)
+
+
+### Features
+
+* Attribute forwarding on properties ([4fdb341](https://github.com/veith/FuroBaseComponents/commit/4fdb341))
+
+
+
+
+
 # [0.50.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.49.0...@furo/data-input@0.50.0) (2019-09-17)
 
 

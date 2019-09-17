@@ -23,7 +23,8 @@
           "@type": "google.type.Date",
           "day": 8,
           "month": 11,
-          "year": 2022
+          "year": 2022,
+          "display_name": "8.11.2022"
         },
         "display_name": "a date",
         "id": "a",
@@ -143,7 +144,8 @@
         "@type": "google.type.Date",
         "day": 8,
         "month": 11,
-        "year": 2022
+        "year": 2022,
+        "display_name": "8.11.2022"
       },
       "display_name": "a date",
       "id": "date",
