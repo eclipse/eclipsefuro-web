@@ -5,7 +5,7 @@ import "@furo/doc-helper"
 import "../furo-catalog"
 import "@furo/data/furo-data-object";
 import "@furo/data/furo-deep-link";
-import "./produce-qp-data";
+import "./helper/produce-qp-data";
 import "@furo/data/furo-entity-agent";
 import "@furo/input/furo-text-input";
 

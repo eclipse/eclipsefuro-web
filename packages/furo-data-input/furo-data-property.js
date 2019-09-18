@@ -86,10 +86,11 @@ import {RepeaterNode} from "@furo/data/lib/RepeaterNode";
  *
  *  The current type mappings are:
  *
- * -  "google.type.Date": "furo-data-date-input",
- " -  furo.StringProperty": "furo-data-text-input",
- " -  furo.NumberProperty": "furo-data-number-input"
-
+ * - "google.type.Date": "furo-data-date-input"
+ * - "furo.StringProperty": "furo-data-text-input"
+ * - "furo.IntegerProperty": "furo-data-number-input"
+ * - "furo.NumberProperty": "furo-data-number-input"
+ * - "furo.StringOptionProperty": "furo-data-collection-dropdown"
  *
  * @summary property input
  * @customElement

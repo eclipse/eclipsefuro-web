@@ -6,7 +6,7 @@ import "@furo/data/furo-data-object";
 import "@furo/data/furo-deep-link";
 import "@furo/layout/furo-horizontal-flex";
 import "../furo-catalog";
-import "./produce-qp-data";
+import "./helper/produce-qp-data";
 import "@furo/data/furo-entity-agent";
 
 /**

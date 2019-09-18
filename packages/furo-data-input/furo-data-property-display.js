@@ -10,88 +10,25 @@ import {RepeaterNode} from "@furo/data/lib/RepeaterNode";
  *
  *  ```html
  *  <!-- single Property -->
- *  <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
+ *  <furo-data-property-display ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property-display>
  *  <!-- repeated Property -->
- *  <furo-data-property ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
+ *  <furo-data-property-display ƒ-bind-data="--entity(*.type_property)"></furo-data-property-display>
  *
- *  ```
+ * This component uses the same data like `furo-data-property`
  *
- *  ## Example data for the data-object looks like this
  *
- *  ```json
- *  "single_type_property": {
- *    "data": {
- *      "@type": "google.type.Date",
- *      "day": 8,
- *      "month":  11,
- *      "year": 2022
- *    },
- *    "display_name": "a date",
- *    "id": "date",
- *    "code": "date",
- *    "meta": {
- *      "fields": {
- *        "data": {
- *          "meta": {
- *            "label": "Additional fields",
- *            "hint": "this is data"
- *          },
- *          "constraints": {
- *            "min": {
- *              "value": "2019-09-09",
- *              "message": "to small"
- *            }
- *          }
- *        }
- *      }
- *    }
- *  }
- *  ```
- * ## Example StringOptions Field
- *
- * ```json
- * {
- *   "data": {
- *        "@type": "furo.StringOptionProperty",
- *        "id": "bb",
- *        "display_name": "Display"
- *      },
- *      "display_name": "Display",
- *      "id": "opt",
- *      "code": "option",
- *      "meta": {
- *        "fields": {
- *          "data": {
- *            "meta": {
- *              "label": "Please select",
- *              "hint": "datehint is data",
- *              "repeated": false,
- *              "options": [
- *                {
- *                  "id": "aa",
- *                  "display_name": "The display a"
- *                },
- *                {
- *                  "id": "bb",
- *                  "display_name": "The display b"
- *                }
- *              ]
- *            }
- *          }
- *        }
- *      }
- *    }
  *
  * ```
  *
  *  The current type mappings are:
  *
- * -  "google.type.Date": "furo-data-date-input",
- " -  furo.StringProperty": "furo-data-text-input",
- " -  furo.NumberProperty": "furo-data-number-input"
-
+ * - "google.type.Date": "furo-data-display"
+ * - "furo.StringProperty": "furo-data-display"
+ * - "furo.IntegerProperty": "furo-data-display"
+ * - "furo.NumberProperty": "furo-data-display"
+ * - "furo.StringOptionProperty": "furo-data-display"
  *
- * @summary property input
+ * @summary property display
  * @customElement
  * @demo demo-furo-data-property-display
  * @appliesMixin FBP

@@ -5,7 +5,7 @@ import "@furo/doc-helper"
 import "@furo/data"
 
 import "../furo-catalog"
-import "./produce-qp-data"
+import "./helper/produce-qp-data"
 /**
  * `sample-furo-text-input`
  *
@@ -30,7 +30,7 @@ class SampleFuroDataCollectionDropdown extends FBP(LitElement) {
             display: none;
         }
         furo-demo-snippet {
-            height: 230px;
+            height: 270px;
         }
        
     `
@@ -47,10 +47,17 @@ class SampleFuroDataCollectionDropdown extends FBP(LitElement) {
       
       <furo-demo-snippet >
         <template>
-          <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"  value-field="id" display-field="phone_nr" label="Label" ƒ-inject-collection="--response" ƒ-bind-data="--entity(*.owner.id)"></furo-data-collection-dropdown>
-          <furo-data-collection-dropdown condensed label="Label" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-collection="--response" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
-
-          <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+          
+          <furo-form-layouter two>
+          <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"  value-field="id" display-field="phone_nr" label="Use phone as display" ƒ-inject-list="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
+          
+          <furo-data-collection-dropdown  label="Default display" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-list="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
+          <furo-data-collection-dropdown condensed label="List as input" leading-icon="mail" trailing-icon="fingerprint" list="1,2,3" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
+          <furo-data-display condensed label="selected value" ƒ-bind-data="--entity(*.description)"></furo-data-display>
+          </furo-form-layouter>
+          
+            
+          <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
       
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
       
