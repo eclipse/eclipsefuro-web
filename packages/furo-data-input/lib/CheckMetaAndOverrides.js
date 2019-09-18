@@ -2,52 +2,52 @@ export class CheckMetaAndOverrides {
 
 
   static UpdateMetaAndConstraints(element) {
-
-    // options are available for text inputs at the moment
-    // check if metas ara available
-    if (element.field._meta) {
-      if (element.field._meta.readonly) {
-        element._readonly = element.field._meta.readonly;
+    if (element.field) {
+      // options are available for text inputs at the moment
+      // check if metas ara available
+      if (element.field._meta) {
+        if (element.field._meta.readonly) {
+          element._readonly = element.field._meta.readonly;
+        }
+        if (element.field._meta.label) {
+          element._label = element.field._meta.label;
+        }
+        if (element.field._meta.hint) {
+          element._hint = element.field._meta.hint;
+        }
+        if (element.field._meta.cols) {
+          element._cols = element.field._meta.cols;
+        }
+        if (element.field._meta.rows) {
+          element._rows = element.field._meta.rows;
+        }
+        if (element.field._meta.min_term_length) {
+          element._minTermLength = element.field._meta.min_term_length;
+        }
       }
-      if (element.field._meta.label) {
-        element._label = element.field._meta.label;
-      }
-      if (element.field._meta.hint) {
-        element._hint = element.field._meta.hint;
-      }
-      if (element.field._meta.cols) {
-        element._cols = element.field._meta.cols;
-      }
-      if (element.field._meta.rows) {
-        element._rows = element.field._meta.rows;
-      }
-      if (element.field._meta.min_term_length) {
-        element._minTermLength = element.field._meta.min_term_length;
+      // check if constraints ara available
+      if (element.field._constraints) {
+        if (element.field._constraints.max) {
+          element._max = element.field._constraints.max.value;
+          element._maxErrorMessage = element.field._constraints.max.message;
+        }
+        if (element.field._constraints.min) {
+          element._min = element.field._constraints.min.value;
+          element._minErrorMessage = element.field._constraints.min.message;
+        }
+        if (element.field._constraints.step) {
+          element._step = element.field._constraints.step.value;
+          element._stepErrorMessage = element.field._constraints.step.message;
+        }
+        if (element.field._constraints.pattern) {
+          element._pattern = element.field._constraints.pattern.value;
+          element._patternErrorMessage = element.field._constraints.pattern.message;
+        }
+        if (element.field._constraints.required) {
+          element._required = element.field._meta.required;
+        }
       }
     }
-    // check if constraints ara available
-    if (element.field._constraints) {
-      if (element.field._constraints.max) {
-        element._max = element.field._constraints.max.value;
-        element._maxErrorMessage = element.field._constraints.max.message;
-      }
-      if (element.field._constraints.min) {
-        element._min = element.field._constraints.min.value;
-        element._minErrorMessage = element.field._constraints.min.message;
-      }
-      if (element.field._constraints.step) {
-        element._step = element.field._constraints.step.value;
-        element._stepErrorMessage = element.field._constraints.step.message;
-      }
-      if (element.field._constraints.pattern) {
-        element._pattern = element.field._constraints.pattern.value;
-        element._patternErrorMessage = element.field._constraints.pattern.message;
-      }
-      if (element.field._constraints.required) {
-        element._required = element.field._meta.required;
-      }
-    }
-
     this.CheckAttributeOverrides(element);
   }
 
