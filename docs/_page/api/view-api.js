@@ -1700,18 +1700,102 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-condensed",DemoCondensed);/**
-                                                                * `furo-api-fetch`
-                                                                *
-                                                                * furo-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
-                                                                *
-                                                                * ```html
-                                                                * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
-                                                                * ```
-                                                                *
-                                                                * @customElement
-                                                                * @demo demo/furo-api-fetch_demo.html
-                                                                */class FuroApiFetch extends HTMLElement{/**
+    `}}window.customElements.define("demo-condensed",DemoCondensed);class DemoFuroRadioButtonInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+       
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <h2>Demo furo-radio-button-input</h2>
+      
+      <furo-demo-snippet >
+        <template>
+          <furo-radio-button-input label="checked" value="true"  ƒ-uncheck="--unchecked" ƒ-check="--checked" ></furo-radio-button-input>
+          <furo-radio-button-input label="autofocus" autofocus @-unchecked="--unchecked" @-checked="--checked" ></furo-radio-button-input>
+          <furo-radio-button-input disabled label="disabled"   ƒ-uncheck="--unchecked" ƒ-check="--checked"></furo-radio-button-input>
+          <furo-radio-button-input  condensed label="condensed checked" value="true"  ></furo-radio-button-input>
+          <furo-radio-button-input condensed label="condensed unchecked"  ƒ-uncheck="--unchecked" ƒ-check="--checked"></furo-radio-button-input>
+          <br/>
+            <furo-button raised condensed @-click="--unchecked" label="uncheck the radio buttons"></furo-button>
+          <furo-button raised condensed @-click="--checked" label="check the radio buttons"></furo-button>
+        </template>
+      </furo-demo-snippet>
+    `}}window.customElements.define("demo-furo-radio-button-input",DemoFuroRadioButtonInput);class DemoFuroRadioButton extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <h2>Demo furo-radio-button</h2>
+      
+      <furo-demo-snippet >
+        <template>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>checked</th>
+                    <th>unchecked</th>
+                </tr>
+                <tr>
+                  <td>enabled</td>
+                  <td> <furo-radio-button checked></furo-radio-button></td>
+                  <td> <furo-radio-button ></furo-radio-button></td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
+                    <td> <furo-radio-button checked disabled></furo-radio-button></td>
+                    <td> <furo-radio-button disabled></furo-radio-button></td>
+                </tr>
+                <tr>
+                    <td>focus</td>
+                    <td> <furo-radio-button checked autofocus></furo-radio-button></td>
+                    <td> </td>
+                </tr>
+            </table>
+
+        </template>
+      </furo-demo-snippet>
+    `}}window.customElements.define("demo-furo-radio-button",DemoFuroRadioButton);/**
+                                                                              * `furo-api-fetch`
+                                                                              *
+                                                                              * furo-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
+                                                                              *
+                                                                              * ```html
+                                                                              * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
+                                                                              * ```
+                                                                              *
+                                                                              * @customElement
+                                                                              * @demo demo/furo-api-fetch_demo.html
+                                                                              */class FuroApiFetch extends HTMLElement{/**
    * Fired when a request is sent.
    * Payload: request
    * @event request-started
@@ -2713,10 +2797,10 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-object",DemoFuroDataObject);class CheckMetaAndOverrides{static UpdateMetaAndConstraints(element){// options are available for text inputs at the moment
+    `}}window.customElements.define("demo-furo-data-object",DemoFuroDataObject);class CheckMetaAndOverrides{static UpdateMetaAndConstraints(element){if(element.field){// options are available for text inputs at the moment
 // check if metas ara available
 if(element.field._meta){if(element.field._meta.readonly){element._readonly=element.field._meta.readonly}if(element.field._meta.label){element._label=element.field._meta.label}if(element.field._meta.hint){element._hint=element.field._meta.hint}if(element.field._meta.cols){element._cols=element.field._meta.cols}if(element.field._meta.rows){element._rows=element.field._meta.rows}if(element.field._meta.min_term_length){element._minTermLength=element.field._meta.min_term_length}}// check if constraints ara available
-if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.value;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.value;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.value;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.value;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required=element.field._meta.required}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
+if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.value;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.value;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.value;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.value;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required=element.field._meta.required}}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
      * Attribute overrides
      * hint, min, max, readonly or disabled on the element are higher ranked then field metas from spec or server
      */if(element.min){element._min=element.min}if(element.max){element._max=element.max}if(element.readonly){element._readonly=element.readonly}if(element.label){element._label=element.label}if(element.hint){element._hint=element.hint}if(element.step){element._step=element.step}if(element.pattern){element._pattern=element.pattern}if(element.required){element._required=element.required}if(element.cols){element._cols=element.cols}if(element.rows){element._rows=element.rows}if(element.minTermLength){element._minTermLength=element.minTermLength}}}_exports.CheckMetaAndOverrides=CheckMetaAndOverrides;var CheckMetaAndOverrides$1={CheckMetaAndOverrides:CheckMetaAndOverrides};_exports.$CheckMetaAndOverrides=CheckMetaAndOverrides$1;class Helper{/**
@@ -2741,7 +2825,7 @@ caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Hel
    *
    * Comes from underlying component furo-text-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
@@ -2862,7 +2946,7 @@ return _furoShell.html`
    *
    * Comes from underlying component furo-textarea-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
      * Updater for the min => minlength attr
@@ -2968,7 +3052,7 @@ return _furoShell.html`
    *
    * Comes from underlying component furo-password-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
@@ -3085,7 +3169,7 @@ return _furoShell.html`
    *
    * Comes from underlying component furo-search-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this.hint="";this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
@@ -3198,7 +3282,7 @@ return _furoShell.html`
    *
    * Comes from underlying component furo-number-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
      * Updater for the min => minlength attr*
@@ -3314,7 +3398,7 @@ return _furoShell.html`
    *
    * Comes from underlying component furo-date-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){if("google.type.Date"===this.field._spec.type||"google.type.Date"===this.field["@type"]){val=this._convertStringToDateObj(val,this.field.value)}this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){if("google.type.Date"===this.field._spec.type||"google.type.Date"===this.field["@type"]){val=this._convertStringToDateObj(val,this.field.value)}this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
      * Updater for the min => minlength attr*
@@ -3434,7 +3518,7 @@ return _furoShell.html`
    *
    * Comes from underlying component furo-time-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
      * Updater for the min => minlength attr*
@@ -3545,7 +3629,7 @@ return _furoShell.html`
    *
    * Comes from underlying component furo-range-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
      * Updater for the min => minlength attr*
@@ -3647,7 +3731,7 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-range-input>      
-    `}}customElements.define("furo-data-range-input",FuroDataRangeInput);class FuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--valueChanged",val=>{CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}});this.field={}}_updateField(){this.text=this.field.value;if(this.displayfield&&this.field[this.displayfield]){this.text=this.field[this.displayfield]}else{if(this.field.display_name){this.text=this.field.display_name}}if(this.text&&this.text.toString()==void 0){this.text=""}this.requestUpdate()}/**
+    `}}customElements.define("furo-data-range-input",FuroDataRangeInput);class FuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--valueChanged",val=>{CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this.field={}}_updateField(){this.text=this.field.value;if(this.displayfield&&this.field[this.displayfield]){this.text=this.field[this.displayfield]}else{if(this.field.display_name){this.text=this.field.display_name}}if(this.text&&this.text.toString()==void 0){this.text=""}this.requestUpdate()}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -3895,7 +3979,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
    *
    * Comes from underlying component furo-text-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}})}/**
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -4064,7 +4148,7 @@ return _furoShell.html`
    * All bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.
    *
    */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}})}/**
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}})}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
@@ -4131,19 +4215,25 @@ return _furoShell.html`
                 ƒ-set-value="--value"></furo-checkbox-input>      
           `}}customElements.define("furo-data-checkbox-input",FuroDataCheckboxInput);class FuroDataCollectionDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
-   * Fired when value has changed from inside the input field.
+   * Fired when value has changed from the component inside.
    *
-   * detail payload: {String} the text value
+   * detail payload: {*} the value from the value-field. By default the value field is "id"
    *
-   * Comes from underlying component furo-text-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.displayField="display_name";this.valueField="id";this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.value=val}})}/**
+   *  **bubbles**
+   */constructor(){super();this.error=!1;this.disabled=!1;this.displayField="display_name";this.valueField="id";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){// by valid input reset meta and constraints
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.field.value=val}/**
+        * @event item-selected
+        * Fired when a item from the dropdown was selected
+         *
+        * detail payload: the item object
+        */let customEvent=new Event("item-selected",{composed:!0,bubbles:!0}),selectedItem;// find item from list
+for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.valueField]==val){selectedItem=this._dropdownList[i];break}}customEvent.detail=selectedItem;this.dispatchEvent(customEvent)})}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the leadingIcon attr
      * @param value
      */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
@@ -4162,7 +4252,7 @@ CheckMetaAndOverrides.CheckAttributeOverrides(this);if(this.field){this.field.va
        */label:{type:String},/**
        * The name of the field from the injected collection that contains the label for the dropdown array.
        */displayField:{type:String,attribute:"display-field"},/**
-       * The name of the field from the injected collection that contains the value you want to assign to the attribute value and the binded field.
+       * The name of the field from the injected collection that contains the value you want to assign to the attribute value and the bounded field.
        */valueField:{type:String,attribute:"value-field"},/**
        * Overrides the hint text from the **specs**.
        *
@@ -4213,7 +4303,11 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         furo-select-input {
             width: 100%;
         }
-    `}render(){// language=HTML
+    `}/**
+     *
+     * @return {TemplateResult}
+     * @private
+     */render(){// language=HTML
 return _furoShell.html`
        <furo-select-input id="input"
           ?autofocus=${this.autofocus} 
@@ -4228,15 +4322,28 @@ return _furoShell.html`
      * Build the dropdown list with given options from meta
      * @param {options} list of options with id and display_name
      */_buildListWithMetaOptions(entities){// map
-let arr=entities.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField].value==e[this.valueField]}});if(!this.field[this.valueField].value){this.field.value=arr[0].id}this._FBPTriggerWire("--selection",arr)}/**
-     * Exposes --injectCollection
-     * @param {collection} det
-     */injectEntities(entities){// map
-let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this.value==e.data[this.valueField]}});if(!this.value){this.field.value=arr[0].id}this._FBPTriggerWire("--selection",arr)}/**
-     * Exposes --injectCollection
-     * @param {collection} det
-     */injectCollection(collection){// map
-let arr=collection.entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this.value==e.data[this.valueField]}});if(!this.value){this.field.value=arr[0].id}this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class ReferenceSearchItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._item={}}/**
+let arr=entities.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField].value==e[this.valueField]}});if(!this.field[this.valueField].value){this.field.value=arr[0].id}this._dropdownList=arr;this._FBPTriggerWire("--selection",arr)}/**
+     * Inject the array with the selectable options.
+     *
+     * The array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)
+     * ```json
+     * [
+     *  {
+     *   "id": 34,
+     *   "display_name":"Option A"
+     *  },
+     *  {
+     *   "id": 223,
+     *   "display_name":"Option X"
+     *  },
+     * ]
+     * ```
+     *
+     *
+     *
+     * @param {Array} Array with entities
+     */injectList(entities){// map
+let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this.value==e.data[this.valueField]}});if(this.field&&!this.field.value){this.field.value=arr[0].id}this._dropdownList=arr;this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class ReferenceSearchItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._item={}}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -4281,7 +4388,7 @@ ${this._item.data.display_name}
 `}}window.customElements.define("reference-search-item",ReferenceSearchItem);class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.idField="id";this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}_init(){this.addEventListener("searchInput",e=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.CheckAttributeOverrides(this);this._searchTerm=e.detail;if(this._searchTerm.length>this._minTermLength){/**
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this._searchTerm=e.detail;if(this._searchTerm.length>this._minTermLength){/**
          * @event search
          * Fired when term is entered and bigger then min-term-length
          * detail payload: {String} term
@@ -4422,7 +4529,78 @@ this.field.addEventListener("field-value-changed",e=>{this._updateSymbol()});thi
      */render(){// language=HTML
 return _furoShell.html`
       ${this._ocSymbol}
-    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class DemoFuroDataPropertyDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class FuroDataRadioButtonInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @event ALL_BUBBLING_EVENTS_FROM_furo-radio-button-input
+   *
+   * All bubbling events from [furo-radio-button-input](../../input/doc/furo-radio-button-input) will be fired, because furo-data-radio-button-input uses furo-radio-button-input internally.
+   *
+   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}})}/**
+     * Updater for the label attr
+     * @param value
+     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     * Updater for the hint attr
+     * @param value
+     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     * Updater for the errortext attr
+     * @param value
+     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+       * Sets the field to readonly
+       */disable(){this._readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this._readonly=!1}/**
+     * Bind a entity field to the furo-data-radio-button-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}static get properties(){return{/**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */label:{type:String,attribute:!0},/**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */hint:{type:String},/**
+       * Overrides the readonly value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */readonly:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean}}}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: inline-block;
+            width: 300px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        furo-radio-button-input {
+            width: 100%;
+        }
+    `}render(){// language=HTML
+return _furoShell.html`
+             <furo-radio-button-input id="input"
+                ?autofocus=${this.autofocus} 
+                ?disabled=${this._readonly||this.disabled} 
+                ?error="${this.error}" 
+                ?condensed="${this.condensed}"          
+                @-value-changed="--valueChanged"
+                ƒ-set-value="--value"></furo-radio-button-input>      
+          `}}customElements.define("furo-data-radio-button-input",FuroDataRadioButtonInput);class DemoFuroDataPropertyDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -5251,7 +5429,60 @@ return _furoShell.html`
                     </furo-entity-agent>
                 </template>
             </furo-demo-snippet>
-        `}}window.customElements.define("demo-furo-data-checkbox-input",DemoFuroDataCheckboxInput);class DemoFuroDataRangeInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+        `}}window.customElements.define("demo-furo-data-checkbox-input",DemoFuroDataCheckboxInput);class DemoFuroDataRadioButtonInput extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+            :host {
+                display: block;
+                height: 100%;
+                padding-right: var(--spacing);
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+        `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+            <h2>Demo furo-data-radio-button-input</h2>
+            <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
+                The labels, hints, defaults are comming from the furo-data-object specs.</p>
+            <furo-demo-snippet>
+                <template style="position: relative">
+                    <furo-data-radio-button-input label="console warning by invalid binding" ƒ-bind-data="--entity(*.xxxy)"></furo-data-radio-button-input>
+                    <furo-data-radio-button-input label="bindable no matter Disabled" readonly=true ƒ-bind-data="--entity(*.furo_data_checkbox_input)"> </furo-data-radio-button-input>
+                    <furo-data-radio-button-input style="position: relative;top:-8px" condensed label="condensed" hint="condensed hint" ƒ-bind-data="--entity(*.furo_data_checkbox_input)" > </furo-data-radio-button-input>
+                    <furo-data-radio-button-input></furo-data-radio-button-input>
+                    <furo-horizontal-flex space>
+    
+                        <furo-data-radio-button-input autofocus ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                                                  @-value-changed="--checkChanged"
+                                                  hint="the checked value will be sent to text input"></furo-data-radio-button-input>
+    
+                        <furo-text-input condensed label="wire the radio-button" ƒ-set-value="--checkChanged"></furo-text-input>
+
+                    </furo-horizontal-flex>
+
+                    <produce-qp-data  @-data="--qp" qp={"exp":1}></produce-qp-data>
+
+                    <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                                      ƒ-inject-raw="--response(*.data)"></furo-data-object>
+                    <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+                    <furo-entity-agent service="ExperimentService"
+                                  ƒ-hts-in="--hts"
+                                  ƒ-load="--hts"
+                                  ƒ-bind-request-data="--entity"
+                                  @-response="--response">
+                    </furo-entity-agent>
+                </template>
+            </furo-demo-snippet>
+        `}}window.customElements.define("demo-furo-data-radio-button-input",DemoFuroDataRadioButtonInput);class DemoFuroDataRangeInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -5370,7 +5601,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             display: none;
         }
         furo-demo-snippet {
-            height: 230px;
+            height: 270px;
         }
        
     `}/**
@@ -5382,10 +5613,17 @@ return _furoShell.html`
       
       <furo-demo-snippet >
         <template>
-          <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"  value-field="id" display-field="phone_nr" label="Label" ƒ-inject-collection="--response" ƒ-bind-data="--entity(*.owner.id)"></furo-data-collection-dropdown>
-          <furo-data-collection-dropdown condensed label="Label" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-collection="--response" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
-
-          <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+          
+          <furo-form-layouter two>
+          <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"  value-field="id" display-field="phone_nr" label="Use phone as display" ƒ-inject-list="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
+          
+          <furo-data-collection-dropdown  label="Default display" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-list="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
+          <furo-data-collection-dropdown condensed label="List as input" leading-icon="mail" trailing-icon="fingerprint" list="1,2,3" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
+          <furo-data-display condensed label="selected value" ƒ-bind-data="--entity(*.description)"></furo-data-display>
+          </furo-form-layouter>
+          
+            
+          <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
       
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
       
@@ -5525,12 +5763,12 @@ return _furoShell.html`
 
                         <furo-data-text-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_text_input)"
                                               trailing-icon="apps"></furo-data-text-input>
+                        <furo-data-checkbox-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                                                  trailing-icon="apps"></furo-data-checkbox-input>
 
                         <furo-data-time-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_time_input)"
-                                              trailing-icon="apps"></furo-data-time-input>
+                        trailing-icon="apps"></furo-data-time-input>
 
-                        <furo-data-checkbox-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
-                                              trailing-icon="apps"></furo-data-checkbox-input>
                         
                     </furo-form-layouter>
                     <p>condensed</p>
@@ -5568,12 +5806,12 @@ return _furoShell.html`
 
                         <furo-data-text-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_text_input)"
                                               trailing-icon="apps"></furo-data-text-input>
-
-                        <furo-data-time-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_time_input)"
-                                              trailing-icon="apps"></furo-data-time-input>
-
                         <furo-data-checkbox-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
                                                   trailing-icon="apps"></furo-data-checkbox-input>
+
+                        <furo-data-time-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_time_input)"
+                        trailing-icon="apps"></furo-data-time-input>
+
 
                     </furo-form-layouter>
 
