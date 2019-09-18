@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.52.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.52.0...@furo/data-input@0.52.1) (2019-09-18)
+
+
+### Bug Fixes
+
+* notify select-item on init ([8cb2e40](https://github.com/veith/FuroBaseComponents/commit/8cb2e40))
+
+
+
+
+
 # [0.52.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.51.0...@furo/data-input@0.52.0) (2019-09-18)
 
 
