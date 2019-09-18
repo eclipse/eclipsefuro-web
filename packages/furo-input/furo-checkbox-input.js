@@ -7,7 +7,7 @@ import "./furo-checkbox";
 /**
  * `furo-checkbox-input`
  *
- * Checkbox input element which uses a native `<input type="checkbox">` tag.
+ * Checkbox input element which uses  `<furo-checkbox">` element. In addition to that it has hint, label and error message
  *
  * Checkboxes allow the user to select multiple options from a set.
  *
