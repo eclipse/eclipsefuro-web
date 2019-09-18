@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>furo-radio-button-input</title>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+</head>
+<body>
+
+
+<test-fixture id="Basic">
+    <template>
+        <furo-radio-button-input></furo-radio-button-input>
+    </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog"
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+
+
+  describe('furo-radio-button-input', () => {
+    let furoRadioButtonInput;
+    let radioField;
+    beforeEach(async () => {
+      furoRadioButtonInput = fixture('Basic');
+      await furoRadioButtonInput.updateComplete;
+      radioField = furoRadioButtonInput.shadowRoot.getElementById("input");
+
+    });
+
+    it('should be possible to set a error with setError', (done) => {
+      furoRadioButtonInput.setError("Text from outside");
+      assert.equal(furoRadioButtonInput.errortext, "Text from outside");
+      assert.equal(furoRadioButtonInput.error,true);
+      done();
+    });
+
+    it('should clear the errorstate and resume to the initial errortext', (done) => {
+      furoRadioButtonInput.errortext = "Initial Error Text";
+      furoRadioButtonInput.setError("Text from outside");
+      furoRadioButtonInput.clearError();
+      assert.equal(furoRadioButtonInput.errortext,"Initial Error Text");
+      assert.equal(furoRadioButtonInput.error,false);
+      done();
+    });
+
+
+    it('should be disablealble with method disable', (done) => {
+      furoRadioButtonInput.disable();
+      setTimeout(()=>{
+        assert.equal(radioField.getAttribute("disabled"),"");
+        assert.equal(furoRadioButtonInput.readonly,true);
+        done();
+      },5)
+    });
+
+    it('should be enablealble with method enable', (done) => {
+      furoRadioButtonInput.readonly = true;
+      furoRadioButtonInput.enable();
+      setTimeout(()=>{
+        assert.equal(radioField.getAttribute("readonly"),null);
+        assert.equal(furoRadioButtonInput.readonly,false);
+        done();
+      },5)
+    });
+
+    it('a11y', () => {
+      return axeReport(fixture('Basic'));
+    });
+
+    it('should be focusable', (done) => {
+      furoRadioButtonInput.focus();
+      assert.equal(furoRadioButtonInput,document.activeElement);
+      done();
+    });
+
+    it('should accept a value with setValue', (done) => {
+      furoRadioButtonInput.setValue(true);
+      assert.equal(furoRadioButtonInput.value,true);
+      assert.equal(radioField.value,true);
+      done();
+    });
+
+    it('should be via method `check` checkable', (done) => {
+      furoRadioButtonInput.check();
+      assert.equal(furoRadioButtonInput.value,true);
+      assert.equal(radioField.value,true);
+      done();
+    });
+
+    it('should be via method `uncheck` unselectable', (done) => {
+      furoRadioButtonInput.uncheck();
+      assert.equal(furoRadioButtonInput.value,false);
+      assert.equal(radioField.value,false);
+      done();
+    });
+
+    it('should be via method `toggle` toggleable', (done) => {
+      furoRadioButtonInput.setValue(true);
+      assert.equal(furoRadioButtonInput.value,true);
+      furoRadioButtonInput.toggle();
+      assert.equal(furoRadioButtonInput.value,false);
+      assert.equal(radioField.value,false);
+      done();
+    });
+
+    it('should be checked via wire `--clicked` if it was previously unchecked', (done) => {
+      furoRadioButtonInput.setValue(false);
+      assert.equal(furoRadioButtonInput.value,false);
+      furoRadioButtonInput._FBPTriggerWire("--clicked");
+      assert.equal(furoRadioButtonInput.value,true);
+      done();
+    });
+
+    it('should not be checked via wire `--clicked` if it was previously already checked', (done) => {
+      furoRadioButtonInput.setValue(true);
+      assert.equal(furoRadioButtonInput.value,true);
+      furoRadioButtonInput._FBPTriggerWire("--clicked");
+      assert.equal(furoRadioButtonInput.value,true);
+      done();
+    });
+
+    it('should be set value by checked', (done) => {
+      furoRadioButtonInput.checked = true;
+      assert.equal(furoRadioButtonInput.value,true);
+      furoRadioButtonInput.checked = false ;
+      assert.equal(furoRadioButtonInput.value,false);
+      done();
+    });
+
+    it('should be possible to set value when checkbox is disabled ', (done) => {
+      furoRadioButtonInput.disabled = true;
+      furoRadioButtonInput.toggle();
+      assert.equal(furoRadioButtonInput.value,true);
+      assert.equal(radioField.value,true);
+      done();
+    });
+
+    it('should be not possible to set value when click when the checkbox is disabled ', (done) => {
+      furoRadioButtonInput.disable();
+      furoRadioButtonInput.value = false;
+      radioField.click();
+      assert.equal(furoRadioButtonInput.value, false);
+      assert.equal(radioField.value, false);
+      done();
+    });
+
+    it('should emit value-changed when value changed', (done) => {
+
+      furoRadioButtonInput.addEventListener("value-changed",e=>{
+        assert.equal(furoRadioButtonInput.value, true);
+        done();
+      });
+      furoRadioButtonInput.setValue(true);
+    });
+
+    it('should emit value-changed when checkbox via click checked', (done) => {
+
+      furoRadioButtonInput.addEventListener("value-changed",e=>{
+        assert.equal(radioField.value, true);
+        done();
+      });
+      radioField.shadowRoot.getElementById("input").click();
+    });
+  });
+
+
+</script>
+
+</body>
+</html>

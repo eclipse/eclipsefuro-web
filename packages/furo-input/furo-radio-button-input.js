@@ -7,7 +7,7 @@ import "./furo-radio-button";
 /**
  * `furo-radio-button-input`
  *
- * radio-button input element which uses a native `<input type="radio-button">` tag.
+ * radio-button input element which uses a custom `<furo-radio-button>` element. it has also hint, label and error message
  *
  * radio-button allow the user to select multiple options from a set.
  *
@@ -59,7 +59,7 @@ class FuroRadioButtonInput extends FBP(LitElement) {
         super._FBPReady();
         // init value , when undefined then false
         this._value = !!this.value;
-        this._FBPAddWireHook("--toggle", _ => {
+        this._FBPAddWireHook("--clicked", _ => {
 
             // only toggle when the radio button unchecked
             if(!this.disabled && !this.value ) {
@@ -416,7 +416,7 @@ class FuroRadioButtonInput extends FBP(LitElement) {
       
         <furo-radio-button type="radio-button" id="input"  ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}  ?condensed=${this.condensed}
           ƒ-set-value="--value" ƒ-focus="--focus"></furo-radio-button>
-        <label for="input"  @-click="--toggle,--focus">${this.label}</label>
+        <label for="input"  @-click="--clicked,--focus">${this.label}</label>
         
       </div>
       

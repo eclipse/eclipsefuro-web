@@ -5,9 +5,10 @@ import "@furo/layout/furo-ripple";
 /**
  * `furo-radio-button`
  *
- * radiobutton input element which uses a native `<input type="radiobutton">` tag.
+ * radiobutton input element which uses a native `<input type="radio">` tag.
  *
- * radiobuttones allow the user to to make a binary choice, i.e. a choice between one of two possible mutually exclusive options.
+ * lements of type radio are generally used in radio groups—collections of radio buttons describing a set of related options.
+ * Only one radio button in a given group can be selected at the same time. Radio buttons are typically rendered as small circles, which are filled or highlighted when selected.
  *
  * ### Sample
  *  <furo-demo-snippet>
@@ -93,16 +94,16 @@ class FuroRadioButton extends FBP(LitElement) {
     }
 
     /**
-     * toggle the radiobutton
+     * toggle the radio-button
      */
     toggle() {
         this.shadowRoot.getElementById("input").click();
     }
 
     /**
-     * Sets the value for the radiobutton
-     * The value of radiobutton with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
-     * This is different from the native attribute `value` of the input radiobutton
+     * Sets the value for the radio-button
+     * The value of radio-button with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+     * This is different from the native attribute `value` of the input radio-button
      * @param {boolean} v
      */
     setValue(v) {
@@ -127,7 +128,7 @@ class FuroRadioButton extends FBP(LitElement) {
 
             /**
              * @event checked
-             * Fired when the radiobutton is checked
+             * Fired when the radio-button is checked
              * detail payload: {String} the text value
              */
             let customEvent = new Event('checked', {composed: true, bubbles: true});
@@ -137,7 +138,7 @@ class FuroRadioButton extends FBP(LitElement) {
         else {
             /**
              * @event unchecked
-             * Fired when the radiobutton is unchecked
+             * Fired when the radio-button is unchecked
              * detail payload: {String} the text value
              */
             let customEvent = new Event('unchecked', {composed: true, bubbles: true});
@@ -154,8 +155,8 @@ class FuroRadioButton extends FBP(LitElement) {
         return {
 
             /**
-             * The value of radiobutton with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
-             * This is different from the native attribute `value` of the input radiobutton
+             * The value of radio-button with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+             * This is different from the native attribute `value` of the input radiob-utton
              */
             value: {
                 type: Boolean
@@ -176,7 +177,7 @@ class FuroRadioButton extends FBP(LitElement) {
             },
 
             /**
-             * A Boolean attribute which, if present, means this radiobutton is checked.
+             * A Boolean attribute which, if present, means this radio-button is checked.
              */
             checked: {
                 type: Boolean, reflect: true
