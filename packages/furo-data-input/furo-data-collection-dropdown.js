@@ -70,21 +70,24 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
 
   _notifiySelectedItem(val) {
+
     /**
      * @event item-selected
      * Fired when a item from the dropdown was selected
      *
-     * detail payload: the item object
+     * detail payload: the original item object
      */
     let customEvent = new Event('item-selected', {composed: true, bubbles: true});
     // find item from list
     let selectedItem;
+
     for (let i = this._dropdownList.length - 1; i >= 0; i--) {
       if (this._dropdownList[i][this.valueField] == val) {
-        selectedItem = this._dropdownList[i];
+        selectedItem = this._dropdownList[i]._original;
         break
       }
     }
+
     customEvent.detail = selectedItem;
     this.dispatchEvent(customEvent);
   }
@@ -320,17 +323,18 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param {options} list of options with id and display_name
    */
   _buildListWithMetaOptions(entities) {
-    this._dropdownList = entities;
+
     // map
     let arr = entities.map((e) => {
       return {
         "id": e[this.valueField],
         "label": e[this.displayField],
-        "selected": (this.field[this.valueField].value == e[this.valueField])
+        "selected": (this.field[this.valueField].value == e[this.valueField]),
+        "_original": e
       }
     });
 
-
+    this._dropdownList = arr;
     if (!this.field[this.valueField].value) {
       this.field.value = arr[0].id;
     }
@@ -367,17 +371,49 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    *
    * @param {Array} Array with entities
    */
-  injectList(entities) {
-    this._dropdownList = entities;
+  injectList(list) {
+    // map
+    let arr = list.map((e) => {
+      return {
+        "id": e[this.valueField],
+        "label": e[this.displayField],
+        "selected": (this.value == e[this.valueField]),
+        "_original": e
+      }
+    });
+    this._dropdownList = arr;
+    if (this.field && !this.field.value) {
+      this.field.value = arr[0].id;
+    }
+
+    if (!this.field) {
+      // notifiy first item if field is not set
+      this._notifiySelectedItem(arr[0].id);
+    } else {
+      this._notifiySelectedItem(this.field.value);
+    }
+
+    this._FBPTriggerWire("--selection", arr);
+  }
+
+  /**
+   * Inject the array with entities for the selectable options.
+   *
+   * @param {Array} Array with entities
+   */
+  injectEntities(entities) {
+
     // map
     let arr = entities.map((e) => {
       return {
         "id": e.data[this.valueField],
         "label": e.data[this.displayField],
-        "selected": (this.value == e.data[this.valueField])
+        "selected": (this.value == e.data[this.valueField]),
+        "_original": e
       }
     });
 
+    this._dropdownList = arr;
     if (this.field && !this.field.value) {
       this.field.value = arr[0].id;
     }
