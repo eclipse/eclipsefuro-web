@@ -39,7 +39,7 @@ class FuroDataColorInput extends FBP(LitElement) {
     this._FBPAddWireHook("--valueChanged", (val) => {
 
       // by valid input reset meta and constraints
-      CheckMetaAndOverrides.CheckAttributeOverrides(this);
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
       if (this.field) {
         this.field.value = val;
       }

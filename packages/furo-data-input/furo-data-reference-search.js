@@ -66,7 +66,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     this.addEventListener("searchInput", (e) => {
       // by valid input reset meta and constraints
-      CheckMetaAndOverrides.CheckAttributeOverrides(this);
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
       this._searchTerm = e.detail;
       if (this._searchTerm.length > this._minTermLength) {
         /**
