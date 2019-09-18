@@ -87,12 +87,12 @@ class DemoFuroDataInputTogether extends FBP(LitElement) {
 
                         <furo-data-text-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_text_input)"
                                               trailing-icon="apps"></furo-data-text-input>
+                        <furo-data-checkbox-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                                                  trailing-icon="apps"></furo-data-checkbox-input>
 
                         <furo-data-time-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_time_input)"
-                                              trailing-icon="apps"></furo-data-time-input>
+                        trailing-icon="apps"></furo-data-time-input>
 
-                        <furo-data-checkbox-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
-                                              trailing-icon="apps"></furo-data-checkbox-input>
                         
                     </furo-form-layouter>
                     <p>condensed</p>
@@ -130,12 +130,12 @@ class DemoFuroDataInputTogether extends FBP(LitElement) {
 
                         <furo-data-text-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_text_input)"
                                               trailing-icon="apps"></furo-data-text-input>
-
-                        <furo-data-time-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_time_input)"
-                                              trailing-icon="apps"></furo-data-time-input>
-
                         <furo-data-checkbox-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
                                                   trailing-icon="apps"></furo-data-checkbox-input>
+
+                        <furo-data-time-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_time_input)"
+                        trailing-icon="apps"></furo-data-time-input>
+
 
                     </furo-form-layouter>
 

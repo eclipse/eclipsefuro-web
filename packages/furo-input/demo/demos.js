@@ -19,3 +19,5 @@ import "./demo-furo-select-input";
 import "./demo-furo-checkbox";
 import "./demo-furo-color-input";
 import "./demo-condensed";
+import "./demo-furo-radio-button-input";
+import "./demo-furo-radio-button";
