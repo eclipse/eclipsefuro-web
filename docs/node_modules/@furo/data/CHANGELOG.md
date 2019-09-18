@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.55.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.55.1...@furo/data@0.55.2) (2019-09-18)
+
+
+### Bug Fixes
+
+* fix repeat field changed event for furo.property ([73428a8](https://github.com/veith/FuroBaseComponents/commit/73428a8))
+
+
+
+
+
 ## [0.55.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.55.0...@furo/data@0.55.1) (2019-09-17)
 
 **Note:** Version bump only for package @furo/data

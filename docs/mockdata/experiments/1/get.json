@@ -7,6 +7,7 @@
     "furo_data_text_input": "hallo test",
     "furo_data_number_input": 12.55,
     "furo_data_time_input": "17:34",
+    "furo_data_color_input": "#e318ed",
     "furo_data_textarea_input": "hallo , this is textarea input",
     "furo_data_date_input": "2019-02-22",
     "furo_data_date_input_google": {
