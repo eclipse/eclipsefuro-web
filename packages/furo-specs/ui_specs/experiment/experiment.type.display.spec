@@ -179,6 +179,16 @@
             "noborder"
           ],
           "attrs": []
+        },
+        {
+          "field": "single_type_property",
+          "component": "furo-data-display",
+          "flags": [
+            "condensed",
+            "double",
+            "noborder"
+          ],
+          "attrs": []
         }
       ]
     }

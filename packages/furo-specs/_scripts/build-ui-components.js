@@ -205,6 +205,49 @@ actionlist.forEach((datafile) => {
   sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/update.action.tmpl", ">", targetfile]);
 });
 
+/**
+ * Create Widget section
+ */
+
+let widgetlist = walkSync(UiSpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("create.widget.spec") > 0)
+});
+
+// generate tmp data file for each file in list
+widgetlist.forEach((filepath) => {
+
+  let widgetspec = JSON.parse(fs.readFileSync(filepath));
+
+  // load spec
+  let typespec = JSON.parse(fs.readFileSync(widgetspec.source));
+  //mix specs with formspec
+  widgetspec.fieldgroups.forEach((group) => {
+    group.fields.forEach((field) => {
+      if (field.field) {
+        // use component from typespec, when not in formspec
+        if (!field.component) {
+
+          if (typespec.fields[field.field] && typespec.fields[field.field].__ui && typespec.fields[field.field].__ui.component) {
+            field.component = typespec.fields[field.field].__ui.component;
+          } else {
+            // use furo-data-text-input as fallback
+            field.component = "furo-data-text-input";
+          }
+        }
+        if (typespec.fields[field.field]) {
+          field.spec = typespec.fields[field.field];
+        }
+      }
+    });
+  });
+
+  // save to __tmp
+  let datafile = [TmpDir, path.basename(filepath)].join("/");
+  fs.writeFileSync(datafile, JSON.stringify(widgetspec));
+  let targetfile = BuildDir + "/" + widgetspec.component_name.split("-")[0] + "/" + widgetspec.component_name + ".js";
+  sh("mkdir -p", [BuildDir + "/" + widgetspec.component_name.split("-")[0]]);
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/create.widget.tmpl", ">", targetfile]);
+});
 
 /**
  * Referencesearch section

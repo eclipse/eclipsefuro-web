@@ -37,6 +37,7 @@ const walkSync = (dir, filelist = []) => {
 
 //load template structure
 let FORMTPL = fs.readFileSync(TplDir + "/form.spec.json");
+let WIDGETTPL = fs.readFileSync(TplDir + "/create.widget.spec.json");
 let DISPLAYTPL = fs.readFileSync(TplDir + "/display.spec.json");
 
 
@@ -150,6 +151,33 @@ typelist.forEach((pathToTypeSpec) => {
     let f = JSON.parse(fs.readFileSync(target));
     if (f._writeprotection === false) {
       fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
+    } else {
+      console.log("skip " + target);
+    }
+  }
+
+  /**
+   * CREATE WIDGETS
+   * analog create.form.spec a create.widget.spec is created
+   */
+  let widgetSpec = JSON.parse(WIDGETTPL);
+
+  widgetSpec.theme = "WidgetBaseTheme";
+  widgetSpec.class_name = spec.__proto.package + spec.type + "CreateWidget";
+  widgetSpec.class_name = widgetSpec.class_name[0].toUpperCase() + widgetSpec.class_name.substr(1);
+  widgetSpec.component_name = (spec.__proto.package + "-" + spec.type + "-create-widget").toLowerCase();
+  widgetSpec.source = pathToTypeSpec;
+  widgetSpec.description = spec.description;
+  widgetSpec.fieldgroups[0].fields = createFields;
+
+  target = PKGDIR + "/" + t.join(".") + ".create.widget.spec";
+  if (!fs.existsSync(target)) {
+    fs.writeFileSync(target, JSON.stringify(widgetSpec, null, 2));
+  } else {
+    // open file and check for "_writeprotection": false,
+    let f = JSON.parse(fs.readFileSync(target));
+    if (f._writeprotection === false) {
+      fs.writeFileSync(target, JSON.stringify(widgetSpec, null, 2));
     } else {
       console.log("skip " + target);
     }

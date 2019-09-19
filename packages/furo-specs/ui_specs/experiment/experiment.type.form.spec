@@ -147,6 +147,14 @@
             "double"
           ],
           "attrs": []
+        },
+        {
+          "field": "single_type_property",
+          "flags": [
+            "condensed",
+            "double"
+          ],
+          "attrs": []
         }
       ]
     }
