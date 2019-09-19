@@ -184,10 +184,18 @@ class FuroDataObject extends (LitElement) {
        *   **bubbles**
        */
 
-      let customEvent = new Event('data-changed', {composed: true, bubbles: true});
-      customEvent.detail = e.detail;
-      this.dispatchEvent(customEvent);
+      let dataEvent = new Event('data-changed', {composed: true, bubbles: true});
+      dataEvent.detail = this.data ;
+      this.dispatchEvent(dataEvent);
 
+      /**
+      * @event field-value-changed
+      * Fired when a field has changed
+      * detail payload: {Object} the field node
+      */
+      let customEvent = new Event('field-value-changed', {composed:true, bubbles: true});
+      customEvent.detail = e.detail;
+      this.dispatchEvent(customEvent)
 
     });
 

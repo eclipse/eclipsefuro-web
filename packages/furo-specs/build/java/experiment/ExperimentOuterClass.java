@@ -1682,6 +1682,41 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    java.util.List<java.lang.String>
+        getRepstringList();
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    int getRepstringCount();
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    java.lang.String getRepstring(int index);
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    com.google.protobuf.ByteString
+        getRepstringBytes(int index);
+
+    /**
+     * <pre>
      * field for testing property
      * </pre>
      *
@@ -1820,6 +1855,7 @@ public final class ExperimentOuterClass {
       furoDataTextareaInput_ = "";
       furoDataTimeInput_ = "";
       id_ = "";
+      repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       typeProperty_ = java.util.Collections.emptyList();
       typeWithOptions_ = "";
     }
@@ -1949,9 +1985,9 @@ public final class ExperimentOuterClass {
               break;
             }
             case 138: {
-              if (!((mutable_bitField0_ & 0x00020000) != 0)) {
+              if (!((mutable_bitField0_ & 0x00040000) != 0)) {
                 typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>();
-                mutable_bitField0_ |= 0x00020000;
+                mutable_bitField0_ |= 0x00040000;
               }
               typeProperty_.add(
                   input.readMessage(furo.PropertyOuterClass.Property.parser(), extensionRegistry));
@@ -1983,6 +2019,15 @@ public final class ExperimentOuterClass {
 
               break;
             }
+            case 162: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00008000) != 0)) {
+                repstring_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00008000;
+              }
+              repstring_.add(s);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1998,8 +2043,11 @@ public final class ExperimentOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00020000) != 0)) {
+        if (((mutable_bitField0_ & 0x00040000) != 0)) {
           typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
+        }
+        if (((mutable_bitField0_ & 0x00008000) != 0)) {
+          repstring_ = repstring_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2553,6 +2601,51 @@ public final class ExperimentOuterClass {
       }
     }
 
+    public static final int REPSTRING_FIELD_NUMBER = 20;
+    private com.google.protobuf.LazyStringList repstring_;
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getRepstringList() {
+      return repstring_;
+    }
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    public int getRepstringCount() {
+      return repstring_.size();
+    }
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    public java.lang.String getRepstring(int index) {
+      return repstring_.get(index);
+    }
+    /**
+     * <pre>
+     * repeated string
+     * </pre>
+     *
+     * <code>repeated string repstring = 20;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRepstringBytes(int index) {
+      return repstring_.getByteString(index);
+    }
+
     public static final int SINGLE_TYPE_PROPERTY_FIELD_NUMBER = 19;
     private furo.PropertyOuterClass.Property singleTypeProperty_;
     /**
@@ -2787,6 +2880,9 @@ public final class ExperimentOuterClass {
       if (singleTypeProperty_ != null) {
         output.writeMessage(19, getSingleTypeProperty());
       }
+      for (int i = 0; i < repstring_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 20, repstring_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2860,6 +2956,14 @@ public final class ExperimentOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(19, getSingleTypeProperty());
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < repstring_.size(); i++) {
+          dataSize += computeStringSizeNoTag(repstring_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getRepstringList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2909,6 +3013,8 @@ public final class ExperimentOuterClass {
           .equals(other.getFuroDataTimeInput())) return false;
       if (!getId()
           .equals(other.getId())) return false;
+      if (!getRepstringList()
+          .equals(other.getRepstringList())) return false;
       if (hasSingleTypeProperty() != other.hasSingleTypeProperty()) return false;
       if (hasSingleTypeProperty()) {
         if (!getSingleTypeProperty()
@@ -2969,6 +3075,10 @@ public final class ExperimentOuterClass {
       hash = (53 * hash) + getFuroDataTimeInput().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
+      if (getRepstringCount() > 0) {
+        hash = (37 * hash) + REPSTRING_FIELD_NUMBER;
+        hash = (53 * hash) + getRepstringList().hashCode();
+      }
       if (hasSingleTypeProperty()) {
         hash = (37 * hash) + SINGLE_TYPE_PROPERTY_FIELD_NUMBER;
         hash = (53 * hash) + getSingleTypeProperty().hashCode();
@@ -3155,6 +3265,8 @@ public final class ExperimentOuterClass {
 
         id_ = "";
 
+        repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00008000);
         if (singleTypePropertyBuilder_ == null) {
           singleTypeProperty_ = null;
         } else {
@@ -3169,7 +3281,7 @@ public final class ExperimentOuterClass {
         }
         if (typePropertyBuilder_ == null) {
           typeProperty_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00020000);
+          bitField0_ = (bitField0_ & ~0x00040000);
         } else {
           typePropertyBuilder_.clear();
         }
@@ -3222,6 +3334,11 @@ public final class ExperimentOuterClass {
         result.furoDataTextareaInput_ = furoDataTextareaInput_;
         result.furoDataTimeInput_ = furoDataTimeInput_;
         result.id_ = id_;
+        if (((bitField0_ & 0x00008000) != 0)) {
+          repstring_ = repstring_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00008000);
+        }
+        result.repstring_ = repstring_;
         if (singleTypePropertyBuilder_ == null) {
           result.singleTypeProperty_ = singleTypeProperty_;
         } else {
@@ -3233,9 +3350,9 @@ public final class ExperimentOuterClass {
           result.theAnyType_ = theAnyTypeBuilder_.build();
         }
         if (typePropertyBuilder_ == null) {
-          if (((bitField0_ & 0x00020000) != 0)) {
+          if (((bitField0_ & 0x00040000) != 0)) {
             typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
-            bitField0_ = (bitField0_ & ~0x00020000);
+            bitField0_ = (bitField0_ & ~0x00040000);
           }
           result.typeProperty_ = typeProperty_;
         } else {
@@ -3347,6 +3464,16 @@ public final class ExperimentOuterClass {
           id_ = other.id_;
           onChanged();
         }
+        if (!other.repstring_.isEmpty()) {
+          if (repstring_.isEmpty()) {
+            repstring_ = other.repstring_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+          } else {
+            ensureRepstringIsMutable();
+            repstring_.addAll(other.repstring_);
+          }
+          onChanged();
+        }
         if (other.hasSingleTypeProperty()) {
           mergeSingleTypeProperty(other.getSingleTypeProperty());
         }
@@ -3357,7 +3484,7 @@ public final class ExperimentOuterClass {
           if (!other.typeProperty_.isEmpty()) {
             if (typeProperty_.isEmpty()) {
               typeProperty_ = other.typeProperty_;
-              bitField0_ = (bitField0_ & ~0x00020000);
+              bitField0_ = (bitField0_ & ~0x00040000);
             } else {
               ensureTypePropertyIsMutable();
               typeProperty_.addAll(other.typeProperty_);
@@ -3370,7 +3497,7 @@ public final class ExperimentOuterClass {
               typePropertyBuilder_.dispose();
               typePropertyBuilder_ = null;
               typeProperty_ = other.typeProperty_;
-              bitField0_ = (bitField0_ & ~0x00020000);
+              bitField0_ = (bitField0_ & ~0x00040000);
               typePropertyBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTypePropertyFieldBuilder() : null;
@@ -4659,6 +4786,136 @@ public final class ExperimentOuterClass {
         return this;
       }
 
+      private com.google.protobuf.LazyStringList repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureRepstringIsMutable() {
+        if (!((bitField0_ & 0x00008000) != 0)) {
+          repstring_ = new com.google.protobuf.LazyStringArrayList(repstring_);
+          bitField0_ |= 0x00008000;
+         }
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getRepstringList() {
+        return repstring_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public int getRepstringCount() {
+        return repstring_.size();
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public java.lang.String getRepstring(int index) {
+        return repstring_.get(index);
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRepstringBytes(int index) {
+        return repstring_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public Builder setRepstring(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRepstringIsMutable();
+        repstring_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public Builder addRepstring(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRepstringIsMutable();
+        repstring_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public Builder addAllRepstring(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureRepstringIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, repstring_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public Builder clearRepstring() {
+        repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00008000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated string
+       * </pre>
+       *
+       * <code>repeated string repstring = 20;</code>
+       */
+      public Builder addRepstringBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureRepstringIsMutable();
+        repstring_.add(value);
+        onChanged();
+        return this;
+      }
+
       private furo.PropertyOuterClass.Property singleTypeProperty_;
       private com.google.protobuf.SingleFieldBuilderV3<
           furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder> singleTypePropertyBuilder_;
@@ -4968,9 +5225,9 @@ public final class ExperimentOuterClass {
       private java.util.List<furo.PropertyOuterClass.Property> typeProperty_ =
         java.util.Collections.emptyList();
       private void ensureTypePropertyIsMutable() {
-        if (!((bitField0_ & 0x00020000) != 0)) {
+        if (!((bitField0_ & 0x00040000) != 0)) {
           typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>(typeProperty_);
-          bitField0_ |= 0x00020000;
+          bitField0_ |= 0x00040000;
          }
       }
 
@@ -5164,7 +5421,7 @@ public final class ExperimentOuterClass {
       public Builder clearTypeProperty() {
         if (typePropertyBuilder_ == null) {
           typeProperty_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00020000);
+          bitField0_ = (bitField0_ & ~0x00040000);
           onChanged();
         } else {
           typePropertyBuilder_.clear();
@@ -5269,7 +5526,7 @@ public final class ExperimentOuterClass {
           typePropertyBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder>(
                   typeProperty_,
-                  ((bitField0_ & 0x00020000) != 0),
+                  ((bitField0_ & 0x00040000) != 0),
                   getParentForChildren(),
                   isClean());
           typeProperty_ = null;
@@ -9316,7 +9573,7 @@ public final class ExperimentOuterClass {
       ".proto\032\023furo/property.proto\"m\n\020Experimen" +
       "tEntity\022$\n\004data\030\001 \001(\0132\026.experiment.Exper" +
       "iment\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta" +
-      "\030\003 \001(\0132\n.furo.Meta\"\362\004\n\nExperiment\022\023\n\013des" +
+      "\030\003 \001(\0132\n.furo.Meta\"\205\005\n\nExperiment\022\023\n\013des" +
       "cription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023" +
       "furo_data_bool_icon\030\016 \001(\010\022 \n\030furo_data_c" +
       "heckbox_input\030\004 \001(\010\022\035\n\025furo_data_color_i" +
@@ -9328,18 +9585,19 @@ public final class ExperimentOuterClass {
       "o_data_search_input\030\014 \001(\t\022\034\n\024furo_data_t" +
       "ext_input\030\005 \001(\t\022 \n\030furo_data_textarea_in" +
       "put\030\006 \001(\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022" +
-      "\n\n\002id\030\001 \001(\t\022,\n\024single_type_property\030\023 \001(" +
-      "\0132\016.furo.Property\022*\n\014the_any_type\030\017 \001(\0132" +
-      "\024.google.protobuf.Any\022%\n\rtype_property\030\021" +
-      " \003(\0132\016.furo.Property\022\031\n\021type_with_option" +
-      "s\030\020 \001(\t\"S\n\007Default\022\023\n\013description\030\003 \001(\t\022" +
-      "\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trep" +
-      "string\030\004 \003(\t\"W\n\tRecursive\022\024\n\014display_nam" +
-      "e\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\trecursion\030\003 \001(\0132\025" +
-      ".experiment.Recursive\"{\n\024ExperimentColle" +
-      "ction\022.\n\010entities\030\004 \003(\0132\034.experiment.Exp" +
-      "erimentEntity\022\031\n\005links\030\003 \003(\0132\n.furo.Link" +
-      "\022\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
+      "\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024single" +
+      "_type_property\030\023 \001(\0132\016.furo.Property\022*\n\014" +
+      "the_any_type\030\017 \001(\0132\024.google.protobuf.Any" +
+      "\022%\n\rtype_property\030\021 \003(\0132\016.furo.Property\022" +
+      "\031\n\021type_with_options\030\020 \001(\t\"S\n\007Default\022\023\n" +
+      "\013description\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t" +
+      "\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"W\n\tRecur" +
+      "sive\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(" +
+      "\n\trecursion\030\003 \001(\0132\025.experiment.Recursive" +
+      "\"{\n\024ExperimentCollection\022.\n\010entities\030\004 \003" +
+      "(\0132\034.experiment.ExperimentEntity\022\031\n\005link" +
+      "s\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo" +
+      ".Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -9369,7 +9627,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Experiment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Experiment_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataDateInputGoogle", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "SingleTypeProperty", "TheAnyType", "TypeProperty", "TypeWithOptions", });
+        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataDateInputGoogle", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "Repstring", "SingleTypeProperty", "TheAnyType", "TypeProperty", "TypeWithOptions", });
     internal_static_experiment_Default_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Default_fieldAccessorTable = new

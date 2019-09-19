@@ -57,7 +57,7 @@ class SimulateError extends FBP(LitElement) {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
         :host {
-            display: block;
+            display: inline-block;
         }
 
         :host([hidden]) {
@@ -75,7 +75,7 @@ class SimulateError extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-        <button>set error</button>
+        <furo-button raised danger>set error</furo-button>
     `;
   }
 }

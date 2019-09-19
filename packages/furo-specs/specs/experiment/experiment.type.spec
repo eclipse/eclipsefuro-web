@@ -367,6 +367,20 @@
       "__proto": {
         "number": 19
       }
+    },
+    "repstring": {
+      "description": "repeated string",
+      "type": "string",
+      "meta": {
+        "repeated": true,
+        "label": "Description",
+        "default": "Ein text per default",
+        "hint": ""
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 20
+      }
     }
   }
 }

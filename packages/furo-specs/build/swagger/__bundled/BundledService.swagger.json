@@ -1496,6 +1496,13 @@
           "type": "string",
           "title": "Identity of a experiment"
         },
+        "repstring": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "repeated string"
+        },
         "single_type_property": {
           "$ref": "#/definitions/furoProperty",
           "title": "field for testing property"

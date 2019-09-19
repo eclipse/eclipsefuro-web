@@ -1,3 +1,4 @@
+import "./demo-furo-data-repeat";
 import "./demo-furo-data-property-display";
 import "./demo-furo-data-property";
 import "./demo-furo-data-display";

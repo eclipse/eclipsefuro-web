@@ -167,7 +167,8 @@
           }
         }
       }
-    }
+    },
+    "repstring": ["AAA","BBBB","CCCC"]
   },
   "links": [
     {

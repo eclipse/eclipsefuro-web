@@ -57,7 +57,7 @@ class ProduceQpData extends FBP(LitElement) {
         // language=CSS
         return Theme.getThemeForComponent(this.name) || css`
         :host {
-            display: block;
+            display: inline-block;
             margin-top: 18px;
         }
 
