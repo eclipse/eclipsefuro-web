@@ -87,8 +87,11 @@ class DemoFuroDataInputTogether extends FBP(LitElement) {
 
                         <furo-data-text-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_text_input)"
                                               trailing-icon="apps"></furo-data-text-input>
-                        <furo-data-checkbox-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
-                                                  trailing-icon="apps"></furo-data-checkbox-input>
+                        <furo-data-checkbox-input  hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                                                ></furo-data-checkbox-input>
+
+                        <furo-data-radio-button-input  hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                                                 ></furo-data-radio-button-input>
 
                         <furo-data-time-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_time_input)"
                         trailing-icon="apps"></furo-data-time-input>
@@ -133,6 +136,9 @@ class DemoFuroDataInputTogether extends FBP(LitElement) {
                         <furo-data-checkbox-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
                                                   trailing-icon="apps"></furo-data-checkbox-input>
 
+                        <furo-data-radio-button-input  condensed hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                        ></furo-data-radio-button-input>
+                        
                         <furo-data-time-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_time_input)"
                         trailing-icon="apps"></furo-data-time-input>
 
