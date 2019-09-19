@@ -56,6 +56,7 @@ class DataRepeatDelete extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+            box-sizing: border-box;
             padding:  26px 0 0 var(--spacing-xs);
             cursor: pointer;
         }
