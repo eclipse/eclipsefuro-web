@@ -253,13 +253,14 @@ export class FieldNode extends EventTreeNode {
    */
   deleteNode() {
 
-    let index = this.__parentNode.__childNodes.indexOf(this);
-    this.__parentNode.__childNodes.splice(index, 1);
-    delete (this.__parentNode[this._name]);
 
     // remove from list if this is a repeated item
     if (typeof this._deleteFromList === "function") {
       this._deleteFromList();
+    }else{
+      let index = this.__parentNode.__childNodes.indexOf(this);
+      this.__parentNode.__childNodes.splice(index, 1);
+      delete (this.__parentNode[this._name]);
     }
     //notify
     this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted", this._name, false));

@@ -50,19 +50,16 @@ class DemoFuroDataRepeat extends FBP(LitElement) {
               <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>  <simulate-error ƒ-bind-data="--entity" error='{"field":"repstring.1","description":"something went wrong"}'></simulate-error>
              <furo-button primary raised @-click="--addFieldClicked">add field</furo-button>
               <hr>
-              <furo-card>
+              <furo-card title="furo-data-repeater demo" secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display">
               <furo-form-layouter two>
-                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input" >
+                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input" delete-icon="delete">
                   </furo-data-repeat>
-                  <furo-data-repeat condensed ƒ-bind-data="--entity(*.repstring)" repeated-component="furo-data-display">
+                  <furo-data-repeat four ƒ-bind-data="--entity(*.repstring)" repeated-component="furo-data-display">
                   </furo-data-repeat>
               </furo-form-layouter>
               </furo-card>
-
               
-
-              <furo-data-object type="experiment.Experiment" @-object-ready="--entity" @-data-changed="--val"
-                                ƒ-inject-raw="--response(*.data)"></furo-data-object>
+              <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
               <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
               <furo-entity-agent service="ExperimentService"
                                  ƒ-hts-in="--hts"
@@ -71,7 +68,6 @@ class DemoFuroDataRepeat extends FBP(LitElement) {
                                  @-response="--response">
               </furo-entity-agent>
               
-              <furo-pretty-json ƒ-inject-data="--val(*.repstring.value)"></furo-pretty-json>
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>

@@ -1,6 +1,8 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import "./lib/data-repeat-delete"
+import "@furo/form/furo-form-layouter"
 
 /**
  * `furo-data-repeat`
@@ -38,6 +40,11 @@ class FuroDataRepeat extends FBP(LitElement) {
 
   constructor() {
     super();
+    /**
+     * Set the delete icon to enable deleting of a repeated element.
+     * @type {undefined}
+     */
+    this.deleteIcon = undefined;
   }
 
   /**
@@ -50,29 +57,61 @@ class FuroDataRepeat extends FBP(LitElement) {
        * repeated-component to be used for the items.
        * The component must support ƒ-bind-data
        */
-      repeatedComponent: {type: String, attribute:"repeated-component"}
+      repeatedComponent: {type: String, attribute: "repeated-component"},
+
     };
   }
 
-  set repeatedComponent(component){
+  set repeatedComponent(component) {
 
     // add flow repeat to parent and inject on repeated changes
     // repeated
+    let container = document.createElement("furo-form-layouter");
     let r = document.createElement("flow-repeat");
     r.setAttribute("identity-path", "__index");
     r.setAttribute("ƒ-inject-items", "--repeatsChanged");
+
+    let isCondensed = "";
     let attrs = "";
     let l = this.attributes.length;
     for (let i = 0; i < l; ++i) {
       var nodeName = this.attributes.item(i).nodeName;
       var nodeValue = this.attributes.item(i).nodeValue;
-      if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
-        attrs += nodeName + '="' + nodeValue + '"';
+      switch (nodeName) {
+        case "condensed":
+          attrs += nodeName + '="' + nodeValue + '"';
+          isCondensed = "condensed";
+          break;
+        case "two":
+          container.setAttribute("two", "");
+          break;
+        case "four":
+          container.setAttribute("four", "");
+          break;
+        case "eight":
+          container.setAttribute("eight", "");
+          break;
+        case "delete-icon":
+          this.deleteIcon = nodeValue;
+          break;
+        default:
+          if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
+            attrs += nodeName + '="' + nodeValue + '"';
+          }
       }
-    }
 
-    r.innerHTML = '<template><furo-horizontal-flex><' + component + ' ' + attrs + ' flex ƒ-bind-data="--item"></' + component + '><furo-icon icon="delete"></furo-icon></furo-horizontal-flex></template>';
-    this.shadowRoot.appendChild(r)
+    }
+    let icn = "";
+    if (this.deleteIcon) {
+      icn = '<data-repeat-delete icon="' + this.deleteIcon + '" ' + isCondensed + ' ƒ-bind-item="--item"></data-repeat-delete>';
+    }
+    r.innerHTML = '<template><furo-horizontal-flex><' + component + ' ' + attrs + ' flex ƒ-bind-data="--item"></' + component + '>' + icn + '</furo-horizontal-flex></template>';
+
+
+    container.appendChild(r);
+
+
+    this.shadowRoot.appendChild(container);
 
   };
 
@@ -85,11 +124,12 @@ class FuroDataRepeat extends FBP(LitElement) {
 
   }
 
-  add(data){
-    if(this.field){
+  add(data) {
+    if (this.field) {
       this.field.add(data)
     }
   }
+
   /**
    * flow is ready lifecycle method
    */
@@ -115,12 +155,8 @@ class FuroDataRepeat extends FBP(LitElement) {
             display: none;
         }
 
-        furo-icon{
-            margin: 12px 0 0 12px;
-        }
     `
   }
-
 
 }
 
