@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.25.0...@furo/specs@0.26.0) (2019-09-18)
+
+
+### Features
+
+* default _FBPReady added ([69a1382](https://github.com/veith/FuroBaseComponents/commit/69a1382))
+
+
+
+
+
 # [0.25.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.24.0...@furo/specs@0.25.0) (2019-09-17)
 
 

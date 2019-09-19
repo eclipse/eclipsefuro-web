@@ -66,8 +66,8 @@
             }
           }
         }
-      },{
-        "data": {
+      },
+      {"data": {
           "@type": "furo.IntegerProperty",
           "data": 342,
           "display_name": "342"
@@ -167,7 +167,8 @@
           }
         }
       }
-    }
+    },
+    "repstring": ["AAA","BBBB","CCCC"]
   },
   "links": [
     {

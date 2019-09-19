@@ -2118,7 +2118,8 @@ if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}r
      * infinite recursive element protection
      * we can return false here, because a repeater node is not created automatically
      */_hasAncestorOfType(type){return!1}deleteNode(){let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name];//notify
-this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0))}set value(val){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
+this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0));// because this is deleted, notifiy from parent
+this.__parentNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.__parentNode,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this.__parentNode,!1))}set value(val){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
 this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));//TODO check the tree
 this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],targetfield=f[1];if(2===f.length){// typo protection
 if(this.repeats[parseInt(target)][targetfield]){// we are on the parent of a endpoint. Update the metas in this
@@ -2134,10 +2135,11 @@ return}}let subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.sli
 if(this.repeats[parseInt(target)][targetfield]){this.repeats[parseInt(target)][targetfield].__updateMetaAndConstraints(subMetaAndConstraints)}}}get value(){return this.repeats.map(f=>{return f.value})}/**
      * Deletes a repeated item by index
      * @param index
-     */deleteChild(index){this.repeats.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
+     */deleteChild(index){this.repeats.splice(index,1);// update indexes
+this.repeats.forEach((node,i)=>{node.__index=i});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
 fieldNode._deleteFromList=()=>{this.deleteChild(this.repeats.indexOf(fieldNode))};return index}_setInvalid(error){this._isValid=!1;let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
 error.field=path.slice(1).join(".")}this.repeats[path[0]]._setInvalid(error)}add(data){let index=this._addSilent();this._pristine=!1;// set data if given
-if(data){let child=this.repeats[index];child.value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
+if(data){let child=this.repeats[index];child.value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
 return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};/**
    @license
    Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -2332,8 +2334,8 @@ for(let fieldName in val){if(this[fieldName]==void 0){this[fieldName]=new FieldN
 this[fieldName].value=val[fieldName]}//remove unseted
 for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}}/**
      * deletes the fieldnode
-     */deleteNode(){let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name];// remove from list if this is a repeated item
-if("function"===typeof this._deleteFromList){this._deleteFromList()}//notify
+     */deleteNode(){// remove from list if this is a repeated item
+if("function"===typeof this._deleteFromList){this._deleteFromList()}else{let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name]}//notify
 this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0))}set defaultvalue(val){// type any
 this._createAnyType(val);if(0<this.__childNodes.length){for(let index in this.__childNodes){let field=this.__childNodes[index];field.defaultvalue=val[field._name]}}else{if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{this.oldvalue=this.value;this._value=val;this._pristine=!0}}}get value(){if(0<this.__childNodes.length){this._value={};// nur reine Daten zurück geben
 for(let index in this.__childNodes){let field=this.__childNodes[index];this._value[field._name]=field.value}}return this._value}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
@@ -2461,7 +2463,11 @@ if(this._queue!==void 0){this.data.injectRaw(this._queue);this._queue=void 0;thi
        *   **detail payload:** {Object|CollectionNode}
        *
        *   **bubbles**
-       */let customEvent=new Event("data-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent)});return!0}}window.customElements.define("furo-data-object",FuroDataObject);class FuroDeepLink extends _furoShell.LitElement{constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._qp={}}static get properties(){return{/**
+       */let dataEvent=new Event("data-changed",{composed:!0,bubbles:!0});dataEvent.detail=this.data;this.dispatchEvent(dataEvent);/**
+                                     * @event field-value-changed
+                                     * Fired when a field has changed
+                                     * detail payload: {Object} the field node
+                                     */let customEvent=new Event("field-value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent)});return!0}}window.customElements.define("furo-data-object",FuroDataObject);class FuroDeepLink extends _furoShell.LitElement{constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._qp={}}static get properties(){return{/**
        * @type {object|QueryParams} Query Params
        */qp:{type:Object},/**
        * Name des Services
@@ -4221,13 +4227,13 @@ return _furoShell.html`
    *
    *  **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this.displayField="display_name";this.valueField="id";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.field.value=val}/**
-        * @event item-selected
-        * Fired when a item from the dropdown was selected
-         *
-        * detail payload: the item object
-        */let customEvent=new Event("item-selected",{composed:!0,bubbles:!0}),selectedItem;// find item from list
-for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.valueField]==val){selectedItem=this._dropdownList[i];break}}customEvent.detail=selectedItem;this.dispatchEvent(customEvent)})}/**
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.field.value=val}this._notifiySelectedItem(val)})}_notifiySelectedItem(val){/**
+     * @event item-selected
+     * Fired when a item from the dropdown was selected
+     *
+     * detail payload: the original item object
+     */let customEvent=new Event("item-selected",{composed:!0,bubbles:!0}),selectedItem;// find item from list
+for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.valueField]==val){selectedItem=this._dropdownList[i]._original;break}}customEvent.detail=selectedItem;this.dispatchEvent(customEvent)}/**
      * Updater for the label attr
      * @param value
      */set label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
@@ -4322,7 +4328,8 @@ return _furoShell.html`
      * Build the dropdown list with given options from meta
      * @param {options} list of options with id and display_name
      */_buildListWithMetaOptions(entities){// map
-let arr=entities.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField].value==e[this.valueField]}});if(!this.field[this.valueField].value){this.field.value=arr[0].id}this._dropdownList=arr;this._FBPTriggerWire("--selection",arr)}/**
+let arr=entities.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField].value==e[this.valueField],_original:e}});this._dropdownList=arr;if(!this.field[this.valueField].value){this.field.value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field.value)}this._FBPTriggerWire("--selection",arr)}/**
      * Inject the array with the selectable options.
      *
      * The array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)
@@ -4342,8 +4349,15 @@ let arr=entities.map(e=>{return{id:e[this.valueField],label:e[this.displayField]
      *
      *
      * @param {Array} Array with entities
-     */injectList(entities){// map
-let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this.value==e.data[this.valueField]}});if(this.field&&!this.field.value){this.field.value=arr[0].id}this._dropdownList=arr;this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class ReferenceSearchItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._item={}}/**
+     */injectList(list){// map
+let arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.value==e[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field.value){this.field.value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field.value)}this._FBPTriggerWire("--selection",arr)}/**
+     * Inject the array with entities for the selectable options.
+     *
+     * @param {Array} Array with entities
+     */injectEntities(entities){// map
+let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this.value==e.data[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field.value){this.field.value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field.value)}this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class ReferenceSearchItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._item={}}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -4529,7 +4543,87 @@ this.field.addEventListener("field-value-changed",e=>{this._updateSymbol()});thi
      */render(){// language=HTML
 return _furoShell.html`
       ${this._ocSymbol}
-    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class FuroDataRadioButtonInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class DataRepeatDelete extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @private
+   * @return {Object}
+   */static get properties(){return{/**
+       * Description
+       */icon:{type:String}}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();/**
+                        * Register hook on wire --delClicked to
+                        * delete the item
+                        */this.addEventListener("click",e=>{this.field.deleteNode()})}bindItem(repeatedNode){this.field=repeatedNode}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            padding:  26px 0 0 var(--spacing-xs);
+            cursor: pointer;
+        }
+
+        :host([condensed]){
+            padding:  18px 0 0 var(--spacing-xs);
+        }
+        :host([hidden]) {
+            display: none;
+           
+        }
+
+        :host([condensed]) furo-icon {
+            width: 16px;
+            height: 16px;
+            
+        }
+        furo-icon {
+            width: 20px;
+            height: 20px;
+            
+        }
+
+      
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     * @private
+     */render(){// language=HTML
+return _furoShell.html`
+      
+      <furo-icon icon="${this.icon}"></furo-icon>     
+       
+    `}}window.customElements.define("data-repeat-delete",DataRepeatDelete);class FuroDataRepeat extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();/**
+              * Set the delete icon to enable deleting of a repeated element.
+              * @type {undefined}
+              */this.deleteIcon=void 0}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * repeated-component to be used for the items.
+       * The component must support ƒ-bind-data
+       */repeatedComponent:{type:String,attribute:"repeated-component"}}}set repeatedComponent(component){// add flow repeat to parent and inject on repeated changes
+// repeated
+let container=document.createElement("furo-form-layouter"),r=document.createElement("flow-repeat");r.setAttribute("identity-path","__index");r.setAttribute("\u0192-inject-items","--repeatsChanged");let isCondensed="",attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;switch(nodeName){case"condensed":attrs+=nodeName+"=\""+nodeValue+"\"";isCondensed="condensed";break;case"two":container.setAttribute("two","");break;case"four":container.setAttribute("four","");break;case"eight":container.setAttribute("eight","");break;case"delete-icon":this.deleteIcon=nodeValue;break;default:if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}}let icn="";if(this.deleteIcon){icn="<data-repeat-delete icon=\""+this.deleteIcon+"\" "+isCondensed+" \u0192-bind-item=\"--item\"></data-repeat-delete>"}r.innerHTML="<template><furo-horizontal-flex><"+component+" "+attrs+" flex \u0192-bind-data=\"--item\"></"+component+">"+icn+"</furo-horizontal-flex></template>";container.appendChild(r);this.shadowRoot.appendChild(container)}bindData(repeats){this.field=repeats;this.field.addEventListener("this-repeated-field-changed",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.repeats)})}add(data){if(this.field){this.field.add(data)}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            width: 100%;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+    `}}window.customElements.define("furo-data-repeat",FuroDataRepeat);class FuroDataRadioButtonInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-radio-button-input
    *
    * All bubbling events from [furo-radio-button-input](../../input/doc/furo-radio-button-input) will be fired, because furo-data-radio-button-input uses furo-radio-button-input internally.
@@ -4600,7 +4694,60 @@ return _furoShell.html`
                 ?condensed="${this.condensed}"          
                 @-value-changed="--valueChanged"
                 ƒ-set-value="--value"></furo-radio-button-input>      
-          `}}customElements.define("furo-data-radio-button-input",FuroDataRadioButtonInput);class DemoFuroDataPropertyDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+          `}}customElements.define("furo-data-radio-button-input",FuroDataRadioButtonInput);class DemoFuroDataRepeat extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+       
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-vertical-flex>
+        <div>
+          <h2>Demo for furo-data-repeat</h2>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+            <furo-vertical-scroller style="padding: 10px">
+              <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>  <simulate-error ƒ-bind-data="--entity" error='{"field":"repstring.1","description":"something went wrong"}'></simulate-error>
+             <furo-button primary raised @-click="--addFieldClicked">add field</furo-button>
+              <hr>
+              <furo-card title="furo-data-repeater demo" secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display">
+              <furo-form-layouter two>
+                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input" delete-icon="delete">
+                  </furo-data-repeat>
+                  <furo-data-repeat four ƒ-bind-data="--entity(*.repstring)" repeated-component="furo-data-display">
+                  </furo-data-repeat>
+              </furo-form-layouter>
+              </furo-card>
+              
+              <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
+              <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+              <furo-entity-agent service="ExperimentService"
+                                 ƒ-hts-in="--hts"
+                                 load-on-hts-in
+                                 ƒ-bind-request-data="--entity"
+                                 @-response="--response">
+              </furo-entity-agent>
+              
+            </furo-vertical-scroller>
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-repeat",DemoFuroDataRepeat);class DemoFuroDataPropertyDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -4783,7 +4930,7 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
-            display: block;
+            display: inline-block;
             margin-top: 18px;
         }
 
@@ -4912,7 +5059,7 @@ return _furoShell.html`
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
-            display: block;
+            display: inline-block;
         }
 
         :host([hidden]) {
@@ -4924,7 +5071,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * @private
      */render(){// language=HTML
 return _furoShell.html`
-        <button>set error</button>
+        <furo-button raised danger>set error</furo-button>
     `}}window.customElements.define("simulate-error",SimulateError);class DemoFuroDataTextInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
@@ -5615,9 +5762,9 @@ return _furoShell.html`
         <template>
           
           <furo-form-layouter two>
-          <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"  value-field="id" display-field="phone_nr" label="Use phone as display" ƒ-inject-list="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
+          <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"  value-field="id" display-field="phone_nr" label="Use phone as display" ƒ-inject-entities="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
           
-          <furo-data-collection-dropdown  label="Default display" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-list="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
+          <furo-data-collection-dropdown  label="Default display" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-entities="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
           <furo-data-collection-dropdown condensed label="List as input" leading-icon="mail" trailing-icon="fingerprint" list="1,2,3" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
           <furo-data-display condensed label="selected value" ƒ-bind-data="--entity(*.description)"></furo-data-display>
           </furo-form-layouter>
@@ -5763,8 +5910,11 @@ return _furoShell.html`
 
                         <furo-data-text-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_text_input)"
                                               trailing-icon="apps"></furo-data-text-input>
-                        <furo-data-checkbox-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
-                                                  trailing-icon="apps"></furo-data-checkbox-input>
+                        <furo-data-checkbox-input  hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                                                ></furo-data-checkbox-input>
+
+                        <furo-data-radio-button-input  hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                                                 ></furo-data-radio-button-input>
 
                         <furo-data-time-input leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_time_input)"
                         trailing-icon="apps"></furo-data-time-input>
@@ -5809,6 +5959,9 @@ return _furoShell.html`
                         <furo-data-checkbox-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
                                                   trailing-icon="apps"></furo-data-checkbox-input>
 
+                        <furo-data-radio-button-input  condensed hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_checkbox_input)"
+                        ></furo-data-radio-button-input>
+                        
                         <furo-data-time-input condensed leading-icon="apps" hint="custom hint" required ƒ-bind-data="--entity(*.furo_data_time_input)"
                         trailing-icon="apps"></furo-data-time-input>
 
@@ -6580,7 +6733,7 @@ _updateItem(){this.requestUpdate();// build index later (50ms), a human user can
 setTimeout(()=>{let tmpArr=[];this.fieldNode.__childNodes.filter(field=>{// maybe change to fields-to-index list
 if("string"===typeof field._value){return!0}}).map(field=>{tmpArr=tmpArr.concat(field._value.toLowerCase().split(/\W+/))});let s=new Set(tmpArr);// tokenize
 tmpArr=[];s.forEach(word=>{//first letter
-tmpArr.push(word.substr(0,1)+".*$");let l;for(let tokenLength=2;tokenLength<word.length;tokenLength++){l=word.length-tokenLength+1;for(let i=0;i<l;i++){tmpArr.push(word.substr(i,tokenLength))}}});this._searchTokens=new Set(Array.from(s).concat(tmpArr))},50)}bindData(fieldNode){this.fieldNode=fieldNode;this.fieldNode._isHidden=!0;this.isGroupLabel=fieldNode.is_group_label.value;if(!fieldNode.icon.value){this.noicon=!0}// reflect visible close state to attr
+tmpArr.push(word.substr(0,1)+".*$");let l;for(let tokenLength=2;tokenLength<word.length;tokenLength++){l=word.length-tokenLength+1;for(let i=0;i<l;i++){tmpArr.push(word.substr(i,tokenLength))}}});this._searchTokens=new Set(Array.from(s).concat(tmpArr))},50)}bindData(fieldNode){this.fieldNode=fieldNode;this.fieldNode._isHidden=!0;if(fieldNode.is_group_label){this.isGroupLabel=fieldNode.is_group_label.value}if(!fieldNode.icon.value){this.noicon=!0}// reflect visible close state to attr
 this.fieldNode.addEventListener("ancestor-invisible",e=>{this.hidden=!0;this.fieldNode._isHidden=!0});// reflect visible close state to attr
 this.fieldNode.addEventListener("ancestor-visible",e=>{if(this.fieldNode.__parentNode.__parentNode.open.value){this.hidden=!1;this.fieldNode._isHidden=!1}});// for elements that are already ready
 this._updateItem();this.fieldNode.addEventListener("branch-value-changed",e=>{// for elements that are updated later
