@@ -270,12 +270,17 @@ class FuroRadioButtonInput extends FBP(LitElement) {
                 margin: 0;
                 height: 56px;
                 width: 300px;
+                margin: 10px 0 15px 0;
             }
 
             :host([hidden]) {
                 display: none;
             }
-
+            
+            :host([condensed]) {
+                margin-top: 12px;
+            }
+            
             .wrapper {
                 position: relative;
                 padding: 0;
