@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.52.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.52.2...@furo/data-input@0.52.3) (2019-09-19)
+
+
+### Bug Fixes
+
+*  fix furo-radio-button-input position ([6f4b867](https://github.com/veith/FuroBaseComponents/commit/6f4b867))
+
+
+
+
+
 ## [0.52.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.52.1...@furo/data-input@0.52.2) (2019-09-18)
 
 
