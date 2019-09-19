@@ -116,7 +116,10 @@ export class FuroTreeItem extends FBP(LitElement) {
   bindData(fieldNode) {
     this.fieldNode = fieldNode;
     this.fieldNode._isHidden = true;
-    this.isGroupLabel = fieldNode.is_group_label.value;
+    if(fieldNode.is_group_label){
+      this.isGroupLabel = fieldNode.is_group_label.value;
+    }
+
     if (!fieldNode.icon.value) {
       this.noicon = true
     }
