@@ -7,6 +7,7 @@
     "imports": [
       "google/protobuf/any.proto",
       "google/type/date.proto",
+      "google/type/money.proto",
       "furo/property.proto"
     ],
     "targetfile": "experiment.proto"
@@ -381,6 +382,44 @@
       "__proto": {
         "number": 20
       }
+    },
+    "furo_data_money_input": {
+      "description": "field for testing money type",
+      "type": "google.type.Money",
+      "meta": {
+        "readonly":false,
+        "label_currency": "Currency",
+        "label_amount": "Amount",
+        "hint":"google.type.Money",
+        "options": {
+          "list": [
+              "CAD",
+              "CNY",
+              "CHF",
+              "EUR"
+          ]
+        }
+
+      },
+      "constraints": {
+        "required":true,
+        "min": {
+          "value": 0,
+          "message": "amount can not be negative"
+        },
+        "max":{
+          "value": 999999,
+          "message": "amount maximal 999999"
+        },
+        "step":{
+          "value": 0.001,
+          "message": "step 0.01"
+        }
+      },
+      "__proto": {
+        "number": 21
+      }
     }
+
   }
 }

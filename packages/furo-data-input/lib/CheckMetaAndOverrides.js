@@ -24,6 +24,15 @@ export class CheckMetaAndOverrides {
         if (element.field._meta.min_term_length) {
           element._minTermLength = element.field._meta.min_term_length;
         }
+        if (element.field._meta.label_amount) {
+          element._labelAmount = element.field._meta.label_amount;
+        }
+        if (element.field._meta.label_currency) {
+          element._labelCurrency = element.field._meta.label_currency;
+        }
+        if (element.field._meta.options) {
+          element._options = element.field._meta.options;
+        }
       }
       // check if constraints ara available
       if (element.field._constraints) {
@@ -99,6 +108,18 @@ export class CheckMetaAndOverrides {
 
     if (element.minTermLength) {
       element._minTermLength = element.minTermLength;
+    }
+
+    if (element.labelAmount) {
+      element._labelAmount = element.labelAmount;
+    }
+
+    if (element.labelCurrency) {
+      element._labelCurrency = element.labelCurrency;
+    }
+
+    if (element.options) {
+      element._options = element.options;
     }
   }
 }

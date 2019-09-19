@@ -168,7 +168,12 @@
         }
       }
     },
-    "repstring": ["AAA","BBBB","CCCC"]
+    "repstring": ["AAA","BBBB","CCCC"],
+    "furo_data_money_input": {
+      "currency_code": "CHF",
+      "units": 3333,
+      "nanos": 75100000
+    }
   },
   "links": [
     {

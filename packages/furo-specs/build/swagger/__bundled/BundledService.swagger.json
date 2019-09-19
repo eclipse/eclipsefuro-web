@@ -356,8 +356,7 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "collectionFormat": "multi"
+            }
           }
         ],
         "tags": [
@@ -547,8 +546,7 @@
             "type": "array",
             "items": {
               "type": "string"
-            },
-            "collectionFormat": "multi"
+            }
           }
         ],
         "tags": [
@@ -1462,6 +1460,10 @@
         "furo_data_date_input_google": {
           "$ref": "#/definitions/typeDate",
           "title": "field for furo-data-date-input for testing"
+        },
+        "furo_data_money_input": {
+          "$ref": "#/definitions/typeMoney",
+          "title": "field for testing money type"
         },
         "furo_data_number_input": {
           "type": "number",
