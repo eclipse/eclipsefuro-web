@@ -47,6 +47,8 @@ class FuroDataMoneyInput extends FBP(LitElement) {
         }
       }
 
+      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+
       this.value = this.field.value;
       /**
        * @event value-changed
@@ -119,7 +121,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       this._FBPTriggerWire('--valueAmount', amout);
     }
     if(this.field.currency_code.value) {
-      console.log(this.field.currency_code.value);
       this._FBPTriggerWire('--valueCurrency', this.field.currency_code.value);
     }
     this.requestUpdate();
@@ -173,6 +174,15 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   set _labelAmount(value) {
     Helper.UpdateInputAttribute(this, "label", value);
   }
+
+  /**
+   * Updater for the readonly attr
+   * @param value
+   */
+  set _readonly(value) {
+    Helper.UpdateInputAttribute(this, "readonly", value);
+  }
+
 
   /**
    * Updater for the label attr for currency
@@ -337,64 +347,19 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   }
 
   /**
-   * Setter method for errortext
-   * @param {String} errortext
-   * @private
-   */
-  set errortext(v) {
-    this._errortext = v;
-    this.__initalErrorText = v;
-  }
-
-  /**
-   * Getter method for errortext
-   * @private
-   */
-  get errortext() {
-    return this._errortext;
-  }
-
-
-  /**
-   * Set the field to error state
-   *
-   * @param [{String}] The new errortext
-   */
-  setError(text) {
-    if (typeof text === "string") {
-      this._errortext = text;
-    }
-    this.error = true;
-  }
-
-  /**
-   * clears the error and restores the errortext.
-   */
-  clearError() {
-    this.error = false;
-    this._errortext = this.__initalErrorText;
-  }
-
-
-  /**
-   * Sets the focus on the field.
-   */
-  focus() {
-    this._FBPTriggerWire("--focus");
-  }
-
-  /**
    * Sets the field to readonly
    */
   disable() {
-    this.readonly = true;
+    this._readonly = true;
+    this.requestUpdate();
   }
 
   /**
    * Makes the field writable.
    */
   enable() {
-    this.readonly = false;
+    this._readonly = false;
+    this.requestUpdate();
   }
 
 
@@ -420,7 +385,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       if (e.selected) {
         this.value.currency_code.value = e.id.toString();
       }
-      return {"id": e.id, "label": e.label, "selected": (this.value.currency_code.value === e.id.toString() || e.selected || false)}
+      let selected = false;
+      if(this.value.currency_code && this.value.currency_code.value === e.id.toString()) {
+        selected = true;
+      }
+      return {"id": e.id, "label": e.label, "selected": (selected || e.selected )}
     });
 
     this._FBPTriggerWire("--selection", arr);
