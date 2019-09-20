@@ -59,6 +59,8 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
 
       this.value = this.field.value;
+      this.error = false;
+
       /**
        * @event value-changed
        * Fired when value has changed from inside the component
@@ -447,13 +449,12 @@ class FuroDataMoneyInput extends FBP(LitElement) {
         /* https://material.io/design/components/text-fields.html#theming */
 
         furo-select-input {
-            width: 80px;
+            width: 90px;
             margin-left: var(--spacing-xs);
         }
         furo-number-input {
-            width: calc(110px - var(--spacing-xs));
+            width: calc(100% - var(--spacing-xs) - 90px);
         }
-      
         :host {
             width: 190px;
         }
