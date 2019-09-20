@@ -9,8 +9,14 @@ import {Helper} from "./lib/helper";
 /**
  * `furo-data-money-input`
  * Binds a entityObject field google.type.Money to a furo-number-input and currency dropdown fields
+ *  <sample-furo-data-money-input></sample-furo-data-money-input>
  *
- * <sample-furo-data-money-input></sample-furo-data-money-input>
+ *  you can set currencies dropdown with options in meta or set options attribute as json in element or set currencies as string in element. the three
+ *  ways have priority : currencies > options as attribute > options in meta. When no currencies is setted. Default currency will be `CHF`
+ *
+ *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ "chf","eur","usd" ]}'></furo-data-money-input>
+ *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" options='{"list": [ {"id":"CHF","label":"Schweiz"},{"id":"EUR","label":"Europa", "selected": true}'></furo-data-money-input>
+ *  <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" currencies="chf,eur,usd"></furo-data-money-input>
  *
  * Tags: money input
  * @summary Bind a entityObject.field to a number and dropdown fields
@@ -24,7 +30,9 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   constructor() {
     super();
     this.valid = true;
-    this.value = {"currency_code":"", "units":0, "nanos":0};
+    this._currencies = [];
+    // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
+    this.value = {"currency_code":"CHF", "units":null, "nanos":null};
   }
 
   _FBPReady() {
@@ -47,6 +55,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
         }
       }
 
+      // reset hint, label etc..
       CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
 
       this.value = this.field.value;
@@ -83,6 +92,10 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   // convert data to google.type.Money format
   _convertDataToMoneyObj(currency, amount, obj){
 
+    if(obj==null) {
+      obj = {};
+    }
+
     if(currency) {
       obj.currency_code = currency;
     }
@@ -116,13 +129,14 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       this.errortext = this.field._validity.description;
     }
 
-    if(this.field.units.value !== null && this.field.nanos.value !== null) {
+    if(this.field.units && this.field.units.value !== null && this.field.nanos.value !== null) {
       let amout = Number(this.field.units.value + "." + this.field.nanos.value);
       this._FBPTriggerWire('--valueAmount', amout);
     }
-    if(this.field.currency_code.value) {
+    if(this.field.currency_code && this.field.currency_code.value) {
       this._FBPTriggerWire('--valueCurrency', this.field.currency_code.value);
     }
+
     this.requestUpdate();
   }
 
@@ -365,15 +379,33 @@ class FuroDataMoneyInput extends FBP(LitElement) {
 
   set _options(options) {
 
-    let collection;
-    if(options.list) {
-
-      collection = options.list;
+    // the attribute currencies has priority than the options in meta
+    if(this._currencies.length >0 ) {
+      this.updateSelectOptions(this._currencies);
     }
-    else{
-      collection = options;
-    }
+    else {
+      let collection;
+      if(options.list) {
 
+        collection = options.list;
+      }
+      else{
+        collection = options;
+      }
+
+      this.updateSelectOptions(collection);
+    }
+  }
+
+  set currencies(c) {
+    let arr = c.split(",").map(function (item) {
+      return item.trim();
+    });
+    this._currencies = arr;
+    this.updateSelectOptions(arr);
+  }
+
+  updateSelectOptions(collection) {
     // convert array list to id, label structure
     if (typeof collection[0] === "string") {
       collection = collection.map((item) => {
@@ -382,24 +414,25 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     }
 
     let arr = collection.map((e) => {
-      if (e.selected) {
-        this.value.currency_code.value = e.id.toString();
-      }
       let selected = false;
-      if(this.value.currency_code && this.value.currency_code.value === e.id.toString()) {
+      if (e.selected) {
+        this.value.currency_code = e.id.toString();
+        this.field.currency_code.value = this.value.currency_code;
         selected = true;
       }
-      return {"id": e.id, "label": e.label, "selected": (selected || e.selected )}
+      else {
+
+        if(this.value.currency_code  === e.id.toString()) {
+          // init the currency code in field
+          this.field.currency_code.value = this.value.currency_code;
+          selected = true;
+        }
+      }
+
+      return {"id": e.id, "label": e.label, "selected": selected }
     });
 
     this._FBPTriggerWire("--selection", arr);
-  }
-
-  set currencies(c) {
-    let arr = c.split(",").map(function (item) {
-      return item.trim();
-    });
-    this._options = arr;
   }
 
 
@@ -418,7 +451,11 @@ class FuroDataMoneyInput extends FBP(LitElement) {
             margin-left: var(--spacing-xs);
         }
         furo-number-input {
-            width: 110px;
+            width: calc(110px - var(--spacing-xs));
+        }
+      
+        :host {
+            width: 190px;
         }
     `
   }
@@ -434,7 +471,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       <furo-horizontal-flex id="wrapper">
           <furo-number-input id="input"
           ?autofocus=${this.autofocus} 
-          step="any"
+          step="0.01"
           ?readonly=${this._readonly || this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
@@ -446,8 +483,8 @@ class FuroDataMoneyInput extends FBP(LitElement) {
           
        <furo-select-input id="select"
           ?readonly=${this._readonly || this.disabled} 
-          ?error="${this.error}" 
           ?float="${this.float}" 
+          list="CHF"
           ?condensed="${this.condensed}"          
           ƒ-set-options="--selection"
           @-value-changed="--valueChanged"
