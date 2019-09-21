@@ -1293,7 +1293,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: block;
             height: 100%;
-            padding-right: var(--spacing);
+            
         }
 
         :host([hidden]) {
@@ -1314,16 +1314,23 @@ return _furoShell.html`
         </div>
         <furo-demo-snippet flex>
           <template>
-            <style>furo-card {
-              margin: 16px;
+            <style>
+              furo-vertical-scroller{
+                  padding: 24px;
+                box-sizing: border-box;
+              }
+              furo-card {
+              margin: 16px 16px 16px 0;
               width: 300px;
+            }
+            .nomargin furo-checkbox-input{
+              margin: 0;
             }</style>
             <furo-vertical-scroller>
               <furo-horizontal-flex>
-                <furo-card>
+                <furo-card title="Select some">
 
-                  <furo-vertical-flex>
-                    <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
+                  <furo-vertical-flex class="nomargin">
                     <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
                     <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
                     <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
@@ -1386,7 +1393,8 @@ return _furoShell.html`
                     ></furo-password-input>
                   </furo-form-layouter>
                 </furo-card>
-                <furo-horizontal-flex flex space>
+                <div flex>
+                <furo-form-layouter four>
 
                   <furo-text-input flex ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
                                    label="Text input field" @-value-changed="--text"></furo-text-input>
@@ -1395,41 +1403,30 @@ return _furoShell.html`
                                     @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
                   <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
                                      label="Number input field" @-value-changed="--number"></furo-number-input>
-                </furo-horizontal-flex>
+                </furo-form-layouter>
+
+
+                  <furo-form-layouter four>
+                    <furo-checkbox-input style="margin-top: 19px" label="Benutzerdefinierter Text" hint="Hint"
+                                         @-value-changed="--check" autofocus></furo-checkbox-input>
+                    <furo-checkbox-input style="margin-top: 19px" label="Disabled " ƒ-set-value="--check" checked
+                                         disabled></furo-checkbox-input>
+                    <furo-text-input condensed ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
+                                     label="Text input field" @-value-changed="--text"></furo-text-input>
+
+
+                    <furo-date-input condensed ƒ-set-value="--time" label="Date field"
+                                     @-value-changed="--date"></furo-date-input>
+                  </furo-form-layouter>
+                  <furo-form-layouter>
+                    <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v"
+                                         @-value-changed="--fromTextarea"></furo-textarea-input>
+
+
+                  </furo-form-layouter>
+                </div>
               </furo-horizontal-flex>
-
-              <br>
-
-
-              <furo-horizontal-flex space>
-                <furo-checkbox-input style="margin-top: 19px" label="Benutzerdefinierter Text" hint="Hint"
-                                     @-value-changed="--check" autofocus></furo-checkbox-input>
-                <furo-checkbox-input style="margin-top: 19px" label="Disabled " ƒ-set-value="--check" checked
-                                     disabled></furo-checkbox-input>
-              </furo-horizontal-flex>
-
-
-              <br>
-
-              <furo-horizontal-flex space>
-
-                <furo-text-input condensed ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
-                                 label="Text input field" @-value-changed="--text"></furo-text-input>
-
-
-                <furo-date-input condensed ƒ-set-value="--time" label="Date field"
-                                 @-value-changed="--date"></furo-date-input>
-
-
-              </furo-horizontal-flex>
-
-              <hr>
-              <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v"
-                                   @-value-changed="--fromTextarea"></furo-textarea-input>
-
-
-              <br>
-
+              
               <furo-button-bar>
                 <furo-button primary raised label="primary"></furo-button>
                 <furo-button secondary raised label="secondary"></furo-button>
@@ -2805,11 +2802,11 @@ return _furoShell.html`
       </furo-vertical-flex>
     `}}window.customElements.define("demo-furo-data-object",DemoFuroDataObject);class CheckMetaAndOverrides{static UpdateMetaAndConstraints(element){if(element.field){// options are available for text inputs at the moment
 // check if metas ara available
-if(element.field._meta){if(element.field._meta.readonly){element._readonly=element.field._meta.readonly}if(element.field._meta.label){element._label=element.field._meta.label}if(element.field._meta.hint){element._hint=element.field._meta.hint}if(element.field._meta.cols){element._cols=element.field._meta.cols}if(element.field._meta.rows){element._rows=element.field._meta.rows}if(element.field._meta.min_term_length){element._minTermLength=element.field._meta.min_term_length}}// check if constraints ara available
+if(element.field._meta){if(element.field._meta.readonly){element._readonly=element.field._meta.readonly}if(element.field._meta.label){element._label=element.field._meta.label}if(element.field._meta.hint){element._hint=element.field._meta.hint}if(element.field._meta.cols){element._cols=element.field._meta.cols}if(element.field._meta.rows){element._rows=element.field._meta.rows}if(element.field._meta.min_term_length){element._minTermLength=element.field._meta.min_term_length}if(element.field._meta.label_amount){element._labelAmount=element.field._meta.label_amount}if(element.field._meta.label_currency){element._labelCurrency=element.field._meta.label_currency}if(element.field._meta.options){element._options=element.field._meta.options}}// check if constraints ara available
 if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.value;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.value;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.value;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.value;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required=element.field._meta.required}}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
      * Attribute overrides
      * hint, min, max, readonly or disabled on the element are higher ranked then field metas from spec or server
-     */if(element.min){element._min=element.min}if(element.max){element._max=element.max}if(element.readonly){element._readonly=element.readonly}if(element.label){element._label=element.label}if(element.hint){element._hint=element.hint}if(element.step){element._step=element.step}if(element.pattern){element._pattern=element.pattern}if(element.required){element._required=element.required}if(element.cols){element._cols=element.cols}if(element.rows){element._rows=element.rows}if(element.minTermLength){element._minTermLength=element.minTermLength}}}_exports.CheckMetaAndOverrides=CheckMetaAndOverrides;var CheckMetaAndOverrides$1={CheckMetaAndOverrides:CheckMetaAndOverrides};_exports.$CheckMetaAndOverrides=CheckMetaAndOverrides$1;class Helper{/**
+     */if(element.min){element._min=element.min}if(element.max){element._max=element.max}if(element.readonly){element._readonly=element.readonly}if(element.label){element._label=element.label}if(element.hint){element._hint=element.hint}if(element.step){element._step=element.step}if(element.pattern){element._pattern=element.pattern}if(element.required){element._required=element.required}if(element.cols){element._cols=element.cols}if(element.rows){element._rows=element.rows}if(element.minTermLength){element._minTermLength=element.minTermLength}if(element.labelAmount){element._labelAmount=element.labelAmount}if(element.labelCurrency){element._labelCurrency=element.labelCurrency}if(element.options){element._options=element.options}}}_exports.CheckMetaAndOverrides=CheckMetaAndOverrides;var CheckMetaAndOverrides$1={CheckMetaAndOverrides:CheckMetaAndOverrides};_exports.$CheckMetaAndOverrides=CheckMetaAndOverrides$1;class Helper{/**
    * update Attribute on input element actively, so we dont have things like pattern="undefined" on the native element.
    * @param attribute
    * @param value
@@ -4561,6 +4558,7 @@ return _furoShell.html`
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: block;
+            box-sizing: border-box;
             padding:  26px 0 0 var(--spacing-xs);
             cursor: pointer;
         }
@@ -4694,7 +4692,157 @@ return _furoShell.html`
                 ?condensed="${this.condensed}"          
                 @-value-changed="--valueChanged"
                 ƒ-set-value="--value"></furo-radio-button-input>      
-          `}}customElements.define("furo-data-radio-button-input",FuroDataRadioButtonInput);class DemoFuroDataRepeat extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+          `}}customElements.define("furo-data-radio-button-input",FuroDataRadioButtonInput);class FuroDataMoneyInput extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.valid=!0;this._currencies=[];// init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
+this.value={currency_code:"CHF",units:null,nanos:null}}_FBPReady(){super._FBPReady();this.shadowRoot.getElementById("wrapper").addEventListener("value-changed",e=>{e.stopPropagation();if(e.path[0]){if("FURO-SELECT-INPUT"==e.path[0].nodeName){this.field.value=this._convertDataToMoneyObj(e.detail,"",this.field.value)}if("FURO-NUMBER-INPUT"==e.path[0].nodeName){this.field.value=this._convertDataToMoneyObj("",e.detail,this.field.value)}}// reset hint, label etc..
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.value=this.field.value;/**
+                                      * @event value-changed
+                                      * Fired when value has changed from inside the component
+                                      * detail payload: google money object
+                                      */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.field.value;this.dispatchEvent(customEvent)});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
+if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}// convert data to google.type.Money format
+_convertDataToMoneyObj(currency,amount,obj){if(null==obj){obj={}}if(currency){obj.currency_code=currency}if(amount){let arr=amount.split(".");obj.units=+arr[0];if(arr[1]){obj.nanos=1e8*+("0."+arr[1])}else{obj.nanos=0}}return obj}/**
+     * Bind a entity field to the number-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.units&&null!==this.field.units.value&&null!==this.field.nanos.value){let amout=+(this.field.units.value+"."+this.field.nanos.value);this._FBPTriggerWire("--valueAmount",amout)}if(this.field.currency_code&&this.field.currency_code.value){this._FBPTriggerWire("--valueCurrency",this.field.currency_code.value)}this.requestUpdate()}/**
+     * Updater for the min => minlength attr*
+     * @param value
+     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr*
+     * @param value
+     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     * Updater for the hint attr
+     * @param value
+     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     * Updater for the errortext attr
+     * @param value
+     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     * Updater for the step attr
+     * @param value
+     */set _step(value){Helper.UpdateInputAttribute(this,"step",value)}/**
+     * Updater for the label attr for amount
+     * @param value
+     */set _labelAmount(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     * Updater for the readonly attr
+     * @param value
+     */set _readonly(value){Helper.UpdateInputAttribute(this,"readonly",value)}/**
+     * Updater for the label attr for currency
+     * @param value
+     */set _labelCurrency(value){let select=this.shadowRoot.getElementById("select");if(null!==value){select.setAttribute("label",value)}else{// remove the attribute on null value
+select.removeAttribute("label")}}static get properties(){return{/**
+       * set this to true to indicate errors
+       */error:{type:Boolean,reflect:!0},/**
+       * The start value. Changes will be notified with the `@-value-changed` event
+       */value:{type:Object},/**
+       * The list of currencies. Can be a simple list like ["A","B","C"]. In this case the value is equals the label
+       *
+       * With ids (key value):
+       *
+       * [{"id":1,"label":"AAA"},{"id":2,"label":"BBB"}]
+       *
+       *
+       * With preselect state in data:
+       *
+       * [{"id":23,"label":"AAA","selected":false},{"id":44,"label":"BBB","selected":true}]
+       */options:{type:Array},/**
+       * Set a string list as options:
+       *
+       * "A, B, C"
+       *
+       * This will convert to options ["A","B","C"]
+       */currencies:{type:String},labelCurrency:{type:String,attribute:"label-currency"},labelAmount:{type:String,attribute:"label-amount"},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */readonly:{type:Boolean,reflect:!0},/**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */required:{type:Boolean},/**
+       * Overrides the hint text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:Number},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:Number},/**
+       * Text for errors
+       */errortext:{type:String},/**
+       * html input validity
+       */valid:{type:Boolean,reflect:!0},/**
+       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+       */condensed:{type:Boolean},/**
+       * Set this attribute to switch to filled layout. Filled is without the borders around the field.
+       */filled:{type:Boolean}}}/**
+     * Set the options programmatically
+     * @param {Array} Array with options
+     */setOptions(optionArray){this.options=optionArray}/**
+     * Set the list programmatically
+     * @param {String} list with options
+     */setCurrencies(currencies){this.currencies=currencies}/**
+     * Sets the field to readonly
+     */disable(){this._readonly=!0;this.requestUpdate()}/**
+     * Makes the field writable.
+     */enable(){this._readonly=!1;this.requestUpdate()}set _options(options){// the attribute currencies has priority than the options in meta
+if(0<this._currencies.length){this.updateSelectOptions(this._currencies)}else{let collection;if(options.list){collection=options.list}else{collection=options}this.updateSelectOptions(collection)}}set currencies(c){let arr=c.split(",").map(function(item){return item.trim()});this._currencies=arr;this.updateSelectOptions(arr)}updateSelectOptions(collection){// convert array list to id, label structure
+if("string"===typeof collection[0]){collection=collection.map(item=>{return{id:item,label:item}})}let arr=collection.map(e=>{let selected=!1;if(e.selected){this.value.currency_code=e.id.toString();this.field.currency_code.value=this.value.currency_code;selected=!0}else{if(this.value.currency_code===e.id.toString()){// init the currency code in field
+this.field.currency_code.value=this.value.currency_code;selected=!0}}return{id:e.id,label:e.label,selected:selected}});this._FBPTriggerWire("--selection",arr)}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        /* https://material.io/design/components/text-fields.html#theming */
+
+        furo-select-input {
+            width: 80px;
+            margin-left: var(--spacing-xs);
+        }
+        furo-number-input {
+            width: calc(110px - var(--spacing-xs));
+        }
+      
+        :host {
+            width: 190px;
+        }
+    `}/**
+     *
+     * @return {TemplateResult | TemplateResult}
+     * @private
+     */render(){// language=HTML
+return _furoShell.html` 
+      <furo-horizontal-flex id="wrapper">
+          <furo-number-input id="input"
+          ?autofocus=${this.autofocus} 
+          step="0.01"
+          ?readonly=${this._readonly||this.disabled} 
+          ?error="${this.error}" 
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}"          
+          ?required=${this._required}
+          @-value-changed="--valueChanged"
+          @-input-invalid="--inputInvalid"
+          ƒ-set-value="--valueAmount"></furo-number-input>      
+          
+       <furo-select-input id="select"
+          ?readonly=${this._readonly||this.disabled} 
+          ?float="${this.float}" 
+          list="CHF"
+          ?condensed="${this.condensed}"          
+          ƒ-set-options="--selection"
+          @-value-changed="--valueChanged"
+          ƒ-set-value="--valueCurrency"></furo-select-input>    
+      </furo-horizontal-flex>
+    `}}customElements.define("furo-data-money-input",FuroDataMoneyInput);class DemoFuroDataRepeat extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -4723,16 +4871,18 @@ return _furoShell.html`
           <template>
             <furo-vertical-scroller style="padding: 10px">
               <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>  <simulate-error ƒ-bind-data="--entity" error='{"field":"repstring.1","description":"something went wrong"}'></simulate-error>
-             <furo-button primary raised @-click="--addFieldClicked">add field</furo-button>
+            
               <hr>
               <furo-card title="furo-data-repeater demo" secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display">
               <furo-form-layouter two>
-                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input" delete-icon="delete">
+                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input">
                   </furo-data-repeat>
                   <furo-data-repeat four ƒ-bind-data="--entity(*.repstring)" repeated-component="furo-data-display">
                   </furo-data-repeat>
               </furo-form-layouter>
+                <furo-horizontal-flex space slot="action"> <furo-button primary @-click="--addFieldClicked">add field</furo-button></furo-horizontal-flex>
               </furo-card>
+              
               
               <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
               <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
@@ -5042,7 +5192,37 @@ return _furoShell.html`
           <furo-data-password-input hint="Hint text for password" label="Password"></furo-data-password-input>
         </template>
       </furo-demo-snippet>
-    `}}window.customElements.define("sample-furo-data-password-input",SampleFuroDataPasswordInput);class SimulateError extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",()=>{/**
+    `}}window.customElements.define("sample-furo-data-password-input",SampleFuroDataPasswordInput);class SampleFuroDataMoneyInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+        furo-demo-snippet {
+            height: 230px;
+        }
+       
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <h3>Sample</h3>
+      
+      <furo-demo-snippet >
+        <template>
+          <furo-data-object type="experiment.Experiment" @-object-ready="--entity"></furo-data-object>
+          <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)"></furo-data-money-input>
+        </template>
+      </furo-demo-snippet>
+    `}}window.customElements.define("sample-furo-data-money-input",SampleFuroDataMoneyInput);class SimulateError extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",()=>{/**
        * error example
        * {
        * "field": "display_name",
@@ -5990,7 +6170,58 @@ return _furoShell.html`
 
             </furo-demo-snippet>
         </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-input-together",DemoFuroDataInputTogether);class FuroDataTableToggle extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.on=!0;this.field=""}/**
+    `}}window.customElements.define("demo-furo-data-input-together",DemoFuroDataInputTogether);class DemoFuroDataMoneyInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+        
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-vertical-flex>
+        <div><h2>Demo furo-data-money-input</h2>
+          <p>Bind the field from furo-data-object with <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
+            The labels, hints, defaults are comming from the furo-data-object specs.</p>
+          <p>As you can see, the "data-binding" is done by the furo-data-object.</p>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+            
+            <furo-horizontal-flex>
+
+              <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)"></furo-data-money-input>
+            </furo-horizontal-flex>
+              
+            <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
+            <simulate-error ƒ-bind-data="--entity" error='{"field":"furo_data_money_input","description":"custom error"}'></simulate-error>
+
+            <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                              ƒ-inject-raw="--response(*.data)"></furo-data-object>
+            <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+            <furo-entity-agent service="ExperimentService"
+                               ƒ-hts-in="--hts"
+                               ƒ-load="--hts"
+                               ƒ-bind-request-data="--entity"
+                               @-response="--response">
+            </furo-entity-agent>
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-money-input",DemoFuroDataMoneyInput);class FuroDataTableToggle extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.on=!0;this.field=""}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 this._FBPAddWireHook("--Pressed",()=>{this.toggle()})}static get properties(){return{field:{type:String,attribute:!0,reflect:!0}}}static get styles(){// language=CSS
@@ -6795,7 +7026,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         }
 
         .oc {
-            color: var(--separator-color, #b5b5b5);
+            color: var(--separator, #b5b5b5);
             width: 12px;
             box-sizing: border-box;
             padding-left: 4px;
@@ -6837,13 +7068,13 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
                 fill: var(--on-primary, #46150f);
             }
             12% {
-                fill: var(--error-color, #fc4d34);
+                fill: var(--error, #fc4d34);
             }
             24% {
                 fill: var(--on-primary, #46150f);
             }
             36% {
-                fill: var(--error-color, #fc4d34);
+                fill: var(--error, #fc4d34);
             }
             48% {
                 fill: var(--on-primary, #46150f);
@@ -6981,7 +7212,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         }
 
         td > *[selected], :host(:not(:focus-within)) td > *[selected] {
-            background-color: var(--primary-variant-color, #429cff);
+            background-color: var(--primary-variant, #429cff);
             color: var(--on-primary, #FFFFFF);
         }
 
@@ -7149,7 +7380,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         }
 
         :host([selected]) {
-            border-bottom: 2px solid var(--separator-color, #686868);
+            border-bottom: 2px solid var(--separator, #686868);
         }
 
        
@@ -7732,8 +7963,6 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         }
 
         furo-doc-element, furo-doc-class {
-            max-width: 960px;
-            min-width: 500px;
             padding-left: var(--spacing);
         }
 

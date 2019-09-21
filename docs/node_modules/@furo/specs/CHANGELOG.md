@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.26.0...@furo/specs@0.27.0) (2019-09-19)
+
+
+### Features
+
+* new artifact 'create.widget.spec' generated. Simple widget component with required fields by default and a default create action button. Fully configurable. ([03d06a6](https://github.com/veith/FuroBaseComponents/commit/03d06a6))
+
+
+
+
+
 # [0.26.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.25.0...@furo/specs@0.26.0) (2019-09-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.52.3...@furo/data-input@0.53.0) (2019-09-19)
+
+
+### Features
+
+* data-repeater ([c2f6d12](https://github.com/veith/FuroBaseComponents/commit/c2f6d12))
+
+
+
+
+
 ## [0.52.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.52.2...@furo/data-input@0.52.3) (2019-09-19)
 
 
