@@ -412,7 +412,7 @@
           "message": "amount maximal 999999"
         },
         "step":{
-          "value": 0.001,
+          "value": 0.01,
           "message": "step 0.01"
         }
       },

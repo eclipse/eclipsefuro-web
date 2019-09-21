@@ -58,7 +58,7 @@ class DemoFuroDataMoneyInput extends FBP(LitElement) {
             
             <furo-horizontal-flex>
 
-              <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)" ></furo-data-money-input>
+              <furo-data-money-input autofocus ƒ-bind-data="--entity(*.furo_data_money_input)"></furo-data-money-input>
             </furo-horizontal-flex>
               
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
