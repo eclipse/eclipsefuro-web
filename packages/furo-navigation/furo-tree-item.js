@@ -281,7 +281,7 @@ export class FuroTreeItem extends FBP(LitElement) {
         }
 
         .oc {
-            color: var(--separator-color, #b5b5b5);
+            color: var(--separator, #b5b5b5);
             width: 12px;
             box-sizing: border-box;
             padding-left: 4px;
@@ -323,13 +323,13 @@ export class FuroTreeItem extends FBP(LitElement) {
                 fill: var(--on-primary, #46150f);
             }
             12% {
-                fill: var(--error-color, #fc4d34);
+                fill: var(--error, #fc4d34);
             }
             24% {
                 fill: var(--on-primary, #46150f);
             }
             36% {
-                fill: var(--error-color, #fc4d34);
+                fill: var(--error, #fc4d34);
             }
             48% {
                 fill: var(--on-primary, #46150f);

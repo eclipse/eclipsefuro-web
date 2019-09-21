@@ -119,7 +119,7 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
         }
 
         :host([selected]) {
-            border-bottom: 2px solid var(--separator-color, #686868);
+            border-bottom: 2px solid var(--separator, #686868);
         }
 
        
