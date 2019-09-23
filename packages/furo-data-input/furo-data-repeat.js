@@ -62,6 +62,16 @@ class FuroDataRepeat extends FBP(LitElement) {
     };
   }
 
+  /**
+   * Create a attribute for map<string,type> types
+   * create a field in a FieldNode, this is useful when using map<string,something>
+   * set the value option to init with values
+   * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
+   */
+  createAttribute(options) {
+    this.field.createField(options);
+  }
+
   set repeatedComponent(component) {
 
     // add flow repeat to parent and inject on repeated changes
@@ -121,6 +131,24 @@ class FuroDataRepeat extends FBP(LitElement) {
       this._FBPTriggerWire("--repeatsChanged", this.field.repeats);
     })
 
+    // key value repeats
+    if (this.field.repeats) {
+      // initial trigger
+      this._FBPTriggerWire("--repeatsChanged", this.field.repeats);
+    } else {
+      this.field.addEventListener("branch-value-changed", (node) => {
+        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      });
+
+      this.field.addEventListener("node-field-deleted", (node) => {
+        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      });
+      this.field.addEventListener("node-field-added", (node) => {
+        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      });
+      // initial trigger for fields
+      this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+    }
 
   }
 
