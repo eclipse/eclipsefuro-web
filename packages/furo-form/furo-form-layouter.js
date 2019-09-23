@@ -31,6 +31,7 @@ class FuroFormLayouter extends FBP(LitElement) {
         this.breakpointBig = 810;
         this.breakpointSmall = 405;
 
+        // todo: @maltenorstroem, consider to deliver a polyfill for ResizeObserver (https://github.com/que-etc/resize-observer-polyfill)
         const ro = new ResizeObserver(entries => {
 
             for (let entry of entries) {
