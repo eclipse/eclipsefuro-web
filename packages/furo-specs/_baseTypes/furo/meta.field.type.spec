@@ -19,7 +19,7 @@
       }
     },
     "constraints": {
-      "description": "constrain of a field",
+      "description": "constraints for a field",
       "type": "map<string,furo.FieldConstraint>",
       "__proto": {
         "number": 2,
