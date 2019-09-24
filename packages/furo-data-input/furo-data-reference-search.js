@@ -93,6 +93,9 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       let key = event.key || event.keyCode;
 
       if (key === 'Escape' || key === 'Esc' || key === 27) {
+
+        this._updateField();
+
         if (this._listIsOpen) {
           // close list if open and  then clear search
           event.preventDefault();

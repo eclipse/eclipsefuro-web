@@ -96,7 +96,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * Updater for the label attr
    * @param value
    */
-  set label(value) {
+  set _label(value) {
     Helper.UpdateInputAttribute(this, "label", value);
   }
 
@@ -104,7 +104,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * Updater for the hint attr
    * @param value
    */
-  set hint(value) {
+  set _hint(value) {
     Helper.UpdateInputAttribute(this, "hint", value);
   }
 
