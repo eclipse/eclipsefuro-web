@@ -4,6 +4,7 @@
   "class_name": "replace with ClassName",
   "component_name": "replace with component-name-form",
   "description": "",
+  "autolabel": false,
   "source": "package/typename.type.spec",
   "imports": [
     "@furo/data-input",
@@ -14,6 +15,7 @@
       "description": "",
       "component": "furo-form-layouter",
       "title": null,
+      "caption": null,
       "secondary_text": null,
       "flags": [
         "four"
