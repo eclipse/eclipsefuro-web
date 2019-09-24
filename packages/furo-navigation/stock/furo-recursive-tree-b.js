@@ -100,7 +100,7 @@ class FuroRecursiveTreeB extends FuroRecursiveTree {
         }
         
         .oc {
-            color: var(--separator-color, #b5b5b5);
+            color: var(--separator, #b5b5b5);
             width: 16px;
             font-size: 8px;
             display: inline-block;

@@ -40,8 +40,6 @@ class PanelDoc extends FBP(LitElement) {
         }
 
         furo-doc-element, furo-doc-class {
-            max-width: 960px;
-            min-width: 500px;
             padding-left: var(--spacing);
         }
 

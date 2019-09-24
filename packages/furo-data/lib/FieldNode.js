@@ -1,6 +1,5 @@
 import {EventTreeNode, NodeEvent} from "./EventTreeNode";
 import {RepeaterNode} from "./RepeaterNode";
-import {set} from "@polymer/polymer/lib/utils/path";
 
 export class FieldNode extends EventTreeNode {
 
@@ -35,7 +34,10 @@ export class FieldNode extends EventTreeNode {
       // check for recursion
 
       if (!this.__parentNode._hasAncestorOfType(this._spec.type)) {
+        if(this._spec.type !== "google.protobuf.Any"){
         this._createVendorType(this._spec.type);
+        }
+
       } else {
         this._isRecursion = true;
       }
@@ -63,6 +65,33 @@ export class FieldNode extends EventTreeNode {
     this.addEventListener("field-became-invalid", (e) => {
       this._isValid = false;
     });
+  }
+
+  /**
+   * create a field in a FieldNode, this is useful when using map<string,something>
+   *   set the value option to init with values
+   * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
+   */
+  createField(options) {
+    let fieldName = options.fieldName;
+    let spec = {"type": options.type};
+
+    if(options.spec){
+      spec = options.spec
+    }
+
+    if (!this[fieldName]) {
+      this[fieldName] = new FieldNode(this, spec, fieldName);
+      this.dispatchNodeEvent(new NodeEvent('this-node-field-added', this, false));
+      this.dispatchNodeEvent(new NodeEvent('node-field-added', this, true));
+      // set Value if given
+      if(options.value){
+        this[fieldName].value = options.value;
+      }
+      return true;
+    }else{
+      return false;
+    }
   }
 
   /**
@@ -127,7 +156,6 @@ export class FieldNode extends EventTreeNode {
           this.__updateMetaAndConstraints(furoMetaDetected);
         }
 
-        this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
 
       } else {
         // update the primitive type
@@ -161,7 +189,7 @@ export class FieldNode extends EventTreeNode {
 
     }
 
-
+    this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
   }
 
   __updateMetaAndConstraints(metaAndConstraints) {
@@ -221,7 +249,9 @@ export class FieldNode extends EventTreeNode {
       // any can only be a complex type
       this._createVendorType(val["@type"]);
       this.__anyCreated = true;
-      this["@type"] = val["@type"];
+      this.createField({"fieldName":"@type","type":"string", "value":val["@type"]} )
+
+
     }
   }
 

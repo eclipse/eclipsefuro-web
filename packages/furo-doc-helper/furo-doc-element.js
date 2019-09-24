@@ -70,6 +70,7 @@ class FuroDocElement extends FBP(LitElement) {
             display: block;
             font-weight: 400;
             font-size: 14px;
+            max-width: 1024px;
         }
 
         :host([hidden]) {

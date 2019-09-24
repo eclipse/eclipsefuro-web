@@ -56,7 +56,6 @@ class SpecMdLoader extends FBP(LitElement) {
         furo-markdown{
             padding: var(--spacing);
           background-color: var(--background);
-            max-width: 960px;
             min-width: 500px;
         }
         

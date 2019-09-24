@@ -115,7 +115,7 @@ export class FuroRecursiveTree extends FBP(LitElement) {
         }
 
         .oc {
-            color: var(--separator-color, #b5b5b5);
+            color: var(--separator, #b5b5b5);
             display: inline-block;
             width: 16px;
         }

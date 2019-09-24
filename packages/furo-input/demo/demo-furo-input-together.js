@@ -23,7 +23,7 @@ class DemoFuroInputTogether extends FBP(LitElement) {
         :host {
             display: block;
             height: 100%;
-            padding-right: var(--spacing);
+            
         }
 
         :host([hidden]) {
@@ -50,16 +50,23 @@ class DemoFuroInputTogether extends FBP(LitElement) {
         </div>
         <furo-demo-snippet flex>
           <template>
-            <style>furo-card {
-              margin: 16px;
+            <style>
+              furo-vertical-scroller{
+                  padding: 24px;
+                box-sizing: border-box;
+              }
+              furo-card {
+              margin: 16px 16px 16px 0;
               width: 300px;
+            }
+            .nomargin furo-checkbox-input{
+              margin: 0;
             }</style>
             <furo-vertical-scroller>
               <furo-horizontal-flex>
-                <furo-card>
+                <furo-card title="Select some">
 
-                  <furo-vertical-flex>
-                    <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
+                  <furo-vertical-flex class="nomargin">
                     <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
                     <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
                     <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
@@ -122,7 +129,8 @@ class DemoFuroInputTogether extends FBP(LitElement) {
                     ></furo-password-input>
                   </furo-form-layouter>
                 </furo-card>
-                <furo-horizontal-flex flex space>
+                <div flex>
+                <furo-form-layouter four>
 
                   <furo-text-input flex ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
                                    label="Text input field" @-value-changed="--text"></furo-text-input>
@@ -131,41 +139,30 @@ class DemoFuroInputTogether extends FBP(LitElement) {
                                     @-value-changed="--rval" ƒ-set-value="--nval"></furo-range-input>
                   <furo-number-input ƒ-set-value="--number" value="123.25" step="0.25" hint="Steps 0.25"
                                      label="Number input field" @-value-changed="--number"></furo-number-input>
-                </furo-horizontal-flex>
+                </furo-form-layouter>
+
+
+                  <furo-form-layouter four>
+                    <furo-checkbox-input style="margin-top: 19px" label="Benutzerdefinierter Text" hint="Hint"
+                                         @-value-changed="--check" autofocus></furo-checkbox-input>
+                    <furo-checkbox-input style="margin-top: 19px" label="Disabled " ƒ-set-value="--check" checked
+                                         disabled></furo-checkbox-input>
+                    <furo-text-input condensed ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
+                                     label="Text input field" @-value-changed="--text"></furo-text-input>
+
+
+                    <furo-date-input condensed ƒ-set-value="--time" label="Date field"
+                                     @-value-changed="--date"></furo-date-input>
+                  </furo-form-layouter>
+                  <furo-form-layouter>
+                    <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v"
+                                         @-value-changed="--fromTextarea"></furo-textarea-input>
+
+
+                  </furo-form-layouter>
+                </div>
               </furo-horizontal-flex>
-
-              <br>
-
-
-              <furo-horizontal-flex space>
-                <furo-checkbox-input style="margin-top: 19px" label="Benutzerdefinierter Text" hint="Hint"
-                                     @-value-changed="--check" autofocus></furo-checkbox-input>
-                <furo-checkbox-input style="margin-top: 19px" label="Disabled " ƒ-set-value="--check" checked
-                                     disabled></furo-checkbox-input>
-              </furo-horizontal-flex>
-
-
-              <br>
-
-              <furo-horizontal-flex space>
-
-                <furo-text-input condensed ƒ-set-value="--text" autofocus value="some text" hint="With autofocus"
-                                 label="Text input field" @-value-changed="--text"></furo-text-input>
-
-
-                <furo-date-input condensed ƒ-set-value="--time" label="Date field"
-                                 @-value-changed="--date"></furo-date-input>
-
-
-              </furo-horizontal-flex>
-
-              <hr>
-              <furo-textarea-input rows="4" label="a lot of text" hint="just type" value="aa\nss\v"
-                                   @-value-changed="--fromTextarea"></furo-textarea-input>
-
-
-              <br>
-
+              
               <furo-button-bar>
                 <furo-button primary raised label="primary"></furo-button>
                 <furo-button secondary raised label="secondary"></furo-button>

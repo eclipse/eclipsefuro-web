@@ -22,7 +22,6 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         furo-markdown{
             padding: var(--spacing);
           background-color: var(--background);
-            max-width: 960px;
             min-width: 500px;
         }
         

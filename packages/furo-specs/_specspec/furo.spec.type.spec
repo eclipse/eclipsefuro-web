@@ -2,6 +2,7 @@
   "name": "furo.spec.type",
   "type": "furo.spec.type",
   "description": "Defines a type in the furo spec",
+  "__proto": {},
   "fields": {
     "name": {
       "description": "Name of the type",
@@ -33,8 +34,9 @@
     "fields": {
       "description": "fields of a type",
       "type": "map<string,furo.spec.field>",
-      "repeated": true,
-      "meta": {},
+      "meta": {
+        "repeated": true
+      },
       "options": {},
       "__proto": {
         "number": 4

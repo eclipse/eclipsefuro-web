@@ -6,8 +6,6 @@
     "description": {
       "description": "the field description",
       "type": "string",
-      "meta": {},
-      "options": {},
       "__proto": {
         "number": 1
       }
@@ -15,42 +13,30 @@
     "type": {
       "description": "the field type",
       "type": "string",
-      "meta": {},
-      "options": {},
       "__proto": {
         "number": 2
       }
     },
     "meta": {
-      "description": "meta information for the client, like label, default,...",
-      "type": "any",
-      "meta": {},
-      "options": {},
+      "description": "meta information for the client, like label, default, repeated, options...",
+      "type": "map<string,google.protobuf.Any>",
+      "meta": {
+        "options": ["repeated"]
+      },
       "__proto": {
         "number": 3
       }
     },
-    "options": {
-      "description": "options for a field",
-      "meta": {},
-      "options": {},
-      "type": "any",
+    "constraints": {
+      "description": "constraints for a field, like min{}, max{}, step{}",
+      "type": "map<string,google.protobuf.Any>",
       "__proto": {
         "number": 4
       }
     },
-    "repeated": {
-      "description": "is this field repeated",
-      "meta": {},
-      "options": {},
-      "type": "bool",
-      "__proto": {
-        "number": 5
-      }
-    },
     "__proto": {
-      "description": "information for the proto generator",
-      "type": "any",
+      "description": "information for the proto generator, like number, type",
+      "type": "map<string,google.protobuf.Any>",
       "__proto": {
         "number": 6
       }

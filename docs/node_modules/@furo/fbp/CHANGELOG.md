@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.26.5](https://github.com/veith/FuroBaseComponents/compare/@furo/fbp@4.26.4...@furo/fbp@4.26.5) (2019-09-19)
+
+**Note:** Version bump only for package @furo/fbp
+
+
+
+
+
 ## [4.26.4](https://github.com/veith/FuroBaseComponents/compare/@furo/fbp@4.26.3...@furo/fbp@4.26.4) (2019-09-05)
 
 

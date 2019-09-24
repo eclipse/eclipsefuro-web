@@ -48,16 +48,18 @@ class DemoFuroDataRepeat extends FBP(LitElement) {
           <template>
             <furo-vertical-scroller style="padding: 10px">
               <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>  <simulate-error ƒ-bind-data="--entity" error='{"field":"repstring.1","description":"something went wrong"}'></simulate-error>
-             <furo-button primary raised @-click="--addFieldClicked">add field</furo-button>
+            
               <hr>
               <furo-card title="furo-data-repeater demo" secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display">
               <furo-form-layouter two>
-                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input" delete-icon="delete">
+                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input">
                   </furo-data-repeat>
                   <furo-data-repeat four ƒ-bind-data="--entity(*.repstring)" repeated-component="furo-data-display">
                   </furo-data-repeat>
               </furo-form-layouter>
+                <furo-horizontal-flex space slot="action"> <furo-button primary @-click="--addFieldClicked">add field</furo-button></furo-horizontal-flex>
               </furo-card>
+              
               
               <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
               <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>

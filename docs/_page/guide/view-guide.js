@@ -622,6 +622,8 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             height: 100%;
             overflow-y: auto;
             box-sizing: border-box;
+            /* adjust the width to match the doc width */
+            max-width: 1278px;
         }
 
         :host([hidden]) {
@@ -631,7 +633,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         furo-markdown{
             padding: var(--spacing);
           background-color: var(--background);
-            max-width: 960px;
+           
             min-width: 500px;
         }
         
