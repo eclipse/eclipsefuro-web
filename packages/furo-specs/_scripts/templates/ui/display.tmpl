@@ -48,6 +48,35 @@ export class {{.class_name}} extends FBP(LitElement) {
      */
     bindData(data) {
         this._FBPTriggerWire('--data', data);
+        this.field = data;
+        {{if .autolabel}}
+        // add title if display_name is available
+        if (this.field.display_name) {
+              this.field.display_name.addEventListener("this-field-value-changed", () => {
+                this.display_name = html`<h1>${this.field.label.value}</h1>`;
+                this.requestUpdate();
+              });
+              this.display_name = html`<h1>${this.field.label.value}</h1>`;
+        }
+
+        // add title if a field secondary_text is available
+        if (this.field.secondary_text) {
+          this.field.secondary_text.addEventListener("this-field-value-changed", () => {
+            this.secondary_text = html`<div class="secondary">${this.field.secondary_text.value}</div>`;
+            this.requestUpdate();
+          });
+          this.secondary_text = html`<div class="secondary">${this.field.secondary_text.value}</div>`;
+        }
+
+        // add title if a field display_caption is available
+        if (this.field.display_caption) {
+          this.field.display_caption.addEventListener("this-field-value-changed", () => {
+            this.display_caption = html`<div class="caption">${this.field.display_caption.value}</div>`;
+            this.requestUpdate();
+          });
+          this.display_caption = html`<div class="caption">${this.field.display_caption.value}</div>`;
+        }
+        {{end}}
     }
 
     /**
@@ -57,6 +86,7 @@ export class {{.class_name}} extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
+        {{if .autolabel}} ${this.display_name} ${this.secondary_text} ${this.display_caption}  {{end}}
             {{range $fieldgroup := .fieldgroups}}{{"<" | noescape}}!-- {{$fieldgroup.description}}  -->
             {{if $fieldgroup.title}}{{"<" | noescape}}h1>${i18n.t("{{$fieldgroup.title}}")}</h1>{{end}}
             {{if $fieldgroup.secondary_text}}{{"<" | noescape}}span class="secondary">${i18n.t("{{$fieldgroup.secondary_text}}")}</span>{{end}}
