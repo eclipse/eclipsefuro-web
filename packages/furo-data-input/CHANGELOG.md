@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.54.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.53.0...@furo/data-input@0.54.0) (2019-09-25)
+
+
+### Bug Fixes
+
+* fix hint ([20b0693](https://github.com/veith/FuroBaseComponents/commit/20b0693))
+* fix label in collection dropdown and fix reset in reference search by pressing escape ([a4c0309](https://github.com/veith/FuroBaseComponents/commit/a4c0309))
+
+
+### Features
+
+* create field in repeats of map<string,*> ([08315b9](https://github.com/veith/FuroBaseComponents/commit/08315b9))
+* furo-data-money-input ([26374f5](https://github.com/veith/FuroBaseComponents/commit/26374f5))
+
+
+
+
+
 # [0.53.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.52.3...@furo/data-input@0.53.0) (2019-09-19)
 
 

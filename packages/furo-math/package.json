@@ -2,10 +2,10 @@
   "name": "@furo/math",
   "description": "Furo math components",
   "main": "furo-catalog.js",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "dependencies": {
-    "@furo/fbp": "^4.26.5",
-    "@furo/logic": "^0.5.3"
+    "@furo/fbp": "^4.26.6",
+    "@furo/logic": "^0.5.4"
   },
   "publishConfig": {
     "access": "public"
