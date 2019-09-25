@@ -2,6 +2,784 @@
   "schema_version": "1.0.0",
   "elements": [
     {
+      "description": "`furo-head-tail`\n Splits an iterable (i.e. Array) in its head and tail part.\n\n```\n <furo-head-tail ƒ-split=\"--arrayData\" @-head=\"--firstElement\" @-tail=\"--restOfArray\"></furo-head-tail>\n```",
+      "summary": "split an array",
+      "path": "packages/furo-util/furo-head-tail.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "split",
+          "description": "Splits an iterable to its head (first item) and its tail (the rest) parts.\n\n```\n[\"a\", \"b\", \"c\", \"d\"]\n |_|  |___________|\n  ^      ^\n  |      |\n  |     TAIL   => [\"b\", \"c\", \"d\"]\n HEAD          => \"a\"\n```",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 28,
+              "column": 2
+            },
+            "end": {
+              "line": 53,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "iterable"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 12,
+          "column": 0
+        },
+        "end": {
+          "line": 54,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroHeadTail",
+      "attributes": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "head",
+          "description": "head\nFired when Array was splitted\ndetail payload: {Any} first element of array",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "tail",
+          "description": "tail\nFired when Array was splitted\ndetail payload: {Array || Any} the tail from the injected array (e1 - 1n)",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-head-tail"
+    },
+    {
+      "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component @-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter ƒ-filter=\"--keydown\" @-matched=\"--escapePressed\" keys=\"Escape\"></furo-key-filter>\n```",
+      "summary": "keyboard event filter",
+      "path": "packages/furo-util/furo-key-filter.js",
+      "properties": [
+        {
+          "name": "keys",
+          "type": "string | null | undefined",
+          "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 12
+            },
+            "end": {
+              "line": 74,
+              "column": 32
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "shift",
+          "type": "boolean | null | undefined",
+          "description": "Modifier key **shift** must be pressed too to match",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 12
+            },
+            "end": {
+              "line": 78,
+              "column": 34
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "alt",
+          "type": "boolean | null | undefined",
+          "description": "Modifier key **alt** must be pressed too to match",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 12
+            },
+            "end": {
+              "line": 82,
+              "column": 32
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "command",
+          "type": "boolean | null | undefined",
+          "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 88,
+              "column": 12
+            },
+            "end": {
+              "line": 88,
+              "column": 36
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "meta",
+          "type": "boolean | null | undefined",
+          "description": "Modifier key **meta** must be pressed too to match",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 92,
+              "column": 12
+            },
+            "end": {
+              "line": 92,
+              "column": 33
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "control",
+          "type": "boolean | null | undefined",
+          "description": "Modifier key **control** must be pressed too to match",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 12
+            },
+            "end": {
+              "line": 96,
+              "column": 36
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_attachDom",
+          "description": "Auto append fbp for Polymer",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 47,
+              "column": 8
+            },
+            "end": {
+              "line": 50,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "dom"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "firstUpdated",
+          "description": "Auto append fbp for lit elements",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 53,
+              "column": 8
+            },
+            "end": {
+              "line": 61,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "changedProperties"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPTriggerWire",
+          "description": "Triggers a wire",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 69,
+              "column": 8
+            },
+            "end": {
+              "line": 115,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire",
+              "description": "(String) Name of the wire like --buttonClicked"
+            },
+            {
+              "name": "detailData",
+              "description": "(*) data to pass"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPAddWireHook",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 125,
+              "column": 8
+            },
+            "end": {
+              "line": 142,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire",
+              "description": "(String) Name of the wire"
+            },
+            {
+              "name": "cb",
+              "description": "(function) Callback function cb(detailData)"
+            },
+            {
+              "name": "before"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPTraceWires",
+          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 151,
+              "column": 8
+            },
+            "end": {
+              "line": 187,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPDebug",
+          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 197,
+              "column": 8
+            },
+            "end": {
+              "line": 233,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire"
+            },
+            {
+              "name": "openDebugger",
+              "description": "opens the debugger console, so you can inspect your component."
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "__toCamelCase",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 235,
+              "column": 8
+            },
+            "end": {
+              "line": 239,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "str"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_appendFBP",
+          "description": "parses the dom for flowbased programming tags",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 246,
+              "column": 8
+            },
+            "end": {
+              "line": 524,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "dom",
+              "description": "dom node"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_FBPReady",
+          "description": "Livecycle method\nThis method is called, when the wires are ready",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 530,
+              "column": 8
+            },
+            "end": {
+              "line": 532,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "__enqueueTrigger",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 534,
+              "column": 8
+            },
+            "end": {
+              "line": 536,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "wire"
+            },
+            {
+              "name": "detailData"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "__resolveWireAndPath",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 538,
+              "column": 8
+            },
+            "end": {
+              "line": 546,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "w"
+            }
+          ],
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "disconnectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 548,
+              "column": 8
+            },
+            "end": {
+              "line": 562,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_pathGet",
+          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 573,
+              "column": 8
+            },
+            "end": {
+              "line": 586,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root",
+              "type": "Object",
+              "description": "Object from which to dereference path from"
+            },
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Path to read"
+            }
+          ],
+          "return": {
+            "type": "*",
+            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_pathSet",
+          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 597,
+              "column": 8
+            },
+            "end": {
+              "line": 619,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "root",
+              "type": "Object",
+              "description": "Object from which to dereference path from"
+            },
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Path to set"
+            },
+            {
+              "name": "value",
+              "type": "*",
+              "description": "Value to set to path"
+            }
+          ],
+          "return": {
+            "type": "(string | undefined)",
+            "desc": "The normalized version of the input path"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "_split",
+          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "../../../@furo/fbp/fbp.js",
+            "start": {
+              "line": 637,
+              "column": 8
+            },
+            "end": {
+              "line": 639,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "path",
+              "type": "(string | !Array.<(string | number)>)",
+              "description": "Input path"
+            }
+          ],
+          "return": {
+            "type": "!Array.<string>",
+            "desc": "Array of path parts"
+          },
+          "inheritedFrom": "FBP"
+        },
+        {
+          "name": "filter",
+          "description": "Check the event and dispatch matched when the conditions are fulfilled.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 32,
+              "column": 4
+            },
+            "end": {
+              "line": 63,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "keyboardEvent"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/furo-key-filter.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 101,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "FuroKeyFilter",
+      "attributes": [
+        {
+          "name": "keys",
+          "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 12
+            },
+            "end": {
+              "line": 74,
+              "column": 32
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "shift",
+          "description": "Modifier key **shift** must be pressed too to match",
+          "sourceRange": {
+            "start": {
+              "line": 78,
+              "column": 12
+            },
+            "end": {
+              "line": 78,
+              "column": 34
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "alt",
+          "description": "Modifier key **alt** must be pressed too to match",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 12
+            },
+            "end": {
+              "line": 82,
+              "column": 32
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "command",
+          "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
+          "sourceRange": {
+            "start": {
+              "line": 88,
+              "column": 12
+            },
+            "end": {
+              "line": 88,
+              "column": 36
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "meta",
+          "description": "Modifier key **meta** must be pressed too to match",
+          "sourceRange": {
+            "start": {
+              "line": 92,
+              "column": 12
+            },
+            "end": {
+              "line": 92,
+              "column": 33
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "control",
+          "description": "Modifier key **control** must be pressed too to match",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 12
+            },
+            "end": {
+              "line": 96,
+              "column": 36
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "matched",
+          "description": "matched\nFired when key matches the options\ndetail payload: keyboardEvent",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "furo-key-filter",
+      "mixins": [
+        "FBP"
+      ]
+    },
+    {
       "description": "`furo-key-press`\n Listen to keypress events on parent element\n\n [more about keydown](https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event)",
       "summary": "keypress listener",
       "path": "packages/furo-util/furo-keydown.js",
@@ -1667,75 +2445,6 @@
       ]
     },
     {
-      "description": "`furo-head-tail`\n Splits an iterable (i.e. Array) in its head and tail part.\n\n```\n <furo-head-tail ƒ-split=\"--arrayData\" @-head=\"--firstElement\" @-tail=\"--restOfArray\"></furo-head-tail>\n```",
-      "summary": "split an array",
-      "path": "packages/furo-util/furo-head-tail.js",
-      "properties": [],
-      "methods": [
-        {
-          "name": "split",
-          "description": "Splits an iterable to its head (first item) and its tail (the rest) parts.\n\n```\n[\"a\", \"b\", \"c\", \"d\"]\n |_|  |___________|\n  ^      ^\n  |      |\n  |     TAIL   => [\"b\", \"c\", \"d\"]\n HEAD          => \"a\"\n```",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 28,
-              "column": 2
-            },
-            "end": {
-              "line": 53,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "iterable"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        }
-      ],
-      "staticMethods": [],
-      "demos": [],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 12,
-          "column": 0
-        },
-        "end": {
-          "line": 54,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "HTMLElement",
-      "name": "FuroHeadTail",
-      "attributes": [],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "head",
-          "description": "head\nFired when Array was splitted\ndetail payload: {Any} first element of array",
-          "metadata": {}
-        },
-        {
-          "type": "CustomEvent",
-          "name": "tail",
-          "description": "tail\nFired when Array was splitted\ndetail payload: {Array || Any} the tail from the injected array (e1 - 1n)",
-          "metadata": {}
-        }
-      ],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "furo-head-tail"
-    },
-    {
       "description": "`furo-pretty-json`\nPretty json with highlighting",
       "summary": "pretty prints json data",
       "path": "packages/furo-util/furo-pretty-json.js",
@@ -1833,715 +2542,6 @@
       },
       "slots": [],
       "tagname": "furo-pretty-json"
-    },
-    {
-      "description": "`furo-key-filter`\nAllows only defined keyboard events to pass through\n\n```\n<!-- note the asterisk on other-component keydown. Because filter needs the keyboard event. -->\n<other-component @-keydown=\"--keydown(*)\"></other-component>\n<furo-key-filter ƒ-filter=\"--keydown\" @-matched=\"--escapePressed\" keys=\"Escape\"></furo-key-filter>\n```",
-      "summary": "keyboard event filter",
-      "path": "packages/furo-util/furo-key-filter.js",
-      "properties": [
-        {
-          "name": "keys",
-          "type": "string | null | undefined",
-          "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 74,
-              "column": 12
-            },
-            "end": {
-              "line": 74,
-              "column": 32
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "shift",
-          "type": "boolean | null | undefined",
-          "description": "Modifier key **shift** must be pressed too to match",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 78,
-              "column": 12
-            },
-            "end": {
-              "line": 78,
-              "column": 34
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "alt",
-          "type": "boolean | null | undefined",
-          "description": "Modifier key **alt** must be pressed too to match",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 82,
-              "column": 12
-            },
-            "end": {
-              "line": 82,
-              "column": 32
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "command",
-          "type": "boolean | null | undefined",
-          "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 88,
-              "column": 12
-            },
-            "end": {
-              "line": 88,
-              "column": 36
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "meta",
-          "type": "boolean | null | undefined",
-          "description": "Modifier key **meta** must be pressed too to match",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 92,
-              "column": 12
-            },
-            "end": {
-              "line": 92,
-              "column": 33
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "control",
-          "type": "boolean | null | undefined",
-          "description": "Modifier key **control** must be pressed too to match",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 96,
-              "column": 12
-            },
-            "end": {
-              "line": 96,
-              "column": 36
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "_attachDom",
-          "description": "Auto append fbp for Polymer",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 47,
-              "column": 8
-            },
-            "end": {
-              "line": 50,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "firstUpdated",
-          "description": "Auto append fbp for lit elements",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 53,
-              "column": 8
-            },
-            "end": {
-              "line": 61,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "changedProperties"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTriggerWire",
-          "description": "Triggers a wire",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 69,
-              "column": 8
-            },
-            "end": {
-              "line": 115,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire like --buttonClicked"
-            },
-            {
-              "name": "detailData",
-              "description": "(*) data to pass"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPAddWireHook",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 125,
-              "column": 8
-            },
-            "end": {
-              "line": 142,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire"
-            },
-            {
-              "name": "cb",
-              "description": "(function) Callback function cb(detailData)"
-            },
-            {
-              "name": "before"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTraceWires",
-          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 151,
-              "column": 8
-            },
-            "end": {
-              "line": 187,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPDebug",
-          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 197,
-              "column": 8
-            },
-            "end": {
-              "line": 233,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "openDebugger",
-              "description": "opens the debugger console, so you can inspect your component."
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__toCamelCase",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 235,
-              "column": 8
-            },
-            "end": {
-              "line": 239,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "str"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_appendFBP",
-          "description": "parses the dom for flowbased programming tags",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 246,
-              "column": 8
-            },
-            "end": {
-              "line": 524,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom",
-              "description": "dom node"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 530,
-              "column": 8
-            },
-            "end": {
-              "line": 532,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__enqueueTrigger",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 534,
-              "column": 8
-            },
-            "end": {
-              "line": 536,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "detailData"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__resolveWireAndPath",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 538,
-              "column": 8
-            },
-            "end": {
-              "line": 546,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "w"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "disconnectedCallback",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 548,
-              "column": 8
-            },
-            "end": {
-              "line": 562,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathGet",
-          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 573,
-              "column": 8
-            },
-            "end": {
-              "line": 586,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to read"
-            }
-          ],
-          "return": {
-            "type": "*",
-            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathSet",
-          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 597,
-              "column": 8
-            },
-            "end": {
-              "line": 619,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to set"
-            },
-            {
-              "name": "value",
-              "type": "*",
-              "description": "Value to set to path"
-            }
-          ],
-          "return": {
-            "type": "(string | undefined)",
-            "desc": "The normalized version of the input path"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_split",
-          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 637,
-              "column": 8
-            },
-            "end": {
-              "line": 639,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Input path"
-            }
-          ],
-          "return": {
-            "type": "!Array.<string>",
-            "desc": "Array of path parts"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "filter",
-          "description": "Check the event and dispatch matched when the conditions are fulfilled.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 32,
-              "column": 4
-            },
-            "end": {
-              "line": 63,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "keyboardEvent"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        }
-      ],
-      "staticMethods": [],
-      "demos": [
-        {
-          "url": "demo/furo-key-filter.html",
-          "description": ""
-        }
-      ],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 20,
-          "column": 0
-        },
-        "end": {
-          "line": 101,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "HTMLElement",
-      "name": "FuroKeyFilter",
-      "attributes": [
-        {
-          "name": "keys",
-          "description": "Coma separated list with allowed keys to pass. i.e \"Enter, ArrowUp\"",
-          "sourceRange": {
-            "start": {
-              "line": 74,
-              "column": 12
-            },
-            "end": {
-              "line": 74,
-              "column": 32
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "shift",
-          "description": "Modifier key **shift** must be pressed too to match",
-          "sourceRange": {
-            "start": {
-              "line": 78,
-              "column": 12
-            },
-            "end": {
-              "line": 78,
-              "column": 34
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "alt",
-          "description": "Modifier key **alt** must be pressed too to match",
-          "sourceRange": {
-            "start": {
-              "line": 82,
-              "column": 12
-            },
-            "end": {
-              "line": 82,
-              "column": 32
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "command",
-          "description": "Alias for meta.\n\nModifier key **meta** must be pressed too to match.",
-          "sourceRange": {
-            "start": {
-              "line": 88,
-              "column": 12
-            },
-            "end": {
-              "line": 88,
-              "column": 36
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "meta",
-          "description": "Modifier key **meta** must be pressed too to match",
-          "sourceRange": {
-            "start": {
-              "line": 92,
-              "column": 12
-            },
-            "end": {
-              "line": 92,
-              "column": 33
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "control",
-          "description": "Modifier key **control** must be pressed too to match",
-          "sourceRange": {
-            "start": {
-              "line": 96,
-              "column": 12
-            },
-            "end": {
-              "line": 96,
-              "column": 36
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        }
-      ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "matched",
-          "description": "matched\nFired when key matches the options\ndetail payload: keyboardEvent",
-          "metadata": {}
-        }
-      ],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "furo-key-filter",
-      "mixins": [
-        "FBP"
-      ]
     },
     {
       "description": "`furo-get-clipboard`\n get the clipboard content from the OS.\n\n```html\n\n<furo-get-clipboard ƒ-trigger=\"--clipboardContentRequested\" @-content=\"--contentReceived\">\n</furo-get-clipboard>\n\n```",
