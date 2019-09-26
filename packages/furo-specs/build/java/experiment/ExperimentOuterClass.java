@@ -1547,6 +1547,31 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * field for testing money type
+     * </pre>
+     *
+     * <code>.google.type.Money furo_data_money_input = 21;</code>
+     */
+    boolean hasFuroDataMoneyInput();
+    /**
+     * <pre>
+     * field for testing money type
+     * </pre>
+     *
+     * <code>.google.type.Money furo_data_money_input = 21;</code>
+     */
+    google.type.MoneyOuterClass.Money getFuroDataMoneyInput();
+    /**
+     * <pre>
+     * field for testing money type
+     * </pre>
+     *
+     * <code>.google.type.Money furo_data_money_input = 21;</code>
+     */
+    google.type.MoneyOuterClass.MoneyOrBuilder getFuroDataMoneyInputOrBuilder();
+
+    /**
+     * <pre>
      * field for furo-data-number-input for testing
      * </pre>
      *
@@ -1985,9 +2010,9 @@ public final class ExperimentOuterClass {
               break;
             }
             case 138: {
-              if (!((mutable_bitField0_ & 0x00040000) != 0)) {
+              if (!((mutable_bitField0_ & 0x00080000) != 0)) {
                 typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>();
-                mutable_bitField0_ |= 0x00040000;
+                mutable_bitField0_ |= 0x00080000;
               }
               typeProperty_.add(
                   input.readMessage(furo.PropertyOuterClass.Property.parser(), extensionRegistry));
@@ -2021,11 +2046,24 @@ public final class ExperimentOuterClass {
             }
             case 162: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00008000) != 0)) {
+              if (!((mutable_bitField0_ & 0x00010000) != 0)) {
                 repstring_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00008000;
+                mutable_bitField0_ |= 0x00010000;
               }
               repstring_.add(s);
+              break;
+            }
+            case 170: {
+              google.type.MoneyOuterClass.Money.Builder subBuilder = null;
+              if (furoDataMoneyInput_ != null) {
+                subBuilder = furoDataMoneyInput_.toBuilder();
+              }
+              furoDataMoneyInput_ = input.readMessage(google.type.MoneyOuterClass.Money.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(furoDataMoneyInput_);
+                furoDataMoneyInput_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -2043,10 +2081,10 @@ public final class ExperimentOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00040000) != 0)) {
+        if (((mutable_bitField0_ & 0x00080000) != 0)) {
           typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
         }
-        if (((mutable_bitField0_ & 0x00008000) != 0)) {
+        if (((mutable_bitField0_ & 0x00010000) != 0)) {
           repstring_ = repstring_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -2292,6 +2330,39 @@ public final class ExperimentOuterClass {
      */
     public google.type.DateOuterClass.DateOrBuilder getFuroDataDateInputGoogleOrBuilder() {
       return getFuroDataDateInputGoogle();
+    }
+
+    public static final int FURO_DATA_MONEY_INPUT_FIELD_NUMBER = 21;
+    private google.type.MoneyOuterClass.Money furoDataMoneyInput_;
+    /**
+     * <pre>
+     * field for testing money type
+     * </pre>
+     *
+     * <code>.google.type.Money furo_data_money_input = 21;</code>
+     */
+    public boolean hasFuroDataMoneyInput() {
+      return furoDataMoneyInput_ != null;
+    }
+    /**
+     * <pre>
+     * field for testing money type
+     * </pre>
+     *
+     * <code>.google.type.Money furo_data_money_input = 21;</code>
+     */
+    public google.type.MoneyOuterClass.Money getFuroDataMoneyInput() {
+      return furoDataMoneyInput_ == null ? google.type.MoneyOuterClass.Money.getDefaultInstance() : furoDataMoneyInput_;
+    }
+    /**
+     * <pre>
+     * field for testing money type
+     * </pre>
+     *
+     * <code>.google.type.Money furo_data_money_input = 21;</code>
+     */
+    public google.type.MoneyOuterClass.MoneyOrBuilder getFuroDataMoneyInputOrBuilder() {
+      return getFuroDataMoneyInput();
     }
 
     public static final int FURO_DATA_NUMBER_INPUT_FIELD_NUMBER = 9;
@@ -2883,6 +2954,9 @@ public final class ExperimentOuterClass {
       for (int i = 0; i < repstring_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, repstring_.getRaw(i));
       }
+      if (furoDataMoneyInput_ != null) {
+        output.writeMessage(21, getFuroDataMoneyInput());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2964,6 +3038,10 @@ public final class ExperimentOuterClass {
         size += dataSize;
         size += 2 * getRepstringList().size();
       }
+      if (furoDataMoneyInput_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(21, getFuroDataMoneyInput());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2995,6 +3073,11 @@ public final class ExperimentOuterClass {
       if (hasFuroDataDateInputGoogle()) {
         if (!getFuroDataDateInputGoogle()
             .equals(other.getFuroDataDateInputGoogle())) return false;
+      }
+      if (hasFuroDataMoneyInput() != other.hasFuroDataMoneyInput()) return false;
+      if (hasFuroDataMoneyInput()) {
+        if (!getFuroDataMoneyInput()
+            .equals(other.getFuroDataMoneyInput())) return false;
       }
       if (java.lang.Float.floatToIntBits(getFuroDataNumberInput())
           != java.lang.Float.floatToIntBits(
@@ -3057,6 +3140,10 @@ public final class ExperimentOuterClass {
       if (hasFuroDataDateInputGoogle()) {
         hash = (37 * hash) + FURO_DATA_DATE_INPUT_GOOGLE_FIELD_NUMBER;
         hash = (53 * hash) + getFuroDataDateInputGoogle().hashCode();
+      }
+      if (hasFuroDataMoneyInput()) {
+        hash = (37 * hash) + FURO_DATA_MONEY_INPUT_FIELD_NUMBER;
+        hash = (53 * hash) + getFuroDataMoneyInput().hashCode();
       }
       hash = (37 * hash) + FURO_DATA_NUMBER_INPUT_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
@@ -3249,6 +3336,12 @@ public final class ExperimentOuterClass {
           furoDataDateInputGoogle_ = null;
           furoDataDateInputGoogleBuilder_ = null;
         }
+        if (furoDataMoneyInputBuilder_ == null) {
+          furoDataMoneyInput_ = null;
+        } else {
+          furoDataMoneyInput_ = null;
+          furoDataMoneyInputBuilder_ = null;
+        }
         furoDataNumberInput_ = 0F;
 
         furoDataPasswordInput_ = "";
@@ -3266,7 +3359,7 @@ public final class ExperimentOuterClass {
         id_ = "";
 
         repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         if (singleTypePropertyBuilder_ == null) {
           singleTypeProperty_ = null;
         } else {
@@ -3281,7 +3374,7 @@ public final class ExperimentOuterClass {
         }
         if (typePropertyBuilder_ == null) {
           typeProperty_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00040000);
+          bitField0_ = (bitField0_ & ~0x00080000);
         } else {
           typePropertyBuilder_.clear();
         }
@@ -3326,6 +3419,11 @@ public final class ExperimentOuterClass {
         } else {
           result.furoDataDateInputGoogle_ = furoDataDateInputGoogleBuilder_.build();
         }
+        if (furoDataMoneyInputBuilder_ == null) {
+          result.furoDataMoneyInput_ = furoDataMoneyInput_;
+        } else {
+          result.furoDataMoneyInput_ = furoDataMoneyInputBuilder_.build();
+        }
         result.furoDataNumberInput_ = furoDataNumberInput_;
         result.furoDataPasswordInput_ = furoDataPasswordInput_;
         result.furoDataRangeInput_ = furoDataRangeInput_;
@@ -3334,9 +3432,9 @@ public final class ExperimentOuterClass {
         result.furoDataTextareaInput_ = furoDataTextareaInput_;
         result.furoDataTimeInput_ = furoDataTimeInput_;
         result.id_ = id_;
-        if (((bitField0_ & 0x00008000) != 0)) {
+        if (((bitField0_ & 0x00010000) != 0)) {
           repstring_ = repstring_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00010000);
         }
         result.repstring_ = repstring_;
         if (singleTypePropertyBuilder_ == null) {
@@ -3350,9 +3448,9 @@ public final class ExperimentOuterClass {
           result.theAnyType_ = theAnyTypeBuilder_.build();
         }
         if (typePropertyBuilder_ == null) {
-          if (((bitField0_ & 0x00040000) != 0)) {
+          if (((bitField0_ & 0x00080000) != 0)) {
             typeProperty_ = java.util.Collections.unmodifiableList(typeProperty_);
-            bitField0_ = (bitField0_ & ~0x00040000);
+            bitField0_ = (bitField0_ & ~0x00080000);
           }
           result.typeProperty_ = typeProperty_;
         } else {
@@ -3433,6 +3531,9 @@ public final class ExperimentOuterClass {
         if (other.hasFuroDataDateInputGoogle()) {
           mergeFuroDataDateInputGoogle(other.getFuroDataDateInputGoogle());
         }
+        if (other.hasFuroDataMoneyInput()) {
+          mergeFuroDataMoneyInput(other.getFuroDataMoneyInput());
+        }
         if (other.getFuroDataNumberInput() != 0F) {
           setFuroDataNumberInput(other.getFuroDataNumberInput());
         }
@@ -3467,7 +3568,7 @@ public final class ExperimentOuterClass {
         if (!other.repstring_.isEmpty()) {
           if (repstring_.isEmpty()) {
             repstring_ = other.repstring_;
-            bitField0_ = (bitField0_ & ~0x00008000);
+            bitField0_ = (bitField0_ & ~0x00010000);
           } else {
             ensureRepstringIsMutable();
             repstring_.addAll(other.repstring_);
@@ -3484,7 +3585,7 @@ public final class ExperimentOuterClass {
           if (!other.typeProperty_.isEmpty()) {
             if (typeProperty_.isEmpty()) {
               typeProperty_ = other.typeProperty_;
-              bitField0_ = (bitField0_ & ~0x00040000);
+              bitField0_ = (bitField0_ & ~0x00080000);
             } else {
               ensureTypePropertyIsMutable();
               typeProperty_.addAll(other.typeProperty_);
@@ -3497,7 +3598,7 @@ public final class ExperimentOuterClass {
               typePropertyBuilder_.dispose();
               typePropertyBuilder_ = null;
               typeProperty_ = other.typeProperty_;
-              bitField0_ = (bitField0_ & ~0x00040000);
+              bitField0_ = (bitField0_ & ~0x00080000);
               typePropertyBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTypePropertyFieldBuilder() : null;
@@ -4123,6 +4224,159 @@ public final class ExperimentOuterClass {
           furoDataDateInputGoogle_ = null;
         }
         return furoDataDateInputGoogleBuilder_;
+      }
+
+      private google.type.MoneyOuterClass.Money furoDataMoneyInput_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.MoneyOuterClass.Money, google.type.MoneyOuterClass.Money.Builder, google.type.MoneyOuterClass.MoneyOrBuilder> furoDataMoneyInputBuilder_;
+      /**
+       * <pre>
+       * field for testing money type
+       * </pre>
+       *
+       * <code>.google.type.Money furo_data_money_input = 21;</code>
+       */
+      public boolean hasFuroDataMoneyInput() {
+        return furoDataMoneyInputBuilder_ != null || furoDataMoneyInput_ != null;
+      }
+      /**
+       * <pre>
+       * field for testing money type
+       * </pre>
+       *
+       * <code>.google.type.Money furo_data_money_input = 21;</code>
+       */
+      public google.type.MoneyOuterClass.Money getFuroDataMoneyInput() {
+        if (furoDataMoneyInputBuilder_ == null) {
+          return furoDataMoneyInput_ == null ? google.type.MoneyOuterClass.Money.getDefaultInstance() : furoDataMoneyInput_;
+        } else {
+          return furoDataMoneyInputBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * field for testing money type
+       * </pre>
+       *
+       * <code>.google.type.Money furo_data_money_input = 21;</code>
+       */
+      public Builder setFuroDataMoneyInput(google.type.MoneyOuterClass.Money value) {
+        if (furoDataMoneyInputBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          furoDataMoneyInput_ = value;
+          onChanged();
+        } else {
+          furoDataMoneyInputBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing money type
+       * </pre>
+       *
+       * <code>.google.type.Money furo_data_money_input = 21;</code>
+       */
+      public Builder setFuroDataMoneyInput(
+          google.type.MoneyOuterClass.Money.Builder builderForValue) {
+        if (furoDataMoneyInputBuilder_ == null) {
+          furoDataMoneyInput_ = builderForValue.build();
+          onChanged();
+        } else {
+          furoDataMoneyInputBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing money type
+       * </pre>
+       *
+       * <code>.google.type.Money furo_data_money_input = 21;</code>
+       */
+      public Builder mergeFuroDataMoneyInput(google.type.MoneyOuterClass.Money value) {
+        if (furoDataMoneyInputBuilder_ == null) {
+          if (furoDataMoneyInput_ != null) {
+            furoDataMoneyInput_ =
+              google.type.MoneyOuterClass.Money.newBuilder(furoDataMoneyInput_).mergeFrom(value).buildPartial();
+          } else {
+            furoDataMoneyInput_ = value;
+          }
+          onChanged();
+        } else {
+          furoDataMoneyInputBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing money type
+       * </pre>
+       *
+       * <code>.google.type.Money furo_data_money_input = 21;</code>
+       */
+      public Builder clearFuroDataMoneyInput() {
+        if (furoDataMoneyInputBuilder_ == null) {
+          furoDataMoneyInput_ = null;
+          onChanged();
+        } else {
+          furoDataMoneyInput_ = null;
+          furoDataMoneyInputBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * field for testing money type
+       * </pre>
+       *
+       * <code>.google.type.Money furo_data_money_input = 21;</code>
+       */
+      public google.type.MoneyOuterClass.Money.Builder getFuroDataMoneyInputBuilder() {
+        
+        onChanged();
+        return getFuroDataMoneyInputFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * field for testing money type
+       * </pre>
+       *
+       * <code>.google.type.Money furo_data_money_input = 21;</code>
+       */
+      public google.type.MoneyOuterClass.MoneyOrBuilder getFuroDataMoneyInputOrBuilder() {
+        if (furoDataMoneyInputBuilder_ != null) {
+          return furoDataMoneyInputBuilder_.getMessageOrBuilder();
+        } else {
+          return furoDataMoneyInput_ == null ?
+              google.type.MoneyOuterClass.Money.getDefaultInstance() : furoDataMoneyInput_;
+        }
+      }
+      /**
+       * <pre>
+       * field for testing money type
+       * </pre>
+       *
+       * <code>.google.type.Money furo_data_money_input = 21;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.type.MoneyOuterClass.Money, google.type.MoneyOuterClass.Money.Builder, google.type.MoneyOuterClass.MoneyOrBuilder> 
+          getFuroDataMoneyInputFieldBuilder() {
+        if (furoDataMoneyInputBuilder_ == null) {
+          furoDataMoneyInputBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.type.MoneyOuterClass.Money, google.type.MoneyOuterClass.Money.Builder, google.type.MoneyOuterClass.MoneyOrBuilder>(
+                  getFuroDataMoneyInput(),
+                  getParentForChildren(),
+                  isClean());
+          furoDataMoneyInput_ = null;
+        }
+        return furoDataMoneyInputBuilder_;
       }
 
       private float furoDataNumberInput_ ;
@@ -4788,9 +5042,9 @@ public final class ExperimentOuterClass {
 
       private com.google.protobuf.LazyStringList repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureRepstringIsMutable() {
-        if (!((bitField0_ & 0x00008000) != 0)) {
+        if (!((bitField0_ & 0x00010000) != 0)) {
           repstring_ = new com.google.protobuf.LazyStringArrayList(repstring_);
-          bitField0_ |= 0x00008000;
+          bitField0_ |= 0x00010000;
          }
       }
       /**
@@ -4893,7 +5147,7 @@ public final class ExperimentOuterClass {
        */
       public Builder clearRepstring() {
         repstring_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         onChanged();
         return this;
       }
@@ -5225,9 +5479,9 @@ public final class ExperimentOuterClass {
       private java.util.List<furo.PropertyOuterClass.Property> typeProperty_ =
         java.util.Collections.emptyList();
       private void ensureTypePropertyIsMutable() {
-        if (!((bitField0_ & 0x00040000) != 0)) {
+        if (!((bitField0_ & 0x00080000) != 0)) {
           typeProperty_ = new java.util.ArrayList<furo.PropertyOuterClass.Property>(typeProperty_);
-          bitField0_ |= 0x00040000;
+          bitField0_ |= 0x00080000;
          }
       }
 
@@ -5421,7 +5675,7 @@ public final class ExperimentOuterClass {
       public Builder clearTypeProperty() {
         if (typePropertyBuilder_ == null) {
           typeProperty_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00040000);
+          bitField0_ = (bitField0_ & ~0x00080000);
           onChanged();
         } else {
           typePropertyBuilder_.clear();
@@ -5526,7 +5780,7 @@ public final class ExperimentOuterClass {
           typePropertyBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               furo.PropertyOuterClass.Property, furo.PropertyOuterClass.Property.Builder, furo.PropertyOuterClass.PropertyOrBuilder>(
                   typeProperty_,
-                  ((bitField0_ & 0x00040000) != 0),
+                  ((bitField0_ & 0x00080000) != 0),
                   getParentForChildren(),
                   isClean());
           typeProperty_ = null;
@@ -9570,34 +9824,36 @@ public final class ExperimentOuterClass {
       "\n\033experiment/experiment.proto\022\nexperimen" +
       "t\032\017furo/meta.proto\032\017furo/link.proto\032\031goo" +
       "gle/protobuf/any.proto\032\026google/type/date" +
-      ".proto\032\023furo/property.proto\"m\n\020Experimen" +
-      "tEntity\022$\n\004data\030\001 \001(\0132\026.experiment.Exper" +
-      "iment\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta" +
-      "\030\003 \001(\0132\n.furo.Meta\"\205\005\n\nExperiment\022\023\n\013des" +
-      "cription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n\023" +
-      "furo_data_bool_icon\030\016 \001(\010\022 \n\030furo_data_c" +
-      "heckbox_input\030\004 \001(\010\022\035\n\025furo_data_color_i" +
-      "nput\030\n \001(\t\022\034\n\024furo_data_date_input\030\r \001(\t" +
-      "\0226\n\033furo_data_date_input_google\030\022 \001(\0132\021." +
-      "google.type.Date\022\036\n\026furo_data_number_inp" +
-      "ut\030\t \001(\002\022 \n\030furo_data_password_input\030\013 \001" +
-      "(\t\022\035\n\025furo_data_range_input\030\010 \001(\t\022\036\n\026fur" +
-      "o_data_search_input\030\014 \001(\t\022\034\n\024furo_data_t" +
-      "ext_input\030\005 \001(\t\022 \n\030furo_data_textarea_in" +
-      "put\030\006 \001(\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022" +
-      "\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024single" +
-      "_type_property\030\023 \001(\0132\016.furo.Property\022*\n\014" +
-      "the_any_type\030\017 \001(\0132\024.google.protobuf.Any" +
-      "\022%\n\rtype_property\030\021 \003(\0132\016.furo.Property\022" +
-      "\031\n\021type_with_options\030\020 \001(\t\"S\n\007Default\022\023\n" +
-      "\013description\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t" +
-      "\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"W\n\tRecur" +
-      "sive\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(" +
-      "\n\trecursion\030\003 \001(\0132\025.experiment.Recursive" +
-      "\"{\n\024ExperimentCollection\022.\n\010entities\030\004 \003" +
-      "(\0132\034.experiment.ExperimentEntity\022\031\n\005link" +
-      "s\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo" +
-      ".Metab\006proto3"
+      ".proto\032\027google/type/money.proto\032\023furo/pr" +
+      "operty.proto\"m\n\020ExperimentEntity\022$\n\004data" +
+      "\030\001 \001(\0132\026.experiment.Experiment\022\031\n\005links\030" +
+      "\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.M" +
+      "eta\"\270\005\n\nExperiment\022\023\n\013description\030\003 \001(\t\022" +
+      "\024\n\014display_name\030\002 \001(\t\022\033\n\023furo_data_bool_" +
+      "icon\030\016 \001(\010\022 \n\030furo_data_checkbox_input\030\004" +
+      " \001(\010\022\035\n\025furo_data_color_input\030\n \001(\t\022\034\n\024f" +
+      "uro_data_date_input\030\r \001(\t\0226\n\033furo_data_d" +
+      "ate_input_google\030\022 \001(\0132\021.google.type.Dat" +
+      "e\0221\n\025furo_data_money_input\030\025 \001(\0132\022.googl" +
+      "e.type.Money\022\036\n\026furo_data_number_input\030\t" +
+      " \001(\002\022 \n\030furo_data_password_input\030\013 \001(\t\022\035" +
+      "\n\025furo_data_range_input\030\010 \001(\t\022\036\n\026furo_da" +
+      "ta_search_input\030\014 \001(\t\022\034\n\024furo_data_text_" +
+      "input\030\005 \001(\t\022 \n\030furo_data_textarea_input\030" +
+      "\006 \001(\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022\n\n\002i" +
+      "d\030\001 \001(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024single_typ" +
+      "e_property\030\023 \001(\0132\016.furo.Property\022*\n\014the_" +
+      "any_type\030\017 \001(\0132\024.google.protobuf.Any\022%\n\r" +
+      "type_property\030\021 \003(\0132\016.furo.Property\022\031\n\021t" +
+      "ype_with_options\030\020 \001(\t\"S\n\007Default\022\023\n\013des" +
+      "cription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\n\n\002" +
+      "id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"W\n\tRecursive" +
+      "\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\tre" +
+      "cursion\030\003 \001(\0132\025.experiment.Recursive\"{\n\024" +
+      "ExperimentCollection\022.\n\010entities\030\004 \003(\0132\034" +
+      ".experiment.ExperimentEntity\022\031\n\005links\030\003 " +
+      "\003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Met" +
+      "ab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -9614,6 +9870,7 @@ public final class ExperimentOuterClass {
           furo.LinkOuterClass.getDescriptor(),
           google.protobuf.AnyOuterClass.getDescriptor(),
           google.type.DateOuterClass.getDescriptor(),
+          google.type.MoneyOuterClass.getDescriptor(),
           furo.PropertyOuterClass.getDescriptor(),
         }, assigner);
     internal_static_experiment_ExperimentEntity_descriptor =
@@ -9627,7 +9884,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Experiment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Experiment_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataDateInputGoogle", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "Repstring", "SingleTypeProperty", "TheAnyType", "TypeProperty", "TypeWithOptions", });
+        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataDateInputGoogle", "FuroDataMoneyInput", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "Repstring", "SingleTypeProperty", "TheAnyType", "TypeProperty", "TypeWithOptions", });
     internal_static_experiment_Default_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Default_fieldAccessorTable = new
@@ -9650,6 +9907,7 @@ public final class ExperimentOuterClass {
     furo.LinkOuterClass.getDescriptor();
     google.protobuf.AnyOuterClass.getDescriptor();
     google.type.DateOuterClass.getDescriptor();
+    google.type.MoneyOuterClass.getDescriptor();
     furo.PropertyOuterClass.getDescriptor();
   }
 

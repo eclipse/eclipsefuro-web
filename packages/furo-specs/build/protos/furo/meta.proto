@@ -4,15 +4,36 @@ syntax = "proto3";
 package furo;
 
 
+import "google/protobuf/any.proto";
 
 
 // fields of meta info
 message MetaField {                
-    // constrain of a field
+    // constraints for a field
     map<string,FieldConstraint> constraints = 2;
     
     // meta information of a field
-    map<string,string> meta = 1;
+    map<string,FieldMeta> meta = 1;
+
+}
+
+// Items for fieldoption.list
+message Optionitem {                    
+    // String representation
+    string display_name = 2;
+    
+    // Id
+    string id = 1;
+    
+    // is the item selected
+    bool selected = 3;
+
+}
+
+// Metas for a field
+message Fieldoption {            
+    // a list with options, use furo.optionitem or your own
+    repeated google.protobuf.Any list = 1;
 
 }
 
@@ -23,9 +44,34 @@ message Meta {
 
 }
 
-// constrains of fields
-message FieldConstraint {            
-    // constrain of a field
-    map<string,string> constraint = 1;
+// Metas for a field
+message FieldMeta {                                
+    // The default value
+    string default = 3;
+    
+    // A hint
+    string hint = 2;
+    
+    // The label
+    string label = 1;
+    
+    // Fieldoptions
+    Fieldoption options = 6;
+    
+    // readonly
+    bool readonly = 4;
+    
+    // repeated
+    bool repeated = 5;
+
+}
+
+// a single fieldconstraint
+message FieldConstraint {                
+    // the constraint value as string, even it is a number
+    string is = 1;
+    
+    // The message to display on constraint violation
+    string message = 2;
 
 }

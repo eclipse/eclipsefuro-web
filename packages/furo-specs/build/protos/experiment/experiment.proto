@@ -8,6 +8,7 @@ import "furo/meta.proto";
 import "furo/link.proto";
 import "google/protobuf/any.proto";
 import "google/type/date.proto";
+import "google/type/money.proto";
 import "furo/property.proto";
 
 
@@ -25,7 +26,7 @@ message ExperimentEntity {
 }
 
 // experiment spec for testing
-message Experiment {                                                                                        
+message Experiment {                                                                                            
     // Short experiment description
     string description = 3;
     
@@ -46,6 +47,9 @@ message Experiment {
     
     // field for furo-data-date-input for testing
     google.type.Date furo_data_date_input_google = 18;
+    
+    // field for testing money type
+    google.type.Money furo_data_money_input = 21;
     
     // field for furo-data-number-input for testing
     float furo_data_number_input = 9;

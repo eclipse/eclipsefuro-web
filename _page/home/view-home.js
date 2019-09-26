@@ -161,7 +161,7 @@ class ViewHome extends FBP(LitElement) {
             <div class="content">
                 <p class="hero-title">フロー</p>
                 <p class="hero-caption">Version 0.xx.xx</p>
-                <p class="hero-caption">An enterprise grade and simple framework for creating fast, lightweight web apps
+                <p class="hero-caption">An enterprise grade framework for creating fast, lightweight web apps
                     with web components</p>
                 <a class="hero-link" href="/guide/md/overview/">Get Started</a>
 

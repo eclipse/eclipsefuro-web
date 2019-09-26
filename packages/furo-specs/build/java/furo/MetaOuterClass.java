@@ -20,7 +20,7 @@ public final class MetaOuterClass {
 
     /**
      * <pre>
-     * constrain of a field
+     * constraints for a field
      * </pre>
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -28,7 +28,7 @@ public final class MetaOuterClass {
     int getConstraintsCount();
     /**
      * <pre>
-     * constrain of a field
+     * constraints for a field
      * </pre>
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -43,7 +43,7 @@ public final class MetaOuterClass {
     getConstraints();
     /**
      * <pre>
-     * constrain of a field
+     * constraints for a field
      * </pre>
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -52,7 +52,7 @@ public final class MetaOuterClass {
     getConstraintsMap();
     /**
      * <pre>
-     * constrain of a field
+     * constraints for a field
      * </pre>
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -63,7 +63,7 @@ public final class MetaOuterClass {
         furo.MetaOuterClass.FieldConstraint defaultValue);
     /**
      * <pre>
-     * constrain of a field
+     * constraints for a field
      * </pre>
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -77,7 +77,7 @@ public final class MetaOuterClass {
      * meta information of a field
      * </pre>
      *
-     * <code>map&lt;string, string&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
      */
     int getMetaCount();
     /**
@@ -85,7 +85,7 @@ public final class MetaOuterClass {
      * meta information of a field
      * </pre>
      *
-     * <code>map&lt;string, string&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
      */
     boolean containsMeta(
         java.lang.String key);
@@ -93,37 +93,37 @@ public final class MetaOuterClass {
      * Use {@link #getMetaMap()} instead.
      */
     @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
+    java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta>
     getMeta();
     /**
      * <pre>
      * meta information of a field
      * </pre>
      *
-     * <code>map&lt;string, string&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
      */
-    java.util.Map<java.lang.String, java.lang.String>
+    java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta>
     getMetaMap();
     /**
      * <pre>
      * meta information of a field
      * </pre>
      *
-     * <code>map&lt;string, string&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
      */
 
-    java.lang.String getMetaOrDefault(
+    furo.MetaOuterClass.FieldMeta getMetaOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        furo.MetaOuterClass.FieldMeta defaultValue);
     /**
      * <pre>
      * meta information of a field
      * </pre>
      *
-     * <code>map&lt;string, string&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
      */
 
-    java.lang.String getMetaOrThrow(
+    furo.MetaOuterClass.FieldMeta getMetaOrThrow(
         java.lang.String key);
   }
   /**
@@ -175,7 +175,7 @@ public final class MetaOuterClass {
                     MetaDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000002;
               }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              com.google.protobuf.MapEntry<java.lang.String, furo.MetaOuterClass.FieldMeta>
               meta__ = input.readMessage(
                   MetaDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               meta_.getMutableMap().put(
@@ -269,7 +269,7 @@ public final class MetaOuterClass {
     }
     /**
      * <pre>
-     * constrain of a field
+     * constraints for a field
      * </pre>
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -289,7 +289,7 @@ public final class MetaOuterClass {
     }
     /**
      * <pre>
-     * constrain of a field
+     * constraints for a field
      * </pre>
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -300,7 +300,7 @@ public final class MetaOuterClass {
     }
     /**
      * <pre>
-     * constrain of a field
+     * constraints for a field
      * </pre>
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -316,7 +316,7 @@ public final class MetaOuterClass {
     }
     /**
      * <pre>
-     * constrain of a field
+     * constraints for a field
      * </pre>
      *
      * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -336,18 +336,18 @@ public final class MetaOuterClass {
     public static final int META_FIELD_NUMBER = 1;
     private static final class MetaDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
+          java.lang.String, furo.MetaOuterClass.FieldMeta> defaultEntry =
               com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
+              .<java.lang.String, furo.MetaOuterClass.FieldMeta>newDefaultInstance(
                   furo.MetaOuterClass.internal_static_furo_MetaField_MetaEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  furo.MetaOuterClass.FieldMeta.getDefaultInstance());
     }
     private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> meta_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        java.lang.String, furo.MetaOuterClass.FieldMeta> meta_;
+    private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.FieldMeta>
     internalGetMeta() {
       if (meta_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -364,7 +364,7 @@ public final class MetaOuterClass {
      * meta information of a field
      * </pre>
      *
-     * <code>map&lt;string, string&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
      */
 
     public boolean containsMeta(
@@ -376,7 +376,7 @@ public final class MetaOuterClass {
      * Use {@link #getMetaMap()} instead.
      */
     @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getMeta() {
+    public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta> getMeta() {
       return getMetaMap();
     }
     /**
@@ -384,10 +384,10 @@ public final class MetaOuterClass {
      * meta information of a field
      * </pre>
      *
-     * <code>map&lt;string, string&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
      */
 
-    public java.util.Map<java.lang.String, java.lang.String> getMetaMap() {
+    public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta> getMetaMap() {
       return internalGetMeta().getMap();
     }
     /**
@@ -395,14 +395,14 @@ public final class MetaOuterClass {
      * meta information of a field
      * </pre>
      *
-     * <code>map&lt;string, string&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
      */
 
-    public java.lang.String getMetaOrDefault(
+    public furo.MetaOuterClass.FieldMeta getMetaOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        furo.MetaOuterClass.FieldMeta defaultValue) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
+      java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta> map =
           internalGetMeta().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -411,13 +411,13 @@ public final class MetaOuterClass {
      * meta information of a field
      * </pre>
      *
-     * <code>map&lt;string, string&gt; meta = 1;</code>
+     * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
      */
 
-    public java.lang.String getMetaOrThrow(
+    public furo.MetaOuterClass.FieldMeta getMetaOrThrow(
         java.lang.String key) {
       if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
+      java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta> map =
           internalGetMeta().getMap();
       if (!map.containsKey(key)) {
         throw new java.lang.IllegalArgumentException();
@@ -460,9 +460,9 @@ public final class MetaOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+      for (java.util.Map.Entry<java.lang.String, furo.MetaOuterClass.FieldMeta> entry
            : internalGetMeta().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        com.google.protobuf.MapEntry<java.lang.String, furo.MetaOuterClass.FieldMeta>
         meta__ = MetaDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -824,7 +824,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * constrain of a field
+       * constraints for a field
        * </pre>
        *
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -844,7 +844,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * constrain of a field
+       * constraints for a field
        * </pre>
        *
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -855,7 +855,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * constrain of a field
+       * constraints for a field
        * </pre>
        *
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -871,7 +871,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * constrain of a field
+       * constraints for a field
        * </pre>
        *
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -895,7 +895,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * constrain of a field
+       * constraints for a field
        * </pre>
        *
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -918,7 +918,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * constrain of a field
+       * constraints for a field
        * </pre>
        *
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -934,7 +934,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * constrain of a field
+       * constraints for a field
        * </pre>
        *
        * <code>map&lt;string, .furo.FieldConstraint&gt; constraints = 2;</code>
@@ -948,8 +948,8 @@ public final class MetaOuterClass {
       }
 
       private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> meta_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+          java.lang.String, furo.MetaOuterClass.FieldMeta> meta_;
+      private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.FieldMeta>
       internalGetMeta() {
         if (meta_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -957,7 +957,7 @@ public final class MetaOuterClass {
         }
         return meta_;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      private com.google.protobuf.MapField<java.lang.String, furo.MetaOuterClass.FieldMeta>
       internalGetMutableMeta() {
         onChanged();;
         if (meta_ == null) {
@@ -978,7 +978,7 @@ public final class MetaOuterClass {
        * meta information of a field
        * </pre>
        *
-       * <code>map&lt;string, string&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
        */
 
       public boolean containsMeta(
@@ -990,7 +990,7 @@ public final class MetaOuterClass {
        * Use {@link #getMetaMap()} instead.
        */
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getMeta() {
+      public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta> getMeta() {
         return getMetaMap();
       }
       /**
@@ -998,10 +998,10 @@ public final class MetaOuterClass {
        * meta information of a field
        * </pre>
        *
-       * <code>map&lt;string, string&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
        */
 
-      public java.util.Map<java.lang.String, java.lang.String> getMetaMap() {
+      public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta> getMetaMap() {
         return internalGetMeta().getMap();
       }
       /**
@@ -1009,14 +1009,14 @@ public final class MetaOuterClass {
        * meta information of a field
        * </pre>
        *
-       * <code>map&lt;string, string&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
        */
 
-      public java.lang.String getMetaOrDefault(
+      public furo.MetaOuterClass.FieldMeta getMetaOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          furo.MetaOuterClass.FieldMeta defaultValue) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
+        java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta> map =
             internalGetMeta().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
@@ -1025,13 +1025,13 @@ public final class MetaOuterClass {
        * meta information of a field
        * </pre>
        *
-       * <code>map&lt;string, string&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
        */
 
-      public java.lang.String getMetaOrThrow(
+      public furo.MetaOuterClass.FieldMeta getMetaOrThrow(
           java.lang.String key) {
         if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
+        java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta> map =
             internalGetMeta().getMap();
         if (!map.containsKey(key)) {
           throw new java.lang.IllegalArgumentException();
@@ -1049,7 +1049,7 @@ public final class MetaOuterClass {
        * meta information of a field
        * </pre>
        *
-       * <code>map&lt;string, string&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
        */
 
       public Builder removeMeta(
@@ -1063,7 +1063,7 @@ public final class MetaOuterClass {
        * Use alternate mutation accessors instead.
        */
       @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
+      public java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta>
       getMutableMeta() {
         return internalGetMutableMeta().getMutableMap();
       }
@@ -1072,11 +1072,11 @@ public final class MetaOuterClass {
        * meta information of a field
        * </pre>
        *
-       * <code>map&lt;string, string&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
        */
       public Builder putMeta(
           java.lang.String key,
-          java.lang.String value) {
+          furo.MetaOuterClass.FieldMeta value) {
         if (key == null) { throw new java.lang.NullPointerException(); }
         if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableMeta().getMutableMap()
@@ -1088,11 +1088,11 @@ public final class MetaOuterClass {
        * meta information of a field
        * </pre>
        *
-       * <code>map&lt;string, string&gt; meta = 1;</code>
+       * <code>map&lt;string, .furo.FieldMeta&gt; meta = 1;</code>
        */
 
       public Builder putAllMeta(
-          java.util.Map<java.lang.String, java.lang.String> values) {
+          java.util.Map<java.lang.String, furo.MetaOuterClass.FieldMeta> values) {
         internalGetMutableMeta().getMutableMap()
             .putAll(values);
         return this;
@@ -1145,6 +1145,1756 @@ public final class MetaOuterClass {
 
     @java.lang.Override
     public furo.MetaOuterClass.MetaField getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface OptionitemOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.Optionitem)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * String representation
+     * </pre>
+     *
+     * <code>string display_name = 2;</code>
+     */
+    java.lang.String getDisplayName();
+    /**
+     * <pre>
+     * String representation
+     * </pre>
+     *
+     * <code>string display_name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getDisplayNameBytes();
+
+    /**
+     * <pre>
+     * Id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <pre>
+     * Id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <pre>
+     * is the item selected
+     * </pre>
+     *
+     * <code>bool selected = 3;</code>
+     */
+    boolean getSelected();
+  }
+  /**
+   * <pre>
+   * Items for fieldoption.list
+   * </pre>
+   *
+   * Protobuf type {@code furo.Optionitem}
+   */
+  public  static final class Optionitem extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:furo.Optionitem)
+      OptionitemOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Optionitem.newBuilder() to construct.
+    private Optionitem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Optionitem() {
+      displayName_ = "";
+      id_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Optionitem(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              displayName_ = s;
+              break;
+            }
+            case 24: {
+
+              selected_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return furo.MetaOuterClass.internal_static_furo_Optionitem_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return furo.MetaOuterClass.internal_static_furo_Optionitem_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              furo.MetaOuterClass.Optionitem.class, furo.MetaOuterClass.Optionitem.Builder.class);
+    }
+
+    public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object displayName_;
+    /**
+     * <pre>
+     * String representation
+     * </pre>
+     *
+     * <code>string display_name = 2;</code>
+     */
+    public java.lang.String getDisplayName() {
+      java.lang.Object ref = displayName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        displayName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * String representation
+     * </pre>
+     *
+     * <code>string display_name = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDisplayNameBytes() {
+      java.lang.Object ref = displayName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        displayName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <pre>
+     * Id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SELECTED_FIELD_NUMBER = 3;
+    private boolean selected_;
+    /**
+     * <pre>
+     * is the item selected
+     * </pre>
+     *
+     * <code>bool selected = 3;</code>
+     */
+    public boolean getSelected() {
+      return selected_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (!getDisplayNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, displayName_);
+      }
+      if (selected_ != false) {
+        output.writeBool(3, selected_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (!getDisplayNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, displayName_);
+      }
+      if (selected_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, selected_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof furo.MetaOuterClass.Optionitem)) {
+        return super.equals(obj);
+      }
+      furo.MetaOuterClass.Optionitem other = (furo.MetaOuterClass.Optionitem) obj;
+
+      if (!getDisplayName()
+          .equals(other.getDisplayName())) return false;
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (getSelected()
+          != other.getSelected()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getDisplayName().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + SELECTED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSelected());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static furo.MetaOuterClass.Optionitem parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.MetaOuterClass.Optionitem parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.Optionitem parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.MetaOuterClass.Optionitem parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.Optionitem parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.MetaOuterClass.Optionitem parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.Optionitem parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.MetaOuterClass.Optionitem parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.Optionitem parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static furo.MetaOuterClass.Optionitem parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.Optionitem parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.MetaOuterClass.Optionitem parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(furo.MetaOuterClass.Optionitem prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Items for fieldoption.list
+     * </pre>
+     *
+     * Protobuf type {@code furo.Optionitem}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:furo.Optionitem)
+        furo.MetaOuterClass.OptionitemOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return furo.MetaOuterClass.internal_static_furo_Optionitem_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return furo.MetaOuterClass.internal_static_furo_Optionitem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                furo.MetaOuterClass.Optionitem.class, furo.MetaOuterClass.Optionitem.Builder.class);
+      }
+
+      // Construct using furo.MetaOuterClass.Optionitem.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        displayName_ = "";
+
+        id_ = "";
+
+        selected_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return furo.MetaOuterClass.internal_static_furo_Optionitem_descriptor;
+      }
+
+      @java.lang.Override
+      public furo.MetaOuterClass.Optionitem getDefaultInstanceForType() {
+        return furo.MetaOuterClass.Optionitem.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public furo.MetaOuterClass.Optionitem build() {
+        furo.MetaOuterClass.Optionitem result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public furo.MetaOuterClass.Optionitem buildPartial() {
+        furo.MetaOuterClass.Optionitem result = new furo.MetaOuterClass.Optionitem(this);
+        result.displayName_ = displayName_;
+        result.id_ = id_;
+        result.selected_ = selected_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof furo.MetaOuterClass.Optionitem) {
+          return mergeFrom((furo.MetaOuterClass.Optionitem)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(furo.MetaOuterClass.Optionitem other) {
+        if (other == furo.MetaOuterClass.Optionitem.getDefaultInstance()) return this;
+        if (!other.getDisplayName().isEmpty()) {
+          displayName_ = other.displayName_;
+          onChanged();
+        }
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (other.getSelected() != false) {
+          setSelected(other.getSelected());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        furo.MetaOuterClass.Optionitem parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (furo.MetaOuterClass.Optionitem) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object displayName_ = "";
+      /**
+       * <pre>
+       * String representation
+       * </pre>
+       *
+       * <code>string display_name = 2;</code>
+       */
+      public java.lang.String getDisplayName() {
+        java.lang.Object ref = displayName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          displayName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * String representation
+       * </pre>
+       *
+       * <code>string display_name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDisplayNameBytes() {
+        java.lang.Object ref = displayName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          displayName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * String representation
+       * </pre>
+       *
+       * <code>string display_name = 2;</code>
+       */
+      public Builder setDisplayName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        displayName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * String representation
+       * </pre>
+       *
+       * <code>string display_name = 2;</code>
+       */
+      public Builder clearDisplayName() {
+        
+        displayName_ = getDefaultInstance().getDisplayName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * String representation
+       * </pre>
+       *
+       * <code>string display_name = 2;</code>
+       */
+      public Builder setDisplayNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        displayName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <pre>
+       * Id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean selected_ ;
+      /**
+       * <pre>
+       * is the item selected
+       * </pre>
+       *
+       * <code>bool selected = 3;</code>
+       */
+      public boolean getSelected() {
+        return selected_;
+      }
+      /**
+       * <pre>
+       * is the item selected
+       * </pre>
+       *
+       * <code>bool selected = 3;</code>
+       */
+      public Builder setSelected(boolean value) {
+        
+        selected_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * is the item selected
+       * </pre>
+       *
+       * <code>bool selected = 3;</code>
+       */
+      public Builder clearSelected() {
+        
+        selected_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:furo.Optionitem)
+    }
+
+    // @@protoc_insertion_point(class_scope:furo.Optionitem)
+    private static final furo.MetaOuterClass.Optionitem DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new furo.MetaOuterClass.Optionitem();
+    }
+
+    public static furo.MetaOuterClass.Optionitem getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Optionitem>
+        PARSER = new com.google.protobuf.AbstractParser<Optionitem>() {
+      @java.lang.Override
+      public Optionitem parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Optionitem(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Optionitem> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Optionitem> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public furo.MetaOuterClass.Optionitem getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FieldoptionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.Fieldoption)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * a list with options, use furo.optionitem or your own
+     * </pre>
+     *
+     * <code>repeated .google.protobuf.Any list = 1;</code>
+     */
+    java.util.List<google.protobuf.AnyOuterClass.Any> 
+        getListList();
+    /**
+     * <pre>
+     * a list with options, use furo.optionitem or your own
+     * </pre>
+     *
+     * <code>repeated .google.protobuf.Any list = 1;</code>
+     */
+    google.protobuf.AnyOuterClass.Any getList(int index);
+    /**
+     * <pre>
+     * a list with options, use furo.optionitem or your own
+     * </pre>
+     *
+     * <code>repeated .google.protobuf.Any list = 1;</code>
+     */
+    int getListCount();
+    /**
+     * <pre>
+     * a list with options, use furo.optionitem or your own
+     * </pre>
+     *
+     * <code>repeated .google.protobuf.Any list = 1;</code>
+     */
+    java.util.List<? extends google.protobuf.AnyOuterClass.AnyOrBuilder> 
+        getListOrBuilderList();
+    /**
+     * <pre>
+     * a list with options, use furo.optionitem or your own
+     * </pre>
+     *
+     * <code>repeated .google.protobuf.Any list = 1;</code>
+     */
+    google.protobuf.AnyOuterClass.AnyOrBuilder getListOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * Metas for a field
+   * </pre>
+   *
+   * Protobuf type {@code furo.Fieldoption}
+   */
+  public  static final class Fieldoption extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:furo.Fieldoption)
+      FieldoptionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Fieldoption.newBuilder() to construct.
+    private Fieldoption(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Fieldoption() {
+      list_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Fieldoption(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                list_ = new java.util.ArrayList<google.protobuf.AnyOuterClass.Any>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              list_.add(
+                  input.readMessage(google.protobuf.AnyOuterClass.Any.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          list_ = java.util.Collections.unmodifiableList(list_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return furo.MetaOuterClass.internal_static_furo_Fieldoption_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return furo.MetaOuterClass.internal_static_furo_Fieldoption_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              furo.MetaOuterClass.Fieldoption.class, furo.MetaOuterClass.Fieldoption.Builder.class);
+    }
+
+    public static final int LIST_FIELD_NUMBER = 1;
+    private java.util.List<google.protobuf.AnyOuterClass.Any> list_;
+    /**
+     * <pre>
+     * a list with options, use furo.optionitem or your own
+     * </pre>
+     *
+     * <code>repeated .google.protobuf.Any list = 1;</code>
+     */
+    public java.util.List<google.protobuf.AnyOuterClass.Any> getListList() {
+      return list_;
+    }
+    /**
+     * <pre>
+     * a list with options, use furo.optionitem or your own
+     * </pre>
+     *
+     * <code>repeated .google.protobuf.Any list = 1;</code>
+     */
+    public java.util.List<? extends google.protobuf.AnyOuterClass.AnyOrBuilder> 
+        getListOrBuilderList() {
+      return list_;
+    }
+    /**
+     * <pre>
+     * a list with options, use furo.optionitem or your own
+     * </pre>
+     *
+     * <code>repeated .google.protobuf.Any list = 1;</code>
+     */
+    public int getListCount() {
+      return list_.size();
+    }
+    /**
+     * <pre>
+     * a list with options, use furo.optionitem or your own
+     * </pre>
+     *
+     * <code>repeated .google.protobuf.Any list = 1;</code>
+     */
+    public google.protobuf.AnyOuterClass.Any getList(int index) {
+      return list_.get(index);
+    }
+    /**
+     * <pre>
+     * a list with options, use furo.optionitem or your own
+     * </pre>
+     *
+     * <code>repeated .google.protobuf.Any list = 1;</code>
+     */
+    public google.protobuf.AnyOuterClass.AnyOrBuilder getListOrBuilder(
+        int index) {
+      return list_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < list_.size(); i++) {
+        output.writeMessage(1, list_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < list_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, list_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof furo.MetaOuterClass.Fieldoption)) {
+        return super.equals(obj);
+      }
+      furo.MetaOuterClass.Fieldoption other = (furo.MetaOuterClass.Fieldoption) obj;
+
+      if (!getListList()
+          .equals(other.getListList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getListCount() > 0) {
+        hash = (37 * hash) + LIST_FIELD_NUMBER;
+        hash = (53 * hash) + getListList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static furo.MetaOuterClass.Fieldoption parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.MetaOuterClass.Fieldoption parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(furo.MetaOuterClass.Fieldoption prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Metas for a field
+     * </pre>
+     *
+     * Protobuf type {@code furo.Fieldoption}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:furo.Fieldoption)
+        furo.MetaOuterClass.FieldoptionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return furo.MetaOuterClass.internal_static_furo_Fieldoption_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return furo.MetaOuterClass.internal_static_furo_Fieldoption_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                furo.MetaOuterClass.Fieldoption.class, furo.MetaOuterClass.Fieldoption.Builder.class);
+      }
+
+      // Construct using furo.MetaOuterClass.Fieldoption.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getListFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (listBuilder_ == null) {
+          list_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          listBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return furo.MetaOuterClass.internal_static_furo_Fieldoption_descriptor;
+      }
+
+      @java.lang.Override
+      public furo.MetaOuterClass.Fieldoption getDefaultInstanceForType() {
+        return furo.MetaOuterClass.Fieldoption.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public furo.MetaOuterClass.Fieldoption build() {
+        furo.MetaOuterClass.Fieldoption result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public furo.MetaOuterClass.Fieldoption buildPartial() {
+        furo.MetaOuterClass.Fieldoption result = new furo.MetaOuterClass.Fieldoption(this);
+        int from_bitField0_ = bitField0_;
+        if (listBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            list_ = java.util.Collections.unmodifiableList(list_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.list_ = list_;
+        } else {
+          result.list_ = listBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof furo.MetaOuterClass.Fieldoption) {
+          return mergeFrom((furo.MetaOuterClass.Fieldoption)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(furo.MetaOuterClass.Fieldoption other) {
+        if (other == furo.MetaOuterClass.Fieldoption.getDefaultInstance()) return this;
+        if (listBuilder_ == null) {
+          if (!other.list_.isEmpty()) {
+            if (list_.isEmpty()) {
+              list_ = other.list_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureListIsMutable();
+              list_.addAll(other.list_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.list_.isEmpty()) {
+            if (listBuilder_.isEmpty()) {
+              listBuilder_.dispose();
+              listBuilder_ = null;
+              list_ = other.list_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              listBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getListFieldBuilder() : null;
+            } else {
+              listBuilder_.addAllMessages(other.list_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        furo.MetaOuterClass.Fieldoption parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (furo.MetaOuterClass.Fieldoption) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<google.protobuf.AnyOuterClass.Any> list_ =
+        java.util.Collections.emptyList();
+      private void ensureListIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          list_ = new java.util.ArrayList<google.protobuf.AnyOuterClass.Any>(list_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          google.protobuf.AnyOuterClass.Any, google.protobuf.AnyOuterClass.Any.Builder, google.protobuf.AnyOuterClass.AnyOrBuilder> listBuilder_;
+
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public java.util.List<google.protobuf.AnyOuterClass.Any> getListList() {
+        if (listBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(list_);
+        } else {
+          return listBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public int getListCount() {
+        if (listBuilder_ == null) {
+          return list_.size();
+        } else {
+          return listBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public google.protobuf.AnyOuterClass.Any getList(int index) {
+        if (listBuilder_ == null) {
+          return list_.get(index);
+        } else {
+          return listBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public Builder setList(
+          int index, google.protobuf.AnyOuterClass.Any value) {
+        if (listBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListIsMutable();
+          list_.set(index, value);
+          onChanged();
+        } else {
+          listBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public Builder setList(
+          int index, google.protobuf.AnyOuterClass.Any.Builder builderForValue) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          listBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public Builder addList(google.protobuf.AnyOuterClass.Any value) {
+        if (listBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListIsMutable();
+          list_.add(value);
+          onChanged();
+        } else {
+          listBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public Builder addList(
+          int index, google.protobuf.AnyOuterClass.Any value) {
+        if (listBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListIsMutable();
+          list_.add(index, value);
+          onChanged();
+        } else {
+          listBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public Builder addList(
+          google.protobuf.AnyOuterClass.Any.Builder builderForValue) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.add(builderForValue.build());
+          onChanged();
+        } else {
+          listBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public Builder addList(
+          int index, google.protobuf.AnyOuterClass.Any.Builder builderForValue) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          listBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public Builder addAllList(
+          java.lang.Iterable<? extends google.protobuf.AnyOuterClass.Any> values) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, list_);
+          onChanged();
+        } else {
+          listBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public Builder clearList() {
+        if (listBuilder_ == null) {
+          list_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          listBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public Builder removeList(int index) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.remove(index);
+          onChanged();
+        } else {
+          listBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public google.protobuf.AnyOuterClass.Any.Builder getListBuilder(
+          int index) {
+        return getListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public google.protobuf.AnyOuterClass.AnyOrBuilder getListOrBuilder(
+          int index) {
+        if (listBuilder_ == null) {
+          return list_.get(index);  } else {
+          return listBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public java.util.List<? extends google.protobuf.AnyOuterClass.AnyOrBuilder> 
+           getListOrBuilderList() {
+        if (listBuilder_ != null) {
+          return listBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(list_);
+        }
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public google.protobuf.AnyOuterClass.Any.Builder addListBuilder() {
+        return getListFieldBuilder().addBuilder(
+            google.protobuf.AnyOuterClass.Any.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public google.protobuf.AnyOuterClass.Any.Builder addListBuilder(
+          int index) {
+        return getListFieldBuilder().addBuilder(
+            index, google.protobuf.AnyOuterClass.Any.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * a list with options, use furo.optionitem or your own
+       * </pre>
+       *
+       * <code>repeated .google.protobuf.Any list = 1;</code>
+       */
+      public java.util.List<google.protobuf.AnyOuterClass.Any.Builder> 
+           getListBuilderList() {
+        return getListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          google.protobuf.AnyOuterClass.Any, google.protobuf.AnyOuterClass.Any.Builder, google.protobuf.AnyOuterClass.AnyOrBuilder> 
+          getListFieldBuilder() {
+        if (listBuilder_ == null) {
+          listBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              google.protobuf.AnyOuterClass.Any, google.protobuf.AnyOuterClass.Any.Builder, google.protobuf.AnyOuterClass.AnyOrBuilder>(
+                  list_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          list_ = null;
+        }
+        return listBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:furo.Fieldoption)
+    }
+
+    // @@protoc_insertion_point(class_scope:furo.Fieldoption)
+    private static final furo.MetaOuterClass.Fieldoption DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new furo.MetaOuterClass.Fieldoption();
+    }
+
+    public static furo.MetaOuterClass.Fieldoption getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Fieldoption>
+        PARSER = new com.google.protobuf.AbstractParser<Fieldoption>() {
+      @java.lang.Override
+      public Fieldoption parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Fieldoption(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Fieldoption> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Fieldoption> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public furo.MetaOuterClass.Fieldoption getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1943,67 +3693,1408 @@ public final class MetaOuterClass {
 
   }
 
+  public interface FieldMetaOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:furo.FieldMeta)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The default value
+     * </pre>
+     *
+     * <code>string default = 3;</code>
+     */
+    java.lang.String getDefault();
+    /**
+     * <pre>
+     * The default value
+     * </pre>
+     *
+     * <code>string default = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getDefaultBytes();
+
+    /**
+     * <pre>
+     * A hint
+     * </pre>
+     *
+     * <code>string hint = 2;</code>
+     */
+    java.lang.String getHint();
+    /**
+     * <pre>
+     * A hint
+     * </pre>
+     *
+     * <code>string hint = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getHintBytes();
+
+    /**
+     * <pre>
+     * The label
+     * </pre>
+     *
+     * <code>string label = 1;</code>
+     */
+    java.lang.String getLabel();
+    /**
+     * <pre>
+     * The label
+     * </pre>
+     *
+     * <code>string label = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getLabelBytes();
+
+    /**
+     * <pre>
+     * Fieldoptions
+     * </pre>
+     *
+     * <code>.furo.Fieldoption options = 6;</code>
+     */
+    boolean hasOptions();
+    /**
+     * <pre>
+     * Fieldoptions
+     * </pre>
+     *
+     * <code>.furo.Fieldoption options = 6;</code>
+     */
+    furo.MetaOuterClass.Fieldoption getOptions();
+    /**
+     * <pre>
+     * Fieldoptions
+     * </pre>
+     *
+     * <code>.furo.Fieldoption options = 6;</code>
+     */
+    furo.MetaOuterClass.FieldoptionOrBuilder getOptionsOrBuilder();
+
+    /**
+     * <pre>
+     * readonly
+     * </pre>
+     *
+     * <code>bool readonly = 4;</code>
+     */
+    boolean getReadonly();
+
+    /**
+     * <pre>
+     * repeated
+     * </pre>
+     *
+     * <code>bool repeated = 5;</code>
+     */
+    boolean getRepeated();
+  }
+  /**
+   * <pre>
+   * Metas for a field
+   * </pre>
+   *
+   * Protobuf type {@code furo.FieldMeta}
+   */
+  public  static final class FieldMeta extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:furo.FieldMeta)
+      FieldMetaOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FieldMeta.newBuilder() to construct.
+    private FieldMeta(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FieldMeta() {
+      default_ = "";
+      hint_ = "";
+      label_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FieldMeta(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              label_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              hint_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              default_ = s;
+              break;
+            }
+            case 32: {
+
+              readonly_ = input.readBool();
+              break;
+            }
+            case 40: {
+
+              repeated_ = input.readBool();
+              break;
+            }
+            case 50: {
+              furo.MetaOuterClass.Fieldoption.Builder subBuilder = null;
+              if (options_ != null) {
+                subBuilder = options_.toBuilder();
+              }
+              options_ = input.readMessage(furo.MetaOuterClass.Fieldoption.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(options_);
+                options_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return furo.MetaOuterClass.internal_static_furo_FieldMeta_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return furo.MetaOuterClass.internal_static_furo_FieldMeta_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              furo.MetaOuterClass.FieldMeta.class, furo.MetaOuterClass.FieldMeta.Builder.class);
+    }
+
+    public static final int DEFAULT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object default_;
+    /**
+     * <pre>
+     * The default value
+     * </pre>
+     *
+     * <code>string default = 3;</code>
+     */
+    public java.lang.String getDefault() {
+      java.lang.Object ref = default_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        default_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The default value
+     * </pre>
+     *
+     * <code>string default = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDefaultBytes() {
+      java.lang.Object ref = default_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        default_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int HINT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object hint_;
+    /**
+     * <pre>
+     * A hint
+     * </pre>
+     *
+     * <code>string hint = 2;</code>
+     */
+    public java.lang.String getHint() {
+      java.lang.Object ref = hint_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hint_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * A hint
+     * </pre>
+     *
+     * <code>string hint = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHintBytes() {
+      java.lang.Object ref = hint_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hint_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LABEL_FIELD_NUMBER = 1;
+    private volatile java.lang.Object label_;
+    /**
+     * <pre>
+     * The label
+     * </pre>
+     *
+     * <code>string label = 1;</code>
+     */
+    public java.lang.String getLabel() {
+      java.lang.Object ref = label_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        label_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The label
+     * </pre>
+     *
+     * <code>string label = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLabelBytes() {
+      java.lang.Object ref = label_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        label_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OPTIONS_FIELD_NUMBER = 6;
+    private furo.MetaOuterClass.Fieldoption options_;
+    /**
+     * <pre>
+     * Fieldoptions
+     * </pre>
+     *
+     * <code>.furo.Fieldoption options = 6;</code>
+     */
+    public boolean hasOptions() {
+      return options_ != null;
+    }
+    /**
+     * <pre>
+     * Fieldoptions
+     * </pre>
+     *
+     * <code>.furo.Fieldoption options = 6;</code>
+     */
+    public furo.MetaOuterClass.Fieldoption getOptions() {
+      return options_ == null ? furo.MetaOuterClass.Fieldoption.getDefaultInstance() : options_;
+    }
+    /**
+     * <pre>
+     * Fieldoptions
+     * </pre>
+     *
+     * <code>.furo.Fieldoption options = 6;</code>
+     */
+    public furo.MetaOuterClass.FieldoptionOrBuilder getOptionsOrBuilder() {
+      return getOptions();
+    }
+
+    public static final int READONLY_FIELD_NUMBER = 4;
+    private boolean readonly_;
+    /**
+     * <pre>
+     * readonly
+     * </pre>
+     *
+     * <code>bool readonly = 4;</code>
+     */
+    public boolean getReadonly() {
+      return readonly_;
+    }
+
+    public static final int REPEATED_FIELD_NUMBER = 5;
+    private boolean repeated_;
+    /**
+     * <pre>
+     * repeated
+     * </pre>
+     *
+     * <code>bool repeated = 5;</code>
+     */
+    public boolean getRepeated() {
+      return repeated_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getLabelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, label_);
+      }
+      if (!getHintBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, hint_);
+      }
+      if (!getDefaultBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, default_);
+      }
+      if (readonly_ != false) {
+        output.writeBool(4, readonly_);
+      }
+      if (repeated_ != false) {
+        output.writeBool(5, repeated_);
+      }
+      if (options_ != null) {
+        output.writeMessage(6, getOptions());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getLabelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, label_);
+      }
+      if (!getHintBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, hint_);
+      }
+      if (!getDefaultBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, default_);
+      }
+      if (readonly_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, readonly_);
+      }
+      if (repeated_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, repeated_);
+      }
+      if (options_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getOptions());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof furo.MetaOuterClass.FieldMeta)) {
+        return super.equals(obj);
+      }
+      furo.MetaOuterClass.FieldMeta other = (furo.MetaOuterClass.FieldMeta) obj;
+
+      if (!getDefault()
+          .equals(other.getDefault())) return false;
+      if (!getHint()
+          .equals(other.getHint())) return false;
+      if (!getLabel()
+          .equals(other.getLabel())) return false;
+      if (hasOptions() != other.hasOptions()) return false;
+      if (hasOptions()) {
+        if (!getOptions()
+            .equals(other.getOptions())) return false;
+      }
+      if (getReadonly()
+          != other.getReadonly()) return false;
+      if (getRepeated()
+          != other.getRepeated()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DEFAULT_FIELD_NUMBER;
+      hash = (53 * hash) + getDefault().hashCode();
+      hash = (37 * hash) + HINT_FIELD_NUMBER;
+      hash = (53 * hash) + getHint().hashCode();
+      hash = (37 * hash) + LABEL_FIELD_NUMBER;
+      hash = (53 * hash) + getLabel().hashCode();
+      if (hasOptions()) {
+        hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getOptions().hashCode();
+      }
+      hash = (37 * hash) + READONLY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getReadonly());
+      hash = (37 * hash) + REPEATED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getRepeated());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static furo.MetaOuterClass.FieldMeta parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static furo.MetaOuterClass.FieldMeta parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(furo.MetaOuterClass.FieldMeta prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Metas for a field
+     * </pre>
+     *
+     * Protobuf type {@code furo.FieldMeta}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:furo.FieldMeta)
+        furo.MetaOuterClass.FieldMetaOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return furo.MetaOuterClass.internal_static_furo_FieldMeta_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return furo.MetaOuterClass.internal_static_furo_FieldMeta_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                furo.MetaOuterClass.FieldMeta.class, furo.MetaOuterClass.FieldMeta.Builder.class);
+      }
+
+      // Construct using furo.MetaOuterClass.FieldMeta.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        default_ = "";
+
+        hint_ = "";
+
+        label_ = "";
+
+        if (optionsBuilder_ == null) {
+          options_ = null;
+        } else {
+          options_ = null;
+          optionsBuilder_ = null;
+        }
+        readonly_ = false;
+
+        repeated_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return furo.MetaOuterClass.internal_static_furo_FieldMeta_descriptor;
+      }
+
+      @java.lang.Override
+      public furo.MetaOuterClass.FieldMeta getDefaultInstanceForType() {
+        return furo.MetaOuterClass.FieldMeta.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public furo.MetaOuterClass.FieldMeta build() {
+        furo.MetaOuterClass.FieldMeta result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public furo.MetaOuterClass.FieldMeta buildPartial() {
+        furo.MetaOuterClass.FieldMeta result = new furo.MetaOuterClass.FieldMeta(this);
+        result.default_ = default_;
+        result.hint_ = hint_;
+        result.label_ = label_;
+        if (optionsBuilder_ == null) {
+          result.options_ = options_;
+        } else {
+          result.options_ = optionsBuilder_.build();
+        }
+        result.readonly_ = readonly_;
+        result.repeated_ = repeated_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof furo.MetaOuterClass.FieldMeta) {
+          return mergeFrom((furo.MetaOuterClass.FieldMeta)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(furo.MetaOuterClass.FieldMeta other) {
+        if (other == furo.MetaOuterClass.FieldMeta.getDefaultInstance()) return this;
+        if (!other.getDefault().isEmpty()) {
+          default_ = other.default_;
+          onChanged();
+        }
+        if (!other.getHint().isEmpty()) {
+          hint_ = other.hint_;
+          onChanged();
+        }
+        if (!other.getLabel().isEmpty()) {
+          label_ = other.label_;
+          onChanged();
+        }
+        if (other.hasOptions()) {
+          mergeOptions(other.getOptions());
+        }
+        if (other.getReadonly() != false) {
+          setReadonly(other.getReadonly());
+        }
+        if (other.getRepeated() != false) {
+          setRepeated(other.getRepeated());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        furo.MetaOuterClass.FieldMeta parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (furo.MetaOuterClass.FieldMeta) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object default_ = "";
+      /**
+       * <pre>
+       * The default value
+       * </pre>
+       *
+       * <code>string default = 3;</code>
+       */
+      public java.lang.String getDefault() {
+        java.lang.Object ref = default_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          default_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The default value
+       * </pre>
+       *
+       * <code>string default = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDefaultBytes() {
+        java.lang.Object ref = default_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          default_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The default value
+       * </pre>
+       *
+       * <code>string default = 3;</code>
+       */
+      public Builder setDefault(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        default_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The default value
+       * </pre>
+       *
+       * <code>string default = 3;</code>
+       */
+      public Builder clearDefault() {
+        
+        default_ = getDefaultInstance().getDefault();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The default value
+       * </pre>
+       *
+       * <code>string default = 3;</code>
+       */
+      public Builder setDefaultBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        default_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object hint_ = "";
+      /**
+       * <pre>
+       * A hint
+       * </pre>
+       *
+       * <code>string hint = 2;</code>
+       */
+      public java.lang.String getHint() {
+        java.lang.Object ref = hint_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          hint_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * A hint
+       * </pre>
+       *
+       * <code>string hint = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHintBytes() {
+        java.lang.Object ref = hint_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          hint_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * A hint
+       * </pre>
+       *
+       * <code>string hint = 2;</code>
+       */
+      public Builder setHint(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        hint_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * A hint
+       * </pre>
+       *
+       * <code>string hint = 2;</code>
+       */
+      public Builder clearHint() {
+        
+        hint_ = getDefaultInstance().getHint();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * A hint
+       * </pre>
+       *
+       * <code>string hint = 2;</code>
+       */
+      public Builder setHintBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        hint_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object label_ = "";
+      /**
+       * <pre>
+       * The label
+       * </pre>
+       *
+       * <code>string label = 1;</code>
+       */
+      public java.lang.String getLabel() {
+        java.lang.Object ref = label_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          label_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The label
+       * </pre>
+       *
+       * <code>string label = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLabelBytes() {
+        java.lang.Object ref = label_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          label_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The label
+       * </pre>
+       *
+       * <code>string label = 1;</code>
+       */
+      public Builder setLabel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        label_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The label
+       * </pre>
+       *
+       * <code>string label = 1;</code>
+       */
+      public Builder clearLabel() {
+        
+        label_ = getDefaultInstance().getLabel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The label
+       * </pre>
+       *
+       * <code>string label = 1;</code>
+       */
+      public Builder setLabelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        label_ = value;
+        onChanged();
+        return this;
+      }
+
+      private furo.MetaOuterClass.Fieldoption options_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Fieldoption, furo.MetaOuterClass.Fieldoption.Builder, furo.MetaOuterClass.FieldoptionOrBuilder> optionsBuilder_;
+      /**
+       * <pre>
+       * Fieldoptions
+       * </pre>
+       *
+       * <code>.furo.Fieldoption options = 6;</code>
+       */
+      public boolean hasOptions() {
+        return optionsBuilder_ != null || options_ != null;
+      }
+      /**
+       * <pre>
+       * Fieldoptions
+       * </pre>
+       *
+       * <code>.furo.Fieldoption options = 6;</code>
+       */
+      public furo.MetaOuterClass.Fieldoption getOptions() {
+        if (optionsBuilder_ == null) {
+          return options_ == null ? furo.MetaOuterClass.Fieldoption.getDefaultInstance() : options_;
+        } else {
+          return optionsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Fieldoptions
+       * </pre>
+       *
+       * <code>.furo.Fieldoption options = 6;</code>
+       */
+      public Builder setOptions(furo.MetaOuterClass.Fieldoption value) {
+        if (optionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+          onChanged();
+        } else {
+          optionsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Fieldoptions
+       * </pre>
+       *
+       * <code>.furo.Fieldoption options = 6;</code>
+       */
+      public Builder setOptions(
+          furo.MetaOuterClass.Fieldoption.Builder builderForValue) {
+        if (optionsBuilder_ == null) {
+          options_ = builderForValue.build();
+          onChanged();
+        } else {
+          optionsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Fieldoptions
+       * </pre>
+       *
+       * <code>.furo.Fieldoption options = 6;</code>
+       */
+      public Builder mergeOptions(furo.MetaOuterClass.Fieldoption value) {
+        if (optionsBuilder_ == null) {
+          if (options_ != null) {
+            options_ =
+              furo.MetaOuterClass.Fieldoption.newBuilder(options_).mergeFrom(value).buildPartial();
+          } else {
+            options_ = value;
+          }
+          onChanged();
+        } else {
+          optionsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Fieldoptions
+       * </pre>
+       *
+       * <code>.furo.Fieldoption options = 6;</code>
+       */
+      public Builder clearOptions() {
+        if (optionsBuilder_ == null) {
+          options_ = null;
+          onChanged();
+        } else {
+          options_ = null;
+          optionsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Fieldoptions
+       * </pre>
+       *
+       * <code>.furo.Fieldoption options = 6;</code>
+       */
+      public furo.MetaOuterClass.Fieldoption.Builder getOptionsBuilder() {
+        
+        onChanged();
+        return getOptionsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Fieldoptions
+       * </pre>
+       *
+       * <code>.furo.Fieldoption options = 6;</code>
+       */
+      public furo.MetaOuterClass.FieldoptionOrBuilder getOptionsOrBuilder() {
+        if (optionsBuilder_ != null) {
+          return optionsBuilder_.getMessageOrBuilder();
+        } else {
+          return options_ == null ?
+              furo.MetaOuterClass.Fieldoption.getDefaultInstance() : options_;
+        }
+      }
+      /**
+       * <pre>
+       * Fieldoptions
+       * </pre>
+       *
+       * <code>.furo.Fieldoption options = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Fieldoption, furo.MetaOuterClass.Fieldoption.Builder, furo.MetaOuterClass.FieldoptionOrBuilder> 
+          getOptionsFieldBuilder() {
+        if (optionsBuilder_ == null) {
+          optionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.MetaOuterClass.Fieldoption, furo.MetaOuterClass.Fieldoption.Builder, furo.MetaOuterClass.FieldoptionOrBuilder>(
+                  getOptions(),
+                  getParentForChildren(),
+                  isClean());
+          options_ = null;
+        }
+        return optionsBuilder_;
+      }
+
+      private boolean readonly_ ;
+      /**
+       * <pre>
+       * readonly
+       * </pre>
+       *
+       * <code>bool readonly = 4;</code>
+       */
+      public boolean getReadonly() {
+        return readonly_;
+      }
+      /**
+       * <pre>
+       * readonly
+       * </pre>
+       *
+       * <code>bool readonly = 4;</code>
+       */
+      public Builder setReadonly(boolean value) {
+        
+        readonly_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * readonly
+       * </pre>
+       *
+       * <code>bool readonly = 4;</code>
+       */
+      public Builder clearReadonly() {
+        
+        readonly_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean repeated_ ;
+      /**
+       * <pre>
+       * repeated
+       * </pre>
+       *
+       * <code>bool repeated = 5;</code>
+       */
+      public boolean getRepeated() {
+        return repeated_;
+      }
+      /**
+       * <pre>
+       * repeated
+       * </pre>
+       *
+       * <code>bool repeated = 5;</code>
+       */
+      public Builder setRepeated(boolean value) {
+        
+        repeated_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * repeated
+       * </pre>
+       *
+       * <code>bool repeated = 5;</code>
+       */
+      public Builder clearRepeated() {
+        
+        repeated_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:furo.FieldMeta)
+    }
+
+    // @@protoc_insertion_point(class_scope:furo.FieldMeta)
+    private static final furo.MetaOuterClass.FieldMeta DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new furo.MetaOuterClass.FieldMeta();
+    }
+
+    public static furo.MetaOuterClass.FieldMeta getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FieldMeta>
+        PARSER = new com.google.protobuf.AbstractParser<FieldMeta>() {
+      @java.lang.Override
+      public FieldMeta parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FieldMeta(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FieldMeta> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FieldMeta> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public furo.MetaOuterClass.FieldMeta getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface FieldConstraintOrBuilder extends
       // @@protoc_insertion_point(interface_extends:furo.FieldConstraint)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
-     * constrain of a field
+     * the constraint value as string, even it is a number
      * </pre>
      *
-     * <code>map&lt;string, string&gt; constraint = 1;</code>
+     * <code>string is = 1;</code>
      */
-    int getConstraintCount();
+    java.lang.String getIs();
     /**
      * <pre>
-     * constrain of a field
+     * the constraint value as string, even it is a number
      * </pre>
      *
-     * <code>map&lt;string, string&gt; constraint = 1;</code>
+     * <code>string is = 1;</code>
      */
-    boolean containsConstraint(
-        java.lang.String key);
-    /**
-     * Use {@link #getConstraintMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getConstraint();
-    /**
-     * <pre>
-     * constrain of a field
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; constraint = 1;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getConstraintMap();
-    /**
-     * <pre>
-     * constrain of a field
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; constraint = 1;</code>
-     */
+    com.google.protobuf.ByteString
+        getIsBytes();
 
-    java.lang.String getConstraintOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
     /**
      * <pre>
-     * constrain of a field
+     * The message to display on constraint violation
      * </pre>
      *
-     * <code>map&lt;string, string&gt; constraint = 1;</code>
+     * <code>string message = 2;</code>
      */
-
-    java.lang.String getConstraintOrThrow(
-        java.lang.String key);
+    java.lang.String getMessage();
+    /**
+     * <pre>
+     * The message to display on constraint violation
+     * </pre>
+     *
+     * <code>string message = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
   }
   /**
    * <pre>
-   * constrains of fields
+   * a single fieldconstraint
    * </pre>
    *
    * Protobuf type {@code furo.FieldConstraint}
@@ -2018,6 +5109,8 @@ public final class MetaOuterClass {
       super(builder);
     }
     private FieldConstraint() {
+      is_ = "";
+      message_ = "";
     }
 
     @java.lang.Override
@@ -2045,16 +5138,15 @@ public final class MetaOuterClass {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                constraint_ = com.google.protobuf.MapField.newMapField(
-                    ConstraintDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              constraint__ = input.readMessage(
-                  ConstraintDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              constraint_.getMutableMap().put(
-                  constraint__.getKey(), constraint__.getValue());
+              java.lang.String s = input.readStringRequireUtf8();
+
+              is_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
               break;
             }
             default: {
@@ -2081,18 +5173,6 @@ public final class MetaOuterClass {
       return furo.MetaOuterClass.internal_static_furo_FieldConstraint_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 1:
-          return internalGetConstraint();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -2101,96 +5181,88 @@ public final class MetaOuterClass {
               furo.MetaOuterClass.FieldConstraint.class, furo.MetaOuterClass.FieldConstraint.Builder.class);
     }
 
-    public static final int CONSTRAINT_FIELD_NUMBER = 1;
-    private static final class ConstraintDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  furo.MetaOuterClass.internal_static_furo_FieldConstraint_ConstraintEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> constraint_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetConstraint() {
-      if (constraint_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            ConstraintDefaultEntryHolder.defaultEntry);
+    public static final int IS_FIELD_NUMBER = 1;
+    private volatile java.lang.Object is_;
+    /**
+     * <pre>
+     * the constraint value as string, even it is a number
+     * </pre>
+     *
+     * <code>string is = 1;</code>
+     */
+    public java.lang.String getIs() {
+      java.lang.Object ref = is_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        is_ = s;
+        return s;
       }
-      return constraint_;
-    }
-
-    public int getConstraintCount() {
-      return internalGetConstraint().getMap().size();
     }
     /**
      * <pre>
-     * constrain of a field
+     * the constraint value as string, even it is a number
      * </pre>
      *
-     * <code>map&lt;string, string&gt; constraint = 1;</code>
+     * <code>string is = 1;</code>
      */
-
-    public boolean containsConstraint(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetConstraint().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getConstraintMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getConstraint() {
-      return getConstraintMap();
-    }
-    /**
-     * <pre>
-     * constrain of a field
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; constraint = 1;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getConstraintMap() {
-      return internalGetConstraint().getMap();
-    }
-    /**
-     * <pre>
-     * constrain of a field
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; constraint = 1;</code>
-     */
-
-    public java.lang.String getConstraintOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetConstraint().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <pre>
-     * constrain of a field
-     * </pre>
-     *
-     * <code>map&lt;string, string&gt; constraint = 1;</code>
-     */
-
-    public java.lang.String getConstraintOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetConstraint().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
+    public com.google.protobuf.ByteString
+        getIsBytes() {
+      java.lang.Object ref = is_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        is_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
       }
-      return map.get(key);
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object message_;
+    /**
+     * <pre>
+     * The message to display on constraint violation
+     * </pre>
+     *
+     * <code>string message = 2;</code>
+     */
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The message to display on constraint violation
+     * </pre>
+     *
+     * <code>string message = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2207,12 +5279,12 @@ public final class MetaOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetConstraint(),
-          ConstraintDefaultEntryHolder.defaultEntry,
-          1);
+      if (!getIsBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, is_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2222,15 +5294,11 @@ public final class MetaOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetConstraint().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        constraint__ = ConstraintDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(1, constraint__);
+      if (!getIsBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, is_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2247,8 +5315,10 @@ public final class MetaOuterClass {
       }
       furo.MetaOuterClass.FieldConstraint other = (furo.MetaOuterClass.FieldConstraint) obj;
 
-      if (!internalGetConstraint().equals(
-          other.internalGetConstraint())) return false;
+      if (!getIs()
+          .equals(other.getIs())) return false;
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2260,10 +5330,10 @@ public final class MetaOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (!internalGetConstraint().getMap().isEmpty()) {
-        hash = (37 * hash) + CONSTRAINT_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetConstraint().hashCode();
-      }
+      hash = (37 * hash) + IS_FIELD_NUMBER;
+      hash = (53 * hash) + getIs().hashCode();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2361,7 +5431,7 @@ public final class MetaOuterClass {
     }
     /**
      * <pre>
-     * constrains of fields
+     * a single fieldconstraint
      * </pre>
      *
      * Protobuf type {@code furo.FieldConstraint}
@@ -2375,28 +5445,6 @@ public final class MetaOuterClass {
         return furo.MetaOuterClass.internal_static_furo_FieldConstraint_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetConstraint();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetMutableConstraint();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -2423,7 +5471,10 @@ public final class MetaOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        internalGetMutableConstraint().clear();
+        is_ = "";
+
+        message_ = "";
+
         return this;
       }
 
@@ -2450,9 +5501,8 @@ public final class MetaOuterClass {
       @java.lang.Override
       public furo.MetaOuterClass.FieldConstraint buildPartial() {
         furo.MetaOuterClass.FieldConstraint result = new furo.MetaOuterClass.FieldConstraint(this);
-        int from_bitField0_ = bitField0_;
-        result.constraint_ = internalGetConstraint();
-        result.constraint_.makeImmutable();
+        result.is_ = is_;
+        result.message_ = message_;
         onBuilt();
         return result;
       }
@@ -2501,8 +5551,14 @@ public final class MetaOuterClass {
 
       public Builder mergeFrom(furo.MetaOuterClass.FieldConstraint other) {
         if (other == furo.MetaOuterClass.FieldConstraint.getDefaultInstance()) return this;
-        internalGetMutableConstraint().mergeFrom(
-            other.internalGetConstraint());
+        if (!other.getIs().isEmpty()) {
+          is_ = other.is_;
+          onChanged();
+        }
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2531,156 +5587,182 @@ public final class MetaOuterClass {
         }
         return this;
       }
-      private int bitField0_;
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> constraint_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetConstraint() {
-        if (constraint_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              ConstraintDefaultEntryHolder.defaultEntry);
+      private java.lang.Object is_ = "";
+      /**
+       * <pre>
+       * the constraint value as string, even it is a number
+       * </pre>
+       *
+       * <code>string is = 1;</code>
+       */
+      public java.lang.String getIs() {
+        java.lang.Object ref = is_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          is_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
         }
-        return constraint_;
       }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableConstraint() {
-        onChanged();;
-        if (constraint_ == null) {
-          constraint_ = com.google.protobuf.MapField.newMapField(
-              ConstraintDefaultEntryHolder.defaultEntry);
+      /**
+       * <pre>
+       * the constraint value as string, even it is a number
+       * </pre>
+       *
+       * <code>string is = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIsBytes() {
+        java.lang.Object ref = is_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          is_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
-        if (!constraint_.isMutable()) {
-          constraint_ = constraint_.copy();
-        }
-        return constraint_;
-      }
-
-      public int getConstraintCount() {
-        return internalGetConstraint().getMap().size();
       }
       /**
        * <pre>
-       * constrain of a field
+       * the constraint value as string, even it is a number
        * </pre>
        *
-       * <code>map&lt;string, string&gt; constraint = 1;</code>
+       * <code>string is = 1;</code>
        */
-
-      public boolean containsConstraint(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetConstraint().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getConstraintMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getConstraint() {
-        return getConstraintMap();
-      }
-      /**
-       * <pre>
-       * constrain of a field
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; constraint = 1;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getConstraintMap() {
-        return internalGetConstraint().getMap();
-      }
-      /**
-       * <pre>
-       * constrain of a field
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; constraint = 1;</code>
-       */
-
-      public java.lang.String getConstraintOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetConstraint().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <pre>
-       * constrain of a field
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; constraint = 1;</code>
-       */
-
-      public java.lang.String getConstraintOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetConstraint().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearConstraint() {
-        internalGetMutableConstraint().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <pre>
-       * constrain of a field
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; constraint = 1;</code>
-       */
-
-      public Builder removeConstraint(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableConstraint().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableConstraint() {
-        return internalGetMutableConstraint().getMutableMap();
-      }
-      /**
-       * <pre>
-       * constrain of a field
-       * </pre>
-       *
-       * <code>map&lt;string, string&gt; constraint = 1;</code>
-       */
-      public Builder putConstraint(
-          java.lang.String key,
+      public Builder setIs(
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableConstraint().getMutableMap()
-            .put(key, value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        is_ = value;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * constrain of a field
+       * the constraint value as string, even it is a number
        * </pre>
        *
-       * <code>map&lt;string, string&gt; constraint = 1;</code>
+       * <code>string is = 1;</code>
        */
+      public Builder clearIs() {
+        
+        is_ = getDefaultInstance().getIs();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * the constraint value as string, even it is a number
+       * </pre>
+       *
+       * <code>string is = 1;</code>
+       */
+      public Builder setIsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        is_ = value;
+        onChanged();
+        return this;
+      }
 
-      public Builder putAllConstraint(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableConstraint().getMutableMap()
-            .putAll(values);
+      private java.lang.Object message_ = "";
+      /**
+       * <pre>
+       * The message to display on constraint violation
+       * </pre>
+       *
+       * <code>string message = 2;</code>
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The message to display on constraint violation
+       * </pre>
+       *
+       * <code>string message = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The message to display on constraint violation
+       * </pre>
+       *
+       * <code>string message = 2;</code>
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The message to display on constraint violation
+       * </pre>
+       *
+       * <code>string message = 2;</code>
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The message to display on constraint violation
+       * </pre>
+       *
+       * <code>string message = 2;</code>
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        message_ = value;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -2752,6 +5834,16 @@ public final class MetaOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_furo_MetaField_MetaEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_furo_Optionitem_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_furo_Optionitem_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_furo_Fieldoption_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_furo_Fieldoption_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_furo_Meta_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -2762,15 +5854,15 @@ public final class MetaOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_furo_Meta_FieldsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_furo_FieldMeta_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_furo_FieldMeta_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_furo_FieldConstraint_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_furo_FieldConstraint_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_furo_FieldConstraint_ConstraintEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_furo_FieldConstraint_ConstraintEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2780,19 +5872,24 @@ public final class MetaOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017furo/meta.proto\022\004furo\"\343\001\n\tMetaField\0225\n" +
-      "\013constraints\030\002 \003(\0132 .furo.MetaField.Cons" +
-      "traintsEntry\022\'\n\004meta\030\001 \003(\0132\031.furo.MetaFi" +
-      "eld.MetaEntry\032I\n\020ConstraintsEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022$\n\005value\030\002 \001(\0132\025.furo.FieldConstr" +
-      "aint:\0028\001\032+\n\tMetaEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001\"n\n\004Meta\022&\n\006fields\030\001 \003(\0132\026." +
-      "furo.Meta.FieldsEntry\032>\n\013FieldsEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\036\n\005value\030\002 \001(\0132\017.furo.MetaFiel" +
-      "d:\0028\001\"\177\n\017FieldConstraint\0229\n\nconstraint\030\001" +
-      " \003(\0132%.furo.FieldConstraint.ConstraintEn" +
-      "try\0321\n\017ConstraintEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\t:\0028\001b\006proto3"
+      "\n\017furo/meta.proto\022\004furo\032\031google/protobuf" +
+      "/any.proto\"\364\001\n\tMetaField\0225\n\013constraints\030" +
+      "\002 \003(\0132 .furo.MetaField.ConstraintsEntry\022" +
+      "\'\n\004meta\030\001 \003(\0132\031.furo.MetaField.MetaEntry" +
+      "\032I\n\020ConstraintsEntry\022\013\n\003key\030\001 \001(\t\022$\n\005val" +
+      "ue\030\002 \001(\0132\025.furo.FieldConstraint:\0028\001\032<\n\tM" +
+      "etaEntry\022\013\n\003key\030\001 \001(\t\022\036\n\005value\030\002 \001(\0132\017.f" +
+      "uro.FieldMeta:\0028\001\"@\n\nOptionitem\022\024\n\014displ" +
+      "ay_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\020\n\010selected\030\003 " +
+      "\001(\010\"1\n\013Fieldoption\022\"\n\004list\030\001 \003(\0132\024.googl" +
+      "e.protobuf.Any\"n\n\004Meta\022&\n\006fields\030\001 \003(\0132\026" +
+      ".furo.Meta.FieldsEntry\032>\n\013FieldsEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\036\n\005value\030\002 \001(\0132\017.furo.MetaFie" +
+      "ld:\0028\001\"\201\001\n\tFieldMeta\022\017\n\007default\030\003 \001(\t\022\014\n" +
+      "\004hint\030\002 \001(\t\022\r\n\005label\030\001 \001(\t\022\"\n\007options\030\006 " +
+      "\001(\0132\021.furo.Fieldoption\022\020\n\010readonly\030\004 \001(\010" +
+      "\022\020\n\010repeated\030\005 \001(\010\".\n\017FieldConstraint\022\n\n" +
+      "\002is\030\001 \001(\t\022\017\n\007message\030\002 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2805,6 +5902,7 @@ public final class MetaOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          google.protobuf.AnyOuterClass.getDescriptor(),
         }, assigner);
     internal_static_furo_MetaField_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2824,8 +5922,20 @@ public final class MetaOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_MetaField_MetaEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_furo_Meta_descriptor =
+    internal_static_furo_Optionitem_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_furo_Optionitem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_furo_Optionitem_descriptor,
+        new java.lang.String[] { "DisplayName", "Id", "Selected", });
+    internal_static_furo_Fieldoption_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_furo_Fieldoption_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_furo_Fieldoption_descriptor,
+        new java.lang.String[] { "List", });
+    internal_static_furo_Meta_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_furo_Meta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_Meta_descriptor,
@@ -2836,18 +5946,19 @@ public final class MetaOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_Meta_FieldsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_furo_FieldMeta_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_furo_FieldMeta_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_furo_FieldMeta_descriptor,
+        new java.lang.String[] { "Default", "Hint", "Label", "Options", "Readonly", "Repeated", });
     internal_static_furo_FieldConstraint_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_furo_FieldConstraint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_FieldConstraint_descriptor,
-        new java.lang.String[] { "Constraint", });
-    internal_static_furo_FieldConstraint_ConstraintEntry_descriptor =
-      internal_static_furo_FieldConstraint_descriptor.getNestedTypes().get(0);
-    internal_static_furo_FieldConstraint_ConstraintEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_furo_FieldConstraint_ConstraintEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
+        new java.lang.String[] { "Is", "Message", });
+    google.protobuf.AnyOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -1,21 +1,35 @@
 {
   "name": "fieldconstraint",
   "type": "FieldConstraint",
-  "description": "constrains of fields",
+  "description": "a single fieldconstraint",
   "__proto": {
     "package": "furo",
+    "options": {},
     "imports": [],
     "targetfile": "meta.proto"
   },
   "fields": {
-    "constraint": {
-      "description": "constrain of a field",
-      "type": "map<string,string>",
+    "is": {
+      "description": "the constraint value as string, even it is a number",
+      "type": "string",
+      "meta": {
+        "label": "is"
+      },
       "__proto": {
-        "number": 1,
-        "map_from": "string",
-        "map_to": "string"
+        "number": 1
+      }
+    },
+    "message": {
+      "description": "The message to display on constraint violation",
+      "type": "string",
+      "meta": {
+        "label": "message"
+      },
+      "__proto": {
+        "number": 2
       }
     }
   }
 }
+
+

@@ -410,15 +410,61 @@
     "furoFieldConstraint": {
       "type": "object",
       "properties": {
-        "constraint": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "title": "constrain of a field"
+        "is": {
+          "type": "string",
+          "title": "the constraint value as string, even it is a number"
+        },
+        "message": {
+          "type": "string",
+          "title": "The message to display on constraint violation"
         }
       },
-      "title": "constrains of fields"
+      "title": "a single fieldconstraint"
+    },
+    "furoFieldMeta": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string",
+          "title": "The default value"
+        },
+        "hint": {
+          "type": "string",
+          "title": "A hint"
+        },
+        "label": {
+          "type": "string",
+          "title": "The label"
+        },
+        "options": {
+          "$ref": "#/definitions/furoFieldoption",
+          "title": "Fieldoptions"
+        },
+        "readonly": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "readonly"
+        },
+        "repeated": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "repeated"
+        }
+      },
+      "title": "Metas for a field"
+    },
+    "furoFieldoption": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          },
+          "title": "a list with options, use furo.optionitem or your own"
+        }
+      },
+      "title": "Metas for a field"
     },
     "furoLink": {
       "type": "object",
@@ -463,12 +509,12 @@
           "additionalProperties": {
             "$ref": "#/definitions/furoFieldConstraint"
           },
-          "title": "constrain of a field"
+          "title": "constraints for a field"
         },
         "meta": {
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/furoFieldMeta"
           },
           "title": "meta information of a field"
         }
@@ -589,6 +635,19 @@
         }
       },
       "title": "ProjectEntity with Project"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      },
+      "title": "Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
     },
     "typeDate": {
       "type": "object",

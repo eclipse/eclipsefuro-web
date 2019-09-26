@@ -226,6 +226,10 @@
           "$ref": "#/definitions/typeDate",
           "title": "field for furo-data-date-input for testing"
         },
+        "furo_data_money_input": {
+          "$ref": "#/definitions/typeMoney",
+          "title": "field for testing money type"
+        },
         "furo_data_number_input": {
           "type": "number",
           "format": "float",
@@ -336,15 +340,61 @@
     "furoFieldConstraint": {
       "type": "object",
       "properties": {
-        "constraint": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "title": "constrain of a field"
+        "is": {
+          "type": "string",
+          "title": "the constraint value as string, even it is a number"
+        },
+        "message": {
+          "type": "string",
+          "title": "The message to display on constraint violation"
         }
       },
-      "title": "constrains of fields"
+      "title": "a single fieldconstraint"
+    },
+    "furoFieldMeta": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "type": "string",
+          "title": "The default value"
+        },
+        "hint": {
+          "type": "string",
+          "title": "A hint"
+        },
+        "label": {
+          "type": "string",
+          "title": "The label"
+        },
+        "options": {
+          "$ref": "#/definitions/furoFieldoption",
+          "title": "Fieldoptions"
+        },
+        "readonly": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "readonly"
+        },
+        "repeated": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "repeated"
+        }
+      },
+      "title": "Metas for a field"
+    },
+    "furoFieldoption": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          },
+          "title": "a list with options, use furo.optionitem or your own"
+        }
+      },
+      "title": "Metas for a field"
     },
     "furoLink": {
       "type": "object",
@@ -389,12 +439,12 @@
           "additionalProperties": {
             "$ref": "#/definitions/furoFieldConstraint"
           },
-          "title": "constrain of a field"
+          "title": "constraints for a field"
         },
         "meta": {
           "type": "object",
           "additionalProperties": {
-            "type": "string"
+            "$ref": "#/definitions/furoFieldMeta"
           },
           "title": "meta information of a field"
         }
@@ -464,6 +514,30 @@
         }
       },
       "title": "Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto"
+    },
+    "typeMoney": {
+      "type": "object",
+      "properties": {
+        "currency_code": {
+          "type": "string",
+          "description": "The 3-letter currency code defined in ISO 4217."
+        },
+        "display_name": {
+          "type": "string",
+          "title": "String representation of money entity"
+        },
+        "nanos": {
+          "type": "string",
+          "format": "int64",
+          "description": "Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000."
+        },
+        "units": {
+          "type": "string",
+          "format": "int64",
+          "description": "The whole units of the amount."
+        }
+      },
+      "title": "Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto"
     }
   }
 }
