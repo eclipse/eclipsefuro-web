@@ -45,7 +45,7 @@ message Meta {
 }
 
 // Metas for a field
-message FieldMeta {                                
+message FieldMeta {                                    
     // The default value
     string default = 3;
     
@@ -63,6 +63,9 @@ message FieldMeta {
     
     // repeated
     bool repeated = 5;
+    
+    // Put in type specific metas for your fields here
+    google.protobuf.Any typespecific = 7;
 
 }
 

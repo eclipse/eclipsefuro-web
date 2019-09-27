@@ -3793,6 +3793,31 @@ public final class MetaOuterClass {
      * <code>bool repeated = 5;</code>
      */
     boolean getRepeated();
+
+    /**
+     * <pre>
+     * Put in type specific metas for your fields here
+     * </pre>
+     *
+     * <code>.google.protobuf.Any typespecific = 7;</code>
+     */
+    boolean hasTypespecific();
+    /**
+     * <pre>
+     * Put in type specific metas for your fields here
+     * </pre>
+     *
+     * <code>.google.protobuf.Any typespecific = 7;</code>
+     */
+    google.protobuf.AnyOuterClass.Any getTypespecific();
+    /**
+     * <pre>
+     * Put in type specific metas for your fields here
+     * </pre>
+     *
+     * <code>.google.protobuf.Any typespecific = 7;</code>
+     */
+    google.protobuf.AnyOuterClass.AnyOrBuilder getTypespecificOrBuilder();
   }
   /**
    * <pre>
@@ -3877,6 +3902,19 @@ public final class MetaOuterClass {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(options_);
                 options_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 58: {
+              google.protobuf.AnyOuterClass.Any.Builder subBuilder = null;
+              if (typespecific_ != null) {
+                subBuilder = typespecific_.toBuilder();
+              }
+              typespecific_ = input.readMessage(google.protobuf.AnyOuterClass.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(typespecific_);
+                typespecific_ = subBuilder.buildPartial();
               }
 
               break;
@@ -4098,6 +4136,39 @@ public final class MetaOuterClass {
       return repeated_;
     }
 
+    public static final int TYPESPECIFIC_FIELD_NUMBER = 7;
+    private google.protobuf.AnyOuterClass.Any typespecific_;
+    /**
+     * <pre>
+     * Put in type specific metas for your fields here
+     * </pre>
+     *
+     * <code>.google.protobuf.Any typespecific = 7;</code>
+     */
+    public boolean hasTypespecific() {
+      return typespecific_ != null;
+    }
+    /**
+     * <pre>
+     * Put in type specific metas for your fields here
+     * </pre>
+     *
+     * <code>.google.protobuf.Any typespecific = 7;</code>
+     */
+    public google.protobuf.AnyOuterClass.Any getTypespecific() {
+      return typespecific_ == null ? google.protobuf.AnyOuterClass.Any.getDefaultInstance() : typespecific_;
+    }
+    /**
+     * <pre>
+     * Put in type specific metas for your fields here
+     * </pre>
+     *
+     * <code>.google.protobuf.Any typespecific = 7;</code>
+     */
+    public google.protobuf.AnyOuterClass.AnyOrBuilder getTypespecificOrBuilder() {
+      return getTypespecific();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4130,6 +4201,9 @@ public final class MetaOuterClass {
       if (options_ != null) {
         output.writeMessage(6, getOptions());
       }
+      if (typespecific_ != null) {
+        output.writeMessage(7, getTypespecific());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4159,6 +4233,10 @@ public final class MetaOuterClass {
       if (options_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getOptions());
+      }
+      if (typespecific_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getTypespecific());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4190,6 +4268,11 @@ public final class MetaOuterClass {
           != other.getReadonly()) return false;
       if (getRepeated()
           != other.getRepeated()) return false;
+      if (hasTypespecific() != other.hasTypespecific()) return false;
+      if (hasTypespecific()) {
+        if (!getTypespecific()
+            .equals(other.getTypespecific())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4217,6 +4300,10 @@ public final class MetaOuterClass {
       hash = (37 * hash) + REPEATED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getRepeated());
+      if (hasTypespecific()) {
+        hash = (37 * hash) + TYPESPECIFIC_FIELD_NUMBER;
+        hash = (53 * hash) + getTypespecific().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4370,6 +4457,12 @@ public final class MetaOuterClass {
 
         repeated_ = false;
 
+        if (typespecificBuilder_ == null) {
+          typespecific_ = null;
+        } else {
+          typespecific_ = null;
+          typespecificBuilder_ = null;
+        }
         return this;
       }
 
@@ -4406,6 +4499,11 @@ public final class MetaOuterClass {
         }
         result.readonly_ = readonly_;
         result.repeated_ = repeated_;
+        if (typespecificBuilder_ == null) {
+          result.typespecific_ = typespecific_;
+        } else {
+          result.typespecific_ = typespecificBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -4474,6 +4572,9 @@ public final class MetaOuterClass {
         }
         if (other.getRepeated() != false) {
           setRepeated(other.getRepeated());
+        }
+        if (other.hasTypespecific()) {
+          mergeTypespecific(other.getTypespecific());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4998,6 +5099,159 @@ public final class MetaOuterClass {
         repeated_ = false;
         onChanged();
         return this;
+      }
+
+      private google.protobuf.AnyOuterClass.Any typespecific_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.AnyOuterClass.Any, google.protobuf.AnyOuterClass.Any.Builder, google.protobuf.AnyOuterClass.AnyOrBuilder> typespecificBuilder_;
+      /**
+       * <pre>
+       * Put in type specific metas for your fields here
+       * </pre>
+       *
+       * <code>.google.protobuf.Any typespecific = 7;</code>
+       */
+      public boolean hasTypespecific() {
+        return typespecificBuilder_ != null || typespecific_ != null;
+      }
+      /**
+       * <pre>
+       * Put in type specific metas for your fields here
+       * </pre>
+       *
+       * <code>.google.protobuf.Any typespecific = 7;</code>
+       */
+      public google.protobuf.AnyOuterClass.Any getTypespecific() {
+        if (typespecificBuilder_ == null) {
+          return typespecific_ == null ? google.protobuf.AnyOuterClass.Any.getDefaultInstance() : typespecific_;
+        } else {
+          return typespecificBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Put in type specific metas for your fields here
+       * </pre>
+       *
+       * <code>.google.protobuf.Any typespecific = 7;</code>
+       */
+      public Builder setTypespecific(google.protobuf.AnyOuterClass.Any value) {
+        if (typespecificBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          typespecific_ = value;
+          onChanged();
+        } else {
+          typespecificBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Put in type specific metas for your fields here
+       * </pre>
+       *
+       * <code>.google.protobuf.Any typespecific = 7;</code>
+       */
+      public Builder setTypespecific(
+          google.protobuf.AnyOuterClass.Any.Builder builderForValue) {
+        if (typespecificBuilder_ == null) {
+          typespecific_ = builderForValue.build();
+          onChanged();
+        } else {
+          typespecificBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Put in type specific metas for your fields here
+       * </pre>
+       *
+       * <code>.google.protobuf.Any typespecific = 7;</code>
+       */
+      public Builder mergeTypespecific(google.protobuf.AnyOuterClass.Any value) {
+        if (typespecificBuilder_ == null) {
+          if (typespecific_ != null) {
+            typespecific_ =
+              google.protobuf.AnyOuterClass.Any.newBuilder(typespecific_).mergeFrom(value).buildPartial();
+          } else {
+            typespecific_ = value;
+          }
+          onChanged();
+        } else {
+          typespecificBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Put in type specific metas for your fields here
+       * </pre>
+       *
+       * <code>.google.protobuf.Any typespecific = 7;</code>
+       */
+      public Builder clearTypespecific() {
+        if (typespecificBuilder_ == null) {
+          typespecific_ = null;
+          onChanged();
+        } else {
+          typespecific_ = null;
+          typespecificBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Put in type specific metas for your fields here
+       * </pre>
+       *
+       * <code>.google.protobuf.Any typespecific = 7;</code>
+       */
+      public google.protobuf.AnyOuterClass.Any.Builder getTypespecificBuilder() {
+        
+        onChanged();
+        return getTypespecificFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Put in type specific metas for your fields here
+       * </pre>
+       *
+       * <code>.google.protobuf.Any typespecific = 7;</code>
+       */
+      public google.protobuf.AnyOuterClass.AnyOrBuilder getTypespecificOrBuilder() {
+        if (typespecificBuilder_ != null) {
+          return typespecificBuilder_.getMessageOrBuilder();
+        } else {
+          return typespecific_ == null ?
+              google.protobuf.AnyOuterClass.Any.getDefaultInstance() : typespecific_;
+        }
+      }
+      /**
+       * <pre>
+       * Put in type specific metas for your fields here
+       * </pre>
+       *
+       * <code>.google.protobuf.Any typespecific = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.AnyOuterClass.Any, google.protobuf.AnyOuterClass.Any.Builder, google.protobuf.AnyOuterClass.AnyOrBuilder> 
+          getTypespecificFieldBuilder() {
+        if (typespecificBuilder_ == null) {
+          typespecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.protobuf.AnyOuterClass.Any, google.protobuf.AnyOuterClass.Any.Builder, google.protobuf.AnyOuterClass.AnyOrBuilder>(
+                  getTypespecific(),
+                  getParentForChildren(),
+                  isClean());
+          typespecific_ = null;
+        }
+        return typespecificBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5885,11 +6139,12 @@ public final class MetaOuterClass {
       "e.protobuf.Any\"n\n\004Meta\022&\n\006fields\030\001 \003(\0132\026" +
       ".furo.Meta.FieldsEntry\032>\n\013FieldsEntry\022\013\n" +
       "\003key\030\001 \001(\t\022\036\n\005value\030\002 \001(\0132\017.furo.MetaFie" +
-      "ld:\0028\001\"\201\001\n\tFieldMeta\022\017\n\007default\030\003 \001(\t\022\014\n" +
+      "ld:\0028\001\"\255\001\n\tFieldMeta\022\017\n\007default\030\003 \001(\t\022\014\n" +
       "\004hint\030\002 \001(\t\022\r\n\005label\030\001 \001(\t\022\"\n\007options\030\006 " +
       "\001(\0132\021.furo.Fieldoption\022\020\n\010readonly\030\004 \001(\010" +
-      "\022\020\n\010repeated\030\005 \001(\010\".\n\017FieldConstraint\022\n\n" +
-      "\002is\030\001 \001(\t\022\017\n\007message\030\002 \001(\tb\006proto3"
+      "\022\020\n\010repeated\030\005 \001(\010\022*\n\014typespecific\030\007 \001(\013" +
+      "2\024.google.protobuf.Any\".\n\017FieldConstrain" +
+      "t\022\n\n\002is\030\001 \001(\t\022\017\n\007message\030\002 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5951,7 +6206,7 @@ public final class MetaOuterClass {
     internal_static_furo_FieldMeta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_FieldMeta_descriptor,
-        new java.lang.String[] { "Default", "Hint", "Label", "Options", "Readonly", "Repeated", });
+        new java.lang.String[] { "Default", "Hint", "Label", "Options", "Readonly", "Repeated", "Typespecific", });
     internal_static_furo_FieldConstraint_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_furo_FieldConstraint_fieldAccessorTable = new

@@ -1616,6 +1616,10 @@
           "type": "boolean",
           "format": "boolean",
           "title": "repeated"
+        },
+        "typespecific": {
+          "$ref": "#/definitions/protobufAny",
+          "title": "Put in type specific metas for your fields here"
         }
       },
       "title": "Metas for a field"

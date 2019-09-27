@@ -5,7 +5,7 @@
   "__proto": {
     "package": "furo",
     "options": {},
-    "imports": [],
+    "imports": ["google/protobuf/any.proto"],
     "targetfile": "meta.proto"
   },
   "fields": {
@@ -69,6 +69,16 @@
       },
       "__proto": {
         "number": 6
+      }
+    },
+    "typespecific": {
+      "description": "Put in type specific metas for your fields here",
+      "type": "google.protobuf.Any",
+      "meta": {
+        "label": "types pecific meta"
+      },
+      "__proto": {
+        "number": 7
       }
     }
   }
