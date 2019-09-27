@@ -60,7 +60,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       if (this.field) {
         // by valid input reset meta and constraints
         CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-        this.field.value = val;
+        this.field[this.valueField].value = val;
       }
       this._notifiySelectedItem(val);
     });
@@ -270,7 +270,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       this.errortext = this.field._validity.description;
     }
 
-    this._FBPTriggerWire('--value', this.field.value);
+    this._FBPTriggerWire('--value', this.field[this.valueField].value);
     this.requestUpdate();
 
   }
@@ -336,14 +336,14 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
     this._dropdownList = arr;
     if (!this.field[this.valueField].value) {
-      this.field.value = arr[0].id;
+      this.field[this.valueField].value = arr[0].id;
     }
 
     if (!this.field) {
       // notifiy first item if field is not set
       this._notifiySelectedItem(arr[0].id);
     } else {
-      this._notifiySelectedItem(this.field.value);
+      this._notifiySelectedItem(this.field[this.valueField].value);
     }
 
     this._FBPTriggerWire("--selection", arr);
@@ -382,15 +382,15 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       }
     });
     this._dropdownList = arr;
-    if (this.field && !this.field.value) {
-      this.field.value = arr[0].id;
+    if (this.field && !this.field[this.valueField].value) {
+      this.field[this.valueField].value = arr[0].id;
     }
 
     if (!this.field) {
       // notifiy first item if field is not set
       this._notifiySelectedItem(arr[0].id);
     } else {
-      this._notifiySelectedItem(this.field.value);
+      this._notifiySelectedItem(this.field[this.valueField].value);
     }
 
     this._FBPTriggerWire("--selection", arr);
@@ -414,15 +414,15 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     });
 
     this._dropdownList = arr;
-    if (this.field && !this.field.value) {
-      this.field.value = arr[0].id;
+    if (this.field && !this.field[this.valueField].value) {
+      this.field[this.valueField].value = arr[0].id;
     }
 
     if (!this.field) {
       // notifiy first item if field is not set
       this._notifiySelectedItem(arr[0].id);
     } else {
-      this._notifiySelectedItem(this.field.value);
+      this._notifiySelectedItem(this.field[this.valueField].value);
     }
 
     this._FBPTriggerWire("--selection", arr);

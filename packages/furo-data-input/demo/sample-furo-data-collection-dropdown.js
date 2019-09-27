@@ -49,26 +49,20 @@ class SampleFuroDataCollectionDropdown extends FBP(LitElement) {
         <template>
           
           <furo-form-layouter two>
-          <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"  value-field="id" display-field="phone_nr" label="Use phone as display" ƒ-inject-entities="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
-          
-          <furo-data-collection-dropdown  label="Default display" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-entities="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
-          <furo-data-collection-dropdown condensed label="List as input" leading-icon="mail" trailing-icon="fingerprint" list="1,2,3" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
-          <furo-data-display condensed label="selected value" ƒ-bind-data="--entity(*.description)"></furo-data-display>
+          <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"  
+                                         value-field="id" 
+                                         display-field="phone_nr" 
+                                         label="Use phone as display" 
+                                         ƒ-inject-entities="--response(*.entities)" 
+                                         ƒ-bind-data="--entity(*.owner)"></furo-data-collection-dropdown>
           </furo-form-layouter>
           
             
-          <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
-      
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-      
-          <furo-data-object type="project.ProjectCollection" @-object-ready="--collection"
-                            ƒ-inject-raw="--response"></furo-data-object>
-      
-          <furo-deep-link service="PersonService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
-      
+            
           <furo-collection-agent service="PersonService"
-                                 ƒ-hts-in="--hts"
-                                 ƒ-list="--hts"
+                                 list-on-hts-in
+                                 ƒ-hts-in="--entity(*.owner.link.value)"
                                  @-response="--response">
           </furo-collection-agent>
         </template>
