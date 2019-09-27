@@ -99,8 +99,15 @@ typelist.forEach((pathToTypeSpec) => {
       }
     }
 
-    fields.push(fld);
+    if (field.meta && field.meta.repeated ) {
+      fld.component = "furo-data-repeat";
+      let value_name = fieldname+ "-" + fieldname + "-form";
+      fld.attrs = [
+        {"name": "repeated-component", "value": value_name }
+      ]
+    }
 
+    fields.push(fld);
   }
 
 
