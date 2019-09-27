@@ -1,0 +1,13 @@
+{
+  "_writeprotection": false,
+  "theme": "CollectionDropdownBaseTheme",
+  "class_name": "PersonPersonCollectionDropdown",
+  "component_name": "person-person-collection-dropdown",
+  "description": "",
+  "source": "uispecdir/person.person.update.action.spec",
+  "service_name": "PersonService",
+  "type": "person.PersonEntity",
+  "value_field": "id",
+  "display_field": "display_name",
+  "imports": []
+}
