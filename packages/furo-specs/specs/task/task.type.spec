@@ -47,9 +47,12 @@
         "hint": ""
       },
       "constraints": {
-        "required": true,
+        "required": {
+          "is": "true",
+          "message":"is required"
+        },
         "max": {
-          "value": 180,
+          "is": 180,
           "message": "task.desc.maxlength"
         }
       },

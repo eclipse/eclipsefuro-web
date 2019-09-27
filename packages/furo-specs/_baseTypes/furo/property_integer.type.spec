@@ -13,7 +13,7 @@
       "type": "number",
       "constraints": {
         "step": {
-          "value": 1
+          "is": 1
         }
       },
       "__proto": {

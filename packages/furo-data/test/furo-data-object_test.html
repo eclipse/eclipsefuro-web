@@ -172,8 +172,8 @@
 
           assert.equal(EntityRoot.description._meta.label, "ID label from response");
           assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
-          assert.equal(EntityRoot.description._constraints.min.value, 5);
-          assert.equal(EntityRoot.description._constraints.max.value, 20);
+          assert.equal(EntityRoot.description._constraints.min.is, 5);
+          assert.equal(EntityRoot.description._constraints.max.is, 20);
           assert.equal(EntityRoot.members.repeats[0].first_name._meta.label, "firstname label from response");
 
           done();
@@ -193,8 +193,8 @@
 
           assert.equal(EntityRoot.description._meta.label, "ID label from response");
           assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
-          assert.equal(EntityRoot.description._constraints.min.value, 5);
-          assert.equal(EntityRoot.description._constraints.max.value, 20);
+          assert.equal(EntityRoot.description._constraints.min.is, 5);
+          assert.equal(EntityRoot.description._constraints.max.is, 20);
           assert.equal(EntityRoot.members.repeats[0].first_name._meta.label, "firstname label from response");
 
           done();

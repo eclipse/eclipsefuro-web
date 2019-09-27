@@ -37,15 +37,15 @@ export class CheckMetaAndOverrides {
       // check if constraints ara available
       if (element.field._constraints) {
         if (element.field._constraints.max) {
-          element._max = element.field._constraints.max.value;
+          element._max = Number(element.field._constraints.max.is);
           element._maxErrorMessage = element.field._constraints.max.message;
         }
         if (element.field._constraints.min) {
-          element._min = element.field._constraints.min.value;
+          element._min = Number(element.field._constraints.min.is);
           element._minErrorMessage = element.field._constraints.min.message;
         }
         if (element.field._constraints.step) {
-          element._step = element.field._constraints.step.value;
+          element._step = Number(element.field._constraints.step.is);
           element._stepErrorMessage = element.field._constraints.step.message;
         }
         if (element.field._constraints.pattern) {
@@ -53,7 +53,7 @@ export class CheckMetaAndOverrides {
           element._patternErrorMessage = element.field._constraints.pattern.message;
         }
         if (element.field._constraints.required) {
-          element._required = element.field._meta.required;
+          element._required = element.field._meta.required.is == "true" || element.field._meta.required.is === true;
         }
       }
     }

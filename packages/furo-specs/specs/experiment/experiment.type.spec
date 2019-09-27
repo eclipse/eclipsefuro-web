@@ -77,17 +77,20 @@
         "readonly": false
       },
       "constraints": {
-        "required": true,
+        "required": {
+          "is": "true",
+          "message":"is required"
+        },
         "min": {
-          "value": 3,
+          "is": 3,
           "message": "at least 3 characters"
         },
         "max": {
-          "value": 15,
+          "is": 15,
           "message": "15 characters maximum"
         },
         "pattern": {
-          "value": "a.*",
+          "is": "a.*",
           "message": "must start with a"
         }
       },
@@ -120,15 +123,15 @@
       },
       "constraints": {
         "min": {
-          "value": "05:00",
+          "is": "05:00",
           "message": "From 05:00"
         },
         "max": {
-          "value": "19:00",
+          "is": "19:00",
           "message": "to 19:00"
         },
         "step": {
-          "value": "5",
+          "is": "5",
           "message": "step 5"
         }
       },
@@ -146,15 +149,15 @@
       },
       "constraints": {
         "min": {
-          "value": 20,
+          "is": 20,
           "message": "From 20"
         },
         "max": {
-          "value": 50,
+          "is": 50,
           "message": "to 50"
         },
         "step": {
-          "value": "2.5",
+          "is": "2.5",
           "message": "step 2.5"
         }
       },
@@ -172,15 +175,15 @@
       },
       "constraints": {
         "min": {
-          "value": 1,
+          "is": 1,
           "message": "from 1"
         },
         "max": {
-          "value": 555,
+          "is": 555,
           "message": "to 555"
         },
         "step": {
-          "value": "3",
+          "is": "3",
           "message": "step 3"
         }
       },
@@ -211,11 +214,11 @@
       },
       "constraints": {
         "min": {
-          "value": 6,
+          "is": 6,
           "message": "min 6"
         },
         "max": {
-          "value": 15,
+          "is": 15,
           "message": "max 15"
         }
       },
@@ -233,15 +236,15 @@
       },
       "constraints": {
         "min": {
-          "value": 1,
+          "is": 1,
           "message": "min 1"
         },
         "max": {
-          "value": 15,
+          "is": 15,
           "message": "max 15"
         },
         "pattern": {
-          "value": "a.*",
+          "is": "a.*",
           "message": "must start with a"
         }
       },
@@ -259,15 +262,15 @@
       },
       "constraints": {
         "min": {
-          "value": "1800-01-01",
+          "is": "1800-01-01",
           "message": "The earliest date to accept is 1800-01-01"
         },
         "max": {
-          "value": "2099-12-31",
+          "is": "2099-12-31",
           "message": "The latest date to accept is 2099-12-31"
         },
         "step": {
-          "value": "5",
+          "is": "5",
           "message": "step 5"
         }
       },
@@ -342,15 +345,15 @@
       },
       "constraints": {
         "min": {
-          "value": "1800-01-01",
+          "is": "1800-01-01",
           "message": "The earliest date to accept is 1800-01-01"
         },
         "max": {
-          "value": "2099-12-31",
+          "is": "2099-12-31",
           "message": "The latest date to accept is 2099-12-31"
         },
         "step": {
-          "value": "2",
+          "is": "2",
           "message": "step 2"
         }
       },
@@ -402,17 +405,20 @@
 
       },
       "constraints": {
-        "required":true,
+        "required": {
+          "is": "true",
+          "message":"is required"
+        },
         "min": {
-          "value": 0,
+          "is": 0,
           "message": "amount can not be negative"
         },
         "max":{
-          "value": 999999,
+          "is": 999999,
           "message": "amount maximal 999999"
         },
         "step":{
-          "value": 0.01,
+          "is": 0.01,
           "message": "step 0.01"
         }
       },

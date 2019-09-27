@@ -45,7 +45,10 @@
         "hint": ""
       },
       "constraints": {
-        "required": true
+        "required": {
+          "is": "true",
+          "message": "you must enter a name"
+        }
       },
       "__proto": {
         "number": 3

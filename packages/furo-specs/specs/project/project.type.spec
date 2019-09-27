@@ -102,9 +102,13 @@
         "hint": ""
       },
       "constraints": {
-        "required": true,
+
+        "required": {
+          "is": "true",
+          "message":"is required"
+        },
         "max": {
-          "value": 25000,
+          "is": 25000,
           "message":"max 25000"
         }
       },

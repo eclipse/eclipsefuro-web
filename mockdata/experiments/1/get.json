@@ -39,7 +39,7 @@
               },
               "constraints": {
                 "min": {
-                  "value": "2019-09-09",
+                  "is": "2019-09-09",
                   "message": "to small"
                 }
               }
@@ -160,7 +160,7 @@
             },
             "constraints": {
               "min": {
-                "value": "2019-09-09",
+                "is": "2019-09-09",
                 "message": "to small"
               }
             }
