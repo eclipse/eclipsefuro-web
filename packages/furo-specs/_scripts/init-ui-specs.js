@@ -99,9 +99,14 @@ typelist.forEach((pathToTypeSpec) => {
       }
     }
 
+    // check which componet matches best (on complex type fieldname+ "-" + fieldname + "-form")
+
+
+
     if (field.meta && field.meta.repeated ) {
+      let value_name = fld.component;
       fld.component = "furo-data-repeat";
-      let value_name = fieldname+ "-" + fieldname + "-form";
+
       fld.attrs = [
         {"name": "repeated-component", "value": value_name }
       ]
