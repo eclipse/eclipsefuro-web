@@ -160,6 +160,13 @@ class FuroCollapsibleBox extends FBP(LitElement) {
        */
       label: {
         type: String
+      }
+      ,/**
+       * Label der Collapsible
+       */
+      secondaryText: {
+        type: String,
+        attribute:"secondary-text"
       },
       /**
        * Opens the box on focus
@@ -244,12 +251,21 @@ class FuroCollapsibleBox extends FBP(LitElement) {
 
         label {
             display: block;
-            font-weight: 700;
-            line-height: 24px;
             padding-left: 8px;
             cursor: pointer;
+
+            font-size: 24px;
+            line-height: 24px;
+            letter-spacing: 0;
+            margin: 0;
+            font-weight: normal;
         }
 
+        .secondary{
+            padding-left: var(--spacing,24px);
+            font-size: 14px;
+            letter-spacing: 0.1px;
+        }
         .content {
             display: none;
         }
@@ -287,7 +303,8 @@ class FuroCollapsibleBox extends FBP(LitElement) {
     return html`
 <furo-horizontal-flex class="head">
   <furo-icon tabindex="${this.tabindex}" ƒ-focus="--focus" icon="${this.icon}" @-keydown="--keystrokes(*)" @-click="--toggleClicked" @-blur="--blured"></furo-icon>     
-  <label flex  @-click="--toggleClicked">${this.label}</label>
+  <label  @-click="--toggleClicked">${this.label}</label>
+  <div flex class="secondary"  @-click="--toggleClicked">${this.secondaryText}</div>
   <slot name="context"></slot>
 </furo-horizontal-flex>
 <div class="content"><slot></slot></div>

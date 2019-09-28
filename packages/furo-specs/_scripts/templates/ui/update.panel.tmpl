@@ -61,10 +61,10 @@ export class {{.class_name}} extends FBP(BasePanel) {
           {{"<" | noescape}}furo-vertical-flex>
             {{"<" | noescape}}furo-card{{if .title}} title="${i18n.t("{{.title}}")}"{{end}}{{if .secondary_text}} secondary-text="${i18n.t("{{.secondary_text}}")}"{{end}}>
 
-              {{"<" | noescape}}{{.form.name}}{{range $flag := .form.flags}} {{$flag}}{{end}} {{range $attr := .form.attrs}} {{$attr.name}}="{{$attr.value}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
+              {{"<" | noescape}}{{.form.name}}{{range $flag := .form.flags}} {{$flag}}{{end}} {{range $attr := .form.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
             </furo-card>
 
-            {{"<" | noescape}}{{.action.name}}{{range $flag := .action.flags}} {{$flag}}{{end}} {{range $attr := .action.attrs}} {{$attr.name}}="{{$attr.value}}" {{end}}@-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
+            {{"<" | noescape}}{{.action.name}}{{range $flag := .action.flags}} {{$flag}}{{end}} {{range $attr := .action.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}@-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
 
 
           </furo-vertical-flex>

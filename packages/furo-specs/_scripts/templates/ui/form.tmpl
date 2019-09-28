@@ -98,10 +98,10 @@ export class {{.class_name}} extends FBP(LitElement) {
             {{if $fieldgroup.title}}{{"<" | noescape}}h1>${i18n.t("{{$fieldgroup.title}}")}</h1>{{end}}
             {{if $fieldgroup.caption}}{{"<" | noescape}}div class="caption">${i18n.t("{{$fieldgroup.caption}}")}</div>{{end}}
             {{if $fieldgroup.secondary_text}}{{"<" | noescape}}span class="secondary">${i18n.t("{{$fieldgroup.secondary_text}}")}</span>{{end}}
-            {{"<" | noescape}}{{$fieldgroup.component}}{{range $flag := $fieldgroup.flags}} {{$flag}}{{end}}{{range $attr := $fieldgroup.attrs}} {{$attr.name}}="{{$attr.value}}"{{end}}>
+            {{"<" | noescape}}{{$fieldgroup.component}}{{range $flag := $fieldgroup.flags}} {{$flag}}{{end}}{{range $attr := $fieldgroup.attrs}} {{$attr.name}}="{{$attr.val}}"{{end}}>
                 {{- range $field := $fieldgroup.fields}}
                 {{"<" | noescape}}!-- {{$field.spec.description}}  -->
-                {{"<" | noescape}}{{$field.component}} {{range $flag := $field.flags}}{{$flag}} {{end}}{{range $attr := $field.attrs}} {{$attr.name}}="{{$attr.value}}" {{end}}
+                {{"<" | noescape}}{{$field.component}} {{range $flag := $field.flags}}{{$flag}} {{end}}{{range $attr := $field.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}
                 {{- if $field.field}}ƒ-bind-data="--data(*.{{$field.field}})"{{end}}>{{"<" | noescape}}/{{$field.component}}>{{end}}
             {{"<" | noescape}}/{{$fieldgroup.component}}>
             {{end}}

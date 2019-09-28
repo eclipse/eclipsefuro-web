@@ -52,21 +52,21 @@ export class {{.class_name}} extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-            {{"<" | noescape}}{{.widget.component}}{{range $flag := .widget.flags}} {{$flag}} {{end}}{{range $attr := .widget.attrs}} {{$attr.name}}="{{$attr.value}}" {{end}}{{if .widget.title}} title="${i18n.t("{{.widget.title}}")}" {{end}}{{if .widget.secondary_text}}secondary-text="${i18n.t("{{.widget.secondary_text}}")}"{{end}}>
+            {{"<" | noescape}}{{.widget.component}}{{range $flag := .widget.flags}} {{$flag}} {{end}}{{range $attr := .widget.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}{{if .widget.title}} title="${i18n.t("{{.widget.title}}")}" {{end}}{{if .widget.secondary_text}}secondary-text="${i18n.t("{{.widget.secondary_text}}")}"{{end}}>
                 {{range $fieldgroup := .fieldgroups}}{{"<" | noescape}}!-- {{$fieldgroup.description}}  -->
                 {{if $fieldgroup.title}}{{"<" | noescape}}h1>${i18n.t("{{$fieldgroup.title}}")}</h1>{{end}}
                 {{if $fieldgroup.secondary_text}}{{"<" | noescape}}span class="secondary">${i18n.t("{{$fieldgroup.secondary_text}}")}</span>{{end}}
-                {{"<" | noescape}}{{$fieldgroup.component}}{{range $flag := $fieldgroup.flags}} {{$flag}}{{end}}{{range $attr := $fieldgroup.attrs}} {{$attr.name}}="{{$attr.value}}"{{end}}>
+                {{"<" | noescape}}{{$fieldgroup.component}}{{range $flag := $fieldgroup.flags}} {{$flag}}{{end}}{{range $attr := $fieldgroup.attrs}} {{$attr.name}}="{{$attr.val}}"{{end}}>
                     {{- range $field := $fieldgroup.fields}}
                     {{"<" | noescape}}!-- {{$field.spec.description}}  -->
-                    {{"<" | noescape}}{{$field.component}} {{range $flag := $field.flags}}{{$flag}} {{end}}{{range $attr := $field.attrs}} {{$attr.name}}="{{$attr.value}}" {{end}}
+                    {{"<" | noescape}}{{$field.component}} {{range $flag := $field.flags}}{{$flag}} {{end}}{{range $attr := $field.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}
                     {{- if $field.field}}ƒ-bind-data="--data(*.{{$field.field}})"{{end}}>{{"<" | noescape}}/{{$field.component}}>{{end}}
                 {{"<" | noescape}}/{{$fieldgroup.component}}>
                 {{end}}
 
                 <furo-horizontal-flex slot="action" space>
                     {{- range $item := .action_items}}
-                    {{"<" | noescape}}{{$item.component}}{{if $item.rel}} rel="{{$item.rel}}"{{end}}{{range $flag := $item.flags}} {{$flag}}{{end}} {{range $attr := $item.attrs}} {{$attr.name}}="{{$attr.value}}" {{end}}
+                    {{"<" | noescape}}{{$item.component}}{{if $item.rel}} rel="{{$item.rel}}"{{end}}{{range $flag := $item.flags}} {{$flag}}{{end}} {{range $attr := $item.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}
                     {{- if $item.label}} label="${i18n.t('{{$item.label}}')}"{{end}}{{if $item.onclick}} @-click="{{$item.onclick}}"{{end}}>{{"<" | noescape}}/{{$item.component}}>{{end}}
                 </furo-horizontal-flex>
 

@@ -56,7 +56,7 @@ class {{.class_name}} extends FBP(LitElement) {
         return html`
           <furo-button-bar ƒ-bind-entity="--entityObjectInjected">
           {{- range $item := .items}}
-           {{"<" | noescape}}{{$item.component}}{{if $item.rel}} rel="{{$item.rel}}"{{end}}{{range $flag := $item.flags}} {{$flag}}{{end}} {{range $attr := $item.attrs}} {{$attr.name}}="{{$attr.value}}" {{end}}
+           {{"<" | noescape}}{{$item.component}}{{if $item.rel}} rel="{{$item.rel}}"{{end}}{{range $flag := $item.flags}} {{$flag}}{{end}} {{range $attr := $item.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}
                           {{- if $item.label}} label="${i18n.t('{{$item.label}}')}"{{end}}{{if $item.onclick}} @-click="{{$item.onclick}}"{{end}}>{{"<" | noescape}}/{{$item.component}}>{{end}}
           </furo-button-bar>
         `;

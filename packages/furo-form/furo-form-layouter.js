@@ -161,6 +161,21 @@ class FuroFormLayouter extends FBP(LitElement) {
             ::slotted(*[double]) {
                 grid-column: span 2;
             }
+            :host([card]){
+                
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                
+                background: var(--furo-card-background, var(--surface, white));
+                padding: var(--furo-card-padding, var(--spacing-xs, 8px));
+                margin: var(--furo-card-margin, 0);
+               
+                
+                border-radius: 4px;
+                font-size: 14px;
+                letter-spacing: 0.1px;
+            }
 
         `
     }

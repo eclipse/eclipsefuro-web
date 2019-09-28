@@ -60,7 +60,7 @@ export class {{.class_name}} extends FBP(BasePanel) {
         return html`
           {{"<" | noescape}}furo-vertical-flex>
             {{"<" | noescape}}furo-card{{if .title}} title="${i18n.t("{{.title}}")}"{{end}}{{if .secondary_text}} secondary-text="${i18n.t("{{.secondary_text}}")}"{{end}}>
-              {{"<" | noescape}}{{.display.name}}{{range $flag := .display.flags}} {{$flag}}{{end}} {{range $attr := .display.attrs}} {{$attr.name}}="{{$attr.value}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.display.name}}>
+              {{"<" | noescape}}{{.display.name}}{{range $flag := .display.flags}} {{$flag}}{{end}} {{range $attr := .display.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.display.name}}>
             </furo-card>
 
 

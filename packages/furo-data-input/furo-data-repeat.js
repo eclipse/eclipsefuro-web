@@ -18,7 +18,7 @@ import "@furo/form/furo-form-layouter"
  *      ƒ-add="--additionalDateClicked"
  *      ></furo-data-repeat>
  *
- *      <!-- Add controlled from outside, delete from inside of the item -->
+ *      <!-- Add is controlled from outside, delete from inside of the item -->
  *      <furo-data-repeat ƒ-bind-data="--data(*.repeatedcomplextype)"
  *      repeated-component="my big form"
  *      ƒ-add="--additionalDateClicked"
