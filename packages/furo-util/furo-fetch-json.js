@@ -33,10 +33,12 @@ class FuroFetchJson extends FBP(LitElement) {
    * fetch and parse the data from specified `src`.
    *
    * Use fetch-src if you want to pass the source url
+   *
+   * @return {Promise<any>}
    */
   fetch() {
     if (this.src) {
-      fetch(this.src).then(res => res.json()).then(data => {
+      return fetch(this.src).then(res => res.json()).then(data => {
         /**
          * @event data
          * Fired when data received and json parsed
@@ -51,11 +53,13 @@ class FuroFetchJson extends FBP(LitElement) {
 
   /**
    * fetch json data from source
-   * @param source
+   * @param String source
+   *
+   * @return {Promise<any>}
    */
   fetchSrc(source) {
     this.src = source;
-    this.fetch();
+    return this.fetch();
   }
 
 }

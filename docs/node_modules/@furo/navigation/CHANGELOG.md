@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.33.8](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.7...@furo/navigation@0.33.8) (2019-09-25)
+
+
+### Bug Fixes
+
+* correct style vars to "new" notation --separator-color => --separator ([35ec769](https://github.com/veith/FuroBaseComponents/commit/35ec769))
+
+
+
+
+
 ## [0.33.7](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.6...@furo/navigation@0.33.7) (2019-09-19)
 
 **Note:** Version bump only for package @furo/navigation

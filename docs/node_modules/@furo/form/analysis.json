@@ -974,9 +974,9 @@
           }
         },
         {
-          "name": "openOnFocus",
-          "type": "boolean | null | undefined",
-          "description": "Opens the box on focus",
+          "name": "secondaryText",
+          "type": "string | null | undefined",
+          "description": "Label der Collapsible",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -990,14 +990,14 @@
           },
           "metadata": {
             "polymer": {
-              "attributeType": "Boolean"
+              "attributeType": "String"
             }
           }
         },
         {
-          "name": "closeOnBlur",
+          "name": "openOnFocus",
           "type": "boolean | null | undefined",
-          "description": "Closes the box on blur (icon)",
+          "description": "Opens the box on focus",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -1016,17 +1016,38 @@
           }
         },
         {
+          "name": "closeOnBlur",
+          "type": "boolean | null | undefined",
+          "description": "Closes the box on blur (icon)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 180,
+              "column": 6
+            },
+            "end": {
+              "line": 183,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
           "name": "rememberState",
           "type": "boolean | null | undefined",
           "description": "reserved flag\ntodo implement remember component",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 218,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 220,
               "column": 7
             }
           },
@@ -1254,16 +1275,16 @@
         },
         {
           "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready",
+          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
           "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 530,
+              "line": 531,
               "column": 8
             },
             "end": {
-              "line": 532,
+              "line": 534,
               "column": 9
             }
           },
@@ -1281,11 +1302,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 534,
+              "line": 536,
               "column": 8
             },
             "end": {
-              "line": 536,
+              "line": 538,
               "column": 9
             }
           },
@@ -1310,11 +1331,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 538,
+              "line": 540,
               "column": 8
             },
             "end": {
-              "line": 546,
+              "line": 548,
               "column": 9
             }
           },
@@ -1333,11 +1354,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 548,
+              "line": 550,
               "column": 8
             },
             "end": {
-              "line": 562,
+              "line": 564,
               "column": 9
             }
           },
@@ -1355,11 +1376,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 573,
+              "line": 575,
               "column": 8
             },
             "end": {
-              "line": 586,
+              "line": 588,
               "column": 9
             }
           },
@@ -1389,11 +1410,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 597,
+              "line": 599,
               "column": 8
             },
             "end": {
-              "line": 619,
+              "line": 621,
               "column": 9
             }
           },
@@ -1428,11 +1449,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 637,
+              "line": 639,
               "column": 8
             },
             "end": {
-              "line": 639,
+              "line": 641,
               "column": 9
             }
           },
@@ -1536,11 +1557,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 284,
+              "line": 300,
               "column": 2
             },
             "end": {
-              "line": 294,
+              "line": 311,
               "column": 3
             }
           },
@@ -1565,7 +1586,7 @@
           "column": 0
         },
         "end": {
-          "line": 295,
+          "line": 312,
           "column": 1
         }
       },
@@ -1638,8 +1659,8 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "open-on-focus",
-          "description": "Opens the box on focus",
+          "name": "secondary-text",
+          "description": "Label der Collapsible",
           "sourceRange": {
             "start": {
               "line": 166,
@@ -1651,11 +1672,11 @@
             }
           },
           "metadata": {},
-          "type": "boolean | null | undefined"
+          "type": "string | null | undefined"
         },
         {
-          "name": "close-on-blur",
-          "description": "Closes the box on blur (icon)",
+          "name": "open-on-focus",
+          "description": "Opens the box on focus",
           "sourceRange": {
             "start": {
               "line": 173,
@@ -1670,15 +1691,31 @@
           "type": "boolean | null | undefined"
         },
         {
+          "name": "close-on-blur",
+          "description": "Closes the box on blur (icon)",
+          "sourceRange": {
+            "start": {
+              "line": 180,
+              "column": 6
+            },
+            "end": {
+              "line": 183,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
           "name": "remember-state",
           "description": "reserved flag\ntodo implement remember component",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 218,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 220,
               "column": 7
             }
           },
@@ -2050,11 +2087,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 534,
+              "line": 536,
               "column": 8
             },
             "end": {
-              "line": 536,
+              "line": 538,
               "column": 9
             }
           },
@@ -2079,11 +2116,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 538,
+              "line": 540,
               "column": 8
             },
             "end": {
-              "line": 546,
+              "line": 548,
               "column": 9
             }
           },
@@ -2102,11 +2139,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 548,
+              "line": 550,
               "column": 8
             },
             "end": {
-              "line": 562,
+              "line": 564,
               "column": 9
             }
           },
@@ -2124,11 +2161,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 573,
+              "line": 575,
               "column": 8
             },
             "end": {
-              "line": 586,
+              "line": 588,
               "column": 9
             }
           },
@@ -2158,11 +2195,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 597,
+              "line": 599,
               "column": 8
             },
             "end": {
-              "line": 619,
+              "line": 621,
               "column": 9
             }
           },
@@ -2197,11 +2234,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 637,
+              "line": 639,
               "column": 8
             },
             "end": {
-              "line": 639,
+              "line": 641,
               "column": 9
             }
           },
@@ -2245,11 +2282,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 171,
+              "line": 186,
               "column": 4
             },
             "end": {
-              "line": 176,
+              "line": 191,
               "column": 5
             }
           },
@@ -2274,7 +2311,7 @@
           "column": 0
         },
         "end": {
-          "line": 177,
+          "line": 192,
           "column": 1
         }
       },
@@ -2603,16 +2640,16 @@
         },
         {
           "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready",
+          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
           "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 530,
+              "line": 531,
               "column": 8
             },
             "end": {
-              "line": 532,
+              "line": 534,
               "column": 9
             }
           },
@@ -2630,11 +2667,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 534,
+              "line": 536,
               "column": 8
             },
             "end": {
-              "line": 536,
+              "line": 538,
               "column": 9
             }
           },
@@ -2659,11 +2696,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 538,
+              "line": 540,
               "column": 8
             },
             "end": {
-              "line": 546,
+              "line": 548,
               "column": 9
             }
           },
@@ -2682,11 +2719,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 548,
+              "line": 550,
               "column": 8
             },
             "end": {
-              "line": 562,
+              "line": 564,
               "column": 9
             }
           },
@@ -2704,11 +2741,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 573,
+              "line": 575,
               "column": 8
             },
             "end": {
-              "line": 586,
+              "line": 588,
               "column": 9
             }
           },
@@ -2738,11 +2775,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 597,
+              "line": 599,
               "column": 8
             },
             "end": {
-              "line": 619,
+              "line": 621,
               "column": 9
             }
           },
@@ -2777,11 +2814,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 637,
+              "line": 639,
               "column": 8
             },
             "end": {
-              "line": 639,
+              "line": 641,
               "column": 9
             }
           },
@@ -3113,16 +3150,16 @@
         },
         {
           "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready",
+          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
           "privacy": "protected",
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 530,
+              "line": 531,
               "column": 8
             },
             "end": {
-              "line": 532,
+              "line": 534,
               "column": 9
             }
           },
@@ -3140,11 +3177,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 534,
+              "line": 536,
               "column": 8
             },
             "end": {
-              "line": 536,
+              "line": 538,
               "column": 9
             }
           },
@@ -3169,11 +3206,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 538,
+              "line": 540,
               "column": 8
             },
             "end": {
-              "line": 546,
+              "line": 548,
               "column": 9
             }
           },
@@ -3192,11 +3229,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 548,
+              "line": 550,
               "column": 8
             },
             "end": {
-              "line": 562,
+              "line": 564,
               "column": 9
             }
           },
@@ -3214,11 +3251,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 573,
+              "line": 575,
               "column": 8
             },
             "end": {
-              "line": 586,
+              "line": 588,
               "column": 9
             }
           },
@@ -3248,11 +3285,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 597,
+              "line": 599,
               "column": 8
             },
             "end": {
-              "line": 619,
+              "line": 621,
               "column": 9
             }
           },
@@ -3287,11 +3324,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 637,
+              "line": 639,
               "column": 8
             },
             "end": {
-              "line": 639,
+              "line": 641,
               "column": 9
             }
           },

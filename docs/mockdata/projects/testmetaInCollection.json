@@ -8,11 +8,11 @@
         },
         "constraints": {
           "min": {
-            "value": 5,
+            "is": 5,
             "message": "minimal number"
           },
           "max": {
-            "value": 20,
+            "is": 20,
             "message": "Vierzehn sind genug"
           }
         },
@@ -24,11 +24,11 @@
         },
         "constraints": {
           "min": {
-            "value": 5,
+            "is": 5,
             "message": "minimal number"
           },
           "max": {
-            "value": 20,
+            "is": 20,
             "message": "Vierzehn sind genug"
           }
         }

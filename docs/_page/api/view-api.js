@@ -2187,7 +2187,7 @@ this[field]._constraints[c]=mc.constraints[c]}/**
            * detail payload:
            */this[field].dispatchNodeEvent(new NodeEvent("this-metas-changed",this[field],!1));// exit here, it does not go deeper
 return}let target=f[0],subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.slice(1).join(".")]=mc;let x=this[target];this[target].__updateMetaAndConstraints(subMetaAndConstraints)}}_createAnyType(val){// remove if type changes
-if(this.__anyCreated&&this["@type"]!==val["@type"]){for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("google.protobuf.Any"===this._spec.type&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
+if(this.__anyCreated&&this["@type"]!==val["@type"]){for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("google.protobuf.Any"===this._spec.type&&val&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
 // any can only be a complex type
 this._createVendorType(val["@type"]);this.__anyCreated=!0;this.createField({fieldName:"@type",type:"string",value:val["@type"]})}}_updateKeyValueMap(val,spec){let vType=spec.match(/,\s*(.*)>/)[1],fieldSpec={type:vType};// create if not exist
 for(let fieldName in val){if(this[fieldName]==void 0){this[fieldName]=new FieldNode(this,fieldSpec,fieldName)}//update data
@@ -2367,7 +2367,16 @@ this._qp=qp;this.trigger()}/**
      */setService(serviceName){this.service=serviceName}/**
      * Setze den Service
      * @param service
-     */set service(service){if(this._servicedefinitions[service]){this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}else{console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions)}}}window.customElements.define("furo-deep-link",FuroDeepLink);class FuroEntityAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api;// HTS aus response anwenden
+     */set service(service){if(this._servicedefinitions[service]){this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}else{console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions)}}}window.customElements.define("furo-deep-link",FuroDeepLink);class FuroDataEmmiter extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Bind a data object. The trigger method will not fire until an object was bounded.
+   * @param {Object|FieldNode}  a object from furo-data-object
+   */bindData(d){this.field=d}/**
+     * Read .value of the bounded data object and emit data as json object.
+     */trigger(){/**
+    * @event data
+    * Fired when trigger was called and data binding was done
+    * detail payload: json data of a data object
+    */if(this.field){let customEvent=new Event("data",{composed:!0,bubbles:!1});customEvent.detail=this.field.value;this.dispatchEvent(customEvent)}}}window.customElements.define("furo-data-emmiter",FuroDataEmmiter);class FuroEntityAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api;// HTS aus response anwenden
 this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links)){/**
          * @event response-hts-updated
          * Fired when
@@ -2692,7 +2701,7 @@ return _furoShell.html`
     `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class CheckMetaAndOverrides{static UpdateMetaAndConstraints(element){if(element.field){// options are available for text inputs at the moment
 // check if metas ara available
 if(element.field._meta){if(element.field._meta.readonly){element._readonly=element.field._meta.readonly}if(element.field._meta.label){element._label=element.field._meta.label}if(element.field._meta.hint){element._hint=element.field._meta.hint}if(element.field._meta.cols){element._cols=element.field._meta.cols}if(element.field._meta.rows){element._rows=element.field._meta.rows}if(element.field._meta.min_term_length){element._minTermLength=element.field._meta.min_term_length}if(element.field._meta.label_amount){element._labelAmount=element.field._meta.label_amount}if(element.field._meta.label_currency){element._labelCurrency=element.field._meta.label_currency}if(element.field._meta.options){element._options=element.field._meta.options}}// check if constraints ara available
-if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.value;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.value;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.value;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.value;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required=element.field._meta.required}}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
+if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.is;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.is;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.is;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.value;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required="true"==element.field._constraints.required.is||!0===element.field._constraints.required.is}}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
      * Attribute overrides
      * hint, min, max, readonly or disabled on the element are higher ranked then field metas from spec or server
      */if(element.min){element._min=element.min}if(element.max){element._max=element.max}if(element.readonly){element._readonly=element.readonly}if(element.label){element._label=element.label}if(element.hint){element._hint=element.hint}if(element.step){element._step=element.step}if(element.pattern){element._pattern=element.pattern}if(element.required){element._required=element.required}if(element.cols){element._cols=element.cols}if(element.rows){element._rows=element.rows}if(element.minTermLength){element._minTermLength=element.minTermLength}if(element.labelAmount){element._labelAmount=element.labelAmount}if(element.labelCurrency){element._labelCurrency=element.labelCurrency}if(element.options){element._options=element.options}}}_exports.CheckMetaAndOverrides=CheckMetaAndOverrides;var CheckMetaAndOverrides$1={CheckMetaAndOverrides:CheckMetaAndOverrides};_exports.$CheckMetaAndOverrides=CheckMetaAndOverrides$1;class Helper{/**
@@ -2717,7 +2726,7 @@ caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Hel
    *
    *  **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this.displayField="display_name";this.valueField="id";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.field.value=val}this._notifiySelectedItem(val)})}_notifiySelectedItem(val){/**
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.field[this.valueField].value=val}this._notifiySelectedItem(val)})}_notifiySelectedItem(val){/**
      * @event item-selected
      * Fired when a item from the dropdown was selected
      *
@@ -2781,7 +2790,7 @@ for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.va
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode);// update meta and constraints when they change
 this.field.addEventListener("this-metas-changed",e=>{this._buildListWithMetaOptions(this.field._meta.options)})}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field[this.valueField].value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -2818,8 +2827,8 @@ return _furoShell.html`
      * Build the dropdown list with given options from meta
      * @param {options} list of options with id and display_name
      */_buildListWithMetaOptions(entities){// map
-let arr=entities.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField].value==e[this.valueField],_original:e}});this._dropdownList=arr;if(!this.field[this.valueField].value){this.field.value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field.value)}this._FBPTriggerWire("--selection",arr)}/**
+let arr=entities.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField].value==e[this.valueField],_original:e}});this._dropdownList=arr;if(!this.field[this.valueField].value){this.field[this.valueField].value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField].value)}this._FBPTriggerWire("--selection",arr)}/**
      * Inject the array with the selectable options.
      *
      * The array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)
@@ -2840,14 +2849,14 @@ this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field.v
      *
      * @param {Array} Array with entities
      */injectList(list){// map
-let arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.value==e[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field.value){this.field.value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field.value)}this._FBPTriggerWire("--selection",arr)}/**
+let arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.value==e[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field[this.valueField].value){this.field[this.valueField].value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField].value)}this._FBPTriggerWire("--selection",arr)}/**
      * Inject the array with entities for the selectable options.
      *
      * @param {Array} Array with entities
      */injectEntities(entities){// map
-let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this.value==e.data[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field.value){this.field.value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field.value)}this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this.value==e.data[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field[this.valueField].value){this.field[this.valueField].value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField].value)}this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox-input
    *
    * All bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.
@@ -5812,26 +5821,20 @@ return _furoShell.html`
         <template>
           
           <furo-form-layouter two>
-          <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"  value-field="id" display-field="phone_nr" label="Use phone as display" ƒ-inject-entities="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
-          
-          <furo-data-collection-dropdown  label="Default display" leading-icon="mail" trailing-icon="fingerprint" ƒ-inject-entities="--response(*.entities)" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
-          <furo-data-collection-dropdown condensed label="List as input" leading-icon="mail" trailing-icon="fingerprint" list="1,2,3" ƒ-bind-data="--entity(*.description)"></furo-data-collection-dropdown>
-          <furo-data-display condensed label="selected value" ƒ-bind-data="--entity(*.description)"></furo-data-display>
+          <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"  
+                                         value-field="id" 
+                                         display-field="phone_nr" 
+                                         label="Use phone as display" 
+                                         ƒ-inject-entities="--response(*.entities)" 
+                                         ƒ-bind-data="--entity(*.owner)"></furo-data-collection-dropdown>
           </furo-form-layouter>
           
             
-          <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
-      
           <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-      
-          <furo-data-object type="project.ProjectCollection" @-object-ready="--collection"
-                            ƒ-inject-raw="--response"></furo-data-object>
-      
-          <furo-deep-link service="PersonService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
-      
+            
           <furo-collection-agent service="PersonService"
-                                 ƒ-hts-in="--hts"
-                                 ƒ-list="--hts"
+                                 list-on-hts-in
+                                 ƒ-hts-in="--entity(*.owner.link.value)"
                                  @-response="--response">
           </furo-collection-agent>
         </template>
@@ -6374,18 +6377,47 @@ return _furoShell.html`
      * by index
      * @param idx
      * @private
-     */_selectRowByIndex(idx){let allTr=this.shadowRoot.querySelector("tbody").querySelectorAll("tr");if(0<=idx&&1<allTr.length&&idx<allTr.length){let len=allTr.length;while(len--){allTr[len].setAttribute("selected",!1)}allTr[idx].setAttribute("selected",!0);this._selectedIndex=idx}}}window.customElements.define("furo-data-table",FuroDataTable);/**
-                                                                 *
-                                                                 * `furo-head-tail`
-                                                                 *  Splits an iterable (i.e. Array) in its head and tail part.
-                                                                 *
-                                                                 *```
-                                                                 *  <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
-                                                                 *```
-                                                                 *
-                                                                 * @summary split an array
-                                                                 * @customElement
-                                                                 */class FuroHeadTail extends HTMLElement{/**
+     */_selectRowByIndex(idx){let allTr=this.shadowRoot.querySelector("tbody").querySelectorAll("tr");if(0<=idx&&1<allTr.length&&idx<allTr.length){let len=allTr.length;while(len--){allTr[len].setAttribute("selected",!1)}allTr[idx].setAttribute("selected",!0);this._selectedIndex=idx}}}window.customElements.define("furo-data-table",FuroDataTable);class FuroFetchJson extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @private
+   * @return {Object}
+   */static get properties(){return{/**
+       * the url you want to fetch
+       */src:{type:String}}}/**
+     * fetch and parse the data from specified `src`.
+     *
+     * Use fetch-src if you want to pass the source url
+     *
+     * @return {Promise<any>}
+     */fetch(){if(this.src){return fetch(this.src).then(res=>res.json()).then(data=>{/**
+         * @event data
+         * Fired when data received and json parsed
+         * detail payload: {Object} json data
+         */let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=data;this.dispatchEvent(customEvent)})}}/**
+     * fetch json data from source
+     * @param String source
+     *
+     * @return {Promise<any>}
+     */fetchSrc(source){this.src=source;return this.fetch()}}window.customElements.define("furo-fetch-json",FuroFetchJson);class FuroGetClipboard extends(0,_furoShell.FBP)(_furoShell.LitElement){trigger(){navigator.clipboard.readText().then(clipText=>{/**
+       * @event content
+       * Fired when clipboard content is received
+       * detail payload: {*} content of the clipboard
+       */let customEvent=new Event("content",{composed:!0,bubbles:!0});if(this.json){customEvent.detail=JSON.parse(clipText)}else{customEvent.detail=clipText}this.dispatchEvent(customEvent)})}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Convert clipboard content to json
+       */json:{type:Boolean}}}}window.customElements.define("furo-get-clipboard",FuroGetClipboard);/**
+                                                                       *
+                                                                       * `furo-head-tail`
+                                                                       *  Splits an iterable (i.e. Array) in its head and tail part.
+                                                                       *
+                                                                       *```
+                                                                       *  <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
+                                                                       *```
+                                                                       *
+                                                                       * @summary split an array
+                                                                       * @customElement
+                                                                       */class FuroHeadTail extends HTMLElement{/**
    * Splits an iterable to its head (first item) and its tail (the rest) parts.
    *
    * ```
@@ -6486,7 +6518,16 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      */injectData(json){if(json){this.markedText=JSON.stringify(json,null,2);this.markedText=this._syntaxHighlight(this.markedText);this.shadowRoot.querySelector("#content").innerHTML=this.markedText}}_syntaxHighlight(json){if("string"!=typeof json){json=JSON.stringify(json,void 0,2)}json=json.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,function(match){var cls="number";if(/^"/.test(match)){if(/:$/.test(match)){cls="key"}else{cls="string"}}else if(/true|false/.test(match)){cls="boolean"}else if(/null/.test(match)){cls="null"}return"<span class=\""+cls+"\">"+match+"</span>"})}render(){// language=HTML
 return _furoShell.html`
             <pre id="content"></pre>
-        `}}window.customElements.define("furo-pretty-json",FuroPrettyJson);class DemoFuroDataTable extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+        `}}window.customElements.define("furo-pretty-json",FuroPrettyJson);class FuroPutClipboard extends _furoShell.LitElement{constructor(){super()}setData(data){this.data=data}trigger(data){if(this.data){data=this.data}let d;if(this.json){d=JSON.stringify(data,"",2)}else{d=data}navigator.clipboard.writeText(d).then(()=>{/**
+       * @event content
+       * Fired when clipboard content is received
+       * detail payload: {*} content of the clipboard
+       */let customEvent=new Event("content-putted",{composed:!0,bubbles:!0});customEvent.detail=d;this.dispatchEvent(customEvent)})}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Stringify JSON content
+       */json:{type:Boolean}}}}window.customElements.define("furo-put-clipboard",FuroPutClipboard);class DemoFuroDataTable extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}

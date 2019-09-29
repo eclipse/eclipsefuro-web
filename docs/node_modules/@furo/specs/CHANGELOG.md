@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.27.0...@furo/specs@0.29.0) (2019-09-25)
+
+
+### Features
+
+* furo-data-money-input ([26374f5](https://github.com/veith/FuroBaseComponents/commit/26374f5))
+
+
+
+
+
 # [0.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.26.0...@furo/specs@0.27.0) (2019-09-19)
 
 

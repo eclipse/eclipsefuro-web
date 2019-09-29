@@ -5,7 +5,7 @@ import {FBP} from "@furo/fbp";
  * `furo-data-emmiter`
  *  emits/fires the value from a data-object.
  *
- *  ```Html
+ *  ```html
  *   <furo-data-emmiter
  *        ƒ-trigger="--jsonDataRequested"
  *        ƒ-bind-data="--dataObject"
