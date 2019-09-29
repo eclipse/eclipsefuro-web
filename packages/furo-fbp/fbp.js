@@ -530,6 +530,7 @@ export const FBP = (superClass) => {
          */
         _FBPReady() {
             this.__fbp_ready = true;
+            this._FBPTriggerWire("--FBPready")
         }
 
         __enqueueTrigger(wire, detailData) {
