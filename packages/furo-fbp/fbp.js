@@ -526,11 +526,12 @@ export const FBP = (superClass) => {
 
         /**
          * Livecycle method
-         * This method is called, when the wires are ready
+         * This method is called, when the wires are ready.
+         * And triggers the --FBPready wire. This does *not* respect a lit updateComplete
          */
         _FBPReady() {
             this.__fbp_ready = true;
-            this._FBPTriggerWire("--FBPready")
+            this._FBPTriggerWire("--FBPready");
         }
 
         __enqueueTrigger(wire, detailData) {
