@@ -68,6 +68,17 @@ class FuroDataDateInput extends FBP(LitElement) {
     });
   }
 
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  }
+
   /**
    * Updater for the min => minlength attr*
    * @param value

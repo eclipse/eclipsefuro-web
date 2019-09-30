@@ -91,6 +91,18 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       }
     });
   }
+
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  }
+
   // convert data to google.type.Money format
   _convertDataToMoneyObj(currency, amount, obj){
 

@@ -69,6 +69,16 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   }
 
 
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  }
+
   _notifiySelectedItem(val) {
 
     /**

@@ -3,6 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {NodeEvent} from "@furo/data/lib/EventTreeNode";
 import {RepeaterNode} from "@furo/data/lib/RepeaterNode";
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 
 /**
  * `furo-data-property-display`
@@ -86,6 +87,17 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
       }
     }
 
+  }
+
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
   }
 
   _createPropComponent(propertyField) {

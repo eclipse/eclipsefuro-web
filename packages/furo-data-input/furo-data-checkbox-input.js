@@ -46,6 +46,17 @@ class FuroDataCheckboxInput extends FBP(LitElement) {
         });
     }
 
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  }
+
   /**
    * Updater for the label attr
    * @param value

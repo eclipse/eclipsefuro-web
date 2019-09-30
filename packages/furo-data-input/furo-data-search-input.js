@@ -68,6 +68,16 @@ class FuroDataSearchInput extends FBP(LitElement) {
 
 
   /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  }
+
+  /**
    * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
    * becaue it set "undefined" (as a Sting!)
    *

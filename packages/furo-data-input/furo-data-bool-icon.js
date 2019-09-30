@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {FieldNode} from "@furo/data/lib/FieldNode";
+import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 
 /**
  * `furo-data-bool-icon`
@@ -24,6 +25,17 @@ class FuroDataBoolIcon extends FBP(LitElement) {
       this.field = {};
       this._updateSymbol();
     }
+
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // check initial overrides
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+  }
 
     toggle(){
       this.field.value = !this.field.value;
