@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.10](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.13.9...@furo/doc-helper@0.13.10) (2019-09-30)
+
+**Note:** Version bump only for package @furo/doc-helper
+
+
+
+
+
 ## [0.13.9](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.13.8...@furo/doc-helper@0.13.9) (2019-09-30)
 
 **Note:** Version bump only for package @furo/doc-helper

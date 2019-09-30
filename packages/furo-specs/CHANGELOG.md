@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.30.0...@furo/specs@0.31.0) (2019-09-30)
+
+
+### Bug Fixes
+
+* meta fields ([c58e0c2](https://github.com/veith/FuroBaseComponents/commit/c58e0c2))
+
+
+### Features
+
+* modify ui spec generator for display ([4ec76ac](https://github.com/veith/FuroBaseComponents/commit/4ec76ac))
+
+
+
+
+
 # [0.30.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.29.0...@furo/specs@0.30.0) (2019-09-30)
 
 
