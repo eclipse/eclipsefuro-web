@@ -267,20 +267,21 @@ referencesearchlist.forEach((datafile) => {
 
 
 /**
- * Collectiondropdown section
+ * Referencedropdown section
  */
 
-let collectiondropdownlist = walkSync(UiSpecDir).filter((filepath) => {
-  return (path.basename(filepath).indexOf("collectiondropdown.spec") > 0)
+let referencedropdownlist = walkSync(UiSpecDir).filter((filepath) => {
+  return (path.basename(filepath).indexOf("referencedropdown.spec") > 0)
 });
 
 // generate tmp data file for each file in list
-collectiondropdownlist.forEach((datafile) => {
-  let collectiondropdownspec = JSON.parse(fs.readFileSync(datafile));
-  let targetfile = BuildDir + "/" + collectiondropdownspec.component_name.split("-")[0] + "/" + collectiondropdownspec.component_name + ".js";
-  sh("mkdir -p", [BuildDir + "/" + collectiondropdownspec.component_name.split("-")[0]]);
-  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/collection-dropdown.tmpl", ">", targetfile]);
+referencedropdownlist.forEach((datafile) => {
+  let referencedropdownspec = JSON.parse(fs.readFileSync(datafile));
+  let targetfile = BuildDir + "/" + referencedropdownspec.component_name.split("-")[0] + "/" + referencedropdownspec.component_name + ".js";
+  sh("mkdir -p", [BuildDir + "/" + referencedropdownspec.component_name.split("-")[0]]);
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", TplDir + "/reference-dropdown.tmpl", ">", targetfile]);
 });
+
 
 
 /**
