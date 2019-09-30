@@ -302,10 +302,7 @@
           "title": "constraints for a field"
         },
         "meta": {
-          "type": "object",
-          "additionalProperties": {
-            "$ref": "#/definitions/furoFieldMeta"
-          },
+          "$ref": "#/definitions/furoFieldMeta",
           "title": "meta information of a field"
         }
       },

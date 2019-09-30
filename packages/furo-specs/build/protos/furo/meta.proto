@@ -13,7 +13,7 @@ message MetaField {
     map<string,FieldConstraint> constraints = 2;
     
     // meta information of a field
-    map<string,FieldMeta> meta = 1;
+    FieldMeta meta = 1;
 
 }
 

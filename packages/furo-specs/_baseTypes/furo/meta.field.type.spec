@@ -11,11 +11,9 @@
   "fields": {
     "meta": {
       "description": "meta information of a field",
-      "type": "map<string,furo.FieldMeta>",
+      "type": "furo.FieldMeta",
       "__proto": {
-        "number": 1,
-        "map_from": "string",
-        "map_to": "furo.FieldMeta"
+        "number": 1
       }
     },
     "constraints": {
