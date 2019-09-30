@@ -114,9 +114,9 @@ class FuroDataRepeat extends FBP(LitElement) {
     }
     let icn = "";
     if (this.deleteIcon) {
-      icn = '<data-repeat-delete icon="' + this.deleteIcon + '" ' + isCondensed + ' ƒ-bind-item="--item"></data-repeat-delete>';
+      icn = '<data-repeat-delete icon="' + this.deleteIcon + '" ' + isCondensed + ' ƒ-bind-item="--init"></data-repeat-delete>';
     }
-    r.innerHTML = '<template><furo-horizontal-flex><' + component + ' ' + attrs + ' flex ƒ-bind-data="--item"></' + component + '>' + icn + '</furo-horizontal-flex></template>';
+    r.innerHTML = '<template><furo-horizontal-flex><' + component + ' ' + attrs + ' flex ƒ-bind-data="--init"></' + component + '>' + icn + '</furo-horizontal-flex></template>';
 
 
     container.appendChild(r);

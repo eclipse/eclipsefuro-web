@@ -111,7 +111,7 @@ class FuroDataProperty extends FBP(LitElement) {
   }
 
   bindData(propertyField) {
-console.log("bind", )
+
     this.field = propertyField;
 
     if (propertyField instanceof RepeaterNode) {
@@ -130,7 +130,7 @@ console.log("bind", )
           attrs += nodeName + '="' + nodeValue + '"';
         }
       }
-      r.innerHTML = '<template><furo-data-property ƒ-bind-data="--item" ' + attrs + '></furo-data-property></template>';
+      r.innerHTML = '<template><furo-data-property ƒ-bind-data="--init" ' + attrs + '></furo-data-property></template>';
 
 
       let repeater = this.parentNode.insertBefore(r, this);
@@ -147,7 +147,6 @@ console.log("bind", )
 
     } else {
       this.field.data.addEventListener('branch-value-changed', (d) => {
-
         this._createPropComponent(propertyField);
 
       }, {once: true});
@@ -155,6 +154,7 @@ console.log("bind", )
 
       // data already in data-object
       if (this.field.data["@type"]) {
+
         this._createPropComponent(propertyField);
       }
     }
@@ -163,7 +163,7 @@ console.log("bind", )
 
   _createPropComponent(propertyField) {
     if (!this._property_created) {
-      let e = document.createElement(this.typemap[propertyField.data["@type"]]);
+      let e = document.createElement(this.typemap[propertyField.data["@type"].value]);
 
       // Grab all of the original's attributes, and pass them to the replacement
       let l = this.attributes.length;
@@ -176,7 +176,7 @@ console.log("bind", )
       }
 
       if (e.bindData) {
-        switch (propertyField.data["@type"]) {
+        switch (propertyField.data["@type"].value) {
             // the input elements for string and number are just working with scalar values
           case "furo.StringProperty":
           case "furo.NumberProperty":

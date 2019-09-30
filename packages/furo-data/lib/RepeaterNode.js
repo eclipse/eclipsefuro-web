@@ -96,6 +96,7 @@ export class RepeaterNode extends EventTreeNode {
   }
 
   set value(val) {
+
     val.forEach((repdata, i) => {
       if (!this.repeats[i]) {
         this._addSilent();
@@ -103,8 +104,14 @@ export class RepeaterNode extends EventTreeNode {
       // Werte aktualisieren
       this.repeats[i].value = repdata;
       this.repeats[i]._pristine = true;
-
     });
+    // remove additional nodes in repeats console.log(val.length,this.repeats.length)
+    if(this.repeats.length > val.length){
+      let l = val.length -1;
+      for(let i =  this.repeats.length -1; i > l; i--){
+        this.deleteChild(i);
+      }
+    }
 
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
     this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
@@ -173,18 +180,15 @@ export class RepeaterNode extends EventTreeNode {
    */
   deleteChild(index) {
     this.repeats.splice(index, 1);
+    this.__childNodes.splice(index, 1);
 
-    // update indexes
-    this.repeats.forEach((node,i)=>{
-      node.__index = i;
-    });
 
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this.repeats, true));
     this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed", this.repeats, false));
 
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed", this.repeats, true));
     this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
-
+    this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
   }
 
   _addSilent() {
