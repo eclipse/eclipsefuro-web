@@ -78,6 +78,7 @@ class FuroDataRepeat extends FBP(LitElement) {
     // repeated
     let container = document.createElement("furo-form-layouter");
     let r = document.createElement("flow-repeat");
+
     r.setAttribute("identity-path", "__index");
     r.setAttribute("ƒ-inject-items", "--repeatsChanged");
 
@@ -129,7 +130,7 @@ class FuroDataRepeat extends FBP(LitElement) {
     this.field = repeats;
     this.field.addEventListener("this-repeated-field-changed", (node) => {
       this._FBPTriggerWire("--repeatsChanged", this.field.repeats);
-    })
+    });
 
     // key value repeats
     if (this.field.repeats) {

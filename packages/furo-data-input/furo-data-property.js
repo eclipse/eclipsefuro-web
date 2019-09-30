@@ -111,7 +111,7 @@ class FuroDataProperty extends FBP(LitElement) {
   }
 
   bindData(propertyField) {
-
+console.log("bind", )
     this.field = propertyField;
 
     if (propertyField instanceof RepeaterNode) {
@@ -119,7 +119,8 @@ class FuroDataProperty extends FBP(LitElement) {
       // add flow repeat to parent and inject on repeated changes
       // repeated
       let r = document.createElement("flow-repeat");
-      r.setAttribute("identity-path", "id.value");
+      r.setAttribute("identity-path", "__index");
+
       let attrs = "";
       let l = this.attributes.length;
       for (let i = 0; i < l; ++i) {
@@ -131,12 +132,18 @@ class FuroDataProperty extends FBP(LitElement) {
       }
       r.innerHTML = '<template><furo-data-property ƒ-bind-data="--item" ' + attrs + '></furo-data-property></template>';
 
+
       let repeater = this.parentNode.insertBefore(r, this);
 
 
       this.field.addEventListener('this-repeated-field-changed', (data) => {
         repeater.injectItems(this.field.repeats);
       });
+      // inject if data is already here
+      if(this.field.repeats.length > 0){
+        repeater.injectItems(this.field.repeats);
+      }
+
 
     } else {
       this.field.data.addEventListener('branch-value-changed', (d) => {
