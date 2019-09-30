@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.55.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.54.0...@furo/data-input@0.55.0) (2019-09-30)
+
+
+### Bug Fixes
+
+* attr.value becomes attr.val ([60e7db9](https://github.com/veith/FuroBaseComponents/commit/60e7db9))
+* fix collection dropdwon binding problem ([6d19156](https://github.com/veith/FuroBaseComponents/commit/6d19156))
+* initial property ([41758cf](https://github.com/veith/FuroBaseComponents/commit/41758cf))
+
+
+### Features
+
+* new base types ([f8896c6](https://github.com/veith/FuroBaseComponents/commit/f8896c6))
+* new base types, green again ([88b4a4d](https://github.com/veith/FuroBaseComponents/commit/88b4a4d))
+
+
+
+
+
 # [0.54.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.53.0...@furo/data-input@0.54.0) (2019-09-25)
 
 

@@ -9,7 +9,7 @@
     ],
     "homepage": "https://furo.pro",
     "name": "@furo/fbp",
-    "version": "4.26.6",
+    "version": "4.27.0",
     "resolutions": {
         "inherits": "2.0.3",
         "samsam": "1.1.3",

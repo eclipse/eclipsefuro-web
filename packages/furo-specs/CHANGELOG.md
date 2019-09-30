@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.29.0...@furo/specs@0.30.0) (2019-09-30)
+
+
+### Bug Fixes
+
+* attr.value becomes attr.val ([60e7db9](https://github.com/veith/FuroBaseComponents/commit/60e7db9))
+
+
+### Features
+
+* add templeates for generating collection dropdown ui ([6a6f1fe](https://github.com/veith/FuroBaseComponents/commit/6a6f1fe))
+* new base types ([f8896c6](https://github.com/veith/FuroBaseComponents/commit/f8896c6))
+* new base types ([8caf64b](https://github.com/veith/FuroBaseComponents/commit/8caf64b))
+* new base types, green again ([88b4a4d](https://github.com/veith/FuroBaseComponents/commit/88b4a4d))
+
+
+
+
+
 # [0.29.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.27.0...@furo/specs@0.29.0) (2019-09-25)
 
 

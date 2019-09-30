@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.57.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.56.1...@furo/data@0.57.0) (2019-09-30)
+
+
+### Bug Fixes
+
+* check for null values in vendor types ([0ce5a8e](https://github.com/veith/FuroBaseComponents/commit/0ce5a8e))
+
+
+### Features
+
+* furo-data-emmiter component added ([00e5766](https://github.com/veith/FuroBaseComponents/commit/00e5766))
+* new base types ([f8896c6](https://github.com/veith/FuroBaseComponents/commit/f8896c6))
+
+
+
+
+
 ## [0.56.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.56.0...@furo/data@0.56.1) (2019-09-25)
 
 
