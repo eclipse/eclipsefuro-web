@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.56.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.55.1...@furo/data-input@0.56.0) (2019-09-30)
+
+
+### Features
+
+* overrides on elements without data-binding ([8e75574](https://github.com/veith/FuroBaseComponents/commit/8e75574))
+
+
+
+
+
 ## [0.55.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.55.0...@furo/data-input@0.55.1) (2019-09-30)
 
 
