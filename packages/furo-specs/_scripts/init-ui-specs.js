@@ -243,16 +243,40 @@ typelist.forEach((pathToTypeSpec) => {
       delete field;
       continue
     }
-    fields.push({
+
+    let component_name = "furo-data-display";
+
+    let arrTmpName = field.type.split(".");
+    //  complex type has a cutom form component
+    if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
+
+      component_name = field.type.toLowerCase().replace(".", "-") + "-display";
+      displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
+    }
+
+    let fld = {
       "field": fieldname,
-      "component": "furo-data-display",
+      "component": component_name,
       "flags": [
         "condensed",
         "double",
         "noborder"
       ],
       "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
-    })
+    };
+
+    // repeated fields can use furo-data-repeat component
+    if (field.meta && field.meta.repeated && field.type != "furo.Property") {
+
+      fld.attrs = [
+        {"name": "repeated-component", "value": component_name }
+      ]
+
+      fld.component = "furo-data-repeat";
+    }
+
+
+    fields.push(fld);
   }
 
 
