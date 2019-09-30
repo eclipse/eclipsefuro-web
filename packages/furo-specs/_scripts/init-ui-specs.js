@@ -409,10 +409,10 @@ refservicelist.forEach((pathToService) => {
 
 
 /**
- * Collection-dropdown Section
+ * Reference-dropdown Section
  */
 //load template structure
-let CollectiondropdownTPL = fs.readFileSync(TplDir + "/collectiondropdown.spec.json");
+let ReferencedropdownTPL = fs.readFileSync(TplDir + "/Referencedropdown.spec.json");
 
 let coldropservicelist = walkSync(SpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("service.spec") > 0)
@@ -421,26 +421,26 @@ let coldropservicelist = walkSync(SpecDir).filter((filepath) => {
 coldropservicelist.forEach((pathToService) => {
   let t = path.basename(pathToService).split(".");
   const PKGDIR = UiSpecDir + "/" + t[0];
-  let Collectiondropdownspec = JSON.parse(CollectiondropdownTPL);
+  let Referencedropdownspec = JSON.parse(ReferencedropdownTPL);
 
   let serviceSpec = JSON.parse(fs.readFileSync(pathToService));
   // check for param q
   if (serviceSpec.services.List && serviceSpec.services.List.query && serviceSpec.services.List.query.q) {
     let type = serviceSpec.services.List.data.response.replace("Collection", "");
-    Collectiondropdownspec.class_name = type.replace(".", "") + "Collectiondropdown";
-    Collectiondropdownspec.class_name = Collectiondropdownspec.class_name[0].toUpperCase() + Collectiondropdownspec.class_name.substr(1);
-    Collectiondropdownspec.component_name = type.toLowerCase().replace(".", "-") + "-collection-dropdown";
-    Collectiondropdownspec.source = type.toLowerCase() + ".collectiondropdown.spec";
-    Collectiondropdownspec.service_name = serviceSpec.name;
-    Collectiondropdownspec.type = type;
-    let target = PKGDIR + "/" + type.toLowerCase() + ".collectiondropdown.spec";
+    Referencedropdownspec.class_name = type.replace(".", "") + "Referencedropdown";
+    Referencedropdownspec.class_name = Referencedropdownspec.class_name[0].toUpperCase() + Referencedropdownspec.class_name.substr(1);
+    Referencedropdownspec.component_name = type.toLowerCase().replace(".", "-") + "-reference-dropdown";
+    Referencedropdownspec.source = type.toLowerCase() + ".referencedropdown.spec";
+    Referencedropdownspec.service_name = serviceSpec.name;
+    Referencedropdownspec.type = type;
+    let target = PKGDIR + "/" + type.toLowerCase() + ".referencedropdown.spec";
     if (!fs.existsSync(target)) {
-      fs.writeFileSync(target, JSON.stringify(Collectiondropdownspec, null, 2));
+      fs.writeFileSync(target, JSON.stringify(Referencedropdownspec, null, 2));
     } else {
       // open file and check for "_writeprotection": false,
       let f = JSON.parse(fs.readFileSync(target));
       if (f._writeprotection === false) {
-        fs.writeFileSync(target, JSON.stringify(Collectiondropdownspec, null, 2));
+        fs.writeFileSync(target, JSON.stringify(Referencedropdownspec, null, 2));
       } else {
         console.log("skip " + target);
       }
@@ -448,6 +448,7 @@ coldropservicelist.forEach((pathToService) => {
 
   }
 });
+
 
 
 /**

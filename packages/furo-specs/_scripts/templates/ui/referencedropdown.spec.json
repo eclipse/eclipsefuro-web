@@ -1,8 +1,8 @@
 {
   "_writeprotection": false,
-  "theme": "CollectionDropdownBaseTheme",
-  "class_name": "PersonPersonCollectionDropdown",
-  "component_name": "person-person-collection-dropdown",
+  "theme": "ReferenceDropdownBaseTheme",
+  "class_name": "PersonPersonReferenceDropdown",
+  "component_name": "person-person-reference-dropdown",
   "description": "",
   "source": "uispecdir/person.person.update.action.spec",
   "service_name": "PersonService",
