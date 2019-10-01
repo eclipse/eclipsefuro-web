@@ -24,6 +24,7 @@ export class FieldNode extends EventTreeNode {
     }
 
     this._name = fieldName;
+    this.__index = fieldName;
     this._value = null;
     this._pristine = true;
     this._isValid = true;
@@ -234,6 +235,12 @@ export class FieldNode extends EventTreeNode {
   }
 
   _createAnyType(val) {
+    // basename the type (xxx.xxx.xx/path/base.Type becomes base.Type)
+    if(val && val["@type"]){
+      val["@type"] = val["@type"].replace(/.*\//, '');
+    }
+
+
     // remove if type changes
     if (this.__anyCreated && this["@type"] !== val["@type"]) {
       for (let i = this.__childNodes.length - 1; i >= 0; i--) {
