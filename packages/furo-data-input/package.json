@@ -2,9 +2,9 @@
   "name": "@furo/data-input",
   "description": "Input components",
   "main": "furo-catalog.js",
-  "version": "0.56.0",
+  "version": "0.57.0",
   "dependencies": {
-    "@furo/data": "^0.57.1",
+    "@furo/data": "^0.58.0",
     "@furo/fbp": "^4.27.0",
     "@furo/framework": "^0.11.2",
     "@furo/input": "^0.57.5",
