@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.34.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.33.0...@furo/specs@0.34.0) (2019-10-01)
+
+
+### Bug Fixes
+
+* change value to val ([0130447](https://github.com/veith/FuroBaseComponents/commit/0130447))
+
+
+### Features
+
+* generate display types ([9371422](https://github.com/veith/FuroBaseComponents/commit/9371422))
+* generate display types ([0fff3ac](https://github.com/veith/FuroBaseComponents/commit/0fff3ac))
+
+
+
+
+
 # [0.33.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.32.0...@furo/specs@0.33.0) (2019-10-01)
 
 
