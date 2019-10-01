@@ -342,31 +342,6 @@ typelist.forEach((pathToTypeSpec) => {
       "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
     };
 
-    // check which componet matches best with the simple types
-    switch(field.type) {
-
-      case "int":
-      case "int32":
-      case "int64":
-        component_name = "furo-data-number-input";
-        break;
-      case "google.type.Date":
-        component_name = "furo-data-date-input";
-        break;
-      case "google.type.Money":
-        component_name = "furo-data-money-input";
-        break;
-      case "furo.Property":
-        component_name = "furo-data-property";
-        break;
-    }
-
-     arrTmpName = field.type.split(".");
-    //  complex type has a cutom form component
-    if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-      component_name = field.type.toLowerCase().replace(".", "-") + "-form";
-      displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
-    }
 
     fld.component = component_name;
 
@@ -378,14 +353,6 @@ typelist.forEach((pathToTypeSpec) => {
       fld.attrs = [
         {"name": "repeated-component", "val": value_name }
       ]
-    }
-
-
-    arrTmpName = field.type.split(".");
-    //  complex type has a cutom form component
-    if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-      component_name = field.type.toLowerCase().replace(".", "-") + "-form";
-      formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
     }
 
     fld.component = component_name;
