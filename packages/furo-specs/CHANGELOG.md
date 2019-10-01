@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.32.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.31.0...@furo/specs@0.32.0) (2019-10-01)
+
+
+### Features
+
+* remove `__proto.type` in options in the spec. please assign the type of field directly to int32, int64 instead of int.The generator will use those types for generating protos. ([4187044](https://github.com/veith/FuroBaseComponents/commit/4187044))
+
+
+
+
+
 # [0.31.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.30.0...@furo/specs@0.31.0) (2019-09-30)
 
 
