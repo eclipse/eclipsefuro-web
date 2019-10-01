@@ -168,14 +168,81 @@ typelist.forEach((pathToTypeSpec) => {
   for (fieldname in spec.fields) {
     let field = spec.fields[fieldname];
     if (field.constraints && field.constraints.required) {
-      createFields.push({
+
+
+      let fld = {
         "field": fieldname,
+        "component":"furo-data-text-input",
         "flags": [
           "condensed",
           "double"
         ],
         "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
-      })
+      };
+
+      let component_name = "furo-data-text-input";
+
+      // check which componet matches best with the simple types
+      switch(field.type) {
+
+        case "int":
+        case "int32":
+        case "int64":
+          component_name = "furo-data-number-input";
+          break;
+        case "google.type.Date":
+          component_name = "furo-data-date-input";
+          break;
+        case "google.type.Money":
+          component_name = "furo-data-money-input";
+          break;
+        case "furo.Property":
+          component_name = "furo-data-property";
+          break;
+      }
+
+      let arrTmpName = field.type.split(".");
+      //  complex type has a cutom form component
+      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
+        component_name = field.type.toLowerCase().replace(".", "-") + "-form";
+        formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
+      }
+
+      fld.component = component_name;
+
+      // repeated fields can use furo-data-repeat component
+      if (field.meta && field.meta.repeated && field.type != "furo.Property") {
+        let value_name = fld.component;
+        fld.component = "furo-data-repeat";
+
+        fld.attrs = [
+          {"name": "repeated-component", "value": value_name }
+        ]
+      }
+
+      // special type furo.Reference
+      if (field.type === "furo.Reference") {
+        if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
+          let t = field.meta.default.link.type;
+          fld.component = t.toLowerCase().replace(".", "-") + "-reference-search";
+          formSpec.imports.push("../" + t.split(".")[0] + "/" + fld.component);
+
+        }
+      }
+
+      createFields.push(fld);
+
+
+
+
+
+
+
+
+
+
+
+
     } else {
       delete field;
     }
