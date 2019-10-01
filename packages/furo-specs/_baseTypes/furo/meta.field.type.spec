@@ -20,9 +20,7 @@
       "description": "constraints for a field",
       "type": "map<string,furo.FieldConstraint>",
       "__proto": {
-        "number": 2,
-        "map_from": "string",
-        "map_to": "furo.FieldConstraint"
+        "number": 2
       }
     }
   }

@@ -12,9 +12,7 @@
       "description": "fields of meta info",
       "type": "map<string, furo.MetaField>",
       "__proto": {
-        "number": 1,
-        "map_from": "string",
-        "map_to": "furo.MetaField"
+        "number": 1
       }
     }
   }

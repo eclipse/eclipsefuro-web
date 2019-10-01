@@ -38,7 +38,7 @@
     },
     "units": {
       "description": "The whole units of the amount.",
-      "type": "int",
+      "type": "int64",
       "meta": {
         "label": "Ganzahliger Währungsbetrag",
         "default": "",
@@ -47,13 +47,12 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 3,
-        "type": "int64"
+        "number": 3
       }
     },
     "nanos": {
       "description": "Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",
-      "type": "int",
+      "type": "int64",
       "meta": {
         "label": "Nanos",
         "default": "",
@@ -62,8 +61,7 @@
       "constraints": {},
       "options": [],
       "__proto": {
-        "number": 4,
-        "type": "int64"
+        "number": 4
       }
     }
   }

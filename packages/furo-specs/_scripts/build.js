@@ -77,12 +77,6 @@ speclist.types.forEach((filename) => {
     let field = spec.fields[f];
     //types, proto.types and map_to
     field.type = field.type.replace(Typelist[target].package + ".", "");
-    if (field.__proto && field.__proto.type) {
-      field.__proto.type = field.__proto.type.replace(Typelist[target].package + ".", "");
-    }
-    if (field.__proto && field.__proto.map_to) {
-      field.__proto.map_to = field.__proto.map_to.replace(Typelist[target].package + ".", "");
-    }
   }
 
   Typelist[target].types.push(spec);

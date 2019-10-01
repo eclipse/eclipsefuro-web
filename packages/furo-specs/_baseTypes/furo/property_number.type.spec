@@ -10,10 +10,9 @@
   "fields": {
     "data": {
       "description": "data part",
-      "type": "number",
+      "type": "float",
       "__proto": {
-        "number": 1,
-        "type": "float"
+        "number": 1
       }
     }
   }

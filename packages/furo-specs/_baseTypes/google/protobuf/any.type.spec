@@ -1,7 +1,7 @@
 {
   "name": "any",
   "type": "Any",
-  "description": "Any` contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",
+  "description": "Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",
   "__proto": {
     "package": "google.protobuf",
     "options": {
@@ -17,10 +17,9 @@
       }
     },
     "value": {
-      "type": "ArrayBuffer",
+      "type": "bytes",
       "__proto": {
-        "number": 2,
-        "type": "bytes"
+        "number": 2
       }
     }
   }

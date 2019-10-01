@@ -62,7 +62,7 @@
     },
     "estimated_time": {
       "description": "Estimated time in days",
-      "type": "int",
+      "type": "int32",
       "meta": {
         "label": "Est. days",
         "default": "",
@@ -70,8 +70,7 @@
       },
       "constraints": {},
       "__proto": {
-        "number": 4,
-        "type": "int32"
+        "number": 4
       }
     },
     "owner": {
