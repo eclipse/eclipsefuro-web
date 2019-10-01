@@ -119,7 +119,7 @@ class FuroDataProperty extends FBP(LitElement) {
       // add flow repeat to parent and inject on repeated changes
       // repeated
       let r = document.createElement("flow-repeat");
-      r.setAttribute("identity-path", "__index");
+      r.setAttribute("identity-path", "id.value");
 
       let attrs = "";
       let l = this.attributes.length;
@@ -134,7 +134,7 @@ class FuroDataProperty extends FBP(LitElement) {
 
 
       let repeater = this.parentNode.insertBefore(r, this);
-
+      this._createdRepeater = repeater;
 
       this.field.addEventListener('this-repeated-field-changed', (data) => {
         repeater.injectItems(this.field.repeats);
@@ -187,13 +187,23 @@ class FuroDataProperty extends FBP(LitElement) {
             e.bindData(propertyField.data);
         }
 
-        this.parentNode.insertBefore(e, this);
+        this._created = this.parentNode.insertBefore(e, this);
         propertyField.data.dispatchNodeEvent(new NodeEvent('this-metas-changed', propertyField.data, false));
         this._property_created = true;
       } else {
         console.warn(propertyField.data["@type"].value, "not in map", this);
       }
     }
+  }
+
+  disconnectedCallback() {
+    if(this._createdProp){
+      this._createdProp.remove();
+    }
+      if(this._createdRepeater){
+      this._createdRepeater.remove();
+    }
+
   }
 
   static get styles() {

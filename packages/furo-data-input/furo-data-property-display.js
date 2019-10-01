@@ -3,7 +3,6 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import {NodeEvent} from "@furo/data/lib/EventTreeNode";
 import {RepeaterNode} from "@furo/data/lib/RepeaterNode";
-import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 
 /**
  * `furo-data-property-display`
@@ -66,14 +65,19 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
           attrs += nodeName +'="' + nodeValue +'"';
         }
       }
-      r.innerHTML = '<template><furo-data-property-display ƒ-bind-data="--item" ' + attrs +'></furo-data-property-display></template>';
+      r.innerHTML = '<template><furo-data-property-display ƒ-bind-data="--init" ' + attrs +'></furo-data-property-display></template>';
 
       let repeater = this.parentNode.insertBefore(r, this);
-
+      this._createdRepeater = repeater;
 
       this.field.addEventListener('this-repeated-field-changed', (data) => {
         repeater.injectItems(this.field.repeats);
       });
+      // inject if data is already here
+      if(this.field.repeats.length > 0){
+        repeater.injectItems(this.field.repeats);
+      }
+
 
     } else {
       this.field.data.addEventListener('branch-value-changed', (d) => {
@@ -89,21 +93,9 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
 
   }
 
-
-  /**
-   * flow is ready lifecycle method
-   */
-  _FBPReady() {
-    super._FBPReady();
-    //this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
-
   _createPropComponent(propertyField) {
     if (!this._property_created) {
-      let e = document.createElement(this.typemap[propertyField.data["@type"]]);
-
+      let e = document.createElement(this.typemap[propertyField.data["@type"].value.replace(/.*\//, '')]);
 
       // Grab all of the original's attributes, and pass them to the replacement
       let l = this.attributes.length;
@@ -116,7 +108,7 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
       }
 
       if (e.bindData) {
-        switch (propertyField.data["@type"]) {
+        switch (propertyField.data["@type"].value.replace(/.*\//, '')) {
             // the input elements for string and number are just working with scalar values
           case "furo.StringProperty":
           case "furo.NumberProperty":
@@ -127,13 +119,23 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
             e.bindData(propertyField.data);
         }
 
-        this.parentNode.insertBefore(e, this);
+        this._created = this.parentNode.insertBefore(e, this);
         propertyField.data.dispatchNodeEvent(new NodeEvent('this-metas-changed', propertyField.data, false));
         this._property_created = true;
       } else {
-        console.warn(propertyField.data["@type"], "not in map", this);
+        console.warn(propertyField.data["@type"].value, "not in map", this);
+      }
       }
     }
+
+  disconnectedCallback() {
+    if(this._createdProp){
+      this._createdProp.remove();
+    }
+      if(this._createdRepeater){
+      this._createdRepeater.remove();
+    }
+
   }
 
   static get styles() {
