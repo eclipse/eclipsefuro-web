@@ -110,6 +110,7 @@ export class FieldNode extends EventTreeNode {
   _createVendorType(type) {
     if (this.__specdefinitions[type]) {
       for (let fieldName in this.__specdefinitions[type].fields) {
+
         if (this.__specdefinitions[type].fields[fieldName].meta && this.__specdefinitions[type].fields[fieldName].meta.repeated) {
           this[fieldName] = new RepeaterNode(this, this.__specdefinitions[type].fields[fieldName], fieldName);
         } else {
@@ -235,10 +236,7 @@ export class FieldNode extends EventTreeNode {
   }
 
   _createAnyType(val) {
-    // basename the type (xxx.xxx.xx/path/base.Type becomes base.Type)
-    if(val && val["@type"]){
-      val["@type"] = val["@type"].replace(/.*\//, '');
-    }
+
 
 
     // remove if type changes
@@ -256,7 +254,7 @@ export class FieldNode extends EventTreeNode {
     if (this._spec.type === "google.protobuf.Any" && val && val["@type"] && !this.__anyCreated) {
       // create custom type if not exist
       // any can only be a complex type
-      this._createVendorType(val["@type"]);
+      this._createVendorType(val["@type"].replace(/.*\//, '')); // create with basename of the type (xxx.xxx.xx/path/base.Type becomes base.Type)
       this.__anyCreated = true;
       this.createField({"fieldName":"@type","type":"string", "value":val["@type"]} )
 

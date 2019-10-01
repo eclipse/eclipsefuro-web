@@ -21,7 +21,7 @@
     "type_property": [
       {
         "data": {
-          "@type": "google.type.Date",
+          "@type": "xx/google.type.Date",
           "day": 8,
           "month": 11,
           "year": 2022,
@@ -49,7 +49,7 @@
       },
       {
         "data": {
-          "@type": "furo.NumberProperty",
+          "@type": "xx/furo.NumberProperty",
           "data": 34.23,
           "display_name": "34.23"
         },
@@ -68,7 +68,7 @@
         }
       },
       {"data": {
-          "@type": "furo.IntegerProperty",
+          "@type": "xx/furo.IntegerProperty",
           "data": 342,
           "display_name": "342"
         },
@@ -88,7 +88,7 @@
       },
       {
         "data": {
-          "@type": "furo.StringOptionProperty",
+          "@type": "xx/furo.StringOptionProperty",
           "id": "bb",
           "display_name": "Display"
         },
@@ -122,7 +122,7 @@
       },
       {
         "data": {
-          "@type": "furo.StringProperty",
+          "@type": "xx/furo.StringProperty",
           "data": "32 32 23",
           "display_name": "a date"
         },
@@ -142,7 +142,7 @@
     ],
     "single_type_property": {
       "data": {
-        "@type": "google.type.Date",
+        "@type": "xx/google.type.Date",
         "day": 8,
         "month": 11,
         "year": 2022,

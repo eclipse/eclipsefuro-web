@@ -119,7 +119,7 @@ class FuroDataProperty extends FBP(LitElement) {
       // add flow repeat to parent and inject on repeated changes
       // repeated
       let r = document.createElement("flow-repeat");
-      r.setAttribute("identity-path", "__index");
+      r.setAttribute("identity-path", "id.value");
 
       let attrs = "";
       let l = this.attributes.length;
@@ -163,7 +163,7 @@ class FuroDataProperty extends FBP(LitElement) {
 
   _createPropComponent(propertyField) {
     if (!this._property_created) {
-      let e = document.createElement(this.typemap[propertyField.data["@type"].value]);
+      let e = document.createElement(this.typemap[propertyField.data["@type"].value.replace(/.*\//, '')]);
 
       // Grab all of the original's attributes, and pass them to the replacement
       let l = this.attributes.length;
@@ -176,7 +176,7 @@ class FuroDataProperty extends FBP(LitElement) {
       }
 
       if (e.bindData) {
-        switch (propertyField.data["@type"].value) {
+        switch (propertyField.data["@type"].value.replace(/.*\//, '')) {
             // the input elements for string and number are just working with scalar values
           case "furo.StringProperty":
           case "furo.NumberProperty":
@@ -191,7 +191,7 @@ class FuroDataProperty extends FBP(LitElement) {
         propertyField.data.dispatchNodeEvent(new NodeEvent('this-metas-changed', propertyField.data, false));
         this._property_created = true;
       } else {
-        console.warn(propertyField.data["@type"], "not in map", this);
+        console.warn(propertyField.data["@type"].value, "not in map", this);
       }
     }
   }

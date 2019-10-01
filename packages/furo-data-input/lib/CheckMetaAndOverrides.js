@@ -49,7 +49,7 @@ export class CheckMetaAndOverrides {
           element._stepErrorMessage = element.field._constraints.step.message;
         }
         if (element.field._constraints.pattern) {
-          element._pattern = element.field._constraints.pattern.value;
+          element._pattern = element.field._constraints.pattern.is;
           element._patternErrorMessage = element.field._constraints.pattern.message;
         }
         if (element.field._constraints.required) {
