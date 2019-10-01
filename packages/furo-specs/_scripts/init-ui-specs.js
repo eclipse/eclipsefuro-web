@@ -127,7 +127,7 @@ typelist.forEach((pathToTypeSpec) => {
       fld.component = "furo-data-repeat";
 
       fld.attrs = [
-        {"name": "repeated-component", "value": value_name }
+        {"name": "repeated-component", "val": value_name }
       ]
     }
 
@@ -216,7 +216,7 @@ typelist.forEach((pathToTypeSpec) => {
         fld.component = "furo-data-repeat";
 
         fld.attrs = [
-          {"name": "repeated-component", "value": value_name }
+          {"name": "repeated-component", "val": value_name }
         ]
       }
 
@@ -336,7 +336,7 @@ typelist.forEach((pathToTypeSpec) => {
     if (field.meta && field.meta.repeated && field.type != "furo.Property") {
 
       fld.attrs = [
-        {"name": "repeated-component", "value": component_name }
+        {"name": "repeated-component", "val": component_name }
       ]
 
       fld.component = "furo-data-repeat";
