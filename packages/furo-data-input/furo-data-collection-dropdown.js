@@ -332,10 +332,9 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * Build the dropdown list with given options from meta
    * @param {options} list of options with id and display_name
    */
-  _buildListWithMetaOptions(entities) {
-
+  _buildListWithMetaOptions(options) {
     // map
-    let arr = entities.map((e) => {
+    let arr = options.list.map((e) => {
       return {
         "id": e[this.valueField],
         "label": e[this.displayField],
