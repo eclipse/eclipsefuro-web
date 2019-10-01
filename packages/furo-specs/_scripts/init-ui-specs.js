@@ -321,6 +321,27 @@ typelist.forEach((pathToTypeSpec) => {
       displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
     }
 
+
+
+    // check which componet matches best with the simple types
+    switch(field.type) {
+
+      case "furo.Property":
+        component_name = "furo-data-property-display";
+        break;
+    }
+
+    let fld = {
+      "field": fieldname,
+      "component": component_name,
+      "flags": [
+        "condensed",
+        "double",
+        "noborder"
+      ],
+      "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
+    };
+
     // check which componet matches best with the simple types
     switch(field.type) {
 
@@ -359,25 +380,6 @@ typelist.forEach((pathToTypeSpec) => {
       ]
     }
 
-
-    // check which componet matches best with the simple types
-    switch(field.type) {
-
-      case "furo.Property":
-        component_name = "furo-data-property-display";
-        break;
-    }
-
-    let fld = {
-      "field": fieldname,
-      "component": component_name,
-      "flags": [
-        "condensed",
-        "double",
-        "noborder"
-      ],
-      "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
-    };
 
     arrTmpName = field.type.split(".");
     //  complex type has a cutom form component
