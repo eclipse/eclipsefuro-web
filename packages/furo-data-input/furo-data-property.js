@@ -119,7 +119,7 @@ class FuroDataProperty extends FBP(LitElement) {
       // add flow repeat to parent and inject on repeated changes
       // repeated
       let r = document.createElement("flow-repeat");
-      r.setAttribute("identity-path", "id.value");
+      r.setAttribute("identity-path", "__index");
 
       let attrs = "";
       let l = this.attributes.length;
