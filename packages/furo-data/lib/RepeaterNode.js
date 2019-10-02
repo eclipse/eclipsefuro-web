@@ -102,8 +102,19 @@ export class RepeaterNode extends EventTreeNode {
         this._addSilent();
       }
       // Werte aktualisieren
+
+      // remove if type any and insert at same index
+      if(this.repeats[i]._spec.type === "furo.Property"){
+        this.__childNodes.splice(i, 1);
+        let fieldNode = new FieldNode(this, this._spec, this._name);
+        fieldNode.__index = i;
+        this.repeats.splice(i, 1, fieldNode);
+      }
+
+
       this.repeats[i].value = repdata;
       this.repeats[i]._pristine = true;
+
     });
     // remove additional nodes in repeats console.log(val.length,this.repeats.length)
     if(this.repeats.length > val.length){

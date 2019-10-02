@@ -137,6 +137,7 @@ class FuroDataProperty extends FBP(LitElement) {
       this._createdRepeater = repeater;
 
       this.field.addEventListener('this-repeated-field-changed', (data) => {
+
         repeater.injectItems(this.field.repeats);
       });
       // inject if data is already here
@@ -187,7 +188,7 @@ class FuroDataProperty extends FBP(LitElement) {
             e.bindData(propertyField.data);
         }
 
-        this._created = this.parentNode.insertBefore(e, this);
+        this._createdProp = this.parentNode.insertBefore(e, this);
         propertyField.data.dispatchNodeEvent(new NodeEvent('this-metas-changed', propertyField.data, false));
         this._property_created = true;
       } else {
