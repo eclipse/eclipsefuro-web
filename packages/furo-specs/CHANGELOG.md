@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.34.3](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.34.1...@furo/specs@0.34.3) (2019-10-02)
+
+
+### Bug Fixes
+
+* generate display types complex types ([ba4e3f4](https://github.com/veith/FuroBaseComponents/commit/ba4e3f4))
+
+
+
+
+
 ## [0.34.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.34.0...@furo/specs@0.34.1) (2019-10-01)
 
 

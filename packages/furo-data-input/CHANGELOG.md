@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.57.3...@furo/data-input@0.57.4) (2019-10-02)
+
+
+### Bug Fixes
+
+* typo in props and repeater ([923a3fc](https://github.com/veith/FuroBaseComponents/commit/923a3fc))
+
+
+
+
+
 ## [0.57.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.57.2...@furo/data-input@0.57.3) (2019-10-01)
 
 
