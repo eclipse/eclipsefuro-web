@@ -24,11 +24,16 @@ packages=(`find packages -name "package.json" -maxdepth 2 | xargs -I '{}' dirnam
 `npm bin`/lerna bootstrap
 `npm bin`/lerna clean --yes
 
+ls node_modules/@furo
+
+rm -rf node_modules/@furo
 mkdir -p node_modules/@furo
 
 
 for package in ${packages[@]}; do
   npmname=`node -e "console.log(require(\"${INIT_CWD}/${package}/package.json\").name)"`
+  echo $package
+  echo $npmname
   if [ ! -L ${INIT_CWD}/node_modules/${npmname} ]; then
     ln -sfv ${INIT_CWD}/${package} ${INIT_CWD}/node_modules/${npmname}
 
