@@ -22,7 +22,15 @@ import "{{$import}}";{{end}}
 class {{.class_name}} extends FBP(LitElement) {
 
   bindData(field){
+    this.field = field;
     this._FBPTriggerWire("--field-injected", field);
+
+    this.field.addEventListener("field-value-changed", (e)=>{
+
+      if(e.detail._name == "type") {
+        this._FBPTriggerWire("--htsUpdated", this.field.link.value);
+      }
+    });
   }
   /**
    * Themable Styles
@@ -70,7 +78,7 @@ class {{.class_name}} extends FBP(LitElement) {
       </furo-data-reference-search>
       <furo-collection-agent
               service="{{.service_name}}"
-              ƒ-hts-in="--field-injected(*.link.value)"
+              ƒ-hts-in="--field-injected(*.link.value), --htsUpdated"
               ƒ-search="--term"
               @-response="--collection">
       </furo-collection-agent>
