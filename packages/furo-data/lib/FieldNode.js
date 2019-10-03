@@ -35,8 +35,8 @@ export class FieldNode extends EventTreeNode {
       // check for recursion
 
       if (!this.__parentNode._hasAncestorOfType(this._spec.type)) {
-        if(this._spec.type !== "google.protobuf.Any"){
-        this._createVendorType(this._spec.type);
+        if (this._spec.type !== "google.protobuf.Any") {
+          this._createVendorType(this._spec.type);
         }
 
       } else {
@@ -77,7 +77,7 @@ export class FieldNode extends EventTreeNode {
     let fieldName = options.fieldName;
     let spec = {"type": options.type};
 
-    if(options.spec){
+    if (options.spec) {
       spec = options.spec
     }
 
@@ -86,11 +86,11 @@ export class FieldNode extends EventTreeNode {
       this.dispatchNodeEvent(new NodeEvent('this-node-field-added', this, false));
       this.dispatchNodeEvent(new NodeEvent('node-field-added', this, true));
       // set Value if given
-      if(options.value){
+      if (options.value) {
         this[fieldName].value = options.value;
       }
       return true;
-    }else{
+    } else {
       return false;
     }
   }
@@ -190,6 +190,17 @@ export class FieldNode extends EventTreeNode {
       }
     }
 
+
+    // check for repeated fields to reset if they are not set with val
+    this.__childNodes.forEach((n) => {
+      if (val[n._name] === undefined) {
+        if (n.repeats) {
+          n.value = [];
+        }
+      }
+    });
+
+
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
   }
 
@@ -236,8 +247,8 @@ export class FieldNode extends EventTreeNode {
 
   _createAnyType(val) {
     // remove if type changes
-    if (this.__anyCreated && this["@type"].value  !== val["@type"]) {
-      console.log(this["@type"].value,val["@type"])
+    if (this.__anyCreated && this["@type"].value !== val["@type"]) {
+      console.log(this["@type"].value, val["@type"])
       for (let i = this.__childNodes.length - 1; i >= 0; i--) {
         let field = this.__childNodes[i];
         if (!val[field._name]) {
@@ -253,7 +264,7 @@ export class FieldNode extends EventTreeNode {
       // any can only be a complex type
       this._createVendorType(val["@type"].replace(/.*\//, '')); // create with basename of the type (xxx.xxx.xx/path/base.Type becomes base.Type)
       this.__anyCreated = true;
-      this.createField({"fieldName":"@type","type":"string", "value":val["@type"]} )
+      this.createField({"fieldName": "@type", "type": "string", "value": val["@type"]})
 
 
     }
@@ -291,7 +302,7 @@ export class FieldNode extends EventTreeNode {
     // remove from list if this is a repeated item
     if (typeof this._deleteFromList === "function") {
       this._deleteFromList();
-    }else{
+    } else {
       let index = this.__parentNode.__childNodes.indexOf(this);
       this.__parentNode.__childNodes.splice(index, 1);
       delete (this.__parentNode[this._name]);

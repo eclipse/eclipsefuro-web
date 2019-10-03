@@ -130,6 +130,7 @@ export class DataObject extends EventTreeNode {
 
 
   _updateFieldValuesAndMetaFromRawEntity(node, data) {
+
     let furoMetaDetected = false;
     for (let fieldName in data) {
       let fieldNode = node[fieldName];
@@ -183,6 +184,15 @@ export class DataObject extends EventTreeNode {
         }
       }
     }
+
+    // check for fields to reset
+    node.__childNodes.forEach((n)=>{
+      if(!data[n._name]){
+        console.log(n._name);
+      }
+    });
+
+
     if (furoMetaDetected) {
       this.__updateMetaAndConstraints(furoMetaDetected);
     }
