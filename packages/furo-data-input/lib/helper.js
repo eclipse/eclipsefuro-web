@@ -49,9 +49,17 @@ export class Helper {
     caller.field = fieldNode;
     CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);
     caller._updateField();
+
     caller.field.addEventListener('field-value-changed', (e) => {
       caller._updateField();
+      if (caller.field._meta.hint) {
+        caller._hint = caller.field._meta.hint;
+      }
+      if (caller.hint) {
+        caller._hint = caller.hint;
+      }
     });
+
 
     // update meta and constraints when they change
     caller.field.addEventListener('this-metas-changed', (e) => {

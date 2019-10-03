@@ -59,7 +59,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
       if (this.field) {
         // by valid input reset meta and constraints
-        CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+
         this.field[this.valueField].value = val;
       }
       this._notifiySelectedItem(val);

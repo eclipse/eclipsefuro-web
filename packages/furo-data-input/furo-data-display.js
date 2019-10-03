@@ -21,7 +21,7 @@ class FuroDataDisplay extends FBP(LitElement) {
     super();
 
     this._FBPAddWireHook("--valueChanged", (val) => {
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+
       if (this.field) {
         this.field.value = val;
       }

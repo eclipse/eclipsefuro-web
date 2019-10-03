@@ -39,6 +39,10 @@ class FuroDataMoneyInput extends FBP(LitElement) {
 
     super._FBPReady();
 
+    // reset hint, label etc..
+    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+
+
     this.shadowRoot.getElementById("wrapper").addEventListener("value-changed", (e)=>{
 
       e.stopPropagation();
@@ -54,9 +58,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
           this.field.value = this._convertDataToMoneyObj("",e.detail, this.field.value);
         }
       }
-
-      // reset hint, label etc..
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
 
       this.value = this.field.value;
       this.error = false;
@@ -93,15 +94,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   }
 
 
-  /**
-   * flow is ready lifecycle method
-   */
-  _FBPReady() {
-    super._FBPReady();
-    //this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
 
   // convert data to google.type.Money format
   _convertDataToMoneyObj(currency, amount, obj){

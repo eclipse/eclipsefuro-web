@@ -188,7 +188,6 @@ export class FieldNode extends EventTreeNode {
 
         }
       }
-
     }
 
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));

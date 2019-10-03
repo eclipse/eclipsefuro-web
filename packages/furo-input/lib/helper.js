@@ -17,6 +17,7 @@ export class Helper {
    */
   static UpdateInputAttribute(caller, attribute, value) {
     caller.updateComplete.then((d) => {
+
       if (!caller._theInputElement) {
         caller._theInputElement = caller.shadowRoot.getElementById("input");
       }

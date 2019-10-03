@@ -176,14 +176,9 @@ class FuroDataRepeat extends FBP(LitElement) {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
         :host {
-            display: block;
+            display: none;
             width: 100%;
         }
-
-        :host([hidden]) {
-            display: none;
-        }
-
     `
   }
 
