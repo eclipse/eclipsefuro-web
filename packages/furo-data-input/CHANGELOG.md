@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.57.3...@furo/data-input@0.57.4) (2019-10-02)
+
+
+### Bug Fixes
+
+* typo in props and repeater ([923a3fc](https://github.com/veith/FuroBaseComponents/commit/923a3fc))
+
+
+
+
+
+## [0.57.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.57.2...@furo/data-input@0.57.3) (2019-10-01)
+
+
+### Bug Fixes
+
+* duplicate entries on repeated data-property ([1cb7f3c](https://github.com/veith/FuroBaseComponents/commit/1cb7f3c))
+* duplicate entries on repeated data-property ([f37dfae](https://github.com/veith/FuroBaseComponents/commit/f37dfae))
+
+
+
+
+
 ## [0.57.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.57.1...@furo/data-input@0.57.2) (2019-10-01)
 
 

@@ -321,6 +321,16 @@ typelist.forEach((pathToTypeSpec) => {
       displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
     }
 
+
+
+    // check which componet matches best with the simple types
+    switch(field.type) {
+
+      case "furo.Property":
+        component_name = "furo-data-property-display";
+        break;
+    }
+
     let fld = {
       "field": fieldname,
       "component": component_name,
@@ -332,12 +342,28 @@ typelist.forEach((pathToTypeSpec) => {
       "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
     };
 
+
+    fld.component = component_name;
+
+    // repeated fields can use furo-data-repeat component
+    if (field.meta && field.meta.repeated && field.type != "furo.Property") {
+      let value_name = fld.component;
+      fld.component = "furo-data-repeat";
+
+      fld.attrs = [
+        {"name": "repeated-component", "val": value_name }
+      ]
+    }
+
+    fld.component = component_name;
+
+
     // repeated fields can use furo-data-repeat component
     if (field.meta && field.meta.repeated && field.type != "furo.Property") {
 
       fld.attrs = [
         {"name": "repeated-component", "val": component_name }
-      ]
+      ];
 
       fld.component = "furo-data-repeat";
     }

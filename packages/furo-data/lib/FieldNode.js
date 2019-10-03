@@ -236,11 +236,9 @@ export class FieldNode extends EventTreeNode {
   }
 
   _createAnyType(val) {
-
-
-
     // remove if type changes
-    if (this.__anyCreated && this["@type"] !== val["@type"]) {
+    if (this.__anyCreated && this["@type"].value  !== val["@type"]) {
+      console.log(this["@type"].value,val["@type"])
       for (let i = this.__childNodes.length - 1; i >= 0; i--) {
         let field = this.__childNodes[i];
         if (!val[field._name]) {

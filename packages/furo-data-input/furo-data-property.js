@@ -134,9 +134,10 @@ class FuroDataProperty extends FBP(LitElement) {
 
 
       let repeater = this.parentNode.insertBefore(r, this);
-
+      this._createdRepeater = repeater;
 
       this.field.addEventListener('this-repeated-field-changed', (data) => {
+
         repeater.injectItems(this.field.repeats);
       });
       // inject if data is already here
@@ -187,13 +188,23 @@ class FuroDataProperty extends FBP(LitElement) {
             e.bindData(propertyField.data);
         }
 
-        this.parentNode.insertBefore(e, this);
+        this._createdProp = this.parentNode.insertBefore(e, this);
         propertyField.data.dispatchNodeEvent(new NodeEvent('this-metas-changed', propertyField.data, false));
         this._property_created = true;
       } else {
         console.warn(propertyField.data["@type"].value, "not in map", this);
       }
     }
+  }
+
+  disconnectedCallback() {
+    if(this._createdProp){
+      this._createdProp.remove();
+    }
+      if(this._createdRepeater){
+      this._createdRepeater.remove();
+    }
+
   }
 
   static get styles() {
