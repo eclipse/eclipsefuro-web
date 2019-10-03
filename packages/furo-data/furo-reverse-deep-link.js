@@ -113,9 +113,10 @@ class FuroReverseDeepLink extends (LitElement) {
     let m;
 
     while ((m = rgx.exec(pattern)) !== null) {
-      pattern = pattern.replace(m[0], "(.*)")
       keys.push(m[1]);
     }
+
+    pattern = pattern.replace(rgx, "(.*)");
 
     let srgx = new RegExp( pattern + "$");
     let qp = {};
