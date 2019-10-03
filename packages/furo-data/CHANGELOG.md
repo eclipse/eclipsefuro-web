@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.58.6](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.5...@furo/data@0.58.6) (2019-10-03)
+
+
+### Bug Fixes
+
+* **furo-data:** replace pattern after regex exec in furo-reverse-deep-link ([1b98ade](https://github.com/veith/FuroBaseComponents/commit/1b98ade))
+* clear repeated fields when unexistend data comes in ([b363986](https://github.com/veith/FuroBaseComponents/commit/b363986))
+
+
+
+
+
 ## [0.58.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.4...@furo/data@0.58.5) (2019-10-03)
 
 
