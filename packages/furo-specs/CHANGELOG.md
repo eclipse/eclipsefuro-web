@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.35.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.34.3...@furo/specs@0.35.0) (2019-10-03)
+
+
+### Features
+
+* modify templates. reference-search and reference-dropdown can take the link in response as htsIn ([0aa59be](https://github.com/veith/FuroBaseComponents/commit/0aa59be))
+
+
+
+
+
 ## [0.34.3](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.34.1...@furo/specs@0.34.3) (2019-10-02)
 
 
