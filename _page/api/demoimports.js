@@ -8,6 +8,7 @@ import "@furo/data-ui/demo/demos"
 import "@furo/util/demo/demos"
 import "@furo/route/demo/demos"
 import "@furo/navigation/demo/demos"
+import "@furo/notification/demo/demos"
 
 
 // EXPERIMENTS
