@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.58.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.4...@furo/data@0.58.5) (2019-10-03)
+
+
+### Bug Fixes
+
+* meta updates, error in furo-data-date-input without constraints ([ec7de2f](https://github.com/veith/FuroBaseComponents/commit/ec7de2f))
+
+
+
+
+
 ## [0.58.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.3...@furo/data@0.58.4) (2019-10-03)
 
 **Note:** Version bump only for package @furo/data
