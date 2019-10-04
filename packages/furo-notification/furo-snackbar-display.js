@@ -31,8 +31,9 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
 
       if(e.snackbar) {
         e.snackbar.action();
+        e.snackbar.closed();
       }
-      this._close(e);
+      this._close();
     });
 
     this._FBPAddWireHook('--closeClicked', (e) => {
@@ -40,7 +41,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
       if(e.snackbar) {
         e.snackbar.closed();
       }
-      this._close(e);
+      this._close();
     });
 
     this._FBPTraceWires()
@@ -57,25 +58,26 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
               position: absolute;
               bottom: 0;
               width: 100%;
+            }
 
-            }
-            .hide {
-              display: none;
-            }
             #snackbar {
-              min-width: 190px;
               font-size: 14px;
-              line-height: 14px;
-              background-color: #333;
+              font-weight:400;
+              background-color: var(--snackbar-background-color, var(--on-primary, #212121));
               opacity:0;
-              margin: auto;              
+              margin: auto;   
+              display: flex;           
               -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
               box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
               border-radius: 4px;
             }
             
+            #snackbar.hide , #snackbar[stacked].hide{
+              display: none;
+            }
+            
             .label {
-              color: hsla(0,0%,100%,.87);
+              color: var(--snackbar-label-color, var(--primary, #dedede));
               display: inline-block;
               padding: 14px 16px;
             }
@@ -84,18 +86,25 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
               display: block;
             }
             
+            #snackbar[stacked] {
+              display: block;
+            }
+            
             #snackbar[stacked] .button{
               width: 100%;
+              display: block;
             }
             
             .button {
-              display: inline-block;
+              display: flex;
               text-align: right;
+              margin: 3px 0;
             }
             
             furo-button {
-              color: #bb86fc;
-              --on-surface: #bb86fc;
+             color: var(--snackbar-button-text-color, --secondary, #bb86fc));
+              --on-surface: var(--secondary);
+              margin: auto;
             }
             
             .center {
@@ -215,7 +224,8 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
     }
   }
 
-  _close(displayObj) {
+  _close() {
+
     clearInterval(this._timer);
 
     if(this._stack.length >1) {
@@ -263,11 +273,11 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
       <div id="snackbar" class="hide" 
           ?stacked="${this.displayObj.stacked}"
           ?left="${this.displayObj.positionLeft}" 
-          ?right="${this.displayObj.positionRight}" style="width:${this.displayObj.size}" >
-          <div class="label"> ${this.displayObj.labelText}</div>
+          ?right="${this.displayObj.positionRight}" style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}" >
+          <div class="label"><span>${this.displayObj.labelText}</span></div>
           <div class="button">
-            <furo-button label="${this.displayObj.actionButtonText}" @-click="--actionClicked(displayObj)"></furo-button>
-            <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked(displayObj)"></furo-button>
+            <furo-button label="${this.displayObj.actionButtonText}" @-click="--actionClicked"></furo-button>
+            <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
           </div>
 
       </div>
