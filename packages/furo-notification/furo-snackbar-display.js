@@ -73,6 +73,14 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
         }
       }
     });
+
+    window.addEventListener("open-furo-snackbar-requested", (e)=>{
+        this._show(e.detail);
+    });    
+    
+    window.addEventListener("close-furo-snackbar-requested", (e)=>{
+        this._close();
+    });
   }
 
 
@@ -181,16 +189,17 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
   }
 
   /**
-   * show snackbar
+   * show
    * @param s
+   * @private
    */
-  show(s) {
+  _show(s) {
 
     this._pushToStack(s);
 
     if( !this.displayObj.isOpen ) {
 
-      this._show();
+      this.__show();
     }
   }
 
@@ -220,7 +229,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    *
    * @private
    */
-  _show() {
+  __show() {
 
     if(this._stack.length > 0 ) {
 
@@ -246,7 +255,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
           self._stack.shift();
           if(self._stack.length  > 0 ) {
 
-            self._show();
+            self.__show();
           }else {
             self.displayObj.snackbar.isOpen = false;
             self.displayObj.isOpen = false;
@@ -262,8 +271,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
   }
 
   /**
-   *
-   * @private
+   * close the CURRENT snackbar
    */
   _close() {
 
@@ -276,7 +284,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
       this._stack.shift();
       if(this._stack.length  > 0 ) {
 
-        this._show();
+        this.__show();
       }else {
         this.displayObj.snackbar.isOpen = false;
         this.displayObj.isOpen = false;
