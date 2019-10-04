@@ -84,19 +84,15 @@ export class DataObject extends EventTreeNode {
     }
   }
 
-  _hasAncestorOfType(type){
+  _hasAncestorOfType(type) {
     return this._type === type;
   }
+
   /**
    * Inits the EntityNode
    */
   init() {
-
-    for(let i = this.__childNodes.length-1; i >= 0; i--){
-      this.__childNodes[i].deleteNode();
-    }
-
-    this._initFieldsFromSpec(this, this._spec.fields);
+    this.injectRaw(JSON.parse(this.__initialValue));
     this._pristine = true;
     this._isValid = true;
   }
@@ -252,6 +248,8 @@ export class DataObject extends EventTreeNode {
         node[fieldName] = new FieldNode(node, fieldSpec[fieldName], fieldName);
       }
     }
+
+    this.__initialValue = JSON.stringify(this.value);
   }
 
 

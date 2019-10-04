@@ -47,8 +47,8 @@ export class FieldNode extends EventTreeNode {
     // set default value from meta
     if (this._meta && this._meta.default) {
       this.defaultvalue = this._meta.default;
-
     }
+
 
     /**
      * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
@@ -66,6 +66,9 @@ export class FieldNode extends EventTreeNode {
     this.addEventListener("field-became-invalid", (e) => {
       this._isValid = false;
     });
+
+    //store __initialValue value for resetting the field
+    this.__initialValue = JSON.stringify(this.value);
   }
 
   /**
@@ -193,25 +196,9 @@ export class FieldNode extends EventTreeNode {
 
     // check for repeated fields to reset if they are not set with value
     this.__childNodes.forEach((n) => {
+
       if (val[n._name] === undefined) {
-        if (n.repeats) {
-          // we do not simply assign n.defaultvalue because this will create the types again
-          let  tmp = n._meta.default || [];
-          // if the default value is already an object, number,array do nothing otherwise try to parse json
-          if (typeof n._meta.default === "string") {
-            try {
-              tmp = JSON.parse(n._meta.default);
-            } catch (error) {
-              // reset to empty
-              tmp = [];
-            }
-          }
-          n.value = tmp;
-        } else {
-          // todo: check if this is needed for complex values and skalar values
-
-        }
-
+          n.value = JSON.parse(n.__initialValue);
       }
     });
 

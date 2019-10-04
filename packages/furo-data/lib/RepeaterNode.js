@@ -31,9 +31,20 @@ export class RepeaterNode extends EventTreeNode {
     this._isValid = true;
 
 
-    if (Array.isArray(this._meta.initialValue)) {
-      this.value = this._meta.initialValue;
+    // handling default values
+    let tmp = this._meta.default || [];
+    // if the default value is already an array do nothing otherwise try to parse json
+    if (typeof this._meta.default === "string") {
+      try {
+        tmp = JSON.parse(this._meta.default);
+      } catch (error) {
+        // reset to empty
+        tmp = [];
+      }
     }
+
+    this.value = tmp;
+
 
     /**
      * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
@@ -59,6 +70,9 @@ export class RepeaterNode extends EventTreeNode {
     this.addEventListener("field-value-changed", (e) => {
       this._pristine = false;
     });
+
+    //store __initialValue value for resetting the field
+    this.__initialValue = JSON.stringify(this.value);
   }
 
   /**
@@ -96,38 +110,41 @@ export class RepeaterNode extends EventTreeNode {
   }
 
   set value(val) {
+    if (Array.isArray(val)) {
 
-    val.forEach((repdata, i) => {
-      if (!this.repeats[i]) {
-        this._addSilent();
+
+      val.forEach((repdata, i) => {
+        if (!this.repeats[i]) {
+          this._addSilent();
+        }
+        // Werte aktualisieren
+
+        // remove if type any and insert at same index
+        if (this.repeats[i]._spec.type === "furo.Property") {
+          this.__childNodes.splice(i, 1);
+          let fieldNode = new FieldNode(this, this._spec, this._name);
+          fieldNode.__index = i;
+          this.repeats.splice(i, 1, fieldNode);
+        }
+
+
+        this.repeats[i].value = repdata;
+        this.repeats[i]._pristine = true;
+
+      });
+      // remove additional nodes in repeats console.log(val.length,this.repeats.length)
+      if (this.repeats.length > val.length) {
+        let l = val.length - 1;
+        for (let i = this.repeats.length - 1; i > l; i--) {
+          this.deleteChild(i);
+        }
       }
-      // Werte aktualisieren
 
-      // remove if type any and insert at same index
-      if(this.repeats[i]._spec.type === "furo.Property"){
-        this.__childNodes.splice(i, 1);
-        let fieldNode = new FieldNode(this, this._spec, this._name);
-        fieldNode.__index = i;
-        this.repeats.splice(i, 1, fieldNode);
-      }
-
-
-      this.repeats[i].value = repdata;
-      this.repeats[i]._pristine = true;
-
-    });
-    // remove additional nodes in repeats console.log(val.length,this.repeats.length)
-    if(this.repeats.length > val.length){
-      let l = val.length -1;
-      for(let i =  this.repeats.length -1; i > l; i--){
-        this.deleteChild(i);
-      }
+      this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
+      this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
+      //TODO check the tree
+      this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
     }
-
-    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
-    this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
-    //TODO check the tree
-    this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
   }
 
 
