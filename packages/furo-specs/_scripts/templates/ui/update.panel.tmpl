@@ -16,9 +16,9 @@ import "{{$import}}";{{end}}
  * {{.description}}
  *
  * @customElement
- * @appliesMixin FBP
+ * @appliesMixin BasePanel
  */
-export class {{.class_name}} extends FBP(BasePanel) {
+export class {{.class_name}} extends (BasePanel) {
 
     /**
      * flow is ready lifecycle method
