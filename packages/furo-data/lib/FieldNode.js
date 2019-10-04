@@ -110,6 +110,12 @@ export class FieldNode extends EventTreeNode {
   }
 
 
+  /**
+   * resets the field to the initial values from the spec
+   */
+  reinit(){
+    this.value = JSON.parse(this.__initialValue);
+  }
   _createVendorType(type) {
     if (this.__specdefinitions[type]) {
       for (let fieldName in this.__specdefinitions[type].fields) {
@@ -288,7 +294,7 @@ export class FieldNode extends EventTreeNode {
     //remove unseted
     for (let i = this.__childNodes.length - 1; i >= 0; i--) {
       let field = this.__childNodes[i];
-      if (!val[field._name]) {
+      if (!val || !val[field._name]) {
         field.deleteNode();
       }
     }

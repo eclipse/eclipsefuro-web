@@ -115,7 +115,9 @@
         let initalLabel = element.data.data.display_name._meta.label;
 
         assert.equal(element.json.data.display_name, response.data.display_name);
+
         p.then((ObjectDataRoot) => {
+
           let EntityRoot = ObjectDataRoot.data;
           assert.equal(EntityRoot, element.data.data);
           element.data.data.display_name._meta.label = "Something";

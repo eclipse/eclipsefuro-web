@@ -84,15 +84,19 @@ export class DataObject extends EventTreeNode {
     }
   }
 
-  _hasAncestorOfType(type) {
+  _hasAncestorOfType(type){
     return this._type === type;
   }
-
   /**
    * Inits the EntityNode
    */
   init() {
-    this.injectRaw(JSON.parse(this.__initialValue));
+
+    for(let i = this.__childNodes.length-1; i >= 0; i--){
+      this.__childNodes[i].reinit();
+    }
+    this._initFieldsFromSpec(this, this._spec.fields);
+
     this._pristine = true;
     this._isValid = true;
   }
@@ -249,7 +253,7 @@ export class DataObject extends EventTreeNode {
       }
     }
 
-    this.__initialValue = JSON.stringify(this.value);
+
   }
 
 

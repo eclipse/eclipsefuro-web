@@ -75,6 +75,14 @@ export class RepeaterNode extends EventTreeNode {
     this.__initialValue = JSON.stringify(this.value);
   }
 
+
+  /**
+   * resets the field to the initial values from the spec
+   */
+  reinit(){
+    this.value = JSON.parse(this.__initialValue);
+  }
+
   /**
    * deletes all repeated fields on this node
    */
