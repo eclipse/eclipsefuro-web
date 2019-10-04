@@ -59,18 +59,21 @@ class FuroAppFlowRouter extends FBP(LitElement) {
        *
        * | current   | flow-event-name      | target      | [mapping]          |
        * |:----------|:---------------------|:------------|:-------------------|
-       * | view-main | form-complete        | detail-view | element => aufgabe |
+       * | view-main | form-complete        | detail-view | from => to         |
        * | *         | menu-settings-click  | settings    |                    |
+       * | *         | all-fields-req       | all-qps     |        *           |
+       * | *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |
        *
        *
        *
        *  [['view-main', 'button-tap', 'detail-view',  'task => id]]
-       *  if current is set to view-main and the app-flow-event with name 'button-tap' is triggered, current is set to detail-view and data.task from app-flow is mapped to data.id.
+       *  if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to "to".
        *
        *  Special configurations:
        *
+       *  - Set a "*" to map all data 1:1 to the url.
        *
-       *  You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
+       *  - You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
        */
       config: {type: Array}
     };
@@ -89,15 +92,44 @@ class FuroAppFlowRouter extends FBP(LitElement) {
     let prefix = match[0] || "/";
     let selection = (this._configObject[currentPath + flowEvent.event] || this._configObject["*" + flowEvent.event]);
     if (selection) {
+
+
       let search = "";
-      let sa = [];
-      for (let k in  flowEvent.data) {
-        sa.push(k + "=" + flowEvent.data[k]);
+
+      if (selection.mapping) {
+        // map everything
+        if (selection.mapping === "*") {
+          let sa = [];
+          for (let k in flowEvent.data) {
+            sa.push(k + "=" + flowEvent.data[k]);
+          }
+
+          if (sa.length > 0) {
+            search = "?" + sa.join("&");
+          }
+        } else {
+          // selective mapping
+          let mappings = selection.mapping.split(',').map(function (cnf) {
+            return cnf.split('=>').map(function (c) {
+              return c.trim();
+            })
+          });
+          let sa = [];
+          mappings.forEach((qpMap) => {
+            // map flowevent.data.xx to yy
+            if (flowEvent.data[qpMap[0]]) {
+              sa.push(qpMap[1] + "=" + flowEvent.data[qpMap[0]]);
+            }
+          });
+          if (sa.length > 0) {
+            search = "?" + sa.join("&");
+          }
+
+        }
+
       }
-      // todo: implement mapper
-      if (sa.length > 0) {
-        search = "?" + sa.join("&");
-      }
+
+
       if (selection.target === "HISTORY-BACK") {
         this.back();
       } else {

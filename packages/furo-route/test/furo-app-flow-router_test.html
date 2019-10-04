@@ -51,10 +51,46 @@
       done()
     });
 
-    afterEach((done) => {
-      history.pushState(null, null, "/components/@furo/route/test/furo-app-flow-router_test.html");
-      done();
+
+    it('should map defined mappings path', function () {
+      flow.event = "unauthorized";
+      flow.emit({"key": 1, "o": 3});
+      assert.equal(window.location.search, "?key=1&o=3");
+
+      flow.event = "defined";
+      flow.emit({"key": 1, "o": 3, "r":32});
+      assert.equal(window.location.pathname, "/app/defined");
+      assert.equal(window.location.search, "?mapped=32");
+
+
     });
+
+
+
+
+    it('should not set undefined maps', function () {
+
+      flow.event = "exit";
+      flow.emit({"key": 1, "o": 3,"p":7});
+      assert.equal(window.location.search, "");
+      assert.equal(window.location.pathname, "/app/viewB");
+
+
+    });
+
+ it('should map defined mappings path', function () {
+      flow.event = "unauthorized";
+      flow.emit({"key": 1, "o": 3,"p":7});
+      assert.equal(window.location.search, "?key=1&o=3&p=7");
+
+      flow.event = "definedB";
+      flow.emit({"k": 1, "o": 3, "r":32});
+      assert.equal(window.location.pathname, "/app/definedB");
+      assert.equal(window.location.search, "?mapped=32&k=1");
+
+
+    });
+
 
     it('should work witout regex', function () {
       router.urlSpaceRegex = "/";
@@ -67,7 +103,6 @@
 
       flow.emit({});
       assert.equal(window.location.pathname, "/viewB");
-
 
     });
     it('should follow named config first', function () {
@@ -137,14 +172,16 @@
 
 
   let config = [
-    ["*", "unauthorized", "auth"],
+    ["*", "unauthorized", "auth", "*"],
     ["auth", "login-successfull", "profile"],
     ["*", "logded-out", "auth"],
     ["*", "menu-item-view-clicked", "viewHome"],
     ["*", "tob", "viewB"],
     ["viewB", "exit", "viewBexit", "qp=>id"],
     ["*", "exit", "viewB"],
-    ["*", "home-clicked", "viewHome"]
+    ["*", "home-clicked", "viewHome"],
+    ["*", "defined", "defined","r=>mapped"],
+    ["*", "definedB", "definedB","r=>mapped,k=>k"]
 
 
   ]
