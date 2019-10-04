@@ -17,6 +17,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
     this._stack = [];
 
     this.displayObj = {"labelText":"", "actonButtonText":"","snackbar":{}};
+
   }
 
   /**
@@ -44,7 +45,21 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
       this._close();
     });
 
-    this._FBPTraceWires()
+
+    /**
+     * listen to keyboard events
+     */
+    document.addEventListener("keydown", (event) => {
+      let key = event.key || event.keyCode;
+
+      if (key === 'Escape' || key === 'Esc' || key === 27) {
+
+        if(this.displayObj.closeOnEscape) {
+
+          this._close();
+        }
+      }
+    });
   }
 
 
@@ -77,9 +92,10 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
             }
             
             .label {
-              color: var(--snackbar-label-color, var(--primary, #dedede));
+              color: var(--snackbar-label-color, var(--primary-variant, #dedede));
               display: inline-block;
               padding: 14px 16px;
+              width: 100%;
             }
             
             #snackbar[stacked] .label {
@@ -99,11 +115,14 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
               display: flex;
               text-align: right;
               margin: 3px 0;
+              align-self: flex-end;
             }
             
             furo-button {
              color: var(--snackbar-button-text-color, --secondary, #bb86fc));
               --on-surface: var(--secondary);
+             --surface-dark: var(--snackbar-background-color, var(--on-primary, #212121));
+             --surface-light: var(--snackbar-background-color, var(--on-primary, #212121));
               margin: auto;
             }
             
@@ -179,6 +198,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
     obj.positionRight = s.positionRight;
     obj.size = s.size;
     obj.maxSize = s.maxSize;
+    obj.closeOnEscape = s.closeOnEscape;
 
     this._stack.push(obj);
   }
