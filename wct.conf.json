@@ -15,7 +15,8 @@
         "packages/furo-util/test/*_test.html",
         "packages/furo-route/test/*_test.html",
         "packages/furo-data-ui/test/*_test.html",
-        "packages/furo-navigation/test/*_test.html"
+        "packages/furo-navigation/test/*_test.html",
+        "packages/furo-notification/test/*_test.html"
     ],
     "npm": true,
     "moduleResolution": "node",
@@ -45,6 +46,7 @@
                 "packages/furo-logic/*.js",
                 "packages/furo-math/*.js",
                 "packages/furo-navigation/*.js",
+                "packages/furo-notification/*.js",
                 "packages/furo-route/*.js",
                 "packages/furo-timing/*.js",
                 "packages/furo-util/*.js",
