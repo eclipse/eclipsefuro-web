@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.59.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.6...@furo/data@0.59.0) (2019-10-04)
+
+
+### Bug Fixes
+
+* furo-data-object init ([bb65e9c](https://github.com/veith/FuroBaseComponents/commit/bb65e9c))
+
+
+### Features
+
+* clearing field nodes, respect the specified default values ([b10ea06](https://github.com/veith/FuroBaseComponents/commit/b10ea06))
+* clearing repeated nodes, respect the specified default values ([0f958f4](https://github.com/veith/FuroBaseComponents/commit/0f958f4))
+
+
+
+
+
 ## [0.58.6](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.58.5...@furo/data@0.58.6) (2019-10-03)
 
 

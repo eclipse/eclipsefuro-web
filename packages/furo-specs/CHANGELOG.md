@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.36.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.35.0...@furo/specs@0.36.0) (2019-10-04)
+
+
+### Bug Fixes
+
+* duplicate FBP init removed ([05f9d0b](https://github.com/veith/FuroBaseComponents/commit/05f9d0b))
+
+
+### Features
+
+* clearing repeated nodes, respect the specified default values ([0f958f4](https://github.com/veith/FuroBaseComponents/commit/0f958f4))
+
+
+
+
+
 # [0.35.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.34.3...@furo/specs@0.35.0) (2019-10-03)
 
 
