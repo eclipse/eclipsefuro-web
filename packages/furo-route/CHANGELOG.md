@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.18.17...@furo/route@0.19.0) (2019-10-04)
+
+
+### Features
+
+* furo-app-flow-router with qp mapper and strict mapping ([3c26cb5](https://github.com/veith/FuroBaseComponents/commit/3c26cb5))
+
+
+
+
+
 ## [0.18.17](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.18.16...@furo/route@0.18.17) (2019-10-04)
 
 **Note:** Version bump only for package @furo/route
