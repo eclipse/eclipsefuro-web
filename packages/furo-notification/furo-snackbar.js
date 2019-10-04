@@ -5,8 +5,11 @@ import {FBP} from '@furo/fbp';
  * `furo-snackbar`
  * Lit element
  *
+ *  furo-snackbar should be used together witch furo-snackbar-display. you can place those two components into different places.
+ *  best place the furo-snackbar-display on the main site. then you only need one furo-snackbar-display. it can work with n furo-snackbar.
+ *
  * @customElement
- * @demo demo/index.html
+ * @demo demo-furo-snackbar-display snackbar demo
  */
 class FuroSnackbar extends FBP(LitElement) {
 
@@ -115,7 +118,8 @@ class FuroSnackbar extends FBP(LitElement) {
   }
 
   /**
-   * show snackbar
+   * show slackbar
+   * @param p {Object} payload
    */
   show(p) {
 
@@ -130,10 +134,13 @@ class FuroSnackbar extends FBP(LitElement) {
     this.dispatchEvent(customEvent);
   }
 
+  /**
+   * trigger the action of snackbar. event `snackbar-action-clicked` will be sent with payload
+   */
   action() {
 
     /**
-     * @event action clicked
+     * @event snackbar-action-clicked
      * Fired when action button of snackbar is clicked
      * detail payload: {Object}  payload
      */
@@ -144,11 +151,12 @@ class FuroSnackbar extends FBP(LitElement) {
 
   /**
    * close snackbar
+   * event `close-furo-snackbar-requested` will be sent to furo-snackbar-display with payload this
    */
   close() {
 
     /**
-     * @event open-furo-snackbar-requested
+     * @event close-furo-snackbar-requested
      * Fired when value open snackbar is requested
      * detail payload: {Object}  this
      */
@@ -157,10 +165,13 @@ class FuroSnackbar extends FBP(LitElement) {
     this.dispatchEvent(customEvent)
   }
 
+  /**
+   * snackbar closed. event `snackbar-closed` will be sent with payload
+   */
   closed() {
 
     /**
-     * @event snackbar closed
+     * @event snackbar-closed
      * Fired when snackbar is closed
      * detail payload: {Object}  payload
      */
@@ -169,9 +180,12 @@ class FuroSnackbar extends FBP(LitElement) {
     this.dispatchEvent(customEvent)
   }
 
+  /**
+   * snackbar opend.event `snackbar-opened` will be sent with payload
+   */
   opened() {
     /**
-     * @event snackbar opened
+     * @event snackbar-opened
      * Fired when snackbar is opened
      * detail payload: {Object}  this
      */
@@ -181,7 +195,7 @@ class FuroSnackbar extends FBP(LitElement) {
   }
 
   /**
-   * set the label text
+   * set the label text o
    * @param t
    */
   setLabelText(t){
@@ -197,7 +211,7 @@ class FuroSnackbar extends FBP(LitElement) {
   }
 
   /**
-   * parse grpc status object
+   * parse grpc status object and set the label according to the message in status
    * @param s
    */
   parseGrpcStatus(s) {

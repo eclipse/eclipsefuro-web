@@ -6,8 +6,21 @@ import "@furo/input";
  * `furo-snackbar-display`
  * Lit element
  *
+ *  furo-snackbar-display should be used together witch furo-snackbar. you can place those two components into different places.
+ *  best place the furo-snackbar-display on the main site. then you only need one furo-snackbar-display. it can work with n furo-snackbar.
+ *
+ * ### Styling
+ * The following custom properties and mixins are available for styling:
+ *
+ * Custom property | Description | Default  | Fallback
+ * ----------------|-------------|----------|----------
+ * `--snackbar-background-color` | Color of background |`--on-primary` |  #212121
+ * `--snackbar-label-color` | Color of label in snackbar| `--primary-variant,,` | #dedede
+ * `--snackbar-button-text-color` | Color of button text | `--secondary` | #bb86fc
+
+ *
  * @customElement
- * @demo demo/index.html
+ * @demo demo-furo-snackbar-display snackbar demo
  */
 class FuroSnackbarDisplay extends  FBP(LitElement) {
 
@@ -203,6 +216,10 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
     this._stack.push(obj);
   }
 
+  /**
+   *
+   * @private
+   */
   _show() {
 
     if(this._stack.length > 0 ) {
@@ -211,7 +228,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
 
       this._snackbar.classList.remove("hide");
 
-      this.fadeIn(this.shadowRoot.getElementById("snackbar"));
+      this._fadeIn(this.shadowRoot.getElementById("snackbar"));
 
       this.requestUpdate();
       this.displayObj.snackbar.isOpen = true;
@@ -244,6 +261,10 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
     }
   }
 
+  /**
+   *
+   * @private
+   */
   _close() {
 
     clearInterval(this._timer);
@@ -269,7 +290,12 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
     }
   }
 
-  fadeIn(element) {
+  /**
+   *
+   * @param element
+   * @private
+   */
+  _fadeIn(element) {
     let op = 0.1;  // initial opacity
     let timer = setInterval(function () {
 

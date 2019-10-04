@@ -11,6 +11,7 @@ export const nav = [
       {"label": "Forms helper", "icon": "dashboard", "href": "form/doc/"},
       {"label": "App Config", "icon": "settings", "href": "config/doc/"},
       {"label": "Navigation", "icon": "tab", "href": "navigation/doc/"},
+      {"label": "Notification", "icon": "info", "href": "notification/doc/"},
       {"label": "Routing", "icon": "arrow-forward", "href": "route/doc/"},
       {"label": "Timing", "icon": "alarm", "href": "timing/doc/"},
       {"label": "Math", "icon": "timeline", "href": "math/doc/"},
