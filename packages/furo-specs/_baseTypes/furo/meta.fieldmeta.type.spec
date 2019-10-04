@@ -32,7 +32,7 @@
       }
     },
     "default": {
-      "description": "The default value",
+      "description": "The default value as JSON string",
       "type": "string",
       "meta": {
         "label": "Default value"

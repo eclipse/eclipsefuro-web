@@ -191,12 +191,27 @@ export class FieldNode extends EventTreeNode {
     }
 
 
-    // check for repeated fields to reset if they are not set with val
+    // check for repeated fields to reset if they are not set with value
     this.__childNodes.forEach((n) => {
       if (val[n._name] === undefined) {
         if (n.repeats) {
-          n.value = [];
+          // we do not simply assign n.defaultvalue because this will create the types again
+          let  tmp = n._meta.default || [];
+          // if the default value is already an object, number,array do nothing otherwise try to parse json
+          if (typeof n._meta.default === "string") {
+            try {
+              tmp = JSON.parse(n._meta.default);
+            } catch (error) {
+              // reset to empty
+              tmp = [];
+            }
+          }
+          n.value = tmp;
+        } else {
+          // todo: check if this is needed for complex values and skalar values
+
         }
+
       }
     });
 
@@ -313,10 +328,20 @@ export class FieldNode extends EventTreeNode {
   }
 
   set defaultvalue(val) {
+    // if the default value is already an object, number,array do nothing otherwise try to parse json
+    if (typeof val === "string") {
+      try {
+        val = JSON.parse(val);
+      } catch (error) {
+
+      }
+    }
+
+
     // type any
     this._createAnyType(val);
 
-    if (this.__childNodes.length > 0) {
+    if (this.__childNodes.length > 0 && val) {
       for (let index in this.__childNodes) {
         let field = this.__childNodes[index];
         field.defaultvalue = val[field._name];

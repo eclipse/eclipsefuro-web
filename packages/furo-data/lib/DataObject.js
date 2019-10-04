@@ -185,13 +185,14 @@ export class DataObject extends EventTreeNode {
       }
     }
 
+    /* todo: discuss if resetting is needed on this level
     // check for fields to reset
     node.__childNodes.forEach((n)=>{
       if(!data[n._name]){
-        console.log(n._name);
+        //the field node[n._name] should be reseted
       }
     });
-
+    */
 
     if (furoMetaDetected) {
       this.__updateMetaAndConstraints(furoMetaDetected);
