@@ -1,5 +1,5 @@
 import {FBP} from "@furo/fbp";
-import { LitElement, html, css } from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 
 /**
  * BasePanel to extend
@@ -21,6 +21,9 @@ export class BasePanel extends FBP(LitElement) {
       return true
     };
 
+    /**
+     * Attach the close-requested listener to the nav node. So you can trigger a close-requested from another location like tab-bar,...
+     */
     this._FBPAddWireHook("--navNode", (fieldNode) => {
       this.treeNode = fieldNode;
       fieldNode.addEventListener("close-requested", (e) => {
@@ -29,13 +32,31 @@ export class BasePanel extends FBP(LitElement) {
         }
       });
     });
+
+
+    /**
+     * closes the panel directly on internal events, stops the propagation to make it possible to have nested panels
+     */
+    this.addEventListener("close-immediately-request", (e) => {
+      e.stopPropagation();
+      this.closePanel();
+    });
+
+    /**
+     * Register hook on wire --panelCloser to
+     * close the panel with a wire
+     */
+    this._FBPAddWireHook("--panelCloser", (e) => {
+      this.closePanel();
+    });
+
   }
 
   /**
    * Close the panel
    */
   closePanel() {
-    if(this.treeNode){
+    if (this.treeNode) {
       this.treeNode.selectItem();
       this.removePanel();
     }
