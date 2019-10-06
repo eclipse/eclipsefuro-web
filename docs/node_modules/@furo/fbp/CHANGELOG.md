@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.27.0](https://github.com/veith/FuroBaseComponents/compare/@furo/fbp@4.26.6...@furo/fbp@4.27.0) (2019-09-30)
+
+
+### Features
+
+* trigger --FBPready when FBP is ready ([d681c84](https://github.com/veith/FuroBaseComponents/commit/d681c84))
+* trigger --FBPready when FBP is ready ([eb5f051](https://github.com/veith/FuroBaseComponents/commit/eb5f051))
+
+
+
+
+
 ## [4.26.6](https://github.com/veith/FuroBaseComponents/compare/@furo/fbp@4.26.5...@furo/fbp@4.26.6) (2019-09-25)
 
 

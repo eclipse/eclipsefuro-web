@@ -2103,22 +2103,30 @@ if(event.bubbles&&!event.cancelBubble&&this.__parentNode){this.__parentNode.disp
      * @returns {*}
      */broadcastEvent(event){// trigger the events on current node
 this.__triggerNodeEvents(event);//children
-if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}return event}__triggerNodeEvents(event){if(this.__eventListener[event.type]&&0<this.__eventListener[event.type].length){this.__eventListener[event.type].map((t,i,listenerArray)=>{t.cb(event);if(t.options.once){delete listenerArray[i]}})}}}_exports.EventTreeNode=EventTreeNode;var EventTreeNode$1={NodeEvent:NodeEvent,EventTreeNode:EventTreeNode};_exports.$EventTreeNode=EventTreeNode$1;class RepeaterNode extends EventTreeNode{constructor(parentNode,spec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._isRepeater=!0;this.repeats=[];this._spec=spec;this._name=fieldName;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._pristine=!0;this._isValid=!0;if(Array.isArray(this._meta.initialValue)){this.value=this._meta.initialValue}/**
-       * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
-       */this.addEventListener("field-became-valid",e=>{if(0===this.repeats.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("repeat-became-valid",this))}});/**
+if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}return event}__triggerNodeEvents(event){if(this.__eventListener[event.type]&&0<this.__eventListener[event.type].length){this.__eventListener[event.type].map((t,i,listenerArray)=>{t.cb(event);if(t.options.once){delete listenerArray[i]}})}}}_exports.EventTreeNode=EventTreeNode;var EventTreeNode$1={NodeEvent:NodeEvent,EventTreeNode:EventTreeNode};_exports.$EventTreeNode=EventTreeNode$1;class RepeaterNode extends EventTreeNode{constructor(parentNode,spec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._isRepeater=!0;this.repeats=[];this._spec=spec;this._name=fieldName;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._pristine=!0;this._isValid=!0;// handling default values
+let tmp=this._meta.default||[];// if the default value is already an array do nothing otherwise try to parse json
+if("string"===typeof this._meta.default){try{tmp=JSON.parse(this._meta.default)}catch(error){// reset to empty
+tmp=[]}}this.value=tmp;/**
+                       * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
+                       */this.addEventListener("field-became-valid",e=>{if(0===this.repeats.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("repeat-became-valid",this))}});/**
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
          */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("repeat-became-invalid",this))});/**
          * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
-         */this.addEventListener("field-value-changed",e=>{this._pristine=!1})}/**
+         */this.addEventListener("field-value-changed",e=>{this._pristine=!1});//store __initialValue value for resetting the field
+this.__initialValue=JSON.stringify(this.value)}/**
+     * resets the field to the initial values from the spec
+     */reinit(){this.value=JSON.parse(this.__initialValue)}/**
      * deletes all repeated fields on this node
      */removeAllChildren(){this.__childNodes=[];this.repeats=[];this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed",this.repeats,!1))}/**
      * infinite recursive element protection
      * we can return false here, because a repeater node is not created automatically
      */_hasAncestorOfType(type){return!1}deleteNode(){let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name];//notify
 this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0));// because this is deleted, notifiy from parent
-this.__parentNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.__parentNode,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this.__parentNode,!1))}set value(val){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
-this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));//TODO check the tree
-this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],targetfield=f[1];if(2===f.length){// typo protection
+this.__parentNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.__parentNode,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this.__parentNode,!1))}set value(val){if(Array.isArray(val)){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
+// remove if type any and insert at same index
+if("furo.Property"===this.repeats[i]._spec.type){this.__childNodes.splice(i,1);let fieldNode=new FieldNode(this,this._spec,this._name);fieldNode.__index=i;this.repeats.splice(i,1,fieldNode)}this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});// remove additional nodes in repeats console.log(val.length,this.repeats.length)
+if(this.repeats.length>val.length){let l=val.length-1;for(let i=this.repeats.length-1;i>l;i--){this.deleteChild(i)}}this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));//TODO check the tree
+this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}}__updateMetaAndConstraints(metaAndConstraints){for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],targetfield=f[1];if(2===f.length){// typo protection
 if(this.repeats[parseInt(target)][targetfield]){// we are on the parent of a endpoint. Update the metas in this
 let field=this.repeats[parseInt(target)][targetfield];for(let m in mc.meta){// update the metas
 field._meta[m]=mc.meta[m]}for(let c in mc.constraints){// update the constraints
@@ -2132,26 +2140,28 @@ return}}let subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.sli
 if(this.repeats[parseInt(target)][targetfield]){this.repeats[parseInt(target)][targetfield].__updateMetaAndConstraints(subMetaAndConstraints)}}}get value(){return this.repeats.map(f=>{return f.value})}/**
      * Deletes a repeated item by index
      * @param index
-     */deleteChild(index){this.repeats.splice(index,1);// update indexes
-this.repeats.forEach((node,i)=>{node.__index=i});this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
+     */deleteChild(index){this.repeats.splice(index,1);this.__childNodes.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
 fieldNode._deleteFromList=()=>{this.deleteChild(this.repeats.indexOf(fieldNode))};return index}_setInvalid(error){this._isValid=!1;let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
 error.field=path.slice(1).join(".")}this.repeats[path[0]]._setInvalid(error)}add(data){let index=this._addSilent();this._pristine=!1;// set data if given
 if(data){let child=this.repeats[index];child.value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
-return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._name=fieldName;this._value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
+return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._name=fieldName;this.__index=fieldName;this._value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
 if(this.__specdefinitions[this._spec.type]!==void 0){// check for recursion
 if(!this.__parentNode._hasAncestorOfType(this._spec.type)){if("google.protobuf.Any"!==this._spec.type){this._createVendorType(this._spec.type)}}else{this._isRecursion=!0}}// set default value from meta
 if(this._meta&&this._meta.default){this.defaultvalue=this._meta.default}/**
        * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
        */this.addEventListener("field-became-valid",e=>{let v=this.__childNodes.filter(f=>!f._isValid);if(0===v.length){this._isValid=!0}});/**
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
-         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1})}/**
+         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1});//store __initialValue value for resetting the field
+this.__initialValue=JSON.stringify(this.value)}/**
      * create a field in a FieldNode, this is useful when using map<string,something>
      *   set the value option to init with values
      * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
      */createField(options){let fieldName=options.fieldName,spec={type:options.type};if(options.spec){spec=options.spec}if(!this[fieldName]){this[fieldName]=new FieldNode(this,spec,fieldName);this.dispatchNodeEvent(new NodeEvent("this-node-field-added",this,!1));this.dispatchNodeEvent(new NodeEvent("node-field-added",this,!0));// set Value if given
 if(options.value){this[fieldName].value=options.value}return!0}else{return!1}}/**
      * infinite recursive element protection
-     */_hasAncestorOfType(type){if(this._type===type){return!0}else{return this.__parentNode._hasAncestorOfType(type)}}_createVendorType(type){if(this.__specdefinitions[type]){for(let fieldName in this.__specdefinitions[type].fields){if(this.__specdefinitions[type].fields[fieldName].meta&&this.__specdefinitions[type].fields[fieldName].meta.repeated){this[fieldName]=new RepeaterNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}else{this[fieldName]=new FieldNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}}}else{console.warn(type+" does not exist")}}set value(val){// create vendor type if this field is a recusion an was not generated
+     */_hasAncestorOfType(type){if(this._type===type){return!0}else{return this.__parentNode._hasAncestorOfType(type)}}/**
+     * resets the field to the initial values from the spec
+     */reinit(){this.value=JSON.parse(this.__initialValue)}_createVendorType(type){if(this.__specdefinitions[type]){for(let fieldName in this.__specdefinitions[type].fields){if(this.__specdefinitions[type].fields[fieldName].meta&&this.__specdefinitions[type].fields[fieldName].meta.repeated){this[fieldName]=new RepeaterNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}else{this[fieldName]=new FieldNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}}}else{console.warn(type+" does not exist")}}set value(val){// create vendor type if this field is a recusion an was not generated
 if(this._isRecursion&&val){this._createVendorType(this._spec.type)}// type any
 this._createAnyType(val);// map<string, something> typ
 if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{if(0<this.__childNodes.length){let furoMetaDetected=!1;for(let index in this.__childNodes){let field=this.__childNodes[index];if("furo.Meta"===field._spec.type){// we have meta declaration on this layer
@@ -2174,7 +2184,8 @@ this.oldvalue=this.value;this._value=val;this._pristine=!1;if(JSON.stringify(thi
                                                                                         * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
                                                                                         *
                                                                                         * detail payload: **{NodeEvent}** with reference to the FieldNode
-                                                                                        */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
+                                                                                        */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}// check for repeated fields to reset if they are not set with value
+this.__childNodes.forEach(n=>{if(val[n._name]===void 0){n.value=JSON.parse(n.__initialValue)}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
 // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
 // a field which is targeted we delegate the sub request to  this field
 for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split(".");if(1===f.length){// we are on the parent of a endpoint. Update the metas in this
@@ -2187,17 +2198,19 @@ this[field]._constraints[c]=mc.constraints[c]}/**
            * detail payload:
            */this[field].dispatchNodeEvent(new NodeEvent("this-metas-changed",this[field],!1));// exit here, it does not go deeper
 return}let target=f[0],subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.slice(1).join(".")]=mc;let x=this[target];this[target].__updateMetaAndConstraints(subMetaAndConstraints)}}_createAnyType(val){// remove if type changes
-if(this.__anyCreated&&this["@type"]!==val["@type"]){for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("google.protobuf.Any"===this._spec.type&&val&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
+if(this.__anyCreated&&this["@type"].value!==val["@type"]){console.log(this["@type"].value,val["@type"]);for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("google.protobuf.Any"===this._spec.type&&val&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
 // any can only be a complex type
-this._createVendorType(val["@type"]);this.__anyCreated=!0;this.createField({fieldName:"@type",type:"string",value:val["@type"]})}}_updateKeyValueMap(val,spec){let vType=spec.match(/,\s*(.*)>/)[1],fieldSpec={type:vType};// create if not exist
+this._createVendorType(val["@type"].replace(/.*\//,""));// create with basename of the type (xxx.xxx.xx/path/base.Type becomes base.Type)
+this.__anyCreated=!0;this.createField({fieldName:"@type",type:"string",value:val["@type"]})}}_updateKeyValueMap(val,spec){let vType=spec.match(/,\s*(.*)>/)[1],fieldSpec={type:vType};// create if not exist
 for(let fieldName in val){if(this[fieldName]==void 0){this[fieldName]=new FieldNode(this,fieldSpec,fieldName)}//update data
 this[fieldName].value=val[fieldName]}//remove unseted
-for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}}/**
+for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val||!val[field._name]){field.deleteNode()}}}/**
      * deletes the fieldnode
      */deleteNode(){// remove from list if this is a repeated item
 if("function"===typeof this._deleteFromList){this._deleteFromList()}else{let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name]}//notify
-this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0))}set defaultvalue(val){// type any
-this._createAnyType(val);if(0<this.__childNodes.length){for(let index in this.__childNodes){let field=this.__childNodes[index];field.defaultvalue=val[field._name]}}else{if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{this.oldvalue=this.value;this._value=val;this._pristine=!0}}}get value(){if(0<this.__childNodes.length){this._value={};// nur reine Daten zurück geben
+this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0))}set defaultvalue(val){// if the default value is already an object, number,array do nothing otherwise try to parse json
+if("string"===typeof val){try{val=JSON.parse(val)}catch(error){}}// type any
+this._createAnyType(val);if(0<this.__childNodes.length&&val){for(let index in this.__childNodes){let field=this.__childNodes[index];field.defaultvalue=val[field._name]}}else{if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{this.oldvalue=this.value;this._value=val;this._pristine=!0}}}get value(){if(0<this.__childNodes.length){this._value={};// nur reine Daten zurück geben
 for(let index in this.__childNodes){let field=this.__childNodes[index];this._value[field._name]=field.value}}return this._value}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
                             * @event (field-became-valid)
                             *
@@ -2239,7 +2252,7 @@ error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(
      * Resete zum letzten injectet state zurück
      */reset(){if(this._rawEntity){this.injectRaw(this._rawEntity)}}_hasAncestorOfType(type){return this._type===type}/**
      * Inits the EntityNode
-     */init(){for(let i=this.__childNodes.length-1;0<=i;i--){this.__childNodes[i].deleteNode()}this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0}get rawEntity(){return this._rawEntity}/**
+     */init(){for(let i=this.__childNodes.length-1;0<=i;i--){this.__childNodes[i].reinit()}this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0}get rawEntity(){return this._rawEntity}/**
      * Returns a json representation of your Data Object
      * @return {*}
      */get value(){return this.getJson()}/**
@@ -2252,7 +2265,14 @@ data[fieldName].forEach((repdata,i)=>{// create if record index do not exist
 if(!fieldNode.repeats[i]){fieldNode._addSilent()}// Werte aktualisieren
 fieldNode.repeats[i].value=repdata;fieldNode.repeats[i]._pristine=!0;fieldNode.repeats[i].__index=i});// entferne überzählige nodes
 let newSize=data[fieldName].length;if(newSize<fieldNode.repeats.length){fieldNode.repeats.splice(newSize)}fieldNode._pristine=!0;fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",fieldNode,!0));fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",fieldNode,!1))}else{if(fieldNode){fieldNode._clearInvalidity();// Werte aktualisieren
-fieldNode.value=data[fieldName];fieldNode._pristine=!0}}}}if(furoMetaDetected){this.__updateMetaAndConstraints(furoMetaDetected)}}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
+fieldNode.value=data[fieldName];fieldNode._pristine=!0}}}}/* todo: discuss if resetting is needed on this level
+      // check for fields to reset
+      node.__childNodes.forEach((n)=>{
+        if(!data[n._name]){
+          //the field node[n._name] should be reseted
+        }
+      });
+      */if(furoMetaDetected){this.__updateMetaAndConstraints(furoMetaDetected)}}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
 // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
 // a field which is targeted we delegate the sub request to  this field
 for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.slice(1).join(".")]=mc;this[target].__updateMetaAndConstraints(subMetaAndConstraints)}}_setInvalid(error){// set field empty, if not defined
@@ -2585,7 +2605,7 @@ if(Array.isArray(data)){linkObject=data.filter(e=>{return e.rel===this.rel})[0]}
        * @event converted
        * Fired when input was converted
        * detail payload: {object|QueryParams}
-       */let customEvent=new Event("converted",{composed:!0,bubbles:!0});customEvent.detail=qp;this.dispatchEvent(customEvent);return qp}_convert(link){let linkObject={rel:link.rel,href:link.href,method:link.method,type:link.type};if("self"===linkObject.rel){linkObject.rel="Get"}linkObject.rel=linkObject.rel.charAt(0).toUpperCase()+linkObject.rel.slice(1);let pattern="";if(this._serviceDef[linkObject.rel]){pattern=this._serviceDef[linkObject.rel].deeplink.href}let rgx=/{([^}]*)}/gi,keys=[],m;while(null!==(m=rgx.exec(pattern))){pattern=pattern.replace(m[0],"(.*)");keys.push(m[1])}let srgx=new RegExp(pattern+"$"),qp={},matches=srgx.exec(linkObject.href);if(matches){keys.forEach((e,i)=>{qp[e]=matches[i+1]})}return qp}static get properties(){return{/**
+       */let customEvent=new Event("converted",{composed:!0,bubbles:!0});customEvent.detail=qp;this.dispatchEvent(customEvent);return qp}_convert(link){let linkObject={rel:link.rel,href:link.href,method:link.method,type:link.type};if("self"===linkObject.rel){linkObject.rel="Get"}linkObject.rel=linkObject.rel.charAt(0).toUpperCase()+linkObject.rel.slice(1);let pattern="";if(this._serviceDef[linkObject.rel]){pattern=this._serviceDef[linkObject.rel].deeplink.href}let rgx=/{([^}]*)}/gi,keys=[],m;while(null!==(m=rgx.exec(pattern))){keys.push(m[1])}pattern=pattern.replace(rgx,"(.*)");let srgx=new RegExp(pattern+"$"),qp={},matches=srgx.exec(linkObject.href);if(matches){keys.forEach((e,i)=>{qp[e]=matches[i+1]})}return qp}static get properties(){return{/**
        * Name of service
        */service:{type:String},/**
        * Optional rel to convert.
@@ -2672,7 +2692,17 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-object",DemoFuroDataObject);class FuroDataBoolIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",()=>{this.toggle()});this.symboltrue="\u25BC";this.symbolfalse="\u25B6";this.field={};this._updateSymbol()}toggle(){this.field.value=!this.field.value}/**
+    `}}window.customElements.define("demo-furo-data-object",DemoFuroDataObject);class CheckMetaAndOverrides{static UpdateMetaAndConstraints(element){if(element.field){// options are available for text inputs at the moment
+// check if metas ara available
+if(element.field._meta){if(element.field._meta.readonly){element._readonly=element.field._meta.readonly}if(element.field._meta.label){element._label=element.field._meta.label}if(element.field._meta.hint){element._hint=element.field._meta.hint}if(element.field._meta.cols){element._cols=element.field._meta.cols}if(element.field._meta.rows){element._rows=element.field._meta.rows}if(element.field._meta.min_term_length){element._minTermLength=element.field._meta.min_term_length}if(element.field._meta.label_amount){element._labelAmount=element.field._meta.label_amount}if(element.field._meta.label_currency){element._labelCurrency=element.field._meta.label_currency}if(element.field._meta.options){element._options=element.field._meta.options}}// check if constraints ara available
+if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.is;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.is;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.is;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.is;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required="true"==element.field._constraints.required.is||!0===element.field._constraints.required.is}}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
+     * Attribute overrides
+     * hint, min, max, readonly or disabled on the element are higher ranked then field metas from spec or server
+     */if(element.min){element._min=element.min}if(element.max){element._max=element.max}if(element.readonly){element._readonly=element.readonly}if(element.label){element._label=element.label}if(element.hint){element._hint=element.hint}if(element.step){element._step=element.step}if(element.pattern){element._pattern=element.pattern}if(element.required){element._required=element.required}if(element.cols){element._cols=element.cols}if(element.rows){element._rows=element.rows}if(element.minTermLength){element._minTermLength=element.minTermLength}if(element.labelAmount){element._labelAmount=element.labelAmount}if(element.labelCurrency){element._labelCurrency=element.labelCurrency}if(element.options){element._options=element.options}}}_exports.CheckMetaAndOverrides=CheckMetaAndOverrides;var CheckMetaAndOverrides$1={CheckMetaAndOverrides:CheckMetaAndOverrides};_exports.$CheckMetaAndOverrides=CheckMetaAndOverrides$1;class FuroDataBoolIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",()=>{this.toggle()});this.symboltrue="\u25BC";this.symbolfalse="\u25B6";this.field={};this._updateSymbol()}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}toggle(){this.field.value=!this.field.value}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -2698,13 +2728,7 @@ this.field.addEventListener("field-value-changed",e=>{this._updateSymbol()});thi
      */render(){// language=HTML
 return _furoShell.html`
       ${this._ocSymbol}
-    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class CheckMetaAndOverrides{static UpdateMetaAndConstraints(element){if(element.field){// options are available for text inputs at the moment
-// check if metas ara available
-if(element.field._meta){if(element.field._meta.readonly){element._readonly=element.field._meta.readonly}if(element.field._meta.label){element._label=element.field._meta.label}if(element.field._meta.hint){element._hint=element.field._meta.hint}if(element.field._meta.cols){element._cols=element.field._meta.cols}if(element.field._meta.rows){element._rows=element.field._meta.rows}if(element.field._meta.min_term_length){element._minTermLength=element.field._meta.min_term_length}if(element.field._meta.label_amount){element._labelAmount=element.field._meta.label_amount}if(element.field._meta.label_currency){element._labelCurrency=element.field._meta.label_currency}if(element.field._meta.options){element._options=element.field._meta.options}}// check if constraints ara available
-if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.is;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.is;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.is;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.value;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required="true"==element.field._constraints.required.is||!0===element.field._constraints.required.is}}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
-     * Attribute overrides
-     * hint, min, max, readonly or disabled on the element are higher ranked then field metas from spec or server
-     */if(element.min){element._min=element.min}if(element.max){element._max=element.max}if(element.readonly){element._readonly=element.readonly}if(element.label){element._label=element.label}if(element.hint){element._hint=element.hint}if(element.step){element._step=element.step}if(element.pattern){element._pattern=element.pattern}if(element.required){element._required=element.required}if(element.cols){element._cols=element.cols}if(element.rows){element._rows=element.rows}if(element.minTermLength){element._minTermLength=element.minTermLength}if(element.labelAmount){element._labelAmount=element.labelAmount}if(element.labelCurrency){element._labelCurrency=element.labelCurrency}if(element.options){element._options=element.options}}}_exports.CheckMetaAndOverrides=CheckMetaAndOverrides;var CheckMetaAndOverrides$1={CheckMetaAndOverrides:CheckMetaAndOverrides};_exports.$CheckMetaAndOverrides=CheckMetaAndOverrides$1;class Helper{/**
+    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class Helper{/**
    * update Attribute on input element actively, so we dont have things like pattern="undefined" on the native element.
    * @param attribute
    * @param value
@@ -2715,7 +2739,7 @@ caller._theInputElement.removeAttribute(attribute)}})}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|caller} furo input element
      * @param {Object|FieldNode} fieldNode a Field object
-     */static BindData(caller,fieldNode){if(fieldNode===void 0){console.warn("Invalid binding ");console.log(caller);return}caller.field=fieldNode;CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);caller._updateField();caller.field.addEventListener("field-value-changed",e=>{caller._updateField()});// update meta and constraints when they change
+     */static BindData(caller,fieldNode){if(fieldNode===void 0){console.warn("Invalid binding ");console.log(caller);return}caller.field=fieldNode;CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);caller._updateField();caller.field.addEventListener("field-value-changed",e=>{caller._updateField();if(caller.field._meta.hint){caller._hint=caller.field._meta.hint}if(caller.hint){caller._hint=caller.hint}});// update meta and constraints when they change
 caller.field.addEventListener("this-metas-changed",e=>{CheckMetaAndOverrides.UpdateMetaAndConstraints(caller)});caller.field.addEventListener("field-became-invalid",e=>{// updates wieder einspielen
 caller.error=!0;caller.errortext=caller.field._validity.description;caller.requestUpdate()});caller.field.addEventListener("field-became-valid",e=>{// updates wieder einspielen
 caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroDataCollectionDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
@@ -2726,7 +2750,11 @@ caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Hel
    *
    *  **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this.displayField="display_name";this.valueField="id";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.field[this.valueField].value=val}this._notifiySelectedItem(val)})}_notifiySelectedItem(val){/**
+this.field[this.valueField].value=val}this._notifiySelectedItem(val)})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}_notifiySelectedItem(val){/**
      * @event item-selected
      * Fired when a item from the dropdown was selected
      *
@@ -2826,8 +2854,8 @@ return _furoShell.html`
     `}/**
      * Build the dropdown list with given options from meta
      * @param {options} list of options with id and display_name
-     */_buildListWithMetaOptions(entities){// map
-let arr=entities.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField].value==e[this.valueField],_original:e}});this._dropdownList=arr;if(!this.field[this.valueField].value){this.field[this.valueField].value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+     */_buildListWithMetaOptions(options){// map
+let arr=options.list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField].value==e[this.valueField],_original:e}});this._dropdownList=arr;if(!this.field[this.valueField].value){this.field[this.valueField].value=arr[0].id}if(!this.field){// notifiy first item if field is not set
 this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField].value)}this._FBPTriggerWire("--selection",arr)}/**
      * Inject the array with the selectable options.
      *
@@ -2861,8 +2889,11 @@ this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[t
    *
    * All bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.
    *
-   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}})}/**
+   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
@@ -2934,8 +2965,11 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-text-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -3106,9 +3140,14 @@ return _furoShell.html`
    *
    * Comes from underlying component furo-date-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){if("google.type.Date"===this.field._spec.type||"google.type.Date"===this.field["@type"]){val=this._convertStringToDateObj(val,this.field.value)}this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+if(this.field){if("google.type.Date"===this.field._spec.type||this.field["@type"]&&"google.type.Date"===this.field["@type"].value.replace(/.*\//,"")){val=this._convertStringToDateObj(val,this.field.value)}// store tmpval to check against loop
+this.tmpval=val;this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the min => minlength attr*
      * @param value
      */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
@@ -3183,9 +3222,9 @@ if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rang
      * Bind a entity field to the date-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}let dateValue=this.field.value;// convert value when date type is google.type.Date
-if("google.type.Date"===this.field._spec.type||"google.type.Date"===this.field["@type"]){dateValue=this._convertDateObjToString(dateValue)}this._FBPTriggerWire("--value",dateValue);this.requestUpdate()}// convert google date object to ISO 8601
+     */bindData(fieldNode){Helper.BindData(this,fieldNode);this.field.addEventListener("branch-value-changed",e=>{this._updateFieldBranch()})}_updateField(){}_updateFieldBranch(){//mark incomming error
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}let dateValue=this.field.value;if(this.tmpval||JSON.stringify(this.field.value)!==JSON.stringify(this.tmpval)){// convert value when date type is google.type.Date
+if("google.type.Date"===this.field._spec.type||this.field["@type"]&&"google.type.Date"===this.field["@type"].value.replace(/.*\//,"")){dateValue=this._convertDateObjToString(dateValue)}this._FBPTriggerWire("--value",dateValue);this.requestUpdate()}}// convert google date object to ISO 8601
 _convertDateObjToString(obj){let date="";if(obj&&obj.day&&obj.month&&obj.year){let month=obj.month+"",day=obj.day+"",year=obj.year+"";if(2>month.length){month="0"+month}if(2>day.length){day="0"+day}if(4>year.length){for(var l=4-year.length,i=0;i<l;i++){year="0"+year}}date=year+"-"+month+"-"+day}return date}// convert date string ISO 8601 to object for google.type.Dates
 _convertStringToDateObj(str,obj){let arr=str.split("-",3);// only override properties: day, month, year
 if(3===arr.length){obj.day=+arr[2];obj.month=+arr[1];obj.year=+arr[0]}return obj}/**
@@ -3202,8 +3241,8 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host([hidden]) {
             display: none;
         }
-        
-        furo-date-input{
+
+        furo-date-input {
             width: 100%;
         }
     `}render(){// language=HTML
@@ -3218,7 +3257,11 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-date-input>      
-    `}}customElements.define("furo-data-date-input",FuroDataDateInput);class FuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--valueChanged",val=>{CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this.field={}}_updateField(){this.text=this.field.value;if(this.displayfield&&this.field[this.displayfield]){this.text=this.field[this.displayfield]}else{if(this.field.display_name){this.text=this.field.display_name}}if(this.text&&this.text.toString()==void 0){this.text=""}this.requestUpdate()}/**
+    `}}customElements.define("furo-data-date-input",FuroDataDateInput);class FuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this.field={}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}_updateField(){this.text=this.field.value;if(this.displayfield&&this.field[this.displayfield]){this.text=this.field[this.displayfield]}else{if(this.field.display_name){this.text=this.field.display_name}}if(this.text&&this.text.toString()==void 0){this.text=""}this.requestUpdate()}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -3445,10 +3488,13 @@ return _furoShell.html`
    * detail payload: {Number} the number value
    *
    * Comes from underlying component furo-number-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the min => minlength attr*
      * @param value
      */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
@@ -3555,8 +3601,8 @@ return _furoShell.html`
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-number-input>      
     `}}customElements.define("furo-data-number-input",FuroDataNumberInput);class FuroDataMoneyInput extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.valid=!0;this._currencies=[];// init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
-this.value={currency_code:"CHF",units:null,nanos:null}}_FBPReady(){super._FBPReady();this.shadowRoot.getElementById("wrapper").addEventListener("value-changed",e=>{e.stopPropagation();if(e.path[0]){if("FURO-SELECT-INPUT"==e.path[0].nodeName){this.field.value=this._convertDataToMoneyObj(e.detail,"",this.field.value)}if("FURO-NUMBER-INPUT"==e.path[0].nodeName){this.field.value=this._convertDataToMoneyObj("",e.detail,this.field.value)}}// reset hint, label etc..
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.value=this.field.value;this.error=!1;/**
+this.value={currency_code:"CHF",units:null,nanos:null}}_FBPReady(){super._FBPReady();// reset hint, label etc..
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.shadowRoot.getElementById("wrapper").addEventListener("value-changed",e=>{e.stopPropagation();if(e.path[0]){if("FURO-SELECT-INPUT"==e.path[0].nodeName){this.field.value=this._convertDataToMoneyObj(e.detail,"",this.field.value)}if("FURO-NUMBER-INPUT"==e.path[0].nodeName){this.field.value=this._convertDataToMoneyObj("",e.detail,this.field.value)}}this.value=this.field.value;this.error=!1;/**
                            * @event value-changed
                            * Fired when value has changed from inside the component
                            * detail payload: google money object
@@ -3710,10 +3756,13 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-password-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -3822,20 +3871,22 @@ return _furoShell.html`
           ƒ-set-value="--value"></furo-password-input>      
     `}}customElements.define("furo-data-password-input",FuroDataPasswordInput);class FuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-date-input","furo.StringProperty":"furo-data-text-input","furo.IntegerProperty":"furo-data-number-input","furo.NumberProperty":"furo-data-number-input","furo.StringOptionProperty":"furo-data-collection-dropdown"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
 // repeated
-let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id.value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property \u0192-bind-data=\"--item\" "+attrs+"></furo-data-property></template>";let repeater=this.parentNode.insertBefore(r,this);this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)})}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
-if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"]]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
-for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"]){// the input elements for string and number are just working with scalar values
-case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"],"not in map",this)}}}static get styles(){// language=CSS
+let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id.value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property \u0192-bind-data=\"--init\" "+attrs+"></furo-data-property></template>";let repeater=this.parentNode.insertBefore(r,this);this._createdRepeater=repeater;this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)});// inject if data is already here
+if(0<this.field.repeats.length){repeater.injectItems(this.field.repeats)}}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
+if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"].value.replace(/.*\//,"")]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
+for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"].value.replace(/.*\//,"")){// the input elements for string and number are just working with scalar values
+case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this._createdProp=this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"].value,"not in map",this)}}}disconnectedCallback(){if(this._createdProp){this._createdProp.remove()}if(this._createdRepeater){this._createdRepeater.remove()}}static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: none;
         }
     `}}window.customElements.define("furo-data-property",FuroDataProperty);class FuroDataPropertyDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-display","furo.StringProperty":"furo-data-display","furo.IntegerProperty":"furo-data-display","furo.NumberProperty":"furo-data-display","furo.StringOptionProperty":"furo-data-display"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
 // repeated
-let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id.value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property-display \u0192-bind-data=\"--item\" "+attrs+"></furo-data-property-display></template>";let repeater=this.parentNode.insertBefore(r,this);this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)})}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
-if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"]]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
-for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"]){// the input elements for string and number are just working with scalar values
-case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"],"not in map",this)}}}static get styles(){// language=CSS
+let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id.value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property-display \u0192-bind-data=\"--init\" "+attrs+"></furo-data-property-display></template>";let repeater=this.parentNode.insertBefore(r,this);this._createdRepeater=repeater;this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)});// inject if data is already here
+if(0<this.field.repeats.length){repeater.injectItems(this.field.repeats)}}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
+if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"].value.replace(/.*\//,"")]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
+for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"].value.replace(/.*\//,"")){// the input elements for string and number are just working with scalar values
+case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this._created=this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"].value,"not in map",this)}}}disconnectedCallback(){if(this._createdProp){this._createdProp.remove()}if(this._createdRepeater){this._createdRepeater.remove()}}static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: none;
@@ -3845,8 +3896,11 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
    *
    * All bubbling events from [furo-radio-button-input](../../input/doc/furo-radio-button-input) will be fired, because furo-data-radio-button-input uses furo-radio-button-input internally.
    *
-   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}})}/**
+   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
@@ -3918,10 +3972,13 @@ return _furoShell.html`
    * detail payload: {Range} the range value
    *
    * Comes from underlying component furo-range-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the min => minlength attr*
      * @param value
      */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
@@ -4065,7 +4122,11 @@ ${this._item.data.display_name}
 </div>           
 `}}window.customElements.define("reference-search-item",ReferenceSearchItem);class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.idField="id";this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}_init(){this.addEventListener("searchInput",e=>{// by valid input reset meta and constraints
+if(val){if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}_init(){this.addEventListener("searchInput",e=>{// by valid input reset meta and constraints
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this._searchTerm=e.detail;if(this._searchTerm.length>this._minTermLength){/**
          * @event search
          * Fired when term is entered and bigger then min-term-length
@@ -4249,7 +4310,7 @@ return _furoShell.html`
      * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
      */createAttribute(options){this.field.createField(options)}set repeatedComponent(component){// add flow repeat to parent and inject on repeated changes
 // repeated
-let container=document.createElement("furo-form-layouter"),r=document.createElement("flow-repeat");r.setAttribute("identity-path","__index");r.setAttribute("\u0192-inject-items","--repeatsChanged");let isCondensed="",attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;switch(nodeName){case"condensed":attrs+=nodeName+"=\""+nodeValue+"\"";isCondensed="condensed";break;case"two":container.setAttribute("two","");break;case"four":container.setAttribute("four","");break;case"eight":container.setAttribute("eight","");break;case"delete-icon":this.deleteIcon=nodeValue;break;default:if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}}let icn="";if(this.deleteIcon){icn="<data-repeat-delete icon=\""+this.deleteIcon+"\" "+isCondensed+" \u0192-bind-item=\"--item\"></data-repeat-delete>"}r.innerHTML="<template><furo-horizontal-flex><"+component+" "+attrs+" flex \u0192-bind-data=\"--item\"></"+component+">"+icn+"</furo-horizontal-flex></template>";container.appendChild(r);this.shadowRoot.appendChild(container)}bindData(repeats){this.field=repeats;this.field.addEventListener("this-repeated-field-changed",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.repeats)});// key value repeats
+let container=document.createElement("furo-form-layouter"),r=document.createElement("flow-repeat");r.setAttribute("identity-path","__index");r.setAttribute("\u0192-inject-items","--repeatsChanged");let isCondensed="",attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;switch(nodeName){case"condensed":attrs+=nodeName+"=\""+nodeValue+"\"";isCondensed="condensed";break;case"two":container.setAttribute("two","");break;case"four":container.setAttribute("four","");break;case"eight":container.setAttribute("eight","");break;case"delete-icon":this.deleteIcon=nodeValue;break;default:if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}}let icn="";if(this.deleteIcon){icn="<data-repeat-delete icon=\""+this.deleteIcon+"\" "+isCondensed+" \u0192-bind-item=\"--init\"></data-repeat-delete>"}r.innerHTML="<template><furo-horizontal-flex><"+component+" "+attrs+" flex \u0192-bind-data=\"--init\"></"+component+">"+icn+"</furo-horizontal-flex></template>";container.appendChild(r);this.shadowRoot.appendChild(container)}bindData(repeats){this.field=repeats;this.field.addEventListener("this-repeated-field-changed",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.repeats)});// key value repeats
 if(this.field.repeats){// initial trigger
 this._FBPTriggerWire("--repeatsChanged",this.field.repeats)}else{this.field.addEventListener("branch-value-changed",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)});this.field.addEventListener("node-field-deleted",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)});this.field.addEventListener("node-field-added",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)});// initial trigger for fields
 this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)}}add(data){if(this.field){this.field.add(data)}}/**
@@ -4263,13 +4324,7 @@ this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)}}add(data){if(t
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: block;
-            width: 100%;
         }
-
-        :host([hidden]) {
-            display: none;
-        }
-
     `}}window.customElements.define("furo-data-repeat",FuroDataRepeat);class FuroDataSearchInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from inside the input field.
@@ -4277,10 +4332,13 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-search-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this.hint="";this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this.hint="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -4390,10 +4448,13 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-text-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -4432,10 +4493,10 @@ if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val
        *
        * Use with caution, normally the specs defines this value.
        */label:{type:String},/**
-      * Overrides the pattern from the **specs**.
-      *
-      * Use with caution, normally the specs defines this value.
-      */pattern:{type:String},/**
+       * Overrides the pattern from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */pattern:{type:String},/**
        * Overrides the required value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4511,10 +4572,13 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-textarea-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the min => minlength attr
      * @param value
      */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
@@ -4617,10 +4681,13 @@ return _furoShell.html`
    * detail payload: {String} the time value
    *
    * Comes from underlying component furo-time-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the min => minlength attr*
      * @param value
      */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
@@ -5274,7 +5341,9 @@ return _furoShell.html`
                                       ƒ-bind-data="--entity(*.furo_data_date_input)"></furo-data-date-input>
 
                 <furo-data-date-input  ƒ-bind-data="--entity(*.furo_data_date_input_google)"></furo-data-date-input>
-                <furo-data-date-input></furo-data-date-input>
+              <furo-data-date-input step="any" min="0001-01-01" ƒ-bind-data="--entity(*.furo_data_date_input_google)"></furo-data-date-input>
+              
+              
             </furo-form-layouter>
          
             <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
@@ -6700,24 +6769,29 @@ return _furoShell.html`
        *
        * | current   | flow-event-name      | target      | [mapping]          |
        * |:----------|:---------------------|:------------|:-------------------|
-       * | view-main | form-complete        | detail-view | element => aufgabe |
+       * | view-main | form-complete        | detail-view | from => to         |
        * | *         | menu-settings-click  | settings    |                    |
+       * | *         | all-fields-req       | all-qps     |        *           |
+       * | *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |
        *
        *
        *
        *  [['view-main', 'button-tap', 'detail-view',  'task => id]]
-       *  if current is set to view-main and the app-flow-event with name 'button-tap' is triggered, current is set to detail-view and data.task from app-flow is mapped to data.id.
+       *  if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to "to".
        *
        *  Special configurations:
        *
+       *  - Set a "*" to map all data 1:1 to the url.
        *
-       *  You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
+       *  - You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
        */config:{type:Array}}}/**
      * Trigger the router
      * @param flowEvent
      * @return {boolean}
-     */trigger(flowEvent){let currentPath=window.location.pathname.replace(new RegExp(this.urlSpaceRegex),""),match=window.location.pathname.match(new RegExp(this.urlSpaceRegex)),prefix=match[0]||"/",selection=this._configObject[currentPath+flowEvent.event]||this._configObject["*"+flowEvent.event];if(selection){let search="",sa=[];for(let k in flowEvent.data){sa.push(k+"="+flowEvent.data[k])}// todo: implement mapper
-if(0<sa.length){search="?"+sa.join("&")}if("HISTORY-BACK"===selection.target){this.back()}else{window.history.pushState({},"",prefix+selection.target+search);/**
+     */trigger(flowEvent){let currentPath=window.location.pathname.replace(new RegExp(this.urlSpaceRegex),""),match=window.location.pathname.match(new RegExp(this.urlSpaceRegex)),prefix=match[0]||"/",selection=this._configObject[currentPath+flowEvent.event]||this._configObject["*"+flowEvent.event];if(selection){let search="";if(selection.mapping){// map everything
+if("*"===selection.mapping){let sa=[];for(let k in flowEvent.data){sa.push(k+"="+flowEvent.data[k])}if(0<sa.length){search="?"+sa.join("&")}}else{// selective mapping
+let mappings=selection.mapping.split(",").map(function(cnf){return cnf.split("=>").map(function(c){return c.trim()})}),sa=[];mappings.forEach(qpMap=>{// map flowevent.data.xx to yy
+if(flowEvent.data[qpMap[0]]){sa.push(qpMap[1]+"="+flowEvent.data[qpMap[0]])}});if(0<sa.length){search="?"+sa.join("&")}}}if("HISTORY-BACK"===selection.target){this.back()}else{window.history.pushState({},"",prefix+selection.target+search);/**
                                                                                * Internal notyfication
                                                                                * @private
                                                                                */let now=window.performance.now(),customEvent=new Event("__furoLocationChanged",{composed:!0,bubbles:!0});customEvent.detail=now;this.dispatchEvent(customEvent)}/**
@@ -6766,7 +6840,14 @@ window.history.pushState({},"",window.location.pathname+"?"+qp.join("&")+window.
               * Return a true if closing is allowed or false if not
               *
               * @return {boolean}
-              */this.onCloseRequest=e=>{return!0};this._FBPAddWireHook("--navNode",fieldNode=>{this.treeNode=fieldNode;fieldNode.addEventListener("close-requested",e=>{if(this.onCloseRequest(e)){this.closePanel()}})})}/**
+              */this.onCloseRequest=e=>{return!0};/**
+        * Attach the close-requested listener to the nav node. So you can trigger a close-requested from another location like tab-bar,...
+        */this._FBPAddWireHook("--navNode",fieldNode=>{this.treeNode=fieldNode;fieldNode.addEventListener("close-requested",e=>{if(this.onCloseRequest(e)){this.closePanel()}})});/**
+         * closes the panel directly on internal events, stops the propagation to make it possible to have nested panels
+         */this.addEventListener("close-immediately-request",e=>{e.stopPropagation();this.closePanel()});/**
+         * Register hook on wire --panelCloser to
+         * close the panel with a wire
+         */this._FBPAddWireHook("--panelCloser",e=>{this.closePanel()})}/**
      * Close the panel
      */closePanel(){if(this.treeNode){this.treeNode.selectItem();this.removePanel()}}}_exports.BasePanel=BasePanel;var BasePanel$1={BasePanel:BasePanel};_exports.$BasePanel=BasePanel$1;class ExamplePanel extends BasePanel{constructor(){super();// register the close
 // todo: do some checks
@@ -7691,7 +7772,249 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-tree-qp",DemoFuroTreeQp);class FuroCaptureAudio extends _furoShell.LitElement{constructor(){super();this.constraints={audio:!0,video:!1}}stop(){this.tracks[0].stop()}start(){if(navigator.mediaDevices){navigator.mediaDevices.getUserMedia(this.constraints).then(stream=>{/**
+    `}}window.customElements.define("demo-furo-tree-qp",DemoFuroTreeQp);class FuroSnackbarDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();this._snackbar=this.shadowRoot.getElementById("snackbar");this._FBPAddWireHook("--actionClicked",e=>{if(e.snackbar){e.snackbar.action();e.snackbar.closed()}this._close()});this._FBPAddWireHook("--closeClicked",e=>{if(e.snackbar){e.snackbar.closed()}this._close()});/**
+         * listen to keyboard events
+         */document.addEventListener("keydown",event=>{let key=event.key||event.keyCode;if("Escape"===key||"Esc"===key||27===key){if(this.displayObj.closeOnEscape){this._close()}}});window.addEventListener("open-furo-snackbar-requested",e=>{this._show(e.detail)});window.addEventListener("close-furo-snackbar-requested",e=>{this._close()})}/**
+     * @private
+     * @returns {CSSResult}
+     */static get styles(){return _furoShell.css`
+            :host {
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+            }
+
+            #snackbar {
+              font-size: 14px;
+              font-weight:400;
+              background-color: var(--snackbar-background-color, var(--on-primary, #212121));
+              opacity:0;
+              margin: auto;   
+              display: flex;           
+              -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+              box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+              border-radius: 4px;
+            }
+            
+            #snackbar.hide , #snackbar[stacked].hide{
+              display: none;
+            }
+            
+            .label {
+              color: var(--snackbar-label-color, var(--primary-variant, #dedede));
+              display: inline-block;
+              padding: 14px 16px;
+              width: 100%;
+            }
+            
+            #snackbar[stacked] .label {
+              display: block;
+            }
+            
+            #snackbar[stacked] {
+              display: block;
+            }
+            
+            #snackbar[stacked] .button{
+              width: 100%;
+              display: block;
+            }
+            
+            .button {
+              display: flex;
+              text-align: right;
+              margin: 3px 0;
+              align-self: flex-end;
+            }
+            
+            furo-button {
+             color: var(--snackbar-button-text-color, --secondary, #bb86fc));
+              --on-surface: var(--secondary);
+             --surface-dark: var(--snackbar-background-color, var(--on-primary, #212121));
+             --surface-light: var(--snackbar-background-color, var(--on-primary, #212121));
+              margin: auto;
+            }
+            
+            .center {
+              margin: auto;
+            }
+            
+            #snackbar[right] {
+              float: right;
+            }
+            
+            #snackbar[left]  {
+              float: left;
+            }
+        `}/**
+     *@private
+     */static get properties(){return{displayObj:{type:Object},_stack:{type:Array},/**
+       * virsule element snackbar
+       */_snackbar:{type:Object},_timer:{type:Object}}}/**
+     * show
+     * @param s
+     * @private
+     */_show(s){this._pushToStack(s);if(!this.displayObj.isOpen){this.__show()}}/**
+     *
+     * @param d {Object} snackbar
+     * @private
+     */_pushToStack(s){let obj={labelText:s.labelText,icon:s.icon,actionButtonText:s.actionButtonText,snackbar:s,stacked:s.stacked,positionLeft:s.positionLeft,positionRight:s.positionRight,size:s.size,maxSize:s.maxSize,closeOnEscape:s.closeOnEscape};this._stack.push(obj)}/**
+     *
+     * @private
+     */__show(){if(0<this._stack.length){this.displayObj=this._stack[0];this._snackbar.classList.remove("hide");this._fadeIn(this.shadowRoot.getElementById("snackbar"));this.requestUpdate();this.displayObj.snackbar.isOpen=!0;this.displayObj.isOpen=!0;let timeoutInMs=this.displayObj.snackbar.timeoutInMs;if(0<timeoutInMs){let self=this;this._timer=setInterval(function(){clearInterval(self._timer);self._snackbar.classList.add("hide");self._stack.shift();if(0<self._stack.length){self.__show()}else{self.displayObj.snackbar.isOpen=!1;self.displayObj.isOpen=!1}},timeoutInMs)}else{this._stack.shift()}}}/**
+     * close the CURRENT snackbar
+     */_close(){clearInterval(this._timer);if(1<this._stack.length){this._snackbar.classList.add("hide");this._stack.shift();if(0<this._stack.length){this.__show()}else{this.displayObj.snackbar.isOpen=!1;this.displayObj.isOpen=!1}}else{this._stack.shift();this._snackbar.classList.add("hide");this.displayObj.snackbar.isOpen=!1;this.displayObj.isOpen=!1}}/**
+     *
+     * @param element
+     * @private
+     */_fadeIn(element){let op=.1,timer=setInterval(function(){if(1<=op){clearInterval(timer)}element.style.opacity=op;element.style.filter="alpha(opacity="+100*op+")";op+=.2*op},10);// initial opacity
+}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return _furoShell.html`
+      <div id="snackbar" class="hide" 
+          ?stacked="${this.displayObj.stacked}"
+          ?left="${this.displayObj.positionLeft}" 
+          ?right="${this.displayObj.positionRight}" style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}" >
+          <div class="label"><span>${this.displayObj.labelText}</span></div>
+          <div class="button">
+            <furo-button label="${this.displayObj.actionButtonText}" @-click="--actionClicked"></furo-button>
+            <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
+          </div>
+
+      </div>
+        `}}customElements.define("furo-snackbar-display",FuroSnackbarDisplay);class FuroSnackbar extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.labelText="label text";this.actionButtonText="Undo";this.isOpen=!1}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady()}/**
+     * @private
+     * @returns {CSSResult}
+     */static get styles(){return _furoShell.css`
+            :host {
+            }
+        `}/**
+     *@private
+     */static get properties(){return{/**
+       * text of button
+       */actionButtonText:{type:String,attribute:"action-button-text"},/**
+       * label text
+       */labelText:{type:String,attribute:"label-text"},timeoutInMs:{type:Number,attribute:"timeout-in-ms"},closeOnEscape:{type:Boolean,attribute:"close-on-escape"},icon:{type:String},/**
+       * max size of snackbar
+       */maxSize:{type:String,attribute:"max-size"},/**
+       * size of the snackbar
+       */size:{type:String,attribute:!0},isOpen:{type:Boolean},positionLeft:{type:Boolean,attribute:"position-left"},positionRight:{type:Boolean,attribute:"position-right"},stacked:{type:Boolean},payload:{type:Object}}}/**
+     * show slackbar
+     * @param p {Object} payload
+     */show(p){this.payload=p;/**
+                       * @event open-furo-snackbar-requested
+                       * Fired when value open snackbar is requested
+                       * detail payload: {Object}  this
+                       */let customEvent=new Event("open-furo-snackbar-requested",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}/**
+     * trigger the action of snackbar. event `snackbar-action-clicked` will be sent with payload
+     */action(){/**
+     * @event snackbar-action-clicked
+     * Fired when action button of snackbar is clicked
+     * detail payload: {Object}  payload
+     */let customEvent=new Event("snackbar-action-clicked",{composed:!0,bubbles:!0});customEvent.detail=this.payload;this.dispatchEvent(customEvent)}/**
+     * close snackbar
+     * event `close-furo-snackbar-requested` will be sent to furo-snackbar-display with payload this
+     */close(){/**
+     * @event close-furo-snackbar-requested
+     * Fired when value open snackbar is requested
+     * detail payload: {Object}  this
+     */let customEvent=new Event("close-furo-snackbar-requested",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}/**
+     * snackbar closed. event `snackbar-closed` will be sent with payload
+     */closed(){/**
+     * @event snackbar-closed
+     * Fired when snackbar is closed
+     * detail payload: {Object}  payload
+     */let customEvent=new Event("snackbar-closed",{composed:!0,bubbles:!0});customEvent.detail=this.payload;this.dispatchEvent(customEvent)}/**
+     * snackbar opend.event `snackbar-opened` will be sent with payload
+     */opened(){/**
+     * @event snackbar-opened
+     * Fired when snackbar is opened
+     * detail payload: {Object}  this
+     */let customEvent=new Event("snackbar-opened",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}/**
+     * set the label text o
+     * @param t
+     */setLabelText(t){this.labelText=t}/**
+     * set the action button text
+     * @param t
+     */setActionButtonText(t){this.actionButtonText=t}/**
+     * parse grpc status object and set the label according to the message in status
+     * @param s
+     */parseGrpcStatus(s){if(s.message){this.setLabelText(s.message)}}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return _furoShell.html`
+        `}}customElements.define("furo-snackbar",FuroSnackbar);class ProduceSnackbarData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--click",()=>{/**
+       * @event snackbar-label
+       * Fired when
+       * detail payload:
+       */let customEvent=new Event("snackbar-label-"+this.id,{composed:!0,bubbles:!0});customEvent.detail=this.snackbarLabel;this.dispatchEvent(customEvent);/**
+                                        * @event rset-snackbar-label
+                                        * Fired when
+                                        * detail payload:
+                                        */customEvent=new Event("snackbar-button-text-"+this.id,{composed:!0,bubbles:!0});customEvent.detail=this.snackbarButtonText;this.dispatchEvent(customEvent);customEvent=new Event("show-"+this.id,{composed:!0,bubbles:!0});customEvent.detail=this.snackbarButtonText;this.dispatchEvent(customEvent);console.log(this.snackbarLabel)})}/**
+     *@private
+     */static get properties(){return{label:{type:String},snackbarLabel:{type:String,attribute:"snackbar-label"},snackbarButtonText:{type:String,attribute:"snackbar-button-text"},id:{type:String}}}render(){// language=HTML
+return _furoShell.html`
+      <!-- Add a style block here -->
+      <style>
+        :host {
+          display: inline;
+          cursor: pointer;
+        }
+      </style>
+      <furo-button raised @-click="--click" label="${this.label}"></furo-button>
+    `}}window.customElements.define("produce-snackbar-data",ProduceSnackbarData);class DemoFuroSnackbarDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     *@private
+     */static get properties(){return{}}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return _furoShell.html`
+      <h2>Demo furo-checkbox</h2>
+      
+      <furo-demo-snippet >
+        <template>
+        <produce-snackbar-data id="snackbar1" label="show left" snackbar-label="this is a text label"
+         @-snackbar-label-snackbar1="--setLabelTex1" 
+         @-show-snackbar1="--show1"
+         ></produce-snackbar-data>
+        <produce-snackbar-data id="snackbar2" label="show center" snackbar-label="this is a text label"
+         @-snackbar-label-snackbar2="--setLabelTex2" 
+         @-show-snackbar2="--show2"
+        ></produce-snackbar-data>
+        <produce-snackbar-data id="snackbar3" label="show right stacked" snackbar-label="this is a text label"
+         @-snackbar-label-snackbar3="--setLabelTex3" 
+         @-show-snackbar3="--show3"
+        ></produce-snackbar-data>
+
+        <div>        
+            <furo-snackbar timeout-in-ms=5000 position-left icon="close" close-on-escape ƒ-set-label-text="--setLabelTex1" max-size="500px" ƒ-show="--show1"></furo-snackbar>
+            <furo-snackbar timeout-in-ms=5000 icon="done" size="250px"   ƒ-show="--show2"></furo-snackbar>
+            <furo-snackbar position-right  timeout-in-ms=5000 icon="done" stacked size="350px" ƒ-show="--show3"></furo-snackbar>
+        </div>
+        <furo-snackbar-display></furo-snackbar-display>
+                </template>
+      </furo-demo-snippet>
+        `}}customElements.define("demo-furo-snackbar-display",DemoFuroSnackbarDisplay);class FuroCaptureAudio extends _furoShell.LitElement{constructor(){super();this.constraints={audio:!0,video:!1}}stop(){this.tracks[0].stop()}start(){if(navigator.mediaDevices){navigator.mediaDevices.getUserMedia(this.constraints).then(stream=>{/**
          *
          * @type {MediaStream}
          */this.stream=stream;this.tracks=stream.getTracks();/**
@@ -7779,7 +8102,7 @@ return _furoShell.html`
       </furo-vertical-flex>
       </template>
       </furo-demo-snippet>
-    `}}window.customElements.define("demo-capture-video",DemoCaptureVideo);const nav=[{group:"Packages",items:[{label:"Getting input",icon:"input",href:"input/doc/"},{label:"Dealing with data",icon:"cloud",href:"data/doc/"},{label:"Data UI",icon:"view-column",href:"data-ui/doc/"},{label:"Data Input",icon:"input",href:"data-input/doc/"},{label:"Layouts helper",icon:"dashboard",href:"layout/doc/"},{label:"Forms helper",icon:"dashboard",href:"form/doc/"},{label:"App Config",icon:"settings",href:"config/doc/"},{label:"Navigation",icon:"tab",href:"navigation/doc/"},{label:"Routing",icon:"arrow-forward",href:"route/doc/"},{label:"Timing",icon:"alarm",href:"timing/doc/"},{label:"Math",icon:"timeline",href:"math/doc/"},{label:"Logic",icon:"av:web",href:"logic/doc/"},{label:"Util",icon:"star-border",href:"util/doc/"},{label:"\uD83D\uDC80 Experiments",icon:"image:colorize",href:"experiments/doc/"}]},{group:"The Framework",items:[{label:"Overview",icon:"create",href:"framework/doc/"},{label:"Theming",icon:"image:brush",href:"framework/doc/Theme"},{label:"Internationalisation",icon:"create",href:"framework/doc/i18n"},{label:"Configuration",icon:"create",href:"framework/doc/Env"},{label:"Register Icons",icon:"image:color-lens",href:"framework/doc/Iconset"}]}];_exports.nav=nav;var nav_config={nav:nav};_exports.$navConfig=nav_config;class FuroDemoLoader extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}load(location){if(location.pathSegments[0]){let lastDemo=this.shadowRoot.querySelector("#demo");lastDemo.remove();this.demoComponent=location.pathSegments[0];// if the element is registered append the new
+    `}}window.customElements.define("demo-capture-video",DemoCaptureVideo);const nav=[{group:"Packages",items:[{label:"Getting input",icon:"input",href:"input/doc/"},{label:"Dealing with data",icon:"cloud",href:"data/doc/"},{label:"Data UI",icon:"view-column",href:"data-ui/doc/"},{label:"Data Input",icon:"input",href:"data-input/doc/"},{label:"Layouts helper",icon:"dashboard",href:"layout/doc/"},{label:"Forms helper",icon:"dashboard",href:"form/doc/"},{label:"App Config",icon:"settings",href:"config/doc/"},{label:"Navigation",icon:"tab",href:"navigation/doc/"},{label:"Notification",icon:"info",href:"notification/doc/"},{label:"Routing",icon:"arrow-forward",href:"route/doc/"},{label:"Timing",icon:"alarm",href:"timing/doc/"},{label:"Math",icon:"timeline",href:"math/doc/"},{label:"Logic",icon:"av:web",href:"logic/doc/"},{label:"Util",icon:"star-border",href:"util/doc/"},{label:"\uD83D\uDC80 Experiments",icon:"image:colorize",href:"experiments/doc/"}]},{group:"The Framework",items:[{label:"Init",icon:"settings",href:"framework/doc/Init"},{label:"Theming",icon:"image:brush",href:"framework/doc/Theme"},{label:"I18n",icon:"translate",href:"framework/doc/i18n"},{label:"Register Icons",icon:"image:color-lens",href:"framework/doc/Iconset"}]}];_exports.nav=nav;var nav_config={nav:nav};_exports.$navConfig=nav_config;class FuroDemoLoader extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}load(location){if(location.pathSegments[0]){let lastDemo=this.shadowRoot.querySelector("#demo");lastDemo.remove();this.demoComponent=location.pathSegments[0];// if the element is registered append the new
 if(document.createElement(this.demoComponent).constructor!==HTMLElement){// append the demo element
 let demo=document.createElement(this.demoComponent);demo.id="demo";this.shadowRoot.appendChild(demo)}else{let demo=document.createElement("div");demo.id="demo";demo.classList.add("error");demo.innerText="404  -  "+this.demoComponent+" is not imported, nothing to show here";this.shadowRoot.appendChild(demo)}this.requestUpdate()}}/**
      * flow is ready lifecycle method

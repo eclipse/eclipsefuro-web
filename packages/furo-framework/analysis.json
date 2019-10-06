@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "classes": [
     {
-      "description": "Todo Describe and explain env",
+      "description": "This class stores your environment data,\n- like the api services and types, which is used by the data components\n- the current locale, which is used by the i18n package\n- the acceptLanguage, which is used by the data components",
       "summary": "",
       "path": "packages/furo-framework/environment.js",
       "properties": [],
@@ -12,11 +12,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 4,
+          "line": 7,
           "column": 7
         },
         "end": {
-          "line": 6,
+          "line": 9,
           "column": 1
         }
       },
@@ -24,7 +24,7 @@
       "name": "Env"
     },
     {
-      "description": "Todo Describe and explain",
+      "description": "The built in i18n is a trivial translation mechanism which translates keys (words)\na method for pluralized keys (words with numbers) is available but not implemented.\n\nYou can override the builtin methods in your init file, as long you keep *i18n.t* and *i18n.n*\n\n\n## Usage\nAfter you have registered a translation file, you can use **i18n** in your components.\n\n\n```javascript\n// import i18n\nimport {i18n} from \"@furo/framework/i18n\"\n\n// use it in your source\n let label = i18n.t(\"key\");\n\n// use it in your template like this\n  render() {\n    // language=HTML\n    return html` <div>${i18n.t(\"key\")}</div>`;\n }\n\n```\n\n## Register a translation file and use custom translation methods\nRegister i18n in the init phase of your application.\n\n```javascript\nimport {Init, i18n, Env, Iconset} from \"@furo/framework/furo.js\";\n\n// import your translations\nimport {Translations} from \"./translations\";\n\n// register your translations\ni18n.registerResBundle(Translations);\n\n// Apply custom Intl methods\ni18n.t = (key) => {\n   let b = i18n.resbundle[Env.locale.toLowerCase().replace(\"-\", \"_\")] || i18n.resbundle['de_ch'];\n\n   if (b === undefined) {\n       console.warn('No resource bundle with locale ' + Env.locale + ' exists.');\n       return\n   }\n\n   const res = key.split('.').reduce((acc, part) => acc && acc[part], b);\n   return  (res ? res : key + '**');\n};\n// Apply custom Intl methods for pluralized keys\ni18n.n = (key, num) => {\n   let t = i18n.resbundle[Env.locale.toLowerCase().replace(\"-\", \"_\")] || i18n.resbundle['de_ch'];\n\n   if (t === undefined) {\n       console.warn('No resource bundle with locale ' + Env.locale + ' exists.');\n       return\n   }\n\n   let p = key.split(\".\");\n   for (let i = 0; i < p.length; i++) {\n       if (t[p[i]]) {\n           t = t[p[i]];\n       } else {\n           console.warn(\"key does not exist\", key);\n           return;\n       }\n   }\n\n   if (t) {\n       if (num === 1) {\n           if (t.one) {\n               return t.one(num);\n           } else {\n               console.warn(\"key does not exist\", key + \".one\");\n               return num;\n           }\n       }\n       if (num > 1) {\n           if (t.many) {\n               return t.many(num);\n           } else {\n               console.warn(\"key does not exist\", key + \".many\");\n               return num;\n           }\n       }\n       if (t.none) {\n           return t.none(num);\n       } else {\n           console.warn(\"key does not exist\", key + \".none\");\n           return num;\n       }\n\n   }\n};\n\n```",
       "summary": "",
       "path": "packages/furo-framework/i18n.js",
       "properties": [],
@@ -36,11 +36,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 8,
+              "line": 102,
               "column": 4
             },
             "end": {
-              "line": 10,
+              "line": 104,
               "column": 5
             }
           },
@@ -60,11 +60,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 12,
+              "line": 106,
               "column": 4
             },
             "end": {
-              "line": 28,
+              "line": 122,
               "column": 5
             }
           },
@@ -81,11 +81,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 31,
+              "line": 125,
               "column": 4
             },
             "end": {
-              "line": 34,
+              "line": 128,
               "column": 5
             }
           },
@@ -104,11 +104,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 6,
+          "line": 100,
           "column": 7
         },
         "end": {
-          "line": 35,
+          "line": 129,
           "column": 1
         }
       },
@@ -116,7 +116,7 @@
       "name": "i18n"
     },
     {
-      "description": "Todo Describe and explain",
+      "description": "The init class is used to init your *Env*, the API services and the API types.\n\nUse the init package in the init phase of your application\n\n## example init\n\n\n```javascript\n// -- initialize application env, theme, api\nimport  {Init,Iconset} from \"@furo/framework/furo.js\";\nimport {Services, Types} from \"@furo/specs/build/data_environment.js\"\nInit.registerApiServices(Services);\nInit.registerApiTypes(Types);\n//Attention: Styling is defined in main-stage\nimport {FuroBaseIcons} from \"@furo/layout/iconsets/baseIcons\";\nimport {MapsIcons} from \"@furo/layout/iconsets/mapsIcons\";\nimport {PlacesIcons} from \"@furo/layout/iconsets/placesIcons\";\nimport {CommunicationIcons} from \"@furo/layout/iconsets/communicationIcons\";\nimport {NotificationIcons} from \"@furo/layout/iconsets/notificationIcons\";\nimport {FuroDocIcons} from \"./assets/iconset\";\nimport {AvIcons} from \"@furo/layout/iconsets/avIcons\";\nimport {DeviceIcons} from \"@furo/layout/iconsets/deviceIcons\";\nimport {EditorIcons} from \"@furo/layout/iconsets/editorIcons\";\nimport {SocialIcons} from \"@furo/layout/iconsets/socialIcons\";\nimport {HardwareIcons} from \"@furo/layout/iconsets/hardwareIcons\";\nimport {ImageIcons} from \"@furo/layout/iconsets/imageIcons\";\n\n\nIconset.registerIconset(\"furo\", FuroDocIcons);\nIconset.registerIconset(\"default\", FuroBaseIcons);\nIconset.registerIconset(\"av\", AvIcons);\nIconset.registerIconset(\"communication\", CommunicationIcons);\nIconset.registerIconset(\"device\", DeviceIcons);\nIconset.registerIconset(\"editor\", EditorIcons);\nIconset.registerIconset(\"social\", SocialIcons);\nIconset.registerIconset(\"places\", PlacesIcons);\nIconset.registerIconset(\"notification\", NotificationIcons);\nIconset.registerIconset(\"map\", MapsIcons);\nIconset.registerIconset(\"hardware\", HardwareIcons);\nIconset.registerIconset(\"image\", ImageIcons);\n\n```",
       "summary": "",
       "path": "packages/furo-framework/system.js",
       "properties": [],
@@ -128,11 +128,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 9,
+              "line": 50,
               "column": 4
             },
             "end": {
-              "line": 11,
+              "line": 52,
               "column": 5
             }
           },
@@ -155,11 +155,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 13,
+              "line": 54,
               "column": 4
             },
             "end": {
-              "line": 15,
+              "line": 56,
               "column": 5
             }
           },
@@ -179,11 +179,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 17,
+              "line": 58,
               "column": 4
             },
             "end": {
-              "line": 19,
+              "line": 60,
               "column": 5
             }
           },
@@ -203,11 +203,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 25,
+              "line": 66,
               "column": 4
             },
             "end": {
-              "line": 62,
+              "line": 103,
               "column": 5
             }
           },
@@ -226,11 +226,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 7,
+          "line": 48,
           "column": 7
         },
         "end": {
-          "line": 64,
+          "line": 105,
           "column": 1
         }
       },
@@ -238,7 +238,7 @@
       "name": "Init"
     },
     {
-      "description": "Todo Describe and explain SYS",
+      "description": "Sys allows you to set the locale",
       "summary": "",
       "path": "packages/furo-framework/system.js",
       "properties": [],
@@ -250,11 +250,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 112,
               "column": 4
             },
             "end": {
-              "line": 77,
+              "line": 118,
               "column": 5
             }
           },
@@ -273,11 +273,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 70,
+          "line": 111,
           "column": 7
         },
         "end": {
-          "line": 78,
+          "line": 119,
           "column": 1
         }
       },
@@ -285,7 +285,7 @@
       "name": "Sys"
     },
     {
-      "description": "We differ themeing and styling. *Themes* are in regular a rewrite of the components css and can contain style vars. We do not use mixins as long they are not \"standard\". *Styles* are used to set style vars like `--primary-color`. They give you the possibility to configure your themes in a simple way. Components which are using theming, give you *full control* over the css.\n\nIt is recommended to keep the original style vars when writing a theme set, this gives you the possibility to change themes, without the need to style them again.\n\n## register a themeset\nYou have to register the desired themeset, before your app starts. Otherwise the default themeset will be applied.\nThe best way is to do it in your `index.html`.\n\n```\n<script type=\"module\">\nimport {Init,Sys, Theme} from \"@furo/framework\";\nimport {MyThemeset} from \"./custom/themeset\"\nTheme.registerThemeset(MyThemeset);\n...\n```\n\n\n## Apply themeing your components\nApplying a theme to a component can be achieved by:\n\n```\nimport {Theme} from \"@furo/framework/theme\"\n\n\n// @private\n// @return {CSSResult}\nstatic get styles() {\n\nreturn Theme.getThemeForComponent(this.name) || css`\n   :host {\n       height: 100%;\n   }\n   side-navigation {\n       background-color: var(--nav-color);\n   }\n`\n}\n\n```\n\nto apply theming to your main app:\n\n```js\nimport {Theme} from \"@furo/framework/theme\"\n\n\n\n// @private\n// @return {CSSResult}\nstatic get styles() {\n   let theme = Theme.getThemeForComponent(this.name);\n   if (theme) {\n       return [theme, Styling.theme]\n   } else {\n       // language=CSS\n       return [css`\n           :host {\n               display: block;\n               height: 100vh;\n               overflow: hidden;\n           }\n       `, Styling.theme]\n   }\n}\n\n```\n\n##Writing a themeset\nJust watch at the example in [themeset.js](./themes/default_theme.js).",
+      "description": "We differ themeing and styling. *Themes* are in regular a rewrite of the components css and can contain style vars. We do not use mixins as long they are not \"standard\". *Styles* are used to set style vars like `--primary-color`. They give you the possibility to configure your themes in a simple way. Components which are using theming, give you *full control* over the css.\n\nIt is recommended to keep the original style vars when writing a theme set, this gives you the possibility to change themes, without the need to style them again.\n\n## register a themeset\nYou have to register the desired themeset, before your app starts. Otherwise the default themeset will be applied.\nThe best way is to do it in your `index.html`.\n\n```\n<script type=\"module\">\nimport {Init,Sys, Theme} from \"@furo/framework\";\nimport {MyThemeset} from \"./custom/themeset\"\nTheme.registerThemeset(MyThemeset);\n...\n```\n\n\n## Apply themeing your components\nApplying a theme to a component can be achieved by:\n\n```\nimport {Theme} from \"@furo/framework/theme\"\n\n\n// @private\n// @return {CSSResult}\nstatic get styles() {\n\nreturn Theme.getThemeForComponent(this.name) || css`\n   :host {\n       height: 100%;\n   }\n   side-navigation {\n       background-color: var(--nav-color);\n   }\n`\n}\n\n```\n\nto apply theming to your main app:\n\n```js\nimport {Theme} from \"@furo/framework/theme\"\n\n\n\n// @private\n// @return {CSSResult}\nstatic get styles() {\n   let theme = Theme.getThemeForComponent(this.name);\n   if (theme) {\n       return [theme, Styling.theme]\n   } else {\n       // language=CSS\n       return [css`\n           :host {\n               display: block;\n               height: 100vh;\n               overflow: hidden;\n           }\n       `, Styling.theme]\n   }\n}\n\n```\n\n## Writing a themeset\n\nIf you want to know, how to write a themeset, just visit the [Guide](https://furo.pro/guide/md/theming/) or look at the\n[example](https://github.com/veith/FuroBaseComponents/blob/master/packages/furo-framework/themes/default_theme.js).",
       "summary": "",
       "path": "packages/furo-framework/theme.js",
       "properties": [],
@@ -297,12 +297,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 82,
+              "line": 84,
               "column": 2
             },
             "end": {
-              "line": 84,
-              "column": 1
+              "line": 86,
+              "column": 3
             }
           },
           "metadata": {},
@@ -321,12 +321,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 92,
               "column": 2
             },
             "end": {
-              "line": 92,
-              "column": 1
+              "line": 94,
+              "column": 3
             }
           },
           "metadata": {},
@@ -344,11 +344,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 75,
+          "line": 77,
           "column": 7
         },
         "end": {
-          "line": 93,
+          "line": 95,
           "column": 1
         }
       },
@@ -356,7 +356,7 @@
       "name": "Theme"
     },
     {
-      "description": "`Iconset` class , works together with `furo-icon`\n\nto use furo-icon you should\nfirst import a svg set of icons and register it to Iconset\n\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\nthen import the iconset and register it\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n\nafter registering you can use those icons in furo-icon in any other component\n<furo-icon icon=\"iconSetName:iconName\" ></furo-icon>\n\nif you has default iconset imported, you can use icon without set name:\n<furo-icon icon=\"iconName\" ></furo-icon>",
+      "description": "`Iconset` class , works together with `furo-icon`\n\nto use furo-icon you should\nfirst import a svg set of icons and register it to Iconset\n\nThe [list of icons](/api/layout/demo/demo-furo-icon-list) can be found here.\n\nthe set of icons can be defined in a iconSetName.js file which has content like this:\n\n```javascript\n    export const iconSetName = {\n         \"iconName\":\"<g><path d='M12 xx.... z'></path></g>\",\n         \"left-arrow\":\"<g><path d='M12 xx.... z'></path></g>\"\n         ...\n    };\n```\n\nthen import the iconset and register it\n\n```javascript\nimport {iconSetName} from \"./iconSetName\";\nimport {Iconset} from \"@furo/framework/furo.js\";\nIconset.registerIconset( \"iconSetName\", iconSetName);\n```\n\nafter registering you can use those icons in furo-icon in any other component\n\n```html\n<furo-icon icon=\"iconSetName:iconName\" ></furo-icon>\n```\n\n\nIcons from the default set can be used without the set name:\n```html\n<furo-icon icon=\"iconName\" ></furo-icon>\n```",
       "summary": "",
       "path": "packages/furo-framework/iconset.js",
       "properties": [],
@@ -368,11 +368,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 27,
+              "line": 41,
               "column": 4
             },
             "end": {
-              "line": 30,
+              "line": 44,
               "column": 5
             }
           },
@@ -395,11 +395,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 33,
+              "line": 47,
               "column": 4
             },
             "end": {
-              "line": 42,
+              "line": 56,
               "column": 5
             }
           },
@@ -418,11 +418,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 24,
+          "line": 38,
           "column": 7
         },
         "end": {
-          "line": 44,
+          "line": 58,
           "column": 1
         }
       },
