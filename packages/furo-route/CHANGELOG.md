@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.19.0...@furo/route@0.20.0) (2019-10-06)
+
+
+### Features
+
+* basePanel with wire to close and eventlistener to close ([0a397c0](https://github.com/veith/FuroBaseComponents/commit/0a397c0))
+
+
+
+
+
 # [0.19.0](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.18.17...@furo/route@0.19.0) (2019-10-04)
 
 

@@ -1,23 +1,23 @@
 {
   "name": "@furo/collection",
-  "version": "0.21.33",
+  "version": "0.21.34",
   "description": "Collection of furo base components",
   "main": "index.js",
   "dependencies": {
-    "@furo/config": "^0.16.34",
-    "@furo/data": "^0.59.0",
-    "@furo/data-input": "^0.57.8",
-    "@furo/data-ui": "^0.7.16",
-    "@furo/data-util": "^0.1.9",
-    "@furo/doc-helper": "^0.13.19",
-    "@furo/fbp": "^4.27.0",
-    "@furo/form": "^0.24.10",
-    "@furo/framework": "^0.11.2",
-    "@furo/input": "^0.57.6",
-    "@furo/layout": "^0.34.6",
-    "@furo/navigation": "^0.33.20",
-    "@furo/route": "^0.19.0",
-    "@furo/util": "^0.17.0"
+    "@furo/config": "^0.16.35",
+    "@furo/data": "^0.59.1",
+    "@furo/data-input": "^0.57.9",
+    "@furo/data-ui": "^0.7.17",
+    "@furo/data-util": "^0.1.10",
+    "@furo/doc-helper": "^0.13.20",
+    "@furo/fbp": "^4.27.1",
+    "@furo/form": "^0.24.11",
+    "@furo/framework": "^0.11.3",
+    "@furo/input": "^0.57.7",
+    "@furo/layout": "^0.34.7",
+    "@furo/navigation": "^0.33.21",
+    "@furo/route": "^0.20.0",
+    "@furo/util": "^0.17.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

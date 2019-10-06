@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.36](https://github.com/veith/FuroBaseComponents/compare/@furo/timing@0.0.35...@furo/timing@0.0.36) (2019-10-06)
+
+**Note:** Version bump only for package @furo/timing
+
+
+
+
+
 ## [0.0.35](https://github.com/veith/FuroBaseComponents/compare/@furo/timing@0.0.34...@furo/timing@0.0.35) (2019-09-30)
 
 **Note:** Version bump only for package @furo/timing
