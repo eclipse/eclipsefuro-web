@@ -112,6 +112,11 @@ typelist.forEach((pathToTypeSpec) => {
         break;
     }
 
+    // use spec ui hint as component
+    if(field.__ui && field.__ui.component){
+      component_name = field.__ui.component;
+    }
+
     let arrTmpName = field.type.split(".");
     //  complex type has a cutom form component
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
@@ -199,6 +204,10 @@ typelist.forEach((pathToTypeSpec) => {
         case "furo.Property":
           component_name = "furo-data-property";
           break;
+      }
+      // use spec ui hint as component
+      if(field.__ui && field.__ui.component){
+        component_name = field.__ui.component;
       }
 
       let arrTmpName = field.type.split(".");
