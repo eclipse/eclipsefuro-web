@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.36.2](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.36.1...@furo/specs@0.36.2) (2019-10-07)
+
+
+### Bug Fixes
+
+* duplicate imports on create forms fixed ([812dcb8](https://github.com/veith/FuroBaseComponents/commit/812dcb8))
+
+
+
+
+
 ## [0.36.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.36.0...@furo/specs@0.36.1) (2019-10-07)
 
 **Note:** Version bump only for package @furo/specs
