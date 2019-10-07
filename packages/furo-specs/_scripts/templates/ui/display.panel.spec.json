@@ -13,13 +13,5 @@
     "name": "task-task-display",
     "flags": ["flex"],
     "attrs": []
-  },
-  "action": {
-    "name": "task-task-update-action",
-    "listen_to": [
-      "update"
-    ],
-    "flags": [],
-    "attrs": []
   }
 }
