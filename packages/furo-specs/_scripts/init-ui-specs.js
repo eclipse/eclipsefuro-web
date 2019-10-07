@@ -165,6 +165,13 @@ typelist.forEach((pathToTypeSpec) => {
     }
   }
 
+
+  // reset imports for create spec
+  formSpec.imports = [
+    "@furo/data-input",
+    "@furo/form"
+  ];
+
   formSpec.class_name = spec.__proto.package + spec.type + "CreateForm";
   formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
   formSpec.component_name = (spec.__proto.package + "-" + spec.type + "-create-form").toLowerCase();
