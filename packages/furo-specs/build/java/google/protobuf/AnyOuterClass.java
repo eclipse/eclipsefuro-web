@@ -47,8 +47,8 @@ public final class AnyOuterClass {
   }
   /**
    * <pre>
-   * Any` contains an arbitrary serialized protocol buffer message along with a
-   * URL that describes the type of the serialized message. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto
+   * Any contains an arbitrary serialized protocol buffer message along with a
+   * URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto
    * </pre>
    *
    * Protobuf type {@code google.protobuf.Any}
@@ -422,8 +422,8 @@ public final class AnyOuterClass {
     }
     /**
      * <pre>
-     * Any` contains an arbitrary serialized protocol buffer message along with a
-     * URL that describes the type of the serialized message. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto
+     * Any contains an arbitrary serialized protocol buffer message along with a
+     * URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto
      * </pre>
      *
      * Protobuf type {@code google.protobuf.Any}

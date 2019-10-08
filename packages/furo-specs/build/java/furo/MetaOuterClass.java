@@ -3613,7 +3613,7 @@ public final class MetaOuterClass {
 
     /**
      * <pre>
-     * The default value
+     * The default value as JSON string
      * </pre>
      *
      * <code>string default = 3;</code>
@@ -3621,7 +3621,7 @@ public final class MetaOuterClass {
     java.lang.String getDefault();
     /**
      * <pre>
-     * The default value
+     * The default value as JSON string
      * </pre>
      *
      * <code>string default = 3;</code>
@@ -3869,7 +3869,7 @@ public final class MetaOuterClass {
     private volatile java.lang.Object default_;
     /**
      * <pre>
-     * The default value
+     * The default value as JSON string
      * </pre>
      *
      * <code>string default = 3;</code>
@@ -3888,7 +3888,7 @@ public final class MetaOuterClass {
     }
     /**
      * <pre>
-     * The default value
+     * The default value as JSON string
      * </pre>
      *
      * <code>string default = 3;</code>
@@ -4522,7 +4522,7 @@ public final class MetaOuterClass {
       private java.lang.Object default_ = "";
       /**
        * <pre>
-       * The default value
+       * The default value as JSON string
        * </pre>
        *
        * <code>string default = 3;</code>
@@ -4541,7 +4541,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * The default value
+       * The default value as JSON string
        * </pre>
        *
        * <code>string default = 3;</code>
@@ -4561,7 +4561,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * The default value
+       * The default value as JSON string
        * </pre>
        *
        * <code>string default = 3;</code>
@@ -4578,7 +4578,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * The default value
+       * The default value as JSON string
        * </pre>
        *
        * <code>string default = 3;</code>
@@ -4591,7 +4591,7 @@ public final class MetaOuterClass {
       }
       /**
        * <pre>
-       * The default value
+       * The default value as JSON string
        * </pre>
        *
        * <code>string default = 3;</code>

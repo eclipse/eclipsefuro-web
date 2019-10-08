@@ -214,7 +214,7 @@ func (m *Meta) GetFields() map[string]*MetaField {
 
 // Metas for a field
 type FieldMeta struct {
-	// The default value
+	// The default value as JSON string
 	Default string `protobuf:"bytes,3,opt,name=default,proto3" json:"default,omitempty"`
 	// A hint
 	Hint string `protobuf:"bytes,2,opt,name=hint,proto3" json:"hint,omitempty"`

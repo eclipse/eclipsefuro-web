@@ -40,13 +40,13 @@ message Fieldoption {
 // meta info
 message Meta {            
     // fields of meta info
-    map<string,MetaField> fields = 1;
+    map<string, MetaField> fields = 1;
 
 }
 
 // Metas for a field
 message FieldMeta {                                    
-    // The default value
+    // The default value as JSON string
     string default = 3;
     
     // A hint
