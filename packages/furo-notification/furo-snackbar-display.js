@@ -21,6 +21,7 @@ import "@furo/input";
  *
  * @customElement
  * @demo demo-furo-snackbar-display snackbar demo
+ * @demo demo-furo-snackbar-display-error snackbar display error demo
  */
 class FuroSnackbarDisplay extends  FBP(LitElement) {
 
@@ -101,7 +102,6 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
               font-weight:400;
               background-color: var(--snackbar-background-color, var(--on-primary, #212121));
               opacity:0;
-              margin: auto;   
               display: flex;           
               -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
               box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
@@ -151,12 +151,17 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
               margin: auto;
             }
             
-            #snackbar[right] {
-              float: right;
+            .wrapper[right] {
+              justify-content:flex-end;
             }
             
-            #snackbar[left]  {
-              float: left;
+            .wrapper[left]  {
+              justify-content:flex-start;
+            }
+            .wrapper {
+              width: 100%;
+              display: flex;
+              justify-content:center;
             }
         `;
   }
@@ -324,16 +329,16 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    */
   render(){
     return html`
-      <div id="snackbar" class="hide" 
-          ?stacked="${this.displayObj.stacked}"
-          ?left="${this.displayObj.positionLeft}" 
-          ?right="${this.displayObj.positionRight}" style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}" >
-          <div class="label"><span>${this.displayObj.labelText}</span></div>
-          <div class="button">
-            <furo-button label="${this.displayObj.actionButtonText}" @-click="--actionClicked"></furo-button>
-            <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
-          </div>
-
+       <div class="wrapper"  ?left="${this.displayObj.positionLeft}"  ?right="${this.displayObj.positionRight}">
+        <div id="snackbar" class="hide" 
+             ?stacked="${this.displayObj.stacked}"
+             style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}" >
+            <div class="label"><span>${this.displayObj.labelText}</span></div>
+            <div class="button">
+              <furo-button label="${this.displayObj.actionButtonText}" @-click="--actionClicked"></furo-button>
+              <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
+            </div>
+        </div>
       </div>
         `;
   }
