@@ -15,6 +15,16 @@
       "type": "int32",
       "__proto": {
         "number": 1
+      },
+      "constraints": {
+        "min": {
+          "is": "−2147483648",
+          "message": "out of range"
+        },
+        "max": {
+          "is": "2147483647",
+          "message": "out of range"
+        }
       }
     }
   }
