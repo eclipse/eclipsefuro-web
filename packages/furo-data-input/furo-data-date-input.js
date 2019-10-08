@@ -37,12 +37,12 @@ class FuroDataDateInput extends FBP(LitElement) {
 
 
       if (this.field) {
-        if (this.field._spec.type === "google.type.Date" || (this.field["@type"] && this.field["@type"].value.replace(/.*\//, '') === "google.type.Date")) {
-          val = this._convertStringToDateObj(val, this.field.value);
+        if (this.field._spec.type === "google.type.Date" || (this.field["@type"] && this.field["@type"]._value.replace(/.*\//, '') === "google.type.Date")) {
+          val = this._convertStringToDateObj(val, this.field._value);
         }
         // store tmpval to check against loop
         this.tmpval = val;
-        this.field.value = val;
+        this.field._value= val;
 
       }
 
@@ -289,13 +289,13 @@ class FuroDataDateInput extends FBP(LitElement) {
       this.errortext = this.field._validity.description;
     }
 
-    let dateValue = this.field.value;
+    let dateValue = this.field._value;
 
-    if (this.tmpval || JSON.stringify(this.field.value) !== JSON.stringify(this.tmpval)) {
+    if (this.tmpval || JSON.stringify(this.field._value) !== JSON.stringify(this.tmpval)) {
 
 
       // convert value when date type is google.type.Date
-      if (this.field._spec.type === "google.type.Date" || (this.field["@type"] && this.field["@type"].value.replace(/.*\//, '') === "google.type.Date")) {
+      if (this.field._spec.type === "google.type.Date" || (this.field["@type"] && this.field["@type"]._value.replace(/.*\//, '') === "google.type.Date")) {
         dateValue = this._convertDateObjToString(dateValue);
 
       }

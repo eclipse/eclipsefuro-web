@@ -37,7 +37,7 @@ class FuroDataTextInput extends FBP(LitElement) {
     this._FBPAddWireHook("--valueChanged", (val) => {
 
       if (this.field) {
-        this.field.value = val;
+        this.field._value= val;
       }
     });
 
@@ -279,7 +279,7 @@ class FuroDataTextInput extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    this._FBPTriggerWire('--value', this.field.value);
+    this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }
 

@@ -127,6 +127,7 @@
       });
     });
 
+
     it('should receive value with bind', (done) => {
       entityObject.addEventListener("data-injected", (e) => {
           assert.equal(dataRangeInput.shadowRoot.querySelector("*").value, 31);

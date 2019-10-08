@@ -28,7 +28,7 @@ import {Helper} from "./lib/helper";
  *
  *<!-- Der furo-collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.
  *Die Resultate werden an furo-data-reference-search zurück gegeben. -->
- *<furo-collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref.value)" @-response="--refCol"></furo-collection-agent>
+ *<furo-collection-agent service="tasks" ƒ-search="--term" ƒ-hts-in="--entityReady(*.fields.ref._value)" @-response="--refCol"></furo-collection-agent>
  *
  * ```
  *
@@ -93,8 +93,8 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     });
 
     this._FBPAddWireHook("--itemSelected", (item) => {
-      this.field.id.value = item.data[this.idField];
-      this.field.display_name.value = item.data.display_name;
+      this.field.id._value= item.data[this.idField];
+      this.field.display_name._value= item.data.display_name;
       this._closeList();
     });
 
@@ -313,9 +313,9 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    if(this.field.display_name.value) {
+    if(this.field.display_name._value) {
 
-      this._FBPTriggerWire('--value', this.field.display_name.value);
+      this._FBPTriggerWire('--value', this.field.display_name._value);
     }
     this.requestUpdate();
   }

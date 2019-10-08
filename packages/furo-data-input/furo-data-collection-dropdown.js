@@ -60,7 +60,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       if (this.field) {
         // by valid input reset meta and constraints
 
-        this.field[this.valueField].value = val;
+        this.field[this.valueField]._value= val;
       }
       this._notifiySelectedItem(val);
     });
@@ -280,7 +280,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       this.errortext = this.field._validity.description;
     }
 
-    this._FBPTriggerWire('--value', this.field[this.valueField].value);
+    this._FBPTriggerWire('--value', this.field[this.valueField]._value);
     this.requestUpdate();
 
   }
@@ -338,21 +338,21 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       return {
         "id": e[this.valueField],
         "label": e[this.displayField],
-        "selected": (this.field[this.valueField].value == e[this.valueField]),
+        "selected": (this.field[this.valueField]._value== e[this.valueField]),
         "_original": e
       }
     });
 
     this._dropdownList = arr;
-    if (!this.field[this.valueField].value) {
-      this.field[this.valueField].value = arr[0].id;
+    if (!this.field[this.valueField]._value) {
+      this.field[this.valueField]._value= arr[0].id;
     }
 
     if (!this.field) {
       // notifiy first item if field is not set
       this._notifiySelectedItem(arr[0].id);
     } else {
-      this._notifiySelectedItem(this.field[this.valueField].value);
+      this._notifiySelectedItem(this.field[this.valueField]._value);
     }
 
     this._FBPTriggerWire("--selection", arr);
@@ -386,20 +386,20 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       return {
         "id": e[this.valueField],
         "label": e[this.displayField],
-        "selected": (this.value == e[this.valueField]),
+        "selected": (this._value== e[this.valueField]),
         "_original": e
       }
     });
     this._dropdownList = arr;
-    if (this.field && !this.field[this.valueField].value) {
-      this.field[this.valueField].value = arr[0].id;
+    if (this.field && !this.field[this.valueField]._value) {
+      this.field[this.valueField]._value= arr[0].id;
     }
 
     if (!this.field) {
       // notifiy first item if field is not set
       this._notifiySelectedItem(arr[0].id);
     } else {
-      this._notifiySelectedItem(this.field[this.valueField].value);
+      this._notifiySelectedItem(this.field[this.valueField]._value);
     }
 
     this._FBPTriggerWire("--selection", arr);
@@ -417,21 +417,21 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       return {
         "id": e.data[this.valueField],
         "label": e.data[this.displayField],
-        "selected": (this.value == e.data[this.valueField]),
+        "selected": (this._value== e.data[this.valueField]),
         "_original": e
       }
     });
 
     this._dropdownList = arr;
-    if (this.field && !this.field[this.valueField].value) {
-      this.field[this.valueField].value = arr[0].id;
+    if (this.field && !this.field[this.valueField]._value) {
+      this.field[this.valueField]._value= arr[0].id;
     }
 
     if (!this.field) {
       // notifiy first item if field is not set
       this._notifiySelectedItem(arr[0].id);
     } else {
-      this._notifiySelectedItem(this.field[this.valueField].value);
+      this._notifiySelectedItem(this.field[this.valueField]._value);
     }
 
     this._FBPTriggerWire("--selection", arr);

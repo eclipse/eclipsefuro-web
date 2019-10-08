@@ -62,7 +62,7 @@ class SampleFuroDataCollectionDropdown extends FBP(LitElement) {
             
           <furo-collection-agent service="PersonService"
                                  list-on-hts-in
-                                 ƒ-hts-in="--entity(*.owner.link.value)"
+                                 ƒ-hts-in="--entity(*.owner.link._value)"
                                  @-response="--response">
           </furo-collection-agent>
         </template>

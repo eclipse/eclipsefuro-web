@@ -23,7 +23,7 @@ class FuroDataDisplay extends FBP(LitElement) {
     this._FBPAddWireHook("--valueChanged", (val) => {
 
       if (this.field) {
-        this.field.value = val;
+        this.field._value= val;
       }
     });
 
@@ -43,7 +43,7 @@ class FuroDataDisplay extends FBP(LitElement) {
   }
 
   _updateField() {
-    this.text = this.field.value;
+    this.text = this.field._value;
 
     if (this.displayfield && this.field[this.displayfield]) {
       this.text = this.field[this.displayfield];

@@ -90,7 +90,7 @@
       });
     });
     it('should receive value with bind', (done) => {
-      entityObject.data.name.value = "YES"
+      entityObject.data.name._value= "YES"
       dataSearchInput._FBPAddWireHook("--value", (val) => {
         assert.equal(val, "YES");
         done();

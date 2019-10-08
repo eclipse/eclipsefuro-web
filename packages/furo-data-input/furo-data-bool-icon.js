@@ -38,7 +38,7 @@ class FuroDataBoolIcon extends FBP(LitElement) {
   }
 
     toggle(){
-      this.field.value = !this.field.value;
+      this.field._value= !this.field._value;
     }
 
     /**
@@ -100,7 +100,7 @@ class FuroDataBoolIcon extends FBP(LitElement) {
   }
 
   _updateSymbol(){
-    this._ocSymbol = this.field.value ? this.symboltrue : this.symbolfalse;
+    this._ocSymbol = this.field._value? this.symboltrue : this.symbolfalse;
     this.requestUpdate();
   }
 

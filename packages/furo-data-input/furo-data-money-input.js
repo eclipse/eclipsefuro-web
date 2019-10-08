@@ -32,7 +32,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
     this.valid = true;
     this._currencies = [];
     // init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
-    this.value = {"currency_code":"CHF", "units":null, "nanos":null};
+    this.value= {"currency_code":"CHF", "units":null, "nanos":null};
   }
 
   _FBPReady() {
@@ -51,15 +51,15 @@ class FuroDataMoneyInput extends FBP(LitElement) {
 
         if( e.path[0].nodeName == "FURO-SELECT-INPUT") {
 
-          this.field.value = this._convertDataToMoneyObj(e.detail,"", this.field.value);
+          this.field._value= this._convertDataToMoneyObj(e.detail,"", this.field._value);
         }
 
         if( e.path[0].nodeName == "FURO-NUMBER-INPUT") {
-          this.field.value = this._convertDataToMoneyObj("",e.detail, this.field.value);
+          this.field._value= this._convertDataToMoneyObj("",e.detail, this.field._value);
         }
       }
 
-      this.value = this.field.value;
+      this._value= this.field._value;
       this.error = false;
 
       /**
@@ -68,7 +68,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        * detail payload: google money object
        */
       let customEvent = new Event('value-changed', {composed: true, bubbles: true});
-      customEvent.detail = this.field.value;
+      customEvent.detail = this.field._value;
       this.dispatchEvent(customEvent);
     });
 
@@ -135,12 +135,12 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       this.errortext = this.field._validity.description;
     }
 
-    if(this.field.units && this.field.units.value !== null && this.field.nanos.value !== null) {
-      let amout = Number(this.field.units.value + "." + this.field.nanos.value);
+    if(this.field.units && this.field.units._value!== null && this.field.nanos._value!== null) {
+      let amout = Number(this.field.units._value+ "." + this.field.nanos._value);
       this._FBPTriggerWire('--valueAmount', amout);
     }
-    if(this.field.currency_code && this.field.currency_code.value) {
-      this._FBPTriggerWire('--valueCurrency', this.field.currency_code.value);
+    if(this.field.currency_code && this.field.currency_code._value) {
+      this._FBPTriggerWire('--valueCurrency', this.field.currency_code._value);
     }
 
     this.requestUpdate();
@@ -423,14 +423,14 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       let selected = false;
       if (e.selected) {
         this.value.currency_code = e.id.toString();
-        this.field.currency_code.value = this.value.currency_code;
+        this.field.currency_code._value= this.value.currency_code;
         selected = true;
       }
       else {
 
         if(this.value.currency_code  === e.id.toString()) {
           // init the currency code in field
-          this.field.currency_code.value = this.value.currency_code;
+          this.field.currency_code._value= this.value.currency_code;
           selected = true;
         }
       }

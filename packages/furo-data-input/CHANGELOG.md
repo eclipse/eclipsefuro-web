@@ -129,7 +129,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* attr.value becomes attr.val ([60e7db9](https://github.com/veith/FuroBaseComponents/commit/60e7db9))
+* attr._valuebecomes attr.val ([60e7db9](https://github.com/veith/FuroBaseComponents/commit/60e7db9))
 * fix collection dropdwon binding problem ([6d19156](https://github.com/veith/FuroBaseComponents/commit/6d19156))
 * initial property ([41758cf](https://github.com/veith/FuroBaseComponents/commit/41758cf))
 

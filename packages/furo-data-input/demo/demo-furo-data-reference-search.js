@@ -69,7 +69,7 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
             </furo-data-object>
             <furo-collection-agent
                     service="PersonService"
-                    ƒ-hts-in="--entityReady(*.owner.link.value)"
+                    ƒ-hts-in="--entityReady(*.owner.link._value)"
                     ƒ-search="--term"
                     @-response="--refCol">
             </furo-collection-agent>
