@@ -103,6 +103,10 @@ class FuroDataProperty extends FBP(LitElement) {
     super();
     this.typemap = {
       "google.type.Date": "furo-data-date-input",
+      "google.protobuf.StringValue": "furo-data-text-input",
+      "google.protobuf.FloatValue": "furo-data-number-input",
+      "google.protobuf.Int32Value": "furo-data-number-input",
+      "google.protobuf.UInt32Value": "furo-data-number-input",
       "furo.StringProperty": "furo-data-text-input",
       "furo.IntegerProperty": "furo-data-number-input",
       "furo.NumberProperty": "furo-data-number-input",
@@ -141,7 +145,7 @@ class FuroDataProperty extends FBP(LitElement) {
         repeater.injectItems(this.field.repeats);
       });
       // inject if data is already here
-      if(this.field.repeats.length > 0){
+      if (this.field.repeats.length > 0) {
         repeater.injectItems(this.field.repeats);
       }
 
@@ -184,6 +188,12 @@ class FuroDataProperty extends FBP(LitElement) {
           case "furo.IntegerProperty":
             e.bindData(propertyField.data.data);
             break;
+          case "google.protobuf.FloatValue":
+          case "google.protobuf.Int32Value":
+          case "google.protobuf.UInt32Value":
+          case "google.protobuf.StringValue":
+            e.bindData(propertyField.data.value);
+            break;
           default:
             e.bindData(propertyField.data);
         }
@@ -198,10 +208,10 @@ class FuroDataProperty extends FBP(LitElement) {
   }
 
   disconnectedCallback() {
-    if(this._createdProp){
+    if (this._createdProp) {
       this._createdProp.remove();
     }
-      if(this._createdRepeater){
+    if (this._createdRepeater) {
       this._createdRepeater.remove();
     }
 
