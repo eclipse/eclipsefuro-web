@@ -54,12 +54,12 @@
           "recursion": null
         }
       });
-      assert.equal(element.data.display_name.value, "A");
-      assert.equal(element.data.recursion.display_name.value, "Aa");
+      assert.equal(element.data.display_name._value, "A");
+      assert.equal(element.data.recursion.display_name._value, "Aa");
 
       let deep = element.data.recursion;
-      deep.recursion.value = {"display_name": "Aaa"};
-      assert.equal(element.data.recursion.recursion.display_name.value, "Aaa");
+      deep.recursion._value = {"display_name": "Aaa"};
+      assert.equal(element.data.recursion.recursion.display_name._value, "Aaa");
 
       done();
     });
@@ -73,21 +73,21 @@
 
     it('should have the default value setted', (done) => {
       element.setAttribute("type", "experiment.Default");
-      assert.equal(element.data.description.value, "Ein text per default");
+      assert.equal(element.data.description._value, "Ein text per default");
 
       element.data.repstring.add();
       assert.equal(element.data._pristine, false);
-      assert.equal(element.data.repstring.repeats[0].value, "Ein text per default");
+      assert.equal(element.data.repstring.repeats[0]._value, "Ein text per default");
       element.data.repstring.add("new");
 
-      assert.equal(element.data.repstring.repeats[1].value, "new");
+      assert.equal(element.data.repstring.repeats[1]._value, "new");
       done();
     });
 
     it('should print out the type on toString', (done) => {
       element.setAttribute("type", "project.ProjectEntity");
       assert.equal(element.data.toString(), "ProjectEntity");
-      element.data.data.display_name.value = "yes";
+      element.data.data.display_name._value = "yes";
       assert.equal(element.data.data.display_name.toString(), 'yes');
 
       done();
@@ -142,7 +142,7 @@
         assert.equal(element.json.data.display_name, response.data.display_name);
         p.then((ObjectDataRoot) => {
           let EntityRoot = ObjectDataRoot.data;
-          EntityRoot.description.value = "New";
+          EntityRoot.description._value = "New";
           let oldlabel = EntityRoot.description._meta.label;
           assert.equal(EntityRoot.description._meta.label, oldlabel);
           EntityRoot.description._meta.label = "Something";
@@ -170,7 +170,7 @@
           assert.equal(ObjectDataRoot._pristine, true);
           let EntityRoot = ObjectDataRoot.data;
 
-          assert.equal(EntityRoot.description.value, "Furo Foundation");
+          assert.equal(EntityRoot.description._value, "Furo Foundation");
 
           assert.equal(EntityRoot.description._meta.label, "ID label from response");
           assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
@@ -191,7 +191,7 @@
 
           assert.equal(ObjectDataRoot._pristine, true);
           let EntityRoot = ObjectDataRoot.entities.repeats[0].data;
-          assert.equal(EntityRoot.description.value, "Furo Foundation");
+          assert.equal(EntityRoot.description._value, "Furo Foundation");
 
           assert.equal(EntityRoot.description._meta.label, "ID label from response");
           assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
@@ -218,14 +218,14 @@
         let p = element.injectRaw(response);
         p.then((ObjectDataRoot) => {
           let EntityRoot = ObjectDataRoot.data;
-          let val = EntityRoot.members.value;
+          let val = EntityRoot.members._value;
 
           EntityRoot.members.add(val[0]);
           // set on the repeats
-          EntityRoot.members.repeats[1].first_name.value = "Kyra";
+          EntityRoot.members.repeats[1].first_name._value = "Kyra";
           // read on value
-          assert.equal(EntityRoot.members.value[0].first_name, "John");
-          assert.equal(EntityRoot.members.value[1].first_name, "Kyra");
+          assert.equal(EntityRoot.members._value[0].first_name, "John");
+          assert.equal(EntityRoot.members._value[1].first_name, "Kyra");
 
           done();
         });
@@ -242,7 +242,7 @@
 
           assert.equal(ObjectDataRoot._pristine, true);
           let EntityRoot = ObjectDataRoot.data;
-          EntityRoot.members.repeats[0].first_name.value = "new";
+          EntityRoot.members.repeats[0].first_name._value = "new";
           assert.equal(ObjectDataRoot._pristine, false);
 
           done();
@@ -354,18 +354,18 @@
         p.then((ObjectDataRoot) => {
           let EntityRoot = ObjectDataRoot.data;
 
-          assert.equal(EntityRoot.members.repeats[0].first_name.value, "John");
+          assert.equal(EntityRoot.members.repeats[0].first_name._value, "John");
 
           let handler = (e) => {
             assert.equal(element.data.data._spec.type, "project.Project");
-            let firstname = (element.data.data.members.repeats[0].first_name.value);
+            let firstname = (element.data.data.members.repeats[0].first_name._value);
             assert.equal(firstname, "Lysander");
             element.removeEventListener("data-changed", handler);
             done();
           };
           element.addEventListener("data-changed", handler, true);
 
-          EntityRoot.members.repeats[0].first_name.value = "Lysander";
+          EntityRoot.members.repeats[0].first_name._value = "Lysander";
         });
       });
     });
@@ -378,7 +378,7 @@
         let p = element.injectRaw(response);
         p.then((ObjectDataRoot) => {
           let EntityRoot = ObjectDataRoot.data;
-          let firstname = EntityRoot.members.repeats[0].first_name.value;
+          let firstname = EntityRoot.members.repeats[0].first_name._value;
           assert.equal(EntityRoot._spec.type, "project.Project");
           assert.equal(firstname, "John");
           done();
@@ -391,7 +391,7 @@
         let p = element.injectRaw(response);
         p.then((ObjectDataRoot) => {
           let EntityRoot = ObjectDataRoot.data
-          let firstname = EntityRoot.members.repeats[0].first_name.value;
+          let firstname = EntityRoot.members.repeats[0].first_name._value;
           assert.equal(EntityRoot._spec.type, "project.Project");
           assert.equal(firstname, "John");
           done();
@@ -410,7 +410,7 @@
       element.setAttribute("type", "project.ProjectEntity");
       let EntityRoot = {};
       let handler = (e) => {
-        let firstname = EntityRoot.members.repeats[0].first_name.value;
+        let firstname = EntityRoot.members.repeats[0].first_name._value;
         assert.equal(element.data.data._spec.type, "project.Project");
         assert.equal(firstname, "John");
         done();

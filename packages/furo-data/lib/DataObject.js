@@ -123,7 +123,7 @@ export class DataObject extends EventTreeNode {
     // nur reine Daten zurück geben
     for (let index in this.__childNodes) {
       let field = this.__childNodes[index];
-      data[field._name] = field.value
+      data[field._name] = field._value
     }
     return data;
   }
@@ -155,7 +155,7 @@ export class DataObject extends EventTreeNode {
 
 
             // Werte aktualisieren
-            fieldNode.repeats[i].value = repdata;
+            fieldNode.repeats[i]._value = repdata;
             fieldNode.repeats[i]._pristine = true;
             fieldNode.repeats[i].__index = i;
 
@@ -177,7 +177,7 @@ export class DataObject extends EventTreeNode {
             fieldNode._clearInvalidity();
 
             // Werte aktualisieren
-            fieldNode.value = data[fieldName];
+            fieldNode._value = data[fieldName];
 
             fieldNode._pristine = true;
           }
@@ -243,7 +243,6 @@ export class DataObject extends EventTreeNode {
    * @private
    */
   _initFieldsFromSpec(node, fieldSpec) {
-
     for (let fieldName in fieldSpec) {
       if (fieldSpec[fieldName].meta && fieldSpec[fieldName].meta.repeated) {
         node[fieldName] = new RepeaterNode(node, fieldSpec[fieldName], fieldName);
@@ -252,8 +251,6 @@ export class DataObject extends EventTreeNode {
         node[fieldName] = new FieldNode(node, fieldSpec[fieldName], fieldName);
       }
     }
-
-
   }
 
 

@@ -25,7 +25,7 @@ export class FieldNode extends EventTreeNode {
 
     this._name = fieldName;
     this.__index = fieldName;
-    this._value = null;
+    this.__value = null;
     this._pristine = true;
     this._isValid = true;
 
@@ -68,7 +68,7 @@ export class FieldNode extends EventTreeNode {
     });
 
     //store __initialValue value for resetting the field
-    this.__initialValue = JSON.stringify(this.value);
+    this.__initialValue = JSON.stringify(this._value);
   }
 
   /**
@@ -89,8 +89,8 @@ export class FieldNode extends EventTreeNode {
       this.dispatchNodeEvent(new NodeEvent('this-node-field-added', this, false));
       this.dispatchNodeEvent(new NodeEvent('node-field-added', this, true));
       // set Value if given
-      if (options.value) {
-        this[fieldName].value = options.value;
+      if (options._value) {
+        this[fieldName]._value = options._value;
       }
       return true;
     } else {
@@ -114,7 +114,7 @@ export class FieldNode extends EventTreeNode {
    * resets the field to the initial values from the spec
    */
   reinit(){
-    this.value = JSON.parse(this.__initialValue);
+    this._value = JSON.parse(this.__initialValue);
   }
   _createVendorType(type) {
     if (this.__specdefinitions[type]) {
@@ -131,7 +131,7 @@ export class FieldNode extends EventTreeNode {
     }
   }
 
-  set value(val) {
+  set _value(val) {
 
     // create vendor type if this field is a recusion an was not generated
     if (this._isRecursion && val) {
@@ -156,7 +156,7 @@ export class FieldNode extends EventTreeNode {
           }
 
           if (val.hasOwnProperty(field._name)) {
-            field.value = val[field._name];
+            field._value = val[field._name];
           }
         }
 
@@ -170,10 +170,10 @@ export class FieldNode extends EventTreeNode {
 
       } else {
         // update the primitive type
-        this.oldvalue = this.value;
-        this._value = val;
+        this._oldvalue = this._value;
+        this.__value = val;
         this._pristine = false;
-        if (JSON.stringify(this.oldvalue) !== JSON.stringify(this._value)) {
+        if (JSON.stringify(this._oldvalue) !== JSON.stringify(this.__value)) {
           /**
            * @event (field-value-changed)
            *
@@ -204,7 +204,7 @@ export class FieldNode extends EventTreeNode {
     this.__childNodes.forEach((n) => {
 
       if (val[n._name] === undefined) {
-          n.value = JSON.parse(n.__initialValue);
+          n._value = JSON.parse(n.__initialValue);
       }
     });
 
@@ -255,8 +255,8 @@ export class FieldNode extends EventTreeNode {
 
   _createAnyType(val) {
     // remove if type changes
-    if (this.__anyCreated && this["@type"].value !== val["@type"]) {
-      console.log(this["@type"].value, val["@type"])
+    if (this.__anyCreated && this["@type"]._value !== val["@type"]) {
+      console.log(this["@type"]._value, val["@type"])
       for (let i = this.__childNodes.length - 1; i >= 0; i--) {
         let field = this.__childNodes[i];
         if (!val[field._name]) {
@@ -289,7 +289,7 @@ export class FieldNode extends EventTreeNode {
         this[fieldName] = new FieldNode(this, fieldSpec, fieldName);
       }
       //update data
-      this[fieldName].value = val[fieldName];
+      this[fieldName]._value = val[fieldName];
     }
     //remove unseted
     for (let i = this.__childNodes.length - 1; i >= 0; i--) {
@@ -345,23 +345,23 @@ export class FieldNode extends EventTreeNode {
         this._updateKeyValueMap(val, this._spec.type)
       } else {
 
-        this.oldvalue = this.value;
-        this._value = val;
+        this._oldvalue = this._value;
+        this.__value = val;
         this._pristine = true;
       }
     }
   }
 
-  get value() {
+  get _value() {
     if (this.__childNodes.length > 0) {
-      this._value = {};
+      this.__value = {};
       // nur reine Daten zurück geben
       for (let index in this.__childNodes) {
         let field = this.__childNodes[index];
-        this._value[field._name] = field.value
+        this.__value[field._name] = field._value
       }
     }
-    return this._value;
+    return this.__value;
   }
 
   _clearInvalidity() {
@@ -412,8 +412,8 @@ export class FieldNode extends EventTreeNode {
   }
 
   toString() {
-    if (this.value !== null) {
-      return this.value;
+    if (this._value !== null) {
+      return this._value;
     } else {
       return ""
     }

@@ -31,9 +31,9 @@ export class RepeaterNode extends EventTreeNode {
     this._isValid = true;
 
 
-    // handling default values
+    // handling default _values
     let tmp = this._meta.default || [];
-    // if the default value is already an array do nothing otherwise try to parse json
+    // if the default _value is already an array do nothing otherwise try to parse json
     if (typeof this._meta.default === "string") {
       try {
         tmp = JSON.parse(this._meta.default);
@@ -43,7 +43,7 @@ export class RepeaterNode extends EventTreeNode {
       }
     }
 
-    this.value = tmp;
+    this._value = tmp;
 
 
     /**
@@ -71,16 +71,16 @@ export class RepeaterNode extends EventTreeNode {
       this._pristine = false;
     });
 
-    //store __initialValue value for resetting the field
-    this.__initialValue = JSON.stringify(this.value);
+    //store __initial_value _value for resetting the field
+    this.__initialValue = JSON.stringify(this._value);
   }
 
 
   /**
-   * resets the field to the initial values from the spec
+   * resets the field to the initial _values from the spec
    */
   reinit(){
-    this.value = JSON.parse(this.__initialValue);
+    this._value = JSON.parse(this.__initialValue);
   }
 
   /**
@@ -117,7 +117,7 @@ export class RepeaterNode extends EventTreeNode {
 
   }
 
-  set value(val) {
+  set _value(val) {
     if (Array.isArray(val)) {
 
 
@@ -136,7 +136,7 @@ export class RepeaterNode extends EventTreeNode {
         }
 
 
-        this.repeats[i].value = repdata;
+        this.repeats[i]._value = repdata;
         this.repeats[i]._pristine = true;
 
       });
@@ -204,9 +204,9 @@ export class RepeaterNode extends EventTreeNode {
 
   }
 
-  get value() {
+  get _value() {
     return this.repeats.map(f => {
-      return f.value;
+      return f._value;
     });
   }
 
@@ -260,7 +260,7 @@ export class RepeaterNode extends EventTreeNode {
     // set data if given
     if (data) {
       let child = this.repeats[index];
-      child.value = data;
+      child._value = data;
     }
     this.dispatchNodeEvent(new NodeEvent("repeated-fields-added", this.repeats[index], true));
     this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added", this.repeats[index], false));
