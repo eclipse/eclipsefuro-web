@@ -26,7 +26,6 @@ import {Helper} from "./lib/helper";
  *
  * @summary Search input field
  * @customElement
- * @polymer
  * @demo demo-furo-search-input Input samples
  * @appliesMixin FBP
  */

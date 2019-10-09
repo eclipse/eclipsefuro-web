@@ -1,0 +1,172 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-config</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+      <template>
+        <furo-config></furo-config>
+        <furo-config-loader></furo-config-loader>
+        <furo-config></furo-config>
+        <furo-config-loader></furo-config-loader>
+      </template>
+    </test-bind>
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog.js"
+
+  import "@furo/fbp/testhelper/test-bind"; // for testing
+  import 'axe-core/axe.min.js';
+  import {axeReport} from 'pwa-helpers/axe-report.js';
+
+  describe('furo-config tests ', function () {
+
+
+    let config = {};
+    let configLoader = {};
+    let secondConfig = {};
+    let secondConfigLoader = {};
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      config = fix[1];
+      await config.updateComplete;
+      configLoader = fix[2];
+      await configLoader.updateComplete;
+      secondConfigLoader = fix[4];
+      await secondConfigLoader.updateComplete;
+      secondConfig = fix[3];
+      await secondConfig.updateComplete;
+
+    });
+
+    it('should notify config-loaded', (done) => {
+      configLoader.addEventListener("config-loaded", () => {
+        done();
+      });
+
+
+      configLoader.setAttribute("src", "/package.json");
+      configLoader.setAttribute("section", "package");
+    });
+
+    it('should handle single furo-config', (done) => {
+
+      config.setAttribute("section", "package");
+
+      config.addEventListener("config-updated", (d) => {
+
+        assert(d.detail.license, "MIT");
+        done()
+      }, {once: true});
+
+
+      configLoader.setAttribute("src", "/package.json");
+      configLoader.setAttribute("section", "package");
+
+    });
+    it('should handle mutliple furo-config', (done) => {
+
+      config.setAttribute("section", "package");
+
+      config.addEventListener("config-updated", (d) => {
+
+        assert(d.detail.license, "MIT");
+      });
+
+      secondConfig.setAttribute("section", "polymer");
+      secondConfig.addEventListener("config-updated", (d) => {
+
+        assert(d.detail.entrypoint, "index.html");
+        done()
+      });
+      configLoader.setAttribute("src", "/package.json");
+      configLoader.setAttribute("section", "package");
+
+      secondConfigLoader.setAttribute("src", "/polymer.json");
+      secondConfigLoader.setAttribute("section", "polymer");
+    });
+
+
+    it('should load a config file with loader and notifiy via furo-config', (done) => {
+      config.setAttribute("section", "package");
+      config.addEventListener("config-updated", (d) => {
+        assert(d.detail.license, "MIT");
+        done();
+      }, {once: true});
+      configLoader.setAttribute("src", "/package.json");
+      configLoader.setAttribute("section", "package");
+
+    });
+
+
+    it('should  notifiy deep objects', (done) => {
+      config.setAttribute("section", "package.license");
+
+      config.addEventListener("config-updated", (d) => {
+        assert.equal(d.detail, "MIT");
+
+        done();
+      }, {once: true});
+      configLoader.setAttribute("src", "./test.json");
+      configLoader.setAttribute("section", "package");
+    });
+
+
+    it('should notifiy deep objects 2', (done) => {
+      config.setAttribute("section", "package.deep.deep");
+
+      config.addEventListener("config-updated", (d) => {
+        assert.equal(d.detail, "val");
+
+        done();
+      }, {once: true});
+      configLoader.setAttribute("src", "./test.json");
+      configLoader.setAttribute("section", "package");
+    });
+
+    it('should notifiy all values', (done) => {
+      config.setAttribute("section", "package");
+
+      config.addEventListener("config-updated", (d) => {
+        assert.equal(d.detail.deep.deep, "val");
+        assert.equal(d.detail.license, "MIT");
+
+        done();
+      }, {once: true});
+      configLoader.setAttribute("src", "./test.json");
+      configLoader.setAttribute("section", "package");
+    });
+
+
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+    it('should be the correct element', (done) => {
+      assert.equal(config.nodeName.toLowerCase(), "furo-config");
+      assert.equal(configLoader.nodeName.toLowerCase(), "furo-config-loader");
+      done()
+    });
+
+
+  });
+</script>
+</body>
+</html>

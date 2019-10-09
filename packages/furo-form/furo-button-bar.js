@@ -9,7 +9,6 @@ import "@furo/layout/furo-horizontal-flex"
  * @summary
  * @customElement
  * @demo demo/furo-button-bar.html
- * @polymer
  */
 class FuroButtonBar extends (LitElement) {
 

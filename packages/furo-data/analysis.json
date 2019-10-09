@@ -1080,420 +1080,6 @@
       ],
       "methods": [
         {
-          "name": "_attachDom",
-          "description": "Auto append fbp for Polymer",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 47,
-              "column": 8
-            },
-            "end": {
-              "line": 50,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "firstUpdated",
-          "description": "Auto append fbp for lit elements",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 53,
-              "column": 8
-            },
-            "end": {
-              "line": 61,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "changedProperties"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTriggerWire",
-          "description": "Triggers a wire",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 69,
-              "column": 8
-            },
-            "end": {
-              "line": 115,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire like --buttonClicked"
-            },
-            {
-              "name": "detailData",
-              "description": "(*) data to pass"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPAddWireHook",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 125,
-              "column": 8
-            },
-            "end": {
-              "line": 142,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire"
-            },
-            {
-              "name": "cb",
-              "description": "(function) Callback function cb(detailData)"
-            },
-            {
-              "name": "before"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTraceWires",
-          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 151,
-              "column": 8
-            },
-            "end": {
-              "line": 187,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPDebug",
-          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 197,
-              "column": 8
-            },
-            "end": {
-              "line": 233,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "openDebugger",
-              "description": "opens the debugger console, so you can inspect your component."
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__toCamelCase",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 235,
-              "column": 8
-            },
-            "end": {
-              "line": 239,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "str"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_appendFBP",
-          "description": "parses the dom for flowbased programming tags",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 246,
-              "column": 8
-            },
-            "end": {
-              "line": 524,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom",
-              "description": "dom node"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 531,
-              "column": 8
-            },
-            "end": {
-              "line": 534,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__enqueueTrigger",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 536,
-              "column": 8
-            },
-            "end": {
-              "line": 538,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "detailData"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__resolveWireAndPath",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 540,
-              "column": 8
-            },
-            "end": {
-              "line": 548,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "w"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "disconnectedCallback",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 550,
-              "column": 8
-            },
-            "end": {
-              "line": 564,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathGet",
-          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 575,
-              "column": 8
-            },
-            "end": {
-              "line": 588,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to read"
-            }
-          ],
-          "return": {
-            "type": "*",
-            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathSet",
-          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 599,
-              "column": 8
-            },
-            "end": {
-              "line": 621,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to set"
-            },
-            {
-              "name": "value",
-              "type": "*",
-              "description": "Value to set to path"
-            }
-          ],
-          "return": {
-            "type": "(string | undefined)",
-            "desc": "The normalized version of the input path"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_split",
-          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 639,
-              "column": 8
-            },
-            "end": {
-              "line": 641,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Input path"
-            }
-          ],
-          "return": {
-            "type": "!Array.<string>",
-            "desc": "Array of path parts"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
           "name": "bindRequestData",
           "description": "",
           "privacy": "public",
@@ -3939,420 +3525,6 @@
       ],
       "methods": [
         {
-          "name": "_attachDom",
-          "description": "Auto append fbp for Polymer",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 47,
-              "column": 8
-            },
-            "end": {
-              "line": 50,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "firstUpdated",
-          "description": "Auto append fbp for lit elements",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 53,
-              "column": 8
-            },
-            "end": {
-              "line": 61,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "changedProperties"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTriggerWire",
-          "description": "Triggers a wire",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 69,
-              "column": 8
-            },
-            "end": {
-              "line": 115,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire like --buttonClicked"
-            },
-            {
-              "name": "detailData",
-              "description": "(*) data to pass"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPAddWireHook",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 125,
-              "column": 8
-            },
-            "end": {
-              "line": 142,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire"
-            },
-            {
-              "name": "cb",
-              "description": "(function) Callback function cb(detailData)"
-            },
-            {
-              "name": "before"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTraceWires",
-          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 151,
-              "column": 8
-            },
-            "end": {
-              "line": 187,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPDebug",
-          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 197,
-              "column": 8
-            },
-            "end": {
-              "line": 233,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "openDebugger",
-              "description": "opens the debugger console, so you can inspect your component."
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__toCamelCase",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 235,
-              "column": 8
-            },
-            "end": {
-              "line": 239,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "str"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_appendFBP",
-          "description": "parses the dom for flowbased programming tags",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 246,
-              "column": 8
-            },
-            "end": {
-              "line": 524,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom",
-              "description": "dom node"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 531,
-              "column": 8
-            },
-            "end": {
-              "line": 534,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__enqueueTrigger",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 536,
-              "column": 8
-            },
-            "end": {
-              "line": 538,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "detailData"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__resolveWireAndPath",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 540,
-              "column": 8
-            },
-            "end": {
-              "line": 548,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "w"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "disconnectedCallback",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 550,
-              "column": 8
-            },
-            "end": {
-              "line": 564,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathGet",
-          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 575,
-              "column": 8
-            },
-            "end": {
-              "line": 588,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to read"
-            }
-          ],
-          "return": {
-            "type": "*",
-            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathSet",
-          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 599,
-              "column": 8
-            },
-            "end": {
-              "line": 621,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to set"
-            },
-            {
-              "name": "value",
-              "type": "*",
-              "description": "Value to set to path"
-            }
-          ],
-          "return": {
-            "type": "(string | undefined)",
-            "desc": "The normalized version of the input path"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_split",
-          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 639,
-              "column": 8
-            },
-            "end": {
-              "line": 641,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Input path"
-            }
-          ],
-          "return": {
-            "type": "!Array.<string>",
-            "desc": "Array of path parts"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
           "name": "bindRequestData",
           "description": "Binds a furo-data-object type. Use this if you want save data.",
           "privacy": "public",
@@ -4966,17 +4138,17 @@
         },
         {
           "name": "disconnectedCallback",
-          "description": "",
+          "description": "Allows for `super.disconnectedCallback()` in extensions while\nreserving the possibility of making non-breaking feature additions\nwhen disconnecting at some point in the future.",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../lit-element/lib/updating-element.js",
             "start": {
-              "line": 550,
-              "column": 8
+              "line": 322,
+              "column": 4
             },
             "end": {
-              "line": 564,
-              "column": 9
+              "line": 323,
+              "column": 5
             }
           },
           "metadata": {},
@@ -4984,7 +4156,7 @@
           "return": {
             "type": "void"
           },
-          "inheritedFrom": "FBP"
+          "inheritedFrom": "UpdatingElement"
         },
         {
           "name": "attributeChangedCallback",
@@ -5300,29 +4472,29 @@
         },
         {
           "name": "firstUpdated",
-          "description": "Auto append fbp for lit elements",
+          "description": "Invoked when the element is first updated. Implement to perform one time\nwork on the element after update.\n\nSetting properties inside this method will trigger the element to update\nagain after this update cycle completes.\n\n* @param _changedProperties Map of changed properties with old values",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
+            "file": "../../../lit-element/lib/updating-element.js",
             "start": {
-              "line": 53,
-              "column": 8
+              "line": 616,
+              "column": 4
             },
             "end": {
-              "line": 61,
-              "column": 9
+              "line": 617,
+              "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "changedProperties"
+              "name": "_changedProperties"
             }
           ],
           "return": {
             "type": "void"
           },
-          "inheritedFrom": "FBP"
+          "inheritedFrom": "UpdatingElement"
         },
         {
           "name": "createRenderRoot",
@@ -5390,372 +4562,6 @@
             "type": "void"
           },
           "inheritedFrom": "LitElement"
-        },
-        {
-          "name": "_attachDom",
-          "description": "Auto append fbp for Polymer",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 47,
-              "column": 8
-            },
-            "end": {
-              "line": 50,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTriggerWire",
-          "description": "Triggers a wire",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 69,
-              "column": 8
-            },
-            "end": {
-              "line": 115,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire like --buttonClicked"
-            },
-            {
-              "name": "detailData",
-              "description": "(*) data to pass"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPAddWireHook",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 125,
-              "column": 8
-            },
-            "end": {
-              "line": 142,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire"
-            },
-            {
-              "name": "cb",
-              "description": "(function) Callback function cb(detailData)"
-            },
-            {
-              "name": "before"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTraceWires",
-          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 151,
-              "column": 8
-            },
-            "end": {
-              "line": 187,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPDebug",
-          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 197,
-              "column": 8
-            },
-            "end": {
-              "line": 233,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "openDebugger",
-              "description": "opens the debugger console, so you can inspect your component."
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__toCamelCase",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 235,
-              "column": 8
-            },
-            "end": {
-              "line": 239,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "str"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_appendFBP",
-          "description": "parses the dom for flowbased programming tags",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 246,
-              "column": 8
-            },
-            "end": {
-              "line": 524,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom",
-              "description": "dom node"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 531,
-              "column": 8
-            },
-            "end": {
-              "line": 534,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__enqueueTrigger",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 536,
-              "column": 8
-            },
-            "end": {
-              "line": 538,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "detailData"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__resolveWireAndPath",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 540,
-              "column": 8
-            },
-            "end": {
-              "line": 548,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "w"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathGet",
-          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 575,
-              "column": 8
-            },
-            "end": {
-              "line": 588,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to read"
-            }
-          ],
-          "return": {
-            "type": "*",
-            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathSet",
-          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 599,
-              "column": 8
-            },
-            "end": {
-              "line": 621,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to set"
-            },
-            {
-              "name": "value",
-              "type": "*",
-              "description": "Value to set to path"
-            }
-          ],
-          "return": {
-            "type": "(string | undefined)",
-            "desc": "The normalized version of the input path"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_split",
-          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 639,
-              "column": 8
-            },
-            "end": {
-              "line": 641,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Input path"
-            }
-          ],
-          "return": {
-            "type": "!Array.<string>",
-            "desc": "Array of path parts"
-          },
-          "inheritedFrom": "FBP"
         },
         {
           "name": "setValue",
@@ -6052,420 +4858,6 @@
       "properties": [],
       "methods": [
         {
-          "name": "_attachDom",
-          "description": "Auto append fbp for Polymer",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 47,
-              "column": 8
-            },
-            "end": {
-              "line": 50,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "firstUpdated",
-          "description": "Auto append fbp for lit elements",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 53,
-              "column": 8
-            },
-            "end": {
-              "line": 61,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "changedProperties"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTriggerWire",
-          "description": "Triggers a wire",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 69,
-              "column": 8
-            },
-            "end": {
-              "line": 115,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire like --buttonClicked"
-            },
-            {
-              "name": "detailData",
-              "description": "(*) data to pass"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPAddWireHook",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 125,
-              "column": 8
-            },
-            "end": {
-              "line": 142,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire"
-            },
-            {
-              "name": "cb",
-              "description": "(function) Callback function cb(detailData)"
-            },
-            {
-              "name": "before"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTraceWires",
-          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 151,
-              "column": 8
-            },
-            "end": {
-              "line": 187,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPDebug",
-          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 197,
-              "column": 8
-            },
-            "end": {
-              "line": 233,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "openDebugger",
-              "description": "opens the debugger console, so you can inspect your component."
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__toCamelCase",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 235,
-              "column": 8
-            },
-            "end": {
-              "line": 239,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "str"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_appendFBP",
-          "description": "parses the dom for flowbased programming tags",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 246,
-              "column": 8
-            },
-            "end": {
-              "line": 524,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom",
-              "description": "dom node"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 531,
-              "column": 8
-            },
-            "end": {
-              "line": 534,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__enqueueTrigger",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 536,
-              "column": 8
-            },
-            "end": {
-              "line": 538,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "detailData"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__resolveWireAndPath",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 540,
-              "column": 8
-            },
-            "end": {
-              "line": 548,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "w"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "disconnectedCallback",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 550,
-              "column": 8
-            },
-            "end": {
-              "line": 564,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathGet",
-          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 575,
-              "column": 8
-            },
-            "end": {
-              "line": 588,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to read"
-            }
-          ],
-          "return": {
-            "type": "*",
-            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathSet",
-          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 599,
-              "column": 8
-            },
-            "end": {
-              "line": 621,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to set"
-            },
-            {
-              "name": "value",
-              "type": "*",
-              "description": "Value to set to path"
-            }
-          ],
-          "return": {
-            "type": "(string | undefined)",
-            "desc": "The normalized version of the input path"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_split",
-          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 639,
-              "column": 8
-            },
-            "end": {
-              "line": 641,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Input path"
-            }
-          ],
-          "return": {
-            "type": "!Array.<string>",
-            "desc": "Array of path parts"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
           "name": "_initChecks",
           "description": "",
           "privacy": "protected",
@@ -6549,420 +4941,6 @@
       "path": "packages/furo-data/furo-filter-container.js",
       "properties": [],
       "methods": [
-        {
-          "name": "_attachDom",
-          "description": "Auto append fbp for Polymer",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 47,
-              "column": 8
-            },
-            "end": {
-              "line": 50,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "firstUpdated",
-          "description": "Auto append fbp for lit elements",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 53,
-              "column": 8
-            },
-            "end": {
-              "line": 61,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "changedProperties"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTriggerWire",
-          "description": "Triggers a wire",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 69,
-              "column": 8
-            },
-            "end": {
-              "line": 115,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire like --buttonClicked"
-            },
-            {
-              "name": "detailData",
-              "description": "(*) data to pass"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPAddWireHook",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 125,
-              "column": 8
-            },
-            "end": {
-              "line": 142,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire"
-            },
-            {
-              "name": "cb",
-              "description": "(function) Callback function cb(detailData)"
-            },
-            {
-              "name": "before"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTraceWires",
-          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 151,
-              "column": 8
-            },
-            "end": {
-              "line": 187,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPDebug",
-          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 197,
-              "column": 8
-            },
-            "end": {
-              "line": 233,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "openDebugger",
-              "description": "opens the debugger console, so you can inspect your component."
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__toCamelCase",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 235,
-              "column": 8
-            },
-            "end": {
-              "line": 239,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "str"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_appendFBP",
-          "description": "parses the dom for flowbased programming tags",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 246,
-              "column": 8
-            },
-            "end": {
-              "line": 524,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom",
-              "description": "dom node"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 531,
-              "column": 8
-            },
-            "end": {
-              "line": 534,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__enqueueTrigger",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 536,
-              "column": 8
-            },
-            "end": {
-              "line": 538,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "detailData"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__resolveWireAndPath",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 540,
-              "column": 8
-            },
-            "end": {
-              "line": 548,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "w"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "disconnectedCallback",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 550,
-              "column": 8
-            },
-            "end": {
-              "line": 564,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathGet",
-          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 575,
-              "column": 8
-            },
-            "end": {
-              "line": 588,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to read"
-            }
-          ],
-          "return": {
-            "type": "*",
-            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathSet",
-          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 599,
-              "column": 8
-            },
-            "end": {
-              "line": 621,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to set"
-            },
-            {
-              "name": "value",
-              "type": "*",
-              "description": "Value to set to path"
-            }
-          ],
-          "return": {
-            "type": "(string | undefined)",
-            "desc": "The normalized version of the input path"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_split",
-          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 639,
-              "column": 8
-            },
-            "end": {
-              "line": 641,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Input path"
-            }
-          ],
-          "return": {
-            "type": "!Array.<string>",
-            "desc": "Array of path parts"
-          },
-          "inheritedFrom": "FBP"
-        },
         {
           "name": "_appendAnd",
           "description": "",
@@ -7150,420 +5128,6 @@
         }
       ],
       "methods": [
-        {
-          "name": "_attachDom",
-          "description": "Auto append fbp for Polymer",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 47,
-              "column": 8
-            },
-            "end": {
-              "line": 50,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "firstUpdated",
-          "description": "Auto append fbp for lit elements",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 53,
-              "column": 8
-            },
-            "end": {
-              "line": 61,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "changedProperties"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTriggerWire",
-          "description": "Triggers a wire",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 69,
-              "column": 8
-            },
-            "end": {
-              "line": 115,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire like --buttonClicked"
-            },
-            {
-              "name": "detailData",
-              "description": "(*) data to pass"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPAddWireHook",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 125,
-              "column": 8
-            },
-            "end": {
-              "line": 142,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire"
-            },
-            {
-              "name": "cb",
-              "description": "(function) Callback function cb(detailData)"
-            },
-            {
-              "name": "before"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTraceWires",
-          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 151,
-              "column": 8
-            },
-            "end": {
-              "line": 187,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPDebug",
-          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 197,
-              "column": 8
-            },
-            "end": {
-              "line": 233,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "openDebugger",
-              "description": "opens the debugger console, so you can inspect your component."
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__toCamelCase",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 235,
-              "column": 8
-            },
-            "end": {
-              "line": 239,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "str"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_appendFBP",
-          "description": "parses the dom for flowbased programming tags",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 246,
-              "column": 8
-            },
-            "end": {
-              "line": 524,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom",
-              "description": "dom node"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 531,
-              "column": 8
-            },
-            "end": {
-              "line": 534,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__enqueueTrigger",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 536,
-              "column": 8
-            },
-            "end": {
-              "line": 538,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "detailData"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__resolveWireAndPath",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 540,
-              "column": 8
-            },
-            "end": {
-              "line": 548,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "w"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "disconnectedCallback",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 550,
-              "column": 8
-            },
-            "end": {
-              "line": 564,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathGet",
-          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 575,
-              "column": 8
-            },
-            "end": {
-              "line": 588,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to read"
-            }
-          ],
-          "return": {
-            "type": "*",
-            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathSet",
-          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 599,
-              "column": 8
-            },
-            "end": {
-              "line": 621,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to set"
-            },
-            {
-              "name": "value",
-              "type": "*",
-              "description": "Value to set to path"
-            }
-          ],
-          "return": {
-            "type": "(string | undefined)",
-            "desc": "The normalized version of the input path"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_split",
-          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 639,
-              "column": 8
-            },
-            "end": {
-              "line": 641,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Input path"
-            }
-          ],
-          "return": {
-            "type": "!Array.<string>",
-            "desc": "Array of path parts"
-          },
-          "inheritedFrom": "FBP"
-        },
         {
           "name": "_notifyChanges",
           "description": "",
@@ -9838,11 +7402,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 70,
               "column": 2
             },
             "end": {
-              "line": 74,
+              "line": 73,
               "column": 3
             }
           },
@@ -9865,11 +7429,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 82,
+              "line": 81,
               "column": 2
             },
             "end": {
-              "line": 87,
+              "line": 86,
               "column": 3
             }
           },
@@ -9897,11 +7461,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 99,
               "column": 3
             }
           },
@@ -9924,11 +7488,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 106,
               "column": 2
             },
             "end": {
-              "line": 122,
+              "line": 121,
               "column": 3
             }
           },
@@ -9949,11 +7513,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 140,
+              "line": 139,
               "column": 3
             }
           },
@@ -9973,11 +7537,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 151,
+              "line": 150,
               "column": 3
             }
           },
@@ -10001,7 +7565,7 @@
           "column": 7
         },
         "end": {
-          "line": 152,
+          "line": 151,
           "column": 1
         }
       },
@@ -10014,10 +7578,10 @@
       "path": "packages/furo-data/lib/RepeaterNode.js",
       "properties": [
         {
-          "name": "value",
+          "name": "_value",
           "type": "?",
           "description": "",
-          "privacy": "public",
+          "privacy": "protected",
           "sourceRange": {
             "start": {
               "line": 206,
@@ -10039,11 +7603,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 71,
+              "line": 70,
               "column": 2
             },
             "end": {
-              "line": 74,
+              "line": 73,
               "column": 3
             }
           },
@@ -10068,11 +7632,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 82,
+              "line": 81,
               "column": 2
             },
             "end": {
-              "line": 87,
+              "line": 86,
               "column": 3
             }
           },
@@ -10102,11 +7666,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 94,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 99,
               "column": 3
             }
           },
@@ -10131,11 +7695,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 107,
+              "line": 106,
               "column": 2
             },
             "end": {
-              "line": 122,
+              "line": 121,
               "column": 3
             }
           },
@@ -10158,11 +7722,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 130,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 140,
+              "line": 139,
               "column": 3
             }
           },
@@ -10184,11 +7748,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 142,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 151,
+              "line": 150,
               "column": 3
             }
           },
@@ -10205,7 +7769,7 @@
         },
         {
           "name": "reinit",
-          "description": "resets the field to the initial values from the spec",
+          "description": "resets the field to the initial _values from the spec",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -10418,10 +7982,10 @@
       "path": "packages/furo-data/lib/FieldNode.js",
       "properties": [
         {
-          "name": "value",
+          "name": "_value",
           "type": "?",
           "description": "",
-          "privacy": "public",
+          "privacy": "protected",
           "sourceRange": {
             "start": {
               "line": 354,
@@ -10460,11 +8024,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 71,
+              "line": 70,
               "column": 2
             },
             "end": {
-              "line": 74,
+              "line": 73,
               "column": 3
             }
           },
@@ -10489,11 +8053,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 82,
+              "line": 81,
               "column": 2
             },
             "end": {
-              "line": 87,
+              "line": 86,
               "column": 3
             }
           },
@@ -10523,11 +8087,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 94,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 99,
               "column": 3
             }
           },
@@ -10552,11 +8116,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 107,
+              "line": 106,
               "column": 2
             },
             "end": {
-              "line": 122,
+              "line": 121,
               "column": 3
             }
           },
@@ -10579,11 +8143,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 130,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 140,
+              "line": 139,
               "column": 3
             }
           },
@@ -10605,11 +8169,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 142,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 151,
+              "line": 150,
               "column": 3
             }
           },
@@ -10933,11 +8497,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 71,
+              "line": 70,
               "column": 2
             },
             "end": {
-              "line": 74,
+              "line": 73,
               "column": 3
             }
           },
@@ -10962,11 +8526,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 82,
+              "line": 81,
               "column": 2
             },
             "end": {
-              "line": 87,
+              "line": 86,
               "column": 3
             }
           },
@@ -10996,11 +8560,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 94,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 100,
+              "line": 99,
               "column": 3
             }
           },
@@ -11025,11 +8589,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 107,
+              "line": 106,
               "column": 2
             },
             "end": {
-              "line": 122,
+              "line": 121,
               "column": 3
             }
           },
@@ -11052,11 +8616,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 130,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 140,
+              "line": 139,
               "column": 3
             }
           },
@@ -11078,11 +8642,11 @@
           "sourceRange": {
             "file": "EventTreeNode.js",
             "start": {
-              "line": 142,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 151,
+              "line": 150,
               "column": 3
             }
           },
@@ -11287,7 +8851,7 @@
               "column": 2
             },
             "end": {
-              "line": 256,
+              "line": 253,
               "column": 3
             }
           },
@@ -11310,11 +8874,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 259,
+              "line": 256,
               "column": 2
             },
             "end": {
-              "line": 261,
+              "line": 258,
               "column": 3
             }
           },
@@ -11331,7 +8895,7 @@
           "column": 7
         },
         "end": {
-          "line": 262,
+          "line": 259,
           "column": 1
         }
       },

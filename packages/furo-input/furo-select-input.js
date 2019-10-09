@@ -26,7 +26,6 @@ import "@furo/fbp/flow-repeat"
  *
  * @summary Select input field
  * @customElement
- * @polymer
  * @demo demo-furo-select-input Input sample
  * @appliesMixin FBP
  */

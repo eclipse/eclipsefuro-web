@@ -27,7 +27,6 @@ import {Helper} from "./lib/helper";
  *
  * @summary Text input field
  * @customElement
- * @polymer
  * @demo demo-furo-text-input Input samples
  * @demo furo-text-input-playground Text-input playground
  * @demo demo-furo-input-together Different input elements together

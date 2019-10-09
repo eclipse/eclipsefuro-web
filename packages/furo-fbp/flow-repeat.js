@@ -9,7 +9,6 @@ import "./empty-fbp-node"
  *
  * @summary Custom element to allow using FBPs template features in repeated template
  *
- * @polymer
  * @customElement
  * @demo demo/flow-bind.html
  * @mixes FBP

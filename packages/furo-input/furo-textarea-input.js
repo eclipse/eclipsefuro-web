@@ -10,7 +10,6 @@ import {Helper} from "./lib/helper";
  *
  * @summary Textarea input field
  * @customElement
- * @polymer
  * @demo demo-furo-textarea-input Input samples
  * @appliesMixin FBP
  */
