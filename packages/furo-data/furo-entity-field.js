@@ -8,7 +8,6 @@ import {FBP} from "@furo/fbp";
  *
  * @summary non visual field
  * @customElement
- * @polymer
  * @mixes FBP
  */
 class FuroEntityField extends LitElement {
