@@ -29,7 +29,6 @@ import {Helper} from "./lib/helper";
  *
  * @summary Date input field
  * @customElement
- * @polymer
  * @demo demo-furo-date-input Input sample
  * @demo demo-furo-input-together Different input elements together
  * @appliesMixin FBP

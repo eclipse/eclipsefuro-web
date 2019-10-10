@@ -1,76 +1,62 @@
-import {PolymerElement} from '@polymer/polymer';
-import {FuroStateMixin} from "./shared-state"
-import * as Path from '@polymer/polymer/lib/utils/path.js';
+import {LitElement, html, css} from 'lit-element';
+import {Config} from "./lib/Config";
 
 
 /**
  * `furo-config`
  *
- * Stellt eine Sektion der injecteten Konfigurationen zur Verfügung
- * ```
- *   <furo-config-injector data="{menu:true,...}" section="views"></furo-config-injector>
+ *  Access config data
  *
- *   <furo-config section="views" config="{{_viewConfig}}"></furo-config>
- *   <furo-config section="second.section.deep" config="{{_subSubSubConfig}}"></furo-config>
+ *
  * ```
  *
+ *   <furo-config-loader section="views" src="/viewconfig.json"></furo-config>
+ *   <furo-config-loader section="second" src="/second.json"></furo-config>
+ *   <furo-config section="views" @-config-updated="--conf"></furo-config>
+ *   <furo-config section="second.section.deep" @-config-updated="--deepconf"></furo-config>
+ * ```
+ *
+ * @summary config access
  * @customElement
- * @polymer
- * @summary shared config
- * @demo demo/furo-config_demo.html
- * @mixes FuroStateMixin
  */
-class FuroConfig extends FuroStateMixin(PolymerElement) {
+class FuroConfig extends (LitElement) {
+
   constructor() {
-    super('furo-shared-config');
+    super();
+    this.config = Config;
   }
 
+
+  /**
+   * @private
+   * @return {Object}
+   */
   static get properties() {
     return {
       /**
-       * config
-       * Die konfiguration
+       * section of the config object that you are interested in
+       *
+       * access deep object with dots like `main.sub.sub`
        */
-      config: {
-        type: Object,
-        notify: true,
-        readOnly: true
-      },
-      /**
-       * section
-       * Die Sektion der Konfiguration mit optionaler Pfadangabe
-       * `views.home`
-       */
-      section: {
-        type: String,
-        observer: "_resolveSection",
-      },
-
+      section: {type: String}
     };
   }
 
-  static get observers(){
-    return ['_resolveSection(section,_state.*)']
+  set section(val) {
 
-  }
-
-  _resolveSection(section,conf) {
-
-    if(section!==undefined && conf !== undefined){
-      this._setConfig(Path.get(this._state, section));
+    Config.watch(val, (section) => {
 
       /**
        * @event config-updated
        * Fired when section changed
        * detail payload: section config
        */
-      if (this.config !== undefined) {
-        let customEvent = new Event('config-updated', {composed: true, bubbles: true});
-        customEvent.detail = this.config;
-        this.dispatchEvent(customEvent);
-      }
-    }
+      let customEvent = new Event('config-updated', {composed: true, bubbles: true});
+      customEvent.detail = section.detail._value;
+      this.dispatchEvent(customEvent);
+    })
   }
+
 }
 
-window.customElements.define("furo-config", FuroConfig);
+window.customElements.define('furo-config', FuroConfig);

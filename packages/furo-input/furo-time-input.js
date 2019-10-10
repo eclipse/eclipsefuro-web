@@ -29,7 +29,6 @@ import {Helper} from "./lib/helper";
  *
  * @summary Time input field
  * @customElement
- * @polymer
  * @demo demo-furo-time-input Input sample
  * @appliesMixin FBP
  */

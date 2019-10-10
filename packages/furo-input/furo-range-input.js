@@ -26,7 +26,6 @@ import {Helper} from "./lib/helper";
  *
  * @summary Range input field
  * @customElement
- * @polymer
  * @demo demo-furo-range-input Input sample
  * @appliesMixin FBP
  */

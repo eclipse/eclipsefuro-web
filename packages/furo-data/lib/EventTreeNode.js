@@ -63,7 +63,6 @@ export class EventTreeNode {
   }
 
 
-
   /**
    * shorthand function to add a property as child node
    * @param name

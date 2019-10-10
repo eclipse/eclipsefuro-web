@@ -25,7 +25,6 @@ import  "@furo/layout/furo-icon";
  *
  * @summary Color input field
  * @customElement
- * @polymer
  * @demo demo-furo-color-input Input samples
  * @appliesMixin FBP
  */

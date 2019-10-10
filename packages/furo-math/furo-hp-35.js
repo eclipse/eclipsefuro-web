@@ -7,8 +7,6 @@ import {ForthStack} from "@furo/logic/furo-forth-stack.js"
    * http://h10032.www1.hp.com/ctg/Manual/c01579350
    *
    * @customElement
-   * @polymer
-   * @demo demo/hp35.html
    */
   class FuroHp35 extends ForthStack {
     constructor() {

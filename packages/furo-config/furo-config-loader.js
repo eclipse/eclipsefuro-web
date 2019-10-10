@@ -1,9 +1,7 @@
-import {PolymerElement, html} from '@polymer/polymer';
-import {FuroStateMixin} from "./shared-state"
-import "@polymer/iron-ajax/iron-ajax"
+import { LitElement, html, css } from 'lit-element';
 import {FBP} from "@furo/fbp";
-
-
+import "@furo/util/furo-fetch-json"
+import {Config} from "./lib/Config";
 
 /**
  * `furo-config-loader`
@@ -13,92 +11,100 @@ import {FBP} from "@furo/fbp";
  * ```
  *   <furo-config-loader src="/custom/view-config.json" section="views"></furo-config-loader>
  *
- *   <furo-config section="views" config="{{_viewConfig}}"></furo-config>
  * ```
  *
- * @summary Loads a config file
+ * @summary load config files
  * @customElement
- * @polymer
- * @mixes FuroStateMixin
+ * @demo demo-furo-config-loader
+ * @appliesMixin FBP
  */
-class FuroConfigLoader extends FuroStateMixin(FBP(PolymerElement)) {
+class FuroConfigLoader extends  FBP(LitElement) {
 
-  constructor() {
-    super('furo-shared-config');
-  }
+    constructor() {
+        super();
 
-  static get template() {
-    // language=HTML
-    return html`
-      <style>
-        :host {
-          display: none;
-        }
-      </style>
-      <iron-ajax ƒ-generate-request="--componentReady" url="[[src]]" handle-as="json"
-                 on-iron-ajax-response="_stateAppend"></iron-ajax>
-    `;
-  }
-
-  static get properties() {
-    return {
-      /**
-       * src
-       * Quelle der Konfiguration
-       */
-      src: {
-        type: String
-      },
-
-      /**
-       * section
-       * Die Sektion in der die Antwort gesichert wird
-       */
-      section: {
-        type: String,
-      },
-      /**
-       * Antwort von iron-ajax
-       */
-      _axResponse: Object,
-      _appendConf: {type: Object, value: {}}
-    };
-  }
-
-  static get observers() {
-    return [
-      '__loadConfig(src,section)'
-    ]
-  }
-
-  /**
-   * Appends the loaded file to the state section
-   * @param c
-   * @private
-   */
-  _stateAppend(c) {
-    this._setState('_state.' + this.section, c.detail.response);
-    /**
-     * @event config-loaded
-     * Fired when config is loaded and appended
-     * detail payload: config
-     */
-    let customEvent = new Event('config-loaded', {composed: true, bubbles: true});
-    customEvent.detail = c.detail.response;
-    this.dispatchEvent(customEvent)
-  }
-
-  /**
-   * löst den wire --compnentReady aus
-   */
-  __loadConfig(src, section) {
-    if (src !== undefined && section !== undefined) {
-      this._FBPTriggerWire('--componentReady');
+        this.src;
+        this.section;
     }
 
+    /**
+     * @private
+     * @return {Object}
+     */
+    static get properties() {
+        return {
+          /**
+           * src
+           * Quelle der Konfiguration
+           */
+          src: {
+            type: String
+          },
+
+          /**
+           * section
+           * Die Sektion in der die Antwort gesichert wird
+           */
+          section: {
+            type: String,
+          }
+        };
+    }
+
+
+  attributeChangedCallback(name, oldval, newval) {
+    super.attributeChangedCallback(name, oldval, newval);
+
+    if(this.section && this.src){
+      this._FBPTriggerWire("--load", this.src)
+    }
+  }
+
+  /**
+  * flow is ready lifecycle method
+  */
+  _FBPReady(){
+    super._FBPReady();
+    //this._FBPTraceWires()
+    /**
+     * Register hook on wire --response to
+     * parse the response
+     */
+    this._FBPAddWireHook("--response",(e)=>{
+
+       let c = Config.append(this.section, e);
+       /**
+       * @event config-loaded
+       * Fired when
+       * detail payload:
+       */
+       let customEvent = new Event('config-loaded', {composed:true, bubbles: true});
+       customEvent.detail = c._value;
+       this.dispatchEvent(customEvent)
+    });
   }
 
 
+  static get styles() {
+    // language=CSS
+    return css`
+        :host {
+            display: none;
+        }
+    `
+  }
+
+
+  /**
+   * @returns {TemplateResult}
+   * @private
+   */
+  render() {
+    // language=HTML
+    return html`
+      <furo-fetch-json  ƒ-fetch-src="--load" @-data="--response"></furo-fetch-json>
+    `;
+  }
 }
 
-window.customElements.define("furo-config-loader", FuroConfigLoader);
+window.customElements.define('furo-config-loader', FuroConfigLoader);

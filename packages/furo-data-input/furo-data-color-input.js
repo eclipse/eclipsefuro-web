@@ -14,7 +14,6 @@ import {Helper} from "./lib/helper";
  * Tags: input
  * @summary Binds a entityObject field to a furo-color-input field
  * @customElement
- * @polymer
  * @demo demo-furo-data-color-input Data binding
  * @mixes FBP
  * @mixes FuroInputBase
