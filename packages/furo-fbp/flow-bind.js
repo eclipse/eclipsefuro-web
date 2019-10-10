@@ -21,7 +21,6 @@ import "./empty-fbp-node"
  *```
  *
  * @customElement
- * @demo demo/flow-bind.html
  * @mixes FBP
  * @summary Custom element to allow using furo-fbp's template features in a html document.
  */
