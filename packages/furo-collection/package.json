@@ -16,6 +16,7 @@
     "@furo/input": "^0.57.7",
     "@furo/layout": "^0.34.7",
     "@furo/navigation": "^0.33.21",
+    "@furo/notification": "^0.1.1",
     "@furo/route": "^0.20.0",
     "@furo/util": "^0.17.1"
   },
