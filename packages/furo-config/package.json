@@ -5,8 +5,9 @@
   "version": "0.16.35",
   "dependencies": {
     "@furo/fbp": "^4.27.1",
-    "@polymer/iron-ajax": "^3.0.1",
-    "@polymer/polymer": "^3.0.0"
+    "@furo/util": "^0.17.1",
+    "@furo/data": "^0.59.1",
+    "lit-element": "^2.2.1"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",
   "publishConfig": {
