@@ -28,11 +28,12 @@
  *
  *
  * @summary Please read the guide for a better understanding
+ * @polymer
  * @mixinFunction FBP
  */
 export const FBP = (superClass) => {
     /**
-     * @mixinClass
+     * @polymerMixinClass
      */
     return class extends superClass {
         constructor() {

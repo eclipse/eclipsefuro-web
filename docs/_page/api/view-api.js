@@ -2103,28 +2103,28 @@ if(event.bubbles&&!event.cancelBubble&&this.__parentNode){this.__parentNode.disp
      * @returns {*}
      */broadcastEvent(event){// trigger the events on current node
 this.__triggerNodeEvents(event);//children
-if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}return event}__triggerNodeEvents(event){if(this.__eventListener[event.type]&&0<this.__eventListener[event.type].length){this.__eventListener[event.type].map((t,i,listenerArray)=>{t.cb(event);if(t.options.once){delete listenerArray[i]}})}}}_exports.EventTreeNode=EventTreeNode;var EventTreeNode$1={NodeEvent:NodeEvent,EventTreeNode:EventTreeNode};_exports.$EventTreeNode=EventTreeNode$1;class RepeaterNode extends EventTreeNode{constructor(parentNode,spec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._isRepeater=!0;this.repeats=[];this._spec=spec;this._name=fieldName;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._pristine=!0;this._isValid=!0;// handling default values
-let tmp=this._meta.default||[];// if the default value is already an array do nothing otherwise try to parse json
+if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}return event}__triggerNodeEvents(event){if(this.__eventListener[event.type]&&0<this.__eventListener[event.type].length){this.__eventListener[event.type].map((t,i,listenerArray)=>{t.cb(event);if(t.options.once){delete listenerArray[i]}})}}}_exports.EventTreeNode=EventTreeNode;var EventTreeNode$1={NodeEvent:NodeEvent,EventTreeNode:EventTreeNode};_exports.$EventTreeNode=EventTreeNode$1;class RepeaterNode extends EventTreeNode{constructor(parentNode,spec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._isRepeater=!0;this.repeats=[];this._spec=spec;this._name=fieldName;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._pristine=!0;this._isValid=!0;// handling default _values
+let tmp=this._meta.default||[];// if the default _value is already an array do nothing otherwise try to parse json
 if("string"===typeof this._meta.default){try{tmp=JSON.parse(this._meta.default)}catch(error){// reset to empty
-tmp=[]}}this.value=tmp;/**
-                       * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
-                       */this.addEventListener("field-became-valid",e=>{if(0===this.repeats.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("repeat-became-valid",this))}});/**
+tmp=[]}}this._value=tmp;/**
+                        * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
+                        */this.addEventListener("field-became-valid",e=>{if(0===this.repeats.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("repeat-became-valid",this))}});/**
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
          */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("repeat-became-invalid",this))});/**
          * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
-         */this.addEventListener("field-value-changed",e=>{this._pristine=!1});//store __initialValue value for resetting the field
-this.__initialValue=JSON.stringify(this.value)}/**
-     * resets the field to the initial values from the spec
-     */reinit(){this.value=JSON.parse(this.__initialValue)}/**
+         */this.addEventListener("field-value-changed",e=>{this._pristine=!1});//store __initial_value _value for resetting the field
+this.__initialValue=JSON.stringify(this._value)}/**
+     * resets the field to the initial _values from the spec
+     */reinit(){this._value=JSON.parse(this.__initialValue)}/**
      * deletes all repeated fields on this node
      */removeAllChildren(){this.__childNodes=[];this.repeats=[];this.dispatchNodeEvent(new NodeEvent("repeated-fields-all-removed",this.repeats,!1))}/**
      * infinite recursive element protection
      * we can return false here, because a repeater node is not created automatically
      */_hasAncestorOfType(type){return!1}deleteNode(){let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name];//notify
 this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0));// because this is deleted, notifiy from parent
-this.__parentNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.__parentNode,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this.__parentNode,!1))}set value(val){if(Array.isArray(val)){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
+this.__parentNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.__parentNode,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this.__parentNode,!1))}set _value(val){if(Array.isArray(val)){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
 // remove if type any and insert at same index
-if("furo.Property"===this.repeats[i]._spec.type){this.__childNodes.splice(i,1);let fieldNode=new FieldNode(this,this._spec,this._name);fieldNode.__index=i;this.repeats.splice(i,1,fieldNode)}this.repeats[i].value=repdata;this.repeats[i]._pristine=!0});// remove additional nodes in repeats console.log(val.length,this.repeats.length)
+if("furo.Property"===this.repeats[i]._spec.type){this.__childNodes.splice(i,1);let fieldNode=new FieldNode(this,this._spec,this._name);fieldNode.__index=i;this.repeats.splice(i,1,fieldNode)}this.repeats[i]._value=repdata;this.repeats[i]._pristine=!0});// remove additional nodes in repeats console.log(val.length,this.repeats.length)
 if(this.repeats.length>val.length){let l=val.length-1;for(let i=this.repeats.length-1;i>l;i--){this.deleteChild(i)}}this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));//TODO check the tree
 this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}}__updateMetaAndConstraints(metaAndConstraints){for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],targetfield=f[1];if(2===f.length){// typo protection
 if(this.repeats[parseInt(target)][targetfield]){// we are on the parent of a endpoint. Update the metas in this
@@ -2137,14 +2137,14 @@ field._constraints[c]=mc.constraints[c]}/**
              * detail payload:
              */field.dispatchNodeEvent(new NodeEvent("this-metas-changed",field,!1));// exit here, it does not go deeper
 return}}let subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.slice(2).join(".")]=mc;// typo protection
-if(this.repeats[parseInt(target)][targetfield]){this.repeats[parseInt(target)][targetfield].__updateMetaAndConstraints(subMetaAndConstraints)}}}get value(){return this.repeats.map(f=>{return f.value})}/**
+if(this.repeats[parseInt(target)][targetfield]){this.repeats[parseInt(target)][targetfield].__updateMetaAndConstraints(subMetaAndConstraints)}}}get _value(){return this.repeats.map(f=>{return f._value})}/**
      * Deletes a repeated item by index
      * @param index
      */deleteChild(index){this.repeats.splice(index,1);this.__childNodes.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
 fieldNode._deleteFromList=()=>{this.deleteChild(this.repeats.indexOf(fieldNode))};return index}_setInvalid(error){this._isValid=!1;let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
 error.field=path.slice(1).join(".")}this.repeats[path[0]]._setInvalid(error)}add(data){let index=this._addSilent();this._pristine=!1;// set data if given
-if(data){let child=this.repeats[index];child.value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
-return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._name=fieldName;this.__index=fieldName;this._value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
+if(data){let child=this.repeats[index];child._value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
+return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._name=fieldName;this.__index=fieldName;this.__value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
 if(this.__specdefinitions[this._spec.type]!==void 0){// check for recursion
 if(!this.__parentNode._hasAncestorOfType(this._spec.type)){if("google.protobuf.Any"!==this._spec.type){this._createVendorType(this._spec.type)}}else{this._isRecursion=!0}}// set default value from meta
 if(this._meta&&this._meta.default){this.defaultvalue=this._meta.default}/**
@@ -2152,23 +2152,23 @@ if(this._meta&&this._meta.default){this.defaultvalue=this._meta.default}/**
        */this.addEventListener("field-became-valid",e=>{let v=this.__childNodes.filter(f=>!f._isValid);if(0===v.length){this._isValid=!0}});/**
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
          */this.addEventListener("field-became-invalid",e=>{this._isValid=!1});//store __initialValue value for resetting the field
-this.__initialValue=JSON.stringify(this.value)}/**
+this.__initialValue=JSON.stringify(this._value)}/**
      * create a field in a FieldNode, this is useful when using map<string,something>
      *   set the value option to init with values
      * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
      */createField(options){let fieldName=options.fieldName,spec={type:options.type};if(options.spec){spec=options.spec}if(!this[fieldName]){this[fieldName]=new FieldNode(this,spec,fieldName);this.dispatchNodeEvent(new NodeEvent("this-node-field-added",this,!1));this.dispatchNodeEvent(new NodeEvent("node-field-added",this,!0));// set Value if given
-if(options.value){this[fieldName].value=options.value}return!0}else{return!1}}/**
+if(options._value){this[fieldName]._value=options._value}return!0}else{return!1}}/**
      * infinite recursive element protection
      */_hasAncestorOfType(type){if(this._type===type){return!0}else{return this.__parentNode._hasAncestorOfType(type)}}/**
      * resets the field to the initial values from the spec
-     */reinit(){this.value=JSON.parse(this.__initialValue)}_createVendorType(type){if(this.__specdefinitions[type]){for(let fieldName in this.__specdefinitions[type].fields){if(this.__specdefinitions[type].fields[fieldName].meta&&this.__specdefinitions[type].fields[fieldName].meta.repeated){this[fieldName]=new RepeaterNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}else{this[fieldName]=new FieldNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}}}else{console.warn(type+" does not exist")}}set value(val){// create vendor type if this field is a recusion an was not generated
+     */reinit(){this._value=JSON.parse(this.__initialValue)}_createVendorType(type){if(this.__specdefinitions[type]){for(let fieldName in this.__specdefinitions[type].fields){if(this.__specdefinitions[type].fields[fieldName].meta&&this.__specdefinitions[type].fields[fieldName].meta.repeated){this[fieldName]=new RepeaterNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}else{this[fieldName]=new FieldNode(this,this.__specdefinitions[type].fields[fieldName],fieldName)}}}else{console.warn(type+" does not exist")}}set _value(val){// create vendor type if this field is a recusion an was not generated
 if(this._isRecursion&&val){this._createVendorType(this._spec.type)}// type any
 this._createAnyType(val);// map<string, something> typ
 if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{if(0<this.__childNodes.length){let furoMetaDetected=!1;for(let index in this.__childNodes){let field=this.__childNodes[index];if("furo.Meta"===field._spec.type){// we have meta declaration on this layer
-furoMetaDetected=val[field._name]}if(val.hasOwnProperty(field._name)){field.value=val[field._name]}}/**
+furoMetaDetected=val[field._name]}if(val.hasOwnProperty(field._name)){field._value=val[field._name]}}/**
            * if we have meta on this layer, we should update the siblings
            */if(furoMetaDetected){this.__updateMetaAndConstraints(furoMetaDetected)}}else{// update the primitive type
-this.oldvalue=this.value;this._value=val;this._pristine=!1;if(JSON.stringify(this.oldvalue)!==JSON.stringify(this._value)){/**
+this._oldvalue=this._value;this.__value=val;this._pristine=!1;if(JSON.stringify(this._oldvalue)!==JSON.stringify(this.__value)){/**
            * @event (field-value-changed)
            *
            * ✋ Internal Event from EntityNode which you can use in the targeted components!
@@ -2185,7 +2185,7 @@ this.oldvalue=this.value;this._value=val;this._pristine=!1;if(JSON.stringify(thi
                                                                                         *
                                                                                         * detail payload: **{NodeEvent}** with reference to the FieldNode
                                                                                         */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}// check for repeated fields to reset if they are not set with value
-this.__childNodes.forEach(n=>{if(val[n._name]===void 0){n.value=JSON.parse(n.__initialValue)}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
+this.__childNodes.forEach(n=>{if(val[n._name]===void 0){n._value=JSON.parse(n.__initialValue)}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
 // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
 // a field which is targeted we delegate the sub request to  this field
 for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split(".");if(1===f.length){// we are on the parent of a endpoint. Update the metas in this
@@ -2198,20 +2198,20 @@ this[field]._constraints[c]=mc.constraints[c]}/**
            * detail payload:
            */this[field].dispatchNodeEvent(new NodeEvent("this-metas-changed",this[field],!1));// exit here, it does not go deeper
 return}let target=f[0],subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.slice(1).join(".")]=mc;let x=this[target];this[target].__updateMetaAndConstraints(subMetaAndConstraints)}}_createAnyType(val){// remove if type changes
-if(this.__anyCreated&&this["@type"].value!==val["@type"]){console.log(this["@type"].value,val["@type"]);for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("google.protobuf.Any"===this._spec.type&&val&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
+if(this.__anyCreated&&this["@type"]._value!==val["@type"]){console.log(this["@type"]._value,val["@type"]);for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("google.protobuf.Any"===this._spec.type&&val&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
 // any can only be a complex type
 this._createVendorType(val["@type"].replace(/.*\//,""));// create with basename of the type (xxx.xxx.xx/path/base.Type becomes base.Type)
 this.__anyCreated=!0;this.createField({fieldName:"@type",type:"string",value:val["@type"]})}}_updateKeyValueMap(val,spec){let vType=spec.match(/,\s*(.*)>/)[1],fieldSpec={type:vType};// create if not exist
 for(let fieldName in val){if(this[fieldName]==void 0){this[fieldName]=new FieldNode(this,fieldSpec,fieldName)}//update data
-this[fieldName].value=val[fieldName]}//remove unseted
+this[fieldName]._value=val[fieldName]}//remove unseted
 for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val||!val[field._name]){field.deleteNode()}}}/**
      * deletes the fieldnode
      */deleteNode(){// remove from list if this is a repeated item
 if("function"===typeof this._deleteFromList){this._deleteFromList()}else{let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name]}//notify
 this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0))}set defaultvalue(val){// if the default value is already an object, number,array do nothing otherwise try to parse json
 if("string"===typeof val){try{val=JSON.parse(val)}catch(error){}}// type any
-this._createAnyType(val);if(0<this.__childNodes.length&&val){for(let index in this.__childNodes){let field=this.__childNodes[index];field.defaultvalue=val[field._name]}}else{if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{this.oldvalue=this.value;this._value=val;this._pristine=!0}}}get value(){if(0<this.__childNodes.length){this._value={};// nur reine Daten zurück geben
-for(let index in this.__childNodes){let field=this.__childNodes[index];this._value[field._name]=field.value}}return this._value}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
+this._createAnyType(val);if(0<this.__childNodes.length&&val){for(let index in this.__childNodes){let field=this.__childNodes[index];field.defaultvalue=val[field._name]}}else{if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{this._oldvalue=this._value;this.__value=val;this._pristine=!0}}}get _value(){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
+for(let index in this.__childNodes){let field=this.__childNodes[index];this.__value[field._name]=field._value}}return this.__value}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
                             * @event (field-became-valid)
                             *
                             * ✋ Internal Event from EntityNode which you can use in the targeted components!
@@ -2229,7 +2229,7 @@ for(let index in this.__childNodes){let field=this.__childNodes[index];this._val
                                                                                 * detail payload: **{NodeEvent}** with reference to the FieldNode
                                                                                 */this.dispatchNodeEvent(new NodeEvent("this-field-became-valid",this,!1))}}_setInvalid(error){// set field empty, if not defined
 error.field=error.field||"";let path=error.field.split(".");if(0<path.length&&""!==path[0]){// rest wieder in error reinwerfen
-error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(error)}else{console.warn("Unknown field",path,this._name)}}else{this._isValid=!1;this._validity=error;this.dispatchNodeEvent(new NodeEvent("field-became-invalid",this))}}toString(){if(null!==this.value){return this.value}else{return""}}}_exports.FieldNode=FieldNode;var FieldNode$1={FieldNode:FieldNode};_exports.$FieldNode=FieldNode$1;class DataObject extends EventTreeNode{constructor(parentNode,type,specs){super(parentNode);this.__specdefinitions=specs;this._spec=this.__specdefinitions[type];this._type=type;this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0;/**
+error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(error)}else{console.warn("Unknown field",path,this._name)}}else{this._isValid=!1;this._validity=error;this.dispatchNodeEvent(new NodeEvent("field-became-invalid",this))}}toString(){if(null!==this._value){return this._value}else{return""}}}_exports.FieldNode=FieldNode;var FieldNode$1={FieldNode:FieldNode};_exports.$FieldNode=FieldNode$1;class DataObject extends EventTreeNode{constructor(parentNode,type,specs){super(parentNode);this.__specdefinitions=specs;this._spec=this.__specdefinitions[type];this._type=type;this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0;/**
                            * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
                            */this.addEventListener("field-became-valid",e=>{if(0===this.__childNodes.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("entity-became-valid",this))}});/**
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
@@ -2259,13 +2259,13 @@ error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(
      * Returns a json representation of your Data Object
      * @return {*}
      */getJson(){let data={};// nur reine Daten zurück geben
-for(let index in this.__childNodes){let field=this.__childNodes[index];data[field._name]=field.value}return data}_updateFieldValuesAndMetaFromRawEntity(node,data){let furoMetaDetected=!1;for(let fieldName in data){let fieldNode=node[fieldName];if("furo.Meta"===fieldNode._spec.type){furoMetaDetected=data[fieldName]}if(!fieldNode){console.warn("unspecified field",fieldName)}else{if(fieldNode._isRepeater){let initialSize=fieldNode.repeats.length;//fieldNode.removeAllChildren();
+for(let index in this.__childNodes){let field=this.__childNodes[index];data[field._name]=field._value}return data}_updateFieldValuesAndMetaFromRawEntity(node,data){let furoMetaDetected=!1;for(let fieldName in data){let fieldNode=node[fieldName];if("furo.Meta"===fieldNode._spec.type){furoMetaDetected=data[fieldName]}if(!fieldNode){console.warn("unspecified field",fieldName)}else{if(fieldNode._isRepeater){let initialSize=fieldNode.repeats.length;//fieldNode.removeAllChildren();
 // update records
 data[fieldName].forEach((repdata,i)=>{// create if record index do not exist
 if(!fieldNode.repeats[i]){fieldNode._addSilent()}// Werte aktualisieren
-fieldNode.repeats[i].value=repdata;fieldNode.repeats[i]._pristine=!0;fieldNode.repeats[i].__index=i});// entferne überzählige nodes
+fieldNode.repeats[i]._value=repdata;fieldNode.repeats[i]._pristine=!0;fieldNode.repeats[i].__index=i});// entferne überzählige nodes
 let newSize=data[fieldName].length;if(newSize<fieldNode.repeats.length){fieldNode.repeats.splice(newSize)}fieldNode._pristine=!0;fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",fieldNode,!0));fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",fieldNode,!1))}else{if(fieldNode){fieldNode._clearInvalidity();// Werte aktualisieren
-fieldNode.value=data[fieldName];fieldNode._pristine=!0}}}}/* todo: discuss if resetting is needed on this level
+fieldNode._value=data[fieldName];fieldNode._pristine=!0}}}}/* todo: discuss if resetting is needed on this level
       // check for fields to reset
       node.__childNodes.forEach((n)=>{
         if(!data[n._name]){
@@ -2702,7 +2702,7 @@ if(element.field._constraints){if(element.field._constraints.max){element._max=e
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}toggle(){this.field.value=!this.field.value}/**
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}toggle(){this.field._value=!this.field._value}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -2722,7 +2722,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             display: none;
         }
     `}bindData(d){if(d===void 0){return}if("bool"!==d._spec.type){console.warn("wrong type binded",this);return}this.field=d;// render on changed data
-this.field.addEventListener("field-value-changed",e=>{this._updateSymbol()});this._updateSymbol()}_updateSymbol(){this._ocSymbol=this.field.value?this.symboltrue:this.symbolfalse;this.requestUpdate()}/**
+this.field.addEventListener("field-value-changed",e=>{this._updateSymbol()});this._updateSymbol()}_updateSymbol(){this._ocSymbol=this.field._value?this.symboltrue:this.symbolfalse;this.requestUpdate()}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -2750,7 +2750,7 @@ caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Hel
    *
    *  **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this.displayField="display_name";this.valueField="id";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){// by valid input reset meta and constraints
-this.field[this.valueField].value=val}this._notifiySelectedItem(val)})}/**
+this.field[this.valueField]._value=val}this._notifiySelectedItem(val)})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -2818,7 +2818,7 @@ for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.va
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode);// update meta and constraints when they change
 this.field.addEventListener("this-metas-changed",e=>{this._buildListWithMetaOptions(this.field._meta.options)})}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field[this.valueField].value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field[this.valueField]._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -2855,8 +2855,8 @@ return _furoShell.html`
      * Build the dropdown list with given options from meta
      * @param {options} list of options with id and display_name
      */_buildListWithMetaOptions(options){// map
-let arr=options.list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField].value==e[this.valueField],_original:e}});this._dropdownList=arr;if(!this.field[this.valueField].value){this.field[this.valueField].value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField].value)}this._FBPTriggerWire("--selection",arr)}/**
+let arr=options.list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField]._value==e[this.valueField],_original:e}});this._dropdownList=arr;if(!this.field[this.valueField]._value){this.field[this.valueField]._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField]._value)}this._FBPTriggerWire("--selection",arr)}/**
      * Inject the array with the selectable options.
      *
      * The array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)
@@ -2877,19 +2877,19 @@ this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[t
      *
      * @param {Array} Array with entities
      */injectList(list){// map
-let arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.value==e[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field[this.valueField].value){this.field[this.valueField].value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField].value)}this._FBPTriggerWire("--selection",arr)}/**
+let arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this._value==e[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field[this.valueField]._value){this.field[this.valueField]._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField]._value)}this._FBPTriggerWire("--selection",arr)}/**
      * Inject the array with entities for the selectable options.
      *
      * @param {Array} Array with entities
      */injectEntities(entities){// map
-let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this.value==e.data[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field[this.valueField].value){this.field[this.valueField].value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField].value)}this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this._value==e.data[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field[this.valueField]._value){this.field[this.valueField]._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField]._value)}this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox-input
    *
    * All bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.
    *
-   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}})}/**
+   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -2911,7 +2911,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}static get properties(){return{/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -2965,7 +2965,7 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-text-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -3039,7 +3039,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -3140,8 +3140,8 @@ return _furoShell.html`
    *
    * Comes from underlying component furo-date-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
-if(this.field){if("google.type.Date"===this.field._spec.type||this.field["@type"]&&"google.type.Date"===this.field["@type"].value.replace(/.*\//,"")){val=this._convertStringToDateObj(val,this.field.value)}// store tmpval to check against loop
-this.tmpval=val;this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+if(this.field){if("google.type.Date"===this.field._spec.type||this.field["@type"]&&"google.type.Date"===this.field["@type"]._value.replace(/.*\//,"")){val=this._convertStringToDateObj(val,this.field._value)}// store tmpval to check against loop
+this.tmpval=val;this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
      * flow is ready lifecycle method
@@ -3223,8 +3223,8 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode);this.field.addEventListener("branch-value-changed",e=>{this._updateFieldBranch()})}_updateField(){}_updateFieldBranch(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}let dateValue=this.field.value;if(this.tmpval||JSON.stringify(this.field.value)!==JSON.stringify(this.tmpval)){// convert value when date type is google.type.Date
-if("google.type.Date"===this.field._spec.type||this.field["@type"]&&"google.type.Date"===this.field["@type"].value.replace(/.*\//,"")){dateValue=this._convertDateObjToString(dateValue)}this._FBPTriggerWire("--value",dateValue);this.requestUpdate()}}// convert google date object to ISO 8601
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}let dateValue=this.field._value;if(this.tmpval||JSON.stringify(this.field._value)!==JSON.stringify(this.tmpval)){// convert value when date type is google.type.Date
+if("google.type.Date"===this.field._spec.type||this.field["@type"]&&"google.type.Date"===this.field["@type"]._value.replace(/.*\//,"")){dateValue=this._convertDateObjToString(dateValue)}this._FBPTriggerWire("--value",dateValue);this.requestUpdate()}}// convert google date object to ISO 8601
 _convertDateObjToString(obj){let date="";if(obj&&obj.day&&obj.month&&obj.year){let month=obj.month+"",day=obj.day+"",year=obj.year+"";if(2>month.length){month="0"+month}if(2>day.length){day="0"+day}if(4>year.length){for(var l=4-year.length,i=0;i<l;i++){year="0"+year}}date=year+"-"+month+"-"+day}return date}// convert date string ISO 8601 to object for google.type.Dates
 _convertStringToDateObj(str,obj){let arr=str.split("-",3);// only override properties: day, month, year
 if(3===arr.length){obj.day=+arr[2];obj.month=+arr[1];obj.year=+arr[0]}return obj}/**
@@ -3257,11 +3257,11 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-date-input>      
-    `}}customElements.define("furo-data-date-input",FuroDataDateInput);class FuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this.field={}}/**
+    `}}customElements.define("furo-data-date-input",FuroDataDateInput);class FuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this.field={}}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}_updateField(){this.text=this.field.value;if(this.displayfield&&this.field[this.displayfield]){this.text=this.field[this.displayfield]}else{if(this.field.display_name){this.text=this.field.display_name}}if(this.text&&this.text.toString()==void 0){this.text=""}this.requestUpdate()}/**
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}_updateField(){this.text=this.field._value;if(this.displayfield&&this.field[this.displayfield]){this.text=this.field[this.displayfield]}else{if(this.field.display_name){this.text=this.field.display_name}}if(this.text&&this.text.toString()==void 0){this.text=""}this.requestUpdate()}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -3488,7 +3488,7 @@ return _furoShell.html`
    * detail payload: {Number} the number value
    *
    * Comes from underlying component furo-number-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
      * flow is ready lifecycle method
@@ -3570,7 +3570,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -3602,11 +3602,11 @@ return _furoShell.html`
           ƒ-set-value="--value"></furo-number-input>      
     `}}customElements.define("furo-data-number-input",FuroDataNumberInput);class FuroDataMoneyInput extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.valid=!0;this._currencies=[];// init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
 this.value={currency_code:"CHF",units:null,nanos:null}}_FBPReady(){super._FBPReady();// reset hint, label etc..
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.shadowRoot.getElementById("wrapper").addEventListener("value-changed",e=>{e.stopPropagation();if(e.path[0]){if("FURO-SELECT-INPUT"==e.path[0].nodeName){this.field.value=this._convertDataToMoneyObj(e.detail,"",this.field.value)}if("FURO-NUMBER-INPUT"==e.path[0].nodeName){this.field.value=this._convertDataToMoneyObj("",e.detail,this.field.value)}}this.value=this.field.value;this.error=!1;/**
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.shadowRoot.getElementById("wrapper").addEventListener("value-changed",e=>{e.stopPropagation();if(e.path[0]){if("FURO-SELECT-INPUT"==e.path[0].nodeName){this.field._value=this._convertDataToMoneyObj(e.detail,"",this.field._value)}if("FURO-NUMBER-INPUT"==e.path[0].nodeName){this.field._value=this._convertDataToMoneyObj("",e.detail,this.field._value)}}this._value=this.field._value;this.error=!1;/**
                            * @event value-changed
                            * Fired when value has changed from inside the component
                            * detail payload: google money object
-                           */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.field.value;this.dispatchEvent(customEvent)});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+                           */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.field._value;this.dispatchEvent(customEvent)});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}// convert data to google.type.Money format
 _convertDataToMoneyObj(currency,amount,obj){if(null==obj){obj={}}if(currency){obj.currency_code=currency}if(amount){let arr=amount.split(".");obj.units=+arr[0];if(arr[1]){obj.nanos=1e8*+("0."+arr[1])}else{obj.nanos=0}}return obj}/**
@@ -3614,7 +3614,7 @@ _convertDataToMoneyObj(currency,amount,obj){if(null==obj){obj={}}if(currency){ob
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.units&&null!==this.field.units.value&&null!==this.field.nanos.value){let amout=+(this.field.units.value+"."+this.field.nanos.value);this._FBPTriggerWire("--valueAmount",amout)}if(this.field.currency_code&&this.field.currency_code.value){this._FBPTriggerWire("--valueCurrency",this.field.currency_code.value)}this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.units&&null!==this.field.units._value&&null!==this.field.nanos._value){let amout=+(this.field.units._value+"."+this.field.nanos._value);this._FBPTriggerWire("--valueAmount",amout)}if(this.field.currency_code&&this.field.currency_code._value){this._FBPTriggerWire("--valueCurrency",this.field.currency_code._value)}this.requestUpdate()}/**
      * Updater for the min => minlength attr*
      * @param value
      */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
@@ -3702,8 +3702,8 @@ select.removeAttribute("label")}}static get properties(){return{/**
      * Makes the field writable.
      */enable(){this._readonly=!1;this.requestUpdate()}set _options(options){// the attribute currencies has priority than the options in meta
 if(0<this._currencies.length){this.updateSelectOptions(this._currencies)}else{let collection;if(options.list){collection=options.list}else{collection=options}this.updateSelectOptions(collection)}}set currencies(c){let arr=c.split(",").map(function(item){return item.trim()});this._currencies=arr;this.updateSelectOptions(arr)}updateSelectOptions(collection){// convert array list to id, label structure
-if("string"===typeof collection[0]){collection=collection.map(item=>{return{id:item,label:item}})}let arr=collection.map(e=>{let selected=!1;if(e.selected){this.value.currency_code=e.id.toString();this.field.currency_code.value=this.value.currency_code;selected=!0}else{if(this.value.currency_code===e.id.toString()){// init the currency code in field
-this.field.currency_code.value=this.value.currency_code;selected=!0}}return{id:e.id,label:e.label,selected:selected}});this._FBPTriggerWire("--selection",arr)}/**
+if("string"===typeof collection[0]){collection=collection.map(item=>{return{id:item,label:item}})}let arr=collection.map(e=>{let selected=!1;if(e.selected){this.value.currency_code=e.id.toString();this.field.currency_code._value=this.value.currency_code;selected=!0}else{if(this.value.currency_code===e.id.toString()){// init the currency code in field
+this.field.currency_code._value=this.value.currency_code;selected=!0}}return{id:e.id,label:e.label,selected:selected}});this._FBPTriggerWire("--selection",arr)}/**
      *
      * @private
      * @return {CSSResult}
@@ -3756,7 +3756,7 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-password-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
      * flow is ready lifecycle method
@@ -3839,7 +3839,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -3869,24 +3869,24 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-password-input>      
-    `}}customElements.define("furo-data-password-input",FuroDataPasswordInput);class FuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-date-input","furo.StringProperty":"furo-data-text-input","furo.IntegerProperty":"furo-data-number-input","furo.NumberProperty":"furo-data-number-input","furo.StringOptionProperty":"furo-data-collection-dropdown"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
+    `}}customElements.define("furo-data-password-input",FuroDataPasswordInput);class FuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-date-input","google.protobuf.StringValue":"furo-data-text-input","google.protobuf.FloatValue":"furo-data-number-input","google.protobuf.Int32Value":"furo-data-number-input","google.protobuf.UInt32Value":"furo-data-number-input","furo.StringProperty":"furo-data-text-input","furo.IntegerProperty":"furo-data-number-input","furo.NumberProperty":"furo-data-number-input","furo.StringOptionProperty":"furo-data-collection-dropdown"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
 // repeated
-let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id.value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property \u0192-bind-data=\"--init\" "+attrs+"></furo-data-property></template>";let repeater=this.parentNode.insertBefore(r,this);this._createdRepeater=repeater;this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)});// inject if data is already here
+let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id._value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property \u0192-bind-data=\"--init\" "+attrs+"></furo-data-property></template>";let repeater=this.parentNode.insertBefore(r,this);this._createdRepeater=repeater;this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)});// inject if data is already here
 if(0<this.field.repeats.length){repeater.injectItems(this.field.repeats)}}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
-if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"].value.replace(/.*\//,"")]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
-for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"].value.replace(/.*\//,"")){// the input elements for string and number are just working with scalar values
-case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this._createdProp=this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"].value,"not in map",this)}}}disconnectedCallback(){if(this._createdProp){this._createdProp.remove()}if(this._createdRepeater){this._createdRepeater.remove()}}static get styles(){// language=CSS
+if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"]._value.replace(/.*\//,"")]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
+for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"]._value.replace(/.*\//,"")){// the input elements for string and number are just working with scalar values
+case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;case"google.protobuf.FloatValue":case"google.protobuf.Int32Value":case"google.protobuf.UInt32Value":case"google.protobuf.StringValue":e.bindData(propertyField.data.value);break;default:e.bindData(propertyField.data);}this._createdProp=this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"]._value,"not in map",this)}}}disconnectedCallback(){if(this._createdProp){this._createdProp.remove()}if(this._createdRepeater){this._createdRepeater.remove()}}static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: none;
         }
     `}}window.customElements.define("furo-data-property",FuroDataProperty);class FuroDataPropertyDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-display","furo.StringProperty":"furo-data-display","furo.IntegerProperty":"furo-data-display","furo.NumberProperty":"furo-data-display","furo.StringOptionProperty":"furo-data-display"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
 // repeated
-let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id.value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property-display \u0192-bind-data=\"--init\" "+attrs+"></furo-data-property-display></template>";let repeater=this.parentNode.insertBefore(r,this);this._createdRepeater=repeater;this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)});// inject if data is already here
+let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id._value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property-display \u0192-bind-data=\"--init\" "+attrs+"></furo-data-property-display></template>";let repeater=this.parentNode.insertBefore(r,this);this._createdRepeater=repeater;this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)});// inject if data is already here
 if(0<this.field.repeats.length){repeater.injectItems(this.field.repeats)}}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
-if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"].value.replace(/.*\//,"")]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
-for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"].value.replace(/.*\//,"")){// the input elements for string and number are just working with scalar values
-case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this._created=this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"].value,"not in map",this)}}}disconnectedCallback(){if(this._createdProp){this._createdProp.remove()}if(this._createdRepeater){this._createdRepeater.remove()}}static get styles(){// language=CSS
+if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"]._value.replace(/.*\//,"")]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
+for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"]._value.replace(/.*\//,"")){// the input elements for string and number are just working with scalar values
+case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this._created=this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"]._value,"not in map",this)}}}disconnectedCallback(){if(this._createdProp){this._createdProp.remove()}if(this._createdRepeater){this._createdRepeater.remove()}}static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: none;
@@ -3896,7 +3896,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
    *
    * All bubbling events from [furo-radio-button-input](../../input/doc/furo-radio-button-input) will be fired, because furo-data-radio-button-input uses furo-radio-button-input internally.
    *
-   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}})}/**
+   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -3918,7 +3918,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}static get properties(){return{/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3972,7 +3972,7 @@ return _furoShell.html`
    * detail payload: {Range} the range value
    *
    * Comes from underlying component furo-range-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
      * flow is ready lifecycle method
@@ -4050,7 +4050,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -4131,7 +4131,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this._searchTerm=e.detail;i
          * @event search
          * Fired when term is entered and bigger then min-term-length
          * detail payload: {String} term
-         */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}});this._FBPAddWireHook("--itemSelected",item=>{this.field.id.value=item.data[this.idField];this.field.display_name.value=item.data.display_name;this._closeList()});/**
+         */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}});this._FBPAddWireHook("--itemSelected",item=>{this.field.id._value=item.data[this.idField];this.field.display_name._value=item.data.display_name;this._closeList()});/**
          * listen to keyboard events
          */this.addEventListener("keydown",event=>{let key=event.key||event.keyCode;if("Escape"===key||"Esc"===key||27===key){this._updateField();if(this._listIsOpen){// close list if open and  then clear search
 event.preventDefault()}this._closeList();if(""===this._searchTerm){event.preventDefault();// re set display_name
@@ -4189,7 +4189,7 @@ this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection)
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode);this._init()}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.display_name.value){this._FBPTriggerWire("--value",this.field.display_name.value)}this.requestUpdate()}collectionIn(collection){this._FBPTriggerWire("--listItemsIjnected",collection.entities);this._hasCollection=!0;if(this._focused){this._showList()}}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.display_name._value){this._FBPTriggerWire("--value",this.field.display_name._value)}this.requestUpdate()}collectionIn(collection){this._FBPTriggerWire("--listItemsIjnected",collection.entities);this._hasCollection=!0;if(this._focused){this._showList()}}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
@@ -4332,7 +4332,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-search-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this.hint="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this.hint="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
      * flow is ready lifecycle method
@@ -4411,7 +4411,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -4448,7 +4448,7 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-text-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
      * flow is ready lifecycle method
@@ -4535,7 +4535,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -4572,7 +4572,7 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-textarea-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
      * flow is ready lifecycle method
@@ -4645,7 +4645,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -4681,7 +4681,7 @@ return _furoShell.html`
    * detail payload: {String} the time value
    *
    * Comes from underlying component furo-time-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field.value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
      * flow is ready lifecycle method
@@ -4759,7 +4759,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field.value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -5495,7 +5495,7 @@ return _furoShell.html`
             </furo-data-object>
             <furo-collection-agent
                     service="PersonService"
-                    ƒ-hts-in="--entityReady(*.owner.link.value)"
+                    ƒ-hts-in="--entityReady(*.owner.link._value)"
                     ƒ-search="--term"
                     @-response="--refCol">
             </furo-collection-agent>
@@ -5903,7 +5903,7 @@ return _furoShell.html`
             
           <furo-collection-agent service="PersonService"
                                  list-on-hts-in
-                                 ƒ-hts-in="--entity(*.owner.link.value)"
+                                 ƒ-hts-in="--entity(*.owner.link._value)"
                                  @-response="--response">
           </furo-collection-agent>
         </template>
@@ -7791,7 +7791,6 @@ return _furoShell.html`
               font-weight:400;
               background-color: var(--snackbar-background-color, var(--on-primary, #212121));
               opacity:0;
-              margin: auto;   
               display: flex;           
               -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
               box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
@@ -7841,12 +7840,17 @@ return _furoShell.html`
               margin: auto;
             }
             
-            #snackbar[right] {
-              float: right;
+            .wrapper[right] {
+              justify-content:flex-end;
             }
             
-            #snackbar[left]  {
-              float: left;
+            .wrapper[left]  {
+              justify-content:flex-start;
+            }
+            .wrapper {
+              width: 100%;
+              display: flex;
+              justify-content:center;
             }
         `}/**
      *@private
@@ -7874,16 +7878,16 @@ return _furoShell.html`
      * @private
      * @returns {TemplateResult}
      */render(){return _furoShell.html`
-      <div id="snackbar" class="hide" 
-          ?stacked="${this.displayObj.stacked}"
-          ?left="${this.displayObj.positionLeft}" 
-          ?right="${this.displayObj.positionRight}" style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}" >
-          <div class="label"><span>${this.displayObj.labelText}</span></div>
-          <div class="button">
-            <furo-button label="${this.displayObj.actionButtonText}" @-click="--actionClicked"></furo-button>
-            <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
-          </div>
-
+       <div class="wrapper"  ?left="${this.displayObj.positionLeft}"  ?right="${this.displayObj.positionRight}">
+        <div id="snackbar" class="hide" 
+             ?stacked="${this.displayObj.stacked}"
+             style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}" >
+            <div class="label"><span>${this.displayObj.labelText}</span></div>
+            <div class="button">
+              <furo-button label="${this.displayObj.actionButtonText}" @-click="--actionClicked"></furo-button>
+              <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
+            </div>
+        </div>
       </div>
         `}}customElements.define("furo-snackbar-display",FuroSnackbarDisplay);class FuroSnackbar extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.labelText="label text";this.actionButtonText="Undo";this.isOpen=!1}/**
      * flow is ready lifecycle method
@@ -7953,10 +7957,14 @@ return _furoShell.html`
        * Fired when
        * detail payload:
        */let customEvent=new Event("snackbar-label-"+this.id,{composed:!0,bubbles:!0});customEvent.detail=this.snackbarLabel;this.dispatchEvent(customEvent);/**
-                                        * @event rset-snackbar-label
+                                        * @event response-error
                                         * Fired when
                                         * detail payload:
-                                        */customEvent=new Event("snackbar-button-text-"+this.id,{composed:!0,bubbles:!0});customEvent.detail=this.snackbarButtonText;this.dispatchEvent(customEvent);customEvent=new Event("show-"+this.id,{composed:!0,bubbles:!0});customEvent.detail=this.snackbarButtonText;this.dispatchEvent(customEvent);console.log(this.snackbarLabel)})}/**
+                                        */let customEventError=new Event("response-error",{composed:!0,bubbles:!0});customEventError.detail={error:"invalid username",message:"invalid username",code:3,details:[{"@type":"type.googleapis.com/google.rpc.BadRequest",field_violations:[{code:5432,field:"display_name",description:" have fancy characters"},{code:5432,field:"repdate.0.repstring.1",description:"Bitte kein B"},{code:5432,field:"zeitunddatum.date",description:"Deeeep"},{code:5432,field:"unknown_field",description:"unknown"}]}]};this.dispatchEvent(customEventError);/**
+                                             * @event rset-snackbar-label
+                                             * Fired when
+                                             * detail payload:
+                                             */customEvent=new Event("snackbar-button-text-"+this.id,{composed:!0,bubbles:!0});customEvent.detail=this.snackbarButtonText;this.dispatchEvent(customEvent);customEvent=new Event("show-"+this.id,{composed:!0,bubbles:!0});customEvent.detail=this.snackbarButtonText;this.dispatchEvent(customEvent)})}/**
      *@private
      */static get properties(){return{label:{type:String},snackbarLabel:{type:String,attribute:"snackbar-label"},snackbarButtonText:{type:String,attribute:"snackbar-button-text"},id:{type:String}}}render(){// language=HTML
 return _furoShell.html`
@@ -8014,7 +8022,44 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         <furo-snackbar-display></furo-snackbar-display>
                 </template>
       </furo-demo-snippet>
-        `}}customElements.define("demo-furo-snackbar-display",DemoFuroSnackbarDisplay);class FuroCaptureAudio extends _furoShell.LitElement{constructor(){super();this.constraints={audio:!0,video:!1}}stop(){this.tracks[0].stop()}start(){if(navigator.mediaDevices){navigator.mediaDevices.getUserMedia(this.constraints).then(stream=>{/**
+        `}}customElements.define("demo-furo-snackbar-display",DemoFuroSnackbarDisplay);class DemoFuroSnackbarDisplayError extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     *@private
+     */static get properties(){return{}}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return _furoShell.html`
+      <h2>Demo furo-checkbox</h2>
+      
+      <furo-demo-snippet >
+        <template>
+        <produce-snackbar-data id="snackbar1" label="produce error" snackbar-label="this is a text label"
+         @-snackbar-label-snackbar1="--setLabelTex1" 
+         @-response-error = "--error"
+         @-show-snackbar1="--show" 
+         ></produce-snackbar-data>
+
+        <div>        
+            <furo-snackbar timeout-in-ms=5000 icon="done"   ƒ-show="--show" action-button-text="undo" ƒ-parse-grpc-status="--error"></furo-snackbar>
+        </div>
+        <furo-snackbar-display></furo-snackbar-display>
+                </template>
+      </furo-demo-snippet>
+        `}}customElements.define("demo-furo-snackbar-display-error",DemoFuroSnackbarDisplayError);class FuroCaptureAudio extends _furoShell.LitElement{constructor(){super();this.constraints={audio:!0,video:!1}}stop(){this.tracks[0].stop()}start(){if(navigator.mediaDevices){navigator.mediaDevices.getUserMedia(this.constraints).then(stream=>{/**
          *
          * @type {MediaStream}
          */this.stream=stream;this.tracks=stream.getTracks();/**

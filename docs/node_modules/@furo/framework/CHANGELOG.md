@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.3](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.11.2...@furo/framework@0.11.3) (2019-10-06)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
 ## [0.11.2](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.11.1...@furo/framework@0.11.2) (2019-09-11)
 
 **Note:** Version bump only for package @furo/framework

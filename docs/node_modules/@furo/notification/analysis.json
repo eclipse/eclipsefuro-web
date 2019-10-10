@@ -744,11 +744,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 174,
               "column": 6
             },
             "end": {
-              "line": 171,
+              "line": 176,
               "column": 7
             }
           },
@@ -765,11 +765,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 173,
+              "line": 178,
               "column": 6
             },
             "end": {
-              "line": 175,
+              "line": 180,
               "column": 7
             }
           },
@@ -786,11 +786,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 180,
+              "line": 185,
               "column": 6
             },
             "end": {
-              "line": 182,
+              "line": 187,
               "column": 7
             }
           },
@@ -807,11 +807,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 184,
+              "line": 189,
               "column": 6
             },
             "end": {
-              "line": 186,
+              "line": 191,
               "column": 7
             }
           },
@@ -829,11 +829,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 38,
+              "line": 39,
               "column": 2
             },
             "end": {
-              "line": 83,
+              "line": 84,
               "column": 3
             }
           },
@@ -849,11 +849,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 200,
               "column": 2
             },
             "end": {
-              "line": 203,
+              "line": 208,
               "column": 3
             }
           },
@@ -873,11 +873,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 215,
               "column": 2
             },
             "end": {
-              "line": 225,
+              "line": 230,
               "column": 3
             }
           },
@@ -897,11 +897,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 236,
               "column": 2
             },
             "end": {
-              "line": 270,
+              "line": 275,
               "column": 3
             }
           },
@@ -917,11 +917,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 275,
+              "line": 280,
               "column": 2
             },
             "end": {
-              "line": 298,
+              "line": 303,
               "column": 3
             }
           },
@@ -937,11 +937,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 305,
+              "line": 310,
               "column": 2
             },
             "end": {
-              "line": 317,
+              "line": 322,
               "column": 3
             }
           },
@@ -961,11 +961,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 324,
+              "line": 329,
               "column": 2
             },
             "end": {
-              "line": 338,
+              "line": 343,
               "column": 3
             }
           },
@@ -981,16 +981,20 @@
         {
           "url": "demo-furo-snackbar-display",
           "description": "snackbar demo"
+        },
+        {
+          "url": "demo-furo-snackbar-display-error",
+          "description": "snackbar display error demo"
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 24,
+          "line": 25,
           "column": 0
         },
         "end": {
-          "line": 340,
+          "line": 345,
           "column": 1
         }
       },
@@ -1003,11 +1007,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 174,
               "column": 6
             },
             "end": {
-              "line": 171,
+              "line": 176,
               "column": 7
             }
           },
