@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.35...@furo/config@0.17.0) (2019-10-10)
+
+
+### Features
+
+* furo-config without polymer ([5d4dd2f](https://github.com/veith/FuroBaseComponents/commit/5d4dd2f))
+
+
+
+
+
 ## [0.16.35](https://github.com/veith/FuroBaseComponents/compare/@furo/config@0.16.34...@furo/config@0.16.35) (2019-10-06)
 
 **Note:** Version bump only for package @furo/config

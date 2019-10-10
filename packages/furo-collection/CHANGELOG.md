@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.21.34...@furo/collection@0.22.0) (2019-10-10)
+
+
+### Features
+
+* furo-notification added to collection ([769f3d7](https://github.com/veith/FuroBaseComponents/commit/769f3d7))
+
+
+
+
+
 ## [0.21.34](https://github.com/veith/FuroBaseComponents/compare/@furo/collection@0.21.33...@furo/collection@0.21.34) (2019-10-06)
 
 **Note:** Version bump only for package @furo/collection
