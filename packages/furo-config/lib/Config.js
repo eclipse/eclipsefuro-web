@@ -46,16 +46,23 @@ export class Config {
     if (!parent[section]) {
       parent[section] = new ConfigTree(parent, section);
     }
-    for (let k in obj) {
-      if (obj[k].constructor === Object && obj.hasOwnProperty(k)) {
-        this.deepCreate(parent[section], k, obj[k]);
-      } else {
-        if (!parent[section][k]) {
-          parent[section][k] = new ConfigTree(parent[section], k);
+    // append array only configs directly as value
+    if(Array.isArray(obj)){
+      parent[section]._value = obj;
+    }else{
+      for (let k in obj) {
+        if (obj[k].constructor === Object && obj.hasOwnProperty(k)) {
+          this.deepCreate(parent[section], k, obj[k]);
+        } else {
+          if (!parent[section][k]) {
+            parent[section][k] = new ConfigTree(parent[section], k);
+          }
+          // assign the value
+          parent[section][k]._value = obj[k];
         }
-        parent[section][k]._value = obj[k];
       }
     }
+
   }
 
   static watch(section, cb) {

@@ -56,7 +56,6 @@ class FuroConfigLoader extends  FBP(LitElement) {
     super.attributeChangedCallback(name, oldval, newval);
 
     if(this.section && this.src){
-      console.log(this.section)
       this._FBPTriggerWire("--load", this.src)
     }
   }
@@ -72,13 +71,15 @@ class FuroConfigLoader extends  FBP(LitElement) {
      * parse the response
      */
     this._FBPAddWireHook("--response",(e)=>{
+
+       let c = Config.append(this.section, e);
        /**
        * @event config-loaded
        * Fired when
        * detail payload:
        */
        let customEvent = new Event('config-loaded', {composed:true, bubbles: true});
-       customEvent.detail = Config.append(this.section, e);
+       customEvent.detail = c._value;
        this.dispatchEvent(customEvent)
     });
   }

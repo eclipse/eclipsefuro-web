@@ -1,5 +1,15 @@
 {
   "a": 2,
   "license": "MIT",
-  "deep": {"deep": "val"}
+  "deep": {
+    "deep": "val",
+    "trueval": true,
+    "falseval": false,
+    "deeparray": [{"x": 2},{"x": 3}]
+  },
+  "array": [
+    "a",
+    "b",
+    "c"
+  ]
 }

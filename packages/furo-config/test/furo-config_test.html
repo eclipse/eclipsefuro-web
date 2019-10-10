@@ -66,20 +66,19 @@
     });
 
     it('should handle single furo-config', (done) => {
-
       config.setAttribute("section", "package");
-
       config.addEventListener("config-updated", (d) => {
 
         assert(d.detail.license, "MIT");
         done()
       }, {once: true});
 
-
       configLoader.setAttribute("src", "/package.json");
       configLoader.setAttribute("section", "package");
 
     });
+
+
     it('should handle mutliple furo-config', (done) => {
 
       config.setAttribute("section", "package");
@@ -120,6 +119,44 @@
 
       config.addEventListener("config-updated", (d) => {
         assert.equal(d.detail, "MIT");
+
+        done();
+      }, {once: true});
+      configLoader.setAttribute("src", "./test.json");
+      configLoader.setAttribute("section", "package");
+    });
+
+    it('should handle arrays', (done) => {
+      config.setAttribute("section", "package");
+
+      config.addEventListener("config-updated", (d) => {
+        assert.equal(d.detail.array[1], "b");
+
+        done();
+      }, {once: true});
+      configLoader.setAttribute("src", "./test.json");
+      configLoader.setAttribute("section", "package");
+    });
+
+
+    it('should handle arrays on top level of the configs (like flowConfig)', (done) => {
+      config.setAttribute("section", "arr");
+
+      config.addEventListener("config-updated", (d) => {
+        assert.equal(d.detail[1].x, 3);
+        done();
+      }, {once: true});
+      configLoader.setAttribute("src", "./array.json");
+      configLoader.setAttribute("section", "arr");
+    });
+
+    it('should handle boolean', (done) => {
+      config.setAttribute("section", "package");
+
+      config.addEventListener("config-updated", (d) => {
+        assert.equal(d.detail.deep.trueval, true);
+        assert.equal(d.detail.deep.falseval, false);
+        assert.equal(d.detail.deep.deeparray[0].x, 2);
 
         done();
       }, {once: true});

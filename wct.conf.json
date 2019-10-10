@@ -16,7 +16,8 @@
         "packages/furo-route/test/*_test.html",
         "packages/furo-data-ui/test/*_test.html",
         "packages/furo-navigation/test/*_test.html",
-        "packages/furo-notification/test/*_test.html"
+        "packages/furo-notification/test/*_test.html",
+        "packages/furo-config/test/*_test.html"
     ],
     "npm": true,
     "moduleResolution": "node",
@@ -33,7 +34,9 @@
             "include": [
                 "packages/furo-fbp/*.js",
                 "packages/furo-config/*.js",
+                "packages/furo-config/lib/*.js",
                 "packages/furo-data/*.js",
+                "packages/furo-config/*.js",
                 "packages/furo-data/lib/*.js",
                 "packages/furo-data-input/lib/*.js",
                 "packages/furo-data-input/*.js",
