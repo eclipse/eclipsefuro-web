@@ -2750,7 +2750,7 @@ caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Hel
    *
    *  **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this.displayField="display_name";this.valueField="id";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){// by valid input reset meta and constraints
-this.field[this.valueField]._value=val}this._notifiySelectedItem(val)})}/**
+this.field._value=val}this._notifiySelectedItem(val)})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -2778,7 +2778,9 @@ for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.va
      */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
      * Updater for the list attr
      * @param value
-     */set list(value){Helper.UpdateInputAttribute(this,"list",value)}static get properties(){return{/**
+     */set list(value){// map
+let arr=value.split(",").map(e=>{let item=e.trim();return{id:item,label:e,selected:this._value==item,_original:item}});this._dropdownList=arr;if(this.field&&!this.field._value){this.field._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field._value)}this._FBPTriggerWire("--selection",arr)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -2818,7 +2820,7 @@ for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.va
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode);// update meta and constraints when they change
 this.field.addEventListener("this-metas-changed",e=>{this._buildListWithMetaOptions(this.field._meta.options)})}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field[this.valueField]._value);this.requestUpdate()}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -2855,8 +2857,8 @@ return _furoShell.html`
      * Build the dropdown list with given options from meta
      * @param {options} list of options with id and display_name
      */_buildListWithMetaOptions(options){// map
-let arr=options.list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField]._value==e[this.valueField],_original:e}});this._dropdownList=arr;if(!this.field[this.valueField]._value){this.field[this.valueField]._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField]._value)}this._FBPTriggerWire("--selection",arr)}/**
+let arr=options.list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field._value==e[this.valueField],_original:e}});this._dropdownList=arr;if(!this.field._value){this.field._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field._value)}this._FBPTriggerWire("--selection",arr)}/**
      * Inject the array with the selectable options.
      *
      * The array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)
@@ -2877,14 +2879,14 @@ this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[t
      *
      * @param {Array} Array with entities
      */injectList(list){// map
-let arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this._value==e[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field[this.valueField]._value){this.field[this.valueField]._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField]._value)}this._FBPTriggerWire("--selection",arr)}/**
+let arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this._value==e[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field._value){this.field._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field._value)}this._FBPTriggerWire("--selection",arr)}/**
      * Inject the array with entities for the selectable options.
      *
      * @param {Array} Array with entities
      */injectEntities(entities){// map
-let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this._value==e.data[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field[this.valueField]._value){this.field[this.valueField]._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField]._value)}this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this._value==e.data[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field._value){this.field._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field._value)}this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox-input
    *
    * All bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.
@@ -7016,7 +7018,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      */render(){// language=HTML
 return _furoShell.html`
 <furo-horizontal-flex>
-   <div flex class="label"> <furo-icon ?hidden="${this.noicon}" icon="${this.field.icon}" ?error="${this.field.has_error.value}"></furo-icon> ${this.field.display_name} </div>
+   <div flex class="label"> <furo-icon ?hidden="${this.noicon}" icon="${this.field.icon}" ?error="${this.field.has_error._value}"></furo-icon> ${this.field.display_name} </div>
    
    <furo-ripple></furo-ripple>
 </furo-horizontal-flex>
@@ -7082,7 +7084,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-            <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id.value"><furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item></template>
+            <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id._value"><furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item></template>
 
         `}}window.customElements.define("furo-panel-coordinator-tabs",FuroPanelCoordinatorTabs);class FuroTreeItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.hidden=!0;this.isGroupLabel=!1}search(event){if(!this.hidden){let term=event.term.toLowerCase();// do not search empty searchTerm
 if(0===term.length){return}let searchTokens=term.split(" "),hasResults=!0;searchTokens.forEach(t=>{if(0<t.length){if(1===t.length){// single letter search first letter of word
@@ -7097,17 +7099,17 @@ _updateItem(){this.requestUpdate();// build index later (50ms), a human user can
 setTimeout(()=>{let tmpArr=[];this.fieldNode.__childNodes.filter(field=>{// maybe change to fields-to-index list
 if("string"===typeof field._value){return!0}}).map(field=>{tmpArr=tmpArr.concat(field._value.toLowerCase().split(/\W+/))});let s=new Set(tmpArr);// tokenize
 tmpArr=[];s.forEach(word=>{//first letter
-tmpArr.push(word.substr(0,1)+".*$");let l;for(let tokenLength=2;tokenLength<word.length;tokenLength++){l=word.length-tokenLength+1;for(let i=0;i<l;i++){tmpArr.push(word.substr(i,tokenLength))}}});this._searchTokens=new Set(Array.from(s).concat(tmpArr))},50)}bindData(fieldNode){this.fieldNode=fieldNode;this.fieldNode._isHidden=!0;if(fieldNode.is_group_label){this.isGroupLabel=fieldNode.is_group_label.value}if(!fieldNode.icon.value){this.noicon=!0}// reflect visible close state to attr
+tmpArr.push(word.substr(0,1)+".*$");let l;for(let tokenLength=2;tokenLength<word.length;tokenLength++){l=word.length-tokenLength+1;for(let i=0;i<l;i++){tmpArr.push(word.substr(i,tokenLength))}}});this._searchTokens=new Set(Array.from(s).concat(tmpArr))},50)}bindData(fieldNode){this.fieldNode=fieldNode;this.fieldNode._isHidden=!0;if(fieldNode.is_group_label){this.isGroupLabel=fieldNode.is_group_label._value}if(!fieldNode.icon._value){this.noicon=!0}// reflect visible close state to attr
 this.fieldNode.addEventListener("ancestor-invisible",e=>{this.hidden=!0;this.fieldNode._isHidden=!0});// reflect visible close state to attr
-this.fieldNode.addEventListener("ancestor-visible",e=>{if(this.fieldNode.__parentNode.__parentNode.open.value){this.hidden=!1;this.fieldNode._isHidden=!1}});// for elements that are already ready
+this.fieldNode.addEventListener("ancestor-visible",e=>{if(this.fieldNode.__parentNode.__parentNode.open._value){this.hidden=!1;this.fieldNode._isHidden=!1}});// for elements that are already ready
 this._updateItem();this.fieldNode.addEventListener("branch-value-changed",e=>{// for elements that are updated later
 if(e.detail.__parentNode===this.fieldNode){this._updateItem()}});this.fieldNode.addEventListener("modified",n=>{this.inedit=!0});this.fieldNode.addEventListener("has-error",n=>{this.haserror=!0});// listen to open close state
-this.fieldNode.open.addEventListener("field-value-changed",e=>{e.cancelBubble=!0;if(!1===e.detail.value){e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-invisible",e.detail.__parentNode))}else{e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-visible",e.detail.__parentNode))}});// make first node visible
+this.fieldNode.open.addEventListener("field-value-changed",e=>{e.cancelBubble=!0;if(!1===e.detail._value){e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-invisible",e.detail.__parentNode))}else{e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-visible",e.detail.__parentNode))}});// make first node visible
 if(0===this.fieldNode.depth){this.hidden=!1;this.fieldNode._isHidden=!1}this._FBPTriggerWire("--fieldOpen",this.fieldNode.open)}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
 this._FBPAddWireHook("--labelClicked",e=>{if(this.isGroupLabel){// just toggle if this is a label
-this.fieldNode.open.value=!this.fieldNode.open.value}else{this.fieldNode.selectItem()}});this.fieldNode.addEventListener("tree-node-unselection-requested",e=>{this.selected=!1;this.fieldNode._isSelected=!1});this.fieldNode.addEventListener("tree-node-blur-requested",e=>{this.hovered=!1});this.fieldNode.addEventListener("this-node-hovered",e=>{this.hovered=!0;//this.scrollIntoViewIfNeeded();
+this.fieldNode.open._value=!this.fieldNode.open._value}else{this.fieldNode.selectItem()}});this.fieldNode.addEventListener("tree-node-unselection-requested",e=>{this.selected=!1;this.fieldNode._isSelected=!1});this.fieldNode.addEventListener("tree-node-blur-requested",e=>{this.hovered=!1});this.fieldNode.addEventListener("this-node-hovered",e=>{this.hovered=!0;//this.scrollIntoViewIfNeeded();
 });this.fieldNode.addEventListener("this-node-selected",e=>{this.selected=!0;this.fieldNode._isSelected=!0;//this.scrollIntoViewIfNeeded();
 });// This item is not or no more in the search results
 this.fieldNode.addEventListener("search-didnt-match",e=>{this.searchmatch=!1});// This item is  in the search results
@@ -7235,7 +7237,7 @@ return _furoShell.html`
       <div style="width: ${8*this.fieldNode.depth}px"></div>
       <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>      
             
-      <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error.value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
+      <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error._value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
 </furo-horizontal-flex>
 
     `}}_exports.FuroTreeItem=FuroTreeItem;window.customElements.define("furo-tree-item",FuroTreeItem);var furoTreeItem={FuroTreeItem:FuroTreeItem};_exports.$furoTreeItem=furoTreeItem;class FuroTree extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();/**
@@ -7252,8 +7254,8 @@ this.addEventListener("keydown",event=>{let key=event.key||event.keyCode;switch(
 if(this._hoveredField._isSelected){// openclose
 this._hoveredField.toggleOpenClose()}else{// open the hovered field
 this._hoveredField.selectItem()}break;case"ArrowDown":event.preventDefault();this._hoverNext();break;case"ArrowUp":event.preventDefault();this._hoverPrevious();break;case"ArrowLeft":event.preventDefault();this._resetSearch();// close when opened, parent when closed
-if(!this._hoveredField.isBranch()&&this._hoveredField.open.value){this._hoveredField.toggleOpenClose()}else{this._hoverHome()}break;case"ArrowRight":event.preventDefault();this._resetSearch();// open when closed, next when opened
-if(!this._hoveredField.isBranch()&&!this._hoveredField.open.value){this._hoveredField.toggleOpenClose()}else{this._hoverNext()}break;case"Escape":if(this._searchIsActive){event.stopPropagation();this._resetSearch()}break;case"Backspace":this._removeLastSymbofFromSearch();break;}});// keyboard navigation on top node only
+if(!this._hoveredField.isBranch()&&this._hoveredField.open._value){this._hoveredField.toggleOpenClose()}else{this._hoverHome()}break;case"ArrowRight":event.preventDefault();this._resetSearch();// open when closed, next when opened
+if(!this._hoveredField.isBranch()&&!this._hoveredField.open._value){this._hoveredField.toggleOpenClose()}else{this._hoverNext()}break;case"Escape":if(this._searchIsActive){event.stopPropagation();this._resetSearch()}break;case"Backspace":this._removeLastSymbofFromSearch();break;}});// keyboard navigation on top node only
 this.addEventListener("keypress",event=>{let key=event.key||event.keyCode;if("Enter"===key){return}if(!event.ctrlKey){event.preventDefault();this._addSymbolToSearch(key)}else{switch(key){// expand recursive with ctrl-e
 case"e":event.preventDefault();this._hoveredField.expandRecursive();break;}}})}_removeLastSymbofFromSearch(){this._searchTerm=this._searchTerm.substr(0,this._searchTerm.length-1);if(0===this._searchTerm.length){this._resetSearch()}else{this.searchOpenTree(this._searchTerm)}}_addSymbolToSearch(key){this._searchTerm+=key;this.searchOpenTree(this._searchTerm)}searchOpenTree(){this._searchIsActive=!0;let d={term:this._searchTerm,results:[]};this._foundSearchItems=d.results;this._FBPTriggerWire("--searchRequested",d);// select first result
 if(0<d.results.length){d.results[0].triggerHover()}this._updateSearchmatchAttributesOnItems();this.requestUpdate()}_resetSearch(){this._searchIsActive=!1;this._searchTerm="";this._foundSearchItems=[];this._updateSearchmatchAttributesOnItems()}_updateSearchmatchAttributesOnItems(){this._rootNode.broadcastEvent(new NodeEvent("search-didnt-match",this._rootNode,!0));this._foundSearchItems.map(node=>{node.dispatchNodeEvent(new NodeEvent("search-matched",this._rootNode,!1))})}_hoverHome(){let parent=this._hoveredField.getParentElement();if(parent.triggerHover){parent.triggerHover()}}/**
@@ -7264,7 +7266,7 @@ if(!prev){prev=this._foundSearchItems[this._foundSearchItems.length-1]}}else{pre
      * @param locationObject
      * @return {*|boolean}
      */locationIn(locationObject){if(locationObject.query[this.qp]){let selected=this.selectById(locationObject.query[this.qp]);if(!selected){// Store qp, for later binding
-this.__tmpQP=locationObject.query[this.qp]}return selected}}selectById(nodeID){for(let i=this._flatTree.length-1,node;0<=i;i--){node=this._flatTree[i];if(node.id.value==nodeID){node.selectItem();/**
+this.__tmpQP=locationObject.query[this.qp]}return selected}}selectById(nodeID){for(let i=this._flatTree.length-1,node;0<=i;i--){node=this._flatTree[i];if(node.id._value==nodeID){node.selectItem();/**
                             * Fire event, when qp is set, because the selectItem will not fire
                             */if(this.qp){let customEvent=new Event("node-selected",{composed:!0,bubbles:!0});customEvent.detail=this._selectedField;this.dispatchEvent(customEvent)}return node}}return!1}/**
      * select the previous visible item
@@ -7391,7 +7393,7 @@ return _furoShell.html`
     <div class="srch">🔍 ${this._searchTerm}</div>
       <div class="tablewrapper">
       <table>
-        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id.value">
+        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
           <tr>
             <td>
               ${this._treeItemTepmplate}
@@ -7407,7 +7409,7 @@ if(this.__tmpQP!==void 0){// because the tree is built async
 setTimeout(()=>{this.selectById(this.__tmpQP);this.__tmpQP=void 0},0)}}_initHoverAndSelectEvents(){// Internal Event, when a node gets hovered
 this._rootNode.addEventListener("tree-node-hovered",e=>{// broadcast blur
 this._rootNode.broadcastEvent(new NodeEvent("tree-node-blur-requested"));this._hoveredField=e.target;// only dispatch when the element contains a name
-if(null!=this._hoveredField.display_name.value){/**
+if(null!=this._hoveredField.display_name._value){/**
          * @event node-hovered
          * Fired when
          * detail payload:
@@ -7429,8 +7431,8 @@ this._rootNode.broadcastEvent(new NodeEvent("tree-node-unselection-requested"));
          * @event qp-change-requested
          * Fired when qp mode is enabled. Nodes are only selectable with qpIn or selectById
          *
-         * detail payload: Object {"this.qp": this._selectedField.id.value}
-         */if(this.__lastQP!==this._selectedField.id.value){let customEvent=new Event("qp-change-requested",{composed:!0,bubbles:!0}),qp={};this.__lastQP=this._selectedField.id.value;qp[this.qp]=this._selectedField.id.value;customEvent.detail=qp;this.dispatchEvent(customEvent)}}if(this._selectedField.isBranch()){/**
+         * detail payload: Object {"this.qp": this._selectedField.id._value}
+         */if(this.__lastQP!==this._selectedField.id._value){let customEvent=new Event("qp-change-requested",{composed:!0,bubbles:!0}),qp={};this.__lastQP=this._selectedField.id._value;qp[this.qp]=this._selectedField.id._value;customEvent.detail=qp;this.dispatchEvent(customEvent)}}if(this._selectedField.isBranch()){/**
          * @event branch-selected
          * Fired when
          * detail payload:
@@ -7439,13 +7441,13 @@ this._rootNode.broadcastEvent(new NodeEvent("tree-node-unselection-requested"));
          * Fired when
          * detail payload:
          */let customEvent=new Event("leaf-selected",{composed:!0,bubbles:!0});customEvent.detail=this._selectedField;this.dispatchEvent(customEvent)}})}_buildFlatTree(tree){this._flatTree=[tree];tree.__flatTreeIndex=0;this._parseTreeRecursive(tree,0,this.depth);for(let len=this._flatTree.length;0<len;len--){let index=len-1,node=this._flatTree[index];// open field if entity contains a field open with true
-if(!node.open){node.addChildProperty("open",new FieldNode(node,{type:"bool"},"open"));node.open.value=!1}// Traverse the flat tree, it is simpler then the nested tree
+if(!node.open){node.addChildProperty("open",new FieldNode(node,{type:"bool"},"open"));node.open._value=!1}// Traverse the flat tree, it is simpler then the nested tree
 // next active element
 node.getNextVisibleElement=()=>{for(let i=index+1;i<this._flatTree.length;i++){if(!this._flatTree[i]._isHidden){return this._flatTree[i]}}return!1};// prev active element
 node.getPrevElement=()=>{for(let i=index-1;0<=i;i--){if(!this._flatTree[i]._isHidden){return this._flatTree[i]}}return!1};// is branch
 node.isBranch=()=>{return 0===node.children.repeats.length};// get Parent
 node.getParentElement=()=>{return node.__parentNode.__parentNode};// add openclose method to treeNode
-node.toggleOpenClose=()=>{node.open.value=!node.open.value;if(node.open.value){/**
+node.toggleOpenClose=()=>{node.open._value=!node.open._value;if(node.open._value){/**
            * @event node-opened
            * Fired when a node is opened
            */let customEvent=new Event("node-opened",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)}else{/**
@@ -7456,16 +7458,16 @@ node.triggerHover=()=>{node.dispatchNodeEvent(new NodeEvent("tree-node-hovered",
 node.selectItem=()=>{node.dispatchNodeEvent(new NodeEvent("tree-node-selected",node,!0));node.dispatchNodeEvent(new NodeEvent("this-node-selected",node,!1));// used to open the paths upwards from the selected node
 node.__parentNode.dispatchNodeEvent(new NodeEvent("descendant-selected",this,!0));//node.triggerHover()
 };// if a descendant was selected, we ensure to open the path
-node.addEventListener("descendant-selected",e=>{node.open.value=!0});// expand recursive
+node.addEventListener("descendant-selected",e=>{node.open._value=!0});// expand recursive
 node.expandRecursive=()=>{let event=new NodeEvent("recursive-expand-requested",node);node.broadcastEvent(event);/**
                                      * @event nodes-expanded
                                      * Fired when nodes are expanded recursive
-                                     */let customEvent=new Event("nodes-expanded",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-expand-requested",e=>{node.open.value=!0});// collapse recursive
+                                     */let customEvent=new Event("nodes-expanded",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-expand-requested",e=>{node.open._value=!0});// collapse recursive
 node.collapseRecursive=()=>{node.broadcastEvent(new NodeEvent("recursive-collapse-requested",node));/**
                                                                                    * @event nodes-collapsed
                                                                                    * Fired when nodes are collapsed recursive
-                                                                                   */let customEvent=new Event("nodes-collapsed",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-collapse-requested",e=>{node.open.value=!1})}// open the root ode
-tree.open.value=!0;this._FBPTriggerWire("--treeChanged",this._flatTree)}_parseTreeRecursive(tree,level,maxdepth){if(0<maxdepth&&!(level<maxdepth)){return}tree.depth=level;level++;tree.children.repeats.forEach(node=>{node.depth=level;let i=this._flatTree.push(node);node.__flatTreeIndex=i-1;if(0<node.children.repeats.length){this._parseTreeRecursive(node,level,maxdepth)}})}}window.customElements.define("furo-tree",FuroTree);class FuroMiniTabs extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}injectItems(nodeArray){this._FBPTriggerWire("--itemsInjected")}/**
+                                                                                   */let customEvent=new Event("nodes-collapsed",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-collapse-requested",e=>{node.open._value=!1})}// open the root ode
+tree.open._value=!0;this._FBPTriggerWire("--treeChanged",this._flatTree)}_parseTreeRecursive(tree,level,maxdepth){if(0<maxdepth&&!(level<maxdepth)){return}tree.depth=level;level++;tree.children.repeats.forEach(node=>{node.depth=level;let i=this._flatTree.push(node);node.__flatTreeIndex=i-1;if(0<node.children.repeats.length){this._parseTreeRecursive(node,level,maxdepth)}})}}window.customElements.define("furo-tree",FuroTree);class FuroMiniTabs extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}injectItems(nodeArray){this._FBPTriggerWire("--itemsInjected")}/**
     * flow is ready lifecycle method
     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
 }/**
