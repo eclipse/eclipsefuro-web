@@ -106,6 +106,22 @@ class FuroBanner extends LitElement {
     this.dispatchEvent(customEvent)
   }
 
+
+  /**
+   * snackbar closed. event `snackbar-closed` will be sent with payload
+   */
+  closed() {
+
+    /**
+     * @event snackbar-closed
+     * Fired when snackbar is closed
+     * detail payload: {Object}  payload
+     */
+    let customEvent = new Event("banner-closed",{composed: true, bubbles: true});
+    customEvent.detail = this.payload;
+    this.dispatchEvent(customEvent)
+  }
+
   /**
    * trigger the action of snackbar. event `banner-action-clicked` will be sent with payload
    */
