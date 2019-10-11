@@ -69,7 +69,7 @@ class FuroTree extends FBP(LitElement) {
 
           this._resetSearch();
           // close when opened, parent when closed
-          if (!this._hoveredField.isBranch() && this._hoveredField.open.value) {
+          if (!this._hoveredField.isBranch() && this._hoveredField.open._value) {
             this._hoveredField.toggleOpenClose();
           } else {
             this._hoverHome();
@@ -80,7 +80,7 @@ class FuroTree extends FBP(LitElement) {
 
           this._resetSearch();
           // open when closed, next when opened
-          if (!this._hoveredField.isBranch() && !this._hoveredField.open.value) {
+          if (!this._hoveredField.isBranch() && !this._hoveredField.open._value) {
             this._hoveredField.toggleOpenClose();
           } else {
             this._hoverNext();
@@ -228,7 +228,7 @@ class FuroTree extends FBP(LitElement) {
   selectById(nodeID) {
     for (let i = this._flatTree.length-1; i >= 0; i--) {
       let node = this._flatTree[i];
-      if (node.id.value == nodeID) {
+      if (node.id._value == nodeID) {
         node.selectItem();
 
         /**
@@ -481,7 +481,7 @@ class FuroTree extends FBP(LitElement) {
     <div class="srch">🔍 ${this._searchTerm}</div>
       <div class="tablewrapper">
       <table>
-        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id.value">
+        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
           <tr>
             <td>
               ${this._treeItemTepmplate}
@@ -552,7 +552,7 @@ class FuroTree extends FBP(LitElement) {
       this._hoveredField = e.target;
 
       // only dispatch when the element contains a name
-      if (this._hoveredField.display_name.value != null) {
+      if (this._hoveredField.display_name._value != null) {
         /**
          * @event node-hovered
          * Fired when
@@ -604,13 +604,13 @@ class FuroTree extends FBP(LitElement) {
          * @event qp-change-requested
          * Fired when qp mode is enabled. Nodes are only selectable with qpIn or selectById
          *
-         * detail payload: Object {"this.qp": this._selectedField.id.value}
+         * detail payload: Object {"this.qp": this._selectedField.id._value}
          */
-        if (this.__lastQP !== this._selectedField.id.value) {
+        if (this.__lastQP !== this._selectedField.id._value) {
           let customEvent = new Event('qp-change-requested', {composed: true, bubbles: true});
           let qp = {};
-          this.__lastQP = this._selectedField.id.value;
-          qp[this.qp] = this._selectedField.id.value;
+          this.__lastQP = this._selectedField.id._value;
+          qp[this.qp] = this._selectedField.id._value;
           customEvent.detail = qp;
           this.dispatchEvent(customEvent)
         }
@@ -653,7 +653,7 @@ class FuroTree extends FBP(LitElement) {
       // open field if entity contains a field open with true
       if (!node.open) {
         node.addChildProperty("open", new FieldNode(node, {type: "bool"}, "open"));
-        node.open.value = false;
+        node.open._value = false;
       }
 
 
@@ -689,8 +689,8 @@ class FuroTree extends FBP(LitElement) {
 
       // add openclose method to treeNode
       node.toggleOpenClose = () => {
-        node.open.value = !node.open.value;
-        if (node.open.value) {
+        node.open._value = !node.open._value;
+        if (node.open._value) {
           /**
            * @event node-opened
            * Fired when a node is opened
@@ -729,7 +729,7 @@ class FuroTree extends FBP(LitElement) {
 
       // if a descendant was selected, we ensure to open the path
       node.addEventListener("descendant-selected", (e) => {
-        node.open.value = true;
+        node.open._value = true;
       });
 
 
@@ -750,7 +750,7 @@ class FuroTree extends FBP(LitElement) {
       };
 
       node.addEventListener("recursive-expand-requested", (e) => {
-        node.open.value = true;
+        node.open._value = true;
       });
 
       // collapse recursive
@@ -767,12 +767,12 @@ class FuroTree extends FBP(LitElement) {
       };
 
       node.addEventListener("recursive-collapse-requested", (e) => {
-        node.open.value = false;
+        node.open._value = false;
       });
     }
 
     // open the root ode
-    tree.open.value = true;
+    tree.open._value = true;
     this._FBPTriggerWire("--treeChanged", this._flatTree);
   }
 
