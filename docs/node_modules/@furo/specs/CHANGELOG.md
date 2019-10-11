@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.37.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.36.2...@furo/specs@0.37.0) (2019-10-10)
+
+
+### Bug Fixes
+
+* remove unneeded actions from display specs ([56c1286](https://github.com/veith/FuroBaseComponents/commit/56c1286))
+
+
+### Features
+
+* added google well known types https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto ([90c1460](https://github.com/veith/FuroBaseComponents/commit/90c1460))
+* min max value for int32 ([7069f9e](https://github.com/veith/FuroBaseComponents/commit/7069f9e))
+* well known types added, https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto ([d25064b](https://github.com/veith/FuroBaseComponents/commit/d25064b))
+
+
+
+
+
 ## [0.36.2](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.36.1...@furo/specs@0.36.2) (2019-10-07)
 
 

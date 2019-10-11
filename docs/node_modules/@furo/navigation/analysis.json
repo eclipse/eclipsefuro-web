@@ -3385,7 +3385,7 @@
         {
           "type": "CustomEvent",
           "name": "qp-change-requested",
-          "description": "qp-change-requested\nFired when qp mode is enabled. Nodes are only selectable with qpIn or selectById\n\ndetail payload: Object {\"this.qp\": this._selectedField.id.value}",
+          "description": "qp-change-requested\nFired when qp mode is enabled. Nodes are only selectable with qpIn or selectById\n\ndetail payload: Object {\"this.qp\": this._selectedField.id._value}",
           "metadata": {}
         }
       ],

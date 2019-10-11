@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.58.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.57.9...@furo/data-input@0.58.0) (2019-10-10)
+
+
+### Bug Fixes
+
+* refactor access on private value *value* to *_value* ([c090297](https://github.com/veith/FuroBaseComponents/commit/c090297))
+
+
+### Features
+
+* furo-data-property support for google.protobuf.StringValue, google.protobuf.FloatValue, google.protobuf.Int32Value, google.protobuf.UInt32Value ([9cb40d9](https://github.com/veith/FuroBaseComponents/commit/9cb40d9))
+
+
+
+
+
 ## [0.57.9](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.57.8...@furo/data-input@0.57.9) (2019-10-06)
 
 **Note:** Version bump only for package @furo/data-input
