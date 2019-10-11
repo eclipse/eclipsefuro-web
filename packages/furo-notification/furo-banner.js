@@ -15,6 +15,8 @@ class FuroBanner extends LitElement {
 
   constructor(){
     super();
+    this.dismissButtonText = "dismiss";
+    this.confirmButtonText = "confirm";
   }
 
 
@@ -40,11 +42,11 @@ class FuroBanner extends LitElement {
       },
       dismissButtonText: {
         type: String,
-        attribute: "left-button-text"
+        attribute: "dismiss-button-text"
       },
       confirmButtonText: {
         type: String,
-        attribute: "right-button-text"
+        attribute: "confirm-button-text"
       },
       icon: {
         type: String

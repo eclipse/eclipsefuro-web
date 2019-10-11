@@ -25,7 +25,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
 
   constructor(){
     super();
-    this.banner = {"text":"", "dismissButtonText":"", "confirmButtonText":"" ,"icon":"perm-scan-wifi", "banner": {}};
+    this.banner = {"text":"", "dismissButtonText":"dismiss", "confirmButtonText":"confirm" ,"icon":"perm-scan-wifi", "banner": {}};
     this._stack=[];
     this.setAttribute("hidden", "");
   }
@@ -72,43 +72,37 @@ class FuroBannerDisplay extends FBP(LitElement) {
             :host {
               width: 100%;
               background-color: var(--banner-background-color, var(--background,#000000));
-              display:flex;
-              transition: all .3s ease-in-out;
+              transition: all .5s ease-in-out;
               overflow:hidden;
+              margin-bottom: 10px;
             }
-            
-             :host([hidden]) {
+            :host([hidden]) {
               height: 0;
             }
-             
-             furo-icon {
+            furo-icon {
               margin-right: 10px;
-              height: 40px;
               width: 40px;
-              display: inline-block;
-              
+              height: 40px;
+              display: flex;
             }
-             .wrapper {
+            .wrapper {
               width: 100%;
-              border-bottom: solid 1px #e0e0e0;
+              display: flex;
             }
-            
             furo-button {
-             margin: 2px 10px 0 20px;
-             color: var(--banner-button-text-color, --accent, #3f83e3));
+              margin: 2px 10px 0 20px;
+              color: var(--banner-button-text-color, --accent, #3f83e3));
               --on-surface: var(--accent);
               margin-right: 5px;
             }
-            
             span {
-              display: inline-block;
-              line-height: 40px;
+              display: flex;
             }
-            
             .button {
               display: flex;
               align-self: flex-end;
               justify-content:flex-end;
+              border-bottom: solid 1px #e0e0e0;
             }
 
         `;
@@ -200,7 +194,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
           clearInterval(self._timer);
           self.__show();
 
-        }, 300);
+        }, 500);
       }else {
         this._isOpen = false;
       }
@@ -223,12 +217,11 @@ class FuroBannerDisplay extends FBP(LitElement) {
           <div class="wrapper">
             <furo-icon icon="${this.banner.icon}"></furo-icon>
             <span>${this.banner.text}</span>
-            <div class="button">
-                <furo-button label="${this.banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
-                <furo-button label="${this.banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
-            </div>
           </div>
-   
+          <div class="button">
+              <furo-button label="${this.banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
+              <furo-button label="${this.banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
+          </div>
         `;
   }
 
