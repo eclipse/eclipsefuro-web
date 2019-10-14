@@ -35,6 +35,7 @@ import {FBP} from "@furo/fbp";
  * Tags: input
  * @summary bindable dropdown
  * @customElement
+ * @demo demo-furo-data-collection-dropdown
  * @mixes FBP
  */
 class FuroDataCollectionDropdown extends FBP(LitElement) {

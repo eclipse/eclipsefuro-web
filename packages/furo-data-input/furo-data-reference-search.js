@@ -44,6 +44,8 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     this._minTermLength = 0;
     this.idField = "id";
 
+    this._fieldNodeToUpdate = {};
+
     this._FBPAddWireHook("--inputInvalid", (val) => {
       // val is a ValidityState
       // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
@@ -93,8 +95,9 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     });
 
     this._FBPAddWireHook("--itemSelected", (item) => {
-      this.field.id._value= item.data[this.idField];
-      this.field.display_name._value= item.data.display_name;
+      this._fieldNodeToUpdate._value= item.data[this.idField];
+      this.displayName = item.data.display_name;
+      this._updateField();
       this._closeList();
     });
 
@@ -219,6 +222,19 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       idField: {type: String, attribute: 'id-field'},
 
       /**
+       * if you bind a complex type, declare here the field which gets updated by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */
+      subfield: {
+        type: String,
+      },
+
+      displayName: {
+        type: String
+      },
+
+      /**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -303,6 +319,14 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   bindData(fieldNode) {
 
     Helper.BindData(this, fieldNode);
+
+    if(this.subfield){
+      this._fieldNodeToUpdate = this.field[this.subfield];
+    }else{
+      this._fieldNodeToUpdate = this.field;
+    }
+
+
     this._init();
   }
 
@@ -313,9 +337,9 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    if(this.field.display_name._value) {
+    if(this.displayName) {
 
-      this._FBPTriggerWire('--value', this.field.display_name._value);
+      this._FBPTriggerWire('--value', this.displayName);
     }
     this.requestUpdate();
   }
