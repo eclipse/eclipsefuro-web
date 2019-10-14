@@ -54,13 +54,14 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     this.displayField = "display_name";
     this.valueField = "id";
 
+    this._fieldNodeToUpdate = {};
+
     this._FBPAddWireHook("--valueChanged", (val) => {
 
 
       if (this.field) {
         // by valid input reset meta and constraints
-
-        this.field._value= val;
+          this._fieldNodeToUpdate._value = val;
       }
       this._notifiySelectedItem(val);
     });
@@ -154,21 +155,21 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       return {
         "id": item,
         "label": e,
-        "selected": (this._value== item),
+        "selected": (this._fieldNodeToUpdate._value == item),
         "_original": item
       }
     });
     this._dropdownList = arr;
 
-    if (this.field && !this.field._value) {
-      this.field._value= arr[0].id;
+    if (this.field && !this._fieldNodeToUpdate._value) {
+      this._fieldNodeToUpdate._value = arr[0].id;
     }
 
     if (!this.field) {
       // notifiy first item if field is not set
       this._notifiySelectedItem(arr[0].id);
     } else {
-      this._notifiySelectedItem(this.field._value);
+      this._notifiySelectedItem(this._fieldNodeToUpdate._value);
     }
 
     this._FBPTriggerWire("--selection", arr);
@@ -187,6 +188,15 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         type: String,
 
       },
+      /**
+       * if you bind a complex type, declare here the field which gets updated by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */
+      subfield: {
+        type: String,
+      },
+
       /**
        * The name of the field from the injected collection that contains the label for the dropdown array.
        */
@@ -288,6 +298,11 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
 
+    if(this.subfield){
+      this._fieldNodeToUpdate = this.field[this.subfield];
+    }else{
+      this._fieldNodeToUpdate = this.field;
+    }
 
     // update meta and constraints when they change
     this.field.addEventListener('this-metas-changed', (e) => {
@@ -304,7 +319,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       this.errortext = this.field._validity.description;
     }
 
-    this._FBPTriggerWire('--value', this.field._value);
+    this._FBPTriggerWire('--value', this._fieldNodeToUpdate._value);
     this.requestUpdate();
 
   }
@@ -362,21 +377,21 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       return {
         "id": e[this.valueField],
         "label": e[this.displayField],
-        "selected": (this.field._value== e[this.valueField]),
+        "selected": (this._fieldNodeToUpdate._value == e[this.valueField]),
         "_original": e
       }
     });
 
     this._dropdownList = arr;
-    if (!this.field._value) {
-      this.field._value= arr[0].id;
+    if (!this._fieldNodeToUpdate._value) {
+      this._fieldNodeToUpdate._value = arr[0].id;
     }
 
     if (!this.field) {
       // notifiy first item if field is not set
       this._notifiySelectedItem(arr[0].id);
     } else {
-      this._notifiySelectedItem(this.field._value);
+      this._notifiySelectedItem(this._fieldNodeToUpdate._value);
     }
 
     this._FBPTriggerWire("--selection", arr);
@@ -410,20 +425,20 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       return {
         "id": e[this.valueField],
         "label": e[this.displayField],
-        "selected": (this._value== e[this.valueField]),
+        "selected": (this._fieldNodeToUpdate._value == e[this.valueField]),
         "_original": e
       }
     });
     this._dropdownList = arr;
-    if (this.field && !this.field._value) {
-      this.field._value= arr[0].id;
+    if (this.field && !this._fieldNodeToUpdate._value) {
+      this._fieldNodeToUpdate._value = arr[0].id;
     }
 
     if (!this.field) {
       // notifiy first item if field is not set
       this._notifiySelectedItem(arr[0].id);
     } else {
-      this._notifiySelectedItem(this.field._value);
+      this._notifiySelectedItem(this._fieldNodeToUpdate._value);
     }
 
     this._FBPTriggerWire("--selection", arr);
@@ -441,21 +456,21 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
       return {
         "id": e.data[this.valueField],
         "label": e.data[this.displayField],
-        "selected": (this._value== e.data[this.valueField]),
+        "selected": (this._fieldNodeToUpdate._value == e.data[this.valueField]),
         "_original": e
       }
     });
 
     this._dropdownList = arr;
-    if (this.field && !this.field._value) {
-      this.field._value= arr[0].id;
+    if (this.field && !this._fieldNodeToUpdate._value) {
+      this._fieldNodeToUpdate._value = arr[0].id;
     }
 
     if (!this.field) {
       // notifiy first item if field is not set
       this._notifiySelectedItem(arr[0].id);
     } else {
-      this._notifiySelectedItem(this.field._value);
+      this._notifiySelectedItem(this._fieldNodeToUpdate._value);
     }
 
     this._FBPTriggerWire("--selection", arr);
