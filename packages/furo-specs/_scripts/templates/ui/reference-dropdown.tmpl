@@ -28,7 +28,7 @@ class {{.class_name}} extends FBP(LitElement) {
     this.field.addEventListener("field-value-changed", (e)=>{
 
       if(e.detail._name == "type") {
-        this._FBPTriggerWire("--htsUpdated", this.field.link.value);
+        this._FBPTriggerWire("--htsUpdated", this.field.link._value);
       }
     });
   }
@@ -72,7 +72,7 @@ class {{.class_name}} extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-data-collection-dropdown
-                    value-field="{{.value_field}}"
+                    value-field="{{._value_field}}"
                     display-field="{{.display_field}}"
                     ƒ-bind-data="--field-injected"
                     ƒ-inject-entities="--collection(*.entities)"
@@ -80,7 +80,7 @@ class {{.class_name}} extends FBP(LitElement) {
       </furo-data-reference-search>
       <furo-collection-agent
               service="{{.service_name}}"
-              ƒ-hts-in="--field-injected(*.link.value), --htsUpdated"
+              ƒ-hts-in="--field-injected(*.link._value), --htsUpdated"
               list-on-hts-in
               @-response="--collection">
       </furo-collection-agent>

@@ -28,7 +28,7 @@ class {{.class_name}} extends FBP(LitElement) {
     this.field.addEventListener("field-value-changed", (e)=>{
 
       if(e.detail._name == "type") {
-        this._FBPTriggerWire("--htsUpdated", this.field.link.value);
+        this._FBPTriggerWire("--htsUpdated", this.field.link._value);
       }
     });
   }
@@ -78,7 +78,7 @@ class {{.class_name}} extends FBP(LitElement) {
       </furo-data-reference-search>
       <furo-collection-agent
               service="{{.service_name}}"
-              ƒ-hts-in="--field-injected(*.link.value), --htsUpdated"
+              ƒ-hts-in="--field-injected(*.link._value), --htsUpdated"
               ƒ-search="--term"
               @-response="--collection">
       </furo-collection-agent>

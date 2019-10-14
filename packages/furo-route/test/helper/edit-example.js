@@ -70,7 +70,7 @@ class EditExample extends BasePanel {
     // language=HTML
     return html`
       <p>Edit Panel</p>
-      <furo-pretty-json ƒ-inject-data="--navNode(*.value)">
+      <furo-pretty-json ƒ-inject-data="--navNode(*._value)">
         
       </furo-pretty-json>
     `;

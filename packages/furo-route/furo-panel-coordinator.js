@@ -43,10 +43,10 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   }
 
   async showPage(NavigationNode) {
-    let panelName = "P" + NavigationNode.id.value;
+    let panelName = "P" + NavigationNode.id._value;
     if (this._openPanels.indexOf(NavigationNode) === -1) {
 
-      let panelComponent = panelRegistry.getPanelName(NavigationNode.link.type.value, NavigationNode.panel.value);
+      let panelComponent = panelRegistry.getPanelName(NavigationNode.link.type._value, NavigationNode.panel._value);
       if (panelComponent) {
         //create element and set name,...
         let panel = document.createElement(panelComponent);
@@ -56,7 +56,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
           panel._TreeNode = NavigationNode;
 
           panel.removePanel = () => {
-            this._removeNodeById(NavigationNode.id.value);
+            this._removeNodeById(NavigationNode.id._value);
           };
           this._openPanels.push(NavigationNode);
           this._furoPage.appendChild(panel);
@@ -71,7 +71,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
         }
 
       } else {
-        console.warn(NavigationNode.link.type.value, NavigationNode.panel.value, "is not in the registry", this);
+        console.warn(NavigationNode.link.type._value, NavigationNode.panel._value, "is not in the registry", this);
       }
     }
 
@@ -106,7 +106,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
     // remove from flat tree
     this._openPanels = this._openPanels.filter((node, index) => {
-      return "P" + node.id.value !== nodeName;
+      return "P" + node.id._value !== nodeName;
     });
 
     if (this._openPanels.length > 0) {
@@ -120,11 +120,11 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   }
 
   _activatePanelForNode(node) {
-    let name = node.id.value;
+    let name = node.id._value;
     // register node
     if (this._openPanels.indexOf(node) === -1) {
 
-      let panelComponent = panelRegistry.getPanelName(node.link.type.value, this._panel);
+      let panelComponent = panelRegistry.getPanelName(node.link.type._value, this._panel);
       if (panelComponent) {
         //create element and set name,...
         let panel = document.createElement(panelComponent);
@@ -139,7 +139,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
 
       } else {
-        console.warn(node.link.type.value, "is not in the registry", this);
+        console.warn(node.link.type._value, "is not in the registry", this);
       }
     }
 
@@ -151,11 +151,11 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
 
         if (!currentPanel.__panelInitSent) {
-          currentPanel._FBPTriggerWire('--panelInit', node.link.value);
+          currentPanel._FBPTriggerWire('--panelInit', node.link._value);
           currentPanel._FBPTriggerWire('--treeNode', node);
           currentPanel.__panelInitSent = true;
         }
-        currentPanel._FBPTriggerWire('--panelActivated', node.link.value);
+        currentPanel._FBPTriggerWire('--panelActivated', node.link._value);
       }
     }, 0);
 
