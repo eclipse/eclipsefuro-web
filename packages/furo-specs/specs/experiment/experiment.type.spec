@@ -312,9 +312,24 @@
         "hint": "Choose one",
         "options": {
           "list": [
-            "option_1",
-            "option_2",
-            "option_3"
+            {
+              "id": "option_1",
+              "display_name": "option_1",
+              "selected": true,
+              "@type": "type.googleapis.com/furo.Optionitem"
+            },
+            {
+              "id": "option_2",
+              "display_name": "option_2",
+              "selected": true,
+              "@type": "type.googleapis.com/furo.Optionitem"
+            },
+            {
+              "id": "option_3",
+              "display_name": "option_3",
+              "selected": true,
+              "@type": "type.googleapis.com/furo.Optionitem"
+            }
           ]
         }
       },

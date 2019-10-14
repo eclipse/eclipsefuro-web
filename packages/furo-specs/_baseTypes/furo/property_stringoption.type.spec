@@ -21,7 +21,7 @@
       }
     },
     "id": {
-      "description": "The value, Id is used to make working with data-inputs easyier",
+      "description": "The value, Id is used to make working with data-inputs easier",
       "type": "string",
       "__proto": {
         "number": 2
