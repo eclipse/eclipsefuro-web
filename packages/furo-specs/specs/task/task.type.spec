@@ -77,8 +77,7 @@
       "description": "Owner of a task",
       "type": "furo.Reference",
       "meta": {
-        "min_term_length": 4,
-        "label": "Owner",
+        "label": "person.type.sex.label",
         "default": {
           "link":{
             "rel": "list",
@@ -87,7 +86,29 @@
             "type": "person.Person"
           }
         },
-        "hint": ""
+        "hint": "",
+        "options": {
+          "list": [
+            {
+              "id": "unknown",
+              "display_name": "person.type.sex.unknown.label",
+              "selected": true,
+              "@type": "type.googleapis.com/furo.Optionitem"
+            },
+            {
+              "id": "female",
+              "display_name": "person.type.sex.female.label",
+              "selected": false,
+              "@type": "type.googleapis.com/furo.Optionitem"
+            },
+            {
+              "id": "male",
+              "display_name": "person.type.sex.male.label",
+              "selected": false,
+              "@type": "type.googleapis.com/furo.Optionitem"
+            }
+          ]
+        }
       },
       "constraints": {},
       "__proto": {
