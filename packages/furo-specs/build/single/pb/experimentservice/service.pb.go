@@ -11,6 +11,8 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -23,7 +25,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type CreateExperimentServiceRequest struct {
 	Data                 *experiment.Experiment `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
@@ -428,6 +430,26 @@ type ExperimentServiceServer interface {
 	ListExperiments(context.Context, *ListExperimentServiceRequest) (*experiment.ExperimentCollection, error)
 	// Updates a Experiment, partial updates are supported
 	UpdateExperiment(context.Context, *UpdateExperimentServiceRequest) (*experiment.ExperimentEntity, error)
+}
+
+// UnimplementedExperimentServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedExperimentServiceServer struct {
+}
+
+func (*UnimplementedExperimentServiceServer) CreateExperiment(ctx context.Context, req *CreateExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateExperiment not implemented")
+}
+func (*UnimplementedExperimentServiceServer) DeleteExperiment(ctx context.Context, req *DeleteExperimentServiceRequest) (*protobuf.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteExperiment not implemented")
+}
+func (*UnimplementedExperimentServiceServer) GetExperiment(ctx context.Context, req *GetExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetExperiment not implemented")
+}
+func (*UnimplementedExperimentServiceServer) ListExperiments(ctx context.Context, req *ListExperimentServiceRequest) (*experiment.ExperimentCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListExperiments not implemented")
+}
+func (*UnimplementedExperimentServiceServer) UpdateExperiment(ctx context.Context, req *UpdateExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateExperiment not implemented")
 }
 
 func RegisterExperimentServiceServer(s *grpc.Server, srv ExperimentServiceServer) {

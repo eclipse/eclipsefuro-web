@@ -15,6 +15,8 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -27,7 +29,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type CreateTreeServiceRequest struct {
 	Data                 *tree.Tree `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
@@ -2028,6 +2030,92 @@ type BundledServiceServer interface {
 	ListExperiments(context.Context, *ListExperimentServiceRequest) (*experiment.ExperimentCollection, error)
 	// Updates a Experiment, partial updates are supported
 	UpdateExperiment(context.Context, *UpdateExperimentServiceRequest) (*experiment.ExperimentEntity, error)
+}
+
+// UnimplementedBundledServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedBundledServiceServer struct {
+}
+
+func (*UnimplementedBundledServiceServer) CreateTree(ctx context.Context, req *CreateTreeServiceRequest) (*tree.TreeEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateTree not implemented")
+}
+func (*UnimplementedBundledServiceServer) DeleteTree(ctx context.Context, req *DeleteTreeServiceRequest) (*protobuf.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteTree not implemented")
+}
+func (*UnimplementedBundledServiceServer) GetTree(ctx context.Context, req *GetTreeServiceRequest) (*tree.TreeEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTree not implemented")
+}
+func (*UnimplementedBundledServiceServer) ListTrees(ctx context.Context, req *ListTreeServiceRequest) (*tree.TreeCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListTrees not implemented")
+}
+func (*UnimplementedBundledServiceServer) UpdateTree(ctx context.Context, req *UpdateTreeServiceRequest) (*tree.TreeEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateTree not implemented")
+}
+func (*UnimplementedBundledServiceServer) CreatePerson(ctx context.Context, req *CreatePersonServiceRequest) (*person.PersonEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePerson not implemented")
+}
+func (*UnimplementedBundledServiceServer) DeletePerson(ctx context.Context, req *DeletePersonServiceRequest) (*protobuf.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePerson not implemented")
+}
+func (*UnimplementedBundledServiceServer) GetPerson(ctx context.Context, req *GetPersonServiceRequest) (*person.PersonEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPerson not implemented")
+}
+func (*UnimplementedBundledServiceServer) ListPersons(ctx context.Context, req *ListPersonServiceRequest) (*person.PersonCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPersons not implemented")
+}
+func (*UnimplementedBundledServiceServer) UpdatePerson(ctx context.Context, req *UpdatePersonServiceRequest) (*person.PersonEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdatePerson not implemented")
+}
+func (*UnimplementedBundledServiceServer) CreateProject(ctx context.Context, req *CreateProjectServiceRequest) (*project.ProjectEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateProject not implemented")
+}
+func (*UnimplementedBundledServiceServer) DeleteProject(ctx context.Context, req *DeleteProjectServiceRequest) (*protobuf.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
+}
+func (*UnimplementedBundledServiceServer) GetProject(ctx context.Context, req *GetProjectServiceRequest) (*project.ProjectEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetProject not implemented")
+}
+func (*UnimplementedBundledServiceServer) ListProjects(ctx context.Context, req *ListProjectServiceRequest) (*project.ProjectCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListProjects not implemented")
+}
+func (*UnimplementedBundledServiceServer) UpdateProject(ctx context.Context, req *UpdateProjectServiceRequest) (*project.ProjectEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateProject not implemented")
+}
+func (*UnimplementedBundledServiceServer) ListMembers(ctx context.Context, req *ListProjectMembersServiceRequest) (*person.PersonCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListMembers not implemented")
+}
+func (*UnimplementedBundledServiceServer) UnsubscribeProjectMembersService(ctx context.Context, req *UnsubscribeProjectMembersServiceRequest) (*person.PersonCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnsubscribeProjectMembersService not implemented")
+}
+func (*UnimplementedBundledServiceServer) CreateTask(ctx context.Context, req *CreateTaskServiceRequest) (*task.TaskEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
+}
+func (*UnimplementedBundledServiceServer) DeleteTask(ctx context.Context, req *DeleteTaskServiceRequest) (*protobuf.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteTask not implemented")
+}
+func (*UnimplementedBundledServiceServer) GetTask(ctx context.Context, req *GetTaskServiceRequest) (*task.TaskEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTask not implemented")
+}
+func (*UnimplementedBundledServiceServer) ListTasks(ctx context.Context, req *ListTaskServiceRequest) (*task.TaskCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListTasks not implemented")
+}
+func (*UnimplementedBundledServiceServer) UpdateTask(ctx context.Context, req *UpdateTaskServiceRequest) (*task.TaskEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateTask not implemented")
+}
+func (*UnimplementedBundledServiceServer) CreateExperiment(ctx context.Context, req *CreateExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateExperiment not implemented")
+}
+func (*UnimplementedBundledServiceServer) DeleteExperiment(ctx context.Context, req *DeleteExperimentServiceRequest) (*protobuf.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteExperiment not implemented")
+}
+func (*UnimplementedBundledServiceServer) GetExperiment(ctx context.Context, req *GetExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetExperiment not implemented")
+}
+func (*UnimplementedBundledServiceServer) ListExperiments(ctx context.Context, req *ListExperimentServiceRequest) (*experiment.ExperimentCollection, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListExperiments not implemented")
+}
+func (*UnimplementedBundledServiceServer) UpdateExperiment(ctx context.Context, req *UpdateExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateExperiment not implemented")
 }
 
 func RegisterBundledServiceServer(s *grpc.Server, srv BundledServiceServer) {
