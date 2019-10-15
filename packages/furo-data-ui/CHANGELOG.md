@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.19](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.7.18...@furo/data-ui@0.7.19) (2019-10-15)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
 ## [0.7.18](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.7.17...@furo/data-ui@0.7.18) (2019-10-10)
 
 **Note:** Version bump only for package @furo/data-ui
