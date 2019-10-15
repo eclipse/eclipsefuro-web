@@ -73,6 +73,8 @@ class {{.class_name}} extends FBP(LitElement) {
     return html`
       <furo-data-reference-search ƒ-bind-data="--field-injected"
                                   @-search="--term"
+                                  value-field="{{.value_field}}"
+                                  display-field="{{.display_field}}"
                                   subfield = "{{.subfield}}"
                                   ?condensed="${this.condensed}"
                                   ƒ-collection-in="--collection">
