@@ -15,3 +15,4 @@ test
 .gitattributes
 analysis.json
 wct.conf.json
+CHANGELOG.md
