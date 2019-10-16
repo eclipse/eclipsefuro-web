@@ -46,6 +46,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     this.displayField = "display_name";
 
     this._fieldNodeToUpdate = {};
+    this._fieldDisplayNodeToUpdate = {};
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
       // val is a ValidityState
@@ -97,6 +98,10 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     this._FBPAddWireHook("--itemSelected", (item) => {
       this._fieldNodeToUpdate._value= item.data[this.valueField];
+
+      if(this.subfield) {
+        this._fieldDisplayNodeToUpdate._value= item.data[this.displayField];
+      }
       this._displayName = item.data[this.displayField];
       this._updateField();
       this._closeList();
@@ -240,7 +245,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         attribute: "display-field"
       },
       /**
-       * if you bind a complex type, declare here the field which gets updated by selecting an item.
+       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
        *
        * If you bind a scalar, you dont need this attribute.
        */
@@ -353,7 +358,12 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     if(this.subfield){
       this._fieldNodeToUpdate = this.field[this.subfield];
-    }else{
+
+      if(this.field.display_name){
+        this._fieldDisplayNodeToUpdate = this.field.display_name;
+      }
+    }
+    else{
       this._fieldNodeToUpdate = this.field;
     }
 
@@ -368,10 +378,18 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    if(this._displayName) {
+
+    // use display_name directly from display field if it exists
+    if(this.subfield) {
+
+      this._displayName = this._fieldDisplayNodeToUpdate._value;
+    }
+
+    if( this._displayName){
 
       this._FBPTriggerWire('--value', this._displayName);
     }
+
     this.requestUpdate();
   }
 

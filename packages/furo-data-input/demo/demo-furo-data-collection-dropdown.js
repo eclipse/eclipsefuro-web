@@ -43,40 +43,47 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-      <furo-vertical-flex>
-        <div><h2>Demo furo-data-collection-dropdown</h2>
-        </div>
-        <furo-demo-snippet flex>
-          <template>
-            
-            <furo-horizontal-flex>
+        <furo-vertical-flex>
+            <div><h2>Demo furo-data-collection-dropdown</h2>
+            </div>
+            <furo-demo-snippet flex>
+                <template>
 
-                <furo-data-collection-dropdown hint="hint override" leading-icon="mail" trailing-icon="fingerprint"
-                                               label="Use phone as display"
-                                               subfield="id"
-                                               ƒ-inject-entities="--response(*.entities)"
-                                               ƒ-bind-data="--entity(*.owner)"></furo-data-collection-dropdown>
+                    <furo-horizontal-flex>
 
-                <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"
-                                               display-field="phone_nr"
-                                               label="Use phone as display"
-                                               ƒ-inject-entities="--response(*.entities)"
-                                               ƒ-bind-data="--entity(*.owner.id)"></furo-data-collection-dropdown>
-                
-                </furo-horizontal-flex>
+                        <furo-data-collection-dropdown hint="hint override" leading-icon="mail" trailing-icon="fingerprint"
+                                                       label="Use phone as display"
+                                                       subfield="id"
+                                                       subfield-display="description"
+                                                       ƒ-inject-entities="--response(*.entities)"
+                                                       ƒ-bind-data="--entity"></furo-data-collection-dropdown>
 
-                <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
-  
-                <furo-collection-agent service="PersonService"
-                                       ƒ-hts-in="--entity(*.owner.link._value)"
-                                       ƒ-list="--load"
-                                       @-response="--response">
-                </furo-collection-agent>
-                <furo-button raised label="load" @-click="--load"></furo-button>
-    
-          </template>
-        </furo-demo-snippet>
-      </furo-vertical-flex>
+                        <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"
+                                                       display-field="description"
+                                                       subfield="id"
+                                                       ƒ-inject-entities="--response(*.entities)"
+                                                       ƒ-bind-data="--entity"></furo-data-collection-dropdown>
+
+                    </furo-horizontal-flex>
+
+                    <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+
+                    <furo-collection-agent service="TaskService"
+                                           ƒ-hts-in="--hts"
+                                           ƒ-list="--load"
+                                           @-response="--response">
+                    </furo-collection-agent>
+
+
+                    <furo-location @-location-changed="--locationChanged"></furo-location>
+
+                    <furo-deep-link service="TaskService" @-hts-out="--hts" ƒ-qp-in="--locationChanged(*.query)"></furo-deep-link>
+
+                    <furo-button raised label="load" @-click="--load"></furo-button>
+
+                </template>
+            </furo-demo-snippet>
+        </furo-vertical-flex>
     `;
   }
 }

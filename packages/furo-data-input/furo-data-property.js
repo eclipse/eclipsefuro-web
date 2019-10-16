@@ -168,7 +168,8 @@ class FuroDataProperty extends FBP(LitElement) {
 
   _createPropComponent(propertyField) {
     if (!this._property_created) {
-      let e = document.createElement(this.typemap[propertyField.data["@type"]._value.replace(/.*\//, '')]);
+      let type = propertyField.data["@type"]._value.replace(/.*\//, '');
+      let e = document.createElement(this.typemap[type]);
 
       // Grab all of the original's attributes, and pass them to the replacement
       let l = this.attributes.length;
@@ -178,10 +179,14 @@ class FuroDataProperty extends FBP(LitElement) {
         if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
           e.setAttribute(nodeName, nodeValue);
         }
+        // add addition attribute fo furo-data-collection-dropdown
+        if(type == "furo.StringOptionProperty") {
+          e.setAttribute("subfield", "id");
+        }
       }
 
       if (e.bindData) {
-        switch (propertyField.data["@type"]._value.replace(/.*\//, '')) {
+        switch (type) {
             // the input elements for string and number are just working with scalar values
           case "furo.StringProperty":
           case "furo.NumberProperty":
