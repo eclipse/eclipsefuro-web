@@ -67,8 +67,6 @@ class FuroEntityAgent extends FBP(LitElement) {
     }
   }
 
-
-
   /**
    * Binds a furo-data-object type. Use this if you want save data.
    *
@@ -78,21 +76,43 @@ class FuroEntityAgent extends FBP(LitElement) {
     this._requestDataObject = dataObject;
   }
 
-
-  _makeRequest(link, body) {
+  /**
+   * Creates a Request object with header and body data
+   * - special treatment for method PATCH
+   * - body object only includes writeable fields
+   * @param link
+   * @param dataObject
+   * @returns {Request}
+   * @private
+   */
+  _makeRequest(link, dataObject) {
     let data;
-    if (body) {
-      data = JSON.stringify(body)
+    let body = {};
+    // check if dataObject is set and create body object
+    if (dataObject) {
+      // Method PATCH sends only modified data (.pristine)
+      if (link.method.toLowerCase() === 'patch'){
+        for (let index in dataObject.__childNodes) {
+          let field = dataObject.__childNodes[index];
+          let val = field._modified_value;
+          if (val !== undefined) {body[field._name] = val}
+        }
+      } else {
+        for (let index in dataObject.__childNodes) {
+          let field = dataObject.__childNodes[index];
+          let val = field._not_readonly_value;
+          if (val !== undefined) {body[field._name] = val}
+        }
+      }
+      data = JSON.stringify(body);
     }
     // Daten
     let headers = new Headers(this._ApiEnvironment.headers);
-
     headers.append('Content-Type', 'application/' + link.type + '+json');
 
     if (link.method.toLowerCase() !== 'put') {
       headers.append('Content-Type', 'application/json');
     }
-
     return new Request(link.href, {
       method: link.method,
       headers: headers,
@@ -100,25 +120,36 @@ class FuroEntityAgent extends FBP(LitElement) {
     })
   }
 
+  /**
+   *
+   * @param rel
+   * @param serviceName
+   * @returns {undefined|object}
+   * @private
+   */
   _checkServiceAndHateoasLinkError(rel, serviceName) {
     // check Service Get
     if (!this._service.services[serviceName]) {
-      console.warn("Restlet " + serviceName + " is not specified", this._service, this);
-      return true;
+      console.warn("Service " + serviceName + " is not specified", this._service, this);
+      return undefined;
     }
 
     //queue if no hts is set, queue it
     if (!this._hts) {
       this._singleElementQueue = [[rel, serviceName]];
-      return true;
+      return undefined;
     }
-
-    // check Hateoas
-    if (!this._hts[rel]) {
-      console.warn("No HATEOAS for rel " + rel, this._hts, this);
-      return true;
+    // check rel and type
+    let htsFound = this._hts.find((link) => {
+      if (link.rel === rel && link.service === this._service.name){
+        return link;
+      }
+    });
+    if (!htsFound) {
+      console.warn("No HATEOAS for rel " + rel + " in service " + this._service.name + " found.", this._hts, this);
+      return undefined;
     }
-    return false;
+    return htsFound;
   }
 
   /**
@@ -137,14 +168,16 @@ class FuroEntityAgent extends FBP(LitElement) {
    * loads the entity if hts is available
    */
   load() {
-    if (this._checkServiceAndHateoasLinkError("self", "Get")) {
+    let hts = this._checkServiceAndHateoasLinkError('self', 'Get');
+    if (!hts) {
+      let customEvent = new Event( 'missing-hts-self', {composed: true, bubbles: false});
+      this.dispatchEvent(customEvent);
       return false;
     }
-    this._attachListeners("load");
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.self));
+    this._attachListeners('load');
+    this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts));
 
   }
-
 
   /**
    * @event delete-success
@@ -162,11 +195,14 @@ class FuroEntityAgent extends FBP(LitElement) {
    * delete the entity if hts is available
    */
   delete() {
-    if (this._checkServiceAndHateoasLinkError("delete", "Delete")) {
+    let hts = this._checkServiceAndHateoasLinkError('delete', 'Delete');
+    if (!hts) {
+      let customEvent = new Event( 'missing-hts-delete', {composed: true, bubbles: false});
+      this.dispatchEvent(customEvent);
       return;
     }
-    this._attachListeners("delete");
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.delete));
+    this._attachListeners('delete');
+    this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts));
 
   }
 
@@ -187,27 +223,31 @@ class FuroEntityAgent extends FBP(LitElement) {
    */
   save() {
 
-    // wen kein rel self vorhanden ist, aber ein rel create existiert, verwendenn wir create
-    // rel self ist bewusst gewählt
-    if (!this._hts["self"] && this._hts["create"]) {
+    // if no rel self is present but a rel create exists, take create
+    // rel self is consciously chosen
+    let hts_self = this._hts.find((link) =>{
+      if (link.rel === 'self') return link;
+    });
+    let hts_create = this._hts.find((link) =>{
+      if (link.rel === 'create') return link;
+    });
+
+    if (!hts_self && hts_create) {
       this.create();
       return;
     }
 
-    if (this._checkServiceAndHateoasLinkError("update", "Update")) {
+    let hts = this._checkServiceAndHateoasLinkError('update', 'Update');
+    if (!hts) {
       let customEvent = new Event( 'missing-hts-update', {composed: true, bubbles: false});
       this.dispatchEvent(customEvent);
       return;
     }
 
     this._attachListeners("save");
-    // TODO nur modifizierte daten senden (.pristine)
-
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._requestDataObject.value));
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(hts, this._requestDataObject));
 
   }
-
-
 
   /**
    * @event put-success
@@ -225,11 +265,14 @@ class FuroEntityAgent extends FBP(LitElement) {
    * saves the entity with method put if hts is available
    */
   put() {
-    if (this._checkServiceAndHateoasLinkError("update", "Update")) {
-      return
+    let hts = this._checkServiceAndHateoasLinkError('update', 'Update');
+    if (!hts) {
+      let customEvent = new Event( 'missing-hts-update', {composed: true, bubbles: false});
+      this.dispatchEvent(customEvent);
+      return;
     }
     this._attachListeners("put");
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.update, this._requestDataObject.value));
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(hts, this._requestDataObject));
   }
 
   /**
@@ -248,11 +291,14 @@ class FuroEntityAgent extends FBP(LitElement) {
    * creating the entity if hts rel="create" is available
    */
   create() {
-    if (this._checkServiceAndHateoasLinkError("create", "Create")) {
-      return
+    let hts = this._checkServiceAndHateoasLinkError('create', 'Create');
+    if (!hts) {
+      let customEvent = new Event( 'missing-hts-create', {composed: true, bubbles: false});
+      this.dispatchEvent(customEvent);
+      return;
     }
     this._attachListeners("create");
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts.create, this._requestDataObject.value));
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(hts, this._requestDataObject));
   }
 
   /**
@@ -318,19 +364,16 @@ class FuroEntityAgent extends FBP(LitElement) {
     this.addEventListener("req-failed", failed, true);
   }
 
-
-
-
   _updateInternalHTS(hts) {
     // convert link object to hts array
     if (hts && hts.rel && hts.method && hts.type && hts.href) {
       hts = [hts];
     }
 
-    if (hts && hts[0] && hts[0].rel) {
-      this._hts = {};
+    if (hts && Array.isArray(hts)) {
+      this._hts = [];
       hts.forEach((link) => {
-        this._hts[link.rel] = link
+        this._hts.push(link);
       });
       /**
        * @event hts-updated
@@ -362,8 +405,8 @@ class FuroEntityAgent extends FBP(LitElement) {
 
       // there was a list,last,next call before the hts was set
       if (this._singleElementQueue.length > 0) {
-        let q = this._singleElementQueue.pop();
-        this._followRelService(q[0], q[1]);
+        this._singleElementQueue.pop();
+        this.load();
       }
 
     }
@@ -395,7 +438,8 @@ class FuroEntityAgent extends FBP(LitElement) {
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"
               @-response="--responseParsed,^^req-success"
-              @-response-error="^^req-failed">
+              @-response-error="^^req-failed"
+              @-parse-error="^^req-failed">
       </furo-api-fetch>
     `;
   }

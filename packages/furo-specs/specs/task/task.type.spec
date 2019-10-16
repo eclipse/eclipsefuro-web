@@ -83,7 +83,8 @@
             "rel": "list",
             "href": "/mockdata/persons/list.json",
             "method": "Get",
-            "type": "person.Person"
+            "type": "person.Person",
+            "service": "PersonService"
           }
         },
         "hint": "",

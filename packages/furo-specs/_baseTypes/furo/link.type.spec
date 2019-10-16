@@ -35,6 +35,13 @@
       "__proto": {
         "number": 4
       }
+    },
+    "service": {
+      "description": "name of the service which can handle this link",
+      "type": "string",
+      "__proto": {
+        "number": 5
+      }
     }
   }
 }

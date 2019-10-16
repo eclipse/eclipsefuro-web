@@ -92,8 +92,7 @@
 
     });
 
-    it('should fallback to XHR if window.fetch is not available', (done) => {
-      fetcher.xhrFallback = true;
+    it('should be able to parse json', (done) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
 
@@ -109,7 +108,8 @@
 
     });
 
-    it('should be able to parse json', (done) => {
+    it('should fallback to XHR if window.fetch is not available (application/json)', (done) => {
+      fetcher.xhrFallback = true;
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
 
@@ -141,6 +141,23 @@
 
     });
 
+    it('should fallback to XHR if window.fetch is not available (image/jpeg)', (done) => {
+      fetcher.xhrFallback = true;
+      let headers = new Headers();
+      headers.append('Content-Type', 'image/jpeg');
+
+      const request = new Request('http://httpbin.org/image/jpeg', {
+        method: 'GET',
+        headers: headers
+      });
+      fetcher.addEventListener('response', (r)=>{
+        assert.equal(r.detail.includes('data:image/jpeg;base64'), true);
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
     it('should be able to parse bytes[]', (done) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/octet-stream');
@@ -151,6 +168,87 @@
       });
       fetcher.addEventListener('response', (r)=>{
         assert.equal(r.detail.byteLength, 100);
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('should fallback to XHR if window.fetch is not available (application/octet-stream)', (done) => {
+      fetcher.xhrFallback = true;
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/octet-stream');
+
+      const request = new Request('http://httpbin.org/bytes/100', {
+        method: 'GET',
+        headers: headers
+      });
+      fetcher.addEventListener('response', (r)=>{
+        assert.equal(r.detail.byteLength, 100);
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('should be able to parse text', (done) => {
+      let headers = new Headers();
+      headers.append('Content-Type', 'text/plain');
+
+      const request = new Request('http://httpbin.org/robots.txt', {
+        method: 'GET',
+        headers: headers
+      });
+      fetcher.addEventListener('response', (r)=>{
+        assert.equal(r.detail, 'User-agent: *\nDisallow: /deny\n');
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('should fallback to XHR if window.fetch is not available (text/plain)', (done) => {
+      fetcher.xhrFallback = true;
+      let headers = new Headers();
+      headers.append('Content-Type', 'text/plain');
+
+      const request = new Request('http://httpbin.org/robots.txt', {
+        method: 'GET',
+        headers: headers
+      });
+      fetcher.addEventListener('response', (r)=>{
+        assert.equal(r.detail, 'User-agent: *\nDisallow: /deny\n');
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('should be able to parse pdf', (done) => {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/pdf');
+
+      const request = new Request('sample.pdf', {
+        method: 'GET',
+        headers: headers
+      });
+      fetcher.addEventListener('response', ()=>{
+        done();
+      });
+      fetcher.invokeRequest(request);
+
+    });
+
+    it('should fallback to XHR if window.fetch is not available (application/pdf)', (done) => {
+      fetcher.xhrFallback = true;
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/pdf');
+
+      const request = new Request('sample.pdf', {
+        method: 'GET',
+        headers: headers
+      });
+      fetcher.addEventListener('response', (r)=>{
         done();
       });
       fetcher.invokeRequest(request);

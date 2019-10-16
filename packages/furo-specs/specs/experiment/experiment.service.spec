@@ -99,6 +99,20 @@
         "href": "/mockdata/experiments/{exp}",
         "method": "DELETE"
       }
+    },
+    "Release": {
+      "description": "Releases experiment",
+      "rpc_name": "ReleaseExperiment",
+      "data": {
+        "request": "experiment.ExperimentEntity",
+        "response": "google.protobuf.Empty"
+      },
+      "query": {},
+      "deeplink": {
+        "rel": "release",
+        "href": "/mockdata/experiments/1:release",
+        "method": "POST"
+      }
     }
   }
 }

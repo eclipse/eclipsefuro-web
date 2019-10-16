@@ -74,6 +74,24 @@ public final class LinkOuterClass {
 
     /**
      * <pre>
+     * name of the service which can handle this link
+     * </pre>
+     *
+     * <code>string service = 5;</code>
+     */
+    java.lang.String getService();
+    /**
+     * <pre>
+     * name of the service which can handle this link
+     * </pre>
+     *
+     * <code>string service = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getServiceBytes();
+
+    /**
+     * <pre>
      * mime type
      * </pre>
      *
@@ -110,6 +128,7 @@ public final class LinkOuterClass {
       href_ = "";
       method_ = "";
       rel_ = "";
+      service_ = "";
       type_ = "";
     }
 
@@ -159,6 +178,12 @@ public final class LinkOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               type_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              service_ = s;
               break;
             }
             default: {
@@ -319,6 +344,48 @@ public final class LinkOuterClass {
       }
     }
 
+    public static final int SERVICE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object service_;
+    /**
+     * <pre>
+     * name of the service which can handle this link
+     * </pre>
+     *
+     * <code>string service = 5;</code>
+     */
+    public java.lang.String getService() {
+      java.lang.Object ref = service_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        service_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * name of the service which can handle this link
+     * </pre>
+     *
+     * <code>string service = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getServiceBytes() {
+      java.lang.Object ref = service_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        service_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int TYPE_FIELD_NUMBER = 4;
     private volatile java.lang.Object type_;
     /**
@@ -387,6 +454,9 @@ public final class LinkOuterClass {
       if (!getTypeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, type_);
       }
+      if (!getServiceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, service_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -407,6 +477,9 @@ public final class LinkOuterClass {
       }
       if (!getTypeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, type_);
+      }
+      if (!getServiceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, service_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -429,6 +502,8 @@ public final class LinkOuterClass {
           .equals(other.getMethod())) return false;
       if (!getRel()
           .equals(other.getRel())) return false;
+      if (!getService()
+          .equals(other.getService())) return false;
       if (!getType()
           .equals(other.getType())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -448,6 +523,8 @@ public final class LinkOuterClass {
       hash = (53 * hash) + getMethod().hashCode();
       hash = (37 * hash) + REL_FIELD_NUMBER;
       hash = (53 * hash) + getRel().hashCode();
+      hash = (37 * hash) + SERVICE_FIELD_NUMBER;
+      hash = (53 * hash) + getService().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getType().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -593,6 +670,8 @@ public final class LinkOuterClass {
 
         rel_ = "";
 
+        service_ = "";
+
         type_ = "";
 
         return this;
@@ -624,6 +703,7 @@ public final class LinkOuterClass {
         result.href_ = href_;
         result.method_ = method_;
         result.rel_ = rel_;
+        result.service_ = service_;
         result.type_ = type_;
         onBuilt();
         return result;
@@ -683,6 +763,10 @@ public final class LinkOuterClass {
         }
         if (!other.getRel().isEmpty()) {
           rel_ = other.rel_;
+          onChanged();
+        }
+        if (!other.getService().isEmpty()) {
+          service_ = other.service_;
           onChanged();
         }
         if (!other.getType().isEmpty()) {
@@ -985,6 +1069,95 @@ public final class LinkOuterClass {
         return this;
       }
 
+      private java.lang.Object service_ = "";
+      /**
+       * <pre>
+       * name of the service which can handle this link
+       * </pre>
+       *
+       * <code>string service = 5;</code>
+       */
+      public java.lang.String getService() {
+        java.lang.Object ref = service_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          service_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the service which can handle this link
+       * </pre>
+       *
+       * <code>string service = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getServiceBytes() {
+        java.lang.Object ref = service_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          service_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * name of the service which can handle this link
+       * </pre>
+       *
+       * <code>string service = 5;</code>
+       */
+      public Builder setService(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        service_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the service which can handle this link
+       * </pre>
+       *
+       * <code>string service = 5;</code>
+       */
+      public Builder clearService() {
+        
+        service_ = getDefaultInstance().getService();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * name of the service which can handle this link
+       * </pre>
+       *
+       * <code>string service = 5;</code>
+       */
+      public Builder setServiceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        service_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object type_ = "";
       /**
        * <pre>
@@ -1140,9 +1313,9 @@ public final class LinkOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017furo/link.proto\022\004furo\"?\n\004Link\022\014\n\004href\030" +
-      "\003 \001(\t\022\016\n\006method\030\002 \001(\t\022\013\n\003rel\030\001 \001(\t\022\014\n\004ty" +
-      "pe\030\004 \001(\tb\006proto3"
+      "\n\017furo/link.proto\022\004furo\"P\n\004Link\022\014\n\004href\030" +
+      "\003 \001(\t\022\016\n\006method\030\002 \001(\t\022\013\n\003rel\030\001 \001(\t\022\017\n\007se" +
+      "rvice\030\005 \001(\t\022\014\n\004type\030\004 \001(\tb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1161,7 +1334,7 @@ public final class LinkOuterClass {
     internal_static_furo_Link_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_furo_Link_descriptor,
-        new java.lang.String[] { "Href", "Method", "Rel", "Type", });
+        new java.lang.String[] { "Href", "Method", "Rel", "Service", "Type", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -50,15 +50,22 @@ class FuroCustomMethod extends FBP(LitElement) {
     }
 
     bindRequestData(dataObject) {
-        this._requestObject = dataObject;
+        this._requestDataObject = dataObject;
     }
 
-
-
-    _makeRequest(link, body) {
-        let data ;
-        if(body){
-            data = JSON.stringify(body)
+    _makeRequest(link, dataObject) {
+        let data;
+        let body = {};
+        // check if dataObject is set and create body object
+        if (dataObject) {
+            for (let index in dataObject.__childNodes) {
+                let field = dataObject.__childNodes[index];
+                let val = field._not_readonly_value;
+                if (val !== undefined) {
+                    body[field._name] = val
+                }
+            }
+            data = JSON.stringify(body);
         }
         // Daten
         let headers = new Headers(this._ApiEnvironment.headers);
@@ -68,25 +75,26 @@ class FuroCustomMethod extends FBP(LitElement) {
         return new Request(link.href, {
             method: link.method,
             headers: headers,
-            body:data
+            body: data
         })
     }
 
-    _checkServiceAndHateoasLinkError(rel,serviceName){
+    _checkServiceAndHateoasLinkError(rel, serviceName) {
         // check Service Get
-        let s = Object.keys(this._service.services).map((key)=>{
+        let s = Object.keys(this._service.services).map((key) => {
             return key.toLowerCase();
         });
 
         if (s.indexOf(serviceName.toLowerCase()) === -1) {
-            // todo fehler werfen ???
-            console.warn("Restlet " + serviceName + " is not specified", this._service, this);
+            console.warn("Service " + serviceName + " is not specified", this._service, this);
             return true;
         }
 
         // check Hateoas
         if (!this._hts[rel]) {
-            console.warn("No HATEOAS for rel self", this._hts, this);
+            console.warn("No HATEOAS for rel " + rel + " in service " + this._service.name + " found.", this);
+            let customEvent = new Event('missing-hts-' + rel, {composed: true, bubbles: false});
+            this.dispatchEvent(customEvent);
             return true;
         }
         return false;
@@ -97,29 +105,30 @@ class FuroCustomMethod extends FBP(LitElement) {
      */
     trigger() {
 
-        if(this._requestObject){
-            this.triggerWithBody(this._requestObject.value);
-        }else{
+        if (this._requestDataObject) {
+            this.triggerWithBody(this._requestDataObject);
+        } else {
             this.triggerEmpty();
         }
     }
 
-    triggerEmpty(){
-        if(this._checkServiceAndHateoasLinkError(this.method,this.method)){
+    triggerEmpty() {
+        if (this._checkServiceAndHateoasLinkError(this.method, this.method)) {
             return;
         }
         this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts[this.method]));
     }
+
     /**
      * trigger the method with data
      */
     triggerWithBody(body) {
 
-        if(this._checkServiceAndHateoasLinkError(this.method,this.method)){
+        if (this._checkServiceAndHateoasLinkError(this.method, this.method)) {
             return;
         }
 
-        this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts[this.method],body));
+        this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts[this.method], body));
     }
 
 
@@ -131,11 +140,11 @@ class FuroCustomMethod extends FBP(LitElement) {
             });
 
             /**
-            * @event hts-updated
-            * Fired when
-            * detail payload:
-            */
-            let customEvent = new Event('hts-updated', {composed:true, bubbles: true});
+             * @event hts-updated
+             * Fired when
+             * detail payload:
+             */
+            let customEvent = new Event('hts-updated', {composed: true, bubbles: true});
             customEvent.detail = hts;
             this.dispatchEvent(customEvent)
         }
@@ -144,17 +153,17 @@ class FuroCustomMethod extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-      <!-- Add a style block here -->
-      <style>
-        :host {
-          display: none;
-        }
-      </style>
-      <furo-api-fetch
-              ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abort-demanded">
-      </furo-api-fetch>
-    `;
+            <!-- Add a style block here -->
+            <style>
+                :host {
+                    display: none;
+                }
+            </style>
+            <furo-api-fetch
+                    ƒ-invoke-request="--triggerLoad"
+                    ƒ-abort-request="--abort-demanded">
+            </furo-api-fetch>
+        `;
     }
 
 }

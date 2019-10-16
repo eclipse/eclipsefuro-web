@@ -52,7 +52,7 @@
       dataObject.setAttribute("type", "task.TaskEntity");
 
 
-      entityAgent.addEventListener("save-failed", (e) => {
+      entityAgent.addEventListener("save-failed", () => {
 
         assert(dataObject.data.data.description,false);
         assert(dataObject.data.data.owner.display_name,false);
@@ -66,7 +66,8 @@
           "href": "/mockdata/tasks/1/error.json",
           "method": "GET",
           "rel": "update",
-          "type": "task.TaskEntity"
+          "type": "task.TaskEntity",
+          "service": "TaskService"
         }
       ]);
 
@@ -113,22 +114,21 @@
 
 
     });
-    it('should delete an entity   when hts rel delete   exist', (done) => {
+
+    it('should delete an entity when hts rel delete exist', (done) => {
       entityAgent.setAttribute("service", "TaskService");
       entityAgent.addEventListener("delete-success", () => {
         done();
       });
       entityAgent.htsIn([
         {
-          "href": "/mockdata/tasks/1/get.json",
-          "method": "GET",
+          "href": "http://httpbin.org/anything",
+          "method": "Delete",
           "rel": "delete",
-          "type": "task.TaskEntity"
+          "type": "task.TaskEntity",
+          "service": "TaskService"
         }
       ]);
-
-      entityAgent.bindRequestData({"display_name": "dummy"});
-
       entityAgent.delete();
     });
 
@@ -142,55 +142,81 @@
           "href": "/mockdata/tasks/1/get.json",
           "method": "GET",
           "rel": "self",
-          "type": "task.TaskEntity"
+          "type": "task.TaskEntity",
+          "service": "TaskService"
         }
       ]);
-
-      entityAgent.bindRequestData({"display_name": "dummy"});
 
       entityAgent.save();
     });
 
+    it('should not safe an entity on save when hts servcie is wrong', (done) => {
+      entityAgent.setAttribute("service", "TaskService");
+      entityAgent.addEventListener("missing-hts-update", () => {
+        done();
+      });
+      entityAgent.htsIn([
+        {
+          "href": "http://httpbin.org/anything",
+          "method": "Put",
+          "rel": "update",
+          "type": "task.TaskEntity",
+          "service": "PersonService"
+        }
+      ]);
+
+      entityAgent.save();
+    });
 
     it('should create an entity on save when hts rel create exist', (done) => {
       entityAgent.setAttribute("service", "TaskService");
+      dataObject.setAttribute("type", "task.TaskEntity");
       entityAgent.addEventListener("create-success", () => {
         done();
       });
       entityAgent.htsIn([
         {
-          "href": "/mockdata/tasks/1/get.json",
-          "method": "GET",
+          "href": "http://httpbin.org/anything",
+          "method": "Post",
           "rel": "create",
-          "type": "task.TaskEntity"
+          "type": "task.TaskEntity",
+          "service": "TaskService"
         }
       ]);
+      dataObject.addEventListener("object-ready", () => {
+        dataObject.injectRaw({"data": {"display_name": "dummy"}});
 
-      entityAgent.bindRequestData({"display_name": "dummy"});
+        entityAgent.create();
+      });
 
-      entityAgent.create();
     });
 
     it('should create an entity on save when hts rel self does not exist', (done) => {
       entityAgent.setAttribute("service", "TaskService");
+      dataObject.setAttribute("type", "task.TaskEntity");
       entityAgent.addEventListener("create-success", () => {
         done();
       });
       entityAgent.htsIn([
         {
-          "href": "/mockdata/tasks/1/get.json",
-          "method": "GET",
+          "href": "http://httpbin.org/anything",
+          "method": "Post",
           "rel": "create",
-          "type": "task.TaskEntity"
+          "type": "task.TaskEntity",
+          "service": "TaskService"
         }
       ]);
 
-      entityAgent.bindRequestData({"display_name": "dummy"});
+      dataObject.addEventListener("object-ready", () => {
+        dataObject.injectRaw({"data": {"display_name": "dummy"}});
 
-      entityAgent.save();
+        entityAgent.save();
+      });
     });
-    it('should update when hts is set', (done) => {
+
+    it('should update with method put when hts is set', (done) => {
       entityAgent.setAttribute("service", "TaskService");
+      dataObject.setAttribute("type", "task.TaskEntity");
       entityAgent.addEventListener("save-success", () => {
         done();
       });
@@ -199,19 +225,125 @@
           "href": "/mockdata/tasks/1/get.json",
           "method": "GET",
           "rel": "self",
-          "type": "task.TaskEntity"
+          "type": "task.TaskEntity",
+          "service": "TaskService"
         },
         {
-          "href": "/mockdata/tasks/1/update.json",
-          "method": "GET",
+          "href": "http://httpbin.org/anything",
+          "method": "Put",
           "rel": "update",
-          "type": "task.TaskEntity"
+          "type": "task.TaskEntity",
+          "service": "TaskService"
         }
       ]);
 
-      entityAgent.bindRequestData({"display_name": "dfghjk"});
+      dataObject.addEventListener("object-ready", () => {
+        dataObject.data.data.description._value = 'description';
+        dataObject.data.data.id._value = '1';
 
-      entityAgent.save();
+        entityAgent.save();
+      });
+
+    });
+
+    it('request payload should only have writeable fields', (done) => {
+      entityAgent.setAttribute("service", "TaskService");
+      dataObject.setAttribute("type", "task.TaskEntity");
+      entityAgent.addEventListener("save-success", (r) => {
+        expect(r.detail.json.owner.id).to.be.undefined;
+        assert(r.detail.json.owner.link.href, "/mockdata/persons/list.json");
+        done();
+      });
+      entityAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "task.TaskEntity",
+          "service": "TaskService"
+        },
+        {
+          "href": "http://httpbin.org/anything",
+          "method": "Put",
+          "rel": "update",
+          "type": "task.TaskEntity",
+          "service": "TaskService"
+        }
+      ]);
+
+      dataObject.addEventListener("object-ready", () => {
+        dataObject.data.data.description._value = 'description';
+        dataObject.data.data.id._value = '1';
+
+        entityAgent.save();
+      });
+
+    });
+
+    it('should update with method patch when hts is set', (done) => {
+      entityAgent.setAttribute("service", "TaskService");
+      dataObject.setAttribute("type", "task.TaskEntity");
+
+      entityAgent.addEventListener("save-success", () => {
+        done();
+      });
+      entityAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "task.TaskEntity",
+          "service": "TaskService"
+        },
+        {
+          "href": "http://httpbin.org/anything",
+          "method": "Patch",
+          "rel": "update",
+          "type": "task.TaskEntity",
+          "service": "TaskService"
+        }
+      ]);
+
+      dataObject.addEventListener("object-ready", () => {
+        dataObject.data.data.description._value = 'updated description';
+
+        entityAgent.save();
+      });
+
+    });
+
+    it('request object in update request with method patch should only have modified fields', (done) => {
+      entityAgent.setAttribute("service", "TaskService");
+      dataObject.setAttribute("type", "task.TaskEntity");
+
+      entityAgent.addEventListener("save-success", (r) => {
+        expect(r.detail.json.owner).to.be.undefined;
+        assert(r.detail.json.description, "updated description");
+        done();
+      });
+      entityAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "task.TaskEntity",
+          "service": "TaskService"
+        },
+        {
+          "href": "http://httpbin.org/anything",
+          "method": "Patch",
+          "rel": "update",
+          "type": "task.TaskEntity",
+          "service": "TaskService"
+        }
+      ]);
+
+      dataObject.addEventListener("object-ready", () => {
+        dataObject.data.data.description._value = 'updated description';
+
+        entityAgent.save();
+      });
+
     });
 
     it('should get an entity for the defined service', (done) => {
@@ -224,7 +356,8 @@
           "href": "/mockdata/tasks/1/get.json",
           "method": "GET",
           "rel": "self",
-          "type": "task.TaskEntity"
+          "type": "task.TaskEntity",
+          "service": "TaskService"
         }
       ]);
 

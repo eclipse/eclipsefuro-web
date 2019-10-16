@@ -364,6 +364,49 @@ export class FieldNode extends EventTreeNode {
     return this.__value;
   }
 
+  /**
+   * Returns all not readonly field values with deep dive
+   *
+   * @private
+   */
+  get _not_readonly_value(){
+    if (this._meta && !this._meta.readonly){
+      if (this.__childNodes.length > 0) {
+        this.__value = {};
+        // nur reine Daten zurück geben
+        for (let index in this.__childNodes) {
+          let field = this.__childNodes[index];
+          this.__value[field._name] = field._not_readonly_value
+        }
+      }
+      return this.__value;
+
+    } else {
+      return undefined;
+    }
+  }
+
+  /**
+   * Returns all modified field values with deep dive (! _pristine)
+   * @private
+   */
+  get _modified_value(){
+    if (this._meta && !this._meta.readonly && !this._pristine){
+      if (this.__childNodes.length > 0) {
+        this.__value = {};
+        // nur reine Daten zurück geben
+        for (let index in this.__childNodes) {
+          let field = this.__childNodes[index];
+          this.__value[field._name] = field._modified_value
+        }
+      }
+      return this.__value;
+
+    } else {
+      return undefined;
+    }
+  }
+
   _clearInvalidity() {
     if (!this._isValid) {
       this._isValid = true;

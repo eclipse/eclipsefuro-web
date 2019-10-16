@@ -219,6 +219,33 @@
         ]
       }
     },
+    "/mockdata/experiments/1:release": {
+      "post": {
+        "summary": "Releases experiment",
+        "operationId": "ReleaseExperiment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/experimentExperimentEntity"
+            }
+          }
+        ],
+        "tags": [
+          "BundledService"
+        ]
+      }
+    },
     "/mockdata/experiments/{exp}": {
       "delete": {
         "summary": "Delete a Experiment",
@@ -1024,6 +1051,13 @@
             "type": "string"
           },
           {
+            "name": "data.owner.link.service",
+            "description": "name of the service which can handle this link.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "data.owner.link.type",
             "description": "mime type.",
             "in": "query",
@@ -1235,6 +1269,13 @@
           {
             "name": "data.owner.link.rel",
             "description": "the relationship.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data.owner.link.service",
+            "description": "name of the service which can handle this link.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -1651,6 +1692,10 @@
         "rel": {
           "type": "string",
           "title": "the relationship"
+        },
+        "service": {
+          "type": "string",
+          "title": "name of the service which can handle this link"
         },
         "type": {
           "type": "string",

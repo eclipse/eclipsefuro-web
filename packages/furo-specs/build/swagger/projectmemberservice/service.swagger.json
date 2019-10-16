@@ -204,6 +204,10 @@
           "type": "string",
           "title": "the relationship"
         },
+        "service": {
+          "type": "string",
+          "title": "name of the service which can handle this link"
+        },
         "type": {
           "type": "string",
           "title": "mime type"
