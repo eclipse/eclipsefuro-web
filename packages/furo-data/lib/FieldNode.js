@@ -132,7 +132,6 @@ export class FieldNode extends EventTreeNode {
   }
 
   set _value(val) {
-
     // create vendor type if this field is a recusion an was not generated
     if (this._isRecursion && val) {
       this._createVendorType(this._spec.type)
@@ -155,7 +154,7 @@ export class FieldNode extends EventTreeNode {
             furoMetaDetected = val[field._name];
           }
 
-          if (val.hasOwnProperty(field._name)) {
+          if (val && val.hasOwnProperty(field._name)) {
             field._value = val[field._name];
           }
         }
@@ -200,10 +199,11 @@ export class FieldNode extends EventTreeNode {
     }
 
 
-    // check for repeated fields to reset if they are not set with value
-    this.__childNodes.forEach((n) => {
 
-      if (val[n._name] === undefined) {
+
+    //  init field if it is not in the incomming data
+    this.__childNodes.forEach((n) => {
+      if (val && val[n._name] === null) {
           n._value = JSON.parse(n.__initialValue);
       }
     });
@@ -255,8 +255,8 @@ export class FieldNode extends EventTreeNode {
 
   _createAnyType(val) {
     // remove if type changes
-    if (this.__anyCreated && this["@type"]._value !== val["@type"]) {
-      console.log(this["@type"]._value, val["@type"])
+    if (val && this.__anyCreated && this["@type"]._value !== val["@type"]) {
+
       for (let i = this.__childNodes.length - 1; i >= 0; i--) {
         let field = this.__childNodes[i];
         if (!val[field._name]) {
