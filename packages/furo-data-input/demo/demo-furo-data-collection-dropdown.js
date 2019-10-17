@@ -60,7 +60,6 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
 
                         <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"
                                                        display-field="description"
-                                                       subfield="id"
                                                        ƒ-inject-entities="--response(*.entities)"
                                                        ƒ-bind-data="--entity"></furo-data-collection-dropdown>
 

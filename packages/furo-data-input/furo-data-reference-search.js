@@ -10,7 +10,7 @@ import {Helper} from "./lib/helper";
 /**
  * `furo-data-reference-search`
  *  Sucht eine Referenz
- *
+ *  bounded data should be furo-reference
  *
  *```
  * <!--  furo-data-object will eine Referenz auflösen -->
@@ -20,9 +20,9 @@ import {Helper} from "./lib/helper";
  *    <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.
  *    Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den furo-collection-agent.
  *    Wenn furo-collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->
- *    <furo-data-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" subfield="id" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
+ *    <furo-data-reference-search autofocus  flex ƒ-bind-data="--entityReady(*.fields.ref)" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
  *
- *    <furo-data-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref.id)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
+ *    <furo-data-reference-search  flex ƒ-bind-data="--entityReady(*.fields.ref)" min-term-length="2" @-search="--term" ƒ-collection-in="--refCol"></furo-data-reference-search>
  *
  *</furo-horizontal-flex>
  *
@@ -44,9 +44,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     this._minTermLength = 0;
     this.valueField = "id";
     this.displayField = "display_name";
-
-    this._fieldNodeToUpdate = {};
-    this._fieldDisplayNodeToUpdate = {};
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
       // val is a ValidityState
@@ -97,12 +94,9 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     });
 
     this._FBPAddWireHook("--itemSelected", (item) => {
-      this._fieldNodeToUpdate._value= item.data[this.valueField];
 
-      if(this.subfield) {
-        this._fieldDisplayNodeToUpdate._value= item.data[this.displayField];
-      }
-      this._displayName = item.data[this.displayField];
+      this.field.id._value= item.data[this.valueField];
+      this.field.display_name._value= item.data[this.displayField];
       this._updateField();
       this._closeList();
     });
@@ -188,7 +182,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     for (let i=0; i<arrCollection.length ; i++) {
 
-      if(arrCollection[i].data && arrCollection[i].data [this.valueField] == this._fieldNodeToUpdate._value) {
+      if(arrCollection[i].data && arrCollection[i].data[this.valueField] == this.field.id._value) {
         index = i;
         break;
       }
@@ -356,18 +350,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     Helper.BindData(this, fieldNode);
 
-    if(this.subfield){
-      this._fieldNodeToUpdate = this.field[this.subfield];
-
-      if(this.field.display_name){
-        this._fieldDisplayNodeToUpdate = this.field.display_name;
-      }
-    }
-    else{
-      this._fieldNodeToUpdate = this.field;
-    }
-
-
     this._init();
   }
 
@@ -379,15 +361,8 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.errortext = this.field._validity.description;
     }
 
-    // use display_name directly from display field if it exists
-    if(this.subfield) {
-
-      this._displayName = this._fieldDisplayNodeToUpdate._value;
-    }
-
-    if( this._displayName){
-
-      this._FBPTriggerWire('--value', this._displayName);
+    if(this.field.display_name._value) {
+      this._FBPTriggerWire('--value', this.field.display_name._value);
     }
 
     this.requestUpdate();
@@ -402,7 +377,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     if (this._focused) {
       this._showList();
     }
-
   }
 
   /**
