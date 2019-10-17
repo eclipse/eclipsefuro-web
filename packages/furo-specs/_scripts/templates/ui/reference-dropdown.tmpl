@@ -74,8 +74,9 @@ class {{.class_name}} extends FBP(LitElement) {
       <furo-data-collection-dropdown
                     value-field="{{.value_field}}"
                     display-field="{{.display_field}}"
-                    ƒ-bind-data="--field-injected"
                     subfield="{{.subfield}}"
+                    subfield-display="{{.subfield_display}}"
+                    ƒ-bind-data="--field-injected"
                     ƒ-inject-entities="--collection(*.entities)"
                     ?condensed="${this.condensed}">
       </furo-data-reference-search>

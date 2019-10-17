@@ -179,10 +179,6 @@ class FuroDataProperty extends FBP(LitElement) {
         if (!nodeName.startsWith("@") && !nodeName.startsWith("ƒ")) {
           e.setAttribute(nodeName, nodeValue);
         }
-        // add addition attribute fo furo-data-collection-dropdown
-        if(type == "furo.StringOptionProperty") {
-          e.setAttribute("subfield", "id");
-        }
       }
 
       if (e.bindData) {

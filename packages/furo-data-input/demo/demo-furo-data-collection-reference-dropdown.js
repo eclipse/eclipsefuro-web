@@ -53,7 +53,6 @@ class DemoFuroDataCollectionReferenceDropdown extends FBP(LitElement) {
 
                 <furo-data-collection-dropdown hint="hint override" leading-icon="mail" trailing-icon="fingerprint"
                                                label="default list from spec"
-                                               subfield="id"
                                                ƒ-inject-entities="--response(*.entities)"
                                                ƒ-bind-data="--entity(*.owner)"></furo-data-collection-dropdown>
 

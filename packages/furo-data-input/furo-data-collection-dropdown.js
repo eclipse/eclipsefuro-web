@@ -58,12 +58,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
     this._fieldNodeToUpdate = {};
     this._fieldDisplayNodeToUpdate = {};
-    this._fieldNodeToUpdate._value = null;
-
-    this._collection = [];
 
     this._FBPAddWireHook("--valueChanged", (val) => {
-
 
       if (this.field) {
         // by valid input reset meta and constraints
@@ -345,6 +341,11 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
 
+    // by complex type set `id` as `subfield` as default
+    if(this._checkIsComplexType(fieldNode) && !this.subfield  ) {
+      this.subfield = "id";
+    }
+
     if(this.subfield){
       this._fieldNodeToUpdate = this.field[this.subfield];
 
@@ -370,6 +371,20 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     });
   }
 
+  /**
+   *
+   * @param fieldNode
+   * @returns {boolean}
+   * @private
+   */
+  _checkIsComplexType(fieldNode) {
+
+    let isComplex = false;
+    if(fieldNode.__childNodes.length > 0 ) {
+      isComplex = true;
+    }
+    return isComplex;
+  }
 
   _updateField() {
 
