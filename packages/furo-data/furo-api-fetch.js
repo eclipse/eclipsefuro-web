@@ -86,6 +86,10 @@ class FuroApiFetch extends HTMLElement {
      * @public
      */
     invokeRequest(request) {
+        if (!request || !request.url) {
+            console.warn("No valid request object was passed. No operation is performed!", request, this);
+            return;
+        }
         this.lastRequest = request;
         this._executeRequest(request);
     }

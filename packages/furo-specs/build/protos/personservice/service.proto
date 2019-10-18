@@ -49,8 +49,8 @@ service PersonService {
     rpc UpdatePerson (UpdatePersonServiceRequest) returns (person.PersonEntity){
         //
         option (google.api.http) = {
-            get: "/mockdata/persons/{prs}/update.json"
-            
+            patch: "/mockdata/persons/{prs}/update.json"
+            body: "data"
         };
     }
 }

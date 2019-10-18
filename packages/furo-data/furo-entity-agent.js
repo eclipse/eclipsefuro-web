@@ -88,6 +88,7 @@ class FuroEntityAgent extends FBP(LitElement) {
   _makeRequest(link, dataObject) {
     let data;
     let body = {};
+
     // check if dataObject is set and create body object
     if (dataObject) {
       // Method PATCH sends only modified data (.pristine)
@@ -95,8 +96,16 @@ class FuroEntityAgent extends FBP(LitElement) {
         for (let index in dataObject.__childNodes) {
           let field = dataObject.__childNodes[index];
           let val = field._modified_value;
-          if (val !== undefined) {body[field._name] = val}
+          if (val !== undefined) {
+            body[field._name] = val
+          }
         }
+        // the request object MUST contain a field named 'update_mask'
+        if (!this._ApiEnvironment.specs[this._service.services.Update.data.request].fields.hasOwnProperty('update_mask')){
+          console.warn("The request type " + this._ApiEnvironment.specs[this._service.services.Update.data.request].name + " has no specified field (update_mask) to transmit the changed fields. The operation applies to all fields!", this._ApiEnvironment.specs[this._service.services.Update.data.request], this);
+        }
+        // add the field_mask
+        body['update_mask'] = this._getFieldMask(body);
       } else {
         for (let index in dataObject.__childNodes) {
           let field = dataObject.__childNodes[index];
@@ -106,7 +115,7 @@ class FuroEntityAgent extends FBP(LitElement) {
       }
       data = JSON.stringify(body);
     }
-    // Daten
+    // create Request object with headers and body
     let headers = new Headers(this._ApiEnvironment.headers);
     headers.append('Content-Type', 'application/' + link.type + '+json');
 
@@ -118,6 +127,25 @@ class FuroEntityAgent extends FBP(LitElement) {
       headers: headers,
       body: data
     })
+  }
+
+  /**
+   * Creates an array with the path information of the object attributes (deep dive)
+   * [{"paths:" "attr1"}, {"paths:" "attr2.sub_attr"}]
+   * @param obj
+   * @returns {Array}
+   * @private
+   */
+  _getFieldMask(obj){
+    let keys = Object.keys(obj);
+    return keys.reduce(function(result, key) {
+      if (Object.prototype.toString.call(key) === '[object Object]') {
+        result = {"paths":result.concat(getkeys(obj[key], key))};
+      } else {
+        result.push({"paths":key});
+      }
+      return result;
+    }, []);
   }
 
   /**

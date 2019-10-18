@@ -123,7 +123,7 @@
       entityAgent.htsIn([
         {
           "href": "http://httpbin.org/anything",
-          "method": "Delete",
+          "method": "DELETE",
           "rel": "delete",
           "type": "task.TaskEntity",
           "service": "TaskService"
@@ -158,7 +158,7 @@
       entityAgent.htsIn([
         {
           "href": "http://httpbin.org/anything",
-          "method": "Put",
+          "method": "PUT",
           "rel": "update",
           "type": "task.TaskEntity",
           "service": "PersonService"
@@ -177,7 +177,7 @@
       entityAgent.htsIn([
         {
           "href": "http://httpbin.org/anything",
-          "method": "Post",
+          "method": "POST",
           "rel": "create",
           "type": "task.TaskEntity",
           "service": "TaskService"
@@ -200,7 +200,7 @@
       entityAgent.htsIn([
         {
           "href": "http://httpbin.org/anything",
-          "method": "Post",
+          "method": "POST",
           "rel": "create",
           "type": "task.TaskEntity",
           "service": "TaskService"
@@ -230,7 +230,7 @@
         },
         {
           "href": "http://httpbin.org/anything",
-          "method": "Put",
+          "method": "PUT",
           "rel": "update",
           "type": "task.TaskEntity",
           "service": "TaskService"
@@ -264,7 +264,7 @@
         },
         {
           "href": "http://httpbin.org/anything",
-          "method": "Put",
+          "method": "PUT",
           "rel": "update",
           "type": "task.TaskEntity",
           "service": "TaskService"
@@ -297,7 +297,7 @@
         },
         {
           "href": "http://httpbin.org/anything",
-          "method": "Patch",
+          "method": "PATCH",
           "rel": "update",
           "type": "task.TaskEntity",
           "service": "TaskService"
@@ -306,6 +306,34 @@
 
       dataObject.addEventListener("object-ready", () => {
         dataObject.data.data.description._value = 'updated description';
+
+        entityAgent.save();
+      });
+
+    });
+
+    it('update method with patch should provide a field_mask', (done) => {
+      entityAgent.setAttribute("service", "PersonService");
+      dataObject.setAttribute("type", "person.PersonEntity");
+
+      entityAgent.addEventListener("save-success", (r) => {
+        expect(r.detail.json.update_mask).to.not.be.undefined;
+        assert(r.detail.json.update_mask, [{paths: "name"}, {paths: "first_name"}]);
+        done();
+      });
+      entityAgent.htsIn([
+        {
+          "href": "http://httpbin.org/anything",
+          "method": "PATCH",
+          "rel": "update",
+          "type": "person.PersonEntity",
+          "service": "PersonService"
+        }
+      ]);
+
+      dataObject.addEventListener("object-ready", () => {
+        dataObject.data.data.name._value = 'updated name';
+        dataObject.data.data.first_name._value = 'updated first_name';
 
         entityAgent.save();
       });
@@ -331,7 +359,7 @@
         },
         {
           "href": "http://httpbin.org/anything",
-          "method": "Patch",
+          "method": "PATCH",
           "rel": "update",
           "type": "task.TaskEntity",
           "service": "TaskService"

@@ -4,7 +4,9 @@
   "description": "Person message type",
   "__proto": {
     "package": "person",
-    "imports": [],
+    "imports": [
+      "google/protobuf/field_mask.proto"
+    ],
     "targetfile": "person.proto"
   },
   "fields": {
@@ -95,6 +97,17 @@
       "constraints": {},
       "__proto": {
         "number": 6
+      }
+    },
+    "update_mask": {
+      "description": "Contains a field_mask which fields of the targeted resource are going to be updated",
+      "type": "google.protobuf.FieldMask",
+      "meta": {
+        "readonly": true
+      },
+      "constraints": {},
+      "__proto": {
+        "number": 7
       }
     }
   }
