@@ -4,9 +4,9 @@
 package furo
 
 import (
-	protobuf "../google/protobuf"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	math "math"
 )
 
@@ -19,7 +19,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // fields of meta info
 type MetaField struct {
@@ -133,10 +133,10 @@ func (m *Optionitem) GetSelected() bool {
 // Metas for a field
 type Fieldoption struct {
 	// a list with options, use furo.optionitem or your own
-	List                 []*protobuf.Any `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	List                 []*any.Any `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
 func (m *Fieldoption) Reset()         { *m = Fieldoption{} }
@@ -164,7 +164,7 @@ func (m *Fieldoption) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Fieldoption proto.InternalMessageInfo
 
-func (m *Fieldoption) GetList() []*protobuf.Any {
+func (m *Fieldoption) GetList() []*any.Any {
 	if m != nil {
 		return m.List
 	}
@@ -227,10 +227,10 @@ type FieldMeta struct {
 	// repeated
 	Repeated bool `protobuf:"varint,5,opt,name=repeated,proto3" json:"repeated,omitempty"`
 	// Put in type specific metas for your fields here
-	Typespecific         *protobuf.Any `protobuf:"bytes,7,opt,name=typespecific,proto3" json:"typespecific,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	Typespecific         *any.Any `protobuf:"bytes,7,opt,name=typespecific,proto3" json:"typespecific,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *FieldMeta) Reset()         { *m = FieldMeta{} }
@@ -300,7 +300,7 @@ func (m *FieldMeta) GetRepeated() bool {
 	return false
 }
 
-func (m *FieldMeta) GetTypespecific() *protobuf.Any {
+func (m *FieldMeta) GetTypespecific() *any.Any {
 	if m != nil {
 		return m.Typespecific
 	}

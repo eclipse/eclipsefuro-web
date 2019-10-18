@@ -4,15 +4,13 @@
 package personservice
 
 import (
-	protobuf "../google/protobuf"
 	person "../person"
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -25,7 +23,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type CreatePersonServiceRequest struct {
 	Data                 *person.Person `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
@@ -67,11 +65,11 @@ func (m *CreatePersonServiceRequest) GetData() *person.Person {
 }
 
 type DeletePersonServiceRequest struct {
-	Prs                  string          `protobuf:"bytes,1,opt,name=prs,proto3" json:"prs,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Prs                  string       `protobuf:"bytes,1,opt,name=prs,proto3" json:"prs,omitempty"`
+	Data                 *empty.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *DeletePersonServiceRequest) Reset()         { *m = DeletePersonServiceRequest{} }
@@ -106,7 +104,7 @@ func (m *DeletePersonServiceRequest) GetPrs() string {
 	return ""
 }
 
-func (m *DeletePersonServiceRequest) GetData() *protobuf.Empty {
+func (m *DeletePersonServiceRequest) GetData() *empty.Empty {
 	if m != nil {
 		return m.Data
 	}
@@ -356,7 +354,7 @@ type PersonServiceClient interface {
 	// Creates a new Person
 	CreatePerson(ctx context.Context, in *CreatePersonServiceRequest, opts ...grpc.CallOption) (*person.PersonEntity, error)
 	// Delete a Person
-	DeletePerson(ctx context.Context, in *DeletePersonServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeletePerson(ctx context.Context, in *DeletePersonServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person
 	GetPerson(ctx context.Context, in *GetPersonServiceRequest, opts ...grpc.CallOption) (*person.PersonEntity, error)
 	// The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.
@@ -382,8 +380,8 @@ func (c *personServiceClient) CreatePerson(ctx context.Context, in *CreatePerson
 	return out, nil
 }
 
-func (c *personServiceClient) DeletePerson(ctx context.Context, in *DeletePersonServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *personServiceClient) DeletePerson(ctx context.Context, in *DeletePersonServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/personservice.PersonService/DeletePerson", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -423,33 +421,13 @@ type PersonServiceServer interface {
 	// Creates a new Person
 	CreatePerson(context.Context, *CreatePersonServiceRequest) (*person.PersonEntity, error)
 	// Delete a Person
-	DeletePerson(context.Context, *DeletePersonServiceRequest) (*protobuf.Empty, error)
+	DeletePerson(context.Context, *DeletePersonServiceRequest) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person
 	GetPerson(context.Context, *GetPersonServiceRequest) (*person.PersonEntity, error)
 	// The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.
 	ListPersons(context.Context, *ListPersonServiceRequest) (*person.PersonCollection, error)
 	// Updates a Person, partial updates are supported
 	UpdatePerson(context.Context, *UpdatePersonServiceRequest) (*person.PersonEntity, error)
-}
-
-// UnimplementedPersonServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedPersonServiceServer struct {
-}
-
-func (*UnimplementedPersonServiceServer) CreatePerson(ctx context.Context, req *CreatePersonServiceRequest) (*person.PersonEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreatePerson not implemented")
-}
-func (*UnimplementedPersonServiceServer) DeletePerson(ctx context.Context, req *DeletePersonServiceRequest) (*protobuf.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeletePerson not implemented")
-}
-func (*UnimplementedPersonServiceServer) GetPerson(ctx context.Context, req *GetPersonServiceRequest) (*person.PersonEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPerson not implemented")
-}
-func (*UnimplementedPersonServiceServer) ListPersons(ctx context.Context, req *ListPersonServiceRequest) (*person.PersonCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListPersons not implemented")
-}
-func (*UnimplementedPersonServiceServer) UpdatePerson(ctx context.Context, req *UpdatePersonServiceRequest) (*person.PersonEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdatePerson not implemented")
 }
 
 func RegisterPersonServiceServer(s *grpc.Server, srv PersonServiceServer) {

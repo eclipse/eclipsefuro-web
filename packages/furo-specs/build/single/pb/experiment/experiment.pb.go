@@ -5,10 +5,10 @@ package experiment
 
 import (
 	furo "../furo"
-	protobuf "../google/protobuf"
 	_type "../google/type"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	math "math"
 )
 
@@ -21,7 +21,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // ExperimentEntity with Experiment
 type ExperimentEntity struct {
@@ -121,7 +121,7 @@ type Experiment struct {
 	// field for testing property
 	SingleTypeProperty *furo.Property `protobuf:"bytes,19,opt,name=single_type_property,json=singleTypeProperty,proto3" json:"single_type_property,omitempty"`
 	// field for testing any
-	TheAnyType *protobuf.Any `protobuf:"bytes,15,opt,name=the_any_type,json=theAnyType,proto3" json:"the_any_type,omitempty"`
+	TheAnyType *any.Any `protobuf:"bytes,15,opt,name=the_any_type,json=theAnyType,proto3" json:"the_any_type,omitempty"`
 	// field for testing property
 	TypeProperty []*furo.Property `protobuf:"bytes,17,rep,name=type_property,json=typeProperty,proto3" json:"type_property,omitempty"`
 	// field for testing static options
@@ -282,7 +282,7 @@ func (m *Experiment) GetSingleTypeProperty() *furo.Property {
 	return nil
 }
 
-func (m *Experiment) GetTheAnyType() *protobuf.Any {
+func (m *Experiment) GetTheAnyType() *any.Any {
 	if m != nil {
 		return m.TheAnyType
 	}

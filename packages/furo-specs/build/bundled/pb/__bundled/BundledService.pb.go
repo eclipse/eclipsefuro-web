@@ -5,7 +5,6 @@ package taskmanager
 
 import (
 	experiment "../experiment"
-	protobuf "../google/protobuf"
 	person "../person"
 	project "../project"
 	task "../task"
@@ -13,10 +12,9 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
-	codes "google.golang.org/grpc/codes"
-	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -29,7 +27,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type CreateTreeServiceRequest struct {
 	Data                 *tree.Tree `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
@@ -71,11 +69,11 @@ func (m *CreateTreeServiceRequest) GetData() *tree.Tree {
 }
 
 type DeleteTreeServiceRequest struct {
-	Tre                  string          `protobuf:"bytes,1,opt,name=tre,proto3" json:"tre,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Tre                  string       `protobuf:"bytes,1,opt,name=tre,proto3" json:"tre,omitempty"`
+	Data                 *empty.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *DeleteTreeServiceRequest) Reset()         { *m = DeleteTreeServiceRequest{} }
@@ -110,7 +108,7 @@ func (m *DeleteTreeServiceRequest) GetTre() string {
 	return ""
 }
 
-func (m *DeleteTreeServiceRequest) GetData() *protobuf.Empty {
+func (m *DeleteTreeServiceRequest) GetData() *empty.Empty {
 	if m != nil {
 		return m.Data
 	}
@@ -340,11 +338,11 @@ func (m *CreatePersonServiceRequest) GetData() *person.Person {
 }
 
 type DeletePersonServiceRequest struct {
-	Prs                  string          `protobuf:"bytes,1,opt,name=prs,proto3" json:"prs,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Prs                  string       `protobuf:"bytes,1,opt,name=prs,proto3" json:"prs,omitempty"`
+	Data                 *empty.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *DeletePersonServiceRequest) Reset()         { *m = DeletePersonServiceRequest{} }
@@ -379,7 +377,7 @@ func (m *DeletePersonServiceRequest) GetPrs() string {
 	return ""
 }
 
-func (m *DeletePersonServiceRequest) GetData() *protobuf.Empty {
+func (m *DeletePersonServiceRequest) GetData() *empty.Empty {
 	if m != nil {
 		return m.Data
 	}
@@ -609,11 +607,11 @@ func (m *CreateProjectServiceRequest) GetData() *project.Project {
 }
 
 type DeleteProjectServiceRequest struct {
-	Prj                  string          `protobuf:"bytes,1,opt,name=prj,proto3" json:"prj,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Prj                  string       `protobuf:"bytes,1,opt,name=prj,proto3" json:"prj,omitempty"`
+	Data                 *empty.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *DeleteProjectServiceRequest) Reset()         { *m = DeleteProjectServiceRequest{} }
@@ -648,7 +646,7 @@ func (m *DeleteProjectServiceRequest) GetPrj() string {
 	return ""
 }
 
-func (m *DeleteProjectServiceRequest) GetData() *protobuf.Empty {
+func (m *DeleteProjectServiceRequest) GetData() *empty.Empty {
 	if m != nil {
 		return m.Data
 	}
@@ -1032,11 +1030,11 @@ func (m *CreateTaskServiceRequest) GetData() *task.Task {
 }
 
 type DeleteTaskServiceRequest struct {
-	Tsk                  string          `protobuf:"bytes,1,opt,name=tsk,proto3" json:"tsk,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Tsk                  string       `protobuf:"bytes,1,opt,name=tsk,proto3" json:"tsk,omitempty"`
+	Data                 *empty.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *DeleteTaskServiceRequest) Reset()         { *m = DeleteTaskServiceRequest{} }
@@ -1071,7 +1069,7 @@ func (m *DeleteTaskServiceRequest) GetTsk() string {
 	return ""
 }
 
-func (m *DeleteTaskServiceRequest) GetData() *protobuf.Empty {
+func (m *DeleteTaskServiceRequest) GetData() *empty.Empty {
 	if m != nil {
 		return m.Data
 	}
@@ -1301,11 +1299,11 @@ func (m *CreateExperimentServiceRequest) GetData() *experiment.Experiment {
 }
 
 type DeleteExperimentServiceRequest struct {
-	Exp                  string          `protobuf:"bytes,1,opt,name=exp,proto3" json:"exp,omitempty"`
-	Data                 *protobuf.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Exp                  string       `protobuf:"bytes,1,opt,name=exp,proto3" json:"exp,omitempty"`
+	Data                 *empty.Empty `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
 }
 
 func (m *DeleteExperimentServiceRequest) Reset()         { *m = DeleteExperimentServiceRequest{} }
@@ -1340,7 +1338,7 @@ func (m *DeleteExperimentServiceRequest) GetExp() string {
 	return ""
 }
 
-func (m *DeleteExperimentServiceRequest) GetData() *protobuf.Empty {
+func (m *DeleteExperimentServiceRequest) GetData() *empty.Empty {
 	if m != nil {
 		return m.Data
 	}
@@ -1713,7 +1711,7 @@ type BundledServiceClient interface {
 	// Creates a new Tree
 	CreateTree(ctx context.Context, in *CreateTreeServiceRequest, opts ...grpc.CallOption) (*tree.TreeEntity, error)
 	// Delete a Tree
-	DeleteTree(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeleteTree(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree
 	GetTree(ctx context.Context, in *GetTreeServiceRequest, opts ...grpc.CallOption) (*tree.TreeEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.
@@ -1723,7 +1721,7 @@ type BundledServiceClient interface {
 	// Creates a new Person
 	CreatePerson(ctx context.Context, in *CreatePersonServiceRequest, opts ...grpc.CallOption) (*person.PersonEntity, error)
 	// Delete a Person
-	DeletePerson(ctx context.Context, in *DeletePersonServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeletePerson(ctx context.Context, in *DeletePersonServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person
 	GetPerson(ctx context.Context, in *GetPersonServiceRequest, opts ...grpc.CallOption) (*person.PersonEntity, error)
 	// The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.
@@ -1733,7 +1731,7 @@ type BundledServiceClient interface {
 	// Creates a new Project
 	CreateProject(ctx context.Context, in *CreateProjectServiceRequest, opts ...grpc.CallOption) (*project.ProjectEntity, error)
 	// Delete a Project
-	DeleteProject(ctx context.Context, in *DeleteProjectServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeleteProject(ctx context.Context, in *DeleteProjectServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project
 	GetProject(ctx context.Context, in *GetProjectServiceRequest, opts ...grpc.CallOption) (*project.ProjectEntity, error)
 	// The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.
@@ -1747,7 +1745,7 @@ type BundledServiceClient interface {
 	// Creates a new Task
 	CreateTask(ctx context.Context, in *CreateTaskServiceRequest, opts ...grpc.CallOption) (*task.TaskEntity, error)
 	// Delete a Task
-	DeleteTask(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeleteTask(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task
 	GetTask(ctx context.Context, in *GetTaskServiceRequest, opts ...grpc.CallOption) (*task.TaskEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.
@@ -1757,13 +1755,13 @@ type BundledServiceClient interface {
 	// Creates a new Experiment
 	CreateExperiment(ctx context.Context, in *CreateExperimentServiceRequest, opts ...grpc.CallOption) (*experiment.ExperimentEntity, error)
 	// Delete a Experiment
-	DeleteExperiment(ctx context.Context, in *DeleteExperimentServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	DeleteExperiment(ctx context.Context, in *DeleteExperimentServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment
 	GetExperiment(ctx context.Context, in *GetExperimentServiceRequest, opts ...grpc.CallOption) (*experiment.ExperimentEntity, error)
 	// The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.
 	ListExperiments(ctx context.Context, in *ListExperimentServiceRequest, opts ...grpc.CallOption) (*experiment.ExperimentCollection, error)
 	// Releases experiment
-	ReleaseExperiment(ctx context.Context, in *ReleaseExperimentServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error)
+	ReleaseExperiment(ctx context.Context, in *ReleaseExperimentServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// Updates a Experiment, partial updates are supported
 	UpdateExperiment(ctx context.Context, in *UpdateExperimentServiceRequest, opts ...grpc.CallOption) (*experiment.ExperimentEntity, error)
 }
@@ -1785,8 +1783,8 @@ func (c *bundledServiceClient) CreateTree(ctx context.Context, in *CreateTreeSer
 	return out, nil
 }
 
-func (c *bundledServiceClient) DeleteTree(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *bundledServiceClient) DeleteTree(ctx context.Context, in *DeleteTreeServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/taskmanager.BundledService/DeleteTree", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1830,8 +1828,8 @@ func (c *bundledServiceClient) CreatePerson(ctx context.Context, in *CreatePerso
 	return out, nil
 }
 
-func (c *bundledServiceClient) DeletePerson(ctx context.Context, in *DeletePersonServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *bundledServiceClient) DeletePerson(ctx context.Context, in *DeletePersonServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/taskmanager.BundledService/DeletePerson", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1875,8 +1873,8 @@ func (c *bundledServiceClient) CreateProject(ctx context.Context, in *CreateProj
 	return out, nil
 }
 
-func (c *bundledServiceClient) DeleteProject(ctx context.Context, in *DeleteProjectServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *bundledServiceClient) DeleteProject(ctx context.Context, in *DeleteProjectServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/taskmanager.BundledService/DeleteProject", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1938,8 +1936,8 @@ func (c *bundledServiceClient) CreateTask(ctx context.Context, in *CreateTaskSer
 	return out, nil
 }
 
-func (c *bundledServiceClient) DeleteTask(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *bundledServiceClient) DeleteTask(ctx context.Context, in *DeleteTaskServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/taskmanager.BundledService/DeleteTask", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1983,8 +1981,8 @@ func (c *bundledServiceClient) CreateExperiment(ctx context.Context, in *CreateE
 	return out, nil
 }
 
-func (c *bundledServiceClient) DeleteExperiment(ctx context.Context, in *DeleteExperimentServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *bundledServiceClient) DeleteExperiment(ctx context.Context, in *DeleteExperimentServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/taskmanager.BundledService/DeleteExperiment", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -2010,8 +2008,8 @@ func (c *bundledServiceClient) ListExperiments(ctx context.Context, in *ListExpe
 	return out, nil
 }
 
-func (c *bundledServiceClient) ReleaseExperiment(ctx context.Context, in *ReleaseExperimentServiceRequest, opts ...grpc.CallOption) (*protobuf.Empty, error) {
-	out := new(protobuf.Empty)
+func (c *bundledServiceClient) ReleaseExperiment(ctx context.Context, in *ReleaseExperimentServiceRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/taskmanager.BundledService/ReleaseExperiment", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -2033,7 +2031,7 @@ type BundledServiceServer interface {
 	// Creates a new Tree
 	CreateTree(context.Context, *CreateTreeServiceRequest) (*tree.TreeEntity, error)
 	// Delete a Tree
-	DeleteTree(context.Context, *DeleteTreeServiceRequest) (*protobuf.Empty, error)
+	DeleteTree(context.Context, *DeleteTreeServiceRequest) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree
 	GetTree(context.Context, *GetTreeServiceRequest) (*tree.TreeEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.
@@ -2043,7 +2041,7 @@ type BundledServiceServer interface {
 	// Creates a new Person
 	CreatePerson(context.Context, *CreatePersonServiceRequest) (*person.PersonEntity, error)
 	// Delete a Person
-	DeletePerson(context.Context, *DeletePersonServiceRequest) (*protobuf.Empty, error)
+	DeletePerson(context.Context, *DeletePersonServiceRequest) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person
 	GetPerson(context.Context, *GetPersonServiceRequest) (*person.PersonEntity, error)
 	// The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.
@@ -2053,7 +2051,7 @@ type BundledServiceServer interface {
 	// Creates a new Project
 	CreateProject(context.Context, *CreateProjectServiceRequest) (*project.ProjectEntity, error)
 	// Delete a Project
-	DeleteProject(context.Context, *DeleteProjectServiceRequest) (*protobuf.Empty, error)
+	DeleteProject(context.Context, *DeleteProjectServiceRequest) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project
 	GetProject(context.Context, *GetProjectServiceRequest) (*project.ProjectEntity, error)
 	// The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.
@@ -2067,7 +2065,7 @@ type BundledServiceServer interface {
 	// Creates a new Task
 	CreateTask(context.Context, *CreateTaskServiceRequest) (*task.TaskEntity, error)
 	// Delete a Task
-	DeleteTask(context.Context, *DeleteTaskServiceRequest) (*protobuf.Empty, error)
+	DeleteTask(context.Context, *DeleteTaskServiceRequest) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task
 	GetTask(context.Context, *GetTaskServiceRequest) (*task.TaskEntity, error)
 	// The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.
@@ -2077,104 +2075,15 @@ type BundledServiceServer interface {
 	// Creates a new Experiment
 	CreateExperiment(context.Context, *CreateExperimentServiceRequest) (*experiment.ExperimentEntity, error)
 	// Delete a Experiment
-	DeleteExperiment(context.Context, *DeleteExperimentServiceRequest) (*protobuf.Empty, error)
+	DeleteExperiment(context.Context, *DeleteExperimentServiceRequest) (*empty.Empty, error)
 	// The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment
 	GetExperiment(context.Context, *GetExperimentServiceRequest) (*experiment.ExperimentEntity, error)
 	// The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.
 	ListExperiments(context.Context, *ListExperimentServiceRequest) (*experiment.ExperimentCollection, error)
 	// Releases experiment
-	ReleaseExperiment(context.Context, *ReleaseExperimentServiceRequest) (*protobuf.Empty, error)
+	ReleaseExperiment(context.Context, *ReleaseExperimentServiceRequest) (*empty.Empty, error)
 	// Updates a Experiment, partial updates are supported
 	UpdateExperiment(context.Context, *UpdateExperimentServiceRequest) (*experiment.ExperimentEntity, error)
-}
-
-// UnimplementedBundledServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedBundledServiceServer struct {
-}
-
-func (*UnimplementedBundledServiceServer) CreateTree(ctx context.Context, req *CreateTreeServiceRequest) (*tree.TreeEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateTree not implemented")
-}
-func (*UnimplementedBundledServiceServer) DeleteTree(ctx context.Context, req *DeleteTreeServiceRequest) (*protobuf.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteTree not implemented")
-}
-func (*UnimplementedBundledServiceServer) GetTree(ctx context.Context, req *GetTreeServiceRequest) (*tree.TreeEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTree not implemented")
-}
-func (*UnimplementedBundledServiceServer) ListTrees(ctx context.Context, req *ListTreeServiceRequest) (*tree.TreeCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListTrees not implemented")
-}
-func (*UnimplementedBundledServiceServer) UpdateTree(ctx context.Context, req *UpdateTreeServiceRequest) (*tree.TreeEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateTree not implemented")
-}
-func (*UnimplementedBundledServiceServer) CreatePerson(ctx context.Context, req *CreatePersonServiceRequest) (*person.PersonEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreatePerson not implemented")
-}
-func (*UnimplementedBundledServiceServer) DeletePerson(ctx context.Context, req *DeletePersonServiceRequest) (*protobuf.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeletePerson not implemented")
-}
-func (*UnimplementedBundledServiceServer) GetPerson(ctx context.Context, req *GetPersonServiceRequest) (*person.PersonEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPerson not implemented")
-}
-func (*UnimplementedBundledServiceServer) ListPersons(ctx context.Context, req *ListPersonServiceRequest) (*person.PersonCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListPersons not implemented")
-}
-func (*UnimplementedBundledServiceServer) UpdatePerson(ctx context.Context, req *UpdatePersonServiceRequest) (*person.PersonEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdatePerson not implemented")
-}
-func (*UnimplementedBundledServiceServer) CreateProject(ctx context.Context, req *CreateProjectServiceRequest) (*project.ProjectEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateProject not implemented")
-}
-func (*UnimplementedBundledServiceServer) DeleteProject(ctx context.Context, req *DeleteProjectServiceRequest) (*protobuf.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
-}
-func (*UnimplementedBundledServiceServer) GetProject(ctx context.Context, req *GetProjectServiceRequest) (*project.ProjectEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetProject not implemented")
-}
-func (*UnimplementedBundledServiceServer) ListProjects(ctx context.Context, req *ListProjectServiceRequest) (*project.ProjectCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListProjects not implemented")
-}
-func (*UnimplementedBundledServiceServer) UpdateProject(ctx context.Context, req *UpdateProjectServiceRequest) (*project.ProjectEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateProject not implemented")
-}
-func (*UnimplementedBundledServiceServer) ListMembers(ctx context.Context, req *ListProjectMembersServiceRequest) (*person.PersonCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListMembers not implemented")
-}
-func (*UnimplementedBundledServiceServer) UnsubscribeProjectMembersService(ctx context.Context, req *UnsubscribeProjectMembersServiceRequest) (*person.PersonCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UnsubscribeProjectMembersService not implemented")
-}
-func (*UnimplementedBundledServiceServer) CreateTask(ctx context.Context, req *CreateTaskServiceRequest) (*task.TaskEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
-}
-func (*UnimplementedBundledServiceServer) DeleteTask(ctx context.Context, req *DeleteTaskServiceRequest) (*protobuf.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteTask not implemented")
-}
-func (*UnimplementedBundledServiceServer) GetTask(ctx context.Context, req *GetTaskServiceRequest) (*task.TaskEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTask not implemented")
-}
-func (*UnimplementedBundledServiceServer) ListTasks(ctx context.Context, req *ListTaskServiceRequest) (*task.TaskCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListTasks not implemented")
-}
-func (*UnimplementedBundledServiceServer) UpdateTask(ctx context.Context, req *UpdateTaskServiceRequest) (*task.TaskEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateTask not implemented")
-}
-func (*UnimplementedBundledServiceServer) CreateExperiment(ctx context.Context, req *CreateExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateExperiment not implemented")
-}
-func (*UnimplementedBundledServiceServer) DeleteExperiment(ctx context.Context, req *DeleteExperimentServiceRequest) (*protobuf.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteExperiment not implemented")
-}
-func (*UnimplementedBundledServiceServer) GetExperiment(ctx context.Context, req *GetExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetExperiment not implemented")
-}
-func (*UnimplementedBundledServiceServer) ListExperiments(ctx context.Context, req *ListExperimentServiceRequest) (*experiment.ExperimentCollection, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListExperiments not implemented")
-}
-func (*UnimplementedBundledServiceServer) ReleaseExperiment(ctx context.Context, req *ReleaseExperimentServiceRequest) (*protobuf.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReleaseExperiment not implemented")
-}
-func (*UnimplementedBundledServiceServer) UpdateExperiment(ctx context.Context, req *UpdateExperimentServiceRequest) (*experiment.ExperimentEntity, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateExperiment not implemented")
 }
 
 func RegisterBundledServiceServer(s *grpc.Server, srv BundledServiceServer) {

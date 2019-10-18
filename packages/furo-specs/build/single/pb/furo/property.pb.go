@@ -4,9 +4,9 @@
 package furo
 
 import (
-	protobuf "../google/protobuf"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	math "math"
 )
 
@@ -19,7 +19,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // String type to use in property
 type StringOptionProperty struct {
@@ -199,7 +199,7 @@ type Property struct {
 	// property code for additional settings
 	Code string `protobuf:"bytes,5,opt,name=code,proto3" json:"code,omitempty"`
 	// data part of the property
-	Data *protobuf.Any `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
+	Data *any.Any `protobuf:"bytes,3,opt,name=data,proto3" json:"data,omitempty"`
 	// String representation of the property
 	DisplayName string `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`
 	// Id of the property
@@ -243,7 +243,7 @@ func (m *Property) GetCode() string {
 	return ""
 }
 
-func (m *Property) GetData() *protobuf.Any {
+func (m *Property) GetData() *any.Any {
 	if m != nil {
 		return m.Data
 	}
