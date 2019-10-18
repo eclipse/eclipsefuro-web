@@ -71,9 +71,9 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    */
-  __fbpReady() {
-    super.__fbpReady();
-    //this._FBPTraceWires()
+  _FBPReady(){
+    super._FBPReady();
+    //this._FBPTraceWires();
   }
 
   /**

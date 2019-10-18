@@ -75,6 +75,43 @@
       done()
     });
 
+    it('tree should be exandable', (done) => {
+      tree.expandAll();
+
+      tree.addEventListener('nodes-expanded', ()=>{
+        done();
+      });
+    });
+
+    it('tree should be collapsable', (done) => {
+      tree.collapseAll();
+
+      tree.addEventListener('nodes-collapsed', ()=>{
+        done();
+      });
+    });
+
+    it('should select a tree node by id', (done) => {
+      tree.qp = 1;
+      tree.addEventListener('node-selected', (f)=>{
+        assert.equal(f.detail.id._value, "234");
+        done();
+      });
+      tree.selectById('234');
+    });
+
+    it('should be traversable with the keyboard', (done) => {
+
+      tree.addEventListener('node-closed', (f)=>{
+        done();
+      });
+      tree.selectById('1');
+      keydown(tree, 'ArrowDown');
+      keydown(tree, 'ArrowDown');
+      keydown(tree, 'ArrowUp');
+      keydown(tree, 'ArrowUp');
+      keydown(tree, 'Enter');
+    });
 
   });
 </script>
