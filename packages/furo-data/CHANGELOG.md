@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.61.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.60.1...@furo/data@0.61.0) (2019-10-18)
+
+
+### Features
+
+* furo-data-repeat hides itself when data is empty ([939c3af](https://github.com/veith/FuroBaseComponents/commit/939c3af))
+
+
+
+
+
 ## [0.60.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.60.0...@furo/data@0.60.1) (2019-10-15)
 
 **Note:** Version bump only for package @furo/data

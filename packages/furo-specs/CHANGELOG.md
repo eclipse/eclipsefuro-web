@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.39.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.38.1...@furo/specs@0.39.0) (2019-10-18)
+
+
+### Bug Fixes
+
+* duplicate type register warning in grpc gateway ([cb50981](https://github.com/veith/FuroBaseComponents/commit/cb50981))
+* some tests and syntax ([0b4d459](https://github.com/veith/FuroBaseComponents/commit/0b4d459))
+
+
+### Features
+
+* check complex type in collection dropdown ([c71ee5f](https://github.com/veith/FuroBaseComponents/commit/c71ee5f))
+
+
+
+
+
 ## [0.38.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.38.0...@furo/specs@0.38.1) (2019-10-16)
 
 **Note:** Version bump only for package @furo/specs

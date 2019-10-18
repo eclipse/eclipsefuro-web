@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.59.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.58.3...@furo/data-input@0.59.0) (2019-10-18)
+
+
+### Bug Fixes
+
+* fix display updating problem for collection dropdown and reference search ([689e499](https://github.com/veith/FuroBaseComponents/commit/689e499))
+
+
+### Features
+
+* check complex type in collection dropdown ([c71ee5f](https://github.com/veith/FuroBaseComponents/commit/c71ee5f))
+* furo-data-repeat hides itself when data is empty ([939c3af](https://github.com/veith/FuroBaseComponents/commit/939c3af))
+
+
+
+
+
 ## [0.58.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.58.2...@furo/data-input@0.58.3) (2019-10-16)
 
 **Note:** Version bump only for package @furo/data-input
