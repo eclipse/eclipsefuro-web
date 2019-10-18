@@ -289,25 +289,23 @@
         },
         {
           "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+          "description": "flow is ready lifecycle method",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 531,
-              "column": 8
+              "line": 73,
+              "column": 2
             },
             "end": {
-              "line": 534,
-              "column": 9
+              "line": 76,
+              "column": 3
             }
           },
           "metadata": {},
           "params": [],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "FBP"
+          }
         },
         {
           "name": "__enqueueTrigger",
@@ -534,26 +532,6 @@
           }
         },
         {
-          "name": "__fbpReady",
-          "description": "flow is ready lifecycle method",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 73,
-              "column": 2
-            },
-            "end": {
-              "line": 76,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "render",
           "description": "",
           "privacy": "private",
@@ -668,11 +646,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 209,
               "column": 12
             },
             "end": {
-              "line": 211,
+              "line": 209,
               "column": 51
             }
           },
@@ -689,11 +667,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 215,
+              "line": 213,
               "column": 12
             },
             "end": {
-              "line": 215,
+              "line": 213,
               "column": 83
             }
           },
@@ -923,25 +901,23 @@
         },
         {
           "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
+          "description": "flow is ready lifecycle method",
           "privacy": "protected",
           "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 531,
-              "column": 8
+              "line": 187,
+              "column": 4
             },
             "end": {
-              "line": 534,
-              "column": 9
+              "line": 190,
+              "column": 5
             }
           },
           "metadata": {},
           "params": [],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "FBP"
+          }
         },
         {
           "name": "__enqueueTrigger",
@@ -1168,36 +1144,16 @@
           }
         },
         {
-          "name": "__fbpReady",
-          "description": "flow is ready lifecycle method",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 187,
-              "column": 4
-            },
-            "end": {
-              "line": 191,
-              "column": 5
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "focus",
           "description": "focuses the element",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 197,
+              "line": 195,
               "column": 4
             },
             "end": {
-              "line": 200,
+              "line": 198,
               "column": 5
             }
           },
@@ -1213,11 +1169,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 259,
+              "line": 257,
               "column": 4
             },
             "end": {
-              "line": 265,
+              "line": 263,
               "column": 5
             }
           },
@@ -1242,7 +1198,7 @@
           "column": 0
         },
         "end": {
-          "line": 266,
+          "line": 264,
           "column": 1
         }
       },
@@ -1255,11 +1211,11 @@
           "description": "Sets the tabindex",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 209,
               "column": 12
             },
             "end": {
-              "line": 211,
+              "line": 209,
               "column": 51
             }
           },

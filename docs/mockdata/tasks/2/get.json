@@ -19,7 +19,8 @@
       "href": "/mockdata/tasks/2/get.json",
       "method": "GET",
       "rel": "self",
-      "type": "task.Task"
+      "type": "task.TaskEntity",
+      "service": "TaskService"
     }
   ]
 }

@@ -51,7 +51,8 @@
           "href": "/mockdata/projects/1/get.json",
           "method": "GET",
           "rel": "self",
-          "type": "project.Project"
+          "type": "project.Project",
+          "service": "ProjectService"
         }
       ]
     },
@@ -98,7 +99,8 @@
           "href": "/mockdata/projects/2/get.json",
           "method": "GET",
           "rel": "self",
-          "type": "project.Project"
+          "type": "project.Project",
+          "service": "ProjectService"
         }
       ]
     },
@@ -145,7 +147,8 @@
           "href": "/mockdata/projects/3/get.json",
           "method": "GET",
           "rel": "self",
-          "type": "project.Project"
+          "type": "project.Project",
+          "service": "ProjectService"
         }
       ]
     },
@@ -192,7 +195,8 @@
           "href": "/mockdata/projects/4/get.json",
           "method": "GET",
           "rel": "self",
-          "type": "project.Project"
+          "type": "project.Project",
+          "service": "ProjectService"
         }
       ]
     }
@@ -202,7 +206,8 @@
       "href": "/mockdata/projects/list.json",
       "method": "GET",
       "rel": "LIST",
-      "type": "project.ProjectCollection"
+      "type": "project.ProjectCollection",
+      "service": "ProjectService"
     }
   ]
 }

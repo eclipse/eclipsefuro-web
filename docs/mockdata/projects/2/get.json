@@ -37,7 +37,8 @@
       "href": "/mockdata/projects/2/get.json",
       "method": "GET",
       "rel": "self",
-      "type": "project.ProjectEntity"
+      "type": "project.ProjectEntity",
+      "service": "ProjectService"
     }
   ]
 }
