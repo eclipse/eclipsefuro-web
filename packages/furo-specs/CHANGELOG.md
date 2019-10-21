@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.39.0...@furo/specs@0.40.0) (2019-10-21)
+
+
+### Features
+
+* display and update panel with htsIn ([8f30054](https://github.com/veith/FuroBaseComponents/commit/8f30054))
+
+
+
+
+
 # [0.39.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.38.1...@furo/specs@0.39.0) (2019-10-18)
 
 
