@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.40.0...@furo/specs@0.40.1) (2019-10-21)
+
+
+### Bug Fixes
+
+* add modifier for field_mask.proto ([333d601](https://github.com/veith/FuroBaseComponents/commit/333d601))
+
+
+
+
+
 # [0.40.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.39.0...@furo/specs@0.40.0) (2019-10-21)
 
 
