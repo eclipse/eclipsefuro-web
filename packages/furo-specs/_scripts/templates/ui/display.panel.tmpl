@@ -28,6 +28,15 @@ export class {{.class_name}} extends (BasePanel) {
         //this._FBPTraceWires();
     }
 
+    /**
+    * Inject hts for the {{.service_name}} agent.
+    *
+    * Use this, if you do not work with a panel coordinator.
+    */
+    htsIn(hts){
+        this.FBPTriggerWire("--htsIn",hts);
+    }
+
     static get styles() {
         // language=CSS
         return Theme.getThemeForComponent('{{.theme}}') || css`
@@ -69,7 +78,7 @@ export class {{.class_name}} extends (BasePanel) {
 
           {{"<" | noescape}}furo-entity-agent service="{{.service_name}}"
                              @-response="--response"
-                             ƒ-hts-in="--navNode(*._value.link)"
+                             ƒ-hts-in="--navNode(*._value.link), --htsIn"
                              ƒ-bind-request-data="--entity(*.data)"
                              load-on-hts-in></furo-entity-agent>
 
