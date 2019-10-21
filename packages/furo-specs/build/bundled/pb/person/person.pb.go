@@ -5,9 +5,9 @@ package person
 
 import (
 	furo "../furo"
-	protobuf "../google/protobuf"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	math "math"
 )
 
@@ -20,7 +20,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // Person message type
 type Person struct {
@@ -37,10 +37,10 @@ type Person struct {
 	// List of main skills of a person
 	Skills []string `protobuf:"bytes,6,rep,name=skills,proto3" json:"skills,omitempty"`
 	// Contains a field_mask which fields of the targeted resource are going to be updated
-	UpdateMask           *protobuf.FieldMask `protobuf:"bytes,7,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
-	XXX_unrecognized     []byte              `json:"-"`
-	XXX_sizecache        int32               `json:"-"`
+	UpdateMask           *field_mask.FieldMask `protobuf:"bytes,7,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
+	XXX_unrecognized     []byte                `json:"-"`
+	XXX_sizecache        int32                 `json:"-"`
 }
 
 func (m *Person) Reset()         { *m = Person{} }
@@ -110,7 +110,7 @@ func (m *Person) GetSkills() []string {
 	return nil
 }
 
-func (m *Person) GetUpdateMask() *protobuf.FieldMask {
+func (m *Person) GetUpdateMask() *field_mask.FieldMask {
 	if m != nil {
 		return m.UpdateMask
 	}
