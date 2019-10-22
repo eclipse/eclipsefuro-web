@@ -18,6 +18,11 @@ import '@furo/layout';
  */
 class ExperimentExperimentUpdateAction extends FBP(LitElement) {
 
+    constructor() {
+        super();
+        this._entity = {};
+    }
+
     static get styles() {
         // language=CSS
          return Theme.getThemeForComponent('ActionBaseTheme') || css`
@@ -43,24 +48,27 @@ class ExperimentExperimentUpdateAction extends FBP(LitElement) {
      * @param entity
      */
     bindEntity(entity){
-        this._FBPTriggerWire("--entityObjectInjected",entity);
+        if (entity) {
+            this._entity = entity;
+            this._FBPTriggerWire("--entityObjectInjected", this._entity);
 
-        // if data is injected, get the available HATEOAS links and activate/deactivate action buttons
-        entity.addEventListener('data-injected', () => {
-            let rels = [];
-            entity.links.__childNodes.forEach((item) => {
-                rels.push(item.value.rel);
-            });
+            // if data is injected, get the available HATEOAS links and activate/deactivate action buttons
+            this._entity.addEventListener('data-injected', () => {
+                let rels = [];
+                this._entity.links.__childNodes.forEach((item) => {
+                    rels.push(item.value.rel);
+                });
 
-            let elems = this.shadowRoot.querySelectorAll('furo-button');
-            elems.forEach((item) => {
-                if (item.getAttribute('rel') != null && item.getAttribute('rel').length > 0 && rels.indexOf(item.getAttribute('rel')) === -1){
-                    item.setAttribute('hidden', '');
-                } else {
-                    item.removeAttribute('hidden', '');
-                }
+                let elems = this.shadowRoot.querySelectorAll('furo-button');
+                elems.forEach((item) => {
+                    if (item.getAttribute('rel') != null && item.getAttribute('rel').length > 0 && rels.indexOf(item.getAttribute('rel')) === -1){
+                        item.setAttribute('hidden', '');
+                    } else {
+                        item.removeAttribute('hidden', '');
+                    }
+                });
             });
-        });
+        }
     }
 
     startActivity(){
@@ -72,8 +80,14 @@ class ExperimentExperimentUpdateAction extends FBP(LitElement) {
 
     stopActivity(){
         let elems = this.shadowRoot.querySelectorAll('furo-button');
+        let rels = [];
+        this._entity.links.__childNodes.forEach((item) => {
+            rels.push(item.value.rel);
+        });
         elems.forEach((item) => {
-            item.removeAttribute('disabled');
+            if (item.getAttribute('rel').length &lt;= 0 || rels.indexOf(item.getAttribute('rel')) > -1){
+                item.removeAttribute('disabled');
+            }
         });
     }
 
