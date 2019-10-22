@@ -65,7 +65,6 @@ class DemoFuroSnackbarDisplayError extends FBP(LitElement) {
         <produce-snackbar-data id="snackbar1" label="produce error" snackbar-label="this is a text label"
          @-snackbar-label-snackbar1="--setLabelTex1" 
          @-response-error = "--error"
-         @-show-snackbar1="--show" 
          ></produce-snackbar-data>
 
         <div>        
