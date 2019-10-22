@@ -186,12 +186,14 @@ class FuroButton extends FBP(LitElement) {
 
         :host([disabled]) button[disabled], :host([disabled]) button[disabled]:hover {
             color: var(--disabled, #eeeeee);
+            cursor: not-allowed;
         }
 
         :host([raised][disabled]) button[disabled] ,:host([raised][disabled]) button[disabled]:hover,  :host([unelevated][disabled]) button[disabled] ,:host([unelevated][disabled]) button[disabled]:hover ,  :host([outline][disabled]) button[disabled] ,:host([outline][disabled]) button[disabled]:hover {
             background-color: var(--disabled, #eeeeee);
             color: var(--on-disabled, #333333);
             border-color:var(--disabled, #eeeeee);
+            cursor: not-allowed;
         }
 
         
