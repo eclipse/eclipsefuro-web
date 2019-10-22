@@ -68,37 +68,15 @@
       banner.show();
     });
 
-    it('should send event `banner-action-clicked` with detail which is the `payload`  when function action() is called', (done) => {
+    it('should send event `confirm` with detail which is the `payload`  when function confirm() is called', (done) => {
       let obj ={"payload":"test"};
-      banner.addEventListener("banner-action-clicked", (e)=>{
+      banner.addEventListener("confirmed", (e)=>{
         assert.equal(JSON.stringify(e.detail), JSON.stringify(obj));
         done();
       });
       banner.show(obj);
 
-      banner.action();
-    });
-
-    it('should send event `close-furo-banner-requested` with detail which is banner self when function close() is called', (done) => {
-
-      banner.addEventListener("close-furo-banner-requested", (e)=>{
-        assert.equal(e.detail.confirmButtonText, "fix it");
-        done();
-      });
-
-      banner.close();
-    });
-
-
-    it('should send event `banner-closed` with detail which is the `payload`  when function closed() is called', (done) => {
-      let obj ={"payload":"test"};
-      banner.addEventListener("banner-closed", (e)=>{
-        assert.equal(JSON.stringify(e.detail), JSON.stringify(obj));
-        done();
-      });
-      banner.show(obj);
-
-      banner.closed();
+      banner.confirm();
     });
 
 

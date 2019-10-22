@@ -65,16 +65,6 @@
 
     });
 
-    it('should remove banner from the stack after triggering the function close in furo-banner element', (done) => {
-      banner.show();
-      banner.close();
-      setTimeout(()=>{
-        assert.equal(bannerDisplay._stack.length, 0);
-        done();
-      },0)
-
-    });
-
 
 
     // a11y tests

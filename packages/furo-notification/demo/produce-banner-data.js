@@ -30,6 +30,43 @@ class ProduceBannerData extends FBP(LitElement) {
       customEvent.detail = this.bannerButtonText;
       this.dispatchEvent(customEvent);
 
+
+      /**
+       * @event response-error
+       * Fired when
+       * detail payload:
+       */
+      let customEventError = new Event('response-error', {composed: true, bubbles: true});
+      customEventError.detail = {
+
+        "error": "invalid username",
+        "message": "invalid username",
+        "code": 3,
+        "details": [
+          {
+            "@type": "type.googleapis.com/google.rpc.BadRequest",
+            "field_violations": [{
+              "code": 5432,
+              "field": "display_name",
+              "description": " have fancy characters"
+            }, {
+              "code": 5432,
+              "field": "repdate.0.repstring.1",
+              "description": "Bitte kein B"
+            }, {
+              "code": 5432,
+              "field": "zeitunddatum.date",
+              "description": "Deeeep"
+            }, {
+              "code": 5432,
+              "field": "unknown_field",
+              "description": "unknown"
+            }],
+          }
+        ]
+      };
+      this.dispatchEvent(customEventError)
+
     })
   }
 

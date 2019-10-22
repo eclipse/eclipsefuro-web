@@ -16,7 +16,7 @@ class FuroBanner extends LitElement {
   constructor(){
     super();
     this.dismissButtonText = "dismiss";
-    this.confirmButtonText = "confirm";
+    //this.confirmButtonText = "confirm";
   }
 
 
@@ -90,51 +90,47 @@ class FuroBanner extends LitElement {
     this.dispatchEvent(customEvent);
   }
 
-  /**
-   * close banner
-   * event `close-furo-banner-requested` will be sent to furo-banner-display with payload this
-   */
-  close() {
-
-    /**
-     * @event close-furo-banner-requested
-     * Fired when value open banner is requested
-     * detail payload: {Object}  this
-     */
-    let customEvent = new Event("close-furo-banner-requested",{composed: true, bubbles: true});
-    customEvent.detail = this;
-    this.dispatchEvent(customEvent)
-  }
-
 
   /**
-   * snackbar closed. event `snackbar-closed` will be sent with payload
+   *  event `dismissed` will be sent with payload
    */
-  closed() {
+  dismiss() {
 
     /**
-     * @event snackbar-closed
-     * Fired when snackbar is closed
+     * @event dismissed
+     * Fired when dismiss button of banner is clicked
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("banner-closed",{composed: true, bubbles: true});
+    let customEvent = new Event("dismissed",{composed: true, bubbles: true});
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent)
   }
 
   /**
-   * trigger the action of snackbar. event `banner-action-clicked` will be sent with payload
+   *  event `confirmed` will be sent with payload
    */
-  action() {
+  confirm() {
 
     /**
-     * @event banner-action-clicked
-     * Fired when action button of banner is clicked
+     * @event confirmed
+     * Fired when confirm button of banner is clicked
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("banner-action-clicked",{composed: true, bubbles: true});
+    let customEvent = new Event("confirmed",{composed: true, bubbles: true});
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent)
+  }
+
+  /**
+   * parse grpc status object and set the label according to the message in status
+   * @param s
+   */
+  parseGrpcStatus(s) {
+
+    if (s.message) {
+      this.setText(s.message);
+      this.show(s);
+    }
   }
 
   /**

@@ -8,13 +8,13 @@ import "@furo/doc-helper"
 import "./produce-banner-data"
 
 /**
- * `demo-furo-banner-display`
+ * `demo-furo-banner-display-error`
  * Lit element
  *
  * @customElement
  * @demo demo/index.html
  */
-class DemoFuroBannerDisplay extends FBP(LitElement) {
+class DemoFuroBannerDisplayError extends FBP(LitElement) {
 
 
   constructor(){
@@ -62,21 +62,14 @@ class DemoFuroBannerDisplay extends FBP(LitElement) {
         <template>
   
           <div>        
-              <furo-banner  ƒ-show="--show1" ƒ-set-Text="--setBannerText1"  icon="perm-scan-wifi" ></furo-banner>
-              <furo-banner  ƒ-show="--show2" ƒ-set-Text="--setBannerText2"  icon="info-outline"   dissmis-button-text="continue" confirm-button-text="confirm"></furo-banner>
+              <furo-banner  ƒ-show="--show1" ƒ-parse-grpc-status="--error"  icon="perm-scan-wifi" ></furo-banner>
           </div>
           <furo-banner-display></furo-banner-display>
           
           <produce-banner-data id="banner1" label="banner 1"
-            banner-text="Banner 1 , Wlan Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."
-             @-banner-text-banner1="--setBannerText1" 
-             @-show-banner1="--show1"
+             @-response-error="--error"
            ></produce-banner-data>
-          <produce-banner-data id="banner2"  label="banner 2"
-            banner-text="Banner 2 ,At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."
-             @-banner-text-banner2="--setBannerText2" 
-             @-show-banner2="--show2"
-           ></produce-banner-data>
+
         </template>
       </furo-demo-snippet>
         `;
@@ -84,4 +77,4 @@ class DemoFuroBannerDisplay extends FBP(LitElement) {
 
 }
 
-customElements.define('demo-furo-banner-display', DemoFuroBannerDisplay);
+customElements.define('demo-furo-banner-display-error', DemoFuroBannerDisplayError);
