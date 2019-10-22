@@ -47,7 +47,8 @@
           "href": "/mockdata/trees/1/get.json",
           "method": "GET",
           "rel": "self",
-          "type": "tree.TreeEntity"
+          "type": "tree.TreeEntity",
+          "service": "TreeService"
         }
       ]
     }
@@ -57,7 +58,8 @@
       "href": "/mockdata/trees",
       "method": "Get",
       "rel": "list",
-      "type": "tree.TreeCollection"
+      "type": "tree.TreeCollection",
+      "service": "TreeService"
     }
   ]
 }

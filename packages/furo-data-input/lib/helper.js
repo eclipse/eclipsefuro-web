@@ -52,7 +52,7 @@ export class Helper {
 
     caller.field.addEventListener('field-value-changed', (e) => {
       caller._updateField();
-      if (caller.field._meta.hint) {
+      if (caller.field._meta && caller.field._meta.hint) {
         caller._hint = caller.field._meta.hint;
       }
       if (caller.hint) {

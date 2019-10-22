@@ -28,6 +28,15 @@ export class {{.class_name}} extends (BasePanel) {
         //this._FBPTraceWires();
     }
 
+    /**
+    * Inject hts for the {{.service_name}} agent.
+    *
+    * Use this, if you do not work with a panel coordinator.
+    */
+    htsIn(hts){
+        this._FBPTriggerWire("--htsIn",hts);
+    }
+
     static get styles() {
         // language=CSS
         return Theme.getThemeForComponent('{{.theme}}') || css`
@@ -59,20 +68,23 @@ export class {{.class_name}} extends (BasePanel) {
         // language=HTML
         return html`
           {{"<" | noescape}}furo-vertical-flex>
-            {{"<" | noescape}}furo-card{{if .title}} title="${i18n.t("{{.title}}")}"{{end}}{{if .secondary_text}} secondary-text="${i18n.t("{{.secondary_text}}")}"{{end}}>
+            {{"<" | noescape}}furo-card{{if .title}} title="${i18n.t("{{.title}}")}"{{end}}{{if .secondary_text}} secondary-text="${i18n.t("{{.secondary_text}}")}"{{end}} ƒ-start-activity="--requestStarted" ƒ-stop-activity="--response, --error">
 
               {{"<" | noescape}}{{.form.name}}{{range $flag := .form.flags}} {{$flag}}{{end}} {{range $attr := .form.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
             </furo-card>
 
-            {{"<" | noescape}}{{.action.name}}{{range $flag := .action.flags}} {{$flag}}{{end}} {{range $attr := .action.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}@-update="--updateReq" ƒ-bind-entity="--entity" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
+            {{"<" | noescape}}{{.action.name}}{{range $flag := .action.flags}} {{$flag}}{{end}} {{range $attr := .action.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}@-update="--updateReq" ƒ-bind-entity="--entity" ƒ-start-activity="--requestStarted" ƒ-stop-activity="--response, --responseError" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
 
 
           </furo-vertical-flex>
 
 
           {{"<" | noescape}}furo-entity-agent service="{{.service_name}}"
+                             @-request-started="--requestStarted"
                              @-response="--response"
-                             ƒ-hts-in="--navNode(*.value.link)"
+                             @-response-error="--error"
+                             @-fatal-error="--error"
+                             ƒ-hts-in="--navNode(*._value.link), --htsIn"
                              ƒ-bind-request-data="--entity(*.data)"
                              ƒ-put="--updateReq"
                              ƒ-load="--selfReq"

@@ -71,9 +71,9 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
   /**
    * flow is ready lifecycle method
    */
-  __fbpReady() {
-    super.__fbpReady();
-    //this._FBPTraceWires()
+  _FBPReady(){
+    super._FBPReady();
+    //this._FBPTraceWires();
   }
 
   /**
@@ -150,7 +150,7 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
     // language=HTML
     return html`
 <furo-horizontal-flex>
-   <div flex class="label"> <furo-icon ?hidden="${this.noicon}" icon="${this.field.icon}" ?error="${this.field.has_error.value}"></furo-icon> ${this.field.display_name} </div>
+   <div flex class="label"> <furo-icon ?hidden="${this.noicon}" icon="${this.field.icon}" ?error="${this.field.has_error._value}"></furo-icon> ${this.field.display_name} </div>
    
    <furo-ripple></furo-ripple>
 </furo-horizontal-flex>

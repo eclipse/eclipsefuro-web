@@ -1,7 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import {FieldNode} from "@furo/data/lib/FieldNode";
 import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 
 /**

@@ -58,7 +58,6 @@ class FuroDataRepeat extends FBP(LitElement) {
        * The component must support ƒ-bind-data
        */
       repeatedComponent: {type: String, attribute: "repeated-component"},
-
     };
   }
 
@@ -130,13 +129,17 @@ class FuroDataRepeat extends FBP(LitElement) {
     this.field = repeats;
     this.field.addEventListener("this-repeated-field-changed", (node) => {
       this._FBPTriggerWire("--repeatsChanged", this.field.repeats);
+      this._checkSize();
     });
 
     // key value repeats
     if (this.field.repeats) {
       // initial trigger
       this._FBPTriggerWire("--repeatsChanged", this.field.repeats);
+      this._checkSize();
     } else {
+      // attributes
+
       this.field.addEventListener("branch-value-changed", (node) => {
         this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
       });
@@ -151,6 +154,21 @@ class FuroDataRepeat extends FBP(LitElement) {
       this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
     }
 
+  }
+
+  /**
+   * hide the element if array is empty
+   * @private
+   */
+  _checkSize() {
+    if (this.field.repeats.length === 0) {
+      this.setAttribute("hidden", "");
+      this._isHidden = true;
+    } else {
+      if (this._isHidden) {
+        this.removeAttribute("hidden");
+      }
+    }
   }
 
   add(data) {
@@ -177,6 +195,10 @@ class FuroDataRepeat extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
         }
     `
   }

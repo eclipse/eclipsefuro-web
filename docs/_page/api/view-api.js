@@ -1868,7 +1868,7 @@ return _furoShell.html`
      * @private
      */_invokeXHR(request){console.info("Fetch API not available, fallback to XMLHttpRequest");this.isLoading=!0;return new Promise(function(resolve,reject){/**
        * map Request to XHR
-       */let req=new XMLHttpRequest;req.open(request.method,request.url,!0);if(request.headers.get("content-type").includes("json")){req.responseType="json"}else{req.responseType="arraybuffer"}/**
+       */let req=new XMLHttpRequest;req.open(request.method,request.url,!0);if(request.headers.get("content-type").includes("json")){req.responseType="json"}else{switch(request.headers.get("content-type")){case"application/octet-stream":req.responseType="arraybuffer";break;case"application/pdf":req.responseType="arraybuffer";break;case"image/jpeg":req.responseType="arraybuffer";break;case"text/plain":req.responseType="text";break;default:req.responseType="arraybuffer";}}/**
          * Append headers from request object to XHR
          */for(var pair of request.headers.entries()){if(/[A-Z]/.test(pair[0])){console.error("Headers must be lower case, got",pair[0])}else{req.setRequestHeader(pair[0],pair[1])}}/**
          * XHR event handlers
@@ -1902,7 +1902,7 @@ req.send()}.bind(this))}/**
      * response Fetch API response object [https://developer.mozilla.org/en-US/docs/Web/API/Response]
      * Default response handler is json!
      * @param response
-     */_parseResponse(response){let _self=this;if(response){let contentType=this.lastRequest.headers.get("content-type"),responseHandler={"text/plain":r=>{r.text().then(function(text){_self.dispatchEvent(new CustomEvent("response",{detail:text,bubbles:!0,composed:!0}))})},"application/json":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.json().then(function(json){_self.dispatchEvent(new CustomEvent("response",{detail:json,bubbles:!0,composed:!0}))})}},"application/octet-stream":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.arrayBuffer().then(function(buffer){_self.dispatchEvent(new CustomEvent("response",{detail:buffer,bubbles:!0,composed:!0}))})}},"application/pdf":r=>{if(this.xhrFallback){let blob=new Blob([r.response],{type:"image/jpeg"}),fileReader=new FileReader;fileReader.onload=function(evt){var result=evt.target.result;_self.dispatchEvent(new CustomEvent("response",{detail:result,bubbles:!0,composed:!0}))};fileReader.readAsDataURL(blob)}else{r.blob().then(function(blob){_self.dispatchEvent(new CustomEvent("response",{detail:URL.createObjectURL(blob),bubbles:!0,composed:!0}))})}},"image/jpeg":r=>{if(this.xhrFallback){let blob=new Blob([r.response],{type:"image/jpeg"}),fileReader=new FileReader;fileReader.onload=function(evt){var result=evt.target.result;_self.dispatchEvent(new CustomEvent("response",{detail:result,bubbles:!0,composed:!0}))};fileReader.readAsDataURL(blob)}else{r.blob().then(function(blob){_self.dispatchEvent(new CustomEvent("response",{detail:URL.createObjectURL(blob),bubbles:!0,composed:!0}))})}},default:r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:JSON.parse(r.response),bubbles:!0,composed:!0}))}else{r.json().then(function(json){_self.dispatchEvent(new CustomEvent("response",{detail:json,bubbles:!0,composed:!0}))})}}},typeHandler=responseHandler[contentType]||responseHandler["default"];typeHandler(response)}}}customElements.define("furo-api-fetch",FuroApiFetch);class furoCollectionAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+     */_parseResponse(response){let _self=this;if(response){let contentType=this.lastRequest.headers.get("content-type"),responseHandler={"text/plain":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.text().then(function(text){_self.dispatchEvent(new CustomEvent("response",{detail:text,bubbles:!0,composed:!0}))})}},"application/json":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.json().then(function(json){_self.dispatchEvent(new CustomEvent("response",{detail:json,bubbles:!0,composed:!0}))})}},"application/octet-stream":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.arrayBuffer().then(function(buffer){_self.dispatchEvent(new CustomEvent("response",{detail:buffer,bubbles:!0,composed:!0}))})}},"application/pdf":r=>{if(this.xhrFallback){let blob=new Blob([r.response],{type:"image/jpeg"}),fileReader=new FileReader;fileReader.onload=function(evt){var result=evt.target.result;_self.dispatchEvent(new CustomEvent("response",{detail:result,bubbles:!0,composed:!0}))};fileReader.readAsDataURL(blob)}else{r.blob().then(function(blob){_self.dispatchEvent(new CustomEvent("response",{detail:URL.createObjectURL(blob),bubbles:!0,composed:!0}))})}},"image/jpeg":r=>{if(this.xhrFallback){let blob=new Blob([r.response],{type:"image/jpeg"}),fileReader=new FileReader;fileReader.onload=function(evt){var result=evt.target.result;_self.dispatchEvent(new CustomEvent("response",{detail:result,bubbles:!0,composed:!0}))};fileReader.readAsDataURL(blob)}else{r.blob().then(function(blob){_self.dispatchEvent(new CustomEvent("response",{detail:URL.createObjectURL(blob),bubbles:!0,composed:!0}))})}},default:r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:JSON.parse(r.response),bubbles:!0,composed:!0}))}else{r.json().then(function(json){_self.dispatchEvent(new CustomEvent("response",{detail:json,bubbles:!0,composed:!0}))})}}},typeHandler=responseHandler[contentType]||responseHandler["default"];typeHandler(response)}}}customElements.define("furo-api-fetch",FuroApiFetch);class furoCollectionAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-api-fetch
    *
    * All bubbling events from [furo-api-fetch](furo-api-fetch) will be fired, because furo-collection-agent uses furo-api-fetch internally.
@@ -1982,10 +1982,22 @@ for(let key in this._queryParams){if(this._queryParams.hasOwnProperty(key)){para
 if(this.fields){params.fields=this.fields.split(" ").join("")}// Sort
 if(this.orderBy){params.order_by=this.orderBy.split(" ").join("")}// Filter
 if(this._filter){params.filter=JSON.stringify(this._filter)}// rebuild req
-let qp=[];for(let key in params){if(params.hasOwnProperty(key)){qp.push(key+"="+params[key])}}if(0<qp.length){req=req+"?"+qp.join("&")}return new Request(req,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
-if(!this._service.services[serviceName]){console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}//queue if no hts is set, queue it
-if(!this._hts){this._singleElementQueue=[[rel,serviceName]];return!0}// check Hateoas
-if(!this._hts[rel]){console.warn("No HATEOAS for rel "+rel,this._hts,this);return!0}return!1}_followRelService(rel,serviceName){if(this._checkServiceAndHateoasLinkError(rel,serviceName)){let customEvent=new Event("missing-hts-"+rel,{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return;return}this._attachListeners(rel);this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts[rel]))}/**
+let qp=[];for(let key in params){if(params.hasOwnProperty(key)){qp.push(key+"="+params[key])}}if(0<qp.length){req=req+"?"+qp.join("&")}return new Request(req,{method:link.method,headers:headers,body:data})}/**
+     *
+     * @param rel
+     * @param serviceName
+     * @returns {undefined|object}
+     * @private
+     */_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
+if(!this._service.services[serviceName]){console.warn("Service "+serviceName+" is not specified",this._service,this);return void 0}//queue if no hts is set, queue it
+if(!this._hts){this._singleElementQueue=[[rel,serviceName]];return void 0}// check rel and type
+let htsFound=this._hts.find(link=>{if(link.rel===rel&&link.service===this._service.name){return link}});if(!htsFound){console.warn("No HATEOAS for rel "+rel+" in service "+this._service.name+" found.",this._hts,this);return void 0}return htsFound}/**
+     * If HATEOAS is present, the wire --triggerLoad is fired with the
+     * corresponding request object as payload.
+     * @param rel
+     * @param serviceName
+     * @private
+     */_followRelService(rel,serviceName){let hts=this._checkServiceAndHateoasLinkError(rel,serviceName);if(!hts){let customEvent=new Event("missing-hts-"+rel,{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return}this._attachListeners(rel);this._FBPTriggerWire("--triggerLoad",this._makeRequest(hts))}/**
      * loads the entity if hts is available
      */list(){return this._followRelService("list","List")}/**
      * loads the entity if hts is available
@@ -1998,7 +2010,7 @@ if(!this._hts[rel]){console.warn("No HATEOAS for rel "+rel,this._hts,this);retur
      */next(){this._followRelService("next","List")}/**
      * loads the entity if hts is available
      */last(){this._followRelService("last","List")}_updateInternalHTS(hts){// convert link object to hts array
-if(hts&&hts.rel&&hts.method&&hts.type&&hts.href){hts=[hts]}if(hts&&hts[0]&&hts[0].rel){this._hts={};hts.forEach(link=>{this._hts[link.rel]=link});/**
+if(hts&&hts.rel&&hts.method&&hts.type&&hts.href){hts=[hts]}if(hts&&Array.isArray(hts)){this._hts=[];hts.forEach(link=>{this._hts.push(link)});/**
            * @event hts-updated
            * Fired when hateoas is updated from response
            * detail payload: {Array|HATEOAS}
@@ -2019,7 +2031,8 @@ return _furoShell.html`
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"
               @-response="--responseParsed,^^req-success"
-              @-response-error="^^req-failed">
+              @-response-error="^^req-failed"
+              @-parse-error="^^req-failed">
       </furo-api-fetch>
     `}}customElements.define("furo-collection-agent",furoCollectionAgent);class FuroCustomMethod extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api}static get properties(){return{/**
        * Name des Services
@@ -2028,31 +2041,31 @@ return _furoShell.html`
        */method:{type:String,attribute:!0}}}/**
      * Setze den Service
      * @param service
-     */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}bindRequestData(dataObject){this._requestObject=dataObject}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
+     */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}bindRequestData(dataObject){this._requestDataObject=dataObject}_makeRequest(link,dataObject){let data,body={};// check if dataObject is set and create body object
+if(dataObject){for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._not_readonly_value;if(val!==void 0){body[field._name]=val}}data=JSON.stringify(body)}// Daten
 let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");headers.append("Content-Type","application/json");return new Request(link.href,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
-let s=Object.keys(this._service.services).map(key=>{return key.toLowerCase()});if(-1===s.indexOf(serviceName.toLowerCase())){// todo fehler werfen ???
-console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}// check Hateoas
-if(!this._hts[rel]){console.warn("No HATEOAS for rel self",this._hts,this);return!0}return!1}/**
+let s=Object.keys(this._service.services).map(key=>{return key.toLowerCase()});if(-1===s.indexOf(serviceName.toLowerCase())){console.warn("Service "+serviceName+" is not specified",this._service,this);return!0}// check Hateoas
+if(!this._hts[rel]){console.warn("No HATEOAS for rel "+rel+" in service "+this._service.name+" found.",this);let customEvent=new Event("missing-hts-"+rel,{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return!0}return!1}/**
      * trigger the method with respect for binded-requset-object
-     */trigger(){if(this._requestObject){this.triggerWithBody(this._requestObject.value)}else{this.triggerEmpty()}}triggerEmpty(){if(this._checkServiceAndHateoasLinkError(this.method,this.method)){return}this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts[this.method]))}/**
+     */trigger(){if(this._requestDataObject){this.triggerWithBody(this._requestDataObject)}else{this.triggerEmpty()}}triggerEmpty(){if(this._checkServiceAndHateoasLinkError(this.method,this.method)){return}this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts[this.method]))}/**
      * trigger the method with data
      */triggerWithBody(body){if(this._checkServiceAndHateoasLinkError(this.method,this.method)){return}this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts[this.method],body))}htsIn(hts){if(hts&&hts[0]&&hts[0].rel){this._hts={};hts.forEach(link=>{this._hts[link.rel]=link});/**
-          * @event hts-updated
-          * Fired when
-          * detail payload:
-          */let customEvent=new Event("hts-updated",{composed:!0,bubbles:!0});customEvent.detail=hts;this.dispatchEvent(customEvent)}}render(){// language=HTML
+           * @event hts-updated
+           * Fired when
+           * detail payload:
+           */let customEvent=new Event("hts-updated",{composed:!0,bubbles:!0});customEvent.detail=hts;this.dispatchEvent(customEvent)}}render(){// language=HTML
 return _furoShell.html`
-      <!-- Add a style block here -->
-      <style>
-        :host {
-          display: none;
-        }
-      </style>
-      <furo-api-fetch
-              ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abort-demanded">
-      </furo-api-fetch>
-    `}}window.customElements.define("furo-custom-method",FuroCustomMethod);/**
+            <!-- Add a style block here -->
+            <style>
+                :host {
+                    display: none;
+                }
+            </style>
+            <furo-api-fetch
+                    ƒ-invoke-request="--triggerLoad"
+                    ƒ-abort-request="--abort-demanded">
+            </furo-api-fetch>
+        `}}window.customElements.define("furo-custom-method",FuroCustomMethod);/**
                                                                        * Custom event type for the AST
                                                                        */class NodeEvent{constructor(type,detail,bubbles=!0){/**
      * Event type / name
@@ -2165,7 +2178,7 @@ if(options._value){this[fieldName]._value=options._value}return!0}else{return!1}
 if(this._isRecursion&&val){this._createVendorType(this._spec.type)}// type any
 this._createAnyType(val);// map<string, something> typ
 if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{if(0<this.__childNodes.length){let furoMetaDetected=!1;for(let index in this.__childNodes){let field=this.__childNodes[index];if("furo.Meta"===field._spec.type){// we have meta declaration on this layer
-furoMetaDetected=val[field._name]}if(val.hasOwnProperty(field._name)){field._value=val[field._name]}}/**
+furoMetaDetected=val[field._name]}if(val&&val.hasOwnProperty(field._name)){field._value=val[field._name]}}/**
            * if we have meta on this layer, we should update the siblings
            */if(furoMetaDetected){this.__updateMetaAndConstraints(furoMetaDetected)}}else{// update the primitive type
 this._oldvalue=this._value;this.__value=val;this._pristine=!1;if(JSON.stringify(this._oldvalue)!==JSON.stringify(this.__value)){/**
@@ -2184,8 +2197,8 @@ this._oldvalue=this._value;this.__value=val;this._pristine=!1;if(JSON.stringify(
                                                                                         * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
                                                                                         *
                                                                                         * detail payload: **{NodeEvent}** with reference to the FieldNode
-                                                                                        */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}// check for repeated fields to reset if they are not set with value
-this.__childNodes.forEach(n=>{if(val[n._name]===void 0){n._value=JSON.parse(n.__initialValue)}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
+                                                                                        */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}//  init field if it is not in the incomming data
+this.__childNodes.forEach(n=>{if(val&&null===val[n._name]){n._value=JSON.parse(n.__initialValue)}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
 // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
 // a field which is targeted we delegate the sub request to  this field
 for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split(".");if(1===f.length){// we are on the parent of a endpoint. Update the metas in this
@@ -2198,7 +2211,7 @@ this[field]._constraints[c]=mc.constraints[c]}/**
            * detail payload:
            */this[field].dispatchNodeEvent(new NodeEvent("this-metas-changed",this[field],!1));// exit here, it does not go deeper
 return}let target=f[0],subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.slice(1).join(".")]=mc;let x=this[target];this[target].__updateMetaAndConstraints(subMetaAndConstraints)}}_createAnyType(val){// remove if type changes
-if(this.__anyCreated&&this["@type"]._value!==val["@type"]){console.log(this["@type"]._value,val["@type"]);for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("google.protobuf.Any"===this._spec.type&&val&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
+if(val&&this.__anyCreated&&this["@type"]._value!==val["@type"]){for(let i=this.__childNodes.length-1,field;0<=i;i--){field=this.__childNodes[i];if(!val[field._name]){field.deleteNode()}}this.__anyCreated=!1}if("google.protobuf.Any"===this._spec.type&&val&&val["@type"]&&!this.__anyCreated){// create custom type if not exist
 // any can only be a complex type
 this._createVendorType(val["@type"].replace(/.*\//,""));// create with basename of the type (xxx.xxx.xx/path/base.Type becomes base.Type)
 this.__anyCreated=!0;this.createField({fieldName:"@type",type:"string",value:val["@type"]})}}_updateKeyValueMap(val,spec){let vType=spec.match(/,\s*(.*)>/)[1],fieldSpec={type:vType};// create if not exist
@@ -2211,7 +2224,16 @@ if("function"===typeof this._deleteFromList){this._deleteFromList()}else{let ind
 this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0))}set defaultvalue(val){// if the default value is already an object, number,array do nothing otherwise try to parse json
 if("string"===typeof val){try{val=JSON.parse(val)}catch(error){}}// type any
 this._createAnyType(val);if(0<this.__childNodes.length&&val){for(let index in this.__childNodes){let field=this.__childNodes[index];field.defaultvalue=val[field._name]}}else{if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{this._oldvalue=this._value;this.__value=val;this._pristine=!0}}}get _value(){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
-for(let index in this.__childNodes){let field=this.__childNodes[index];this.__value[field._name]=field._value}}return this.__value}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
+for(let index in this.__childNodes){let field=this.__childNodes[index];this.__value[field._name]=field._value}}return this.__value}/**
+     * Returns all not readonly field values with deep dive
+     *
+     * @private
+     */get _not_readonly_value(){if(this._meta&&!this._meta.readonly){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
+for(let index in this.__childNodes){let field=this.__childNodes[index];this.__value[field._name]=field._not_readonly_value}}return this.__value}else{return void 0}}/**
+     * Returns all modified field values with deep dive (! _pristine)
+     * @private
+     */get _modified_value(){if(this._meta&&!this._meta.readonly&&!this._pristine){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
+for(let index in this.__childNodes){let field=this.__childNodes[index];this.__value[field._name]=field._modified_value}}return this.__value}else{return void 0}}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
                             * @event (field-became-valid)
                             *
                             * ✋ Internal Event from EntityNode which you can use in the targeted components!
@@ -2314,7 +2336,7 @@ if(!this.data){this._queue=jsonObj;this._queuedInjectResolver=resolve}else{this.
      * Sets the model to an initial state according to the given type.
      *
      * To reset changed data to the last injected state, please use reset();
-     */init(){this.data.init()}/**
+     */init(){this.data.init();let customEvent=new Event("object-ready",{composed:!0,bubbles:!0});customEvent.detail=this.data;setTimeout(()=>{this.dispatchEvent(customEvent)},0)}/**
      *
      * @param type
      * @private
@@ -2354,7 +2376,7 @@ if(this._queue!==void 0){this.data.injectRaw(this._queue);this._queue=void 0;thi
        */service:{type:String,attribute:!0}}}/**
      * Evaluates hts. Use qpIn(qp) if you have a qp object in your event.detail
      */trigger(){if(this._qp&&this._service){this._buildHTS(this._qp,this._service)}}_buildHTS(qp,service){this._hts=[];// loop services
-for(let serviceName in service.services){let candidate={rel:service.services[serviceName].deeplink.rel,href:service.services[serviceName].deeplink.href,method:service.services[serviceName].deeplink.method,type:service.services[serviceName].request};for(let param in this._qp){candidate.href=candidate.href.replace("{"+param+"}",this._qp[param])}//wenn es keine {xx} mehr hat, ist es ein treffer
+for(let serviceName in service.services){let candidate={rel:service.services[serviceName].deeplink.rel,href:service.services[serviceName].deeplink.href,method:service.services[serviceName].deeplink.method,service:service.name,type:service.services[serviceName].request};for(let param in this._qp){candidate.href=candidate.href.replace("{"+param+"}",this._qp[param])}//wenn es keine {xx} mehr hat, ist es ein treffer
 if(-1===candidate.href.indexOf("{")){//candidate.type = "application/" + candidate.type + "+json"
 this._hts.push(candidate)}}if(this._hts.length){/**
        * @event hts-out
@@ -2413,11 +2435,27 @@ this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links))
      * Binds a furo-data-object type. Use this if you want save data.
      *
      * @param dataObject
-     */bindRequestData(dataObject){this._requestDataObject=dataObject}_makeRequest(link,body){let data;if(body){data=JSON.stringify(body)}// Daten
-let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");if("put"!==link.method.toLowerCase()){headers.append("Content-Type","application/json")}return new Request(link.href,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
-if(!this._service.services[serviceName]){console.warn("Restlet "+serviceName+" is not specified",this._service,this);return!0}//queue if no hts is set, queue it
-if(!this._hts){this._singleElementQueue=[[rel,serviceName]];return!0}// check Hateoas
-if(!this._hts[rel]){console.warn("No HATEOAS for rel "+rel,this._hts,this);return!0}return!1}/**
+     */bindRequestData(dataObject){this._requestDataObject=dataObject}/**
+     * Creates a Request object with header and body data
+     * - special treatment for method PATCH
+     * - body object only includes writeable fields
+     * @param link
+     * @param dataObject
+     * @returns {Request}
+     * @private
+     */_makeRequest(link,dataObject){let data,body={};// check if dataObject is set and create body object
+if(dataObject){// Method PATCH sends only modified data (.pristine)
+if("patch"===link.method.toLowerCase()){for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._modified_value;if(val!==void 0){body[field._name]=val}}}else{for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._not_readonly_value;if(val!==void 0){body[field._name]=val}}}data=JSON.stringify(body)}// Daten
+let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");if("put"!==link.method.toLowerCase()){headers.append("Content-Type","application/json")}return new Request(link.href,{method:link.method,headers:headers,body:data})}/**
+     *
+     * @param rel
+     * @param serviceName
+     * @returns {undefined|object}
+     * @private
+     */_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
+if(!this._service.services[serviceName]){console.warn("Service "+serviceName+" is not specified",this._service,this);return void 0}//queue if no hts is set, queue it
+if(!this._hts){this._singleElementQueue=[[rel,serviceName]];return void 0}// check rel and type
+let htsFound=this._hts.find(link=>{if(link.rel===rel&&link.service===this._service.name){return link}});if(!htsFound){console.warn("No HATEOAS for rel "+rel+" in service "+this._service.name+" found.",this._hts,this);return void 0}return htsFound}/**
      * @event load-success
      * Fired when load was successful
      * detail payload: response
@@ -2427,7 +2465,7 @@ if(!this._hts[rel]){console.warn("No HATEOAS for rel "+rel,this._hts,this);retur
          * detail payload: response
          */ /**
              * loads the entity if hts is available
-             */load(){if(this._checkServiceAndHateoasLinkError("self","Get")){return!1}this._attachListeners("load");this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.self))}/**
+             */load(){let hts=this._checkServiceAndHateoasLinkError("self","Get");if(!hts){let customEvent=new Event("missing-hts-self",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return!1}this._attachListeners("load");this._FBPTriggerWire("--triggerLoad",this._makeRequest(hts))}/**
      * @event delete-success
      * Fired when load was successful
      * detail payload: response
@@ -2437,7 +2475,7 @@ if(!this._hts[rel]){console.warn("No HATEOAS for rel "+rel,this._hts,this);retur
          * detail payload: response
          */ /**
              * delete the entity if hts is available
-             */delete(){if(this._checkServiceAndHateoasLinkError("delete","Delete")){return}this._attachListeners("delete");this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.delete))}/**
+             */delete(){let hts=this._checkServiceAndHateoasLinkError("delete","Delete");if(!hts){let customEvent=new Event("missing-hts-delete",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return}this._attachListeners("delete");this._FBPTriggerWire("--triggerLoad",this._makeRequest(hts))}/**
      * @event save-success
      * Fired when load was successful
      * detail payload: response
@@ -2447,10 +2485,9 @@ if(!this._hts[rel]){console.warn("No HATEOAS for rel "+rel,this._hts,this);retur
          * detail payload: response
          */ /**
              * loads the entity if hts is available
-             */save(){// wen kein rel self vorhanden ist, aber ein rel create existiert, verwendenn wir create
-// rel self ist bewusst gewählt
-if(!this._hts.self&&this._hts.create){this.create();return}if(this._checkServiceAndHateoasLinkError("update","Update")){let customEvent=new Event("missing-hts-update",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return}this._attachListeners("save");// TODO nur modifizierte daten senden (.pristine)
-this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.update,this._requestDataObject.value))}/**
+             */save(){// if no rel self is present but a rel create exists, take create
+// rel self is consciously chosen
+let hts_self=this._hts.find(link=>{if("self"===link.rel)return link}),hts_create=this._hts.find(link=>{if("create"===link.rel)return link});if(!hts_self&&hts_create){this.create();return}let hts=this._checkServiceAndHateoasLinkError("update","Update");if(!hts){let customEvent=new Event("missing-hts-update",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return}this._attachListeners("save");this._FBPTriggerWire("--triggerLoad",this._makeRequest(hts,this._requestDataObject))}/**
      * @event put-success
      * Fired when update was successful
      * detail payload: response
@@ -2460,7 +2497,7 @@ this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.update,this._re
          * detail payload: response
          */ /**
              * saves the entity with method put if hts is available
-             */put(){if(this._checkServiceAndHateoasLinkError("update","Update")){return}this._attachListeners("put");this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.update,this._requestDataObject.value))}/**
+             */put(){let hts=this._checkServiceAndHateoasLinkError("update","Update");if(!hts){let customEvent=new Event("missing-hts-update",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return}this._attachListeners("put");this._FBPTriggerWire("--triggerLoad",this._makeRequest(hts,this._requestDataObject))}/**
      * @event create-success
      * Fired when creating was successful
      * detail payload: response
@@ -2470,7 +2507,7 @@ this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.update,this._re
          * detail payload: response
          */ /**
              * creating the entity if hts rel="create" is available
-             */create(){if(this._checkServiceAndHateoasLinkError("create","Create")){return}this._attachListeners("create");this._FBPTriggerWire("--triggerLoad",this._makeRequest(this._hts.create,this._requestDataObject.value))}/**
+             */create(){let hts=this._checkServiceAndHateoasLinkError("create","Create");if(!hts){let customEvent=new Event("missing-hts-create",{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return}this._attachListeners("create");this._FBPTriggerWire("--triggerLoad",this._makeRequest(hts,this._requestDataObject))}/**
      * Attaches temporary listeners to fire load-success, load-fail, delete-success,...
      * @param eventPrefix
      * @private
@@ -2484,7 +2521,7 @@ this.removeEventListener("req-success",success,!0);this.removeEventListener("req
         * do not add the listener directly to response, otherwise it kicks in before hts is updated
         * This extra "loop" is to guarante the order of handling the events
         */this.addEventListener("req-success",success,!0);this.addEventListener("req-failed",failed,!0)}_updateInternalHTS(hts){// convert link object to hts array
-if(hts&&hts.rel&&hts.method&&hts.type&&hts.href){hts=[hts]}if(hts&&hts[0]&&hts[0].rel){this._hts={};hts.forEach(link=>{this._hts[link.rel]=link});/**
+if(hts&&hts.rel&&hts.method&&hts.type&&hts.href){hts=[hts]}if(hts&&Array.isArray(hts)){this._hts=[];hts.forEach(link=>{this._hts.push(link)});/**
            * @event hts-updated
            * Fired when hateoas is updated from response
            * detail payload: {Array|HATEOAS}
@@ -2493,7 +2530,7 @@ if(hts&&hts.rel&&hts.method&&hts.type&&hts.href){hts=[hts]}if(hts&&hts[0]&&hts[0
        * Fired when hateoas is updated
        * detail payload: Hateoas links
        */let customEvent=new Event("hts-injected",{composed:!0,bubbles:!1});customEvent.detail=hts;this.dispatchEvent(customEvent);if(this.loadOnHtsIn){this.load()}// there was a list,last,next call before the hts was set
-if(0<this._singleElementQueue.length){let q=this._singleElementQueue.pop();this._followRelService(q[0],q[1])}}}/**
+if(0<this._singleElementQueue.length){this._singleElementQueue.pop();this.load()}}}/**
      *
      * @private
      * @return {CSSResult}
@@ -2511,7 +2548,8 @@ return _furoShell.html`
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"
               @-response="--responseParsed,^^req-success"
-              @-response-error="^^req-failed">
+              @-response-error="^^req-failed"
+              @-parse-error="^^req-failed">
       </furo-api-fetch>
     `}}window.customElements.define("furo-entity-agent",FuroEntityAgent);class FuroEntityField extends _furoShell.LitElement{/**
    * Set the value of the field.
@@ -2739,7 +2777,7 @@ caller._theInputElement.removeAttribute(attribute)}})}/**
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|caller} furo input element
      * @param {Object|FieldNode} fieldNode a Field object
-     */static BindData(caller,fieldNode){if(fieldNode===void 0){console.warn("Invalid binding ");console.log(caller);return}caller.field=fieldNode;CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);caller._updateField();caller.field.addEventListener("field-value-changed",e=>{caller._updateField();if(caller.field._meta.hint){caller._hint=caller.field._meta.hint}if(caller.hint){caller._hint=caller.hint}});// update meta and constraints when they change
+     */static BindData(caller,fieldNode){if(fieldNode===void 0){console.warn("Invalid binding ");console.log(caller);return}caller.field=fieldNode;CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);caller._updateField();caller.field.addEventListener("field-value-changed",e=>{caller._updateField();if(caller.field._meta&&caller.field._meta.hint){caller._hint=caller.field._meta.hint}if(caller.hint){caller._hint=caller.hint}});// update meta and constraints when they change
 caller.field.addEventListener("this-metas-changed",e=>{CheckMetaAndOverrides.UpdateMetaAndConstraints(caller)});caller.field.addEventListener("field-became-invalid",e=>{// updates wieder einspielen
 caller.error=!0;caller.errortext=caller.field._validity.description;caller.requestUpdate()});caller.field.addEventListener("field-became-valid",e=>{// updates wieder einspielen
 caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroDataCollectionDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
@@ -2749,8 +2787,8 @@ caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Hel
    * detail payload: {*} the value from the value-field. By default the value field is "id"
    *
    *  **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.displayField="display_name";this.valueField="id";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){// by valid input reset meta and constraints
-this.field[this.valueField]._value=val}this._notifiySelectedItem(val)})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this.displayField="display_name";this.valueField="id";this._fieldNodeToUpdate={};this._fieldDisplayNodeToUpdate={};this._FBPAddWireHook("--valueChanged",val=>{if(this.field){// by valid input reset meta and constraints
+this._fieldNodeToUpdate._value=val;if(this.subfield){this._fieldDisplayNodeToUpdate._value=this._findDisplayNameByValue(val)}}this._notifiySelectedItem(val)})}_findDisplayNameByValue(val){let displayName="";for(let i=0;i<this._dropdownList.length;i++){if(this._dropdownList[i].id==val){displayName=this._dropdownList[i].label;break}}return displayName}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -2778,11 +2816,25 @@ for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.va
      */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
      * Updater for the list attr
      * @param value
-     */set list(value){Helper.UpdateInputAttribute(this,"list",value)}static get properties(){return{/**
+     */set list(value){// map
+let arr=value.split(",").map(e=>{let item=e.trim();return{id:item,label:e,selected:this._fieldNodeToUpdate._value==item,_original:item}});this._notifyAndTriggerUpdate(arr)}/**
+     *
+     * @param arr
+     * @private
+     */_notifyAndTriggerUpdate(arr){if(0<arr.length){this._dropdownList=arr;if(!this.field){// notifiy first item if field is not set
+this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this._fieldNodeToUpdate._value);this._fieldNodeToUpdate._value=arr[0].id;if(this._fieldDisplayNodeToUpdate){this._fieldDisplayNodeToUpdate._value=arr[0].label}}this._FBPTriggerWire("--selection",arr)}}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
        */label:{type:String},/**
+       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */subfield:{type:String},/**
+       * if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */subfieldDisplay:{type:String,attribute:"subfield-display"},/**
        * The name of the field from the injected collection that contains the label for the dropdown array.
        */displayField:{type:String,attribute:"display-field"},/**
        * The name of the field from the injected collection that contains the value you want to assign to the attribute value and the bounded field.
@@ -2808,7 +2860,9 @@ for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.va
        * "A, B, C"
        *
        * This will convert to options ["A","B","C"] by furo-select-input
-       */list:{type:String}}}/**
+       */list:{type:String},/**
+       * the dropdown list
+       */_dropdownList:{type:Array}}}/**
      * Sets the field to readonly
      */disable(){this._readonly=!0}/**
      * Makes the field writable.
@@ -2816,9 +2870,16 @@ for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.va
      * Bind a entity field to the furo input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode);// update meta and constraints when they change
-this.field.addEventListener("this-metas-changed",e=>{this._buildListWithMetaOptions(this.field._meta.options)})}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field[this.valueField]._value);this.requestUpdate()}/**
+     */bindData(fieldNode){Helper.BindData(this,fieldNode);// by complex type set `id` as `subfield` as default
+if(this._checkIsComplexType(fieldNode)&&!this.subfield){this.subfield="id"}if(this.subfield){this._fieldNodeToUpdate=this.field[this.subfield];if(this.subfieldDisplay){this._fieldDisplayNodeToUpdate=this.field[this.subfieldDisplay]}else if(this.field.display_name){this._fieldDisplayNodeToUpdate=this.field.display_name}}else{this._fieldNodeToUpdate=this.field}// inject options from meta which is defined in spec
+if(this.field._meta&&this.field._meta.options){this._buildListWithMetaOptions(this.field._meta.options)}// update meta and constraints when they change
+this.field.addEventListener("this-metas-changed",e=>{this._buildListWithMetaOptions(this.field._meta.options)})}/**
+     *
+     * @param fieldNode
+     * @returns {boolean}
+     * @private
+     */_checkIsComplexType(fieldNode){let isComplex=!1;if(0<fieldNode.__childNodes.length){isComplex=!0}return isComplex}_updateField(){//mark incomming error
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this._fieldNodeToUpdate._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -2837,26 +2898,9 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             width: 100%;
         }
     `}/**
-     *
-     * @return {TemplateResult}
-     * @private
-     */render(){// language=HTML
-return _furoShell.html`
-       <furo-select-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
-          ?error="${this.error}" 
-          ?float="${this.float}" 
-          ?condensed="${this.condensed}"          
-          ƒ-set-options="--selection"
-          @-value-changed="--valueChanged"
-          ƒ-set-value="--value"></furo-select-input>      
-    `}/**
      * Build the dropdown list with given options from meta
      * @param {options} list of options with id and display_name
-     */_buildListWithMetaOptions(options){// map
-let arr=options.list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this.field[this.valueField]._value==e[this.valueField],_original:e}});this._dropdownList=arr;if(!this.field[this.valueField]._value){this.field[this.valueField]._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField]._value)}this._FBPTriggerWire("--selection",arr)}/**
+     */_buildListWithMetaOptions(options){let arr=this._mapDataToList(options.list);this._notifyAndTriggerUpdate(arr)}_mapDataToList(list){let arr=[];if(Array.isArray(list)){arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this._fieldNodeToUpdate._value==e[this.valueField],_original:e}})}return arr}/**
      * Inject the array with the selectable options.
      *
      * The array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)
@@ -2876,15 +2920,27 @@ this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[t
      *
      *
      * @param {Array} Array with entities
-     */injectList(list){// map
-let arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this._value==e[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field[this.valueField]._value){this.field[this.valueField]._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField]._value)}this._FBPTriggerWire("--selection",arr)}/**
+     */injectList(list){let arr=this._mapDataToList(list);this._notifyAndTriggerUpdate(arr)}/**
      * Inject the array with entities for the selectable options.
      *
      * @param {Array} Array with entities
      */injectEntities(entities){// map
-let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this._value==e.data[this.valueField],_original:e}});this._dropdownList=arr;if(this.field&&!this.field[this.valueField]._value){this.field[this.valueField]._value=arr[0].id}if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this.field[this.valueField]._value)}this._FBPTriggerWire("--selection",arr)}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this._fieldNodeToUpdate._value==e.data[this.valueField],_original:e}});this._notifyAndTriggerUpdate(arr)}/**
+     *
+     * @return {TemplateResult}
+     * @private
+     */render(){// language=HTML
+return _furoShell.html`
+       <furo-select-input id="input"
+          ?autofocus=${this.autofocus} 
+          ?readonly=${this._readonly||this.disabled} 
+          ?error="${this.error}" 
+          ?float="${this.float}" 
+          ?condensed="${this.condensed}"          
+          ƒ-set-options="--selection"
+          @-value-changed="--valueChanged"
+          ƒ-set-value="--value"></furo-select-input>      
+    `}}customElements.define("furo-data-collection-dropdown",FuroDataCollectionDropdown);class FuroDataCheckboxInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-checkbox-input
    *
    * All bubbling events from [furo-checkbox-input](../../input/doc/furo-checkbox-input) will be fired, because furo-data-checkbox-input uses furo-checkbox-input internally.
@@ -3873,8 +3929,7 @@ return _furoShell.html`
 // repeated
 let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id._value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property \u0192-bind-data=\"--init\" "+attrs+"></furo-data-property></template>";let repeater=this.parentNode.insertBefore(r,this);this._createdRepeater=repeater;this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)});// inject if data is already here
 if(0<this.field.repeats.length){repeater.injectItems(this.field.repeats)}}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
-if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"]._value.replace(/.*\//,"")]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
-for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"]._value.replace(/.*\//,"")){// the input elements for string and number are just working with scalar values
+if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let type=propertyField.data["@type"]._value.replace(/.*\//,""),e=document.createElement(this.typemap[type]),l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(type){// the input elements for string and number are just working with scalar values
 case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;case"google.protobuf.FloatValue":case"google.protobuf.Int32Value":case"google.protobuf.UInt32Value":case"google.protobuf.StringValue":e.bindData(propertyField.data.value);break;default:e.bindData(propertyField.data);}this._createdProp=this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"]._value,"not in map",this)}}}disconnectedCallback(){if(this._createdProp){this._createdProp.remove()}if(this._createdRepeater){this._createdRepeater.remove()}}static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
@@ -4120,7 +4175,7 @@ return _furoShell.html`
 <div @-click="^^item-selected(_item)">
 ${this._item.data.display_name}
 </div>           
-`}}window.customElements.define("reference-search-item",ReferenceSearchItem);class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.idField="id";this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
+`}}window.customElements.define("reference-search-item",ReferenceSearchItem);class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.valueField="id";this.displayField="display_name";this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
 // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 if(val){if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
      * flow is ready lifecycle method
@@ -4131,7 +4186,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this._searchTerm=e.detail;i
          * @event search
          * Fired when term is entered and bigger then min-term-length
          * detail payload: {String} term
-         */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}});this._FBPAddWireHook("--itemSelected",item=>{this.field.id._value=item.data[this.idField];this.field.display_name._value=item.data.display_name;this._closeList()});/**
+         */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}});this._FBPAddWireHook("--itemSelected",item=>{this.field.id._value=item.data[this.valueField];this.field.display_name._value=item.data[this.displayField];this._updateField();this._closeList()});/**
          * listen to keyboard events
          */this.addEventListener("keydown",event=>{let key=event.key||event.keyCode;if("Escape"===key||"Esc"===key||27===key){this._updateField();if(this._listIsOpen){// close list if open and  then clear search
 event.preventDefault()}this._closeList();if(""===this._searchTerm){event.preventDefault();// re set display_name
@@ -4140,7 +4195,8 @@ if(this._listIsOpen){if("Enter"===key){event.preventDefault();this._FBPTriggerWi
 this.addEventListener("mousedown",event=>{this._lockBlur=!0});// unlock after long click
 this.addEventListener("mouseup",event=>{this._lockBlur=!1});// close list on blur
 this._FBPAddWireHook("--blured",item=>{this._focused=!1;if(!this._lockBlur){this._closeList()}});// opens the list on focus
-this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection){this._showList()}});this.requestUpdate()}_showList(){this._listIsOpen=!0;this.setAttribute("show-list","");this._FBPTriggerWire("--listOpened",0)}_closeList(){this._listIsOpen=!1;this.removeAttribute("show-list")}/**
+this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection){this._showList()}});this.requestUpdate()}_showList(){this._listIsOpen=!0;this.setAttribute("show-list","");let arrCollection=this._collection,index=0;for(let i=0;i<arrCollection.length;i++){if(arrCollection[i].data&&arrCollection[i].data[this.valueField]==this.field.id._value){index=i;break}}// trigger wire to select item
+this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this.removeAttribute("show-list")}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
@@ -4153,8 +4209,20 @@ this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection)
      * @private
      * @return {Object}
      */static get properties(){return{/**
-       * the field name of reference-item which should be used to asign to id field of the the data entity object
-       */idField:{type:String,attribute:"id-field"},/**
+       * the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object
+       */valueField:{type:String,attribute:"value-field"},/**
+       * the field name of reference-item which should be used as display which will be showed in the dropdown.
+       */displayField:{type:String,attribute:"display-field"},/**
+       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */subfield:{type:String},/**
+       * this property saves the value of the displayField of selected item from collection
+       */_displayName:{type:String},/**
+       * mark if the collection is already loaded
+       */_hasCollection:{type:Boolean},/**
+       * the loaded collection
+       */_collection:{type:Array},/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4189,7 +4257,7 @@ this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection)
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
      */bindData(fieldNode){Helper.BindData(this,fieldNode);this._init()}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.display_name._value){this._FBPTriggerWire("--value",this.field.display_name._value)}this.requestUpdate()}collectionIn(collection){this._FBPTriggerWire("--listItemsIjnected",collection.entities);this._hasCollection=!0;if(this._focused){this._showList()}}/**
+if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.display_name._value){this._FBPTriggerWire("--value",this.field.display_name._value)}this.requestUpdate()}collectionIn(collection){this._FBPTriggerWire("--listItemsIjnected",collection.entities);this._hasCollection=!0;this._collection=collection.entities;if(this._focused){this._showList()}}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
@@ -4310,10 +4378,14 @@ return _furoShell.html`
      * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
      */createAttribute(options){this.field.createField(options)}set repeatedComponent(component){// add flow repeat to parent and inject on repeated changes
 // repeated
-let container=document.createElement("furo-form-layouter"),r=document.createElement("flow-repeat");r.setAttribute("identity-path","__index");r.setAttribute("\u0192-inject-items","--repeatsChanged");let isCondensed="",attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;switch(nodeName){case"condensed":attrs+=nodeName+"=\""+nodeValue+"\"";isCondensed="condensed";break;case"two":container.setAttribute("two","");break;case"four":container.setAttribute("four","");break;case"eight":container.setAttribute("eight","");break;case"delete-icon":this.deleteIcon=nodeValue;break;default:if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}}let icn="";if(this.deleteIcon){icn="<data-repeat-delete icon=\""+this.deleteIcon+"\" "+isCondensed+" \u0192-bind-item=\"--init\"></data-repeat-delete>"}r.innerHTML="<template><furo-horizontal-flex><"+component+" "+attrs+" flex \u0192-bind-data=\"--init\"></"+component+">"+icn+"</furo-horizontal-flex></template>";container.appendChild(r);this.shadowRoot.appendChild(container)}bindData(repeats){this.field=repeats;this.field.addEventListener("this-repeated-field-changed",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.repeats)});// key value repeats
+let container=document.createElement("furo-form-layouter"),r=document.createElement("flow-repeat");r.setAttribute("identity-path","__index");r.setAttribute("\u0192-inject-items","--repeatsChanged");let isCondensed="",attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;switch(nodeName){case"condensed":attrs+=nodeName+"=\""+nodeValue+"\"";isCondensed="condensed";break;case"two":container.setAttribute("two","");break;case"four":container.setAttribute("four","");break;case"eight":container.setAttribute("eight","");break;case"delete-icon":this.deleteIcon=nodeValue;break;default:if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}}let icn="";if(this.deleteIcon){icn="<data-repeat-delete icon=\""+this.deleteIcon+"\" "+isCondensed+" \u0192-bind-item=\"--init\"></data-repeat-delete>"}r.innerHTML="<template><furo-horizontal-flex><"+component+" "+attrs+" flex \u0192-bind-data=\"--init\"></"+component+">"+icn+"</furo-horizontal-flex></template>";container.appendChild(r);this.shadowRoot.appendChild(container)}bindData(repeats){this.field=repeats;this.field.addEventListener("this-repeated-field-changed",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.repeats);this._checkSize()});// key value repeats
 if(this.field.repeats){// initial trigger
-this._FBPTriggerWire("--repeatsChanged",this.field.repeats)}else{this.field.addEventListener("branch-value-changed",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)});this.field.addEventListener("node-field-deleted",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)});this.field.addEventListener("node-field-added",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)});// initial trigger for fields
-this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)}}add(data){if(this.field){this.field.add(data)}}/**
+this._FBPTriggerWire("--repeatsChanged",this.field.repeats);this._checkSize()}else{// attributes
+this.field.addEventListener("branch-value-changed",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)});this.field.addEventListener("node-field-deleted",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)});this.field.addEventListener("node-field-added",node=>{this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)});// initial trigger for fields
+this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)}}/**
+     * hide the element if array is empty
+     * @private
+     */_checkSize(){if(0===this.field.repeats.length){this.setAttribute("hidden","");this._isHidden=!0}else{if(this._isHidden){this.removeAttribute("hidden")}}}add(data){if(this.field){this.field.add(data)}}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
 }/**
@@ -4324,6 +4396,10 @@ this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)}}add(data){if(t
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
         }
     `}}window.customElements.define("furo-data-repeat",FuroDataRepeat);class FuroDataSearchInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
@@ -4803,7 +4879,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host([hidden]) {
             display: none;
         }
-       
+
     `}/**
      * @private
      * @returns {TemplateResult}
@@ -4816,21 +4892,31 @@ return _furoShell.html`
         <furo-demo-snippet flex>
           <template>
             <furo-vertical-scroller style="padding: 10px">
-              <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>  <simulate-error ƒ-bind-data="--entity" error='{"field":"repstring.1","description":"something went wrong"}'></simulate-error>
-            
+              <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
+              <simulate-error ƒ-bind-data="--entity"
+                              error='{"field":"repstring.1","description":"something went wrong"}'></simulate-error>
+
               <hr>
-              <furo-card title="furo-data-repeater demo" secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display">
-              <furo-form-layouter two>
-                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input">
+              <furo-card title="furo-data-repeater demo"
+                         secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display">
+                <furo-form-layouter two>
+                  <h3>form</h3>
+                  <h3>display</h3>
+                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)"
+                                    repeated-component="furo-data-text-input">
                   </furo-data-repeat>
                   <furo-data-repeat four ƒ-bind-data="--entity(*.repstring)" repeated-component="furo-data-display">
                   </furo-data-repeat>
-              </furo-form-layouter>
-                <furo-horizontal-flex space slot="action"> <furo-button primary @-click="--addFieldClicked">add field</furo-button></furo-horizontal-flex>
+                </furo-form-layouter>
+                <furo-horizontal-flex space slot="action">
+                  <furo-button primary @-click="--addFieldClicked">add field</furo-button>
+                  <furo-button primary @-click="--emptyClicked">set empty</furo-button>
+                </furo-horizontal-flex>
               </furo-card>
-              
-              
-              <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
+
+
+              <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-init="--emptyClicked"
+                                ƒ-inject-raw="--response(*.data)"></furo-data-object>
               <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
               <furo-entity-agent service="ExperimentService"
                                  ƒ-hts-in="--hts"
@@ -4838,7 +4924,7 @@ return _furoShell.html`
                                  ƒ-bind-request-data="--entity"
                                  @-response="--response">
               </furo-entity-agent>
-              
+
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
@@ -5485,8 +5571,8 @@ return _furoShell.html`
                       @-search="--term"
                       ƒ-collection-in="--refCol">
               </furo-data-reference-search>
-              
-              <furo-data-display leading-icon="search" condensed ƒ-bind-data="--entityReady(*.owner)"></furo-data-display>
+                
+              <furo-data-display leading-icon="search" condensed  ƒ-bind-data="--entityReady(*.owner.id)"></furo-data-display>
               
             </furo-form-layouter>
             <furo-data-object
@@ -5891,11 +5977,16 @@ return _furoShell.html`
           
           <furo-form-layouter two>
           <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"  
-                                         value-field="id" 
+                                         subfield="id"
                                          display-field="phone_nr" 
                                          label="Use phone as display" 
                                          ƒ-inject-entities="--response(*.entities)" 
-                                         ƒ-bind-data="--entity(*.owner)"></furo-data-collection-dropdown>
+                                         ƒ-bind-data="--entity(*.owner)"></furo-data-collection-dropdown>       
+            <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"
+                                         display-field="phone_nr" 
+                                         label="Use phone as display" 
+                                         ƒ-inject-entities="--response(*.entities)" 
+                                         ƒ-bind-data="--entity(*.owner.id)"></furo-data-collection-dropdown>
           </furo-form-layouter>
           
             
@@ -6163,7 +6254,120 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-money-input",DemoFuroDataMoneyInput);class FuroDataTableToggle extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.on=!0;this.field=""}/**
+    `}}window.customElements.define("demo-furo-data-money-input",DemoFuroDataMoneyInput);class DemoFuroDataCollectionDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+        <furo-vertical-flex>
+            <div><h2>Demo furo-data-collection-dropdown</h2>
+            </div>
+            <furo-demo-snippet flex>
+                <template>
+
+                    <furo-horizontal-flex>
+
+                        <furo-data-collection-dropdown hint="hint override" leading-icon="mail" trailing-icon="fingerprint"
+                                                       label="Use phone as display"
+                                                       subfield="id"
+                                                       subfield-display="description"
+                                                       ƒ-inject-entities="--response(*.entities)"
+                                                       ƒ-bind-data="--entity"></furo-data-collection-dropdown>
+
+                        <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"
+                                                       display-field="description"
+                                                       ƒ-inject-entities="--response(*.entities)"
+                                                       ƒ-bind-data="--entity"></furo-data-collection-dropdown>
+
+                    </furo-horizontal-flex>
+
+                    <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+
+                    <furo-collection-agent service="TaskService"
+                                           ƒ-hts-in="--hts"
+                                           ƒ-list="--load"
+                                           @-response="--response">
+                    </furo-collection-agent>
+
+
+                    <furo-location @-location-changed="--locationChanged"></furo-location>
+
+                    <furo-deep-link service="TaskService" @-hts-out="--hts" ƒ-qp-in="--locationChanged(*.query)"></furo-deep-link>
+
+                    <furo-button raised label="load" @-click="--load"></furo-button>
+
+                </template>
+            </furo-demo-snippet>
+        </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-collection-dropdown",DemoFuroDataCollectionDropdown);class DemoFuroDataCollectionReferenceDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-vertical-flex>
+        <div><h2>Demo furo-data-collection-reference-dropdown</h2>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+            
+            <furo-horizontal-flex>
+
+                <furo-data-collection-dropdown hint="hint override" leading-icon="mail" trailing-icon="fingerprint"
+                                               label="default list from spec"
+                                               ƒ-inject-entities="--response(*.entities)"
+                                               ƒ-bind-data="--entity(*.owner)"></furo-data-collection-dropdown>
+
+                <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"
+                                               display-field="phone_nr"
+                                               label="Use phone as display"
+                                               ƒ-inject-entities="--response(*.entities)"
+                                               ƒ-bind-data="--entity(*.owner.id)"></furo-data-collection-dropdown>
+                
+                </furo-horizontal-flex>
+
+                <furo-data-object type="task.Task" @-object-ready="--entity"></furo-data-object>
+  
+                <furo-collection-agent service="PersonService"
+                                       ƒ-hts-in="--entity(*.owner.link._value)"
+                                       ƒ-list="--load"
+                                       @-response="--response">
+                </furo-collection-agent>
+                <furo-button raised label="load" @-click="--load"></furo-button>
+    
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-collection-reference-dropdown",DemoFuroDataCollectionReferenceDropdown);class FuroDataTableToggle extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.on=!0;this.field=""}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 this._FBPAddWireHook("--Pressed",()=>{this.toggle()})}static get properties(){return{field:{type:String,attribute:!0,reflect:!0}}}static get styles(){// language=CSS
@@ -6812,9 +7016,9 @@ configArray.forEach(config=>{this._configObject[config[0]+config[1]]={target:con
      * Fired when Controls for panels are ready, initially it starts with an empty set
      *
      * detail payload: RepeaterNode with navigation nodes
-     */let customEvent=new Event("panels-changed",{composed:!0,bubbles:!0});customEvent.detail=this._openPanels;this.dispatchEvent(customEvent)}showPage(NavigationNode){var _this=this;return babelHelpers.asyncToGenerator(function*(){let panelName="P"+NavigationNode.id.value;if(-1===_this._openPanels.indexOf(NavigationNode)){let panelComponent=panelRegistry.getPanelName(NavigationNode.link.type.value,NavigationNode.panel.value);if(panelComponent){//create element and set name,...
-let panel=document.createElement(panelComponent);if(panel.closePanel){panel.setAttribute("name",panelName);panel.setAttribute("hidden","");panel._TreeNode=NavigationNode;panel.removePanel=()=>{_this._removeNodeById(NavigationNode.id.value)};_this._openPanels.push(NavigationNode);_this._furoPage.appendChild(panel);yield panel.updateComplete;// trigger the --navNode wire on panel
-if(panel._FBPTriggerWire){panel._FBPTriggerWire("--navNode",NavigationNode)}}else{console.warn("panel does not have a closePanel method, implement panel interfaces or extend from BasePanel.js")}}else{console.warn(NavigationNode.link.type.value,NavigationNode.panel.value,"is not in the registry",_this)}}// activate the panel
+     */let customEvent=new Event("panels-changed",{composed:!0,bubbles:!0});customEvent.detail=this._openPanels;this.dispatchEvent(customEvent)}showPage(NavigationNode){var _this=this;return babelHelpers.asyncToGenerator(function*(){let panelName="P"+NavigationNode.id._value;if(-1===_this._openPanels.indexOf(NavigationNode)){let panelComponent=panelRegistry.getPanelName(NavigationNode.link.type._value,NavigationNode.panel._value);if(panelComponent){//create element and set name,...
+let panel=document.createElement(panelComponent);if(panel.closePanel){panel.setAttribute("name",panelName);panel.setAttribute("hidden","");panel._TreeNode=NavigationNode;panel.removePanel=()=>{_this._removeNodeById(NavigationNode.id._value)};_this._openPanels.push(NavigationNode);_this._furoPage.appendChild(panel);yield panel.updateComplete;// trigger the --navNode wire on panel
+if(panel._FBPTriggerWire){panel._FBPTriggerWire("--navNode",NavigationNode)}}else{console.warn("panel does not have a closePanel method, implement panel interfaces or extend from BasePanel.js")}}else{console.warn(NavigationNode.link.type._value,NavigationNode.panel._value,"is not in the registry",_this)}}// activate the panel
 _this._notifiyOpenPanels();_this._furoPage.activatePage(panelName)})()}/**
      * closes all open panels
      */closeAll(event){this._openPanels.forEach(panel=>{panel.dispatchNodeEvent(new NodeEvent("close-requested",this,!1))})}/**
@@ -6823,12 +7027,12 @@ _this._notifiyOpenPanels();_this._furoPage.activatePage(panelName)})()}/**
      * @private
      */_removeNodeById(id){let nodeName="P"+id,e=this._furoPage.querySelector("*[name="+nodeName+"]");// remove from dom
 e.remove();// remove from flat tree
-this._openPanels=this._openPanels.filter((node,index)=>{return"P"+node.id.value!==nodeName});if(0<this._openPanels.length){// select item with same index
+this._openPanels=this._openPanels.filter((node,index)=>{return"P"+node.id._value!==nodeName});if(0<this._openPanels.length){// select item with same index
 this._openPanels[this._openPanels.length-1].selectItem()}else{//enable default page
-this._furoPage.activatePage("overview")}this._notifiyOpenPanels()}_activatePanelForNode(node){let name=node.id.value;// register node
-if(-1===this._openPanels.indexOf(node)){let panelComponent=panelRegistry.getPanelName(node.link.type.value,this._panel);if(panelComponent){//create element and set name,...
-let panel=document.createElement(panelComponent),panelName="P"+name;panel.setAttribute("name",panelName);panel._TreeNode=node;panel.removePanel=()=>{this._removeNodeByName(panelName)};this._openPanels.push(node);this._furoPage.appendChild(panel)}else{console.warn(node.link.type.value,"is not in the registry",this)}}// microtask
-setTimeout(()=>{let currentPanel=this._furoPage.activatePage("P"+name);if(currentPanel&&currentPanel._FBPTriggerWire!==void 0){if(!currentPanel.__panelInitSent){currentPanel._FBPTriggerWire("--panelInit",node.link.value);currentPanel._FBPTriggerWire("--treeNode",node);currentPanel.__panelInitSent=!0}currentPanel._FBPTriggerWire("--panelActivated",node.link.value)}},0)}}window.customElements.define("furo-panel-coordinator",FuroPanelCoordinator);class FuroQpChanger extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+this._furoPage.activatePage("overview")}this._notifiyOpenPanels()}_activatePanelForNode(node){let name=node.id._value;// register node
+if(-1===this._openPanels.indexOf(node)){let panelComponent=panelRegistry.getPanelName(node.link.type._value,this._panel);if(panelComponent){//create element and set name,...
+let panel=document.createElement(panelComponent),panelName="P"+name;panel.setAttribute("name",panelName);panel._TreeNode=node;panel.removePanel=()=>{this._removeNodeByName(panelName)};this._openPanels.push(node);this._furoPage.appendChild(panel)}else{console.warn(node.link.type._value,"is not in the registry",this)}}// microtask
+setTimeout(()=>{let currentPanel=this._furoPage.activatePage("P"+name);if(currentPanel&&currentPanel._FBPTriggerWire!==void 0){if(!currentPanel.__panelInitSent){currentPanel._FBPTriggerWire("--panelInit",node.link._value);currentPanel._FBPTriggerWire("--treeNode",node);currentPanel.__panelInitSent=!0}currentPanel._FBPTriggerWire("--panelActivated",node.link._value)}},0)}}window.customElements.define("furo-panel-coordinator",FuroPanelCoordinator);class FuroQpChanger extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @private
    * @return {Object}
    */static get properties(){return{/**
@@ -6940,7 +7144,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      */render(){// language=HTML
 return _furoShell.html`
       <p>Edit Panel</p>
-      <furo-pretty-json ƒ-inject-data="--navNode(*.value)">
+      <furo-pretty-json ƒ-inject-data="--navNode(*._value)">
         
       </furo-pretty-json>
     `}}window.customElements.define("edit-example",EditExample);class FuroPanelCoordinatorTabItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.selected=!1;this.hovered=!1;this.inedit=!1;this.haserror=!1;this.addEventListener("click",e=>{this.field.selectItem()})}bindData(fieldNode){this.field=fieldNode;this.field.addEventListener("this-node-selected",n=>{this.selected=!0});this.field.addEventListener("tree-node-unselection-requested",n=>{this.selected=!1});this.field.addEventListener("modified",n=>{this.inedit=!0});this.field.addEventListener("has-error",n=>{this.haserror=!0})}_closeTab(e){e.stopPropagation();this.field.dispatchNodeEvent(new NodeEvent("close-requested",this,!1))}/**
@@ -6950,7 +7154,7 @@ return _furoShell.html`
        * Description
        */selected:{type:Boolean,reflect:!0},haserror:{type:Boolean,reflect:!0},inedit:{type:Boolean,reflect:!0}}}/**
      * flow is ready lifecycle method
-     */__fbpReady(){super.__fbpReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 }/**
      * Themable Styles
      * @private
@@ -7016,7 +7220,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      */render(){// language=HTML
 return _furoShell.html`
 <furo-horizontal-flex>
-   <div flex class="label"> <furo-icon ?hidden="${this.noicon}" icon="${this.field.icon}" ?error="${this.field.has_error.value}"></furo-icon> ${this.field.display_name} </div>
+   <div flex class="label"> <furo-icon ?hidden="${this.noicon}" icon="${this.field.icon}" ?error="${this.field.has_error._value}"></furo-icon> ${this.field.display_name} </div>
    
    <furo-ripple></furo-ripple>
 </furo-horizontal-flex>
@@ -7038,7 +7242,7 @@ this._hoverIndex=0;this._tabs.forEach((e,i)=>{if(e._isSelected){this._hoverIndex
      * detail payload: keyEvent
      */let customEvent=new Event("escape",{composed:!0,bubbles:!0});customEvent.detail=event;this.dispatchEvent(customEvent)}injectTabs(nodeArray){this._tabs=nodeArray;this._FBPTriggerWire("--itemsInjected",nodeArray);this.removeAttribute("hidden")}/**
      * flow is ready lifecycle method
-     */__fbpReady(){super.__fbpReady();//this._FBPTraceWires()
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 }/**
      * focuses the element
      */focus(){super.focus()}/**
@@ -7082,7 +7286,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-            <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id.value"><furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item></template>
+            <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id._value"><furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item></template>
 
         `}}window.customElements.define("furo-panel-coordinator-tabs",FuroPanelCoordinatorTabs);class FuroTreeItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.hidden=!0;this.isGroupLabel=!1}search(event){if(!this.hidden){let term=event.term.toLowerCase();// do not search empty searchTerm
 if(0===term.length){return}let searchTokens=term.split(" "),hasResults=!0;searchTokens.forEach(t=>{if(0<t.length){if(1===t.length){// single letter search first letter of word
@@ -7097,17 +7301,17 @@ _updateItem(){this.requestUpdate();// build index later (50ms), a human user can
 setTimeout(()=>{let tmpArr=[];this.fieldNode.__childNodes.filter(field=>{// maybe change to fields-to-index list
 if("string"===typeof field._value){return!0}}).map(field=>{tmpArr=tmpArr.concat(field._value.toLowerCase().split(/\W+/))});let s=new Set(tmpArr);// tokenize
 tmpArr=[];s.forEach(word=>{//first letter
-tmpArr.push(word.substr(0,1)+".*$");let l;for(let tokenLength=2;tokenLength<word.length;tokenLength++){l=word.length-tokenLength+1;for(let i=0;i<l;i++){tmpArr.push(word.substr(i,tokenLength))}}});this._searchTokens=new Set(Array.from(s).concat(tmpArr))},50)}bindData(fieldNode){this.fieldNode=fieldNode;this.fieldNode._isHidden=!0;if(fieldNode.is_group_label){this.isGroupLabel=fieldNode.is_group_label.value}if(!fieldNode.icon.value){this.noicon=!0}// reflect visible close state to attr
+tmpArr.push(word.substr(0,1)+".*$");let l;for(let tokenLength=2;tokenLength<word.length;tokenLength++){l=word.length-tokenLength+1;for(let i=0;i<l;i++){tmpArr.push(word.substr(i,tokenLength))}}});this._searchTokens=new Set(Array.from(s).concat(tmpArr))},50)}bindData(fieldNode){this.fieldNode=fieldNode;this.fieldNode._isHidden=!0;if(fieldNode.is_group_label){this.isGroupLabel=fieldNode.is_group_label._value}if(!fieldNode.icon._value){this.noicon=!0}// reflect visible close state to attr
 this.fieldNode.addEventListener("ancestor-invisible",e=>{this.hidden=!0;this.fieldNode._isHidden=!0});// reflect visible close state to attr
-this.fieldNode.addEventListener("ancestor-visible",e=>{if(this.fieldNode.__parentNode.__parentNode.open.value){this.hidden=!1;this.fieldNode._isHidden=!1}});// for elements that are already ready
+this.fieldNode.addEventListener("ancestor-visible",e=>{if(this.fieldNode.__parentNode.__parentNode.open._value){this.hidden=!1;this.fieldNode._isHidden=!1}});// for elements that are already ready
 this._updateItem();this.fieldNode.addEventListener("branch-value-changed",e=>{// for elements that are updated later
 if(e.detail.__parentNode===this.fieldNode){this._updateItem()}});this.fieldNode.addEventListener("modified",n=>{this.inedit=!0});this.fieldNode.addEventListener("has-error",n=>{this.haserror=!0});// listen to open close state
-this.fieldNode.open.addEventListener("field-value-changed",e=>{e.cancelBubble=!0;if(!1===e.detail.value){e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-invisible",e.detail.__parentNode))}else{e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-visible",e.detail.__parentNode))}});// make first node visible
+this.fieldNode.open.addEventListener("field-value-changed",e=>{e.cancelBubble=!0;if(!1===e.detail._value){e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-invisible",e.detail.__parentNode))}else{e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-visible",e.detail.__parentNode))}});// make first node visible
 if(0===this.fieldNode.depth){this.hidden=!1;this.fieldNode._isHidden=!1}this._FBPTriggerWire("--fieldOpen",this.fieldNode.open)}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
 this._FBPAddWireHook("--labelClicked",e=>{if(this.isGroupLabel){// just toggle if this is a label
-this.fieldNode.open.value=!this.fieldNode.open.value}else{this.fieldNode.selectItem()}});this.fieldNode.addEventListener("tree-node-unselection-requested",e=>{this.selected=!1;this.fieldNode._isSelected=!1});this.fieldNode.addEventListener("tree-node-blur-requested",e=>{this.hovered=!1});this.fieldNode.addEventListener("this-node-hovered",e=>{this.hovered=!0;//this.scrollIntoViewIfNeeded();
+this.fieldNode.open._value=!this.fieldNode.open._value}else{this.fieldNode.selectItem()}});this.fieldNode.addEventListener("tree-node-unselection-requested",e=>{this.selected=!1;this.fieldNode._isSelected=!1});this.fieldNode.addEventListener("tree-node-blur-requested",e=>{this.hovered=!1});this.fieldNode.addEventListener("this-node-hovered",e=>{this.hovered=!0;//this.scrollIntoViewIfNeeded();
 });this.fieldNode.addEventListener("this-node-selected",e=>{this.selected=!0;this.fieldNode._isSelected=!0;//this.scrollIntoViewIfNeeded();
 });// This item is not or no more in the search results
 this.fieldNode.addEventListener("search-didnt-match",e=>{this.searchmatch=!1});// This item is  in the search results
@@ -7235,7 +7439,7 @@ return _furoShell.html`
       <div style="width: ${8*this.fieldNode.depth}px"></div>
       <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>      
             
-      <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error.value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
+      <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error._value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
 </furo-horizontal-flex>
 
     `}}_exports.FuroTreeItem=FuroTreeItem;window.customElements.define("furo-tree-item",FuroTreeItem);var furoTreeItem={FuroTreeItem:FuroTreeItem};_exports.$furoTreeItem=furoTreeItem;class FuroTree extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();/**
@@ -7252,8 +7456,8 @@ this.addEventListener("keydown",event=>{let key=event.key||event.keyCode;switch(
 if(this._hoveredField._isSelected){// openclose
 this._hoveredField.toggleOpenClose()}else{// open the hovered field
 this._hoveredField.selectItem()}break;case"ArrowDown":event.preventDefault();this._hoverNext();break;case"ArrowUp":event.preventDefault();this._hoverPrevious();break;case"ArrowLeft":event.preventDefault();this._resetSearch();// close when opened, parent when closed
-if(!this._hoveredField.isBranch()&&this._hoveredField.open.value){this._hoveredField.toggleOpenClose()}else{this._hoverHome()}break;case"ArrowRight":event.preventDefault();this._resetSearch();// open when closed, next when opened
-if(!this._hoveredField.isBranch()&&!this._hoveredField.open.value){this._hoveredField.toggleOpenClose()}else{this._hoverNext()}break;case"Escape":if(this._searchIsActive){event.stopPropagation();this._resetSearch()}break;case"Backspace":this._removeLastSymbofFromSearch();break;}});// keyboard navigation on top node only
+if(!this._hoveredField.isBranch()&&this._hoveredField.open._value){this._hoveredField.toggleOpenClose()}else{this._hoverHome()}break;case"ArrowRight":event.preventDefault();this._resetSearch();// open when closed, next when opened
+if(!this._hoveredField.isBranch()&&!this._hoveredField.open._value){this._hoveredField.toggleOpenClose()}else{this._hoverNext()}break;case"Escape":if(this._searchIsActive){event.stopPropagation();this._resetSearch()}break;case"Backspace":this._removeLastSymbofFromSearch();break;}});// keyboard navigation on top node only
 this.addEventListener("keypress",event=>{let key=event.key||event.keyCode;if("Enter"===key){return}if(!event.ctrlKey){event.preventDefault();this._addSymbolToSearch(key)}else{switch(key){// expand recursive with ctrl-e
 case"e":event.preventDefault();this._hoveredField.expandRecursive();break;}}})}_removeLastSymbofFromSearch(){this._searchTerm=this._searchTerm.substr(0,this._searchTerm.length-1);if(0===this._searchTerm.length){this._resetSearch()}else{this.searchOpenTree(this._searchTerm)}}_addSymbolToSearch(key){this._searchTerm+=key;this.searchOpenTree(this._searchTerm)}searchOpenTree(){this._searchIsActive=!0;let d={term:this._searchTerm,results:[]};this._foundSearchItems=d.results;this._FBPTriggerWire("--searchRequested",d);// select first result
 if(0<d.results.length){d.results[0].triggerHover()}this._updateSearchmatchAttributesOnItems();this.requestUpdate()}_resetSearch(){this._searchIsActive=!1;this._searchTerm="";this._foundSearchItems=[];this._updateSearchmatchAttributesOnItems()}_updateSearchmatchAttributesOnItems(){this._rootNode.broadcastEvent(new NodeEvent("search-didnt-match",this._rootNode,!0));this._foundSearchItems.map(node=>{node.dispatchNodeEvent(new NodeEvent("search-matched",this._rootNode,!1))})}_hoverHome(){let parent=this._hoveredField.getParentElement();if(parent.triggerHover){parent.triggerHover()}}/**
@@ -7264,7 +7468,7 @@ if(!prev){prev=this._foundSearchItems[this._foundSearchItems.length-1]}}else{pre
      * @param locationObject
      * @return {*|boolean}
      */locationIn(locationObject){if(locationObject.query[this.qp]){let selected=this.selectById(locationObject.query[this.qp]);if(!selected){// Store qp, for later binding
-this.__tmpQP=locationObject.query[this.qp]}return selected}}selectById(nodeID){for(let i=this._flatTree.length-1,node;0<=i;i--){node=this._flatTree[i];if(node.id.value==nodeID){node.selectItem();/**
+this.__tmpQP=locationObject.query[this.qp]}return selected}}selectById(nodeID){for(let i=this._flatTree.length-1,node;0<=i;i--){node=this._flatTree[i];if(node.id._value==nodeID){node.selectItem();/**
                             * Fire event, when qp is set, because the selectItem will not fire
                             */if(this.qp){let customEvent=new Event("node-selected",{composed:!0,bubbles:!0});customEvent.detail=this._selectedField;this.dispatchEvent(customEvent)}return node}}return!1}/**
      * select the previous visible item
@@ -7391,7 +7595,7 @@ return _furoShell.html`
     <div class="srch">🔍 ${this._searchTerm}</div>
       <div class="tablewrapper">
       <table>
-        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id.value">
+        <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
           <tr>
             <td>
               ${this._treeItemTepmplate}
@@ -7407,7 +7611,7 @@ if(this.__tmpQP!==void 0){// because the tree is built async
 setTimeout(()=>{this.selectById(this.__tmpQP);this.__tmpQP=void 0},0)}}_initHoverAndSelectEvents(){// Internal Event, when a node gets hovered
 this._rootNode.addEventListener("tree-node-hovered",e=>{// broadcast blur
 this._rootNode.broadcastEvent(new NodeEvent("tree-node-blur-requested"));this._hoveredField=e.target;// only dispatch when the element contains a name
-if(null!=this._hoveredField.display_name.value){/**
+if(null!=this._hoveredField.display_name._value){/**
          * @event node-hovered
          * Fired when
          * detail payload:
@@ -7429,8 +7633,8 @@ this._rootNode.broadcastEvent(new NodeEvent("tree-node-unselection-requested"));
          * @event qp-change-requested
          * Fired when qp mode is enabled. Nodes are only selectable with qpIn or selectById
          *
-         * detail payload: Object {"this.qp": this._selectedField.id.value}
-         */if(this.__lastQP!==this._selectedField.id.value){let customEvent=new Event("qp-change-requested",{composed:!0,bubbles:!0}),qp={};this.__lastQP=this._selectedField.id.value;qp[this.qp]=this._selectedField.id.value;customEvent.detail=qp;this.dispatchEvent(customEvent)}}if(this._selectedField.isBranch()){/**
+         * detail payload: Object {"this.qp": this._selectedField.id._value}
+         */if(this.__lastQP!==this._selectedField.id._value){let customEvent=new Event("qp-change-requested",{composed:!0,bubbles:!0}),qp={};this.__lastQP=this._selectedField.id._value;qp[this.qp]=this._selectedField.id._value;customEvent.detail=qp;this.dispatchEvent(customEvent)}}if(this._selectedField.isBranch()){/**
          * @event branch-selected
          * Fired when
          * detail payload:
@@ -7439,13 +7643,13 @@ this._rootNode.broadcastEvent(new NodeEvent("tree-node-unselection-requested"));
          * Fired when
          * detail payload:
          */let customEvent=new Event("leaf-selected",{composed:!0,bubbles:!0});customEvent.detail=this._selectedField;this.dispatchEvent(customEvent)}})}_buildFlatTree(tree){this._flatTree=[tree];tree.__flatTreeIndex=0;this._parseTreeRecursive(tree,0,this.depth);for(let len=this._flatTree.length;0<len;len--){let index=len-1,node=this._flatTree[index];// open field if entity contains a field open with true
-if(!node.open){node.addChildProperty("open",new FieldNode(node,{type:"bool"},"open"));node.open.value=!1}// Traverse the flat tree, it is simpler then the nested tree
+if(!node.open){node.addChildProperty("open",new FieldNode(node,{type:"bool"},"open"));node.open._value=!1}// Traverse the flat tree, it is simpler then the nested tree
 // next active element
 node.getNextVisibleElement=()=>{for(let i=index+1;i<this._flatTree.length;i++){if(!this._flatTree[i]._isHidden){return this._flatTree[i]}}return!1};// prev active element
 node.getPrevElement=()=>{for(let i=index-1;0<=i;i--){if(!this._flatTree[i]._isHidden){return this._flatTree[i]}}return!1};// is branch
 node.isBranch=()=>{return 0===node.children.repeats.length};// get Parent
 node.getParentElement=()=>{return node.__parentNode.__parentNode};// add openclose method to treeNode
-node.toggleOpenClose=()=>{node.open.value=!node.open.value;if(node.open.value){/**
+node.toggleOpenClose=()=>{node.open._value=!node.open._value;if(node.open._value){/**
            * @event node-opened
            * Fired when a node is opened
            */let customEvent=new Event("node-opened",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)}else{/**
@@ -7456,18 +7660,18 @@ node.triggerHover=()=>{node.dispatchNodeEvent(new NodeEvent("tree-node-hovered",
 node.selectItem=()=>{node.dispatchNodeEvent(new NodeEvent("tree-node-selected",node,!0));node.dispatchNodeEvent(new NodeEvent("this-node-selected",node,!1));// used to open the paths upwards from the selected node
 node.__parentNode.dispatchNodeEvent(new NodeEvent("descendant-selected",this,!0));//node.triggerHover()
 };// if a descendant was selected, we ensure to open the path
-node.addEventListener("descendant-selected",e=>{node.open.value=!0});// expand recursive
+node.addEventListener("descendant-selected",e=>{node.open._value=!0});// expand recursive
 node.expandRecursive=()=>{let event=new NodeEvent("recursive-expand-requested",node);node.broadcastEvent(event);/**
                                      * @event nodes-expanded
                                      * Fired when nodes are expanded recursive
-                                     */let customEvent=new Event("nodes-expanded",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-expand-requested",e=>{node.open.value=!0});// collapse recursive
+                                     */let customEvent=new Event("nodes-expanded",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-expand-requested",e=>{node.open._value=!0});// collapse recursive
 node.collapseRecursive=()=>{node.broadcastEvent(new NodeEvent("recursive-collapse-requested",node));/**
                                                                                    * @event nodes-collapsed
                                                                                    * Fired when nodes are collapsed recursive
-                                                                                   */let customEvent=new Event("nodes-collapsed",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-collapse-requested",e=>{node.open.value=!1})}// open the root ode
-tree.open.value=!0;this._FBPTriggerWire("--treeChanged",this._flatTree)}_parseTreeRecursive(tree,level,maxdepth){if(0<maxdepth&&!(level<maxdepth)){return}tree.depth=level;level++;tree.children.repeats.forEach(node=>{node.depth=level;let i=this._flatTree.push(node);node.__flatTreeIndex=i-1;if(0<node.children.repeats.length){this._parseTreeRecursive(node,level,maxdepth)}})}}window.customElements.define("furo-tree",FuroTree);class FuroMiniTabs extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}injectItems(nodeArray){this._FBPTriggerWire("--itemsInjected")}/**
+                                                                                   */let customEvent=new Event("nodes-collapsed",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-collapse-requested",e=>{node.open._value=!1})}// open the root ode
+tree.open._value=!0;this._FBPTriggerWire("--treeChanged",this._flatTree)}_parseTreeRecursive(tree,level,maxdepth){if(0<maxdepth&&!(level<maxdepth)){return}tree.depth=level;level++;tree.children.repeats.forEach(node=>{node.depth=level;let i=this._flatTree.push(node);node.__flatTreeIndex=i-1;if(0<node.children.repeats.length){this._parseTreeRecursive(node,level,maxdepth)}})}}window.customElements.define("furo-tree",FuroTree);class FuroMiniTabs extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}injectItems(nodeArray){this._FBPTriggerWire("--itemsInjected")}/**
     * flow is ready lifecycle method
-    */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+    */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 }/**
      * Themable Styles
      * @private

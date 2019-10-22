@@ -59,8 +59,8 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
                       @-search="--term"
                       ƒ-collection-in="--refCol">
               </furo-data-reference-search>
-              
-              <furo-data-display leading-icon="search" condensed ƒ-bind-data="--entityReady(*.owner)"></furo-data-display>
+                
+              <furo-data-display leading-icon="search" condensed  ƒ-bind-data="--entityReady(*.owner.id)"></furo-data-display>
               
             </furo-form-layouter>
             <furo-data-object

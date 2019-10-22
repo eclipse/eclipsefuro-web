@@ -185,12 +185,10 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
     /**
      * flow is ready lifecycle method
      */
-    __fbpReady() {
-        super.__fbpReady();
-        //this._FBPTraceWires()
-
+    _FBPReady(){
+        super._FBPReady();
+        //this._FBPTraceWires();
     }
-
 
     /**
      * focuses the element
@@ -260,7 +258,7 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-            <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id.value"><furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item></template>
+            <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id._value"><furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item></template>
 
         `;
     }

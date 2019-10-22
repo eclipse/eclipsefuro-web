@@ -9,5 +9,7 @@
   "type": "person.PersonEntity",
   "value_field": "id",
   "display_field": "display_name",
+  "subfield": "id",
+  "subfield_display": "display_name",
   "imports": []
 }

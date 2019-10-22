@@ -50,11 +50,16 @@ class SampleFuroDataCollectionDropdown extends FBP(LitElement) {
           
           <furo-form-layouter two>
           <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"  
-                                         value-field="id" 
+                                         subfield="id"
                                          display-field="phone_nr" 
                                          label="Use phone as display" 
                                          ƒ-inject-entities="--response(*.entities)" 
-                                         ƒ-bind-data="--entity(*.owner)"></furo-data-collection-dropdown>
+                                         ƒ-bind-data="--entity(*.owner)"></furo-data-collection-dropdown>       
+            <furo-data-collection-dropdown label="label overrid" hint="hint override" leading-icon="mail" trailing-icon="fingerprint"
+                                         display-field="phone_nr" 
+                                         label="Use phone as display" 
+                                         ƒ-inject-entities="--response(*.entities)" 
+                                         ƒ-bind-data="--entity(*.owner.id)"></furo-data-collection-dropdown>
           </furo-form-layouter>
           
             

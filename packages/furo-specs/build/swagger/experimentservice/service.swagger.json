@@ -110,6 +110,33 @@
         ]
       }
     },
+    "/mockdata/experiments/1:release": {
+      "post": {
+        "summary": "Releases experiment",
+        "operationId": "ReleaseExperiment",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/experimentExperimentEntity"
+            }
+          }
+        ],
+        "tags": [
+          "ExperimentService"
+        ]
+      }
+    },
     "/mockdata/experiments/{exp}": {
       "delete": {
         "summary": "Delete a Experiment",
@@ -414,6 +441,10 @@
         "rel": {
           "type": "string",
           "title": "the relationship"
+        },
+        "service": {
+          "type": "string",
+          "title": "name of the service which can handle this link"
         },
         "type": {
           "type": "string",

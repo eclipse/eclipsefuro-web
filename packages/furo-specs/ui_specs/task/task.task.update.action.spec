@@ -37,7 +37,7 @@
     },
     {
       "label": "cancel",
-      "rel": "reset",
+      "rel": "",
       "icon": null,
       "component": "furo-button",
       "onclick": "-^reset-req",

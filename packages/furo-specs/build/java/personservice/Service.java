@@ -4169,7 +4169,7 @@ public final class Service {
       "by\030\002 \001(\t\022\016\n\006filter\030\003 \001(\t\022\014\n\004page\030\004 \001(\005\022\r" +
       "\n\005limit\030\005 \001(\005\022\014\n\004view\030\010 \001(\t\022\t\n\001q\030\013 \001(\t\"G" +
       "\n\032UpdatePersonServiceRequest\022\013\n\003prs\030\001 \001(" +
-      "\t\022\034\n\004data\030\002 \001(\0132\016.person.Person2\361\004\n\rPers" +
+      "\t\022\034\n\004data\030\002 \001(\0132\016.person.Person2\370\004\n\rPers" +
       "onService\022v\n\014CreatePerson\022).personservic" +
       "e.CreatePersonServiceRequest\032\024.person.Pe" +
       "rsonEntity\"%\202\323\344\223\002\037\022\035/mockdata/persons/cr" +
@@ -4182,10 +4182,10 @@ public final class Service {
       "{prs}/get.json\022u\n\013ListPersons\022\'.personse" +
       "rvice.ListPersonServiceRequest\032\030.person." +
       "PersonCollection\"#\202\323\344\223\002\035\022\033/mockdata/pers" +
-      "ons/list.json\022|\n\014UpdatePerson\022).personse" +
-      "rvice.UpdatePersonServiceRequest\032\024.perso" +
-      "n.PersonEntity\"+\202\323\344\223\002%\022#/mockdata/person" +
-      "s/{prs}/update.jsonb\006proto3"
+      "ons/list.json\022\202\001\n\014UpdatePerson\022).persons" +
+      "ervice.UpdatePersonServiceRequest\032\024.pers" +
+      "on.PersonEntity\"1\202\323\344\223\002+2#/mockdata/perso" +
+      "ns/{prs}/update.json:\004datab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

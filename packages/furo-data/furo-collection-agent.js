@@ -310,35 +310,54 @@ class furoCollectionAgent extends FBP(LitElement) {
     })
   }
 
+  /**
+   *
+   * @param rel
+   * @param serviceName
+   * @returns {undefined|object}
+   * @private
+   */
   _checkServiceAndHateoasLinkError(rel, serviceName) {
     // check Service Get
     if (!this._service.services[serviceName]) {
-      console.warn("Restlet " + serviceName + " is not specified", this._service, this);
-      return true;
+      console.warn("Service " + serviceName + " is not specified", this._service, this);
+      return undefined;
     }
 
     //queue if no hts is set, queue it
     if (!this._hts) {
       this._singleElementQueue = [[rel, serviceName]];
-      return true;
+      return undefined;
     }
-    // check Hateoas
-    if (!this._hts[rel]) {
-      console.warn("No HATEOAS for rel " + rel, this._hts, this);
-      return true;
+    // check rel and type
+    let htsFound = this._hts.find((link) => {
+      if (link.rel === rel && link.service === this._service.name){
+        return link;
+      }
+    });
+    if (!htsFound) {
+      console.warn("No HATEOAS for rel " + rel + " in service " + this._service.name + " found.", this._hts, this);
+      return undefined;
     }
-    return false;
+    return htsFound;
   }
 
+  /**
+   * If HATEOAS is present, the wire --triggerLoad is fired with the
+   * corresponding request object as payload.
+   * @param rel
+   * @param serviceName
+   * @private
+   */
   _followRelService(rel, serviceName) {
-    if (this._checkServiceAndHateoasLinkError(rel, serviceName)) {
+    let hts = this._checkServiceAndHateoasLinkError(rel, serviceName);
+    if (!hts) {
       let customEvent = new Event( 'missing-hts-' + rel, {composed: true, bubbles: false});
       this.dispatchEvent(customEvent);
       return;
-      return
     }
     this._attachListeners(rel);
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(this._hts[rel]));
+    this._FBPTriggerWire("--triggerLoad", this._makeRequest(hts));
   }
 
   /**
@@ -402,11 +421,12 @@ class furoCollectionAgent extends FBP(LitElement) {
       hts = [hts];
     }
 
-    if (hts && hts[0] && hts[0].rel) {
-      this._hts = {};
+    if (hts && Array.isArray(hts)) {
+      this._hts = [];
       hts.forEach((link) => {
-        this._hts[link.rel] = link
+        this._hts.push(link);
       });
+
       /**
        * @event hts-updated
        * Fired when hateoas is updated from response
@@ -456,7 +476,8 @@ class furoCollectionAgent extends FBP(LitElement) {
               ƒ-invoke-request="--triggerLoad"
               ƒ-abort-request="--abort-demanded"
               @-response="--responseParsed,^^req-success"
-              @-response-error="^^req-failed">
+              @-response-error="^^req-failed"
+              @-parse-error="^^req-failed">
       </furo-api-fetch>
     `;
   }

@@ -103,8 +103,8 @@ service BundledService {
     rpc UpdatePerson (UpdatePersonServiceRequest) returns (person.PersonEntity){
         //
         option (google.api.http) = {
-            get: "/mockdata/persons/{prs}/update.json"
-            
+            patch: "/mockdata/persons/{prs}/update.json"
+            body: "data"
         };
     }
 
@@ -216,7 +216,7 @@ service BundledService {
 
 
 // service specs for the experiment api
-                      
+                          
    
     // Creates a new Experiment
     rpc CreateExperiment (CreateExperimentServiceRequest) returns (experiment.ExperimentEntity){
@@ -246,6 +246,14 @@ service BundledService {
         //Describe_the_query_params_if_you_have
         option (google.api.http) = {
             get: "/mockdata/experiments"
+        };
+    }   
+    // Releases experiment
+    rpc ReleaseExperiment (ReleaseExperimentServiceRequest) returns (google.protobuf.Empty){
+        //
+        option (google.api.http) = {
+            post: "/mockdata/experiments/1:release"
+            body: "data"
         };
     }   
     // Updates a Experiment, partial updates are supported
@@ -524,7 +532,7 @@ message UpdateTaskServiceRequest {
 
 
 // service specs for the experiment api
-                      
+                          
 
    
 message CreateExperimentServiceRequest { 
@@ -567,6 +575,12 @@ message ListExperimentServiceRequest {
        
     //Query term to search a experiment
     string q = 11;
+}
+
+   
+message ReleaseExperimentServiceRequest { 
+    
+    experiment.ExperimentEntity data =  1;  
 }
 
    

@@ -165,7 +165,7 @@ export class FuroRecursiveTree extends FBP(LitElement) {
     this._FBPAddWireHook("--labelClicked", (e) => {
       // dispatch a selection
       this.field.dispatchNodeEvent(new NodeEvent('tree-node-selected', this, true));
-      this.field._isSelected.value = true;
+      this.field._isSelected._value = true;
     });
 
   }
@@ -181,7 +181,7 @@ export class FuroRecursiveTree extends FBP(LitElement) {
     // open field if entity contains a field open with true
     if (!this.field.open) {
       this.field.addChildProperty("open", new FieldNode(this.field, {type: "Boolean"}, "open"));
-      this.field.open.value = this._open;
+      this.field.open._value = this._open;
     }
 
     // _isSelected
@@ -194,12 +194,12 @@ export class FuroRecursiveTree extends FBP(LitElement) {
 
     this.field.open.addEventListener("field-value-changed", (e) => {
 
-      this._open = !!this.field.open.value;
+      this._open = !!this.field.open._value;
     });
 
     this.field._isSelected.addEventListener("field-value-changed", (e) => {
 
-      this.selected = !!this.field._isSelected.value;
+      this.selected = !!this.field._isSelected._value;
 
       //Notify about selection
       /**
@@ -298,11 +298,11 @@ export class FuroRecursiveTree extends FBP(LitElement) {
     }
 
     this.field.addEventListener("tree-node-unselection-requested", (e) => {
-      this.field._isSelected.value = false;
+      this.field._isSelected._value = false;
     });
 
 
-    this._open = !!this.field.open.value;
+    this._open = !!this.field.open._value;
     this.requestUpdate();
   }
 

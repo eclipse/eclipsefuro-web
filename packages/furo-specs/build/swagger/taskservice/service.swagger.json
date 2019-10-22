@@ -93,6 +93,13 @@
             "type": "string"
           },
           {
+            "name": "data.owner.link.service",
+            "description": "name of the service which can handle this link.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "data.owner.link.type",
             "description": "mime type.",
             "in": "query",
@@ -309,6 +316,13 @@
             "type": "string"
           },
           {
+            "name": "data.owner.link.service",
+            "description": "name of the service which can handle this link.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "data.owner.link.type",
             "description": "mime type.",
             "in": "query",
@@ -400,6 +414,10 @@
         "rel": {
           "type": "string",
           "title": "the relationship"
+        },
+        "service": {
+          "type": "string",
+          "title": "name of the service which can handle this link"
         },
         "type": {
           "type": "string",

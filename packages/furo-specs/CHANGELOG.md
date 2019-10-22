@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.41.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.40.1...@furo/specs@0.41.0) (2019-10-22)
+
+
+### Bug Fixes
+
+* trigger wire type in template ([b87e3c9](https://github.com/veith/FuroBaseComponents/commit/b87e3c9))
+
+
+### Features
+
+* generated update.panel.js with progress indicator and hateoas check on action bar items ([9e87dbf](https://github.com/veith/FuroBaseComponents/commit/9e87dbf))
+
+
+
+
+
+## [0.40.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.40.0...@furo/specs@0.40.1) (2019-10-21)
+
+
+### Bug Fixes
+
+* add modifier for field_mask.proto ([333d601](https://github.com/veith/FuroBaseComponents/commit/333d601))
+
+
+
+
+
+# [0.40.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.39.0...@furo/specs@0.40.0) (2019-10-21)
+
+
+### Features
+
+* display and update panel with htsIn ([8f30054](https://github.com/veith/FuroBaseComponents/commit/8f30054))
+
+
+
+
+
+# [0.39.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.38.1...@furo/specs@0.39.0) (2019-10-18)
+
+
+### Bug Fixes
+
+* duplicate type register warning in grpc gateway ([cb50981](https://github.com/veith/FuroBaseComponents/commit/cb50981))
+* some tests and syntax ([0b4d459](https://github.com/veith/FuroBaseComponents/commit/0b4d459))
+
+
+### Features
+
+* check complex type in collection dropdown ([c71ee5f](https://github.com/veith/FuroBaseComponents/commit/c71ee5f))
+
+
+
+
+
+## [0.38.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.38.0...@furo/specs@0.38.1) (2019-10-16)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
+# [0.38.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.37.1...@furo/specs@0.38.0) (2019-10-15)
+
+
+### Bug Fixes
+
+* add subfield for binding of complex type in reference search ([1051b46](https://github.com/veith/FuroBaseComponents/commit/1051b46))
+* fix template for generator ([a9c3c7e](https://github.com/veith/FuroBaseComponents/commit/a9c3c7e))
+
+
+### Features
+
+* meta option list is now included in the static spec translation process ([07e9581](https://github.com/veith/FuroBaseComponents/commit/07e9581))
+
+
+
+
+
+## [0.37.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.37.0...@furo/specs@0.37.1) (2019-10-14)
+
+
+### Bug Fixes
+
+*  .value => ._value ([3aab3a0](https://github.com/veith/FuroBaseComponents/commit/3aab3a0))
+
+
+
+
+
 # [0.37.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.36.2...@furo/specs@0.37.0) (2019-10-10)
 
 

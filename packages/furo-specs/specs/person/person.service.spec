@@ -83,7 +83,7 @@
       "deeplink": {
         "rel": "update",
         "href": "/mockdata/persons/{prs}/update.json",
-        "method": "GET"
+        "method": "PATCH"
       }
     },
     "Delete": {

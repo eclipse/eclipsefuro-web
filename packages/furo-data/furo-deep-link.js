@@ -47,7 +47,8 @@ class FuroDeepLink extends LitElement {
       let candidate = {
         "rel": service.services[serviceName].deeplink.rel,
         "href": service.services[serviceName].deeplink.href,
-        "method": service.services[serviceName].deeplink.method
+        "method": service.services[serviceName].deeplink.method,
+        "service": service.name
       };
 
 

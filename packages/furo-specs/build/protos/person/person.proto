@@ -4,12 +4,13 @@ syntax = "proto3";
 package person;
 
 
+import "google/protobuf/field_mask.proto";
 import "furo/meta.proto";
 import "furo/link.proto";
 
 
 // Person message type
-message Person {                                
+message Person {                                    
     // Localized String representation of a person
     string display_name = 2;
     
@@ -27,6 +28,9 @@ message Person {
     
     // List of main skills of a person
     repeated string skills = 6;
+    
+    // Contains a field_mask which fields of the targeted resource are going to be updated
+    google.protobuf.FieldMask update_mask = 7;
 
 }
 

@@ -1,8 +1,9 @@
-import { LitElement, html, css } from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog"
+
 /**
  * `demo-furo-data-repeat`
  *
@@ -28,7 +29,7 @@ class DemoFuroDataRepeat extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-       
+
     `
   }
 
@@ -47,21 +48,31 @@ class DemoFuroDataRepeat extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <furo-vertical-scroller style="padding: 10px">
-              <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>  <simulate-error ƒ-bind-data="--entity" error='{"field":"repstring.1","description":"something went wrong"}'></simulate-error>
-            
+              <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
+              <simulate-error ƒ-bind-data="--entity"
+                              error='{"field":"repstring.1","description":"something went wrong"}'></simulate-error>
+
               <hr>
-              <furo-card title="furo-data-repeater demo" secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display">
-              <furo-form-layouter two>
-                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input">
+              <furo-card title="furo-data-repeater demo"
+                         secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display">
+                <furo-form-layouter two>
+                  <h3>form</h3>
+                  <h3>display</h3>
+                  <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)"
+                                    repeated-component="furo-data-text-input">
                   </furo-data-repeat>
                   <furo-data-repeat four ƒ-bind-data="--entity(*.repstring)" repeated-component="furo-data-display">
                   </furo-data-repeat>
-              </furo-form-layouter>
-                <furo-horizontal-flex space slot="action"> <furo-button primary @-click="--addFieldClicked">add field</furo-button></furo-horizontal-flex>
+                </furo-form-layouter>
+                <furo-horizontal-flex space slot="action">
+                  <furo-button primary @-click="--addFieldClicked">add field</furo-button>
+                  <furo-button primary @-click="--emptyClicked">set empty</furo-button>
+                </furo-horizontal-flex>
               </furo-card>
-              
-              
-              <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
+
+
+              <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-init="--emptyClicked"
+                                ƒ-inject-raw="--response(*.data)"></furo-data-object>
               <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
               <furo-entity-agent service="ExperimentService"
                                  ƒ-hts-in="--hts"
@@ -69,7 +80,7 @@ class DemoFuroDataRepeat extends FBP(LitElement) {
                                  ƒ-bind-request-data="--entity"
                                  @-response="--response">
               </furo-entity-agent>
-              
+
             </furo-vertical-scroller>
           </template>
         </furo-demo-snippet>
@@ -78,4 +89,4 @@ class DemoFuroDataRepeat extends FBP(LitElement) {
   }
 }
 
-window.customElements.define('demo-furo-data-repeat', DemoFuroDataRepeat );
+window.customElements.define('demo-furo-data-repeat', DemoFuroDataRepeat);

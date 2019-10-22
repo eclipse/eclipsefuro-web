@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.59.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.59.1...@furo/data-input@0.59.2) (2019-10-22)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.59.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.59.0...@furo/data-input@0.59.1) (2019-10-21)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+# [0.59.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.58.3...@furo/data-input@0.59.0) (2019-10-18)
+
+
+### Bug Fixes
+
+* fix display updating problem for collection dropdown and reference search ([689e499](https://github.com/veith/FuroBaseComponents/commit/689e499))
+
+
+### Features
+
+* check complex type in collection dropdown ([c71ee5f](https://github.com/veith/FuroBaseComponents/commit/c71ee5f))
+* furo-data-repeat hides itself when data is empty ([939c3af](https://github.com/veith/FuroBaseComponents/commit/939c3af))
+
+
+
+
+
+## [0.58.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.58.2...@furo/data-input@0.58.3) (2019-10-16)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.58.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.58.1...@furo/data-input@0.58.2) (2019-10-15)
+
+
+### Bug Fixes
+
+*  .value => ._value ([9d0aea1](https://github.com/veith/FuroBaseComponents/commit/9d0aea1))
+* add subfield for binding of complex type in reference search ([1051b46](https://github.com/veith/FuroBaseComponents/commit/1051b46))
+* use the options from meta which defined in spec for init binding ([5492257](https://github.com/veith/FuroBaseComponents/commit/5492257))
+
+
+
+
+
+## [0.58.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.58.0...@furo/data-input@0.58.1) (2019-10-11)
+
+
+### Bug Fixes
+
+* furo data collection dropdown binds to single value ([07ea2c2](https://github.com/veith/FuroBaseComponents/commit/07ea2c2))
+
+
+
+
+
 # [0.58.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.57.9...@furo/data-input@0.58.0) (2019-10-10)
 
 

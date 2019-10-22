@@ -14,8 +14,8 @@ import (
 )
 
 var (
-	grpcserver = flag.String("grpcserver", os.Getenv("GRPC_SERVER_ADDRESS"), "grpc server for your services");
-	gwserver = flag.String("gwserver", os.Getenv("GW_SERVER_ADDRESS"), "Address and port for the gateway");
+	grpcserver = flag.String("grpcserver", os.Getenv("GRPC_SERVER_ADDRESS"), "grpc server for your services")
+	gwserver = flag.String("gwserver", os.Getenv("GW_SERVER_ADDRESS"), "Address and port for the gateway")
 )
 // header für client ohne prefixes
 func outgoingMatcher(headerName string) (mdName string, ok bool) {
@@ -52,7 +52,7 @@ func main() {
 
 	logger := log.New(os.Stdout, "http: ", log.LstdFlags)
 	logger.Println("Server is starting...")
-	logger.Printf("Connecting to " + *grpcserver + " and listening on: " + *gwserver);
+	logger.Printf("Connecting to " + *grpcserver + " and listening on: " + *gwserver)
 	if err := run(); err != nil {
 		glog.Fatal(err)
 	}

@@ -116,6 +116,11 @@ class FuroDataObject extends (LitElement) {
   init(){
 
     this.data.init();
+    let customEvent = new Event('object-ready', {composed: true, bubbles: true});
+    customEvent.detail = this.data;
+    setTimeout(() => {
+      this.dispatchEvent(customEvent);
+    }, 0);
   }
 
 

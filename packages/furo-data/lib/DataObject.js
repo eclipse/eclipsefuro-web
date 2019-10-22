@@ -91,14 +91,13 @@ export class DataObject extends EventTreeNode {
    * Inits the EntityNode
    */
   init() {
-
     for(let i = this.__childNodes.length-1; i >= 0; i--){
       this.__childNodes[i].reinit();
     }
     this._initFieldsFromSpec(this, this._spec.fields);
-
     this._pristine = true;
     this._isValid = true;
+
   }
 
   get rawEntity() {

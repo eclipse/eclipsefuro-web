@@ -19,6 +19,11 @@ import "{{$import}}";{{end}}
  */
 class {{.class_name}} extends FBP(LitElement) {
 
+    constructor() {
+        super();
+        this._entity = {};
+    }
+
     static get styles() {
         // language=CSS
          return Theme.getThemeForComponent('{{.theme}}') || css`
@@ -44,7 +49,47 @@ class {{.class_name}} extends FBP(LitElement) {
      * @param entity
      */
     bindEntity(entity){
-        this._FBPTriggerWire("--entityObjectInjected",entity)
+        if (entity) {
+            this._entity = entity;
+            this._FBPTriggerWire("--entityObjectInjected", this._entity);
+
+            // if data is injected, get the available HATEOAS links and activate/deactivate action buttons
+            this._entity.addEventListener('data-injected', () => {
+                let rels = [];
+                this._entity.links.__childNodes.forEach((item) => {
+                    rels.push(item.value.rel);
+                });
+
+                let elems = this.shadowRoot.querySelectorAll('furo-button');
+                elems.forEach((item) => {
+                    if (item.getAttribute('rel') != null && item.getAttribute('rel').length > 0 && rels.indexOf(item.getAttribute('rel')) === -1){
+                        item.setAttribute('hidden', '');
+                    } else {
+                        item.removeAttribute('hidden', '');
+                    }
+                });
+            });
+        }
+    }
+
+    startActivity(){
+        let elems = this.shadowRoot.querySelectorAll('furo-button');
+        elems.forEach((item) => {
+            item.setAttribute('disabled', '');
+        });
+    }
+
+    stopActivity(){
+        let elems = this.shadowRoot.querySelectorAll('furo-button');
+        let rels = [];
+        this._entity.links.__childNodes.forEach((item) => {
+            rels.push(item.value.rel);
+        });
+        elems.forEach((item) => {
+            if (item.getAttribute('rel').length <= 0 || rels.indexOf(item.getAttribute('rel')) > -1){
+                item.removeAttribute('disabled');
+            }
+        });
     }
 
     /**

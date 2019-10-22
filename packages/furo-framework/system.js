@@ -66,15 +66,15 @@ export class Init {
      */
     static translateStaticTypeMessages(locale) {
         // read from original spec to apply locale
-        if(this._raw_spec){
+        if (this._raw_spec) {
             Env.api.specs = JSON.parse(this._raw_spec);
-        }else{
+        } else {
             this._raw_spec = JSON.stringify(Env.api.specs);
         }
 
         for (let type in Env.api.specs) {
             for (let field in Env.api.specs[type].fields) {
-                // translate static meta messagess
+                // translate static meta messages
                 if (Env.api.specs[type].fields[field].meta) {
 
                     // translate static label text
@@ -84,6 +84,16 @@ export class Init {
                     // translate static hint text
                     if (Env.api.specs[type].fields[field].meta.hint) {
                         Env.api.specs[type].fields[field].meta.hint = i18n.t(Env.api.specs[type].fields[field].meta.hint);
+                    }
+                    // translate option list if set
+                    if (Env.api.specs[type].fields[field].meta.options && Env.api.specs[type].fields[field].meta.options.list && Array.isArray(Env.api.specs[type].fields[field].meta.options.list)) {
+                        let size = Env.api.specs[type].fields[field].meta.options.list.length;
+                        while (size--) {
+                            // additional check if list object has property display_name
+                            if (Env.api.specs[type].fields[field].meta.options.list[size].display_name) {
+                                Env.api.specs[type].fields[field].meta.options.list[size].display_name = i18n.t(Env.api.specs[type].fields[field].meta.options.list[size].display_name);
+                            }
+                        }
                     }
 
                 }

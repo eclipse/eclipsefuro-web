@@ -21,3 +21,4 @@ furo.spec.conf.json
 furo.ui.spec.conf.json
 ui_specs
 __tmp
+CHANGELOG.md

@@ -86,6 +86,10 @@ class FuroApiFetch extends HTMLElement {
      * @public
      */
     invokeRequest(request) {
+        if (!request || !request.url) {
+            console.warn("No valid request object was passed. No operation is performed!", request, this);
+            return;
+        }
         this.lastRequest = request;
         this._executeRequest(request);
     }
@@ -179,7 +183,24 @@ class FuroApiFetch extends HTMLElement {
             if (request.headers.get('content-type').includes('json')) {
                 req.responseType = 'json';
             } else {
-                req.responseType = 'arraybuffer';
+                switch (request.headers.get('content-type')) {
+                    case 'application/octet-stream':
+                        req.responseType = 'arraybuffer';
+                        break;
+                    case 'application/pdf':
+                        req.responseType = 'arraybuffer';
+                        break;
+                    case 'image/jpeg':
+                        req.responseType = 'arraybuffer';
+                        break;
+                    case 'text/plain':
+                        req.responseType = 'text';
+                        break;
+                    default:
+                        req.responseType = 'arraybuffer';
+                }
+
+
             }
             /**
              * Append headers from request object to XHR
@@ -287,7 +308,7 @@ class FuroApiFetch extends HTMLElement {
                 }
             }).catch(() => {
 
-                this.dispatchEvent(new CustomEvent('parse-error' , {
+                this.dispatchEvent(new CustomEvent('parse-error', {
                     detail: response, bubbles: true, composed: true
                 }));
 
@@ -312,11 +333,17 @@ class FuroApiFetch extends HTMLElement {
             let contentType = this.lastRequest.headers.get('content-type');
             let responseHandler = {
                 'text/plain': (r) => {
-                    r.text().then(function (text) {
-                        _self.dispatchEvent(new CustomEvent('response', {
-                            detail: text, bubbles: true, composed: true
+                    if (this.xhrFallback) {
+                        this.dispatchEvent(new CustomEvent('response', {
+                            detail: r.response, bubbles: true, composed: true
                         }));
-                    });
+                    } else {
+                        r.text().then(function (text) {
+                            _self.dispatchEvent(new CustomEvent('response', {
+                                detail: text, bubbles: true, composed: true
+                            }));
+                        });
+                    }
                 },
                 'application/json': (r) => {
                     if (this.xhrFallback) {
@@ -347,7 +374,7 @@ class FuroApiFetch extends HTMLElement {
                 'application/pdf': (r) => {
                     if (this.xhrFallback) {
                         let blob = new Blob([r.response], {type: 'image/jpeg'});
-                        let fileReader  = new FileReader();
+                        let fileReader = new FileReader();
                         fileReader.onload = function (evt) {
                             var result = evt.target.result;
                             _self.dispatchEvent(new CustomEvent('response', {
@@ -367,7 +394,7 @@ class FuroApiFetch extends HTMLElement {
                 'image/jpeg': (r) => {
                     if (this.xhrFallback) {
                         let blob = new Blob([r.response], {type: 'image/jpeg'});
-                        let fileReader  = new FileReader();
+                        let fileReader = new FileReader();
                         fileReader.onload = function (evt) {
                             var result = evt.target.result;
                             _self.dispatchEvent(new CustomEvent('response', {

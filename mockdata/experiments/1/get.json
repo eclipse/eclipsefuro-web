@@ -180,7 +180,8 @@
       "href": "/mockdata/experiments/1/get.json",
       "method": "GET",
       "rel": "self",
-      "type": "experiment.ExperimentEntity"
+      "type": "experiment.ExperimentEntity",
+      "service": "ExperimentService"
     }
   ]
 }

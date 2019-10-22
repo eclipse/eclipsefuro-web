@@ -73,6 +73,17 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "data.update_mask.paths",
+            "description": "The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -201,7 +212,7 @@
       }
     },
     "/mockdata/persons/{prs}/update.json": {
-      "get": {
+      "patch": {
         "summary": "Updates a Person, partial updates are supported",
         "operationId": "UpdatePerson",
         "responses": {
@@ -220,50 +231,12 @@
             "type": "string"
           },
           {
-            "name": "data.display_name",
-            "description": "Localized String representation of a person.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "data.first_name",
-            "description": "First name of a person.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "data.id",
-            "description": "Identity of a person.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "data.name",
-            "description": "Name of a person.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "data.phone_nr",
-            "description": "Internal phone number.",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "data.skills",
-            "description": "List of main skills of a person.",
-            "in": "query",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/personPerson"
+            }
           }
         ],
         "tags": [
@@ -351,6 +324,10 @@
           "type": "string",
           "title": "the relationship"
         },
+        "service": {
+          "type": "string",
+          "title": "name of the service which can handle this link"
+        },
         "type": {
           "type": "string",
           "title": "mime type"
@@ -417,6 +394,10 @@
             "type": "string"
           },
           "title": "List of main skills of a person"
+        },
+        "update_mask": {
+          "$ref": "#/definitions/protobufFieldMask",
+          "title": "Contains a field_mask which fields of the targeted resource are going to be updated"
         }
       },
       "title": "Person message type"
@@ -478,6 +459,19 @@
         }
       },
       "title": "Any contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
+    },
+    "protobufFieldMask": {
+      "type": "object",
+      "properties": {
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable."
+        }
+      },
+      "title": "A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto"
     }
   }
 }

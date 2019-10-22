@@ -117,10 +117,10 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode = fieldNode;
     this.fieldNode._isHidden = true;
     if(fieldNode.is_group_label){
-      this.isGroupLabel = fieldNode.is_group_label.value;
+      this.isGroupLabel = fieldNode.is_group_label._value;
     }
 
-    if (!fieldNode.icon.value) {
+    if (!fieldNode.icon._value) {
       this.noicon = true
     }
 
@@ -133,7 +133,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     // reflect visible close state to attr
     this.fieldNode.addEventListener("ancestor-visible", (e) => {
 
-      if (this.fieldNode.__parentNode.__parentNode.open.value) {
+      if (this.fieldNode.__parentNode.__parentNode.open._value) {
         this.hidden = false;
         this.fieldNode._isHidden = false;
       }
@@ -159,7 +159,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     // listen to open close state
     this.fieldNode.open.addEventListener("field-value-changed", (e) => {
       e.cancelBubble = true;
-      if (e.detail.value === false) {
+      if (e.detail._value === false) {
         e.detail.__parentNode.children.broadcastEvent(new NodeEvent('ancestor-invisible', e.detail.__parentNode))
       } else {
         e.detail.__parentNode.children.broadcastEvent(new NodeEvent('ancestor-visible', e.detail.__parentNode))
@@ -187,7 +187,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     this._FBPAddWireHook("--labelClicked", (e) => {
       if(this.isGroupLabel){
         // just toggle if this is a label
-        this.fieldNode.open.value = !this.fieldNode.open.value;
+        this.fieldNode.open._value = !this.fieldNode.open._value;
       }else{
       this.fieldNode.selectItem();
       }
@@ -363,7 +363,7 @@ export class FuroTreeItem extends FBP(LitElement) {
       <div style="width: ${this.fieldNode.depth * 8}px"></div>
       <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>      
             
-      <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error.value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
+      <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error._value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
 </furo-horizontal-flex>
 
     `;

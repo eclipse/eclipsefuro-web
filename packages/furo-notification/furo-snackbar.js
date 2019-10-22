@@ -150,22 +150,6 @@ class FuroSnackbar extends FBP(LitElement) {
   }
 
   /**
-   * close snackbar
-   * event `close-furo-snackbar-requested` will be sent to furo-snackbar-display with payload this
-   */
-  close() {
-
-    /**
-     * @event close-furo-snackbar-requested
-     * Fired when value open snackbar is requested
-     * detail payload: {Object}  this
-     */
-    let customEvent = new Event("close-furo-snackbar-requested",{composed: true, bubbles: true});
-    customEvent.detail = this;
-    this.dispatchEvent(customEvent)
-  }
-
-  /**
    * snackbar closed. event `snackbar-closed` will be sent with payload
    */
   closed() {
@@ -218,6 +202,7 @@ class FuroSnackbar extends FBP(LitElement) {
 
     if (s.message) {
       this.setLabelText(s.message);
+      this.show(s);
     }
   }
 

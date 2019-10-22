@@ -10,7 +10,7 @@ import {Helper} from "./lib/helper";
 /**
  * `furo-data-reference-search`
  *  Sucht eine Referenz
- *
+ *  bounded data should be furo-reference
  *
  *```
  * <!--  furo-data-object will eine Referenz auflösen -->
@@ -42,7 +42,8 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   constructor() {
     super();
     this._minTermLength = 0;
-    this.idField = "id";
+    this.valueField = "id";
+    this.displayField = "display_name";
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
       // val is a ValidityState
@@ -93,8 +94,10 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     });
 
     this._FBPAddWireHook("--itemSelected", (item) => {
-      this.field.id._value= item.data[this.idField];
-      this.field.display_name._value= item.data.display_name;
+
+      this.field.id._value= item.data[this.valueField];
+      this.field.display_name._value= item.data[this.displayField];
+      this._updateField();
       this._closeList();
     });
 
@@ -174,7 +177,18 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   _showList() {
     this._listIsOpen = true;
     this.setAttribute("show-list", "");
-    this._FBPTriggerWire("--listOpened", 0);
+    let arrCollection = this._collection;
+    let index = 0;
+
+    for (let i=0; i<arrCollection.length ; i++) {
+
+      if(arrCollection[i].data && arrCollection[i].data[this.valueField] == this.field.id._value) {
+        index = i;
+        break;
+      }
+    }
+    // trigger wire to select item
+    this._FBPTriggerWire("--listOpened", index);
   }
 
   _closeList() {
@@ -214,10 +228,42 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     return {
       /**
-       * the field name of reference-item which should be used to asign to id field of the the data entity object
+       * the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object
        */
-      idField: {type: String, attribute: 'id-field'},
-
+      valueField: {type: String, attribute: 'value-field'},
+      /**
+       * the field name of reference-item which should be used as display which will be showed in the dropdown.
+       */
+      displayField: {
+        type: String,
+        attribute: "display-field"
+      },
+      /**
+       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+       *
+       * If you bind a scalar, you dont need this attribute.
+       */
+      subfield: {
+        type: String,
+      },
+      /**
+       * this property saves the value of the displayField of selected item from collection
+       */
+      _displayName: {
+        type: String
+      },
+      /**
+       * mark if the collection is already loaded
+       */
+      _hasCollection: {
+        type: Boolean
+      },
+      /**
+       * the loaded collection
+       */
+      _collection: {
+        type: Array
+      },
       /**
        * Overrides the label text from the **specs**.
        *
@@ -303,6 +349,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
   bindData(fieldNode) {
 
     Helper.BindData(this, fieldNode);
+
     this._init();
   }
 
@@ -313,10 +360,11 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.error = true;
       this.errortext = this.field._validity.description;
     }
-    if(this.field.display_name._value) {
 
+    if(this.field.display_name._value) {
       this._FBPTriggerWire('--value', this.field.display_name._value);
     }
+
     this.requestUpdate();
   }
 
@@ -324,11 +372,11 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     this._FBPTriggerWire("--listItemsIjnected", collection.entities);
     this._hasCollection = true;
+    this._collection =  collection.entities;
 
     if (this._focused) {
       this._showList();
     }
-
   }
 
   /**

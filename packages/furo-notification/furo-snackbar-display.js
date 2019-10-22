@@ -75,15 +75,32 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
       }
     });
 
-    window.addEventListener("open-furo-snackbar-requested", (e)=>{
-        this._show(e.detail);
-    });    
-    
-    window.addEventListener("close-furo-snackbar-requested", (e)=>{
-        this._close();
-    });
+    // when display not wired with show method, listening open event from window
+    if(!this._isWiredWithShow()) {
+
+      window.addEventListener("open-furo-snackbar-requested", (e)=>{
+        this.show(e.detail);
+      });
+    }
   }
 
+  /**
+   * check if the display element is wired with show method "ƒ-show="--xxx"
+   * @returns {boolean}
+   * @private
+   */
+  _isWiredWithShow() {
+    let isWired = false;
+    let l = this.attributes.length;
+    for (let i = 0; i < l; ++i) {
+      let nodeName = this.attributes.item(i).nodeName;
+      if (nodeName == "ƒ-show") {
+        isWired = true;
+        break;
+      }
+    }
+    return isWired;
+  }
 
   /**
    * @private
@@ -106,6 +123,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
               -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
               box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
               border-radius: 4px;
+              z-index: 1;
             }
             
             #snackbar.hide , #snackbar[stacked].hide{
@@ -198,13 +216,13 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    * @param s
    * @private
    */
-  _show(s) {
+  show(s) {
 
     this._pushToStack(s);
 
     if( !this.displayObj.isOpen ) {
 
-      this.__show();
+      this._show();
     }
   }
 
@@ -234,7 +252,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    *
    * @private
    */
-  __show() {
+  _show() {
 
     if(this._stack.length > 0 ) {
 
@@ -260,7 +278,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
           self._stack.shift();
           if(self._stack.length  > 0 ) {
 
-            self.__show();
+            self._show();
           }else {
             self.displayObj.snackbar.isOpen = false;
             self.displayObj.isOpen = false;
@@ -289,7 +307,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
       this._stack.shift();
       if(this._stack.length  > 0 ) {
 
-        this.__show();
+        this._show();
       }else {
         this.displayObj.snackbar.isOpen = false;
         this.displayObj.isOpen = false;

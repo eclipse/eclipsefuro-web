@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.12.0...@furo/framework@0.12.1) (2019-10-18)
+
+**Note:** Version bump only for package @furo/framework
+
+
+
+
+
+# [0.12.0](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.11.3...@furo/framework@0.12.0) (2019-10-15)
+
+
+### Features
+
+* meta option list is now included in the static spec translation process ([07e9581](https://github.com/veith/FuroBaseComponents/commit/07e9581))
+
+
+
+
+
 ## [0.11.3](https://github.com/veith/FuroBaseComponents/compare/@furo/framework@0.11.2...@furo/framework@0.11.3) (2019-10-06)
 
 **Note:** Version bump only for package @furo/framework
