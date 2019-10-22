@@ -91,16 +91,6 @@
       snackbar.action();
     });
 
-    it('should send event `close-furo-snackbar-requested` with detail which is snackbar self when function close() is called', (done) => {
-
-      snackbar.addEventListener("close-furo-snackbar-requested", (e)=>{
-        assert.equal(e.detail.actionButtonText, "redo");
-        done();
-      });
-
-      snackbar.close();
-    });
-
 
     it('should send event `snackbar-closed` with detail which is the `payload`  when function closed() is called', (done) => {
       let obj ={"payload":"test"};

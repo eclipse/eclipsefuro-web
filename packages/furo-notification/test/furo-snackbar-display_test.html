@@ -77,18 +77,6 @@
     });
 
 
-    it('should remove snackbar from the stack after triggering the function close in furo-snackbar element', (done) => {
-      snackbar.show();
-      snackbar.close();
-      setTimeout(()=>{
-        assert.equal(snackbarDisplay._stack.length, 0);
-        done();
-      },0)
-
-    });
-
-
-
     // a11y tests
     it('a11y', () => {
       return axeReport(fixture('basic'));

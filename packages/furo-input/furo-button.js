@@ -151,8 +151,6 @@ class FuroButton extends FBP(LitElement) {
             font-size: 16px;
             box-sizing: border-box;
             min-width: 64px;
-            height: 40px;
-
         }
 
         :host([hidden]) {
@@ -173,6 +171,7 @@ class FuroButton extends FBP(LitElement) {
             padding: 0  var(--furo-button-padding, var(--spacing-s, 16px));;
             text-transform: uppercase;
             font-size: 14px;
+            font-weight: 500;
             outline: none;
             line-height: 34px;
             background-color: transparent;
