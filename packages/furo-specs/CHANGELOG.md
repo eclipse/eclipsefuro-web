@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.41.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.40.1...@furo/specs@0.41.0) (2019-10-22)
+
+
+### Bug Fixes
+
+* trigger wire type in template ([b87e3c9](https://github.com/veith/FuroBaseComponents/commit/b87e3c9))
+
+
+### Features
+
+* generated update.panel.js with progress indicator and hateoas check on action bar items ([9e87dbf](https://github.com/veith/FuroBaseComponents/commit/9e87dbf))
+
+
+
+
+
 ## [0.40.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.40.0...@furo/specs@0.40.1) (2019-10-21)
 
 
