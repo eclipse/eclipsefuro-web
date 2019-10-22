@@ -1,0 +1,124 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-data-text-input_test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+      <template>
+              <furo-banner icon="close" text="label" dismiss-button-text="cancel" confirm-button-text="fix it"  ></furo-banner>
+      </template>
+    </test-bind>
+
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog.js"
+  import "@furo/fbp/testhelper/test-bind";
+  import "@furo/testhelper/initEnv.js"
+  import '/node_modules/axe-core/axe.min.js';
+
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+
+  describe('furo-banner tests ', function () {
+
+    let banner, host;
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      host = fix[0]._host;
+
+      banner = fix[1];
+      await banner.updateComplete;
+    });
+
+
+    it('should set properties via attributes ', (done) => {
+      assert.equal(banner.icon, "close");
+      assert.equal(banner.text, "label");
+      assert.equal(banner.dismissButtonText, "cancel");
+      assert.equal(banner.confirmButtonText, "fix it");
+      done();
+    });
+
+
+    it('should send event `open-furo-banner-requested` with detail which is banner self when function show() is called', (done) => {
+
+      banner.addEventListener("open-furo-banner-requested", (e)=>{
+        assert.equal(e.detail.dismissButtonText, "cancel");
+        done();
+      });
+
+      banner.show();
+    });
+
+    it('should send event `confirm` with detail which is the `payload`  when function confirm() is called', (done) => {
+      let obj ={"payload":"test"};
+      banner.addEventListener("confirmed", (e)=>{
+        assert.equal(JSON.stringify(e.detail), JSON.stringify(obj));
+        done();
+      });
+      banner.show(obj);
+
+      banner.confirm();
+    });
+
+
+    it('should set text via setText()', (done) => {
+
+      banner.setText("text");
+
+        assert.equal(banner.text, "text");
+        done();
+
+    });
+
+    it('should set confirm button text via setConfirmButtonText()', (done) => {
+
+      banner.setConfirmButtonText("text");
+
+      assert.equal(banner.confirmButtonText, "text");
+      done();
+
+    });
+
+    it('should set dismiss button text via setDismissButtonText()', (done) => {
+
+      banner.setDismissButtonText("text");
+
+      assert.equal(banner.dismissButtonText, "text");
+      done();
+
+    });
+
+
+
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
+    });
+
+
+
+
+  })
+  ;
+</script>
+</body>
+</html>

@@ -58,7 +58,7 @@ class DemoFuroSnackbarDisplayError extends FBP(LitElement) {
      */
     render(){
         return html`
-      <h2>Demo furo-checkbox</h2>
+      <h2>Demo furo-snackbar</h2>
       
       <furo-demo-snippet >
         <template>

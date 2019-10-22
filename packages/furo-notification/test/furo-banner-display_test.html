@@ -19,11 +19,10 @@
   <template>
     <test-bind>
       <template>
-              <furo-snackbar
-                      timeout-in-ms=1000 position-left position-right icon="close"
-                      label-text="label" action-button-text="redo"
-                      close-on-escape size="200px" max-size="500px" ></furo-snackbar>
-          <furo-snackbar-display></furo-snackbar-display>
+              <furo-banner
+                     icon="close"
+                      text="label"  ></furo-banner>
+          <furo-banner-display></furo-banner-display>
       </template>
     </test-bind>
 
@@ -40,41 +39,32 @@
   import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
 
-  describe('furo-snackbar-display tests ', function () {
+  describe('furo-banner-display tests ', function () {
 
-    let snackbar, host, snackbarDisplay;
+    let banner, host, bannerDisplay;
 
     beforeEach(async () => {
       let fix = fixture('basic');
       host = fix[0]._host;
 
-      snackbar = fix[1];
-      await snackbar.updateComplete;
+      banner = fix[1];
+      await banner.updateComplete;
 
-      snackbarDisplay = fix[2];
-      await snackbarDisplay.updateComplete;
+      bannerDisplay = fix[2];
+      await bannerDisplay.updateComplete;
     });
 
 
-    it('should stack the snackbar after triggering the function show in furo-snackbar element', (done) => {
-      snackbar.show();
+    it('should stack the banner after triggering the function show in furo-banner element', (done) => {
+      banner.show();
 
         setTimeout(()=>{
-          assert.equal(snackbarDisplay._stack.length, 1);
+          assert.equal(bannerDisplay._stack.length, 1);
           done();
         },1)
 
     });
 
-    it('should remove snackbar from the stack after time out', (done) => {
-      snackbar.show();
-      assert.equal(snackbarDisplay._stack.length, 1);
-      setTimeout(()=>{
-        assert.equal(snackbarDisplay._stack.length, 0);
-        done();
-      },1200)
-
-    });
 
 
     // a11y tests
