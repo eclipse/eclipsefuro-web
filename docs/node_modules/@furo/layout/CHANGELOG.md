@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.35.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.34.10...@furo/layout@0.35.0) (2019-10-22)
+
+
+### Features
+
+* generated update.panel.js with progress indicator and hateoas check on action bar items ([9e87dbf](https://github.com/veith/FuroBaseComponents/commit/9e87dbf))
+
+
+
+
+
+## [0.34.10](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.34.9...@furo/layout@0.34.10) (2019-10-18)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
 ## [0.34.9](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.34.8...@furo/layout@0.34.9) (2019-10-15)
 
 **Note:** Version bump only for package @furo/layout

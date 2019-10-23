@@ -14,11 +14,11 @@
           "sourceRange": {
             "start": {
               "line": 26,
-              "column": 6
+              "column": 12
             },
             "end": {
               "line": 26,
-              "column": 27
+              "column": 33
             }
           },
           "metadata": {
@@ -35,11 +35,11 @@
           "sourceRange": {
             "start": {
               "line": 27,
-              "column": 6
+              "column": 12
             },
             "end": {
               "line": 27,
-              "column": 64
+              "column": 70
             }
           },
           "metadata": {
@@ -56,11 +56,11 @@
           "sourceRange": {
             "start": {
               "line": 28,
-              "column": 6
+              "column": 12
             },
             "end": {
               "line": 28,
-              "column": 47
+              "column": 53
             }
           },
           "metadata": {
@@ -77,11 +77,11 @@
           "sourceRange": {
             "start": {
               "line": 29,
-              "column": 6
+              "column": 12
             },
             "end": {
               "line": 29,
-              "column": 46
+              "column": 52
             }
           },
           "metadata": {
@@ -513,17 +513,57 @@
           "sourceRange": {
             "start": {
               "line": 148,
-              "column": 2
+              "column": 4
             },
             "end": {
-              "line": 165,
-              "column": 3
+              "line": 166,
+              "column": 5
             }
           },
           "metadata": {},
           "params": [],
           "return": {
             "type": "TemplateResult"
+          }
+        },
+        {
+          "name": "startActivity",
+          "description": "You can show a progress indicator while you have pending requests or work\nShows furo-loading-indicator-bar",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 172,
+              "column": 4
+            },
+            "end": {
+              "line": 174,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "stopActivity",
+          "description": "Stop loading indicator\nHides furo-loading-indicator-bar",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 180,
+              "column": 4
+            },
+            "end": {
+              "line": 182,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
           }
         }
       ],
@@ -541,7 +581,7 @@
           "column": 0
         },
         "end": {
-          "line": 166,
+          "line": 183,
           "column": 1
         }
       },
@@ -555,11 +595,11 @@
           "sourceRange": {
             "start": {
               "line": 26,
-              "column": 6
+              "column": 12
             },
             "end": {
               "line": 26,
-              "column": 27
+              "column": 33
             }
           },
           "metadata": {},
@@ -571,11 +611,11 @@
           "sourceRange": {
             "start": {
               "line": 27,
-              "column": 6
+              "column": 12
             },
             "end": {
               "line": 27,
-              "column": 64
+              "column": 70
             }
           },
           "metadata": {},
@@ -587,11 +627,11 @@
           "sourceRange": {
             "start": {
               "line": 28,
-              "column": 6
+              "column": 12
             },
             "end": {
               "line": 28,
-              "column": 47
+              "column": 53
             }
           },
           "metadata": {},
@@ -603,11 +643,11 @@
           "sourceRange": {
             "start": {
               "line": 29,
-              "column": 6
+              "column": 12
             },
             "end": {
               "line": 29,
-              "column": 46
+              "column": 52
             }
           },
           "metadata": {},

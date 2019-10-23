@@ -28,14 +28,26 @@
         navigator.serviceWorker.getRegistration().then((registration) => {
           if (registration) {
             registration.addEventListener('updatefound', () => {
-              if (window.confirm("Press OK to update")) {
+              let obj = {};
+              obj.labelText = "Press Reload to update";
+              obj._action = () => {
+                // reload page
                 window.location.reload();
-              }
+              };
+              obj.icon = "clear";
+              obj._dismiss = () => {
+                console.log("closed without reload...")
+              };
+              obj.actionButtonText = "reload";
+              let customEvent = new Event("open-furo-snackbar-requested", {composed: true, bubbles: true});
+              customEvent.detail = obj;
+              this.dispatchEvent(customEvent);
             });
           }
         });
       });
     }
+
 
     // Load and register pre-caching Service Worker
     if ('serviceWorker' in navigator) {

@@ -68,6 +68,7 @@ class FuroBanner extends LitElement {
     };
   }
 
+
   setIcon(i) {
     this.icon = i;
   }
@@ -114,7 +115,7 @@ class FuroBanner extends LitElement {
      */
     let customEvent = new Event("dismissed",{composed: true, bubbles: true});
     customEvent.detail = this.payload;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
 
     this._close();
   }
@@ -131,7 +132,7 @@ class FuroBanner extends LitElement {
      */
     let customEvent = new Event("confirmed",{composed: true, bubbles: true});
     customEvent.detail = this.payload;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
 
     this._close();
   }

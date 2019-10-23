@@ -6,6 +6,7 @@ import {Styling} from "./styling";
 
 import "./home/view-home";
 import "./components/header-toolbar";
+import "@furo/notification/furo-snackbar-display";
 
 import '@furo/layout/furo-vertical-flex';
 import '@furo/route/furo-location';
@@ -104,6 +105,7 @@ class MainStage extends FBP(LitElement) {
 
       </furo-vertical-flex>
       <furo-location @-location-changed="--locationChanged"></furo-location>
+        <furo-snackbar-display></furo-snackbar-display>
     `;
   }
 

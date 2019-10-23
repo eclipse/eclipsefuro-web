@@ -57,7 +57,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
     this._FBPAddWireHook('--actionClicked', (e) => {
 
       if(this.displayObj.snackbar) {
-        this.displayObj.snackbar.action();
+        this.displayObj.snackbar._action();
       }
       this._close();
     });

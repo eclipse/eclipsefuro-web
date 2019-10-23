@@ -149,7 +149,7 @@ class FuroSnackbar extends FBP(LitElement) {
   /**
    * trigger the action of snackbar. event `snackbar-action-clicked` will be sent with payload
    */
-  action() {
+  _action() {
 
     /**
      * @event snackbar-action-clicked

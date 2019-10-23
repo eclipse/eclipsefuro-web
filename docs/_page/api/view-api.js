@@ -1842,7 +1842,7 @@ return _furoShell.html`
      * Sends a HTTP request to the server
      * @param {Request} request (The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request
      * @public
-     */invokeRequest(request){this.lastRequest=request;this._executeRequest(request)}/**
+     */invokeRequest(request){if(!request||!request.url){console.warn("No valid request object was passed. No operation is performed!",request,this);return}this.lastRequest=request;this._executeRequest(request)}/**
      * Aborts a pending request
      * You have to submit an AbortController
      * @param {AbortController} controller (The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
@@ -2445,8 +2445,16 @@ this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links))
      * @private
      */_makeRequest(link,dataObject){let data,body={};// check if dataObject is set and create body object
 if(dataObject){// Method PATCH sends only modified data (.pristine)
-if("patch"===link.method.toLowerCase()){for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._modified_value;if(val!==void 0){body[field._name]=val}}}else{for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._not_readonly_value;if(val!==void 0){body[field._name]=val}}}data=JSON.stringify(body)}// Daten
+if("patch"===link.method.toLowerCase()){for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._modified_value;if(val!==void 0){body[field._name]=val}}// the request object MUST contain a field named 'update_mask'
+if(!this._ApiEnvironment.specs[this._service.services.Update.data.request].fields.hasOwnProperty("update_mask")){console.warn("The request type "+this._ApiEnvironment.specs[this._service.services.Update.data.request].name+" has no specified field (update_mask) to transmit the changed fields. The operation applies to all fields!",this._ApiEnvironment.specs[this._service.services.Update.data.request],this)}// add the field_mask
+body.update_mask=this._getFieldMask(body)}else{for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._not_readonly_value;if(val!==void 0){body[field._name]=val}}}data=JSON.stringify(body)}// create Request object with headers and body
 let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");if("put"!==link.method.toLowerCase()){headers.append("Content-Type","application/json")}return new Request(link.href,{method:link.method,headers:headers,body:data})}/**
+     * Creates an array with the path information of the object attributes (deep dive)
+     * [{"paths:" "attr1"}, {"paths:" "attr2.sub_attr"}]
+     * @param obj
+     * @returns {Array}
+     * @private
+     */_getFieldMask(obj){let keys=Object.keys(obj);return keys.reduce(function(result,key){if("[object Object]"===Object.prototype.toString.call(key)){result={paths:result.concat(getkeys(obj[key],key))}}else{result.push({paths:key})}return result},[])}/**
      *
      * @param rel
      * @param serviceName
@@ -7976,124 +7984,7 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-tree-qp",DemoFuroTreeQp);class FuroSnackbarDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
-     * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();this._snackbar=this.shadowRoot.getElementById("snackbar");this._FBPAddWireHook("--actionClicked",e=>{if(e.snackbar){e.snackbar.action();e.snackbar.closed()}this._close()});this._FBPAddWireHook("--closeClicked",e=>{if(e.snackbar){e.snackbar.closed()}this._close()});/**
-         * listen to keyboard events
-         */document.addEventListener("keydown",event=>{let key=event.key||event.keyCode;if("Escape"===key||"Esc"===key||27===key){if(this.displayObj.closeOnEscape){this._close()}}});window.addEventListener("open-furo-snackbar-requested",e=>{this._show(e.detail)});window.addEventListener("close-furo-snackbar-requested",e=>{this._close()})}/**
-     * @private
-     * @returns {CSSResult}
-     */static get styles(){return _furoShell.css`
-            :host {
-              position: absolute;
-              bottom: 0;
-              width: 100%;
-            }
-
-            #snackbar {
-              font-size: 14px;
-              font-weight:400;
-              background-color: var(--snackbar-background-color, var(--on-primary, #212121));
-              opacity:0;
-              display: flex;           
-              -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-              box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-              border-radius: 4px;
-            }
-            
-            #snackbar.hide , #snackbar[stacked].hide{
-              display: none;
-            }
-            
-            .label {
-              color: var(--snackbar-label-color, var(--primary-variant, #dedede));
-              display: inline-block;
-              padding: 14px 16px;
-              width: 100%;
-            }
-            
-            #snackbar[stacked] .label {
-              display: block;
-            }
-            
-            #snackbar[stacked] {
-              display: block;
-            }
-            
-            #snackbar[stacked] .button{
-              width: 100%;
-              display: block;
-            }
-            
-            .button {
-              display: flex;
-              text-align: right;
-              margin: 3px 0;
-              align-self: flex-end;
-            }
-            
-            furo-button {
-             color: var(--snackbar-button-text-color, --secondary, #bb86fc));
-              --on-surface: var(--secondary);
-             --surface-dark: var(--snackbar-background-color, var(--on-primary, #212121));
-             --surface-light: var(--snackbar-background-color, var(--on-primary, #212121));
-              margin: auto;
-            }
-            
-            .center {
-              margin: auto;
-            }
-            
-            .wrapper[right] {
-              justify-content:flex-end;
-            }
-            
-            .wrapper[left]  {
-              justify-content:flex-start;
-            }
-            .wrapper {
-              width: 100%;
-              display: flex;
-              justify-content:center;
-            }
-        `}/**
-     *@private
-     */static get properties(){return{displayObj:{type:Object},_stack:{type:Array},/**
-       * virsule element snackbar
-       */_snackbar:{type:Object},_timer:{type:Object}}}/**
-     * show
-     * @param s
-     * @private
-     */_show(s){this._pushToStack(s);if(!this.displayObj.isOpen){this.__show()}}/**
-     *
-     * @param d {Object} snackbar
-     * @private
-     */_pushToStack(s){let obj={labelText:s.labelText,icon:s.icon,actionButtonText:s.actionButtonText,snackbar:s,stacked:s.stacked,positionLeft:s.positionLeft,positionRight:s.positionRight,size:s.size,maxSize:s.maxSize,closeOnEscape:s.closeOnEscape};this._stack.push(obj)}/**
-     *
-     * @private
-     */__show(){if(0<this._stack.length){this.displayObj=this._stack[0];this._snackbar.classList.remove("hide");this._fadeIn(this.shadowRoot.getElementById("snackbar"));this.requestUpdate();this.displayObj.snackbar.isOpen=!0;this.displayObj.isOpen=!0;let timeoutInMs=this.displayObj.snackbar.timeoutInMs;if(0<timeoutInMs){let self=this;this._timer=setInterval(function(){clearInterval(self._timer);self._snackbar.classList.add("hide");self._stack.shift();if(0<self._stack.length){self.__show()}else{self.displayObj.snackbar.isOpen=!1;self.displayObj.isOpen=!1}},timeoutInMs)}else{this._stack.shift()}}}/**
-     * close the CURRENT snackbar
-     */_close(){clearInterval(this._timer);if(1<this._stack.length){this._snackbar.classList.add("hide");this._stack.shift();if(0<this._stack.length){this.__show()}else{this.displayObj.snackbar.isOpen=!1;this.displayObj.isOpen=!1}}else{this._stack.shift();this._snackbar.classList.add("hide");this.displayObj.snackbar.isOpen=!1;this.displayObj.isOpen=!1}}/**
-     *
-     * @param element
-     * @private
-     */_fadeIn(element){let op=.1,timer=setInterval(function(){if(1<=op){clearInterval(timer)}element.style.opacity=op;element.style.filter="alpha(opacity="+100*op+")";op+=.2*op},10);// initial opacity
-}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){return _furoShell.html`
-       <div class="wrapper"  ?left="${this.displayObj.positionLeft}"  ?right="${this.displayObj.positionRight}">
-        <div id="snackbar" class="hide" 
-             ?stacked="${this.displayObj.stacked}"
-             style="width:${this.displayObj.size}; max-width:${this.displayObj.maxSize}" >
-            <div class="label"><span>${this.displayObj.labelText}</span></div>
-            <div class="button">
-              <furo-button label="${this.displayObj.actionButtonText}" @-click="--actionClicked"></furo-button>
-              <furo-button icon="${this.displayObj.icon}" @-click="--closeClicked"></furo-button>
-            </div>
-        </div>
-      </div>
-        `}}customElements.define("furo-snackbar-display",FuroSnackbarDisplay);class FuroSnackbar extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.labelText="label text";this.actionButtonText="Undo";this.isOpen=!1}/**
+    `}}window.customElements.define("demo-furo-tree-qp",DemoFuroTreeQp);class FuroSnackbar extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.labelText="";this.actionButtonText="";this.icon="done";this.isOpen=!1}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady()}/**
      * @private
@@ -8120,30 +8011,23 @@ return _furoShell.html`
                        * detail payload: {Object}  this
                        */let customEvent=new Event("open-furo-snackbar-requested",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}/**
      * trigger the action of snackbar. event `snackbar-action-clicked` will be sent with payload
-     */action(){/**
+     */_action(){/**
      * @event snackbar-action-clicked
      * Fired when action button of snackbar is clicked
      * detail payload: {Object}  payload
-     */let customEvent=new Event("snackbar-action-clicked",{composed:!0,bubbles:!0});customEvent.detail=this.payload;this.dispatchEvent(customEvent)}/**
-     * close snackbar
-     * event `close-furo-snackbar-requested` will be sent to furo-snackbar-display with payload this
-     */close(){/**
-     * @event close-furo-snackbar-requested
-     * Fired when value open snackbar is requested
-     * detail payload: {Object}  this
-     */let customEvent=new Event("close-furo-snackbar-requested",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}/**
-     * snackbar closed. event `snackbar-closed` will be sent with payload
-     */closed(){/**
+     */let customEvent=new Event("snackbar-action-clicked",{composed:!0,bubbles:!0});customEvent.detail=this.payload;this.dispatchEvent(customEvent);this._close()}/**
+     * Send event `snackbar-dismiss-clicked` will be sent with payload which was set with show()
+     */_dismiss(){/**
+     * @event snackbar-dismiss-clicked
+     * Fired when dismiss icon in snackbar-display is clicked
+     * detail payload: {Object}  payload
+     */let customEvent=new Event("snackbar-dismiss-clicked",{composed:!0,bubbles:!0});customEvent.detail=this.payload;this.dispatchEvent(customEvent);this._close()}/**
+     * Send event `snackbar-closed` will be sent with payload which was set with show()
+     */_close(){/**
      * @event snackbar-closed
      * Fired when snackbar is closed
      * detail payload: {Object}  payload
      */let customEvent=new Event("snackbar-closed",{composed:!0,bubbles:!0});customEvent.detail=this.payload;this.dispatchEvent(customEvent)}/**
-     * snackbar opend.event `snackbar-opened` will be sent with payload
-     */opened(){/**
-     * @event snackbar-opened
-     * Fired when snackbar is opened
-     * detail payload: {Object}  this
-     */let customEvent=new Event("snackbar-opened",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}/**
      * set the label text o
      * @param t
      */setLabelText(t){this.labelText=t}/**
@@ -8152,7 +8036,7 @@ return _furoShell.html`
      */setActionButtonText(t){this.actionButtonText=t}/**
      * parse grpc status object and set the label according to the message in status
      * @param s
-     */parseGrpcStatus(s){if(s.message){this.setLabelText(s.message)}}/**
+     */parseGrpcStatus(s){if(s.message){this.setLabelText(s.message);this.show(s)}}/**
      * @private
      * @returns {TemplateResult}
      */render(){return _furoShell.html`
@@ -8201,31 +8085,37 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * @private
      * @returns {TemplateResult}
      */render(){return _furoShell.html`
-      <h2>Demo furo-checkbox</h2>
-      
-      <furo-demo-snippet >
-        <template>
+
+
+<furo-vertical-flex>
+        <div>
+        <h2>Demo furo-snackbar</h2>
+          <p>The snack bar is set with position absolute.</p>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
         <produce-snackbar-data id="snackbar1" label="show left" snackbar-label="this is a text label"
          @-snackbar-label-snackbar1="--setLabelTex1" 
-         @-show-snackbar1="--show1"
-         ></produce-snackbar-data>
+         @-show-snackbar1="--show1"></produce-snackbar-data>
         <produce-snackbar-data id="snackbar2" label="show center" snackbar-label="this is a text label"
          @-snackbar-label-snackbar2="--setLabelTex2" 
-         @-show-snackbar2="--show2"
-        ></produce-snackbar-data>
+         @-show-snackbar2="--show2"></produce-snackbar-data>
         <produce-snackbar-data id="snackbar3" label="show right stacked" snackbar-label="this is a text label"
          @-snackbar-label-snackbar3="--setLabelTex3" 
-         @-show-snackbar3="--show3"
-        ></produce-snackbar-data>
-
-        <div>        
-            <furo-snackbar timeout-in-ms=5000 position-left icon="close" close-on-escape ƒ-set-label-text="--setLabelTex1" max-size="500px" ƒ-show="--show1"></furo-snackbar>
-            <furo-snackbar timeout-in-ms=5000 icon="done" size="250px"   ƒ-show="--show2"></furo-snackbar>
-            <furo-snackbar position-right  timeout-in-ms=5000 icon="done" stacked size="350px" ƒ-show="--show3"></furo-snackbar>
-        </div>
+         @-show-snackbar3="--show3"></produce-snackbar-data>
+                
+            <furo-snackbar timeout-in-ms=5000 position-left icon="close" action-button-text="undo"  close-on-escape ƒ-set-label-text="--setLabelTex1" max-size="500px" ƒ-show="--show1"></furo-snackbar>
+            <furo-snackbar timeout-in-ms=5000 icon="done" size="250px"  action-button-text="undo"  ƒ-show="--show2"></furo-snackbar>
+            <furo-snackbar position-right  timeout-in-ms=5000 stacked size="350px" ƒ-show="--show3"></furo-snackbar>
+        <div style="position:relative; margin: 40px; height: 320px; border:1px dashed black">
+        Sample parent node 
         <furo-snackbar-display></furo-snackbar-display>
+        </div>
                 </template>
-      </furo-demo-snippet>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+
+       
         `}}customElements.define("demo-furo-snackbar-display",DemoFuroSnackbarDisplay);class DemoFuroSnackbarDisplayError extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
      * Themable Styles
      * @private
@@ -8247,14 +8137,13 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * @private
      * @returns {TemplateResult}
      */render(){return _furoShell.html`
-      <h2>Demo furo-checkbox</h2>
+      <h2>Demo furo-snackbar</h2>
       
       <furo-demo-snippet >
         <template>
         <produce-snackbar-data id="snackbar1" label="produce error" snackbar-label="this is a text label"
          @-snackbar-label-snackbar1="--setLabelTex1" 
          @-response-error = "--error"
-         @-show-snackbar1="--show" 
          ></produce-snackbar-data>
 
         <div>        
@@ -8263,7 +8152,233 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         <furo-snackbar-display></furo-snackbar-display>
                 </template>
       </furo-demo-snippet>
-        `}}customElements.define("demo-furo-snackbar-display-error",DemoFuroSnackbarDisplayError);class FuroCaptureAudio extends _furoShell.LitElement{constructor(){super();this.constraints={audio:!0,video:!1}}stop(){this.tracks[0].stop()}start(){if(navigator.mediaDevices){navigator.mediaDevices.getUserMedia(this.constraints).then(stream=>{/**
+        `}}customElements.define("demo-furo-snackbar-display-error",DemoFuroSnackbarDisplayError);class FuroBannerDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.banner={text:"",dismissButtonText:"dismiss",confirmButtonText:"",icon:"",banner:{}};this._stack=[];this.setAttribute("hidden","")}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();window.addEventListener("open-furo-banner-requested",e=>{this._show(e.detail)});this._FBPAddWireHook("--confirmClicked",e=>{if(this.banner){this.banner.confirm()}this._close()});this._FBPAddWireHook("--dismissClicked",e=>{if(this.banner){this.banner.dismiss()}this._close()})}/**
+     * @private
+     * @returns {CSSResult}
+     */static get styles(){return _furoShell.css`
+            :host {
+              width: 100%;
+              background-color: var(--banner-background-color, var(--background,#000000));
+              transition: all .5s ease-in-out;
+              overflow:hidden;
+            }
+            :host([hidden]) {
+              height: 0;
+            }
+            furo-icon {
+              margin: auto var(--banner-icon-margin-right,var(--spacing, 24px)) auto 0;
+              width: 40px;
+              height: 40px;
+              display: none;
+            }
+            .wrapper {
+              width: 100%;
+              padding: 12px 8px 8px 24px;
+              display: flex;
+              border-bottom: solid 1px #e0e0e0;
+              margin-bottom: var(--banner-margin-bottom,var(--spacing-s, 16px));
+            }
+            
+            .wrapper[icon] furo-icon{
+              display: flex;
+            }
+            
+            .wrapper[icon] {
+              padding: 12px 8px 8px 16px;
+            }
+            
+            furo-button {
+              color: var(--banner-button-text-color, --primary, #3f83e3));
+              --on-surface: var(--primary);
+              margin-right: 8px;
+            }
+            
+            .text {
+              width: 100%;
+              line-height: 20px;
+              padding-bottom: 4px;
+              padding-top: 12px;
+            }
+            
+            .button {
+              display: flex;
+              margin-left: 90px;
+              align-self: flex-end;
+              justify-content:flex-end;
+            }
+            
+            furo-button[hide] {
+              display: none;
+            }
+        `}/**
+     *@private
+     */static get properties(){return{banner:{type:Object},_stack:{type:Array},_isOpen:{type:Boolean},_timer:{type:Object}}}/**
+     * show
+     * @param b
+     * @private
+     */_show(b){this._pushToStack(b);if(!this._isOpen){this.__show()}}/**
+     *
+     * @param d {Object} banner
+     * @private
+     */_pushToStack(b){let obj={text:b.text,dismissButtonText:b.dismissButtonText,confirmButtonText:b.confirmButtonText,icon:b.icon,banner:b};this._stack.push(obj)}/**
+     *
+     * @private
+     */__show(){if(0<this._stack.length){this.banner=this._stack[0];this.removeAttribute("hidden");this.requestUpdate();this._isOpen=!0}}/**
+     * close the CURRENT banner
+     */_close(){if(1<this._stack.length){this.setAttribute("hidden","");this._stack.shift();if(0<this._stack.length){let self=this;this._timer=setInterval(function(){clearInterval(self._timer);self.__show()},500)}else{this._isOpen=!1}}else{this._stack.shift();this.setAttribute("hidden","");this._isOpen=!1}}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return _furoShell.html`
+          <div class="wrapper" ?icon="${this.banner.icon}">
+            <furo-icon icon="${this.banner.icon}"></furo-icon>
+            <div class="text">${this.banner.text}</div>
+            <div class="button">
+              <furo-button label="${this.banner.dismissButtonText}" ?hide="${!this.banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
+              <furo-button label="${this.banner.confirmButtonText}" ?hide="${!this.banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
+            </div>
+          </div>
+        `}}customElements.define("furo-banner-display",FuroBannerDisplay);class FuroBanner extends _furoShell.LitElement{constructor(){super();this.dismissButtonText="dismiss"}/**
+     * @private
+     * @returns {CSSResult}
+     */static get styles(){return _furoShell.css`
+            :host {
+            }
+        `}/**
+     *@private
+     */static get properties(){return{text:{type:String},dismissButtonText:{type:String,attribute:"dismiss-button-text"},confirmButtonText:{type:String,attribute:"confirm-button-text"},icon:{type:String},payload:{type:Object}}}setIcon(i){this.icon=i}setText(t){this.text=t}setConfirmButtonText(t){this.confirmButtonText=t}setDismissButtonText(t){this.dismissButtonText=t}/**
+     * show banner
+     * @param p {Object} payload
+     */show(p){this.payload=p;/**
+                       * @event open-furo-banner-requested
+                       * Fired when value open banner is requested
+                       * detail payload: {Object}  this
+                       */let customEvent=new Event("open-furo-banner-requested",{composed:!0,bubbles:!0});customEvent.detail=this;this.dispatchEvent(customEvent)}/**
+     *  event `dismissed` will be sent with payload
+     */dismiss(){/**
+     * @event dismissed
+     * Fired when dismiss button of banner is clicked
+     * detail payload: {Object}  payload
+     */let customEvent=new Event("dismissed",{composed:!0,bubbles:!0});customEvent.detail=this.payload;this.dispatchEvent(customEvent);this._close()}/**
+     *  event `confirmed` will be sent with payload
+     */confirm(){/**
+     * @event confirmed
+     * Fired when confirm button of banner is clicked
+     * detail payload: {Object}  payload
+     */let customEvent=new Event("confirmed",{composed:!0,bubbles:!0});customEvent.detail=this.payload;this.dispatchEvent(customEvent);this._close()}/**
+     *  event `banner-closed` will be sent with payload which was set with show()
+     */_close(){/**
+     * @event banner-closed
+     * Fired when banner is closed
+     * detail payload: {Object}  payload
+     */let customEvent=new Event("banner-closed",{composed:!0,bubbles:!0});customEvent.detail=this.payload;this.dispatchEvent(customEvent)}/**
+     * parse grpc status object and set the label according to the message in status
+     * @param s
+     */parseGrpcStatus(s){if(s.message){this.setText(s.message);this.show(s)}}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return _furoShell.html`
+        `}}customElements.define("furo-banner",FuroBanner);class ProduceBannerData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--click",()=>{/**
+       * @event banner-label
+       * Fired when
+       * detail payload:
+       */let customEvent=new Event("banner-text-"+this.id,{composed:!0,bubbles:!0});customEvent.detail=this.bannerLabel;this.dispatchEvent(customEvent);customEvent=new Event("show-"+this.id,{composed:!0,bubbles:!0});customEvent.detail=this.bannerButtonText;this.dispatchEvent(customEvent);/**
+                                        * @event response-error
+                                        * Fired when
+                                        * detail payload:
+                                        */let customEventError=new Event("response-error",{composed:!0,bubbles:!0});customEventError.detail={error:"invalid username",message:"invalid username",code:3,details:[{"@type":"type.googleapis.com/google.rpc.BadRequest",field_violations:[{code:5432,field:"display_name",description:" have fancy characters"},{code:5432,field:"repdate.0.repstring.1",description:"Bitte kein B"},{code:5432,field:"zeitunddatum.date",description:"Deeeep"},{code:5432,field:"unknown_field",description:"unknown"}]}]};this.dispatchEvent(customEventError)})}/**
+     *@private
+     */static get properties(){return{label:{type:String},bannerLabel:{type:String,attribute:"banner-text"},id:{type:String}}}render(){// language=HTML
+return _furoShell.html`
+      <!-- Add a style block here -->
+      <style>
+        :host {
+          display: inline;
+          cursor: pointer;
+        }
+      </style>
+      <furo-button raised @-click="--click" label="${this.label}"></furo-button>
+    `}}window.customElements.define("produce-banner-data",ProduceBannerData);class DemoFuroBannerDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     *@private
+     */static get properties(){return{}}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return _furoShell.html`
+      <h2>Demo furo-banner</h2>
+      <furo-demo-snippet >
+        <template>
+  
+          <div>        
+              <furo-banner  ƒ-show="--show1" ƒ-set-Text="--setBannerText1"  icon="perm-scan-wifi" ></furo-banner>
+              <furo-banner  ƒ-show="--show2" ƒ-set-Text="--setBannerText2"  icon="info-outline"   dissmis-button-text="continue" confirm-button-text="confirm"></furo-banner>
+          </div>
+          <furo-banner-display></furo-banner-display>
+          
+          <produce-banner-data id="banner1" label="banner 1"
+            banner-text="Banner 1 , Wlan Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."
+             @-banner-text-banner1="--setBannerText1" 
+             @-show-banner1="--show1"
+           ></produce-banner-data>
+          <produce-banner-data id="banner2"  label="banner 2"
+            banner-text="Banner 2 ,At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."
+             @-banner-text-banner2="--setBannerText2" 
+             @-show-banner2="--show2"
+           ></produce-banner-data>
+        </template>
+      </furo-demo-snippet>
+        `}}customElements.define("demo-furo-banner-display",DemoFuroBannerDisplay);class DemoFuroBannerDisplayError extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     *@private
+     */static get properties(){return{}}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return _furoShell.html`
+      <h2>Demo furo-banner</h2>
+      <furo-demo-snippet >
+        <template>
+  
+          <div>        
+              <furo-banner  ƒ-show="--show1" ƒ-parse-grpc-status="--error"  icon="perm-scan-wifi" ></furo-banner>
+          </div>
+          <furo-banner-display></furo-banner-display>
+          
+          <produce-banner-data id="banner1" label="banner 1"
+             @-response-error="--error"
+           ></produce-banner-data>
+
+        </template>
+      </furo-demo-snippet>
+        `}}customElements.define("demo-furo-banner-display-error",DemoFuroBannerDisplayError);class FuroCaptureAudio extends _furoShell.LitElement{constructor(){super();this.constraints={audio:!0,video:!1}}stop(){this.tracks[0].stop()}start(){if(navigator.mediaDevices){navigator.mediaDevices.getUserMedia(this.constraints).then(stream=>{/**
          *
          * @type {MediaStream}
          */this.stream=stream;this.tracks=stream.getTracks();/**
