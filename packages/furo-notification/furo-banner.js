@@ -48,39 +48,69 @@ class FuroBanner extends LitElement {
   static get properties(){
 
     return {
+      /**
+       * banner content text
+       */
       text: {
         type: String
       },
+      /**
+       * label text of dismiss button
+       */
       dismissButtonText: {
         type: String,
         attribute: "dismiss-button-text"
       },
+      /**
+       * label text of confirm button
+       */
       confirmButtonText: {
         type: String,
         attribute: "confirm-button-text"
       },
+      /**
+       * icon of the banner
+       */
       icon: {
         type: String
       },
+      /**
+       * payload
+       */
       payload: {
         type: Object
       }
     };
   }
 
-
+  /**
+   * set icon of the snackbar
+   * @param i
+   */
   setIcon(i) {
     this.icon = i;
   }
 
+  /**
+   * set the
+   * @param t
+   */
   setText(t) {
     this.text = t;
   }
 
+  /**
+   * set label text of confirm button
+   * @param t
+   */
   setConfirmButtonText(t) {
     this.confirmButtonText = t;
   }
 
+  /**
+   * set label text of dismiss button
+   * @param t
+   */
   setDismissButtonText(t) {
     this.dismissButtonText = t;
   }
@@ -148,7 +178,7 @@ class FuroBanner extends LitElement {
      */
     let customEvent = new Event("banner-closed",{composed: true, bubbles: true});
     customEvent.detail = this.payload;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
   }
 
   /**

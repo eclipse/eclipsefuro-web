@@ -39,7 +39,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
 
   constructor(){
     super();
-    this.banner = {"text":"", "dismissButtonText":"dismiss", "confirmButtonText":"" ,"icon":"", "banner": {}};
+    this._banner = {"text":"", "dismissButtonText":"dismiss", "confirmButtonText":"" ,"icon":"", "banner": {}};
     this._stack=[];
     this.setAttribute("hidden", "");
   }
@@ -57,16 +57,16 @@ class FuroBannerDisplay extends FBP(LitElement) {
 
     this._FBPAddWireHook('--confirmClicked', (e) => {
 
-      if(this.banner) {
-        this.banner.confirm();
+      if(this._banner.banner) {
+        this._banner.banner.confirm();
       }
       this._close();
     });
 
     this._FBPAddWireHook('--dismissClicked', (e) => {
 
-      if(this.banner) {
-        this.banner.dismiss();
+      if(this._banner.banner) {
+        this._banner.banner.dismiss();
       }
       this._close();
     });
@@ -142,7 +142,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
   static get properties(){
 
     return {
-      banner: {
+      _banner: {
         type: Object
       },
       _stack: {
@@ -151,7 +151,6 @@ class FuroBannerDisplay extends FBP(LitElement) {
       _isOpen: {
         type: Boolean
       },
-
       _timer: {
         type: Object
       }
@@ -197,7 +196,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
 
     if (this._stack.length > 0) {
 
-      this.banner = this._stack[0];
+      this._banner = this._stack[0];
 
       this.removeAttribute("hidden");
 
@@ -242,12 +241,12 @@ class FuroBannerDisplay extends FBP(LitElement) {
    */
   render(){
     return html`
-          <div class="wrapper" ?icon="${this.banner.icon}">
-            <furo-icon icon="${this.banner.icon}"></furo-icon>
-            <div class="text">${this.banner.text}</div>
+          <div class="wrapper" ?icon="${this._banner.icon}">
+            <furo-icon icon="${this._banner.icon}"></furo-icon>
+            <div class="text">${this._banner.text}</div>
             <div class="button">
-              <furo-button label="${this.banner.dismissButtonText}" ?hide="${!this.banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
-              <furo-button label="${this.banner.confirmButtonText}" ?hide="${!this.banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
+              <furo-button label="${this._banner.dismissButtonText}" ?hide="${!this._banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
+              <furo-button label="${this._banner.confirmButtonText}" ?hide="${!this._banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
             </div>
           </div>
         `;
