@@ -9,7 +9,10 @@ import "@furo/input";
  *  furo-snackbar-display should be used together witch furo-snackbar. you can place those two components into different places.
  *  best place the furo-snackbar-display on the main site. then you only need one furo-snackbar-display. it can work with n furo-snackbar.
  *
- * compare furo-snackbar , furo-banner and and furo-dialog
+ * ### When to use
+ *
+ * Snackbars communicate messages that are minimally interruptive and don’t require user action.
+ *
  * Component | Priority | User action
  * ----------------|------------------|----------
  * `furo-snackbar`  | Low priority |Optional: Snackbars disappear automatically

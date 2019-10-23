@@ -7,7 +7,11 @@ import {LitElement,html,css} from 'lit-element';
  *  furo-banner should be used together witch furo-banner-display. you can place those two components into different places.
  *  best place the furo-banner-display on the main site. then you only need one furo-banner-display. it can work with n furo-banner.
  *
- * compare furo-snackbar , furo-banner and and furo-dialog
+ * ### When to use
+ *
+ * A banner displays an important, succinct message, and provides actions for users to address (or dismiss the banner). It requires a user action to be dismissed.
+ * Banners should be displayed at the top of the screen, below a top app bar. They are persistent and nonmodal, allowing the user to either ignore them or interact with them at any time
+ *
  * Component | Priority | User action
  * ----------------|------------------|----------
  * `furo-snackbar`  | Low priority |Optional: Snackbars disappear automatically
