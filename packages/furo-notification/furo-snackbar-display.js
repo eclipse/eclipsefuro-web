@@ -58,7 +58,6 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
 
       if(this.displayObj.snackbar) {
         this.displayObj.snackbar.action();
-        this.displayObj.snackbar.close();
       }
       this._close();
     });
@@ -66,7 +65,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
     this._FBPAddWireHook('--closeClicked', (e) => {
 
       if(this.displayObj.snackbar) {
-        this.displayObj.snackbar.close();
+        this.displayObj.snackbar._dismiss();
       }
       this._close();
     });
@@ -285,6 +284,7 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
           self._snackbar.classList.add("hide");
 
           self._stack.shift();
+          self.displayObj.snackbar._close();
           if(self._stack.length  > 0 ) {
 
             self._show();

@@ -57,16 +57,16 @@ class FuroBannerDisplay extends FBP(LitElement) {
 
     this._FBPAddWireHook('--confirmClicked', (e) => {
 
-      if(e.banner) {
-        e.banner.confirm();
+      if(this.banner) {
+        this.banner.confirm();
       }
       this._close();
     });
 
     this._FBPAddWireHook('--dismissClicked', (e) => {
 
-      if(e.banner) {
-        e.banner.dismiss();
+      if(this.banner) {
+        this.banner.dismiss();
       }
       this._close();
     });

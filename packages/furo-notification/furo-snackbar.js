@@ -157,13 +157,33 @@ class FuroSnackbar extends FBP(LitElement) {
      */
     let customEvent = new Event("snackbar-action-clicked",{composed: true, bubbles: true});
     customEvent.detail = this.payload;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
+
+    this._close();
   }
 
   /**
-   * Send event `snackbar-closed` will be sent with payload which was set with open()
+   * Send event `snackbar-dismiss-clicked` will be sent with payload which was set with show()
    */
-  close() {
+  _dismiss() {
+
+    /**
+     * @event snackbar-dismiss-clicked
+     * Fired when dismiss icon in snackbar-display is clicked
+     * detail payload: {Object}  payload
+     */
+    let customEvent = new Event("snackbar-dismiss-clicked",{composed: true, bubbles: true});
+    customEvent.detail = this.payload;
+    this.dispatchEvent(customEvent);
+
+    this._close();
+  }
+
+
+  /**
+   * Send event `snackbar-closed` will be sent with payload which was set with show()
+   */
+  _close() {
 
     /**
      * @event snackbar-closed
@@ -172,22 +192,9 @@ class FuroSnackbar extends FBP(LitElement) {
      */
     let customEvent = new Event("snackbar-closed",{composed: true, bubbles: true});
     customEvent.detail = this.payload;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
   }
 
-  /**
-   * snackbar opend.event `snackbar-opened` will be sent with payload
-   */
-  opened() {
-    /**
-     * @event snackbar-opened
-     * Fired when snackbar is opened
-     * detail payload: {Object}  this
-     */
-    let customEvent = new Event("snackbar-opened",{composed: true, bubbles: true});
-    customEvent.detail = this;
-    this.dispatchEvent(customEvent)
-  }
 
   /**
    * set the label text o
