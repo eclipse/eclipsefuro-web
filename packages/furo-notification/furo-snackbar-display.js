@@ -9,6 +9,14 @@ import "@furo/input";
  *  furo-snackbar-display should be used together witch furo-snackbar. you can place those two components into different places.
  *  best place the furo-snackbar-display on the main site. then you only need one furo-snackbar-display. it can work with n furo-snackbar.
  *
+ * compare furo-snackbar , furo-banner and and furo-dialog
+ * Component | Priority | User action
+ * ----------------|------------------|----------
+ * `furo-snackbar`  | Low priority |Optional: Snackbars disappear automatically
+ * `furo-banner`    | Prominent, medium priority  |Optional: Banners remain until dismissed by the user, or if the state that caused the banner is resolved
+ * `furo-dialog`    | Highest priority |Required: Dialogs block app usage until the user takes a dialog action or exits the dialog (if available)
+ *
+ *
  * ### Styling
  * The following custom properties and mixins are available for styling:
  *
@@ -21,7 +29,7 @@ import "@furo/input";
  *
  * @customElement
  * @demo demo-furo-snackbar-display snackbar demo
- * @demo demo-furo-snackbar-display-error snackbar display error demo
+ * @demo demo-furo-snackbar-display-error snackbar display demo with error binding
  */
 class FuroSnackbarDisplay extends  FBP(LitElement) {
 

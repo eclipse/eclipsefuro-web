@@ -8,6 +8,13 @@ import {FBP} from "@furo/fbp";
  *  furo-banner-display should be used together witch furo-banner. you can place those two components into different places.
  *  best place the furo-banner-display on the main site. then you only need one furo-banner-display. it can work with n furo-banner.
  *
+ * compare furo-snackbar , furo-banner and and furo-dialog
+ * Component | Priority | User action
+ * ----------------|------------------|----------
+ * `furo-snackbar`  | Low priority |Optional: Snackbars disappear automatically
+ * `furo-banner`    | Prominent, medium priority  |Optional: Banners remain until dismissed by the user, or if the state that caused the banner is resolved
+ * `furo-dialog`    | Highest priority |Required: Dialogs block app usage until the user takes a dialog action or exits the dialog (if available)
+ *
  * ### Styling
  * The following custom properties and mixins are available for styling:
  *
@@ -20,7 +27,8 @@ import {FBP} from "@furo/fbp";
 
  *
  * @customElement
- * @demo demo-furo-banner-display snackbar demo
+ * @demo demo-furo-banner-display banner display demo
+ * @demo demo-furo-banner-display-error banner display demo with error binding
  */
 class FuroBannerDisplay extends FBP(LitElement) {
 
