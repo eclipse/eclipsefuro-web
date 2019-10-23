@@ -28,7 +28,6 @@ class FuroBanner extends LitElement {
   constructor(){
     super();
     this.dismissButtonText = "dismiss";
-    //this.confirmButtonText = "confirm";
   }
 
 

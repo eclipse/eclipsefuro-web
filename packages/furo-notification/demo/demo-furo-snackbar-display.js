@@ -76,9 +76,9 @@ class DemoFuroSnackbarDisplay extends FBP(LitElement) {
          @-snackbar-label-snackbar3="--setLabelTex3" 
          @-show-snackbar3="--show3"></produce-snackbar-data>
                 
-            <furo-snackbar timeout-in-ms=5000 position-left icon="close" close-on-escape ƒ-set-label-text="--setLabelTex1" max-size="500px" ƒ-show="--show1"></furo-snackbar>
-            <furo-snackbar timeout-in-ms=5000 icon="done" size="250px"   ƒ-show="--show2"></furo-snackbar>
-            <furo-snackbar position-right  timeout-in-ms=5000 icon="done" stacked size="350px" ƒ-show="--show3"></furo-snackbar>
+            <furo-snackbar timeout-in-ms=5000 position-left icon="close" action-button-text="undo"  close-on-escape ƒ-set-label-text="--setLabelTex1" max-size="500px" ƒ-show="--show1"></furo-snackbar>
+            <furo-snackbar timeout-in-ms=5000 icon="done" size="250px"  action-button-text="undo"  ƒ-show="--show2"></furo-snackbar>
+            <furo-snackbar position-right  timeout-in-ms=5000 stacked size="350px" ƒ-show="--show3"></furo-snackbar>
         <div style="position:relative; margin: 40px; height: 320px; border:1px dashed black">
         Sample parent node 
         <furo-snackbar-display></furo-snackbar-display>

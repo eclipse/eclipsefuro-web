@@ -27,8 +27,9 @@ class FuroSnackbar extends FBP(LitElement) {
 
   constructor(){
     super();
-    this.labelText = "label text";
-    this.actionButtonText = "Undo";
+    this.labelText = "";
+    this.actionButtonText = "";
+    this.icon = "done";
     this.isOpen = false;
   }
 
