@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/veith/FuroBaseComponents/compare/@furo/notification@0.1.6...@furo/notification@0.2.0) (2019-10-23)
+
+
+### Features
+
+* furo-banner ([3241577](https://github.com/veith/FuroBaseComponents/commit/3241577))
+* furo-banner ([f22cefe](https://github.com/veith/FuroBaseComponents/commit/f22cefe))
+
+
+
+
+
 ## [0.1.6](https://github.com/veith/FuroBaseComponents/compare/@furo/notification@0.1.5...@furo/notification@0.1.6) (2019-10-22)
 
 **Note:** Version bump only for package @furo/notification
