@@ -161,9 +161,9 @@ class FuroSnackbar extends FBP(LitElement) {
   }
 
   /**
-   * snackbar closed. event `snackbar-closed` will be sent with payload
+   * Send event `snackbar-closed` will be sent with payload which was set with open()
    */
-  closed() {
+  close() {
 
     /**
      * @event snackbar-closed

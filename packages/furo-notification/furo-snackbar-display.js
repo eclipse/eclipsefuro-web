@@ -28,6 +28,7 @@ import "@furo/input";
  * `--snackbar-background-color` | Color of background |`--on-primary` |  #212121
  * `--snackbar-label-color` | Color of label in snackbar| `--primary-variant,,` | #dedede
  * `--snackbar-button-text-color` | Color of button text | `--secondary` | #bb86fc
+ * `--snackbar-border-distance` | Distance to the border of the parent element | `--spacing` | 24px
 
  *
  * @customElement
@@ -55,17 +56,17 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
 
     this._FBPAddWireHook('--actionClicked', (e) => {
 
-      if(e.snackbar) {
-        e.snackbar.action();
-        e.snackbar.closed();
+      if(this.displayObj.snackbar) {
+        this.displayObj.snackbar.action();
+        this.displayObj.snackbar.close();
       }
       this._close();
     });
 
     this._FBPAddWireHook('--closeClicked', (e) => {
 
-      if(e.snackbar) {
-        e.snackbar.closed();
+      if(this.displayObj.snackbar) {
+        this.displayObj.snackbar.close();
       }
       this._close();
     });
@@ -88,7 +89,6 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
 
     // when display not wired with show method, listening open event from window
     if(!this._isWiredWithShow()) {
-
       window.addEventListener("open-furo-snackbar-requested", (e)=>{
         this.show(e.detail);
       });
@@ -121,8 +121,9 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
     return css`
             :host {
               position: absolute;
-              bottom: 0;
-              width: 100%;
+              bottom:var(--snackbar-border-distance, var(--spacing, 24px));
+              left:var(--snackbar-border-distance, var(--spacing, 24px));
+              right:var(--snackbar-border-distance, var(--spacing, 24px));               
             }
 
             #snackbar {
@@ -228,18 +229,15 @@ class FuroSnackbarDisplay extends  FBP(LitElement) {
    * @private
    */
   show(s) {
-
     this._pushToStack(s);
-
     if( !this.displayObj.isOpen ) {
-
       this._show();
     }
   }
 
   /**
    *
-   * @param d {Object} snackbar
+   * @param s {Object} snackbar
    * @private
    */
   _pushToStack(s) {
