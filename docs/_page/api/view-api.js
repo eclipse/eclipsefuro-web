@@ -4183,28 +4183,32 @@ return _furoShell.html`
 <div @-click="^^item-selected(_item)">
 ${this._item.data.display_name}
 </div>           
-`}}window.customElements.define("reference-search-item",ReferenceSearchItem);class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.valueField="id";this.displayField="display_name";this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+`}}window.customElements.define("reference-search-item",ReferenceSearchItem);class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.valueField="id";this.displayField="display_name"}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}_init(){this.addEventListener("searchInput",e=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this._searchTerm=e.detail;if(this._searchTerm.length>this._minTermLength){/**
-         * @event search
-         * Fired when term is entered and bigger then min-term-length
-         * detail payload: {String} term
-         */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}});this._FBPAddWireHook("--itemSelected",item=>{this.field.id._value=item.data[this.valueField];this.field.display_name._value=item.data[this.displayField];this._updateField();this._closeList()});/**
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this._searchTerm=e.detail;if(!this.searchOnEnterOnly){this._fireSearchEvent()}});this._FBPAddWireHook("--itemSelected",item=>{this.field.id._value=item.data[this.valueField];this.field.display_name._value=item.data[this.displayField];this._updateField();this._closeList()});/**
          * listen to keyboard events
          */this.addEventListener("keydown",event=>{let key=event.key||event.keyCode;if("Escape"===key||"Esc"===key||27===key){this._updateField();if(this._listIsOpen){// close list if open and  then clear search
 event.preventDefault()}this._closeList();if(""===this._searchTerm){event.preventDefault();// re set display_name
 }}// keyboard navigation
-if(this._listIsOpen){if("Enter"===key){event.preventDefault();this._FBPTriggerWire("--enterPressed")}if("ArrowDown"===key){event.preventDefault();this._FBPTriggerWire("--arrowDownPressed")}if("ArrowUp"===key){event.preventDefault();this._FBPTriggerWire("--arrowUpPressed")}}else{if("ArrowDown"===key){this._showList()}}});// lock blur for slow clickers
+if(this._listIsOpen){if("Enter"===key){event.preventDefault();this._FBPTriggerWire("--enterPressedForSelect")}if("ArrowDown"===key){event.preventDefault();this._FBPTriggerWire("--arrowDownPressed")}if("ArrowUp"===key){event.preventDefault();this._FBPTriggerWire("--arrowUpPressed")}}else{// list is closed
+if("ArrowDown"===key){this._showList()}if("Enter"===key){if(this.searchOnEnterOnly){event.preventDefault();this._fireSearchEvent()}}}});// lock blur for slow clickers
 this.addEventListener("mousedown",event=>{this._lockBlur=!0});// unlock after long click
 this.addEventListener("mouseup",event=>{this._lockBlur=!1});// close list on blur
 this._FBPAddWireHook("--blured",item=>{this._focused=!1;if(!this._lockBlur){this._closeList()}});// opens the list on focus
-this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection){this._showList()}});this.requestUpdate()}_showList(){this._listIsOpen=!0;this.setAttribute("show-list","");let arrCollection=this._collection,index=0;for(let i=0;i<arrCollection.length;i++){if(arrCollection[i].data&&arrCollection[i].data[this.valueField]==this.field.id._value){index=i;break}}// trigger wire to select item
+this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection){this._showList()}});this.requestUpdate()}_fireSearchEvent(){if(this._searchTerm&&this._searchTerm.length>=this._minTermLength){/**
+       * @event search
+       * Fired when term is entered and bigger then min-term-length
+       * detail payload: {String} term
+       */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}}_showList(){this._listIsOpen=!0;this.setAttribute("show-list","");let arrCollection=this._collection,index=0;for(let i=0;i<arrCollection.length;i++){if(arrCollection[i].data&&arrCollection[i].data[this.valueField]==this.field.id._value){index=i;break}}// trigger wire to select item
 this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this.removeAttribute("show-list")}/**
+     * Updater for the min => minlength attr
+     * same problem like in pattern
+     *
+     * @param value
+     */set _minTermLength(value){this.__minTermLength=value;Helper.UpdateInputAttribute(this,"min",value)}get _minTermLength(){return this.__minTermLength}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
@@ -4247,6 +4251,10 @@ this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this
        *
        * Use with caution, normally the specs defines this value.
        */minTermLength:{type:Number,attribute:"min-term-length"},/**
+       * Enable this, to avoid the automatic triggering of "search".
+       *
+       * The user have to press enter to trigger the search. Min-term-length is respected.
+       */searchOnEnterOnly:{type:Boolean,attribute:"search-on-enter-only"},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4313,7 +4321,7 @@ return _furoShell.html`
       ƒ-focus="--focusReceived"></furo-search-input>
     <div class="list" @-item-selected="--itemSelected"   >
        
-        <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressed">
+        <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressedForSelect">
           <reference-search-item ƒ-.index="--index" ƒ-deselect="--itemDeSelected" ƒ-select="--trigger" ƒ-preselect="--itemSelected" ƒ-inject-item="--item"></reference-search-item>
         </template>
              
@@ -5580,8 +5588,15 @@ return _furoShell.html`
                       ƒ-collection-in="--refCol">
               </furo-data-reference-search>
                 
-              <furo-data-display leading-icon="search" condensed  ƒ-bind-data="--entityReady(*.owner.id)"></furo-data-display>
-              
+              <furo-data-display label="selected id" leading-icon="apps" condensed  ƒ-bind-data="--entityReady(*.owner.id)"></furo-data-display>
+              <furo-data-reference-search condensed
+                                          label="Search on enter only"
+                                          search-on-enter-only
+                                          min-term-length="2"
+                                          ƒ-bind-data="--entityReady(*.owner)"
+                                          @-search="--term"
+                                          ƒ-collection-in="--refCol">
+              </furo-data-reference-search>
             </furo-form-layouter>
             <furo-data-object
                     type="task.Task"
@@ -8107,10 +8122,10 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             <furo-snackbar timeout-in-ms=5000 position-left icon="close" action-button-text="undo"  close-on-escape ƒ-set-label-text="--setLabelTex1" max-size="500px" ƒ-show="--show1"></furo-snackbar>
             <furo-snackbar timeout-in-ms=5000 icon="done" size="250px"  action-button-text="undo"  ƒ-show="--show2"></furo-snackbar>
             <furo-snackbar position-right  timeout-in-ms=5000 stacked size="350px" ƒ-show="--show3"></furo-snackbar>
-        <div style="position:relative; margin: 40px; height: 320px; border:1px dashed black">
-        Sample parent node 
-        <furo-snackbar-display></furo-snackbar-display>
-        </div>
+          <!-- this furo-banner-display should be place on the main page once 
+            <furo-snackbar-display></furo-snackbar-display> 
+          -->
+      
                 </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
@@ -8149,12 +8164,14 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         <div>        
             <furo-snackbar timeout-in-ms=5000 icon="done"   ƒ-show="--show" action-button-text="undo" ƒ-parse-grpc-status="--error"></furo-snackbar>
         </div>
-        <furo-snackbar-display></furo-snackbar-display>
+          <!-- this furo-banner-display should be place on the main page once 
+            <furo-snackbar-display></furo-snackbar-display> 
+          -->
                 </template>
       </furo-demo-snippet>
-        `}}customElements.define("demo-furo-snackbar-display-error",DemoFuroSnackbarDisplayError);class FuroBannerDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.banner={text:"",dismissButtonText:"dismiss",confirmButtonText:"",icon:"",banner:{}};this._stack=[];this.setAttribute("hidden","")}/**
+        `}}customElements.define("demo-furo-snackbar-display-error",DemoFuroSnackbarDisplayError);class FuroBannerDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._banner={text:"",dismissButtonText:"dismiss",confirmButtonText:"",icon:"",banner:{}};this._stack=[];this.setAttribute("hidden","")}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();window.addEventListener("open-furo-banner-requested",e=>{this._show(e.detail)});this._FBPAddWireHook("--confirmClicked",e=>{if(this.banner){this.banner.confirm()}this._close()});this._FBPAddWireHook("--dismissClicked",e=>{if(this.banner){this.banner.dismiss()}this._close()})}/**
+     */_FBPReady(){super._FBPReady();window.addEventListener("open-furo-banner-requested",e=>{this._show(e.detail)});this._FBPAddWireHook("--confirmClicked",e=>{if(this._banner.banner){this._banner.banner.confirm()}this._close()});this._FBPAddWireHook("--dismissClicked",e=>{if(this._banner.banner){this._banner.banner.dismiss()}this._close()})}/**
      * @private
      * @returns {CSSResult}
      */static get styles(){return _furoShell.css`
@@ -8214,7 +8231,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             }
         `}/**
      *@private
-     */static get properties(){return{banner:{type:Object},_stack:{type:Array},_isOpen:{type:Boolean},_timer:{type:Object}}}/**
+     */static get properties(){return{_banner:{type:Object},_stack:{type:Array},_isOpen:{type:Boolean},_timer:{type:Object}}}/**
      * show
      * @param b
      * @private
@@ -8225,18 +8242,18 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      */_pushToStack(b){let obj={text:b.text,dismissButtonText:b.dismissButtonText,confirmButtonText:b.confirmButtonText,icon:b.icon,banner:b};this._stack.push(obj)}/**
      *
      * @private
-     */__show(){if(0<this._stack.length){this.banner=this._stack[0];this.removeAttribute("hidden");this.requestUpdate();this._isOpen=!0}}/**
+     */__show(){if(0<this._stack.length){this._banner=this._stack[0];this.removeAttribute("hidden");this.requestUpdate();this._isOpen=!0}}/**
      * close the CURRENT banner
      */_close(){if(1<this._stack.length){this.setAttribute("hidden","");this._stack.shift();if(0<this._stack.length){let self=this;this._timer=setInterval(function(){clearInterval(self._timer);self.__show()},500)}else{this._isOpen=!1}}else{this._stack.shift();this.setAttribute("hidden","");this._isOpen=!1}}/**
      * @private
      * @returns {TemplateResult}
      */render(){return _furoShell.html`
-          <div class="wrapper" ?icon="${this.banner.icon}">
-            <furo-icon icon="${this.banner.icon}"></furo-icon>
-            <div class="text">${this.banner.text}</div>
+          <div class="wrapper" ?icon="${this._banner.icon}">
+            <furo-icon icon="${this._banner.icon}"></furo-icon>
+            <div class="text">${this._banner.text}</div>
             <div class="button">
-              <furo-button label="${this.banner.dismissButtonText}" ?hide="${!this.banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
-              <furo-button label="${this.banner.confirmButtonText}" ?hide="${!this.banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
+              <furo-button label="${this._banner.dismissButtonText}" ?hide="${!this._banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
+              <furo-button label="${this._banner.confirmButtonText}" ?hide="${!this._banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
             </div>
           </div>
         `}}customElements.define("furo-banner-display",FuroBannerDisplay);class FuroBanner extends _furoShell.LitElement{constructor(){super();this.dismissButtonText="dismiss"}/**
@@ -8247,7 +8264,29 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             }
         `}/**
      *@private
-     */static get properties(){return{text:{type:String},dismissButtonText:{type:String,attribute:"dismiss-button-text"},confirmButtonText:{type:String,attribute:"confirm-button-text"},icon:{type:String},payload:{type:Object}}}setIcon(i){this.icon=i}setText(t){this.text=t}setConfirmButtonText(t){this.confirmButtonText=t}setDismissButtonText(t){this.dismissButtonText=t}/**
+     */static get properties(){return{/**
+       * banner content text
+       */text:{type:String},/**
+       * label text of dismiss button
+       */dismissButtonText:{type:String,attribute:"dismiss-button-text"},/**
+       * label text of confirm button
+       */confirmButtonText:{type:String,attribute:"confirm-button-text"},/**
+       * icon of the banner
+       */icon:{type:String},/**
+       * payload
+       */payload:{type:Object}}}/**
+     * set icon of the snackbar
+     * @param i
+     */setIcon(i){this.icon=i}/**
+     * set the
+     * @param t
+     */setText(t){this.text=t}/**
+     * set label text of confirm button
+     * @param t
+     */setConfirmButtonText(t){this.confirmButtonText=t}/**
+     * set label text of dismiss button
+     * @param t
+     */setDismissButtonText(t){this.dismissButtonText=t}/**
      * show banner
      * @param p {Object} payload
      */show(p){this.payload=p;/**
