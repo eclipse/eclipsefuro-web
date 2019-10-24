@@ -53,7 +53,6 @@ class FuroDataTextInput extends FBP(LitElement) {
         } else if (val.tooLong) {
           this._hint = this._maxErrorMessage;
         }
-
         this.requestUpdate();
       }
     });

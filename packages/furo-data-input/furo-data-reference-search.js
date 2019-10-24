@@ -44,23 +44,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     this._minTermLength = 0;
     this.valueField = "id";
     this.displayField = "display_name";
-
-    this._FBPAddWireHook("--inputInvalid", (val) => {
-      // val is a ValidityState
-      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-      if (val) {
-
-        if (val.tooShort) {
-          this._hint = this._minErrorMessage;
-        }
-        else if(val.tooLong)
-        {
-          this._hint = this._maxErrorMessage;
-        }
-
-        this.requestUpdate();
-      }
-    });
   }
 
 
@@ -81,22 +64,18 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       // by valid input reset meta and constraints
       CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
       this._searchTerm = e.detail;
-      if (this._searchTerm.length > this._minTermLength) {
-        /**
-         * @event search
-         * Fired when term is entered and bigger then min-term-length
-         * detail payload: {String} term
-         */
-        let customEvent = new Event('search', {composed: true, bubbles: true});
-        customEvent.detail = this._searchTerm;
-        this.dispatchEvent(customEvent);
+
+      if (!this.searchOnEnterOnly) {
+        this._fireSearchEvent();
       }
     });
 
+
+
     this._FBPAddWireHook("--itemSelected", (item) => {
 
-      this.field.id._value= item.data[this.valueField];
-      this.field.display_name._value= item.data[this.displayField];
+      this.field.id._value = item.data[this.valueField];
+      this.field.display_name._value = item.data[this.displayField];
       this._updateField();
       this._closeList();
     });
@@ -116,7 +95,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
           event.preventDefault();
         }
         this._closeList();
-        if(this._searchTerm === ""){
+        if (this._searchTerm === "") {
           event.preventDefault();
           // re set display_name
 
@@ -127,7 +106,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       if (this._listIsOpen) {
         if (key === "Enter") {
           event.preventDefault();
-          this._FBPTriggerWire("--enterPressed");
+          this._FBPTriggerWire("--enterPressedForSelect");
         }
         if (key === "ArrowDown") {
           event.preventDefault();
@@ -138,8 +117,15 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
           this._FBPTriggerWire("--arrowUpPressed");
         }
       } else {
+        // list is closed
         if (key === "ArrowDown") {
           this._showList();
+        }
+        if (key === "Enter") {
+          if (this.searchOnEnterOnly) {
+            event.preventDefault();
+            this._fireSearchEvent();
+          }
         }
       }
     });
@@ -174,15 +160,30 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
   }
 
+
+  _fireSearchEvent() {
+
+    if (this._searchTerm && this._searchTerm.length >= this._minTermLength) {
+      /**
+       * @event search
+       * Fired when term is entered and bigger then min-term-length
+       * detail payload: {String} term
+       */
+      let customEvent = new Event('search', {composed: true, bubbles: true});
+      customEvent.detail = this._searchTerm;
+      this.dispatchEvent(customEvent);
+    }
+  }
+
   _showList() {
     this._listIsOpen = true;
     this.setAttribute("show-list", "");
     let arrCollection = this._collection;
     let index = 0;
 
-    for (let i=0; i<arrCollection.length ; i++) {
+    for (let i = 0; i < arrCollection.length; i++) {
 
-      if(arrCollection[i].data && arrCollection[i].data[this.valueField] == this.field.id._value) {
+      if (arrCollection[i].data && arrCollection[i].data[this.valueField] == this.field.id._value) {
         index = i;
         break;
       }
@@ -196,6 +197,20 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     this.removeAttribute("show-list");
   }
 
+  /**
+   * Updater for the min => minlength attr
+   * same problem like in pattern
+   *
+   * @param value
+   */
+  set _minTermLength(value) {
+    this.__minTermLength = value;
+    Helper.UpdateInputAttribute(this, "min", value);
+  }
+
+  get _minTermLength(){
+    return this.__minTermLength;
+  }
   /**
    * Updater for the label attr
    * @param value
@@ -298,6 +313,15 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         attribute: 'min-term-length'
       },
       /**
+       * Enable this, to avoid the automatic triggering of "search".
+       *
+       * The user have to press enter to trigger the search. Min-term-length is respected.
+       */
+      searchOnEnterOnly: {
+        type: Boolean,
+        attribute: 'search-on-enter-only'
+      },
+      /**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -361,7 +385,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       this.errortext = this.field._validity.description;
     }
 
-    if(this.field.display_name._value) {
+    if (this.field.display_name._value) {
       this._FBPTriggerWire('--value', this.field.display_name._value);
     }
 
@@ -372,7 +396,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     this._FBPTriggerWire("--listItemsIjnected", collection.entities);
     this._hasCollection = true;
-    this._collection =  collection.entities;
+    this._collection = collection.entities;
 
     if (this._focused) {
       this._showList();
@@ -435,7 +459,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       ƒ-focus="--focusReceived"></furo-search-input>
     <div class="list" @-item-selected="--itemSelected"   >
        
-        <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressed">
+        <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressedForSelect">
           <reference-search-item ƒ-.index="--index" ƒ-deselect="--itemDeSelected" ƒ-select="--trigger" ƒ-preselect="--itemSelected" ƒ-inject-item="--item"></reference-search-item>
         </template>
              
