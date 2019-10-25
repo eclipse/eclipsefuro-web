@@ -2,459 +2,460 @@
 
 <html>
 <head>
-  <title>test for furo-data-object</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script src="/node_modules/mocha/mocha.js"></script>
-  <script src="/node_modules/chai/chai.js"></script>
-  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
-  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
-  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+    <title>test for furo-data-object</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
 </head>
 <body>
 
 <test-fixture id="basic">
-  <template>
-    <test-bind>
-      <template>
-        <furo-data-object></furo-data-object>
-      </template>
-    </test-bind>
-  </template>
+    <template>
+        <test-bind>
+            <template>
+                <furo-data-object></furo-data-object>
+            </template>
+        </test-bind>
+    </template>
 </test-fixture>
 
 <script type="module">
-  import "../furo-catalog.js"
-  import "@furo/fbp/testhelper/test-bind"; // for testing
-  import "@furo/testhelper/initEnv.js"
-  import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
+    import "../furo-catalog.js"
+    import "@furo/fbp/testhelper/test-bind"; // for testing
+    import "@furo/testhelper/initEnv.js"
+    import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
 
-  describe('furo-data-object_test tests ', function () {
-
-
-    let element = {};
+    describe('furo-data-object_test tests ', function () {
 
 
-    beforeEach(async () => {
-      let fix = fixture('basic');
-      element = fix[1];
-      await element.updateComplete;
-    });
-
-    it('should be possible to create deep recursive object from data', (done) => {
-      element.setAttribute("type", "experiment.Recursive");
-
-      element.injectRaw({
-        "id": 1,
-        "display_name": "A",
-        "recursion": {
-          "id": 11,
-          "display_name": "Aa",
-          "recursion": null
-        }
-      });
-      assert.equal(element.data.display_name._value, "A");
-      assert.equal(element.data.recursion.display_name._value, "Aa");
-
-      let deep = element.data.recursion;
-      deep.recursion._value = {"display_name": "Aaa"};
-      assert.equal(element.data.recursion.recursion.display_name._value, "Aaa");
-
-      done();
-    });
-
-    it('should create a recursive data object from spec without stack overflow', (done) => {
-      element.setAttribute("type", "experiment.Recursive");
-
-      done();
-    });
+        let element = {};
 
 
-    it('should have the default value setted', (done) => {
-      element.setAttribute("type", "experiment.Default");
-      assert.equal(element.data.description._value, "Ein text per default");
-
-      element.data.repstring.add();
-      assert.equal(element.data._pristine, false);
-      assert.equal(element.data.repstring.repeats[0]._value, "Ein text per default");
-      element.data.repstring.add("new");
-
-      assert.equal(element.data.repstring.repeats[1]._value, "new");
-      done();
-    });
-
-    it('should print out the type on toString', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-      assert.equal(element.data.toString(), "ProjectEntity");
-      element.data.data.display_name._value = "yes";
-      assert.equal(element.data.data.display_name.toString(), 'yes');
-
-      done();
-    });
-
-    it('should be possible to reset to last injected state', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-
-        assert.equal(element.json.data.display_name, response.data.display_name);
-
-        done();
-      })
-
-    });
-
-    it('should be possible to set the model to the inital empty state', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-
-        let initalLabel = element.data.data.display_name._meta.label;
-
-        assert.equal(element.json.data.display_name, response.data.display_name);
-
-        p.then((ObjectDataRoot) => {
-
-          let EntityRoot = ObjectDataRoot.data;
-          assert.equal(EntityRoot, element.data.data);
-          element.data.data.display_name._meta.label = "Something";
-
-          element.init();
-
-          assert.equal(element.data.data.display_name._meta.label, initalLabel);
-          done();
-        })
-
-      })
-
-    });
-
-
-    it('should be possible to read the current model as json', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-
-        assert.equal(element.json.data.display_name, response.data.display_name);
-        p.then((ObjectDataRoot) => {
-          let EntityRoot = ObjectDataRoot.data;
-          EntityRoot.description._value = "New";
-          let oldlabel = EntityRoot.description._meta.label;
-          assert.equal(EntityRoot.description._meta.label, oldlabel);
-          EntityRoot.description._meta.label = "Something";
-
-          assert.equal(element.json.data.description, "New");
-          assert.equal(EntityRoot.description._meta.label, "Something");
-          element.reset();
-
-          assert.equal(EntityRoot.description._meta.label, oldlabel);
-          done();
-        })
-
-      })
-
-    });
-
-
-    it('should update meta on server meta data', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-
-          assert.equal(ObjectDataRoot._pristine, true);
-          let EntityRoot = ObjectDataRoot.data;
-
-          assert.equal(EntityRoot.description._value, "Furo Foundation");
-
-          assert.equal(EntityRoot.description._meta.label, "ID label from response");
-          assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
-          assert.equal(EntityRoot.description._constraints.min.is, 5);
-          assert.equal(EntityRoot.description._constraints.max.is, 20);
-          assert.equal(EntityRoot.members.repeats[0].first_name._meta.label, "firstname label from response");
-
-          done();
+        beforeEach(async () => {
+            let fix = fixture('basic');
+            element = fix[1];
+            await element.updateComplete;
         });
-      });
-    });
-    it('should update meta on server meta data', (done) => {
-      element.setAttribute("type", "project.ProjectCollection");
 
-      fetch("/mockdata/projects/testmetaInCollection.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
+        it('should be possible to create deep recursive object from data', (done) => {
+            element.setAttribute("type", "experiment.Recursive");
 
-          assert.equal(ObjectDataRoot._pristine, true);
-          let EntityRoot = ObjectDataRoot.entities.repeats[0].data;
-          assert.equal(EntityRoot.description._value, "Furo Foundation");
+            element.injectRaw({
+                "id": 1,
+                "display_name": "A",
+                "recursion": {
+                    "id": 11,
+                    "display_name": "Aa",
+                    "recursion": null
+                }
+            });
+            assert.equal(element.data.display_name._value, "A");
+            assert.equal(element.data.recursion.display_name._value, "Aa");
 
-          assert.equal(EntityRoot.description._meta.label, "ID label from response");
-          assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
-          assert.equal(EntityRoot.description._constraints.min.is, 5);
-          assert.equal(EntityRoot.description._constraints.max.is, 20);
-          assert.equal(EntityRoot.members.repeats[0].first_name._meta.label, "firstname label from response");
+            let deep = element.data.recursion;
+            deep.recursion._value = {"display_name": "Aaa"};
+            assert.equal(element.data.recursion.recursion.display_name._value, "Aaa");
 
-          done();
-        });
-      });
-    });
-
-    it('should log to console on non existing type', (done) => {
-      element.type = "unknown";
-      assert.equal(element._type, undefined);
-      element.type = "project.ProjectEntity";
-      assert.equal(element._type, "project.ProjectEntity");
-      done();
-    });
-    it('should be possible to get the --json value-- of any node', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-          let EntityRoot = ObjectDataRoot.data;
-          let val = EntityRoot.members._value;
-
-          EntityRoot.members.add(val[0]);
-          // set on the repeats
-          EntityRoot.members.repeats[1].first_name._value = "Kyra";
-          // read on value
-          assert.equal(EntityRoot.members._value[0].first_name, "John");
-          assert.equal(EntityRoot.members._value[1].first_name, "Kyra");
-
-          done();
-        });
-      });
-    });
-
-
-    it('should declare the complete object not pristine when one field value changes', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-
-          assert.equal(ObjectDataRoot._pristine, true);
-          let EntityRoot = ObjectDataRoot.data;
-          EntityRoot.members.repeats[0].first_name._value = "new";
-          assert.equal(ObjectDataRoot._pristine, false);
-
-          done();
-        });
-      });
-    });
-
-    it('should declare the complete object valid when all fields becomes valid', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-          assert.equal(ObjectDataRoot._isValid, true);
-          let EntityRoot = ObjectDataRoot.data;
-
-          EntityRoot.members.repeats[0].first_name._setInvalid({message: "this first name does not exist"});
-          EntityRoot.members.repeats[0].display_name._setInvalid({message: "this first name does not exist"});
-          assert.equal(ObjectDataRoot._isValid, false);
-          EntityRoot.members.repeats[0].first_name._clearInvalidity();
-          assert.equal(ObjectDataRoot._isValid, false);
-          EntityRoot.members.repeats[0].display_name._clearInvalidity();
-          assert.equal(ObjectDataRoot._isValid, true);
-
-          done();
-        });
-      });
-    });
-    it('should declare the complete object as invalid if one field becomes invalid', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-          assert.equal(ObjectDataRoot._isValid, true);
-          let EntityRoot = ObjectDataRoot.data;
-
-          EntityRoot.members.repeats[0].first_name._setInvalid({message: "this first name does not exist"});
-          assert.equal(ObjectDataRoot._isValid, false);
-          done();
-        });
-      });
-    });
-
-    it('should be possible remove  a item in a repeated by the FieldNode itself', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-          let EntityRoot = ObjectDataRoot.data;
-
-          assert.equal(EntityRoot.members.repeats.length, 1);
-          // add
-          EntityRoot.members.add();
-          assert.equal(EntityRoot.members.repeats.length, 2);
-          EntityRoot.members.repeats[1].deleteNode();
-          assert.equal(EntityRoot.members.repeats.length, 1);
-          done();
-        });
-      });
-    });
-
-    it('should be possible to add and remove all a repeated item on repeated fields', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-          let EntityRoot = ObjectDataRoot.data;
-
-          assert.equal(EntityRoot.members.repeats.length, 1);
-          // add
-          EntityRoot.members.add();
-          assert.equal(EntityRoot.members.repeats.length, 2);
-          EntityRoot.members.removeAllChildren();
-          assert.equal(EntityRoot.members.repeats.length, 0);
-          done();
-        });
-      });
-    });
-    it('should be possible to remove  repeated item by index fields', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-          let EntityRoot = ObjectDataRoot.data;
-
-          assert.equal(EntityRoot.members.repeats.length, 1);
-          // add
-          EntityRoot.members.add();
-          assert.equal(EntityRoot.members.repeats.length, 2);
-          EntityRoot.members.deleteChild(1);
-          assert.equal(EntityRoot.members.repeats.length, 1);
-          done();
-        });
-      });
-    });
-
-
-    it('should fire data-changed when some internal value changed', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-      /**
-       * Attention data-changed will be fired on every field when you inject data
-       */
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-          let EntityRoot = ObjectDataRoot.data;
-
-          assert.equal(EntityRoot.members.repeats[0].first_name._value, "John");
-
-          let handler = (e) => {
-            assert.equal(element.data.data._spec.type, "project.Project");
-            let firstname = (element.data.data.members.repeats[0].first_name._value);
-            assert.equal(firstname, "Lysander");
-            element.removeEventListener("data-changed", handler);
             done();
-          };
-          element.addEventListener("data-changed", handler, true);
-
-          EntityRoot.members.repeats[0].first_name._value = "Lysander";
         });
-      });
-    });
 
+        it('should create a recursive data object from spec without stack overflow', (done) => {
+            element.setAttribute("type", "experiment.Recursive");
 
-    it('should return a promise', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-          let EntityRoot = ObjectDataRoot.data;
-          let firstname = EntityRoot.members.repeats[0].first_name._value;
-          assert.equal(EntityRoot._spec.type, "project.Project");
-          assert.equal(firstname, "John");
-          done();
+            done();
         });
-      });
-    });
 
-    it('should reslove queued inject promise', (done) => {
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        let p = element.injectRaw(response);
-        p.then((ObjectDataRoot) => {
-          let EntityRoot = ObjectDataRoot.data
-          let firstname = EntityRoot.members.repeats[0].first_name._value;
-          assert.equal(EntityRoot._spec.type, "project.Project");
-          assert.equal(firstname, "John");
-          done();
+
+        it('should have the default value setted', (done) => {
+            element.setAttribute("type", "experiment.Default");
+            assert.equal(element.data.description._value, "Ein text per default");
+
+            element.data.repstring.add();
+            assert.equal(element.data._pristine, false);
+            assert.equal(element.data.repstring.repeats[0]._value, "Ein text per default");
+            element.data.repstring.add("new");
+
+            assert.equal(element.data.repstring.repeats[1]._value, "new");
+            done();
         });
-        element.setAttribute("type", "project.ProjectEntity");
-      });
+
+        it('should print out the type on toString', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+            assert.equal(element.data.toString(), "ProjectEntity");
+            element.data.data.display_name._value = "yes";
+            assert.equal(element.data.data.display_name.toString(), 'yes');
+
+            done();
+        });
+
+        it('should be possible to reset to last injected state', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+
+                assert.equal(element.json.data.display_name, response.data.display_name);
+
+                done();
+            })
+
+        });
+
+        it('should be possible to set the model to the inital empty state', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+
+                let initalLabel = element.data.data.display_name._meta.label;
+
+                assert.equal(element.json.data.display_name, response.data.display_name);
+
+                p.then((ObjectDataRoot) => {
+
+                    let EntityRoot = ObjectDataRoot.data;
+                    assert.equal(EntityRoot, element.data.data);
+                    element.data.data.display_name._meta.label = "Something";
+
+                    element.init();
+
+                    assert.equal(element.data.data.display_name._meta.label, initalLabel);
+                    done();
+                })
+
+            })
+
+        });
+
+
+        it('should be possible to read the current model as json', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+
+                assert.equal(element.json.data.display_name, response.data.display_name);
+                p.then((ObjectDataRoot) => {
+                    let EntityRoot = ObjectDataRoot.data;
+                    EntityRoot.description._value = "New";
+                    let oldlabel = EntityRoot.description._meta.label;
+                    assert.equal(EntityRoot.description._meta.label, oldlabel);
+                    EntityRoot.description._meta.label = "Something";
+
+                    assert.equal(element.json.data.description, "New");
+                    assert.equal(EntityRoot.description._meta.label, "Something");
+                    element.reset();
+
+                    assert.equal(EntityRoot.description._meta.label, oldlabel);
+                    done();
+                })
+
+            })
+
+        });
+
+
+        it('should update meta on server meta data', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+
+                    assert.equal(ObjectDataRoot._pristine, true);
+                    let EntityRoot = ObjectDataRoot.data;
+
+                    assert.equal(EntityRoot.description._value, "Furo Foundation");
+
+                    assert.equal(EntityRoot.description._meta.label, "ID label from response");
+                    assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
+                    assert.equal(EntityRoot.description._constraints.min.is, 5);
+                    assert.equal(EntityRoot.description._constraints.max.is, 20);
+                    assert.equal(EntityRoot.members.repeats[0].first_name._meta.label, "firstname label from response");
+                    assert.equal(EntityRoot.description._meta.options.list.length, 2);
+                    done();
+                });
+            });
+        });
+        it('should update meta on server meta data', (done) => {
+            element.setAttribute("type", "project.ProjectCollection");
+
+            fetch("/mockdata/projects/testmetaInCollection.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+
+                    assert.equal(ObjectDataRoot._pristine, true);
+                    let EntityRoot = ObjectDataRoot.entities.repeats[0].data;
+                    assert.equal(EntityRoot.description._value, "Furo Foundation");
+
+                    assert.equal(EntityRoot.description._meta.label, "ID label from response");
+                    assert.equal(EntityRoot.cost_limit.currency_code._meta.label, "deep label");
+                    assert.equal(EntityRoot.description._constraints.min.is, 5);
+                    assert.equal(EntityRoot.description._constraints.max.is, 20);
+                    assert.equal(EntityRoot.description._meta.options.list.length, 2);
+                    assert.equal(EntityRoot.members.repeats[0].first_name._meta.label, "firstname label from response");
+
+                    done();
+                });
+            });
+        });
+
+        it('should log to console on non existing type', (done) => {
+            element.type = "unknown";
+            assert.equal(element._type, undefined);
+            element.type = "project.ProjectEntity";
+            assert.equal(element._type, "project.ProjectEntity");
+            done();
+        });
+        it('should be possible to get the --json value-- of any node', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+                    let EntityRoot = ObjectDataRoot.data;
+                    let val = EntityRoot.members._value;
+
+                    EntityRoot.members.add(val[0]);
+                    // set on the repeats
+                    EntityRoot.members.repeats[1].first_name._value = "Kyra";
+                    // read on value
+                    assert.equal(EntityRoot.members._value[0].first_name, "John");
+                    assert.equal(EntityRoot.members._value[1].first_name, "Kyra");
+
+                    done();
+                });
+            });
+        });
+
+
+        it('should declare the complete object not pristine when one field value changes', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+
+                    assert.equal(ObjectDataRoot._pristine, true);
+                    let EntityRoot = ObjectDataRoot.data;
+                    EntityRoot.members.repeats[0].first_name._value = "new";
+                    assert.equal(ObjectDataRoot._pristine, false);
+
+                    done();
+                });
+            });
+        });
+
+        it('should declare the complete object valid when all fields becomes valid', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+                    assert.equal(ObjectDataRoot._isValid, true);
+                    let EntityRoot = ObjectDataRoot.data;
+
+                    EntityRoot.members.repeats[0].first_name._setInvalid({message: "this first name does not exist"});
+                    EntityRoot.members.repeats[0].display_name._setInvalid({message: "this first name does not exist"});
+                    assert.equal(ObjectDataRoot._isValid, false);
+                    EntityRoot.members.repeats[0].first_name._clearInvalidity();
+                    assert.equal(ObjectDataRoot._isValid, false);
+                    EntityRoot.members.repeats[0].display_name._clearInvalidity();
+                    assert.equal(ObjectDataRoot._isValid, true);
+
+                    done();
+                });
+            });
+        });
+        it('should declare the complete object as invalid if one field becomes invalid', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+                    assert.equal(ObjectDataRoot._isValid, true);
+                    let EntityRoot = ObjectDataRoot.data;
+
+                    EntityRoot.members.repeats[0].first_name._setInvalid({message: "this first name does not exist"});
+                    assert.equal(ObjectDataRoot._isValid, false);
+                    done();
+                });
+            });
+        });
+
+        it('should be possible remove  a item in a repeated by the FieldNode itself', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+                    let EntityRoot = ObjectDataRoot.data;
+
+                    assert.equal(EntityRoot.members.repeats.length, 1);
+                    // add
+                    EntityRoot.members.add();
+                    assert.equal(EntityRoot.members.repeats.length, 2);
+                    EntityRoot.members.repeats[1].deleteNode();
+                    assert.equal(EntityRoot.members.repeats.length, 1);
+                    done();
+                });
+            });
+        });
+
+        it('should be possible to add and remove all a repeated item on repeated fields', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+                    let EntityRoot = ObjectDataRoot.data;
+
+                    assert.equal(EntityRoot.members.repeats.length, 1);
+                    // add
+                    EntityRoot.members.add();
+                    assert.equal(EntityRoot.members.repeats.length, 2);
+                    EntityRoot.members.removeAllChildren();
+                    assert.equal(EntityRoot.members.repeats.length, 0);
+                    done();
+                });
+            });
+        });
+        it('should be possible to remove  repeated item by index fields', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+                    let EntityRoot = ObjectDataRoot.data;
+
+                    assert.equal(EntityRoot.members.repeats.length, 1);
+                    // add
+                    EntityRoot.members.add();
+                    assert.equal(EntityRoot.members.repeats.length, 2);
+                    EntityRoot.members.deleteChild(1);
+                    assert.equal(EntityRoot.members.repeats.length, 1);
+                    done();
+                });
+            });
+        });
+
+
+        it('should fire data-changed when some internal value changed', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+            /**
+             * Attention data-changed will be fired on every field when you inject data
+             */
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+                    let EntityRoot = ObjectDataRoot.data;
+
+                    assert.equal(EntityRoot.members.repeats[0].first_name._value, "John");
+
+                    let handler = (e) => {
+                        assert.equal(element.data.data._spec.type, "project.Project");
+                        let firstname = (element.data.data.members.repeats[0].first_name._value);
+                        assert.equal(firstname, "Lysander");
+                        element.removeEventListener("data-changed", handler);
+                        done();
+                    };
+                    element.addEventListener("data-changed", handler, true);
+
+                    EntityRoot.members.repeats[0].first_name._value = "Lysander";
+                });
+            });
+        });
+
+
+        it('should return a promise', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+                    let EntityRoot = ObjectDataRoot.data;
+                    let firstname = EntityRoot.members.repeats[0].first_name._value;
+                    assert.equal(EntityRoot._spec.type, "project.Project");
+                    assert.equal(firstname, "John");
+                    done();
+                });
+            });
+        });
+
+        it('should reslove queued inject promise', (done) => {
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+                p.then((ObjectDataRoot) => {
+                    let EntityRoot = ObjectDataRoot.data
+                    let firstname = EntityRoot.members.repeats[0].first_name._value;
+                    assert.equal(EntityRoot._spec.type, "project.Project");
+                    assert.equal(firstname, "John");
+                    done();
+                });
+                element.setAttribute("type", "project.ProjectEntity");
+            });
+        });
+
+
+        it('should be a furo-data-object_test', (done) => {
+            assert.equal(element.nodeName.toLowerCase(), "furo-data-object");
+            done()
+        });
+
+        it('should have useful data', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+            let EntityRoot = {};
+            let handler = (e) => {
+                let firstname = EntityRoot.members.repeats[0].first_name._value;
+                assert.equal(element.data.data._spec.type, "project.Project");
+                assert.equal(firstname, "John");
+                done();
+            };
+            element.addEventListener("data-injected", handler);
+
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                EntityRoot = element.data.data;
+                element.injectRaw(response);
+            });
+
+        });
+
+
+        it('should fire data-injected', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+
+            let handler = (e) => {
+                done();
+            };
+            element.addEventListener("data-injected", handler);
+
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                element.injectRaw(response);
+            });
+
+        });
+
+
+        it('should queue data on injectRaw until the type is set', (done) => {
+            fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
+                element.injectRaw(response);
+                element.setAttribute("type", "project.ProjectEntity");
+            });
+
+            let handler = (e) => {
+                done();
+            };
+            element.addEventListener("object-ready", handler);
+        });
+
+
     });
-
-
-    it('should be a furo-data-object_test', (done) => {
-      assert.equal(element.nodeName.toLowerCase(), "furo-data-object");
-      done()
-    });
-
-    it('should have useful data', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-      let EntityRoot = {};
-      let handler = (e) => {
-        let firstname = EntityRoot.members.repeats[0].first_name._value;
-        assert.equal(element.data.data._spec.type, "project.Project");
-        assert.equal(firstname, "John");
-        done();
-      };
-      element.addEventListener("data-injected", handler);
-
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        EntityRoot = element.data.data;
-        element.injectRaw(response);
-      });
-
-    });
-
-
-    it('should fire data-injected', (done) => {
-      element.setAttribute("type", "project.ProjectEntity");
-
-
-      let handler = (e) => {
-        done();
-      };
-      element.addEventListener("data-injected", handler);
-
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        element.injectRaw(response);
-      });
-
-    });
-
-
-    it('should queue data on injectRaw until the type is set', (done) => {
-      fetch("/mockdata/projects/1/get.json").then(res => res.json()).then(response => {
-        element.injectRaw(response);
-        element.setAttribute("type", "project.ProjectEntity");
-      });
-
-      let handler = (e) => {
-        done();
-      };
-      element.addEventListener("object-ready", handler);
-    });
-
-
-  });
 </script>
 </body>
 </html>

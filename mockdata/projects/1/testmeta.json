@@ -3,7 +3,21 @@
     "fields": {
       "data.description": {
         "meta": {
-          "label": "ID label from response"
+          "label": "ID label from response",
+          "options": {
+            "list": [
+              {
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "1",
+                "display_name": "A"
+              },
+              {
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "2",
+                "display_name": "B"
+              }
+            ]
+          }
         },
         "constraints": {
           "min": {
@@ -14,8 +28,7 @@
             "is": 20,
             "message": "Vierzehn sind genug"
           }
-        },
-        "options": ["A","B"]
+        }
       },
       "data.members.0.first_name": {
         "meta": {
