@@ -201,12 +201,21 @@ export class FieldNode extends EventTreeNode {
 
 
 
-    //  init field if it is not in the incomming data
+
+
+    //  clear field if it is not in the incomming data
     this.__childNodes.forEach((n) => {
-      if (val && val[n._name] === null) {
-          n._value = JSON.parse(n.__initialValue);
+      if(val && !val.hasOwnProperty(n._name)){
+        if(n.__childNodes.length > 0){
+          n._value = {};
+        }else{
+          n._value = undefined;
+        }
+
       }
     });
+
+
 
 
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
