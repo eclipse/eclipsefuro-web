@@ -9,5 +9,7 @@
   "type": "person.PersonEntity",
   "value_field": "id",
   "display_field": "display_name",
+  "search_on_enter_only": true,
+  "min_term_length": 1,
   "imports": []
 }

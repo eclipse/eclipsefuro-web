@@ -76,6 +76,8 @@ class {{.class_name}} extends FBP(LitElement) {
                                   value-field="{{.value_field}}"
                                   display-field="{{.display_field}}"
                                   ?condensed="${this.condensed}"
+                                  search-on-enter-only="{{.search_on_enter_only}}"
+                                  min-term-length= "{{.min_term_length}}"
                                   ƒ-collection-in="--collection">
       </furo-data-reference-search>
       <furo-collection-agent
