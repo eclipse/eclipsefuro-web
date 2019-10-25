@@ -6,6 +6,7 @@ import {Env} from "@furo/framework"
 /**
  * `furo-entity-agent` is an interface component to handle entity requests. It analyzes the hateoas data.
  *
+ * If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`
  *
  * @customElement
  * @demo demo/index.html
@@ -91,8 +92,10 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     // check if dataObject is set and create body object
     if (dataObject) {
+
+
       // Method PATCH sends only modified data (.pristine)
-      if (link.method.toLowerCase() === 'patch'){
+      if (link.method.toLowerCase() === 'patch') {
         for (let index in dataObject.__childNodes) {
           let field = dataObject.__childNodes[index];
           let val = field._modified_value;
@@ -101,19 +104,29 @@ class FuroEntityAgent extends FBP(LitElement) {
           }
         }
         // the request object MUST contain a field named 'update_mask'
-        if (!this._ApiEnvironment.specs[this._service.services.Update.data.request].fields.hasOwnProperty('update_mask')){
+        if (!this._ApiEnvironment.specs[this._service.services.Update.data.request].fields.hasOwnProperty('update_mask')) {
           console.warn("The request type " + this._ApiEnvironment.specs[this._service.services.Update.data.request].name + " has no specified field (update_mask) to transmit the changed fields. The operation applies to all fields!", this._ApiEnvironment.specs[this._service.services.Update.data.request], this);
         }
         // add the field_mask
         body['update_mask'] = this._getFieldMask(body);
       } else {
-        for (let index in dataObject.__childNodes) {
-          let field = dataObject.__childNodes[index];
-          let val = field._not_readonly_value;
-          if (val !== undefined) {body[field._name] = val}
+        // send all data
+        if (Env.api.sendAllDataOnMethodPut) {
+          body = dataObject._value;
+        } else {
+          for (let index in dataObject.__childNodes) {
+            let field = dataObject.__childNodes[index];
+            let val = field._not_readonly_value;
+            if (val !== undefined) {
+              body[field._name] = val
+            }
+          }
         }
       }
+
       data = JSON.stringify(body);
+
+
     }
     // create Request object with headers and body
     let headers = new Headers(this._ApiEnvironment.headers);
@@ -136,13 +149,13 @@ class FuroEntityAgent extends FBP(LitElement) {
    * @returns {Array}
    * @private
    */
-  _getFieldMask(obj){
+  _getFieldMask(obj) {
     let keys = Object.keys(obj);
-    return keys.reduce(function(result, key) {
+    return keys.reduce(function (result, key) {
       if (Object.prototype.toString.call(key) === '[object Object]') {
-        result = {"paths":result.concat(getkeys(obj[key], key))};
+        result = {"paths": result.concat(getkeys(obj[key], key))};
       } else {
-        result.push({"paths":key});
+        result.push({"paths": key});
       }
       return result;
     }, []);
@@ -169,7 +182,7 @@ class FuroEntityAgent extends FBP(LitElement) {
     }
     // check rel and type
     let htsFound = this._hts.find((link) => {
-      if (link.rel === rel && link.service === this._service.name){
+      if (link.rel === rel && link.service === this._service.name) {
         return link;
       }
     });
@@ -198,7 +211,7 @@ class FuroEntityAgent extends FBP(LitElement) {
   load() {
     let hts = this._checkServiceAndHateoasLinkError('self', 'Get');
     if (!hts) {
-      let customEvent = new Event( 'missing-hts-self', {composed: true, bubbles: false});
+      let customEvent = new Event('missing-hts-self', {composed: true, bubbles: false});
       this.dispatchEvent(customEvent);
       return false;
     }
@@ -225,7 +238,7 @@ class FuroEntityAgent extends FBP(LitElement) {
   delete() {
     let hts = this._checkServiceAndHateoasLinkError('delete', 'Delete');
     if (!hts) {
-      let customEvent = new Event( 'missing-hts-delete', {composed: true, bubbles: false});
+      let customEvent = new Event('missing-hts-delete', {composed: true, bubbles: false});
       this.dispatchEvent(customEvent);
       return;
     }
@@ -253,10 +266,10 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     // if no rel self is present but a rel create exists, take create
     // rel self is consciously chosen
-    let hts_self = this._hts.find((link) =>{
+    let hts_self = this._hts.find((link) => {
       if (link.rel === 'self') return link;
     });
-    let hts_create = this._hts.find((link) =>{
+    let hts_create = this._hts.find((link) => {
       if (link.rel === 'create') return link;
     });
 
@@ -267,7 +280,7 @@ class FuroEntityAgent extends FBP(LitElement) {
 
     let hts = this._checkServiceAndHateoasLinkError('update', 'Update');
     if (!hts) {
-      let customEvent = new Event( 'missing-hts-update', {composed: true, bubbles: false});
+      let customEvent = new Event('missing-hts-update', {composed: true, bubbles: false});
       this.dispatchEvent(customEvent);
       return;
     }
@@ -295,7 +308,7 @@ class FuroEntityAgent extends FBP(LitElement) {
   put() {
     let hts = this._checkServiceAndHateoasLinkError('update', 'Update');
     if (!hts) {
-      let customEvent = new Event( 'missing-hts-update', {composed: true, bubbles: false});
+      let customEvent = new Event('missing-hts-update', {composed: true, bubbles: false});
       this.dispatchEvent(customEvent);
       return;
     }
@@ -321,7 +334,7 @@ class FuroEntityAgent extends FBP(LitElement) {
   create() {
     let hts = this._checkServiceAndHateoasLinkError('create', 'Create');
     if (!hts) {
-      let customEvent = new Event( 'missing-hts-create', {composed: true, bubbles: false});
+      let customEvent = new Event('missing-hts-create', {composed: true, bubbles: false});
       this.dispatchEvent(customEvent);
       return;
     }

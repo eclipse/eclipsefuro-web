@@ -47,6 +47,41 @@
     });
 
 
+    it('request payload should only have writeable fields', (done) => {
+      entityAgent.setAttribute("service", "TaskService");
+      dataObject.setAttribute("type", "task.TaskEntity");
+      entityAgent.addEventListener("save-success", (r) => {
+        expect(r.detail.json.owner.hasOwnProperty("id")).to.be.false;
+        assert(r.detail.json.owner.link.href, "/mockdata/persons/list.json");
+        done();
+      });
+
+      entityAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "task.TaskEntity",
+          "service": "TaskService"
+        },
+        {
+          "href": "http://httpbin.org/anything",
+          "method": "PUT",
+          "rel": "update",
+          "type": "task.TaskEntity",
+          "service": "TaskService"
+        }
+      ]);
+
+      dataObject.addEventListener("object-ready", () => {
+        dataObject.data.data.description._value = 'description';
+        dataObject.data.data.id._value = '1';
+
+        entityAgent.save();
+      });
+
+    });
+
     it('should mark errors on requested bind', (done) => {
       entityAgent.setAttribute("service", "TaskService");
       dataObject.setAttribute("type", "task.TaskEntity");
@@ -246,39 +281,6 @@
 
     });
 
-    it('request payload should only have writeable fields', (done) => {
-      entityAgent.setAttribute("service", "TaskService");
-      dataObject.setAttribute("type", "task.TaskEntity");
-      entityAgent.addEventListener("save-success", (r) => {
-        expect(r.detail.json.owner.id).to.be.undefined;
-        assert(r.detail.json.owner.link.href, "/mockdata/persons/list.json");
-        done();
-      });
-      entityAgent.htsIn([
-        {
-          "href": "/mockdata/tasks/1/get.json",
-          "method": "GET",
-          "rel": "self",
-          "type": "task.TaskEntity",
-          "service": "TaskService"
-        },
-        {
-          "href": "http://httpbin.org/anything",
-          "method": "PUT",
-          "rel": "update",
-          "type": "task.TaskEntity",
-          "service": "TaskService"
-        }
-      ]);
-
-      dataObject.addEventListener("object-ready", () => {
-        dataObject.data.data.description._value = 'description';
-        dataObject.data.data.id._value = '1';
-
-        entityAgent.save();
-      });
-
-    });
 
     it('should update with method patch when hts is set', (done) => {
       entityAgent.setAttribute("service", "TaskService");
