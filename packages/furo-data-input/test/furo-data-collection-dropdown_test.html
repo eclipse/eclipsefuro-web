@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>test for furo-data-display</title>
+    <title>test for furo-data-text-input_test</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -11,6 +11,7 @@
     <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
     <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
     <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
 </head>
 <body>
 
@@ -18,35 +19,40 @@
     <template>
         <test-bind>
             <template>
-                <furo-data-display ƒ-bind-data="--entity(*.data.description)"></furo-data-display>
-                <furo-data-object type="experiment.ExperimentEntity" @-object-ready="--entity"
+                <furo-data-collection-dropdown ƒ-bind-data="--entity(*.data.description)"></furo-data-collection-dropdown>
+                
+                <furo-data-object type="project.ProjectEntity" @-object-ready="--entity"
                                   ƒ-inject-raw="--response"></furo-data-object>
 
-                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
-                <furo-entity-agent service="ExperimentService"
+                <furo-deep-link service="ProjectService" @-hts-out="--hts"></furo-deep-link>
+                <furo-entity-agent service="ProjectService"
                                    ƒ-hts-in="--hts"
                                    ƒ-load="--hts"
                                    ƒ-bind-request-data="--entity"
                                    @-response="--response">
                 </furo-entity-agent>
+
             </template>
         </test-bind>
+
     </template>
 </test-fixture>
 
 <script type="module">
     import "../furo-catalog.js"
+    import "@furo/fbp/testhelper/test-bind";
+    import "@furo/testhelper/initEnv.js"
     import "@furo/data/furo-data-object.js";
     import "@furo/data/furo-entity-agent";
     import "@furo/data/furo-deep-link";
-    import "@furo/testhelper/initEnv.js"
-    import "@furo/fbp/testhelper/test-bind"; // for testing
-    import 'axe-core/axe.min.js';
-    import {axeReport} from 'pwa-helpers/axe-report.js';
+    import '/node_modules/axe-core/axe.min.js';
 
+    import '/node_modules/axe-core/axe.min.js';
+    import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
-    describe('furo-data-display tests ', function () {
+    // those tests are base on the spec `experiment.type.spec` and the mockdata `mockdata/experiment/1/get.json`
 
+    describe('furo-data-collection-dropdown_test tests ', function () {
 
         let dataInput, host, entityObject, deeplink, entityAgent;
 
@@ -67,45 +73,21 @@
             await entityAgent.updateComplete;
         });
 
-        // a11y tests
-        it('a11y', () => {
-            return axeReport(fixture('basic'));
-        });
-
-        it('should be a furo-data-display', (done) => {
-            assert.equal(dataInput.nodeName.toLowerCase(), "furo-data-display");
-            done()
-        });
 
         it('should receive value with bind', (done) => {
 
             host._FBPAddWireHook("--hts", () => {
-              entityObject.data.data.description.addEventListener("field-value-changed", () => {
-                assert.equal(dataInput.field._value, 'experiment data for testing');
-                assert.equal(dataInput.field._meta.label, 'Description');
-                done();
-
-              }, {once: true});
-            });
-            deeplink.qpIn({"exp": 1});
-        });
-
-        it('should receive value of binded field if attribute displayfield does not exist', (done) => {
-
-            dataInput.displayfield = 'some_attribute';
-
-            host._FBPAddWireHook("--hts", () => {
-                entityObject.data.data.description.addEventListener("field-value-changed", () => {
-                    assert.equal(dataInput.field._value, 'experiment data for testing');
-                    assert.equal(dataInput.field._meta.label, 'Description');
-                    done();
+                entityObject.data.data.description.addEventListener("this-metas-changed", () => {
+                    assert.equal(dataInput.field._value, 'Furo Foundation');
+                    assert.equal(dataInput.field._meta.label, 'ID label from response');
+                    assert.equal(dataInput.field._meta.options.list.length, 2);
+                        done();
 
                 }, {once: true});
+
             });
-            deeplink.qpIn({"exp": 1});
+            deeplink.qpIn({"prj": 1});
         });
-
-
     });
 </script>
 </body>
