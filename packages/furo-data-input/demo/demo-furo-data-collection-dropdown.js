@@ -45,6 +45,8 @@ class DemoFuroDataCollectionDropdown extends FBP(LitElement) {
     return html`
         <furo-vertical-flex>
             <div><h2>Demo furo-data-collection-dropdown</h2>
+                <p>this demo show you how to bind a type to collection dropdown and how inject the collection data</p>
+
             </div>
             <furo-demo-snippet flex>
                 <template>
