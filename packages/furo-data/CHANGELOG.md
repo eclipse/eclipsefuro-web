@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.62.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.61.2...@furo/data@0.62.0) (2019-10-25)
+
+
+### Features
+
+* Environment option to enable sending all data on PUT. ([8e470d0](https://github.com/veith/FuroBaseComponents/commit/8e470d0))
+* use defaults only on init of a data object ([563d811](https://github.com/veith/FuroBaseComponents/commit/563d811))
+
+
+
+
+
 ## [0.61.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.61.1...@furo/data@0.61.2) (2019-10-23)
 
 **Note:** Version bump only for package @furo/data
