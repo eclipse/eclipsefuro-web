@@ -111,7 +111,7 @@ class FuroEntityAgent extends FBP(LitElement) {
         body['update_mask'] = this._getFieldMask(body);
       } else {
         // send all data
-        if (Env.api.sendAllDataOnMethodPut) {
+        if (Env.api.sendAllDataOnMethodPut && link.method.toLowerCase() === 'put') {
           body = dataObject._value;
         } else {
           for (let index in dataObject.__childNodes) {
