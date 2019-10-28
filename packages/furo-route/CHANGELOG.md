@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.8](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.20.7...@furo/route@0.20.8) (2019-10-28)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
 ## [0.20.7](https://github.com/veith/FuroBaseComponents/compare/@furo/route@0.20.6...@furo/route@0.20.7) (2019-10-25)
 
 **Note:** Version bump only for package @furo/route
