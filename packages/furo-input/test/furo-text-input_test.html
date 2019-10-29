@@ -37,9 +37,7 @@
       textInput = fixture('Basic');
       await textInput.updateComplete;
       inputField = textInput.shadowRoot.querySelector("input");
-
     });
-
 
     it('shoud remove pattern when it is undefined', (done) => {
       textInput.removeAttribute("pattern");
@@ -104,6 +102,16 @@
 
     it('a11y', () => {
       return axeReport(fixture('Basic'));
+    });
+
+    it('should clear with undefined value passed with setValue', (done) => {
+      textInput.setValue("Test");
+      assert.equal(textInput.value, "Test");
+      assert.equal(inputField.value, "Test");
+      textInput.setValue(undefined);
+      assert.equal(textInput.value, undefined);
+      assert.equal(inputField.value, "");
+      done();
     });
 
     it('should accept a value with setValue', (done) => {

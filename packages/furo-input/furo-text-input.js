@@ -109,7 +109,11 @@ class FuroTextInput extends FBP(LitElement) {
 
   set _value(v) {
     this._float = !!v;
-    this._FBPTriggerWire("--value", v);
+    if(v!==undefined){
+      this._FBPTriggerWire("--value", v);
+    }else{
+      this._FBPTriggerWire("--value", "");
+    }
   }
 
   static get properties() {
