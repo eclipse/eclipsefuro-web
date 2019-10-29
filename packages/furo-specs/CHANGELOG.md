@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.41.3](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.41.2...@furo/specs@0.41.3) (2019-10-29)
+
+
+### Bug Fixes
+
+* fix noescape in update.action.tmpl ([d23c2b8](https://github.com/veith/FuroBaseComponents/commit/d23c2b8))
+
+
+
+
+
 ## [0.41.2](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.41.1...@furo/specs@0.41.2) (2019-10-28)
 
 **Note:** Version bump only for package @furo/specs

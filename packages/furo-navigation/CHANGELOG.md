@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.33.33](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.32...@furo/navigation@0.33.33) (2019-10-29)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
 ## [0.33.32](https://github.com/veith/FuroBaseComponents/compare/@furo/navigation@0.33.31...@furo/navigation@0.33.32) (2019-10-28)
 
 **Note:** Version bump only for package @furo/navigation
