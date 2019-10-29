@@ -194,11 +194,6 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         this._notifiySelectedItem(arr[0].id);
       } else {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value);
-        this._fieldNodeToUpdate._value = arr[0].id;
-
-        if(this._fieldDisplayNodeToUpdate) {
-          this._fieldDisplayNodeToUpdate._value = arr[0].label;
-        }
       }
 
       this._FBPTriggerWire("--selection", arr);
