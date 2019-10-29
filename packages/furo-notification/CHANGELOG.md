@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/veith/FuroBaseComponents/compare/@furo/notification@0.2.2...@furo/notification@0.2.3) (2019-10-29)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
 ## [0.2.2](https://github.com/veith/FuroBaseComponents/compare/@furo/notification@0.2.1...@furo/notification@0.2.2) (2019-10-25)
 
 **Note:** Version bump only for package @furo/notification

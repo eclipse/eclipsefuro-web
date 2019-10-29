@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.41.4](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.41.3...@furo/specs@0.41.4) (2019-10-29)
+
+
+### Bug Fixes
+
+* use item.rel_value in update.acton.tmpl ([eaee4ab](https://github.com/veith/FuroBaseComponents/commit/eaee4ab))
+
+
+
+
+
 ## [0.41.3](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.41.2...@furo/specs@0.41.3) (2019-10-29)
 
 
