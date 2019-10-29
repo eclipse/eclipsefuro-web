@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.62.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.62.0...@furo/data@0.62.1) (2019-10-28)
+
+
+### Bug Fixes
+
+* _value on dataObject ([51ab6e0](https://github.com/veith/FuroBaseComponents/commit/51ab6e0))
+
+
+
+
+
 # [0.62.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.61.2...@furo/data@0.62.0) (2019-10-25)
 
 

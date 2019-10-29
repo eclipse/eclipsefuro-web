@@ -1,0 +1,110 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>test for furo-data-text-input_test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+</head>
+<body>
+
+<test-fixture id="basic">
+    <template>
+        <test-bind>
+            <template>
+                <furo-data-money-input ƒ-bind-data="--entity(*.data.furo_data_money_input)"></furo-data-money-input>
+
+                <furo-data-object type="experiment.ExperimentEntity" @-object-ready="--entity"
+                                  ƒ-inject-raw="--response"></furo-data-object>
+
+                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+                <furo-entity-agent service="ExperimentService"
+                                   ƒ-hts-in="--hts"
+                                   ƒ-load="--hts"
+                                   ƒ-bind-request-data="--entity"
+                                   @-response="--response">
+                </furo-entity-agent>
+
+            </template>
+        </test-bind>
+
+    </template>
+</test-fixture>
+
+<script type="module">
+    import "../furo-catalog.js"
+    import "@furo/fbp/testhelper/test-bind";
+    import "@furo/testhelper/initEnv.js"
+    import "@furo/data/furo-data-object.js";
+    import "@furo/data/furo-entity-agent";
+    import "@furo/data/furo-deep-link";
+    import '/node_modules/axe-core/axe.min.js';
+
+    import '/node_modules/axe-core/axe.min.js';
+    import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+    // those tests are base on the spec `experiment.type.spec` and the mockdata `mockdata/experiment/1/get.json`
+
+    describe('furo-data-money-input_test tests ', function () {
+
+        let dataInput, host, entityObject, deeplink, entityAgent;
+
+        beforeEach(async () => {
+            let fix = fixture('basic');
+            host = fix[0]._host;
+
+            dataInput = fix[1];
+            await dataInput.updateComplete;
+
+            entityObject = fix[2];
+            await entityObject.updateComplete;
+
+            deeplink = fix[3];
+            await deeplink.updateComplete;
+
+            entityAgent = fix[4];
+            await entityAgent.updateComplete;
+        });
+
+
+        it('should receive value with bind', (done) => {
+
+            entityObject.addEventListener("data-injected", () => {
+
+                setTimeout(()=>{
+                    assert.equal(dataInput.field.units._value, "3333");
+                    assert.equal(dataInput.field.currency_code._value, "CHF");
+                    assert.equal(dataInput.field.nanos._value, "75100000");
+                    done();
+                },0);
+            });
+            deeplink.qpIn({"exp": 1});
+        });
+
+        it('should be possible to set a list of currencies with the currencies attribute', (done) => {
+
+            dataInput._FBPAddWireHook('--selection', (list) =>{
+                assert.equal(list.length, 3);
+            });
+            entityObject.addEventListener("data-injected", () => {
+                setTimeout(()=>{
+                    assert.equal(dataInput.field.units._value, "3333");
+                    assert.equal(dataInput.field.currency_code._value, "CHF");
+                    assert.equal(dataInput.field.nanos._value, "75100000");
+                    done();
+                },0);
+            });
+            dataInput.setAttribute('currencies', 'chf,eur,usd');
+            deeplink.qpIn({"exp": 1});
+        });
+    });
+</script>
+</body>
+</html>

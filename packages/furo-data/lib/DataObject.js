@@ -104,6 +104,16 @@ export class DataObject extends EventTreeNode {
     return this._rawEntity;
   }
 
+
+
+  /**
+   * Returns a json representation of your Data Object
+   * @return {*}
+   */
+  get _value() {
+    return this.getJson();
+  }
+
   /**
    * Returns a json representation of your Data Object
    * @return {*}
@@ -126,6 +136,7 @@ export class DataObject extends EventTreeNode {
     }
     return data;
   }
+
 
 
   _updateFieldValuesAndMetaFromRawEntity(node, data) {
