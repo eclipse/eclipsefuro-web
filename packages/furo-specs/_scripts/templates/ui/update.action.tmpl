@@ -57,7 +57,7 @@ class {{.class_name}} extends FBP(LitElement) {
             this._entity.addEventListener('data-injected', () => {
                 let rels = [];
                 this._entity.links.__childNodes.forEach((item) => {
-                    rels.push(item.value.rel);
+                    rels.push(item.rel_value);
                 });
 
                 let elems = this.shadowRoot.querySelectorAll('furo-button');
@@ -83,7 +83,7 @@ class {{.class_name}} extends FBP(LitElement) {
         let elems = this.shadowRoot.querySelectorAll('furo-button');
         let rels = [];
         this._entity.links.__childNodes.forEach((item) => {
-            rels.push(item.value.rel);
+            rels.push(item.rel_value);
         });
         elems.forEach((item) => {
             if (item.getAttribute('rel').length {{"<" | noescape}}= 0 || rels.indexOf(item.getAttribute('rel')) > -1){
