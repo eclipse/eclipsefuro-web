@@ -4,19 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const execSync = require('child_process').execSync;
 
-/**
- * deprecation warning
- * moved to furo-ui-builder/_scripts
- */
-console.warn('##############################################');
-console.warn('#   DEPRECATED                               #');
-console.warn('#   All UI specific scripts and templates    #');
-console.warn('#   have been moved to the package           #');
-console.warn('#   @furo/ui-builder.                        #');
-console.warn('#                                            #');
-console.warn('#   Will be removed in a future release!     #');
-console.warn('##############################################');
-
 let config;
 // config öffnen
 if (fs.existsSync('./furo.ui.spec.conf.json')) {

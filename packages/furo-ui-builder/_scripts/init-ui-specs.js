@@ -1,18 +1,5 @@
 #!/usr/bin/env node
 
-/**
- * deprecation warning
- * moved to furo-ui-builder/_scripts
- */
-console.warn('##############################################');
-console.warn('#   DEPRECATED                               #');
-console.warn('#   All UI specific scripts and templates    #');
-console.warn('#   have been moved to the package           #');
-console.warn('#   @furo/ui-builder.                        #');
-console.warn('#                                            #');
-console.warn('#   Will be removed in a future release!     #');
-console.warn('##############################################');
-
 const fs = require('fs');
 const execSync = require('child_process').execSync;
 const path = require('path');

@@ -1,0 +1,10 @@
+{
+  "name": "@furo/ui-builder",
+  "description": "Tooling infrastructure for spec based ui templating (semi-finished goods)",
+  "main": "furo-catalog.js",
+  "license": "MIT",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  }
+}

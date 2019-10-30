@@ -1,4 +1,4 @@
-import {FBP} from '@furo/fbp/fbp.js';
+import {FBP} from '@furo/fbp';
 
 /**
  * `furo-filter-container`
