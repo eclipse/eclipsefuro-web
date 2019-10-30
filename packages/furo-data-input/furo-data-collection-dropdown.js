@@ -98,7 +98,6 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   }
 
   _notifiySelectedItem(val) {
-    console.log(val);
 
     /**
      * @event item-selected
@@ -201,6 +200,9 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
         }
         selectedItem = selectedItem? selectedItem: arr[0].id;
         this._notifiySelectedItem(selectedItem);
+        if(this._fieldNodeToUpdate) {
+          this._fieldNodeToUpdate._value = selectedItem;
+        }
       } else {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value);
       }
@@ -532,7 +534,6 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * @param {Array} Array with entities
    */
   injectEntities(entities) {
-
     let arr =[];
 
     // select the item when it's value is equal the field value.
