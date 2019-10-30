@@ -47,7 +47,8 @@
               {
                 "@type": "type.googleapis.com/furo.Optionitem",
                 "id": "2",
-                "display_name": "B"
+                "display_name": "B",
+                "selected": true
               }
             ]
           }

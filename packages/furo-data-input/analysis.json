@@ -782,11 +782,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 211,
               "column": 6
             },
             "end": {
-              "line": 219,
+              "line": 214,
               "column": 7
             }
           },
@@ -803,11 +803,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 220,
               "column": 6
             },
             "end": {
-              "line": 227,
+              "line": 222,
               "column": 7
             }
           },
@@ -824,11 +824,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 228,
               "column": 6
             },
             "end": {
-              "line": 236,
+              "line": 231,
               "column": 7
             }
           },
@@ -845,11 +845,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 240,
+              "line": 235,
               "column": 6
             },
             "end": {
-              "line": 243,
+              "line": 238,
               "column": 7
             }
           },
@@ -866,11 +866,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 242,
               "column": 6
             },
             "end": {
-              "line": 250,
+              "line": 245,
               "column": 7
             }
           },
@@ -887,11 +887,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 251,
               "column": 6
             },
             "end": {
-              "line": 258,
+              "line": 253,
               "column": 7
             }
           },
@@ -908,11 +908,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 260,
+              "line": 255,
               "column": 6
             },
             "end": {
-              "line": 262,
+              "line": 257,
               "column": 7
             }
           },
@@ -929,11 +929,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 266,
+              "line": 261,
               "column": 6
             },
             "end": {
-              "line": 268,
+              "line": 263,
               "column": 7
             }
           },
@@ -950,11 +950,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 273,
+              "line": 268,
               "column": 6
             },
             "end": {
-              "line": 275,
+              "line": 270,
               "column": 7
             }
           },
@@ -971,11 +971,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 293,
+              "line": 288,
               "column": 6
             },
             "end": {
-              "line": 296,
+              "line": 291,
               "column": 7
             }
           },
@@ -992,11 +992,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 300,
+              "line": 295,
               "column": 6
             },
             "end": {
-              "line": 302,
+              "line": 297,
               "column": 7
             }
           },
@@ -1013,11 +1013,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 316,
+              "line": 311,
               "column": 6
             },
             "end": {
-              "line": 318,
+              "line": 313,
               "column": 7
             }
           },
@@ -1496,7 +1496,7 @@
               "column": 2
             },
             "end": {
-              "line": 206,
+              "line": 201,
               "column": 3
             }
           },
@@ -1516,11 +1516,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 325,
+              "line": 320,
               "column": 2
             },
             "end": {
-              "line": 327,
+              "line": 322,
               "column": 3
             }
           },
@@ -1536,11 +1536,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 332,
+              "line": 327,
               "column": 2
             },
             "end": {
-              "line": 334,
+              "line": 329,
               "column": 3
             }
           },
@@ -1556,11 +1556,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 341,
+              "line": 336,
               "column": 2
             },
             "end": {
-              "line": 372,
+              "line": 367,
               "column": 3
             }
           },
@@ -1582,11 +1582,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 380,
+              "line": 375,
               "column": 2
             },
             "end": {
-              "line": 387,
+              "line": 382,
               "column": 3
             }
           },
@@ -1606,11 +1606,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 389,
+              "line": 384,
               "column": 2
             },
             "end": {
-              "line": 400,
+              "line": 395,
               "column": 3
             }
           },
@@ -1626,11 +1626,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 429,
+              "line": 424,
               "column": 2
             },
             "end": {
-              "line": 434,
+              "line": 429,
               "column": 3
             }
           },
@@ -1650,11 +1650,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 436,
+              "line": 431,
               "column": 2
             },
             "end": {
-              "line": 449,
+              "line": 463,
               "column": 3
             }
           },
@@ -1671,11 +1671,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 472,
+              "line": 486,
               "column": 2
             },
             "end": {
-              "line": 477,
+              "line": 491,
               "column": 3
             }
           },
@@ -1695,11 +1695,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 484,
+              "line": 498,
               "column": 2
             },
             "end": {
-              "line": 497,
+              "line": 511,
               "column": 3
             }
           },
@@ -1719,11 +1719,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 504,
+              "line": 518,
               "column": 2
             },
             "end": {
-              "line": 517,
+              "line": 531,
               "column": 3
             }
           },
@@ -1741,12 +1741,12 @@
           "description": "inject collection demo"
         },
         {
-          "url": "demo-furo-data-collection-reference-dropdown",
-          "description": "combine with reference dropdown demo"
+          "url": "demo-furo-data-collection-dropdown-bind-entity",
+          "description": "bind entity without inject demo"
         },
         {
-          "url": "demo-furo-data-collection-reference-dropdown-bind-entity",
-          "description": "bind entity without inject demo"
+          "url": "demo-furo-data-collection-reference-dropdown",
+          "description": "combine with reference dropdown demo"
         }
       ],
       "metadata": {},
@@ -1756,7 +1756,7 @@
           "column": 0
         },
         "end": {
-          "line": 518,
+          "line": 532,
           "column": 1
         }
       },
@@ -1817,11 +1817,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 216,
+              "line": 211,
               "column": 6
             },
             "end": {
-              "line": 219,
+              "line": 214,
               "column": 7
             }
           },
@@ -1833,11 +1833,11 @@
           "description": "if you bind a complex type, declare here the field which gets updated of value by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 220,
               "column": 6
             },
             "end": {
-              "line": 227,
+              "line": 222,
               "column": 7
             }
           },
@@ -1849,11 +1849,11 @@
           "description": "if you bind a complex type, declare here the field which gets updated of display_name by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 228,
               "column": 6
             },
             "end": {
-              "line": 236,
+              "line": 231,
               "column": 7
             }
           },
@@ -1865,11 +1865,11 @@
           "description": "The name of the field from the injected collection that contains the label for the dropdown array.",
           "sourceRange": {
             "start": {
-              "line": 240,
+              "line": 235,
               "column": 6
             },
             "end": {
-              "line": 243,
+              "line": 238,
               "column": 7
             }
           },
@@ -1881,11 +1881,11 @@
           "description": "The name of the field from the injected collection that contains the value you want to assign to the attribute value and the bounded field.",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 242,
               "column": 6
             },
             "end": {
-              "line": 250,
+              "line": 245,
               "column": 7
             }
           },
@@ -1897,11 +1897,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 251,
               "column": 6
             },
             "end": {
-              "line": 258,
+              "line": 253,
               "column": 7
             }
           },
@@ -1913,11 +1913,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 260,
+              "line": 255,
               "column": 6
             },
             "end": {
-              "line": 262,
+              "line": 257,
               "column": 7
             }
           },
@@ -1929,11 +1929,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 266,
+              "line": 261,
               "column": 6
             },
             "end": {
-              "line": 268,
+              "line": 263,
               "column": 7
             }
           },
@@ -1945,11 +1945,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 273,
+              "line": 268,
               "column": 6
             },
             "end": {
-              "line": 275,
+              "line": 270,
               "column": 7
             }
           },
@@ -1961,11 +1961,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 293,
+              "line": 288,
               "column": 6
             },
             "end": {
-              "line": 296,
+              "line": 291,
               "column": 7
             }
           },
@@ -1977,11 +1977,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 300,
+              "line": 295,
               "column": 6
             },
             "end": {
-              "line": 302,
+              "line": 297,
               "column": 7
             }
           },

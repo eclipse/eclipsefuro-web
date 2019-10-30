@@ -93,13 +93,13 @@
             {
               "id": "unknown",
               "display_name": "person.type.sex.unknown.label",
-              "selected": true,
+              "selected": false,
               "@type": "type.googleapis.com/furo.Optionitem"
             },
             {
               "id": "female",
               "display_name": "person.type.sex.female.label",
-              "selected": false,
+              "selected": true,
               "@type": "type.googleapis.com/furo.Optionitem"
             },
             {

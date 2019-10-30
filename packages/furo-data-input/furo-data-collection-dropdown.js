@@ -36,8 +36,8 @@ import {FBP} from "@furo/fbp";
  * @summary bindable dropdown
  * @customElement
  * @demo demo-furo-data-collection-dropdown inject collection demo
+ * @demo demo-furo-data-collection-dropdown-bind-entity bind entity without inject demo
  * @demo demo-furo-data-collection-reference-dropdown combine with reference dropdown demo
- * @demo demo-furo-data-collection-reference-dropdown-bind-entity bind entity without inject demo
  * @mixes FBP
  */
 class FuroDataCollectionDropdown extends FBP(LitElement) {
@@ -98,6 +98,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   }
 
   _notifiySelectedItem(val) {
+    console.log(val);
 
     /**
      * @event item-selected
@@ -189,9 +190,17 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     if(arr.length > 0) {
       this._dropdownList = arr;
 
-      if (!this.field) {
+      if (!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
         // notifiy first item if field is not set
-        this._notifiySelectedItem(arr[0].id);
+        let selectedItem = null;
+        for(let i=0; i<arr.length; i++) {
+          if(arr[i]["selected"]) {
+            selectedItem = arr[i].id;
+            break;
+          }
+        }
+        selectedItem = selectedItem? selectedItem: arr[0].id;
+        this._notifiySelectedItem(selectedItem);
       } else {
         this._notifiySelectedItem(this._fieldNodeToUpdate._value);
       }
@@ -431,12 +440,57 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
   _mapDataToList(list) {
     let arr =[];
+    // if field value not exists. select item when the item is marked as `selected` in list
+    if(!this._fieldNodeToUpdate || !this._fieldNodeToUpdate._value) {
+      arr = this._setItemSelectedViaSelectedMark(list);
+    }
+    else {
+      // if field value exists. select the item when it's value is equal the field value.
+      // when field value is not equal the filed value, select the item if the item is marked as `selected`
+      if(Array.isArray(list)) {
+        let isSelected = false;
+        let hasSelectedMark = false;
+        let preSelectedValueInList = null;
+        for(let i=0; i < list.length; i++) {
+          let item = {
+            "id": list[i][this.valueField],
+            "label": list[i][this.displayField],
+            "selected": false,
+            "_original": list[i]
+          }
+
+          if(this._fieldNodeToUpdate._value == list[i][this.valueField]) {
+
+            item.selected = true;
+            isSelected = true;
+          }
+
+          if(list[i]["selected"]) {
+            hasSelectedMark = true;
+            preSelectedValueInList =  list[i][this.valueField];
+          }
+
+          arr.push(item);
+        }
+
+        if(!isSelected && hasSelectedMark ) {
+          arr = this._setItemSelectedViaSelectedMark(list);
+          this._fieldNodeToUpdate._value = preSelectedValueInList;
+        }
+      }
+    }
+
+    return arr;
+  }
+
+  _setItemSelectedViaSelectedMark(list) {
+    let arr =[];
     if(Array.isArray(list)) {
       arr = list.map((e) => {
         return {
           "id": e[this.valueField],
           "label": e[this.displayField],
-          "selected": (this._fieldNodeToUpdate._value == e[this.valueField]),
+          "selected": e["selected"]? true : false,
           "_original": e
         }
       });
@@ -479,15 +533,52 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    */
   injectEntities(entities) {
 
-    // map
-    let arr = entities.map((e) => {
-      return {
-        "id": e.data[this.valueField],
-        "label": e.data[this.displayField],
-        "selected": (this._fieldNodeToUpdate._value == e.data[this.valueField]),
-        "_original": e
+    let arr =[];
+
+    // select the item when it's value is equal the field value.
+    // when field value is not equal the filed value, select the item if the item is marked as `selected`
+    if(Array.isArray(entities)) {
+      let arrA = [];
+      let arrB = [];
+      let isSelected = false;
+      let hasSelectedMark = false;
+      let preSelectedValueInList = null;
+      for(let i=0; i < entities.length; i++) {
+        let item = {
+          "id": entities[i].data[this.valueField],
+          "label": entities[i].data[this.displayField],
+          "selected": false,
+          "_original": entities[i]
+        }
+        let itemB = {};
+
+        itemB = Object.assign(itemB, item);
+
+        if(this._fieldNodeToUpdate._value == entities[i].data[this.valueField]) {
+
+          item.selected = true;
+          isSelected = true;
+        }
+
+
+        if(entities[i].data["selected"]) {
+          hasSelectedMark = true;
+          itemB.selected = true;
+          preSelectedValueInList =  entities[i].data[this.valueField];
+        }
+
+        arrA.push(item);
+        arrB.push(itemB);
       }
-    });
+
+      if(!isSelected && hasSelectedMark ) {
+        arr = arrB;
+        this._fieldNodeToUpdate._value = preSelectedValueInList;
+      }
+      else {
+        arr = arrA;
+      }
+    }
 
     this._notifyAndTriggerUpdate(arr);
   }
