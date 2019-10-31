@@ -170,8 +170,10 @@ export class FieldNode extends EventTreeNode {
       } else {
         // update the primitive type
         this._oldvalue = this._value;
+
         this.__value = val;
         this._pristine = false;
+
         if (JSON.stringify(this._oldvalue) !== JSON.stringify(this.__value)) {
           /**
            * @event (field-value-changed)
@@ -211,12 +213,8 @@ export class FieldNode extends EventTreeNode {
         }else{
           n._value = undefined;
         }
-
       }
     });
-
-
-
 
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
   }

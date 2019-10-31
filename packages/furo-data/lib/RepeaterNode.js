@@ -118,24 +118,21 @@ export class RepeaterNode extends EventTreeNode {
   }
 
   set _value(val) {
+
     if (Array.isArray(val)) {
 
+      // remove all items if type is furo.Property
+      if (this._spec.type === "furo.Property") {
+        this.removeAllChildren();
+        this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
+        this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
+      }
 
       val.forEach((repdata, i) => {
         if (!this.repeats[i]) {
           this._addSilent();
         }
         // Werte aktualisieren
-
-        // remove if type any and insert at same index
-        if (this.repeats[i]._spec.type === "furo.Property") {
-          this.__childNodes.splice(i, 1);
-          let fieldNode = new FieldNode(this, this._spec, this._name);
-          fieldNode.__index = i;
-          this.repeats.splice(i, 1, fieldNode);
-        }
-
-
         this.repeats[i]._value = repdata;
         this.repeats[i]._pristine = true;
 
@@ -150,7 +147,6 @@ export class RepeaterNode extends EventTreeNode {
 
       this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
       this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
-      //TODO check the tree
       this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
     }
   }

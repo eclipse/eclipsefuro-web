@@ -51,23 +51,23 @@ class DemoFuroDataProperty extends FBP(LitElement) {
           <template>
             <furo-vertical-scroller>
               <furo-form-layouter two>
-                <!-- single Property -->
-                <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
                 <!-- repeated Property -->
-                <furo-data-property condensed ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
-                <furo-data-property ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
+                 
+                <furo-data-property ƒ-bind-data="--entity(*.data.type_property)"></furo-data-property>
+                
+ 
                 <!-- single Property -->
-                <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
+                <furo-data-property ƒ-bind-data="--entity(*.data.single_type_property)"></furo-data-property>
               </furo-form-layouter>
               
-
+<furo-button @-click="--reload">reload</furo-button>
               <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
-              <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
-                                ƒ-inject-raw="--response(*.data)"></furo-data-object>
+              <furo-data-object type="experiment.ExperimentEntity" @-object-ready="--entity"
+                                ƒ-inject-raw="--response"></furo-data-object>
               <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
               <furo-entity-agent service="ExperimentService"
                                  ƒ-hts-in="--hts"
-                                 ƒ-load="--hts"
+                                 ƒ-load="--hts,--reload"
                                  ƒ-bind-request-data="--entity"
                                  @-response="--response">
               </furo-entity-agent>

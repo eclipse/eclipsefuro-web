@@ -121,7 +121,6 @@ class FlowRepeat extends FBP(HTMLElement) {
                 // wenn die identität abweicht
                 if (this._insertedItems[i].identity === false || this._insertedItems[i].identity !== identity) {
                     elem = this._buildDomNode(identity, i);
-
                     // Schiebe alle elemente des Knotens vor das erste kind des nächsten möglichen knoten
                     let reference = this;
                     if(this._insertedItems[i + 1] && this._insertedItems[i + 1].children[0] ){
@@ -135,6 +134,7 @@ class FlowRepeat extends FBP(HTMLElement) {
                     elem._FBPTriggerWire("--init", e);
                 } else {
                     elem = this._insertedItems[i].virtualElement;
+
                 }
             }
 

@@ -19,34 +19,7 @@
     "furo_data_range_input": 31,
     "furo_data_bool_icon": false,
     "type_property": [
-      {
-        "data": {
-          "@type": "xx/google.type.Date",
-          "day": 8,
-          "month": 11,
-          "year": 2022,
-          "display_name": "8.11.2022"
-        },
-        "display_name": "a date",
-        "id": "a",
-        "code": "date",
-        "meta": {
-          "fields": {
-            "data": {
-              "meta": {
-                "label": "datelabel",
-                "hint": "datehint is data"
-              },
-              "constraints": {
-                "min": {
-                  "is": "2019-09-09",
-                  "message": "to small"
-                }
-              }
-            }
-          }
-        }
-      },
+
       {
         "data": {
           "@type": "xx/furo.NumberProperty",
@@ -185,7 +158,7 @@
   },
   "links": [
     {
-      "href": "/mockdata/experiments/1/get-less-props.json",
+      "href": "/mockdata/experiments/1/get-more-props.json",
       "method": "GET",
       "rel": "self",
       "type": "experiment.ExperimentEntity",

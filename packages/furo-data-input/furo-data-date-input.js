@@ -270,10 +270,12 @@ class FuroDataDateInput extends FBP(LitElement) {
    */
   bindData(fieldNode) {
     Helper.BindData(this, fieldNode);
-
     this.field.addEventListener('branch-value-changed', (e) => {
       this._updateFieldBranch();
     });
+
+    //init
+    this._updateFieldBranch();
   }
 
 
@@ -282,7 +284,6 @@ class FuroDataDateInput extends FBP(LitElement) {
   }
 
   _updateFieldBranch() {
-
     //mark incomming error
     if (!this.field._isValid) {
       this.error = true;
