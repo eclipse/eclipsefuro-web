@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.60.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.60.4...@furo/data-input@0.60.5) (2019-10-31)
+
+
+### Bug Fixes
+
+* fix selected problem in collection dropdown ([4b175d7](https://github.com/veith/FuroBaseComponents/commit/4b175d7))
+* fix selected problem in collection dropdown ([0564f73](https://github.com/veith/FuroBaseComponents/commit/0564f73))
+* furo.Property reloads ([453acaf](https://github.com/veith/FuroBaseComponents/commit/453acaf))
+
+
+
+
+
 ## [0.60.4](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.60.3...@furo/data-input@0.60.4) (2019-10-29)
 
 **Note:** Version bump only for package @furo/data-input

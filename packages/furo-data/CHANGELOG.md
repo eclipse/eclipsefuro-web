@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.62.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.62.2...@furo/data@0.62.3) (2019-10-31)
+
+
+### Bug Fixes
+
+* furo.Property reloads ([453acaf](https://github.com/veith/FuroBaseComponents/commit/453acaf))
+
+
+
+
+
 ## [0.62.2](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.62.1...@furo/data@0.62.2) (2019-10-29)
 
 **Note:** Version bump only for package @furo/data
