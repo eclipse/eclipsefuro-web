@@ -34,6 +34,7 @@
 
                 <furo-data-collection-dropdown hint="hint override" leading-icon="mail" trailing-icon="fingerprint"
                                                label="default list from spec"
+                                               subfield-display="diaplay_name"
                                                ƒ-inject-entities="--responsePerson(*.entities)"
                                                ƒ-bind-data="--entityTask(*.owner)"></furo-data-collection-dropdown>
 
@@ -57,6 +58,7 @@
     import "@furo/testhelper/initEnv.js"
     import "@furo/data/furo-data-object.js";
     import "@furo/data/furo-entity-agent";
+    import "@furo/data/furo-collection-agent";
     import "@furo/data/furo-deep-link";
     import '/node_modules/axe-core/axe.min.js';
 
@@ -67,7 +69,7 @@
 
     describe('furo-data-collection-dropdown_test tests ', function () {
 
-        let collectionDropdown1,collectionDropdown2, host, entityObject,entityObject2, deeplink, entityAgent;
+        let collectionDropdown1,collectionDropdown2, host, entityObject,entityObject2, deeplink, entityAgent, collectionAgent;
 
         beforeEach(async () => {
             let fix = fixture('basic');
@@ -90,6 +92,9 @@
 
             entityObject2 = fix[6];
             await entityObject2.updateComplete;
+
+            collectionAgent = fix[7];
+            await collectionAgent.updateComplete;
         });
 
 
@@ -116,6 +121,30 @@
           });
 
        });
+
+      it('should assign the field value (is not setted before) initially with the selected item value from spec', (done) => {
+
+        setTimeout(()=>{
+          assert.equal(entityObject2.data.owner.id._value, "female");
+          done();
+
+        },0)
+      });
+
+      it('should assign the field value (is not setted before) initially with the initial selected item value from data', (done) => {
+        collectionAgent.list();
+        setTimeout(()=>{
+          assert.equal(entityObject2.data.owner.id._value, 2);
+          done();
+
+        },100)
+      });
+
+      // a11y tests
+      it('a11y', () => {
+        return axeReport(fixture('basic'));
+      });
+
     });
 </script>
 </body>

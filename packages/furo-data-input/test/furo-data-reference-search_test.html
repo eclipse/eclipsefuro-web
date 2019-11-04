@@ -1,0 +1,106 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>test for furo-data-reference-search</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+</head>
+<body>
+
+<test-fixture id="basic">
+    <template>
+        <test-bind>
+            <template>
+
+                <furo-data-reference-search condensed
+                                            label="Search on enter only"
+                                            min-term-length="2"
+                                            ƒ-bind-data="--entityReady(*.owner)"
+                                            @-search="--term"
+                                            ƒ-collection-in="--refCol">
+                </furo-data-reference-search>
+
+                <furo-data-object
+                        type="task.Task"
+                        @-object-ready="--entityReady">
+                </furo-data-object>
+
+                <furo-collection-agent
+                        service="PersonService"
+                        ƒ-hts-in="--entityReady(*.owner.link._value)"
+                        ƒ-search="--term"
+                        @-response="--refCol">
+                </furo-collection-agent>
+
+
+            </template>
+        </test-bind>
+
+    </template>
+</test-fixture>
+
+<script type="module">
+    import "../furo-catalog.js"
+    import "@furo/fbp/testhelper/test-bind";
+    import "@furo/testhelper/initEnv.js"
+    import "@furo/data/furo-data-object.js";
+    import "@furo/data/furo-entity-agent";
+    import "@furo/data/furo-collection-agent";
+    import "@furo/data/furo-deep-link";
+    import '/node_modules/axe-core/axe.min.js';
+
+    import '/node_modules/axe-core/axe.min.js';
+    import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+
+    describe('furo-data-reference-search_test tests ', function () {
+
+        let  host,referenceSearch,entityObject, collectionAgent;
+
+        beforeEach(async () => {
+            let fix = fixture('basic');
+            host = fix[0]._host;
+
+            referenceSearch = fix[1];
+            await referenceSearch.updateComplete;
+
+            entityObject = fix[2];
+            await entityObject.updateComplete;
+
+            collectionAgent = fix[3];
+            await collectionAgent.updateComplete;
+        });
+
+      it('should override min-term-length  ', (done) => {
+        setTimeout(()=>{
+
+          assert.equal(referenceSearch.minTermLength, 2);
+          done();
+        },0)
+      });
+
+      it('should set label  ', (done) => {
+        setTimeout(()=>{
+
+          assert.equal(referenceSearch.label, "Search on enter only");
+          done();
+        },0)
+      });
+
+      // a11y tests
+      it('a11y', () => {
+        return axeReport(fixture('basic'));
+      });
+
+    });
+</script>
+</body>
+</html>
