@@ -1,0 +1,26 @@
+{
+  "suites": ["test/*_test.html"],
+  "verbose": true,
+  "plugins": {
+    "istanbub": {
+      "isComponentRequestOverride": true,
+      "dir": "./coverage",
+      "reporters": ["text-summary", "lcov"],
+      "include": [
+        "./build/ui/task/task-task-update-panel.js"
+      ],
+      "exclude": [],
+      "thresholds": {
+        "global": {
+          "statements": 28,
+          "branches": 29,
+          "functions": 34,
+          "lines": 28
+        }
+      }
+    },
+    "local": {
+      "browsers": ["chrome"]
+    }
+  }
+}

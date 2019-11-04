@@ -17,7 +17,8 @@
     "packages/furo-data-ui/test/*_test.html",
     "packages/furo-navigation/test/*_test.html",
     "packages/furo-notification/test/*_test.html",
-    "packages/furo-config/test/*_test.html"
+    "packages/furo-config/test/*_test.html",
+    "packages/furo-ui-builder/test/*_test.html"
   ],
   "npm": true,
   "moduleResolution": "node",
@@ -50,7 +51,8 @@
         "packages/furo-route/*.js",
         "packages/furo-timing/*.js",
         "packages/furo-util/*.js",
-        "packages/furo-testhelper/data-ui/*.js"
+        "packages/furo-testhelper/data-ui/*.js",
+        "packages/furo-ui-builder/build/ui/**/*.js"
       ],
       "exclude": [
         "**/furo-catalog.js"

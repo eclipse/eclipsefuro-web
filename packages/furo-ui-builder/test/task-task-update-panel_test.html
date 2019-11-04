@@ -1,0 +1,96 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>test for furo-data-table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+</head>
+<body>
+
+<test-fixture id="basic">
+    <template>
+        <test-bind>
+            <template>
+                <task-task-update-panel ƒ-hts-in="--hts"></task-task-update-panel>
+                <furo-deep-link service="TaskService"
+                                @-hts-out="--hts">
+                </furo-deep-link>
+            </template>
+        </test-bind>
+
+    </template>
+</test-fixture>
+
+<script type="module">
+    import "@furo/fbp/testhelper/test-bind"; // for testing
+    import "@furo/testhelper/initEnv.js";
+    import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
+    import "../build/ui/task/task-task-update-panel.js"
+
+    function keydown(TargetElement, key) {
+        let customEvent = new Event('keydown', {composed: true, bubbles: true});
+        customEvent.code = key; // Deprecated, prefer .key instead.
+        customEvent.key = key;
+        TargetElement.dispatchEvent(customEvent);
+
+    }
+
+    describe('furo-data-table tests ', function () {
+
+        let fix, elem, qp;
+
+        beforeEach(async () => {
+            fix = fixture('basic');
+
+            elem = fix[1];
+            await elem.updateComplete;
+            qp = fix[2];
+            await qp.updateComplete;
+        });
+
+        it('should load data after hateoas is set', (done) => {
+            let agent = elem.shadowRoot.querySelector('furo-entity-agent');
+            agent.addEventListener('response', (r)=>{
+                assert.equal(r.detail.data.id, "1");
+                done();
+            });
+            qp.qpIn({"tsk": 1});
+        });
+
+        it('should fire data-injected event', (done) => {
+
+            let datao = elem.shadowRoot.querySelector('furo-data-object');
+            datao.addEventListener('data-injected', ()=>{
+                done();
+            });
+            qp.qpIn({"tsk": 1});
+        });
+
+        it('should trigger wire --requestStarted', (done) => {
+
+            elem._FBPAddWireHook('--requestStarted', ()=>{
+                done();
+            });
+            qp.qpIn({"tsk": 1});
+        });
+
+        it('should have a form inside', () => {
+            let form = elem.shadowRoot.querySelector('task-task-form');
+            expect(form).to.not.be.undefined;
+
+        });
+
+    });
+</script>
+</body>
+</html>

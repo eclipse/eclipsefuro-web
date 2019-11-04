@@ -56,7 +56,7 @@ class ExperimentExperimentUpdateAction extends FBP(LitElement) {
             this._entity.addEventListener('data-injected', () => {
                 let rels = [];
                 this._entity.links.__childNodes.forEach((item) => {
-                    rels.push(item.value.rel);
+                    rels.push(item._value.rel);
                 });
 
                 let elems = this.shadowRoot.querySelectorAll('furo-button');
@@ -82,7 +82,7 @@ class ExperimentExperimentUpdateAction extends FBP(LitElement) {
         let elems = this.shadowRoot.querySelectorAll('furo-button');
         let rels = [];
         this._entity.links.__childNodes.forEach((item) => {
-            rels.push(item.value.rel);
+            rels.push(item._value.rel);
         });
         elems.forEach((item) => {
             if (item.getAttribute('rel').length <= 0 || rels.indexOf(item.getAttribute('rel')) > -1){

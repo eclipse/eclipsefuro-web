@@ -134,7 +134,7 @@
       it('should assign the field value (is not setted before) initially with the initial selected item value from data', (done) => {
         collectionAgent.list();
         setTimeout(()=>{
-          assert.equal(entityObject2.data.owner.id._value, 2);
+          assert.equal(entityObject2.data.owner.id._value, "female");
           done();
 
         },100)
