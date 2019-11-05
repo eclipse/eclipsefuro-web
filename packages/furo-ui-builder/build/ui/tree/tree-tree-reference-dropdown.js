@@ -78,7 +78,7 @@ class TreeTreeReferencedropdown extends FBP(LitElement) {
                     ƒ-bind-data="--field-injected"
                     ƒ-inject-entities="--collection(*.entities)"
                     ?condensed="${this.condensed}">
-      </furo-data-reference-search>
+      </furo-data-collection-dropdown>
       <furo-collection-agent
               service="TreeService"
               ƒ-hts-in="--field-injected(*.link._value), --htsUpdated"
