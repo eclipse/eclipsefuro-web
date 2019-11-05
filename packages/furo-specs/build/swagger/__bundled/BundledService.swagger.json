@@ -688,6 +688,23 @@
         ]
       }
     },
+    "/mockdata/projects/filter/get.json": {
+      "get": {
+        "summary": "The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",
+        "operationId": "GetProjectfilter",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/projectfilterProjectfilterEntity"
+            }
+          }
+        },
+        "tags": [
+          "BundledService"
+        ]
+      }
+    },
     "/mockdata/projects/list.json": {
       "get": {
         "summary": "The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",
@@ -1914,6 +1931,53 @@
         }
       },
       "title": "ProjectEntity with Project"
+    },
+    "projectfilterProjectfilter": {
+      "type": "object",
+      "properties": {
+        "cost_limit": {
+          "$ref": "#/definitions/typeMoney",
+          "title": "Project cost limit"
+        },
+        "description": {
+          "type": "string",
+          "title": "Filter preset for field description from resource projects"
+        },
+        "end": {
+          "$ref": "#/definitions/typeDate",
+          "title": "Prospective end date of the project"
+        },
+        "members": {
+          "$ref": "#/definitions/furoReference",
+          "title": "List of possible project members"
+        },
+        "start": {
+          "$ref": "#/definitions/typeDate",
+          "title": "Start date of the project"
+        }
+      },
+      "title": "Options for possible filter values"
+    },
+    "projectfilterProjectfilterEntity": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/projectfilterProjectfilter",
+          "title": "contains a projectfilter.Projectfilter"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/furoLink"
+          },
+          "title": "Hateoas links"
+        },
+        "meta": {
+          "$ref": "#/definitions/furoMeta",
+          "title": "Meta for the response"
+        }
+      },
+      "title": "ProjectfilterEntity with Projectfilter"
     },
     "protobufAny": {
       "type": "object",

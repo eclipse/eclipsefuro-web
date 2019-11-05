@@ -70,6 +70,9 @@ class FuroPrettyJson extends FBP(LitElement) {
             this.markedText = this._syntaxHighlight(this.markedText);
             this.shadowRoot.querySelector('#content').innerHTML = this.markedText;
 
+        } else {
+            // clear innerHTML content
+            this.shadowRoot.querySelector('#content').innerHTML = '';
         }
     }
 

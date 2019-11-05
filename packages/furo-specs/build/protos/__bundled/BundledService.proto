@@ -15,6 +15,7 @@ import "google/api/annotations.proto";
 
 import "tree/tree.proto";
 import "google/protobuf/empty.proto";
+import "projectfilter/projectfilter.proto";
 import "person/person.proto";
 import "project/project.proto";
 import "task/task.proto";
@@ -62,6 +63,18 @@ service BundledService {
         option (google.api.http) = {
             patch: "/mockdata/trees/{tre}"
             body: "data"
+        };
+    }
+
+
+// service specs for the projectfilter api
+      
+   
+    // The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter
+    rpc GetProjectfilter (GetProjectfilterServiceRequest) returns (projectfilter.ProjectfilterEntity){
+        //
+        option (google.api.http) = {
+            get: "/mockdata/projects/filter/get.json"
         };
     }
 
@@ -320,6 +333,17 @@ message UpdateTreeServiceRequest {
     
     string tre = 1;
     tree.Tree data =  2;  
+}
+
+
+
+
+// service specs for the projectfilter api
+      
+
+   
+message GetProjectfilterServiceRequest { 
+     
 }
 
 

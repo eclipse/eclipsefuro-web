@@ -3,6 +3,7 @@
     "packages": [
       "person",
       "project",
+      "projectfilter",
       "task",
       "tree",
       "experiment"

@@ -9,7 +9,7 @@ import {FBP} from '@furo/fbp';
 
 
 /**
- *
+ * @demo demo-furo-filter Basic usage
  * @appliesMixin FBP
  */
 class FuroFilterContainer extends FBP(HTMLElement) {

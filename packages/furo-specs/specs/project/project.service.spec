@@ -22,6 +22,7 @@
         "request": null,
         "response": "project.ProjectCollection"
       },
+      "filter": {},
       "query": {
         "q": {
           "description": "Query term to search a project",
