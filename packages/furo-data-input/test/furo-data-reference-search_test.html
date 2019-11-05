@@ -95,6 +95,62 @@
         },0)
       });
 
+      it('should bind data', (done) => {
+
+        entityObject.addEventListener("object-ready", ()=>{
+
+          setTimeout(()=>{
+            assert.equal(referenceSearch.field._meta.label, "person.type.sex.label");
+            done();
+          },0)
+        })
+      });
+
+      it('should fire search when search term is entered and the length of the term is bigger then min-term-length', (done) => {
+
+        collectionAgent.addEventListener("response",()=>{
+
+          done();
+        })
+        referenceSearch._searchTerm = "term";
+        referenceSearch._fireSearchEvent();
+      });
+
+      it('should inject search result ', (done) => {
+
+        collectionAgent.addEventListener("response",()=>{
+
+          setTimeout(()=>{
+            assert.equal((referenceSearch._collection.length>0), true);
+            done();
+          },0)
+        })
+        referenceSearch._searchTerm = "term";
+        referenceSearch._fireSearchEvent();
+      });
+
+      it('should fire search by input changed', (done) => {
+
+        entityObject.addEventListener("object-ready", ()=>{
+
+          setTimeout(()=>{
+
+            let customEvent = new Event('searchInput', {composed: true, bubbles: true});
+            customEvent.detail = "term";
+            referenceSearch.shadowRoot.getElementById("input").dispatchEvent(customEvent);
+          },10)
+        })
+
+        collectionAgent.addEventListener("response",()=>{
+
+          setTimeout(()=>{
+            assert.equal((referenceSearch._collection.length>0), true);
+            done();
+          },0)
+        })
+      });
+
+
       // a11y tests
       it('a11y', () => {
         return axeReport(fixture('basic'));

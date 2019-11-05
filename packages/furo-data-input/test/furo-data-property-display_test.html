@@ -1,0 +1,106 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>test for furo-data-property-display</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+</head>
+<body>
+
+<test-fixture id="basic">
+    <template>
+        <test-bind>
+            <template>
+                <!-- single Property -->
+                <furo-data-property-display condensed="" noborder="" ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property-display>
+                <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
+                <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+                <furo-entity-agent service="ExperimentService" ƒ-hts-in="--hts" ƒ-load="--hts" ƒ-bind-request-data="--entity" @-response="--response"> </furo-entity-agent>
+
+                <!-- repeated Property -->
+                <furo-data-property-display condensed="" noborder="" something="" ƒ-bind-data="--entity(*.type_property)"></furo-data-property-display>
+            </template>
+        </test-bind>
+
+    </template>
+</test-fixture>
+
+<script type="module">
+  import "@furo/fbp/testhelper/test-bind";
+  import "../furo-catalog.js"
+  import "@furo/testhelper/initEnv.js"
+  import "@furo/data/furo-data-object.js";
+  import "@furo/data/furo-entity-agent";
+  import "@furo/data/furo-deep-link";
+  import '/node_modules/axe-core/axe.min.js';
+
+  import '/node_modules/axe-core/axe.min.js';
+  import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+  // those tests are base on the spec `experiment.type.spec` and the mockdata `mockdata/experiment/1/get.json`
+
+  describe('furo-data-property-display_test tests ', function () {
+
+
+    let dataPropertyDisplay, host, entityObject, entityAgent,  deeplink, dataPropertyDisplayRepeated;
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      host = fix[0]._host;
+
+      dataPropertyDisplay = fix[1];
+      await dataPropertyDisplay.updateComplete;
+
+
+      entityAgent = fix[4];
+      await entityAgent.updateComplete;
+
+      entityObject = fix[2];
+      await entityObject.updateComplete;
+
+      deeplink = fix[3];
+      await deeplink.updateComplete;
+
+      dataPropertyDisplayRepeated = fix[5];
+      await dataPropertyDisplayRepeated.updateComplete;
+    });
+
+
+    it('should bind data to single Property', (done) => {
+
+      entityAgent.addEventListener("response", () => {
+
+        setTimeout(()=>{
+          assert.equal(dataPropertyDisplay.field.data.year._value, "2022");
+          done();
+        },100);
+      });
+      deeplink.qpIn({"exp": 1});
+    });
+
+
+    it('should bind data to repeated Property', (done) => {
+
+      entityAgent.addEventListener("response", () => {
+        setTimeout(()=>{
+          assert.equal(dataPropertyDisplayRepeated.field.repeats[0].data.year._value, "2022");
+          assert.equal(dataPropertyDisplayRepeated.field.repeats[1].data.data._value, "34.23");
+          done();
+        },100);
+      });
+      deeplink.qpIn({"exp": 1});
+    });
+
+  })
+  ;
+</script>
+</body>
+</html>
