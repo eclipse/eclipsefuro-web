@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>test for repeated furo-data-property-display</title>
+    <title>test for furo-data-property</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -20,7 +20,7 @@
         <test-bind>
             <template>
                 <!-- single Property -->
-                <furo-data-property-display ƒ-bind-data="--entity(*.type_property)"></furo-data-property-display>
+                <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
                 <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
                 <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
                 <furo-entity-agent service="ExperimentService" ƒ-hts-in="--hts" ƒ-load="--hts" @-response="--response"> </furo-entity-agent>
@@ -43,7 +43,7 @@
 
   // those tests are base on the spec `experiment.type.spec` and the mockdata `mockdata/experiment/1/get.json`
 
-  describe('furo-data-property-display_test tests ', function () {
+  describe('furo-data-property tests ', function () {
 
 
     let dataPropertyDisplay, host, entityObject, entityAgent,  deeplink, dataPropertyDisplayRepeated;
@@ -67,14 +67,20 @@
 
     });
 
-    it('should bind data to repeated Property', (done) => {
 
-      entityObject.addEventListener("data-injected", () => {
-        assert.equal(dataPropertyDisplay.field.repeats[1].data.year._value, "2022");
-        assert.equal(dataPropertyDisplay.field.repeats[2].data.data._value, "34.23");
-        done();
+      it('should bind data to single Property', (done) => {
+
+          entityObject.addEventListener("data-injected", () => {
+              assert.equal(dataPropertyDisplay.field.data.year._value, "2022");
+              done();
+
+          });
+          deeplink.qpIn({"exp": 1});
       });
-      deeplink.qpIn({"exp": 1});
+
+    // a11y tests
+    it('a11y', () => {
+      return axeReport(fixture('basic'));
     });
 
   })

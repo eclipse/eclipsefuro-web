@@ -118,7 +118,7 @@ class FuroDataProperty extends FBP(LitElement) {
 
     this.field = propertyField;
 
-    if (propertyField instanceof RepeaterNode) {
+    if (propertyField._isRepeater) {
       // add flow repeat to parent and inject on repeated changes
       // repeated
       let r = document.createElement("flow-repeat");
