@@ -1,7 +1,7 @@
 {
   "suites": [
-    "packages/furo-data-input/test/*_test.html",
     "packages/furo-data/test/*_test.html",
+    "packages/furo-data-input/test/*_test.html",
     "packages/furo-layout/test/*_test.html",
     "packages/furo-fbp/test/*_test.html",
     "packages/furo-config/test/*_test.html",

@@ -17,9 +17,19 @@
 <test-fixture id="basic">
   <template>
     <test-bind>
-    <template>
-     <furo-entity-field></furo-entity-field>
-     </template>
+        <template>
+         <furo-entity-field ƒ-bind-data="--entity(*.data.furo_data_text_input)"></furo-entity-field>
+         <furo-data-object type="experiment.ExperimentEntity" @-object-ready="--entity"  ƒ-inject-raw="--response"></furo-data-object>
+         <furo-entity-field ƒ-bind-data="--entity(*.invalidBinding)"></furo-entity-field>
+         <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
+         <furo-entity-agent service="ExperimentService"
+                           ƒ-hts-in="--hts"
+                           ƒ-load="--hts"
+                           ƒ-bind-request-data="--entity"
+                           @-response="--response">
+         </furo-entity-agent>
+        </template>
+
     </test-bind>
   </template>
 </test-fixture>
@@ -32,22 +42,56 @@
   import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
   describe('furo-entity-field tests ', function () {
 
-
-    let element = {};
+    let host,entityField, dataObject,entityField2, deeplink, entityAgent;
 
     beforeEach(async () => {
       let fix = fixture('basic');
-      element = fix[1];
-      await element.updateComplete;
+      host = fix[0]._host;
+
+      entityField = fix[1];
+      await entityField.updateComplete;
+
+      dataObject = fix[2];
+      await dataObject.updateComplete;
+
+      entityField2 = fix[3];
+      await entityField2.updateComplete;
+
+      deeplink = fix[4];
+      await deeplink.updateComplete;
+
+      entityAgent = fix[5];
+      await entityAgent.updateComplete;
 
     });
 
 
-    it('should be a furo-entity-field', (done) => {
-      assert.equal(element.nodeName.toLowerCase(), "furo-entity-field");
-      done()
+    it('should log invalid bindings', (done) => {
+      dataObject.addEventListener("object-ready", () => {
+        // invalid binding
+        assert.equal(entityField2.field, undefined);
+        done();
+      });
     });
 
+
+    it('should trigger event', (done) => {
+      entityField.addEventListener("value-changed", () => {
+        done();
+      },{once:true});
+      deeplink.qpIn({"exp": 1});
+    });
+
+    it('should set value', (done) => {
+
+      dataObject.addEventListener("object-ready", () => {
+        entityField.setValue("test");
+        assert.equal(entityField.value, "test");
+        done();
+      });
+
+
+    });
 
   });
 </script>

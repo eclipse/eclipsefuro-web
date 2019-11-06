@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>test for furo-data-emmiter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+    <template>
+        <test-bind>
+            <template>
+                <furo-data-emmiter  ƒ-trigger="--response"
+                                    ƒ-bind-data="--entity"
+                                    @-data="--jsonData"
+                ></furo-data-emmiter>
+                <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-init="--emptyClicked" ƒ-inject-raw="--response(*.data)"></furo-data-object>
+                <furo-deep-link service="ExperimentService" @-hts-out="--hts" ></furo-deep-link>
+                <furo-entity-agent service="ExperimentService" ƒ-hts-in="--hts" load-on-hts-in ƒ-bind-request-data="--entity" @-response="--response"></furo-entity-agent>
+            </template>
+        </test-bind>
+    </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog.js"
+
+  import "@furo/fbp/testhelper/test-bind"; // for testing
+  import "@furo/testhelper/initEnv.js"
+  import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
+
+  describe('furo-data-emmiter tests ', function () {
+
+
+    let element = {};
+    let host, emmiter, dataObject, deepLink, entityAgent;
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      host = fix[0]._host;
+
+      emmiter = fix[1];
+      await emmiter.updateComplete;
+
+      dataObject = fix[2];
+      await dataObject.updateComplete;
+
+      deepLink = fix[3];
+      await deepLink.updateComplete;
+
+      entityAgent = fix[3];
+      await entityAgent.updateComplete;
+
+    });
+
+
+    it('should emit value of data object', (done) => {
+
+
+      emmiter.addEventListener("data", (e) => {
+        assert.equal(e.detail.id, 1);
+        done()
+      });
+
+      deepLink.qpIn({"exp": 1});
+
+    });
+
+
+  });
+</script>
+</body>
+</html>

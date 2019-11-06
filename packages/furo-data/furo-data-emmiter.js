@@ -37,7 +37,7 @@ class FuroDataEmmiter extends FBP(LitElement) {
     */
     if(this.field){
       let customEvent = new Event('data', {composed:true, bubbles: false});
-      customEvent.detail = this.field.value;
+      customEvent.detail = this.field._value;
       this.dispatchEvent(customEvent)
     }
 

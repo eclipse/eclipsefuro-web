@@ -22,7 +22,7 @@ class FuroEntityField extends LitElement {
 
   set value(v) {
     this._value = v;
-    this.field.value = v;
+    this.field._value = v;
   };
 
   get value() {
