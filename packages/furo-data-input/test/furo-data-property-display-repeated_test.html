@@ -20,7 +20,7 @@
         <test-bind>
             <template>
                 <!-- single Property -->
-                <furo-data-property-display ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property-display>
+                <furo-data-property-display ƒ-bind-data="--entity(*.type_property)"></furo-data-property-display>
                 <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
                 <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
                 <furo-entity-agent service="ExperimentService" ƒ-hts-in="--hts" ƒ-load="--hts" @-response="--response"> </furo-entity-agent>
@@ -68,15 +68,6 @@
     });
 
 
-      it('should bind data to single Property', (done) => {
-
-          entityObject.addEventListener("data-injected", () => {
-              assert.equal(dataPropertyDisplay.field.data.year._value, "2022");
-              done();
-
-          });
-          deeplink.qpIn({"exp": 1});
-      });
 
     // a11y tests
     it('a11y', () => {
