@@ -69,7 +69,6 @@ class FuroDataPropertyDisplay extends FBP(LitElement) {
 
       let repeater = this.parentNode.insertBefore(r, this);
       this._createdRepeater = repeater;
-
       this.field.addEventListener('this-repeated-field-changed', (data) => {
         repeater.injectItems(this.field.repeats);
       });

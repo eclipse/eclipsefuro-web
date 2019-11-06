@@ -20,13 +20,10 @@
         <test-bind>
             <template>
                 <!-- single Property -->
-                <furo-data-property-display condensed="" noborder="" ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property-display>
+                <furo-data-property-display ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property-display>
                 <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-inject-raw="--response(*.data)"></furo-data-object>
                 <furo-deep-link service="ExperimentService" @-hts-out="--hts"></furo-deep-link>
-                <furo-entity-agent service="ExperimentService" ƒ-hts-in="--hts" ƒ-load="--hts" ƒ-bind-request-data="--entity" @-response="--response"> </furo-entity-agent>
-
-                <!-- repeated Property -->
-                <furo-data-property-display condensed="" noborder="" something="" ƒ-bind-data="--entity(*.type_property)"></furo-data-property-display>
+                <furo-entity-agent service="ExperimentService" ƒ-hts-in="--hts" ƒ-load="--hts" @-response="--response"> </furo-entity-agent>
             </template>
         </test-bind>
 
@@ -40,7 +37,6 @@
   import "@furo/data/furo-data-object.js";
   import "@furo/data/furo-entity-agent";
   import "@furo/data/furo-deep-link";
-  import '/node_modules/axe-core/axe.min.js';
 
   import '/node_modules/axe-core/axe.min.js';
   import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
@@ -69,35 +65,19 @@
       deeplink = fix[3];
       await deeplink.updateComplete;
 
-      dataPropertyDisplayRepeated = fix[5];
-      await dataPropertyDisplayRepeated.updateComplete;
     });
 
 
-    it('should bind data to single Property', (done) => {
+      it('should bind data to single Property', (done) => {
 
-      entityAgent.addEventListener("response", () => {
+          entityObject.addEventListener("data-injected", () => {
+              assert.equal(dataPropertyDisplay.field.data.year._value, "2022");
+              done();
 
-        setTimeout(()=>{
-          assert.equal(dataPropertyDisplay.field.data.year._value, "2022");
-          done();
-        },100);
+          });
+          deeplink.qpIn({"exp": 1});
       });
-      deeplink.qpIn({"exp": 1});
-    });
 
-
-    it('should bind data to repeated Property', (done) => {
-
-      entityAgent.addEventListener("response", () => {
-        setTimeout(()=>{
-          assert.equal(dataPropertyDisplayRepeated.field.repeats[0].data.year._value, "2022");
-          assert.equal(dataPropertyDisplayRepeated.field.repeats[1].data.data._value, "34.23");
-          done();
-        },100);
-      });
-      deeplink.qpIn({"exp": 1});
-    });
 
   })
   ;

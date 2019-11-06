@@ -18,7 +18,30 @@
     },
     "furo_data_range_input": 31,
     "furo_data_bool_icon": false,
-    "type_property": [
+    "type_property": [{
+      "code": "c0a7f550-0fbe-4046-8fa9-60c86327b6b1",
+      "data": {
+        "@type": "type.googleapis.com/furo.StringProperty",
+        "data": "01012020"
+      },
+      "display_name": "Vertragsbeginn",
+      "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
+      "meta": {
+        "fields": {
+          "data.data": {
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            },
+            "meta": {
+              "label": "Vertragsbeginn"
+            }
+          }
+        }
+      }
+    },
       {
         "data": {
           "@type": "xx/google.type.Date",

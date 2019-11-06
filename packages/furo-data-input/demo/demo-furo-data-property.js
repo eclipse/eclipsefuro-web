@@ -52,18 +52,20 @@ class DemoFuroDataProperty extends FBP(LitElement) {
             <furo-vertical-scroller>
               <furo-form-layouter two>
                 <!-- repeated Property -->
-                 
+
                 <furo-data-property ƒ-bind-data="--entity(*.data.type_property)"></furo-data-property>
-                
- 
+
+
                 <!-- single Property -->
                 <furo-data-property ƒ-bind-data="--entity(*.data.single_type_property)"></furo-data-property>
               </furo-form-layouter>
-              
-<furo-button @-click="--reload">reload</furo-button>
+
+              <furo-button @-click="--reload">reload</furo-button>
               <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
+              
               <furo-data-object type="experiment.ExperimentEntity" @-object-ready="--entity"
                                 ƒ-inject-raw="--response"></furo-data-object>
+              
               <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
               <furo-entity-agent service="ExperimentService"
                                  ƒ-hts-in="--hts"
