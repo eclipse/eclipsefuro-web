@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>test for furo-data-property-display</title>
+    <title>test for repeated furo-data-property-display</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -67,12 +67,15 @@
 
     });
 
+      it('should bind data to single Property', (done) => {
 
+          entityObject.addEventListener("data-injected", () => {
 
-    // a11y tests
-    it('a11y', () => {
-      return axeReport(fixture('basic'));
-    });
+              done();
+
+          });
+          deeplink.qpIn({"exp": 1});
+      });
 
   })
   ;
