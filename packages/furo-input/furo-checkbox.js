@@ -352,6 +352,10 @@ class FuroCheckbox extends FBP(LitElement) {
                 top: 7px;
                 left: 7px;
             }
+            
+            furo-ripple{
+                border-radius: 50%;
+            }
         `
   }
 
