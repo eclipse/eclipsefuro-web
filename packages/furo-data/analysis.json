@@ -10490,7 +10490,7 @@
           "metadata": {}
         },
         {
-          "name": "_not_readonly_value",
+          "name": "_transmit_value",
           "type": "?",
           "description": "Returns all not readonly field values with deep dive",
           "privacy": "private",
@@ -10507,7 +10507,7 @@
           "metadata": {}
         },
         {
-          "name": "_modified_value",
+          "name": "_delta_value",
           "type": "?",
           "description": "Returns all modified field values with deep dive (! _pristine)",
           "privacy": "private",

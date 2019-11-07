@@ -73,10 +73,11 @@ class DemoFuroFilter extends FBP(LitElement) {
                             </furo-horizontal-flex>
                             
                             <demo-project-filter-form ƒ-bind-data="--entity" @-filter-changed="--filterChanged" @-filter-cleared="--filterChanged"></demo-project-filter-form>
-                        </div>
 
-                        <p>Filter Array</p>
-                        <furo-pretty-json ƒ-inject-data="--filterChanged"></furo-pretty-json>
+                            <p>Filter Array</p>
+                            <furo-pretty-json ƒ-inject-data="--filterChanged, --filterCleared(*.dummy)"></furo-pretty-json>
+                        </div>
+                       
                         <!-- Loading filter options from singleton resource projects/filter -->
                         <furo-deep-link ƒ-trigger="--go" service="ProjectfilterService"
                                         @-hts-out="--hts"></furo-deep-link>

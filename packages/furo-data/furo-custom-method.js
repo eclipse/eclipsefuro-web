@@ -60,7 +60,7 @@ class FuroCustomMethod extends FBP(LitElement) {
         if (dataObject) {
             for (let index in dataObject.__childNodes) {
                 let field = dataObject.__childNodes[index];
-                let val = field._not_readonly_value;
+                let val = field._transmit_value;
                 if (val !== undefined) {
                     body[field._name] = val
                 }

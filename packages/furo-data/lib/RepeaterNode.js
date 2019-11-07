@@ -71,6 +71,10 @@ export class RepeaterNode extends EventTreeNode {
       this._pristine = false;
     });
 
+    this.addEventListener('new-data-injected', (e) => {
+      this._pristine = true;
+    });
+
     //store __initial_value _value for resetting the field
     this.__initialValue = JSON.stringify(this._value);
   }
@@ -204,6 +208,57 @@ export class RepeaterNode extends EventTreeNode {
     return this.repeats.map(f => {
       return f._value;
     });
+  }
+
+  /**
+   * Returns all not readonly field values with deep dive
+   *
+   * @private
+   */
+  get _transmit_value(){
+    const n = [];
+    if (!this.__childNodes.length) {return undefined}
+
+    this.__childNodes.forEach(f => {
+      let val = f._transmit_value;
+      if (val !== undefined) {
+        n.push(val);
+      }
+    });
+    return n;
+  }
+
+  /**
+   * Returns all modified field values with deep dive (! _pristine)
+   * @private
+   */
+  get _delta_value(){
+    const n = [];
+    if (!this.__childNodes.length) {return undefined}
+
+    this.__childNodes.forEach(f => {
+      let val = f._delta_value;
+      if (val !== undefined) {
+        n.push(val);
+      }
+    });
+    return n;
+  }
+
+  /**
+   * Returns required fields with all children which are modified or
+   * not readonly
+   * @private
+   */
+  get _required_value(){
+    const n = [];
+    this.__childNodes.forEach(f => {
+      let val = f._required_value;
+      if (val !== undefined) {
+        n.push(val);
+      }
+    });
+    return n;
   }
 
   /**

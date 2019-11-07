@@ -8,6 +8,7 @@
       "google/protobuf/any.proto",
       "google/type/date.proto",
       "google/type/money.proto",
+      "google/protobuf/field_mask.proto",
       "furo/property.proto"
     ],
     "targetfile": "experiment.proto"
@@ -439,6 +440,15 @@
       },
       "__proto": {
         "number": 21
+      }
+    },
+    "update_mask": {
+      "description": "Contains a field_mask which fields of the targeted resource are going to be updated",
+      "type": "google.protobuf.FieldMask",
+      "meta": {},
+      "constraints": {},
+      "__proto": {
+        "number": 22
       }
     }
 

@@ -1556,6 +1556,10 @@
         "type_with_options": {
           "type": "string",
           "title": "field for testing static options"
+        },
+        "update_mask": {
+          "$ref": "#/definitions/protobufFieldMask",
+          "title": "Contains a field_mask which fields of the targeted resource are going to be updated"
         }
       },
       "title": "experiment spec for testing"

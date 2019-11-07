@@ -9,6 +9,7 @@ import "furo/link.proto";
 import "google/protobuf/any.proto";
 import "google/type/date.proto";
 import "google/type/money.proto";
+import "google/protobuf/field_mask.proto";
 import "furo/property.proto";
 
 
@@ -26,7 +27,7 @@ message ExperimentEntity {
 }
 
 // experiment spec for testing
-message Experiment {                                                                                            
+message Experiment {                                                                                                
     // Short experiment description
     string description = 3;
     
@@ -89,6 +90,9 @@ message Experiment {
     
     // field for testing static options
     string type_with_options = 16;
+    
+    // Contains a field_mask which fields of the targeted resource are going to be updated
+    google.protobuf.FieldMask update_mask = 22;
 
 }
 

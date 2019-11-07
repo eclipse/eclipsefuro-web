@@ -260,6 +260,10 @@
           let EntityRoot = ObjectDataRoot.data;
           EntityRoot.members.repeats[0].first_name._value = "new";
           assert.equal(ObjectDataRoot._pristine, false);
+          assert.equal(EntityRoot._pristine, false);
+          assert.equal(EntityRoot.members._pristine, false);
+          assert.equal(EntityRoot.members.repeats[0]._pristine, false);
+          assert.equal(EntityRoot.members.repeats[0].first_name._pristine, false);
 
           done();
         });
