@@ -98,9 +98,9 @@ class FuroEntityAgent extends FBP(LitElement) {
       if (link.method.toLowerCase() === 'patch') {
         for (let index in dataObject.__childNodes) {
           let field = dataObject.__childNodes[index];
-          let val = field._modified_value;
+          let val = field._delta_value;
           if (val !== undefined) {
-            body[field._name] = val
+            body[field._name] = val;
           }
         }
         // the request object MUST contain a field named 'update_mask'
@@ -116,9 +116,9 @@ class FuroEntityAgent extends FBP(LitElement) {
         } else {
           for (let index in dataObject.__childNodes) {
             let field = dataObject.__childNodes[index];
-            let val = field._not_readonly_value;
+            let val = field._transmit_value;
             if (val !== undefined) {
-              body[field._name] = val
+              body[field._name] = val;
             }
           }
         }

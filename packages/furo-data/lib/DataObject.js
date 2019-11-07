@@ -1,6 +1,7 @@
 import {EventTreeNode, NodeEvent} from "./EventTreeNode";
 import {FieldNode} from "./FieldNode";
 import {RepeaterNode} from "./RepeaterNode";
+import {Helper} from "./Helper";
 
 /**
  * EntityNode is usually the root node of an eventTree
@@ -62,6 +63,12 @@ export class DataObject extends EventTreeNode {
     this._isValid = true;
 
     /**
+     * Broadcast Event
+     *
+     */
+    this.broadcastEvent(new NodeEvent("new-data-injected", this));
+
+    /**
      * @event (data-injected)
      *
      * ✋ Internal Event from EntityNode which you can use in the targeted components!
@@ -76,7 +83,7 @@ export class DataObject extends EventTreeNode {
   }
 
   /**
-   * Resete zum letzten injectet state zurück
+   * Resete zum letzten injected state zurück
    */
   reset() {
     if (this._rawEntity) {
@@ -210,7 +217,7 @@ export class DataObject extends EventTreeNode {
         if(n.__childNodes.length > 0){
           n._value = {};
         }else{
-          n._value = undefined;
+          n._value = Helper.defaultForType(n._spec.type);
         }
 
       }

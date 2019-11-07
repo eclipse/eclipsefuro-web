@@ -102,9 +102,7 @@
     "update_mask": {
       "description": "Contains a field_mask which fields of the targeted resource are going to be updated",
       "type": "google.protobuf.FieldMask",
-      "meta": {
-        "readonly": true
-      },
+      "meta": {},
       "constraints": {},
       "__proto": {
         "number": 7

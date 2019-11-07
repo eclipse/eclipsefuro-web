@@ -1851,6 +1851,31 @@ public final class ExperimentOuterClass {
      */
     com.google.protobuf.ByteString
         getTypeWithOptionsBytes();
+
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+     */
+    boolean hasUpdateMask();
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+     */
+    google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask();
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+     */
+    google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder();
   }
   /**
    * <pre>
@@ -2062,6 +2087,19 @@ public final class ExperimentOuterClass {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(furoDataMoneyInput_);
                 furoDataMoneyInput_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 178: {
+              google.protobuf.FieldMaskOuterClass.FieldMask.Builder subBuilder = null;
+              if (updateMask_ != null) {
+                subBuilder = updateMask_.toBuilder();
+              }
+              updateMask_ = input.readMessage(google.protobuf.FieldMaskOuterClass.FieldMask.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(updateMask_);
+                updateMask_ = subBuilder.buildPartial();
               }
 
               break;
@@ -2880,6 +2918,39 @@ public final class ExperimentOuterClass {
       }
     }
 
+    public static final int UPDATE_MASK_FIELD_NUMBER = 22;
+    private google.protobuf.FieldMaskOuterClass.FieldMask updateMask_;
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+     */
+    public boolean hasUpdateMask() {
+      return updateMask_ != null;
+    }
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+     */
+    public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
+      return updateMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
+    }
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+     */
+    public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+      return getUpdateMask();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2956,6 +3027,9 @@ public final class ExperimentOuterClass {
       }
       if (furoDataMoneyInput_ != null) {
         output.writeMessage(21, getFuroDataMoneyInput());
+      }
+      if (updateMask_ != null) {
+        output.writeMessage(22, getUpdateMask());
       }
       unknownFields.writeTo(output);
     }
@@ -3042,6 +3116,10 @@ public final class ExperimentOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(21, getFuroDataMoneyInput());
       }
+      if (updateMask_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(22, getUpdateMask());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3112,6 +3190,11 @@ public final class ExperimentOuterClass {
           .equals(other.getTypePropertyList())) return false;
       if (!getTypeWithOptions()
           .equals(other.getTypeWithOptions())) return false;
+      if (hasUpdateMask() != other.hasUpdateMask()) return false;
+      if (hasUpdateMask()) {
+        if (!getUpdateMask()
+            .equals(other.getUpdateMask())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3180,6 +3263,10 @@ public final class ExperimentOuterClass {
       }
       hash = (37 * hash) + TYPE_WITH_OPTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getTypeWithOptions().hashCode();
+      if (hasUpdateMask()) {
+        hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
+        hash = (53 * hash) + getUpdateMask().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3380,6 +3467,12 @@ public final class ExperimentOuterClass {
         }
         typeWithOptions_ = "";
 
+        if (updateMaskBuilder_ == null) {
+          updateMask_ = null;
+        } else {
+          updateMask_ = null;
+          updateMaskBuilder_ = null;
+        }
         return this;
       }
 
@@ -3457,6 +3550,11 @@ public final class ExperimentOuterClass {
           result.typeProperty_ = typePropertyBuilder_.build();
         }
         result.typeWithOptions_ = typeWithOptions_;
+        if (updateMaskBuilder_ == null) {
+          result.updateMask_ = updateMask_;
+        } else {
+          result.updateMask_ = updateMaskBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3610,6 +3708,9 @@ public final class ExperimentOuterClass {
         if (!other.getTypeWithOptions().isEmpty()) {
           typeWithOptions_ = other.typeWithOptions_;
           onChanged();
+        }
+        if (other.hasUpdateMask()) {
+          mergeUpdateMask(other.getUpdateMask());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5875,6 +5976,159 @@ public final class ExperimentOuterClass {
         typeWithOptions_ = value;
         onChanged();
         return this;
+      }
+
+      private google.protobuf.FieldMaskOuterClass.FieldMask updateMask_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> updateMaskBuilder_;
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+       */
+      public boolean hasUpdateMask() {
+        return updateMaskBuilder_ != null || updateMask_ != null;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+       */
+      public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
+        if (updateMaskBuilder_ == null) {
+          return updateMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
+        } else {
+          return updateMaskBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+       */
+      public Builder setUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+        if (updateMaskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          updateMask_ = value;
+          onChanged();
+        } else {
+          updateMaskBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+       */
+      public Builder setUpdateMask(
+          google.protobuf.FieldMaskOuterClass.FieldMask.Builder builderForValue) {
+        if (updateMaskBuilder_ == null) {
+          updateMask_ = builderForValue.build();
+          onChanged();
+        } else {
+          updateMaskBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+       */
+      public Builder mergeUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+        if (updateMaskBuilder_ == null) {
+          if (updateMask_ != null) {
+            updateMask_ =
+              google.protobuf.FieldMaskOuterClass.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+          } else {
+            updateMask_ = value;
+          }
+          onChanged();
+        } else {
+          updateMaskBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+       */
+      public Builder clearUpdateMask() {
+        if (updateMaskBuilder_ == null) {
+          updateMask_ = null;
+          onChanged();
+        } else {
+          updateMask_ = null;
+          updateMaskBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+       */
+      public google.protobuf.FieldMaskOuterClass.FieldMask.Builder getUpdateMaskBuilder() {
+        
+        onChanged();
+        return getUpdateMaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+       */
+      public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+        if (updateMaskBuilder_ != null) {
+          return updateMaskBuilder_.getMessageOrBuilder();
+        } else {
+          return updateMask_ == null ?
+              google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
+        }
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 22;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> 
+          getUpdateMaskFieldBuilder() {
+        if (updateMaskBuilder_ == null) {
+          updateMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder>(
+                  getUpdateMask(),
+                  getParentForChildren(),
+                  isClean());
+          updateMask_ = null;
+        }
+        return updateMaskBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -9824,36 +10078,38 @@ public final class ExperimentOuterClass {
       "\n\033experiment/experiment.proto\022\nexperimen" +
       "t\032\017furo/meta.proto\032\017furo/link.proto\032\031goo" +
       "gle/protobuf/any.proto\032\026google/type/date" +
-      ".proto\032\027google/type/money.proto\032\023furo/pr" +
-      "operty.proto\"m\n\020ExperimentEntity\022$\n\004data" +
-      "\030\001 \001(\0132\026.experiment.Experiment\022\031\n\005links\030" +
-      "\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.M" +
-      "eta\"\270\005\n\nExperiment\022\023\n\013description\030\003 \001(\t\022" +
-      "\024\n\014display_name\030\002 \001(\t\022\033\n\023furo_data_bool_" +
-      "icon\030\016 \001(\010\022 \n\030furo_data_checkbox_input\030\004" +
-      " \001(\010\022\035\n\025furo_data_color_input\030\n \001(\t\022\034\n\024f" +
-      "uro_data_date_input\030\r \001(\t\0226\n\033furo_data_d" +
-      "ate_input_google\030\022 \001(\0132\021.google.type.Dat" +
-      "e\0221\n\025furo_data_money_input\030\025 \001(\0132\022.googl" +
-      "e.type.Money\022\036\n\026furo_data_number_input\030\t" +
-      " \001(\002\022 \n\030furo_data_password_input\030\013 \001(\t\022\035" +
-      "\n\025furo_data_range_input\030\010 \001(\t\022\036\n\026furo_da" +
-      "ta_search_input\030\014 \001(\t\022\034\n\024furo_data_text_" +
-      "input\030\005 \001(\t\022 \n\030furo_data_textarea_input\030" +
-      "\006 \001(\t\022\034\n\024furo_data_time_input\030\007 \001(\t\022\n\n\002i" +
-      "d\030\001 \001(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024single_typ" +
-      "e_property\030\023 \001(\0132\016.furo.Property\022*\n\014the_" +
-      "any_type\030\017 \001(\0132\024.google.protobuf.Any\022%\n\r" +
-      "type_property\030\021 \003(\0132\016.furo.Property\022\031\n\021t" +
-      "ype_with_options\030\020 \001(\t\"S\n\007Default\022\023\n\013des" +
-      "cription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\n\n\002" +
-      "id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"W\n\tRecursive" +
-      "\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\tre" +
-      "cursion\030\003 \001(\0132\025.experiment.Recursive\"{\n\024" +
-      "ExperimentCollection\022.\n\010entities\030\004 \003(\0132\034" +
-      ".experiment.ExperimentEntity\022\031\n\005links\030\003 " +
-      "\003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Met" +
-      "ab\006proto3"
+      ".proto\032\027google/type/money.proto\032 google/" +
+      "protobuf/field_mask.proto\032\023furo/property" +
+      ".proto\"m\n\020ExperimentEntity\022$\n\004data\030\001 \001(\013" +
+      "2\026.experiment.Experiment\022\031\n\005links\030\002 \003(\0132" +
+      "\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\351\005" +
+      "\n\nExperiment\022\023\n\013description\030\003 \001(\t\022\024\n\014dis" +
+      "play_name\030\002 \001(\t\022\033\n\023furo_data_bool_icon\030\016" +
+      " \001(\010\022 \n\030furo_data_checkbox_input\030\004 \001(\010\022\035" +
+      "\n\025furo_data_color_input\030\n \001(\t\022\034\n\024furo_da" +
+      "ta_date_input\030\r \001(\t\0226\n\033furo_data_date_in" +
+      "put_google\030\022 \001(\0132\021.google.type.Date\0221\n\025f" +
+      "uro_data_money_input\030\025 \001(\0132\022.google.type" +
+      ".Money\022\036\n\026furo_data_number_input\030\t \001(\002\022 " +
+      "\n\030furo_data_password_input\030\013 \001(\t\022\035\n\025furo" +
+      "_data_range_input\030\010 \001(\t\022\036\n\026furo_data_sea" +
+      "rch_input\030\014 \001(\t\022\034\n\024furo_data_text_input\030" +
+      "\005 \001(\t\022 \n\030furo_data_textarea_input\030\006 \001(\t\022" +
+      "\034\n\024furo_data_time_input\030\007 \001(\t\022\n\n\002id\030\001 \001(" +
+      "\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024single_type_prop" +
+      "erty\030\023 \001(\0132\016.furo.Property\022*\n\014the_any_ty" +
+      "pe\030\017 \001(\0132\024.google.protobuf.Any\022%\n\rtype_p" +
+      "roperty\030\021 \003(\0132\016.furo.Property\022\031\n\021type_wi" +
+      "th_options\030\020 \001(\t\022/\n\013update_mask\030\026 \001(\0132\032." +
+      "google.protobuf.FieldMask\"S\n\007Default\022\023\n\013" +
+      "description\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022" +
+      "\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"W\n\tRecurs" +
+      "ive\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n" +
+      "\trecursion\030\003 \001(\0132\025.experiment.Recursive\"" +
+      "{\n\024ExperimentCollection\022.\n\010entities\030\004 \003(" +
+      "\0132\034.experiment.ExperimentEntity\022\031\n\005links" +
+      "\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo." +
+      "Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -9871,6 +10127,7 @@ public final class ExperimentOuterClass {
           google.protobuf.AnyOuterClass.getDescriptor(),
           google.type.DateOuterClass.getDescriptor(),
           google.type.MoneyOuterClass.getDescriptor(),
+          google.protobuf.FieldMaskOuterClass.getDescriptor(),
           furo.PropertyOuterClass.getDescriptor(),
         }, assigner);
     internal_static_experiment_ExperimentEntity_descriptor =
@@ -9884,7 +10141,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Experiment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Experiment_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataDateInputGoogle", "FuroDataMoneyInput", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "Repstring", "SingleTypeProperty", "TheAnyType", "TypeProperty", "TypeWithOptions", });
+        new java.lang.String[] { "Description", "DisplayName", "FuroDataBoolIcon", "FuroDataCheckboxInput", "FuroDataColorInput", "FuroDataDateInput", "FuroDataDateInputGoogle", "FuroDataMoneyInput", "FuroDataNumberInput", "FuroDataPasswordInput", "FuroDataRangeInput", "FuroDataSearchInput", "FuroDataTextInput", "FuroDataTextareaInput", "FuroDataTimeInput", "Id", "Repstring", "SingleTypeProperty", "TheAnyType", "TypeProperty", "TypeWithOptions", "UpdateMask", });
     internal_static_experiment_Default_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Default_fieldAccessorTable = new
@@ -9908,6 +10165,7 @@ public final class ExperimentOuterClass {
     google.protobuf.AnyOuterClass.getDescriptor();
     google.type.DateOuterClass.getDescriptor();
     google.type.MoneyOuterClass.getDescriptor();
+    google.protobuf.FieldMaskOuterClass.getDescriptor();
     furo.PropertyOuterClass.getDescriptor();
   }
 

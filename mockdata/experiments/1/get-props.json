@@ -18,53 +18,26 @@
     },
     "furo_data_range_input": 31,
     "furo_data_bool_icon": false,
-    "type_property": [{
-      "code": "c0a7f550-0fbe-4046-8fa9-60c86327b6b1",
-      "data": {
-        "@type": "type.googleapis.com/furo.StringProperty",
-        "data": "01012020"
-      },
-      "display_name": "Vertragsbeginn",
-      "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
-      "meta": {
-        "fields": {
-          "data.data": {
-            "constraints": {
-              "required": {
-                "is": "true",
-                "message": "Bitte ausfüllen!"
-              }
-            },
-            "meta": {
-              "label": "Vertragsbeginn"
-            }
-          }
-        }
-      }
-    },
+    "type_property": [
       {
+        "code": "c0a7f550-0fbe-4046-8fa9-60c86327b6b1",
         "data": {
-          "@type": "xx/google.type.Date",
-          "day": 8,
-          "month": 11,
-          "year": 2022,
-          "display_name": "8.11.2022"
+          "@type": "type.googleapis.com/furo.StringProperty",
+          "data": "01012020"
         },
-        "display_name": "a date",
-        "id": "a",
-        "code": "date",
+        "display_name": "Vertragsbeginn",
+        "id": "a396a165-ebf9-4bd5-870f-9f09a929f9f9",
         "meta": {
           "fields": {
-            "data": {
-              "meta": {
-                "label": "datelabel",
-                "hint": "datehint is data"
-              },
+            "data.data": {
               "constraints": {
-                "min": {
-                  "is": "2019-09-09",
-                  "message": "to small"
+                "required": {
+                  "is": "true",
+                  "message": "Bitte ausfüllen!"
                 }
+              },
+              "meta": {
+                "label": "Vertragsbeginn"
               }
             }
           }
@@ -208,16 +181,9 @@
   },
   "links": [
     {
-      "href": "/mockdata/experiments/1/get-less-props.json",
-      "method": "GET",
-      "rel": "self",
-      "type": "experiment.ExperimentEntity",
-      "service": "ExperimentService"
-    },
-    {
       "href": "http://httpbin.org/anything",
-      "method": "PATCH",
-      "rel": "update",
+      "method": "POST",
+      "rel": "create",
       "type": "experiment.ExperimentEntity",
       "service": "ExperimentService"
     }

@@ -315,6 +315,10 @@
         "type_with_options": {
           "type": "string",
           "title": "field for testing static options"
+        },
+        "update_mask": {
+          "$ref": "#/definitions/protobufFieldMask",
+          "title": "Contains a field_mask which fields of the targeted resource are going to be updated"
         }
       },
       "title": "experiment spec for testing"
@@ -521,6 +525,19 @@
         }
       },
       "title": "Any contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto"
+    },
+    "protobufFieldMask": {
+      "type": "object",
+      "properties": {
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable."
+        }
+      },
+      "title": "A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto"
     },
     "typeDate": {
       "type": "object",

@@ -14,10 +14,14 @@
       "description": "Id of the property",
       "type": "string",
       "meta": {
-        "label": "Id",
-        "readonly": true
+        "label": "Id"
       },
-      "constraints": {},
+      "constraints": {
+        "required": {
+          "is": "true",
+          "message":"is required"
+        }
+      },
       "__proto": {
         "number": 1
       }
