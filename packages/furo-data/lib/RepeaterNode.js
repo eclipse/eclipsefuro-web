@@ -217,15 +217,13 @@ export class RepeaterNode extends EventTreeNode {
    */
   get _transmit_value(){
     const n = [];
-    if (!this.__childNodes.length) {return undefined}
-
     this.__childNodes.forEach(f => {
       let val = f._transmit_value;
       if (val !== undefined) {
         n.push(val);
       }
     });
-    return n;
+    return n.length ? n : undefined;
   }
 
   /**
@@ -234,15 +232,13 @@ export class RepeaterNode extends EventTreeNode {
    */
   get _delta_value(){
     const n = [];
-    if (!this.__childNodes.length) {return undefined}
-
     this.__childNodes.forEach(f => {
       let val = f._delta_value;
       if (val !== undefined) {
         n.push(val);
       }
     });
-    return n;
+    return n.length ? n : undefined;
   }
 
   /**
@@ -252,15 +248,13 @@ export class RepeaterNode extends EventTreeNode {
    */
   get _required_value(){
     const n = [];
-    if (!this.__childNodes.length) {return undefined}
-
     this.__childNodes.forEach(f => {
       let val = f._required_value;
       if (val !== undefined) {
         n.push(val);
       }
     });
-    return n;
+    return n.length ? n : undefined;
   }
 
   /**

@@ -140,7 +140,7 @@
         expect(r.detail.json.hasOwnProperty("furo_data_color_input")).to.be.false;
         assert.equal(r.detail.json.type_property.length, 1);
         assert.equal(r.detail.json.type_property[0].data.day, 22);
-        assert.equal(r.detail.json.repstring.length, 0);
+        expect(r.detail.json.hasOwnProperty("repstring")).to.be.false;
         assert.equal(r.detail.json.furo_data_money_input.currency_code, 'CHF');
         assert.equal(r.detail.json.furo_data_money_input.units, 3333);
         assert.equal(r.detail.json.furo_data_money_input.nanos, 75100000);
