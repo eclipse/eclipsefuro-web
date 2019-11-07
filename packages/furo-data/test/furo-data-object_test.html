@@ -47,7 +47,7 @@
       element.setAttribute("type", "experiment.Default");
       assert.equal(element.data.description._value, "Ein text per default");
       let handler = (e) => {
-        assert.equal(element.data.description._value, undefined);
+        assert.equal(element.data.description._value, "");
         done();
       };
       element.data.addEventListener("data-injected", handler, {once: true});

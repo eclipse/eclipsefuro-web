@@ -1,5 +1,6 @@
 import {EventTreeNode, NodeEvent} from "./EventTreeNode";
 import {RepeaterNode} from "./RepeaterNode";
+import {Helper} from "./Helper";
 
 export class FieldNode extends EventTreeNode {
 
@@ -113,9 +114,10 @@ export class FieldNode extends EventTreeNode {
   /**
    * resets the field to the initial values from the spec
    */
-  reinit(){
+  reinit() {
     this._value = JSON.parse(this.__initialValue);
   }
+
   _createVendorType(type) {
     if (this.__specdefinitions[type]) {
       for (let fieldName in this.__specdefinitions[type].fields) {
@@ -201,23 +203,23 @@ export class FieldNode extends EventTreeNode {
     }
 
 
-
-
-
-
     //  clear field if it is not in the incomming data
+    // set default values according to https://developers.google.com/protocol-buffers/docs/proto3#default
     this.__childNodes.forEach((n) => {
-      if(val && !val.hasOwnProperty(n._name)){
-        if(n.__childNodes.length > 0){
+
+      if (val && !val.hasOwnProperty(n._name)) {
+        if (n.__childNodes.length > 0) {
           n._value = {};
-        }else{
-          n._value = undefined;
+        } else {
+          n._value = Helper.defaultForType(n._spec.type);
         }
       }
     });
 
     this.dispatchNodeEvent(new NodeEvent('branch-value-changed', this, false));
   }
+
+
 
   __updateMetaAndConstraints(metaAndConstraints) {
     // on this layer you can only pass the constraint to the children
@@ -376,8 +378,8 @@ export class FieldNode extends EventTreeNode {
    *
    * @private
    */
-  get _not_readonly_value(){
-    if (this._meta && !this._meta.readonly){
+  get _not_readonly_value() {
+    if (this._meta && !this._meta.readonly) {
       if (this.__childNodes.length > 0) {
         this.__value = {};
         // nur reine Daten zurück geben
@@ -397,8 +399,8 @@ export class FieldNode extends EventTreeNode {
    * Returns all modified field values with deep dive (! _pristine)
    * @private
    */
-  get _modified_value(){
-    if (this._meta && !this._meta.readonly && !this._pristine){
+  get _modified_value() {
+    if (this._meta && !this._meta.readonly && !this._pristine) {
       if (this.__childNodes.length > 0) {
         this.__value = {};
         // nur reine Daten zurück geben

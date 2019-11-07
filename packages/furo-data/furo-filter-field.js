@@ -2,12 +2,57 @@ import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 
 /**
- * `furo-filter-field`
- * Describe your element
+ * `furo-filter-field` is used with `furo-filter-container`, `furo-filter-and` and `furo-filter-and` to build the filter string.
+ *  With `furo-filter-field` you will set the field, operator and value of a filter item.
  *
- * @summary shortdescription
+ *
+ * ```html
+ * <!-- this will result in a filter like ((description OR start) AND (end OR cost_limit))
+ * <furo-filter-container>
+ *  <furo-filter-and>
+ *    <`furo-filter-or`>
+ *      <furo-filter-field field="description" is="in" ƒ-set-value="--defaultChanged"></furo-filter-field>
+ *      <furo-filter-field field="start" is="gte" ƒ-set-value="--startChanged"></furo-filter-field>
+ *    </furo-filter-or>
+ *    <furo-filter-or>
+ *      <furo-filter-field field="end" is="lte" ƒ-set-value="--endChanged"></furo-filter-field>
+ *      <furo-filter-field field="cost_limit" is="eq" ƒ-set-value="--costlimitChanged"></furo-filter-field>
+ *    </furo-filter-or>
+ *  </furo-filter-and>
+ * </furo-filter-container>
+ * ```
+ *
+ *
+ *  ## Fitler operators
+ *
+ *| Operator          | Meaning                            |
+ *|:----------------- |:---------------------------------- |
+ *| lt  oder <        | lower than |
+ *| lte oder <=       | lower than or equal |
+ *| gt  oder >        | greater than |
+ *| gte oder >=       | greater than or equal |
+ *| eq  oder =        | equal |
+ *|  **more operators**     ||
+ *| in                | in |
+ *| btw               | between |
+ *| btwe              | between but including the values  |
+ *| is null           | is null, true,false |
+ *| sw                | starts with |
+ *| ew                | ends with |
+ *| con               | contains |
+ *| **negations**     ||
+ *| !eq               | not equal |
+ *| !btw              | outside, not between |
+ *| !null             | not null |
+ *| !con              | does not contain |
+ *| !sw               | does not starts with |
+ *| !ew               | does not ends with |
+ *| !in               | not in |
+ *
+ *
+ * @summary set a filter field
  * @customElement
- * @demo demo/furo-filter-field.html
+ * @demo demo-furo-filter Basic usage
  * @appliesMixin FBP
  */
 class FuroFilterField extends FBP(LitElement) {
@@ -22,12 +67,20 @@ class FuroFilterField extends FBP(LitElement) {
    */
   static get properties() {
     return {
+      /**
+       *  Defines the operator.
+       */
       is: {type: String},
+      /**
+       *  Defines the field you want to filter
+       */
       field: {type: String},
+      /**
+       *  Defines the value to filter
+       */
       value: {type: String}
     };
   }
-
 
 
   set is(val) {
@@ -43,8 +96,15 @@ class FuroFilterField extends FBP(LitElement) {
 
   set value(val) {
     this._value = val;
-
     this._notifyChanges();
+  }
+
+  /**
+   * Set the value
+   * @param v
+   */
+  setValue(v) {
+    this.value = v;
   }
 
   _notifyChanges() {

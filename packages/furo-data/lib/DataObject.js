@@ -1,6 +1,7 @@
 import {EventTreeNode, NodeEvent} from "./EventTreeNode";
 import {FieldNode} from "./FieldNode";
 import {RepeaterNode} from "./RepeaterNode";
+import {Helper} from "./Helper";
 
 /**
  * EntityNode is usually the root node of an eventTree
@@ -210,7 +211,7 @@ export class DataObject extends EventTreeNode {
         if(n.__childNodes.length > 0){
           n._value = {};
         }else{
-          n._value = undefined;
+          n._value = Helper.defaultForType(n._spec.type);
         }
 
       }
