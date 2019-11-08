@@ -1666,11 +1666,9 @@ this._FBPAddWireHook("--pathChanged",e=>{if(e.pathSegments[0]){this.selected=e.p
 return Theme.getThemeForComponent(this.name)||css`
         :host {
             display: block;
-            background-color: var(--primary);
             color: var(--on-primary);
             line-height: 54px;
             font-size: 18px;
-            padding-left: var(--spacing);
         }
 
         :host([hidden]) {
@@ -2390,6 +2388,8 @@ return css`
                 --primary: #ececec;
                 --primary-variant: #f4f4f4;
                 --on-primary: #212121;
+                --primary-light: #f6f6f6;
+                --primary-dark: #f1f1f1;
 
                 --secondary: #fbe73a;
                 --secondary-variant: #9e7f2b;
@@ -2473,7 +2473,166 @@ return css`
             ::-webkit-resizer {
             }
 
-        `}}_exports.Styling$1=Styling;var styling={Styling:Styling};_exports.$styling=styling;class ViewHome extends FBP(LitElement){constructor(){super()}/**
+        `}}_exports.Styling$1=Styling;var styling={Styling:Styling};_exports.$styling=styling;class FuroIconButton extends FBP(LitElement){constructor(){super()}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * The icon
+       */icon:{type:String},/**
+       * Focus the element automatically
+       */autofocus:{type:Boolean,reflect:!0}}}/**
+     * Set the focus to the button
+     * @param e
+     */focus(e){this._FBPTriggerWire("--focus")}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: inline-block;
+            position: relative;
+            width: 48px;
+            height: 48px;
+            box-sizing: border-box;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        button {
+            cursor: pointer;
+            background: none;
+            outline: none;
+            border: none;
+            color: inherit;
+            padding: 12px;
+            width: 48px;
+            height: 48px;
+            box-sizing: border-box;
+            display: block;
+            background-color: transparent;
+        }
+
+        furo-ripple{
+            border-radius: 50%;
+            margin: 4px;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .bg{
+            border-radius: 50%;
+            position: absolute;
+            top:4px;
+            left:4px;
+            bottom: 4px;
+            right: 4px;
+        }
+        :host(:focus-within) .bg {
+            background-color: var(--surface-light);
+            opacity: 0.2;
+        }
+        :host(:hover) .bg{
+            background-color: var(--surface-dark);
+            opacity: 0.2;
+        }
+
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html`
+<div class="bg"></div>
+      <button ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>
+        <furo-icon icon="${this.icon}"></furo-icon>
+         <furo-ripple></furo-ripple>      
+      </button>
+      
+    `}}window.customElements.define("furo-icon-button",FuroIconButton);class FuroAppBarTop extends FBP(LitElement){constructor(){super();this._navigationIcon="menu"}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+if(this.drawer){/**
+       * @event connect-to-drawer-requested
+       * Fired when drawer name is set
+       * detail payload: {name}
+       */let customEvent=new Event("connect-to-drawer-requested",{composed:!0,bubbles:!0});customEvent.detail={name:this.drawer};this.dispatchEvent(customEvent);this._drawer=customEvent.detail.drawer;if(this._drawer){// add regular event listener to the drawer
+this._drawer.addEventListener("is-floating",()=>{this.showNavigationIcon()});this._drawer.addEventListener("is-pinned",()=>{this.hideNavigationIcon()});if(this._drawer.isFloating){this.showNavigationIcon()}else{this.hideNavigationIcon()}}}/**
+       * Register hook on wire --navigationClicked to
+       * open the drawer
+       */this._FBPAddWireHook("--navigationClicked",e=>{if("menu"===this._navigationIcon){this._drawer.open();/**
+                              * @event navigation-clicked
+                              * Fired when navigation is clicked
+                              */ /**
+                                  * @event navigation-menu-clicked
+                                  * Fired when icon is menu and navigation is clicked
+                                  */let customEvent=new Event("navigation-menu-clicked",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}})}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Use method open or set this attribute to open a drawer in float mode
+       */_navigationIcon:{type:String,attribute:"navigation-icon"},/**
+       * drawer to connect the ƒ-show-navigation-icon="--drawerFloats" ƒ-hide-navigation-icon="--drawerPinned"
+       */drawer:{type:String}}}// ƒ-show-navigation-icon="--drawerFloats" ƒ-hide-navigation-icon="--drawerPinned"
+/**
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return css`
+        :host {
+            display: block;
+            color: var(--on-primary);
+            background: linear-gradient(315deg, var(--primary-light, #7f7f7f) 0%, var(--primary-dark, #aFAFAF) 100%);
+            box-shadow: 0 -15px 10px -15px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            font-size: 20px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        furo-horizontal-flex {
+            height: 56px;
+            line-height: 56px;
+        }
+
+        ::slotted(*) {
+            margin-left: var(--spacing-s, 16px);
+            margin-right: var(--spacing-s, 16px);
+        }
+
+        ::slotted(furo-icon-button), furo-icon-button.navigation {
+            cursor: pointer;
+            margin: 4px 0;
+        }
+
+        furo-icon-button.navigation {
+            display: none;
+        }
+
+        :host([navigation]) furo-icon-button.navigation {
+            display: block;
+        }
+
+    `}showNavigationIcon(){this.setAttribute("navigation","")}hideNavigationIcon(){this.removeAttribute("navigation")}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <furo-horizontal-flex>
+      <furo-icon-button class="navigation" icon="${this._navigationIcon}" @-click="^^navigation-clicked, --navigationClicked"></furo-icon-button>
+       <div flex>
+        <slot></slot>
+</div>
+      </furo-horizontal-flex>
+    `}}window.customElements.define("furo-app-bar-top",FuroAppBarTop);class ViewHome extends FBP(LitElement){constructor(){super()}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -2490,7 +2649,7 @@ return Theme.getThemeForComponent(this.name)||css`
             :host {
                 display: block;
                 height: 100%;
-                overflow: auto;
+                overflow: hidden;
                 box-sizing: border-box;
                 background-color: var(--background, white);
                 color: var(--on-background, black);
@@ -2592,7 +2751,11 @@ return Theme.getThemeForComponent(this.name)||css`
      * @returns {TemplateResult}
      */render(){// language=HTML
 return html`
-            <div class="content">
+            <furo-vertical-flex>
+            <furo-app-bar-top drawer="home">
+                <header-toolbar></header-toolbar>
+            </furo-app-bar-top>
+            <div scroll flex class="content">
                 <p class="hero-title">フロー</p>
                 <p class="hero-caption">Version 0.xx.xx</p>
                 <p class="hero-caption">An enterprise grade framework for creating fast, lightweight web apps
@@ -2718,8 +2881,12 @@ return html`
                     Opera). </h2>
                 <hr>
                 <small>[1] furo-fbp has no dependencies, furoBaseComponets relies mostly on LitElement</small>
+
+                <footer-bar></footer-bar>
             </div>
-            <footer-bar></footer-bar>
+            
+                
+            </furo-vertical-flex>
         `}}window.customElements.define("view-home",ViewHome);class FuroButton extends FBP(LitElement){constructor(){super();this.label=this.innerText;this.disabled=!1;this.danger=!1}/**
      * Set the focus to the button
      * @param e
@@ -8251,11 +8418,9 @@ return[css`
               overflow-x: hidden;
           }
 
-          furo-vertical-flex {
-              height: 100%;
-          }
 
           furo-pages {
+              height: 100vh;
               overflow: hidden;
           }
 
@@ -8265,9 +8430,7 @@ return[css`
      */render(){// language=HTML
 return html`
 
-      <furo-vertical-flex>
-        <header-toolbar></header-toolbar>
-
+     
         <furo-pages flex ƒ-inject-location="--locationChanged" default="FuroBaseComponents">
           <view-home name="FuroBaseComponents"></view-home>
           <view-guide name="guide"></view-guide>
@@ -8275,7 +8438,7 @@ return html`
           <view-spec name="spec"></view-spec>
         </furo-pages>
 
-      </furo-vertical-flex>
+       
       <furo-location @-location-changed="--locationChanged"></furo-location>
         <furo-snackbar-display></furo-snackbar-display>
     `}}window.customElements.define("main-stage",MainStage);class FuroShell extends FBP(LitElement){/**
@@ -15589,9 +15752,6 @@ return Theme.getThemeForComponent(this.name)||css`
         }
         
         div.label {
-
-            position: sticky;
-            top:0;
             background-color: var(--surface, white);
             z-index: 1;
             color: var(--on-surface, black);
@@ -17051,4 +17211,175 @@ return html`
         <furo-icon-with-label icon="social:whatshot"></furo-icon-with-label>
       </div>
      
-    `}}window.customElements.define("demo-furo-icon-list",DemoFuroIconList)});
+    `}}window.customElements.define("demo-furo-icon-list",DemoFuroIconList);class FuroAppDrawer extends FBP(LitElement){constructor(){super();/**
+              * Width for the autofloat
+              * @type {number}
+              */this.floatBreakpoint=960;this._movementDetectionRange=10;// return this to node which want to connect
+window.addEventListener("connect-to-drawer-requested",e=>{if(e.detail.name===this.name){e.detail.drawer=this}})}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Use method floatDrawer or set this attribute to enable float mode
+       */_isFloating:{type:Boolean,reflect:!0,attribute:"float"},/**
+       * Enable this to put the drawer on the right side
+       */isReverse:{type:Boolean,reflect:!0,attribute:"reverse"},/**
+       * disables automatic floating mode
+       */noauto:{type:Boolean},/**
+       * Min width of the app-drawer to switch to floating mode
+       */floatBreakpoint:{type:Number,attribute:"float-breakpoint"},/**
+       * name of this drawer, needed if you want to connect to this drawer
+       */name:{type:String}}}set isFloating(val){this._isFloating=val;if(val){/**
+       * @event is-floating
+       * Fired when drawer is in floating mode. This event is fired when drawer is closed and open
+       */let customEvent=new Event("is-floating",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}else{/**
+       * @event is-pinned
+       * Fired when drawer is in pinned mode.
+       */let customEvent=new Event("is-pinned",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}}get isFloating(){return this._isFloating}/**
+     * open the drawer when it is in float mode
+     */open(){this.isOpen=!0;if(this.isFloating){let drawer=this.shadowRoot.getElementById("drawer");//drawer.style.transform = "translate3d(0, 0, 0)";
+if(this.isReverse){//drawer.style.transform = "translate3d("+ width +"px, 0, 0)";
+drawer.style.right=0}else{drawer.style.left=0;//drawer.style.transform = "translate3d(-"+ width +"px, 0, 0)";
+}let backdrop=this.shadowRoot.getElementById("backdrop");backdrop.style.opacity=1;backdrop.style.pointerEvents="auto"}}/**
+     * closes the drawer when it is in float mode
+     */close(){this.isOpen=!1;if(this.isFloating){let drawer=this.shadowRoot.getElementById("drawer"),width=drawer.getBoundingClientRect().width;if(this.isReverse){//drawer.style.transform = "translate3d("+ width +"px, 0, 0)";
+drawer.style.right=-width+"px"}else{drawer.style.left=-width+"px";//drawer.style.transform = "translate3d(-"+ width +"px, 0, 0)";
+}let backdrop=this.shadowRoot.getElementById("backdrop");backdrop.style.opacity=0;backdrop.style.pointerEvents="none";// unregister movement tracker
+this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);//unregister trackend
+this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventListener("touchend",this.trackEnd,{once:!0})}}/**
+     * let the drawer float
+     */floatDrawer(){this.isFloating=!0}/**
+     * disable the floating
+     */pinDrawer(){this.isFloating=!1}/**
+     * Put the drawer on the right side
+     *
+     * Or use the attribute reverse for the same effect
+     *
+     */putDrawerToRight(){this.isReverse=!0}/**
+     * Put the drawer on the left side (default)
+     */putDrawerToLeft(){this.isReverse=!1}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+/**
+     * Register hook on wire --backdropClicked to
+     * close the menu
+     */this._FBPAddWireHook("--backdropClicked",e=>{this.close()});// register resize listener
+if(!this.noauto){if(window.ResizeObserver){let ro=new ResizeObserver(entries=>{for(let entry of entries){const cr=entry.contentRect;this.isFloating=cr.width<=this.floatBreakpoint}if(this.isFloating){this.close()}});ro.observe(this)}else{// fallback, just listen to the resize event
+let cr=this.getBoundingClientRect();this.isFloating=cr.width<=this.floatBreakpoint;window.addEventListener("resize",e=>{let cr=this.getBoundingClientRect();this.isFloating=cr.width<=this.floatBreakpoint;if(this.isFloating){this.close()}})}}let drawer=this.shadowRoot.getElementById("drawer"),backdrop=this.shadowRoot.getElementById("backdrop");this._FBPAddWireHook("--trackstart",e=>{// unregister
+this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);if(e instanceof MouseEvent){this.pauseEvent(e)}if(this.isFloating){let start_x=this._getScreenX(e),start_y=this._getScreenY(e),start_time=performance.now(),width=drawer.getBoundingClientRect().width,trackingEnabled=!1,trackingFixed=!1;drawer.style.transitionDuration="0ms";// Setup a timer
+let animationframetimeout;// register move
+this.moveHandler=e=>{// If there's a timer, cancel it
+if(requestAnimationFrame){window.cancelAnimationFrame(animationframetimeout)}if(e instanceof MouseEvent){this.pauseEvent(e);// prevent dragging of links in a drawer
+e.preventDefault()}let distance=this._getScreenX(e)-start_x,y=this._getScreenY(e)-start_y;// start tracking if angle is in a 45 deg horizontal
+if(!trackingFixed&&Math.abs(distance)<this._movementDetectionRange&&Math.abs(y)<this._movementDetectionRange){trackingEnabled=Math.abs(y)<Math.abs(distance);return}// Setup the new requestAnimationFrame()
+animationframetimeout=window.requestAnimationFrame(()=>{if(!trackingEnabled){return}trackingFixed=!0;// correct the 10 pixels from tracking enable
+if(!this.isReverse){distance+=this._movementDetectionRange}else{distance-=this._movementDetectionRange}// update drawer position
+let delta=100*distance/width;if(this.isOpen){// limit the dragging, it makes no sense to pull the drawer in to the content area
+if(!this.isReverse&&0<delta||this.isReverse&&0>delta){delta=0}//drawer.style.transform = "translate3d(" + distance + "px, 0, 0)";
+if(this.isReverse){if(0>distance){distance=0}drawer.style.right=-distance+"px"}else{if(0<distance){distance=0}drawer.style.left=distance+"px"}backdrop.style.opacity=Math.floor(100+delta)/100}else{// limit the dragging
+if(100<delta){delta=100;distance=width}if(-100>delta){delta=-100;distance=-width}if(this.isReverse){//drawer.style.transform = "translate3d(" + (100 + delta) + "%, 0, 0)";
+drawer.style.right=-(width+distance)+"px"}else{//drawer.style.transform = "translate3d(" + (delta - 100) + "%, 0, 0)";
+drawer.style.left=distance-width+"px"}// backdrop darkness
+backdrop.style.opacity=Math.abs(delta/100)}})};// register move
+this.addEventListener("mousemove",this.moveHandler,!0);this.addEventListener("touchmove",this.moveHandler,!0);this.trackEnd=e=>{drawer.style.transitionDuration="";// If there's a animation timer, cancel it
+if(requestAnimationFrame){window.cancelAnimationFrame(animationframetimeout)}let end_time=performance.now(),distance=this._getScreenX(e)-start_x,duration=end_time-start_time;// quick movement
+if(30<Math.abs(distance)&&200>duration){if(this.isOpen){if(!this.isReverse&&0>distance||this.isReverse&&0<distance){this.close()}}else{this.open()}}else{if(!trackingEnabled){return}// complete the movement, slow
+let delta=100*distance/width;if(-40<delta&&40>delta){// restore initial pos
+if(this.isOpen){this.open()}else{this.close()}}else{if(this.isOpen){this.close()}else{this.open()}}}// unregister
+this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0)};// unregister movement tracker
+this.addEventListener("mouseup",this.trackEnd,{once:!0});this.addEventListener("touchend",this.trackEnd,{once:!0})}})}pauseEvent(e){if(e.stopPropagation)e.stopPropagation();if(e.preventDefault)e.preventDefault();e.cancelBubble=!0;e.returnValue=!1;return!1}_getScreenX(e){let x;if(e instanceof MouseEvent){x=e.screenX}else{x=e.changedTouches[0].screenX}return x}_getScreenY(e){let y;if(e instanceof MouseEvent){y=e.screenY}else{y=e.changedTouches[0].screenY}return y}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        furo-horizontal-flex {
+            height: 100%;
+        }
+
+
+        #drawer {
+            border-right: 1px solid var(--separator, rgb(228, 228, 228));
+            transition-duration: 200ms;
+            background: var(--surface-light);
+        }
+        
+        ::slotted([scroll]){
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        /* disable pointer events */
+        #backdrop {
+            pointer-events: none;
+            transition-duration: 200ms;
+            transition-property: opacity;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
+        }
+
+
+        #drag {
+            position: absolute;
+            top: 0;
+            width: 18px;
+            bottom: 0;
+            left: 0;
+        }
+
+        :host([reverse]) #drag {
+            left: unset;
+            right: 0;
+        }
+
+        /* put the floating drawer outside the visible area */
+        :host([float]) #drawer {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        /* put drawer to the right side on reverse mode */
+        :host([float][reverse]) #drawer {
+            left: unset;
+            right: 0;
+
+        }
+
+
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html`
+
+      <furo-horizontal-flex ?reverse="${this.isReverse}">
+        <div id="drawer" @-touchstart="--trackstart(*)" @-mousedown="--trackstart(*)">
+          <slot name="drawer"></slot>
+        </div>
+        <div flex>
+          <slot></slot>
+        </div>
+      </furo-horizontal-flex>
+      <div id="backdrop" @-click="--backdropClicked"></div>
+      <div id="drag" @-touchstart="--trackstart(*)" @-mousedown="--trackstart(*)"></div>
+    `}}window.customElements.define("furo-app-drawer",FuroAppDrawer)});

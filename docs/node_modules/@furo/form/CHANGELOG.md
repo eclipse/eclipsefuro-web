@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.24.18...@furo/form@0.25.0) (2019-11-08)
+
+
+### Bug Fixes
+
+* renaming ([70e1b52](https://github.com/veith/FuroBaseComponents/commit/70e1b52))
+
+
+### Features
+
+* Experimental components furo-form, furo-icon-button, furo-app-bar-top and furo-app-drawer added ([cbab017](https://github.com/veith/FuroBaseComponents/commit/cbab017))
+
+
+
+
+
 ## [0.24.18](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.24.17...@furo/form@0.24.18) (2019-10-31)
 
 **Note:** Version bump only for package @furo/form

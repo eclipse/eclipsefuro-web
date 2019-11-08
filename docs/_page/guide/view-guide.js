@@ -710,9 +710,13 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      */render(){// language=HTML
 return _furoShell.html`
       <furo-location url-space-regex="^/guide" @-location-changed="--pathChanged"></furo-location>
-
-      <furo-split-view>
-        <div slot="master" scroll>
+      <furo-vertical-flex>
+        <furo-app-bar-top drawer="guide">
+          <header-toolbar></header-toolbar>
+        </furo-app-bar-top>
+        <furo-app-drawer float-breakpoint="1200" name="guide"   ƒ-close="--pathChanged">
+       
+        <div slot="drawer" scroll>
           <side-navigation ƒ-inject-nav-config="--nav" base-path="/guide/"></side-navigation>
         </div>
         <furo-pages ƒ-inject-location="--pathChanged" default="welcome">
@@ -720,5 +724,5 @@ return _furoShell.html`
           
           <div name="welcome">Coming soon.</div>
         </furo-pages>
-      </furo-split-view>
+        </furo-app-drawer>
     `}}window.customElements.define("view-guide",ViewGuide)});

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.61.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.60.5...@furo/data-input@0.61.0) (2019-11-08)
+
+
+### Bug Fixes
+
+* furo.Property tests ([232e5ce](https://github.com/veith/FuroBaseComponents/commit/232e5ce))
+* renaming ([70e1b52](https://github.com/veith/FuroBaseComponents/commit/70e1b52))
+
+
+### Features
+
+* how to build the filter pattern (demo included) ([3786f2b](https://github.com/veith/FuroBaseComponents/commit/3786f2b))
+
+
+
+
+
 ## [0.60.5](https://github.com/veith/FuroBaseComponents/compare/@furo/data-input@0.60.4...@furo/data-input@0.60.5) (2019-10-31)
 
 
