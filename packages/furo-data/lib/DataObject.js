@@ -183,6 +183,7 @@ export class DataObject extends EventTreeNode {
           let newSize = data[fieldName].length;
           if (newSize < fieldNode.repeats.length) {
             fieldNode.repeats.splice(newSize);
+            fieldNode.__childNodes.splice(newSize);
           }
 
           fieldNode._pristine = true;
