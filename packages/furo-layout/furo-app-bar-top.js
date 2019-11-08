@@ -160,10 +160,8 @@ class FuroAppBarTop extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-horizontal-flex>
-      <furo-icon-button class="navigation" icon="${this._navigationIcon}" @-click="^^navigation-clicked, --navigationClicked"></furo-icon-button>
-       <div flex>
-        <slot></slot>
-</div>
+      <furo-icon-button class="navigation" icon="${this._navigationIcon}" @-click="^^navigation-clicked, --navigationClicked"></furo-icon-button>       
+        <slot></slot>       
       </furo-horizontal-flex>
     `;
   }

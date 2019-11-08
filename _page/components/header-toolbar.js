@@ -60,6 +60,7 @@ class HeaderToolbar extends FBP(LitElement) {
             color: var(--on-primary);
             line-height: 54px;
             font-size: 18px;
+            width: 100%;
         }
 
         :host([hidden]) {
