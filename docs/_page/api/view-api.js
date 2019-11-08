@@ -1,4 +1,4 @@
-define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.panelRegistry=_exports.nav=_exports.RepeaterNode=_exports.NodeEvent=_exports.Helper=_exports.FuroTreeItem=_exports.FieldNode=_exports.EventTreeNode=_exports.DataObject=_exports.CheckMetaAndOverrides=_exports.BasePanel=_exports.$panelRegistry=_exports.$navConfig=_exports.$helper=_exports.$furoTreeItem=_exports.$RepeaterNode=_exports.$FieldNode=_exports.$EventTreeNode=_exports.$DataObject=_exports.$CheckMetaAndOverrides=_exports.$BasePanel=void 0;class FetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();fetch("/node_modules/@furo/data/analysis.json").then(res=>res.json()).then(analysis=>{/**
+define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.panelRegistry=_exports.nav=_exports.RepeaterNode=_exports.NodeEvent=_exports.Helper$1=_exports.Helper=_exports.FuroTreeItem=_exports.FieldNode=_exports.EventTreeNode=_exports.DataObject=_exports.CheckMetaAndOverrides=_exports.BasePanel=_exports.$panelRegistry=_exports.$navConfig=_exports.$helper=_exports.$furoTreeItem=_exports.$RepeaterNode=_exports.$Helper=_exports.$FieldNode=_exports.$EventTreeNode=_exports.$DataObject=_exports.$CheckMetaAndOverrides=_exports.$BasePanel=void 0;class FetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();fetch("/node_modules/@furo/data/analysis.json").then(res=>res.json()).then(analysis=>{/**
        * @event data
        * Fired when analysis loaded
        * detail payload: analysis
@@ -297,7 +297,7 @@ return _furoShell.html`
           <furo-vertical-scroller>
         
 
-          <furo-card title="With media" secondary-text="Secondary text goes here">
+          <furo-card header-text="With media" secondary-text="Secondary text goes here">
             <img slot="media" src="/_page/images/hamburg.png" alt="">
             <div ƒ-.inner-text="--fromTextarea" style="margin-bottom: 30px">Do not forget to give the card <br> a height</div>
             <furo-horizontal-flex space slot="action">
@@ -321,7 +321,7 @@ return _furoShell.html`
             </furo-horizontal-flex>
           </furo-card>
 
-            <furo-card title="Title goes here" secondary-text="Secondary text goes hereSecondary text goes hereSecondary text goes hereSecondary text goes here">
+            <furo-card header-text="Title goes here" secondary-text="Secondary text goes hereSecondary text goes hereSecondary text goes hereSecondary text goes here">
               <div>Text in default slot</div>
               <div slot="action">
                 <furo-horizontal-flex space slot="action">
@@ -333,7 +333,7 @@ return _furoShell.html`
               </div>
             </furo-card>
 
-            <furo-card title="Title goes here" secondary-text="Secondary text goes here">
+            <furo-card header-text="Title goes here" secondary-text="Secondary text goes here">
               <div>
                 Content text blah
               </div>
@@ -1328,7 +1328,7 @@ return _furoShell.html`
             }</style>
             <furo-vertical-scroller>
               <furo-horizontal-flex>
-                <furo-card title="Select some">
+                <furo-card header-text="Select some">
 
                   <furo-vertical-flex class="nomargin">
                     <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>
@@ -2042,7 +2042,7 @@ return _furoShell.html`
      * Setze den Service
      * @param service
      */set service(service){if(!this._servicedefinitions[service]){console.error("service "+service+" does not exist",this,"Available Services:",this._servicedefinitions);return}this._service=this._servicedefinitions[service];if(this._service.lifecycle&&this._service.lifecycle.deprecated){console.warn("You are using a deprecated service ("+service+") "+this._service.lifecycle.info)}}bindRequestData(dataObject){this._requestDataObject=dataObject}_makeRequest(link,dataObject){let data,body={};// check if dataObject is set and create body object
-if(dataObject){for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._not_readonly_value;if(val!==void 0){body[field._name]=val}}data=JSON.stringify(body)}// Daten
+if(dataObject){for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._transmit_value;if(val!==void 0){body[field._name]=val}}data=JSON.stringify(body)}// Daten
 let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");headers.append("Content-Type","application/json");return new Request(link.href,{method:link.method,headers:headers,body:data})}_checkServiceAndHateoasLinkError(rel,serviceName){// check Service Get
 let s=Object.keys(this._service.services).map(key=>{return key.toLowerCase()});if(-1===s.indexOf(serviceName.toLowerCase())){console.warn("Service "+serviceName+" is not specified",this._service,this);return!0}// check Hateoas
 if(!this._hts[rel]){console.warn("No HATEOAS for rel "+rel+" in service "+this._service.name+" found.",this);let customEvent=new Event("missing-hts-"+rel,{composed:!0,bubbles:!1});this.dispatchEvent(customEvent);return!0}return!1}/**
@@ -2125,7 +2125,7 @@ tmp=[]}}this._value=tmp;/**
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
          */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("repeat-became-invalid",this))});/**
          * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
-         */this.addEventListener("field-value-changed",e=>{this._pristine=!1});//store __initial_value _value for resetting the field
+         */this.addEventListener("field-value-changed",e=>{this._pristine=!1});this.addEventListener("new-data-injected",e=>{this._pristine=!0});//store __initial_value _value for resetting the field
 this.__initialValue=JSON.stringify(this._value)}/**
      * resets the field to the initial _values from the spec
      */reinit(){this._value=JSON.parse(this.__initialValue)}/**
@@ -2135,11 +2135,10 @@ this.__initialValue=JSON.stringify(this._value)}/**
      * we can return false here, because a repeater node is not created automatically
      */_hasAncestorOfType(type){return!1}deleteNode(){let index=this.__parentNode.__childNodes.indexOf(this);this.__parentNode.__childNodes.splice(index,1);delete this.__parentNode[this._name];//notify
 this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));this.dispatchNodeEvent(new NodeEvent("node-field-deleted",this._name,!0));// because this is deleted, notifiy from parent
-this.__parentNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.__parentNode,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this.__parentNode,!1))}set _value(val){if(Array.isArray(val)){val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
-// remove if type any and insert at same index
-if("furo.Property"===this.repeats[i]._spec.type){this.__childNodes.splice(i,1);let fieldNode=new FieldNode(this,this._spec,this._name);fieldNode.__index=i;this.repeats.splice(i,1,fieldNode)}this.repeats[i]._value=repdata;this.repeats[i]._pristine=!0});// remove additional nodes in repeats console.log(val.length,this.repeats.length)
-if(this.repeats.length>val.length){let l=val.length-1;for(let i=this.repeats.length-1;i>l;i--){this.deleteChild(i)}}this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));//TODO check the tree
-this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}}__updateMetaAndConstraints(metaAndConstraints){for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],targetfield=f[1];if(2===f.length){// typo protection
+this.__parentNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.__parentNode,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this.__parentNode,!1))}set _value(val){if(Array.isArray(val)){// remove all items if type is furo.Property
+if("furo.Property"===this._spec.type){this.removeAllChildren();this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}val.forEach((repdata,i)=>{if(!this.repeats[i]){this._addSilent()}// Werte aktualisieren
+this.repeats[i]._value=repdata;this.repeats[i]._pristine=!0});// remove additional nodes in repeats console.log(val.length,this.repeats.length)
+if(this.repeats.length>val.length){let l=val.length-1;for(let i=this.repeats.length-1;i>l;i--){this.deleteChild(i)}}this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}}__updateMetaAndConstraints(metaAndConstraints){for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],targetfield=f[1];if(2===f.length){// typo protection
 if(this.repeats[parseInt(target)][targetfield]){// we are on the parent of a endpoint. Update the metas in this
 let field=this.repeats[parseInt(target)][targetfield];for(let m in mc.meta){// update the metas
 field._meta[m]=mc.meta[m]}for(let c in mc.constraints){// update the constraints
@@ -2151,20 +2150,32 @@ field._constraints[c]=mc.constraints[c]}/**
              */field.dispatchNodeEvent(new NodeEvent("this-metas-changed",field,!1));// exit here, it does not go deeper
 return}}let subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.slice(2).join(".")]=mc;// typo protection
 if(this.repeats[parseInt(target)][targetfield]){this.repeats[parseInt(target)][targetfield].__updateMetaAndConstraints(subMetaAndConstraints)}}}get _value(){return this.repeats.map(f=>{return f._value})}/**
+     * Returns all not readonly field values with deep dive
+     *
+     * @private
+     */get _transmit_value(){const n=[];this.__childNodes.forEach(f=>{let val=f._transmit_value;if(val!==void 0){n.push(val)}});return n.length?n:void 0}/**
+     * Returns all modified field values with deep dive (! _pristine)
+     * @private
+     */get _delta_value(){const n=[];this.__childNodes.forEach(f=>{let val=f._delta_value;if(val!==void 0){n.push(val)}});return n.length?n:void 0}/**
+     * Returns required fields with all children which are modified or
+     * not readonly
+     * @private
+     */get _required_value(){const n=[];this.__childNodes.forEach(f=>{let val=f._required_value;if(val!==void 0){n.push(val)}});return n.length?n:void 0}/**
      * Deletes a repeated item by index
      * @param index
      */deleteChild(index){this.repeats.splice(index,1);this.__childNodes.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
 fieldNode._deleteFromList=()=>{this.deleteChild(this.repeats.indexOf(fieldNode))};return index}_setInvalid(error){this._isValid=!1;let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
 error.field=path.slice(1).join(".")}this.repeats[path[0]]._setInvalid(error)}add(data){let index=this._addSilent();this._pristine=!1;// set data if given
 if(data){let child=this.repeats[index];child._value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
-return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._name=fieldName;this.__index=fieldName;this.__value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
+return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class Helper{// get the default value of a type,  according to https://developers.google.com/protocol-buffers/docs/proto3#default
+static defaultForType(type){switch(type){case"string":case"bytes":return"";case"bool":return!1;case"float":case"double":case"int32":case"int64":case"uint32":case"uint64":case"sint32":case"sint64":case"fixed32":case"fixed64":case"sfixed32":case"sfixed64":return 0;default:return void 0;}}}_exports.Helper$1=Helper;var Helper$1={Helper:Helper};_exports.$Helper=Helper$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._name=fieldName;this.__index=fieldName;this.__value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
 if(this.__specdefinitions[this._spec.type]!==void 0){// check for recursion
 if(!this.__parentNode._hasAncestorOfType(this._spec.type)){if("google.protobuf.Any"!==this._spec.type){this._createVendorType(this._spec.type)}}else{this._isRecursion=!0}}// set default value from meta
 if(this._meta&&this._meta.default){this.defaultvalue=this._meta.default}/**
        * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
        */this.addEventListener("field-became-valid",e=>{let v=this.__childNodes.filter(f=>!f._isValid);if(0===v.length){this._isValid=!0}});/**
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
-         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1});//store __initialValue value for resetting the field
+         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1});this.addEventListener("field-value-changed",e=>{this._pristine=!1});this.addEventListener("new-data-injected",e=>{this._pristine=!0});//store __initialValue value for resetting the field
 this.__initialValue=JSON.stringify(this._value)}/**
      * create a field in a FieldNode, this is useful when using map<string,something>
      *   set the value option to init with values
@@ -2197,8 +2208,9 @@ this._oldvalue=this._value;this.__value=val;this._pristine=!1;if(JSON.stringify(
                                                                                         * Fired when a value on a particular field node changes. This event **does not bubble**. Can be used on any node.
                                                                                         *
                                                                                         * detail payload: **{NodeEvent}** with reference to the FieldNode
-                                                                                        */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}//  init field if it is not in the incomming data
-this.__childNodes.forEach(n=>{if(val&&null===val[n._name]){n._value=JSON.parse(n.__initialValue)}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
+                                                                                        */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}//  clear field if it is not in the incomming data
+// set default values according to https://developers.google.com/protocol-buffers/docs/proto3#default
+this.__childNodes.forEach(n=>{if(val&&!val.hasOwnProperty(n._name)){if(0<n.__childNodes.length){n._value={}}else{n._value=Helper.defaultForType(n._spec.type)}}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
 // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
 // a field which is targeted we delegate the sub request to  this field
 for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split(".");if(1===f.length){// we are on the parent of a endpoint. Update the metas in this
@@ -2225,15 +2237,70 @@ this.dispatchNodeEvent(new NodeEvent("this-node-field-deleted",this._name,!1));t
 if("string"===typeof val){try{val=JSON.parse(val)}catch(error){}}// type any
 this._createAnyType(val);if(0<this.__childNodes.length&&val){for(let index in this.__childNodes){let field=this.__childNodes[index];field.defaultvalue=val[field._name]}}else{if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.type)}else{this._oldvalue=this._value;this.__value=val;this._pristine=!0}}}get _value(){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
 for(let index in this.__childNodes){let field=this.__childNodes[index];this.__value[field._name]=field._value}}return this.__value}/**
+     * Returns all not readonly fields values with deep dive
+     * Mandatory fields (required is true) MUST always be transmitted
+     * !readonly || required
+     * @private
+     */get _transmit_value(){// a required field needs a special treatment --> required path
+if(this._constraints&&this._constraints.required&&"true"===this._constraints.required.is){return this._required_value}if(this._meta&&!this._meta.readonly){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
+for(let index in this.__childNodes){let field=this.__childNodes[index],val;if(this._constraints&&this._constraints.required&&"true"===this._constraints.required.is){val=this._required_value}else{val=field._transmit_value}if(val!==void 0){this.__value[field._name]=val}}}return this.__value}else{return void 0}}/**
+     * Returns all modified fields values with deep dive (! _pristine)
+     * modified || required
+     * @private
+     */get _delta_value(){// a required field needs a special treatment --> required path
+if(this._constraints&&this._constraints.required&&"true"===this._constraints.required.is){return this._required_value}if(!this._pristine){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
+for(let index in this.__childNodes){let field=this.__childNodes[index],val;if(this._constraints&&this._constraints.required&&"true"===this._constraints.required.is){val=this._required_value}else{val=field._delta_value}if(val!=void 0){this.__value[field._name]=val}}}return this.__value}else{return void 0}}/**
+     * Returns required fields with all children which are modified or
+     * not readonly
+     * ! readonly || req || modified
+     * @private
+     */get _required_value(){if(this._meta&&!this._meta.readonly||this._constraints&&this._constraints.required&&"true"===this._constraints.required.is||!this._pristine){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
+for(let index in this.__childNodes){let field=this.__childNodes[index],val=field._required_value;if(val!==void 0){this.__value[field._name]=val}}}return this.__value}else{return void 0}}/**
      * Returns all not readonly field values with deep dive
-     *
+     * Mandatory fields (required is true) MUST always be transmitted
      * @private
-     */get _not_readonly_value(){if(this._meta&&!this._meta.readonly){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
-for(let index in this.__childNodes){let field=this.__childNodes[index];this.__value[field._name]=field._not_readonly_value}}return this.__value}else{return void 0}}/**
-     * Returns all modified field values with deep dive (! _pristine)
-     * @private
-     */get _modified_value(){if(this._meta&&!this._meta.readonly&&!this._pristine){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
-for(let index in this.__childNodes){let field=this.__childNodes[index];this.__value[field._name]=field._modified_value}}return this.__value}else{return void 0}}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
+     */ // get _transmit_value(){
+//   if ((this._constraints && this._constraints.required && this._constraints.required.is === 'true') || this._meta && !this._meta.readonly){
+//     if (this.__childNodes.length > 0) {
+//       this.__value = {};
+//       // nur reine Daten zurück geben
+//       for (let index in this.__childNodes) {
+//         let field = this.__childNodes[index];
+//         let val = field._transmit_value;
+//         if (val !== undefined){
+//           this.__value[field._name] = val;
+//         }
+//       }
+//     }
+//     return this.__value;
+//
+//   } else {
+//     return undefined;
+//   }
+// }
+/**
+   * Returns all modified field values with deep dive (! _pristine)
+   * @private
+   */ // get _delta_value() {
+//     if ((this._constraints && this._constraints.required && this._constraints.required.is === 'true') || this._meta && !this._meta.readonly && !this._pristine) {
+//         if (this.__childNodes.length > 0) {
+//             this.__value = {};
+//             // nur reine Daten zurück geben
+//             for (let index in this.__childNodes) {
+//                 let field = this.__childNodes[index];
+//                 let val = field._delta_value;
+//                 if (val != undefined) {
+//                     this.__value[field._name] = val;
+//                 }
+//             }
+//         }
+//         return this.__value;
+//
+//     } else {
+//         return undefined;
+//     }
+// }
+_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
                             * @event (field-became-valid)
                             *
                             * ✋ Internal Event from EntityNode which you can use in the targeted components!
@@ -2261,20 +2328,26 @@ error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(
      * Injecten eines raw models wie bspw body oder entity einer collection
      * @param rawEntity
      */injectRaw(rawEntity){this._rawEntity=rawEntity;this._updateFieldValuesAndMetaFromRawEntity(this,rawEntity);this._pristine=!0;this._isValid=!0;/**
-                           * @event (data-injected)
+                           * Broadcast Event
                            *
-                           * ✋ Internal Event from EntityNode which you can use in the targeted components!
-                           *
-                           * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
-                           *
-                           * This event **bubbles**.
-                           *
-                           * detail payload: **{NodeEvent}**
-                           */this.dispatchNodeEvent(new NodeEvent("data-injected",this,!0))}/**
-     * Resete zum letzten injectet state zurück
+                           */this.broadcastEvent(new NodeEvent("new-data-injected",this));/**
+                                                                    * @event (data-injected)
+                                                                    *
+                                                                    * ✋ Internal Event from EntityNode which you can use in the targeted components!
+                                                                    *
+                                                                    * Fired when `ƒ-inject-raw` is completed and fresh data was injected. Only fired from EntityNode which is the root.
+                                                                    *
+                                                                    * This event **bubbles**.
+                                                                    *
+                                                                    * detail payload: **{NodeEvent}**
+                                                                    */this.dispatchNodeEvent(new NodeEvent("data-injected",this,!0))}/**
+     * Resete zum letzten injected state zurück
      */reset(){if(this._rawEntity){this.injectRaw(this._rawEntity)}}_hasAncestorOfType(type){return this._type===type}/**
      * Inits the EntityNode
      */init(){for(let i=this.__childNodes.length-1;0<=i;i--){this.__childNodes[i].reinit()}this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0}get rawEntity(){return this._rawEntity}/**
+     * Returns a json representation of your Data Object
+     * @return {*}
+     */get _value(){return this.getJson()}/**
      * Returns a json representation of your Data Object
      * @return {*}
      */get value(){return this.getJson()}/**
@@ -2286,7 +2359,7 @@ for(let index in this.__childNodes){let field=this.__childNodes[index];data[fiel
 data[fieldName].forEach((repdata,i)=>{// create if record index do not exist
 if(!fieldNode.repeats[i]){fieldNode._addSilent()}// Werte aktualisieren
 fieldNode.repeats[i]._value=repdata;fieldNode.repeats[i]._pristine=!0;fieldNode.repeats[i].__index=i});// entferne überzählige nodes
-let newSize=data[fieldName].length;if(newSize<fieldNode.repeats.length){fieldNode.repeats.splice(newSize)}fieldNode._pristine=!0;fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",fieldNode,!0));fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",fieldNode,!1))}else{if(fieldNode){fieldNode._clearInvalidity();// Werte aktualisieren
+let newSize=data[fieldName].length;if(newSize<fieldNode.repeats.length){fieldNode.repeats.splice(newSize);fieldNode.__childNodes.splice(newSize)}fieldNode._pristine=!0;fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",fieldNode,!0));fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",fieldNode,!1))}else{if(fieldNode){fieldNode._clearInvalidity();// Werte aktualisieren
 fieldNode._value=data[fieldName];fieldNode._pristine=!0}}}}/* todo: discuss if resetting is needed on this level
       // check for fields to reset
       node.__childNodes.forEach((n)=>{
@@ -2294,7 +2367,8 @@ fieldNode._value=data[fieldName];fieldNode._pristine=!0}}}}/* todo: discuss if r
           //the field node[n._name] should be reseted
         }
       });
-      */if(furoMetaDetected){this.__updateMetaAndConstraints(furoMetaDetected)}}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
+      */ //  clear fields if it is not in the incomming data
+node.__childNodes.forEach(n=>{if(data&&!data.hasOwnProperty(n._name)){if(0<n.__childNodes.length){n._value={}}else{n._value=Helper.defaultForType(n._spec.type)}}});if(furoMetaDetected){this.__updateMetaAndConstraints(furoMetaDetected)}}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
 // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
 // a field which is targeted we delegate the sub request to  this field
 for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.slice(1).join(".")]=mc;this[target].__updateMetaAndConstraints(subMetaAndConstraints)}}_setInvalid(error){// set field empty, if not defined
@@ -2418,7 +2492,7 @@ this._qp=qp;this.trigger()}/**
     * @event data
     * Fired when trigger was called and data binding was done
     * detail payload: json data of a data object
-    */if(this.field){let customEvent=new Event("data",{composed:!0,bubbles:!1});customEvent.detail=this.field.value;this.dispatchEvent(customEvent)}}}window.customElements.define("furo-data-emmiter",FuroDataEmmiter);class FuroEntityAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api;// HTS aus response anwenden
+    */if(this.field){let customEvent=new Event("data",{composed:!0,bubbles:!1});customEvent.detail=this.field._value;this.dispatchEvent(customEvent)}}}window.customElements.define("furo-data-emmiter",FuroDataEmmiter);class FuroEntityAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._ApiEnvironment=_furoShell.Env.api;// HTS aus response anwenden
 this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links)){/**
          * @event response-hts-updated
          * Fired when
@@ -2445,9 +2519,10 @@ this._FBPAddWireHook("--responseParsed",r=>{if(this._updateInternalHTS(r.links))
      * @private
      */_makeRequest(link,dataObject){let data,body={};// check if dataObject is set and create body object
 if(dataObject){// Method PATCH sends only modified data (.pristine)
-if("patch"===link.method.toLowerCase()){for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._modified_value;if(val!==void 0){body[field._name]=val}}// the request object MUST contain a field named 'update_mask'
+if("patch"===link.method.toLowerCase()){for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._delta_value;if(val!==void 0){body[field._name]=val}}// the request object MUST contain a field named 'update_mask'
 if(!this._ApiEnvironment.specs[this._service.services.Update.data.request].fields.hasOwnProperty("update_mask")){console.warn("The request type "+this._ApiEnvironment.specs[this._service.services.Update.data.request].name+" has no specified field (update_mask) to transmit the changed fields. The operation applies to all fields!",this._ApiEnvironment.specs[this._service.services.Update.data.request],this)}// add the field_mask
-body.update_mask=this._getFieldMask(body)}else{for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._not_readonly_value;if(val!==void 0){body[field._name]=val}}}data=JSON.stringify(body)}// create Request object with headers and body
+body.update_mask=this._getFieldMask(body)}else{// send all data
+if(_furoShell.Env.api.sendAllDataOnMethodPut&&"put"===link.method.toLowerCase()){body=dataObject._value}else{for(let index in dataObject.__childNodes){let field=dataObject.__childNodes[index],val=field._transmit_value;if(val!==void 0){body[field._name]=val}}}}data=JSON.stringify(body)}// create Request object with headers and body
 let headers=new Headers(this._ApiEnvironment.headers);headers.append("Content-Type","application/"+link.type+"+json");if("put"!==link.method.toLowerCase()){headers.append("Content-Type","application/json")}return new Request(link.href,{method:link.method,headers:headers,body:data})}/**
      * Creates an array with the path information of the object attributes (deep dive)
      * [{"paths:" "attr1"}, {"paths:" "attr2.sub_attr"}]
@@ -2562,7 +2637,7 @@ return _furoShell.html`
     `}}window.customElements.define("furo-entity-agent",FuroEntityAgent);class FuroEntityField extends _furoShell.LitElement{/**
    * Set the value of the field.
    * @param v
-   */setValue(v){this.value=v}set value(v){this._value=v;this.field.value=v}get value(){return this._value}/**
+   */setValue(v){this.value=v}set value(v){this._value=v;this.field._value=v}get value(){return this._value}/**
      * Bind a entity field to the date-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
@@ -2570,7 +2645,7 @@ return _furoShell.html`
        * @event value-changed
        * Fired when
        * detail payload:
-       */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail.value;this.dispatchEvent(customEvent)})}}customElements.define("furo-entity-field",FuroEntityField);class FuroEntityValidator extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.checks={};this._initChecks()}_initChecks(){this.checks.string={min:field=>{let constraint=field._constraints.min;if(field.value.length<constraint.value){if(constraint.message){return{message:constraint.message,constraint:"min"}}return{message:"Mindestens "+constraint.value+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field.value.length>constraint.value){if(constraint.message){return{message:constraint.message,constraint:"max"}}return{message:"Maximal "+constraint.value+" Zeichen",constraint:"max"}}return null},mandatory:field=>{let constraint=field._constraints.required;if(0===field.value.length){return{message:"Eingabe erforderlich",constraint:"mandatory"}}return null}};this.checks.int={min:field=>{let constraint=field._constraints.min;if(field.value<constraint.value){return{message:"Mindestens "+constraint.value+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field.value>constraint.value){if(constraint.message){return{message:constraint.message,constraint:"max"}}return{message:"Maximal "+constraint.value+" Zeichen",constraint:"max"}}return null}}}bindData(fields){let self=this;// this.validator ist hier wegen dem hoisting...
+       */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail.value;this.dispatchEvent(customEvent)})}}customElements.define("furo-entity-field",FuroEntityField);class FuroEntityValidator extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.checks={};this._initChecks()}_initChecks(){this.checks.string={min:field=>{let constraint=field._constraints.min;if(field._value&&field._value.length<constraint.is){if(constraint.message){return{description:constraint.message,constraint:"min"}}return{description:"Mindestens "+constraint.is+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field._value&&field._value.length>constraint.is){if(constraint.message){return{description:constraint.message,constraint:"max"}}return{description:"Maximal "+constraint.is+" Zeichen",constraint:"max"}}return null},mandatory:field=>{let constraint=field._constraints.required;if(field._value&&0===field._value.length){return{description:"Eingabe erforderlich",constraint:"mandatory"}}return null}};this.checks.int={min:field=>{let constraint=field._constraints.min;if(field._value&&field._value<constraint.is){return{description:"Mindestens "+constraint.is+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field._value&&field._value>constraint.is){if(constraint.message){return{description:constraint.message,constraint:"max"}}return{description:"Maximal "+constraint.is+" Zeichen",constraint:"max"}}return null}};this.checks.float={min:field=>{let constraint=field._constraints.min;if(field._value&&field._value<constraint.is){return{description:"Mindestens "+constraint.is+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field._value&&field._value>constraint.is){if(constraint.message){return{description:constraint.message,constraint:"max"}}return{description:"Maximal "+constraint.is+" Zeichen",constraint:"max"}}return null}}}bindData(fields){let self=this;// this.validator ist hier wegen dem hoisting...
 this.validator=e=>{let field=e.target,type=field._spec.type;// nur prüfen wenn field constraints  und checker existieren
 if(field._constraints&&this.checks[type]){let err;for(let constraint in field._constraints){if(this.checks[type][constraint]){err=this.checks[type][constraint](field)}if(err){field._setInvalid(err);// bei erstem fehler aufhören
 return}else{// nur zurücksetzen wenn das field ungültig war
@@ -2602,7 +2677,16 @@ this._appendAnd(el,sub)}if("FURO-FILTER-OR"===el.tagName){this._appendOr(el,sub)
 this._appendAnd(el,filterArray)}if("FURO-FILTER-OR"===el.tagName){this._appendOr(el,filterArray)}}}}window.customElements.define("furo-filter-container",FuroFilterContainer);class FuroFilterField extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
      * @private
      * @return {Object}
-     */static get properties(){return{is:{type:String},field:{type:String},value:{type:String}}}set is(val){this._is=val;this._notifyChanges()}set field(val){this._field=val;this._notifyChanges()}set value(val){this._value=val;this._notifyChanges()}_notifyChanges(){if(this._field&&this._value!==void 0&&this._is){/**
+     */static get properties(){return{/**
+       *  Defines the operator.
+       */is:{type:String},/**
+       *  Defines the field you want to filter
+       */field:{type:String},/**
+       *  Defines the value to filter
+       */value:{type:String}}}set is(val){this._is=val;this._notifyChanges()}set field(val){this._field=val;this._notifyChanges()}set value(val){this._value=val;this._notifyChanges()}/**
+     * Set the value
+     * @param v
+     */setValue(v){this.value=v}_notifyChanges(){if(this._field&&this._value!==void 0&&this._is){/**
        * @event furo-filter-changed
        * Fired when something changed
        * detail payload:
@@ -2723,7 +2807,7 @@ return _furoShell.html`
         <furo-demo-snippet flex>
           <template>
             <!-- Styles in furo-card are just for the demo -->
-            <furo-card style="width: 300px; margin: 30px" title="Some data" secondary-text="Save is not implemented">
+            <furo-card style="width: 300px; margin: 30px" header-text="Some data" secondary-text="Save is not implemented">
               <furo-data-object-form ƒ-bind-fields="--dataObject(*.fields)"></furo-data-object-form>
               <furo-horizontal-flex slot="action">
                 <!-- The button will trigger the wire --saveClicked, which triggers ƒ-save on the furo-entity-agent as soon it is clicked -->
@@ -2738,7 +2822,158 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-object",DemoFuroDataObject);class CheckMetaAndOverrides{static UpdateMetaAndConstraints(element){if(element.field){// options are available for text inputs at the moment
+    `}}window.customElements.define("demo-furo-data-object",DemoFuroDataObject);class FuroFetchJson extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @private
+   * @return {Object}
+   */static get properties(){return{/**
+       * the url you want to fetch
+       */src:{type:String}}}/**
+     * fetch and parse the data from specified `src`.
+     *
+     * Use fetch-src if you want to pass the source url
+     *
+     * @return {Promise<any>}
+     */fetch(){if(this.src){return fetch(this.src).then(res=>res.json()).then(data=>{/**
+         * @event data
+         * Fired when data received and json parsed
+         * detail payload: {Object} json data
+         */let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=data;this.dispatchEvent(customEvent)})}}/**
+     * fetch json data from source
+     * @param String source
+     *
+     * @return {Promise<any>}
+     */fetchSrc(source){this.src=source;return this.fetch()}}window.customElements.define("furo-fetch-json",FuroFetchJson);class FuroGetClipboard extends(0,_furoShell.FBP)(_furoShell.LitElement){trigger(){navigator.clipboard.readText().then(clipText=>{/**
+       * @event content
+       * Fired when clipboard content is received
+       * detail payload: {*} content of the clipboard
+       */let customEvent=new Event("content",{composed:!0,bubbles:!0});if(this.json){customEvent.detail=JSON.parse(clipText)}else{customEvent.detail=clipText}this.dispatchEvent(customEvent)})}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Convert clipboard content to json
+       */json:{type:Boolean}}}}window.customElements.define("furo-get-clipboard",FuroGetClipboard);/**
+                                                                       *
+                                                                       * `furo-head-tail`
+                                                                       *  Splits an iterable (i.e. Array) in its head and tail part.
+                                                                       *
+                                                                       *```
+                                                                       *  <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
+                                                                       *```
+                                                                       *
+                                                                       * @summary split an array
+                                                                       * @customElement
+                                                                       */class FuroHeadTail extends HTMLElement{/**
+   * Splits an iterable to its head (first item) and its tail (the rest) parts.
+   *
+   * ```
+   * ["a", "b", "c", "d"]
+   *  |_|  |___________|
+   *   ^      ^
+   *   |      |
+   *   |     TAIL   => ["b", "c", "d"]
+   *  HEAD          => "a"
+   * ```
+   *
+   * @param iterable
+   */split(iterable){if(!Array.isArray(iterable)){console.warn("input is not iterable",iterable);return}const[head,...tail]=iterable;/**
+                                      * @event head
+                                      * Fired when Array was splitted
+                                      * detail payload: {Any} first element of array
+                                      */let headEvent=new Event("head",{composed:!0,bubbles:!0});headEvent.detail=head;this.dispatchEvent(headEvent);/**
+                                   * @event tail
+                                   * Fired when Array was splitted
+                                   * detail payload: {Array || Any} the tail from the injected array (e1 - 1n)
+                                   */let tailEvent=new Event("tail",{composed:!0,bubbles:!0});tailEvent.detail=tail;this.dispatchEvent(tailEvent)}}window.customElements.define("furo-head-tail",FuroHeadTail);class FuroKeyFilter extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+     * Check the event and dispatch matched when the conditions are fulfilled.
+     *
+     * @param keyboardEvent
+     */filter(keyboardEvent){let key=keyboardEvent.key||keyboardEvent.keyCode;// check shift, alt, command,...
+if(this.shift&&!keyboardEvent.shiftKey){return}if(this.alt&&!keyboardEvent.altKey){return}if((this.meta||this.command)&&!keyboardEvent.metaKey){return}if(this.control&&!keyboardEvent.controlKey){return}if(-1!==this.keys.split(/\W+/).indexOf(key)){/**
+      * @event matched
+      * Fired when key matches the options
+      * detail payload: keyboardEvent
+      */let customEvent=new Event("matched",{composed:!0,bubbles:!0});customEvent.detail=keyboardEvent;this.dispatchEvent(customEvent)}}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Coma separated list with allowed keys to pass. i.e "Enter, ArrowUp"
+       */keys:{type:String},/**
+       * Modifier key **shift** must be pressed too to match
+       */shift:{type:Boolean},/**
+       * Modifier key **alt** must be pressed too to match
+       */alt:{type:Boolean},/**
+       * Alias for meta.
+       *
+       * Modifier key **meta** must be pressed too to match.
+       */command:{type:Boolean},/**
+       * Modifier key **meta** must be pressed too to match
+       */meta:{type:Boolean},/**
+       * Modifier key **control** must be pressed too to match
+       */control:{type:Boolean// stopPropagation, disableDefault??
+}}}}window.customElements.define("furo-key-filter",FuroKeyFilter);class FuroKeydown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @private
+   * @return {Object}
+   */static get properties(){return{/**
+       * Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c
+       */key:{type:String},/**
+       * Set this attribute to listen to the keydown event global (window).
+       */global:{type:Boolean},alt:{type:Boolean},ctrl:{type:Boolean},meta:{type:Boolean}}}/**
+    * flow is ready lifecycle method
+    */_FBPReady(){super._FBPReady();let target;if(this.global){target=window}else{target=this.parentNode}target.addEventListener("keydown",keyevent=>{if(keyevent.key===this.key){/**
+        * @event key
+        * Fired when key was catched on target
+        * detail payload: keyevent
+        */let customEvent=new Event("key",{composed:!0,bubbles:!0});customEvent.detail=keyevent;this.dispatchEvent(customEvent)}})}}window.customElements.define("furo-keydown",FuroKeydown);class FuroPrettyJson extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}static get properties(){return{}}static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+            :host {
+                display: block;
+                font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+                margin: var(--spacing);
+                line-height: 1.5;
+            }
+
+            pre {
+                background-color: var(--background);
+                padding: 0;
+            }
+
+            .string {
+                color: #080
+            }
+
+            .number {
+                color: darkorange;
+            }
+
+            .boolean {
+                color: blue;
+            }
+
+            .null {
+                color: magenta;
+            }
+
+            .key {
+                color: #606
+            }
+
+        `}/**
+     * Inject JSON data
+     * @param json
+     */injectData(json){if(json){this.markedText=JSON.stringify(json,null,2);this.markedText=this._syntaxHighlight(this.markedText);this.shadowRoot.querySelector("#content").innerHTML=this.markedText}else{// clear innerHTML content
+this.shadowRoot.querySelector("#content").innerHTML=""}}_syntaxHighlight(json){if("string"!=typeof json){json=JSON.stringify(json,void 0,2)}json=json.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,function(match){var cls="number";if(/^"/.test(match)){if(/:$/.test(match)){cls="key"}else{cls="string"}}else if(/true|false/.test(match)){cls="boolean"}else if(/null/.test(match)){cls="null"}return"<span class=\""+cls+"\">"+match+"</span>"})}render(){// language=HTML
+return _furoShell.html`
+            <pre id="content"></pre>
+        `}}window.customElements.define("furo-pretty-json",FuroPrettyJson);class FuroPutClipboard extends _furoShell.LitElement{constructor(){super()}setData(data){this.data=data}trigger(data){if(this.data){data=this.data}let d;if(this.json){d=JSON.stringify(data,"",2)}else{d=data}navigator.clipboard.writeText(d).then(()=>{/**
+       * @event content
+       * Fired when clipboard content is received
+       * detail payload: {*} content of the clipboard
+       */let customEvent=new Event("content-putted",{composed:!0,bubbles:!0});customEvent.detail=d;this.dispatchEvent(customEvent)})}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Stringify JSON content
+       */json:{type:Boolean}}}}window.customElements.define("furo-put-clipboard",FuroPutClipboard);class CheckMetaAndOverrides{static UpdateMetaAndConstraints(element){if(element.field){// options are available for text inputs at the moment
 // check if metas ara available
 if(element.field._meta){if(element.field._meta.readonly){element._readonly=element.field._meta.readonly}if(element.field._meta.label){element._label=element.field._meta.label}if(element.field._meta.hint){element._hint=element.field._meta.hint}if(element.field._meta.cols){element._cols=element.field._meta.cols}if(element.field._meta.rows){element._rows=element.field._meta.rows}if(element.field._meta.min_term_length){element._minTermLength=element.field._meta.min_term_length}if(element.field._meta.label_amount){element._labelAmount=element.field._meta.label_amount}if(element.field._meta.label_currency){element._labelCurrency=element.field._meta.label_currency}if(element.field._meta.options){element._options=element.field._meta.options}}// check if constraints ara available
 if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.is;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.is;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.is;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.is;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required="true"==element.field._constraints.required.is||!0===element.field._constraints.required.is}}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
@@ -2774,7 +3009,7 @@ this.field.addEventListener("field-value-changed",e=>{this._updateSymbol()});thi
      */render(){// language=HTML
 return _furoShell.html`
       ${this._ocSymbol}
-    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class Helper{/**
+    `}}window.customElements.define("furo-data-bool-icon",FuroDataBoolIcon);class Helper$2{/**
    * update Attribute on input element actively, so we dont have things like pattern="undefined" on the native element.
    * @param attribute
    * @param value
@@ -2788,7 +3023,7 @@ caller._theInputElement.removeAttribute(attribute)}})}/**
      */static BindData(caller,fieldNode){if(fieldNode===void 0){console.warn("Invalid binding ");console.log(caller);return}caller.field=fieldNode;CheckMetaAndOverrides.UpdateMetaAndConstraints(caller);caller._updateField();caller.field.addEventListener("field-value-changed",e=>{caller._updateField();if(caller.field._meta&&caller.field._meta.hint){caller._hint=caller.field._meta.hint}if(caller.hint){caller._hint=caller.hint}});// update meta and constraints when they change
 caller.field.addEventListener("this-metas-changed",e=>{CheckMetaAndOverrides.UpdateMetaAndConstraints(caller)});caller.field.addEventListener("field-became-invalid",e=>{// updates wieder einspielen
 caller.error=!0;caller.errortext=caller.field._validity.description;caller.requestUpdate()});caller.field.addEventListener("field-became-valid",e=>{// updates wieder einspielen
-caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroDataCollectionDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+caller.error=!1;caller.requestUpdate()})}}_exports.Helper=Helper$2;var helper={Helper:Helper$2};_exports.$helper=helper;class FuroDataCollectionDropdown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
    * Fired when value has changed from the component inside.
    *
@@ -2809,19 +3044,19 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}_notifiySelectedItem(val){/
 for(let i=this._dropdownList.length-1;0<=i;i--){if(this._dropdownList[i][this.valueField]==val){selectedItem=this._dropdownList[i]._original;break}}customEvent.detail=selectedItem;this.dispatchEvent(customEvent)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the leadingIcon attr
      * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     */set leadingIcon(value){Helper$2.UpdateInputAttribute(this,"leading-icon",value)}/**
      * Updater for the trailingIcon attr
      * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * Updater for the list attr
      * @param value
      */set list(value){// map
@@ -2829,8 +3064,8 @@ let arr=value.split(",").map(e=>{let item=e.trim();return{id:item,label:e,select
      *
      * @param arr
      * @private
-     */_notifyAndTriggerUpdate(arr){if(0<arr.length){this._dropdownList=arr;if(!this.field){// notifiy first item if field is not set
-this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this._fieldNodeToUpdate._value);this._fieldNodeToUpdate._value=arr[0].id;if(this._fieldDisplayNodeToUpdate){this._fieldDisplayNodeToUpdate._value=arr[0].label}}this._FBPTriggerWire("--selection",arr)}}static get properties(){return{/**
+     */_notifyAndTriggerUpdate(arr){if(0<arr.length){this._dropdownList=arr;if(!this._fieldNodeToUpdate||!this._fieldNodeToUpdate._value){// notifiy first item if field is not set
+let selectedItem=null;for(let i=0;i<arr.length;i++){if(arr[i].selected){selectedItem=arr[i].id;break}}selectedItem=selectedItem?selectedItem:arr[0].id;this._notifiySelectedItem(selectedItem);if(this._fieldNodeToUpdate){this._fieldNodeToUpdate._value=selectedItem}}else{this._notifiySelectedItem(this._fieldNodeToUpdate._value)}this._FBPTriggerWire("--selection",arr)}}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -2878,7 +3113,7 @@ this._notifiySelectedItem(arr[0].id)}else{this._notifiySelectedItem(this._fieldN
      * Bind a entity field to the furo input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode);// by complex type set `id` as `subfield` as default
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode);// by complex type set `id` as `subfield` as default
 if(this._checkIsComplexType(fieldNode)&&!this.subfield){this.subfield="id"}if(this.subfield){this._fieldNodeToUpdate=this.field[this.subfield];if(this.subfieldDisplay){this._fieldDisplayNodeToUpdate=this.field[this.subfieldDisplay]}else if(this.field.display_name){this._fieldDisplayNodeToUpdate=this.field.display_name}}else{this._fieldNodeToUpdate=this.field}// inject options from meta which is defined in spec
 if(this.field._meta&&this.field._meta.options){this._buildListWithMetaOptions(this.field._meta.options)}// update meta and constraints when they change
 this.field.addEventListener("this-metas-changed",e=>{this._buildListWithMetaOptions(this.field._meta.options)})}/**
@@ -2908,7 +3143,10 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
     `}/**
      * Build the dropdown list with given options from meta
      * @param {options} list of options with id and display_name
-     */_buildListWithMetaOptions(options){let arr=this._mapDataToList(options.list);this._notifyAndTriggerUpdate(arr)}_mapDataToList(list){let arr=[];if(Array.isArray(list)){arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:this._fieldNodeToUpdate._value==e[this.valueField],_original:e}})}return arr}/**
+     */_buildListWithMetaOptions(options){let arr=this._mapDataToList(options.list);this._notifyAndTriggerUpdate(arr)}_mapDataToList(list){let arr=[];// if field value not exists. select item when the item is marked as `selected` in list
+if(!this._fieldNodeToUpdate||!this._fieldNodeToUpdate._value){arr=this._setItemSelectedViaSelectedMark(list)}else{// if field value exists. select the item when it's value is equal the field value.
+// when field value is not equal the filed value, select the item if the item is marked as `selected`
+if(Array.isArray(list)){let isSelected=!1,hasSelectedMark=!1,preSelectedValueInList=null;for(let i=0,item;i<list.length;i++){item={id:list[i][this.valueField],label:list[i][this.displayField],selected:!1,_original:list[i]};if(this._fieldNodeToUpdate._value==list[i][this.valueField]){item.selected=!0;isSelected=!0}if(list[i].selected){hasSelectedMark=!0;preSelectedValueInList=list[i][this.valueField]}arr.push(item)}if(!isSelected&&hasSelectedMark){arr=this._setItemSelectedViaSelectedMark(list);this._fieldNodeToUpdate._value=preSelectedValueInList}}}return arr}_setItemSelectedViaSelectedMark(list){let arr=[];if(Array.isArray(list)){arr=list.map(e=>{return{id:e[this.valueField],label:e[this.displayField],selected:e.selected?!0:!1,_original:e}})}return arr}/**
      * Inject the array with the selectable options.
      *
      * The array with objects should have a signature like this. This could be the response of a collection agent (`--response(*.entities)`)
@@ -2932,8 +3170,9 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * Inject the array with entities for the selectable options.
      *
      * @param {Array} Array with entities
-     */injectEntities(entities){// map
-let arr=entities.map(e=>{return{id:e.data[this.valueField],label:e.data[this.displayField],selected:this._fieldNodeToUpdate._value==e.data[this.valueField],_original:e}});this._notifyAndTriggerUpdate(arr)}/**
+     */injectEntities(entities){let arr=[];// select the item when it's value is equal the field value.
+// when field value is not equal the filed value, select the item if the item is marked as `selected`
+if(Array.isArray(entities)){let arrA=[],arrB=[],isSelected=!1,hasSelectedMark=!1,preSelectedValueInList=null;for(let i=0;i<entities.length;i++){let item={id:entities[i].data[this.valueField],label:entities[i].data[this.displayField],selected:!1,_original:entities[i]},itemB={};itemB=Object.assign(itemB,item);if(this._fieldNodeToUpdate._value==entities[i].data[this.valueField]){item.selected=!0;isSelected=!0}if(entities[i].data.selected){hasSelectedMark=!0;itemB.selected=!0;preSelectedValueInList=entities[i].data[this.valueField]}arrA.push(item);arrB.push(itemB)}if(!isSelected&&hasSelectedMark){arr=arrB;this._fieldNodeToUpdate._value=preSelectedValueInList}else{arr=arrA}}this._notifyAndTriggerUpdate(arr)}/**
      *
      * @return {TemplateResult}
      * @private
@@ -2960,13 +3199,13 @@ return _furoShell.html`
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
        * Sets the field to readonly
        */disable(){this._readonly=!0}/**
      * Makes the field writable.
@@ -2974,7 +3213,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the furo-data-checkbox-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
@@ -3038,32 +3277,32 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * becaue it set "undefined" (as a Sting!)
      *
      * @param value
-     */set _pattern(value){Helper.UpdateInputAttribute(this,"pattern",value)}/**
+     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
      * Updater for the min => minlength attr
      * same problem like in pattern
      *
      * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
      * Updater for the max attr
      * * same problem like in pattern
      *
      * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the leadingIcon attr
      * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     */set leadingIcon(value){Helper$2.UpdateInputAttribute(this,"leading-icon",value)}/**
      * Updater for the trailingIcon attr
      * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * Sets the field to readonly
      */disable(){this._readonly=!0}/**
      * Makes the field writable.
@@ -3102,7 +3341,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the text-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
@@ -3214,28 +3453,28 @@ if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rang
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the min => minlength attr*
      * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
      * Updater for the max attr*
      * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the leadingIcon attr
      * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     */set leadingIcon(value){Helper$2.UpdateInputAttribute(this,"leading-icon",value)}/**
      * Updater for the trailingIcon attr
      * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * Updater for the step attr
      * @param value
-     */set _step(value){Helper.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3286,7 +3525,8 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the date-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode);this.field.addEventListener("branch-value-changed",e=>{this._updateFieldBranch()})}_updateField(){}_updateFieldBranch(){//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode);this.field.addEventListener("branch-value-changed",e=>{this._updateFieldBranch()});//init
+this._updateFieldBranch()}_updateField(){}_updateFieldBranch(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}let dateValue=this.field._value;if(this.tmpval||JSON.stringify(this.field._value)!==JSON.stringify(this.tmpval)){// convert value when date type is google.type.Date
 if("google.type.Date"===this.field._spec.type||this.field["@type"]&&"google.type.Date"===this.field["@type"]._value.replace(/.*\//,"")){dateValue=this._convertDateObjToString(dateValue)}this._FBPTriggerWire("--value",dateValue);this.requestUpdate()}}// convert google date object to ISO 8601
 _convertDateObjToString(obj){let date="";if(obj&&obj.day&&obj.month&&obj.year){let month=obj.month+"",day=obj.day+"",year=obj.year+"";if(2>month.length){month="0"+month}if(2>day.length){day="0"+day}if(4>year.length){for(var l=4-year.length,i=0;i<l;i++){year="0"+year}}date=year+"-"+month+"-"+day}return date}// convert date string ISO 8601 to object for google.type.Dates
@@ -3351,7 +3591,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}_updateField(){this.text=th
      * Bind a entity field to the text-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
@@ -3561,28 +3801,28 @@ if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rang
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the min => minlength attr*
      * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
      * Updater for the max attr*
      * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the leadingIcon attr
      * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     */set leadingIcon(value){Helper$2.UpdateInputAttribute(this,"leading-icon",value)}/**
      * Updater for the trailingIcon attr
      * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * Updater for the step attr
      * @param value
-     */set _step(value){Helper.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3633,7 +3873,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the number-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
@@ -3677,29 +3917,29 @@ _convertDataToMoneyObj(currency,amount,obj){if(null==obj){obj={}}if(currency){ob
      * Bind a entity field to the number-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.units&&null!==this.field.units._value&&null!==this.field.nanos._value){let amout=+(this.field.units._value+"."+this.field.nanos._value);this._FBPTriggerWire("--valueAmount",amout)}if(this.field.currency_code&&this.field.currency_code._value){this._FBPTriggerWire("--valueCurrency",this.field.currency_code._value)}this.requestUpdate()}/**
      * Updater for the min => minlength attr*
      * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
      * Updater for the max attr*
      * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * Updater for the step attr
      * @param value
-     */set _step(value){Helper.UpdateInputAttribute(this,"step",value)}/**
+     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}/**
      * Updater for the label attr for amount
      * @param value
-     */set _labelAmount(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _labelAmount(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the readonly attr
      * @param value
-     */set _readonly(value){Helper.UpdateInputAttribute(this,"readonly",value)}/**
+     */set _readonly(value){Helper$2.UpdateInputAttribute(this,"readonly",value)}/**
      * Updater for the label attr for currency
      * @param value
      */set _labelCurrency(value){let select=this.shadowRoot.getElementById("select");if(null!==value){select.setAttribute("label",value)}else{// remove the attribute on null value
@@ -3831,28 +4071,28 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * becaue it set "undefined" (as a Sting!)
      *
      * @param value
-     */set _pattern(value){Helper.UpdateInputAttribute(this,"pattern",value)}/**
+     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
      * Updater for the min => minlength attr*
      * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
      * Updater for the max attr*
      * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the leadingIcon attr
      * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     */set leadingIcon(value){Helper$2.UpdateInputAttribute(this,"leading-icon",value)}/**
      * Updater for the trailingIcon attr
      * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3902,7 +4142,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the number-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
@@ -3933,7 +4173,7 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-password-input>      
-    `}}customElements.define("furo-data-password-input",FuroDataPasswordInput);class FuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-date-input","google.protobuf.StringValue":"furo-data-text-input","google.protobuf.FloatValue":"furo-data-number-input","google.protobuf.Int32Value":"furo-data-number-input","google.protobuf.UInt32Value":"furo-data-number-input","furo.StringProperty":"furo-data-text-input","furo.IntegerProperty":"furo-data-number-input","furo.NumberProperty":"furo-data-number-input","furo.StringOptionProperty":"furo-data-collection-dropdown"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
+    `}}customElements.define("furo-data-password-input",FuroDataPasswordInput);class FuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-date-input","google.protobuf.StringValue":"furo-data-text-input","google.protobuf.FloatValue":"furo-data-number-input","google.protobuf.Int32Value":"furo-data-number-input","google.protobuf.UInt32Value":"furo-data-number-input","furo.StringProperty":"furo-data-text-input","furo.IntegerProperty":"furo-data-number-input","furo.NumberProperty":"furo-data-number-input","furo.StringOptionProperty":"furo-data-collection-dropdown"}}bindData(propertyField){this.field=propertyField;if(propertyField._isRepeater){// add flow repeat to parent and inject on repeated changes
 // repeated
 let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id._value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property \u0192-bind-data=\"--init\" "+attrs+"></furo-data-property></template>";let repeater=this.parentNode.insertBefore(r,this);this._createdRepeater=repeater;this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)});// inject if data is already here
 if(0<this.field.repeats.length){repeater.injectItems(this.field.repeats)}}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
@@ -3943,7 +4183,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         :host {
             display: none;
         }
-    `}}window.customElements.define("furo-data-property",FuroDataProperty);class FuroDataPropertyDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-display","furo.StringProperty":"furo-data-display","furo.IntegerProperty":"furo-data-display","furo.NumberProperty":"furo-data-display","furo.StringOptionProperty":"furo-data-display"}}bindData(propertyField){this.field=propertyField;if(propertyField instanceof RepeaterNode){// add flow repeat to parent and inject on repeated changes
+    `}}window.customElements.define("furo-data-property",FuroDataProperty);class FuroDataPropertyDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-display","furo.StringProperty":"furo-data-display","furo.IntegerProperty":"furo-data-display","furo.NumberProperty":"furo-data-display","furo.StringOptionProperty":"furo-data-display"}}bindData(propertyField){this.field=propertyField;if(propertyField._isRepeater){// add flow repeat to parent and inject on repeated changes
 // repeated
 let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id._value");let attrs="",l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){attrs+=nodeName+"=\""+nodeValue+"\""}}r.innerHTML="<template><furo-data-property-display \u0192-bind-data=\"--init\" "+attrs+"></furo-data-property-display></template>";let repeater=this.parentNode.insertBefore(r,this);this._createdRepeater=repeater;this.field.addEventListener("this-repeated-field-changed",data=>{repeater.injectItems(this.field.repeats)});// inject if data is already here
 if(0<this.field.repeats.length){repeater.injectItems(this.field.repeats)}}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
@@ -3966,13 +4206,13 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
        * Sets the field to readonly
        */disable(){this._readonly=!0}/**
      * Makes the field writable.
@@ -3980,7 +4220,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the furo-data-radio-button-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
@@ -4044,28 +4284,28 @@ if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rang
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the min => minlength attr*
      * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
      * Updater for the max attr*
      * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the leadingIcon attr
      * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     */set leadingIcon(value){Helper$2.UpdateInputAttribute(this,"leading-icon",value)}/**
      * Updater for the trailingIcon attr
      * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * Updater for the step attr
      * @param value
-     */set _step(value){Helper.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4112,7 +4352,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the range-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
@@ -4208,16 +4448,16 @@ this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this
      * same problem like in pattern
      *
      * @param value
-     */set _minTermLength(value){this.__minTermLength=value;Helper.UpdateInputAttribute(this,"min",value)}get _minTermLength(){return this.__minTermLength}/**
+     */set _minTermLength(value){this.__minTermLength=value;Helper$2.UpdateInputAttribute(this,"min",value)}get _minTermLength(){return this.__minTermLength}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -4272,7 +4512,7 @@ this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this
      * Bind a entity field to the search-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode);this._init()}_updateField(){//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode);this._init()}_updateField(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.display_name._value){this._FBPTriggerWire("--value",this.field.display_name._value)}this.requestUpdate()}collectionIn(collection){this._FBPTriggerWire("--listItemsIjnected",collection.entities);this._hasCollection=!0;this._collection=collection.entities;if(this._focused){this._showList()}}/**
      * Themable Styles
      * @private
@@ -4435,28 +4675,28 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * becaue it set "undefined" (as a Sting!)
      *
      * @param value
-     */set _pattern(value){Helper.UpdateInputAttribute(this,"pattern",value)}/**
+     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
      * Updater for the min => minlength attr*
      * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
      * Updater for the max attr*
      * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the leadingIcon attr
      * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     */set leadingIcon(value){Helper$2.UpdateInputAttribute(this,"leading-icon",value)}/**
      * Updater for the trailingIcon attr
      * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4502,7 +4742,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the search-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
@@ -4551,32 +4791,32 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * becaue it set "undefined" (as a Sting!)
      *
      * @param value
-     */set _pattern(value){Helper.UpdateInputAttribute(this,"pattern",value)}/**
+     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
      * Updater for the min => minlength attr
      * same problem like in pattern
      *
      * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
      * Updater for the max attr
      * * same problem like in pattern
      *
      * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the leadingIcon attr
      * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     */set leadingIcon(value){Helper$2.UpdateInputAttribute(this,"leading-icon",value)}/**
      * Updater for the trailingIcon attr
      * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * Sets the field to readonly
      */disable(){this._readonly=!0}/**
      * Makes the field writable.
@@ -4626,7 +4866,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the text-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
@@ -4673,25 +4913,25 @@ if(val){if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){t
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the min => minlength attr
      * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
      * Updater for the max attr
      * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the cols attr
      * @param value
-     */set _cols(value){Helper.UpdateInputAttribute(this,"cols",value)}/**
+     */set _cols(value){Helper$2.UpdateInputAttribute(this,"cols",value)}/**
      * Updater for the rows attr*
      * @param value
-     */set _rows(value){Helper.UpdateInputAttribute(this,"rows",value)}/**
+     */set _rows(value){Helper$2.UpdateInputAttribute(this,"rows",value)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * todo , add more attributes like cols, rows, spellcheck..
      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
      */static get properties(){return{/**
@@ -4736,7 +4976,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the textarea-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
@@ -4782,28 +5022,28 @@ if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rang
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the min => minlength attr*
      * @param value
-     */set _min(value){Helper.UpdateInputAttribute(this,"min",value)}/**
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
      * Updater for the max attr*
      * @param value
-     */set _max(value){Helper.UpdateInputAttribute(this,"max",value)}/**
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
-     */set _label(value){Helper.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the hint attr
      * @param value
-     */set _hint(value){Helper.UpdateInputAttribute(this,"hint",value)}/**
+     */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the leadingIcon attr
      * @param value
-     */set leadingIcon(value){Helper.UpdateInputAttribute(this,"leading-icon",value)}/**
+     */set leadingIcon(value){Helper$2.UpdateInputAttribute(this,"leading-icon",value)}/**
      * Updater for the trailingIcon attr
      * @param value
-     */set trailingIcon(value){Helper.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper.UpdateInputAttribute(this,"errortext",value)}/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * Updater for the step attr
      * @param value
-     */set _step(value){Helper.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4850,7 +5090,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the time-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper.BindData(this,fieldNode)}_updateField(){//mark incomming error
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
 if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
@@ -4880,7 +5120,181 @@ return _furoShell.html`
           @-value-changed="--valueChanged"
           @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-time-input>      
-    `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class DemoFuroDataRepeat extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class DemoProjectFilterForm extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();this._FBPTraceWires()}bindData(data){this._FBPTriggerWire("--entity",data);data.data.description.addEventListener("field-value-changed",v=>{this._FBPTriggerWire("--defaultChanged",v.detail._value)})}static get styles(){// language=CSS
+return[_furoShell.css`
+                :host {
+                    display: block;
+                }
+
+                :host([hidden]) {
+                    display: none;
+                }
+            `]}/**
+     * @private
+     * @returns {TemplateResult|TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+            <!-- filter input form, options from ProjectfilterService -->
+            <furo-card header-text="Filter options">
+                <furo-form-layouter>
+                    <!-- Short project description  -->
+                    <furo-data-text-input condensed
+                                          ƒ-bind-data="--entity(*.data.description)"
+                                          @-value-changed="--defaultChanged"></furo-data-text-input>
+                </furo-form-layouter>
+
+                <furo-form-layouter two>
+                    <!-- Start date of the project  -->
+                    <furo-data-date-input condensed
+                                          ƒ-bind-data="--entity(*.data.start)"
+                                          @-value-changed="--startChanged"></furo-data-date-input>
+                    <!-- Prospective end date of the project  -->
+                    <furo-data-date-input condensed
+                                          ƒ-bind-data="--entity(*.data.end)"
+                                          @-value-changed="--endChanged"></furo-data-date-input>
+                </furo-form-layouter>
+
+                <furo-form-layouter>
+                    <!-- Project cost limit  -->
+                    <furo-data-money-input condensed
+                                           ƒ-bind-data="--entity(*.data.cost_limit)"
+                                           @-value-changed="--costlimitChanged"></furo-data-money-input>
+                </furo-form-layouter>
+
+                <furo-button-bar slot="action">
+                    <furo-empty-spacer></furo-empty-spacer>
+                    <furo-button label="Create Filter" @-click=""></furo-button>
+                    <furo-button primary label="Search/Filter" @-click=""></furo-button>
+                </furo-button-bar>
+            </furo-card>
+
+            <!-- filter container with filter definitions @-filter-changed give you the current filter array -->
+            <furo-filter-container>
+                <furo-filter-and>
+                    <furo-filter-field field="description" is="in" ƒ-.value="--defaultChanged"></furo-filter-field>
+                    <furo-filter-field field="start" is="gte" ƒ-.value="--startChanged"></furo-filter-field>
+                    <furo-filter-field field="end" is="lte" ƒ-.value="--endChanged"></furo-filter-field>
+                    <furo-filter-field field="cost_limit" is="eq" ƒ-.value="--costlimitChanged"></furo-filter-field>
+                </furo-filter-and>
+            </furo-filter-container>
+        `}}window.customElements.define("demo-project-filter-form",DemoProjectFilterForm);class DemoFuroFilter extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * flow is ready lifecycle method
+   */_FBPReady(){super._FBPReady();this._FBPTraceWires()}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+            :host {
+                display: block;
+                height: 100%;
+                padding-right: var(--spacing);
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+            
+        `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+            <furo-vertical-flex>
+                <div>
+                    <h2>Demo demo-furo-filter</h2>
+                    <p>Basic usage of the furo filter pattern.</p>
+                    <p>We use a singleton resource to deliver possible filter options. Here we use /projects/filter</p>
+                </div>
+                <furo-demo-snippet flex>
+                    <template>
+
+                        <!-- filter input form, options from ProjectfilterService -->
+                        <div style="width: 75%; margin: 0 auto;">
+
+                            <furo-button unelevated label="Load filter options" @-click="--go"></furo-button>
+                            <p>Search in projects (default filter)</p>
+                            <!-- filter default input -->
+                            <furo-horizontal-flex>
+                                <furo-data-text-input label="Search in projects" condensed ƒ-bind-data="--entity(*.data.description)" flex leading-icon="search"></furo-data-text-input> <furo-button label="clear filter" @-click="--filterCleared"></furo-button>
+                            </furo-horizontal-flex>
+                            
+                            <demo-project-filter-form ƒ-bind-data="--entity" @-filter-changed="--filterChanged" @-filter-cleared="--filterChanged"></demo-project-filter-form>
+
+                            <p>Filter Array</p>
+                            <furo-pretty-json ƒ-inject-data="--filterChanged, --filterCleared(*.dummy)"></furo-pretty-json>
+                        </div>
+                       
+                        <!-- Loading filter options from singleton resource projects/filter -->
+                        <furo-deep-link ƒ-trigger="--go" service="ProjectfilterService"
+                                        @-hts-out="--hts"></furo-deep-link>
+                        
+                        <furo-entity-agent service="ProjectfilterService"
+                                           @-response="--response"
+                                           ƒ-hts-in="--hts"
+                                           load-on-hts-in></furo-entity-agent>
+
+                        <furo-data-object type="projectfilter.ProjectfilterEntity"
+                                          @-object-ready="--entity"
+                                          ƒ-inject-raw="--response" ƒ-reset="--filterCleared"></furo-data-object>
+
+                    </template>
+                </furo-demo-snippet>
+            </furo-vertical-flex>
+        `}}window.customElements.define("demo-furo-filter",DemoFuroFilter);class DemoFuroEntityValidator extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * flow is ready lifecycle method
+   */_FBPReady(){super._FBPReady();this._FBPTraceWires()}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+            :host {
+                display: block;
+                height: 100%;
+                padding-right: var(--spacing);
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+            
+        `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+            <furo-vertical-flex>
+                <div>
+                    <h2>Demo demo-furo-entity-validator</h2>
+                </div>
+                <furo-demo-snippet flex>
+                    <template>
+                        <furo-horizontal-flex>
+
+                            <furo-data-search-input autofocus ƒ-bind-data="--entity(*.furo_data_search_input)"></furo-data-search-input>
+                            <furo-data-search-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-search-input>
+                        </furo-horizontal-flex>
+
+                        <produce-qp-data @-data="--qp" qp={"exp":2}></produce-qp-data>
+
+                        <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                                          ƒ-inject-raw="--response(*.data)"></furo-data-object>
+                        <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+                        <furo-entity-agent service="ExperimentService"
+                                           ƒ-hts-in="--hts"
+                                           ƒ-load="--hts"
+                                           ƒ-bind-request-data="--entity"
+                                           @-response="--response">
+                        </furo-entity-agent>
+                        <furo-entity-validator ƒ-bind-data="--entity"></furo-entity-validator>
+
+                    </template>
+                </furo-demo-snippet>
+            </furo-vertical-flex>
+        `}}window.customElements.define("demo-furo-entity-validator",DemoFuroEntityValidator);class DemoFuroDataRepeat extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -4913,7 +5327,7 @@ return _furoShell.html`
                               error='{"field":"repstring.1","description":"something went wrong"}'></simulate-error>
 
               <hr>
-              <furo-card title="furo-data-repeater demo"
+              <furo-card header-text="furo-data-repeater demo"
                          secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display">
                 <furo-form-layouter two>
                   <h3>form</h3>
@@ -5030,23 +5444,25 @@ return _furoShell.html`
           <template>
             <furo-vertical-scroller>
               <furo-form-layouter two>
-                <!-- single Property -->
-                <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
                 <!-- repeated Property -->
-                <furo-data-property condensed ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
-                <furo-data-property ƒ-bind-data="--entity(*.type_property)"></furo-data-property>
-                <!-- single Property -->
-                <furo-data-property ƒ-bind-data="--entity(*.single_type_property)"></furo-data-property>
-              </furo-form-layouter>
-              
 
+                <furo-data-property ƒ-bind-data="--entity(*.data.type_property)"></furo-data-property>
+
+
+                <!-- single Property -->
+                <furo-data-property ƒ-bind-data="--entity(*.data.single_type_property)"></furo-data-property>
+              </furo-form-layouter>
+
+              <furo-button @-click="--reload">reload</furo-button>
               <produce-qp-data auto @-data="--qp" qp={"exp":1}></produce-qp-data>
-              <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
-                                ƒ-inject-raw="--response(*.data)"></furo-data-object>
+              
+              <furo-data-object type="experiment.ExperimentEntity" @-object-ready="--entity"
+                                ƒ-inject-raw="--response"></furo-data-object>
+              
               <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
               <furo-entity-agent service="ExperimentService"
                                  ƒ-hts-in="--hts"
-                                 ƒ-load="--hts"
+                                 ƒ-load="--hts,--reload"
                                  ƒ-bind-request-data="--entity"
                                  @-response="--response">
               </furo-entity-agent>
@@ -6299,6 +6715,8 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html`
         <furo-vertical-flex>
             <div><h2>Demo furo-data-collection-dropdown</h2>
+                <p>this demo show you how to bind a type to collection dropdown and how inject the collection data</p>
+
             </div>
             <furo-demo-snippet flex>
                 <template>
@@ -6390,7 +6808,58 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-collection-reference-dropdown",DemoFuroDataCollectionReferenceDropdown);class FuroDataTableToggle extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.on=!0;this.field=""}/**
+    `}}window.customElements.define("demo-furo-data-collection-reference-dropdown",DemoFuroDataCollectionReferenceDropdown);class DemoFuroDataCollectionDropdownBindEntity extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+        <furo-vertical-flex>
+            <div><h2>Demo furo-data-collection-dropdown-bind-entity</h2>
+                <p>this demo show you how to bind a entity to collection dropdown without inject</p>
+            </div>
+            <furo-demo-snippet flex>
+                <template>
+
+                    <furo-horizontal-flex>
+
+                        <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"
+                                                       ƒ-bind-data="--entity(*.data.description)"></furo-data-collection-dropdown>
+
+                    </furo-horizontal-flex>
+
+
+                    <produce-qp-data @-data="--qp" qp={"prj":1}></produce-qp-data>
+
+                    <furo-data-object type="project.ProjectEntity" @-object-ready="--entity"
+                                      ƒ-inject-raw="--response"></furo-data-object>
+                    
+                    <furo-deep-link service="ProjectService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
+                    <furo-entity-agent service="ProjectService"
+                                       ƒ-hts-in="--hts"
+                                       ƒ-load="--hts"
+                                       ƒ-bind-request-data="--entity"
+                                       @-response="--response">
+                    </furo-entity-agent>
+
+                </template>
+            </furo-demo-snippet>
+        </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-collection-dropdown-bind-entity",DemoFuroDataCollectionDropdownBindEntity);class FuroDataTableToggle extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.on=!0;this.field=""}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 this._FBPAddWireHook("--Pressed",()=>{this.toggle()})}static get properties(){return{field:{type:String,attribute:!0,reflect:!0}}}static get styles(){// language=CSS
@@ -6673,157 +7142,7 @@ return _furoShell.html`
      * by index
      * @param idx
      * @private
-     */_selectRowByIndex(idx){let allTr=this.shadowRoot.querySelector("tbody").querySelectorAll("tr");if(0<=idx&&1<allTr.length&&idx<allTr.length){let len=allTr.length;while(len--){allTr[len].setAttribute("selected",!1)}allTr[idx].setAttribute("selected",!0);this._selectedIndex=idx}}}window.customElements.define("furo-data-table",FuroDataTable);class FuroFetchJson extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
-   * @private
-   * @return {Object}
-   */static get properties(){return{/**
-       * the url you want to fetch
-       */src:{type:String}}}/**
-     * fetch and parse the data from specified `src`.
-     *
-     * Use fetch-src if you want to pass the source url
-     *
-     * @return {Promise<any>}
-     */fetch(){if(this.src){return fetch(this.src).then(res=>res.json()).then(data=>{/**
-         * @event data
-         * Fired when data received and json parsed
-         * detail payload: {Object} json data
-         */let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=data;this.dispatchEvent(customEvent)})}}/**
-     * fetch json data from source
-     * @param String source
-     *
-     * @return {Promise<any>}
-     */fetchSrc(source){this.src=source;return this.fetch()}}window.customElements.define("furo-fetch-json",FuroFetchJson);class FuroGetClipboard extends(0,_furoShell.FBP)(_furoShell.LitElement){trigger(){navigator.clipboard.readText().then(clipText=>{/**
-       * @event content
-       * Fired when clipboard content is received
-       * detail payload: {*} content of the clipboard
-       */let customEvent=new Event("content",{composed:!0,bubbles:!0});if(this.json){customEvent.detail=JSON.parse(clipText)}else{customEvent.detail=clipText}this.dispatchEvent(customEvent)})}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Convert clipboard content to json
-       */json:{type:Boolean}}}}window.customElements.define("furo-get-clipboard",FuroGetClipboard);/**
-                                                                       *
-                                                                       * `furo-head-tail`
-                                                                       *  Splits an iterable (i.e. Array) in its head and tail part.
-                                                                       *
-                                                                       *```
-                                                                       *  <furo-head-tail ƒ-split="--arrayData" @-head="--firstElement" @-tail="--restOfArray"></furo-head-tail>
-                                                                       *```
-                                                                       *
-                                                                       * @summary split an array
-                                                                       * @customElement
-                                                                       */class FuroHeadTail extends HTMLElement{/**
-   * Splits an iterable to its head (first item) and its tail (the rest) parts.
-   *
-   * ```
-   * ["a", "b", "c", "d"]
-   *  |_|  |___________|
-   *   ^      ^
-   *   |      |
-   *   |     TAIL   => ["b", "c", "d"]
-   *  HEAD          => "a"
-   * ```
-   *
-   * @param iterable
-   */split(iterable){if(!Array.isArray(iterable)){console.warn("input is not iterable",iterable);return}const[head,...tail]=iterable;/**
-                                      * @event head
-                                      * Fired when Array was splitted
-                                      * detail payload: {Any} first element of array
-                                      */let headEvent=new Event("head",{composed:!0,bubbles:!0});headEvent.detail=head;this.dispatchEvent(headEvent);/**
-                                   * @event tail
-                                   * Fired when Array was splitted
-                                   * detail payload: {Array || Any} the tail from the injected array (e1 - 1n)
-                                   */let tailEvent=new Event("tail",{composed:!0,bubbles:!0});tailEvent.detail=tail;this.dispatchEvent(tailEvent)}}window.customElements.define("furo-head-tail",FuroHeadTail);class FuroKeyFilter extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
-     * Check the event and dispatch matched when the conditions are fulfilled.
-     *
-     * @param keyboardEvent
-     */filter(keyboardEvent){let key=keyboardEvent.key||keyboardEvent.keyCode;// check shift, alt, command,...
-if(this.shift&&!keyboardEvent.shiftKey){return}if(this.alt&&!keyboardEvent.altKey){return}if((this.meta||this.command)&&!keyboardEvent.metaKey){return}if(this.control&&!keyboardEvent.controlKey){return}if(-1!==this.keys.split(/\W+/).indexOf(key)){/**
-      * @event matched
-      * Fired when key matches the options
-      * detail payload: keyboardEvent
-      */let customEvent=new Event("matched",{composed:!0,bubbles:!0});customEvent.detail=keyboardEvent;this.dispatchEvent(customEvent)}}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Coma separated list with allowed keys to pass. i.e "Enter, ArrowUp"
-       */keys:{type:String},/**
-       * Modifier key **shift** must be pressed too to match
-       */shift:{type:Boolean},/**
-       * Modifier key **alt** must be pressed too to match
-       */alt:{type:Boolean},/**
-       * Alias for meta.
-       *
-       * Modifier key **meta** must be pressed too to match.
-       */command:{type:Boolean},/**
-       * Modifier key **meta** must be pressed too to match
-       */meta:{type:Boolean},/**
-       * Modifier key **control** must be pressed too to match
-       */control:{type:Boolean// stopPropagation, disableDefault??
-}}}}window.customElements.define("furo-key-filter",FuroKeyFilter);class FuroKeydown extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
-   * @private
-   * @return {Object}
-   */static get properties(){return{/**
-       * Key to listen on. Like Enter, Backspace, ArrowLeft, A,B,C, a,b,c
-       */key:{type:String},/**
-       * Set this attribute to listen to the keydown event global (window).
-       */global:{type:Boolean},alt:{type:Boolean},ctrl:{type:Boolean},meta:{type:Boolean}}}/**
-    * flow is ready lifecycle method
-    */_FBPReady(){super._FBPReady();let target;if(this.global){target=window}else{target=this.parentNode}target.addEventListener("keydown",keyevent=>{if(keyevent.key===this.key){/**
-        * @event key
-        * Fired when key was catched on target
-        * detail payload: keyevent
-        */let customEvent=new Event("key",{composed:!0,bubbles:!0});customEvent.detail=keyevent;this.dispatchEvent(customEvent)}})}}window.customElements.define("furo-keydown",FuroKeydown);class FuroPrettyJson extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}static get properties(){return{}}static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-            :host {
-                display: block;
-                font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-                margin: var(--spacing);
-                line-height: 1.5;
-            }
-
-            pre {
-                background-color: var(--background);
-                padding: 0;
-            }
-
-            .string {
-                color: #080
-            }
-
-            .number {
-                color: darkorange;
-            }
-
-            .boolean {
-                color: blue;
-            }
-
-            .null {
-                color: magenta;
-            }
-
-            .key {
-                color: #606
-            }
-
-        `}/**
-     * Inject JSON data
-     * @param json
-     */injectData(json){if(json){this.markedText=JSON.stringify(json,null,2);this.markedText=this._syntaxHighlight(this.markedText);this.shadowRoot.querySelector("#content").innerHTML=this.markedText}}_syntaxHighlight(json){if("string"!=typeof json){json=JSON.stringify(json,void 0,2)}json=json.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,function(match){var cls="number";if(/^"/.test(match)){if(/:$/.test(match)){cls="key"}else{cls="string"}}else if(/true|false/.test(match)){cls="boolean"}else if(/null/.test(match)){cls="null"}return"<span class=\""+cls+"\">"+match+"</span>"})}render(){// language=HTML
-return _furoShell.html`
-            <pre id="content"></pre>
-        `}}window.customElements.define("furo-pretty-json",FuroPrettyJson);class FuroPutClipboard extends _furoShell.LitElement{constructor(){super()}setData(data){this.data=data}trigger(data){if(this.data){data=this.data}let d;if(this.json){d=JSON.stringify(data,"",2)}else{d=data}navigator.clipboard.writeText(d).then(()=>{/**
-       * @event content
-       * Fired when clipboard content is received
-       * detail payload: {*} content of the clipboard
-       */let customEvent=new Event("content-putted",{composed:!0,bubbles:!0});customEvent.detail=d;this.dispatchEvent(customEvent)})}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Stringify JSON content
-       */json:{type:Boolean}}}}window.customElements.define("furo-put-clipboard",FuroPutClipboard);class DemoFuroDataTable extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+     */_selectRowByIndex(idx){let allTr=this.shadowRoot.querySelector("tbody").querySelectorAll("tr");if(0<=idx&&1<allTr.length&&idx<allTr.length){let len=allTr.length;while(len--){allTr[len].setAttribute("selected",!1)}allTr[idx].setAttribute("selected",!0);this._selectedIndex=idx}}}window.customElements.define("furo-data-table",FuroDataTable);class DemoFuroDataTable extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -6850,7 +7169,7 @@ return _furoShell.html`
                     <h2>furo-data-table playground</h2>
 
                 </div>
-                <furo-card title="Project Overview" secondary-text="All your project data" class="flex">
+                <furo-card header-text="Project Overview" secondary-text="All your project data" class="flex">
 
                     <furo-data-table type="project.Project" fields="display_name, members, start,end,cost_limit" sortable-fields="cost_limit,start"
                                      ƒ-bind-data="--data" @-tablerow-selected="--rowSelected"></furo-data-table>

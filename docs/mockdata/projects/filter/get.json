@@ -1,0 +1,26 @@
+{
+  "data": {
+    "description": "",
+    "end": {
+      "day": 31,
+      "display_name": "31.12.2020",
+      "month": 12,
+      "year": 2020
+    },
+    "start": {
+      "day": 1,
+      "display_name": "01.07.2019",
+      "month": 7,
+      "year": 2019
+    }
+  },
+  "links": [
+    {
+      "href": "/mockdata/projects/filter/get.json",
+      "method": "GET",
+      "rel": "self",
+      "type": "projectfilter.ProjectfilterEntity",
+      "service": "ProjectfilterService"
+    }
+  ]
+}
