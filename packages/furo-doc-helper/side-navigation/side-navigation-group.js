@@ -50,9 +50,6 @@ class SideNavigationGroup extends FBP(LitElement) {
         }
         
         div.label {
-
-            position: sticky;
-            top:0;
             background-color: var(--surface, white);
             z-index: 1;
             color: var(--on-surface, black);

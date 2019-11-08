@@ -73,11 +73,9 @@ class MainStage extends FBP(LitElement) {
               overflow-x: hidden;
           }
 
-          furo-vertical-flex {
-              height: 100%;
-          }
 
           furo-pages {
+              height: 100vh;
               overflow: hidden;
           }
 
@@ -93,9 +91,7 @@ class MainStage extends FBP(LitElement) {
     // language=HTML
     return html`
 
-      <furo-vertical-flex>
-        <header-toolbar></header-toolbar>
-
+     
         <furo-pages flex ƒ-inject-location="--locationChanged" default="FuroBaseComponents">
           <view-home name="FuroBaseComponents"></view-home>
           <view-guide name="guide"></view-guide>
@@ -103,7 +99,7 @@ class MainStage extends FBP(LitElement) {
           <view-spec name="spec"></view-spec>
         </furo-pages>
 
-      </furo-vertical-flex>
+       
       <furo-location @-location-changed="--locationChanged"></furo-location>
         <furo-snackbar-display></furo-snackbar-display>
     `;

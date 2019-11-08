@@ -107,9 +107,8 @@ class FuroAppBarTop extends FBP(LitElement) {
     return css`
         :host {
             display: block;
-            background-color: var(--primary);
             color: var(--on-primary);
-            background: linear-gradient(315deg, var(--primary-light) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(315deg, var(--primary-light, #7f7f7f) 0%, var(--primary-dark, #aFAFAF) 100%);
             box-shadow: 0 -15px 10px -15px rgba(0, 0, 0, 0.12);
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
             font-size: 20px;
@@ -162,9 +161,9 @@ class FuroAppBarTop extends FBP(LitElement) {
     return html`
       <furo-horizontal-flex>
       <furo-icon-button class="navigation" icon="${this._navigationIcon}" @-click="^^navigation-clicked, --navigationClicked"></furo-icon-button>
-       
+       <div flex>
         <slot></slot>
-
+</div>
       </furo-horizontal-flex>
     `;
   }

@@ -27,7 +27,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     this._movementDetectionRange = 10;
 
     // return this to node which want to connect
-    this.addEventListener("connect-to-drawer-requested", (e) => {
+    window.addEventListener("connect-to-drawer-requested", (e) => {
       if (e.detail.name === this.name) {
         e.detail.drawer = this;
       }
@@ -450,7 +450,11 @@ class FuroAppDrawer extends FBP(LitElement) {
             transition-duration: 200ms;
             background: var(--surface-light);
         }
-
+        
+        ::slotted([scroll]){
+            height: 100%;
+            overflow-y: auto;
+        }
 
         /* disable pointer events */
         #backdrop {

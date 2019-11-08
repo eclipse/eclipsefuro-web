@@ -57,11 +57,9 @@ class HeaderToolbar extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
-            background-color: var(--primary);
             color: var(--on-primary);
             line-height: 54px;
             font-size: 18px;
-            padding-left: var(--spacing);
         }
 
         :host([hidden]) {

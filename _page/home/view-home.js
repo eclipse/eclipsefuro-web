@@ -2,6 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "../components/footer-bar"
+import '@furo/layout/furo-app-bar-top';
+import '@furo/layout/furo-vertical-flex';
 
 /**
  * `view-home`
@@ -50,7 +52,7 @@ class ViewHome extends FBP(LitElement) {
             :host {
                 display: block;
                 height: 100%;
-                overflow: auto;
+                overflow: hidden;
                 box-sizing: border-box;
                 background-color: var(--background, white);
                 color: var(--on-background, black);
@@ -158,7 +160,11 @@ class ViewHome extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-            <div class="content">
+            <furo-vertical-flex>
+            <furo-app-bar-top drawer="home">
+                <header-toolbar></header-toolbar>
+            </furo-app-bar-top>
+            <div scroll flex class="content">
                 <p class="hero-title">フロー</p>
                 <p class="hero-caption">Version 0.xx.xx</p>
                 <p class="hero-caption">An enterprise grade framework for creating fast, lightweight web apps
@@ -284,8 +290,12 @@ class ViewHome extends FBP(LitElement) {
                     Opera). </h2>
                 <hr>
                 <small>[1] furo-fbp has no dependencies, furoBaseComponets relies mostly on LitElement</small>
+
+                <footer-bar></footer-bar>
             </div>
-            <footer-bar></footer-bar>
+            
+                
+            </furo-vertical-flex>
         `;
     }
 }

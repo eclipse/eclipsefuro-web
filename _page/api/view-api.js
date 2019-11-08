@@ -7,6 +7,8 @@ import "@furo/doc-helper/side-navigation"
 import "./panel-doc"
 import "./panel-demo"
 import "./demoimports"
+import '@furo/layout/furo-app-drawer';
+import '@furo/layout/furo-app-bar-top';
 
 /**
  * `view-api`
@@ -45,6 +47,7 @@ class ViewApi extends FBP(LitElement) {
             background-color: var(--background, white);
             color: var(--on-background, black);
             --split-master-width: 250px;
+            
         }
 
         :host([hidden]) {
@@ -52,6 +55,7 @@ class ViewApi extends FBP(LitElement) {
         }
         furo-pages{
             height: 100%;
+            overflow: hidden;
         }
 
         /** the background of the bar itself. **/
@@ -86,6 +90,11 @@ class ViewApi extends FBP(LitElement) {
         /** the draggable resizing handle that appears above the scrollbar-corner at the bottom corner of some elements. **/
         ::-webkit-resizer {
         }
+
+
+        furo-vertical-flex {
+            height: 100%;
+        }
     `
   }
 
@@ -98,9 +107,12 @@ class ViewApi extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-location url-space-regex="^/api/[^/]*" @-location-changed="--pathChanged"></furo-location>
-
-      <furo-split-view>
-        <div slot="master" scroll>
+      <furo-vertical-flex>
+        <furo-app-bar-top drawer="api">
+        <header-toolbar></header-toolbar>
+        </furo-app-bar-top>
+      <furo-app-drawer float-breakpoint="1200" name="api" ƒ-close="--pathChanged">
+        <div slot="drawer" scroll>
           <!-- --nav comes from import {nav} from "./nav_config"; -->
           <side-navigation ƒ-inject-nav-config="--nav" base-path="/api/"></side-navigation>
         </div>
@@ -109,7 +121,8 @@ class ViewApi extends FBP(LitElement) {
           <panel-demo name="demo"></panel-demo>
           <div name="default">404 ....</div>
         </furo-pages>
-      </furo-split-view>
+      </furo-app-drawer>
+      </furo-vertical-flex>
     `;
   }
 }

@@ -5,7 +5,8 @@ import {nav} from "./nav_config";
 
 import "@furo/doc-helper/side-navigation"
 import "@furo/doc-helper/furo-demo-snippet"
-
+import '@furo/layout/furo-app-drawer';
+import '@furo/layout/furo-app-bar-top';
 //pages
 import "./panel-md-loader";
 import "./demoimports";
@@ -104,9 +105,13 @@ class ViewGuide extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-location url-space-regex="^/guide" @-location-changed="--pathChanged"></furo-location>
-
-      <furo-split-view>
-        <div slot="master" scroll>
+      <furo-vertical-flex>
+        <furo-app-bar-top drawer="guide">
+          <header-toolbar></header-toolbar>
+        </furo-app-bar-top>
+        <furo-app-drawer float-breakpoint="1200" name="guide"   ƒ-close="--pathChanged">
+       
+        <div slot="drawer" scroll>
           <side-navigation ƒ-inject-nav-config="--nav" base-path="/guide/"></side-navigation>
         </div>
         <furo-pages ƒ-inject-location="--pathChanged" default="welcome">
@@ -114,7 +119,7 @@ class ViewGuide extends FBP(LitElement) {
           
           <div name="welcome">Coming soon.</div>
         </furo-pages>
-      </furo-split-view>
+        </furo-app-drawer>
     `;
   }
 
