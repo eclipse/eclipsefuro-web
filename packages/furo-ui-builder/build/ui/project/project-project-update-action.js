@@ -53,9 +53,9 @@ class ProjectProjectUpdateAction extends FBP(LitElement) {
             this._FBPTriggerWire("--entityObjectInjected", this._entity);
 
             // if data is injected, get the available HATEOAS links and activate/deactivate action buttons
-            this._entity.addEventListener('data-injected', () => {
+            this._entity.links.addEventListener('this-repeated-field-changed', (e) => {
                 let rels = [];
-                this._entity.links.__childNodes.forEach((item) => {
+                e.detail.__childNodes.forEach((item) => {
                     rels.push(item._value.rel);
                 });
 
@@ -67,6 +67,7 @@ class ProjectProjectUpdateAction extends FBP(LitElement) {
                         item.removeAttribute('hidden', '');
                     }
                 });
+
             });
         }
     }

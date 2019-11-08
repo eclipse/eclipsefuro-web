@@ -351,6 +351,10 @@ class FuroRadioButton extends FBP(LitElement) {
                 top: 6px;
                 left: 6px;
             }
+      
+            furo-ripple{
+                border-radius: 50%;
+            }
         `
   }
 

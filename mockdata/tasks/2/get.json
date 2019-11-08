@@ -21,6 +21,20 @@
       "rel": "self",
       "type": "task.TaskEntity",
       "service": "TaskService"
+    },
+    {
+      "href": "/mockdata/tasks/2/get.json",
+      "method": "UPDATE",
+      "rel": "update",
+      "type": "task.TaskEntity",
+      "service": "TaskService"
+    },
+    {
+      "href": "/mockdata/tasks/2/get.json",
+      "method": "DELETE",
+      "rel": "delete",
+      "type": "task.TaskEntity",
+      "service": "TaskService"
     }
   ]
 }

@@ -6546,8 +6546,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/index.html",
-          "description": ""
+          "url": "demo-furo-entity-validator",
+          "description": "entity validator demo"
         }
       ],
       "metadata": {},

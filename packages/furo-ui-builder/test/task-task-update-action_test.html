@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>test for task-task-update-panel</title>
+    <title>test for task-task-update-action</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
@@ -45,7 +45,7 @@
 
     }
 
-    describe('task-task-update-panel tests ', function () {
+    describe('task-task-update-action tests ', function () {
 
         let fix, elem, qp;
 
@@ -58,36 +58,25 @@
             await qp.updateComplete;
         });
 
-        it('should load data after hateoas is set', (done) => {
-            let agent = elem.shadowRoot.querySelector('furo-entity-agent');
-            agent.addEventListener('response', (r)=>{
-                assert.equal(r.detail.data.id, "1");
+        it('should set the correct button states', (done) => {
+            let action = elem.shadowRoot.querySelector('task-task-update-action');
+            let buttons = action.shadowRoot.querySelectorAll('furo-button');
+
+            elem._FBPAddWireHook('--response', (response) =>{
+                expect(action).to.not.be.undefined;
+                assert.equal(buttons.length, 4);
+                expect(buttons[1].getAttribute('hidden')).to.be.null;
+                expect(buttons[1].getAttribute('disabled')).to.be.null;
+
+                expect(buttons[0].getAttribute('hidden')).to.not.be.null;
+                expect(buttons[0].getAttribute('disabled')).to.not.be.null;
+                expect(buttons[2].getAttribute('hidden')).to.not.be.null;
+                expect(buttons[2].getAttribute('disabled')).to.not.be.null;
+                expect(buttons[3].getAttribute('hidden')).to.not.be.null;
+                expect(buttons[3].getAttribute('disabled')).to.not.be.null;
                 done();
             });
             qp.qpIn({"tsk": 1});
-        });
-
-        it('should fire data-injected event', (done) => {
-
-            let datao = elem.shadowRoot.querySelector('furo-data-object');
-            datao.addEventListener('data-injected', ()=>{
-                done();
-            });
-            qp.qpIn({"tsk": 1});
-        });
-
-        it('should trigger wire --requestStarted', (done) => {
-
-            elem._FBPAddWireHook('--requestStarted', ()=>{
-                done();
-            });
-            qp.qpIn({"tsk": 1});
-        });
-
-        it('should have a form inside', () => {
-            let form = elem.shadowRoot.querySelector('task-task-form');
-            expect(form).to.not.be.undefined;
-
         });
 
     });

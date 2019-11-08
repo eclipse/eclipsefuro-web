@@ -6,7 +6,7 @@ import {FBP} from "@furo/fbp";
  *
  *
  * @customElement
- * @demo demo/index.html
+ * @demo demo-furo-entity-validator entity validator demo
  * @appliesMixin FBP
  */
 class FuroEntityValidator extends FBP(LitElement) {
@@ -23,28 +23,28 @@ class FuroEntityValidator extends FBP(LitElement) {
     this.checks.string = {
       min: (field) => {
         let constraint = field._constraints.min;
-        if (field.value.length < constraint.value) {
+        if (field._value && field._value.length < constraint.is) {
           if(constraint.message){
-            return {"message": constraint.message, constraint: "min"}
+            return {"description": constraint.message, constraint: "min"}
           }
-          return {"message": "Mindestens " + constraint.value + " Zeichen", constraint: "min"}
+          return {"description": "Mindestens " + constraint.is + " Zeichen", constraint: "min"}
         }
         return null;
       },
       max: (field) => {
         let constraint = field._constraints.max;
-        if (field.value.length > constraint.value) {
+        if (field._value && field._value.length > constraint.is) {
           if(constraint.message){
-            return {"message": constraint.message, constraint: "max"}
+            return {"description": constraint.message, constraint: "max"}
           }
-          return {"message": "Maximal " + constraint.value + " Zeichen", constraint: "max"}
+          return {"description": "Maximal " + constraint.is + " Zeichen", constraint: "max"}
         }
         return null;
       },
       mandatory: field => {
         let constraint = field._constraints.required;
-        if (field.value.length === 0) {
-          return {"message": "Eingabe erforderlich", constraint: "mandatory"}
+        if ( field._value && field._value.length === 0) {
+          return {"description": "Eingabe erforderlich", constraint: "mandatory"}
         }
         return null;
       },
@@ -53,18 +53,38 @@ class FuroEntityValidator extends FBP(LitElement) {
     this.checks.int = {
       min: (field) => {
         let constraint = field._constraints.min;
-        if (field.value < constraint.value) {
-          return {"message": "Mindestens " + constraint.value + " Zeichen", constraint: "min"}
+        if (field._value && field._value < constraint.is) {
+          return {"description": "Mindestens " + constraint.is + " Zeichen", constraint: "min"}
         }
         return null;
       },
       max: (field) => {
         let constraint = field._constraints.max;
-        if (field.value > constraint.value) {
+        if (field._value && field._value > constraint.is) {
           if(constraint.message){
-            return {"message": constraint.message, constraint: "max"}
+            return {"description": constraint.message, constraint: "max"}
           }
-          return {"message": "Maximal " + constraint.value + " Zeichen", constraint: "max"}
+          return {"description": "Maximal " + constraint.is + " Zeichen", constraint: "max"}
+        }
+        return null;
+      }
+    };
+
+    this.checks.float = {
+      min: (field) => {
+        let constraint = field._constraints.min;
+        if (field._value && field._value < constraint.is) {
+          return {"description": "Mindestens " + constraint.is + " Zeichen", constraint: "min"}
+        }
+        return null;
+      },
+      max: (field) => {
+        let constraint = field._constraints.max;
+        if (field._value && field._value > constraint.is) {
+          if(constraint.message){
+            return {"description": constraint.message, constraint: "max"}
+          }
+          return {"description": "Maximal " + constraint.is + " Zeichen", constraint: "max"}
         }
         return null;
       }
