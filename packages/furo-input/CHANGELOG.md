@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.58.2](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.58.1...@furo/input@0.58.2) (2019-11-08)
+
+
+### Bug Fixes
+
+* app-bar-top unneeded div removed ([478cab7](https://github.com/veith/FuroBaseComponents/commit/478cab7))
+
+
+
+
+
 ## [0.58.1](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.58.0...@furo/input@0.58.1) (2019-11-08)
 
 **Note:** Version bump only for package @furo/input
