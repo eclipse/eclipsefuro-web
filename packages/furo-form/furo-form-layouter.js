@@ -30,35 +30,29 @@ class FuroFormLayouter extends FBP(LitElement) {
         this.narrower = false;
         this.breakpointBig = 810;
         this.breakpointSmall = 405;
-
-        // todo: @maltenorstroem, consider to deliver a polyfill for ResizeObserver (https://github.com/que-etc/resize-observer-polyfill)
-        const ro = new ResizeObserver(entries => {
-
-            for (let entry of entries) {
-                if (entry.contentRect && entry.contentRect.width > 0 && entry.contentRect.width < this.breakpointBig && entry.contentRect.width > this.breakpointSmall) {
-                    this.setAttribute('narrow', '');
-                    this.narrow = true;
-                    this.removeAttribute('narrower');
-                    this.narrower = false;
-                    this._fireResize();
-                } else if (entry.contentRect && entry.contentRect.width > 0 && entry.contentRect.width < this.breakpointSmall) {
-                    this.setAttribute('narrower', '');
-                    this.narrower = true;
-                    this.removeAttribute('narrow');
-                    this.narrow = false;
-                    this._fireResize();
-                } else {
-                    this.removeAttribute('narrow');
-                    this.removeAttribute('narrower');
-                    this.narrow = this.narrower = false;
-                }
-            }
-
-        });
-        ro.observe(this);
     }
 
-    _fireResize(){
+    _checkSize(width) {
+        if (width > 0 && width < this.breakpointBig && width > this.breakpointSmall) {
+            this.setAttribute('narrow', '');
+            this.narrow = true;
+            this.removeAttribute('narrower');
+            this.narrower = false;
+            this._fireResize();
+        } else if (width > 0 && width < this.breakpointSmall) {
+            this.setAttribute('narrower', '');
+            this.narrower = true;
+            this.removeAttribute('narrow');
+            this.narrow = false;
+            this._fireResize();
+        } else {
+            this.removeAttribute('narrow');
+            this.removeAttribute('narrower');
+            this.narrow = this.narrower = false;
+        }
+    }
+
+    _fireResize() {
         this.dispatchEvent(new CustomEvent('layout-changed', {
             detail: this, bubbles: true, composed: true
         }));
@@ -70,6 +64,28 @@ class FuroFormLayouter extends FBP(LitElement) {
     _FBPReady() {
         super._FBPReady();
         //this._FBPTraceWires()
+
+        this.updateComplete.then(() => {
+            if (window.ResizeObserver) {
+                const ro = new ResizeObserver(entries => {
+                    for (let entry of entries) {
+                        this._checkSize(entry.contentRect.width);
+                    }
+                });
+                ro.observe(this);
+            } else {
+                // fallback, just listen to the resize event
+                setTimeout(() => {
+                    let cr = this.getBoundingClientRect();
+                    this._checkSize(cr.width);
+                }, 1)
+
+                window.addEventListener("resize", (e) => {
+                    let cr = this.getBoundingClientRect();
+                    this._checkSize(cr.width);
+                })
+            }
+        });
     }
 
     static get properties() {
@@ -105,79 +121,80 @@ class FuroFormLayouter extends FBP(LitElement) {
     static get styles() {
         // language=CSS
         return Theme.getThemeForComponent(this.name) || css`
-            :host {
-                display: grid;
-                grid-row-gap: 0px;
-                grid-column-gap: 0px;
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host {
+            display: grid;
+            grid-row-gap: 0px;
+            grid-column-gap: 0px;
+            grid-template-columns: repeat(1, 1fr);
+        }
 
-            :host([hidden]) {
-                display: none;
-            }
+        :host([hidden]) {
+            display: none;
+        }
 
-            :host([two]) {
-                grid-template-columns: repeat(2, 1fr);
-                grid-column-gap: var(--spacing);
-            }
+        :host([two]) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: var(--spacing);
+        }
 
-            :host([four]) {
-                grid-template-columns: repeat(4, 1fr);
-                grid-column-gap: var(--spacing);
-            }
+        :host([four]) {
+            grid-template-columns: repeat(4, 1fr);
+            grid-column-gap: var(--spacing);
+        }
 
-            :host([narrow]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([narrow]) {
+            grid-template-columns: repeat(1, 1fr);
+        }
 
-            :host([four][narrow]) {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        :host([four][narrow]) {
+            grid-template-columns: repeat(2, 1fr);
+        }
 
-            :host([narrower]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([narrower]) {
+            grid-template-columns: repeat(1, 1fr);
+        }
 
-            :host([narrow-fix]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([narrow-fix]) {
+            grid-template-columns: repeat(1, 1fr);
+        }
 
-            :host([four][narrow-fix]) {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        :host([four][narrow-fix]) {
+            grid-template-columns: repeat(2, 1fr);
+        }
 
-            :host([four][narrower-fix]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([four][narrower-fix]) {
+            grid-template-columns: repeat(1, 1fr);
+        }
 
-            :host([narrower-fix]) {
-                grid-template-columns: repeat(1, 1fr);
-            }
+        :host([narrower-fix]) {
+            grid-template-columns: repeat(1, 1fr);
+        }
 
-            ::slotted(*) {
-                width: 100%;
-            }
+        ::slotted(*) {
+            width: 100%;
+        }
 
-            ::slotted(*[double]) {
-                grid-column: span 2;
-            }
-            :host([card]){
-                
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12),
-                0 3px 1px -2px rgba(0, 0, 0, 0.2);
-                
-                background: var(--furo-card-background, var(--surface, white));
-                padding: var(--furo-card-padding, var(--spacing-xs, 8px));
-                margin: var(--furo-card-margin, 0);
-               
-                
-                border-radius: 4px;
-                font-size: 14px;
-                letter-spacing: 0.1px;
-            }
+        ::slotted(*[double]) {
+            grid-column: span 2;
+        }
 
-        `
+        :host([card]) {
+
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 1px 5px 0 rgba(0, 0, 0, 0.12),
+            0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+            background: var(--furo-card-background, var(--surface, white));
+            padding: var(--furo-card-padding, var(--spacing-xs, 8px));
+            margin: var(--furo-card-margin, 0);
+
+
+            border-radius: 4px;
+            font-size: 14px;
+            letter-spacing: 0.1px;
+        }
+
+    `
     }
 
     /**

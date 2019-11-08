@@ -58,7 +58,7 @@ class DemoFuroCard extends FBP(LitElement) {
           <furo-vertical-scroller>
         
 
-          <furo-card title="With media" secondary-text="Secondary text goes here">
+          <furo-card header-text="With media" secondary-text="Secondary text goes here">
             <img slot="media" src="/_page/images/hamburg.png" alt="">
             <div ƒ-.inner-text="--fromTextarea" style="margin-bottom: 30px">Do not forget to give the card <br> a height</div>
             <furo-horizontal-flex space slot="action">
@@ -82,7 +82,7 @@ class DemoFuroCard extends FBP(LitElement) {
             </furo-horizontal-flex>
           </furo-card>
 
-            <furo-card title="Title goes here" secondary-text="Secondary text goes hereSecondary text goes hereSecondary text goes hereSecondary text goes here">
+            <furo-card header-text="Title goes here" secondary-text="Secondary text goes hereSecondary text goes hereSecondary text goes hereSecondary text goes here">
               <div>Text in default slot</div>
               <div slot="action">
                 <furo-horizontal-flex space slot="action">
@@ -94,7 +94,7 @@ class DemoFuroCard extends FBP(LitElement) {
               </div>
             </furo-card>
 
-            <furo-card title="Title goes here" secondary-text="Secondary text goes here">
+            <furo-card header-text="Title goes here" secondary-text="Secondary text goes here">
               <div>
                 Content text blah
               </div>

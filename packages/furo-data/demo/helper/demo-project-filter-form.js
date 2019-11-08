@@ -60,7 +60,7 @@ class DemoProjectFilterForm extends FBP(LitElement) {
         // language=HTML
         return html`
             <!-- filter input form, options from ProjectfilterService -->
-            <furo-card title="Filter options">
+            <furo-card header-text="Filter options">
                 <furo-form-layouter>
                     <!-- Short project description  -->
                     <furo-data-text-input condensed

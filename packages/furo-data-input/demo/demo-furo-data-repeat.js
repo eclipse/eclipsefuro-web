@@ -53,7 +53,7 @@ class DemoFuroDataRepeat extends FBP(LitElement) {
                               error='{"field":"repstring.1","description":"something went wrong"}'></simulate-error>
 
               <hr>
-              <furo-card title="furo-data-repeater demo"
+              <furo-card header-text="furo-data-repeater demo"
                          secondary-text="On this screen we have 2 repeated items. The one on the right uses furo-data-display">
                 <furo-form-layouter two>
                   <h3>form</h3>

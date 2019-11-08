@@ -64,7 +64,7 @@ class DemoFuroInputTogether extends FBP(LitElement) {
             }</style>
             <furo-vertical-scroller>
               <furo-horizontal-flex>
-                <furo-card title="Select some">
+                <furo-card header-text="Select some">
 
                   <furo-vertical-flex class="nomargin">
                     <furo-checkbox-input hint="Hint" label="Benutzerdefinierter "></furo-checkbox-input>

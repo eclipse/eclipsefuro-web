@@ -72,12 +72,12 @@ class FuroSelectInput extends FBP(LitElement) {
     this._FBPTriggerWire("--value", v)
   }
 
-  set value(v){
+  set value(v) {
     this._v = v;
     this._value = v;
   }
 
-  get value(){
+  get value() {
     return this._v;
   }
 
@@ -204,7 +204,7 @@ class FuroSelectInput extends FBP(LitElement) {
    * Set the options programmatically
    * @param {Array} Array with options
    */
-  setOptions(optionArray){
+  setOptions(optionArray) {
     this.options = optionArray;
   }
 
@@ -212,9 +212,10 @@ class FuroSelectInput extends FBP(LitElement) {
    * Set the list programmatically
    * @param {String} list with options
    */
-  setList(list){
+  setList(list) {
     this.list = list;
   }
+
   /**
    * Setter method for errortext
    * @param {String} errortext
@@ -278,9 +279,9 @@ class FuroSelectInput extends FBP(LitElement) {
 
   set options(collection) {
     // convert array list to id, label structure
-    if(typeof collection[0] === "string"){
-      collection = collection.map((item)=>{
-        return {"id": item,"label":item };
+    if (typeof collection[0] === "string") {
+      collection = collection.map((item) => {
+        return {"id": item, "label": item};
       });
     }
 
@@ -337,12 +338,20 @@ class FuroSelectInput extends FBP(LitElement) {
             border-top-right-radius: 4px;
         }
 
+
         .iwrap {
             position: relative;
         }
 
-
+        .expand{
+            position: absolute;
+            right: 0;
+            display: block;
+            pointer-events: none;
+            cursor: pointer;
+        }
         select {
+            cursor: pointer;
             position: absolute;
             top: 16px;
             border: none;
@@ -359,7 +368,11 @@ class FuroSelectInput extends FBP(LitElement) {
             font-size: 16px;
             font-stretch: 100%;
             font-style: normal;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
         }
+
 
         :host([filled]) .wrapper {
             background-color: var(--surface-light, #FEFEFE);
@@ -600,15 +613,16 @@ class FuroSelectInput extends FBP(LitElement) {
 
         :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
             top: -12px;
-            
+
         }
+
         :host([condensed]) label span {
             top: -20px;
-            
+
         }
 
         :host([condensed]) .hint, :host([condensed]) .errortext {
-            
+
         }
 
         :host([condensed]) {
@@ -634,9 +648,9 @@ class FuroSelectInput extends FBP(LitElement) {
             <template is="flow-repeat" ƒ-inject-items="--selection">
                 <option ƒ-.value="--item(*.id)" ƒ-.selected="--item(*.selected)" ƒ-.inner-text="--item(*.label)"></option>
             </template>
-      </select>
-        
-       </div>
+           </select>
+        <furo-icon class="expand" icon="expand-more"></furo-icon>
+       </div>     
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
       </div>
       <div class="borderlabel">

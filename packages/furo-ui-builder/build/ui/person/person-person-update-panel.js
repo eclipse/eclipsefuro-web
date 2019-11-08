@@ -70,7 +70,6 @@ export class PersonPersonUpdatePanel extends (BasePanel) {
         return html`
           <furo-vertical-flex>
             <furo-card ƒ-start-activity="--requestStarted" ƒ-stop-activity="--response, --error">
-
               <person-person-form flex ƒ-bind-data="--entity(*.data)"></person-person-form>
             </furo-card>
 

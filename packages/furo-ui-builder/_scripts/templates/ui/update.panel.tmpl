@@ -68,7 +68,7 @@ export class {{.class_name}} extends (BasePanel) {
         // language=HTML
         return html`
           {{"<" | noescape}}furo-vertical-flex>
-            {{"<" | noescape}}furo-card{{if .title}} title="${i18n.t("{{.title}}")}"{{end}}{{if .secondary_text}} secondary-text="${i18n.t("{{.secondary_text}}")}"{{end}} ƒ-start-activity="--requestStarted" ƒ-stop-activity="--response, --error">
+            {{"<" | noescape}}furo-card{{if .title}} header-text="${i18n.t("{{.title}}")}"{{end}}{{if .secondary_text}} secondary-text="${i18n.t("{{.secondary_text}}")}"{{end}} ƒ-start-activity="--requestStarted" ƒ-stop-activity="--response, --error">
 
               {{"<" | noescape}}{{.form.name}}{{range $flag := .form.flags}} {{$flag}}{{end}} {{range $attr := .form.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
             </furo-card>

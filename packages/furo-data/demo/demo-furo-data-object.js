@@ -51,7 +51,7 @@ class DemoFuroDataObject extends FBP(LitElement) {
         <furo-demo-snippet flex>
           <template>
             <!-- Styles in furo-card are just for the demo -->
-            <furo-card style="width: 300px; margin: 30px" title="Some data" secondary-text="Save is not implemented">
+            <furo-card style="width: 300px; margin: 30px" header-text="Some data" secondary-text="Save is not implemented">
               <furo-data-object-form ƒ-bind-fields="--dataObject(*.fields)"></furo-data-object-form>
               <furo-horizontal-flex slot="action">
                 <!-- The button will trigger the wire --saveClicked, which triggers ƒ-save on the furo-entity-agent as soon it is clicked -->

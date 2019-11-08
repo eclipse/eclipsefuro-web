@@ -24,7 +24,7 @@ class FuroCard extends FBP(LitElement) {
             /**
              * Main title
              */
-            title: {type: String},
+            headerText: {type: String, attribute: "header-text"},
             secondaryText: {type: String, attribute: "secondary-text"},
             hasaction: {type: Boolean, reflect: true},
             hasmedia: {type: Boolean, reflect: true}
@@ -72,13 +72,13 @@ class FuroCard extends FBP(LitElement) {
             }
 
 
-            /** no padding-top on .content if title is set **/
-            :host([title]) .content {
+            /** no padding-top on .content if header-text is set **/
+            :host([header-text]) .content {
                 padding-top: 0;
             }
 
             /** set padding-top on .content if media is present **/
-            :host([title][hasmedia]) .content {
+            :host([header-text][hasmedia]) .content {
                 padding-top: var(--furo-card-padding, var(--spacing-s, 16px));
             }
 
@@ -106,7 +106,7 @@ class FuroCard extends FBP(LitElement) {
             }
 
 
-            :host([title]) .head {
+            :host([header-text]) .head {
                 display: block;
             }
 
@@ -129,7 +129,7 @@ class FuroCard extends FBP(LitElement) {
                 margin-bottom: 4px;
             }
 
-            :host([title]) .media ::slotted(*) {
+            :host([header-text]) .media ::slotted(*) {
                 border-radius: 0;
             }
 
@@ -151,7 +151,7 @@ class FuroCard extends FBP(LitElement) {
         return html`
       <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
       <div class="head">
-        <h1>${this.title}</h1>
+        <h1>${this.headerText}</h1>
       <span>${this.secondaryText}</span>  
       </div>
       <div class="media">
