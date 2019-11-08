@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.63.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.62.3...@furo/data@0.63.0) (2019-11-08)
+
+
+### Bug Fixes
+
+* empty required repeated field should not be transmitted ([854ea69](https://github.com/veith/FuroBaseComponents/commit/854ea69))
+* Optimization of the data transport volume ([71605be](https://github.com/veith/FuroBaseComponents/commit/71605be))
+* renaming ([70e1b52](https://github.com/veith/FuroBaseComponents/commit/70e1b52))
+* repeats and __childNodes should have the same size ([0716212](https://github.com/veith/FuroBaseComponents/commit/0716212))
+* untouched empty repeated fields should no be transmitted ([a50544a](https://github.com/veith/FuroBaseComponents/commit/a50544a))
+
+
+### Features
+
+* defaults according to proto ([15d2f7a](https://github.com/veith/FuroBaseComponents/commit/15d2f7a))
+* how to build the filter pattern (demo included) ([3786f2b](https://github.com/veith/FuroBaseComponents/commit/3786f2b))
+
+
+
+
+
 ## [0.62.3](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.62.2...@furo/data@0.62.3) (2019-10-31)
 
 

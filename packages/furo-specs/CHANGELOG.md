@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.41.5...@furo/specs@0.42.0) (2019-11-08)
+
+
+### Bug Fixes
+
+* Optimization of the data transport volume ([71605be](https://github.com/veith/FuroBaseComponents/commit/71605be))
+* renaming ([70e1b52](https://github.com/veith/FuroBaseComponents/commit/70e1b52))
+* wrong closing tag on element furo-data-collection-dropdown ([41da376](https://github.com/veith/FuroBaseComponents/commit/41da376))
+
+
+### Features
+
+* how to build the filter pattern (demo included) ([3786f2b](https://github.com/veith/FuroBaseComponents/commit/3786f2b))
+
+
+
+
+
 ## [0.41.5](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.41.4...@furo/specs@0.41.5) (2019-10-31)
 
 

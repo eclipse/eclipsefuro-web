@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.58.0](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.57.15...@furo/input@0.58.0) (2019-11-08)
+
+
+### Bug Fixes
+
+* renaming ([70e1b52](https://github.com/veith/FuroBaseComponents/commit/70e1b52))
+
+
+### Features
+
+* Experimental components furo-form, furo-icon-button, furo-app-bar-top and furo-app-drawer added ([cbab017](https://github.com/veith/FuroBaseComponents/commit/cbab017))
+* how to build the filter pattern (demo included) ([3786f2b](https://github.com/veith/FuroBaseComponents/commit/3786f2b))
+
+
+
+
+
 ## [0.57.15](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.57.14...@furo/input@0.57.15) (2019-10-31)
 
 **Note:** Version bump only for package @furo/input

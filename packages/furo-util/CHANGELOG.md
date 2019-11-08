@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.17.6...@furo/util@0.18.0) (2019-11-08)
+
+
+### Features
+
+* how to build the filter pattern (demo included) ([3786f2b](https://github.com/veith/FuroBaseComponents/commit/3786f2b))
+
+
+
+
+
 ## [0.17.6](https://github.com/veith/FuroBaseComponents/compare/@furo/util@0.17.5...@furo/util@0.17.6) (2019-10-31)
 
 **Note:** Version bump only for package @furo/util
