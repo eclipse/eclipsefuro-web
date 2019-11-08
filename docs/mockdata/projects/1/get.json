@@ -32,6 +32,40 @@
       "year": 2019
     }
   },
+  "meta": {
+    "fields": {
+      "data.description": {
+        "meta": {
+          "label": "ID label from response",
+          "options": {
+            "list": [
+              {
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "1",
+                "display_name": "A"
+              },
+              {
+                "@type": "type.googleapis.com/furo.Optionitem",
+                "id": "2",
+                "display_name": "B",
+                "selected": true
+              }
+            ]
+          }
+        },
+        "constraints": {
+          "min": {
+            "is": 5,
+            "message": "minimal number"
+          },
+          "max": {
+            "is": 20,
+            "message": "Vierzehn sind genug"
+          }
+        }
+      }
+    }
+  },
   "links": [
     {
       "href": "/mockdata/projects/1/get.json",

@@ -18,7 +18,30 @@
     },
     "furo_data_range_input": 31,
     "furo_data_bool_icon": false,
-    "type_property": [
+    "type_property": [{
+      "code": "c0a7f550-0fbe-4046-8fa9-60c86327b6b1",
+      "data": {
+        "@type": "type.googleapis.com/furo.StringProperty",
+        "data": "01012020"
+      },
+      "display_name": "Vertragsbeginn",
+      "id": "246d79a0-0a15-43c5-b18f-ac8a4a449df1",
+      "meta": {
+        "fields": {
+          "data.data": {
+            "constraints": {
+              "required": {
+                "is": "true",
+                "message": "Bitte ausfüllen!"
+              }
+            },
+            "meta": {
+              "label": "Vertragsbeginn"
+            }
+          }
+        }
+      }
+    },
       {
         "data": {
           "@type": "xx/google.type.Date",
@@ -54,7 +77,7 @@
           "display_name": "34.23"
         },
         "display_name": "Display",
-        "id": "opt",
+        "id": "bb",
         "code": "option",
         "meta": {
           "fields": {
@@ -67,13 +90,14 @@
           }
         }
       },
-      {"data": {
+      {
+        "data": {
           "@type": "xx/furo.IntegerProperty",
           "data": 342,
           "display_name": "342"
         },
         "display_name": "Display",
-        "id": "opt",
+        "id": "op33t",
         "code": "option",
         "meta": {
           "fields": {
@@ -93,7 +117,7 @@
           "display_name": "Display"
         },
         "display_name": "Display",
-        "id": "opt",
+        "id": "444",
         "code": "option",
         "meta": {
           "fields": {
@@ -102,19 +126,22 @@
                 "label": "Please select",
                 "hint": "datehint is data",
                 "repeated": false,
-                "options": [
-                  {
-                    "id": "",
-                    "display_name": "Please select"
-                  }, {
-                    "id": "aa",
-                    "display_name": "The display a"
-                  },
-                  {
-                    "id": "bb",
-                    "display_name": "The display b"
-                  }
-                ]
+                "options": {
+                  "list": [
+                    {
+                      "id": "",
+                      "display_name": "Please select"
+                    },
+                    {
+                      "id": "aa",
+                      "display_name": "The display a"
+                    },
+                    {
+                      "id": "bb",
+                      "display_name": "The display b"
+                    }
+                  ]
+                }
               }
             }
           }
@@ -126,7 +153,7 @@
           "data": "32 32 23",
           "display_name": "a date"
         },
-        "id": "b",
+        "id": "bv3",
         "code": "date",
         "meta": {
           "fields": {
@@ -168,7 +195,11 @@
         }
       }
     },
-    "repstring": ["AAA","BBBB","CCCC"],
+    "repstring": [
+      "AAA",
+      "BBBB",
+      "CCCC"
+    ],
     "furo_data_money_input": {
       "currency_code": "CHF",
       "units": 3333,
@@ -177,9 +208,16 @@
   },
   "links": [
     {
-      "href": "/mockdata/experiments/1/get.json",
+      "href": "/mockdata/experiments/1/get-less-props.json",
       "method": "GET",
       "rel": "self",
+      "type": "experiment.ExperimentEntity",
+      "service": "ExperimentService"
+    },
+    {
+      "href": "http://httpbin.org/anything",
+      "method": "PATCH",
+      "rel": "update",
       "type": "experiment.ExperimentEntity",
       "service": "ExperimentService"
     }
