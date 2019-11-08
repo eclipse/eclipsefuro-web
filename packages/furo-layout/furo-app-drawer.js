@@ -107,6 +107,14 @@ class FuroAppDrawer extends FBP(LitElement) {
       let backdrop = this.shadowRoot.getElementById("backdrop");
       backdrop.style.opacity = 1;
       backdrop.style.pointerEvents = "auto";
+
+
+      // unregister movement tracker
+      this.removeEventListener("mousemove", this.moveHandler, true);
+      this.removeEventListener("touchmove", this.moveHandler, true);
+      //unregister trackend
+      this.removeEventListener("mouseup", this.trackEnd, {once: true});
+      this.removeEventListener("touchend", this.trackEnd, {once: true});
     }
   }
 
