@@ -158,6 +158,7 @@ class FuroAppBarTop extends FBP(LitElement) {
 
         :host([navigation]) furo-icon-button.navigation, :host([navigation-icon]) furo-icon-button.navigation {
             display: block;
+            margin-right: 8px;
         }
 
 
@@ -165,6 +166,24 @@ class FuroAppBarTop extends FBP(LitElement) {
             position: absolute;
             bottom:0;
             width: 100%;
+        }
+        .extended {
+            display: none;
+            height: 72px;
+            line-height: 32px;
+            padding-left: 56px;
+            
+        }
+
+        .extended ::slotted(*){
+            position: absolute;
+            bottom: 16px;
+            right: 96px;
+            left: 56px;
+        }
+        
+        :host([extended]) .extended{
+            display: block;
         }
     `;
   }
@@ -192,6 +211,9 @@ class FuroAppBarTop extends FBP(LitElement) {
       <furo-horizontal-flex>
       <furo-icon-button class="navigation" icon="${this._navigationIcon}" @-click="^^navigation-clicked, --navigationClicked"></furo-icon-button>       
         <slot></slot>       
+      </furo-horizontal-flex>
+       <furo-horizontal-flex class="extended">
+      <slot name="extended"></slot>
       </furo-horizontal-flex>
       <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
     `;
