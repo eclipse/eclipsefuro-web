@@ -20,6 +20,23 @@ class FuroAppBarTop extends FBP(LitElement) {
     this._navigationIcon = "menu";
   }
 
+
+  /**
+   * You can show a progress indicator while you have pending requests or work
+   * Shows furo-loading-indicator-bar
+   */
+  startActivity() {
+    this._FBPTriggerWire('--activityStarted');
+  }
+
+  /**
+   * Stop loading indicator
+   * Hides furo-loading-indicator-bar
+   */
+  stopActivity() {
+    this._FBPTriggerWire('--activityStopped');
+  }
+
   /**
    * flow is ready lifecycle method
    */
@@ -66,7 +83,7 @@ class FuroAppBarTop extends FBP(LitElement) {
         this._drawer.open();
         /**
          * @event navigation-clicked
-         * Fired when navigation is clicked
+         * Fired when navigation icon is clicked
          */
 
         /**
@@ -107,11 +124,13 @@ class FuroAppBarTop extends FBP(LitElement) {
     return css`
         :host {
             display: block;
+            position: relative;
             color: var(--on-primary);
             background: linear-gradient(315deg, var(--primary-light, #7f7f7f) 0%, var(--primary-dark, #aFAFAF) 100%);
-            box-shadow: 0 -15px 10px -15px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 2px 4px rgba(0,0,0,.5);
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
             font-size: 20px;
+            z-index: 1;
         }
 
         :host([hidden]) {
@@ -137,10 +156,16 @@ class FuroAppBarTop extends FBP(LitElement) {
             display: none;
         }
 
-        :host([navigation]) furo-icon-button.navigation {
+        :host([navigation]) furo-icon-button.navigation, :host([navigation-icon]) furo-icon-button.navigation {
             display: block;
         }
 
+
+        furo-loading-indicator-bar{
+            position: absolute;
+            bottom:0;
+            width: 100%;
+        }
     `;
   }
 
@@ -153,6 +178,11 @@ class FuroAppBarTop extends FBP(LitElement) {
   }
 
   /**
+   * @event navigation-clicked
+   * Fired when the navigation icon was clicked
+   */
+
+  /**
    * @private
    * @returns {TemplateResult}
    */
@@ -163,6 +193,7 @@ class FuroAppBarTop extends FBP(LitElement) {
       <furo-icon-button class="navigation" icon="${this._navigationIcon}" @-click="^^navigation-clicked, --navigationClicked"></furo-icon-button>       
         <slot></slot>       
       </furo-horizontal-flex>
+      <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
     `;
   }
 
