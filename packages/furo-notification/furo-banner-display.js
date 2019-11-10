@@ -24,7 +24,8 @@ import {FBP} from "@furo/fbp";
  *
  * Custom property | Description | Default  | Fallback
  * ----------------|-------------|----------|----------
- * `--banner-background-color` | Color of background |`--background` |  #000000
+ * `--banner-background` | Color of background |`--surface` |  #FAFAFA
+ * `--banner-on-background` | Color of background |`--on-surface` |  #333333
  * `--banner-button-text-color` | Color of button text | `--primary` | #3f83e3
  * `--banner-icon-margin-right` | right margin of icon | `--spacing` | 24px
  * `--banner-margin-bottom`     | bottom margin of the banner   | `--spacing-s`     | 16px
@@ -81,7 +82,8 @@ class FuroBannerDisplay extends FBP(LitElement) {
     return css`
             :host {
               width: 100%;
-              background-color: var(--banner-background-color, var(--background,#000000));
+              background-color: var(--banner-background, var(--surface,#FAFAFA));
+              color: var(--banner-on-background, var(--on-surface,#333333));             
               transition: all .5s ease-in-out;
               overflow:hidden;
             }
@@ -96,6 +98,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
             }
             .wrapper {
               width: 100%;
+              box-sizing: border-box;
               padding: 12px 8px 8px 24px;
               display: flex;
               border-bottom: solid 1px #e0e0e0;
@@ -197,9 +200,10 @@ class FuroBannerDisplay extends FBP(LitElement) {
     if (this._stack.length > 0) {
 
       this._banner = this._stack[0];
-
+      this.style.height = "0px";
       this.removeAttribute("hidden");
-
+      let height = this.shadowRoot.querySelector(".wrapper").getBoundingClientRect().height;
+      this.style.height = height + "px";
       this.requestUpdate();
       this._isOpen = true;
     }
@@ -209,10 +213,13 @@ class FuroBannerDisplay extends FBP(LitElement) {
    * close the CURRENT banner
    */
   _close() {
+    this.style.height = "0px";
+    setTimeout(()=>{
+      this.setAttribute("hidden", "");
+    }, 500);
 
     if(this._stack.length >1) {
 
-      this.setAttribute("hidden", "");
 
       this._stack.shift();
       if(this._stack.length  > 0 ) {
@@ -228,7 +235,6 @@ class FuroBannerDisplay extends FBP(LitElement) {
     }
     else {
       this._stack.shift();
-      this.setAttribute("hidden", "");
       this._isOpen = false;
     }
   }
