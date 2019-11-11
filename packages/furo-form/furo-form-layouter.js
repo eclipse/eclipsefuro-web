@@ -39,7 +39,7 @@ class FuroFormLayouter extends FBP(LitElement) {
             this.removeAttribute('narrower');
             this.narrower = false;
             this._fireResize();
-        } else if (width > 0 && width < this.breakpointSmall) {
+        } else if (width > 0 && width <= this.breakpointSmall) {
             this.setAttribute('narrower', '');
             this.narrower = true;
             this.removeAttribute('narrow');
@@ -78,7 +78,7 @@ class FuroFormLayouter extends FBP(LitElement) {
                 setTimeout(() => {
                     let cr = this.getBoundingClientRect();
                     this._checkSize(cr.width);
-                }, 1)
+                }, 1);
 
                 window.addEventListener("resize", (e) => {
                     let cr = this.getBoundingClientRect();
@@ -132,6 +132,14 @@ class FuroFormLayouter extends FBP(LitElement) {
             display: none;
         }
 
+        ::slotted(*) {
+            width: 100%;
+        }
+
+        ::slotted(*[double]) {
+            grid-column: span 2 / auto;
+        }
+
         :host([two]) {
             grid-template-columns: repeat(2, 1fr);
             grid-column-gap: var(--spacing);
@@ -153,6 +161,10 @@ class FuroFormLayouter extends FBP(LitElement) {
         :host([narrower]) {
             grid-template-columns: repeat(1, 1fr);
         }
+        
+        :host([narrower]) > ::slotted(*[double]){
+            grid-column: auto;
+        }
 
         :host([narrow-fix]) {
             grid-template-columns: repeat(1, 1fr);
@@ -168,14 +180,6 @@ class FuroFormLayouter extends FBP(LitElement) {
 
         :host([narrower-fix]) {
             grid-template-columns: repeat(1, 1fr);
-        }
-
-        ::slotted(*) {
-            width: 100%;
-        }
-
-        ::slotted(*[double]) {
-            grid-column: span 2;
         }
 
         :host([card]) {

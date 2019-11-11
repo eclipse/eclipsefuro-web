@@ -87,6 +87,27 @@
       element.setAttribute("style","width:399px");
     });
 
+    it('should set attributes from the fallback impl for resize observer, narrow', (done) => {
+
+      delete window.ResizeObserver;
+      element.addEventListener('layout-changed', ()=>{
+        assert.equal(element.narrow, true);
+        done();
+      });
+      element.setAttribute('breakpoint-big', '900');
+      element.setAttribute("style","width:899px");
+    });
+
+    it('should set attributes from the fallback impl for resize observer, narrower', (done) => {
+      delete window.ResizeObserver;
+      element.addEventListener('layout-changed', ()=>{
+        assert.equal(element.narrower, true);
+        done();
+      });
+      element.setAttribute('breakpoint-small', '400');
+      element.setAttribute("style","width:399px");
+    });
+
 
   });
 </script>
