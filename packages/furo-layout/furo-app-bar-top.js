@@ -175,9 +175,10 @@ class FuroAppBarTop extends FBP(LitElement) {
             
         }
 
+        /* pos bottom 20 with line-height 32 will result in 28px distance to the bottom (https://material.io/components/app-bars-top/#specs)  */
         .extended ::slotted(*){
             position: absolute;
-            bottom: 16px;
+            bottom: 20px;
             right: 96px;
             left: 56px;
         }
