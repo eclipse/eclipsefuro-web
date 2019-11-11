@@ -2,11 +2,11 @@
   "name": "@furo/doc-helper",
   "description": "Helper components for the furo documentation system",
   "main": "furo-catalog.js",
-  "version": "0.13.34",
+  "version": "0.13.35",
   "dependencies": {
     "@furo/fbp": "^4.27.4",
     "@furo/framework": "^0.13.0",
-    "@furo/layout": "^0.36.2",
+    "@furo/layout": "^0.37.0",
     "@furo/route": "^0.20.11",
     "@furo/util": "^0.13.6",
     "@svgdotjs/svg.js": "^3.0.13",

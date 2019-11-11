@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.37.0](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.36.2...@furo/layout@0.37.0) (2019-11-11)
+
+
+### Bug Fixes
+
+* drawer z-index for backdrop ([4aaf9bd](https://github.com/veith/FuroBaseComponents/commit/4aaf9bd))
+* drawer z-index raised to be over app-bar-top which is z-index 1 ([2ee2e8d](https://github.com/veith/FuroBaseComponents/commit/2ee2e8d))
+* extended mode, distances ([41038bf](https://github.com/veith/FuroBaseComponents/commit/41038bf))
+
+
+### Features
+
+* app-bar-top with extended size ([759e51d](https://github.com/veith/FuroBaseComponents/commit/759e51d))
+* app-bar-top with progress bar ([5b1b940](https://github.com/veith/FuroBaseComponents/commit/5b1b940))
+
+
+
+
+
 ## [0.36.2](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.36.1...@furo/layout@0.36.2) (2019-11-08)
 
 

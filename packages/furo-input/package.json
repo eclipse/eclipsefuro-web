@@ -1,11 +1,11 @@
 {
   "name": "@furo/input",
-  "version": "0.58.2",
+  "version": "0.58.3",
   "description": "Base input components",
   "dependencies": {
     "@furo/fbp": "^4.27.4",
     "@furo/framework": "^0.13.0",
-    "@furo/layout": "^0.36.2",
+    "@furo/layout": "^0.37.0",
     "lit-element": "^2.2.1"
   },
   "license": "MIT",

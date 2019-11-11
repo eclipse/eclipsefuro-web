@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/veith/FuroBaseComponents/compare/@furo/notification@0.2.7...@furo/notification@0.3.0) (2019-11-11)
+
+
+### Features
+
+* banner-display slide in ([3f7189d](https://github.com/veith/FuroBaseComponents/commit/3f7189d))
+
+
+
+
+
 ## [0.2.7](https://github.com/veith/FuroBaseComponents/compare/@furo/notification@0.2.6...@furo/notification@0.2.7) (2019-11-08)
 
 **Note:** Version bump only for package @furo/notification

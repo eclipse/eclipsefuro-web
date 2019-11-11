@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.7.27...@furo/data-ui@0.8.0) (2019-11-11)
+
+
+### Features
+
+* furo-data-hide-content ([e569822](https://github.com/veith/FuroBaseComponents/commit/e569822))
+
+
+
+
+
 ## [0.7.27](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.7.26...@furo/data-ui@0.7.27) (2019-11-08)
 
 

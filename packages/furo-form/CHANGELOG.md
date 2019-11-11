@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.3](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.25.2...@furo/form@0.25.3) (2019-11-11)
+
+
+### Bug Fixes
+
+* slotted elements with attr double should not destroy the narrower layout ([674afbf](https://github.com/veith/FuroBaseComponents/commit/674afbf))
+
+
+
+
+
 ## [0.25.2](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.25.1...@furo/form@0.25.2) (2019-11-08)
 
 **Note:** Version bump only for package @furo/form
