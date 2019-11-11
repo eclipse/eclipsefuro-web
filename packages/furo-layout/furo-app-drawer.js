@@ -492,10 +492,10 @@ class FuroAppDrawer extends FBP(LitElement) {
             right: 0;
         }
 
-        /* put the floating drawer outside the visible area */
+        /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
         :host([float]) #drawer {
             position: absolute;
-            z-index: 1;
+            z-index: 16;
             top: 0;
             left: 0;
             bottom: 0;
