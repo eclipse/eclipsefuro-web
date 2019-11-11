@@ -464,7 +464,7 @@ class FuroAppDrawer extends FBP(LitElement) {
             overflow-y: auto;
         }
 
-        /* disable pointer events */
+        /* disable pointer events, z-index 15 just to be below the drawer */
         #backdrop {
             pointer-events: none;
             transition-duration: 200ms;
@@ -476,6 +476,7 @@ class FuroAppDrawer extends FBP(LitElement) {
             left: 0;
             opacity: 0;
             background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
+            z-index: 15;
         }
 
 
@@ -485,6 +486,7 @@ class FuroAppDrawer extends FBP(LitElement) {
             width: 18px;
             bottom: 0;
             left: 0;
+            z-index: 16;
         }
 
         :host([reverse]) #drag {
