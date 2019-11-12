@@ -64,7 +64,7 @@ class DemoFuroBannerDisplay extends FBP(LitElement) {
   <furo-demo-snippet flex>
   <template>
     <furo-vertical-scroller>
-      <furo-banner-display></furo-banner-display>     
+      <furo-banner-display autofocus></furo-banner-display>     
                                            
       <furo-banner  ƒ-show="--show1" ƒ-set-Text="--setBannerText1"  icon="perm-scan-wifi" ></furo-banner>    
       <produce-banner-data id="banner1" label="banner 1"

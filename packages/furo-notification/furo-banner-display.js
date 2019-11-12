@@ -162,7 +162,11 @@ class FuroBannerDisplay extends FBP(LitElement) {
       },
       _timer: {
         type: Object
-      }
+      },
+      /**
+       * enable autofocus for dismiss button after slide in
+       */
+      autofocus: {type: Boolean}
     };
   }
 
@@ -207,13 +211,13 @@ class FuroBannerDisplay extends FBP(LitElement) {
 
       this._banner = this._stack[0];
       // defensive copy, do not overwrite the reference (this._stack[0]);
-      if(this._banner.multilineText && this._banner.multilineText.length > 0){
-        this._bannerText = html(this._banner.multilineText.map((line)=>{
+      if (this._banner.multilineText && this._banner.multilineText.length > 0) {
+        this._bannerText = html(this._banner.multilineText.map((line) => {
           return "<p>" + line.replace("\n", "<br>") + "</p>"
         }));
-      }else{
+      } else {
         // default banner text
-        if(this._banner.text){
+        if (this._banner.text) {
           this._bannerText = html(["<p>" + this._banner.text.replace("\n", "<br>") + "</p>"]);
         }
       }
@@ -228,7 +232,18 @@ class FuroBannerDisplay extends FBP(LitElement) {
         this._isOpen = true;
       }, 0);
 
+      if (this.autofocus) {
+        setTimeout(() => {
+          // focus the dismiss after animation
+          this._FBPTriggerWire("--focus");
+        }, 500);
+      }
     }
+  }
+
+
+  focus() {
+    this._FBPTriggerWire("--focus")
   }
 
   /**
@@ -273,7 +288,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
                   ${this._bannerText}
             </div>
             <div class="button">
-              <furo-button label="${this._banner.dismissButtonText}" ?hide="${!this._banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
+              <furo-button ƒ-focus="--focus" label="${this._banner.dismissButtonText}" ?hide="${!this._banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
               <furo-button label="${this._banner.confirmButtonText}" ?hide="${!this._banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
             </div>
           </div>
