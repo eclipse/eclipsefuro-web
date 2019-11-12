@@ -192,15 +192,15 @@ class FuroDemoSnippet extends FBP(LitElement) {
           }
 
           .nav {
-              background-color: var(--demo-header, white);
-              color: var(--on-primary);
+              background-color: var(--surface, white);
+              color: var(--on-surfcae);
               margin-bottom: 24px;
           }
 
           
           .nav span {
               display: inline-block;
-              border-bottom: 1px solid var(--demo-header, white);
+              border-bottom: 1px solid var(--surface, white);
               cursor: pointer;
           }
 

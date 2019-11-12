@@ -182,25 +182,26 @@ class FuroBanner extends LitElement {
   }
 
   /**
-   * parse grpc status object and set the label according to the message in status
+   * parse grpc status object and set the label according to the LocalizedMessage in status
+   * https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto
    * @param s
    */
-  parseGrpcStatus(s) {
-
-    if (s.message) {
-      this.setText(s.message);
-      this.show(s);
+  parseGrpcStatus(status) {
+    // log developper message
+    if (status.details && status.details.length >0) {
+      // fallback, if no localized message was given
+      this.setText(status.message);
+      this.multilineText = status.details
+          .filter((det)=>{
+            return det["@type"].includes("LocalizedMessage");
+          })
+          .map((det)=>{
+            return det.message;
+          });
+      this.show(status);
     }
   }
 
-  /**
-   * @private
-   * @returns {TemplateResult}
-   */
-  render(){
-    return html`
-        `;
-  }
 
 }
 

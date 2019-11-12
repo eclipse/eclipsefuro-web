@@ -37,8 +37,8 @@ class ProduceBannerData extends FBP(LitElement) {
        * detail payload:
        */
       let customEventError = new Event('response-error', {composed: true, bubbles: true});
-      customEventError.detail = {
 
+      customEventError.detail = {
         "error": "invalid username",
         "message": "invalid username",
         "code": 3,
@@ -62,6 +62,18 @@ class ProduceBannerData extends FBP(LitElement) {
               "field": "unknown_field",
               "description": "unknown"
             }],
+          },{
+            "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+            "message": "Some localized message\nwith newline",
+            "locale": "de-ch"
+          },{
+            "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+            "message": "Other localized message with newline",
+            "locale": "de-ch"
+          },{
+            "@type": "type.googleapis.com/google.rpc.BadRequest",
+            "message": "This should not be visible",
+            "locale": "de-ch"
           }
         ]
       };

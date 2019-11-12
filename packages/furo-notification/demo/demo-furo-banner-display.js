@@ -17,7 +17,7 @@ import "./produce-banner-data"
 class DemoFuroBannerDisplay extends FBP(LitElement) {
 
 
-  constructor(){
+  constructor() {
     super();
   }
 
@@ -45,40 +45,50 @@ class DemoFuroBannerDisplay extends FBP(LitElement) {
   /**
    *@private
    */
-  static get properties(){
+  static get properties() {
 
-    return {
-    };
+    return {};
   }
 
   /**
    * @private
    * @returns {TemplateResult}
    */
-  render(){
+  render() {
     return html`
-      <h2>Demo furo-banner</h2>
-      <furo-demo-snippet >
-        <template>
-  
-          <div>        
-              <furo-banner  ƒ-show="--show1" ƒ-set-Text="--setBannerText1"  icon="perm-scan-wifi" ></furo-banner>
-              <furo-banner  ƒ-show="--show2" ƒ-set-Text="--setBannerText2"  icon="info-outline"   dissmis-button-text="continue" confirm-button-text="confirm"></furo-banner>
-          </div>
-          <furo-banner-display></furo-banner-display>
-          
-          <produce-banner-data id="banner1" label="banner 1"
-            banner-text="Banner 1 , Wlan Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."
-             @-banner-text-banner1="--setBannerText1" 
-             @-show-banner1="--show1"
-           ></produce-banner-data>
-          <produce-banner-data id="banner2"  label="banner 2"
-            banner-text="Banner 2 ,At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."
-             @-banner-text-banner2="--setBannerText2" 
-             @-show-banner2="--show2"
-           ></produce-banner-data>
-        </template>
-      </furo-demo-snippet>
+<furo-vertical-flex>
+<div>
+<h2>Demo furo-banner</h2>
+
+</div>
+  <furo-demo-snippet flex>
+  <template>
+    <furo-vertical-scroller>
+      <furo-banner-display></furo-banner-display>     
+                                           
+      <furo-banner  ƒ-show="--show1" ƒ-set-Text="--setBannerText1"  icon="perm-scan-wifi" ></furo-banner>    
+      <produce-banner-data id="banner1" label="banner 1"
+      banner-text="Test\nNewline stuff"
+      @-banner-text-banner1="--setBannerText1" 
+      @-show-banner1="--show1"
+      ></produce-banner-data>
+    
+    <produce-banner-data @-response-error="--error" label="GRPC ERROR"></produce-banner-data>
+    <furo-banner  ƒ-parse-grpc-status="--error" icon="apps"></furo-banner>
+    
+      <furo-button raised @-click="--show2">confirm multiline</furo-button>
+      
+    <furo-banner  ƒ-show="--show2" text="Wlan Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."  icon="info-outline"   dissmis-button-text="continue" confirm-button-text="confirm"></furo-banner>
+    
+    
+    <furo-button raised @-click="--show3">oneliner</furo-button>
+    <furo-banner  ƒ-show="--show3" text="oneliner."  icon="info-outline"></furo-banner>
+    </furo-vertical-scroller>
+  </template>
+  </furo-demo-snippet>
+</furo-vertical-flex>
+      
+ 
         `;
   }
 

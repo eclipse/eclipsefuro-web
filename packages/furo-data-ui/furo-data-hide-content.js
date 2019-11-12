@@ -33,7 +33,8 @@ class FuroDataHideContent extends FBP(LitElement) {
   static get properties() {
     return {
       /**
-       * Is the content hidden
+       * Internal variable to update the attribute, which triggers the css
+       * @private
        */
       _hidden: {
         type: Boolean, reflect: true, attribute: "hidden"
