@@ -29,9 +29,9 @@ export class Styling {
             --background: #eeeeee;
             --on-background: #212121;
 
-            --surface-light: #FFFFFF;
+            --surface-light: #f3f3f3;
             --surface: #FEFEFE;
-            --surface-dark: #FCFCFC;
+            --surface-dark: #f0f0f0;
             --on-surface: #212121;
             --separator: #E4E4E4;
 

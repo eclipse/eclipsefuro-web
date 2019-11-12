@@ -428,7 +428,7 @@ class FuroTree extends FBP(LitElement) {
         }
 
         td > *[hovered] {
-            background-color: var(--hover-color, #eeeeee);
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
         td > *[selected], :host(:not(:focus-within)) td > *[selected] {
