@@ -68,7 +68,7 @@ class ProduceBannerData extends FBP(LitElement) {
             "locale": "de-ch"
           },{
             "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
-            "message": "Other localized message with newline",
+            "message": "*Other* localized message with newline",
             "locale": "de-ch"
           },{
             "@type": "type.googleapis.com/google.rpc.BadRequest",

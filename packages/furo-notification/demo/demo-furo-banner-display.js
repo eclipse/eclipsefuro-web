@@ -68,7 +68,7 @@ class DemoFuroBannerDisplay extends FBP(LitElement) {
                                            
       <furo-banner  ƒ-show="--show1" ƒ-set-Text="--setBannerText1"  icon="perm-scan-wifi" ></furo-banner>    
       <produce-banner-data id="banner1" label="banner 1"
-      banner-text="Test\nNewline stuff"
+      banner-text="Test\nNewline *stuff* \n *ddd*"
       @-banner-text-banner1="--setBannerText1" 
       @-show-banner1="--show1"
       ></produce-banner-data>

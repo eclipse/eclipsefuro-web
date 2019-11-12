@@ -49,7 +49,9 @@ class FuroBanner extends LitElement {
 
     return {
       /**
-       * banner content text
+       * banner text content. Use *word* to mark as strong. Use \n to insert a line break.
+       *
+       * *HTML tags will be stripped out.*
        */
       text: {
         type: String

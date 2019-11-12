@@ -75,77 +75,6 @@ class FuroBannerDisplay extends FBP(LitElement) {
 
 
   /**
-   * @private
-   * @returns {CSSResult}
-   */
-  static get styles() {
-    return css`
-            :host {
-              width: 100%;
-              display:block;
-              background-color: var(--banner-background, var(--surface,#FAFAFA));
-              color: var(--banner-on-background, var(--on-surface,#333333));             
-              transition: all .5s ease-in-out;
-              overflow:hidden;
-            }
-            
-            :host([hidden]) {
-              height: 0;
-            }
-            
-            furo-icon {
-              margin: auto var(--banner-icon-margin-right,var(--spacing, 24px)) auto 0;
-              width: 40px;
-              height: 40px;
-              display: none;
-            }
-            
-            .wrapper {
-              width: 100%;
-              box-sizing: border-box;
-              padding: 12px 8px 8px 24px;
-              display: flex;
-              border-bottom: solid 1px #e0e0e0;
-              margin-bottom: var(--banner-margin-bottom,var(--spacing-s, 16px));             
-            }
-            
-            .wrapper[icon] furo-icon{
-              display: flex;
-            }
-            
-            .wrapper[icon] {
-              padding: 12px 8px 8px 16px;
-            }
-            
-            furo-button {
-              color: var(--banner-button-text-color, --primary, #3f83e3));
-              --on-surface: var(--primary);
-              margin-right: 8px;
-            }
-            
-            .text {
-              width: 100%;
-              line-height: 20px;
-              
-            }
-            p {
-              margin-bottom: 4px;
-              margin-top: 12px;
-            }
-            .button {
-              display: flex;
-              margin-left: 90px;
-              align-self: flex-end;
-              justify-content:flex-end;
-            }
-            
-            furo-button[hide] {
-              display: none;
-            }
-        `;
-  }
-
-  /**
    *@private
    */
   static get properties() {
@@ -213,12 +142,12 @@ class FuroBannerDisplay extends FBP(LitElement) {
       // defensive copy, do not overwrite the reference (this._stack[0]);
       if (this._banner.multilineText && this._banner.multilineText.length > 0) {
         this._bannerText = html(this._banner.multilineText.map((line) => {
-          return "<p>" + line.replace("\n", "<br>") + "</p>"
+          return "<p>" + this._replacer(line) + "</p>"
         }));
       } else {
         // default banner text
         if (this._banner.text) {
-          this._bannerText = html(["<p>" + this._banner.text.replace("\n", "<br>") + "</p>"]);
+          this._bannerText = html(["<p>" + this._replacer(this._banner.text) + "</p>"]);
         }
       }
 
@@ -241,6 +170,10 @@ class FuroBannerDisplay extends FBP(LitElement) {
     }
   }
 
+
+  _replacer(str) {
+    return str.replace(/(<([^>]+)>)/ig, "").replace(/(\*)([^*\n]*)(\*)/gm, "<strong>$2</strong>").replace(/\n/g, "<br>");
+  }
 
   focus() {
     this._FBPTriggerWire("--focus")
@@ -278,19 +211,89 @@ class FuroBannerDisplay extends FBP(LitElement) {
 
   /**
    * @private
+   * @returns {CSSResult}
+   */
+  static get styles() {
+    return css`
+            :host {
+              width: 100%;
+              display:block;
+              background-color: var(--banner-background, var(--surface,#FAFAFA));
+              color: var(--banner-on-background, var(--on-surface,#333333));             
+              transition: all .5s ease-in-out;
+              overflow:hidden;
+            }
+            
+            :host([hidden]) {
+              height: 0;
+            }
+            
+            furo-icon {
+              margin:   var(--spacing-xs, 8px)  var(--banner-icon-margin-right,var(--spacing, 24px)) auto 0;
+              width: 40px;
+              height: 40px;
+              display: none;
+            }
+            
+            .wrapper {
+              width: 100%;
+              box-sizing: border-box;
+              padding: 12px 8px 8px 24px;
+              display: flex;
+              border-bottom: solid 1px #e0e0e0;
+              margin-bottom: var(--banner-margin-bottom,var(--spacing-s, 16px));             
+            }
+            
+            .wrapper[icon] furo-icon{
+              display: flex;
+            }
+            
+            .wrapper[icon] {
+              padding: 12px 8px 8px 16px;
+            }
+            
+            furo-button {
+              color: var(--banner-button-text-color, --primary, #3f83e3));
+              --on-surface: var(--primary);
+              margin-right: 8px;
+            }
+            
+            .text {
+              width: 100%;
+              line-height: 20px;
+              
+            }
+            p {
+              margin-bottom: 4px;
+              margin-top: 12px;
+            }
+            .button {
+              float:right;            
+            }
+            
+            furo-button[hide] {
+              display: none;
+            }
+        `;
+  }
+
+  /**
+   * @private
    * @returns {TemplateResult}
    */
   render() {
     return html`
           <div class="wrapper" ?icon="${this._banner.icon}">
-            <furo-icon icon="${this._banner.icon}"></furo-icon>
+            <div><furo-icon icon="${this._banner.icon}"></furo-icon></div>
             <div class="text">
                   ${this._bannerText}
-            </div>
+                   
             <div class="button">
               <furo-button ƒ-focus="--focus" label="${this._banner.dismissButtonText}" ?hide="${!this._banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
               <furo-button label="${this._banner.confirmButtonText}" ?hide="${!this._banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
             </div>
+            </div>
+            
           </div>
         `;
   }
