@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.8.0...@furo/data-ui@0.9.0) (2019-11-12)
+
+
+### Features
+
+* furo-banner with grpc status object handling, ([1d23c10](https://github.com/veith/FuroBaseComponents/commit/1d23c10))
+
+
+
+
+
 # [0.8.0](https://github.com/veith/FuroBaseComponents/compare/@furo/data-ui@0.7.27...@furo/data-ui@0.8.0) (2019-11-11)
 
 

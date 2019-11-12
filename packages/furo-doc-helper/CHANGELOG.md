@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.13.35...@furo/doc-helper@0.14.0) (2019-11-12)
+
+
+### Features
+
+* furo-banner with grpc status object handling, ([1d23c10](https://github.com/veith/FuroBaseComponents/commit/1d23c10))
+
+
+
+
+
 ## [0.13.35](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.13.34...@furo/doc-helper@0.13.35) (2019-11-11)
 
 **Note:** Version bump only for package @furo/doc-helper

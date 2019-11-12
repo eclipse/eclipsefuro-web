@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/veith/FuroBaseComponents/compare/@furo/notification@0.3.0...@furo/notification@0.4.0) (2019-11-12)
+
+
+### Features
+
+* furo-banner with grpc status object handling, ([1d23c10](https://github.com/veith/FuroBaseComponents/commit/1d23c10))
+* furo-banner-display autofocus and focus to the dismiss button ([389daf7](https://github.com/veith/FuroBaseComponents/commit/389daf7))
+
+
+
+
+
 # [0.3.0](https://github.com/veith/FuroBaseComponents/compare/@furo/notification@0.2.7...@furo/notification@0.3.0) (2019-11-11)
 
 
