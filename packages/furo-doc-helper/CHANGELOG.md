@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.1](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.14.0...@furo/doc-helper@0.14.1) (2019-11-12)
+
+
+### Bug Fixes
+
+* colorshemes ([edfed00](https://github.com/veith/FuroBaseComponents/commit/edfed00))
+
+
+
+
+
 # [0.14.0](https://github.com/veith/FuroBaseComponents/compare/@furo/doc-helper@0.13.35...@furo/doc-helper@0.14.0) (2019-11-12)
 
 
