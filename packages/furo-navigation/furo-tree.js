@@ -45,6 +45,7 @@ class FuroTree extends FBP(LitElement) {
 
       switch (key) {
         case "Enter":
+          this._resetSearch();
           event.preventDefault();
           // not reseting the search at this position is by intention.
           if (this._hoveredField._isSelected) {
@@ -394,6 +395,8 @@ class FuroTree extends FBP(LitElement) {
             height: 100%;
             outline: none;
             position: relative;
+            background: var(--surface,white);
+            color: var(--on-surface,#333333);
         }
 
         .tablewrapper {
@@ -429,7 +432,7 @@ class FuroTree extends FBP(LitElement) {
         }
 
         td > *[selected], :host(:not(:focus-within)) td > *[selected] {
-            background-color: var(--primary-variant, #429cff);
+            background-color: var(--primary-dark, #429cff);
             color: var(--on-primary, #FFFFFF);
         }
 
@@ -478,7 +481,7 @@ class FuroTree extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-    <div class="srch">🔍 ${this._searchTerm}</div>
+    <div class="srch">⌖ ${this._searchTerm}</div>
       <div class="tablewrapper">
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
@@ -585,6 +588,7 @@ class FuroTree extends FBP(LitElement) {
 
     // Internal Event, when a node gets selected
     this._rootNode.addEventListener("tree-node-selected", (e) => {
+      //---
       // broadcast deselect
       this._rootNode.broadcastEvent(new NodeEvent('tree-node-unselection-requested'));
       this._selectedField = e.target;

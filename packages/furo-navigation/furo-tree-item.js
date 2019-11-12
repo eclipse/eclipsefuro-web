@@ -292,13 +292,10 @@ export class FuroTreeItem extends FBP(LitElement) {
             color: var(--on-primary, white);
         }
 
-        :host([searchmatch])::before {
-            position: absolute;
-            top: 8px;
-            content: "🔍";
-            right: 2px;
-            font-size: 12px;
+        :host([searchmatch]){
+            color: var(--primary);
         }
+        
 
         furo-icon[error] {
             animation: error-pulse 2s infinite;
