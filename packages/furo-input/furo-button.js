@@ -151,6 +151,7 @@ class FuroButton extends FBP(LitElement) {
             font-size: 16px;
             box-sizing: border-box;
             min-width: 64px;
+            white-space: nowrap;
         }
 
         :host([hidden]) {
