@@ -1,5 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
+import "markdown-it/dist/markdown-it.js"
+import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
 
 /**
  * `furo-banner-display`
@@ -75,6 +77,23 @@ class FuroBannerDisplay extends FBP(LitElement) {
 
 
   /**
+   * parse markdown string to html content
+   * @param markdown
+   * @return {TemplateResult | TemplateResult}
+   */
+  _parseMarkdown(markdown) {
+    let md = window.markdownit({
+      html: false,
+      linkify: true,
+      typographer: true
+    });
+
+
+    return html`${unsafeHTML(md.render(markdown))}`;
+  }
+
+
+  /**
    *@private
    */
   static get properties() {
@@ -141,13 +160,11 @@ class FuroBannerDisplay extends FBP(LitElement) {
       this._banner = this._stack[0];
       // defensive copy, do not overwrite the reference (this._stack[0]);
       if (this._banner.multilineText && this._banner.multilineText.length > 0) {
-        this._bannerText = html(this._banner.multilineText.map((line) => {
-          return "<p>" + this._replacer(line) + "</p>"
-        }));
+        this._bannerText = this._parseMarkdown(this._banner.multilineText.join("\n\n"));
       } else {
         // default banner text
         if (this._banner.text) {
-          this._bannerText = html(["<p>" + this._replacer(this._banner.text) + "</p>"]);
+          this._bannerText =  this._parseMarkdown(this._banner.text);
         }
       }
 
@@ -171,9 +188,6 @@ class FuroBannerDisplay extends FBP(LitElement) {
   }
 
 
-  _replacer(str) {
-    return str.replace(/(<([^>]+)>)/ig, "").replace(/(\*)([^*\n]*)(\*)/gm, "<strong>$2</strong>").replace(/\n/g, "<br>");
-  }
 
   focus() {
     this._FBPTriggerWire("--focus")
@@ -227,7 +241,10 @@ class FuroBannerDisplay extends FBP(LitElement) {
             :host([hidden]) {
               height: 0;
             }
-            
+             .wrapper[icon] furo-icon{
+              display:  inline-block;;
+            }
+                       
             furo-icon {
               margin:   var(--spacing-xs, 8px)  var(--banner-icon-margin-right,var(--spacing, 24px)) auto 0;
               width: 40px;
@@ -238,15 +255,11 @@ class FuroBannerDisplay extends FBP(LitElement) {
             .wrapper {
               width: 100%;
               box-sizing: border-box;
-              padding: 12px 8px 8px 24px;
-              display: flex;
+              padding: 12px 8px 8px 24px;             
               border-bottom: solid 1px #e0e0e0;
               margin-bottom: var(--banner-margin-bottom,var(--spacing-s, 16px));             
             }
-            
-            .wrapper[icon] furo-icon{
-              display: flex;
-            }
+          
             
             .wrapper[icon] {
               padding: 12px 8px 8px 16px;
@@ -258,24 +271,19 @@ class FuroBannerDisplay extends FBP(LitElement) {
               margin-right: 8px;
             }
             
-            .text {
-              width: 100%;
-              line-height: 20px;
-              
-            }
-            p {
-              margin-bottom: 4px;
-              margin-top: 12px;
-            }
-            .button {
-              float:right;            
+            furo-markdown {             
+              line-height: 20px;              
             }
             
-            furo-button[hide] {
-              display: none;
+            p {
+            margin-bottom: 4px;
+            margin-top: 12px;
             }
+
+            
         `;
   }
+
 
   /**
    * @private
@@ -284,16 +292,17 @@ class FuroBannerDisplay extends FBP(LitElement) {
   render() {
     return html`
           <div class="wrapper" ?icon="${this._banner.icon}">
-            <div><furo-icon icon="${this._banner.icon}"></furo-icon></div>
-            <div class="text">
-                  ${this._bannerText}
-                   
-            <div class="button">
+          <furo-horizontal-flex>
+            <div>
+               <furo-icon icon="${this._banner.icon}"></furo-icon>
+            </div>
+            <div flex>${this._bannerText}</div>            
+          </furo-horizontal-flex>
+          <furo-horizontal-flex>
+           <furo-empty-spacer></furo-empty-spacer>           
               <furo-button ƒ-focus="--focus" label="${this._banner.dismissButtonText}" ?hide="${!this._banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
-              <furo-button label="${this._banner.confirmButtonText}" ?hide="${!this._banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
-            </div>
-            </div>
-            
+              <furo-button label="${this._banner.confirmButtonText}" ?hidden="${!this._banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
+          </furo-horizontal-flex>            
           </div>
         `;
   }

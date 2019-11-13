@@ -74,7 +74,7 @@
             "status": "SOMETHING",
             "details": [{
               "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
-              "message": "Some localized message\nwith newline",
+              "message": "Some localized message\n\nwith newline",
               "locale": "de-ch"
             }, {
               "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
@@ -90,9 +90,10 @@
       setTimeout(() => {
         let items = bannerDisplay.shadowRoot.querySelectorAll("p");
 
-        assert.equal(items[0].innerHTML, 'Some localized message<br>with newline');
-        assert.equal(items[1].textContent, "Other localized message with newline");
-        assert.equal(items.length, 2);
+        assert.equal(items[0].innerHTML, 'Some localized message');
+        assert.equal(items[1].innerHTML, 'with newline');
+        assert.equal(items[2].textContent, "Other localized message with newline");
+        assert.equal(items.length, 3);
 
         done();
       }, 500)
