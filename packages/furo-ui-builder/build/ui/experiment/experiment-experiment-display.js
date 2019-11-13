@@ -22,6 +22,8 @@ export class ExperimentExperimentDisplay extends FBP(LitElement) {
        return Theme.getThemeForComponent('DisplayBaseTheme') || css`
             :host {
                 display: block;
+                padding: var(--spacing-xs, 8px);
+                overflow: hidden;
             }
             :host([hidden]) {
                 display: none;

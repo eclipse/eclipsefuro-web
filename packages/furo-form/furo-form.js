@@ -1,13 +1,13 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
+import '@furo/layout';
 
 /**
- * # Experimental
- * The API may change, documentation will follow
+ *
+ * Form container with integrated activity indicator and three slots.
  *
  * `furo-form`
- * todo Describe the element
  *
  * @summary todo shortdescription
  * @customElement
@@ -21,7 +21,6 @@ class FuroForm extends FBP(LitElement) {
     this.hasaction = this.querySelectorAll('*[slot="action"]').length > 0;
     this.hasmedia = this.querySelectorAll('*[slot="media"]').length > 0;
   }
-
 
   /**
    * You can show a progress indicator while you have pending requests or work
@@ -60,7 +59,7 @@ class FuroForm extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    //this._FBPTraceWires();
   }
 
   /**
@@ -119,7 +118,7 @@ class FuroForm extends FBP(LitElement) {
         }
 
         .content ::slotted(secondary) {
-            color: var(--secondary-color, var(--on-primary-light, #777777));
+            color: var(--secondary-color, var(--primary-light, #777777));
             line-height: 22px;
             font-size: unset;
             display: block;
@@ -153,7 +152,7 @@ class FuroForm extends FBP(LitElement) {
         }
 
         .head span {
-            color: var(--secondary-color, var(--on-primary-light, #777777));
+            color: var(--secondary-color, var(--primary-light, #777777));
             line-height: 22px;
         }
 

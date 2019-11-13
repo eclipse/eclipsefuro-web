@@ -52,7 +52,7 @@ export class {{.class_name}} extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-            {{"<" | noescape}}{{.widget.component}}{{range $flag := .widget.flags}} {{$flag}} {{end}}{{range $attr := .widget.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}{{if .widget.title}} title="${i18n.t("{{.widget.title}}")}" {{end}}{{if .widget.secondary_text}}secondary-text="${i18n.t("{{.widget.secondary_text}}")}"{{end}}>
+            {{"<" | noescape}}{{.widget.component}}{{range $flag := .widget.flags}} {{$flag}} {{end}}{{range $attr := .widget.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}{{if .widget.title}} header-text="${i18n.t("{{.widget.title}}")}" {{end}}{{if .widget.secondary_text}}secondary-text="${i18n.t("{{.widget.secondary_text}}")}"{{end}}>
                 {{range $fieldgroup := .fieldgroups}}{{"<" | noescape}}!-- {{$fieldgroup.description}}  -->
                 {{if $fieldgroup.title}}{{"<" | noescape}}h1>${i18n.t("{{$fieldgroup.title}}")}</h1>{{end}}
                 {{if $fieldgroup.secondary_text}}{{"<" | noescape}}span class="secondary">${i18n.t("{{$fieldgroup.secondary_text}}")}</span>{{end}}

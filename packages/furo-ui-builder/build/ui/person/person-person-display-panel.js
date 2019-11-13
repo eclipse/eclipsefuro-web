@@ -8,6 +8,7 @@ import {BasePanel} from "@furo/route/lib/BasePanel";
 
 import '@furo/data';
 import '@furo/layout';
+import '@furo/form';
 
 
 import "./person-person-display";
@@ -46,15 +47,15 @@ export class PersonPersonDisplayPanel extends (BasePanel) {
                     background-color: var(--surface-light);
                     color: var(--on-surface);
                     padding-top: var(--spacing);
-                    box-sizing:border-box;
+                    box-sizing: border-box;
+                    overflow: hidden;
                 }
 
                 :host([hidden]) {
                     display: none;
                 }
 
-                furo-card {
-                    margin: 0 var(--spacing);
+                furo-form {
                     margin-bottom: var(--spacing);
                 }
             `
@@ -68,11 +69,9 @@ export class PersonPersonDisplayPanel extends (BasePanel) {
         // language=HTML
         return html`
           <furo-vertical-flex>
-            <furo-card>
+            <furo-form flex scroll>
               <person-person-display flex ƒ-bind-data="--entity(*.data)"></person-person-display>
-            </furo-card>
-
-
+            </furo-form>
           </furo-vertical-flex>
 
 

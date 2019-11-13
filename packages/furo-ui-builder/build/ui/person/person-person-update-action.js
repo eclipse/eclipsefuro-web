@@ -33,11 +33,6 @@ class PersonPersonUpdateAction extends FBP(LitElement) {
                 :host([hidden]) {
                     display: none;
                 }
-
-                furo-button-bar {
-                    margin: var(--spacing);
-                    padding-bottom: var(--spacing);
-                }
             `
     }
 
