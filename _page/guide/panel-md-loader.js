@@ -57,7 +57,7 @@ class PanelMdLoader extends FBP(LitElement) {
         
         furo-markdown{
             padding: var(--spacing);
-          background-color: var(--background);
+          background-color: var(--surface);
            
             min-width: 500px;
         }

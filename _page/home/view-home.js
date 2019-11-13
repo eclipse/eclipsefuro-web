@@ -54,8 +54,8 @@ class ViewHome extends FBP(LitElement) {
                 height: 100%;
                 overflow: hidden;
                 box-sizing: border-box;
-                background-color: var(--background, white);
-                color: var(--on-background, black);
+                background-color: var(--surface, white);
+                color: var(--on-surface, black);
             }
 
             :host([hidden]) {

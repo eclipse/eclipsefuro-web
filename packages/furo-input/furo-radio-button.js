@@ -22,7 +22,7 @@ import "@furo/layout/furo-ripple";
  *
  * Custom property | Description | Default  | Fallback
  * ----------------|-------------|----------|----------
- * `--input-radiobutton-unselected-bg-color` | background color of the unchecked radiobutton | `--background` | #ffffff
+ * `--input-radiobutton-unselected-bg-color` | background color of the unchecked radiobutton | `--surface` | #ffffff
  * `--input-radiobutton-unselected-border-color` | border color of the unchecked radiobutton | `--separator` | #7E7E7E
  * `--input-radiobutton-unselected-hover-bg-color` | background color of the unchecked radiobutton by hovering | `--surface-light` | #F5F5F5
  * `--input-radiobutton-unselected-focus-bg-color` | background color of the unchecked radiobutton by focusing | `--surface-dark` | #DDDDDD
@@ -32,9 +32,9 @@ import "@furo/layout/furo-ripple";
  * `--input-radiobutton-selected-focus-bg-color` | background color of the checked radiobutton by focusing | `--accent` | #6200FD
  * `--input-radiobutton-disabled-selected-bg-color` | background color of the checked disabled radiobutton | `--disable` | #B9B9B9
  * `--input-radiobutton-disabled-selected-border-color` | border color of the checked disabled radiobutton | `--disable` | #B9B9B9
- * `--input-radiobutton-disabled-unselected-bg-color` | background color of the unchecked disabled radiobutton | `--background` | #ffffff
+ * `--input-radiobutton-disabled-unselected-bg-color` | background color of the unchecked disabled radiobutton | `--surface` | #ffffff
  * `--input-radiobutton-disabled-unselected-border-color` | border color of the unchecked disabled radiobutton | `--surface` | #aaaaaa
- * `--input-radiobutton-disabled-hover-bg-color` | background color of the unchecked disabled radiobutton by hovering| `--background` | #ffffff
+ * `--input-radiobutton-disabled-hover-bg-color` | background color of the unchecked disabled radiobutton by hovering| `--surface` | #ffffff
  *
  *
  * @summary radiobutton input
@@ -251,7 +251,7 @@ class FuroRadioButton extends FBP(LitElement) {
                 left: 10px;
                 height: 20px;
                 width: 20px;
-                background-color: var(--input-radiobutton-unselected-bg-color, var(--background, #ffffff));
+                background-color: var(--input-radiobutton-unselected-bg-color, var(--surface, #ffffff));
                 border: solid 2px;
                 border-color: var(--input-radiobutton-unselected-border-color, var(--separator, #7E7E7E));
                 box-sizing: border-box;
@@ -309,7 +309,7 @@ class FuroRadioButton extends FBP(LitElement) {
 
             /* disabled radiobutton unselected */
             .wrapper input:disabled ~ .radiobutton-background {
-                background-color: var(--input-radiobutton-disabled-unselected-bg-color, var(--background, #ffffff));
+                background-color: var(--input-radiobutton-disabled-unselected-bg-color, var(--surface, #ffffff));
                 border-color: var(--input-radiobutton-disabled-unselected-border-color, var(--surface, #aaaaaa));
             }
 
@@ -325,7 +325,7 @@ class FuroRadioButton extends FBP(LitElement) {
 
             /* disabled radiobutton when hovering */
             .wrapper[disabled]:hover {
-                background-color: var(--input-radiobutton-disabled-hover-bg-color, var(--background, #ffffff));
+                background-color: var(--input-radiobutton-disabled-hover-bg-color, var(--surface, #ffffff));
                 background: transparent;
             }
 

@@ -6,39 +6,50 @@ export class Styling {
     // language=CSS
     return css`
             :host {
-                
                 /* Inspired by https://material.io/design/color/the-color-system.html#color-theme-creation */
                 /* https://material.io/design/material-theming/implementing-your-theme.html#color */
-                --primary: #ececec;
-                --primary-variant: #f4f4f4;
-                --on-primary: #212121;
+                --primary-light: #4ccd50;
+                --primary: #4caf50;
+                --primary-dark: #4b9b4f;
+                --primary-variant: #2587a3;
+                --on-primary: #ffffff;
 
-                --secondary: #ffeb3b;
-                --secondary-variant: #edeeed;
-                --on-secondary: #000000;
+                --secondary-light: #fdd756;
+                --secondary: #fecf2f;
+                --secondary-dark: #ffc911;
+                --secondary-variant: #faedc1;
+                --on-secondary: #212121;
 
-                --accent: #3f83e3;
-                --on-accent: #e5e5e5;
+                --accent-light: #ecf3ca;
+                --accent: #cce35b;
+                --accent-dark: #bada18;
+                --on-accent: #212121;
 
-                --background: #ffffff;
+                --background: #eeeeee;
                 --on-background: #212121;
 
-                --surface: #eeeeee;
+                --surface-light: #f3f3f3;
+                --surface: #FEFEFE;
+                --surface-dark: #f0f0f0;
                 --on-surface: #212121;
-                --separator: #c3c4c3;
+                --separator: #E4E4E4;
 
                 /* Input, Forms, Toast*/
-                --error: #C51162;
+                --error: #ea1c24;
                 --on-error: #ffffff;
 
-                --danger: #FA0202;
-                --on-danger: #FAFAFA;
-                
+                --danger-light: #fc1c21;
+                --danger: #ee1c21;
+                --danger-dark: #de1c21;
+                --on-danger: #f8f8f8;
+
                 --success: #129991;
                 --on-success: #202124;
 
-                --disabled-color: #B4B5B4;
-                
+                --disabled: #c3c4c3;
+                --on-disabled: #585858;
+
+
                 /* Spacing */
                 --spacing-xxs: 4px;
                 --spacing-xs: 8px;
@@ -48,8 +59,8 @@ export class Styling {
                 --spacing-l: 32px;
                 --spacing-xl: 48px;
                 --spacing-xxl: 96px;
-                
-                
+
+
                 /* project specific */
                 --furo-input: #ffc247;
 

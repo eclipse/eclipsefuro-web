@@ -33,7 +33,7 @@ class FuroPrettyJson extends FBP(LitElement) {
             }
 
             pre {
-                background-color: var(--background);
+                background-color: var(--surface);
                 padding: 0;
             }
 

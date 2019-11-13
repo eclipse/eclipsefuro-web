@@ -53,7 +53,7 @@ class FuroDemoPage extends FBP(LitElement) {
             padding-left: var(--spacing-s);
             overflow: hidden;
             box-sizing: border-box;
-            background-color: var(--background);
+            background-color: var(--surface);
             --split-master-width: 212px;
         }
 

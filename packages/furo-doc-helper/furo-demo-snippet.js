@@ -139,7 +139,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
               height: 320px;
               box-sizing: border-box;
               overflow: hidden;
-              background-color: var(--background);
+              background-color: var(--surface);
           }
 
           :host([hidden]) {

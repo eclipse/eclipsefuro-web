@@ -16,31 +16,43 @@ export class Styling {
                 --primary-light: #f6f6f6;
                 --primary-dark: #f1f1f1;
 
-                --secondary: #fbe73a;
+
+                --secondary: #fecf2f;
+                --secondary-dark: #ffc911;
                 --secondary-variant: #9e7f2b;
-                --on-secondary: #000000;
+                --on-secondary: #212121;
+
 
                 --accent: #3f83e3;
                 --on-accent: #e5e5e5;
+                --accent-light: #3f8ded;
+                --accent-dark: #3f73d3;
+                
 
-                --background: #fff;
-                --on-background: #313131;
+                --background: #eeeeee;
+                --on-background: #212121;
 
-                --surface: #fff;
-                --on-surface: #44484a;
-                --separator: #c3c4c3;
+                --surface-light: #f3f3f3;
+                --surface: #FEFEFE;
+                --surface-dark: #f0f0f0;
+                --on-surface: #212121;
+                --separator: #E4E4E4;
+
 
                 /* Input, Forms, Toast*/
-                --error: #C51162;
+                --error: #ea1c24;
                 --on-error: #ffffff;
 
-                --danger: #FA0202;
-                --on-danger: #FAFAFA;
+                --danger-light: #fc1c21;
+                --danger: #ee1c21;
+                --danger-dark: #de1c21;
+                --on-danger: #f8f8f8;
 
                 --success: #129991;
                 --on-success: #202124;
 
-                --disabled-color: #B4B5B4;
+                --disabled: #c3c4c3;
+                --on-disabled: #585858;
 
                 /* Spacing */
                 --spacing-xxs: 4px;

@@ -30,7 +30,7 @@ class JsonOut extends FBP(LitElement) {
                     line-height: 1.5;
                 }
                 pre {
-                    background-color: var(--background);
+                    background-color: var(--surface);
                     padding: 0;
                 }
 

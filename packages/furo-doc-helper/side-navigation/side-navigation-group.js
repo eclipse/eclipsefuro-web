@@ -65,7 +65,7 @@ class SideNavigationGroup extends FBP(LitElement) {
             padding: var(--spacing-s) 0;
             border-bottom-width: 1px;
             border-bottom-style: solid;
-            border-bottom-color: var(--background, rgba(0, 0, 0, .12);
+            border-bottom-color:  rgba(0, 0, 0, .12);
         }
         
 

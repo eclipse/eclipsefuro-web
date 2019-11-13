@@ -21,7 +21,7 @@ import "@furo/layout/furo-ripple";
  *
  * Custom property | Description | Default  | Fallback
  * ----------------|-------------|----------|----------
- * `--input-checkbox-unselected-bg-color` | background color of the unchecked checkbox | `--background` | #ffffff
+ * `--input-checkbox-unselected-bg-color` | background color of the unchecked checkbox | `--surface` | #ffffff
  * `--input-checkbox-unselected-border-color` | border color of the unchecked checkbox | `--separator` | #7E7E7E
  * `--input-checkbox-unselected-hover-bg-color` | background color of the unchecked checkbox by hovering | `--surface-light` | #F5F5F5
  * `--input-checkbox-unselected-focus-bg-color` | background color of the unchecked checkbox by focusing | `--surface-dark` | #DDDDDD
@@ -31,9 +31,9 @@ import "@furo/layout/furo-ripple";
  * `--input-checkbox-selected-focus-bg-color` | background color of the checked checkbox by focusing | `--primary-light` | #6200FD
  * `--input-checkbox-disabled-selected-bg-color` | background color of the checked disabled checkbox | `--disable` | #B9B9B9
  * `--input-checkbox-disabled-selected-border-color` | border color of the checked disabled checkbox | `--disable` | #B9B9B9
- * `--input-checkbox-disabled-unselected-bg-color` | background color of the unchecked disabled checkbox | `--background` | #ffffff
+ * `--input-checkbox-disabled-unselected-bg-color` | background color of the unchecked disabled checkbox | `--surface` | #ffffff
  * `--input-checkbox-disabled-unselected-border-color` | border color of the unchecked disabled checkbox | `--surface` | #aaaaaa
- * `--input-checkbox-disabled-hover-bg-color` | background color of the unchecked disabled checkbox by hovering| `--background` | #ffffff
+ * `--input-checkbox-disabled-hover-bg-color` | background color of the unchecked disabled checkbox by hovering| `--surface` | #ffffff
  *
  *
  * @summary checkbox input
@@ -250,7 +250,7 @@ class FuroCheckbox extends FBP(LitElement) {
                 left: 11px;
                 height: 18px;
                 width: 18px;
-                background-color: var(--input-checkbox-unselected-bg-color, var(--background, #ffffff));
+                background-color: var(--input-checkbox-unselected-bg-color, var(--surface, #ffffff));
                 border: solid 2px;
                 border-color: var(--input-checkbox-unselected-border-color, var(--separator, #7E7E7E));
                 box-sizing: border-box;
@@ -307,7 +307,7 @@ class FuroCheckbox extends FBP(LitElement) {
 
             /* disabled checkbox unselected */
             .wrapper input:disabled ~ .checkbox-background {
-                background-color: var(--input-checkbox-disabled-unselected-bg-color, var(--background, #ffffff));
+                background-color: var(--input-checkbox-disabled-unselected-bg-color, var(--surface, #ffffff));
                 border-color: var(--input-checkbox-disabled-unselected-border-color, var(--surface, #aaaaaa));
             }
 
@@ -323,7 +323,7 @@ class FuroCheckbox extends FBP(LitElement) {
 
             /* disabled checkbox when hovering */
             .wrapper[disabled]:hover {
-                background-color: var(--input-checkbox-disabled-hover-bg-color, var(--background, #ffffff));
+                background-color: var(--input-checkbox-disabled-hover-bg-color, var(--surface, #ffffff));
                 background: transparent;
             }
 
