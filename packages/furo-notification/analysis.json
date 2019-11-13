@@ -2305,11 +2305,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 82,
+              "line": 101,
               "column": 6
             },
             "end": {
-              "line": 84,
+              "line": 103,
               "column": 7
             }
           },
@@ -2326,11 +2326,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 104,
               "column": 6
             },
             "end": {
-              "line": 87,
+              "line": 106,
               "column": 7
             }
           },
@@ -2347,11 +2347,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 88,
+              "line": 107,
               "column": 6
             },
             "end": {
-              "line": 90,
+              "line": 109,
               "column": 7
             }
           },
@@ -2368,11 +2368,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 110,
               "column": 6
             },
             "end": {
-              "line": 93,
+              "line": 112,
               "column": 7
             }
           },
@@ -2389,11 +2389,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 116,
               "column": 6
             },
             "end": {
-              "line": 97,
+              "line": 116,
               "column": 32
             }
           },
@@ -2411,11 +2411,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 52,
               "column": 2
             },
             "end": {
-              "line": 73,
+              "line": 75,
               "column": 3
             }
           },
@@ -2426,16 +2426,40 @@
           }
         },
         {
+          "name": "_parseMarkdown",
+          "description": "parse markdown string to html content",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 83,
+              "column": 2
+            },
+            "end": {
+              "line": 92,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "markdown"
+            }
+          ],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
+        },
+        {
           "name": "_show",
           "description": "show",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 125,
               "column": 2
             },
             "end": {
-              "line": 114,
+              "line": 133,
               "column": 3
             }
           },
@@ -2455,11 +2479,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 121,
+              "line": 140,
               "column": 2
             },
             "end": {
-              "line": 131,
+              "line": 150,
               "column": 3
             }
           },
@@ -2480,11 +2504,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 156,
               "column": 2
             },
             "end": {
-              "line": 170,
+              "line": 187,
               "column": 3
             }
           },
@@ -2495,37 +2519,16 @@
           }
         },
         {
-          "name": "_replacer",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 173,
-              "column": 2
-            },
-            "end": {
-              "line": 175,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "str"
-            }
-          ]
-        },
-        {
           "name": "focus",
           "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 191,
               "column": 2
             },
             "end": {
-              "line": 179,
+              "line": 193,
               "column": 3
             }
           },
@@ -2541,11 +2544,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 184,
+              "line": 198,
               "column": 2
             },
             "end": {
-              "line": 208,
+              "line": 222,
               "column": 3
             }
           },
@@ -2561,11 +2564,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 283,
+              "line": 291,
               "column": 2
             },
             "end": {
-              "line": 298,
+              "line": 307,
               "column": 3
             }
           },
@@ -2590,11 +2593,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 37,
+          "line": 39,
           "column": 0
         },
         "end": {
-          "line": 300,
+          "line": 309,
           "column": 1
         }
       },
@@ -2607,11 +2610,11 @@
           "description": "enable autofocus for dismiss button after slide in",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 116,
               "column": 6
             },
             "end": {
-              "line": 97,
+              "line": 116,
               "column": 32
             }
           },

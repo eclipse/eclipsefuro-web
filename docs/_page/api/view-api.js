@@ -388,77 +388,82 @@ return _furoShell.html`
    * @return {CSSResult}
    */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-        :host {
-            display: block;
-        }
+            :host {
+                display: block;
+            }
 
-        :host([hidden]) {
-            display: none;
-        }
-        furo-demo-snippet {
-            height: 950px;
-        }
-       
-    `}/**
+            :host([hidden]) {
+                display: none;
+            }
+
+            furo-demo-snippet {
+                height: 950px;
+                --furo-form-background: white;
+            }
+            
+        `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-      <h3>Sample</h3>
-      
-      <furo-demo-snippet >
-        <template>
-            <h2>Simple form design</h2>
-            <p>Please fill in the form and click save. You will be automatically redirected to the edit form.</p>
-            <!-- Inside a furo-form-layouter the elements are always full-width -->
-            <!-- Full width, one column layout-->
-            <furo-form-layouter>
-                <furo-date-input hint="Only possible in current year" max="2019-12-31" min="2019-01-01" label="valid from"></furo-date-input>
-                <furo-select-input label="Mutation reason" value="New" list="New, mutation, remake"></furo-select-input>
-                <p>Put your additional information here...</p>
-            </furo-form-layouter>
-            <!-- Full width, two column layout-->
-            <furo-form-layouter two>
-                <furo-text-input label="Owner"></furo-text-input>
-                <furo-text-input label="Special hint"></furo-text-input>
-                <furo-text-input label="Owner"></furo-text-input>
-            </furo-form-layouter>
-            
-            <furo-form-layouter two>
-                <div>
-                <input type="checkbox"><br>
-                <input type="checkbox"><br>
-                <input type="checkbox"><br>
-                <input type="checkbox"><br>
-                </div>
-                <div>
-                <input type="checkbox"><br>
-                <input type="checkbox"><br>
-                <input type="checkbox"><br>
-                </div>
-            </furo-form-layouter>
+            <h3>Sample</h3>
 
-            <!-- Full width, four column layout with condensed input fields -->
-            <furo-form-layouter>
-                <p>Full width, four column layout with condensed input fields</p>
-                <furo-select-input condensed label="Brand" value="Pepsi" list="RedBull, Coca-Cola, Pepsi, Sprite"></furo-select-input>
-            </furo-form-layouter>
-            <furo-form-layouter four>
-                <furo-text-input condensed label="Owner"></furo-text-input>
-                <furo-text-input condensed label="Special hint"></furo-text-input>
-                <furo-text-input condensed label="Owner"></furo-text-input>
-                <furo-text-input condensed label="Special hint"></furo-text-input>
-                <furo-text-input condensed label="Special hint"></furo-text-input>
-            </furo-form-layouter>
+            <furo-demo-snippet>
+                <template>
+                    <furo-form header-text="Simple form design"
+                               secondary-text="Please fill in the form and click save. You will be automatically redirected to the edit form.">
+                        <!-- Inside a furo-form-layouter the elements are always full-width -->
+                        <!-- Full width, one column layout-->
+                        <furo-form-layouter>
+                            <furo-date-input hint="Only possible in current year" max="2019-12-31" min="2019-01-01"
+                                             label="valid from"></furo-date-input>
+                            <furo-select-input label="Mutation reason" value="New"
+                                               list="New, mutation, remake"></furo-select-input>
+                            <p>Put your additional information here...</p>
+                        </furo-form-layouter>
+                        <!-- Full width, two column layout-->
+                        <furo-form-layouter two>
+                            <furo-text-input label="Owner"></furo-text-input>
+                            <furo-text-input label="Special hint"></furo-text-input>
+                            <furo-text-input label="Owner"></furo-text-input>
+                        </furo-form-layouter>
 
-            <furo-form-layouter four>
-                <furo-button label="Save" unelevated primary></furo-button>
-                <furo-button label="Cancel" unelevated></furo-button>
-            </furo-form-layouter>
-            
-        </template>
-      </furo-demo-snippet>
-    `}}window.customElements.define("demo-furo-form-layouter",DemoFuroFormLayouter);class FuroButtonPlayground extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+                        <furo-form-layouter two>
+                            <div>
+                                <input type="checkbox"><br>
+                                <input type="checkbox"><br>
+                                <input type="checkbox"><br>
+                                <input type="checkbox"><br>
+                            </div>
+                            <div>
+                                <input type="checkbox"><br>
+                                <input type="checkbox"><br>
+                                <input type="checkbox"><br>
+                            </div>
+                        </furo-form-layouter>
+
+                        <!-- Full width, four column layout with condensed input fields -->
+                        <furo-form-layouter>
+                            <p>Full width, four column layout with condensed input fields</p>
+                            <furo-select-input condensed label="Brand" value="Pepsi"
+                                               list="RedBull, Coca-Cola, Pepsi, Sprite"></furo-select-input>
+                        </furo-form-layouter>
+                        <furo-form-layouter four>
+                            <furo-text-input condensed label="Owner"></furo-text-input>
+                            <furo-text-input condensed label="Special hint"></furo-text-input>
+                            <furo-text-input condensed label="Owner"></furo-text-input>
+                            <furo-text-input condensed label="Special hint"></furo-text-input>
+                            <furo-text-input condensed label="Special hint"></furo-text-input>
+                        </furo-form-layouter>
+
+                        <furo-button-bar slot="action">
+                            <furo-button label="Save" unelevated primary></furo-button>
+                            <furo-button label="Cancel" unelevated></furo-button>
+                        </furo-button-bar>
+                    </furo-form>
+                </template>
+            </furo-demo-snippet>
+        `}}window.customElements.define("demo-furo-form-layouter",DemoFuroFormLayouter);class FuroButtonPlayground extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -8600,6 +8605,10 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         `}}customElements.define("demo-furo-snackbar-display-error",DemoFuroSnackbarDisplayError);class FuroBannerDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._banner={text:"",dismissButtonText:"dismiss",confirmButtonText:"",icon:"",banner:{}};this._stack=[];this.setAttribute("hidden","")}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();window.addEventListener("open-furo-banner-requested",e=>{this._show(e.detail)});this._FBPAddWireHook("--confirmClicked",e=>{if(this._banner.banner){this._banner.banner.confirm()}this._close()});this._FBPAddWireHook("--dismissClicked",e=>{if(this._banner.banner){this._banner.banner.dismiss()}this._close()})}/**
+     * parse markdown string to html content
+     * @param markdown
+     * @return {TemplateResult | TemplateResult}
+     */_parseMarkdown(markdown){let md=window.markdownit({html:!1,linkify:!0,typographer:!0});return _furoShell.html`${(0,_furoShell.unsafeHTML)(md.render(markdown))}`}/**
      *@private
      */static get properties(){return{_banner:{type:Object},_stack:{type:Array},_isOpen:{type:Boolean},_timer:{type:Object},/**
        * enable autofocus for dismiss button after slide in
@@ -8615,9 +8624,9 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      *
      * @private
      */__show(){if(0<this._stack.length){this._banner=this._stack[0];// defensive copy, do not overwrite the reference (this._stack[0]);
-if(this._banner.multilineText&&0<this._banner.multilineText.length){this._bannerText=(0,_furoShell.html)(this._banner.multilineText.map(line=>{return"<p>"+this._replacer(line)+"</p>"}))}else{// default banner text
-if(this._banner.text){this._bannerText=(0,_furoShell.html)(["<p>"+this._replacer(this._banner.text)+"</p>"])}}this.requestUpdate();setTimeout(()=>{this.style.height="0px";this.removeAttribute("hidden");let height=this.shadowRoot.querySelector(".wrapper").getBoundingClientRect().height;this.style.height=height+"px";this._isOpen=!0},0);if(this.autofocus){setTimeout(()=>{// focus the dismiss after animation
-this._FBPTriggerWire("--focus")},500)}}}_replacer(str){return str.replace(/(<([^>]+)>)/ig,"").replace(/(\*)([^*\n]*)(\*)/gm,"<strong>$2</strong>").replace(/\n/g,"<br>")}focus(){this._FBPTriggerWire("--focus")}/**
+if(this._banner.multilineText&&0<this._banner.multilineText.length){this._bannerText=this._parseMarkdown(this._banner.multilineText.join("\n\n"))}else{// default banner text
+if(this._banner.text){this._bannerText=this._parseMarkdown(this._banner.text)}}this.requestUpdate();setTimeout(()=>{this.style.height="0px";this.removeAttribute("hidden");let height=this.shadowRoot.querySelector(".wrapper").getBoundingClientRect().height;this.style.height=height+"px";this._isOpen=!0},0);if(this.autofocus){setTimeout(()=>{// focus the dismiss after animation
+this._FBPTriggerWire("--focus")},500)}}}focus(){this._FBPTriggerWire("--focus")}/**
      * close the CURRENT banner
      */_close(){this.style.height="0px";setTimeout(()=>{this.setAttribute("hidden","")},500);if(1<this._stack.length){this._stack.shift();if(0<this._stack.length){let self=this;this._timer=setInterval(function(){clearInterval(self._timer);self.__show()},500)}else{this._isOpen=!1}}else{this._stack.shift();this._isOpen=!1}}/**
      * @private
@@ -8635,7 +8644,10 @@ this._FBPTriggerWire("--focus")},500)}}}_replacer(str){return str.replace(/(<([^
             :host([hidden]) {
               height: 0;
             }
-            
+             .wrapper[icon] furo-icon{
+              display:  inline-block;;
+            }
+                       
             furo-icon {
               margin:   var(--spacing-xs, 8px)  var(--banner-icon-margin-right,var(--spacing, 24px)) auto 0;
               width: 40px;
@@ -8646,15 +8658,11 @@ this._FBPTriggerWire("--focus")},500)}}}_replacer(str){return str.replace(/(<([^
             .wrapper {
               width: 100%;
               box-sizing: border-box;
-              padding: 12px 8px 8px 24px;
-              display: flex;
+              padding: 12px 8px 8px 24px;             
               border-bottom: solid 1px #e0e0e0;
               margin-bottom: var(--banner-margin-bottom,var(--spacing-s, 16px));             
             }
-            
-            .wrapper[icon] furo-icon{
-              display: flex;
-            }
+          
             
             .wrapper[icon] {
               padding: 12px 8px 8px 16px;
@@ -8666,37 +8674,32 @@ this._FBPTriggerWire("--focus")},500)}}}_replacer(str){return str.replace(/(<([^
               margin-right: 8px;
             }
             
-            .text {
-              width: 100%;
-              line-height: 20px;
-              
-            }
-            p {
-              margin-bottom: 4px;
-              margin-top: 12px;
-            }
-            .button {
-              float:right;            
+            furo-markdown {             
+              line-height: 20px;              
             }
             
-            furo-button[hide] {
-              display: none;
+            p {
+            margin-bottom: 4px;
+            margin-top: 12px;
             }
+
+            
         `}/**
      * @private
      * @returns {TemplateResult}
      */render(){return _furoShell.html`
           <div class="wrapper" ?icon="${this._banner.icon}">
-            <div><furo-icon icon="${this._banner.icon}"></furo-icon></div>
-            <div class="text">
-                  ${this._bannerText}
-                   
-            <div class="button">
+          <furo-horizontal-flex>
+            <div>
+               <furo-icon icon="${this._banner.icon}"></furo-icon>
+            </div>
+            <div flex>${this._bannerText}</div>            
+          </furo-horizontal-flex>
+          <furo-horizontal-flex>
+           <furo-empty-spacer></furo-empty-spacer>           
               <furo-button ƒ-focus="--focus" label="${this._banner.dismissButtonText}" ?hide="${!this._banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
-              <furo-button label="${this._banner.confirmButtonText}" ?hide="${!this._banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
-            </div>
-            </div>
-            
+              <furo-button label="${this._banner.confirmButtonText}" ?hidden="${!this._banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
+          </furo-horizontal-flex>            
           </div>
         `}}customElements.define("furo-banner-display",FuroBannerDisplay);class FuroBanner extends _furoShell.LitElement{constructor(){super();this.dismissButtonText="dismiss"}/**
      * @private
@@ -8811,24 +8814,35 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
   <template>
     <furo-vertical-scroller>
       <furo-banner-display autofocus></furo-banner-display>     
-                                           
-      <furo-banner  ƒ-show="--show1" ƒ-set-Text="--setBannerText1"  icon="perm-scan-wifi" ></furo-banner>    
+       
+         
+      <h2>Simple usage</h2>
+      <furo-button ƒ-focus="--confirmed" raised @-click="--show3" >oneliner</furo-button>
+      <furo-banner  ƒ-show="--show3" @-dismissed="--dm3" text="oneliner."  icon="info-outline"></furo-banner>
+      <hr>   
+          
+      <h2>Multiline with markdown usage</h2>
+      <p>To insert multiline text you can use the markdown syntax</p>
+      <furo-banner  ƒ-show="--show2" @-confirmed="--confirmed" icon="info-outline" dissmis-button-text="continue" confirm-button-text="confirm" text="Wlan https://www.Lorem.com  ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."  ></furo-banner>   
+      <furo-button ƒ-focus="--dm3" raised @-click="--show2">confirm multiline</furo-button>      
+      <hr>
+          
+      <h2>Parse grpc status object</h2>
+      <produce-banner-data @-response-error="--error" label="GRPC ERROR"></produce-banner-data>
+      <furo-banner  ƒ-parse-grpc-status="--error" icon="apps"></furo-banner>
+      <hr>
+    
+      <h2>Set text with wire</h2>                                 
+      <furo-banner  ƒ-show="--show1" ƒ-set-Text="--setBannerText1"  icon="perm-scan-wifi" ></furo-banner>             
       <produce-banner-data id="banner1" label="banner 1"
-      banner-text="Test\nNewline *stuff* \n *ddd*"
+      banner-text="Test\nNewline *stuff* \n *ddd* (c) (C) (r) (R) (tm) (TM) (p) (P) +-"
       @-banner-text-banner1="--setBannerText1" 
       @-show-banner1="--show1"
-      ></produce-banner-data>
-    
-    <produce-banner-data @-response-error="--error" label="GRPC ERROR"></produce-banner-data>
-    <furo-banner  ƒ-parse-grpc-status="--error" icon="apps"></furo-banner>
-    
-      <furo-button raised @-click="--show2">confirm multiline</furo-button>
+      ></produce-banner-data>        
+      <hr>
       
-    <furo-banner  ƒ-show="--show2" text="Wlan Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."  icon="info-outline"   dissmis-button-text="continue" confirm-button-text="confirm"></furo-banner>
     
     
-    <furo-button raised @-click="--show3">oneliner</furo-button>
-    <furo-banner  ƒ-show="--show3" text="oneliner."  icon="info-outline"></furo-banner>
     </furo-vertical-scroller>
   </template>
   </furo-demo-snippet>

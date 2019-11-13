@@ -3127,7 +3127,7 @@ return Theme.getThemeForComponent(this.name)||css`
         }
 
         :host([raised][danger]) button:focus, :host([unelevated][danger]) button:focus{
-            background-color: var(--on-danger, #FFFFFF);
+            background-color: var(--danger-light, #FFFFFF);
             color: var(--danger, #ff0000);
         }
         :host([raised][danger]) button:hover, :host([unelevated][danger]) button:hover{
@@ -14514,7 +14514,7 @@ memoize.Cache=MapCache;module.exports=memoize},{"./_MapCache":55}],266:[function
                                                         *
                                                         * _.zipObject(['a', 'b'], [1, 2]);
                                                         * // => { 'a': 1, 'b': 2 }
-                                                        */function zipObject(props,values){return baseZipObject(props||[],values||[],assignValue)}module.exports=zipObject},{"./_assignValue":75,"./_baseZipObject":130}]},{},[1])(1)});const methods={},names=[];function registerMethods(name,m){if(Array.isArray(name)){for(let _name of name){registerMethods(_name,m)}return}if("object"===typeof name){for(let _name in name){registerMethods(_name,name[_name])}return}addMethodNames(Object.getOwnPropertyNames(m));methods[name]=Object.assign(methods[name]||{},m)}function getMethodsFor(name){return methods[name]||{}}function getMethodNames(){return[...new Set(names)]}function addMethodNames(_names){names.push(..._names)}var methods$1={registerMethods:registerMethods,getMethodsFor:getMethodsFor,getMethodNames:getMethodNames,addMethodNames:addMethodNames};// Map function
+                                                        */function zipObject(props,values){return baseZipObject(props||[],values||[],assignValue)}module.exports=zipObject},{"./_assignValue":75,"./_baseZipObject":130}]},{},[1])(1)});const methods={},names=[];function registerMethods(name,m){if(Array.isArray(name)){for(const _name of name){registerMethods(_name,m)}return}if("object"===typeof name){for(const _name in name){registerMethods(_name,name[_name])}return}addMethodNames(Object.getOwnPropertyNames(m));methods[name]=Object.assign(methods[name]||{},m)}function getMethodsFor(name){return methods[name]||{}}function getMethodNames(){return[...new Set(names)]}function addMethodNames(_names){names.push(..._names)}var methods$1={registerMethods:registerMethods,getMethodsFor:getMethodsFor,getMethodNames:getMethodNames,addMethodNames:addMethodNames};// Map function
 _exports.$methods=methods$1;function map(array,block){var i,il=array.length,result=[];for(i=0;i<il;i++){result.push(block(array[i]))}return result}// Filter function
 function filter(array,block){var i,il=array.length,result=[];for(i=0;i<il;i++){if(block(array[i])){result.push(array[i])}}return result}// Degrees to radians
 function radians(d){return d%360*Math.PI/180}// Radians to degrees
@@ -14523,14 +14523,13 @@ function camelCase(s){return s.toLowerCase().replace(/-(.)/g,function(m,g){retur
 function unCamelCase(s){return s.replace(/([A-Z])/g,function(m,g){return"-"+g.toLowerCase()})}// Capitalize first letter of a string
 function capitalize(s){return s.charAt(0).toUpperCase()+s.slice(1)}// Calculate proportional width and height values when necessary
 function proportionalSize(element,width,height,box){if(null==width||null==height){box=box||element.bbox();if(null==width){width=box.width/box.height*height}else if(null==height){height=box.height/box.width*width}}return{width:width,height:height}}function getOrigin(o,element){// Allow origin or around as the names
-let origin=o.origin,ox,oy;// o.around == null ? o.origin : o.around
-// Allow the user to pass a string to rotate around a given point
+const origin=o.origin;// o.around == null ? o.origin : o.around
+let ox,oy;// Allow the user to pass a string to rotate around a given point
 if("string"===typeof origin||null==origin){// Get the bounding box of the element with no transformations applied
-const string=(origin||"center").toLowerCase().trim(),{height,width,x,y}=element.bbox();// Calculate the transformed x and y coordinates
-let bx=string.includes("left")?x:string.includes("right")?x+width:x+width/2,by=string.includes("top")?y:string.includes("bottom")?y+height:y+height/2;// Set the bounds eg : "bottom-left", "Top right", "middle" etc...
+const string=(origin||"center").toLowerCase().trim(),{height,width,x,y}=element.bbox(),bx=string.includes("left")?x:string.includes("right")?x+width:x+width/2,by=string.includes("top")?y:string.includes("bottom")?y+height:y+height/2;// Set the bounds eg : "bottom-left", "Top right", "middle" etc...
 ox=null!=o.ox?o.ox:bx;oy=null!=o.oy?o.oy:by}else{ox=origin[0];oy=origin[1]}// Return the origin as it is if it wasn't a string
 return[ox,oy]}var utils={map:map,filter:filter,radians:radians,degrees:degrees,camelCase:camelCase,unCamelCase:unCamelCase,capitalize:capitalize,proportionalSize:proportionalSize,getOrigin:getOrigin};// Default namespaces
-_exports.utils=_exports.$utils=utils;let ns="http://www.w3.org/2000/svg";_exports.ns=ns;let xmlns="http://www.w3.org/2000/xmlns/";_exports.xmlns=xmlns;let xlink="http://www.w3.org/1999/xlink";_exports.xlink=xlink;let svgjs="http://svgjs.com/svgjs";_exports.svgjs=svgjs;var namespaces={ns:ns,xmlns:xmlns,xlink:xlink,svgjs:svgjs};_exports.namespaces=_exports.$namespaces=namespaces;const globals={window:"undefined"===typeof window?null:window,document:"undefined"===typeof document?null:document};_exports.globals=globals;function registerWindow(win=null,doc=null){globals.window=win;globals.document=doc}const save={};function saveWindow(){save.window=globals.window;save.document=globals.document}function restoreWindow(){globals.window=save.window;globals.document=save.document}function withWindow(win,fn){saveWindow();registerWindow(win,win.document);fn(win,win.document);restoreWindow()}function getWindow(){return globals.window}var window$1={globals:globals,registerWindow:registerWindow,saveWindow:saveWindow,restoreWindow:restoreWindow,withWindow:withWindow,getWindow:getWindow};_exports.$window=window$1;class Base{// constructor (node/*, {extensions = []} */) {
+_exports.utils=_exports.$utils=utils;const ns="http://www.w3.org/2000/svg";_exports.ns=ns;const xmlns="http://www.w3.org/2000/xmlns/";_exports.xmlns=xmlns;const xlink="http://www.w3.org/1999/xlink";_exports.xlink=xlink;const svgjs="http://svgjs.com/svgjs";_exports.svgjs=svgjs;var namespaces={ns:ns,xmlns:xmlns,xlink:xlink,svgjs:svgjs};_exports.namespaces=_exports.$namespaces=namespaces;const globals={window:"undefined"===typeof window?null:window,document:"undefined"===typeof document?null:document};_exports.globals=globals;function registerWindow(win=null,doc=null){globals.window=win;globals.document=doc}const save={};function saveWindow(){save.window=globals.window;save.document=globals.document}function restoreWindow(){globals.window=save.window;globals.document=save.document}function withWindow(win,fn){saveWindow();registerWindow(win,win.document);fn(win,win.document);restoreWindow()}function getWindow(){return globals.window}var window$1={globals:globals,registerWindow:registerWindow,saveWindow:saveWindow,restoreWindow:restoreWindow,withWindow:withWindow,getWindow:getWindow};_exports.$window=window$1;class Base{// constructor (node/*, {extensions = []} */) {
 //   // this.tags = []
 //   //
 //   // for (let extension of extensions) {
@@ -14556,7 +14555,7 @@ for(var i=node.children.length-1;0<=i;i--){assignNewId(node.children[i])}if(node
 function extend(modules,methods,attrCheck){var key,i;modules=Array.isArray(modules)?modules:[modules];for(i=modules.length-1;0<=i;i--){for(key in methods){let method=methods[key];if(attrCheck){method=wrapWithAttrCheck(methods[key])}modules[i].prototype[key]=method}}}// export function extendWithAttrCheck (...args) {
 //   extend(...args, true)
 // }
-function wrapWithAttrCheck(fn){return function(...args){let o=args[args.length-1];if(o&&o.constructor===Object&&!(o instanceof Array)){return fn.apply(this,args.slice(0,-1)).attr(o)}else{return fn.apply(this,args)}}}function invent(config){// Create element initializer
+function wrapWithAttrCheck(fn){return function(...args){const o=args[args.length-1];if(o&&o.constructor===Object&&!(o instanceof Array)){return fn.apply(this,args.slice(0,-1)).attr(o)}else{return fn.apply(this,args)}}}function invent(config){// Create element initializer
 var initializer="function"===typeof config.create?config.create:function(node){this.constructor(node||create(config.create))};// Inherit prototype
 if(config.inherit){/* eslint new-cap: off */initializer.prototype=new config.inherit;initializer.prototype.constructor=initializer}// Extend with methods
 if(config.extend){extend(initializer,config.extend)}// Attach construct method to parent
@@ -14574,34 +14573,34 @@ if("function"===typeof p.isRoot&&p.isRoot()){p.node.appendChild(p.defs().node)}r
 function back(){if(0<this.position()){this.parent().removeElement(this).add(this,0)}return this}// Inserts a given element before the targeted element
 function before(element){element=makeInstance(element);element.remove();var i=this.position();this.parent().add(element,i);return this}// Inserts a given element after the targeted element
 function after(element){element=makeInstance(element);element.remove();var i=this.position();this.parent().add(element,i+1);return this}function insertBefore(element){element=makeInstance(element);element.before(this);return this}function insertAfter(element){element=makeInstance(element);element.after(this);return this}registerMethods("Dom",{siblings,position,next,prev,forward,backward,front,back,before,after,insertBefore,insertAfter});var arrange={siblings:siblings,position:position,next:next,prev:prev,forward:forward,backward:backward,front:front,back:back,before:before,after:after,insertBefore:insertBefore,insertAfter:insertAfter};// Parse unit value
-_exports.$arrange=arrange;let numberAndUnit=/^([+-]?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?)([a-z%]*)$/i;// Parse hex value
-_exports.numberAndUnit=numberAndUnit;let hex=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;// Parse rgb value
-_exports.hex=hex;let rgb=/rgb\((\d+),(\d+),(\d+)\)/;// Parse reference id
-_exports.rgb=rgb;let reference=/(#[a-z0-9\-_]+)/i;// splits a transformation chain
-_exports.reference=reference;let transforms=/\)\s*,?\s*/;// Whitespace
-_exports.transforms=transforms;let whitespace=/\s/g;// Test hex value
-_exports.whitespace=whitespace;let isHex=/^#[a-f0-9]{3,6}$/i;// Test rgb value
-_exports.isHex=isHex;let isRgb=/^rgb\(/;// Test css declaration
-_exports.isRgb=isRgb;let isCss=/[^:]+:[^;]+;?/;// Test for blank string
-_exports.isCss=isCss;let isBlank=/^(\s+)?$/;// Test for numeric string
-_exports.isBlank=isBlank;let isNumber=/^[+-]?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i;// Test for percent value
-_exports.isNumber=isNumber;let isPercent=/^-?[\d.]+%$/;// Test for image url
-_exports.isPercent=isPercent;let isImage=/\.(jpg|jpeg|png|gif|svg)(\?[^=]+.*)?/i;// split at whitespace and comma
-_exports.isImage=isImage;let delimiter=/[\s,]+/;// The following regex are used to parse the d attribute of a path
+_exports.$arrange=arrange;const numberAndUnit=/^([+-]?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?)([a-z%]*)$/i;// Parse hex value
+_exports.numberAndUnit=numberAndUnit;const hex=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;// Parse rgb value
+_exports.hex=hex;const rgb=/rgb\((\d+),(\d+),(\d+)\)/;// Parse reference id
+_exports.rgb=rgb;const reference=/(#[a-z0-9\-_]+)/i;// splits a transformation chain
+_exports.reference=reference;const transforms=/\)\s*,?\s*/;// Whitespace
+_exports.transforms=transforms;const whitespace=/\s/g;// Test hex value
+_exports.whitespace=whitespace;const isHex=/^#[a-f0-9]{3,6}$/i;// Test rgb value
+_exports.isHex=isHex;const isRgb=/^rgb\(/;// Test css declaration
+_exports.isRgb=isRgb;const isCss=/[^:]+:[^;]+;?/;// Test for blank string
+_exports.isCss=isCss;const isBlank=/^(\s+)?$/;// Test for numeric string
+_exports.isBlank=isBlank;const isNumber=/^[+-]?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i;// Test for percent value
+_exports.isNumber=isNumber;const isPercent=/^-?[\d.]+%$/;// Test for image url
+_exports.isPercent=isPercent;const isImage=/\.(jpg|jpeg|png|gif|svg)(\?[^=]+.*)?/i;// split at whitespace and comma
+_exports.isImage=isImage;const delimiter=/[\s,]+/;// The following regex are used to parse the d attribute of a path
 // Matches all hyphens which are not after an exponent
-_exports.delimiter=delimiter;let hyphen=/([^e])-/gi;// Replaces and tests for all path letters
-_exports.hyphen=hyphen;let pathLetters=/[MLHVCSQTAZ]/gi;// yes we need this one, too
-_exports.pathLetters=pathLetters;let isPathLetter=/[MLHVCSQTAZ]/i;// matches 0.154.23.45
-_exports.isPathLetter=isPathLetter;let numbersWithDots=/((\d?\.\d+(?:e[+-]?\d+)?)((?:\.\d+(?:e[+-]?\d+)?)+))+/gi;// matches .
-_exports.numbersWithDots=numbersWithDots;let dots=/\./g;_exports.dots=dots;var regex={numberAndUnit:numberAndUnit,hex:hex,rgb:rgb,reference:reference,transforms:transforms,whitespace:whitespace,isHex:isHex,isRgb:isRgb,isCss:isCss,isBlank:isBlank,isNumber:isNumber,isPercent:isPercent,isImage:isImage,delimiter:delimiter,hyphen:hyphen,pathLetters:pathLetters,isPathLetter:isPathLetter,numbersWithDots:numbersWithDots,dots:dots};_exports.regex=_exports.$regex=regex;function classes(){var attr=this.attr("class");return null==attr?[]:attr.trim().split(delimiter)}// Return true if class exists on the node, false otherwise
+_exports.delimiter=delimiter;const hyphen=/([^e])-/gi;// Replaces and tests for all path letters
+_exports.hyphen=hyphen;const pathLetters=/[MLHVCSQTAZ]/gi;// yes we need this one, too
+_exports.pathLetters=pathLetters;const isPathLetter=/[MLHVCSQTAZ]/i;// matches 0.154.23.45
+_exports.isPathLetter=isPathLetter;const numbersWithDots=/((\d?\.\d+(?:e[+-]?\d+)?)((?:\.\d+(?:e[+-]?\d+)?)+))+/gi;// matches .
+_exports.numbersWithDots=numbersWithDots;const dots=/\./g;_exports.dots=dots;var regex={numberAndUnit:numberAndUnit,hex:hex,rgb:rgb,reference:reference,transforms:transforms,whitespace:whitespace,isHex:isHex,isRgb:isRgb,isCss:isCss,isBlank:isBlank,isNumber:isNumber,isPercent:isPercent,isImage:isImage,delimiter:delimiter,hyphen:hyphen,pathLetters:pathLetters,isPathLetter:isPathLetter,numbersWithDots:numbersWithDots,dots:dots};_exports.regex=_exports.$regex=regex;function classes(){var attr=this.attr("class");return null==attr?[]:attr.trim().split(delimiter)}// Return true if class exists on the node, false otherwise
 function hasClass(name){return-1!==this.classes().indexOf(name)}// Add class to the node
 function addClass(name){if(!this.hasClass(name)){var array=this.classes();array.push(name);this.attr("class",array.join(" "))}return this}// Remove class from the node
 function removeClass(name){if(this.hasClass(name)){this.attr("class",this.classes().filter(function(c){return c!==name}).join(" "))}return this}// Toggle the presence of a class on the node
-function toggleClass(name){return this.hasClass(name)?this.removeClass(name):this.addClass(name)}registerMethods("Dom",{classes,hasClass,addClass,removeClass,toggleClass});var _class={classes:classes,hasClass:hasClass,addClass:addClass,removeClass:removeClass,toggleClass:toggleClass};_exports.$class=_class;function css$1(style,val){let ret={};if(0===arguments.length){// get full style as object
-this.node.style.cssText.split(/\s*;\s*/).filter(function(el){return!!el.length}).forEach(function(el){let t=el.split(/\s*:\s*/);ret[t[0]]=t[1]});return ret}if(2>arguments.length){// get style properties in the array
-if(Array.isArray(style)){for(let name of style){let cased=camelCase(name);ret[cased]=this.node.style[cased]}return ret}// get style for property
+function toggleClass(name){return this.hasClass(name)?this.removeClass(name):this.addClass(name)}registerMethods("Dom",{classes,hasClass,addClass,removeClass,toggleClass});var _class={classes:classes,hasClass:hasClass,addClass:addClass,removeClass:removeClass,toggleClass:toggleClass};_exports.$class=_class;function css$1(style,val){const ret={};if(0===arguments.length){// get full style as object
+this.node.style.cssText.split(/\s*;\s*/).filter(function(el){return!!el.length}).forEach(function(el){const t=el.split(/\s*:\s*/);ret[t[0]]=t[1]});return ret}if(2>arguments.length){// get style properties in the array
+if(Array.isArray(style)){for(const name of style){const cased=camelCase(name);ret[cased]=this.node.style[cased]}return ret}// get style for property
 if("string"===typeof style){return this.node.style[camelCase(style)]}// set styles in object
-if("object"===typeof style){for(let name in style){// set empty string if null/undefined/'' was given
+if("object"===typeof style){for(const name in style){// set empty string if null/undefined/'' was given
 this.node.style[camelCase(name)]=null==style[name]||isBlank.test(style[name])?"":style[name]}}}// set style for property
 if(2===arguments.length){this.node.style[camelCase(style)]=null==val||isBlank.test(val)?"":val}return this}// Show element
 function show(){return this.css("display","")}// Hide element
@@ -14613,7 +14612,7 @@ this.memory()[k]=v}return this}// Erase a given memory
 function forget(){if(0===arguments.length){this._memory={}}else{for(var i=arguments.length-1;0<=i;i--){delete this.memory()[arguments[i]]}}return this}// This triggers creation of a new hidden class which is not performant
 // However, this function is not rarely used so it will not happen frequently
 // Return local memory object
-function memory(){return this._memory=this._memory||{}}registerMethods("Dom",{remember,forget,memory});var memory$1={remember:remember,forget:forget,memory:memory};_exports.$memory=memory$1;let listenerId=0,windowEvents={};function getEvents(instance){let n=instance.getEventHolder();// We dont want to save events in global space
+function memory(){return this._memory=this._memory||{}}registerMethods("Dom",{remember,forget,memory});var memory$1={remember:remember,forget:forget,memory:memory};_exports.$memory=memory$1;let listenerId=0;const windowEvents={};function getEvents(instance){let n=instance.getEventHolder();// We dont want to save events in global space
 if(n===globals.window)n=windowEvents;if(!n.events)n.events={};return n.events}function getEventTarget(instance){return instance.getEventTarget()}function clearEvents(instance){const n=instance.getEventHolder();if(n.events)n.events={}}// Add event binder in the SVG namespace
 function on(node,events,listener,binding,options){var l=listener.bind(binding||node),instance=makeInstance(node),bag=getEvents(instance),n=getEventTarget(instance);// events can be an array of events or a string of events
 events=Array.isArray(events)?events:events.split(delimiter);// add id to listener
@@ -14632,22 +14631,21 @@ if(bag[ev]){for(namespace in bag[ev]){off(n,[ev,namespace].join("."))}delete bag
 for(event in bag){off(n,event)}clearEvents(instance)}})}function dispatch(node,event,data){var n=getEventTarget(node);// Dispatch event
 if(event instanceof globals.window.Event){n.dispatchEvent(event)}else{event=new globals.window.CustomEvent(event,{detail:data,cancelable:!0});n.dispatchEvent(event)}return event}var event={on:on,off:off,dispatch:dispatch};_exports.$event=event;function sixDigitHex(hex){return 4===hex.length?["#",hex.substring(1,2),hex.substring(1,2),hex.substring(2,3),hex.substring(2,3),hex.substring(3,4),hex.substring(3,4)].join(""):hex}function componentHex(component){const integer=Math.round(component),bounded=Math.max(0,Math.min(255,integer)),hex=bounded.toString(16);return 1===hex.length?"0"+hex:hex}function is(object,space){for(let i=space.length;i--;){if(null==object[space[i]]){return!1}}return!0}function getParameters(a,b){const params=is(a,"rgb")?{_a:a.r,_b:a.g,_c:a.b,space:"rgb"}:is(a,"xyz")?{_a:a.x,_b:a.y,_c:a.z,_d:0,space:"xyz"}:is(a,"hsl")?{_a:a.h,_b:a.s,_c:a.l,_d:0,space:"hsl"}:is(a,"lab")?{_a:a.l,_b:a.a,_c:a.b,_d:0,space:"lab"}:is(a,"lch")?{_a:a.l,_b:a.c,_c:a.h,_d:0,space:"lch"}:is(a,"cmyk")?{_a:a.c,_b:a.m,_c:a.y,_d:a.k,space:"cmyk"}:{_a:0,_b:0,_c:0,space:"rgb"};params.space=b||params.space;return params}function cieSpace(space){if("lab"===space||"xyz"===space||"lch"===space){return!0}else{return!1}}function hueToRgb(p,q,t){if(0>t)t+=1;if(1<t)t-=1;if(t<1/6)return p+6*(q-p)*t;if(t<1/2)return q;if(t<2/3)return p+6*((q-p)*(2/3-t));return p}class Color{constructor(...inputs){this.init(...inputs)}init(a=0,b=0,c=0,d=0,space="rgb"){// This catches the case when a falsy value is passed like ''
 a=!a?0:a;// Reset all values in case the init function is rerun with new color space
-if(this.space){for(let component in this.space){delete this[this.space[component]]}}if("number"===typeof a){// Allow for the case that we don't need d...
+if(this.space){for(const component in this.space){delete this[this.space[component]]}}if("number"===typeof a){// Allow for the case that we don't need d...
 space="string"===typeof d?d:space;d="string"===typeof d?0:d;// Assign the values straight to the color
 Object.assign(this,{_a:a,_b:b,_c:c,_d:d,space});// If the user gave us an array, make the color from it
 }else if(a instanceof Array){this.space=b||("string"===typeof a[3]?a[3]:a[4])||"rgb";Object.assign(this,{_a:a[0],_b:a[1],_c:a[2],_d:a[3]||0})}else if(a instanceof Object){// Set the object up and assign its values directly
-const values=getParameters(a,b);Object.assign(this,values)}else if("string"===typeof a){if(isRgb.test(a)){const noWhitespace=a.replace(whitespace,""),[_a,_b,_c]=rgb.exec(noWhitespace).slice(1,4).map(v=>parseInt(v));Object.assign(this,{_a,_b,_c,_d:0,space:"rgb"})}else if(isHex.test(a)){const hexParse=v=>parseInt(v,16),[,_a,_b,_c]=hex.exec(sixDigitHex(a)).map(hexParse);Object.assign(this,{_a,_b,_c,_d:0,space:"rgb"})}else throw Error(`Unsupported string format, can't construct Color`)}// Now add the components as a convenience
+const values=getParameters(a,b);Object.assign(this,values)}else if("string"===typeof a){if(isRgb.test(a)){const noWhitespace=a.replace(whitespace,""),[_a,_b,_c]=rgb.exec(noWhitespace).slice(1,4).map(v=>parseInt(v));Object.assign(this,{_a,_b,_c,_d:0,space:"rgb"})}else if(isHex.test(a)){const hexParse=v=>parseInt(v,16),[,_a,_b,_c]=hex.exec(sixDigitHex(a)).map(hexParse);Object.assign(this,{_a,_b,_c,_d:0,space:"rgb"})}else throw Error("Unsupported string format, can't construct Color")}// Now add the components as a convenience
 const{_a,_b,_c,_d}=this,components="rgb"===this.space?{r:_a,g:_b,b:_c}:"xyz"===this.space?{x:_a,y:_b,z:_c}:"hsl"===this.space?{h:_a,s:_b,l:_c}:"lab"===this.space?{l:_a,a:_b,b:_c}:"lch"===this.space?{l:_a,c:_b,h:_c}:"cmyk"===this.space?{c:_a,m:_b,y:_c,k:_d}:{};Object.assign(this,components)}/*
     Conversion Methods
     */rgb(){if("rgb"===this.space){return this}else if(cieSpace(this.space)){// Convert to the xyz color space
 let{x,y,z}=this;if("lab"===this.space||"lch"===this.space){// Get the values in the lab space
-let{l,a,b}=this;if("lch"===this.space){let{c,h}=this;const dToR=Math.PI/180;a=c*Math.cos(dToR*h);b=c*Math.sin(dToR*h)}// Undo the nonlinear function
+let{l,a,b}=this;if("lch"===this.space){const{c,h}=this,dToR=Math.PI/180;a=c*Math.cos(dToR*h);b=c*Math.sin(dToR*h)}// Undo the nonlinear function
 const yL=(l+16)/116,xL=a/500+yL,zL=yL-b/200,ct=16/116,mx=.008856,nm=7.787;x=.95047*(Math.pow(xL,3)>mx?Math.pow(xL,3):(xL-ct)/nm);y=1*(Math.pow(yL,3)>mx?Math.pow(yL,3):(yL-ct)/nm);z=1.08883*(Math.pow(zL,3)>mx?Math.pow(zL,3):(zL-ct)/nm)}// Convert xyz to unbounded rgb values
-const rU=3.2406*x+-1.5372*y+-.4986*z,gU=-.9689*x+1.8758*y+.0415*z,bU=.0557*x+-.204*y+1.057*z;// Convert the values to true rgb values
-let pow=Math.pow,bd=.0031308;const r=rU>bd?1.055*pow(rU,1/2.4)-.055:12.92*rU,g=gU>bd?1.055*pow(gU,1/2.4)-.055:12.92*gU,b=bU>bd?1.055*pow(bU,1/2.4)-.055:12.92*bU,color=new Color(255*r,255*g,255*b);return color}else if("hsl"===this.space){// https://bgrins.github.io/TinyColor/docs/tinycolor.html
+const rU=3.2406*x+-1.5372*y+-.4986*z,gU=-.9689*x+1.8758*y+.0415*z,bU=.0557*x+-.204*y+1.057*z,pow=Math.pow,bd=.0031308,r=rU>bd?1.055*pow(rU,1/2.4)-.055:12.92*rU,g=gU>bd?1.055*pow(gU,1/2.4)-.055:12.92*gU,b=bU>bd?1.055*pow(bU,1/2.4)-.055:12.92*bU,color=new Color(255*r,255*g,255*b);return color}else if("hsl"===this.space){// https://bgrins.github.io/TinyColor/docs/tinycolor.html
 // Get the current hsl values
 let{h,s,l}=this;h/=360;s/=100;l/=100;// If we are grey, then just make the color directly
-if(0===s){l*=255;let color=new Color(l,l,l);return color}// TODO I have no idea what this does :D If you figure it out, tell me!
+if(0===s){l*=255;const color=new Color(l,l,l);return color}// TODO I have no idea what this does :D If you figure it out, tell me!
 const q=.5>l?l*(1+s):l+s-l*s,p=2*l-q,r=255*hueToRgb(p,q,h+1/3),g=255*hueToRgb(p,q,h),b=255*hueToRgb(p,q,h-1/3),color=new Color(r,g,b);return color}else if("cmyk"===this.space){// https://gist.github.com/felipesabino/5066336
 // Get the normalised cmyk values
 const{c,m,y,k}=this,r=255*(1-Math.min(1,c*(1-k)+k)),g=255*(1-Math.min(1,m*(1-k)+k)),b=255*(1-Math.min(1,y*(1-k)+k)),color=new Color(r,g,b);// Get the rgb values
@@ -14662,7 +14660,7 @@ const{_a,_b,_c}=this.rgb(),[r,g,b]=[_a,_b,_c].map(v=>v/255),max=Math.max(r,g,b),
 const{_a,_b,_c}=this.rgb(),[r,g,b]=[_a,_b,_c].map(v=>v/255),k=Math.min(1-r,1-g,1-b);if(1===k){// Catch the black case
 return new Color(0,0,0,1,"cmyk")}const c=(1-r-k)/(1-k),m=(1-g-k)/(1-k),y=(1-b-k)/(1-k),color=new Color(c,m,y,k,"cmyk");return color}/*
     Input and Output methods
-    */_clamped(){let{_a,_b,_c}=this.rgb(),{max,min,round}=Math,format=v=>max(0,min(round(v),255));return[_a,_b,_c].map(format)}toHex(){let[r,g,b]=this._clamped().map(componentHex);return`#${r}${g}${b}`}toString(){return this.toHex()}toRgb(){let[rV,gV,bV]=this._clamped(),string=`rgb(${rV},${gV},${bV})`;return string}toArray(){let{_a,_b,_c,_d,space}=this;return[_a,_b,_c,_d,space]}/*
+    */_clamped(){const{_a,_b,_c}=this.rgb(),{max,min,round}=Math,format=v=>max(0,min(round(v),255));return[_a,_b,_c].map(format)}toHex(){const[r,g,b]=this._clamped().map(componentHex);return`#${r}${g}${b}`}toString(){return this.toHex()}toRgb(){const[rV,gV,bV]=this._clamped(),string=`rgb(${rV},${gV},${bV})`;return string}toArray(){const{_a,_b,_c,_d,space}=this;return[_a,_b,_c,_d,space]}/*
     Generating random colors
     */static random(mode="vibrant",t,u){// Get the math modules
 const{random,round,sin,PI:pi}=Math;// Run the correct generator
@@ -14672,11 +14670,11 @@ if("vibrant"===mode){const l=(81-57)*random()+57,c=(83-45)*random()+45,h=360*ran
 static test(color){return"string"===typeof color&&(isHex.test(color)||isRgb.test(color))}// Test if given value is an rgb object
 static isRgb(color){return color&&"number"===typeof color.r&&"number"===typeof color.g&&"number"===typeof color.b}// Test if given value is a color
 static isColor(color){return color&&(color instanceof Color||this.isRgb(color)||this.test(color))}}_exports.Color=_exports.$ColorDefault=Color;var Color$1={default:Color};_exports.$Color=Color$1;class Point{// Initialize
-constructor(...args){this.init(...args)}init(x,y){let source,base={x:0,y:0// ensure source as object
-};source=Array.isArray(x)?{x:x[0],y:x[1]}:"object"===typeof x?{x:x.x,y:x.y}:{x:x,y:y// merge source
+constructor(...args){this.init(...args)}init(x,y){const base={x:0,y:0// ensure source as object
+},source=Array.isArray(x)?{x:x[0],y:x[1]}:"object"===typeof x?{x:x.x,y:x.y}:{x:x,y:y// merge source
 };this.x=null==source.x?base.x:source.x;this.y=null==source.y?base.y:source.y;return this}// Clone point
 clone(){return new Point(this)}transform(m){return this.clone().transformO(m)}// Transform point with matrix
-transformO(m){if(!Matrix.isMatrixLike(m)){m=new Matrix(m)}let{x,y}=this;// Perform the matrix multiplication
+transformO(m){if(!Matrix.isMatrixLike(m)){m=new Matrix(m)}const{x,y}=this;// Perform the matrix multiplication
 this.x=m.a*x+m.c*y+m.e;this.y=m.b*x+m.d*y+m.f;return this}toArray(){return[this.x,this.y]}}_exports.Point=_exports.$PointDefault=Point;function point(x,y){return new Point(x,y).transform(this.screenCTM().inverse())}var Point$1={default:Point,point:point};_exports.$Point=Point$1;function closeEnough(a,b,threshold){return Math.abs(b-a)<(threshold||1e-6)}class Matrix{constructor(...args){this.init(...args)}// Initialize
 init(source){var base=Matrix.fromArray([1,0,0,1,0,0]);// ensure source as object
 source=source instanceof Element?source.matrixify():"string"===typeof source?Matrix.fromArray(source.split(delimiter).map(parseFloat)):Array.isArray(source)?Matrix.fromArray(source):"object"===typeof source&&Matrix.isMatrixLike(source)?source:"object"===typeof source?new Matrix().transform(source):6===arguments.length?Matrix.fromArray([].slice.call(arguments)):base;// Merge the source matrix with the base matrix
@@ -14684,7 +14682,7 @@ this.a=null!=source.a?source.a:base.a;this.b=null!=source.b?source.b:base.b;this
 clone(){return new Matrix(this)}// Transform a matrix into another matrix by manipulating the space
 transform(o){// Check if o is a matrix and then left multiply it directly
 if(Matrix.isMatrixLike(o)){var matrix=new Matrix(o);return matrix.multiplyO(this)}// Get the proposed transformations and the current transformations
-var t=Matrix.formatTransforms(o),current=this;let{x:ox,y:oy}=new Point(t.ox,t.oy).transform(current);// Construct the resulting matrix
+var t=Matrix.formatTransforms(o),current=this;const{x:ox,y:oy}=new Point(t.ox,t.oy).transform(current);// Construct the resulting matrix
 var transformer=new Matrix().translateO(t.rx,t.ry).lmultiplyO(current).translateO(-ox,-oy).scaleO(t.scaleX,t.scaleY).skewO(t.skewX,t.skewY).shearO(t.shear).rotateO(t.theta).translateO(ox,oy);// If we want the origin at a particular place, we force it there
 if(isFinite(t.px)||isFinite(t.py)){const origin=new Point(ox,oy).transform(transformer),dx=t.px?t.px-origin.x:0,dy=t.py?t.py-origin.y:0;// TODO: Replace t.px with isFinite(t.px)
 transformer.translateO(dx,dy)}// Translate now after positioning
@@ -14693,7 +14691,7 @@ compose(o){if(o.origin){o.originX=o.origin[0];o.originY=o.origin[1]}// Get the p
 var ox=o.originX||0,oy=o.originY||0,sx=o.scaleX||1,sy=o.scaleY||1,lam=o.shear||0,theta=o.rotate||0,tx=o.translateX||0,ty=o.translateY||0,result=new Matrix().translateO(-ox,-oy).scaleO(sx,sy).shearO(lam).rotateO(theta).translateO(tx,ty).lmultiplyO(this).translateO(ox,oy);return result}// Decomposes this matrix into its affine parameters
 decompose(cx=0,cy=0){// Get the parameters from the matrix
 var a=this.a,b=this.b,c=this.c,d=this.d,e=this.e,f=this.f,determinant=a*d-b*c,ccw=0<determinant?1:-1,sx=ccw*Math.sqrt(a*a+b*b),thetaRad=Math.atan2(ccw*b,ccw*a),theta=180/Math.PI*thetaRad,ct=Math.cos(thetaRad),st=Math.sin(thetaRad),lam=(a*c+b*d)/determinant,sy=c*sx/(lam*a-b)||d*sx/(lam*b+a);// Use the translations
-let tx=e-cx+cx*ct*sx+cy*(lam*ct*sx-st*sy),ty=f-cy+cx*st*sx+cy*(lam*st*sx+ct*sy);// Construct the decomposition and return it
+const tx=e-cx+cx*ct*sx+cy*(lam*ct*sx-st*sy),ty=f-cy+cx*st*sx+cy*(lam*st*sx+ct*sy);// Construct the decomposition and return it
 return{// Return the affine parameters
 scaleX:sx,scaleY:sy,shear:lam,rotate:theta,translateX:tx,translateY:ty,originX:cx,originY:cy,// Return the matrix parameters
 a:this.a,b:this.b,c:this.c,d:this.d,e:this.e,f:this.f}}// Left multiplies by the given matrix
@@ -14705,15 +14703,15 @@ var na=d/det,nb=-b/det,nc=-c/det,nd=a/det,ne=-(na*e+nc*f),nf=-(nb*e+nd*f);// Con
 this.a=na;this.b=nb;this.c=nc;this.d=nd;this.e=ne;this.f=nf;return this}inverse(){return this.clone().inverseO()}// Translate matrix
 translate(x,y){return this.clone().translateO(x,y)}translateO(x,y){this.e+=x||0;this.f+=y||0;return this}// Scale matrix
 scale(x,y,cx,cy){return this.clone().scaleO(...arguments)}scaleO(x,y=x,cx=0,cy=0){// Support uniform scaling
-if(3===arguments.length){cy=cx;cx=y;y=x}let{a,b,c,d,e,f}=this;this.a=a*x;this.b=b*y;this.c=c*x;this.d=d*y;this.e=e*x-cx*x+cx;this.f=f*y-cy*y+cy;return this}// Rotate matrix
+if(3===arguments.length){cy=cx;cx=y;y=x}const{a,b,c,d,e,f}=this;this.a=a*x;this.b=b*y;this.c=c*x;this.d=d*y;this.e=e*x-cx*x+cx;this.f=f*y-cy*y+cy;return this}// Rotate matrix
 rotate(r,cx,cy){return this.clone().rotateO(r,cx,cy)}rotateO(r,cx=0,cy=0){// Convert degrees to radians
-r=radians(r);let cos=Math.cos(r),sin=Math.sin(r),{a,b,c,d,e,f}=this;this.a=a*cos-b*sin;this.b=b*cos+a*sin;this.c=c*cos-d*sin;this.d=d*cos+c*sin;this.e=e*cos-f*sin+cy*sin-cx*cos+cx;this.f=f*cos+e*sin-cx*sin-cy*cos+cy;return this}// Flip matrix on x or y, at a given offset
+r=radians(r);const cos=Math.cos(r),sin=Math.sin(r),{a,b,c,d,e,f}=this;this.a=a*cos-b*sin;this.b=b*cos+a*sin;this.c=c*cos-d*sin;this.d=d*cos+c*sin;this.e=e*cos-f*sin+cy*sin-cx*cos+cx;this.f=f*cos+e*sin-cx*sin-cy*cos+cy;return this}// Flip matrix on x or y, at a given offset
 flip(axis,around){return this.clone().flipO(axis,around)}flipO(axis,around){return"x"===axis?this.scaleO(-1,1,around,0):"y"===axis?this.scaleO(1,-1,0,around):this.scaleO(-1,-1,axis,around||axis);// Define an x, y flip point
 }// Shear matrix
-shear(a,cx,cy){return this.clone().shearO(a,cx,cy)}shearO(lx,cx=0,cy=0){let{a,b,c,d,e,f}=this;this.a=a+b*lx;this.c=c+d*lx;this.e=e+f*lx-cy*lx;return this}// Skew Matrix
+shear(a,cx,cy){return this.clone().shearO(a,cx,cy)}shearO(lx,cx=0,cy=0){const{a,b,c,d,e,f}=this;this.a=a+b*lx;this.c=c+d*lx;this.e=e+f*lx-cy*lx;return this}// Skew Matrix
 skew(x,y,cx,cy){return this.clone().skewO(...arguments)}skewO(x,y=x,cx=0,cy=0){// support uniformal skew
 if(3===arguments.length){cy=cx;cx=y;y=x}// Convert degrees to radians
-x=radians(x);y=radians(y);let lx=Math.tan(x),ly=Math.tan(y),{a,b,c,d,e,f}=this;this.a=a+b*lx;this.b=b+a*ly;this.c=c+d*lx;this.d=d+c*ly;this.e=e+f*lx-cy*lx;this.f=f+e*ly-cx*ly;return this}// SkewX
+x=radians(x);y=radians(y);const lx=Math.tan(x),ly=Math.tan(y),{a,b,c,d,e,f}=this;this.a=a+b*lx;this.b=b+a*ly;this.c=c+d*lx;this.d=d+c*ly;this.e=e+f*lx-cy*lx;this.f=f+e*ly-cx*ly;return this}// SkewX
 skewX(x,cx,cy){return this.skew(x,0,cx,cy)}skewXO(x,cx,cy){return this.skewO(x,0,cx,cy)}// SkewY
 skewY(y,cx,cy){return this.skew(0,y,cx,cy)}skewYO(y,cx,cy){return this.skewO(0,y,cx,cy)}// Transform around a center point
 aroundO(cx,cy,matrix){var dx=cx||0,dy=cy||0;return this.translateO(-dx,-dy).lmultiplyO(matrix).translateO(dx,dy)}around(cx,cy,matrix){return this.clone().aroundO(cx,cy,matrix)}// Check if two matrices are equal
@@ -14727,11 +14725,11 @@ o.a=a;o.b=b;o.c=c;o.d=d;o.e=e;o.f=f;return o}}_exports.Matrix=_exports.$MatrixDe
      This is needed because FF does not return the transformation matrix
      for the inner coordinate system when getScreenCTM() is called on nested svgs.
      However all other Browsers do that */if("function"===typeof this.isRoot&&!this.isRoot()){var rect=this.rect(1,1),m=rect.node.getScreenCTM();rect.remove();return new Matrix(m)}return new Matrix(this.node.getScreenCTM())}register(Matrix,"Matrix");var Matrix$1={default:Matrix,ctm:ctm,screenCTM:screenCTM};_exports.$Matrix=Matrix$1;function parser(){// Reuse cached element if possible
-if(!parser.nodes){let svg=makeInstance().size(2,0);svg.node.style.cssText=["opacity: 0","position: absolute","left: -100%","top: -100%","overflow: hidden"].join(";");svg.attr("focusable","false");let path=svg.path().node;parser.nodes={svg,path}}if(!parser.nodes.svg.node.parentNode){let b=globals.document.body||globals.document.documentElement;parser.nodes.svg.addTo(b)}return parser.nodes}var parser$1={default:parser};_exports.$parser=parser$1;function isNulledBox(box){return!box.width&&!box.height&&!box.x&&!box.y}function domContains(node){return node===globals.document||(globals.document.documentElement.contains||function(node){// This is IE - it does not support contains() for top-level SVGs
+if(!parser.nodes){const svg=makeInstance().size(2,0);svg.node.style.cssText=["opacity: 0","position: absolute","left: -100%","top: -100%","overflow: hidden"].join(";");svg.attr("focusable","false");svg.attr("aria-hidden","true");const path=svg.path().node;parser.nodes={svg,path}}if(!parser.nodes.svg.node.parentNode){const b=globals.document.body||globals.document.documentElement;parser.nodes.svg.addTo(b)}return parser.nodes}var parser$1={default:parser};_exports.$parser=parser$1;function isNulledBox(box){return!box.width&&!box.height&&!box.x&&!box.y}function domContains(node){return node===globals.document||(globals.document.documentElement.contains||function(node){// This is IE - it does not support contains() for top-level SVGs
 while(node.parentNode){node=node.parentNode}return node===globals.document}).call(globals.document.documentElement,node)}class Box{constructor(...args){this.init(...args)}init(source){var base=[0,0,0,0];source="string"===typeof source?source.split(delimiter).map(parseFloat):Array.isArray(source)?source:"object"===typeof source?[null!=source.left?source.left:source.x,null!=source.top?source.top:source.y,source.width,source.height]:4===arguments.length?[].slice.call(arguments):base;this.x=source[0]||0;this.y=source[1]||0;this.width=this.w=source[2]||0;this.height=this.h=source[3]||0;// Add more bounding box properties
 this.x2=this.x+this.w;this.y2=this.y+this.h;this.cx=this.x+this.w/2;this.cy=this.y+this.h/2;return this}// Merge rect box with another, return a new instance
-merge(box){let x=Math.min(this.x,box.x),y=Math.min(this.y,box.y),width=Math.max(this.x+this.width,box.x+box.width)-x,height=Math.max(this.y+this.height,box.y+box.height)-y;return new Box(x,y,width,height)}transform(m){if(!(m instanceof Matrix)){m=new Matrix(m)}let xMin=1/0,xMax=-Infinity,yMin=1/0,yMax=-Infinity,pts=[new Point(this.x,this.y),new Point(this.x2,this.y),new Point(this.x,this.y2),new Point(this.x2,this.y2)];pts.forEach(function(p){p=p.transform(m);xMin=Math.min(xMin,p.x);xMax=Math.max(xMax,p.x);yMin=Math.min(yMin,p.y);yMax=Math.max(yMax,p.y)});return new Box(xMin,yMin,xMax-xMin,yMax-yMin)}addOffset(){// offset by window scroll position, because getBoundingClientRect changes when window is scrolled
-this.x+=globals.window.pageXOffset;this.y+=globals.window.pageYOffset;return this}toString(){return this.x+" "+this.y+" "+this.width+" "+this.height}toArray(){return[this.x,this.y,this.width,this.height]}isNulled(){return isNulledBox(this)}}_exports.Box=_exports.$BoxDefault=Box;function getBox(cb,retry){let box;try{box=cb(this.node);if(isNulledBox(box)&&!domContains(this.node)){throw new Error("Element not in the dom")}}catch(e){box=retry(this)}return box}function bbox(){return new Box(getBox.call(this,node=>node.getBBox(),el=>{try{let clone=el.clone().addTo(parser().svg).show(),box=clone.node.getBBox();clone.remove();return box}catch(e){throw new Error("Getting bbox of element \""+el.node.nodeName+"\" is not possible. "+e.toString())}}))}function rbox(el){let box=new Box(getBox.call(this,node=>node.getBoundingClientRect(),el=>{throw new Error("Getting rbox of element \""+el.node.nodeName+"\" is not possible")}));if(el)return box.transform(el.screenCTM().inverse());return box.addOffset()}registerMethods({viewbox:{viewbox(x,y,width,height){// act as getter
+merge(box){const x=Math.min(this.x,box.x),y=Math.min(this.y,box.y),width=Math.max(this.x+this.width,box.x+box.width)-x,height=Math.max(this.y+this.height,box.y+box.height)-y;return new Box(x,y,width,height)}transform(m){if(!(m instanceof Matrix)){m=new Matrix(m)}let xMin=1/0,xMax=-Infinity,yMin=1/0,yMax=-Infinity;const pts=[new Point(this.x,this.y),new Point(this.x2,this.y),new Point(this.x,this.y2),new Point(this.x2,this.y2)];pts.forEach(function(p){p=p.transform(m);xMin=Math.min(xMin,p.x);xMax=Math.max(xMax,p.x);yMin=Math.min(yMin,p.y);yMax=Math.max(yMax,p.y)});return new Box(xMin,yMin,xMax-xMin,yMax-yMin)}addOffset(){// offset by window scroll position, because getBoundingClientRect changes when window is scrolled
+this.x+=globals.window.pageXOffset;this.y+=globals.window.pageYOffset;return this}toString(){return this.x+" "+this.y+" "+this.width+" "+this.height}toArray(){return[this.x,this.y,this.width,this.height]}isNulled(){return isNulledBox(this)}}_exports.Box=_exports.$BoxDefault=Box;function getBox(cb,retry){let box;try{box=cb(this.node);if(isNulledBox(box)&&!domContains(this.node)){throw new Error("Element not in the dom")}}catch(e){box=retry(this)}return box}function bbox(){return new Box(getBox.call(this,node=>node.getBBox(),el=>{try{const clone=el.clone().addTo(parser().svg).show(),box=clone.node.getBBox();clone.remove();return box}catch(e){throw new Error("Getting bbox of element \""+el.node.nodeName+"\" is not possible. "+e.toString())}}))}function rbox(el){const box=new Box(getBox.call(this,node=>node.getBoundingClientRect(),el=>{throw new Error("Getting rbox of element \""+el.node.nodeName+"\" is not possible")}));if(el)return box.transform(el.screenCTM().inverse());return box.addOffset()}registerMethods({viewbox:{viewbox(x,y,width,height){// act as getter
 if(null==x)return new Box(this.attr("viewBox"));// act as setter
 return this.attr("viewBox",new Box(x,y,width,height))},zoom(level,point){let width=this.node.clientWidth,height=this.node.clientHeight;const v=this.viewbox();// Firefox does not support clientHeight and returns 0
 // https://bugzilla.mozilla.org/show_bug.cgi?id=874811
@@ -14742,12 +14740,12 @@ if("number"===typeof arr)return this;this.length=0;this.push(...arr)});_exports.
 if(reserved.includes(name))return obj;// Don't add private methods
 if("_"===name[0])return obj;// Relay every call to each()
 obj[name]=function(...attrs){return this.each(name,...attrs)};return obj},{});extend(List,methods)};var List$1={default:List};_exports.$List=List$1;function baseFind(query,parent){return new List(map((parent||globals.document).querySelectorAll(query),function(node){return adopt(node)}))}// Scoped find method
-function find(query){return baseFind(query,this.node)}function findOne(query){return adopt(this.node.querySelector(query))}var selector={default:baseFind,find:find,findOne:findOne};_exports.$selector=selector;class EventTarget extends Base{constructor({events={}}={}){super();this.events=events}addEventListener(){}dispatch(event,data){return dispatch(this,event,data)}dispatchEvent(event){const bag=this.getEventHolder().events;if(!bag)return!0;const events=bag[event.type];for(let i in events){for(let j in events[i]){events[i][j](event)}}return!event.defaultPrevented}// Fire given event
+function find(query){return baseFind(query,this.node)}function findOne(query){return adopt(this.node.querySelector(query))}var selector={default:baseFind,find:find,findOne:findOne};_exports.$selector=selector;class EventTarget extends Base{constructor({events={}}={}){super();this.events=events}addEventListener(){}dispatch(event,data){return dispatch(this,event,data)}dispatchEvent(event){const bag=this.getEventHolder().events;if(!bag)return!0;const events=bag[event.type];for(const i in events){for(const j in events[i]){events[i][j](event)}}return!event.defaultPrevented}// Fire given event
 fire(event,data){this.dispatch(event,data);return this}getEventHolder(){return this}getEventTarget(){return this}// Unbind event from listener
 off(event,listener){off(this,event,listener);return this}// Bind given event to listener
 on(event,listener,binding,options){on(this,event,listener,binding,options);return this}removeEventListener(){}}_exports.EventTarget=_exports.$EventTargetDefault=EventTarget;register(EventTarget,"EventTarget");var EventTarget$1={default:EventTarget};_exports.$EventTarget=EventTarget$1;function noop(){}// Default animation values
-let timeline={duration:400,ease:">",delay:0// Default attribute values
-};_exports.timeline=timeline;let attrs={// fill and stroke
+const timeline={duration:400,ease:">",delay:0// Default attribute values
+};_exports.timeline=timeline;const attrs={// fill and stroke
 "fill-opacity":1,"stroke-opacity":1,"stroke-width":0,"stroke-linejoin":"miter","stroke-linecap":"butt",fill:"#000000",stroke:"#000000",opacity:1,// position
 x:0,y:0,cx:0,cy:0,// size
 width:0,height:0,// radius
@@ -14771,7 +14769,7 @@ times(number){number=new SVGNumber(number);return new SVGNumber(this*number,this
 divide(number){number=new SVGNumber(number);return new SVGNumber(this/number,this.unit||number.unit)}convert(unit){return new SVGNumber(this.value,unit)}}_exports.Number=_exports.$SVGNumberDefault=SVGNumber;var SVGNumber$1={default:SVGNumber};_exports.$SVGNumber=SVGNumber$1;const hooks=[];function registerAttrHook(fn){hooks.push(fn)}// Set svg element attribute
 function attr(attr,val,ns){// act as full getter
 if(null==attr){// get an object of attributes
-attr={};val=this.node.attributes;for(let node of val){attr[node.nodeName]=isNumber.test(node.nodeValue)?parseFloat(node.nodeValue):node.nodeValue}return attr}else if(attr instanceof Array){// loop through array and get all values
+attr={};val=this.node.attributes;for(const node of val){attr[node.nodeName]=isNumber.test(node.nodeValue)?parseFloat(node.nodeValue):node.nodeValue}return attr}else if(attr instanceof Array){// loop through array and get all values
 return attr.reduce((last,curr)=>{last[curr]=this.attr(curr);return last},{})}else if("object"===typeof attr&&attr.constructor===Object){// apply every attribute individually if an object is passed
 for(val in attr)this.attr(val,attr[val])}else if(null===val){// remove value
 this.node.removeAttribute(attr)}else if(null==val){// act as a getter if the first and only argument is not an object
@@ -14820,9 +14818,9 @@ if(null==svgOrFn||"function"===typeof svgOrFn){// The default for exports is, th
 outerHTML=null==outerHTML?!0:outerHTML;// write svgjs data to the dom
 this.writeDataToDom();let current=this;// An export modifier was passed
 if(null!=svgOrFn){current=adopt(current.node.cloneNode(!0));// If the user wants outerHTML we need to process this node, too
-if(outerHTML){let result=svgOrFn(current);current=result||current;// The user does not want this node? Well, then he gets nothing
+if(outerHTML){const result=svgOrFn(current);current=result||current;// The user does not want this node? Well, then he gets nothing
 if(!1===result)return""}// Deep loop through all children and apply modifier
-current.each(function(){let result=svgOrFn(this),_this=result||this;// If modifier returns false, discard node
+current.each(function(){const result=svgOrFn(this),_this=result||this;// If modifier returns false, discard node
 if(!1===result){this.remove();// If modifier returns new node, use it
 }else if(result&&this!==_this){this.replace(_this)}},!0)}// Return outer or inner content
 return outerHTML?current.node.outerHTML:current.node.innerHTML}// Act as setter if we got a string
@@ -14830,7 +14828,7 @@ return outerHTML?current.node.outerHTML:current.node.innerHTML}// Act as setter 
 outerHTML=null==outerHTML?!1:outerHTML;// Create temporary holder
 well=globals.document.createElementNS(ns,"svg");fragment=globals.document.createDocumentFragment();// Dump raw svg
 well.innerHTML=svgOrFn;// Transplant nodes into the fragment
-for(len=well.children.length;len--;){fragment.appendChild(well.firstElementChild)}let parent=this.parent();// Add the whole fragment at once
+for(len=well.children.length;len--;){fragment.appendChild(well.firstElementChild)}const parent=this.parent();// Add the whole fragment at once
 return outerHTML?this.replace(fragment)&&parent:this.add(fragment)}words(text){// This is faster than removing all children and adding a new one
 this.node.textContent=text;return this}// write svgjs data to the dom
 writeDataToDom(){// dump variables recursively
@@ -14843,16 +14841,16 @@ cx(x){return null==x?this.x()+this.width()/2:this.x(x-this.width()/2)}// Move by
 cy(y){return null==y?this.y()+this.height()/2:this.y(y-this.height()/2)}// Get defs
 defs(){return this.root().defs()}// Relative move over x and y axes
 dmove(x,y){return this.dx(x).dy(y)}// Relative move over x axis
-dx(x){return this.x(new SVGNumber(x).plus(this.x()))}// Relative move over y axis
-dy(y){return this.y(new SVGNumber(y).plus(this.y()))}// Get parent document
-root(){let p=this.parent(getClass(root));return p&&p.root()}getEventHolder(){return this}// Set height of element
+dx(x=0){return this.x(new SVGNumber(x).plus(this.x()))}// Relative move over y axis
+dy(y=0){return this.y(new SVGNumber(y).plus(this.y()))}// Get parent document
+root(){const p=this.parent(getClass(root));return p&&p.root()}getEventHolder(){return this}// Set height of element
 height(height){return this.attr("height",height)}// Checks whether the given point inside the bounding box of the element
-inside(x,y){let box=this.bbox();return x>box.x&&y>box.y&&x<box.x+box.width&&y<box.y+box.height}// Move element to given x and y values
+inside(x,y){const box=this.bbox();return x>box.x&&y>box.y&&x<box.x+box.width&&y<box.y+box.height}// Move element to given x and y values
 move(x,y){return this.x(x).y(y)}// return array of all ancestors of given type up to the root svg
-parents(until=globals.document){until=makeInstance(until);let parents=new List,parent=this;while((parent=parent.parent())&&parent.node!==until.node&&parent.node!==globals.document){parents.push(parent)}return parents}// Get referenced element form attribute value
+parents(until=globals.document){until=makeInstance(until);const parents=new List;let parent=this;while((parent=parent.parent())&&parent.node!==until.node&&parent.node!==globals.document){parents.push(parent)}return parents}// Get referenced element form attribute value
 reference(attr){attr=this.attr(attr);if(!attr)return null;const m=attr.match(reference);return m?makeInstance(m[1]):null}// set given data to the elements data property
 setData(o){this.dom=o;return this}// Set element size to given width and height
-size(width,height){let p=proportionalSize(this,width,height);return this.width(new SVGNumber(p.width)).height(new SVGNumber(p.height))}// Set width of element
+size(width,height){const p=proportionalSize(this,width,height);return this.width(new SVGNumber(p.width)).height(new SVGNumber(p.height))}// Set width of element
 width(width){return this.attr("width",width)}// write svgjs data to the dom
 writeDataToDom(){// remove previously set data
 this.node.removeAttribute("svgjs:data");if(Object.keys(this.dom).length){this.node.setAttribute("svgjs:data",JSON.stringify(this.dom));// see #428
@@ -14946,11 +14944,11 @@ x-=box.x;y-=box.y;// move every point
 if(!isNaN(x)&&!isNaN(y)){for(var i=this.length-1;0<=i;i--){this[i]=[this[i][0]+x,this[i][1]+y]}}return this},// Resize poly string
 size(width,height){var i,box=this.bbox();// recalculate position of all points according to new size
 for(i=this.length-1;0<=i;i--){if(box.width)this[i][0]=(this[i][0]-box.x)*width/box.width+box.x;if(box.height)this[i][1]=(this[i][1]-box.y)*height/box.height+box.y}return this},// Get bounding box of points
-bbox(){var maxX=-Infinity,maxY=-Infinity,minX=1/0,minY=1/0;this.forEach(function(el){maxX=Math.max(el[0],maxX);maxY=Math.max(el[1],maxY);minX=Math.min(el[0],minX);minY=Math.min(el[1],minY)});return{x:minX,y:minY,width:maxX-minX,height:maxY-minY}}});var PointArray$1={default:PointArray};_exports.$PointArray=PointArray$1;let MorphArray=PointArray;// Move by left top corner over x-axis
+bbox(){var maxX=-Infinity,maxY=-Infinity,minX=1/0,minY=1/0;this.forEach(function(el){maxX=Math.max(el[0],maxX);maxY=Math.max(el[1],maxY);minX=Math.min(el[0],minX);minY=Math.min(el[1],minY)});return{x:minX,y:minY,width:maxX-minX,height:maxY-minY}}});var PointArray$1={default:PointArray};_exports.$PointArray=PointArray$1;const MorphArray=PointArray;// Move by left top corner over x-axis
 _exports.MorphArray=MorphArray;function x$1(x){return null==x?this.bbox().x:this.move(x,this.bbox().y)}// Move by left top corner over y-axis
 function y$1(y){return null==y?this.bbox().y:this.move(this.bbox().x,y)}// Set width of element
-function width$1(width){let b=this.bbox();return null==width?b.width:this.size(width,b.height)}// Set height of element
-function height$1(height){let b=this.bbox();return null==height?b.height:this.size(b.width,height)}var pointed={MorphArray:MorphArray,x:x$1,y:y$1,width:width$1,height:height$1};_exports.$pointed=pointed;class Line extends Shape{// Initialize node
+function width$1(width){const b=this.bbox();return null==width?b.width:this.size(width,b.height)}// Set height of element
+function height$1(height){const b=this.bbox();return null==height?b.height:this.size(b.width,height)}var pointed={MorphArray:MorphArray,x:x$1,y:y$1,width:width$1,height:height$1};_exports.$pointed=pointed;class Line extends Shape{// Initialize node
 constructor(node){super(nodeOrNew("line",node),node)}// Get array
 array(){return new PointArray([[this.attr("x1"),this.attr("y1")],[this.attr("x2"),this.attr("y2")]])}// Overwrite native plot() method
 plot(x1,y1,x2,y2){if(null==x1){return this.array()}else if("undefined"!==typeof y1){x1={x1:x1,y1:y1,x2:x2,y2:y2}}else{x1=new PointArray(x1).toLine()}return this.attr(x1)}// Move by left top corner
@@ -14972,7 +14970,7 @@ marker:wrapWithAttrCheck(function(width,height,block){// Set default viewbox to 
 return this.put(new Marker).size(width,height).ref(width/2,height/2).viewbox(0,0,width,height).attr("orient","auto").update(block)})},marker:{// Create and attach markers
 marker(marker,width,height,block){var attr=["marker"];// Build attribute name
 if("all"!==marker)attr.push(marker);attr=attr.join("-");// Set marker attribute
-marker=arguments[1]instanceof Marker?arguments[1]:this.defs().marker(width,height,block);return this.attr(attr,marker)}}});register(Marker,"Marker");var Marker$1={default:Marker};_exports.$Marker=Marker$1;function makeSetterGetter(k,f){return function(v){if(null==v)return this[v];this[k]=v;if(f)f.call(this);return this}}let easing={"-":function(pos){return pos},"<>":function(pos){return-Math.cos(pos*Math.PI)/2+.5},">":function(pos){return Math.sin(pos*Math.PI/2)},"<":function(pos){return-Math.cos(pos*Math.PI/2)+1},bezier:function(x1,y1,x2,y2){// see https://www.w3.org/TR/css-easing-1/#cubic-bezier-algo
+marker=arguments[1]instanceof Marker?arguments[1]:this.defs().marker(width,height,block);return this.attr(attr,marker)}}});register(Marker,"Marker");var Marker$1={default:Marker};_exports.$Marker=Marker$1;function makeSetterGetter(k,f){return function(v){if(null==v)return this[v];this[k]=v;if(f)f.call(this);return this}}const easing={"-":function(pos){return pos},"<>":function(pos){return-Math.cos(pos*Math.PI)/2+.5},">":function(pos){return Math.sin(pos*Math.PI/2)},"<":function(pos){return-Math.cos(pos*Math.PI/2)+1},bezier:function(x1,y1,x2,y2){// see https://www.w3.org/TR/css-easing-1/#cubic-bezier-algo
 return function(t){if(0>t){if(0<x1){return y1/x1*t}else if(0<x2){return y2/x2*t}else{return 0}}else if(1<t){if(1>x2){return(1-y2)/(1-x2)*t+(y2-x2)/(1-x2)}else if(1>x1){return(1-y1)/(1-x1)*t+(y1-x1)/(1-x1)}else{return 1}}else{return 3*t*Math.pow(1-t,2)*y1+3*Math.pow(t,2)*(1-t)*y2+Math.pow(t,3)}}},// see https://www.w3.org/TR/css-easing-1/#step-timing-function-algo
 steps:function(steps,stepPosition="end"){// deal with "jump-" prefix
 stepPosition=stepPosition.split("-").reverse()[0];let jumps=steps;if("none"===stepPosition){--jumps}else if("both"===stepPosition){++jumps}// The beforeFlag is essentially useless
@@ -14990,7 +14988,7 @@ var velocity=c.velocity||0,acceleration=-this.d*velocity-this.k*(current-target)
 // Store the velocity
 c.velocity=velocity+acceleration*dt;// Figure out if we have converged, and if so, pass the value
 c.done=.002>Math.abs(target-newPosition)+Math.abs(velocity);return c.done?target:newPosition}}_exports.Spring$1=_exports.Spring=Spring;extend(Spring,{duration:makeSetterGetter("_duration",recalculate),overshoot:makeSetterGetter("_overshoot",recalculate)});class PID extends Controller{constructor(p,i,d,windup){super();p=null==p?.1:p;i=null==i?.01:i;d=null==d?0:d;windup=null==windup?1e3:windup;this.p(p).i(i).d(d).windup(windup)}step(current,target,dt,c){if("string"===typeof current)return current;c.done=dt===1/0;if(dt===1/0)return target;if(0===dt)return current;var p=target-current,i=(c.integral||0)+p*dt,d=(p-(c.error||0))/dt,windup=this.windup;// antiwindup
-if(!1!==windup){i=Math.max(-windup,Math.min(i,windup))}c.error=p;c.integral=i;c.done=.001>Math.abs(p);return c.done?target:current+(this.P*p+this.I*i+this.D*d)}}_exports.PID$1=_exports.PID=PID;extend(PID,{windup:makeSetterGetter("windup"),p:makeSetterGetter("P"),i:makeSetterGetter("I"),d:makeSetterGetter("D")});var Controller$1={easing:easing,Stepper:Stepper,Ease:Ease,Controller:Controller,Spring:Spring,PID:PID};_exports.$Controller=Controller$1;const PathArray=subClassArray("PathArray",SVGArray);_exports.PathArray=_exports.$PathArrayDefault=PathArray;function pathRegReplace(a,b,c,d){return c+d.replace(dots," .")}function arrayToString(a){for(var i=0,il=a.length,s="";i<il;i++){s+=a[i][0];if(null!=a[i][1]){s+=a[i][1];if(null!=a[i][2]){s+=" ";s+=a[i][2];if(null!=a[i][3]){s+=" ";s+=a[i][3];s+=" ";s+=a[i][4];if(null!=a[i][5]){s+=" ";s+=a[i][5];s+=" ";s+=a[i][6];if(null!=a[i][7]){s+=" ";s+=a[i][7]}}}}}}return s+" "}const pathHandlers={M:function(c,p,p0){p.x=p0.x=c[0];p.y=p0.y=c[1];return["M",p.x,p.y]},L:function(c,p){p.x=c[0];p.y=c[1];return["L",c[0],c[1]]},H:function(c,p){p.x=c[0];return["H",c[0]]},V:function(c,p){p.y=c[0];return["V",c[0]]},C:function(c,p){p.x=c[4];p.y=c[5];return["C",c[0],c[1],c[2],c[3],c[4],c[5]]},S:function(c,p){p.x=c[2];p.y=c[3];return["S",c[0],c[1],c[2],c[3]]},Q:function(c,p){p.x=c[2];p.y=c[3];return["Q",c[0],c[1],c[2],c[3]]},T:function(c,p){p.x=c[0];p.y=c[1];return["T",c[0],c[1]]},Z:function(c,p,p0){p.x=p0.x;p.y=p0.y;return["Z"]},A:function(c,p){p.x=c[5];p.y=c[6];return["A",c[0],c[1],c[2],c[3],c[4],c[5],c[6]]}};let mlhvqtcsaz="mlhvqtcsaz".split("");for(var i=0,il=mlhvqtcsaz.length;i<il;++i){pathHandlers[mlhvqtcsaz[i]]=function(i){return function(c,p,p0){if("H"===i)c[0]=c[0]+p.x;else if("V"===i)c[0]=c[0]+p.y;else if("A"===i){c[5]=c[5]+p.x;c[6]=c[6]+p.y}else{for(var j=0,jl=c.length;j<jl;++j){c[j]=c[j]+(j%2?p.y:p.x)}}return pathHandlers[i](c,p,p0)}}(mlhvqtcsaz[i].toUpperCase())}extend(PathArray,{// Convert array to string
+if(!1!==windup){i=Math.max(-windup,Math.min(i,windup))}c.error=p;c.integral=i;c.done=.001>Math.abs(p);return c.done?target:current+(this.P*p+this.I*i+this.D*d)}}_exports.PID$1=_exports.PID=PID;extend(PID,{windup:makeSetterGetter("windup"),p:makeSetterGetter("P"),i:makeSetterGetter("I"),d:makeSetterGetter("D")});var Controller$1={easing:easing,Stepper:Stepper,Ease:Ease,Controller:Controller,Spring:Spring,PID:PID};_exports.$Controller=Controller$1;const PathArray=subClassArray("PathArray",SVGArray);_exports.PathArray=_exports.$PathArrayDefault=PathArray;function pathRegReplace(a,b,c,d){return c+d.replace(dots," .")}function arrayToString(a){for(var i=0,il=a.length,s="";i<il;i++){s+=a[i][0];if(null!=a[i][1]){s+=a[i][1];if(null!=a[i][2]){s+=" ";s+=a[i][2];if(null!=a[i][3]){s+=" ";s+=a[i][3];s+=" ";s+=a[i][4];if(null!=a[i][5]){s+=" ";s+=a[i][5];s+=" ";s+=a[i][6];if(null!=a[i][7]){s+=" ";s+=a[i][7]}}}}}}return s+" "}const pathHandlers={M:function(c,p,p0){p.x=p0.x=c[0];p.y=p0.y=c[1];return["M",p.x,p.y]},L:function(c,p){p.x=c[0];p.y=c[1];return["L",c[0],c[1]]},H:function(c,p){p.x=c[0];return["H",c[0]]},V:function(c,p){p.y=c[0];return["V",c[0]]},C:function(c,p){p.x=c[4];p.y=c[5];return["C",c[0],c[1],c[2],c[3],c[4],c[5]]},S:function(c,p){p.x=c[2];p.y=c[3];return["S",c[0],c[1],c[2],c[3]]},Q:function(c,p){p.x=c[2];p.y=c[3];return["Q",c[0],c[1],c[2],c[3]]},T:function(c,p){p.x=c[0];p.y=c[1];return["T",c[0],c[1]]},Z:function(c,p,p0){p.x=p0.x;p.y=p0.y;return["Z"]},A:function(c,p){p.x=c[5];p.y=c[6];return["A",c[0],c[1],c[2],c[3],c[4],c[5],c[6]]}},mlhvqtcsaz="mlhvqtcsaz".split("");for(var i=0,il=mlhvqtcsaz.length;i<il;++i){pathHandlers[mlhvqtcsaz[i]]=function(i){return function(c,p,p0){if("H"===i)c[0]=c[0]+p.x;else if("V"===i)c[0]=c[0]+p.y;else if("A"===i){c[5]=c[5]+p.x;c[6]=c[6]+p.y}else{for(var j=0,jl=c.length;j<jl;++j){c[j]=c[j]+(j%2?p.y:p.x)}}return pathHandlers[i](c,p,p0)}}(mlhvqtcsaz[i].toUpperCase())}extend(PathArray,{// Convert array to string
 toString(){return arrayToString(this)},// Move path string
 move(x,y){// get bounding box of current situation
 var box=this.bbox();// get relative offset
@@ -15028,7 +15026,7 @@ if(isPathLetter.test(array[index])){s=array[index];++index;// If last letter was
 }else if("M"===s){s="L"}else if("m"===s){s="l"}result.push(pathHandlers[s].call(null,array.slice(index,index=index+paramCnt[s.toUpperCase()]).map(parseFloat),p,p0))}while(len>index);return result},// Get bounding box of path
 bbox(){parser().path.setAttribute("d",this.toString());return parser.nodes.path.getBBox()}});var PathArray$1={default:PathArray,pathRegReplace:pathRegReplace};_exports.$PathArray=PathArray$1;class Morphable{constructor(stepper){this._stepper=stepper||new Ease("-");this._from=null;this._to=null;this._type=null;this._context=null;this._morphObj=null}from(val){if(null==val){return this._from}this._from=this._set(val);return this}to(val){if(null==val){return this._to}this._to=this._set(val);return this}type(type){// getter
 if(null==type){return this._type}// setter
-this._type=type;return this}_set(value){if(!this._type){var type=typeof value;if("number"===type){this.type(SVGNumber)}else if("string"===type){if(Color.isColor(value)){this.type(Color)}else if(delimiter.test(value)){this.type(pathLetters.test(value)?PathArray:SVGArray)}else if(numberAndUnit.test(value)){this.type(SVGNumber)}else{this.type(NonMorphable)}}else if(-1<morphableTypes.indexOf(value.constructor)){this.type(value.constructor)}else if(Array.isArray(value)){this.type(SVGArray)}else if("object"===type){this.type(ObjectBag)}else{this.type(NonMorphable)}}var result=new this._type(value);if(this._type===Color){result=this._to?result[this._to[4]]():this._from?result[this._from[4]]():result}result=result.toArray();this._morphObj=this._morphObj||new this._type;this._context=this._context||Array.apply(null,Array(result.length)).map(Object).map(function(o){o.done=!0;return o});return result}stepper(stepper){if(null==stepper)return this._stepper;this._stepper=stepper;return this}done(){var complete=this._context.map(this._stepper.done).reduce(function(last,curr){return last&&curr},!0);return complete}at(pos){var _this=this;return this._morphObj.fromArray(this._from.map(function(i,index){return _this._stepper.step(i,_this._to[index],pos,_this._context[index],_this._context)}))}}_exports.Morphable=_exports.$MorphableDefault=Morphable;class NonMorphable{constructor(...args){this.init(...args)}init(val){val=Array.isArray(val)?val[0]:val;this.value=val;return this}valueOf(){return this.value}toArray(){return[this.value]}}_exports.NonMorphable$1=_exports.NonMorphable=NonMorphable;class TransformBag{constructor(...args){this.init(...args)}init(obj){if(Array.isArray(obj)){obj={scaleX:obj[0],scaleY:obj[1],shear:obj[2],rotate:obj[3],translateX:obj[4],translateY:obj[5],originX:obj[6],originY:obj[7]}}Object.assign(this,TransformBag.defaults,obj);return this}toArray(){var v=this;return[v.scaleX,v.scaleY,v.shear,v.rotate,v.translateX,v.translateY,v.originX,v.originY]}}_exports.TransformBag$1=_exports.TransformBag=TransformBag;TransformBag.defaults={scaleX:1,scaleY:1,shear:0,rotate:0,translateX:0,translateY:0,originX:0,originY:0};class ObjectBag{constructor(...args){this.init(...args)}init(objOrArr){this.values=[];if(Array.isArray(objOrArr)){this.values=objOrArr;return}objOrArr=objOrArr||{};var entries=[];for(let i in objOrArr){entries.push([i,objOrArr[i]])}entries.sort((a,b)=>{return a[0]-b[0]});this.values=entries.reduce((last,curr)=>last.concat(curr),[]);return this}valueOf(){for(var obj={},arr=this.values,i=0,len=arr.length;i<len;i+=2){obj[arr[i]]=arr[i+1]}return obj}toArray(){return this.values}}_exports.ObjectBag$1=_exports.ObjectBag=ObjectBag;const morphableTypes=[NonMorphable,TransformBag,ObjectBag];function registerMorphableType(type=[]){morphableTypes.push(...[].concat(type))}function makeMorphable(){extend(morphableTypes,{to(val){return new Morphable().type(this.constructor).from(this.valueOf()).to(val)},fromArray(arr){this.init(arr);return this}})}var Morphable$1={default:Morphable,NonMorphable:NonMorphable,TransformBag:TransformBag,ObjectBag:ObjectBag,registerMorphableType:registerMorphableType,makeMorphable:makeMorphable};_exports.$Morphable=Morphable$1;class Path extends Shape{// Initialize node
+this._type=type;return this}_set(value){if(!this._type){var type=typeof value;if("number"===type){this.type(SVGNumber)}else if("string"===type){if(Color.isColor(value)){this.type(Color)}else if(delimiter.test(value)){this.type(pathLetters.test(value)?PathArray:SVGArray)}else if(numberAndUnit.test(value)){this.type(SVGNumber)}else{this.type(NonMorphable)}}else if(-1<morphableTypes.indexOf(value.constructor)){this.type(value.constructor)}else if(Array.isArray(value)){this.type(SVGArray)}else if("object"===type){this.type(ObjectBag)}else{this.type(NonMorphable)}}var result=new this._type(value);if(this._type===Color){result=this._to?result[this._to[4]]():this._from?result[this._from[4]]():result}result=result.toArray();this._morphObj=this._morphObj||new this._type;this._context=this._context||Array.apply(null,Array(result.length)).map(Object).map(function(o){o.done=!0;return o});return result}stepper(stepper){if(null==stepper)return this._stepper;this._stepper=stepper;return this}done(){var complete=this._context.map(this._stepper.done).reduce(function(last,curr){return last&&curr},!0);return complete}at(pos){var _this=this;return this._morphObj.fromArray(this._from.map(function(i,index){return _this._stepper.step(i,_this._to[index],pos,_this._context[index],_this._context)}))}}_exports.Morphable=_exports.$MorphableDefault=Morphable;class NonMorphable{constructor(...args){this.init(...args)}init(val){val=Array.isArray(val)?val[0]:val;this.value=val;return this}valueOf(){return this.value}toArray(){return[this.value]}}_exports.NonMorphable$1=_exports.NonMorphable=NonMorphable;class TransformBag{constructor(...args){this.init(...args)}init(obj){if(Array.isArray(obj)){obj={scaleX:obj[0],scaleY:obj[1],shear:obj[2],rotate:obj[3],translateX:obj[4],translateY:obj[5],originX:obj[6],originY:obj[7]}}Object.assign(this,TransformBag.defaults,obj);return this}toArray(){var v=this;return[v.scaleX,v.scaleY,v.shear,v.rotate,v.translateX,v.translateY,v.originX,v.originY]}}_exports.TransformBag$1=_exports.TransformBag=TransformBag;TransformBag.defaults={scaleX:1,scaleY:1,shear:0,rotate:0,translateX:0,translateY:0,originX:0,originY:0};class ObjectBag{constructor(...args){this.init(...args)}init(objOrArr){this.values=[];if(Array.isArray(objOrArr)){this.values=objOrArr;return}objOrArr=objOrArr||{};var entries=[];for(const i in objOrArr){entries.push([i,objOrArr[i]])}entries.sort((a,b)=>{return a[0]-b[0]});this.values=entries.reduce((last,curr)=>last.concat(curr),[]);return this}valueOf(){for(var obj={},arr=this.values,i=0,len=arr.length;i<len;i+=2){obj[arr[i]]=arr[i+1]}return obj}toArray(){return this.values}}_exports.ObjectBag$1=_exports.ObjectBag=ObjectBag;const morphableTypes=[NonMorphable,TransformBag,ObjectBag];function registerMorphableType(type=[]){morphableTypes.push(...[].concat(type))}function makeMorphable(){extend(morphableTypes,{to(val){return new Morphable().type(this.constructor).from(this.valueOf()).to(val)},fromArray(arr){this.init(arr);return this}})}var Morphable$1={default:Morphable,NonMorphable:NonMorphable,TransformBag:TransformBag,ObjectBag:ObjectBag,registerMorphableType:registerMorphableType,makeMorphable:makeMorphable};_exports.$Morphable=Morphable$1;class Path extends Shape{// Initialize node
 constructor(node){super(nodeOrNew("path",node),node)}// Get array
 array(){return this._array||(this._array=new PathArray(this.attr("d")))}// Plot new path
 plot(d){return null==d?this.array():this.clear().attr("d","string"===typeof d?d:this._array=new PathArray(d))}// Clear array cache
@@ -15046,7 +15044,7 @@ return this.put(new Path).plot(d||new PathArray)})}});register(Path,"Path");var 
 function plot(p){return null==p?this.array():this.clear().attr("points","string"===typeof p?p:this._array=new PointArray(p))}// Clear array cache
 function clear(){delete this._array;return this}// Move by left top corner
 function move(x,y){return this.attr("points",this.array().move(x,y))}// Set element size to given width and height
-function size(width,height){let p=proportionalSize(this,width,height);return this.attr("points",this.array().size(p.width,p.height))}var poly={array:array,plot:plot,clear:clear,move:move,size:size};_exports.$poly=poly;class Polygon extends Shape{// Initialize node
+function size(width,height){const p=proportionalSize(this,width,height);return this.attr("points",this.array().size(p.width,p.height))}var poly={array:array,plot:plot,clear:clear,move:move,size:size};_exports.$poly=poly;class Polygon extends Shape{// Initialize node
 constructor(node){super(nodeOrNew("polygon",node),node)}}_exports.Polygon=_exports.$PolygonDefault=Polygon;registerMethods({Container:{// Create a wrapped polygon element
 polygon:wrapWithAttrCheck(function(p){// make sure plot is called as a setter
 return this.put(new Polygon).plot(p||new PointArray)})}});extend(Polygon,pointed);extend(Polygon,poly);register(Polygon,"Polygon");var Polygon$1={default:Polygon};_exports.$Polygon=Polygon$1;class Polyline extends Shape{// Initialize node
@@ -15078,7 +15076,7 @@ var nextTimeout=null,lastTimeout=Animator.timeouts.last();while(nextTimeout=Anim
 if(now>=nextTimeout.time){nextTimeout.run()}else{Animator.timeouts.push(nextTimeout)}// If we hit the last item, we should stop shifting out more items
 if(nextTimeout===lastTimeout)break}// Run all of the animation frames
 var nextFrame=null,lastFrame=Animator.frames.last();while(nextFrame!==lastFrame&&(nextFrame=Animator.frames.shift())){nextFrame.run(now)}var nextImmediate=null;while(nextImmediate=Animator.immediates.shift()){nextImmediate()}// If we have remaining timeouts or frames, draw until we don't anymore
-Animator.nextDraw=Animator.timeouts.first()||Animator.frames.first()?globals.window.requestAnimationFrame(Animator._draw):null}};_exports.Animator=_exports.$AnimatorDefault=Animator;var Animator$1={default:Animator};_exports.$Animator=Animator$1;var makeSchedule=function(runnerInfo){var start=runnerInfo.start,duration=runnerInfo.runner.duration(),end=start+duration;return{start:start,duration:duration,end:end,runner:runnerInfo.runner}};const defaultSource=function(){let w=globals.window;return(w.performance||w.Date).now()};class Timeline extends EventTarget{// Construct a new timeline on the given element
+Animator.nextDraw=Animator.timeouts.first()||Animator.frames.first()?globals.window.requestAnimationFrame(Animator._draw):null}};_exports.Animator=_exports.$AnimatorDefault=Animator;var Animator$1={default:Animator};_exports.$Animator=Animator$1;var makeSchedule=function(runnerInfo){var start=runnerInfo.start,duration=runnerInfo.runner.duration(),end=start+duration;return{start:start,duration:duration,end:end,runner:runnerInfo.runner}};const defaultSource=function(){const w=globals.window;return(w.performance||w.Date).now()};class Timeline extends EventTarget{// Construct a new timeline on the given element
 constructor(timeSource=defaultSource){super();this._timeSource=timeSource;// Store the timing variables
 this._startTime=0;this._speed=1;// Determines how long a runner is hold in memory. Can be a dt or true/false
 this._persist=0;// Keep track of the running animations and their starting parameters
@@ -15089,10 +15087,10 @@ schedule(runner,delay,when){if(null==runner){return this._runners.map(makeSchedu
 // last start time to chain animations direclty
 var absoluteStartTime=0,endTime=this.getEndTime();delay=delay||0;// Work out when to start the animation
 if(null==when||"last"===when||"after"===when){// Take the last time and increment
-absoluteStartTime=endTime}else if("absolute"===when||"start"===when){absoluteStartTime=delay;delay=0}else if("now"===when){absoluteStartTime=this._time}else if("relative"===when){let runnerInfo=this._runners[runner.id];if(runnerInfo){absoluteStartTime=runnerInfo.start+delay;delay=0}}else{throw new Error("Invalid value for the \"when\" parameter")}// Manage runner
+absoluteStartTime=endTime}else if("absolute"===when||"start"===when){absoluteStartTime=delay;delay=0}else if("now"===when){absoluteStartTime=this._time}else if("relative"===when){const runnerInfo=this._runners[runner.id];if(runnerInfo){absoluteStartTime=runnerInfo.start+delay;delay=0}}else{throw new Error("Invalid value for the \"when\" parameter")}// Manage runner
 runner.unschedule();runner.timeline(this);const persist=runner.persist(),runnerInfo={persist:null===persist?this._persist:persist,start:absoluteStartTime+delay,runner};this._lastRunnerId=runner.id;this._runners.push(runnerInfo);this._runners.sort((a,b)=>a.start-b.start);this._runnerIds=this._runners.map(info=>info.runner.id);this.updateTime()._continue();return this}// Remove the runner from this timeline
 unschedule(runner){var index=this._runnerIds.indexOf(runner.id);if(0>index)return this;this._runners.splice(index,1);this._runnerIds.splice(index,1);runner.timeline(null);return this}// Calculates the end of the timeline
-getEndTime(){var lastRunnerInfo=this._runners[this._runnerIds.indexOf(this._lastRunnerId)],lastDuration=lastRunnerInfo?lastRunnerInfo.runner.duration():0,lastStartTime=lastRunnerInfo?lastRunnerInfo.start:0;return lastStartTime+lastDuration}getEndTimeOfTimeline(){let lastEndTime=0;for(var i=0;i<this._runners.length;i++){let runnerInfo=this._runners[i];var duration=runnerInfo?runnerInfo.runner.duration():0,startTime=runnerInfo?runnerInfo.start:0;let endTime=startTime+duration;if(endTime>lastEndTime){lastEndTime=endTime}}return lastEndTime}// Makes sure, that after pausing the time doesn't jump
+getEndTime(){var lastRunnerInfo=this._runners[this._runnerIds.indexOf(this._lastRunnerId)],lastDuration=lastRunnerInfo?lastRunnerInfo.runner.duration():0,lastStartTime=lastRunnerInfo?lastRunnerInfo.start:0;return lastStartTime+lastDuration}getEndTimeOfTimeline(){let lastEndTime=0;for(var i=0;i<this._runners.length;i++){const runnerInfo=this._runners[i];var duration=runnerInfo?runnerInfo.runner.duration():0,startTime=runnerInfo?runnerInfo.start:0;const endTime=startTime+duration;if(endTime>lastEndTime){lastEndTime=endTime}}return lastEndTime}// Makes sure, that after pausing the time doesn't jump
 updateTime(){if(!this.active()){this._lastSourceTime=this._timeSource()}return this}play(){// Now make sure we are not paused and continue the animation
 this._paused=!1;return this.updateTime()._continue()}pause(){this._paused=!0;return this._continue()}stop(){// Go to start and pause
 this.time(0);return this.pause()}finish(){// Go to end and pause
@@ -15111,11 +15109,13 @@ this._time+=dtTime;this._time=0>this._time?0:this._time}this._lastStepTime=this.
 // and therefore should win the attribute battle
 // this can be solved by reseting them backwards
 for(var k=this._runners.length;k--;){// Get and run the current runner and ignore it if its inactive
-let runnerInfo=this._runners[k],runner=runnerInfo.runner,dtToStart=this._time-runnerInfo.start;// Dont run runner if not started yet
+const runnerInfo=this._runners[k],runner=runnerInfo.runner,dtToStart=this._time-runnerInfo.start;// Dont run runner if not started yet
 // and try to reset it
 if(0>=dtToStart){runner.reset()}}// Run all of the runners directly
 for(var runnersLeft=!1,i=0,len=this._runners.length;i<len;i++){// Get and run the current runner and ignore it if its inactive
-let runnerInfo=this._runners[i],runner=runnerInfo.runner,dt=dtTime,dtToStart=this._time-runnerInfo.start;// Dont run runner if not started yet
+const runnerInfo=this._runners[i],runner=runnerInfo.runner;let dt=dtTime;// Make sure that we give the actual difference
+// between runner start time and now
+const dtToStart=this._time-runnerInfo.start;// Dont run runner if not started yet
 if(0>=dtToStart){runnersLeft=!0;continue}else if(dtToStart<dt){// Adjust dt to make sure that animation is on point
 dt=dtToStart}if(!runner.active())continue;// If this runner is still going, signal that we need another animation
 // frame, otherwise, remove the completed runner
@@ -15142,7 +15142,7 @@ this._persist=this._isDeclarative?!0:null}/*
     These methods help us define the runtime behaviour of the Runner or they
     help us make new runners from the current runner
     */element(element){if(null==element)return this._element;this._element=element;element._prepareRunner();return this}timeline(timeline){// check explicitly for undefined so we can set the timeline to null
-if("undefined"===typeof timeline)return this._timeline;this._timeline=timeline;return this}animate(duration,delay,when){var o=Runner.sanitise(duration,delay,when),runner=new Runner(o.duration);if(this._timeline)runner.timeline(this._timeline);if(this._element)runner.element(this._element);return runner.loop(o).schedule(delay,when)}schedule(timeline,delay,when){// The user doesn't need to pass a timeline if we already have one
+if("undefined"===typeof timeline)return this._timeline;this._timeline=timeline;return this}animate(duration,delay,when){var o=Runner.sanitise(duration,delay,when),runner=new Runner(o.duration);if(this._timeline)runner.timeline(this._timeline);if(this._element)runner.element(this._element);return runner.loop(o).schedule(o.delay,o.when)}schedule(timeline,delay,when){// The user doesn't need to pass a timeline if we already have one
 if(!(timeline instanceof Timeline)){when=delay;delay=timeline;timeline=this.timeline()}// If there is no timeline, yell at the user...
 if(!timeline){throw Error("Runner cannot be scheduled without timeline")}// Schedule the runner on the timeline provided
 timeline.schedule(this,delay,when);return this}unschedule(){var timeline=this.timeline();timeline&&timeline.unschedule(this);return this}loop(times,swing,wait){// Deal with the user passing in an object
@@ -15156,7 +15156,7 @@ if(!0===this._times){this._times=1/0}return this}delay(delay){return this.animat
     Runner animation methods
     ========================
     Control how the animation plays
-    */time(time){if(null==time){return this._time}let dt=time-this._time;this.step(dt);return this}duration(){return this._times*(this._wait+this._duration)-this._wait}loops(p){var loopDuration=this._duration+this._wait;if(null==p){var loopsDone=Math.floor(this._time/loopDuration),relativeTime=this._time-loopsDone*loopDuration,position=relativeTime/this._duration;return Math.min(loopsDone+position,this._times)}var whole=Math.floor(p),partial=p%1,time=loopDuration*whole+this._duration*partial;return this.time(time)}persist(dtOrForever){if(null==dtOrForever)return this._persist;this._persist=dtOrForever;return this}position(p){// Get all of the variables we need
+    */time(time){if(null==time){return this._time}const dt=time-this._time;this.step(dt);return this}duration(){return this._times*(this._wait+this._duration)-this._wait}loops(p){var loopDuration=this._duration+this._wait;if(null==p){var loopsDone=Math.floor(this._time/loopDuration),relativeTime=this._time-loopsDone*loopDuration,position=relativeTime/this._duration;return Math.min(loopsDone+position,this._times)}var whole=Math.floor(p),partial=p%1,time=loopDuration*whole+this._duration*partial;return this.time(time)}persist(dtOrForever){if(null==dtOrForever)return this._persist;this._persist=dtOrForever;return this}position(p){// Get all of the variables we need
 var x=this._time,d=this._duration,w=this._wait,t=this._times,s=this._swing,r=this._reverse,position;if(null==p){/*
       This function converts a time to a position in the range [0, 1]
       The full explanation can be found in this desmos demonstration
@@ -15191,7 +15191,7 @@ _rememberMorpher(method,morpher){this._history[method]={morpher:morpher,caller:t
 };if(this._isDeclarative){var timeline=this.timeline();timeline&&timeline.play()}}// Try to set the target for a morpher if the morpher exists, otherwise
 // do nothing and return false
 _tryRetarget(method,target,extra){if(this._history[method]){// if the last method wasnt even initialised, throw it away
-if(!this._history[method].caller.initialised){let index=this._queue.indexOf(this._history[method].caller);this._queue.splice(index,1);return!1}// for the case of transformations, we use the special retarget function
+if(!this._history[method].caller.initialised){const index=this._queue.indexOf(this._history[method].caller);this._queue.splice(index,1);return!1}// for the case of transformations, we use the special retarget function
 // which has access to the outer scope
 if(this._history[method].caller.retarget){this._history[method].caller.retarget(target,extra);// for everything else a simple morpher change is sufficient
 }else{this._history[method].morpher.to(target)}this._history[method].caller.finished=!1;var timeline=this.timeline();timeline&&timeline.play();return!0}return!1}// Run each initialise function in the runner if required
@@ -15211,9 +15211,9 @@ clearTransformsFromQueue(){if(!this.done||!this._timeline||!this._timeline._runn
 var times=1,swing=!1,wait=0;duration=duration||timeline.duration;delay=delay||timeline.delay;when=when||"last";// If we have an object, unpack the values
 if("object"===typeof duration&&!(duration instanceof Stepper)){delay=duration.delay||delay;when=duration.when||when;swing=duration.swing||swing;times=duration.times||times;wait=duration.wait||wait;duration=duration.duration||timeline.duration}return{duration:duration,delay:delay,swing:swing,times:times,wait:wait,when:when}}}_exports.Runner=_exports.$RunnerDefault=Runner;Runner.id=0;class FakeRunner{constructor(transforms=new Matrix,id=-1,done=!0){this.transforms=transforms;this.id=id;this.done=done}clearTransformsFromQueue(){}}extend([Runner,FakeRunner],{mergeWith(runner){return new FakeRunner(runner.transforms.lmultiply(this.transforms),runner.id)}});// FakeRunner.emptyRunner = new FakeRunner()
 const lmultiply=(last,curr)=>last.lmultiplyO(curr),getRunnerTransform=runner=>runner.transforms;function mergeTransforms(){// Find the matrix to apply to the element and apply it
-let runners=this._transformationRunners.runners,netTransform=runners.map(getRunnerTransform).reduce(lmultiply,new Matrix);this.transform(netTransform);this._transformationRunners.merge();if(1===this._transformationRunners.length()){this._frameId=null}}class RunnerArray{constructor(){this.runners=[];this.ids=[]}add(runner){if(this.runners.includes(runner))return;let id=runner.id+1;this.runners.push(runner);this.ids.push(id);return this}getByID(id){return this.runners[this.ids.indexOf(id+1)]}remove(id){let index=this.ids.indexOf(id+1);this.ids.splice(index,1);this.runners.splice(index,1);return this}merge(){let lastRunner=null;this.runners.forEach((runner,i)=>{const condition=lastRunner&&runner.done&&lastRunner.done// don't merge runner when persisted on timeline
+const runners=this._transformationRunners.runners,netTransform=runners.map(getRunnerTransform).reduce(lmultiply,new Matrix);this.transform(netTransform);this._transformationRunners.merge();if(1===this._transformationRunners.length()){this._frameId=null}}class RunnerArray{constructor(){this.runners=[];this.ids=[]}add(runner){if(this.runners.includes(runner))return;const id=runner.id+1;this.runners.push(runner);this.ids.push(id);return this}getByID(id){return this.runners[this.ids.indexOf(id+1)]}remove(id){const index=this.ids.indexOf(id+1);this.ids.splice(index,1);this.runners.splice(index,1);return this}merge(){let lastRunner=null;this.runners.forEach((runner,i)=>{const condition=lastRunner&&runner.done&&lastRunner.done// don't merge runner when persisted on timeline
 &&(!runner._timeline||!runner._timeline._runnerIds.includes(runner.id))&&(!lastRunner._timeline||!lastRunner._timeline._runnerIds.includes(lastRunner.id));if(condition){// the +1 happens in the function
-this.remove(runner.id);this.edit(lastRunner.id,runner.mergeWith(lastRunner))}lastRunner=runner});return this}edit(id,newRunner){let index=this.ids.indexOf(id+1);this.ids.splice(index,1,id+1);this.runners.splice(index,1,newRunner);return this}length(){return this.ids.length}clearBefore(id){let deleteCnt=this.ids.indexOf(id+1)||1;this.ids.splice(0,deleteCnt,0);this.runners.splice(0,deleteCnt,new FakeRunner).forEach(r=>r.clearTransformsFromQueue());return this}}registerMethods({Element:{animate(duration,delay,when){var o=Runner.sanitise(duration,delay,when),timeline=this.timeline();return new Runner(o.duration).loop(o).element(this).timeline(timeline.play()).schedule(delay,when)},delay(by,when){return this.animate(0,by,when)},// this function searches for all runners on the element and deletes the ones
+this.remove(runner.id);this.edit(lastRunner.id,runner.mergeWith(lastRunner))}lastRunner=runner});return this}edit(id,newRunner){const index=this.ids.indexOf(id+1);this.ids.splice(index,1,id+1);this.runners.splice(index,1,newRunner);return this}length(){return this.ids.length}clearBefore(id){const deleteCnt=this.ids.indexOf(id+1)||1;this.ids.splice(0,deleteCnt,0);this.runners.splice(0,deleteCnt,new FakeRunner).forEach(r=>r.clearTransformsFromQueue());return this}}registerMethods({Element:{animate(duration,delay,when){var o=Runner.sanitise(duration,delay,when),timeline=this.timeline();return new Runner(o.duration).loop(o).element(this).timeline(timeline.play()).schedule(o.delay,o.when)},delay(by,when){return this.animate(0,by,when)},// this function searches for all runners on the element and deletes the ones
 // which run before the current one. This is because absolute transformations
 // overwfrite anything anyway so there is no need to waste time computing
 // other runners
@@ -15247,14 +15247,14 @@ element=element||this.element();origin=origin||getOrigin(transforms,element);sta
 element._addRunner(this);// Deactivate all transforms that have run so far if we are absolute
 if(!relative){element._clearTransformRunnersBefore(this)}}function run(pos){// clear all other transforms before this in case something is saved
 // on this runner. We are absolute. We dont need these!
-if(!relative)this.clearTransform();let{x,y}=new Point(origin).transform(element._currentTransform(this)),target=new Matrix(_objectSpread({},transforms,{origin:[x,y]})),start=this._isDeclarative&&current?current:startTransform;if(affine){target=target.decompose(x,y);start=start.decompose(x,y);// Get the current and target angle as it was set
+if(!relative)this.clearTransform();const{x,y}=new Point(origin).transform(element._currentTransform(this));let target=new Matrix(_objectSpread({},transforms,{origin:[x,y]})),start=this._isDeclarative&&current?current:startTransform;if(affine){target=target.decompose(x,y);start=start.decompose(x,y);// Get the current and target angle as it was set
 const rTarget=target.rotate,rCurrent=start.rotate,possibilities=[rTarget-360,rTarget,rTarget+360],distances=possibilities.map(a=>Math.abs(a-rCurrent)),shortest=Math.min(...distances),index=distances.indexOf(shortest);target.rotate=possibilities[index]}if(relative){// we have to be careful here not to overwrite the rotation
 // with the rotate method of Matrix
-if(!isMatrix){target.rotate=transforms.rotate||0}if(this._isDeclarative&&currentAngle){start.rotate=currentAngle}}morpher.from(start);morpher.to(target);let affineParameters=morpher.at(pos);currentAngle=affineParameters.rotate;current=new Matrix(affineParameters);this.addTransform(current);element._addRunner(this);return morpher.done()}function retarget(newTransforms){// only get a new origin if it changed since the last call
+if(!isMatrix){target.rotate=transforms.rotate||0}if(this._isDeclarative&&currentAngle){start.rotate=currentAngle}}morpher.from(start);morpher.to(target);const affineParameters=morpher.at(pos);currentAngle=affineParameters.rotate;current=new Matrix(affineParameters);this.addTransform(current);element._addRunner(this);return morpher.done()}function retarget(newTransforms){// only get a new origin if it changed since the last call
 if((newTransforms.origin||"center").toString()!==(transforms.origin||"center").toString()){origin=getOrigin(transforms,element)}// overwrite the old transformations with the new ones
 transforms=_objectSpread({},newTransforms,{origin})}this.queue(setup,run,retarget,!0);this._isDeclarative&&this._rememberMorpher("transform",morpher);return this},// Animatable x-axis
 x(x,relative){return this._queueNumber("x",x)},// Animatable y-axis
-y(y){return this._queueNumber("y",y)},dx(x){return this._queueNumberDelta("x",x)},dy(y){return this._queueNumberDelta("y",y)},_queueNumberDelta(method,to){to=new SVGNumber(to);// Try to change the target if we have this method already registerd
+y(y){return this._queueNumber("y",y)},dx(x=0){return this._queueNumberDelta("x",x)},dy(y=0){return this._queueNumberDelta("y",y)},dmove(x,y){return this.dx(x).dy(y)},_queueNumberDelta(method,to){to=new SVGNumber(to);// Try to change the target if we have this method already registerd
 if(this._tryRetarget(method,to))return this;// Make a morpher and queue the animation
 var morpher=new Morphable(this._stepper).to(to),from=null;this.queue(function(){from=this.element()[method]();morpher.from(from);morpher.to(from+to)},function(pos){this.element()[method](morpher.at(pos));return morpher.done()},function(newTo){morpher.to(from+new SVGNumber(newTo))});// Register the morpher so that if it is changed again, we can retarget it
 this._rememberMorpher(method,morpher);return this},_queueObject(method,to){// Try to change the target if we have this method already registerd
@@ -15330,7 +15330,7 @@ this.targets().forEach(function(el){el.unclip()});// remove clipPath from parent
 return super.remove()}targets(){return baseFind("svg [clip-path*=\""+this.id()+"\"]")}}_exports.ClipPath=_exports.$ClipPathDefault=ClipPath;registerMethods({Container:{// Create clipping element
 clip:wrapWithAttrCheck(function(){return this.defs().put(new ClipPath)})},Element:{// Distribute clipPath to svg element
 clipWith(element){// use given clip or create a new one
-let clipper=element instanceof ClipPath?element:this.parent().clip().add(element);// apply mask
+const clipper=element instanceof ClipPath?element:this.parent().clip().add(element);// apply mask
 return this.attr("clip-path","url(\"#"+clipper.id()+"\")")},// Unclip element
 unclip(){return this.attr("clip-path",null)},clipper(){return this.reference("clip-path")}}});register(ClipPath,"ClipPath");var ClipPath$1={default:ClipPath};_exports.$ClipPath=ClipPath$1;class ForeignObject extends Element{constructor(node){super(nodeOrNew("foreignObject",node),node)}}_exports.ForeignObject=_exports.$ForeignObjectDefault=ForeignObject;registerMethods({Container:{foreignObject:wrapWithAttrCheck(function(width,height){return this.put(new ForeignObject).size(width,height)})}});register(ForeignObject,"ForeignObject");var ForeignObject$1={default:ForeignObject};_exports.$ForeignObject=ForeignObject$1;class G extends Container{constructor(node){super(nodeOrNew("g",node),node)}x(x,box=this.bbox()){if(null==x)return box.x;return this.move(x,box.y,box)}y(y,box=this.bbox()){if(null==y)return box.y;return this.move(box.x,y,box)}move(x=0,y=0,box=this.bbox()){const dx=x-box.x,dy=y-box.y;return this.dmove(dx,dy)}dx(dx){return this.dmove(dx,0)}dy(dy){return this.dmove(0,dy)}dmove(dx,dy){this.children().forEach((child,i)=>{// Get the childs bbox
 const bbox=child.bbox(),m=new Matrix(child),matrix=m.translate(dx,dy).transform(m.inverse()),p=new Point(bbox.x,bbox.y).transform(matrix);// Get childs matrix
@@ -15885,6 +15885,10 @@ return Theme.getThemeForComponent(this.name)||css`
             margin-right: 0;
         }
 
+        furo-horizontal-flex{
+          flex-wrap: wrap;
+        }
+
     `}render(){// language=HTML
 return html`        
         <furo-horizontal-flex>
@@ -16125,7 +16129,146 @@ return Theme.getThemeForComponent(this.name)||css`
      */render(){// language=HTML
 return html`
             <slot></slot>
-        `}}window.customElements.define("furo-form-layouter",FuroFormLayouter);class FuroInputRow extends FBP(LitElement){constructor(){super();/**
+        `}}window.customElements.define("furo-form-layouter",FuroFormLayouter);class FuroForm extends FBP(LitElement){constructor(){super();this.hasaction=0<this.querySelectorAll("*[slot=\"action\"]").length;this.hasmedia=0<this.querySelectorAll("*[slot=\"media\"]").length}/**
+     * You can show a progress indicator while you have pending requests or work
+     * Shows furo-loading-indicator-bar
+     */startActivity(){this._FBPTriggerWire("--activityStarted")}/**
+     * Stop loading indicator
+     * Hides furo-loading-indicator-bar
+     */stopActivity(){this._FBPTriggerWire("--activityStopped")}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Main title
+       */headerText:{type:String,attribute:"header-text"},secondaryText:{type:String,attribute:"secondary-text"},hasaction:{type:Boolean,reflect:!0},hasmedia:{type:Boolean,reflect:!0}}}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent(this.name)||css`
+        :host {
+            display: block;
+            --furo-button-padding: var(--spacing-xs, 8px);
+            background: var(--furo-form-background, var(--surface, white));
+            padding-bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
+            margin: var(--furo-form-margin, 0);
+            box-sizing: border-box;
+            position: relative;
+            font-size: 14px;
+            letter-spacing: 0.1px;
+        }
+
+        furo-loading-indicator-bar{
+            position: absolute;
+            top:0;
+            width: 100%;
+        }
+        :host([hidden]) {
+            display: none;
+        }
+
+        :host([hasaction]) .content {
+            padding-bottom: 54px;
+        }
+
+
+        /** no padding-top on .content if header-text is set **/
+        :host([header-text]) .content {
+            padding-top: 0;
+        }
+
+        /** set padding-top on .content if media is present **/
+        :host([header-text][hasmedia]) .content {
+            padding-top: var(--furo-form-padding, var(--spacing-s, 16px));
+        }
+
+
+        .content ::slotted(h1) {
+            font-size: 24px;
+            line-height: 24px;
+            letter-spacing: 0;
+            margin: 0;
+            font-weight: normal;
+            margin-bottom: var(--spacing-xxs, 4px);
+            margin-top: var(--spacing-s, 16px);
+        }
+
+        .content ::slotted(secondary) {
+            color: var(--secondary-color, var(--primary-light, #777777));
+            line-height: 22px;
+            font-size: unset;
+            display: block;
+            margin-bottom: var(--spacing-xs, 4px);
+        }
+        .content ::slotted(h2) {
+            line-height: 24px;
+            letter-spacing: 0;
+            margin: 0;
+            font-weight: normal;
+            margin-bottom: var(--spacing-xxs, 4px);
+            margin-top: var(--spacing-s, 16px);
+        }
+
+        .action {
+            position: absolute;
+            bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
+            left: var(--furo-form-padding, 0);
+            right: var(--furo-form-padding, 0);
+
+        }
+
+
+        :host([header-text]) .head {
+            display: block;
+        }
+
+        .head {
+            display: none;
+            padding: var(--spacing-s, 16px) 0;
+        }
+
+        .head span {
+            color: var(--secondary-color, var(--primary-light, #777777));
+            line-height: 22px;
+        }
+
+        h1 {
+            font-size: 24px;
+            line-height: 24px;
+            letter-spacing: 0;
+            margin: 0;
+            font-weight: normal;
+            margin-bottom: var(--spacing-xxs, 4px);
+        }
+
+
+        .media ::slotted(*) {
+            width: 100%;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     * @private
+     */render(){// language=HTML
+return html`
+      <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
+      <div class="head">
+      <h1>${this.headerText}</h1>
+      <span>${this.secondaryText}</span>  
+      </div>
+      <div class="media">
+      <slot name="media"></slot>
+      </div>
+      <div class="content">
+      <slot></slot>
+      </div>
+      <div class="action">
+        <slot name="action"></slot>
+      </div>
+    `}}window.customElements.define("furo-form",FuroForm);class FuroInputRow extends FBP(LitElement){constructor(){super();/**
               *
               * @type {string}
               */this.label="set the label!"}static get styles(){// language=CSS
