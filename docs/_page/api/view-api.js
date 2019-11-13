@@ -2933,7 +2933,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             }
 
             pre {
-                background-color: var(--background);
+                background-color: var(--surface);
                 padding: 0;
             }
 
@@ -6859,7 +6859,63 @@ return _furoShell.html`
                 </template>
             </furo-demo-snippet>
         </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-collection-dropdown-bind-entity",DemoFuroDataCollectionDropdownBindEntity);class FuroDataTableToggle extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.on=!0;this.field=""}/**
+    `}}window.customElements.define("demo-furo-data-collection-dropdown-bind-entity",DemoFuroDataCollectionDropdownBindEntity);class DemoFuroDataHideContent extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+       
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-vertical-flex>
+        <div>
+          <h2>Demo ...</h2>
+          <p>Describe your demo</p>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+            <furo-vertical-scroller>
+              <h3>Data binding</h3>
+              <furo-data-checkbox-input  label="hide" ƒ-bind-data="--entity(*.furo_data_checkbox_input)" hint=" "></furo-data-checkbox-input>
+         
+              
+              <h3>Manual controls</h3>
+              <furo-button @-click="--showBClicked">show</furo-button>
+              <furo-button @-click="--hideBClicked">hide</furo-button>
+              <furo-button @-click="--toggleBClicked">toggle</furo-button>
+              
+              <furo-data-hide-content  ƒ-bind-data="--entity(*.furo_data_checkbox_input)" ƒ-toggle="--toggleBClicked"  ƒ-hide="--hideBClicked" ƒ-show="--showBClicked">
+                 <h1>This is the content</h1> 
+              </furo-data-hide-content>
+              
+              
+              
+                                        
+            </furo-vertical-scroller>
+            
+                                      
+          
+
+            <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
+                              ƒ-inject-raw="--response(*.data)"></furo-data-object>
+            
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-hide-content",DemoFuroDataHideContent);class FuroDataTableToggle extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.on=!0;this.field=""}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 this._FBPAddWireHook("--Pressed",()=>{this.toggle()})}static get properties(){return{field:{type:String,attribute:!0,reflect:!0}}}static get styles(){// language=CSS
@@ -7142,7 +7198,60 @@ return _furoShell.html`
      * by index
      * @param idx
      * @private
-     */_selectRowByIndex(idx){let allTr=this.shadowRoot.querySelector("tbody").querySelectorAll("tr");if(0<=idx&&1<allTr.length&&idx<allTr.length){let len=allTr.length;while(len--){allTr[len].setAttribute("selected",!1)}allTr[idx].setAttribute("selected",!0);this._selectedIndex=idx}}}window.customElements.define("furo-data-table",FuroDataTable);class DemoFuroDataTable extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+     */_selectRowByIndex(idx){let allTr=this.shadowRoot.querySelector("tbody").querySelectorAll("tr");if(0<=idx&&1<allTr.length&&idx<allTr.length){let len=allTr.length;while(len--){allTr[len].setAttribute("selected",!1)}allTr[idx].setAttribute("selected",!0);this._selectedIndex=idx}}}window.customElements.define("furo-data-table",FuroDataTable);class FuroDataHideContent extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.hidden=!1}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Internal variable to update the attribute, which triggers the css
+       * @private
+       */_hidden:{type:Boolean,reflect:!0,attribute:"hidden"},/**
+       * Hide element on false instead of true
+       */hideOnFalse:{type:Boolean,attribute:"hide-on-false"}}}/**
+     * Bind a entity field to the date-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){if(fieldNode._spec&&"bool"!==fieldNode._spec.type){console.warn("Invalid binding. Type is not a 'bool' ");console.log(this);return}this.field=fieldNode;this.hidden=this._checkInversedState(this.field._value);this.field.addEventListener("field-value-changed",e=>{this.hidden=this._checkInversedState(this.field._value)})}// inverses the bool based on hindOnFalse
+_checkInversedState(bool){return this.hideOnFalse?!bool:bool}/**
+     * hides the content
+     */hide(){this.hidden=!0}/**
+     * shows the content
+     */show(){this.hidden=!1}/**
+     * Toggle the current visibility state.
+     */toggle(){this.hidden=!this.hidden}get hidden(){return this._hidden}set hidden(hide){let oldval=this._hidden;this._hidden=hide;if(oldval!==hide){/**
+       * @event value-changed
+       * Fired when the visibility changed
+       *
+       * detail payload: {Boolean} current visibility state
+       */this._notify("toggled")}if(this.field){this.field._value=this._checkInversedState(this._hidden)}if(hide){/**
+       * @event hided
+       * Fired when the content gets hided
+       *
+       * detail payload: void
+       */this._notify("hided")}else{/**
+       * @event showed
+       * Fired when the content gets visible
+       *
+       * detail payload: void
+       */this._notify("showed")}}_notify(eventname){const customEvent=new Event(eventname,{composed:!0,bubbles:!1});customEvent.detail=this.hidden;this.dispatchEvent(customEvent)}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     * @private
+     */render(){// language=HTML
+return _furoShell.html`
+      <slot></slot>`}}window.customElements.define("furo-data-hide-content",FuroDataHideContent);class DemoFuroDataTable extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -7716,13 +7825,10 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             color: var(--on-primary, white);
         }
 
-        :host([searchmatch])::before {
-            position: absolute;
-            top: 8px;
-            content: "🔍";
-            right: 2px;
-            font-size: 12px;
+        :host([searchmatch]){
+            color: var(--primary);
         }
+        
 
         furo-icon[error] {
             animation: error-pulse 2s infinite;
@@ -7794,7 +7900,7 @@ return _furoShell.html`
                                    *
                                    * @type {*|string|string}
                                    */this.treeItemComponent=this.getAttribute("tree-item-component")||"furo-tree-item";this._treeItemTepmplate=(0,_furoShell.html)([["<",this.treeItemComponent," \u0192-bind-data=\"--itemInjected(*.item)\" \u0192-search=\"--trigger\"></",this.treeItemComponent,">"].join("")]);// keyboard navigation on top node only
-this.addEventListener("keydown",event=>{let key=event.key||event.keyCode;switch(key){case"Enter":event.preventDefault();// not reseting the search at this position is by intention.
+this.addEventListener("keydown",event=>{let key=event.key||event.keyCode;switch(key){case"Enter":this._resetSearch();event.preventDefault();// not reseting the search at this position is by intention.
 if(this._hoveredField._isSelected){// openclose
 this._hoveredField.toggleOpenClose()}else{// open the hovered field
 this._hoveredField.selectItem()}break;case"ArrowDown":event.preventDefault();this._hoverNext();break;case"ArrowUp":event.preventDefault();this._hoverPrevious();break;case"ArrowLeft":event.preventDefault();this._resetSearch();// close when opened, parent when closed
@@ -7856,6 +7962,8 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             height: 100%;
             outline: none;
             position: relative;
+            background: var(--surface,white);
+            color: var(--on-surface,#333333);
         }
 
         .tablewrapper {
@@ -7887,11 +7995,11 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         }
 
         td > *[hovered] {
-            background-color: var(--hover-color, #eeeeee);
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
         td > *[selected], :host(:not(:focus-within)) td > *[selected] {
-            background-color: var(--primary-variant, #429cff);
+            background-color: var(--primary-dark, #429cff);
             color: var(--on-primary, #FFFFFF);
         }
 
@@ -7934,7 +8042,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-    <div class="srch">🔍 ${this._searchTerm}</div>
+    <div class="srch">⌖ ${this._searchTerm}</div>
       <div class="tablewrapper">
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
@@ -7966,7 +8074,8 @@ if(null!=this._hoveredField.display_name._value){/**
            * Fired when
            * detail payload:
            */let customEvent=new Event("leaf-hovered",{composed:!0,bubbles:!0});customEvent.detail=this._hoveredField;this.dispatchEvent(customEvent)}}});// Internal Event, when a node gets selected
-this._rootNode.addEventListener("tree-node-selected",e=>{// broadcast deselect
+this._rootNode.addEventListener("tree-node-selected",e=>{//---
+// broadcast deselect
 this._rootNode.broadcastEvent(new NodeEvent("tree-node-unselection-requested"));this._selectedField=e.target;/**
                                        * @event node-selected
                                        * Fired when the item gets selected, does not fire when you work with query params
@@ -8491,30 +8600,56 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         `}}customElements.define("demo-furo-snackbar-display-error",DemoFuroSnackbarDisplayError);class FuroBannerDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._banner={text:"",dismissButtonText:"dismiss",confirmButtonText:"",icon:"",banner:{}};this._stack=[];this.setAttribute("hidden","")}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();window.addEventListener("open-furo-banner-requested",e=>{this._show(e.detail)});this._FBPAddWireHook("--confirmClicked",e=>{if(this._banner.banner){this._banner.banner.confirm()}this._close()});this._FBPAddWireHook("--dismissClicked",e=>{if(this._banner.banner){this._banner.banner.dismiss()}this._close()})}/**
+     *@private
+     */static get properties(){return{_banner:{type:Object},_stack:{type:Array},_isOpen:{type:Boolean},_timer:{type:Object},/**
+       * enable autofocus for dismiss button after slide in
+       */autofocus:{type:Boolean}}}/**
+     * show
+     * @param b
+     * @private
+     */_show(b){this._pushToStack(b);if(!this._isOpen){this.__show()}}/**
+     *
+     * @param b {Object} banner
+     * @private
+     */_pushToStack(b){let obj={text:b.text,multilineText:b.multilineText,dismissButtonText:b.dismissButtonText,confirmButtonText:b.confirmButtonText,icon:b.icon,banner:b};this._stack.push(obj)}/**
+     *
+     * @private
+     */__show(){if(0<this._stack.length){this._banner=this._stack[0];// defensive copy, do not overwrite the reference (this._stack[0]);
+if(this._banner.multilineText&&0<this._banner.multilineText.length){this._bannerText=(0,_furoShell.html)(this._banner.multilineText.map(line=>{return"<p>"+this._replacer(line)+"</p>"}))}else{// default banner text
+if(this._banner.text){this._bannerText=(0,_furoShell.html)(["<p>"+this._replacer(this._banner.text)+"</p>"])}}this.requestUpdate();setTimeout(()=>{this.style.height="0px";this.removeAttribute("hidden");let height=this.shadowRoot.querySelector(".wrapper").getBoundingClientRect().height;this.style.height=height+"px";this._isOpen=!0},0);if(this.autofocus){setTimeout(()=>{// focus the dismiss after animation
+this._FBPTriggerWire("--focus")},500)}}}_replacer(str){return str.replace(/(<([^>]+)>)/ig,"").replace(/(\*)([^*\n]*)(\*)/gm,"<strong>$2</strong>").replace(/\n/g,"<br>")}focus(){this._FBPTriggerWire("--focus")}/**
+     * close the CURRENT banner
+     */_close(){this.style.height="0px";setTimeout(()=>{this.setAttribute("hidden","")},500);if(1<this._stack.length){this._stack.shift();if(0<this._stack.length){let self=this;this._timer=setInterval(function(){clearInterval(self._timer);self.__show()},500)}else{this._isOpen=!1}}else{this._stack.shift();this._isOpen=!1}}/**
      * @private
      * @returns {CSSResult}
      */static get styles(){return _furoShell.css`
             :host {
               width: 100%;
-              background-color: var(--banner-background-color, var(--background,#000000));
+              display:block;
+              background-color: var(--banner-background, var(--surface,#FAFAFA));
+              color: var(--banner-on-background, var(--on-surface,#333333));             
               transition: all .5s ease-in-out;
               overflow:hidden;
             }
+            
             :host([hidden]) {
               height: 0;
             }
+            
             furo-icon {
-              margin: auto var(--banner-icon-margin-right,var(--spacing, 24px)) auto 0;
+              margin:   var(--spacing-xs, 8px)  var(--banner-icon-margin-right,var(--spacing, 24px)) auto 0;
               width: 40px;
               height: 40px;
               display: none;
             }
+            
             .wrapper {
               width: 100%;
+              box-sizing: border-box;
               padding: 12px 8px 8px 24px;
               display: flex;
               border-bottom: solid 1px #e0e0e0;
-              margin-bottom: var(--banner-margin-bottom,var(--spacing-s, 16px));
+              margin-bottom: var(--banner-margin-bottom,var(--spacing-s, 16px));             
             }
             
             .wrapper[icon] furo-icon{
@@ -8534,46 +8669,34 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             .text {
               width: 100%;
               line-height: 20px;
-              padding-bottom: 4px;
-              padding-top: 12px;
+              
             }
-            
+            p {
+              margin-bottom: 4px;
+              margin-top: 12px;
+            }
             .button {
-              display: flex;
-              margin-left: 90px;
-              align-self: flex-end;
-              justify-content:flex-end;
+              float:right;            
             }
             
             furo-button[hide] {
               display: none;
             }
         `}/**
-     *@private
-     */static get properties(){return{_banner:{type:Object},_stack:{type:Array},_isOpen:{type:Boolean},_timer:{type:Object}}}/**
-     * show
-     * @param b
-     * @private
-     */_show(b){this._pushToStack(b);if(!this._isOpen){this.__show()}}/**
-     *
-     * @param d {Object} banner
-     * @private
-     */_pushToStack(b){let obj={text:b.text,dismissButtonText:b.dismissButtonText,confirmButtonText:b.confirmButtonText,icon:b.icon,banner:b};this._stack.push(obj)}/**
-     *
-     * @private
-     */__show(){if(0<this._stack.length){this._banner=this._stack[0];this.removeAttribute("hidden");this.requestUpdate();this._isOpen=!0}}/**
-     * close the CURRENT banner
-     */_close(){if(1<this._stack.length){this.setAttribute("hidden","");this._stack.shift();if(0<this._stack.length){let self=this;this._timer=setInterval(function(){clearInterval(self._timer);self.__show()},500)}else{this._isOpen=!1}}else{this._stack.shift();this.setAttribute("hidden","");this._isOpen=!1}}/**
      * @private
      * @returns {TemplateResult}
      */render(){return _furoShell.html`
           <div class="wrapper" ?icon="${this._banner.icon}">
-            <furo-icon icon="${this._banner.icon}"></furo-icon>
-            <div class="text">${this._banner.text}</div>
+            <div><furo-icon icon="${this._banner.icon}"></furo-icon></div>
+            <div class="text">
+                  ${this._bannerText}
+                   
             <div class="button">
-              <furo-button label="${this._banner.dismissButtonText}" ?hide="${!this._banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
+              <furo-button ƒ-focus="--focus" label="${this._banner.dismissButtonText}" ?hide="${!this._banner.dismissButtonText}" @-click="--dismissClicked"></furo-button>          
               <furo-button label="${this._banner.confirmButtonText}" ?hide="${!this._banner.confirmButtonText}" @-click="--confirmClicked"></furo-button>   
             </div>
+            </div>
+            
           </div>
         `}}customElements.define("furo-banner-display",FuroBannerDisplay);class FuroBanner extends _furoShell.LitElement{constructor(){super();this.dismissButtonText="dismiss"}/**
      * @private
@@ -8584,7 +8707,9 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         `}/**
      *@private
      */static get properties(){return{/**
-       * banner content text
+       * banner text content. Use *word* to mark as strong. Use \n to insert a line break.
+       *
+       * *HTML tags will be stripped out.*
        */text:{type:String},/**
        * label text of dismiss button
        */dismissButtonText:{type:String,attribute:"dismiss-button-text"},/**
@@ -8631,13 +8756,12 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * Fired when banner is closed
      * detail payload: {Object}  payload
      */let customEvent=new Event("banner-closed",{composed:!0,bubbles:!0});customEvent.detail=this.payload;this.dispatchEvent(customEvent)}/**
-     * parse grpc status object and set the label according to the message in status
+     * parse grpc status object and set the label according to the LocalizedMessage in status
+     * https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto
      * @param s
-     */parseGrpcStatus(s){if(s.message){this.setText(s.message);this.show(s)}}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){return _furoShell.html`
-        `}}customElements.define("furo-banner",FuroBanner);class ProduceBannerData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--click",()=>{/**
+     */parseGrpcStatus(status){// log developper message
+if(status.details&&0<status.details.length){// fallback, if no localized message was given
+this.setText(status.message);this.multilineText=status.details.filter(det=>{return det["@type"].includes("LocalizedMessage")}).map(det=>{return det.message});this.show(status)}}}customElements.define("furo-banner",FuroBanner);class ProduceBannerData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--click",()=>{/**
        * @event banner-label
        * Fired when
        * detail payload:
@@ -8645,7 +8769,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
                                         * @event response-error
                                         * Fired when
                                         * detail payload:
-                                        */let customEventError=new Event("response-error",{composed:!0,bubbles:!0});customEventError.detail={error:"invalid username",message:"invalid username",code:3,details:[{"@type":"type.googleapis.com/google.rpc.BadRequest",field_violations:[{code:5432,field:"display_name",description:" have fancy characters"},{code:5432,field:"repdate.0.repstring.1",description:"Bitte kein B"},{code:5432,field:"zeitunddatum.date",description:"Deeeep"},{code:5432,field:"unknown_field",description:"unknown"}]}]};this.dispatchEvent(customEventError)})}/**
+                                        */let customEventError=new Event("response-error",{composed:!0,bubbles:!0});customEventError.detail={error:"invalid username",message:"invalid username",code:3,details:[{"@type":"type.googleapis.com/google.rpc.BadRequest",field_violations:[{code:5432,field:"display_name",description:" have fancy characters"},{code:5432,field:"repdate.0.repstring.1",description:"Bitte kein B"},{code:5432,field:"zeitunddatum.date",description:"Deeeep"},{code:5432,field:"unknown_field",description:"unknown"}]},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage",message:"Some localized message\nwith newline",locale:"de-ch"},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage",message:"*Other* localized message with newline",locale:"de-ch"},{"@type":"type.googleapis.com/google.rpc.BadRequest",message:"This should not be visible",locale:"de-ch"}]};this.dispatchEvent(customEventError)})}/**
      *@private
      */static get properties(){return{label:{type:String},bannerLabel:{type:String,attribute:"banner-text"},id:{type:String}}}render(){// language=HTML
 return _furoShell.html`
@@ -8678,28 +8802,39 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * @private
      * @returns {TemplateResult}
      */render(){return _furoShell.html`
-      <h2>Demo furo-banner</h2>
-      <furo-demo-snippet >
-        <template>
-  
-          <div>        
-              <furo-banner  ƒ-show="--show1" ƒ-set-Text="--setBannerText1"  icon="perm-scan-wifi" ></furo-banner>
-              <furo-banner  ƒ-show="--show2" ƒ-set-Text="--setBannerText2"  icon="info-outline"   dissmis-button-text="continue" confirm-button-text="confirm"></furo-banner>
-          </div>
-          <furo-banner-display></furo-banner-display>
-          
-          <produce-banner-data id="banner1" label="banner 1"
-            banner-text="Banner 1 , Wlan Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."
-             @-banner-text-banner1="--setBannerText1" 
-             @-show-banner1="--show1"
-           ></produce-banner-data>
-          <produce-banner-data id="banner2"  label="banner 2"
-            banner-text="Banner 2 ,At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."
-             @-banner-text-banner2="--setBannerText2" 
-             @-show-banner2="--show2"
-           ></produce-banner-data>
-        </template>
-      </furo-demo-snippet>
+<furo-vertical-flex>
+<div>
+<h2>Demo furo-banner</h2>
+
+</div>
+  <furo-demo-snippet flex>
+  <template>
+    <furo-vertical-scroller>
+      <furo-banner-display autofocus></furo-banner-display>     
+                                           
+      <furo-banner  ƒ-show="--show1" ƒ-set-Text="--setBannerText1"  icon="perm-scan-wifi" ></furo-banner>    
+      <produce-banner-data id="banner1" label="banner 1"
+      banner-text="Test\nNewline *stuff* \n *ddd*"
+      @-banner-text-banner1="--setBannerText1" 
+      @-show-banner1="--show1"
+      ></produce-banner-data>
+    
+    <produce-banner-data @-response-error="--error" label="GRPC ERROR"></produce-banner-data>
+    <furo-banner  ƒ-parse-grpc-status="--error" icon="apps"></furo-banner>
+    
+      <furo-button raised @-click="--show2">confirm multiline</furo-button>
+      
+    <furo-banner  ƒ-show="--show2" text="Wlan Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."  icon="info-outline"   dissmis-button-text="continue" confirm-button-text="confirm"></furo-banner>
+    
+    
+    <furo-button raised @-click="--show3">oneliner</furo-button>
+    <furo-banner  ƒ-show="--show3" text="oneliner."  icon="info-outline"></furo-banner>
+    </furo-vertical-scroller>
+  </template>
+  </furo-demo-snippet>
+</furo-vertical-flex>
+      
+ 
         `}}customElements.define("demo-furo-banner-display",DemoFuroBannerDisplay);class DemoFuroBannerDisplayError extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
      * Themable Styles
      * @private
@@ -8884,7 +9019,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             padding-left: var(--spacing-s);
             overflow: hidden;
             box-sizing: border-box;
-            background-color: var(--background);
+            background-color: var(--surface);
             --split-master-width: 212px;
         }
 
@@ -8913,7 +9048,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             padding-left: var(--spacing-s);
             overflow: hidden;
             box-sizing: border-box;
-            background-color: var(--background);
+            background-color: var(--surface);
             --split-master-width: 212px;
         }
 
@@ -8999,8 +9134,8 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             height: 100%;
             overflow: hidden;
             box-sizing: border-box;
-            background-color: var(--background, white);
-            color: var(--on-background, black);
+            background-color: var(--surface, white);
+            color: var(--on-surface, black);
             --split-master-width: 250px;
             
         }

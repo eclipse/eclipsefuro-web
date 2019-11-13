@@ -1126,15 +1126,15 @@
         {
           "name": "text",
           "type": "string | null | undefined",
-          "description": "banner content text",
+          "description": "banner text content. Use *word* to mark as strong. Use \\n to insert a line break.\n\n*HTML tags will be stripped out.*",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 55,
+              "line": 57,
               "column": 7
             }
           },
@@ -1151,11 +1151,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 62,
+              "line": 64,
               "column": 7
             }
           },
@@ -1172,11 +1172,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 68,
               "column": 6
             },
             "end": {
-              "line": 69,
+              "line": 71,
               "column": 7
             }
           },
@@ -1193,11 +1193,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 75,
               "column": 6
             },
             "end": {
-              "line": 75,
+              "line": 77,
               "column": 7
             }
           },
@@ -1214,11 +1214,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 79,
+              "line": 81,
               "column": 6
             },
             "end": {
-              "line": 81,
+              "line": 83,
               "column": 7
             }
           },
@@ -1751,11 +1751,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 89,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 91,
+              "line": 93,
               "column": 3
             }
           },
@@ -1775,11 +1775,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 99,
               "column": 2
             },
             "end": {
-              "line": 99,
+              "line": 101,
               "column": 3
             }
           },
@@ -1799,11 +1799,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 107,
               "column": 2
             },
             "end": {
-              "line": 107,
+              "line": 109,
               "column": 3
             }
           },
@@ -1823,11 +1823,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 115,
               "column": 2
             },
             "end": {
-              "line": 115,
+              "line": 117,
               "column": 3
             }
           },
@@ -1847,11 +1847,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 121,
+              "line": 123,
               "column": 2
             },
             "end": {
-              "line": 132,
+              "line": 134,
               "column": 3
             }
           },
@@ -1872,11 +1872,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 140,
               "column": 2
             },
             "end": {
-              "line": 150,
+              "line": 152,
               "column": 3
             }
           },
@@ -1892,11 +1892,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 157,
               "column": 2
             },
             "end": {
-              "line": 167,
+              "line": 169,
               "column": 3
             }
           },
@@ -1912,11 +1912,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 174,
               "column": 2
             },
             "end": {
-              "line": 181,
+              "line": 183,
               "column": 3
             }
           },
@@ -1932,11 +1932,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 190,
               "column": 2
             },
             "end": {
-              "line": 202,
+              "line": 204,
               "column": 3
             }
           },
@@ -2171,7 +2171,7 @@
           "column": 0
         },
         "end": {
-          "line": 205,
+          "line": 207,
           "column": 1
         }
       },
@@ -2181,14 +2181,14 @@
       "attributes": [
         {
           "name": "text",
-          "description": "banner content text",
+          "description": "banner text content. Use *word* to mark as strong. Use \\n to insert a line break.\n\n*HTML tags will be stripped out.*",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 55,
+              "line": 57,
               "column": 7
             }
           },
@@ -2200,11 +2200,11 @@
           "description": "label text of dismiss button",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 61,
               "column": 6
             },
             "end": {
-              "line": 62,
+              "line": 64,
               "column": 7
             }
           },
@@ -2216,11 +2216,11 @@
           "description": "label text of confirm button",
           "sourceRange": {
             "start": {
-              "line": 66,
+              "line": 68,
               "column": 6
             },
             "end": {
-              "line": 69,
+              "line": 71,
               "column": 7
             }
           },
@@ -2232,11 +2232,11 @@
           "description": "icon of the banner",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 75,
               "column": 6
             },
             "end": {
-              "line": 75,
+              "line": 77,
               "column": 7
             }
           },
@@ -2248,11 +2248,11 @@
           "description": "payload",
           "sourceRange": {
             "start": {
-              "line": 79,
+              "line": 81,
               "column": 6
             },
             "end": {
-              "line": 81,
+              "line": 83,
               "column": 7
             }
           },
@@ -2305,11 +2305,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 153,
+              "line": 82,
               "column": 6
             },
             "end": {
-              "line": 155,
+              "line": 84,
               "column": 7
             }
           },
@@ -2326,11 +2326,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 85,
               "column": 6
             },
             "end": {
-              "line": 158,
+              "line": 87,
               "column": 7
             }
           },
@@ -2347,11 +2347,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 88,
               "column": 6
             },
             "end": {
-              "line": 161,
+              "line": 90,
               "column": 7
             }
           },
@@ -2368,11 +2368,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 162,
+              "line": 91,
               "column": 6
             },
             "end": {
-              "line": 164,
+              "line": 93,
               "column": 7
             }
           },
@@ -2389,11 +2389,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 168,
+              "line": 97,
               "column": 6
             },
             "end": {
-              "line": 168,
+              "line": 97,
               "column": 32
             }
           },
@@ -2431,11 +2431,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 106,
               "column": 2
             },
             "end": {
-              "line": 185,
+              "line": 114,
               "column": 3
             }
           },
@@ -2455,11 +2455,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 192,
+              "line": 121,
               "column": 2
             },
             "end": {
-              "line": 202,
+              "line": 131,
               "column": 3
             }
           },
@@ -2480,11 +2480,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 208,
+              "line": 137,
               "column": 2
             },
             "end": {
-              "line": 241,
+              "line": 170,
               "column": 3
             }
           },
@@ -2495,16 +2495,37 @@
           }
         },
         {
+          "name": "_replacer",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 173,
+              "column": 2
+            },
+            "end": {
+              "line": 175,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "str"
+            }
+          ]
+        },
+        {
           "name": "focus",
           "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 244,
+              "line": 177,
               "column": 2
             },
             "end": {
-              "line": 246,
+              "line": 179,
               "column": 3
             }
           },
@@ -2520,11 +2541,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 184,
               "column": 2
             },
             "end": {
-              "line": 275,
+              "line": 208,
               "column": 3
             }
           },
@@ -2540,11 +2561,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 282,
+              "line": 283,
               "column": 2
             },
             "end": {
-              "line": 295,
+              "line": 298,
               "column": 3
             }
           },
@@ -2573,7 +2594,7 @@
           "column": 0
         },
         "end": {
-          "line": 297,
+          "line": 300,
           "column": 1
         }
       },
@@ -2586,11 +2607,11 @@
           "description": "enable autofocus for dismiss button after slide in",
           "sourceRange": {
             "start": {
-              "line": 168,
+              "line": 97,
               "column": 6
             },
             "end": {
-              "line": 168,
+              "line": 97,
               "column": 32
             }
           },

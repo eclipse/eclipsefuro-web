@@ -1669,6 +1669,7 @@ return Theme.getThemeForComponent(this.name)||css`
             color: var(--on-primary);
             line-height: 54px;
             font-size: 18px;
+            width: 100%;
         }
 
         :host([hidden]) {
@@ -2391,31 +2392,43 @@ return css`
                 --primary-light: #f6f6f6;
                 --primary-dark: #f1f1f1;
 
-                --secondary: #fbe73a;
+
+                --secondary: #fecf2f;
+                --secondary-dark: #ffc911;
                 --secondary-variant: #9e7f2b;
-                --on-secondary: #000000;
+                --on-secondary: #212121;
+
 
                 --accent: #3f83e3;
                 --on-accent: #e5e5e5;
+                --accent-light: #3f8ded;
+                --accent-dark: #3f73d3;
+                
 
-                --background: #fff;
-                --on-background: #313131;
+                --background: #eeeeee;
+                --on-background: #212121;
 
-                --surface: #fff;
-                --on-surface: #44484a;
-                --separator: #c3c4c3;
+                --surface-light: #f3f3f3;
+                --surface: #FEFEFE;
+                --surface-dark: #f0f0f0;
+                --on-surface: #212121;
+                --separator: #E4E4E4;
+
 
                 /* Input, Forms, Toast*/
-                --error: #C51162;
+                --error: #ea1c24;
                 --on-error: #ffffff;
 
-                --danger: #FA0202;
-                --on-danger: #FAFAFA;
+                --danger-light: #fc1c21;
+                --danger: #ee1c21;
+                --danger-dark: #de1c21;
+                --on-danger: #f8f8f8;
 
                 --success: #129991;
                 --on-success: #202124;
 
-                --disabled-color: #B4B5B4;
+                --disabled: #c3c4c3;
+                --on-disabled: #585858;
 
                 /* Spacing */
                 --spacing-xxs: 4px;
@@ -2549,13 +2562,18 @@ return Theme.getThemeForComponent(this.name)||css`
      * @private
      */render(){// language=HTML
 return html`
-<div class="bg"></div>
+     <div class="bg"></div>
       <button ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>
         <furo-icon icon="${this.icon}"></furo-icon>
          <furo-ripple></furo-ripple>      
       </button>
-      
     `}}window.customElements.define("furo-icon-button",FuroIconButton);class FuroAppBarTop extends FBP(LitElement){constructor(){super();this._navigationIcon="menu"}/**
+     * You can show a progress indicator while you have pending requests or work
+     * Shows furo-loading-indicator-bar
+     */startActivity(){this._FBPTriggerWire("--activityStarted")}/**
+     * Stop loading indicator
+     * Hides furo-loading-indicator-bar
+     */stopActivity(){this._FBPTriggerWire("--activityStopped")}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 if(this.drawer){/**
@@ -2568,7 +2586,7 @@ this._drawer.addEventListener("is-floating",()=>{this.showNavigationIcon()});thi
        * open the drawer
        */this._FBPAddWireHook("--navigationClicked",e=>{if("menu"===this._navigationIcon){this._drawer.open();/**
                               * @event navigation-clicked
-                              * Fired when navigation is clicked
+                              * Fired when navigation icon is clicked
                               */ /**
                                   * @event navigation-menu-clicked
                                   * Fired when icon is menu and navigation is clicked
@@ -2587,11 +2605,13 @@ this._drawer.addEventListener("is-floating",()=>{this.showNavigationIcon()});thi
 return css`
         :host {
             display: block;
+            position: relative;
             color: var(--on-primary);
             background: linear-gradient(315deg, var(--primary-light, #7f7f7f) 0%, var(--primary-dark, #aFAFAF) 100%);
-            box-shadow: 0 -15px 10px -15px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 2px 4px rgba(0,0,0,.5);
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
             font-size: 20px;
+            z-index: 1;
         }
 
         :host([hidden]) {
@@ -2617,21 +2637,52 @@ return css`
             display: none;
         }
 
-        :host([navigation]) furo-icon-button.navigation {
+        :host([navigation]) furo-icon-button.navigation, :host([navigation-icon]) furo-icon-button.navigation {
             display: block;
+            margin-right: 8px;
         }
 
+
+        furo-loading-indicator-bar{
+            position: absolute;
+            bottom:0;
+            width: 100%;
+        }
+        .extended {
+            display: none;
+            height: 72px;
+            line-height: 32px;
+            padding-left: 56px;
+            
+        }
+
+        /* pos bottom 20 with line-height 32 will result in 28px distance to the bottom (https://material.io/components/app-bars-top/#specs)  */
+        .extended ::slotted(*){
+            position: absolute;
+            bottom: 20px;
+            right: 96px;
+            left: 56px;
+        }
+        
+        :host([extended]) .extended{
+            display: block;
+        }
     `}showNavigationIcon(){this.setAttribute("navigation","")}hideNavigationIcon(){this.removeAttribute("navigation")}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
+     * @event navigation-clicked
+     * Fired when the navigation icon was clicked
+     */ /**
+         * @private
+         * @returns {TemplateResult}
+         */render(){// language=HTML
 return html`
       <furo-horizontal-flex>
-      <furo-icon-button class="navigation" icon="${this._navigationIcon}" @-click="^^navigation-clicked, --navigationClicked"></furo-icon-button>
-       <div flex>
-        <slot></slot>
-</div>
+      <furo-icon-button class="navigation" icon="${this._navigationIcon}" @-click="^^navigation-clicked, --navigationClicked"></furo-icon-button>       
+        <slot></slot>       
       </furo-horizontal-flex>
+       <furo-horizontal-flex class="extended">
+      <slot name="extended"></slot>
+      </furo-horizontal-flex>
+      <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
     `}}window.customElements.define("furo-app-bar-top",FuroAppBarTop);class ViewHome extends FBP(LitElement){constructor(){super()}/**
      * @private
      * @return {Object}
@@ -2651,8 +2702,8 @@ return Theme.getThemeForComponent(this.name)||css`
                 height: 100%;
                 overflow: hidden;
                 box-sizing: border-box;
-                background-color: var(--background, white);
-                color: var(--on-background, black);
+                background-color: var(--surface, white);
+                color: var(--on-surface, black);
             }
 
             :host([hidden]) {
@@ -2931,6 +2982,7 @@ return Theme.getThemeForComponent(this.name)||css`
             font-size: 16px;
             box-sizing: border-box;
             min-width: 64px;
+            white-space: nowrap;
         }
 
         :host([hidden]) {
@@ -2995,10 +3047,10 @@ return Theme.getThemeForComponent(this.name)||css`
             background-color: var(--primary-dark);
         }
         :host([primary]) button:focus{
-            background-color: var(--surface-light);
+            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
         }
         :host([primary]) button:hover{
-            background-color: var(--surface-dark);
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
 
@@ -3022,10 +3074,10 @@ return Theme.getThemeForComponent(this.name)||css`
             background-color: var(--accent-dark);
         }
         :host([accent]) button:focus{
-            background-color: var(--surface-light);
+            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
         }
         :host([accent]) button:hover{
-            background-color: var(--surface-dark);
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
 
@@ -3048,10 +3100,10 @@ return Theme.getThemeForComponent(this.name)||css`
             background-color: var(--secondary-dark);
         }
         :host([secondary]) button:focus{
-            background-color: var(--surface-light);
+            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
         }
         :host([secondary]) button:hover{
-            background-color: var(--surface-dark);
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
         
@@ -3083,10 +3135,10 @@ return Theme.getThemeForComponent(this.name)||css`
             color: var(--on-danger, #FFFFFF);
         }
         :host([danger]) button:focus{
-            background-color: var(--surface-light);
+            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
         }
         :host([danger]) button:hover{
-            background-color: var(--surface-dark);
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
 
@@ -3099,12 +3151,13 @@ return Theme.getThemeForComponent(this.name)||css`
         button:active {
             box-shadow: none;
         }
-
-        button:focus{
-            background-color: var(--surface-light);
+   
+        
+        button:focus, :host([unelevated]) button:focus, :host([outline]) button:focus{
+            background-color: var(--focus-color, var(--surface-light, #F3F3F3));
         }
-        button:hover{
-            background-color: var(--surface-dark);
+        button:hover, :host([unelevated]) button:hover, :host([outline]) button:hover{
+            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
         }
 
         :host([raised]) button:focus {
@@ -3605,7 +3658,7 @@ return Theme.getThemeForComponent(this.name)||css`
                 left: 11px;
                 height: 18px;
                 width: 18px;
-                background-color: var(--input-checkbox-unselected-bg-color, var(--background, #ffffff));
+                background-color: var(--input-checkbox-unselected-bg-color, var(--surface, #ffffff));
                 border: solid 2px;
                 border-color: var(--input-checkbox-unselected-border-color, var(--separator, #7E7E7E));
                 box-sizing: border-box;
@@ -3662,7 +3715,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
             /* disabled checkbox unselected */
             .wrapper input:disabled ~ .checkbox-background {
-                background-color: var(--input-checkbox-disabled-unselected-bg-color, var(--background, #ffffff));
+                background-color: var(--input-checkbox-disabled-unselected-bg-color, var(--surface, #ffffff));
                 border-color: var(--input-checkbox-disabled-unselected-border-color, var(--surface, #aaaaaa));
             }
 
@@ -3678,7 +3731,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
             /* disabled checkbox when hovering */
             .wrapper[disabled]:hover {
-                background-color: var(--input-checkbox-disabled-hover-bg-color, var(--background, #ffffff));
+                background-color: var(--input-checkbox-disabled-hover-bg-color, var(--surface, #ffffff));
                 background: transparent;
             }
 
@@ -5329,7 +5382,7 @@ return Theme.getThemeForComponent(this.name)||css`
                 left: 10px;
                 height: 20px;
                 width: 20px;
-                background-color: var(--input-radiobutton-unselected-bg-color, var(--background, #ffffff));
+                background-color: var(--input-radiobutton-unselected-bg-color, var(--surface, #ffffff));
                 border: solid 2px;
                 border-color: var(--input-radiobutton-unselected-border-color, var(--separator, #7E7E7E));
                 box-sizing: border-box;
@@ -5387,7 +5440,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
             /* disabled radiobutton unselected */
             .wrapper input:disabled ~ .radiobutton-background {
-                background-color: var(--input-radiobutton-disabled-unselected-bg-color, var(--background, #ffffff));
+                background-color: var(--input-radiobutton-disabled-unselected-bg-color, var(--surface, #ffffff));
                 border-color: var(--input-radiobutton-disabled-unselected-border-color, var(--surface, #aaaaaa));
             }
 
@@ -5403,7 +5456,7 @@ return Theme.getThemeForComponent(this.name)||css`
 
             /* disabled radiobutton when hovering */
             .wrapper[disabled]:hover {
-                background-color: var(--input-radiobutton-disabled-hover-bg-color, var(--background, #ffffff));
+                background-color: var(--input-radiobutton-disabled-hover-bg-color, var(--surface, #ffffff));
                 background: transparent;
             }
 
@@ -11282,7 +11335,7 @@ return Theme.getThemeForComponent(this.name)||css`
             display: block;
             height: 100%;
             padding-right: var(--spacing-s);
-            background-color: var(--background);
+            background-color: var(--surface);
         }
 
         :host([hidden]) {
@@ -11292,7 +11345,7 @@ return Theme.getThemeForComponent(this.name)||css`
         h3 {
             position: sticky;
             top: 0;
-            background-color: var(--background);
+            background-color: var(--surface);
             z-index: 1;
             margin-top: 0;
             color: var(--on-background);
@@ -11346,37 +11399,37 @@ return css`
             --primary-light: #4ccd50;
             --primary: #4caf50;
             --primary-dark: #4b9b4f;
-            --primary-variant: #f4f4f4;
-            --on-primary: #212121;
+            --primary-variant: #2587a3;
+            --on-primary: #ffffff;
 
-            --secondary-light: #ffe525;
-            --secondary: #ffeb3b;
-            --secondary-dark: #efdb3b;
-            --secondary-variant: #edeeed;
-            --on-secondary: #000000;
+            --secondary-light: #fdd756;
+            --secondary: #fecf2f;
+            --secondary-dark: #ffc911;
+            --secondary-variant: #faedc1;
+            --on-secondary: #212121;
 
-            --accent-light: #419bff;
-            --accent: #3f83e3;
-            --accent-dark: #3f6ece;
-            --on-accent: #e5e5e5;
+            --accent-light: #ecf3ca;
+            --accent: #cce35b;
+            --accent-dark: #bada18;
+            --on-accent: #212121;
 
-            --background: #ffffff;
+            --background: #eeeeee;
             --on-background: #212121;
 
-            --surface-light: #f2f2f2;
-            --surface: #eeeeee;
-            --surface-dark: #DEDEDE;
+            --surface-light: #f3f3f3;
+            --surface: #FEFEFE;
+            --surface-dark: #f0f0f0;
             --on-surface: #212121;
-            --separator: #c3c4c3;
+            --separator: #E4E4E4;
 
             /* Input, Forms, Toast*/
-            --error: #C51162;
+            --error: #ea1c24;
             --on-error: #ffffff;
 
-            --danger-light: #FA0202;
-            --danger: #e20202;
-            --danger-dark: #b50202;
-            --on-danger: #FAFAFA;
+            --danger-light: #fc1c21;
+            --danger: #ee1c21;
+            --danger-dark: #de1c21;
+            --on-danger: #f8f8f8;
 
             --success: #129991;
             --on-success: #202124;
@@ -11394,7 +11447,6 @@ return css`
             --spacing-l: 32px;
             --spacing-xl: 48px;
             --spacing-xxl: 96px;
-
 
         }
 
@@ -15523,7 +15575,7 @@ return[css`
               height: 320px;
               box-sizing: border-box;
               overflow: hidden;
-              background-color: var(--background);
+              background-color: var(--surface);
           }
 
           :host([hidden]) {
@@ -15532,12 +15584,12 @@ return[css`
 
 
           :host([fullscreen]) .nav{
-              background-color: var(--surface);
+              background-color: var(--surface-light);
               padding: 16px;
           }
           
           :host([fullscreen]) .nav span {
-              border-bottom-color: var(--surface);
+              border-bottom-color: var(--surface-light);
           }
           
           :host([fullscreen]) {
@@ -15546,12 +15598,19 @@ return[css`
           }
 
           furo-markdown {
+              background-color: var(--surface-light);
               height: 100%;
               overflow: auto;
           }
-
+          furo-show-flow{
+              background-color: var(--surface-light);
+          }
           #demo, #flow {
               height: 100%;
+          }
+          #demo{
+              padding: var(--spacing-s);
+              box-sizing: border-box;
           }
 
           :host(:not([demo])) #demo {
@@ -15576,15 +15635,15 @@ return[css`
           }
 
           .nav {
-              background-color: var(--demo-header, white);
-              color: var(--on-primary);
-              margin-bottom: 24px;
+              background-color: var(--surface-light, white);
+              color: var(--on-surfcae);
+             
           }
 
           
           .nav span {
               display: inline-block;
-              border-bottom: 1px solid var(--demo-header, white);
+              border-bottom: 1px solid var(--surface-light, white);
               cursor: pointer;
           }
 
@@ -15767,7 +15826,7 @@ return Theme.getThemeForComponent(this.name)||css`
             padding: var(--spacing-s) 0;
             border-bottom-width: 1px;
             border-bottom-style: solid;
-            border-bottom-color: var(--background, rgba(0, 0, 0, .12);
+            border-bottom-color:  rgba(0, 0, 0, .12);
         }
         
 
@@ -15968,7 +16027,7 @@ return html`
   <slot name="context"></slot>
 </furo-horizontal-flex>
 <div class="content"><slot></slot></div>
-    `}}window.customElements.define("furo-collapsible-box",FuroCollapsibleBox);class FuroFormLayouter extends FBP(LitElement){constructor(){super();this.narrow=!1;this.narrower=!1;this.breakpointBig=810;this.breakpointSmall=405}_checkSize(width){if(0<width&&width<this.breakpointBig&&width>this.breakpointSmall){this.setAttribute("narrow","");this.narrow=!0;this.removeAttribute("narrower");this.narrower=!1;this._fireResize()}else if(0<width&&width<this.breakpointSmall){this.setAttribute("narrower","");this.narrower=!0;this.removeAttribute("narrow");this.narrow=!1;this._fireResize()}else{this.removeAttribute("narrow");this.removeAttribute("narrower");this.narrow=this.narrower=!1}}_fireResize(){this.dispatchEvent(new CustomEvent("layout-changed",{detail:this,bubbles:!0,composed:!0}))}/**
+    `}}window.customElements.define("furo-collapsible-box",FuroCollapsibleBox);class FuroFormLayouter extends FBP(LitElement){constructor(){super();this.narrow=!1;this.narrower=!1;this.breakpointBig=810;this.breakpointSmall=405}_checkSize(width){if(0<width&&width<this.breakpointBig&&width>this.breakpointSmall){this.setAttribute("narrow","");this.narrow=!0;this.removeAttribute("narrower");this.narrower=!1;this._fireResize()}else if(0<width&&width<=this.breakpointSmall){this.setAttribute("narrower","");this.narrower=!0;this.removeAttribute("narrow");this.narrow=!1;this._fireResize()}else{this.removeAttribute("narrow");this.removeAttribute("narrower");this.narrow=this.narrower=!1}}_fireResize(){this.dispatchEvent(new CustomEvent("layout-changed",{detail:this,bubbles:!0,composed:!0}))}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
 this.updateComplete.then(()=>{if(window.ResizeObserver){const ro=new ResizeObserver(entries=>{for(let entry of entries){this._checkSize(entry.contentRect.width)}});ro.observe(this)}else{// fallback, just listen to the resize event
@@ -15994,6 +16053,14 @@ return Theme.getThemeForComponent(this.name)||css`
             display: none;
         }
 
+        ::slotted(*) {
+            width: 100%;
+        }
+
+        ::slotted(*[double]) {
+            grid-column: span 2 / auto;
+        }
+
         :host([two]) {
             grid-template-columns: repeat(2, 1fr);
             grid-column-gap: var(--spacing);
@@ -16015,6 +16082,10 @@ return Theme.getThemeForComponent(this.name)||css`
         :host([narrower]) {
             grid-template-columns: repeat(1, 1fr);
         }
+        
+        :host([narrower]) > ::slotted(*[double]){
+            grid-column: auto;
+        }
 
         :host([narrow-fix]) {
             grid-template-columns: repeat(1, 1fr);
@@ -16030,14 +16101,6 @@ return Theme.getThemeForComponent(this.name)||css`
 
         :host([narrower-fix]) {
             grid-template-columns: repeat(1, 1fr);
-        }
-
-        ::slotted(*) {
-            width: 100%;
-        }
-
-        ::slotted(*[double]) {
-            grid-column: span 2;
         }
 
         :host([card]) {
@@ -17239,7 +17302,9 @@ window.addEventListener("connect-to-drawer-requested",e=>{if(e.detail.name===thi
      */open(){this.isOpen=!0;if(this.isFloating){let drawer=this.shadowRoot.getElementById("drawer");//drawer.style.transform = "translate3d(0, 0, 0)";
 if(this.isReverse){//drawer.style.transform = "translate3d("+ width +"px, 0, 0)";
 drawer.style.right=0}else{drawer.style.left=0;//drawer.style.transform = "translate3d(-"+ width +"px, 0, 0)";
-}let backdrop=this.shadowRoot.getElementById("backdrop");backdrop.style.opacity=1;backdrop.style.pointerEvents="auto"}}/**
+}let backdrop=this.shadowRoot.getElementById("backdrop");backdrop.style.opacity=1;backdrop.style.pointerEvents="auto";// unregister movement tracker
+this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);//unregister trackend
+this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventListener("touchend",this.trackEnd,{once:!0})}}/**
      * closes the drawer when it is in float mode
      */close(){this.isOpen=!1;if(this.isFloating){let drawer=this.shadowRoot.getElementById("drawer"),width=drawer.getBoundingClientRect().width;if(this.isReverse){//drawer.style.transform = "translate3d("+ width +"px, 0, 0)";
 drawer.style.right=-width+"px"}else{drawer.style.left=-width+"px";//drawer.style.transform = "translate3d(-"+ width +"px, 0, 0)";
@@ -17319,7 +17384,7 @@ return Theme.getThemeForComponent(this.name)||css`
             overflow-y: auto;
         }
 
-        /* disable pointer events */
+        /* disable pointer events, z-index 15 just to be below the drawer */
         #backdrop {
             pointer-events: none;
             transition-duration: 200ms;
@@ -17331,6 +17396,7 @@ return Theme.getThemeForComponent(this.name)||css`
             left: 0;
             opacity: 0;
             background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
+            z-index: 15;
         }
 
 
@@ -17340,6 +17406,7 @@ return Theme.getThemeForComponent(this.name)||css`
             width: 18px;
             bottom: 0;
             left: 0;
+            z-index: 16;
         }
 
         :host([reverse]) #drag {
@@ -17347,10 +17414,10 @@ return Theme.getThemeForComponent(this.name)||css`
             right: 0;
         }
 
-        /* put the floating drawer outside the visible area */
+        /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
         :host([float]) #drawer {
             position: absolute;
-            z-index: 1;
+            z-index: 16;
             top: 0;
             left: 0;
             bottom: 0;

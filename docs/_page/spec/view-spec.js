@@ -21,7 +21,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         
         furo-markdown{
             padding: var(--spacing);
-          background-color: var(--background);
+          background-color: var(--surface);
             min-width: 500px;
         }
         
@@ -46,8 +46,8 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             height: 100%;
             overflow: hidden;
             box-sizing: border-box;
-            background-color: var(--background, white);
-            color: var(--on-background, black);
+            background-color: var(--surface, white);
+            color: var(--on-surface, black);
             --split-master-width: 250px;
         }
 

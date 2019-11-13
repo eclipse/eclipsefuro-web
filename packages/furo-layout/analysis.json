@@ -13,11 +13,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 107,
               "column": 6
             },
             "end": {
-              "line": 90,
+              "line": 107,
               "column": 67
             }
           },
@@ -34,11 +34,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 111,
               "column": 6
             },
             "end": {
-              "line": 94,
+              "line": 111,
               "column": 28
             }
           },
@@ -51,16 +51,56 @@
       ],
       "methods": [
         {
+          "name": "startActivity",
+          "description": "You can show a progress indicator while you have pending requests or work\nShows furo-loading-indicator-bar",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 27,
+              "column": 2
+            },
+            "end": {
+              "line": 29,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "stopActivity",
+          "description": "Stop loading indicator\nHides furo-loading-indicator-bar",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 35,
+              "column": 2
+            },
+            "end": {
+              "line": 37,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "_FBPReady",
           "description": "flow is ready lifecycle method",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 25,
+              "line": 42,
               "column": 2
             },
             "end": {
-              "line": 79,
+              "line": 96,
               "column": 3
             }
           },
@@ -76,11 +116,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 191,
               "column": 2
             },
             "end": {
-              "line": 148,
+              "line": 193,
               "column": 3
             }
           },
@@ -96,11 +136,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 150,
+              "line": 195,
               "column": 2
             },
             "end": {
-              "line": 152,
+              "line": 197,
               "column": 3
             }
           },
@@ -116,11 +156,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 208,
               "column": 2
             },
             "end": {
-              "line": 168,
+              "line": 220,
               "column": 3
             }
           },
@@ -145,7 +185,7 @@
           "column": 0
         },
         "end": {
-          "line": 170,
+          "line": 222,
           "column": 1
         }
       },
@@ -158,11 +198,11 @@
           "description": "drawer to connect the ƒ-show-navigation-icon=\"--drawerFloats\" ƒ-hide-navigation-icon=\"--drawerPinned\"",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 111,
               "column": 6
             },
             "end": {
-              "line": 94,
+              "line": 111,
               "column": 28
             }
           },
@@ -180,7 +220,7 @@
         {
           "type": "CustomEvent",
           "name": "navigation-clicked",
-          "description": "navigation-clicked\nFired when navigation is clicked",
+          "description": "navigation-clicked\nFired when the navigation icon was clicked",
           "metadata": {}
         },
         {
@@ -551,11 +591,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 178,
+              "line": 186,
               "column": 2
             },
             "end": {
-              "line": 392,
+              "line": 400,
               "column": 3
             }
           },
@@ -751,7 +791,7 @@
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 118,
               "column": 3
             }
           },
@@ -767,11 +807,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 115,
+              "line": 123,
               "column": 2
             },
             "end": {
-              "line": 141,
+              "line": 149,
               "column": 3
             }
           },
@@ -787,11 +827,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 154,
               "column": 2
             },
             "end": {
-              "line": 149,
+              "line": 157,
               "column": 3
             }
           },
@@ -807,11 +847,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 154,
+              "line": 162,
               "column": 2
             },
             "end": {
-              "line": 156,
+              "line": 164,
               "column": 3
             }
           },
@@ -827,11 +867,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 164,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 166,
+              "line": 174,
               "column": 3
             }
           },
@@ -847,11 +887,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 171,
+              "line": 179,
               "column": 2
             },
             "end": {
-              "line": 173,
+              "line": 181,
               "column": 3
             }
           },
@@ -867,11 +907,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 394,
+              "line": 402,
               "column": 2
             },
             "end": {
-              "line": 400,
+              "line": 408,
               "column": 3
             }
           },
@@ -888,11 +928,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 403,
+              "line": 411,
               "column": 2
             },
             "end": {
-              "line": 411,
+              "line": 419,
               "column": 3
             }
           },
@@ -909,11 +949,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 413,
+              "line": 421,
               "column": 2
             },
             "end": {
-              "line": 421,
+              "line": 429,
               "column": 3
             }
           },
@@ -930,11 +970,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 513,
+              "line": 523,
               "column": 2
             },
             "end": {
-              "line": 528,
+              "line": 538,
               "column": 3
             }
           },
@@ -959,7 +999,7 @@
           "column": 0
         },
         "end": {
-          "line": 529,
+          "line": 539,
           "column": 1
         }
       },
