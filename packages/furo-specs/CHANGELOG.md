@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.42.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.42.0...@furo/specs@0.42.1) (2019-11-13)
+
+**Note:** Version bump only for package @furo/specs
+
+
+
+
+
 # [0.42.0](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.41.5...@furo/specs@0.42.0) (2019-11-08)
 
 

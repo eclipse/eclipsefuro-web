@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.58.5](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.58.4...@furo/input@0.58.5) (2019-11-13)
+
+
+### Bug Fixes
+
+* text wrapping for furo-button in banner-display with long button texts ([6d73e51](https://github.com/veith/FuroBaseComponents/commit/6d73e51))
+
+
+
+
+
 ## [0.58.4](https://github.com/veith/FuroBaseComponents/compare/@furo/input@0.58.3...@furo/input@0.58.4) (2019-11-12)
 
 

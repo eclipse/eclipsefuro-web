@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/veith/FuroBaseComponents/compare/@furo/notification@0.4.1...@furo/notification@0.5.0) (2019-11-13)
+
+
+### Features
+
+* banner with markdown support ([253099c](https://github.com/veith/FuroBaseComponents/commit/253099c))
+* furo-banner with micro markdown, better button alignment ([7339f65](https://github.com/veith/FuroBaseComponents/commit/7339f65))
+
+
+
+
+
 ## [0.4.1](https://github.com/veith/FuroBaseComponents/compare/@furo/notification@0.4.0...@furo/notification@0.4.1) (2019-11-12)
 
 **Note:** Version bump only for package @furo/notification
