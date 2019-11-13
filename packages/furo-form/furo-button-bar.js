@@ -40,6 +40,10 @@ class FuroButtonBar extends (LitElement) {
             margin-right: 0;
         }
 
+        furo-horizontal-flex{
+          flex-wrap: wrap;
+        }
+
     `
   }
 

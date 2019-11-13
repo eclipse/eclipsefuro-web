@@ -8,6 +8,8 @@ import {BasePanel} from "@furo/route/lib/BasePanel";
 
 import '@furo/data';
 import '@furo/layout';
+import '@furo/form';
+import '@furo/notification';
 
 
 import "./task-task-form";
@@ -44,19 +46,26 @@ export class TaskTaskUpdatePanel extends (BasePanel) {
                 :host {
                     display: block;
                     height: 100%;
-                    background-color: var(--surface-light);
+                    overflow: hidden;
+                    background-color: var(--surface);
                     color: var(--on-surface);
-                    padding-top: var(--spacing);
-                    box-sizing:border-box;
                 }
 
                 :host([hidden]) {
                     display: none;
                 }
 
-                furo-card {
-                    margin: 0 var(--spacing);
-                    margin-bottom: var(--spacing);
+                .content {
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                .form {
+                    padding: var(--spacing-s);
+                }
+
+                .action {
+                    padding: var(--spacing-s) var(--spacing-s) var(--spacing-xs) var(--spacing-s);
                 }
             `
     }
@@ -68,23 +77,20 @@ export class TaskTaskUpdatePanel extends (BasePanel) {
     render() {
         // language=HTML
         return html`
-          <furo-vertical-flex>
-            <furo-card ƒ-start-activity="--requestStarted" ƒ-stop-activity="--response, --error">
-
-              <task-task-form flex ƒ-bind-data="--entity(*.data)"></task-task-form>
-            </furo-card>
-
-            <task-task-update-action @-update="--updateReq" ƒ-bind-entity="--entity" ƒ-start-activity="--requestStarted" ƒ-stop-activity="--response, --responseError" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></task-task-update-action>
-
-
+          <furo-vertical-flex class="content">
+              <task-task-form flex scroll class="form" flex ƒ-bind-data="--entity(*.data)"></task-task-form>
+              <task-task-update-action class="action" @-update="--updateReq" ƒ-bind-entity="--entity" ƒ-start-activity="--requestStarted" ƒ-stop-activity="--response, --responseError" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></task-task-update-action>
           </furo-vertical-flex>
 
+          <furo-banner ƒ-set-text="--error(*.message)" ƒ-show="--error"
+                                 icon="error-outline"
+                                 dismiss-button-text="${i18n.t('furo.banner.close')}"></furo-banner>
 
           <furo-entity-agent service="TaskService"
-                             @-request-started="--requestStarted"
-                             @-response="--response"
-                             @-response-error="--error"
-                             @-fatal-error="--error"
+                             @-request-started="--requestStarted, ^^activity-started"
+                             @-response="--response, ^^activity-stopped"
+                             @-response-error="--error, ^^activity-stopped"
+                             @-fatal-error="--error, ^^activity-stopped"
                              ƒ-hts-in="--navNode(*._value.link), --htsIn"
                              ƒ-bind-request-data="--entity(*.data)"
                              ƒ-put="--updateReq"

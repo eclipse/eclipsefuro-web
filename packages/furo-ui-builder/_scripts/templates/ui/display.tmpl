@@ -21,6 +21,8 @@ export class {{.class_name}} extends FBP(LitElement) {
        return Theme.getThemeForComponent('{{.theme}}') || css`
             :host {
                 display: block;
+                padding: var(--spacing-xs, 8px);
+                overflow: hidden;
             }
             :host([hidden]) {
                 display: none;
