@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import  "@furo/layout/furo-icon";
+import {Helper} from "./lib/helper";
 
 /**
  * `furo-color-input`
@@ -41,22 +42,7 @@ class FuroColorInput extends FBP(LitElement) {
     this._value = this.value || "";
     this._FBPAddWireHook("--inputInput", (e) => {
 
-      let input = e.composedPath()[0];
-      this.error = !input.validity.valid;
-      this._float = !!input.value;
-
-      if (input.validity.valid) {
-        this.value = input.value;
-
-        /**
-         * @event value-changed
-         * Fired when value has changed from inside the component
-         * detail payload: {String} the text value
-         */
-        let customEvent = new Event('value-changed', {composed: true, bubbles: true});
-        customEvent.detail = this.value;
-        this.dispatchEvent(customEvent);
-      }
+      Helper.triggerValueChanged(this, e );
     });
 
   }

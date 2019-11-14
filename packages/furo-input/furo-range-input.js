@@ -44,23 +44,8 @@ class FuroRangeInput extends FBP(LitElement) {
     this._value = this.value || "";
 
     this._FBPAddWireHook("--inputInput", (e) => {
-      let input = e.composedPath()[0];
 
-      // mark min max error
-      this.valid = !(input.validity.rangeOverflow || input.validity.rangeUnderflow);
-
-      if (!input.validity.badInput) {
-        this.value = input.value;
-        this._float = !!input.value;
-        /**
-         * @event value-changed
-         * Fired when value has changed from inside the component
-         * detail payload: {Number} the number value
-         */
-        let customEvent = new Event('value-changed', {composed: true, bubbles: true});
-        customEvent.detail = this.value;
-        this.dispatchEvent(customEvent);
-      }
+      Helper.triggerValueChanged(this, e );
     });
   }
 

@@ -30,4 +30,39 @@ export class Helper {
     })
   }
 
+  /**
+   * send event value-changed with event detail value
+   * when input invalid send extra input-invalid event with event detail validity object
+   * @param caller
+   * @param e
+   */
+  static triggerValueChanged(caller, e ) {
+
+    let input = e.composedPath()[0];
+
+    caller.valid = input.validity.valid;
+    caller._float = !!input.value;
+
+    caller.value = input.value;
+    /**
+     * @event value-changed
+     * Fired when value has changed from inside the component
+     * detail payload: {String} the text value
+     */
+    let customEvent = new Event('value-changed', {composed: true, bubbles: true});
+    customEvent.detail = caller.value;
+    caller.dispatchEvent(customEvent);
+
+    if (!input.validity.valid) {
+
+      /**
+       * @event input-invalid
+       * Fired when input value is invalid
+       * detail payload: {Object} the validity object of input
+       */
+      let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
+      customEvent.detail = input.validity;
+      caller.dispatchEvent(customEvent);
+    }
+  }
 }
