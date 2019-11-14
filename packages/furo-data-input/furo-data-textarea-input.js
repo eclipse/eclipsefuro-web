@@ -42,19 +42,8 @@ class FuroDataTextareaInput extends FBP(LitElement) {
     });
 
     this._FBPAddWireHook("--inputInvalid", (val) => {
-      // val is a ValidityState
-      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-      if (val) {
-        if (val.tooShort) {
-          this._hint = this._minErrorMessage;
-        }
-        else if(val.tooLong)
-        {
-          this._hint = this._maxErrorMessage;
-        }
 
-        this.requestUpdate();
-      }
+      Helper.setInvalidMessage(this, val);
     });
   }
 
@@ -67,22 +56,6 @@ class FuroDataTextareaInput extends FBP(LitElement) {
     //this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
-
-  /**
-   * Updater for the min => minlength attr
-   * @param value
-   */
-  set _min(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
-  }
-
-  /**
-   * Updater for the max attr
-   * @param value
-   */
-  set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
   }
 
   /**
@@ -127,7 +100,7 @@ class FuroDataTextareaInput extends FBP(LitElement) {
 
 
   /**
-   * todo , add more attributes like cols, rows, spellcheck..
+   * todo , add more attributes like  spellcheck..
    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
    */
   static get properties() {
@@ -156,22 +129,6 @@ class FuroDataTextareaInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
-      },
-      /**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      min: {
-        type: Number,
-      },
-      /**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      max: {
-        type: Number,
       },
       /**
        * Overrides the readonly value from the **specs**.

@@ -54,6 +54,7 @@ export class CheckMetaAndOverrides {
         }
         if (element.field._constraints.required) {
           element._required = element.field._constraints.required.is == "true" || element.field._constraints.required.is === true;
+          element._requiredErrorMessage = element.field._constraints.required.message;
         }
       }
     }
