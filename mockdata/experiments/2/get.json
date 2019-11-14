@@ -4,7 +4,6 @@
     "display_name": "display_name",
     "id": "1",
     "furo_data_checkbox_input": true,
-    "furo_data_text_input": "hallo test",
     "furo_data_number_input": 556,
     "furo_data_time_input": "17:34",
     "furo_data_color_input": "#e318ed",

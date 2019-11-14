@@ -62,7 +62,8 @@ class DemoFuroEntityValidator extends FBP(LitElement) {
                         <furo-horizontal-flex>
 
                             <furo-data-search-input autofocus ƒ-bind-data="--entity(*.furo_data_search_input)"></furo-data-search-input>
-                            <furo-data-search-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-search-input>
+                            <furo-data-number-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-number-input>
+                            <furo-data-text-input autofocus ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
                         </furo-horizontal-flex>
 
                         <produce-qp-data @-data="--qp" qp={"exp":2}></produce-qp-data>

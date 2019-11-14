@@ -27,7 +27,7 @@ class FuroEntityValidator extends FBP(LitElement) {
           if(constraint.message){
             return {"description": constraint.message, constraint: "min"}
           }
-          return {"description": "Mindestens " + constraint.is + " Zeichen", constraint: "min"}
+          return {"description": "at least " + constraint.is + " characters", constraint: "min"}
         }
         return null;
       },
@@ -37,17 +37,33 @@ class FuroEntityValidator extends FBP(LitElement) {
           if(constraint.message){
             return {"description": constraint.message, constraint: "max"}
           }
-          return {"description": "Maximal " + constraint.is + " Zeichen", constraint: "max"}
+          return {"description": "maximal " + constraint.is + " characters", constraint: "max"}
         }
         return null;
       },
-      mandatory: field => {
+      required: field => {
         let constraint = field._constraints.required;
-        if ( field._value && field._value.length === 0) {
-          return {"description": "Eingabe erforderlich", constraint: "mandatory"}
+        if ( !field._value || ( field._value && field._value.length === 0)) {
+          if(constraint.message) {
+            return {"description": constraint.message, constraint: "mandatory"}
+          }
+          return {"description": "field required", constraint: "mandatory"}
         }
         return null;
       },
+      pattern: (field) => {
+        let constraint = field._constraints.pattern;
+        if (field._value && constraint.is) {
+          let reg = new RegExp(constraint.is);
+          if(!field._value.match(reg)) {
+            if(constraint.message) {
+              return {"description": constraint.message, constraint: "pattern"}
+            }
+            return {"description": "pattern not match", constraint: "pattern"}
+          }
+        }
+        return null;
+      }
     };
 
     this.checks.int = {
@@ -96,7 +112,6 @@ class FuroEntityValidator extends FBP(LitElement) {
     let self = this;
     // this.validator ist hier wegen dem hoisting...
     this.validator = (e) => {
-
       let field = e.target;
       let type = field._spec.type;
 
@@ -124,6 +139,7 @@ class FuroEntityValidator extends FBP(LitElement) {
     };
 
     fields.addEventListener('field-value-changed', this.validator);
+    //fields.addEventListener('branch-value-changed', this.validator);
     this._FBPTriggerWire('--dataInjected', fields);
 
     /** TODO: eventqueue wie in FBP aufbauen??

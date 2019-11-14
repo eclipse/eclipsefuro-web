@@ -236,8 +236,13 @@ class FuroTextInput extends FBP(LitElement) {
        */
       filled: {
         type: Boolean
+      },
+      /**
+       * error text
+       */
+      _errortext: {
+        type: String,
       }
-
     };
   }
 

@@ -91,7 +91,7 @@
           "message": "15 characters maximum"
         },
         "pattern": {
-          "is": "a.*",
+          "is": "^a.*",
           "message": "must start with a"
         }
       },
