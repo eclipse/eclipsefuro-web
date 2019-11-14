@@ -21,9 +21,6 @@
       <template>
         <furo-data-time-input  ƒ-bind-data="--entity(*.furo_data_time_input)"></furo-data-time-input>
         <furo-data-time-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.id)"
-                                min="01:00"
-                                max="10:00"
-                                step="5"
                               @-value-changed="--textChanged"></furo-data-time-input>
         <furo-data-time-input  ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-time-input>
 
@@ -52,7 +49,6 @@
   import "@furo/data/furo-deep-link";
   import '/node_modules/axe-core/axe.min.js';
 
-  import '/node_modules/axe-core/axe.min.js';
   import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
   describe('furo-data-time-input_test tests ', function () {
@@ -98,25 +94,6 @@
         done();
       },0)
     });
-    it('should override min ', (done) => {
-      secondTimeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondTimeInput.min, "01:00");
-        done();
-      });
-    });
-    it('should override max ', (done) => {
-      secondTimeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondTimeInput.max, "10:00");
-        done();
-      });
-    });
-    it('should override step ', (done) => {
-      secondTimeInput._FBPAddWireHook("--value", (val) => {
-        assert.equal(secondTimeInput.step, "5");
-        done();
-      });
-    });
-
 
 
     it('should receive value with bind', (done) => {
@@ -130,14 +107,11 @@
     });
 
 
-      it('should bind the field label, hint, min, max and step', (done) => {
+      it('should bind the field label, hint', (done) => {
       host._FBPAddWireHook("--entity", () => {
         setTimeout(()=>{
           assert.equal(dataTimeInput._theInputElement.getAttribute("label"), "time-input");
           assert.equal(dataTimeInput._theInputElement.getAttribute("hint"), "hint");
-          assert.equal(dataTimeInput._theInputElement.getAttribute("min"), "05:00");
-          assert.equal(dataTimeInput._theInputElement.getAttribute("max"), "19:00");
-          assert.equal(dataTimeInput._theInputElement.getAttribute("step"), "5");
         done();
         },0);
       })

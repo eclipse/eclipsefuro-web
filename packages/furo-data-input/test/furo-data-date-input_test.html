@@ -21,9 +21,6 @@
       <template>
           <furo-data-date-input  ƒ-bind-data="--entityReady(*.furo_data_date_input)"></furo-data-date-input>
           <furo-data-date-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entityReady(*.furo_data_date_input_google)"
-                                min="1999-01-01"
-                                max="2099-12-31"
-                                step="5"
                                 @-value-changed="--textChanged"></furo-data-date-input>
 
           <furo-data-object type="experiment.Experiment" @-object-ready="--entityReady"
@@ -53,7 +50,6 @@
   import "@furo/data/furo-deep-link";
   import '/node_modules/axe-core/axe.min.js';
 
-  import '/node_modules/axe-core/axe.min.js';
   import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
   describe('furo-data-date-input_test tests ', function () {
@@ -88,27 +84,6 @@
     it('should override labels ', (done) => {
       setTimeout(()=>{
         assert.equal(secondDateInput._theInputElement.getAttribute("label"), "FromTPL");
-        done();
-      },0)
-    });
-
-    it('should override min ', (done) => {
-      setTimeout(()=>{
-        assert.equal(secondDateInput._theInputElement.getAttribute("min"), "1999-01-01");
-        done();
-      },0)
-    });
-
-    it('should override max ', (done) => {
-      setTimeout(()=>{
-        assert.equal(secondDateInput._theInputElement.getAttribute("max"), "2099-12-31");
-        done();
-      },0)
-    });
-
-    it('should override step ', (done) => {
-      setTimeout(()=>{
-        assert.equal(secondDateInput._theInputElement.getAttribute("step"), "5");
         done();
       },0)
     });

@@ -92,20 +92,19 @@ export class Helper {
 
       let msg =  "invalid value";
 
-      if (val.patternMismatch) {
-        caller._hint = caller._patternErrorMessage? caller._patternErrorMessage: msg;
-      } else if (val.tooShort || val.rangeUnderflow ) {
-        caller._hint = caller._minErrorMessage? caller._minErrorMessage: msg;
-      } else if (val.tooLong || val.rangeOverflow ) {
-        caller._hint = caller._maxErrorMessage? caller._maxErrorMessage: msg;
-      } else if(val.stepMismatch) {
-        caller._hint = caller._stepErrorMessage? caller._stepErrorMessage: msg;
-      } else if(val.valueMissing) {
-        caller._hint = caller._requiredErrorMessage ? caller._requiredErrorMessage: msg;
+      if(val.valueMissing && caller._requiredErrorMessage ) {
+        msg = caller._requiredErrorMessage;
+      } else if ( (val.tooShort || val.rangeUnderflow ) &&  caller._minErrorMessage) {
+        msg = caller._minErrorMessage;
+      } else if ( (val.tooLong || val.rangeOverflow ) && caller._maxErrorMessage ) {
+        msg = caller._maxErrorMessage;
+      } else if (val.patternMismatch && caller._patternErrorMessage) {
+        msg = caller._patternErrorMessage;
+      } else if(val.stepMismatch && caller._stepErrorMessage) {
+        msg = caller._stepErrorMessage;
       }
-      else {
-        caller._hint = msg;
-      }
+
+      caller._hint = msg;
 
       caller.requestUpdate();
     }
