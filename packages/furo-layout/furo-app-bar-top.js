@@ -2,7 +2,8 @@ import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 
 import '@furo/input/furo-icon-button';
-import '@furo/layout';
+import './furo-horizontal-flex';
+import './furo-loading-indicator-bar';
 
 /**
  * # Experimental

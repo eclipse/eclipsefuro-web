@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-
+import "./furo-loading-indicator-bar"
 //todo: implement like this: https://material.io/design/components/cards.html#anatomy
 
 /**
