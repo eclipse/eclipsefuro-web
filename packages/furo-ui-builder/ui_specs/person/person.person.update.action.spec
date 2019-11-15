@@ -17,7 +17,10 @@
       "onclick": "-^update-req",
       "flags": [
         "primary",
-        "unelevated"
+        "unelevated",
+        "hide-no-rel",
+        "disable-not-valid",
+        "disable-pristine"
       ],
       "attrs": []
     },
@@ -28,7 +31,8 @@
       "component": "furo-button",
       "onclick": "-^self-req",
       "flags": [
-        "outline"
+        "outline",
+        "hide-no-rel"
       ],
       "attrs": []
     },
@@ -54,7 +58,8 @@
       "onclick": "-^delete-req",
       "flags": [
         "unelevated",
-        "danger"
+        "danger",
+        "hide-no-rel"
       ],
       "attrs": []
     }

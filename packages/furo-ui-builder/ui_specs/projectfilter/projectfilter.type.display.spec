@@ -1,11 +1,11 @@
 {
   "_writeprotection": false,
   "theme": "DisplayBaseTheme",
-  "class_name": "PersonPersonDisplay",
-  "component_name": "person-person-display",
-  "description": "Person message type",
+  "class_name": "ProjectfilterProjectfilterDisplay",
+  "component_name": "projectfilter-projectfilter-display",
+  "description": "Options for possible filter values",
   "autolabel": false,
-  "source": "../furo-specs/specs/person/person.type.spec",
+  "source": "../furo-specs/specs/projectfilter/projectfilter.type.spec",
   "imports": [
     "@furo/data-input",
     "@furo/form"
@@ -22,7 +22,7 @@
       "attrs": [],
       "fields": [
         {
-          "field": "name",
+          "field": "description",
           "component": "furo-data-display",
           "flags": [
             "condensed",
@@ -32,7 +32,7 @@
           "attrs": []
         },
         {
-          "field": "first_name",
+          "field": "start",
           "component": "furo-data-display",
           "flags": [
             "condensed",
@@ -42,7 +42,7 @@
           "attrs": []
         },
         {
-          "field": "phone_nr",
+          "field": "end",
           "component": "furo-data-display",
           "flags": [
             "condensed",
@@ -52,22 +52,17 @@
           "attrs": []
         },
         {
-          "field": "skills",
-          "component": "furo-data-repeat",
+          "field": "members",
+          "component": "furo-data-display",
           "flags": [
             "condensed",
             "double",
             "noborder"
           ],
-          "attrs": [
-            {
-              "name": "repeated-component",
-              "val": "furo-data-display"
-            }
-          ]
+          "attrs": []
         },
         {
-          "field": "update_mask",
+          "field": "cost_limit",
           "component": "furo-data-display",
           "flags": [
             "condensed",

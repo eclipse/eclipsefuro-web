@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>test for furo-button-bar</title>
+    <title>test for furo-button-bar disable</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
@@ -23,13 +23,8 @@
         <test-bind>
             <template>
                 <furo-button-bar ƒ-bind-entity="--objReady">
-                    <furo-button rel="update" hide-no-rel hide-not-valid hide-pristine primary unelevated label="save"
-                                 @-click="-^update-req"></furo-button>
-                    <furo-button rel="self" hide-no-rel hide-not-valid hide-pristine outline label="reload"
-                                 @-click="-^self-req"></furo-button>
-                    <furo-button label="always visible" @-click=""></furo-button>
-                    <furo-button label="hide if pristine" hide-pristine @-click=""></furo-button>
-
+                    <furo-button label="disable if pristine" disable-pristine @-click=""></furo-button>
+                    <furo-button label="disable if not valid" disable-not-valid @-click=""></furo-button>
                 </furo-button-bar>
 
                 <furo-deep-link service="TaskService"
@@ -70,80 +65,43 @@
             await dao.updateComplete;
         });
 
-        it('should disable all elements inside', (done) => {
-            agent.loadOnHtsIn = true;
-
-            agent.addEventListener('response', () => {
-
-                elem.disableAll();
-
-                let count = 0;
-                let slotted = elem.shadowRoot.firstElementChild.children[0].assignedElements();
-                slotted.forEach((e) => {
-
-                    if (e.getAttribute('disabled') !== null) {
-                        count++;
-                    }
-                });
-                assert.equal(count, 4);
-                done();
-            });
-            qp.qpIn({"tsk": 1});
-        });
-
-        it('should enable all elements inside', (done) => {
-            agent.loadOnHtsIn = true;
-
-            agent.addEventListener('response', () => {
-
-                elem.disableAll();
-                elem.enableAll();
-
-                let count = 0;
-                let slotted = elem.shadowRoot.firstElementChild.children[0].assignedElements();
-                slotted.forEach((e) => {
-
-                    if (e.getAttribute('disabled') !== null) {
-                        count++;
-                    }
-                });
-                assert.equal(count, 0);
-                done();
-            });
-            qp.qpIn({"tsk": 1});
-        });
-
-        it('should set the correct states', (done) => {
+        it('should set the correct disabled states', (done) => {
             agent.loadOnHtsIn = true;
 
             agent.addEventListener('response', () => {
                 let cntDisabled = 0;
-                let cntHidden = 0;
+                console.log(dao);
                 let slotted = elem.shadowRoot.firstElementChild.children[0].assignedElements();
                 slotted.forEach((e) => {
                     if (e.getAttribute('disabled') !== null) {
                         cntDisabled++;
                     }
-                    if (e.getAttribute('hidden') !== null) {
-                        cntHidden++;
-                    }
                 });
-                assert.equal(cntDisabled, 0);
-                assert.equal(cntHidden, 3);
+                assert.equal(cntDisabled, 1);
                 done();
 
             });
             qp.qpIn({"tsk": 2});
         });
 
-        // a11y tests
-        it('a11y', () => {
-            return axeReport(fixture('basic'));
-        });
+        it('should detect a field change', (done) => {
+            agent.loadOnHtsIn = true;
 
-        it('should be a furo-button-bar', (done) => {
-            assert.equal(elem.nodeName, "FURO-BUTTON-BAR");
-            done()
+            agent.addEventListener('response', () => {
+                let cntDisabled = 0;
+
+                dao.data.data.description._value = "modified value";
+                let slotted = elem.shadowRoot.firstElementChild.children[0].assignedElements();
+                slotted.forEach((e) => {
+                    if (e.getAttribute('disabled') !== null) {
+                        cntDisabled++;
+                    }
+                });
+                assert.equal(cntDisabled, 0);
+                done();
+
+            });
+            qp.qpIn({"tsk": 2});
         });
 
 

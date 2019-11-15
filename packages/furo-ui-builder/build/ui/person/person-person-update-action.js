@@ -20,7 +20,6 @@ class PersonPersonUpdateAction extends FBP(LitElement) {
 
     constructor() {
         super();
-        this._entity = {};
     }
 
     static get styles() {
@@ -43,48 +42,17 @@ class PersonPersonUpdateAction extends FBP(LitElement) {
      * @param entity
      */
     bindEntity(entity){
-        if (entity) {
-            this._entity = entity;
-            this._FBPTriggerWire("--entityObjectInjected", this._entity);
-
-            // if data is injected, get the available HATEOAS links and activate/deactivate action buttons
-            this._entity.links.addEventListener('this-repeated-field-changed', (e) => {
-                let rels = [];
-                e.detail.__childNodes.forEach((item) => {
-                    rels.push(item._value.rel);
-                });
-
-                let elems = this.shadowRoot.querySelectorAll('furo-button');
-                elems.forEach((item) => {
-                    if (item.getAttribute('rel') != null && item.getAttribute('rel').length > 0 && rels.indexOf(item.getAttribute('rel')) === -1){
-                        item.setAttribute('hidden', '');
-                    } else {
-                        item.removeAttribute('hidden', '');
-                    }
-                });
-
-            });
+        if (entity && entity.data) {
+            this._FBPTriggerWire("--entityObjectInjected", entity);
         }
     }
 
-    startActivity(){
-        let elems = this.shadowRoot.querySelectorAll('furo-button');
-        elems.forEach((item) => {
-            item.setAttribute('disabled', '');
-        });
+    disableAll(){
+        this._FBPTriggerWire("--disableAllReq");
     }
 
-    stopActivity(){
-        let elems = this.shadowRoot.querySelectorAll('furo-button');
-        let rels = [];
-        this._entity.links.__childNodes.forEach((item) => {
-            rels.push(item._value.rel);
-        });
-        elems.forEach((item) => {
-            if (item.getAttribute('rel').length <= 0 || rels.indexOf(item.getAttribute('rel')) > -1){
-                item.removeAttribute('disabled');
-            }
-        });
+    enableAll(){
+         this._FBPTriggerWire("--enableAllReq");
     }
 
     /**
@@ -94,12 +62,12 @@ class PersonPersonUpdateAction extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-          <furo-button-bar ƒ-bind-entity="--entityObjectInjected">
-           <furo-button rel="update" primary unelevated  label="${i18n.t('save')}" @-click="-^update-req"></furo-button>
-           <furo-button rel="self" outline  label="${i18n.t('reload')}" @-click="-^self-req"></furo-button>
+          <furo-button-bar ƒ-bind-entity="--entityObjectInjected" ƒ-disable-all="--disableAllReq" ƒ-enable-all="--enableAllReq">
+           <furo-button rel="update" primary unelevated hide-no-rel disable-not-valid disable-pristine  label="${i18n.t('save')}" @-click="-^update-req"></furo-button>
+           <furo-button rel="self" outline hide-no-rel  label="${i18n.t('reload')}" @-click="-^self-req"></furo-button>
            <furo-empty-spacer ></furo-empty-spacer>
            <furo-button rel="reset" outline  label="${i18n.t('cancel')}" @-click="-^reset-req"></furo-button>
-           <furo-button rel="delete" unelevated danger  label="${i18n.t('delete')}" @-click="-^delete-req"></furo-button>
+           <furo-button rel="delete" unelevated danger hide-no-rel  label="${i18n.t('delete')}" @-click="-^delete-req"></furo-button>
           </furo-button-bar>
         `;
     }

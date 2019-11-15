@@ -79,7 +79,7 @@ export class PersonPersonUpdatePanel extends (BasePanel) {
         return html`
           <furo-vertical-flex class="content">
               <person-person-form flex scroll class="form" flex ƒ-bind-data="--entity(*.data)"></person-person-form>
-              <person-person-update-action class="action" @-update="--updateReq" ƒ-bind-entity="--entity" ƒ-start-activity="--requestStarted" ƒ-stop-activity="--response, --responseError" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></person-person-update-action>
+              <person-person-update-action class="action" @-update="--updateReq" ƒ-bind-entity="--entity" ƒ-disable-all="--requestStarted" ƒ-enable-all="--response, --responseError" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></person-person-update-action>
           </furo-vertical-flex>
 
           <furo-banner ƒ-set-text="--error(*.message)" ƒ-show="--error"

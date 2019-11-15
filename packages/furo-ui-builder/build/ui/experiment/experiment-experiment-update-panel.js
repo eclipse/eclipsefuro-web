@@ -79,7 +79,7 @@ export class ExperimentExperimentUpdatePanel extends (BasePanel) {
         return html`
           <furo-vertical-flex class="content">
               <experiment-experiment-form flex scroll class="form" flex ƒ-bind-data="--entity(*.data)"></experiment-experiment-form>
-              <experiment-experiment-update-action class="action" @-update="--updateReq" ƒ-bind-entity="--entity" ƒ-start-activity="--requestStarted" ƒ-stop-activity="--response, --responseError" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></experiment-experiment-update-action>
+              <experiment-experiment-update-action class="action" @-update="--updateReq" ƒ-bind-entity="--entity" ƒ-disable-all="--requestStarted" ƒ-enable-all="--response, --responseError" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq"></experiment-experiment-update-action>
           </furo-vertical-flex>
 
           <furo-banner ƒ-set-text="--error(*.message)" ƒ-show="--error"

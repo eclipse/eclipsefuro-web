@@ -1,14 +1,15 @@
 {
   "_writeprotection": false,
   "theme": "FormBaseTheme",
-  "class_name": "PersonPersonForm",
-  "component_name": "person-person-form",
-  "description": "Person message type",
+  "class_name": "ProjectfilterProjectfilterForm",
+  "component_name": "projectfilter-projectfilter-form",
+  "description": "Options for possible filter values",
   "autolabel": false,
-  "source": "../furo-specs/specs/person/person.type.spec",
+  "source": "../furo-specs/specs/projectfilter/projectfilter.type.spec",
   "imports": [
     "@furo/data-input",
-    "@furo/form"
+    "@furo/form",
+    "../person/person-person-reference-search"
   ],
   "fieldgroups": [
     {
@@ -23,7 +24,7 @@
       "attrs": [],
       "fields": [
         {
-          "field": "name",
+          "field": "description",
           "component": "furo-data-text-input",
           "flags": [
             "condensed",
@@ -32,8 +33,8 @@
           "attrs": []
         },
         {
-          "field": "first_name",
-          "component": "furo-data-text-input",
+          "field": "start",
+          "component": "furo-data-date-input",
           "flags": [
             "condensed",
             "double"
@@ -41,8 +42,8 @@
           "attrs": []
         },
         {
-          "field": "phone_nr",
-          "component": "furo-data-text-input",
+          "field": "end",
+          "component": "furo-data-date-input",
           "flags": [
             "condensed",
             "double"
@@ -50,22 +51,17 @@
           "attrs": []
         },
         {
-          "field": "skills",
-          "component": "furo-data-repeat",
+          "field": "members",
+          "component": "person-person-reference-search",
           "flags": [
             "condensed",
             "double"
           ],
-          "attrs": [
-            {
-              "name": "repeated-component",
-              "val": "furo-data-text-input"
-            }
-          ]
+          "attrs": []
         },
         {
-          "field": "update_mask",
-          "component": "furo-data-text-input",
+          "field": "cost_limit",
+          "component": "furo-data-money-input",
           "flags": [
             "condensed",
             "double"

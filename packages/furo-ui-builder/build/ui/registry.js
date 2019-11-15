@@ -8,6 +8,7 @@ import "./person/person-person-display-panel"
 import "./person/person-person-update-panel"
 import "./project/project-project-display-panel"
 import "./project/project-project-update-panel"
+import "./projectfilter/projectfilter-projectfilter-display-panel"
 import "./task/task-task-display-panel"
 import "./task/task-task-update-panel"
 import "./tree/tree-tree-display-panel"
@@ -25,6 +26,10 @@ panelRegistry.registerType("person.PersonEntity", {
 
 panelRegistry.registerType("project.ProjectEntity", {
      "display" : "project-project-display-panel" ,"edit" : "project-project-update-panel"
+ });
+
+panelRegistry.registerType("projectfilter.ProjectfilterEntity", {
+     "display" : "projectfilter-projectfilter-display-panel" ,"edit" : "projectfilter-projectfilter-display-panel"
  });
 
 panelRegistry.registerType("task.TaskEntity", {

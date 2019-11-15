@@ -215,6 +215,16 @@
             "noborder"
           ],
           "attrs": []
+        },
+        {
+          "field": "update_mask",
+          "component": "furo-data-display",
+          "flags": [
+            "condensed",
+            "double",
+            "noborder"
+          ],
+          "attrs": []
         }
       ]
     }

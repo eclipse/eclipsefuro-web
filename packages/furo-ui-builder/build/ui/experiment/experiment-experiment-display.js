@@ -105,6 +105,8 @@ export class ExperimentExperimentDisplay extends FBP(LitElement) {
                 <furo-data-repeat condensed double noborder  repeated-component="furo-data-display" ƒ-bind-data="--data(*.repstring)"></furo-data-repeat>
                 <!-- field for testing money type  -->
                 <furo-data-display condensed double noborder ƒ-bind-data="--data(*.furo_data_money_input)"></furo-data-display>
+                <!-- Contains a field_mask which fields of the targeted resource are going to be updated  -->
+                <furo-data-display condensed double noborder ƒ-bind-data="--data(*.update_mask)"></furo-data-display>
             </furo-form-layouter>
             
         `;

@@ -619,7 +619,10 @@ servicelist.forEach((pathToService) => {
         "onclick": "-^update-req",
         "flags": [
           "primary",
-          "unelevated"
+          "unelevated",
+          "hide-no-rel",
+          "disable-not-valid",
+          "disable-pristine"
         ],
         "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })
@@ -634,7 +637,8 @@ servicelist.forEach((pathToService) => {
         "component": "furo-button",
         "onclick": "-^self-req",
         "flags": [
-          "outline"
+          "outline",
+          "hide-no-rel"
         ],
         "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })
@@ -664,6 +668,7 @@ servicelist.forEach((pathToService) => {
         "flags": [
           "unelevated",
           "danger",
+          "hide-no-rel"
         ],
         "attrs": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
       })

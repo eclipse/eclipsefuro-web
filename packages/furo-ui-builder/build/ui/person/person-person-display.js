@@ -75,6 +75,8 @@ export class PersonPersonDisplay extends FBP(LitElement) {
                 <furo-data-display condensed double noborder ƒ-bind-data="--data(*.phone_nr)"></furo-data-display>
                 <!-- List of main skills of a person  -->
                 <furo-data-repeat condensed double noborder  repeated-component="furo-data-display" ƒ-bind-data="--data(*.skills)"></furo-data-repeat>
+                <!-- Contains a field_mask which fields of the targeted resource are going to be updated  -->
+                <furo-data-display condensed double noborder ƒ-bind-data="--data(*.update_mask)"></furo-data-display>
             </furo-form-layouter>
             
         `;

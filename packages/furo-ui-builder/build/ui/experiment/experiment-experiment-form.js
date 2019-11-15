@@ -111,6 +111,8 @@ export class ExperimentExperimentForm extends FBP(LitElement) {
                 <furo-data-repeat condensed double  repeated-component="furo-data-text-input" ƒ-bind-data="--data(*.repstring)"></furo-data-repeat>
                 <!-- field for testing money type  -->
                 <furo-data-money-input condensed double ƒ-bind-data="--data(*.furo_data_money_input)"></furo-data-money-input>
+                <!-- Contains a field_mask which fields of the targeted resource are going to be updated  -->
+                <furo-data-text-input condensed double ƒ-bind-data="--data(*.update_mask)"></furo-data-text-input>
             </furo-form-layouter>
             
         `;
