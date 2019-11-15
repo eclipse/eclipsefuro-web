@@ -68,8 +68,9 @@
 
       EntityRoot.display_name._value = "";
       assert.equal(EntityRoot._isValid, false, "required");
-
+      assert.equal(EntityRoot.display_name._validity.constraint, "required", "required");
       EntityRoot.display_name._value = "aha";
+
       assert.equal(EntityRoot._isValid, true, "aha should be true");
 
       done();

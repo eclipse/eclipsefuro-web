@@ -19,7 +19,12 @@
         "hint": "",
         "readonly": true
       },
-      "constraints": {},
+      "constraints": {
+        "required": {
+          "is": "true",
+          "message":"is required"
+        }
+      },
       "__proto": {
         "number": 1
       }

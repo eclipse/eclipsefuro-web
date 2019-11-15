@@ -206,10 +206,7 @@ export class FieldNode extends EventTreeNode {
 
         if (!this._validationDisabled) {
           // validate changes
-
           this._checkConstraints();
-
-          // todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
         }
 
         if (JSON.stringify(this._oldvalue) !== JSON.stringify(this.__value)) {
@@ -260,7 +257,8 @@ export class FieldNode extends EventTreeNode {
   // check the validity against spec and meta
   _checkConstraints() {
     let validity = true;
-// validate if they are constraints
+    // todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
+    // validate only if they are constraints
     for (let constraintName in this._constraints) {
       let constraint = this._constraints[constraintName];
       let numericType = Helper.isNumericType(this._spec.type);
@@ -271,13 +269,13 @@ export class FieldNode extends EventTreeNode {
         case "min":
           if (numericType) {
             if (validity && this._value < constraint.is) {
-              this._validity = {"constraint": constraint.is, "description": constraint.message};
+              this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }
           } else {
             // check for length
             if (validity && this._value.length < constraint.is) {
-              this._validity = {"constraint": constraint.is, "description": constraint.message};
+              this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }
           }
@@ -288,18 +286,20 @@ export class FieldNode extends EventTreeNode {
         case "max":
           if (numericType) {
             if (validity && this._value > constraint.is) {
-              this._validity = {"constraint": constraint.is, "description": constraint.message};
+              this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }
           } else {
             // check for length
             if (validity && this._value.length > constraint.is) {
-              this._validity = {"constraint": constraint.is, "description": constraint.message};
+              this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }
           }
           break;
-
+          /**
+           * step
+           */
         case "step":
           if (numericType) {
             // step check is (value - min)%is == 0
@@ -310,23 +310,44 @@ export class FieldNode extends EventTreeNode {
             }
 
             if (validity && ((min - this._value) % modulo != 0)) {
-              this._validity = {"constraint": constraint.is, "description": constraint.message};
+              this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }
           }
           break;
+          /**
+           * the pattern constraint
+           */
         case "pattern":
           let reg = new RegExp(constraint.is);
 
           if (validity && (this._value == null || !this._value.match(reg))) {
 
-            this._validity = {"constraint": constraint.is, "description": constraint.message};
+            this._validity = {"constraint": constraintName, "description": constraint.message};
             validity = false
           }
           break;
 
+          /**
+           * the min constraint
+           */
+        case "required":
+          if (numericType) {
+            if (validity && this._value == null) {
+              this._validity = {"constraint": constraintName, "description": constraint.message};
+              validity = false
+            }
+          } else {
+            // check for length and null values
+            if (validity && (this._value == null || this._value.length == 0)) {
+              this._validity = {"constraint": constraintName, "description": constraint.message};
+              validity = false
+            }
+          }
+          break;
       }
     }
+
 
 
     if (!validity) {
