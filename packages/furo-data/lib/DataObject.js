@@ -27,7 +27,7 @@ export class DataObject extends EventTreeNode {
     this.addEventListener("field-became-valid", (e) => {
       if (this.__childNodes.filter(f => !f._isValid).length === 0) {
         this._isValid = true;
-        this.dispatchNodeEvent(new NodeEvent("entity-became-valid", this));
+        this.dispatchNodeEvent(new NodeEvent("data-object-became-valid", this));
       }
 
     });
@@ -37,7 +37,7 @@ export class DataObject extends EventTreeNode {
      */
     this.addEventListener("field-became-invalid", (e) => {
       this._isValid = false;
-      this.dispatchNodeEvent(new NodeEvent("entity-became-invalid", this));
+      this.dispatchNodeEvent(new NodeEvent("data-object-became-invalid", this));
     });
 
     /**
@@ -52,11 +52,20 @@ export class DataObject extends EventTreeNode {
     });
   }
 
+  validateAllFields(){
+    // broadcast validation request to all fields
+    this.broadcastEvent(new NodeEvent("validation-requested", this));
+  }
+
   /**
    * Injecten eines raw models wie bspw body oder entity einer collection
    * @param rawEntity
    */
   injectRaw(rawEntity) {
+    // this broadcast will disable validation during setting the values
+
+    this.broadcastEvent(new NodeEvent("disable-validation", this));
+
     this._rawEntity = rawEntity;
     this._updateFieldValuesAndMetaFromRawEntity(this, rawEntity);
     this._pristine = true;
@@ -64,7 +73,7 @@ export class DataObject extends EventTreeNode {
 
     /**
      * Broadcast Event
-     *
+     * this will set all fields as pristine and end enable the validation
      */
     this.broadcastEvent(new NodeEvent("new-data-injected", this));
 
@@ -98,13 +107,14 @@ export class DataObject extends EventTreeNode {
    * Inits the EntityNode
    */
   init() {
+    this.broadcastEvent(new NodeEvent("disable-validation", this));
     for(let i = this.__childNodes.length-1; i >= 0; i--){
       this.__childNodes[i].reinit();
     }
     this._initFieldsFromSpec(this, this._spec.fields);
     this._pristine = true;
     this._isValid = true;
-
+    this.broadcastEvent(new NodeEvent("enable-validation", this));
   }
 
   get rawEntity() {
@@ -196,7 +206,6 @@ export class DataObject extends EventTreeNode {
 
             // Werte aktualisieren
             fieldNode._value = data[fieldName];
-
             fieldNode._pristine = true;
           }
         }

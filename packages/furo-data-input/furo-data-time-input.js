@@ -42,26 +42,6 @@ class FuroDataTimeInput extends FBP(LitElement) {
         this.field._value= val;
       }
     });
-
-
-    this._FBPAddWireHook("--inputInvalid", (val) => {
-      // val is a ValidityState
-      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-      if (val) {
-        if(val.rangeUnderflow) {
-          this._hint = this._minErrorMessage;
-        }
-        else if(val.rangeOverflow)
-        {
-          this._hint = this._maxErrorMessage;
-        }
-        else if(val.stepMismatch) {
-          this._hint = this._stepErrorMessage;
-        }
-
-        this.requestUpdate();
-      }
-    });
   }
 
 
@@ -73,22 +53,6 @@ class FuroDataTimeInput extends FBP(LitElement) {
     //this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
-
-  /**
-   * Updater for the min => minlength attr*
-   * @param value
-   */
-  set _min(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
-  }
-
-  /**
-   * Updater for the max attr*
-   * @param value
-   */
-  set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
   }
 
   /**
@@ -131,14 +95,6 @@ class FuroDataTimeInput extends FBP(LitElement) {
     Helper.UpdateInputAttribute(this, "errortext", value);
   }
 
-  /**
-   * Updater for the step attr
-   * @param value
-   */
-  set _step(value) {
-    Helper.UpdateInputAttribute(this, "step", value);
-  }
-
 
   static get properties() {
     return {
@@ -166,30 +122,6 @@ class FuroDataTimeInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
-      },
-      /**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      min: {
-        type: String,
-      },
-      /**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      max: {
-        type: String,
-      },
-      /**
-       * Overrides the step value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      step: {
-        type: String, // string, because "any" is also a valid step
       },
       /**
        * Overrides the readonly value from the **specs**.
@@ -259,11 +191,6 @@ class FuroDataTimeInput extends FBP(LitElement) {
   }
 
   _updateField() {
-    //mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
-    }
     this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }
@@ -301,7 +228,6 @@ class FuroDataTimeInput extends FBP(LitElement) {
           ?required=${this._required}
           ?condensed="${this.condensed}"                         
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-time-input>      
     `;
   }

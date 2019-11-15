@@ -57,36 +57,6 @@ class FuroDataColorInput extends FBP(LitElement) {
   }
 
   /**
-   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-   * becaue it set "undefined" (as a Sting!)
-   *
-   * @param value
-   */
-  set _pattern(value) {
-    Helper.UpdateInputAttribute(this, "pattern", value);
-  }
-
-  /**
-   * Updater for the min => minlength attr
-   * same problem like in pattern
-   *
-   * @param value
-   */
-  set _min(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
-  }
-
-  /**
-   * Updater for the max attr
-   * * same problem like in pattern
-   *
-   * @param value
-   */
-  set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
-  }
-
-  /**
    * Updater for the label attr
    * @param value
    */
@@ -238,11 +208,6 @@ class FuroDataColorInput extends FBP(LitElement) {
 
 
   _updateField() {
-    //mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
-    }
     this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }

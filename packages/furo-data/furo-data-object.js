@@ -82,6 +82,36 @@ class FuroDataObject extends (LitElement) {
   }
 
   /**
+   * Triggers the validation of all fields in the data object.
+   *
+   * Use this before you submit some data to a server.
+   *
+   * Will cause a `data-object-became-valid` or `data-object-became-invalid` and a validation-success or validation-failed event.
+   */
+  validateAllFields(){
+    // broadcast validation
+    this.data.validateAllFields();
+    if(this.data._isValid){
+      /**
+      * @event validation-success
+      * Fired when validation results in a valid state
+      * detail payload: DataObject
+      */
+      let customEvent = new Event('validation-success', {composed:true, bubbles: true});
+      customEvent.detail = this.data;
+      this.dispatchEvent(customEvent);
+    }else{
+      /**
+       * @event validation-failed
+       * Fired when validation results in a invalid state
+       * detail payload: DataObject
+       */
+      let customEvent = new Event('validation-failed', {composed:true, bubbles: true});
+      customEvent.detail = this.data;
+      this.dispatchEvent(customEvent);
+    }
+  }
+  /**
    * Set the type. The type must be available in the environment
    * @param type
    */
@@ -162,6 +192,35 @@ class FuroDataObject extends (LitElement) {
     setTimeout(() => {
       this.dispatchEvent(customEvent);
     }, 0);
+
+
+    this.data.addEventListener("data-object-became-valid", (e) => {
+      /**
+       * @event data-object-became-valid
+       * Fired when the data object switches from invalid to valid state
+       *
+       * **detail payload**: {Object|EntityNode} reference to entity
+       *
+       * **bubbles**
+       */
+      let customEvent = new Event('data-object-became-valid', {composed: true, bubbles: true});
+      customEvent.detail = e.detail;
+      this.dispatchEvent(customEvent)
+    });
+
+    this.data.addEventListener("data-object-became-invalid", (e) => {
+      /**
+       * @event data-object-became-invalid
+       * Fired when the data object switches from ininvalid to invalid state
+       *
+       * **detail payload**: {Object|EntityNode} reference to entity
+       *
+       * **bubbles**
+       */
+      let customEvent = new Event('data-object-became-invalid', {composed: true, bubbles: true});
+      customEvent.detail = e.detail;
+      this.dispatchEvent(customEvent)
+    });
 
 
     this.data.addEventListener("data-injected", (e) => {

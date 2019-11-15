@@ -21,9 +21,6 @@
       <template>
           <furo-data-date-input  ƒ-bind-data="--entityReady(*.furo_data_date_input)"></furo-data-date-input>
           <furo-data-date-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entityReady(*.furo_data_date_input_google)"
-                                min="1999-01-01"
-                                max="2099-12-31"
-                                step="5"
                                 @-value-changed="--textChanged"></furo-data-date-input>
 
           <furo-data-object type="experiment.Experiment" @-object-ready="--entityReady"
@@ -53,12 +50,11 @@
   import "@furo/data/furo-deep-link";
   import '/node_modules/axe-core/axe.min.js';
 
-  import '/node_modules/axe-core/axe.min.js';
   import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
   describe('furo-data-date-input_test tests ', function () {
 
-    let dataDateInput, host, entityObject, secondDateInput, deeplink;
+    let dataDateInput, host, dataObject, secondDateInput, deeplink;
 
     beforeEach(async () => {
       let fix = fixture('basic');
@@ -70,8 +66,8 @@
       secondDateInput = fix[2];
       await secondDateInput.updateComplete;
 
-      entityObject = fix[3];
-      await entityObject.updateComplete;
+      dataObject = fix[3];
+      await dataObject.updateComplete;
 
       deeplink = fix[4];
       await deeplink.updateComplete;
@@ -92,29 +88,8 @@
       },0)
     });
 
-    it('should override min ', (done) => {
-      setTimeout(()=>{
-        assert.equal(secondDateInput._theInputElement.getAttribute("min"), "1999-01-01");
-        done();
-      },0)
-    });
-
-    it('should override max ', (done) => {
-      setTimeout(()=>{
-        assert.equal(secondDateInput._theInputElement.getAttribute("max"), "2099-12-31");
-        done();
-      },0)
-    });
-
-    it('should override step ', (done) => {
-      setTimeout(()=>{
-        assert.equal(secondDateInput._theInputElement.getAttribute("step"), "5");
-        done();
-      },0)
-    });
-
     it('should receive date (ISO 8601 d) value with bind', (done) => {
-      entityObject.addEventListener("data-injected", (e) => {
+      dataObject.addEventListener("data-injected", (e) => {
 
         setTimeout(()=>{
           assert.equal(dataDateInput.shadowRoot.querySelector("*").value, "2019-02-22");
@@ -127,7 +102,7 @@
     });
 
     it('should receive date (google.type.Date) value with bind', (done) => {
-      entityObject.addEventListener("data-injected", (e) => {
+      dataObject.addEventListener("data-injected", (e) => {
 
         setTimeout(()=>{
           assert.equal(secondDateInput.shadowRoot.querySelector("*").value, "2020-12-31");
@@ -151,7 +126,23 @@
       done()
     });
 
+    it('should listen field-became-invalid event add set error', (done) => {
+      dataObject.addEventListener("object-ready",()=>{
 
+        let err = {"description": "step 3", constraint: "min"};
+        dataDateInput.field.addEventListener("field-became-invalid",()=>{
+
+          setTimeout(() => {
+            assert.equal(dataDateInput.error, true);
+            assert.equal(dataDateInput._theInputElement.getAttribute("errortext"), "step 3");
+            done();
+          }, 0)
+
+        });
+        dataDateInput.field._setInvalid(err);
+      });
+    });
+    
   })
   ;
 </script>

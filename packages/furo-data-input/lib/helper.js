@@ -79,5 +79,4 @@ export class Helper {
       caller.requestUpdate();
     });
   }
-
 }

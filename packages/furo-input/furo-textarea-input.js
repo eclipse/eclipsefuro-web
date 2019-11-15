@@ -23,32 +23,8 @@ class FuroTextareaInput extends FBP(LitElement) {
 
     this._value = this.value || "";
     this._FBPAddWireHook("--inputInput", (e) => {
-      let input = e.composedPath()[0];
 
-      this.valid = input.validity.valid;
-      this._float = !!input.value;
-
-      if (input.validity.valid) {
-        this.value = input.value;
-        /**
-         * @event value-changed
-         * Fired when value has changed from inside the component
-         * detail payload: {String} the text value
-         */
-        let customEvent = new Event('value-changed', {composed: true, bubbles: true});
-        customEvent.detail = this.value;
-        this.dispatchEvent(customEvent);
-      }else {
-
-        /**
-         * @event input-invalid
-         * Fired when input value is invalid
-         * detail payload: {Object} the validity object of input
-         */
-        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
-        customEvent.detail = input.validity;
-        this.dispatchEvent(customEvent);
-      }
+      Helper.triggerValueChanged(this, e );
     });
   }
 
@@ -196,8 +172,13 @@ class FuroTextareaInput extends FBP(LitElement) {
        */
       filled: {
         type: Boolean
+      },
+      /**
+       * error text
+       */
+      _errortext: {
+        type: String
       }
-
     };
   }
   /**
@@ -531,19 +512,11 @@ class FuroTextareaInput extends FBP(LitElement) {
          <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
         ƒ-.value="--value"  @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>          
       </div>
-      
-      
-   
-      
-      
-      
       <div class="borderlabel">
       <div class="left-border"></div>
       <label ?float="${this._float || this.float}" for="input"><span>${this.label} ${this.required ? html`*` : html``}</span></label>
       <div class="right-border"></div>
       </div>
-      
-      
       <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>

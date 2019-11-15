@@ -454,7 +454,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       ƒ-set-value="--value"
       @-value-changed="^^searchInput" 
       @-blur="--blured" 
-      @-input-invalid="--inputInvalid"
       @-focus="--focused" 
       ƒ-focus="--focusReceived"></furo-search-input>
     <div class="list" @-item-selected="--itemSelected"   >

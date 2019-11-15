@@ -21,9 +21,6 @@
       <template>
         <furo-data-range-input  ƒ-bind-data="--entity(*.furo_data_range_input)"></furo-data-range-input>
         <furo-data-range-input hint="FromTPL" label="FromTPL" ƒ-bind-data="--entity(*.furo_data_range_input)"
-                                min="1"
-                                max="10"
-                                step="0.5"
                               @-value-changed="--textChanged"></furo-data-range-input>
         <furo-data-range-input  ƒ-bind-data="--entity(*.invalidBinding)"></furo-data-range-input>
 
@@ -54,13 +51,12 @@
   import "@furo/data/furo-deep-link";
   import '/node_modules/axe-core/axe.min.js';
 
-  import '/node_modules/axe-core/axe.min.js';
   import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
   describe('furo-data-range-input_test tests ', function () {
 
 
-      let dataRangeInput, host, entityObject, secondRangeInput, invalidRangeInput,deeplink;
+      let dataRangeInput, host, dataObject, secondRangeInput, invalidRangeInput,deeplink;
 
       beforeEach(async () => {
           let fix = fixture('basic');
@@ -76,8 +72,8 @@
           invalidRangeInput = fix[3];
           await invalidRangeInput.updateComplete;
 
-          entityObject = fix[4];
-          await entityObject.updateComplete;
+          dataObject = fix[4];
+          await dataObject.updateComplete;
 
           deeplink = fix[5];
           await deeplink.updateComplete;
@@ -102,34 +98,9 @@
       });
 
     });
-    it('should override min ', (done) => {
-      host._FBPAddWireHook('--entity', (e) => {
-        setTimeout(()=>{
-          assert.equal(secondRangeInput._theInputElement.getAttribute("min"), 1);
-          done();
-        },0)
-      });
-    });
-    it('should override max ', (done) => {
-      host._FBPAddWireHook('--entity', (e) => {
-        setTimeout(()=>{
-          assert.equal(secondRangeInput._theInputElement.getAttribute("max"), 10);
-          done();
-        },0)
-      });
-    });
-    it('should override step ', (done) => {
-      host._FBPAddWireHook('--entity', (e) => {
-        setTimeout(()=>{
-          assert.equal(secondRangeInput._theInputElement.getAttribute("step"), 0.5);
-          done();
-        },0)
-      });
-    });
-
 
     it('should receive value with bind', (done) => {
-      entityObject.addEventListener("data-injected", (e) => {
+      dataObject.addEventListener("data-injected", (e) => {
           assert.equal(dataRangeInput.shadowRoot.querySelector("*").value, 31);
           done();
       });
@@ -145,9 +116,6 @@
         setTimeout(()=>{
           assert.equal(dataRangeInput._theInputElement.getAttribute("label"), "range-input");
           assert.equal(dataRangeInput._theInputElement.getAttribute("hint"), "hint");
-          assert.equal(dataRangeInput._theInputElement.getAttribute("min"), 20);
-          assert.equal(dataRangeInput._theInputElement.getAttribute("max"), 50);
-          assert.equal(dataRangeInput._theInputElement.getAttribute("step"), "2.5");
           done();
         },0)
       });
@@ -186,7 +154,23 @@
       done()
     });
 
+    it('should listen field-became-invalid event add set error', (done) => {
+      dataObject.addEventListener("object-ready",()=>{
 
+        let err = {"description": "step 3", constraint: "min"};
+        dataRangeInput.field.addEventListener("field-became-invalid",()=>{
+
+          setTimeout(() => {
+            assert.equal(dataRangeInput.error, true);
+            assert.equal(dataRangeInput._theInputElement.getAttribute("errortext"), "step 3");
+            done();
+          }, 0)
+
+        });
+        dataRangeInput.field._setInvalid(err);
+      });
+    });
+    
   })
   ;
 </script>

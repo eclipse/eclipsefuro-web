@@ -44,25 +44,6 @@ class FuroDataSearchInput extends FBP(LitElement) {
         this.field._value= val;
       }
     });
-
-    this._FBPAddWireHook("--inputInvalid", (val) => {
-      // val is a ValidityState
-      // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-      if (val) {
-        if(val.patternMismatch) {
-          this._hint = this._patternErrorMessage;
-        }
-        else if (val.tooShort) {
-          this._hint = this._minErrorMessage;
-        }
-        else if(val.tooLong)
-        {
-          this._hint = this._maxErrorMessage;
-        }
-
-        this.requestUpdate();
-      }
-    });
   }
 
 
@@ -74,32 +55,6 @@ class FuroDataSearchInput extends FBP(LitElement) {
     //this._FBPTraceWires();
     // check initial overrides
     CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
-
-  /**
-   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-   * becaue it set "undefined" (as a Sting!)
-   *
-   * @param value
-   */
-  set _pattern(value) {
-    Helper.UpdateInputAttribute(this, "pattern", value);
-  }
-
-  /**
-   * Updater for the min => minlength attr*
-   * @param value
-   */
-  set _min(value) {
-    Helper.UpdateInputAttribute(this, "min", value);
-  }
-
-  /**
-   * Updater for the max attr*
-   * @param value
-   */
-  set _max(value) {
-    Helper.UpdateInputAttribute(this, "max", value);
   }
 
   /**
@@ -162,36 +117,12 @@ class FuroDataSearchInput extends FBP(LitElement) {
         type: Boolean
       },
       /**
-       * Overrides the pattern from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      pattern: {
-        type: String
-      },
-      /**
        * Overrides the hint text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
        */
       hint: {
         type: String,
-      },
-      /**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      min: {
-        type: Number,
-      },
-      /**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      max: {
-        type: Number,
       },
       /**
        * Overrides the readonly value from the **specs**.
@@ -260,12 +191,6 @@ class FuroDataSearchInput extends FBP(LitElement) {
   }
 
   _updateField() {
-
-    //mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
-    }
     this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }
@@ -304,7 +229,6 @@ class FuroDataSearchInput extends FBP(LitElement) {
           ?condensed="${this.condensed}" 
           ?required=${this._required}   
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-search-input>      
     `;
   }

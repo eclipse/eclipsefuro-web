@@ -46,34 +46,8 @@ class FuroTimeInput extends FBP(LitElement) {
     this._value = this.value || "";
 
     this._FBPAddWireHook("--inputInput", (e) => {
-      let input = e.composedPath()[0];
 
-      // mark error
-      this.valid = input.validity.valid;
-
-      if (input.validity.valid) {
-        this.value = input.value;
-        this._float = !!input.value;
-        /**
-         * @event value-changed
-         * Fired when value has changed from inside the component
-         * detail payload: {String} the time value like "12:15" or "11:59:59"
-         */
-        let customEvent = new Event('value-changed', {composed: true, bubbles: true});
-        customEvent.detail = this.value;
-        this.dispatchEvent(customEvent);
-      }
-      else{
-
-        /**
-         * @event input-invalid
-         * Fired when input value is invalid
-         * detail payload: {Object} the validity object of input
-         */
-        let customEvent = new Event('input-invalid', {composed: true, bubbles: false});
-        customEvent.detail = input.validity ;
-        this.dispatchEvent(customEvent);
-      }
+      Helper.triggerValueChanged(this, e );
     });
   }
 
@@ -229,8 +203,13 @@ class FuroTimeInput extends FBP(LitElement) {
        */
       filled: {
         type: Boolean
+      },
+      /**
+       * error text
+       */
+      _errortext: {
+        type: String
       }
-
     };
   }
   /**

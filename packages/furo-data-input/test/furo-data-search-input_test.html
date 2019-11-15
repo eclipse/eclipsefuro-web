@@ -37,20 +37,18 @@
   import "@furo/testhelper/initEnv.js"
   import "@furo/data/furo-data-object.js"
   import '/node_modules/axe-core/axe.min.js';
-
-  import '/node_modules/axe-core/axe.min.js';
   import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
   describe('furo-data-search-input_test tests ', function () {
 
 
-    let dataSearchInput, host, entityObject, secondSearchInput, invalidSearchInput;
+    let dataSearchInput, host, dataObject, secondSearchInput, invalidSearchInput;
 
     beforeEach(async () => {
       let fix = fixture('basic');
       host = fix[0]._host;
-      entityObject = fix[1];
-      await entityObject.updateComplete;
+      dataObject = fix[1];
+      await dataObject.updateComplete;
 
       dataSearchInput = fix[2];
       await dataSearchInput.updateComplete;
@@ -90,7 +88,7 @@
       });
     });
     it('should receive value with bind', (done) => {
-      entityObject.data.name._value= "YES"
+      dataObject.data.name._value= "YES"
       dataSearchInput._FBPAddWireHook("--value", (val) => {
         assert.equal(val, "YES");
         done();
@@ -127,7 +125,23 @@
       assert.equal(dataSearchInput.nodeName.toLowerCase(), "furo-data-search-input");
       done()
     });
+    
+    it('should listen field-became-invalid event add set error', (done) => {
+      dataObject.addEventListener("object-ready",()=>{
 
+        let err = {"description": "minimal 3 charaters", constraint: "min"};
+        dataSearchInput.field.addEventListener("field-became-invalid",()=>{
+
+          setTimeout(() => {
+            assert.equal(dataSearchInput.error, true);
+            assert.equal(dataSearchInput._theInputElement.getAttribute("errortext"), "minimal 3 charaters");
+            done();
+          }, 0)
+
+        });
+        dataSearchInput.field._setInvalid(err);
+      });
+    });
 
   })
   ;
