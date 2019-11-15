@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.64.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.63.1...@furo/data@0.64.0) (2019-11-15)
+
+
+### Bug Fixes
+
+* show error message in input component ([1fe4b0a](https://github.com/theNorstroem/FuroBaseComponents/commit/1fe4b0a))
+
+
+### Features
+
+* check for required fields ([afb7fa9](https://github.com/theNorstroem/FuroBaseComponents/commit/afb7fa9))
+* check for required fields ([8e13517](https://github.com/theNorstroem/FuroBaseComponents/commit/8e13517))
+
+
+
+
+
 ## [0.63.1](https://github.com/veith/FuroBaseComponents/compare/@furo/data@0.63.0...@furo/data@0.63.1) (2019-11-13)
 
 **Note:** Version bump only for package @furo/data

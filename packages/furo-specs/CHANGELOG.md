@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.42.1...@furo/specs@0.43.0) (2019-11-15)
+
+
+### Features
+
+* check for required fields ([8872547](https://github.com/theNorstroem/FuroBaseComponents/commit/8872547))
+* check for required fields ([8e13517](https://github.com/theNorstroem/FuroBaseComponents/commit/8e13517))
+
+
+
+
+
 ## [0.42.1](https://github.com/veith/FuroBaseComponents/compare/@furo/specs@0.42.0...@furo/specs@0.42.1) (2019-11-13)
 
 **Note:** Version bump only for package @furo/specs
