@@ -40,11 +40,6 @@ class FuroDataTextareaInput extends FBP(LitElement) {
         this.field._value= val;
       }
     });
-
-    this._FBPAddWireHook("--inputInvalid", (val) => {
-
-      Helper.setInvalidMessage(this, val);
-    });
   }
 
 
@@ -236,7 +231,6 @@ class FuroDataTextareaInput extends FBP(LitElement) {
           ?condensed="${this.condensed}"                         
           ?required=${this._required}    
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-textarea-input>      
     `;
   }

@@ -42,12 +42,6 @@ class FuroDataTimeInput extends FBP(LitElement) {
         this.field._value= val;
       }
     });
-
-
-    this._FBPAddWireHook("--inputInvalid", (val) => {
-
-      Helper.setInvalidMessage(this, val);
-    });
   }
 
 
@@ -234,7 +228,6 @@ class FuroDataTimeInput extends FBP(LitElement) {
           ?required=${this._required}
           ?condensed="${this.condensed}"                         
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-time-input>      
     `;
   }

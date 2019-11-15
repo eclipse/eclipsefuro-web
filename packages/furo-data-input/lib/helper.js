@@ -79,35 +79,4 @@ export class Helper {
       caller.requestUpdate();
     });
   }
-
-  /**
-   * set invalid
-   * @param caller
-   * @param val
-   */
-  static setInvalidMessage(caller, val){
-    // val is a ValidityState
-    // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-    if (val) {
-
-      let msg =  "invalid value";
-
-      if(val.valueMissing && caller._requiredErrorMessage ) {
-        msg = caller._requiredErrorMessage;
-      } else if ( (val.tooShort || val.rangeUnderflow ) &&  caller._minErrorMessage) {
-        msg = caller._minErrorMessage;
-      } else if ( (val.tooLong || val.rangeOverflow ) && caller._maxErrorMessage ) {
-        msg = caller._maxErrorMessage;
-      } else if (val.patternMismatch && caller._patternErrorMessage) {
-        msg = caller._patternErrorMessage;
-      } else if(val.stepMismatch && caller._stepErrorMessage) {
-        msg = caller._stepErrorMessage;
-      }
-
-      caller._hint = msg;
-
-      caller.requestUpdate();
-    }
-  }
-
 }

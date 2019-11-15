@@ -413,7 +413,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
           ?condensed="${this.condensed}"          
           ?required=${this._required}
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--valueAmount"></furo-number-input>      
           
        <furo-select-input id="select"

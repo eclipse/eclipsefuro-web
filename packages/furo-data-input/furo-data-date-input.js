@@ -320,7 +320,6 @@ class FuroDataDateInput extends FBP(LitElement) {
           ?condensed="${this.condensed}"     
           ?required=${this._required}     
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-date-input>      
     `;
   }

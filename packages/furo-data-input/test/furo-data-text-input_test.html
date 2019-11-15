@@ -158,15 +158,6 @@
       deeplink.qpIn({"exp": 1});
     });
 
-    it('should set hint message when input under minlength', (done) => {
-      host._FBPAddWireHook("--entity", () => {
-        dataTextInput._FBPTriggerWire("--inputInvalid", {"tooShort": true});
-        setTimeout(() => {
-          assert.equal(dataTextInput._theInputElement.getAttribute("hint"), "at least 3 characters");
-          done();
-        }, 0)
-      })
-    });
 
     it('should set readonly via disable method', (done) => {
       dataTextInput.disable();
@@ -206,42 +197,7 @@
     });
 
 
-    it('should set error text when field became invalid', (done) => {
 
-      dataObject.addEventListener("object-ready", () => {
-        /**
-         * @event req-failed
-         * Fired when
-         * detail payload:
-         */
-        let customEvent = new Event('req-failed', {composed: true, bubbles: true});
-        customEvent.detail = {
-          "error": "invalid furo_data_text_input",
-          "message": "invalid furo_data_text_input",
-          "code": 3,
-          "details": [
-            {
-              "@type": "e.g. type.googleapis.com/google.rpc.BadRequest",
-              "field_violations": [
-                {
-                  "field": "furo_data_text_input",
-                  "description": "furo_data_text_input error"
-                }
-              ]
-            }
-          ]
-        };
-
-        entityAgent.dispatchEvent(customEvent);
-      });
-
-      setTimeout(() => {
-        assert.equal(dataTextInput.error, true);
-        assert.equal(dataTextInput._theInputElement.getAttribute("errortext"), "furo_data_text_input error");
-        done();
-      }, 10)
-      deeplink.qpIn({"exp": 1});
-    });
 
     // a11y tests
     it('a11y', () => {
