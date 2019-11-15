@@ -108,13 +108,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   }
 
   _updateField() {
-
-    //mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
-    }
-
     if(this.field.units && this.field.units._value!== null && this.field.nanos._value!== null) {
       let amout = Number(this.field.units._value+ "." + this.field.nanos._value);
       this._FBPTriggerWire('--valueAmount', amout);

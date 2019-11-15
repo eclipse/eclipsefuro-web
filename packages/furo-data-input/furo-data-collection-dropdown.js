@@ -394,16 +394,8 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
   }
 
   _updateField() {
-
-    //mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
-    }
-
     this._FBPTriggerWire('--value', this._fieldNodeToUpdate._value);
     this.requestUpdate();
-
   }
 
   /**

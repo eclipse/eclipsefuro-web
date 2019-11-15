@@ -59,7 +59,7 @@
 
   describe('furo-data-text-input_test tests ', function () {
 
-    let dataTextInput, host, entityObject, secondTextInput, invalidBoundTextInput, deeplink, entityAgent;
+    let dataTextInput, host, dataObject, secondTextInput, invalidBoundTextInput, deeplink, entityAgent;
 
     beforeEach(async () => {
       let fix = fixture('basic');
@@ -71,8 +71,8 @@
       secondTextInput = fix[2];
       await secondTextInput.updateComplete;
 
-      entityObject = fix[3];
-      await entityObject.updateComplete;
+      dataObject = fix[3];
+      await dataObject.updateComplete;
 
       deeplink = fix[4];
       await deeplink.updateComplete;
@@ -124,7 +124,7 @@
     it('should receive value with bind', (done) => {
 
       host._FBPAddWireHook("--hts", (e) => {
-        entityObject.addEventListener("data-changed", (e) => {
+        dataObject.addEventListener("data-changed", (e) => {
           secondTextInput._FBPAddWireHook("--value", (val) => {
             assert.equal(val, "hallo test");
             done();
@@ -186,7 +186,7 @@
 
     it('should set error text when field became invalid', (done) => {
 
-      entityObject.addEventListener("object-ready", () => {
+      dataObject.addEventListener("object-ready", () => {
         /**
          * @event req-failed
          * Fired when
@@ -229,6 +229,23 @@
     it('should be a furo-data-text-input_test', (done) => {
       assert.equal(dataTextInput.nodeName.toLowerCase(), "furo-data-text-input");
       done()
+    });
+
+    it('should listen field-became-invalid event', (done) => {
+      dataObject.addEventListener("object-ready",()=>{
+
+        let err = {"description": "minimal 3 charaters", constraint: "min"};
+        dataTextInput.field.addEventListener("field-became-invalid",()=>{
+
+          setTimeout(() => {
+            assert.equal(dataTextInput.error, true);
+            assert.equal(dataTextInput._theInputElement.getAttribute("errortext"), "minimal 3 charaters");
+            done();
+          }, 0)
+
+        });
+        dataTextInput.field._setInvalid(err);
+      });
     });
 
 

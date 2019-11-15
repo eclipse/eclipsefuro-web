@@ -199,11 +199,6 @@ class FuroDataTextareaInput extends FBP(LitElement) {
 
     this.disabled = this.field._meta.readonly ? true : false;
 
-    //mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
-    }
     this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }

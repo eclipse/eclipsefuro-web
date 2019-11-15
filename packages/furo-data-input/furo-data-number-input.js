@@ -207,12 +207,6 @@ class FuroDataNumberInput extends FBP(LitElement) {
   }
 
   _updateField() {
-
-    //mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
-    }
     this._FBPTriggerWire('--value', this.field._value);
     this.requestUpdate();
   }
