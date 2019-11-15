@@ -84,6 +84,7 @@
       // number comes with a invalid default and must be false
       assert.equal(EntityRoot._isValid, false);
       EntityRoot.number._value = 6;
+      EntityRoot.id._value = "xx-98-ggh";
       EntityRoot.display_name._value = "aha";
       assert.equal(EntityRoot._isValid, true);
       element.validateAllFields();
