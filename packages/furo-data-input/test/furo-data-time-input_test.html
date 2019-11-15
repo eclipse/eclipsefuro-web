@@ -54,7 +54,7 @@
   describe('furo-data-time-input_test tests ', function () {
 
 
-    let dataTimeInput, host, entityObject, secondTimeInput, invalidTimeInput, deeplink;
+    let dataTimeInput, host, dataObject, secondTimeInput, invalidTimeInput, deeplink;
 
     beforeEach(async () => {
       let fix = fixture('basic');
@@ -69,8 +69,8 @@
       invalidTimeInput = fix[3];
       await invalidTimeInput.updateComplete;
 
-      entityObject = fix[4];
-      await entityObject.updateComplete;
+      dataObject = fix[4];
+      await dataObject.updateComplete;
 
       deeplink = fix[5];
       await deeplink.updateComplete;
@@ -97,7 +97,7 @@
 
 
     it('should receive value with bind', (done) => {
-      entityObject.addEventListener("data-injected", (e) => {
+      dataObject.addEventListener("data-injected", (e) => {
           assert.equal(dataTimeInput.shadowRoot.querySelector("*").value, "17:34");
 
           done();
@@ -150,6 +150,22 @@
       done()
     });
 
+    it('should listen field-became-invalid event add set error', (done) => {
+      dataObject.addEventListener("object-ready",()=>{
+
+        let err = {"description": "step 3", constraint: "min"};
+        dataTimeInput.field.addEventListener("field-became-invalid",()=>{
+
+          setTimeout(() => {
+            assert.equal(dataTimeInput.error, true);
+            assert.equal(dataTimeInput._theInputElement.getAttribute("errortext"), "step 3");
+            done();
+          }, 0)
+
+        });
+        dataTimeInput.field._setInvalid(err);
+      });
+    });
 
   })
   ;

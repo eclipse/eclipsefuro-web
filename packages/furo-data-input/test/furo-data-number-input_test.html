@@ -57,13 +57,13 @@
   describe('furo-data-number-input_test tests ', function () {
 
 
-    let dataNumberInput, host, entityObject, secondNumberInput, invalidNumberInput, deeplink;
+    let dataNumberInput, host, dataObject, secondNumberInput, invalidNumberInput, deeplink;
 
     beforeEach(async () => {
       let fix = fixture('basic');
       host = fix[0]._host;
-      entityObject = fix[4];
-      await entityObject.updateComplete;
+      dataObject = fix[4];
+      await dataObject.updateComplete;
 
       dataNumberInput = fix[1];
       await dataNumberInput.updateComplete;
@@ -129,7 +129,7 @@
     });
 
     it('should receive value with bind', (done) => {
-      entityObject.addEventListener("data-injected", (e) => {
+      dataObject.addEventListener("data-injected", (e) => {
 
         setTimeout(()=>{
           assert.equal(dataNumberInput.shadowRoot.querySelector("*").value, 12.55);
@@ -179,7 +179,22 @@
       done()
     });
 
+    it('should listen field-became-invalid event add set error', (done) => {
+      dataObject.addEventListener("object-ready",()=>{
 
+        let err = {"description": "max 23", constraint: "max"};
+        dataNumberInput.field.addEventListener("field-became-invalid",()=>{
+
+          setTimeout(() => {
+            assert.equal(dataNumberInput.error, true);
+            assert.equal(dataNumberInput._theInputElement.getAttribute("errortext"), "max 23");
+            done();
+          }, 0)
+
+        });
+        dataNumberInput.field._setInvalid(err);
+      });
+    });
   })
   ;
 </script>

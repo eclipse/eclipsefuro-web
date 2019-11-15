@@ -56,7 +56,7 @@
   describe('furo-data-range-input_test tests ', function () {
 
 
-      let dataRangeInput, host, entityObject, secondRangeInput, invalidRangeInput,deeplink;
+      let dataRangeInput, host, dataObject, secondRangeInput, invalidRangeInput,deeplink;
 
       beforeEach(async () => {
           let fix = fixture('basic');
@@ -72,8 +72,8 @@
           invalidRangeInput = fix[3];
           await invalidRangeInput.updateComplete;
 
-          entityObject = fix[4];
-          await entityObject.updateComplete;
+          dataObject = fix[4];
+          await dataObject.updateComplete;
 
           deeplink = fix[5];
           await deeplink.updateComplete;
@@ -100,7 +100,7 @@
     });
 
     it('should receive value with bind', (done) => {
-      entityObject.addEventListener("data-injected", (e) => {
+      dataObject.addEventListener("data-injected", (e) => {
           assert.equal(dataRangeInput.shadowRoot.querySelector("*").value, 31);
           done();
       });
@@ -154,7 +154,23 @@
       done()
     });
 
+    it('should listen field-became-invalid event add set error', (done) => {
+      dataObject.addEventListener("object-ready",()=>{
 
+        let err = {"description": "step 3", constraint: "min"};
+        dataRangeInput.field.addEventListener("field-became-invalid",()=>{
+
+          setTimeout(() => {
+            assert.equal(dataRangeInput.error, true);
+            assert.equal(dataRangeInput._theInputElement.getAttribute("errortext"), "step 3");
+            done();
+          }, 0)
+
+        });
+        dataRangeInput.field._setInvalid(err);
+      });
+    });
+    
   })
   ;
 </script>

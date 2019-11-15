@@ -54,7 +54,7 @@
 
   describe('furo-data-date-input_test tests ', function () {
 
-    let dataDateInput, host, entityObject, secondDateInput, deeplink;
+    let dataDateInput, host, dataObject, secondDateInput, deeplink;
 
     beforeEach(async () => {
       let fix = fixture('basic');
@@ -66,8 +66,8 @@
       secondDateInput = fix[2];
       await secondDateInput.updateComplete;
 
-      entityObject = fix[3];
-      await entityObject.updateComplete;
+      dataObject = fix[3];
+      await dataObject.updateComplete;
 
       deeplink = fix[4];
       await deeplink.updateComplete;
@@ -89,7 +89,7 @@
     });
 
     it('should receive date (ISO 8601 d) value with bind', (done) => {
-      entityObject.addEventListener("data-injected", (e) => {
+      dataObject.addEventListener("data-injected", (e) => {
 
         setTimeout(()=>{
           assert.equal(dataDateInput.shadowRoot.querySelector("*").value, "2019-02-22");
@@ -102,7 +102,7 @@
     });
 
     it('should receive date (google.type.Date) value with bind', (done) => {
-      entityObject.addEventListener("data-injected", (e) => {
+      dataObject.addEventListener("data-injected", (e) => {
 
         setTimeout(()=>{
           assert.equal(secondDateInput.shadowRoot.querySelector("*").value, "2020-12-31");
@@ -126,7 +126,23 @@
       done()
     });
 
+    it('should listen field-became-invalid event add set error', (done) => {
+      dataObject.addEventListener("object-ready",()=>{
 
+        let err = {"description": "step 3", constraint: "min"};
+        dataDateInput.field.addEventListener("field-became-invalid",()=>{
+
+          setTimeout(() => {
+            assert.equal(dataDateInput.error, true);
+            assert.equal(dataDateInput._theInputElement.getAttribute("errortext"), "step 3");
+            done();
+          }, 0)
+
+        });
+        dataDateInput.field._setInvalid(err);
+      });
+    });
+    
   })
   ;
 </script>

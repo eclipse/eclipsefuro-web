@@ -85,6 +85,28 @@
     });
 
 
+/*    it('should trigger error by invalid input', (done) => {
+
+      dataObject.addEventListener("object-ready", () => {
+        console.log( dataTextInput.field._validationDisabled)
+        dataTextInput.field._validationDisabled = false;
+
+      });
+
+      dataObject.addEventListener("data-injected", () => {
+
+        setTimeout(() => {
+          assert.equal(dataTextInput.error, true);
+          assert.equal(dataTextInput._theInputElement.getAttribute("errortext"), "at least 3 characters");
+          done();
+        }, 1)
+
+      } ,{once:true});
+
+
+      deeplink.qpIn({"exp": 2});
+    });*/
+
     it('should override labels ', (done) => {
       host._FBPAddWireHook('--entity', (e) => {
          setTimeout(()=>{
@@ -217,7 +239,7 @@
         assert.equal(dataTextInput.error, true);
         assert.equal(dataTextInput._theInputElement.getAttribute("errortext"), "furo_data_text_input error");
         done();
-      }, 0)
+      }, 10)
       deeplink.qpIn({"exp": 1});
     });
 
@@ -231,7 +253,7 @@
       done()
     });
 
-    it('should listen field-became-invalid event', (done) => {
+    it('should listen field-became-invalid event add set error', (done) => {
       dataObject.addEventListener("object-ready",()=>{
 
         let err = {"description": "minimal 3 charaters", constraint: "min"};
