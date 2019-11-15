@@ -48,7 +48,6 @@
     import "@furo/fbp/testhelper/test-bind"; // for testing
     import "@furo/testhelper/initEnv.js";
     import "@furo/data";
-    import "@furo/input";
     import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
     import '/node_modules/axe-core/axe.min.js';
     import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
@@ -68,6 +67,35 @@
             await agent.updateComplete;
             dao = fix[4];
             await dao.updateComplete;
+        });
+
+        it('should bind a entity', (done) => {
+            agent.loadOnHtsIn = true;
+
+            agent.addEventListener('response', () => {
+                assert.equal(elem._entity.data.description._value, "Apply new documentation structure");
+                done();
+            });
+            qp.qpIn({"tsk": 1});
+        });
+
+        it('should do nothing if no attributes are set', (done) => {
+            agent.loadOnHtsIn = true;
+
+            agent.addEventListener('response', () => {
+                let count = 0;
+                let slotted = elem.shadowRoot.firstElementChild.children[0].assignedElements();
+                slotted.forEach((e) => {
+
+                    if (e.getAttribute('hidden') !== '') {
+                      count++;
+                    }
+                });
+                // should have button 'self' and button 'always visible'
+                assert.equal(count, 1);
+                done();
+            });
+            qp.qpIn({"tsk": 1});
         });
 
         it('should disable all elements inside', (done) => {
