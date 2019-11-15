@@ -2121,7 +2121,8 @@ if(event.bubbles&&!event.cancelBubble&&this.__parentNode){this.__parentNode.disp
      * @returns {*}
      */broadcastEvent(event){// trigger the events on current node
 this.__triggerNodeEvents(event);//children
-if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}return event}__triggerNodeEvents(event){if(this.__eventListener[event.type]&&0<this.__eventListener[event.type].length){this.__eventListener[event.type].map((t,i,listenerArray)=>{t.cb(event);if(t.options.once){delete listenerArray[i]}})}}}_exports.EventTreeNode=EventTreeNode;var EventTreeNode$1={NodeEvent:NodeEvent,EventTreeNode:EventTreeNode};_exports.$EventTreeNode=EventTreeNode$1;class RepeaterNode extends EventTreeNode{constructor(parentNode,spec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._isRepeater=!0;this.repeats=[];this._spec=spec;this._name=fieldName;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._pristine=!0;this._isValid=!0;// handling default _values
+if(!event.cancelBroadcast){this.__childNodes.map(c=>{c.broadcastEvent(event)})}return event}__triggerNodeEvents(event){if(this.__eventListener[event.type]&&0<this.__eventListener[event.type].length){this.__eventListener[event.type].map((t,i,listenerArray)=>{t.cb(event);if(t.options.once){delete listenerArray[i]}})}}}_exports.EventTreeNode=EventTreeNode;var EventTreeNode$1={NodeEvent:NodeEvent,EventTreeNode:EventTreeNode};_exports.$EventTreeNode=EventTreeNode$1;class RepeaterNode extends EventTreeNode{constructor(parentNode,spec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._isRepeater=!0;this.repeats=[];this._spec=spec;this._name=fieldName;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._pristine=!0;this._isValid=!0;// inherit _validationDisabled from parent
+this._validationDisabled=this.__parentNode._validationDisabled;// handling default _values
 let tmp=this._meta.default||[];// if the default _value is already an array do nothing otherwise try to parse json
 if("string"===typeof this._meta.default){try{tmp=JSON.parse(this._meta.default)}catch(error){// reset to empty
 tmp=[]}}this._value=tmp;/**
@@ -2130,7 +2131,7 @@ tmp=[]}}this._value=tmp;/**
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
          */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("repeat-became-invalid",this))});/**
          * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
-         */this.addEventListener("field-value-changed",e=>{this._pristine=!1});this.addEventListener("new-data-injected",e=>{this._pristine=!0});//store __initial_value _value for resetting the field
+         */this.addEventListener("field-value-changed",e=>{this._pristine=!1});this.addEventListener("disable-validation",e=>{this._validationDisabled=!0});this.addEventListener("enable-validation",e=>{this._validationDisabled=!0});this.addEventListener("new-data-injected",e=>{this._pristine=!0;this._validationDisabled=!1});//store __initial_value _value for resetting the field
 this.__initialValue=JSON.stringify(this._value)}/**
      * resets the field to the initial _values from the spec
      */reinit(){this._value=JSON.parse(this.__initialValue)}/**
@@ -2168,19 +2169,25 @@ if(this.repeats[parseInt(target)][targetfield]){this.repeats[parseInt(target)][t
      */get _required_value(){const n=[];this.__childNodes.forEach(f=>{let val=f._required_value;if(val!==void 0){n.push(val)}});return n.length?n:void 0}/**
      * Deletes a repeated item by index
      * @param index
-     */deleteChild(index){this.repeats.splice(index,1);this.__childNodes.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name),index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
+     */deleteChild(index){this.repeats.splice(index,1);this.__childNodes.splice(index,1);this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-removed",this.repeats,!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-removed",this.repeats,!0));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1))}_addSilent(){let fieldNode=new FieldNode(this,this._spec,this._name);// if this field has disabled Validation, pass to new attributes. Because they do not have to validate too.
+if(this._validationDisabled||this.__parentNode._validationDisabled){fieldNode._validationDisabled=!0}let index=this.repeats.push(fieldNode)-1;fieldNode.__index=index;// add function to remove field from list
 fieldNode._deleteFromList=()=>{this.deleteChild(this.repeats.indexOf(fieldNode))};return index}_setInvalid(error){this._isValid=!1;let path=error.field.split(".");if(0<path.length){// rest wieder in error reinwerfen
 error.field=path.slice(1).join(".")}this.repeats[path[0]]._setInvalid(error)}add(data){let index=this._addSilent();this._pristine=!1;// set data if given
 if(data){let child=this.repeats[index];child._value=data}this.dispatchNodeEvent(new NodeEvent("repeated-fields-added",this.repeats[index],!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-added",this.repeats[index],!1));this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",this,!0));this.__parentNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",this,!1));// return field for chainabilty
 return this.repeats[index]}}_exports.RepeaterNode=RepeaterNode;var RepeaterNode$1={RepeaterNode:RepeaterNode};_exports.$RepeaterNode=RepeaterNode$1;class Helper{// get the default value of a type,  according to https://developers.google.com/protocol-buffers/docs/proto3#default
-static defaultForType(type){switch(type){case"string":case"bytes":return"";case"bool":return!1;case"float":case"double":case"int32":case"int64":case"uint32":case"uint64":case"sint32":case"sint64":case"fixed32":case"fixed64":case"sfixed32":case"sfixed64":return 0;default:return void 0;}}}_exports.Helper$1=Helper;var Helper$1={Helper:Helper};_exports.$Helper=Helper$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._name=fieldName;this.__index=fieldName;this.__value=null;this._pristine=!0;this._isValid=!0;// Build custom type if a spec exists
+static defaultForType(type){switch(type){case"string":case"bytes":return"";case"bool":return!1;case"float":case"double":case"int32":case"int64":case"uint32":case"uint64":case"sint32":case"sint64":case"fixed32":case"fixed64":case"sfixed32":case"sfixed64":return 0;default:return void 0;}}/**
+     * checks if a type is numeric (usefull when you want to compare min or max constraints)
+     * @param type
+     * @return {boolean}
+     */static isNumericType(type){switch(type){case"string":case"bytes":case"bool":return!1;case"float":case"double":case"int32":case"int64":case"uint32":case"uint64":case"sint32":case"sint64":case"fixed32":case"fixed64":case"sfixed32":case"sfixed64":return!0;default:return!1;}}}_exports.Helper$1=Helper;var Helper$1={Helper:Helper};_exports.$Helper=Helper$1;class FieldNode extends EventTreeNode{constructor(parentNode,fieldSpec,fieldName){super(parentNode);this.__specdefinitions=parentNode.__specdefinitions;this._spec=fieldSpec;if(this._spec.meta){this._meta=JSON.parse(JSON.stringify(this._spec.meta))}else{this._meta=function(){return{}}()}if(this._spec.constraints){this._constraints=JSON.parse(JSON.stringify(this._spec.constraints))}else{this._constraints=function(){return{}}()}this._name=fieldName;this.__index=fieldName;this.__value=null;this._pristine=!0;this._isValid=!0;// inherit _validationDisabled from parent
+this._validationDisabled=this.__parentNode._validationDisabled;// Build custom type if a spec exists
 if(this.__specdefinitions[this._spec.type]!==void 0){// check for recursion
 if(!this.__parentNode._hasAncestorOfType(this._spec.type)){if("google.protobuf.Any"!==this._spec.type){this._createVendorType(this._spec.type)}}else{this._isRecursion=!0}}// set default value from meta
 if(this._meta&&this._meta.default){this.defaultvalue=this._meta.default}/**
        * Schaltet ein Feld auf valid, müssen wir alle Kinder oder verästelungend des Felds auf validity prüfen...
        */this.addEventListener("field-became-valid",e=>{let v=this.__childNodes.filter(f=>!f._isValid);if(0===v.length){this._isValid=!0}});/**
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
-         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1});this.addEventListener("field-value-changed",e=>{this._pristine=!1});this.addEventListener("new-data-injected",e=>{this._pristine=!0});//store __initialValue value for resetting the field
+         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1});this.addEventListener("field-value-changed",e=>{this._pristine=!1});this.addEventListener("disable-validation",e=>{this._validationDisabled=!0});this.addEventListener("enable-validation",e=>{this._validationDisabled=!1});this.addEventListener("new-data-injected",e=>{this._pristine=!0;this._validationDisabled=!1});this.addEventListener("validation-requested",e=>{this._checkConstraints()});//store __initialValue value for resetting the field
 this.__initialValue=JSON.stringify(this._value)}/**
      * create a field in a FieldNode, this is useful when using map<string,something>
      *   set the value option to init with values
@@ -2197,7 +2204,8 @@ if(this._spec.type.startsWith("map<")){this._updateKeyValueMap(val,this._spec.ty
 furoMetaDetected=val[field._name]}if(val&&val.hasOwnProperty(field._name)){field._value=val[field._name]}}/**
            * if we have meta on this layer, we should update the siblings
            */if(furoMetaDetected){this.__updateMetaAndConstraints(furoMetaDetected)}}else{// update the primitive type
-this._oldvalue=this._value;this.__value=val;this._pristine=!1;if(JSON.stringify(this._oldvalue)!==JSON.stringify(this.__value)){/**
+this._oldvalue=this._value;this.__value=val;this._pristine=!1;if(!this._validationDisabled){// validate changes
+this._checkConstraints()}if(JSON.stringify(this._oldvalue)!==JSON.stringify(this.__value)){/**
            * @event (field-value-changed)
            *
            * ✋ Internal Event from EntityNode which you can use in the targeted components!
@@ -2215,7 +2223,24 @@ this._oldvalue=this._value;this.__value=val;this._pristine=!1;if(JSON.stringify(
                                                                                         * detail payload: **{NodeEvent}** with reference to the FieldNode
                                                                                         */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}//  clear field if it is not in the incomming data
 // set default values according to https://developers.google.com/protocol-buffers/docs/proto3#default
-this.__childNodes.forEach(n=>{if(val&&!val.hasOwnProperty(n._name)){if(0<n.__childNodes.length){n._value={}}else{n._value=Helper.defaultForType(n._spec.type)}}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
+this.__childNodes.forEach(n=>{if(val&&!val.hasOwnProperty(n._name)){if(0<n.__childNodes.length){n._value={}}else{n._value=Helper.defaultForType(n._spec.type)}}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}// check the validity against spec and meta
+_checkConstraints(){let validity=!0;// todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
+// validate only if they are constraints
+for(let constraintName in this._constraints){let constraint=this._constraints[constraintName],numericType=Helper.isNumericType(this._spec.type);switch(constraintName.toLowerCase()){/**
+         * the min constraint
+         */case"min":if(numericType){if(validity&&this._value<constraint.is){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}else{// check for length
+if(validity&&this._value.length<constraint.is){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}break;/**
+         * the max constraint
+         */case"max":if(numericType){if(validity&&this._value>constraint.is){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}else{// check for length
+if(validity&&this._value.length>constraint.is){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}break;/**
+         * step
+         */case"step":if(numericType){// step check is (value - min)%is == 0
+let modulo=parseFloat(constraint.is),min=0;if(this._constraints.min&&this._constraints.min.is){min=parseFloat(this._constraints.min.is)}if(validity&&0!=(min-this._value)%modulo){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}break;/**
+         * the pattern constraint
+         */case"pattern":let reg=new RegExp(constraint.is);if(validity&&(null==this._value||!this._value.match(reg))){this._validity={constraint:constraintName,description:constraint.message};validity=!1}break;/**
+         * the min constraint
+         */case"required":if(numericType){if(validity&&null==this._value){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}else{// check for length and null values
+if(validity&&(null==this._value||0==this._value.length)){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}break;}}if(!validity){this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("field-became-invalid",this))}else{this._clearInvalidity()}return validity}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
 // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
 // a field which is targeted we delegate the sub request to  this field
 for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split(".");if(1===f.length){// we are on the parent of a endpoint. Update the metas in this
@@ -2260,52 +2285,7 @@ for(let index in this.__childNodes){let field=this.__childNodes[index],val;if(th
      * ! readonly || req || modified
      * @private
      */get _required_value(){if(this._meta&&!this._meta.readonly||this._constraints&&this._constraints.required&&"true"===this._constraints.required.is||!this._pristine){if(0<this.__childNodes.length){this.__value={};// nur reine Daten zurück geben
-for(let index in this.__childNodes){let field=this.__childNodes[index],val=field._required_value;if(val!==void 0){this.__value[field._name]=val}}}return this.__value}else{return void 0}}/**
-     * Returns all not readonly field values with deep dive
-     * Mandatory fields (required is true) MUST always be transmitted
-     * @private
-     */ // get _transmit_value(){
-//   if ((this._constraints && this._constraints.required && this._constraints.required.is === 'true') || this._meta && !this._meta.readonly){
-//     if (this.__childNodes.length > 0) {
-//       this.__value = {};
-//       // nur reine Daten zurück geben
-//       for (let index in this.__childNodes) {
-//         let field = this.__childNodes[index];
-//         let val = field._transmit_value;
-//         if (val !== undefined){
-//           this.__value[field._name] = val;
-//         }
-//       }
-//     }
-//     return this.__value;
-//
-//   } else {
-//     return undefined;
-//   }
-// }
-/**
-   * Returns all modified field values with deep dive (! _pristine)
-   * @private
-   */ // get _delta_value() {
-//     if ((this._constraints && this._constraints.required && this._constraints.required.is === 'true') || this._meta && !this._meta.readonly && !this._pristine) {
-//         if (this.__childNodes.length > 0) {
-//             this.__value = {};
-//             // nur reine Daten zurück geben
-//             for (let index in this.__childNodes) {
-//                 let field = this.__childNodes[index];
-//                 let val = field._delta_value;
-//                 if (val != undefined) {
-//                     this.__value[field._name] = val;
-//                 }
-//             }
-//         }
-//         return this.__value;
-//
-//     } else {
-//         return undefined;
-//     }
-// }
-_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
+for(let index in this.__childNodes){let field=this.__childNodes[index],val=field._required_value;if(val!==void 0){this.__value[field._name]=val}}}return this.__value}else{return void 0}}_clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
                             * @event (field-became-valid)
                             *
                             * ✋ Internal Event from EntityNode which you can use in the targeted components!
@@ -2321,20 +2301,26 @@ _clearInvalidity(){if(!this._isValid){this._isValid=!0;this._validity={};/**
                                                                                 * Fired when a field gets invalid. This event **does not bubble**. Can be used on any node.
                                                                                 *
                                                                                 * detail payload: **{NodeEvent}** with reference to the FieldNode
-                                                                                */this.dispatchNodeEvent(new NodeEvent("this-field-became-valid",this,!1))}}_setInvalid(error){// set field empty, if not defined
+                                                                                */this.dispatchNodeEvent(new NodeEvent("this-field-became-valid",this,!1))}}/**
+     *
+     * @param error {"description":"error description / message"} => used in data-input-type for hints
+     * @private
+     */_setInvalid(error){// set field empty, if not defined
 error.field=error.field||"";let path=error.field.split(".");if(0<path.length&&""!==path[0]){// rest wieder in error reinwerfen
 error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(error)}else{console.warn("Unknown field",path,this._name)}}else{this._isValid=!1;this._validity=error;this.dispatchNodeEvent(new NodeEvent("field-became-invalid",this))}}toString(){if(null!==this._value){return this._value}else{return""}}}_exports.FieldNode=FieldNode;var FieldNode$1={FieldNode:FieldNode};_exports.$FieldNode=FieldNode$1;class DataObject extends EventTreeNode{constructor(parentNode,type,specs){super(parentNode);this.__specdefinitions=specs;this._spec=this.__specdefinitions[type];this._type=type;this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0;/**
                            * Schaltet ein Feld auf valid, müssen wir alle Felder auf validity prüfen...
-                           */this.addEventListener("field-became-valid",e=>{if(0===this.__childNodes.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("entity-became-valid",this))}});/**
+                           */this.addEventListener("field-became-valid",e=>{if(0===this.__childNodes.filter(f=>!f._isValid).length){this._isValid=!0;this.dispatchNodeEvent(new NodeEvent("data-object-became-valid",this))}});/**
          * Schaltet ein Feld auf invalid ist die Entity ebenfalls invalid
-         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("entity-became-invalid",this))});/**
+         */this.addEventListener("field-became-invalid",e=>{this._isValid=!1;this.dispatchNodeEvent(new NodeEvent("data-object-became-invalid",this))});/**
          * Wird ein Wert geändert gilt das form ebenfalls nicht mehr als jungfräulich
-         */this.addEventListener("field-value-changed",e=>{this._pristine=!1});this.addEventListener("repeated-fields-added",e=>{this._pristine=!1})}/**
+         */this.addEventListener("field-value-changed",e=>{this._pristine=!1});this.addEventListener("repeated-fields-added",e=>{this._pristine=!1})}validateAllFields(){// broadcast validation request to all fields
+this.broadcastEvent(new NodeEvent("validation-requested",this))}/**
      * Injecten eines raw models wie bspw body oder entity einer collection
      * @param rawEntity
-     */injectRaw(rawEntity){this._rawEntity=rawEntity;this._updateFieldValuesAndMetaFromRawEntity(this,rawEntity);this._pristine=!0;this._isValid=!0;/**
+     */injectRaw(rawEntity){// this broadcast will disable validation during setting the values
+this.broadcastEvent(new NodeEvent("disable-validation",this));this._rawEntity=rawEntity;this._updateFieldValuesAndMetaFromRawEntity(this,rawEntity);this._pristine=!0;this._isValid=!0;/**
                            * Broadcast Event
-                           *
+                           * this will set all fields as pristine and end enable the validation
                            */this.broadcastEvent(new NodeEvent("new-data-injected",this));/**
                                                                     * @event (data-injected)
                                                                     *
@@ -2349,7 +2335,7 @@ error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(
      * Resete zum letzten injected state zurück
      */reset(){if(this._rawEntity){this.injectRaw(this._rawEntity)}}_hasAncestorOfType(type){return this._type===type}/**
      * Inits the EntityNode
-     */init(){for(let i=this.__childNodes.length-1;0<=i;i--){this.__childNodes[i].reinit()}this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0}get rawEntity(){return this._rawEntity}/**
+     */init(){this.broadcastEvent(new NodeEvent("disable-validation",this));for(let i=this.__childNodes.length-1;0<=i;i--){this.__childNodes[i].reinit()}this._initFieldsFromSpec(this,this._spec.fields);this._pristine=!0;this._isValid=!0;this.broadcastEvent(new NodeEvent("enable-validation",this))}get rawEntity(){return this._rawEntity}/**
      * Returns a json representation of your Data Object
      * @return {*}
      */get _value(){return this.getJson()}/**
@@ -2403,6 +2389,21 @@ error.field=path.slice(1).join(".");if(this[path[0]]){this[path[0]]._setInvalid(
      * @param jsonObj
      */injectRaw(jsonObj){this._injectPromise=new Promise(resolve=>{// queue inject bis entity bereit ist
 if(!this.data){this._queue=jsonObj;this._queuedInjectResolver=resolve}else{this.data.injectRaw(jsonObj);resolve(this.data)}});return this._injectPromise}/**
+     * Triggers the validation of all fields in the data object.
+     *
+     * Use this before you submit some data to a server.
+     *
+     * Will cause a `data-object-became-valid` or `data-object-became-invalid` and a validation-success or validation-failed event.
+     */validateAllFields(){// broadcast validation
+this.data.validateAllFields();if(this.data._isValid){/**
+      * @event validation-success
+      * Fired when validation results in a valid state
+      * detail payload: DataObject
+      */let customEvent=new Event("validation-success",{composed:!0,bubbles:!0});customEvent.detail=this.data;this.dispatchEvent(customEvent)}else{/**
+       * @event validation-failed
+       * Fired when validation results in a invalid state
+       * detail payload: DataObject
+       */let customEvent=new Event("validation-failed",{composed:!0,bubbles:!0});customEvent.detail=this.data;this.dispatchEvent(customEvent)}}/**
      * Set the type. The type must be available in the environment
      * @param type
      */set type(type){if(this._checkType(type)){this._type=type}}/**
@@ -2430,7 +2431,21 @@ if(this._queue!==void 0){this.data.injectRaw(this._queue);this._queue=void 0;thi
        * **detail payload:** A EntityNode object
        *
        * **bubbles**
-       */let customEvent=new Event("object-ready",{composed:!0,bubbles:!0});customEvent.detail=this.data;setTimeout(()=>{this.dispatchEvent(customEvent)},0);this.data.addEventListener("data-injected",e=>{/**
+       */let customEvent=new Event("object-ready",{composed:!0,bubbles:!0});customEvent.detail=this.data;setTimeout(()=>{this.dispatchEvent(customEvent)},0);this.data.addEventListener("data-object-became-valid",e=>{/**
+       * @event data-object-became-valid
+       * Fired when the data object switches from invalid to valid state
+       *
+       * **detail payload**: {Object|EntityNode} reference to entity
+       *
+       * **bubbles**
+       */let customEvent=new Event("data-object-became-valid",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent)});this.data.addEventListener("data-object-became-invalid",e=>{/**
+       * @event data-object-became-invalid
+       * Fired when the data object switches from ininvalid to invalid state
+       *
+       * **detail payload**: {Object|EntityNode} reference to entity
+       *
+       * **bubbles**
+       */let customEvent=new Event("data-object-became-invalid",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent)});this.data.addEventListener("data-injected",e=>{/**
        * @event data-injected
        * Fired when injected data was processed.
        *
@@ -2650,19 +2665,7 @@ return _furoShell.html`
        * @event value-changed
        * Fired when
        * detail payload:
-       */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail.value;this.dispatchEvent(customEvent)})}}customElements.define("furo-entity-field",FuroEntityField);class FuroEntityValidator extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.checks={};this._initChecks()}_initChecks(){this.checks.string={min:field=>{let constraint=field._constraints.min;if(field._value&&field._value.length<constraint.is){if(constraint.message){return{description:constraint.message,constraint:"min"}}return{description:"Mindestens "+constraint.is+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field._value&&field._value.length>constraint.is){if(constraint.message){return{description:constraint.message,constraint:"max"}}return{description:"Maximal "+constraint.is+" Zeichen",constraint:"max"}}return null},mandatory:field=>{let constraint=field._constraints.required;if(field._value&&0===field._value.length){return{description:"Eingabe erforderlich",constraint:"mandatory"}}return null}};this.checks.int={min:field=>{let constraint=field._constraints.min;if(field._value&&field._value<constraint.is){return{description:"Mindestens "+constraint.is+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field._value&&field._value>constraint.is){if(constraint.message){return{description:constraint.message,constraint:"max"}}return{description:"Maximal "+constraint.is+" Zeichen",constraint:"max"}}return null}};this.checks.float={min:field=>{let constraint=field._constraints.min;if(field._value&&field._value<constraint.is){return{description:"Mindestens "+constraint.is+" Zeichen",constraint:"min"}}return null},max:field=>{let constraint=field._constraints.max;if(field._value&&field._value>constraint.is){if(constraint.message){return{description:constraint.message,constraint:"max"}}return{description:"Maximal "+constraint.is+" Zeichen",constraint:"max"}}return null}}}bindData(fields){let self=this;// this.validator ist hier wegen dem hoisting...
-this.validator=e=>{let field=e.target,type=field._spec.type;// nur prüfen wenn field constraints  und checker existieren
-if(field._constraints&&this.checks[type]){let err;for(let constraint in field._constraints){if(this.checks[type][constraint]){err=this.checks[type][constraint](field)}if(err){field._setInvalid(err);// bei erstem fehler aufhören
-return}else{// nur zurücksetzen wenn das field ungültig war
-if(!field._isValid){field._clearInvalidity()}}}}};fields.addEventListener("field-value-changed",this.validator);this._FBPTriggerWire("--dataInjected",fields);/** TODO: eventqueue wie in FBP aufbauen??
-                                                     setTimeout(()=>{
-                                                      //check all field on init
-                                                      fields.__childNodes.map(e=>{
-                                                        let field = {target:e};
-                                                        this.validator(field)
-                                                      });
-                                                    },16);
-                                                     */}}window.customElements.define("furo-entity-validator",FuroEntityValidator);class FuroFilterContainer extends(0,_furoShell.FBP)(HTMLElement){constructor(){super();this.style.display="none";this.type=this.getAttribute("type");// find .querySelectorAll("simple-filter-field")
+       */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail.value;this.dispatchEvent(customEvent)})}}customElements.define("furo-entity-field",FuroEntityField);class FuroFilterContainer extends(0,_furoShell.FBP)(HTMLElement){constructor(){super();this.style.display="none";this.type=this.getAttribute("type");// find .querySelectorAll("simple-filter-field")
 let filterFields=this.querySelectorAll("simple-filter-field");if(null!=filterFields){filterFields.forEach(f=>{// set types to children
 f.type=this.type})}// register changes
 this.addEventListener("furo-filter-field-changed",e=>{// baum für filter aufbauen
@@ -2981,7 +2984,7 @@ return _furoShell.html`
        */json:{type:Boolean}}}}window.customElements.define("furo-put-clipboard",FuroPutClipboard);class CheckMetaAndOverrides{static UpdateMetaAndConstraints(element){if(element.field){// options are available for text inputs at the moment
 // check if metas ara available
 if(element.field._meta){if(element.field._meta.readonly){element._readonly=element.field._meta.readonly}if(element.field._meta.label){element._label=element.field._meta.label}if(element.field._meta.hint){element._hint=element.field._meta.hint}if(element.field._meta.cols){element._cols=element.field._meta.cols}if(element.field._meta.rows){element._rows=element.field._meta.rows}if(element.field._meta.min_term_length){element._minTermLength=element.field._meta.min_term_length}if(element.field._meta.label_amount){element._labelAmount=element.field._meta.label_amount}if(element.field._meta.label_currency){element._labelCurrency=element.field._meta.label_currency}if(element.field._meta.options){element._options=element.field._meta.options}}// check if constraints ara available
-if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.is;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.is;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.is;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.is;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required="true"==element.field._constraints.required.is||!0===element.field._constraints.required.is}}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
+if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.is;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.is;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.is;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.is;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required="true"==element.field._constraints.required.is||!0===element.field._constraints.required.is;element._requiredErrorMessage=element.field._constraints.required.message}}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
      * Attribute overrides
      * hint, min, max, readonly or disabled on the element are higher ranked then field metas from spec or server
      */if(element.min){element._min=element.min}if(element.max){element._max=element.max}if(element.readonly){element._readonly=element.readonly}if(element.label){element._label=element.label}if(element.hint){element._hint=element.hint}if(element.step){element._step=element.step}if(element.pattern){element._pattern=element.pattern}if(element.required){element._required=element.required}if(element.cols){element._cols=element.cols}if(element.rows){element._rows=element.rows}if(element.minTermLength){element._minTermLength=element.minTermLength}if(element.labelAmount){element._labelAmount=element.labelAmount}if(element.labelCurrency){element._labelCurrency=element.labelCurrency}if(element.options){element._options=element.options}}}_exports.CheckMetaAndOverrides=CheckMetaAndOverrides;var CheckMetaAndOverrides$1={CheckMetaAndOverrides:CheckMetaAndOverrides};_exports.$CheckMetaAndOverrides=CheckMetaAndOverrides$1;class FuroDataBoolIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",()=>{this.toggle()});this.symboltrue="\u25BC";this.symbolfalse="\u25B6";this.field={};this._updateSymbol()}/**
@@ -3126,8 +3129,7 @@ this.field.addEventListener("this-metas-changed",e=>{this._buildListWithMetaOpti
      * @param fieldNode
      * @returns {boolean}
      * @private
-     */_checkIsComplexType(fieldNode){let isComplex=!1;if(0<fieldNode.__childNodes.length){isComplex=!0}return isComplex}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this._fieldNodeToUpdate._value);this.requestUpdate()}/**
+     */_checkIsComplexType(fieldNode){let isComplex=!1;if(0<fieldNode.__childNodes.length){isComplex=!0}return isComplex}_updateField(){this._FBPTriggerWire("--value",this._fieldNodeToUpdate._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -3218,8 +3220,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the furo-data-checkbox-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}static get properties(){return{/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3278,21 +3279,6 @@ return _furoShell.html`
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
-     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-     * becaue it set "undefined" (as a Sting!)
-     *
-     * @param value
-     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
-     * Updater for the min => minlength attr
-     * same problem like in pattern
-     *
-     * @param value
-     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr
-     * * same problem like in pattern
-     *
-     * @param value
-     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
@@ -3346,8 +3332,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the text-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -3449,19 +3434,11 @@ return _furoShell.html`
    * Comes from underlying component furo-date-input. **bubbles**
    */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{// by valid input reset meta and constraints
 if(this.field){if("google.type.Date"===this.field._spec.type||this.field["@type"]&&"google.type.Date"===this.field["@type"]._value.replace(/.*\//,"")){val=this._convertStringToDateObj(val,this.field._value)}// store tmpval to check against loop
-this.tmpval=val;this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
+this.tmpval=val;this.field._value=val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
-     * Updater for the min => minlength attr*
-     * @param value
-     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr*
-     * @param value
-     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
@@ -3476,10 +3453,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
-     * Updater for the step attr
-     * @param value
-     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3492,19 +3466,6 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:Date},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:Date},/**
-       * Overrides the step value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */step:{type:String// string, because "any" is also a valid step
-},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3564,7 +3525,6 @@ return _furoShell.html`
           ?condensed="${this.condensed}"     
           ?required=${this._required}     
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-date-input>      
     `}}customElements.define("furo-data-date-input",FuroDataDateInput);class FuroDataDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this.field={}}/**
      * flow is ready lifecycle method
@@ -3797,19 +3757,11 @@ return _furoShell.html`
    * detail payload: {Number} the number value
    *
    * Comes from underlying component furo-number-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
-     * Updater for the min => minlength attr*
-     * @param value
-     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr*
-     * @param value
-     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
@@ -3824,10 +3776,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
-     * Updater for the step attr
-     * @param value
-     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3840,19 +3789,6 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:Number},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:Number},/**
-       * Overrides the step value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */step:{type:String// string, because "any" is also a valid step
-},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3878,8 +3814,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the number-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -3907,7 +3842,6 @@ return _furoShell.html`
           ?condensed="${this.condensed}"          
           ?required=${this._required}
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-number-input>      
     `}}customElements.define("furo-data-number-input",FuroDataNumberInput);class FuroDataMoneyInput extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.valid=!0;this._currencies=[];// init the currency dropdown. the value will be used if no currencies are defined in attribute or in meta
 this.value={currency_code:"CHF",units:null,nanos:null}}_FBPReady(){super._FBPReady();// reset hint, label etc..
@@ -3915,30 +3849,18 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.shadowRoot.getElementB
                            * @event value-changed
                            * Fired when value has changed from inside the component
                            * detail payload: google money object
-                           */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.field._value;this.dispatchEvent(customEvent)});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}// convert data to google.type.Money format
+                           */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.field._value;this.dispatchEvent(customEvent)})}// convert data to google.type.Money format
 _convertDataToMoneyObj(currency,amount,obj){if(null==obj){obj={}}if(currency){obj.currency_code=currency}if(amount){let arr=amount.split(".");obj.units=+arr[0];if(arr[1]){obj.nanos=1e8*+("0."+arr[1])}else{obj.nanos=0}}return obj}/**
      * Bind a entity field to the number-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.units&&null!==this.field.units._value&&null!==this.field.nanos._value){let amout=+(this.field.units._value+"."+this.field.nanos._value);this._FBPTriggerWire("--valueAmount",amout)}if(this.field.currency_code&&this.field.currency_code._value){this._FBPTriggerWire("--valueCurrency",this.field.currency_code._value)}this.requestUpdate()}/**
-     * Updater for the min => minlength attr*
-     * @param value
-     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr*
-     * @param value
-     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){if(this.field.units&&null!==this.field.units._value&&null!==this.field.nanos._value){let amout=+(this.field.units._value+"."+this.field.nanos._value);this._FBPTriggerWire("--valueAmount",amout)}if(this.field.currency_code&&this.field.currency_code._value){this._FBPTriggerWire("--valueCurrency",this.field.currency_code._value)}this.requestUpdate()}/**
      * Updater for the hint attr
      * @param value
      */set _hint(value){Helper$2.UpdateInputAttribute(this,"hint",value)}/**
      * Updater for the errortext attr
      * @param value
      */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
-     * Updater for the step attr
-     * @param value
-     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}/**
      * Updater for the label attr for amount
      * @param value
      */set _labelAmount(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
@@ -3984,14 +3906,6 @@ select.removeAttribute("label")}}static get properties(){return{/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:Number},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:Number},/**
        * Text for errors
        */errortext:{type:String},/**
        * html input validity
@@ -4039,14 +3953,12 @@ return _furoShell.html`
       <furo-horizontal-flex id="wrapper">
           <furo-number-input id="input"
           ?autofocus=${this.autofocus} 
-          step="0.01"
           ?readonly=${this._readonly||this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
           ?required=${this._required}
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--valueAmount"></furo-number-input>      
           
        <furo-select-input id="select"
@@ -4065,24 +3977,11 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-password-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
-     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-     * becaue it set "undefined" (as a Sting!)
-     *
-     * @param value
-     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
-     * Updater for the min => minlength attr*
-     * @param value
-     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr*
-     * @param value
-     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
@@ -4102,10 +4001,6 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */label:{type:String,attribute:!0},/**
-       * Overrides the pattern from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */pattern:{type:String},/**
        * Overrides the required value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4114,14 +4009,6 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:Number},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:Number},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4147,8 +4034,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the number-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -4176,7 +4062,6 @@ return _furoShell.html`
           ?condensed="${this.condensed}" 
           ?required=${this._required}         
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-password-input>      
     `}}customElements.define("furo-data-password-input",FuroDataPasswordInput);class FuroDataProperty extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.typemap={"google.type.Date":"furo-data-date-input","google.protobuf.StringValue":"furo-data-text-input","google.protobuf.FloatValue":"furo-data-number-input","google.protobuf.Int32Value":"furo-data-number-input","google.protobuf.UInt32Value":"furo-data-number-input","furo.StringProperty":"furo-data-text-input","furo.IntegerProperty":"furo-data-number-input","furo.NumberProperty":"furo-data-number-input","furo.StringOptionProperty":"furo-data-collection-dropdown"}}bindData(propertyField){this.field=propertyField;if(propertyField._isRepeater){// add flow repeat to parent and inject on repeated changes
 // repeated
@@ -4280,19 +4165,11 @@ return _furoShell.html`
    * detail payload: {Range} the range value
    *
    * Comes from underlying component furo-range-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{Helper$2.setInvalidMessage(this,val)})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
-     * Updater for the min => minlength attr*
-     * @param value
-     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr*
-     * @param value
-     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
@@ -4307,10 +4184,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
-     * Updater for the step attr
-     * @param value
-     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4319,19 +4193,6 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:Number},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:Number},/**
-       * Overrides the step value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */step:{type:String// string, because "any" is also a valid step
-},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4357,8 +4218,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the range-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -4384,7 +4244,6 @@ return _furoShell.html`
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-range-input>      
     `}}customElements.define("furo-data-range-input",FuroDataRangeInput);class ReferenceSearchItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._item={}}/**
      * @private
@@ -4561,7 +4420,6 @@ return _furoShell.html`
       ƒ-set-value="--value"
       @-value-changed="^^searchInput" 
       @-blur="--blured" 
-      @-input-invalid="--inputInvalid"
       @-focus="--focused" 
       ƒ-focus="--focusReceived"></furo-search-input>
     <div class="list" @-item-selected="--itemSelected"   >
@@ -4669,24 +4527,11 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-search-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this.hint="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this.hint="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
-     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-     * becaue it set "undefined" (as a Sting!)
-     *
-     * @param value
-     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
-     * Updater for the min => minlength attr*
-     * @param value
-     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr*
-     * @param value
-     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
@@ -4710,22 +4555,10 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */required:{type:Boolean},/**
-       * Overrides the pattern from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */pattern:{type:String},/**
        * Overrides the hint text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:Number},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:Number},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4747,8 +4580,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the search-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -4776,7 +4608,6 @@ return _furoShell.html`
           ?condensed="${this.condensed}" 
           ?required=${this._required}   
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-search-input>      
     `}}customElements.define("furo-data-search-input",FuroDataSearchInput);class FuroDataTextInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
@@ -4785,28 +4616,11 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-text-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.patternMismatch){this._hint=this._patternErrorMessage}else if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
-     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
-     * becaue it set "undefined" (as a Sting!)
-     *
-     * @param value
-     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
-     * Updater for the min => minlength attr
-     * same problem like in pattern
-     *
-     * @param value
-     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr
-     * * same problem like in pattern
-     *
-     * @param value
-     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
@@ -4830,10 +4644,6 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */label:{type:String},/**
-       * Overrides the pattern from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */pattern:{type:String},/**
        * Overrides the required value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4842,14 +4652,6 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:Number},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:Number},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4871,8 +4673,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the text-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -4900,7 +4701,6 @@ return _furoShell.html`
           ?condensed="${this.condensed}"                         
           ?required=${this._required}                   
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-text-input>      
     `}}customElements.define("furo-data-text-input",FuroDataTextInput);class FuroDataTextareaInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
@@ -4909,19 +4709,11 @@ return _furoShell.html`
    * detail payload: {String} the text value
    *
    * Comes from underlying component furo-textarea-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.tooShort){this._hint=this._minErrorMessage}else if(val.tooLong){this._hint=this._maxErrorMessage}this.requestUpdate()}})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
-     * Updater for the min => minlength attr
-     * @param value
-     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr
-     * @param value
-     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the cols attr
      * @param value
      */set _cols(value){Helper$2.UpdateInputAttribute(this,"cols",value)}/**
@@ -4937,7 +4729,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the errortext attr
      * @param value
      */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
-     * todo , add more attributes like cols, rows, spellcheck..
+     * todo , add more attributes like  spellcheck..
      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
      */static get properties(){return{/**
        * Overrides the label text from the **specs**.
@@ -4952,14 +4744,6 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:Number},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:Number},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4981,8 +4765,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the textarea-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this.disabled=this.field._meta.readonly?!0:!1;this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -5009,7 +4792,6 @@ return _furoShell.html`
           ?condensed="${this.condensed}"                         
           ?required=${this._required}    
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-textarea-input>      
     `}}customElements.define("furo-data-textarea-input",FuroDataTextareaInput);class FuroDataTimeInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
@@ -5018,19 +4800,11 @@ return _furoShell.html`
    * detail payload: {String} the time value
    *
    * Comes from underlying component furo-time-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--inputInvalid",val=>{// val is a ValidityState
-// https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
-if(val){if(val.rangeUnderflow){this._hint=this._minErrorMessage}else if(val.rangeOverflow){this._hint=this._maxErrorMessage}else if(val.stepMismatch){this._hint=this._stepErrorMessage}this.requestUpdate()}})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this.errortext="";this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
-     * Updater for the min => minlength attr*
-     * @param value
-     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
-     * Updater for the max attr*
-     * @param value
-     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the label attr
      * @param value
      */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
@@ -5045,10 +4819,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
-     * Updater for the step attr
-     * @param value
-     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -5061,19 +4832,6 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */min:{type:String},/**
-       * Overrides the max value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */max:{type:String},/**
-       * Overrides the step value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */step:{type:String// string, because "any" is also a valid step
-},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -5095,8 +4853,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Bind a entity field to the time-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode)}_updateField(){this._FBPTriggerWire("--value",this.field._value);this.requestUpdate()}/**
      *
      * @private
      * @return {CSSResult}
@@ -5123,7 +4880,6 @@ return _furoShell.html`
           ?required=${this._required}
           ?condensed="${this.condensed}"                         
           @-value-changed="--valueChanged"
-          @-input-invalid="--inputInvalid"
           ƒ-set-value="--value"></furo-time-input>      
     `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class DemoProjectFilterForm extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
      * flow is ready lifecycle method
@@ -5248,58 +5004,7 @@ return _furoShell.html`
                     </template>
                 </furo-demo-snippet>
             </furo-vertical-flex>
-        `}}window.customElements.define("demo-furo-filter",DemoFuroFilter);class DemoFuroEntityValidator extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
-   * flow is ready lifecycle method
-   */_FBPReady(){super._FBPReady();this._FBPTraceWires()}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-            :host {
-                display: block;
-                height: 100%;
-                padding-right: var(--spacing);
-            }
-
-            :host([hidden]) {
-                display: none;
-            }
-            
-        `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return _furoShell.html`
-            <furo-vertical-flex>
-                <div>
-                    <h2>Demo demo-furo-entity-validator</h2>
-                </div>
-                <furo-demo-snippet flex>
-                    <template>
-                        <furo-horizontal-flex>
-
-                            <furo-data-search-input autofocus ƒ-bind-data="--entity(*.furo_data_search_input)"></furo-data-search-input>
-                            <furo-data-search-input autofocus ƒ-bind-data="--entity(*.furo_data_number_input)"></furo-data-search-input>
-                        </furo-horizontal-flex>
-
-                        <produce-qp-data @-data="--qp" qp={"exp":2}></produce-qp-data>
-
-                        <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
-                                          ƒ-inject-raw="--response(*.data)"></furo-data-object>
-                        <furo-deep-link service="ExperimentService" @-hts-out="--hts" ƒ-qp-in="--qp"></furo-deep-link>
-                        <furo-entity-agent service="ExperimentService"
-                                           ƒ-hts-in="--hts"
-                                           ƒ-load="--hts"
-                                           ƒ-bind-request-data="--entity"
-                                           @-response="--response">
-                        </furo-entity-agent>
-                        <furo-entity-validator ƒ-bind-data="--entity"></furo-entity-validator>
-
-                    </template>
-                </furo-demo-snippet>
-            </furo-vertical-flex>
-        `}}window.customElements.define("demo-furo-entity-validator",DemoFuroEntityValidator);class DemoFuroDataRepeat extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+        `}}window.customElements.define("demo-furo-filter",DemoFuroFilter);class DemoFuroDataRepeat extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}

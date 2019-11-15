@@ -1851,11 +1851,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 92,
+              "line": 122,
               "column": 3
             }
           },
@@ -1870,11 +1870,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 127,
               "column": 2
             },
             "end": {
-              "line": 99,
+              "line": 129,
               "column": 3
             }
           },
@@ -2423,16 +2423,36 @@
           ]
         },
         {
+          "name": "validateAllFields",
+          "description": "Triggers the validation of all fields in the data object.\n\nUse this before you submit some data to a server.\n\nWill cause a `data-object-became-valid` or `data-object-became-invalid` and a validation-success or validation-failed event.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 90,
+              "column": 2
+            },
+            "end": {
+              "line": 112,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "reset",
           "description": "Reset the model to the last injected state.\n\nTo set the model to the initial state use init",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 136,
               "column": 2
             },
             "end": {
-              "line": 108,
+              "line": 138,
               "column": 3
             }
           },
@@ -2448,11 +2468,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 115,
+              "line": 145,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 153,
               "column": 3
             }
           },
@@ -2468,11 +2488,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 131,
+              "line": 161,
               "column": 2
             },
             "end": {
-              "line": 207,
+              "line": 266,
               "column": 3
             }
           },
@@ -2700,7 +2720,7 @@
           "column": 0
         },
         "end": {
-          "line": 212,
+          "line": 271,
           "column": 1
         }
       },
@@ -2713,11 +2733,11 @@
           "description": "The name of the type you want to use. The type must be registered in Env",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 92,
+              "line": 122,
               "column": 3
             }
           },
@@ -2740,6 +2760,18 @@
         },
         {
           "type": "CustomEvent",
+          "name": "data-object-became-invalid",
+          "description": "data-object-became-invalid\nFired when the data object switches from ininvalid to invalid state\n\n*detail payload**: {Object|EntityNode} reference to entity\n\n*bubbles**",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "data-object-became-valid",
+          "description": "data-object-became-valid\nFired when the data object switches from invalid to valid state\n\n*detail payload**: {Object|EntityNode} reference to entity\n\n*bubbles**",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
           "name": "field-value-changed",
           "description": "field-value-changed\nFired when a field has changed\ndetail payload: {Object} the field node",
           "metadata": {}
@@ -2748,6 +2780,18 @@
           "type": "CustomEvent",
           "name": "object-ready",
           "description": "object-ready\nFired when the object is built (based on the type).\n\n*detail payload:** A EntityNode object\n\n*bubbles**",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "validation-failed",
+          "description": "validation-failed\nFired when validation results in a invalid state\ndetail payload: DataObject",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "validation-success",
+          "description": "validation-success\nFired when validation results in a valid state\ndetail payload: DataObject",
           "metadata": {}
         }
       ],
@@ -6074,504 +6118,6 @@
       },
       "slots": [],
       "tagname": "furo-entity-field",
-      "mixins": [
-        "FBP"
-      ]
-    },
-    {
-      "description": "`furo-entity-validator` validates a single field and sets the corresponding metas",
-      "summary": "",
-      "path": "packages/furo-data/furo-entity-validator.js",
-      "properties": [],
-      "methods": [
-        {
-          "name": "_attachDom",
-          "description": "Auto append fbp for Polymer",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 47,
-              "column": 8
-            },
-            "end": {
-              "line": 50,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "firstUpdated",
-          "description": "Auto append fbp for lit elements",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 53,
-              "column": 8
-            },
-            "end": {
-              "line": 61,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "changedProperties"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTriggerWire",
-          "description": "Triggers a wire",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 69,
-              "column": 8
-            },
-            "end": {
-              "line": 115,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire like --buttonClicked"
-            },
-            {
-              "name": "detailData",
-              "description": "(*) data to pass"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPAddWireHook",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 125,
-              "column": 8
-            },
-            "end": {
-              "line": 142,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire",
-              "description": "(String) Name of the wire"
-            },
-            {
-              "name": "cb",
-              "description": "(function) Callback function cb(detailData)"
-            },
-            {
-              "name": "before"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPTraceWires",
-          "description": "Log all triggered wires for this component. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPTraceWires()`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 151,
-              "column": 8
-            },
-            "end": {
-              "line": 187,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPDebug",
-          "description": "Get information for the triggered wire. This function may help you at debugging.\nSelect your element in the dev console and call `$0._FBPDebug('--dataReceived')`",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 197,
-              "column": 8
-            },
-            "end": {
-              "line": 233,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "openDebugger",
-              "description": "opens the debugger console, so you can inspect your component."
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__toCamelCase",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 235,
-              "column": 8
-            },
-            "end": {
-              "line": 239,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "str"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_appendFBP",
-          "description": "parses the dom for flowbased programming tags",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 246,
-              "column": 8
-            },
-            "end": {
-              "line": 524,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "dom",
-              "description": "dom node"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_FBPReady",
-          "description": "Livecycle method\nThis method is called, when the wires are ready.\nAnd triggers the --FBPready wire. This does *not* respect a lit updateComplete",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 531,
-              "column": 8
-            },
-            "end": {
-              "line": 534,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__enqueueTrigger",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 536,
-              "column": 8
-            },
-            "end": {
-              "line": 538,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "wire"
-            },
-            {
-              "name": "detailData"
-            }
-          ],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "__resolveWireAndPath",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 540,
-              "column": 8
-            },
-            "end": {
-              "line": 548,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "w"
-            }
-          ],
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "disconnectedCallback",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 550,
-              "column": 8
-            },
-            "end": {
-              "line": 564,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathGet",
-          "description": "Reads a value from a path.  If any sub-property in the path is `undefined`,\nthis method returns `undefined` (will never throw.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 575,
-              "column": 8
-            },
-            "end": {
-              "line": 588,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to read"
-            }
-          ],
-          "return": {
-            "type": "*",
-            "desc": "Value at path, or `undefined` if the path could not be\n fully dereferenced."
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_pathSet",
-          "description": "Sets a value to a path.  If any sub-property in the path is `undefined`,\nthis method will no-op.",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 599,
-              "column": 8
-            },
-            "end": {
-              "line": 621,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "root",
-              "type": "Object",
-              "description": "Object from which to dereference path from"
-            },
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Path to set"
-            },
-            {
-              "name": "value",
-              "type": "*",
-              "description": "Value to set to path"
-            }
-          ],
-          "return": {
-            "type": "(string | undefined)",
-            "desc": "The normalized version of the input path"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_split",
-          "description": "Splits a path into an array of property names. Accepts either arrays\nof path parts or strings.\n\nExample:\n\n```\nsplit(['foo.bar', 0, 'baz'])  // ['foo', 'bar', '0', 'baz']\nsplit('foo.bar.0.baz')        // ['foo', 'bar', '0', 'baz']\n```",
-          "privacy": "protected",
-          "sourceRange": {
-            "file": "../../../@furo/fbp/fbp.js",
-            "start": {
-              "line": 639,
-              "column": 8
-            },
-            "end": {
-              "line": 641,
-              "column": 9
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "path",
-              "type": "(string | !Array.<(string | number)>)",
-              "description": "Input path"
-            }
-          ],
-          "return": {
-            "type": "!Array.<string>",
-            "desc": "Array of path parts"
-          },
-          "inheritedFrom": "FBP"
-        },
-        {
-          "name": "_initChecks",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 21,
-              "column": 2
-            },
-            "end": {
-              "line": 107,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "bindData",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 110,
-              "column": 2
-            },
-            "end": {
-              "line": 153,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "fields"
-            }
-          ],
-          "return": {
-            "type": "void"
-          }
-        }
-      ],
-      "staticMethods": [],
-      "demos": [
-        {
-          "url": "demo-furo-entity-validator",
-          "description": "entity validator demo"
-        }
-      ],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 11,
-          "column": 0
-        },
-        "end": {
-          "line": 156,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "HTMLElement",
-      "name": "FuroEntityValidator",
-      "attributes": [],
-      "events": [],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "furo-entity-validator",
       "mixins": [
         "FBP"
       ]
@@ -10087,11 +9633,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 218,
               "column": 2
             },
             "end": {
-              "line": 210,
+              "line": 222,
               "column": 3
             }
           },
@@ -10104,11 +9650,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 229,
               "column": 2
             },
             "end": {
-              "line": 226,
+              "line": 238,
               "column": 3
             }
           },
@@ -10121,11 +9667,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 244,
               "column": 2
             },
             "end": {
-              "line": 241,
+              "line": 253,
               "column": 3
             }
           },
@@ -10138,11 +9684,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 248,
+              "line": 260,
               "column": 2
             },
             "end": {
-              "line": 257,
+              "line": 269,
               "column": 3
             }
           },
@@ -10327,11 +9873,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 85,
+              "line": 97,
               "column": 2
             },
             "end": {
-              "line": 87,
+              "line": 99,
               "column": 3
             }
           },
@@ -10347,11 +9893,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 96,
+              "line": 108,
               "column": 3
             }
           },
@@ -10367,11 +9913,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 114,
               "column": 2
             },
             "end": {
-              "line": 104,
+              "line": 116,
               "column": 3
             }
           },
@@ -10388,11 +9934,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 118,
               "column": 2
             },
             "end": {
-              "line": 121,
+              "line": 133,
               "column": 3
             }
           },
@@ -10408,11 +9954,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 170,
               "column": 2
             },
             "end": {
-              "line": 204,
+              "line": 216,
               "column": 3
             }
           },
@@ -10432,11 +9978,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 263,
+              "line": 275,
               "column": 2
             },
             "end": {
-              "line": 274,
+              "line": 286,
               "column": 3
             }
           },
@@ -10456,11 +10002,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 276,
+              "line": 288,
               "column": 2
             },
             "end": {
-              "line": 289,
+              "line": 305,
               "column": 3
             }
           },
@@ -10473,11 +10019,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 292,
+              "line": 308,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 316,
               "column": 3
             }
           },
@@ -10497,11 +10043,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 303,
+              "line": 319,
               "column": 2
             },
             "end": {
-              "line": 319,
+              "line": 335,
               "column": 3
             }
           },
@@ -10522,7 +10068,7 @@
           "column": 7
         },
         "end": {
-          "line": 322,
+          "line": 338,
           "column": 1
         }
       },
@@ -10547,7 +10093,7 @@
               "column": 2
             },
             "end": {
-              "line": 32,
+              "line": 28,
               "column": 3
             }
           },
@@ -10557,6 +10103,30 @@
               "name": "type"
             }
           ]
+        },
+        {
+          "name": "isNumericType",
+          "description": "checks if a type is numeric (usefull when you want to compare min or max constraints)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 35,
+              "column": 2
+            },
+            "end": {
+              "line": 57,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "type"
+            }
+          ],
+          "return": {
+            "type": "boolean"
+          }
         }
       ],
       "demos": [],
@@ -10567,7 +10137,7 @@
           "column": 7
         },
         "end": {
-          "line": 33,
+          "line": 58,
           "column": 1
         }
       },
@@ -10586,12 +10156,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 371,
-              "column": 4
+              "line": 503,
+              "column": 2
             },
             "end": {
-              "line": 381,
-              "column": 5
+              "line": 513,
+              "column": 3
             }
           },
           "metadata": {}
@@ -10603,12 +10173,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 339,
-              "column": 4
+              "line": 471,
+              "column": 2
             },
             "end": {
-              "line": 369,
-              "column": 5
+              "line": 501,
+              "column": 3
             }
           },
           "metadata": {}
@@ -10620,12 +10190,12 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 389,
-              "column": 4
+              "line": 521,
+              "column": 2
             },
             "end": {
-              "line": 417,
-              "column": 5
+              "line": 549,
+              "column": 3
             }
           },
           "metadata": {}
@@ -10637,12 +10207,12 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 424,
-              "column": 4
+              "line": 556,
+              "column": 2
             },
             "end": {
-              "line": 451,
-              "column": 5
+              "line": 583,
+              "column": 3
             }
           },
           "metadata": {}
@@ -10654,12 +10224,12 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 459,
-              "column": 4
+              "line": 591,
+              "column": 2
             },
             "end": {
-              "line": 477,
-              "column": 5
+              "line": 609,
+              "column": 3
             }
           },
           "metadata": {}
@@ -10843,12 +10413,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
-              "column": 4
+              "line": 106,
+              "column": 2
             },
             "end": {
-              "line": 107,
-              "column": 5
+              "line": 126,
+              "column": 3
             }
           },
           "metadata": {},
@@ -10865,12 +10435,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 112,
-              "column": 4
+              "line": 131,
+              "column": 2
             },
             "end": {
-              "line": 118,
-              "column": 5
+              "line": 137,
+              "column": 3
             }
           },
           "metadata": {},
@@ -10886,12 +10456,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
-              "column": 4
+              "line": 143,
+              "column": 2
             },
             "end": {
-              "line": 126,
-              "column": 5
+              "line": 145,
+              "column": 3
             }
           },
           "metadata": {},
@@ -10906,12 +10476,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 128,
-              "column": 4
+              "line": 147,
+              "column": 2
             },
             "end": {
-              "line": 141,
-              "column": 5
+              "line": 162,
+              "column": 3
             }
           },
           "metadata": {},
@@ -10925,17 +10495,34 @@
           }
         },
         {
+          "name": "_checkConstraints",
+          "description": "check the validity against spec and meta",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 257,
+              "column": 2
+            },
+            "end": {
+              "line": 359,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
           "name": "__updateMetaAndConstraints",
           "description": "",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 231,
-              "column": 4
+              "line": 361,
+              "column": 2
             },
             "end": {
-              "line": 270,
-              "column": 5
+              "line": 399,
+              "column": 3
             }
           },
           "metadata": {},
@@ -10954,12 +10541,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 272,
-              "column": 4
+              "line": 401,
+              "column": 2
             },
             "end": {
-              "line": 295,
-              "column": 5
+              "line": 425,
+              "column": 3
             }
           },
           "metadata": {},
@@ -10978,12 +10565,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 298,
-              "column": 4
+              "line": 428,
+              "column": 2
             },
             "end": {
-              "line": 318,
-              "column": 5
+              "line": 450,
+              "column": 3
             }
           },
           "metadata": {},
@@ -11005,12 +10592,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 323,
-              "column": 4
+              "line": 455,
+              "column": 2
             },
             "end": {
-              "line": 337,
-              "column": 5
+              "line": 469,
+              "column": 3
             }
           },
           "metadata": {},
@@ -11025,12 +10612,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 528,
-              "column": 4
+              "line": 612,
+              "column": 2
             },
             "end": {
-              "line": 553,
-              "column": 5
+              "line": 637,
+              "column": 3
             }
           },
           "metadata": {},
@@ -11042,21 +10629,22 @@
         {
           "name": "_setInvalid",
           "description": "",
-          "privacy": "protected",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 555,
-              "column": 4
+              "line": 644,
+              "column": 2
             },
             "end": {
-              "line": 573,
-              "column": 5
+              "line": 662,
+              "column": 3
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "error"
+              "name": "error",
+              "description": "{\"description\":\"error description / message\"} => used in data-input-type for hints"
             }
           ],
           "return": {
@@ -11069,12 +10657,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 575,
-              "column": 4
+              "line": 664,
+              "column": 2
             },
             "end": {
-              "line": 582,
-              "column": 5
+              "line": 671,
+              "column": 3
             }
           },
           "metadata": {},
@@ -11090,7 +10678,7 @@
           "column": 7
         },
         "end": {
-          "line": 583,
+          "line": 672,
           "column": 1
         }
       },
@@ -11110,11 +10698,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 109,
+              "line": 119,
               "column": 2
             },
             "end": {
-              "line": 111,
+              "line": 121,
               "column": 3
             }
           },
@@ -11127,11 +10715,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 129,
               "column": 2
             },
             "end": {
-              "line": 121,
+              "line": 131,
               "column": 3
             }
           },
@@ -11144,11 +10732,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 137,
               "column": 2
             },
             "end": {
-              "line": 129,
+              "line": 139,
               "column": 3
             }
           },
@@ -11328,16 +10916,36 @@
           "inheritedFrom": "EventTreeNode"
         },
         {
+          "name": "validateAllFields",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 54,
+              "column": 2
+            },
+            "end": {
+              "line": 57,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "injectRaw",
           "description": "Injecten eines raw models wie bspw body oder entity einer collection",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 58,
+              "line": 63,
               "column": 2
             },
             "end": {
-              "line": 82,
+              "line": 91,
               "column": 3
             }
           },
@@ -11357,11 +10965,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 96,
               "column": 2
             },
             "end": {
-              "line": 91,
+              "line": 100,
               "column": 3
             }
           },
@@ -11377,11 +10985,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 93,
+              "line": 102,
               "column": 2
             },
             "end": {
-              "line": 95,
+              "line": 104,
               "column": 3
             }
           },
@@ -11398,11 +11006,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 108,
               "column": 2
             },
             "end": {
-              "line": 107,
+              "line": 117,
               "column": 3
             }
           },
@@ -11418,11 +11026,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 136,
+              "line": 146,
               "column": 2
             },
             "end": {
-              "line": 144,
+              "line": 154,
               "column": 3
             }
           },
@@ -11438,11 +11046,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 148,
+              "line": 158,
               "column": 2
             },
             "end": {
-              "line": 232,
+              "line": 241,
               "column": 3
             }
           },
@@ -11465,11 +11073,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 235,
+              "line": 244,
               "column": 2
             },
             "end": {
-              "line": 248,
+              "line": 257,
               "column": 3
             }
           },
@@ -11489,11 +11097,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 260,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 277,
               "column": 3
             }
           },
@@ -11513,11 +11121,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 276,
+              "line": 285,
               "column": 2
             },
             "end": {
-              "line": 285,
+              "line": 294,
               "column": 3
             }
           },
@@ -11540,11 +11148,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 297,
               "column": 2
             },
             "end": {
-              "line": 290,
+              "line": 299,
               "column": 3
             }
           },
@@ -11561,7 +11169,7 @@
           "column": 7
         },
         "end": {
-          "line": 291,
+          "line": 300,
           "column": 1
         }
       },

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.17](https://github.com/veith/FuroBaseComponents/compare/@furo/data-util@0.1.16...@furo/data-util@0.1.17) (2019-11-13)
+
+**Note:** Version bump only for package @furo/data-util
+
+
+
+
+
 ## [0.1.16](https://github.com/veith/FuroBaseComponents/compare/@furo/data-util@0.1.15...@furo/data-util@0.1.16) (2019-10-31)
 
 **Note:** Version bump only for package @furo/data-util

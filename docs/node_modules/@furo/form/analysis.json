@@ -97,6 +97,132 @@
             }
           },
           "inheritedFrom": "UpdatingElement"
+        },
+        {
+          "name": "hideNoRel",
+          "type": "string | null | undefined",
+          "description": "Hides element if condition is true\nOnly available with bindEntity",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 40,
+              "column": 12
+            },
+            "end": {
+              "line": 40,
+              "column": 63
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "hideNotValid",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 41,
+              "column": 12
+            },
+            "end": {
+              "line": 41,
+              "column": 69
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "hidePristine",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 42,
+              "column": 12
+            },
+            "end": {
+              "line": 42,
+              "column": 68
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "disableNoRel",
+          "type": "string | null | undefined",
+          "description": "Disables element if condition is true\nOnly available with bindEntity",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 48,
+              "column": 12
+            },
+            "end": {
+              "line": 48,
+              "column": 69
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "disableNotValid",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 49,
+              "column": 12
+            },
+            "end": {
+              "line": 49,
+              "column": 75
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "disablePristine",
+          "type": "string | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 12
+            },
+            "end": {
+              "line": 50,
+              "column": 74
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
         }
       ],
       "methods": [
@@ -524,29 +650,27 @@
         },
         {
           "name": "firstUpdated",
-          "description": "Invoked when the element is first updated. Implement to perform one time\nwork on the element after update.\n\nSetting properties inside this method will trigger the element to update\nagain after this update cycle completes.\n\n* @param _changedProperties Map of changed properties with old values",
-          "privacy": "public",
+          "description": "Set the default value if any hide/disable attribute  or\nrel=\"\" attribute is set",
+          "privacy": "private",
           "sourceRange": {
-            "file": "../../../lit-element/lib/updating-element.js",
             "start": {
-              "line": 616,
+              "line": 104,
               "column": 4
             },
             "end": {
-              "line": 617,
+              "line": 122,
               "column": 5
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "_changedProperties"
+              "name": "changedProperties"
             }
           ],
           "return": {
             "type": "void"
-          },
-          "inheritedFrom": "UpdatingElement"
+          }
         },
         {
           "name": "createRenderRoot",
@@ -596,31 +720,98 @@
         {
           "name": "render",
           "description": "",
-          "privacy": "public",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 49,
-              "column": 2
-            },
-            "end": {
-              "line": 56,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": []
-        },
-        {
-          "name": "bindEntity",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 14,
+              "line": 210,
               "column": 4
             },
             "end": {
-              "line": 16,
+              "line": 217,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "(TemplateResult | TemplateResult)"
+          }
+        },
+        {
+          "name": "bindEntity",
+          "description": "Entity bind to control elements inside the bar.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 60,
+              "column": 4
+            },
+            "end": {
+              "line": 76,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "entity"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "disableAll",
+          "description": "Disable all elements inside\nCan be used to disable during pending requests\ne.g. furo-entity-agent @-request-started until @-response or @-response-error",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 83,
+              "column": 4
+            },
+            "end": {
+              "line": 88,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "enableAll",
+          "description": "Enables all elements inside if check is true\nCan be used to enable after a request",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 94,
+              "column": 4
+            },
+            "end": {
+              "line": 96,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_updateElements",
+          "description": "",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 129,
+              "column": 4
+            },
+            "end": {
+              "line": 171,
               "column": 5
             }
           },
@@ -840,7 +1031,7 @@
       ],
       "demos": [
         {
-          "url": "demo/furo-button-bar.html",
+          "url": "demo/demo-furo-form-layouter",
           "description": ""
         }
       ],
@@ -851,14 +1042,111 @@
           "column": 0
         },
         "end": {
-          "line": 58,
+          "line": 219,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "LitElement",
       "name": "FuroButtonBar",
-      "attributes": [],
+      "attributes": [
+        {
+          "name": "hide-no-rel",
+          "description": "Hides element if condition is true\nOnly available with bindEntity",
+          "sourceRange": {
+            "start": {
+              "line": 40,
+              "column": 12
+            },
+            "end": {
+              "line": 40,
+              "column": 63
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "hide-not-valid",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 41,
+              "column": 12
+            },
+            "end": {
+              "line": 41,
+              "column": 69
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "hide-pristine",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 42,
+              "column": 12
+            },
+            "end": {
+              "line": 42,
+              "column": 68
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "disable-no-rel",
+          "description": "Disables element if condition is true\nOnly available with bindEntity",
+          "sourceRange": {
+            "start": {
+              "line": 48,
+              "column": 12
+            },
+            "end": {
+              "line": 48,
+              "column": 69
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "disable-not-valid",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 49,
+              "column": 12
+            },
+            "end": {
+              "line": 49,
+              "column": 75
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "disable-pristine",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 12
+            },
+            "end": {
+              "line": 50,
+              "column": 74
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
       "events": [],
       "styling": {
         "cssVariables": [],

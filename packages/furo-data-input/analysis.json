@@ -1610,7 +1610,7 @@
               "column": 2
             },
             "end": {
-              "line": 406,
+              "line": 398,
               "column": 3
             }
           },
@@ -1626,11 +1626,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 435,
+              "line": 427,
               "column": 2
             },
             "end": {
-              "line": 440,
+              "line": 432,
               "column": 3
             }
           },
@@ -1650,11 +1650,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 442,
+              "line": 434,
               "column": 2
             },
             "end": {
-              "line": 485,
+              "line": 477,
               "column": 3
             }
           },
@@ -1671,11 +1671,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 487,
+              "line": 479,
               "column": 2
             },
             "end": {
-              "line": 500,
+              "line": 492,
               "column": 3
             }
           },
@@ -1692,11 +1692,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 523,
+              "line": 515,
               "column": 2
             },
             "end": {
-              "line": 528,
+              "line": 520,
               "column": 3
             }
           },
@@ -1716,11 +1716,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 535,
+              "line": 527,
               "column": 2
             },
             "end": {
-              "line": 584,
+              "line": 576,
               "column": 3
             }
           },
@@ -1740,11 +1740,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 591,
+              "line": 583,
               "column": 2
             },
             "end": {
-              "line": 604,
+              "line": 596,
               "column": 3
             }
           },
@@ -1777,7 +1777,7 @@
           "column": 0
         },
         "end": {
-          "line": 605,
+          "line": 597,
           "column": 1
         }
       },
@@ -2109,11 +2109,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 120,
               "column": 12
             },
             "end": {
-              "line": 131,
+              "line": 123,
               "column": 13
             }
           },
@@ -2130,11 +2130,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 129,
               "column": 12
             },
             "end": {
-              "line": 139,
+              "line": 131,
               "column": 13
             }
           },
@@ -2151,11 +2151,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 137,
               "column": 12
             },
             "end": {
-              "line": 147,
+              "line": 139,
               "column": 13
             }
           },
@@ -2172,11 +2172,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 151,
+              "line": 143,
               "column": 12
             },
             "end": {
-              "line": 153,
+              "line": 145,
               "column": 13
             }
           },
@@ -2193,11 +2193,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 150,
               "column": 12
             },
             "end": {
-              "line": 160,
+              "line": 152,
               "column": 13
             }
           },
@@ -2214,11 +2214,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 164,
+              "line": 156,
               "column": 12
             },
             "end": {
-              "line": 167,
+              "line": 159,
               "column": 13
             }
           },
@@ -2235,11 +2235,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 171,
+              "line": 163,
               "column": 12
             },
             "end": {
-              "line": 173,
+              "line": 165,
               "column": 13
             }
           },
@@ -2739,7 +2739,7 @@
               "column": 4
             },
             "end": {
-              "line": 118,
+              "line": 110,
               "column": 5
             }
           },
@@ -2755,11 +2755,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 201,
+              "line": 193,
               "column": 4
             },
             "end": {
-              "line": 212,
+              "line": 204,
               "column": 5
             }
           },
@@ -2781,7 +2781,7 @@
           "column": 0
         },
         "end": {
-          "line": 213,
+          "line": 205,
           "column": 1
         }
       },
@@ -2794,11 +2794,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 120,
               "column": 12
             },
             "end": {
-              "line": 131,
+              "line": 123,
               "column": 13
             }
           },
@@ -2810,11 +2810,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 129,
               "column": 12
             },
             "end": {
-              "line": 139,
+              "line": 131,
               "column": 13
             }
           },
@@ -2826,11 +2826,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 137,
               "column": 12
             },
             "end": {
-              "line": 147,
+              "line": 139,
               "column": 13
             }
           },
@@ -2842,11 +2842,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 151,
+              "line": 143,
               "column": 12
             },
             "end": {
-              "line": 153,
+              "line": 145,
               "column": 13
             }
           },
@@ -2858,11 +2858,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 150,
               "column": 12
             },
             "end": {
-              "line": 160,
+              "line": 152,
               "column": 13
             }
           },
@@ -2874,11 +2874,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 164,
+              "line": 156,
               "column": 12
             },
             "end": {
-              "line": 167,
+              "line": 159,
               "column": 13
             }
           },
@@ -2890,11 +2890,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 171,
+              "line": 163,
               "column": 12
             },
             "end": {
-              "line": 173,
+              "line": 165,
               "column": 13
             }
           },
@@ -2927,80 +2927,17 @@
       "path": "packages/furo-data-input/furo-data-color-input.js",
       "properties": [
         {
-          "name": "_pattern",
-          "type": "?",
-          "description": "Updater for the pattern attr, the prop alone with pattern=\"${this.pattern}\" wont work,\nbecaue it set \"undefined\" (as a Sting!)",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 64,
-              "column": 2
-            },
-            "end": {
-              "line": 66,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_min",
-          "type": "?",
-          "description": "Updater for the min => minlength attr\nsame problem like in pattern",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 74,
-              "column": 2
-            },
-            "end": {
-              "line": 76,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_max",
-          "type": "?",
-          "description": "Updater for the max attr\n* same problem like in pattern",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 84,
-              "column": 2
-            },
-            "end": {
-              "line": 86,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "_label",
           "type": "?",
           "description": "Updater for the label attr",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 62,
               "column": 2
             },
             "end": {
-              "line": 94,
+              "line": 64,
               "column": 3
             }
           },
@@ -3017,11 +2954,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 100,
+              "line": 70,
               "column": 2
             },
             "end": {
-              "line": 102,
+              "line": 72,
               "column": 3
             }
           },
@@ -3038,11 +2975,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 78,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 80,
               "column": 3
             }
           },
@@ -3057,11 +2994,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 86,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 88,
               "column": 3
             }
           },
@@ -3076,11 +3013,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 126,
+              "line": 96,
               "column": 3
             }
           },
@@ -3097,11 +3034,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 153,
+              "line": 123,
               "column": 6
             },
             "end": {
-              "line": 155,
+              "line": 125,
               "column": 7
             }
           },
@@ -3118,11 +3055,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 161,
+              "line": 131,
               "column": 6
             },
             "end": {
-              "line": 163,
+              "line": 133,
               "column": 7
             }
           },
@@ -3139,11 +3076,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 139,
               "column": 6
             },
             "end": {
-              "line": 171,
+              "line": 141,
               "column": 7
             }
           },
@@ -3160,11 +3097,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 147,
               "column": 6
             },
             "end": {
-              "line": 179,
+              "line": 149,
               "column": 7
             }
           },
@@ -3181,11 +3118,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 183,
+              "line": 153,
               "column": 6
             },
             "end": {
-              "line": 185,
+              "line": 155,
               "column": 7
             }
           },
@@ -3202,11 +3139,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 190,
+              "line": 160,
               "column": 6
             },
             "end": {
-              "line": 192,
+              "line": 162,
               "column": 7
             }
           },
@@ -3223,11 +3160,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 180,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 183,
               "column": 7
             }
           },
@@ -3244,11 +3181,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 187,
               "column": 6
             },
             "end": {
-              "line": 219,
+              "line": 189,
               "column": 7
             }
           },
@@ -3265,11 +3202,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 223,
+              "line": 193,
               "column": 6
             },
             "end": {
-              "line": 225,
+              "line": 195,
               "column": 7
             }
           },
@@ -3699,11 +3636,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 131,
+              "line": 101,
               "column": 2
             },
             "end": {
-              "line": 133,
+              "line": 103,
               "column": 3
             }
           },
@@ -3719,11 +3656,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 108,
               "column": 2
             },
             "end": {
-              "line": 140,
+              "line": 110,
               "column": 3
             }
           },
@@ -3739,11 +3676,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 234,
+              "line": 204,
               "column": 2
             },
             "end": {
-              "line": 236,
+              "line": 206,
               "column": 3
             }
           },
@@ -3765,11 +3702,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 209,
               "column": 2
             },
             "end": {
-              "line": 247,
+              "line": 212,
               "column": 3
             }
           },
@@ -3785,11 +3722,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 336,
+              "line": 301,
               "column": 2
             },
             "end": {
-              "line": 349,
+              "line": 314,
               "column": 3
             }
           },
@@ -3811,7 +3748,7 @@
           "column": 0
         },
         "end": {
-          "line": 351,
+          "line": 316,
           "column": 1
         }
       },
@@ -3824,11 +3761,11 @@
           "description": "Updater for the leadingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 78,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 80,
               "column": 3
             }
           },
@@ -3840,11 +3777,11 @@
           "description": "Updater for the trailingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 86,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 88,
               "column": 3
             }
           },
@@ -3856,11 +3793,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 153,
+              "line": 123,
               "column": 6
             },
             "end": {
-              "line": 155,
+              "line": 125,
               "column": 7
             }
           },
@@ -3872,11 +3809,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 161,
+              "line": 131,
               "column": 6
             },
             "end": {
-              "line": 163,
+              "line": 133,
               "column": 7
             }
           },
@@ -3888,11 +3825,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 139,
               "column": 6
             },
             "end": {
-              "line": 171,
+              "line": 141,
               "column": 7
             }
           },
@@ -3904,11 +3841,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 147,
               "column": 6
             },
             "end": {
-              "line": 179,
+              "line": 149,
               "column": 7
             }
           },
@@ -3920,11 +3857,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 183,
+              "line": 153,
               "column": 6
             },
             "end": {
-              "line": 185,
+              "line": 155,
               "column": 7
             }
           },
@@ -3936,11 +3873,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 190,
+              "line": 160,
               "column": 6
             },
             "end": {
-              "line": 192,
+              "line": 162,
               "column": 7
             }
           },
@@ -3952,11 +3889,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 180,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 183,
               "column": 7
             }
           },
@@ -3968,11 +3905,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 187,
               "column": 6
             },
             "end": {
-              "line": 219,
+              "line": 189,
               "column": 7
             }
           },
@@ -3984,11 +3921,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 223,
+              "line": 193,
               "column": 6
             },
             "end": {
-              "line": 225,
+              "line": 195,
               "column": 7
             }
           },
@@ -4021,10 +3958,52 @@
       "path": "packages/furo-data-input/furo-data-date-input.js",
       "properties": [
         {
-          "name": "_min",
+          "name": "_label",
           "type": "?",
-          "description": "Updater for the min => minlength attr*",
+          "description": "Updater for the label attr",
           "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 66,
+              "column": 2
+            },
+            "end": {
+              "line": 68,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_hint",
+          "type": "?",
+          "description": "Updater for the hint attr",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 2
+            },
+            "end": {
+              "line": 76,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "leadingIcon",
+          "type": "string | null | undefined",
+          "description": "Updater for the leadingIcon attr",
+          "privacy": "public",
           "sourceRange": {
             "start": {
               "line": 82,
@@ -4036,16 +4015,14 @@
             }
           },
           "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
+            "polymer": {}
           }
         },
         {
-          "name": "_max",
-          "type": "?",
-          "description": "Updater for the max attr*",
-          "privacy": "protected",
+          "name": "trailingIcon",
+          "type": "string | null | undefined",
+          "description": "Updater for the trailingIcon attr",
+          "privacy": "public",
           "sourceRange": {
             "start": {
               "line": 90,
@@ -4057,16 +4034,14 @@
             }
           },
           "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
+            "polymer": {}
           }
         },
         {
-          "name": "_label",
+          "name": "errortext",
           "type": "?",
-          "description": "Updater for the label attr",
-          "privacy": "protected",
+          "description": "Updater for the errortext attr",
+          "privacy": "public",
           "sourceRange": {
             "start": {
               "line": 98,
@@ -4084,118 +4059,17 @@
           }
         },
         {
-          "name": "_hint",
-          "type": "?",
-          "description": "Updater for the hint attr",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 106,
-              "column": 2
-            },
-            "end": {
-              "line": 108,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "leadingIcon",
-          "type": "string | null | undefined",
-          "description": "Updater for the leadingIcon attr",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 114,
-              "column": 2
-            },
-            "end": {
-              "line": 116,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "trailingIcon",
-          "type": "string | null | undefined",
-          "description": "Updater for the trailingIcon attr",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 122,
-              "column": 2
-            },
-            "end": {
-              "line": 124,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
-          "name": "errortext",
-          "type": "?",
-          "description": "Updater for the errortext attr",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 130,
-              "column": 2
-            },
-            "end": {
-              "line": 132,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_step",
-          "type": "?",
-          "description": "Updater for the step attr",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 138,
-              "column": 2
-            },
-            "end": {
-              "line": 140,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "label",
           "type": "string | null | undefined",
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 150,
+              "line": 110,
               "column": 6
             },
             "end": {
-              "line": 153,
+              "line": 113,
               "column": 7
             }
           },
@@ -4212,11 +4086,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 119,
               "column": 6
             },
             "end": {
-              "line": 161,
+              "line": 121,
               "column": 7
             }
           },
@@ -4233,74 +4107,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 167,
+              "line": 127,
               "column": 6
             },
             "end": {
-              "line": 169,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "min",
-          "type": "Date | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 175,
-              "column": 6
-            },
-            "end": {
-              "line": 177,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Date"
-            }
-          }
-        },
-        {
-          "name": "max",
-          "type": "Date | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 183,
-              "column": 6
-            },
-            "end": {
-              "line": 185,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Date"
-            }
-          }
-        },
-        {
-          "name": "step",
-          "type": "string | null | undefined",
-          "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 191,
-              "column": 6
-            },
-            "end": {
-              "line": 193,
+              "line": 129,
               "column": 7
             }
           },
@@ -4317,11 +4128,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 135,
               "column": 6
             },
             "end": {
-              "line": 201,
+              "line": 137,
               "column": 7
             }
           },
@@ -4338,11 +4149,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 205,
+              "line": 141,
               "column": 6
             },
             "end": {
-              "line": 207,
+              "line": 143,
               "column": 7
             }
           },
@@ -4359,11 +4170,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 148,
               "column": 6
             },
             "end": {
-              "line": 214,
+              "line": 150,
               "column": 7
             }
           },
@@ -4380,11 +4191,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 168,
               "column": 6
             },
             "end": {
-              "line": 235,
+              "line": 171,
               "column": 7
             }
           },
@@ -4401,11 +4212,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 175,
               "column": 6
             },
             "end": {
-              "line": 241,
+              "line": 177,
               "column": 7
             }
           },
@@ -4422,11 +4233,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 181,
               "column": 6
             },
             "end": {
-              "line": 247,
+              "line": 183,
               "column": 7
             }
           },
@@ -4660,11 +4471,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 55,
               "column": 2
             },
             "end": {
-              "line": 76,
+              "line": 60,
               "column": 3
             }
           },
@@ -4856,11 +4667,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 254,
+              "line": 190,
               "column": 2
             },
             "end": {
-              "line": 256,
+              "line": 192,
               "column": 3
             }
           },
@@ -4876,11 +4687,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 261,
+              "line": 197,
               "column": 2
             },
             "end": {
-              "line": 263,
+              "line": 199,
               "column": 3
             }
           },
@@ -4896,11 +4707,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 270,
+              "line": 206,
               "column": 2
             },
             "end": {
-              "line": 278,
+              "line": 214,
               "column": 3
             }
           },
@@ -4922,11 +4733,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 281,
+              "line": 217,
               "column": 2
             },
             "end": {
-              "line": 283,
+              "line": 219,
               "column": 3
             }
           },
@@ -4942,11 +4753,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 285,
+              "line": 221,
               "column": 2
             },
             "end": {
-              "line": 307,
+              "line": 243,
               "column": 3
             }
           },
@@ -4962,11 +4773,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 310,
+              "line": 246,
               "column": 2
             },
             "end": {
-              "line": 337,
+              "line": 273,
               "column": 3
             }
           },
@@ -4983,11 +4794,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 340,
+              "line": 276,
               "column": 2
             },
             "end": {
-              "line": 350,
+              "line": 286,
               "column": 3
             }
           },
@@ -5007,11 +4818,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 375,
+              "line": 311,
               "column": 2
             },
             "end": {
-              "line": 389,
+              "line": 324,
               "column": 3
             }
           },
@@ -5033,7 +4844,7 @@
           "column": 0
         },
         "end": {
-          "line": 391,
+          "line": 326,
           "column": 1
         }
       },
@@ -5046,11 +4857,11 @@
           "description": "Updater for the leadingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 116,
+              "line": 84,
               "column": 3
             }
           },
@@ -5062,11 +4873,11 @@
           "description": "Updater for the trailingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 90,
               "column": 2
             },
             "end": {
-              "line": 124,
+              "line": 92,
               "column": 3
             }
           },
@@ -5078,11 +4889,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 150,
+              "line": 110,
               "column": 6
             },
             "end": {
-              "line": 153,
+              "line": 113,
               "column": 7
             }
           },
@@ -5094,11 +4905,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 159,
+              "line": 119,
               "column": 6
             },
             "end": {
-              "line": 161,
+              "line": 121,
               "column": 7
             }
           },
@@ -5110,59 +4921,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 167,
+              "line": 127,
               "column": 6
             },
             "end": {
-              "line": 169,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 175,
-              "column": 6
-            },
-            "end": {
-              "line": 177,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "Date | null | undefined"
-        },
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 183,
-              "column": 6
-            },
-            "end": {
-              "line": 185,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "Date | null | undefined"
-        },
-        {
-          "name": "step",
-          "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 191,
-              "column": 6
-            },
-            "end": {
-              "line": 193,
+              "line": 129,
               "column": 7
             }
           },
@@ -5174,11 +4937,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 135,
               "column": 6
             },
             "end": {
-              "line": 201,
+              "line": 137,
               "column": 7
             }
           },
@@ -5190,11 +4953,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 205,
+              "line": 141,
               "column": 6
             },
             "end": {
-              "line": 207,
+              "line": 143,
               "column": 7
             }
           },
@@ -5206,11 +4969,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 148,
               "column": 6
             },
             "end": {
-              "line": 214,
+              "line": 150,
               "column": 7
             }
           },
@@ -5222,11 +4985,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 232,
+              "line": 168,
               "column": 6
             },
             "end": {
-              "line": 235,
+              "line": 171,
               "column": 7
             }
           },
@@ -5238,11 +5001,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 175,
               "column": 6
             },
             "end": {
-              "line": 241,
+              "line": 177,
               "column": 7
             }
           },
@@ -5254,11 +5017,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 181,
               "column": 6
             },
             "end": {
-              "line": 247,
+              "line": 183,
               "column": 7
             }
           },
@@ -6073,59 +5836,17 @@
       "path": "packages/furo-data-input/furo-data-number-input.js",
       "properties": [
         {
-          "name": "_min",
-          "type": "?",
-          "description": "Updater for the min => minlength attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 79,
-              "column": 2
-            },
-            "end": {
-              "line": 81,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_max",
-          "type": "?",
-          "description": "Updater for the max attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 87,
-              "column": 2
-            },
-            "end": {
-              "line": 89,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "_label",
           "type": "?",
           "description": "Updater for the label attr",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 95,
+              "line": 59,
               "column": 2
             },
             "end": {
-              "line": 97,
+              "line": 61,
               "column": 3
             }
           },
@@ -6142,11 +5863,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 103,
+              "line": 67,
               "column": 2
             },
             "end": {
-              "line": 105,
+              "line": 69,
               "column": 3
             }
           },
@@ -6163,11 +5884,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 113,
+              "line": 77,
               "column": 3
             }
           },
@@ -6182,11 +5903,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 83,
               "column": 2
             },
             "end": {
-              "line": 121,
+              "line": 85,
               "column": 3
             }
           },
@@ -6201,32 +5922,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 127,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 129,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_step",
-          "type": "?",
-          "description": "Updater for the step attr",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 135,
-              "column": 2
-            },
-            "end": {
-              "line": 137,
+              "line": 93,
               "column": 3
             }
           },
@@ -6243,11 +5943,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 148,
+              "line": 104,
               "column": 6
             },
             "end": {
-              "line": 150,
+              "line": 106,
               "column": 7
             }
           },
@@ -6264,11 +5964,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 112,
               "column": 6
             },
             "end": {
-              "line": 158,
+              "line": 114,
               "column": 7
             }
           },
@@ -6285,74 +5985,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 164,
+              "line": 120,
               "column": 6
             },
             "end": {
-              "line": 166,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "min",
-          "type": "number | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 172,
-              "column": 6
-            },
-            "end": {
-              "line": 174,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "max",
-          "type": "number | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 180,
-              "column": 6
-            },
-            "end": {
-              "line": 182,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "step",
-          "type": "string | null | undefined",
-          "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 188,
-              "column": 6
-            },
-            "end": {
-              "line": 190,
+              "line": 122,
               "column": 7
             }
           },
@@ -6369,11 +6006,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 196,
+              "line": 128,
               "column": 6
             },
             "end": {
-              "line": 198,
+              "line": 130,
               "column": 7
             }
           },
@@ -6390,11 +6027,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 134,
               "column": 6
             },
             "end": {
-              "line": 204,
+              "line": 136,
               "column": 7
             }
           },
@@ -6411,11 +6048,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 141,
               "column": 6
             },
             "end": {
-              "line": 211,
+              "line": 143,
               "column": 7
             }
           },
@@ -6432,11 +6069,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 229,
+              "line": 161,
               "column": 6
             },
             "end": {
-              "line": 232,
+              "line": 164,
               "column": 7
             }
           },
@@ -6453,11 +6090,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 168,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 170,
               "column": 7
             }
           },
@@ -6474,11 +6111,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 174,
               "column": 6
             },
             "end": {
-              "line": 244,
+              "line": 176,
               "column": 7
             }
           },
@@ -6712,11 +6349,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 48,
               "column": 2
             },
             "end": {
-              "line": 73,
+              "line": 53,
               "column": 3
             }
           },
@@ -6908,11 +6545,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 183,
               "column": 2
             },
             "end": {
-              "line": 253,
+              "line": 185,
               "column": 3
             }
           },
@@ -6928,11 +6565,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 258,
+              "line": 190,
               "column": 2
             },
             "end": {
-              "line": 260,
+              "line": 192,
               "column": 3
             }
           },
@@ -6948,11 +6585,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 267,
+              "line": 199,
               "column": 2
             },
             "end": {
-              "line": 269,
+              "line": 201,
               "column": 3
             }
           },
@@ -6974,11 +6611,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 271,
+              "line": 203,
               "column": 2
             },
             "end": {
-              "line": 280,
+              "line": 206,
               "column": 3
             }
           },
@@ -6994,11 +6631,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 305,
+              "line": 231,
               "column": 2
             },
             "end": {
-              "line": 319,
+              "line": 244,
               "column": 3
             }
           },
@@ -7020,7 +6657,7 @@
           "column": 0
         },
         "end": {
-          "line": 321,
+          "line": 246,
           "column": 1
         }
       },
@@ -7033,11 +6670,11 @@
           "description": "Updater for the leadingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 111,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 113,
+              "line": 77,
               "column": 3
             }
           },
@@ -7049,11 +6686,11 @@
           "description": "Updater for the trailingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 83,
               "column": 2
             },
             "end": {
-              "line": 121,
+              "line": 85,
               "column": 3
             }
           },
@@ -7065,11 +6702,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 148,
+              "line": 104,
               "column": 6
             },
             "end": {
-              "line": 150,
+              "line": 106,
               "column": 7
             }
           },
@@ -7081,11 +6718,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 112,
               "column": 6
             },
             "end": {
-              "line": 158,
+              "line": 114,
               "column": 7
             }
           },
@@ -7097,59 +6734,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 164,
+              "line": 120,
               "column": 6
             },
             "end": {
-              "line": 166,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 172,
-              "column": 6
-            },
-            "end": {
-              "line": 174,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 180,
-              "column": 6
-            },
-            "end": {
-              "line": 182,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "step",
-          "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 188,
-              "column": 6
-            },
-            "end": {
-              "line": 190,
+              "line": 122,
               "column": 7
             }
           },
@@ -7161,11 +6750,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 196,
+              "line": 128,
               "column": 6
             },
             "end": {
-              "line": 198,
+              "line": 130,
               "column": 7
             }
           },
@@ -7177,11 +6766,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 202,
+              "line": 134,
               "column": 6
             },
             "end": {
-              "line": 204,
+              "line": 136,
               "column": 7
             }
           },
@@ -7193,11 +6782,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 141,
               "column": 6
             },
             "end": {
-              "line": 211,
+              "line": 143,
               "column": 7
             }
           },
@@ -7209,11 +6798,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 229,
+              "line": 161,
               "column": 6
             },
             "end": {
-              "line": 232,
+              "line": 164,
               "column": 7
             }
           },
@@ -7225,11 +6814,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 168,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 170,
               "column": 7
             }
           },
@@ -7241,11 +6830,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 174,
               "column": 6
             },
             "end": {
-              "line": 244,
+              "line": 176,
               "column": 7
             }
           },
@@ -7277,59 +6866,17 @@
       "path": "packages/furo-data-input/furo-data-money-input.js",
       "properties": [
         {
-          "name": "_min",
-          "type": "?",
-          "description": "Updater for the min => minlength attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 152,
-              "column": 2
-            },
-            "end": {
-              "line": 154,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_max",
-          "type": "?",
-          "description": "Updater for the max attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 160,
-              "column": 2
-            },
-            "end": {
-              "line": 162,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "_hint",
           "type": "?",
           "description": "Updater for the hint attr",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 124,
               "column": 2
             },
             "end": {
-              "line": 171,
+              "line": 126,
               "column": 3
             }
           },
@@ -7346,37 +6893,16 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 132,
               "column": 2
             },
             "end": {
-              "line": 179,
+              "line": 134,
               "column": 3
             }
           },
           "metadata": {
             "polymer": {}
-          }
-        },
-        {
-          "name": "_step",
-          "type": "?",
-          "description": "Updater for the step attr",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 185,
-              "column": 2
-            },
-            "end": {
-              "line": 187,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
           }
         },
         {
@@ -7386,11 +6912,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 193,
+              "line": 140,
               "column": 2
             },
             "end": {
-              "line": 195,
+              "line": 142,
               "column": 3
             }
           },
@@ -7407,11 +6933,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 201,
+              "line": 148,
               "column": 2
             },
             "end": {
-              "line": 203,
+              "line": 150,
               "column": 3
             }
           },
@@ -7428,11 +6954,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 157,
               "column": 2
             },
             "end": {
-              "line": 221,
+              "line": 168,
               "column": 3
             }
           },
@@ -7449,11 +6975,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 385,
+              "line": 316,
               "column": 2
             },
             "end": {
-              "line": 403,
+              "line": 334,
               "column": 3
             }
           },
@@ -7470,11 +6996,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 405,
+              "line": 336,
               "column": 2
             },
             "end": {
-              "line": 411,
+              "line": 342,
               "column": 3
             }
           },
@@ -7489,11 +7015,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 229,
+              "line": 176,
               "column": 6
             },
             "end": {
-              "line": 229,
+              "line": 176,
               "column": 43
             }
           },
@@ -7510,11 +7036,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 180,
               "column": 6
             },
             "end": {
-              "line": 235,
+              "line": 182,
               "column": 7
             }
           },
@@ -7531,11 +7057,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 248,
+              "line": 195,
               "column": 6
             },
             "end": {
-              "line": 250,
+              "line": 197,
               "column": 7
             }
           },
@@ -7552,11 +7078,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 262,
+              "line": 209,
               "column": 6
             },
             "end": {
-              "line": 265,
+              "line": 212,
               "column": 7
             }
           },
@@ -7573,11 +7099,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 267,
+              "line": 214,
               "column": 6
             },
             "end": {
-              "line": 270,
+              "line": 217,
               "column": 7
             }
           },
@@ -7594,11 +7120,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 274,
+              "line": 221,
               "column": 6
             },
             "end": {
-              "line": 276,
+              "line": 223,
               "column": 7
             }
           },
@@ -7615,11 +7141,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 280,
+              "line": 227,
               "column": 6
             },
             "end": {
-              "line": 282,
+              "line": 229,
               "column": 7
             }
           },
@@ -7636,11 +7162,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 286,
+              "line": 233,
               "column": 6
             },
             "end": {
-              "line": 288,
+              "line": 235,
               "column": 7
             }
           },
@@ -7657,11 +7183,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 295,
+              "line": 242,
               "column": 6
             },
             "end": {
-              "line": 297,
+              "line": 244,
               "column": 7
             }
           },
@@ -7678,11 +7204,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 303,
+              "line": 250,
               "column": 6
             },
             "end": {
-              "line": 305,
+              "line": 252,
               "column": 7
             }
           },
@@ -7693,59 +7219,17 @@
           }
         },
         {
-          "name": "min",
-          "type": "number | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 311,
-              "column": 6
-            },
-            "end": {
-              "line": 313,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "max",
-          "type": "number | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 319,
-              "column": 6
-            },
-            "end": {
-              "line": 321,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
           "name": "valid",
           "type": "boolean | null | undefined",
           "description": "html input validity",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 331,
+              "line": 262,
               "column": 6
             },
             "end": {
-              "line": 334,
+              "line": 265,
               "column": 7
             }
           },
@@ -7762,11 +7246,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 338,
+              "line": 269,
               "column": 6
             },
             "end": {
-              "line": 340,
+              "line": 271,
               "column": 7
             }
           },
@@ -7783,11 +7267,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 344,
+              "line": 275,
               "column": 6
             },
             "end": {
-              "line": 346,
+              "line": 277,
               "column": 7
             }
           },
@@ -8025,7 +7509,7 @@
               "column": 2
             },
             "end": {
-              "line": 93,
+              "line": 73,
               "column": 3
             }
           },
@@ -8217,11 +7701,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 98,
+              "line": 78,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 98,
               "column": 3
             }
           },
@@ -8244,11 +7728,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 125,
+              "line": 105,
               "column": 2
             },
             "end": {
-              "line": 127,
+              "line": 107,
               "column": 3
             }
           },
@@ -8270,11 +7754,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 129,
+              "line": 109,
               "column": 2
             },
             "end": {
-              "line": 146,
+              "line": 119,
               "column": 3
             }
           },
@@ -8290,11 +7774,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 356,
+              "line": 287,
               "column": 2
             },
             "end": {
-              "line": 358,
+              "line": 289,
               "column": 3
             }
           },
@@ -8314,11 +7798,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 364,
+              "line": 295,
               "column": 2
             },
             "end": {
-              "line": 366,
+              "line": 297,
               "column": 3
             }
           },
@@ -8338,11 +7822,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 371,
+              "line": 302,
               "column": 2
             },
             "end": {
-              "line": 374,
+              "line": 305,
               "column": 3
             }
           },
@@ -8358,11 +7842,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 379,
+              "line": 310,
               "column": 2
             },
             "end": {
-              "line": 382,
+              "line": 313,
               "column": 3
             }
           },
@@ -8378,11 +7862,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 413,
+              "line": 344,
               "column": 2
             },
             "end": {
-              "line": 441,
+              "line": 372,
               "column": 3
             }
           },
@@ -8402,11 +7886,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 472,
+              "line": 403,
               "column": 2
             },
             "end": {
-              "line": 498,
+              "line": 427,
               "column": 3
             }
           },
@@ -8431,7 +7915,7 @@
           "column": 0
         },
         "end": {
-          "line": 500,
+          "line": 429,
           "column": 1
         }
       },
@@ -8444,11 +7928,11 @@
           "description": "Updater for the errortext attr",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 132,
               "column": 2
             },
             "end": {
-              "line": 179,
+              "line": 134,
               "column": 3
             }
           },
@@ -8460,11 +7944,11 @@
           "description": "Set a string list as options:\n\n\"A, B, C\"\n\nThis will convert to options [\"A\",\"B\",\"C\"]",
           "sourceRange": {
             "start": {
-              "line": 405,
+              "line": 336,
               "column": 2
             },
             "end": {
-              "line": 411,
+              "line": 342,
               "column": 3
             }
           },
@@ -8476,11 +7960,11 @@
           "description": "set this to true to indicate errors",
           "sourceRange": {
             "start": {
-              "line": 229,
+              "line": 176,
               "column": 6
             },
             "end": {
-              "line": 229,
+              "line": 176,
               "column": 43
             }
           },
@@ -8492,11 +7976,11 @@
           "description": "The start value. Changes will be notified with the `@-value-changed` event",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 180,
               "column": 6
             },
             "end": {
-              "line": 235,
+              "line": 182,
               "column": 7
             }
           },
@@ -8508,11 +7992,11 @@
           "description": "The list of currencies. Can be a simple list like [\"A\",\"B\",\"C\"]. In this case the value is equals the label\n\nWith ids (key value):\n\n[{\"id\":1,\"label\":\"AAA\"},{\"id\":2,\"label\":\"BBB\"}]\n\n\nWith preselect state in data:\n\n[{\"id\":23,\"label\":\"AAA\",\"selected\":false},{\"id\":44,\"label\":\"BBB\",\"selected\":true}]",
           "sourceRange": {
             "start": {
-              "line": 248,
+              "line": 195,
               "column": 6
             },
             "end": {
-              "line": 250,
+              "line": 197,
               "column": 7
             }
           },
@@ -8524,11 +8008,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 262,
+              "line": 209,
               "column": 6
             },
             "end": {
-              "line": 265,
+              "line": 212,
               "column": 7
             }
           },
@@ -8540,11 +8024,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 267,
+              "line": 214,
               "column": 6
             },
             "end": {
-              "line": 270,
+              "line": 217,
               "column": 7
             }
           },
@@ -8556,11 +8040,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 274,
+              "line": 221,
               "column": 6
             },
             "end": {
-              "line": 276,
+              "line": 223,
               "column": 7
             }
           },
@@ -8572,11 +8056,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 280,
+              "line": 227,
               "column": 6
             },
             "end": {
-              "line": 282,
+              "line": 229,
               "column": 7
             }
           },
@@ -8588,11 +8072,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 286,
+              "line": 233,
               "column": 6
             },
             "end": {
-              "line": 288,
+              "line": 235,
               "column": 7
             }
           },
@@ -8604,11 +8088,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 295,
+              "line": 242,
               "column": 6
             },
             "end": {
-              "line": 297,
+              "line": 244,
               "column": 7
             }
           },
@@ -8620,11 +8104,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 303,
+              "line": 250,
               "column": 6
             },
             "end": {
-              "line": 305,
+              "line": 252,
               "column": 7
             }
           },
@@ -8632,47 +8116,15 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 311,
-              "column": 6
-            },
-            "end": {
-              "line": 313,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 319,
-              "column": 6
-            },
-            "end": {
-              "line": 321,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
           "name": "valid",
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 331,
+              "line": 262,
               "column": 6
             },
             "end": {
-              "line": 334,
+              "line": 265,
               "column": 7
             }
           },
@@ -8684,11 +8136,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 338,
+              "line": 269,
               "column": 6
             },
             "end": {
-              "line": 340,
+              "line": 271,
               "column": 7
             }
           },
@@ -8700,11 +8152,11 @@
           "description": "Set this attribute to switch to filled layout. Filled is without the borders around the field.",
           "sourceRange": {
             "start": {
-              "line": 344,
+              "line": 275,
               "column": 6
             },
             "end": {
-              "line": 346,
+              "line": 277,
               "column": 7
             }
           },
@@ -8736,80 +8188,17 @@
       "path": "packages/furo-data-input/furo-data-password-input.js",
       "properties": [
         {
-          "name": "_pattern",
-          "type": "?",
-          "description": "Updater for the pattern attr, the prop alone with pattern=\"${this.pattern}\" wont work,\nbecaue it set \"undefined\" (as a Sting!)",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 81,
-              "column": 2
-            },
-            "end": {
-              "line": 83,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_min",
-          "type": "?",
-          "description": "Updater for the min => minlength attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 89,
-              "column": 2
-            },
-            "end": {
-              "line": 91,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_max",
-          "type": "?",
-          "description": "Updater for the max attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 97,
-              "column": 2
-            },
-            "end": {
-              "line": 99,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "_label",
           "type": "?",
           "description": "Updater for the label attr",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 60,
               "column": 2
             },
             "end": {
-              "line": 107,
+              "line": 62,
               "column": 3
             }
           },
@@ -8826,11 +8215,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 68,
               "column": 2
             },
             "end": {
-              "line": 115,
+              "line": 70,
               "column": 3
             }
           },
@@ -8847,11 +8236,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 121,
+              "line": 76,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 78,
               "column": 3
             }
           },
@@ -8866,11 +8255,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 129,
+              "line": 84,
               "column": 2
             },
             "end": {
-              "line": 131,
+              "line": 86,
               "column": 3
             }
           },
@@ -8885,11 +8274,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 137,
+              "line": 92,
               "column": 2
             },
             "end": {
-              "line": 139,
+              "line": 94,
               "column": 3
             }
           },
@@ -8906,32 +8295,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 149,
+              "line": 104,
               "column": 6
             },
             "end": {
-              "line": 152,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "pattern",
-          "type": "string | null | undefined",
-          "description": "Overrides the pattern from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 158,
-              "column": 6
-            },
-            "end": {
-              "line": 160,
+              "line": 107,
               "column": 7
             }
           },
@@ -8948,11 +8316,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 113,
               "column": 6
             },
             "end": {
-              "line": 168,
+              "line": 115,
               "column": 7
             }
           },
@@ -8969,11 +8337,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 174,
+              "line": 121,
               "column": 6
             },
             "end": {
-              "line": 176,
+              "line": 123,
               "column": 7
             }
           },
@@ -8984,59 +8352,17 @@
           }
         },
         {
-          "name": "min",
-          "type": "number | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 182,
-              "column": 6
-            },
-            "end": {
-              "line": 184,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "max",
-          "type": "number | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 190,
-              "column": 6
-            },
-            "end": {
-              "line": 192,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
           "name": "readonly",
           "type": "boolean | null | undefined",
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 129,
               "column": 6
             },
             "end": {
-              "line": 200,
+              "line": 131,
               "column": 7
             }
           },
@@ -9053,11 +8379,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 204,
+              "line": 135,
               "column": 6
             },
             "end": {
-              "line": 206,
+              "line": 137,
               "column": 7
             }
           },
@@ -9074,11 +8400,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 142,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 144,
               "column": 7
             }
           },
@@ -9095,11 +8421,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 162,
               "column": 6
             },
             "end": {
-              "line": 234,
+              "line": 165,
               "column": 7
             }
           },
@@ -9116,11 +8442,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 169,
               "column": 6
             },
             "end": {
-              "line": 240,
+              "line": 171,
               "column": 7
             }
           },
@@ -9137,11 +8463,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 244,
+              "line": 175,
               "column": 6
             },
             "end": {
-              "line": 246,
+              "line": 177,
               "column": 7
             }
           },
@@ -9375,11 +8701,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 49,
               "column": 2
             },
             "end": {
-              "line": 73,
+              "line": 54,
               "column": 3
             }
           },
@@ -9571,11 +8897,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 253,
+              "line": 184,
               "column": 2
             },
             "end": {
-              "line": 255,
+              "line": 186,
               "column": 3
             }
           },
@@ -9591,11 +8917,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 259,
+              "line": 190,
               "column": 2
             },
             "end": {
-              "line": 261,
+              "line": 192,
               "column": 3
             }
           },
@@ -9611,11 +8937,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 268,
+              "line": 199,
               "column": 2
             },
             "end": {
-              "line": 270,
+              "line": 201,
               "column": 3
             }
           },
@@ -9637,11 +8963,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 273,
+              "line": 204,
               "column": 2
             },
             "end": {
-              "line": 282,
+              "line": 207,
               "column": 3
             }
           },
@@ -9657,11 +8983,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 307,
+              "line": 232,
               "column": 2
             },
             "end": {
-              "line": 321,
+              "line": 245,
               "column": 3
             }
           },
@@ -9687,7 +9013,7 @@
           "column": 0
         },
         "end": {
-          "line": 323,
+          "line": 247,
           "column": 1
         }
       },
@@ -9700,11 +9026,11 @@
           "description": "Updater for the leadingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 121,
+              "line": 76,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 78,
               "column": 3
             }
           },
@@ -9716,11 +9042,11 @@
           "description": "Updater for the trailingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 129,
+              "line": 84,
               "column": 2
             },
             "end": {
-              "line": 131,
+              "line": 86,
               "column": 3
             }
           },
@@ -9732,27 +9058,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 149,
+              "line": 104,
               "column": 6
             },
             "end": {
-              "line": 152,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "pattern",
-          "description": "Overrides the pattern from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 158,
-              "column": 6
-            },
-            "end": {
-              "line": 160,
+              "line": 107,
               "column": 7
             }
           },
@@ -9764,11 +9074,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 113,
               "column": 6
             },
             "end": {
-              "line": 168,
+              "line": 115,
               "column": 7
             }
           },
@@ -9780,11 +9090,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 174,
+              "line": 121,
               "column": 6
             },
             "end": {
-              "line": 176,
+              "line": 123,
               "column": 7
             }
           },
@@ -9792,47 +9102,15 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 182,
-              "column": 6
-            },
-            "end": {
-              "line": 184,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 190,
-              "column": 6
-            },
-            "end": {
-              "line": 192,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
           "name": "readonly",
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 129,
               "column": 6
             },
             "end": {
-              "line": 200,
+              "line": 131,
               "column": 7
             }
           },
@@ -9844,11 +9122,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 204,
+              "line": 135,
               "column": 6
             },
             "end": {
-              "line": 206,
+              "line": 137,
               "column": 7
             }
           },
@@ -9860,11 +9138,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 142,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 144,
               "column": 7
             }
           },
@@ -9876,11 +9154,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 231,
+              "line": 162,
               "column": 6
             },
             "end": {
-              "line": 234,
+              "line": 165,
               "column": 7
             }
           },
@@ -9892,11 +9170,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 238,
+              "line": 169,
               "column": 6
             },
             "end": {
-              "line": 240,
+              "line": 171,
               "column": 7
             }
           },
@@ -9908,11 +9186,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 244,
+              "line": 175,
               "column": 6
             },
             "end": {
-              "line": 246,
+              "line": 177,
               "column": 7
             }
           },
@@ -11831,59 +11109,17 @@
       "path": "packages/furo-data-input/furo-data-range-input.js",
       "properties": [
         {
-          "name": "_min",
-          "type": "?",
-          "description": "Updater for the min => minlength attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 78,
-              "column": 2
-            },
-            "end": {
-              "line": 80,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_max",
-          "type": "?",
-          "description": "Updater for the max attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 86,
-              "column": 2
-            },
-            "end": {
-              "line": 88,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "_label",
           "type": "?",
           "description": "Updater for the label attr",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 94,
+              "line": 64,
               "column": 2
             },
             "end": {
-              "line": 96,
+              "line": 66,
               "column": 3
             }
           },
@@ -11900,11 +11136,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 72,
               "column": 2
             },
             "end": {
-              "line": 104,
+              "line": 74,
               "column": 3
             }
           },
@@ -11921,11 +11157,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 110,
+              "line": 80,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 82,
               "column": 3
             }
           },
@@ -11940,11 +11176,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 118,
+              "line": 88,
               "column": 2
             },
             "end": {
-              "line": 120,
+              "line": 90,
               "column": 3
             }
           },
@@ -11959,32 +11195,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 126,
+              "line": 96,
               "column": 2
             },
             "end": {
-              "line": 128,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_step",
-          "type": "?",
-          "description": "Updater for the step attr",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 134,
-              "column": 2
-            },
-            "end": {
-              "line": 136,
+              "line": 98,
               "column": 3
             }
           },
@@ -12001,11 +11216,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 147,
+              "line": 108,
               "column": 6
             },
             "end": {
-              "line": 149,
+              "line": 110,
               "column": 7
             }
           },
@@ -12022,74 +11237,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 116,
               "column": 6
             },
             "end": {
-              "line": 157,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "min",
-          "type": "number | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 163,
-              "column": 6
-            },
-            "end": {
-              "line": 165,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "max",
-          "type": "number | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 171,
-              "column": 6
-            },
-            "end": {
-              "line": 173,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "step",
-          "type": "string | null | undefined",
-          "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 179,
-              "column": 6
-            },
-            "end": {
-              "line": 181,
+              "line": 118,
               "column": 7
             }
           },
@@ -12106,11 +11258,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 187,
+              "line": 124,
               "column": 6
             },
             "end": {
-              "line": 189,
+              "line": 126,
               "column": 7
             }
           },
@@ -12127,11 +11279,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 193,
+              "line": 130,
               "column": 6
             },
             "end": {
-              "line": 195,
+              "line": 132,
               "column": 7
             }
           },
@@ -12148,11 +11300,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 137,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 139,
               "column": 7
             }
           },
@@ -12169,11 +11321,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 220,
+              "line": 157,
               "column": 6
             },
             "end": {
-              "line": 223,
+              "line": 160,
               "column": 7
             }
           },
@@ -12190,11 +11342,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 227,
+              "line": 164,
               "column": 6
             },
             "end": {
-              "line": 229,
+              "line": 166,
               "column": 7
             }
           },
@@ -12211,11 +11363,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 170,
               "column": 6
             },
             "end": {
-              "line": 235,
+              "line": 172,
               "column": 7
             }
           },
@@ -12449,11 +11601,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 53,
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 58,
               "column": 3
             }
           },
@@ -12645,11 +11797,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 179,
               "column": 2
             },
             "end": {
-              "line": 244,
+              "line": 181,
               "column": 3
             }
           },
@@ -12665,11 +11817,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 248,
+              "line": 185,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 187,
               "column": 3
             }
           },
@@ -12685,11 +11837,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 194,
               "column": 2
             },
             "end": {
-              "line": 259,
+              "line": 196,
               "column": 3
             }
           },
@@ -12711,11 +11863,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 263,
+              "line": 200,
               "column": 2
             },
             "end": {
-              "line": 273,
+              "line": 203,
               "column": 3
             }
           },
@@ -12731,11 +11883,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 297,
+              "line": 227,
               "column": 2
             },
             "end": {
-              "line": 310,
+              "line": 239,
               "column": 3
             }
           },
@@ -12757,7 +11909,7 @@
           "column": 0
         },
         "end": {
-          "line": 312,
+          "line": 241,
           "column": 1
         }
       },
@@ -12770,11 +11922,11 @@
           "description": "Updater for the leadingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 110,
+              "line": 80,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 82,
               "column": 3
             }
           },
@@ -12786,11 +11938,11 @@
           "description": "Updater for the trailingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 118,
+              "line": 88,
               "column": 2
             },
             "end": {
-              "line": 120,
+              "line": 90,
               "column": 3
             }
           },
@@ -12802,11 +11954,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 147,
+              "line": 108,
               "column": 6
             },
             "end": {
-              "line": 149,
+              "line": 110,
               "column": 7
             }
           },
@@ -12818,59 +11970,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 116,
               "column": 6
             },
             "end": {
-              "line": 157,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 163,
-              "column": 6
-            },
-            "end": {
-              "line": 165,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 171,
-              "column": 6
-            },
-            "end": {
-              "line": 173,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "step",
-          "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 179,
-              "column": 6
-            },
-            "end": {
-              "line": 181,
+              "line": 118,
               "column": 7
             }
           },
@@ -12882,11 +11986,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 187,
+              "line": 124,
               "column": 6
             },
             "end": {
-              "line": 189,
+              "line": 126,
               "column": 7
             }
           },
@@ -12898,11 +12002,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 193,
+              "line": 130,
               "column": 6
             },
             "end": {
-              "line": 195,
+              "line": 132,
               "column": 7
             }
           },
@@ -12914,11 +12018,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 137,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 139,
               "column": 7
             }
           },
@@ -12930,11 +12034,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 220,
+              "line": 157,
               "column": 6
             },
             "end": {
-              "line": 223,
+              "line": 160,
               "column": 7
             }
           },
@@ -12946,11 +12050,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 227,
+              "line": 164,
               "column": 6
             },
             "end": {
-              "line": 229,
+              "line": 166,
               "column": 7
             }
           },
@@ -12962,11 +12066,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 170,
               "column": 6
             },
             "end": {
-              "line": 235,
+              "line": 172,
               "column": 7
             }
           },
@@ -14616,7 +13720,7 @@
               "column": 2
             },
             "end": {
-              "line": 467,
+              "line": 466,
               "column": 3
             }
           },
@@ -14641,7 +13745,7 @@
           "column": 0
         },
         "end": {
-          "line": 469,
+          "line": 468,
           "column": 1
         }
       },
@@ -16032,80 +15136,17 @@
       "path": "packages/furo-data-input/furo-data-search-input.js",
       "properties": [
         {
-          "name": "_pattern",
-          "type": "?",
-          "description": "Updater for the pattern attr, the prop alone with pattern=\"${this.pattern}\" wont work,\nbecaue it set \"undefined\" (as a Sting!)",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 84,
-              "column": 2
-            },
-            "end": {
-              "line": 86,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_min",
-          "type": "?",
-          "description": "Updater for the min => minlength attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 92,
-              "column": 2
-            },
-            "end": {
-              "line": 94,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_max",
-          "type": "?",
-          "description": "Updater for the max attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 100,
-              "column": 2
-            },
-            "end": {
-              "line": 102,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "_label",
           "type": "?",
           "description": "Updater for the label attr",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 108,
+              "line": 63,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 65,
               "column": 3
             }
           },
@@ -16122,11 +15163,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 116,
+              "line": 71,
               "column": 2
             },
             "end": {
-              "line": 118,
+              "line": 73,
               "column": 3
             }
           },
@@ -16143,11 +15184,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 126,
+              "line": 81,
               "column": 3
             }
           },
@@ -16162,11 +15203,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 87,
               "column": 2
             },
             "end": {
-              "line": 134,
+              "line": 89,
               "column": 3
             }
           },
@@ -16181,11 +15222,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 140,
+              "line": 95,
               "column": 2
             },
             "end": {
-              "line": 142,
+              "line": 97,
               "column": 3
             }
           },
@@ -16202,11 +15243,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 107,
               "column": 6
             },
             "end": {
-              "line": 154,
+              "line": 109,
               "column": 7
             }
           },
@@ -16223,11 +15264,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 160,
+              "line": 115,
               "column": 6
             },
             "end": {
-              "line": 162,
+              "line": 117,
               "column": 7
             }
           },
@@ -16238,86 +15279,23 @@
           }
         },
         {
-          "name": "pattern",
-          "type": "string | null | undefined",
-          "description": "Overrides the pattern from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 168,
-              "column": 6
-            },
-            "end": {
-              "line": 170,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
           "name": "hint",
           "type": "string | null | undefined",
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 123,
               "column": 6
             },
             "end": {
-              "line": 178,
+              "line": 125,
               "column": 7
             }
           },
           "metadata": {
             "polymer": {
               "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "min",
-          "type": "number | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 184,
-              "column": 6
-            },
-            "end": {
-              "line": 186,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "max",
-          "type": "number | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 192,
-              "column": 6
-            },
-            "end": {
-              "line": 194,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
             }
           }
         },
@@ -16328,11 +15306,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 131,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 133,
               "column": 7
             }
           },
@@ -16349,11 +15327,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 137,
               "column": 6
             },
             "end": {
-              "line": 208,
+              "line": 139,
               "column": 7
             }
           },
@@ -16370,11 +15348,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 213,
+              "line": 144,
               "column": 6
             },
             "end": {
-              "line": 215,
+              "line": 146,
               "column": 7
             }
           },
@@ -16391,11 +15369,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 164,
               "column": 6
             },
             "end": {
-              "line": 236,
+              "line": 167,
               "column": 7
             }
           },
@@ -16412,11 +15390,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 240,
+              "line": 171,
               "column": 6
             },
             "end": {
-              "line": 242,
+              "line": 173,
               "column": 7
             }
           },
@@ -16433,11 +15411,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 246,
+              "line": 177,
               "column": 6
             },
             "end": {
-              "line": 248,
+              "line": 179,
               "column": 7
             }
           },
@@ -16671,11 +15649,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 52,
               "column": 2
             },
             "end": {
-              "line": 76,
+              "line": 57,
               "column": 3
             }
           },
@@ -16867,11 +15845,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 188,
               "column": 2
             },
             "end": {
-              "line": 259,
+              "line": 190,
               "column": 3
             }
           },
@@ -16893,11 +15871,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 261,
+              "line": 192,
               "column": 2
             },
             "end": {
-              "line": 270,
+              "line": 195,
               "column": 3
             }
           },
@@ -16913,11 +15891,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 295,
+              "line": 220,
               "column": 2
             },
             "end": {
-              "line": 309,
+              "line": 233,
               "column": 3
             }
           },
@@ -16939,7 +15917,7 @@
           "column": 0
         },
         "end": {
-          "line": 311,
+          "line": 235,
           "column": 1
         }
       },
@@ -16952,11 +15930,11 @@
           "description": "Updater for the leadingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 124,
+              "line": 79,
               "column": 2
             },
             "end": {
-              "line": 126,
+              "line": 81,
               "column": 3
             }
           },
@@ -16968,11 +15946,11 @@
           "description": "Updater for the trailingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 132,
+              "line": 87,
               "column": 2
             },
             "end": {
-              "line": 134,
+              "line": 89,
               "column": 3
             }
           },
@@ -16984,11 +15962,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 107,
               "column": 6
             },
             "end": {
-              "line": 154,
+              "line": 109,
               "column": 7
             }
           },
@@ -17000,11 +15978,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 160,
+              "line": 115,
               "column": 6
             },
             "end": {
-              "line": 162,
+              "line": 117,
               "column": 7
             }
           },
@@ -17012,79 +15990,31 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "pattern",
-          "description": "Overrides the pattern from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 168,
-              "column": 6
-            },
-            "end": {
-              "line": 170,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
           "name": "hint",
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 123,
               "column": 6
             },
             "end": {
-              "line": 178,
+              "line": 125,
               "column": 7
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
-        },
-        {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 184,
-              "column": 6
-            },
-            "end": {
-              "line": 186,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 192,
-              "column": 6
-            },
-            "end": {
-              "line": 194,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
         },
         {
           "name": "readonly",
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 131,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 133,
               "column": 7
             }
           },
@@ -17096,11 +16026,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 137,
               "column": 6
             },
             "end": {
-              "line": 208,
+              "line": 139,
               "column": 7
             }
           },
@@ -17112,11 +16042,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 213,
+              "line": 144,
               "column": 6
             },
             "end": {
-              "line": 215,
+              "line": 146,
               "column": 7
             }
           },
@@ -17128,11 +16058,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 164,
               "column": 6
             },
             "end": {
-              "line": 236,
+              "line": 167,
               "column": 7
             }
           },
@@ -17144,11 +16074,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 240,
+              "line": 171,
               "column": 6
             },
             "end": {
-              "line": 242,
+              "line": 173,
               "column": 7
             }
           },
@@ -17160,11 +16090,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 246,
+              "line": 177,
               "column": 6
             },
             "end": {
-              "line": 248,
+              "line": 179,
               "column": 7
             }
           },
@@ -17196,80 +16126,17 @@
       "path": "packages/furo-data-input/furo-data-text-input.js",
       "properties": [
         {
-          "name": "_pattern",
-          "type": "?",
-          "description": "Updater for the pattern attr, the prop alone with pattern=\"${this.pattern}\" wont work,\nbecaue it set \"undefined\" (as a Sting!)",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 78,
-              "column": 2
-            },
-            "end": {
-              "line": 80,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_min",
-          "type": "?",
-          "description": "Updater for the min => minlength attr\nsame problem like in pattern",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 88,
-              "column": 2
-            },
-            "end": {
-              "line": 90,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_max",
-          "type": "?",
-          "description": "Updater for the max attr\n* same problem like in pattern",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 98,
-              "column": 2
-            },
-            "end": {
-              "line": 100,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "_label",
           "type": "?",
           "description": "Updater for the label attr",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 59,
               "column": 2
             },
             "end": {
-              "line": 108,
+              "line": 61,
               "column": 3
             }
           },
@@ -17286,11 +16153,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 114,
+              "line": 67,
               "column": 2
             },
             "end": {
-              "line": 116,
+              "line": 69,
               "column": 3
             }
           },
@@ -17307,11 +16174,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 124,
+              "line": 77,
               "column": 3
             }
           },
@@ -17326,11 +16193,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 83,
               "column": 2
             },
             "end": {
-              "line": 132,
+              "line": 85,
               "column": 3
             }
           },
@@ -17345,11 +16212,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 138,
+              "line": 91,
               "column": 2
             },
             "end": {
-              "line": 140,
+              "line": 93,
               "column": 3
             }
           },
@@ -17366,32 +16233,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 164,
+              "line": 117,
               "column": 6
             },
             "end": {
-              "line": 166,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "pattern",
-          "type": "string | null | undefined",
-          "description": "Overrides the pattern from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 172,
-              "column": 6
-            },
-            "end": {
-              "line": 174,
+              "line": 119,
               "column": 7
             }
           },
@@ -17408,11 +16254,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 180,
+              "line": 125,
               "column": 6
             },
             "end": {
-              "line": 182,
+              "line": 127,
               "column": 7
             }
           },
@@ -17429,11 +16275,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 133,
               "column": 6
             },
             "end": {
-              "line": 190,
+              "line": 135,
               "column": 7
             }
           },
@@ -17444,59 +16290,17 @@
           }
         },
         {
-          "name": "min",
-          "type": "number | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 196,
-              "column": 6
-            },
-            "end": {
-              "line": 198,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "max",
-          "type": "number | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 204,
-              "column": 6
-            },
-            "end": {
-              "line": 206,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
           "name": "readonly",
           "type": "boolean | null | undefined",
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 141,
               "column": 6
             },
             "end": {
-              "line": 214,
+              "line": 143,
               "column": 7
             }
           },
@@ -17513,11 +16317,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 147,
               "column": 6
             },
             "end": {
-              "line": 220,
+              "line": 149,
               "column": 7
             }
           },
@@ -17534,11 +16338,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 154,
               "column": 6
             },
             "end": {
-              "line": 227,
+              "line": 156,
               "column": 7
             }
           },
@@ -17555,11 +16359,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 174,
               "column": 6
             },
             "end": {
-              "line": 248,
+              "line": 177,
               "column": 7
             }
           },
@@ -17576,11 +16380,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 252,
+              "line": 181,
               "column": 6
             },
             "end": {
-              "line": 254,
+              "line": 183,
               "column": 7
             }
           },
@@ -17597,11 +16401,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 258,
+              "line": 187,
               "column": 6
             },
             "end": {
-              "line": 260,
+              "line": 189,
               "column": 7
             }
           },
@@ -17835,11 +16639,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 48,
               "column": 2
             },
             "end": {
-              "line": 69,
+              "line": 53,
               "column": 3
             }
           },
@@ -18031,11 +16835,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 145,
+              "line": 98,
               "column": 2
             },
             "end": {
-              "line": 147,
+              "line": 100,
               "column": 3
             }
           },
@@ -18051,11 +16855,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 105,
               "column": 2
             },
             "end": {
-              "line": 154,
+              "line": 107,
               "column": 3
             }
           },
@@ -18071,11 +16875,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 269,
+              "line": 198,
               "column": 2
             },
             "end": {
-              "line": 271,
+              "line": 200,
               "column": 3
             }
           },
@@ -18097,11 +16901,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 274,
+              "line": 203,
               "column": 2
             },
             "end": {
-              "line": 282,
+              "line": 206,
               "column": 3
             }
           },
@@ -18117,11 +16921,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 307,
+              "line": 231,
               "column": 2
             },
             "end": {
-              "line": 321,
+              "line": 244,
               "column": 3
             }
           },
@@ -18143,7 +16947,7 @@
           "column": 0
         },
         "end": {
-          "line": 323,
+          "line": 246,
           "column": 1
         }
       },
@@ -18156,11 +16960,11 @@
           "description": "Updater for the leadingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 75,
               "column": 2
             },
             "end": {
-              "line": 124,
+              "line": 77,
               "column": 3
             }
           },
@@ -18172,11 +16976,11 @@
           "description": "Updater for the trailingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 130,
+              "line": 83,
               "column": 2
             },
             "end": {
-              "line": 132,
+              "line": 85,
               "column": 3
             }
           },
@@ -18188,27 +16992,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 164,
+              "line": 117,
               "column": 6
             },
             "end": {
-              "line": 166,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "pattern",
-          "description": "Overrides the pattern from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 172,
-              "column": 6
-            },
-            "end": {
-              "line": 174,
+              "line": 119,
               "column": 7
             }
           },
@@ -18220,11 +17008,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 180,
+              "line": 125,
               "column": 6
             },
             "end": {
-              "line": 182,
+              "line": 127,
               "column": 7
             }
           },
@@ -18236,11 +17024,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 133,
               "column": 6
             },
             "end": {
-              "line": 190,
+              "line": 135,
               "column": 7
             }
           },
@@ -18248,47 +17036,15 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 196,
-              "column": 6
-            },
-            "end": {
-              "line": 198,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 204,
-              "column": 6
-            },
-            "end": {
-              "line": 206,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
           "name": "readonly",
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 141,
               "column": 6
             },
             "end": {
-              "line": 214,
+              "line": 143,
               "column": 7
             }
           },
@@ -18300,11 +17056,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 147,
               "column": 6
             },
             "end": {
-              "line": 220,
+              "line": 149,
               "column": 7
             }
           },
@@ -18316,11 +17072,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 225,
+              "line": 154,
               "column": 6
             },
             "end": {
-              "line": 227,
+              "line": 156,
               "column": 7
             }
           },
@@ -18332,11 +17088,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 174,
               "column": 6
             },
             "end": {
-              "line": 248,
+              "line": 177,
               "column": 7
             }
           },
@@ -18348,11 +17104,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 252,
+              "line": 181,
               "column": 6
             },
             "end": {
-              "line": 254,
+              "line": 183,
               "column": 7
             }
           },
@@ -18364,11 +17120,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 258,
+              "line": 187,
               "column": 6
             },
             "end": {
-              "line": 260,
+              "line": 189,
               "column": 7
             }
           },
@@ -18400,9 +17156,51 @@
       "path": "packages/furo-data-input/furo-data-textarea-input.js",
       "properties": [
         {
-          "name": "_min",
+          "name": "_cols",
           "type": "?",
-          "description": "Updater for the min => minlength attr",
+          "description": "Updater for the cols attr",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 2
+            },
+            "end": {
+              "line": 61,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_rows",
+          "type": "?",
+          "description": "Updater for the rows attr*",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 67,
+              "column": 2
+            },
+            "end": {
+              "line": 69,
+              "column": 3
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": false
+            }
+          }
+        },
+        {
+          "name": "_label",
+          "type": "?",
+          "description": "Updater for the label attr",
           "privacy": "protected",
           "sourceRange": {
             "start": {
@@ -18421,9 +17219,9 @@
           }
         },
         {
-          "name": "_max",
+          "name": "_hint",
           "type": "?",
-          "description": "Updater for the max attr",
+          "description": "Updater for the hint attr",
           "privacy": "protected",
           "sourceRange": {
             "start": {
@@ -18442,10 +17240,10 @@
           }
         },
         {
-          "name": "_cols",
+          "name": "errortext",
           "type": "?",
-          "description": "Updater for the cols attr",
-          "privacy": "protected",
+          "description": "Updater for the errortext attr",
+          "privacy": "public",
           "sourceRange": {
             "start": {
               "line": 91,
@@ -18463,101 +17261,17 @@
           }
         },
         {
-          "name": "_rows",
-          "type": "?",
-          "description": "Updater for the rows attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 99,
-              "column": 2
-            },
-            "end": {
-              "line": 101,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_label",
-          "type": "?",
-          "description": "Updater for the label attr",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 107,
-              "column": 2
-            },
-            "end": {
-              "line": 109,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_hint",
-          "type": "?",
-          "description": "Updater for the hint attr",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 115,
-              "column": 2
-            },
-            "end": {
-              "line": 117,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "errortext",
-          "type": "?",
-          "description": "Updater for the errortext attr",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 123,
-              "column": 2
-            },
-            "end": {
-              "line": 125,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "label",
           "type": "string | null | undefined",
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 140,
+              "line": 108,
               "column": 6
             },
             "end": {
-              "line": 142,
+              "line": 110,
               "column": 7
             }
           },
@@ -18574,11 +17288,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 148,
+              "line": 116,
               "column": 6
             },
             "end": {
-              "line": 150,
+              "line": 118,
               "column": 7
             }
           },
@@ -18595,11 +17309,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 124,
               "column": 6
             },
             "end": {
-              "line": 158,
+              "line": 126,
               "column": 7
             }
           },
@@ -18610,59 +17324,17 @@
           }
         },
         {
-          "name": "min",
-          "type": "number | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 164,
-              "column": 6
-            },
-            "end": {
-              "line": 166,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "max",
-          "type": "number | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 172,
-              "column": 6
-            },
-            "end": {
-              "line": 174,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
           "name": "readonly",
           "type": "boolean | null | undefined",
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 180,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 182,
+              "line": 134,
               "column": 7
             }
           },
@@ -18679,11 +17351,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 138,
               "column": 6
             },
             "end": {
-              "line": 188,
+              "line": 140,
               "column": 7
             }
           },
@@ -18700,11 +17372,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 193,
+              "line": 145,
               "column": 6
             },
             "end": {
-              "line": 195,
+              "line": 147,
               "column": 7
             }
           },
@@ -18721,11 +17393,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 151,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 154,
               "column": 7
             }
           },
@@ -18742,11 +17414,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 158,
               "column": 6
             },
             "end": {
-              "line": 208,
+              "line": 160,
               "column": 7
             }
           },
@@ -18763,11 +17435,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 164,
               "column": 6
             },
             "end": {
-              "line": 214,
+              "line": 166,
               "column": 7
             }
           },
@@ -18784,11 +17456,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 170,
               "column": 6
             },
             "end": {
-              "line": 220,
+              "line": 172,
               "column": 7
             }
           },
@@ -18805,11 +17477,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 176,
               "column": 6
             },
             "end": {
-              "line": 226,
+              "line": 178,
               "column": 7
             }
           },
@@ -19043,11 +17715,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 48,
               "column": 2
             },
             "end": {
-              "line": 69,
+              "line": 53,
               "column": 3
             }
           },
@@ -19239,11 +17911,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 235,
+              "line": 187,
               "column": 2
             },
             "end": {
-              "line": 237,
+              "line": 189,
               "column": 3
             }
           },
@@ -19265,11 +17937,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 240,
+              "line": 192,
               "column": 2
             },
             "end": {
-              "line": 251,
+              "line": 198,
               "column": 3
             }
           },
@@ -19285,11 +17957,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 275,
+              "line": 222,
               "column": 2
             },
             "end": {
-              "line": 289,
+              "line": 235,
               "column": 3
             }
           },
@@ -19311,7 +17983,7 @@
           "column": 0
         },
         "end": {
-          "line": 291,
+          "line": 237,
           "column": 1
         }
       },
@@ -19324,11 +17996,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 140,
+              "line": 108,
               "column": 6
             },
             "end": {
-              "line": 142,
+              "line": 110,
               "column": 7
             }
           },
@@ -19340,11 +18012,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 148,
+              "line": 116,
               "column": 6
             },
             "end": {
-              "line": 150,
+              "line": 118,
               "column": 7
             }
           },
@@ -19356,11 +18028,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 156,
+              "line": 124,
               "column": 6
             },
             "end": {
-              "line": 158,
+              "line": 126,
               "column": 7
             }
           },
@@ -19368,47 +18040,15 @@
           "type": "string | null | undefined"
         },
         {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 164,
-              "column": 6
-            },
-            "end": {
-              "line": 166,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 172,
-              "column": 6
-            },
-            "end": {
-              "line": 174,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
           "name": "readonly",
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 180,
+              "line": 132,
               "column": 6
             },
             "end": {
-              "line": 182,
+              "line": 134,
               "column": 7
             }
           },
@@ -19420,11 +18060,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 186,
+              "line": 138,
               "column": 6
             },
             "end": {
-              "line": 188,
+              "line": 140,
               "column": 7
             }
           },
@@ -19436,11 +18076,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 193,
+              "line": 145,
               "column": 6
             },
             "end": {
-              "line": 195,
+              "line": 147,
               "column": 7
             }
           },
@@ -19452,11 +18092,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 151,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 154,
               "column": 7
             }
           },
@@ -19468,11 +18108,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 206,
+              "line": 158,
               "column": 6
             },
             "end": {
-              "line": 208,
+              "line": 160,
               "column": 7
             }
           },
@@ -19484,11 +18124,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 212,
+              "line": 164,
               "column": 6
             },
             "end": {
-              "line": 214,
+              "line": 166,
               "column": 7
             }
           },
@@ -19500,11 +18140,11 @@
           "description": "The number of visible text lines for the control.",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 170,
               "column": 6
             },
             "end": {
-              "line": 220,
+              "line": 172,
               "column": 7
             }
           },
@@ -19516,11 +18156,11 @@
           "description": "The visible width of the text control",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 176,
               "column": 6
             },
             "end": {
-              "line": 226,
+              "line": 178,
               "column": 7
             }
           },
@@ -19552,59 +18192,17 @@
       "path": "packages/furo-data-input/furo-data-time-input.js",
       "properties": [
         {
-          "name": "_min",
-          "type": "?",
-          "description": "Updater for the min => minlength attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 81,
-              "column": 2
-            },
-            "end": {
-              "line": 83,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_max",
-          "type": "?",
-          "description": "Updater for the max attr*",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 89,
-              "column": 2
-            },
-            "end": {
-              "line": 91,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "_label",
           "type": "?",
           "description": "Updater for the label attr",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 61,
               "column": 2
             },
             "end": {
-              "line": 99,
+              "line": 63,
               "column": 3
             }
           },
@@ -19621,11 +18219,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 105,
+              "line": 69,
               "column": 2
             },
             "end": {
-              "line": 107,
+              "line": 71,
               "column": 3
             }
           },
@@ -19642,11 +18240,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 77,
               "column": 2
             },
             "end": {
-              "line": 115,
+              "line": 79,
               "column": 3
             }
           },
@@ -19661,11 +18259,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 121,
+              "line": 85,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 87,
               "column": 3
             }
           },
@@ -19680,32 +18278,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 129,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 131,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
-          "name": "_step",
-          "type": "?",
-          "description": "Updater for the step attr",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 137,
-              "column": 2
-            },
-            "end": {
-              "line": 139,
+              "line": 95,
               "column": 3
             }
           },
@@ -19722,11 +18299,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 150,
+              "line": 106,
               "column": 6
             },
             "end": {
-              "line": 152,
+              "line": 108,
               "column": 7
             }
           },
@@ -19743,11 +18320,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 114,
               "column": 6
             },
             "end": {
-              "line": 160,
+              "line": 116,
               "column": 7
             }
           },
@@ -19764,74 +18341,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 122,
               "column": 6
             },
             "end": {
-              "line": 168,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "min",
-          "type": "string | null | undefined",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 174,
-              "column": 6
-            },
-            "end": {
-              "line": 176,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "max",
-          "type": "string | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 182,
-              "column": 6
-            },
-            "end": {
-              "line": 184,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "step",
-          "type": "string | null | undefined",
-          "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 190,
-              "column": 6
-            },
-            "end": {
-              "line": 192,
+              "line": 124,
               "column": 7
             }
           },
@@ -19848,11 +18362,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 130,
               "column": 6
             },
             "end": {
-              "line": 200,
+              "line": 132,
               "column": 7
             }
           },
@@ -19869,11 +18383,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 204,
+              "line": 136,
               "column": 6
             },
             "end": {
-              "line": 206,
+              "line": 138,
               "column": 7
             }
           },
@@ -19890,11 +18404,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 143,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 145,
               "column": 7
             }
           },
@@ -19911,11 +18425,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 149,
               "column": 6
             },
             "end": {
-              "line": 219,
+              "line": 151,
               "column": 7
             }
           },
@@ -20149,11 +18663,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 50,
               "column": 2
             },
             "end": {
-              "line": 75,
+              "line": 55,
               "column": 3
             }
           },
@@ -20345,11 +18859,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 240,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 242,
+              "line": 174,
               "column": 3
             }
           },
@@ -20365,11 +18879,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 179,
               "column": 2
             },
             "end": {
-              "line": 249,
+              "line": 181,
               "column": 3
             }
           },
@@ -20385,11 +18899,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 188,
               "column": 2
             },
             "end": {
-              "line": 258,
+              "line": 190,
               "column": 3
             }
           },
@@ -20411,11 +18925,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 260,
+              "line": 192,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 195,
               "column": 3
             }
           },
@@ -20431,11 +18945,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 293,
+              "line": 220,
               "column": 2
             },
             "end": {
-              "line": 306,
+              "line": 232,
               "column": 3
             }
           },
@@ -20457,7 +18971,7 @@
           "column": 0
         },
         "end": {
-          "line": 308,
+          "line": 234,
           "column": 1
         }
       },
@@ -20470,11 +18984,11 @@
           "description": "Updater for the leadingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 113,
+              "line": 77,
               "column": 2
             },
             "end": {
-              "line": 115,
+              "line": 79,
               "column": 3
             }
           },
@@ -20486,11 +19000,11 @@
           "description": "Updater for the trailingIcon attr",
           "sourceRange": {
             "start": {
-              "line": 121,
+              "line": 85,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 87,
               "column": 3
             }
           },
@@ -20502,11 +19016,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 150,
+              "line": 106,
               "column": 6
             },
             "end": {
-              "line": 152,
+              "line": 108,
               "column": 7
             }
           },
@@ -20518,11 +19032,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 114,
               "column": 6
             },
             "end": {
-              "line": 160,
+              "line": 116,
               "column": 7
             }
           },
@@ -20534,59 +19048,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 122,
               "column": 6
             },
             "end": {
-              "line": 168,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "min",
-          "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 174,
-              "column": 6
-            },
-            "end": {
-              "line": 176,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 182,
-              "column": 6
-            },
-            "end": {
-              "line": 184,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "step",
-          "description": "Overrides the step value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 190,
-              "column": 6
-            },
-            "end": {
-              "line": 192,
+              "line": 124,
               "column": 7
             }
           },
@@ -20598,11 +19064,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 130,
               "column": 6
             },
             "end": {
-              "line": 200,
+              "line": 132,
               "column": 7
             }
           },
@@ -20614,11 +19080,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 204,
+              "line": 136,
               "column": 6
             },
             "end": {
-              "line": 206,
+              "line": 138,
               "column": 7
             }
           },
@@ -20630,11 +19096,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 143,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 145,
               "column": 7
             }
           },
@@ -20646,11 +19112,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 149,
               "column": 6
             },
             "end": {
-              "line": 219,
+              "line": 151,
               "column": 7
             }
           },
@@ -20695,7 +19161,7 @@
               "column": 2
             },
             "end": {
-              "line": 60,
+              "line": 61,
               "column": 3
             }
           },
@@ -20715,11 +19181,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 63,
               "column": 2
             },
             "end": {
-              "line": 123,
+              "line": 124,
               "column": 3
             }
           },
@@ -20742,7 +19208,7 @@
           "column": 7
         },
         "end": {
-          "line": 124,
+          "line": 125,
           "column": 1
         }
       },
@@ -20824,7 +19290,7 @@
           "column": 7
         },
         "end": {
-          "line": 82,
+          "line": 81,
           "column": 1
         }
       },
