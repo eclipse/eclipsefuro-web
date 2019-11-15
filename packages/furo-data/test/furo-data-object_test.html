@@ -43,6 +43,69 @@
         });
 
 
+        it('should check validity and mark as invalid', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+
+                assert.equal(element.json.data.display_name, response.data.display_name);
+                p.then((ObjectDataRoot) => {
+                    let EntityRoot = ObjectDataRoot.data;
+                    EntityRoot.description._value = "New";
+                    assert.equal(EntityRoot._isValid, false);
+
+                    EntityRoot.description._value = "Newss";
+                    assert.equal(EntityRoot._isValid, true);
+
+                    EntityRoot.description._value = "Specs say you can only have 20  letters";
+                    assert.equal(EntityRoot._isValid, false);
+
+                    let oldlabel = EntityRoot.description._meta.label;
+                    assert.equal(EntityRoot.description._meta.label, oldlabel);
+                    EntityRoot.description._meta.label = "Something";
+
+                    assert.equal(EntityRoot.description._meta.label, "Something");
+                    element.reset();
+
+                    assert.equal(EntityRoot.description._meta.label, oldlabel);
+                    done();
+                })
+
+            })
+
+        });
+
+        it('should be possible to reset to last injected state', (done) => {
+            element.setAttribute("type", "project.ProjectEntity");
+
+            fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
+                let p = element.injectRaw(response);
+
+                assert.equal(element.json.data.display_name, response.data.display_name);
+
+                done();
+            })
+
+        });
+
+
+        it('should validate a fieldnode against the specs', (done) => {
+            element.setAttribute("type", "experiment.Experiment");
+            //assert.equal(element.data.furo_data_text_input._value, "Ein text per default");
+            let handler = (e) => {
+                assert.equal(element.data.furo_data_text_input._value, "");
+                assert.equal(element.data.furo_data_text_input._pristine, true);
+                done();
+            };
+            element.data.addEventListener("data-injected", handler, {once: true});
+
+            element.injectRaw({"id": 12, "display_name": "party"});
+
+
+        });
+
+
         it('should set the values like injected, remove defaults,...', (done) => {
             element.setAttribute("type", "experiment.Default");
             assert.equal(element.data.description._value, "Ein text per default");
@@ -66,9 +129,14 @@
                 "recursion": {
                     "id": 11,
                     "display_name": "Aa",
-                    "recursion": null
+                    "recursion": {
+                        "id": 123,
+                        "display_name": "bbb",
+                        "recursion": null
+                    }
                 }
             });
+
             assert.equal(element.data.display_name._value, "A");
             assert.equal(element.data.recursion.display_name._value, "Aa");
 
@@ -108,18 +176,6 @@
             done();
         });
 
-        it('should be possible to reset to last injected state', (done) => {
-            element.setAttribute("type", "project.ProjectEntity");
-
-            fetch("/mockdata/projects/1/testmeta.json").then(res => res.json()).then(response => {
-                let p = element.injectRaw(response);
-
-                assert.equal(element.json.data.display_name, response.data.display_name);
-
-                done();
-            })
-
-        });
 
         it('should be possible to set the model to the inital empty state', (done) => {
             element.setAttribute("type", "project.ProjectEntity");
@@ -239,6 +295,7 @@
                     EntityRoot.members.add(val[0]);
                     // set on the repeats
                     EntityRoot.members.repeats[1].first_name._value = "Kyra";
+
                     // read on value
                     assert.equal(EntityRoot.members._value[0].first_name, "John");
                     assert.equal(EntityRoot.members._value[1].first_name, "Kyra");

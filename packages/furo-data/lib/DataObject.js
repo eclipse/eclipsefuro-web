@@ -57,6 +57,10 @@ export class DataObject extends EventTreeNode {
    * @param rawEntity
    */
   injectRaw(rawEntity) {
+    // this broadcast will disable validation during setting the values
+
+    this.broadcastEvent(new NodeEvent("disable-validation", this));
+
     this._rawEntity = rawEntity;
     this._updateFieldValuesAndMetaFromRawEntity(this, rawEntity);
     this._pristine = true;
@@ -64,7 +68,7 @@ export class DataObject extends EventTreeNode {
 
     /**
      * Broadcast Event
-     *
+     * this will set all fields as pristine and end enable the validation
      */
     this.broadcastEvent(new NodeEvent("new-data-injected", this));
 
@@ -98,13 +102,14 @@ export class DataObject extends EventTreeNode {
    * Inits the EntityNode
    */
   init() {
+    this.broadcastEvent(new NodeEvent("disable-validation", this));
     for(let i = this.__childNodes.length-1; i >= 0; i--){
       this.__childNodes[i].reinit();
     }
     this._initFieldsFromSpec(this, this._spec.fields);
     this._pristine = true;
     this._isValid = true;
-
+    this.broadcastEvent(new NodeEvent("enable-validation", this));
   }
 
   get rawEntity() {
@@ -196,7 +201,6 @@ export class DataObject extends EventTreeNode {
 
             // Werte aktualisieren
             fieldNode._value = data[fieldName];
-
             fieldNode._pristine = true;
           }
         }

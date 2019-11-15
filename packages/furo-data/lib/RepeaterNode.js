@@ -30,6 +30,9 @@ export class RepeaterNode extends EventTreeNode {
     this._pristine = true;
     this._isValid = true;
 
+    // inherit _validationDisabled from parent
+    this._validationDisabled = this.__parentNode._validationDisabled;
+
 
     // handling default _values
     let tmp = this._meta.default || [];
@@ -71,9 +74,18 @@ export class RepeaterNode extends EventTreeNode {
       this._pristine = false;
     });
 
+    this.addEventListener('disable-validation', (e) => {
+      this._validationDisabled = true;
+    });
+    this.addEventListener('enable-validation', (e) => {
+      this._validationDisabled = true;
+    });
+
     this.addEventListener('new-data-injected', (e) => {
       this._pristine = true;
+      this._validationDisabled = false;
     });
+
 
     //store __initial_value _value for resetting the field
     this.__initialValue = JSON.stringify(this._value);
@@ -276,6 +288,10 @@ export class RepeaterNode extends EventTreeNode {
 
   _addSilent() {
     let fieldNode = new FieldNode(this, this._spec, this._name);
+    // if this field has disabled Validation, pass to new attributes. Because they do not have to validate too.
+    if(this._validationDisabled || this.__parentNode._validationDisabled){
+      fieldNode._validationDisabled = true;
+    }
     let index = this.repeats.push(fieldNode) - 1;
 
     fieldNode.__index = index;
