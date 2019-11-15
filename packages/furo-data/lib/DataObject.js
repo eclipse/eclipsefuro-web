@@ -27,7 +27,7 @@ export class DataObject extends EventTreeNode {
     this.addEventListener("field-became-valid", (e) => {
       if (this.__childNodes.filter(f => !f._isValid).length === 0) {
         this._isValid = true;
-        this.dispatchNodeEvent(new NodeEvent("entity-became-valid", this));
+        this.dispatchNodeEvent(new NodeEvent("data-object-became-valid", this));
       }
 
     });
@@ -37,7 +37,7 @@ export class DataObject extends EventTreeNode {
      */
     this.addEventListener("field-became-invalid", (e) => {
       this._isValid = false;
-      this.dispatchNodeEvent(new NodeEvent("entity-became-invalid", this));
+      this.dispatchNodeEvent(new NodeEvent("data-object-became-invalid", this));
     });
 
     /**
@@ -50,6 +50,11 @@ export class DataObject extends EventTreeNode {
     this.addEventListener("repeated-fields-added", (e) => {
       this._pristine = false;
     });
+  }
+
+  validateAllFields(){
+    // broadcast validation request to all fields
+    this.broadcastEvent(new NodeEvent("validation-requested", this));
   }
 
   /**

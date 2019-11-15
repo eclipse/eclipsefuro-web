@@ -81,13 +81,19 @@ export class FieldNode extends EventTreeNode {
       this._validationDisabled = true;
     });
     this.addEventListener('enable-validation', (e) => {
-      this._validationDisabled = true;
+      this._validationDisabled = false;
     });
 
     this.addEventListener('new-data-injected', (e) => {
       this._pristine = true;
       this._validationDisabled = false;
     });
+
+
+    this.addEventListener('validation-requested', (e) => {
+      this._checkConstraints();
+    });
+
 
     //store __initialValue value for resetting the field
     this.__initialValue = JSON.stringify(this._value);
@@ -200,8 +206,8 @@ export class FieldNode extends EventTreeNode {
 
         if (!this._validationDisabled) {
           // validate changes
-          this._checkConstraints();
 
+          this._checkConstraints();
 
           // todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
         }
@@ -254,7 +260,6 @@ export class FieldNode extends EventTreeNode {
   // check the validity against spec and meta
   _checkConstraints() {
     let validity = true;
-
 // validate if they are constraints
     for (let constraintName in this._constraints) {
       let constraint = this._constraints[constraintName];
@@ -266,13 +271,13 @@ export class FieldNode extends EventTreeNode {
         case "min":
           if (numericType) {
             if (validity && this._value < constraint.is) {
-              this._validity = {"constraint":constraint.is, "description": constraint.message};
+              this._validity = {"constraint": constraint.is, "description": constraint.message};
               validity = false
             }
-          }else{
+          } else {
             // check for length
             if (validity && this._value.length < constraint.is) {
-              this._validity = {"constraint":constraint.is, "description": constraint.message};
+              this._validity = {"constraint": constraint.is, "description": constraint.message};
               validity = false
             }
           }
@@ -280,21 +285,45 @@ export class FieldNode extends EventTreeNode {
           /**
            * the max constraint
            */
-          case "max":
+        case "max":
           if (numericType) {
             if (validity && this._value > constraint.is) {
-              this._validity = {"constraint":constraint.is, "description": constraint.message};
+              this._validity = {"constraint": constraint.is, "description": constraint.message};
               validity = false
             }
-          }else{
+          } else {
             // check for length
             if (validity && this._value.length > constraint.is) {
-              this._validity = {"constraint":constraint.is, "description": constraint.message};
+              this._validity = {"constraint": constraint.is, "description": constraint.message};
               validity = false
             }
           }
           break;
 
+        case "step":
+          if (numericType) {
+            // step check is (value - min)%is == 0
+            let modulo = parseFloat(constraint.is);
+            let min = 0;
+            if (this._constraints.min && this._constraints.min.is) {
+              min = parseFloat(this._constraints.min.is);
+            }
+
+            if (validity && ((min - this._value) % modulo != 0)) {
+              this._validity = {"constraint": constraint.is, "description": constraint.message};
+              validity = false
+            }
+          }
+          break;
+        case "pattern":
+          let reg = new RegExp(constraint.is);
+
+          if (validity && (this._value == null || !this._value.match(reg))) {
+
+            this._validity = {"constraint": constraint.is, "description": constraint.message};
+            validity = false
+          }
+          break;
 
       }
     }
