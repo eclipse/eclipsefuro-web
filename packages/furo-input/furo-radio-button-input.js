@@ -158,6 +158,12 @@ class FuroRadioButtonInput extends FBP(LitElement) {
              */
             condensed: {
                 type: Boolean
+            },
+            /**
+             * error text
+             */
+            _errortext: {
+              type: String
             }
         };
     }

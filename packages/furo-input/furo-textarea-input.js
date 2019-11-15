@@ -172,8 +172,13 @@ class FuroTextareaInput extends FBP(LitElement) {
        */
       filled: {
         type: Boolean
+      },
+      /**
+       * error text
+       */
+      _errortext: {
+        type: String
       }
-
     };
   }
   /**
@@ -507,19 +512,11 @@ class FuroTextareaInput extends FBP(LitElement) {
          <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
         ƒ-.value="--value"  @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>          
       </div>
-      
-      
-   
-      
-      
-      
       <div class="borderlabel">
       <div class="left-border"></div>
       <label ?float="${this._float || this.float}" for="input"><span>${this.label} ${this.required ? html`*` : html``}</span></label>
       <div class="right-border"></div>
       </div>
-      
-      
       <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
