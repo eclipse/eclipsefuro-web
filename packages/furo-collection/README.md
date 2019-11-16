@@ -8,7 +8,7 @@ Use this package to install the furo "framework".
 Read more about @furo/... on the  [documentation pages](https://furo.pro).
 
 
-The collection contains followwing packages 
+The collection contains following packages 
 
 ```
 @furo/config
