@@ -20,9 +20,6 @@
     "@furo/route": "^0.20.13",
     "@furo/util": "^0.18.1"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "veith",
   "license": "MIT",
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",
