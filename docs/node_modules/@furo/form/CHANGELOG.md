@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.25.4...@furo/form@0.25.5) (2019-11-15)
+
+
+### Bug Fixes
+
+* wrong imports ([69e8a07](https://github.com/theNorstroem/FuroBaseComponents/commit/69e8a07))
+
+
+
+
+
 ## [0.25.4](https://github.com/veith/FuroBaseComponents/compare/@furo/form@0.25.3...@furo/form@0.25.4) (2019-11-13)
 
 **Note:** Version bump only for package @furo/form

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.38.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.37.1...@furo/layout@0.38.0) (2019-11-15)
+
+
+### Features
+
+* check for required fields ([55f9e95](https://github.com/theNorstroem/FuroBaseComponents/commit/55f9e95))
+
+
+
+
+
 ## [0.37.1](https://github.com/veith/FuroBaseComponents/compare/@furo/layout@0.37.0...@furo/layout@0.37.1) (2019-11-13)
 
 **Note:** Version bump only for package @furo/layout
