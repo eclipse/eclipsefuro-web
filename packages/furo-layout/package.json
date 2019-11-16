@@ -6,6 +6,7 @@
   "dependencies": {
     "@furo/fbp": "^4.27.4",
     "@furo/framework": "^0.13.1",
+    "@furo/input": "^0.59.0",
     "lit-element": "^2.2.1"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",

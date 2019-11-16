@@ -8,7 +8,7 @@
     "@furo/framework": "^0.13.1",
     "@furo/layout": "^0.38.0",
     "@furo/route": "^0.20.13",
-    "@furo/util": "^0.13.6",
+    "@furo/util": "^0.18.1",
     "@svgdotjs/svg.js": "^3.0.13",
     "@svgdotjs/svg.panzoom.js": "^2.0.3",
     "dagre": "^0.8.4",
