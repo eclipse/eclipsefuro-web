@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.20.14](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.13...@furo/route@0.20.14) (2019-11-16)
+
+
+### Bug Fixes
+
+* imports corrected to current versions ([5932c61](https://github.com/theNorstroem/FuroBaseComponents/commit/5932c61))
+
+
+
+
+
 ## [0.20.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.12...@furo/route@0.20.13) (2019-11-15)
 
 **Note:** Version bump only for package @furo/route
