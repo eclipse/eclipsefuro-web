@@ -276,12 +276,12 @@ class FuroBannerDisplay extends FBP(LitElement) {
             }
             
             p {
-            margin-bottom: 4px;
-            margin-top: 12px;
+            margin-bottom: var(--spacing-xs, 8px) ;
+            margin-top: var(--spacing-xs, 8px) ;
             }
 
             .md *:first-child {
-            margin-top: 12px;
+            margin-top: var(--spacing-xs, 8px) ;
             }
 
             
