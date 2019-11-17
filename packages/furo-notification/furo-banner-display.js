@@ -280,6 +280,10 @@ class FuroBannerDisplay extends FBP(LitElement) {
             margin-top: 12px;
             }
 
+            .md *:first-child {
+            margin-top: 12px;
+            }
+
             
         `;
   }
@@ -296,7 +300,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
             <div>
                <furo-icon icon="${this._banner.icon}"></furo-icon>
             </div>
-            <div flex>${this._bannerText}</div>            
+            <div flex class="md">${this._bannerText}</div>            
           </furo-horizontal-flex>
           <furo-horizontal-flex>
            <furo-empty-spacer></furo-empty-spacer>           
