@@ -102,6 +102,42 @@
             dataInput.setAttribute('currencies', 'chf,eur,usd');
             deeplink.qpIn({"exp": 1});
         });
+
+      it('should convert amount to money object after input the amount', (done) => {
+
+        entityObject.addEventListener("object-ready", (e)=>{
+
+          dataInput.addEventListener("value-changed", (e)=>{
+
+            assert.equal(e.detail.units, 23);
+            assert.equal(e.detail.nanos, 22000000);
+            done();
+          });
+
+          let customEvent = new Event('value-changed', {composed: true, bubbles: true});
+          customEvent.detail = 23.22;
+
+          dataInput.shadowRoot.getElementById("input").dispatchEvent(customEvent);
+        });
+
+
+      });
+
+      it('should convert selected currency to money object after select the currency', (done) => {
+
+        entityObject.addEventListener("object-ready", (e)=>{
+
+          dataInput.addEventListener("value-changed", (e)=>{
+            assert.equal(e.detail.currency_code, "EUR");
+            done();
+          });
+
+          let customEvent = new Event('value-changed', {composed: true, bubbles: true});
+          customEvent.detail = "EUR";
+
+          dataInput.shadowRoot.getElementById("select").dispatchEvent(customEvent);
+        });
+      });
     });
 </script>
 </body>

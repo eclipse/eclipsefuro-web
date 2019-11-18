@@ -379,12 +379,6 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
   _updateField() {
 
-    //mark incomming error
-    if (!this.field._isValid) {
-      this.error = true;
-      this.errortext = this.field._validity.description;
-    }
-
     if (this.field.display_name._value) {
       this._FBPTriggerWire('--value', this.field.display_name._value);
     }

@@ -86,7 +86,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       obj.currency_code = currency;
     }
     if(amount) {
-      let arr = amount.split(".");
+      let arr = String(amount).split(".");
       obj.units = Number(arr[0]);
       if(arr[1]) {
         obj.nanos = Number("0."+arr[1])*100000000;

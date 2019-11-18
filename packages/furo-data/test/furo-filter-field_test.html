@@ -49,6 +49,17 @@
       done()
     });
 
+    it('should notify changes', (done) => {
+      element.addEventListener("furo-filter-field-changed", (e)=>{
+        assert.equal(e.detail._field, "description");
+        assert.equal(e.detail._is, "eq");
+        assert.equal(e.detail._value, "hallo");
+        done();
+      });
+      element.field = "description";
+      element.is = "eq";
+      element.setValue("hallo") ;
+    });
 
   });
 </script>

@@ -22,6 +22,7 @@
 
                 <furo-data-reference-search condensed
                                             label="Search on enter only"
+                                            hint="hint"
                                             min-term-length="2"
                                             ƒ-bind-data="--entityReady(*.owner)"
                                             @-search="--term"
@@ -150,6 +151,48 @@
         })
       });
 
+      it('should select element by focus', (done) => {
+
+        collectionAgent.addEventListener("response",()=>{
+
+
+          setTimeout(()=>{
+            assert.equal(referenceSearch._listIsOpen, undefined);
+            let customEvent = new Event('focus', {composed: true, bubbles: true});
+            referenceSearch.shadowRoot.getElementById("input").dispatchEvent(customEvent);
+            assert.equal(referenceSearch._listIsOpen, true);
+            done();
+          },0)
+        })
+        referenceSearch._searchTerm = "term";
+        referenceSearch._fireSearchEvent();
+
+      });
+
+
+      it('should select element by focus', (done) => {
+
+        entityObject.addEventListener("object-ready", ()=>{
+
+          setTimeout(()=>{
+
+            let customEvent = new Event('searchInput', {composed: true, bubbles: true});
+            customEvent.detail = "term";
+            referenceSearch.shadowRoot.getElementById("input").dispatchEvent(customEvent);
+          },10)
+        })
+
+        collectionAgent.addEventListener("response",()=>{
+
+          setTimeout(()=>{
+            assert.equal(referenceSearch._listIsOpen, undefined);
+            let customEvent = new Event('focus', {composed: true, bubbles: true});
+            referenceSearch.shadowRoot.getElementById("input").dispatchEvent(customEvent);
+            assert.equal(referenceSearch._listIsOpen, true);
+            done();
+          },0)
+        })
+      });
 
       // a11y tests
       it('a11y', () => {
