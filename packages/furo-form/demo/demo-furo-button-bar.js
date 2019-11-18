@@ -95,7 +95,7 @@ class DemoFuroButtonBar extends FBP(LitElement) {
                             <furo-button rel="self" hide-no-rel primary unelevated>hidden if no relation self
                             </furo-button>
                             <furo-button rel="update" disable-no-rel outline>disabled if no relation update</furo-button>
-                            <furo-button disable-pristine secondary unelevated>disabled if pristine (e.g. save)</furo-button>
+                            <furo-button disable-pristine disable-not-valid secondary unelevated>disabled if pristine (e.g. save)</furo-button>
 
                             <furo-empty-spacer></furo-empty-spacer>
                             <furo-button rel="delete" disable-no-rel danger unelevated>Danger Action</furo-button>
