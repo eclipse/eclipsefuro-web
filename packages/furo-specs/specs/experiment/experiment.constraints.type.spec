@@ -82,6 +82,37 @@
       "__proto": {
         "number": 3
       }
+    },
+    "text": {
+      "description": "Localized String representation of a experiment",
+      "type": "string",
+      "meta": {
+        "label": "experiment",
+        "default": "",
+        "hint": "",
+        "readonly": false
+      },
+      "constraints": {
+        "required": {
+          "is": "true",
+          "message":"is required"
+        },
+        "pattern": {
+          "is": "^a.*",
+          "message": "must start with a"
+        },
+        "min": {
+          "is": "6",
+          "message":"minimal 6"
+        },
+        "max": {
+          "is": "12",
+          "message":"maximal 12"
+        }
+      },
+      "__proto": {
+        "number": 4
+      }
     }
   }
 }

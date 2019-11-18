@@ -268,7 +268,7 @@ export class FieldNode extends EventTreeNode {
            */
         case "min":
           if (numericType) {
-            if (validity && this._value < constraint.is) {
+            if (validity && this._value < parseFloat(constraint.is)) {
               this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }
@@ -285,7 +285,7 @@ export class FieldNode extends EventTreeNode {
            */
         case "max":
           if (numericType) {
-            if (validity && this._value > constraint.is) {
+            if (validity && this._value > parseFloat(constraint.is)) {
               this._validity = {"constraint": constraintName, "description": constraint.message};
               validity = false
             }

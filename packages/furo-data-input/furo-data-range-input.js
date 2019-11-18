@@ -91,11 +91,35 @@ class FuroDataRangeInput extends FBP(LitElement) {
   }
 
   /**
+   * Updater for the min => minlength attr*
+   * @param value
+   */
+  set _min(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
+  }
+
+  /**
+   * Updater for the max attr*
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
+  }
+
+  /**
    * Updater for the errortext attr
    * @param value
    */
   set errortext(value) {
     Helper.UpdateInputAttribute(this, "errortext", value);
+  }
+
+  /**
+   * Updater for the step attr
+   * @param value
+   */
+  set _step(value) {
+    Helper.UpdateInputAttribute(this, "step", value);
   }
 
   static get properties() {
@@ -116,6 +140,30 @@ class FuroDataRangeInput extends FBP(LitElement) {
        */
       hint: {
         type: String,
+      },
+      /**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      min: {
+        type: Number,
+      },
+      /**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      max: {
+        type: Number,
+      },
+      /**
+       * Overrides the step value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      step: {
+        type: String, // string, because "any" is also a valid step
       },
       /**
        * Overrides the readonly value from the **specs**.

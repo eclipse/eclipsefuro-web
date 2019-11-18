@@ -97,6 +97,32 @@ class FuroDataSearchInput extends FBP(LitElement) {
     Helper.UpdateInputAttribute(this, "errortext", value);
   }
 
+  /**
+   * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+   * becaue it set "undefined" (as a Sting!)
+   *
+   * @param value
+   */
+  set _pattern(value) {
+    Helper.UpdateInputAttribute(this, "pattern", value);
+  }
+
+  /**
+   * Updater for the min => minlength attr*
+   * @param value
+   */
+  set _min(value) {
+    Helper.UpdateInputAttribute(this, "min", value);
+  }
+
+  /**
+   * Updater for the max attr*
+   * @param value
+   */
+  set _max(value) {
+    Helper.UpdateInputAttribute(this, "max", value);
+  }
+
   static get properties() {
     return {
 
@@ -117,12 +143,36 @@ class FuroDataSearchInput extends FBP(LitElement) {
         type: Boolean
       },
       /**
+       * Overrides the pattern from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      pattern: {
+        type: String
+      },
+      /**
        * Overrides the hint text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
        */
       hint: {
         type: String,
+      },
+      /**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      min: {
+        type: Number,
+      },
+      /**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */
+      max: {
+        type: Number,
       },
       /**
        * Overrides the readonly value from the **specs**.

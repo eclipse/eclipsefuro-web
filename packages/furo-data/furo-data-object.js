@@ -29,6 +29,7 @@ import {Env} from "@furo/framework"
  * @summary Typed data object
  * @customElement
  * @demo demo-furo-data-object Basic usage
+ * @demo demo-furo-data-object-validator object validator demo
  * @appliesMixin FBP
  */
 class FuroDataObject extends (LitElement) {
