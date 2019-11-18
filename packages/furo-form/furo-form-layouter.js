@@ -14,7 +14,7 @@ import {FBP} from "@furo/fbp";
  * The required variant is set using an attribute.
  * e.g. two, four
  *
- * <demo-furo-form-layouter></demo-furo-form-layouter>
+ * <furo-form-layouter></furo-form-layouter>
  *
  * Tags: form
  * @summary Grid based form field row

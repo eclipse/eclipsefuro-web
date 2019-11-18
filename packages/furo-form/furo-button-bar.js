@@ -5,10 +5,10 @@ import "@furo/layout/furo-horizontal-flex"
 /**
  * `furo-button-bar`
  *
- *
+ * Tags: form
  * @summary
  * @customElement
- * @demo demo/demo-furo-form-layouter
+ * @demo demo-furo-button-bar Demo button bar
  */
 class FuroButtonBar extends (LitElement) {
 
@@ -81,7 +81,7 @@ class FuroButtonBar extends (LitElement) {
      * Can be used to disable during pending requests
      * e.g. furo-entity-agent @-request-started until @-response or @-response-error
      */
-    disableAll(){
+    disableAll() {
         let elems = this.querySelectorAll('*');
         elems.forEach((item) => {
             item.setAttribute('disabled', '');
@@ -92,8 +92,15 @@ class FuroButtonBar extends (LitElement) {
      * Enables all elements inside if check is true
      * Can be used to enable after a request
      */
-    enableAll(){
-        this._updateElements(this._entity);
+    enableAll() {
+        if (this._entity && this._entity.data) {
+            this._updateElements(this._entity);
+        } else {
+            let elems = this.querySelectorAll('*');
+            elems.forEach((item) => {
+                item.removeAttribute('disabled');
+            });
+        }
     }
 
     /**
@@ -145,25 +152,21 @@ class FuroButtonBar extends (LitElement) {
                 item.setAttribute('hidden', '');
             }
             // pristine
-            else if (item.getAttribute('hide-pristine') !== null && entity._pristine){
-                    item.setAttribute('hidden', '');
-            }
-            else {
+            else if (item.getAttribute('hide-pristine') !== null && entity._pristine) {
+                item.setAttribute('hidden', '');
+            } else {
                 item.removeAttribute('hidden');
             }
 
             // disable path
-            if (item.getAttribute('rel') !== null && item.getAttribute('rel').length > 0 && rels.indexOf(item.getAttribute('rel')) !== -1 &&
+            if (item.getAttribute('rel') !== null && item.getAttribute('rel').length > 0 && rels.indexOf(item.getAttribute('rel')) === -1 &&
                 item.getAttribute('disable-no-rel') !== null) {
                 item.setAttribute('disabled', '');
-            }
-            else if (item.getAttribute('disable-not-valid') !== null && !entity._isValid){
+            } else if (item.getAttribute('disable-not-valid') !== null && !entity._isValid) {
                 item.setAttribute('disabled', '');
-            }
-            else if (item.getAttribute('disable-pristine') !== null && entity._pristine){
+            } else if (item.getAttribute('disable-pristine') !== null && entity._pristine) {
                 item.setAttribute('disabled', '');
-            }
-            else {
+            } else {
                 item.removeAttribute('disabled');
             }
 
@@ -185,16 +188,10 @@ class FuroButtonBar extends (LitElement) {
             }
 
             ::slotted(*) {
-                margin: var(--spacing-xs, 8px);
+                margin: var(--spacing-xs, 8px) var(--spacing-xs, 8px) var(--spacing-xs, 8px) 0;
             }
 
-            ::slotted(*:first-child) {
-                margin-left: 0;
-            }
-
-            ::slotted(*:last-child) {
-                margin-right: 0;
-            }
+            
 
             furo-horizontal-flex {
                 flex-wrap: wrap;

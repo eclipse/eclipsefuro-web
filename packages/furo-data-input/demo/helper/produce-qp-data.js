@@ -75,7 +75,7 @@ class ProduceQpData extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-      <furo-button label="load test data" raised></furo-button>
+      <furo-button label="load test data" outline></furo-button>
     `;
     }
 }
