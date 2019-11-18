@@ -80,7 +80,7 @@ class DemoFuroButtonBar extends FBP(LitElement) {
                         <produce-qp-data ƒ-produce="--load" @-data="--qp" qp={"tsk":1}></produce-qp-data>
                         
                         <furo-deep-link service="TaskService" ƒ-qp-in="--qp" @-hts-out="--hts"></furo-deep-link>
-                        <furo-entity-agent service="TaskService" ƒ-hts-in="--hts" ƒ-load="--load" load-on-hts-in
+                        <furo-entity-agent service="TaskService" ƒ-hts-in="--hts" load-on-hts-in
                                            @-request-started="--reqStarted"
                                            @-response="--response"></furo-entity-agent>
                         <furo-data-object type="task.TaskEntity" @-object-ready="--entity"
