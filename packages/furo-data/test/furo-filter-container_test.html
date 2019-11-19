@@ -18,15 +18,25 @@
   <template>
     <test-bind>
     <template>
-     <furo-filter-container></furo-filter-container>
-     </template>
+        <furo-filter-container>
+            <furo-filter-and>
+                <furo-filter-field field="description" is="in" ƒ-.value="--valueChanged"></furo-filter-field>
+                <furo-filter-field field="start" is="gte" ƒ-.value="--valueChanged"></furo-filter-field>
+                <furo-filter-or>
+                    <furo-filter-field field="end" is="lte" ƒ-.value="--valueChanged"></furo-filter-field>
+                    <furo-filter-field field="cost_limit" is="eq" ƒ-.value="--valueChanged"></furo-filter-field>
+                </furo-filter-or>
+            </furo-filter-and>
+        </furo-filter-container>
+        <furo-text-input id="input" @-value-changed="--valueChanged"></furo-text-input>
+    </template>
     </test-bind>
   </template>
 </test-fixture>
 
 <script type="module">
   import "../furo-catalog.js"
-
+  import "@furo/input/furo-text-input.js"
   import "@furo/fbp/testhelper/test-bind"; // for testing
   import "@furo/testhelper/initEnv.js"
   import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
@@ -34,21 +44,37 @@
   describe('furo-filter-container tests ', function () {
 
 
-    let element = {};
+    let host, filterContainer, input;
 
     beforeEach(async () => {
       let fix = fixture('basic');
-      element = fix[1];
-      await element.updateComplete;
+      host = fix[0]._host;
+
+      filterContainer = fix[1];
+      await filterContainer.updateComplete;
+
+      input = fix[2];
+      await input.updateComplete;
 
     });
 
 
     it('should be a furo-filter-container', (done) => {
-      assert.equal(element.nodeName.toLowerCase(), "furo-filter-container");
+      assert.equal(filterContainer.nodeName.toLowerCase(), "furo-filter-container");
       done()
     });
 
+    it('should be trigger filter-changed event with filter detail when filter fields are changed', (done) => {
+      filterContainer.addEventListener("filter-changed", (e)=>{
+
+        assert.equal(JSON.stringify(e.detail), '[["description","in","test",[["start","gte","test",[["end","lte","test"],["cost_limit","eq","test"]]]]]]');
+        done();
+      }, {once:true});
+
+      let customEvent = new Event('value-changed', {composed: true, bubbles: true});
+      customEvent.detail = "test";
+      input.dispatchEvent(customEvent);
+    });
 
   });
 </script>
