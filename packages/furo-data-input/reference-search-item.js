@@ -51,15 +51,14 @@ class ReferenceSearchItem extends FBP(LitElement) {
         }
 
         :host([hover]) div {
-            background-color: lightgray;
+            background-color: var(--surface-dark, #FEA222);
         }
 
         :host(:hover) div {
-            background-color: #f0f0f0;
+            background-color: var(--surface-light, #FEFEFE);
         }
 
         div {
-            border-bottom: 1px solid var(--primary);
             padding: 8px;
             cursor: pointer;
             box-sizing: border-box;

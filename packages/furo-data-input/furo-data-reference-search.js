@@ -39,408 +39,411 @@ import {Helper} from "./lib/helper";
  */
 class FuroDataReferenceSearch extends FBP(LitElement) {
 
-  constructor() {
-    super();
-    this._minTermLength = 0;
-    this.valueField = "id";
-    this.displayField = "display_name";
-  }
+    constructor() {
+        super();
+        this._minTermLength = 0;
+        this.valueField = "id";
+        this.displayField = "display_name";
+    }
 
-
-  /**
-   * flow is ready lifecycle method
-   */
-  _FBPReady() {
-    super._FBPReady();
-    //this._FBPTraceWires();
-    // check initial overrides
-    CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-  }
-
-
-  _init() {
-
-    this.addEventListener("searchInput", (e) => {
-      // by valid input reset meta and constraints
-      CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-      this._searchTerm = e.detail;
-
-      if (!this.searchOnEnterOnly) {
-        this._fireSearchEvent();
-      }
-    });
-
-
-
-    this._FBPAddWireHook("--itemSelected", (item) => {
-
-      this.field.id._value = item.data[this.valueField];
-      this.field.display_name._value = item.data[this.displayField];
-      this._updateField();
-      this._closeList();
-    });
 
     /**
-     * listen to keyboard events
+     * flow is ready lifecycle method
      */
-    this.addEventListener("keydown", (event) => {
-      let key = event.key || event.keyCode;
-
-      if (key === 'Escape' || key === 'Esc' || key === 27) {
-
-        this._updateField();
-
-        if (this._listIsOpen) {
-          // close list if open and  then clear search
-          event.preventDefault();
-        }
-        this._closeList();
-        if (this._searchTerm === "") {
-          event.preventDefault();
-          // re set display_name
-
-        }
-      }
-
-      // keyboard navigation
-      if (this._listIsOpen) {
-        if (key === "Enter") {
-          event.preventDefault();
-          this._FBPTriggerWire("--enterPressedForSelect");
-        }
-        if (key === "ArrowDown") {
-          event.preventDefault();
-          this._FBPTriggerWire("--arrowDownPressed");
-        }
-        if (key === "ArrowUp") {
-          event.preventDefault();
-          this._FBPTriggerWire("--arrowUpPressed");
-        }
-      } else {
-        // list is closed
-        if (key === "ArrowDown") {
-          this._showList();
-        }
-        if (key === "Enter") {
-          if (this.searchOnEnterOnly) {
-            event.preventDefault();
-            this._fireSearchEvent();
-          }
-        }
-      }
-    });
-
-
-    // lock blur for slow clickers
-    this.addEventListener("mousedown", (event) => {
-      this._lockBlur = true;
-    });
-    // unlock after long click
-    this.addEventListener("mouseup", (event) => {
-      this._lockBlur = false;
-    });
-
-    // close list on blur
-    this._FBPAddWireHook("--blured", (item) => {
-      this._focused = false;
-      if (!this._lockBlur) {
-        this._closeList();
-      }
-    });
-
-    // opens the list on focus
-    this._FBPAddWireHook("--focused", (item) => {
-      this._focused = true;
-      if (this._hasCollection) {
-        this._showList();
-      }
-    });
-
-    this.requestUpdate();
-
-  }
-
-
-  _fireSearchEvent() {
-
-    if (this._searchTerm && this._searchTerm.length >= this._minTermLength) {
-      /**
-       * @event search
-       * Fired when term is entered and bigger then min-term-length
-       * detail payload: {String} term
-       */
-      let customEvent = new Event('search', {composed: true, bubbles: true});
-      customEvent.detail = this._searchTerm;
-      this.dispatchEvent(customEvent);
-    }
-  }
-
-  _showList() {
-    this._listIsOpen = true;
-    this.setAttribute("show-list", "");
-    let arrCollection = this._collection;
-    let index = 0;
-
-    for (let i = 0; i < arrCollection.length; i++) {
-
-      if (arrCollection[i].data && arrCollection[i].data[this.valueField] == this.field.id._value) {
-        index = i;
-        break;
-      }
-    }
-    // trigger wire to select item
-    this._FBPTriggerWire("--listOpened", index);
-  }
-
-  _closeList() {
-    this._listIsOpen = false;
-    this.removeAttribute("show-list");
-  }
-
-  /**
-   * Updater for the min => minlength attr
-   * same problem like in pattern
-   *
-   * @param value
-   */
-  set _minTermLength(value) {
-    this.__minTermLength = value;
-    Helper.UpdateInputAttribute(this, "min", value);
-  }
-
-  get _minTermLength(){
-    return this.__minTermLength;
-  }
-  /**
-   * Updater for the label attr
-   * @param value
-   */
-  set _label(value) {
-    Helper.UpdateInputAttribute(this, "label", value);
-  }
-
-  /**
-   * Updater for the hint attr
-   * @param value
-   */
-  set _hint(value) {
-    Helper.UpdateInputAttribute(this, "hint", value);
-  }
-
-  /**
-   * Updater for the errortext attr
-   * @param value
-   */
-  set errortext(value) {
-    Helper.UpdateInputAttribute(this, "errortext", value);
-  }
-
-  /**
-   * @private
-   * @return {Object}
-   */
-  static get properties() {
-
-    return {
-      /**
-       * the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object
-       */
-      valueField: {type: String, attribute: 'value-field'},
-      /**
-       * the field name of reference-item which should be used as display which will be showed in the dropdown.
-       */
-      displayField: {
-        type: String,
-        attribute: "display-field"
-      },
-      /**
-       * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
-       *
-       * If you bind a scalar, you dont need this attribute.
-       */
-      subfield: {
-        type: String,
-      },
-      /**
-       * this property saves the value of the displayField of selected item from collection
-       */
-      _displayName: {
-        type: String
-      },
-      /**
-       * mark if the collection is already loaded
-       */
-      _hasCollection: {
-        type: Boolean
-      },
-      /**
-       * the loaded collection
-       */
-      _collection: {
-        type: Array
-      },
-      /**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      label: {
-        type: String,
-      },
-      /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean
-      },
-      /**
-       * Overrides the hint text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      hint: {
-        type: String,
-      },
-      /**
-       * Overrides the min value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      minTermLength: {
-        type: Number,
-        attribute: 'min-term-length'
-      },
-      /**
-       * Enable this, to avoid the automatic triggering of "search".
-       *
-       * The user have to press enter to trigger the search. Min-term-length is respected.
-       */
-      searchOnEnterOnly: {
-        type: Boolean,
-        attribute: 'search-on-enter-only'
-      },
-      /**
-       * Overrides the readonly value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      readonly: {
-        type: Boolean,
-      },
-      /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      disabled: {
-        type: Boolean, reflect: true
-      },
-
-      /**
-       * Set this attribute to autofocus the input field.
-       */
-      autofocus: {
-        type: Boolean
-      },
-      /**
-       * html input validity
-       */
-      valid: {
-        type: Boolean,
-        reflect: true
-      },
-      /**
-       * The default style (md like) supports a condensed form. It is a little bit smaller then the default
-       */
-      condensed: {
-        type: Boolean, reflect: true
-      },
-      /**
-       * passes always float the label
-       */
-      float: {
-        type: Boolean
-      }
-
-    };
-  }
-
-  /**
-   * Bind a entity field to the search-input. You can use the entity even when no data was received.
-   * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
-   * @param {Object|FieldNode} fieldNode a Field object
-   */
-  bindData(fieldNode) {
-
-    Helper.BindData(this, fieldNode);
-
-    this._init();
-  }
-
-  _updateField() {
-
-    if (this.field.display_name._value) {
-      this._FBPTriggerWire('--value', this.field.display_name._value);
+    _FBPReady() {
+        super._FBPReady();
+        //this._FBPTraceWires();
+        // check initial overrides
+        CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
     }
 
-    this.requestUpdate();
-  }
 
-  collectionIn(collection) {
+    _init() {
 
-    this._FBPTriggerWire("--listItemsIjnected", collection.entities);
-    this._hasCollection = true;
-    this._collection = collection.entities;
+        this.addEventListener("searchInput", (e) => {
+            // by valid input reset meta and constraints
+            CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
+            this._searchTerm = e.detail;
 
-    if (this._focused) {
-      this._showList();
+            if (!this.searchOnEnterOnly) {
+                this._fireSearchEvent();
+            }
+        });
+
+
+        this._FBPAddWireHook("--itemSelected", (item) => {
+
+            this.field.id._value = item.data[this.valueField];
+            this.field.display_name._value = item.data[this.displayField];
+            this._updateField();
+            this._closeList();
+        });
+
+        /**
+         * listen to keyboard events
+         */
+        this.addEventListener("keydown", (event) => {
+            let key = event.key || event.keyCode;
+
+            if (key === 'Escape' || key === 'Esc' || key === 27) {
+
+                this._updateField();
+
+                if (this._listIsOpen) {
+                    // close list if open and  then clear search
+                    event.preventDefault();
+                }
+                this._closeList();
+                if (this._searchTerm === "") {
+                    event.preventDefault();
+                    // re set display_name
+
+                }
+            }
+
+            // keyboard navigation
+            if (this._listIsOpen) {
+                if (key === "Enter") {
+                    event.preventDefault();
+                    this._FBPTriggerWire("--enterPressedForSelect");
+                }
+                if (key === "ArrowDown") {
+                    event.preventDefault();
+                    this._FBPTriggerWire("--arrowDownPressed");
+                }
+                if (key === "ArrowUp") {
+                    event.preventDefault();
+                    this._FBPTriggerWire("--arrowUpPressed");
+                }
+            } else {
+                // list is closed
+                if (key === "ArrowDown") {
+                    this._showList();
+                }
+                if (key === "Enter") {
+                    if (this.searchOnEnterOnly) {
+                        event.preventDefault();
+                        this._fireSearchEvent();
+                    }
+                }
+            }
+        });
+
+
+        // lock blur for slow clickers
+        this.addEventListener("mousedown", (event) => {
+            this._lockBlur = true;
+        });
+        // unlock after long click
+        this.addEventListener("mouseup", (event) => {
+            this._lockBlur = false;
+        });
+
+        // close list on blur
+        this._FBPAddWireHook("--blured", (item) => {
+            this._focused = false;
+            if (!this._lockBlur) {
+                this._closeList();
+            }
+        });
+
+        // opens the list on focus
+        this._FBPAddWireHook("--focused", (item) => {
+            this._focused = true;
+            if (this._hasCollection) {
+                this._showList();
+            }
+        });
+
+        this.requestUpdate();
+
     }
-  }
 
-  /**
-   * Themable Styles
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: inline-block;
-            position: relative;
+
+    _fireSearchEvent() {
+
+        if (this._searchTerm && this._searchTerm.length >= this._minTermLength) {
+            /**
+             * @event search
+             * Fired when term is entered and bigger then min-term-length
+             * detail payload: {String} term
+             */
+            let customEvent = new Event('search', {composed: true, bubbles: true});
+            customEvent.detail = this._searchTerm;
+            this.dispatchEvent(customEvent);
+        }
+    }
+
+    _showList() {
+        this._listIsOpen = true;
+        this.setAttribute("show-list", "");
+        let arrCollection = this._collection;
+        let index = 0;
+
+        for (let i = 0; i < arrCollection.length; i++) {
+
+            if (arrCollection[i].data && arrCollection[i].data[this.valueField] == this.field.id._value) {
+                index = i;
+                break;
+            }
+        }
+        // trigger wire to select item
+        this._FBPTriggerWire("--listOpened", index);
+    }
+
+    _closeList() {
+        this._listIsOpen = false;
+        this.removeAttribute("show-list");
+    }
+
+    /**
+     * Updater for the min => minlength attr
+     * same problem like in pattern
+     *
+     * @param value
+     */
+    set _minTermLength(value) {
+        this.__minTermLength = value;
+        Helper.UpdateInputAttribute(this, "min", value);
+    }
+
+    get _minTermLength() {
+        return this.__minTermLength;
+    }
+
+    /**
+     * Updater for the label attr
+     * @param value
+     */
+    set _label(value) {
+        Helper.UpdateInputAttribute(this, "label", value);
+    }
+
+    /**
+     * Updater for the hint attr
+     * @param value
+     */
+    set _hint(value) {
+        Helper.UpdateInputAttribute(this, "hint", value);
+    }
+
+    /**
+     * Updater for the errortext attr
+     * @param value
+     */
+    set errortext(value) {
+        Helper.UpdateInputAttribute(this, "errortext", value);
+    }
+
+    /**
+     * @private
+     * @return {Object}
+     */
+    static get properties() {
+
+        return {
+            /**
+             * the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object
+             */
+            valueField: {type: String, attribute: 'value-field'},
+            /**
+             * the field name of reference-item which should be used as display which will be showed in the dropdown.
+             */
+            displayField: {
+                type: String,
+                attribute: "display-field"
+            },
+            /**
+             * if you bind a complex type, declare here the field which gets updated of value by selecting an item.
+             *
+             * If you bind a scalar, you dont need this attribute.
+             */
+            subfield: {
+                type: String,
+            },
+            /**
+             * this property saves the value of the displayField of selected item from collection
+             */
+            _displayName: {
+                type: String
+            },
+            /**
+             * mark if the collection is already loaded
+             */
+            _hasCollection: {
+                type: Boolean
+            },
+            /**
+             * the loaded collection
+             */
+            _collection: {
+                type: Array
+            },
+            /**
+             * Overrides the label text from the **specs**.
+             *
+             * Use with caution, normally the specs defines this value.
+             */
+            label: {
+                type: String,
+            },
+            /**
+             * Overrides the required value from the **specs**.
+             *
+             * Use with caution, normally the specs defines this value.
+             */
+            required: {
+                type: Boolean
+            },
+            /**
+             * Overrides the hint text from the **specs**.
+             *
+             * Use with caution, normally the specs defines this value.
+             */
+            hint: {
+                type: String,
+            },
+            /**
+             * Overrides the min value from the **specs**.
+             *
+             * Use with caution, normally the specs defines this value.
+             */
+            minTermLength: {
+                type: Number,
+                attribute: 'min-term-length'
+            },
+            /**
+             * Enable this, to avoid the automatic triggering of "search".
+             *
+             * The user have to press enter to trigger the search. Min-term-length is respected.
+             */
+            searchOnEnterOnly: {
+                type: Boolean,
+                attribute: 'search-on-enter-only'
+            },
+            /**
+             * Overrides the readonly value from the **specs**.
+             *
+             * Use with caution, normally the specs defines this value.
+             */
+            readonly: {
+                type: Boolean,
+            },
+            /**
+             * A Boolean attribute which, if present, means this field cannot be edited by the user.
+             */
+            disabled: {
+                type: Boolean, reflect: true
+            },
+
+            /**
+             * Set this attribute to autofocus the input field.
+             */
+            autofocus: {
+                type: Boolean
+            },
+            /**
+             * html input validity
+             */
+            valid: {
+                type: Boolean,
+                reflect: true
+            },
+            /**
+             * The default style (md like) supports a condensed form. It is a little bit smaller then the default
+             */
+            condensed: {
+                type: Boolean, reflect: true
+            },
+            /**
+             * passes always float the label
+             */
+            float: {
+                type: Boolean
+            }
+
+        };
+    }
+
+    /**
+     * Bind a entity field to the search-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */
+    bindData(fieldNode) {
+
+        Helper.BindData(this, fieldNode);
+
+        this._init();
+    }
+
+    _updateField() {
+
+        if (this.field.display_name._value) {
+            this._FBPTriggerWire('--value', this.field.display_name._value);
         }
 
-        .list {
-            position: absolute;
-            top: 70px;
-            left: 0;
-            right: 0;
-            overflow: auto;
-            max-height: 300px;
-            background-color: white;
-            z-index: 1;
-            opacity: 0.9;
-            display: none;
+        this.requestUpdate();
+    }
+
+    collectionIn(collection) {
+
+        this._FBPTriggerWire("--listItemsIjnected", collection.entities);
+        this._hasCollection = true;
+        this._collection = collection.entities;
+
+        if (this._focused) {
+            this._showList();
         }
+    }
 
-        :host([show-list]) .list {
-            display: block;
-        }
+    /**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */
+    static get styles() {
+        // language=CSS
+        return Theme.getThemeForComponent(this.name) || css`
+            :host {
+                display: inline-block;
+                position: relative;
+            }
 
-        furo-search-input {
-            width: 100%;
-        }
-    `
-  }
+            .list {
+                position: absolute;
+                top: 51px;
+                left: 0;
+                right: 0;
+                overflow: auto;
+                max-height: 300px;
+                background-color: var(--surface, #ffffff);
+                border-radius: 4px;
+                z-index: 1;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                display: none;
+            }
+
+            :host([show-list]) .list {
+                display: block;
+            }
+
+            furo-search-input {
+                width: 100%;
+            }
+        `
+    }
 
 
-  /**
-   * @private
-   * @returns {TemplateResult}
-   */
-  render() {
-    // language=HTML
-    return html`
+    /**
+     * @private
+     * @returns {TemplateResult}
+     */
+    render() {
+        // language=HTML
+        return html`
     <furo-search-input id="input"
       trailing-icon="search" 
       ?autofocus=${this.autofocus} 
@@ -458,7 +461,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
              
     </div>                                
 `;
-  }
+    }
 
 }
 
