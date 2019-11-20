@@ -353,9 +353,12 @@ export const FBP = (superClass) => {
                                     type = "fireBubble";
                                 }
 
-                            } else if (trimmedWire == ':STOP') {
+                            } else if (trimmedWire === ':STOP') {
                                 type = "stop";
                                 wire = "stop";
+                            } else if (trimmedWire === ':PREVENTDEFAULT') {
+                                type = "preventdefault";
+                                wire = "preventdefault";
                             } else {
                                 wire = trimmedWire;
                                 type = "call";
@@ -388,8 +391,10 @@ export const FBP = (superClass) => {
                 let handler = {
                     // prevent default and stop propagation
                     "stop": function (e) {
-                        e.preventDefault()
-                        e.stopPropagation()
+                        e.detail.stopPropagation();
+                    },
+                    "preventdefault": function (e) {
+                        e.detail.preventDefault();
                     },
 
                     "call": function (e) {
@@ -432,7 +437,7 @@ export const FBP = (superClass) => {
                             let customEvent = new Event(theEvent, {composed: false, bubbles: true});
                             // send details with *.sub or *
                             if (prop.startsWith("*")) {
-                                if (prop.length == 1) {
+                                if (prop.length === 1) {
                                     customEvent.detail = e;
                                 } else {
                                     customEvent.detail = self._pathGet(e, prop.substr(2))
@@ -455,7 +460,7 @@ export const FBP = (superClass) => {
                             let customEvent = new Event(theEvent, {composed: false, bubbles: true});
                             // send details with *.sub or *
                             if (prop.startsWith("*")) {
-                                if (prop.length == 1) {
+                                if (prop.length === 1) {
                                     customEvent.detail = e;
                                 } else {
                                     customEvent.detail = self._pathGet(e, prop.substr(2))
@@ -479,7 +484,7 @@ export const FBP = (superClass) => {
                             let customEvent = new Event(theEvent, {composed: true, bubbles: true});
                             // send details with *.sub or *
                             if (prop.startsWith("*")) {
-                                if (prop.length == 1) {
+                                if (prop.length === 1) {
                                     customEvent.detail = e;
                                 } else {
                                     customEvent.detail = self._pathGet(e, prop.substr(2))
