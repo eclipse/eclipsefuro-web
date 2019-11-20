@@ -1,5 +1,5 @@
 import {Env} from "./environment";
-import {i18n} from "./furo.js";
+import {i18n} from "./i18n";
 
 /**
  * The init class is used to init your *Env*, the API services and the API types.
