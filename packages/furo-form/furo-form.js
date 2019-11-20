@@ -118,7 +118,7 @@ class FuroForm extends FBP(LitElement) {
         }
 
         .content ::slotted(secondary) {
-            color: var(--secondary-color, var(--primary-light, #777777));
+            color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
             line-height: 22px;
             font-size: unset;
             display: block;
@@ -152,7 +152,7 @@ class FuroForm extends FBP(LitElement) {
         }
 
         .head span {
-            color: var(--secondary-color, var(--primary-light, #777777));
+            color: rgba(var(--on-surface-rgb, 33, 33, 33), var(--medium-emphasis-surface, 0.6));
             line-height: 22px;
         }
 
