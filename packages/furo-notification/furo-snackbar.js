@@ -225,16 +225,15 @@ class FuroSnackbar extends FBP(LitElement) {
     }
   }
 
-
-  /**
-   * @private
-   * @returns {TemplateResult}
-   */
-  render(){
-    return html`
-        `;
-  }
-
+  // set display none
+  static get styles() {
+    // language=CSS
+    return (
+      css`
+        :host {
+          display: none;
+        }`)
+  };
 }
 
 customElements.define('furo-snackbar', FuroSnackbar);
