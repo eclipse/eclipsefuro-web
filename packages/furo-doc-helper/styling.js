@@ -60,7 +60,11 @@ export class Styling {
             --spacing-l: 32px;
             --spacing-xl: 48px;
             --spacing-xxl: 96px;
-
+            
+            /* temporary workaround to make checkbox have a good looking. should be removed after refactoring the styling variables  */
+            --input-checkbox-selected-hover-bg-color: #f4f4f4;
+            --input-checkbox-disabled-unselected-bg-color: #eeeeee;
+            --input-checkbox-disabled-unselected-border-color: #eeeeee;
         }
 
     `;
