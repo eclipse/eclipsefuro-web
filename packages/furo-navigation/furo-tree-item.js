@@ -20,6 +20,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     super();
     this.hidden = true;
     this.isGroupLabel = false;
+    this.indentation = 0;
   }
 
 
@@ -83,7 +84,7 @@ export class FuroTreeItem extends FBP(LitElement) {
 
     // build index later (50ms), a human user can not react earlyer
     setTimeout(() => {
-      let tmpArr = []
+      let tmpArr = [];
       this.fieldNode.__childNodes.filter((field) => {
         // maybe change to fields-to-index list
         if (typeof field._value === "string") {
@@ -115,6 +116,7 @@ export class FuroTreeItem extends FBP(LitElement) {
 
   bindData(fieldNode) {
     this.fieldNode = fieldNode;
+    this.indentation = this.fieldNode.depth;
     this.fieldNode._isHidden = true;
     if(fieldNode.is_group_label){
       this.isGroupLabel = fieldNode.is_group_label._value;
@@ -345,6 +347,45 @@ export class FuroTreeItem extends FBP(LitElement) {
             text-transform: uppercase;
         }
 
+        .indentation-0 .indentation{
+          width: var(--indentation-0, 0);
+        }
+        .indentation-1 .indentation{
+          width: var(--indentation-1, 16px);
+        }
+        .indentation-2 .indentation{
+          width: var(--indentation-2, 32px);
+        }
+        .indentation-3 .indentation{
+          width: var(--indentation-3, 48px);
+        }
+        .indentation-4 .indentation{
+          width: var(--indentation-4, 56px);
+        }
+        .indentation-5 .indentation{
+          width: var(--indentation-5, 64px);
+        }
+        .indentation-6 .indentation{
+          width: var(--indentation-6, 72px);
+        }        
+        .indentation-7 .indentation{
+          width: var(--indentation-7, 80px);
+        }        
+        .indentation-8 .indentation{
+          width: var(--indentation-8, 88px);
+        }       
+        .indentation-9 .indentation{
+          width: var(--indentation-9, 92px);
+        }       
+        .indentation-10 .indentation{
+          width: var(--indentation-10, 96px);
+        }      
+        .indentation-11 .indentation{
+          width: var(--indentation-11, 100px);
+        }      
+        .indentation-12 .indentation{
+          width: var(--indentation-12, 104px);
+        }
     `
   }
 
@@ -356,10 +397,9 @@ export class FuroTreeItem extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-<furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${(e) => this.fieldNode.triggerHover()}">
-      <div style="width: ${this.fieldNode.depth * 8}px"></div>
-      <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>      
-            
+<furo-horizontal-flex class="indentation-${this.indentation}" @-dblclick="--dblclicked" @mouseenter="${(e) => this.fieldNode.triggerHover()}">
+      <div class="indentation" @-click="--labelClicked"></div>
+      <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>                 
       <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error._value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
 </furo-horizontal-flex>
 
