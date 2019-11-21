@@ -348,43 +348,43 @@ export class FuroTreeItem extends FBP(LitElement) {
         }
 
         .indentation-0 .indentation{
-          width: var(--indentation-0, 0);
+          width: var(--tree-indentation-0, 0);
         }
         .indentation-1 .indentation{
-          width: var(--indentation-1, 16px);
+          width: var(--tree-indentation-1, 16px);
         }
         .indentation-2 .indentation{
-          width: var(--indentation-2, 32px);
+          width: var(--tree-indentation-2, 32px);
         }
         .indentation-3 .indentation{
-          width: var(--indentation-3, 48px);
+          width: var(--tree-indentation-3, 48px);
         }
         .indentation-4 .indentation{
-          width: var(--indentation-4, 56px);
+          width: var(--tree-indentation-4, 56px);
         }
         .indentation-5 .indentation{
-          width: var(--indentation-5, 64px);
+          width: var(--tree-indentation-5, 64px);
         }
         .indentation-6 .indentation{
-          width: var(--indentation-6, 72px);
+          width: var(--tree-indentation-6, 72px);
         }        
         .indentation-7 .indentation{
-          width: var(--indentation-7, 80px);
+          width: var(--tree-indentation-7, 80px);
         }        
         .indentation-8 .indentation{
-          width: var(--indentation-8, 88px);
+          width: var(--tree-indentation-8, 88px);
         }       
         .indentation-9 .indentation{
-          width: var(--indentation-9, 92px);
+          width: var(--tree-indentation-9, 92px);
         }       
         .indentation-10 .indentation{
-          width: var(--indentation-10, 96px);
+          width: var(--tree-indentation-10, 96px);
         }      
         .indentation-11 .indentation{
-          width: var(--indentation-11, 100px);
+          width: var(--tree-indentation-11, 100px);
         }      
         .indentation-12 .indentation{
-          width: var(--indentation-12, 104px);
+          width: var(--tree-indentation-12, 104px);
         }
     `
   }
