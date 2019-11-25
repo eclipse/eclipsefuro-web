@@ -360,6 +360,18 @@ class FuroTree extends FBP(LitElement) {
        */
       tabindex: {type: Number, reflect: true},
       /**
+       * Set this flag if you do not want a header-text section.
+       */
+      noheader: {type: Boolean},
+      /**
+       * Override display name from root object
+       */
+      headerText: {type: String, attribute: "header-text"},
+      /**
+       * Override description from root object.
+       */
+      secondaryText: {type: String, attribute: "secondary-text"},
+      /**
        * indicator for searching. Maybe you want style your item depending on this attribute
        */
       _searchIsActive: {type: Boolean, attribute: "searching", reflect: true}
@@ -470,6 +482,30 @@ class FuroTree extends FBP(LitElement) {
         :host([searching]:focus-within) .srch {
             display: block;
         }
+
+      .title {
+        font-size: 20px;
+        height: 40px;
+        line-height: 56px;
+        padding-left: var(--spacing-s, 16px);
+      }
+
+      .secondary {
+        font-size: 14px;
+        height: 24px;
+        letter-spacing: 0.1px;
+        padding-left: var(--spacing-s, 16px);
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        line-height: 20px;
+      }
+
+      .head {
+        height: 64px;
+      }
+
+      :host([noheader]) .head {
+        display: none;
+      }
     `
   }
 
@@ -482,6 +518,10 @@ class FuroTree extends FBP(LitElement) {
     // language=HTML
     return html`
     <div class="srch">⌖ ${this._searchTerm}</div>
+     <div class="head">
+        <div class="title">${this._headerText}</div>
+        <div class="secondary">${this._secondaryText}</div>
+      </div>
       <div class="tablewrapper">
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
@@ -506,11 +546,18 @@ class FuroTree extends FBP(LitElement) {
     this._rootNode = treeNode.root;
 
     this._rootNode.addEventListener("this-repeated-field-changed", (e) => {
+      this._setTitle(treeNode);
       this._init();
     });
-
+    this._setTitle(treeNode);
     this._init();
 
+  }
+
+  _setTitle(treeNode) {
+    this._headerText = this.headerText || treeNode.display_name._value;
+    this._secondaryText = this.secondaryText || treeNode.description._value;
+    this.requestUpdate();
   }
 
   _init() {
