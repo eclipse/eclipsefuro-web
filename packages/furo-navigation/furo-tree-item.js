@@ -5,6 +5,7 @@ import "@furo/layout/furo-horizontal-flex";
 import "@furo/data-input/furo-data-bool-icon";
 import {NodeEvent} from "@furo/data/lib/EventTreeNode";
 
+
 /**
  * `furo-tree-item`
  * todo Describe your element
@@ -208,12 +209,18 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode.addEventListener("this-node-hovered", (e) => {
       this.hovered = true;
       //this.scrollIntoViewIfNeeded();
+      if(this.scrollIntoViewIfNeeded){
+        this.scrollIntoViewIfNeeded();
+      }
     });
 
     this.fieldNode.addEventListener("this-node-selected", (e) => {
       this.selected = true;
       this.fieldNode._isSelected = true;
-      //this.scrollIntoViewIfNeeded();
+      if(this.scrollIntoViewIfNeeded){
+        this.scrollIntoViewIfNeeded();
+      }
+
     });
 
     // This item is not or no more in the search results
@@ -336,12 +343,14 @@ export class FuroTreeItem extends FBP(LitElement) {
 
       }
 
+      
       :host([is-group-label]) {
         border-top: 1px solid var(--separator, #cdcdcd);
         margin-top: var(--spacing-xs);
         padding-top: var(--spacing-xxs);;
       }
 
+      
       :host([is-group-label]) .label {
         font-size: 14px;
         line-height: 20px;

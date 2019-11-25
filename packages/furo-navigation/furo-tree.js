@@ -413,7 +413,7 @@ class FuroTree extends FBP(LitElement) {
 
       .tablewrapper {
         overflow: auto;
-        height: 100%;
+
       }
 
       :host([hidden]) {
@@ -431,7 +431,7 @@ class FuroTree extends FBP(LitElement) {
         box-sizing: border-box;
       }
 
-      
+
       /* hover */
       td > *[hovered] {
         background-color: rgba(var(--primary-rgb), var(--state-hover));
@@ -444,7 +444,7 @@ class FuroTree extends FBP(LitElement) {
         background-color: rgba(var(--primary-rgb), var(--state-selected));
         color: var(--primary);
       }
-      
+
       /* selected focus  */
       :host(:focus-within) td > *[selected] {
         background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
@@ -457,8 +457,8 @@ class FuroTree extends FBP(LitElement) {
         background-color: rgba(var(--primary-rgb), var(--state-selected-hover));
         color: var(--primary);
       }
-      
- 
+
+
       .srch {
         display: none;
         position: absolute;
@@ -523,11 +523,12 @@ class FuroTree extends FBP(LitElement) {
     // language=HTML
     return html`
     <div class="srch">⌖ ${this._searchTerm}</div>
+     <furo-vertical-flex>
      <div class="head">
         <div class="title">${this._headerText}</div>
         <div class="secondary">${this._secondaryText}</div>
       </div>
-      <div class="tablewrapper">
+      <div class="tablewrapper" flex>
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
           <tr>
@@ -537,6 +538,7 @@ class FuroTree extends FBP(LitElement) {
           </tr>
         </template>
       </table>
+      </furo-vertical-flex>
       </div>
     `;
   }
@@ -839,10 +841,8 @@ class FuroTree extends FBP(LitElement) {
       return
     }
     tree.depth = level;
-    if(tree.is_group_label && tree.is_group_label._value === true){
-
-    }else{
-    level++;
+    if (!(tree.is_group_label && tree.is_group_label._value === true)) {
+      level++;
     }
 
 
