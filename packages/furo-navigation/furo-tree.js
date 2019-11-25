@@ -227,7 +227,7 @@ class FuroTree extends FBP(LitElement) {
   }
 
   selectById(nodeID) {
-    for (let i = this._flatTree.length-1; i >= 0; i--) {
+    for (let i = this._flatTree.length - 1; i >= 0; i--) {
       let node = this._flatTree[i];
       if (node.id._value == nodeID) {
         node.selectItem();
@@ -360,6 +360,18 @@ class FuroTree extends FBP(LitElement) {
        */
       tabindex: {type: Number, reflect: true},
       /**
+       * Set this flag if you do not want a header-text section.
+       */
+      noheader: {type: Boolean},
+      /**
+       * Override display name from root object
+       */
+      headerText: {type: String, attribute: "header-text"},
+      /**
+       * Override description from root object.
+       */
+      secondaryText: {type: String, attribute: "secondary-text"},
+      /**
        * indicator for searching. Maybe you want style your item depending on this attribute
        */
       _searchIsActive: {type: Boolean, attribute: "searching", reflect: true}
@@ -389,87 +401,114 @@ class FuroTree extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: block;
-            box-sizing: border-box;
-            height: 100%;
-            outline: none;
-            position: relative;
-            background: var(--surface,white);
-            color: var(--on-surface,#333333);
+      :host {
+        display: block;
+        box-sizing: border-box;
+        height: 100%;
+        outline: none;
+        position: relative;
+        background: var(--surface, white);
+        color: var(--on-surface, #333333);
+      }
+
+      .tablewrapper {
+        overflow: auto;
+        height: 100%;
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+
+      td {
+        padding: 0;
+      }
+
+      table {
+        border-spacing: 0;
+        min-width: 100%;
+      }
+
+      
+      /* hover */
+      td > *[hovered] {
+        background-color: rgba(var(--primary-rgb), var(--state-hover));
+        color: var(--primary);
+      }
+
+
+      /* selected */
+      td > *[selected], :host(:not(:focus-within)) td > *[selected] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected));
+        color: var(--primary);
+      }
+      
+      /* selected focus  */
+      :host(:focus-within) td > *[selected] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
+        color: var(--primary);
+      }
+
+
+      /* selected hover */
+      :host(:focus-within) td > *[selected][hovered] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected-hover));
+        color: var(--primary);
+      }
+      
+ 
+      .srch {
+        display: none;
+        position: absolute;
+        left: var(--spacing-xs, 8px);
+        bottom: var(--spacing-xs, 8px);
+        width: inherit;
+        border: 1px solid var(--primary, #57a9ff);
+        padding: 2px;
+        font-size: 11px;
+        z-index: 2;
+        animation: border-pulsate 2s;
+      }
+
+      @keyframes border-pulsate {
+        0% {
+          border-color: var(--primary, #57a9ff);
         }
-
-        .tablewrapper {
-            overflow: auto;
-            height: 100%;
+        50% {
+          border-color: var(--surface, #999999);
         }
-
-        :host([hidden]) {
-            display: none;
+        100% {
+          border-color: var(--primary, #57a9ff);
         }
+      }
 
-        td {
-            padding: 0;
-        }
+      :host([searching]:focus-within) .srch {
+        display: block;
+      }
 
-        table {
-            border-spacing: 0;
-            min-width: 100%;
-        }
+      .title {
+        font-size: 20px;
+        height: 40px;
+        line-height: 56px;
+        padding-left: var(--spacing-s, 16px);
+      }
 
+      .secondary {
+        font-size: 14px;
+        height: 24px;
+        letter-spacing: 0.1px;
+        padding-left: var(--spacing-s, 16px);
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        line-height: 20px;
+      }
 
-        :host(:not(:focus-within)) td > *[hovered] {
-            background: unset;
-        }
+      .head {
+        height: 64px;
+      }
 
-        :host(:focus-within) td > *[selected] {
-            background: var(--primary, #429cff);
-            color: var(--on-primary, white);
-        }
-
-        td > *[hovered] {
-            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
-        }
-
-        td > *[selected], :host(:not(:focus-within)) td > *[selected] {
-            background-color: var(--primary-dark, #429cff);
-            color: var(--on-primary, #FFFFFF);
-        }
-
-
-        :host(:focus-within) td > *[selected]:hover {
-            background: var(--primary, #57a9ff);
-        }
-
-
-        .srch {
-            display: none;
-            position: absolute;
-            left: var(--spacing-xs, 8px);
-            bottom: var(--spacing-xs, 8px);
-            width: inherit;
-            border: 1px solid var(--primary, #57a9ff);
-            padding: 2px;
-            font-size: 11px;
-            z-index: 2;
-            animation: border-pulsate 2s;
-        }
-
-        @keyframes border-pulsate {
-            0% {
-                border-color: var(--primary, #57a9ff);
-            }
-            50% {
-                border-color: var(--surface, #999999);
-            }
-            100% {
-                border-color: var(--primary, #57a9ff);
-            }
-        }
-
-        :host([searching]:focus-within) .srch {
-            display: block;
-        }
+      :host([noheader]) .head {
+        display: none;
+      }
     `
   }
 
@@ -482,6 +521,10 @@ class FuroTree extends FBP(LitElement) {
     // language=HTML
     return html`
     <div class="srch">⌖ ${this._searchTerm}</div>
+     <div class="head">
+        <div class="title">${this._headerText}</div>
+        <div class="secondary">${this._secondaryText}</div>
+      </div>
       <div class="tablewrapper">
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
@@ -505,12 +548,21 @@ class FuroTree extends FBP(LitElement) {
 
     this._rootNode = treeNode.root;
 
-    this._rootNode.addEventListener("this-repeated-field-changed", (e) => {
-      this._init();
-    });
 
+    this._rootNode.addEventListener("this-repeated-field-changed", (e) => {
+      this._setTitle(treeNode);
+      this._init();
+
+    });
+    this._setTitle(treeNode);
     this._init();
 
+  }
+
+  _setTitle(treeNode) {
+    this._headerText = this.headerText || treeNode.display_name._value;
+    this._secondaryText = this.secondaryText || treeNode.description._value;
+    this.requestUpdate();
   }
 
   _init() {
@@ -542,7 +594,6 @@ class FuroTree extends FBP(LitElement) {
       }, 0);
 
     }
-
   }
 
   _initHoverAndSelectEvents() {

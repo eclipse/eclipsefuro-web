@@ -20,6 +20,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     super();
     this.hidden = true;
     this.isGroupLabel = false;
+    this.indentation = 0;
   }
 
 
@@ -83,7 +84,7 @@ export class FuroTreeItem extends FBP(LitElement) {
 
     // build index later (50ms), a human user can not react earlyer
     setTimeout(() => {
-      let tmpArr = []
+      let tmpArr = [];
       this.fieldNode.__childNodes.filter((field) => {
         // maybe change to fields-to-index list
         if (typeof field._value === "string") {
@@ -115,8 +116,9 @@ export class FuroTreeItem extends FBP(LitElement) {
 
   bindData(fieldNode) {
     this.fieldNode = fieldNode;
+    this.indentation = this.fieldNode.depth;
     this.fieldNode._isHidden = true;
-    if(fieldNode.is_group_label){
+    if (fieldNode.is_group_label) {
       this.isGroupLabel = fieldNode.is_group_label._value;
     }
 
@@ -185,11 +187,11 @@ export class FuroTreeItem extends FBP(LitElement) {
     //this._FBPTraceWires()
 
     this._FBPAddWireHook("--labelClicked", (e) => {
-      if(this.isGroupLabel){
+      if (this.isGroupLabel) {
         // just toggle if this is a label
         this.fieldNode.open._value = !this.fieldNode.open._value;
-      }else{
-      this.fieldNode.selectItem();
+      } else {
+        this.fieldNode.selectItem();
       }
 
     });
@@ -240,111 +242,162 @@ export class FuroTreeItem extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: block;
-            line-height: 40px;
-            cursor: pointer;
-            font-weight: 400;
-            user-select: none;
-            padding-left: var(--spacing-xs, 16px);
-            border-radius: 2px;
-            position: relative;
+      :host {
+        display: block;
+        line-height: 40px;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-weight: 400;
+        user-select: none;
+        padding-left: var(--spacing-xs, 16px);
+        border-radius: 4px;
+        position: relative;
+        margin-bottom: var(--spacing-xxs, 4px);
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+
+      :host([inedit]) {
+        font-style: italic;
+      }
+
+      :host([haserror]),
+      :host([selected][haserror]) {
+        color: var(--error, red);
+      }
+
+      :host([haserror]) furo-icon {
+        animation: error-pulse 3s infinite;
+      }
+
+      .label {
+        white-space: nowrap;
+        font-size: 0.875rem;
+        letter-spacing: 0.2px;
+        margin-left: 8px;
+        font-weight: 500;
+      }
+
+      .desc {
+        font-size: smaller;
+        line-height: 39px;
+        white-space: nowrap;
+      }
+
+      .oc {
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        width: 12px;
+        box-sizing: border-box;
+        padding-left: 4px;
+        font-size: 8px;
+      }
+
+      :host([selected]) .oc {
+        color: rgba(var(--primary-rgb), var(--medium-emphasis-primary));
+      }
+
+      :host([searchmatch]) {
+        color: var(--primary);
+      }
+
+
+      furo-icon[error] {
+        animation: error-pulse 2s infinite;
+      }
+
+
+      furo-icon {
+
+        transition: all 0.4s;
+        width: 20px;
+        height: 20px;
+        margin-right: 4px;
+
+      }
+
+      @keyframes error-pulse {
+        0% {
+          fill: var(--on-primary, #46150f);
+        }
+        12% {
+          fill: var(--error, #fc4d34);
+        }
+        24% {
+          fill: var(--on-primary, #46150f);
+        }
+        36% {
+          fill: var(--error, #fc4d34);
+        }
+        48% {
+          fill: var(--on-primary, #46150f);
         }
 
-        :host([hidden]) {
-            display: none;
-        }
+      }
 
-        :host([inedit]) {
-            font-style: italic;
-        }
+      :host([is-group-label]) {
+        border-top: 1px solid var(--separator, #cdcdcd);
+      }
 
-        :host([haserror]),
-        :host([selected][haserror]) {
-            color: var(--error, red);
-        }
+      :host([is-group-label]) .label {
+        font-weight: 500;
+        font-size: 11px;
+        color: var(--separator, #cdcdcd);
+        text-transform: uppercase;
+      }
 
-        :host([haserror]) furo-icon {
-            animation: error-pulse 3s infinite;
-        }
+      .indentation-0 .indentation {
+        width: var(--tree-indentation-0, 0);
+      }
 
-        .label {
-            white-space: nowrap;
-            font-size: 0.875rem;
-            letter-spacing: 0.2px;
-            margin-left: 8px;
-        }
+      .indentation-1 .indentation {
+        width: var(--tree-indentation-1, 16px);
+      }
 
-        .desc {
-            font-size: smaller;
-            white-space: nowrap;
-        }
+      .indentation-2 .indentation {
+        width: var(--tree-indentation-2, 32px);
+      }
 
-        .oc {
-            color: var(--separator, #b5b5b5);
-            width: 12px;
-            box-sizing: border-box;
-            padding-left: 4px;
-            font-size: 8px;
-        }
+      .indentation-3 .indentation {
+        width: var(--tree-indentation-3, 48px);
+      }
 
-        :host([selected]) .oc {
-            color: var(--on-primary, white);
-        }
+      .indentation-4 .indentation {
+        width: var(--tree-indentation-4, 56px);
+      }
 
-        :host([searchmatch]){
-            color: var(--primary);
-        }
-        
+      .indentation-5 .indentation {
+        width: var(--tree-indentation-5, 64px);
+      }
 
-        furo-icon[error] {
-            animation: error-pulse 2s infinite;
-        }
+      .indentation-6 .indentation {
+        width: var(--tree-indentation-6, 72px);
+      }
 
-        :host([selected]) furo-icon {
-            fill: var(--on-primary, white);;
-        }
+      .indentation-7 .indentation {
+        width: var(--tree-indentation-7, 80px);
+      }
 
+      .indentation-8 .indentation {
+        width: var(--tree-indentation-8, 88px);
+      }
 
-        furo-icon {
+      .indentation-9 .indentation {
+        width: var(--tree-indentation-9, 92px);
+      }
 
-            transition: all 0.4s;
-            width: 20px;
-            height: 20px;
-            margin-right: 4px;
+      .indentation-10 .indentation {
+        width: var(--tree-indentation-10, 96px);
+      }
 
-        }
+      .indentation-11 .indentation {
+        width: var(--tree-indentation-11, 100px);
+      }
 
-        @keyframes error-pulse {
-            0% {
-                fill: var(--on-primary, #46150f);
-            }
-            12% {
-                fill: var(--error, #fc4d34);
-            }
-            24% {
-                fill: var(--on-primary, #46150f);
-            }
-            36% {
-                fill: var(--error, #fc4d34);
-            }
-            48% {
-                fill: var(--on-primary, #46150f);
-            }
-
-        }
-
-        :host([is-group-label]) {
-            border-top: 1px solid var(--separator,#cdcdcd);
-        }
-
-        :host([is-group-label]) .label {
-            font-weight: 500;
-            font-size: 11px;
-            color:var(--separator,#cdcdcd);
-            text-transform: uppercase;
-        }
-
+      .indentation-12 .indentation {
+        width: var(--tree-indentation-12, 104px);
+      }
     `
   }
 
@@ -356,10 +409,9 @@ export class FuroTreeItem extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-<furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${(e) => this.fieldNode.triggerHover()}">
-      <div style="width: ${this.fieldNode.depth * 8}px"></div>
-      <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>      
-            
+<furo-horizontal-flex class="indentation-${this.indentation}" @-dblclick="--dblclicked" @mouseenter="${(e) => this.fieldNode.triggerHover()}">
+      <div class="indentation" @-click="--labelClicked"></div>
+      <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>                 
       <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error._value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
 </furo-horizontal-flex>
 
