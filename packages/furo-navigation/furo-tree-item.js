@@ -278,6 +278,7 @@ export class FuroTreeItem extends FBP(LitElement) {
         letter-spacing: 0.2px;
         margin-left: 8px;
         font-weight: 500;
+        transition: color 0.4s;
       }
 
       .desc {
@@ -299,7 +300,7 @@ export class FuroTreeItem extends FBP(LitElement) {
       }
 
       :host([searchmatch]) {
-        color: var(--primary);
+        color: rgba(var(--primary-rgb), var(--medium-emphasis-primary));
       }
 
 
@@ -309,8 +310,7 @@ export class FuroTreeItem extends FBP(LitElement) {
 
 
       furo-icon {
-
-        transition: all 0.4s;
+        transition: color 0.4s;
         width: 20px;
         height: 20px;
         margin-right: 4px;
