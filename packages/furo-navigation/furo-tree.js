@@ -427,6 +427,8 @@ class FuroTree extends FBP(LitElement) {
       table {
         border-spacing: 0;
         min-width: 100%;
+        padding: var(--spacing-xs) 8px;
+        box-sizing: border-box;
       }
 
       
@@ -837,7 +839,12 @@ class FuroTree extends FBP(LitElement) {
       return
     }
     tree.depth = level;
+    if(tree.is_group_label && tree.is_group_label._value === true){
+
+    }else{
     level++;
+    }
+
 
     tree.children.repeats.forEach((node) => {
       node.depth = level;

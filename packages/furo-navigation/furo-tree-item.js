@@ -338,13 +338,16 @@ export class FuroTreeItem extends FBP(LitElement) {
 
       :host([is-group-label]) {
         border-top: 1px solid var(--separator, #cdcdcd);
+        margin-top: var(--spacing-xs);
+        padding-top: var(--spacing-xxs);;
       }
 
       :host([is-group-label]) .label {
-        font-weight: 500;
-        font-size: 11px;
-        color: var(--separator, #cdcdcd);
-        text-transform: uppercase;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: normal;
+        letter-spacing: 0.1px;
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
       }
 
       .indentation-0 .indentation {
