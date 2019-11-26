@@ -364,6 +364,10 @@ class FuroTree extends FBP(LitElement) {
        */
       noheader: {type: Boolean},
       /**
+       * Set this flag if you do not want to see the root node
+       */
+      hideRootNode: {type: Boolean, attribute: "hide-root-node"},
+      /**
        * Override display name from root object
        */
       headerText: {type: String, attribute: "header-text"},
@@ -702,7 +706,18 @@ class FuroTree extends FBP(LitElement) {
   _buildFlatTree(tree) {
     this._flatTree = [tree];
     tree.__flatTreeIndex = 0;
-    this._parseTreeRecursive(tree, 0, this.depth);
+    let startlevel = 0;
+    if(this.hideRootNode === true){
+      startlevel = -1;
+      this._flatTree.pop();
+    }else {
+      tree._isRoot = true;
+      tree.open._value = true;
+    }
+
+
+
+    this._parseTreeRecursive(tree, startlevel, this.depth);
 
 
     for (let len = this._flatTree.length; len > 0; len--) {
@@ -841,6 +856,7 @@ class FuroTree extends FBP(LitElement) {
       return
     }
     tree.depth = level;
+    // do not indent on group labels
     if (!(tree.is_group_label && tree.is_group_label._value === true)) {
       level++;
     }

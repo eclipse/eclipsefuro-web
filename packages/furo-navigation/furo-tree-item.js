@@ -171,8 +171,8 @@ export class FuroTreeItem extends FBP(LitElement) {
     });
 
 
-    // make first node visible
-    if (this.fieldNode.depth === 0) {
+    // make level 0  node visible
+    if (this.fieldNode._isRoot === true) {
       this.hidden = false;
       this.fieldNode._isHidden = false;
     }
@@ -343,14 +343,14 @@ export class FuroTreeItem extends FBP(LitElement) {
 
       }
 
-      
+
       :host([is-group-label]) {
         border-top: 1px solid var(--separator, #cdcdcd);
         margin-top: var(--spacing-xs);
         padding-top: var(--spacing-xxs);;
       }
 
-      
+
       :host([is-group-label]) .label {
         font-size: 14px;
         line-height: 20px;
