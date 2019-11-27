@@ -436,12 +436,13 @@ class FuroTree extends FBP(LitElement) {
       }
 
 
-      /* hover */
-      td > *[hovered] {
+
+      /* hover, :host(:hover) td > *[hovered]  is for mouse navigation */
+      :host(:focus-within) td > *[hovered], :host(:hover) td > *[hovered] {
         background-color: rgba(var(--primary-rgb), var(--state-hover));
         color: var(--primary);
       }
-
+      
 
       /* selected */
       td > *[selected], :host(:not(:focus-within)) td > *[selected] {
