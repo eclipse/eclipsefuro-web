@@ -419,7 +419,16 @@ let servicelist = walkSync(SpecDir).filter((filepath) => {
 
 servicelist.forEach((pathToService) => {
   let t = path.basename(pathToService).split(".");
+  t = t.map((s) => {
+    return s.toLowerCase()
+  });
+  t.pop();
   const PKGDIR = UiSpecDir + "/" + t[0];
+  if (!fs.existsSync(PKGDIR)) {
+    // create package folder
+    sh("mkdir -p", [PKGDIR]);
+  }
+
   let updatespec = JSON.parse(UpdateTPL);
   let serviceSpec = JSON.parse(fs.readFileSync(pathToService));
   if (serviceSpec.services.Update) {
