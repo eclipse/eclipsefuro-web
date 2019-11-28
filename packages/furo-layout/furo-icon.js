@@ -80,7 +80,7 @@ class FuroIcon extends LitElement {
                 stroke: var(--furo-icon-stroke-color, none);
                 width: var(--furo-icon-width, 24px);
                 height: var(--furo-icon-height, 24px);
-                vertical-align: center;
+                
                 position: relative;
                 justify-content: center;
             }

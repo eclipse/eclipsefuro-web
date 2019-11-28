@@ -552,10 +552,12 @@ class FuroTree extends FBP(LitElement) {
   bindData(treeNode) {
 
     if (treeNode.root === undefined) {
-      return
+      this._rootNode = treeNode;
+    }else{
+      this._rootNode = treeNode.root;
     }
 
-    this._rootNode = treeNode.root;
+
 
 
     this._rootNode.addEventListener("this-repeated-field-changed", (e) => {

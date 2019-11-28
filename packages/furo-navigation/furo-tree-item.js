@@ -317,7 +317,6 @@ export class FuroTreeItem extends FBP(LitElement) {
 
 
       furo-icon {
-        transition: color 0.4s;
         width: 20px;
         height: 20px;
         margin-right: 4px;
