@@ -121,7 +121,7 @@ typelist.forEach((pathToTypeSpec) => {
     //  complex type has a cutom form component
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
       component_name = field.type.toLowerCase().replace(".", "-") + "-form";
-      formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
+      formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
     }
 
     fld.component = component_name;
@@ -221,7 +221,7 @@ typelist.forEach((pathToTypeSpec) => {
       //  complex type has a cutom form component
       if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
         component_name = field.type.toLowerCase().replace(".", "-") + "-form";
-        formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
+        formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
       }
 
       fld.component = component_name;
@@ -241,7 +241,7 @@ typelist.forEach((pathToTypeSpec) => {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let t = field.meta.default.link.type;
           fld.component = t.toLowerCase().replace(".", "-") + "-reference-search";
-          formSpec.imports.push("../" + t.split(".")[0] + "/" + fld.component);
+          formSpec.imports.push("../" + t.split(".")[0] + "/" + fld.component + ".js");
 
         }
       }
@@ -334,7 +334,7 @@ typelist.forEach((pathToTypeSpec) => {
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
 
       component_name = field.type.toLowerCase().replace(".", "-") + "-display";
-      displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name);
+      displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
     }
 
 
@@ -441,9 +441,9 @@ servicelist.forEach((pathToService) => {
     updatespec.request_type = serviceSpec.services.Update.data.request;
     updatespec.response_type = serviceSpec.services.Update.data.response;
     updatespec.form.name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-form";
-    updatespec.imports.push("./" + updatespec.form.name);
+    updatespec.imports.push("./" + updatespec.form.name + ".js");
     let updateAction = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-action";
-    updatespec.imports.push("./" + updateAction);
+    updatespec.imports.push("./" + updateAction + ".js");
     updatespec.action.name = updateAction;
 
 
@@ -489,7 +489,7 @@ servicelist.forEach((pathToService) => {
     displayspec.request_type = serviceSpec.services.Get.data.request;
     displayspec.response_type = serviceSpec.services.Get.data.response;
     displayspec.display.name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().replace(".", "-") + "-display";
-    displayspec.imports.push("./" + displayspec.display.name);
+    displayspec.imports.push("./" + displayspec.display.name + ".js");
 
 
     let target = PKGDIR + "/" + serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase() + ".display.panel.spec";

@@ -2,8 +2,8 @@
 // source: {{.source}}
 import {html, css, LitElement} from 'lit-element';
 import {FBP} from "@furo/fbp";
-import {Theme} from "@furo/framework/theme"
-import {i18n} from "@furo/framework/i18n"
+import {Theme} from "@furo/framework/theme.js"
+import {i18n} from "@furo/framework/i18n.js"
 
 {{range $import := .imports}}
 import "{{$import}}";{{end}}
@@ -48,6 +48,7 @@ export class {{.class_name}} extends FBP(LitElement) {
             }
         `
     }
+
     /**
      * Bind here your furo-data-object event @-object-ready
      * @public
