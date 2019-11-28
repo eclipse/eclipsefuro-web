@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.43.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.43.0...@furo/specs@0.43.1) (2019-11-28)
+
+
+### Bug Fixes
+
+* styling transition ([a7f9607](https://github.com/theNorstroem/FuroBaseComponents/commit/a7f9607))
+
+
+
+
+
 # [0.43.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.42.1...@furo/specs@0.43.0) (2019-11-15)
 
 
