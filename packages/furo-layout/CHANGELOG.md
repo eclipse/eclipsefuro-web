@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.38.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.39.0...@furo/layout@0.38.1) (2019-11-28)
+
+
+### Bug Fixes
+
+* cyclic import ([52c4cf7](https://github.com/theNorstroem/FuroBaseComponents/commit/52c4cf7))
+
+
+
+
+
 # [0.38.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.37.1...@furo/layout@0.38.0) (2019-11-15)
 
 
