@@ -1,20 +1,29 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
+import {Theme} from "@furo/framework/theme"
 
 import '@furo/input/furo-icon-button';
 import './furo-horizontal-flex';
 import './furo-loading-indicator-bar';
 
 /**
- * # Experimental
- * The API may change, documentation will follow
+ * # furo-app-bar-top
+ * Application top bar
  *
  * `furo-app-bar-top`
+ *
+ * ### Styling
+ * The following custom properties and mixins are available for styling:
+ *
+ * Custom property                                | Description | Default  | Fallback
+ * -----------------------------------------------|-------------|----------|----------
+ * `--furo-app-bar-top-background-light` | Light background color | --primary-light | #7f7f7f;
+ * `--furo-app-bar-top-background-dark` |Dark background color | --primary-dark | #aFAFAF;
  *
  * @customElement
  * @demo demo/index.html
  */
-class FuroAppBarTop extends FBP(LitElement) {
+export class FuroAppBarTop extends FBP(LitElement) {
 
   constructor() {
     super();
@@ -122,14 +131,14 @@ class FuroAppBarTop extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return css`
+    return Theme.getThemeForComponent(this.name) || css`
         :host {
             display: block;
             position: relative;
             color: var(--on-primary);
-            background: linear-gradient(315deg, var(--primary-light, #7f7f7f) 0%, var(--primary-dark, #aFAFAF) 100%);
+            background: linear-gradient(315deg, var(--furo-app-bar-top-background-light, var(--primary-light, #7f7f7f)) 0%, var(--furo-app-bar-top-background-dark, var(--primary-dark, #aFAFAF)) 100%);
             box-shadow: 0 2px 4px rgba(0,0,0,.5);
-            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            transition: all var(--transition-duration, 200ms) cubic-bezier(.25, .8, .25, 1);
             font-size: 20px;
             z-index: 1;
         }
@@ -150,7 +159,7 @@ class FuroAppBarTop extends FBP(LitElement) {
 
         ::slotted(furo-icon-button), furo-icon-button.navigation {
             cursor: pointer;
-            margin: 4px 0;
+            margin: var(--spacing-xxs, 4px) 0;
         }
 
         furo-icon-button.navigation {
@@ -159,7 +168,7 @@ class FuroAppBarTop extends FBP(LitElement) {
 
         :host([navigation]) furo-icon-button.navigation, :host([navigation-icon]) furo-icon-button.navigation {
             display: block;
-            margin-right: 8px;
+            margin-right: var(--spacing-xs, 8px);
         }
 
 
@@ -173,7 +182,6 @@ class FuroAppBarTop extends FBP(LitElement) {
             height: 72px;
             line-height: 32px;
             padding-left: 56px;
-            
         }
 
         /* pos bottom 20 with line-height 32 will result in 28px distance to the bottom (https://material.io/components/app-bars-top/#specs)  */
