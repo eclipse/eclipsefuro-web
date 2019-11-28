@@ -1,4 +1,4 @@
-define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.panelRegistry=_exports.nav=_exports.RepeaterNode=_exports.NodeEvent=_exports.Helper$1=_exports.Helper=_exports.FuroTreeItem=_exports.FieldNode=_exports.EventTreeNode=_exports.DataObject=_exports.CheckMetaAndOverrides=_exports.BasePanel=_exports.$panelRegistry=_exports.$navConfig=_exports.$helper=_exports.$furoTreeItem=_exports.$RepeaterNode=_exports.$Helper=_exports.$FieldNode=_exports.$EventTreeNode=_exports.$DataObject=_exports.$CheckMetaAndOverrides=_exports.$BasePanel=void 0;class FetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();fetch("/node_modules/@furo/data/analysis.json").then(res=>res.json()).then(analysis=>{/**
+define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.panelRegistry=_exports.nav=_exports.RepeaterNode=_exports.ReferenceSearchItem=_exports.NodeEvent=_exports.Helper$1=_exports.Helper=_exports.FuroTreeItem=_exports.FieldNode=_exports.EventTreeNode=_exports.DataObject=_exports.CheckMetaAndOverrides=_exports.BasePanel=_exports.$referenceSearchItem=_exports.$panelRegistry=_exports.$navConfig=_exports.$helper=_exports.$furoTreeItem=_exports.$RepeaterNode=_exports.$Helper=_exports.$FieldNode=_exports.$EventTreeNode=_exports.$DataObject=_exports.$CheckMetaAndOverrides=_exports.$BasePanel=void 0;class FetchAnalysis extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();fetch("/node_modules/@furo/data/analysis.json").then(res=>res.json()).then(analysis=>{/**
        * @event data
        * Fired when analysis loaded
        * detail payload: analysis
@@ -463,7 +463,106 @@ return _furoShell.html`
                     </furo-form>
                 </template>
             </furo-demo-snippet>
-        `}}window.customElements.define("demo-furo-form-layouter",DemoFuroFormLayouter);class FuroButtonPlayground extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+        `}}window.customElements.define("demo-furo-form-layouter",DemoFuroFormLayouter);class ProduceQpData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",this.produce)}_FBPReady(){super._FBPReady();if(this.auto){this.produce()}}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Description
+       */auto:{type:Boolean},qp:{type:Object,reflect:!0}}}produce(){let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=this.qp;this.dispatchEvent(customEvent)}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: inline-block;
+            margin-top: 18px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-button label="load test data" outline></furo-button>
+    `}}window.customElements.define("produce-qp-data",ProduceQpData);class DemoFuroButtonBar extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+            :host {
+                display: block;
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+            furo-demo-snippet {
+                height: 950px;
+                --furo-form-background: white;
+            }
+
+        `}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
+this._FBPTriggerWire("--qpIn",{query:{tsk:1}})}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+            <h3>Sample</h3>
+
+            <furo-demo-snippet>
+                <template>
+                    <furo-vertical-scroller>
+                        <h2>Default furo-button-bar without bind-entity</h2>
+                        <furo-button outline @-click="--disableRequest">disable actions</furo-button>
+                        <furo-button outline @-click="--enableRequest">enable actions</furo-button>
+                        <hr>
+                        <furo-button-bar ƒ-disable-all="--disableRequest" ƒ-enable-all="--enableRequest">
+                            <furo-button primary unelevated>primary action</furo-button>
+                            <furo-button unelevated>second action</furo-button>
+                            <furo-button unelevated>another action</furo-button>
+
+                            <furo-empty-spacer></furo-empty-spacer>
+                            <furo-button danger unelevated>Danger Action</furo-button>
+                        </furo-button-bar>
+
+                        <h2>furo-button-bar with binded entity</h2>
+                        <p>Please throttle your network connection in the dev console to see the pending request state.</p>
+                        
+                        <produce-qp-data ƒ-produce="--load" @-data="--qp" qp={"tsk":1}></produce-qp-data>
+                        
+                        <furo-deep-link service="TaskService" ƒ-qp-in="--qp" @-hts-out="--hts"></furo-deep-link>
+                        <furo-entity-agent service="TaskService" ƒ-hts-in="--hts" load-on-hts-in
+                                           @-request-started="--reqStarted"
+                                           @-response="--response"></furo-entity-agent>
+                        <furo-data-object type="task.TaskEntity" @-object-ready="--entity"
+                                          ƒ-inject-raw="--response"></furo-data-object>
+
+                       
+                        <furo-horizontal-flex>
+                            <furo-data-text-input flex ƒ-bind-data="--entity(*.data.description)"></furo-data-text-input>    
+                        </furo-horizontal-flex>
+                        <hr>
+                        <furo-button-bar ƒ-bind-entity="--entity" ƒ-disable-all="--reqStarted" ƒ-enable-all="--response">
+                            <furo-button rel="self" hide-no-rel primary unelevated>hidden if no relation self
+                            </furo-button>
+                            <furo-button rel="update" disable-no-rel outline>disabled if no relation update</furo-button>
+                            <furo-button disable-pristine disable-not-valid secondary unelevated>disabled if pristine (e.g. save)</furo-button>
+
+                            <furo-empty-spacer></furo-empty-spacer>
+                            <furo-button rel="delete" disable-no-rel danger unelevated>Danger Action</furo-button>
+                        </furo-button-bar>
+                    </furo-vertical-scroller>
+                </template>
+            </furo-demo-snippet>
+        `}}window.customElements.define("demo-furo-button-bar",DemoFuroButtonBar);class FuroButtonPlayground extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -2228,10 +2327,10 @@ _checkConstraints(){let validity=!0;// todo: decide if we should check for type 
 // validate only if they are constraints
 for(let constraintName in this._constraints){let constraint=this._constraints[constraintName],numericType=Helper.isNumericType(this._spec.type);switch(constraintName.toLowerCase()){/**
          * the min constraint
-         */case"min":if(numericType){if(validity&&this._value<constraint.is){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}else{// check for length
+         */case"min":if(numericType){if(validity&&this._value<parseFloat(constraint.is)){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}else{// check for length
 if(validity&&this._value.length<constraint.is){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}break;/**
          * the max constraint
-         */case"max":if(numericType){if(validity&&this._value>constraint.is){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}else{// check for length
+         */case"max":if(numericType){if(validity&&this._value>parseFloat(constraint.is)){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}else{// check for length
 if(validity&&this._value.length>constraint.is){this._validity={constraint:constraintName,description:constraint.message};validity=!1}}break;/**
          * step
          */case"step":if(numericType){// step check is (value - min)%is == 0
@@ -2830,7 +2929,48 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-object",DemoFuroDataObject);class FuroFetchJson extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-data-object",DemoFuroDataObject);class DemoFuroDataObjectValidator extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-vertical-flex>
+        <div>
+          <h2>Demo for object validator</h2>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+              <furo-horizontal-flex>
+              <furo-data-text-input  ƒ-bind-data="--entity(*.text)"></furo-data-text-input>
+              <furo-data-text-input autofocus ƒ-bind-data="--entity(*.text)"></furo-data-text-input>
+              <furo-data-number-input  autofocus ƒ-bind-data="--entity(*.number)"></furo-data-number-input>
+              <furo-data-number-input  autofocus ƒ-bind-data="--entity(*.number)"></furo-data-number-input>
+              
+              <furo-data-object type="experiment.Constraints" @-object-ready="--entity" ƒ-validate-all-fields="--clicked"
+                                ƒ-inject-raw="--response(*.data)"></furo-data-object>
+              </furo-horizontal-flex>
+              <furo-button raised label="validate object" @-click="--clicked"></furo-button>
+              
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-object-validator",DemoFuroDataObjectValidator);class FuroFetchJson extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @private
    * @return {Object}
    */static get properties(){return{/**
@@ -3451,9 +3591,18 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the trailingIcon attr
      * @param value
      */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     * Updater for the min => minlength attr*
+     * @param value
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr*
+     * @param value
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
+     * Updater for the step attr
+     * @param value
+     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3466,6 +3615,19 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:String},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:String},/**
+       * Overrides the step value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */step:{type:String// string, because "any" is also a valid step
+},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3774,9 +3936,18 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the trailingIcon attr
      * @param value
      */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     * Updater for the min => minlength attr*
+     * @param value
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr*
+     * @param value
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
+     * Updater for the step attr
+     * @param value
+     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3789,6 +3960,19 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:Number},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:Number},/**
+       * Overrides the step value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */step:{type:String// string, because "any" is also a valid step
+},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -3850,7 +4034,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.shadowRoot.getElementB
                            * Fired when value has changed from inside the component
                            * detail payload: google money object
                            */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.field._value;this.dispatchEvent(customEvent)})}// convert data to google.type.Money format
-_convertDataToMoneyObj(currency,amount,obj){if(null==obj){obj={}}if(currency){obj.currency_code=currency}if(amount){let arr=amount.split(".");obj.units=+arr[0];if(arr[1]){obj.nanos=1e8*+("0."+arr[1])}else{obj.nanos=0}}return obj}/**
+_convertDataToMoneyObj(currency,amount,obj){if(null==obj){obj={}}if(currency){obj.currency_code=currency}if(amount){let arr=(amount+"").split(".");obj.units=+arr[0];if(arr[1]){obj.nanos=1e8*+("0."+arr[1])}else{obj.nanos=0}}return obj}/**
      * Bind a entity field to the number-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
@@ -3994,6 +4178,17 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the trailingIcon attr
      * @param value
      */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+     * becaue it set "undefined" (as a Sting!)
+     *
+     * @param value
+     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
+     * Updater for the min => minlength attr*
+     * @param value
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr*
+     * @param value
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the errortext attr
      * @param value
      */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
@@ -4005,10 +4200,26 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */required:{type:Boolean},/**
+       * Overrides the pattern from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */pattern:{type:String},/**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */required:{type:Boolean},/**
        * Overrides the hint text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:Number},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:Number},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4182,9 +4393,18 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the trailingIcon attr
      * @param value
      */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
+     * Updater for the min => minlength attr*
+     * @param value
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr*
+     * @param value
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
+     * Updater for the step attr
+     * @param value
+     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4193,6 +4413,19 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:Number},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:Number},/**
+       * Overrides the step value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */step:{type:String// string, because "any" is also a valid step
+},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4256,26 +4489,26 @@ return _furoShell.html`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.css`
-        :host {
-            display: block;
+            :host {
+                display: block;
+            }
 
-        }
+            :host([hover]) div {
+                background-color: rgba(var(--primary-rgb), var(--state-hover));
+                color: var(--primary);
+            }
 
-        :host([hover]) div {
-            background-color: lightgray;
-        }
+            :host(:hover) div {
+                background-color: rgba(var(--primary-rgb), var(--state-selected-hover));
+            }
 
-        :host(:hover) div {
-            background-color: #f0f0f0;
-        }
-
-        div {
-            border-bottom: 1px solid var(--primary);
-            padding: 8px;
-            cursor: pointer;
-            box-sizing: border-box;
-        }
-    `}deselect(){this.removeAttribute("hover")}preselect(){this.setAttribute("hover","");this.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}select(){/**
+            div {
+                padding: var(--spacing-xs, 8px);
+                cursor: pointer;
+                box-sizing: border-box;
+                transition: color var(--transition-duration, 200ms);
+            }
+        `}deselect(){this.removeAttribute("hover")}preselect(){this.setAttribute("hover","");this.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}select(){/**
      * @event item-selected
      * Fired when item is selected
      * detail payload: item
@@ -4284,10 +4517,10 @@ return _furoShell.css`
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-<div @-click="^^item-selected(_item)">
-${this._item.data.display_name}
-</div>           
-`}}window.customElements.define("reference-search-item",ReferenceSearchItem);class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.valueField="id";this.displayField="display_name"}/**
+        <div @-click="^^item-selected(_item)">
+            ${this._item.data.display_name}
+        </div>           
+        `}}_exports.ReferenceSearchItem=ReferenceSearchItem;window.customElements.define("reference-search-item",ReferenceSearchItem);var referenceSearchItem={ReferenceSearchItem:ReferenceSearchItem};_exports.$referenceSearchItem=referenceSearchItem;class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.valueField="id";this.displayField="display_name"}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -4300,14 +4533,19 @@ event.preventDefault()}this._closeList();if(""===this._searchTerm){event.prevent
 if(this._listIsOpen){if("Enter"===key){event.preventDefault();this._FBPTriggerWire("--enterPressedForSelect")}if("ArrowDown"===key){event.preventDefault();this._FBPTriggerWire("--arrowDownPressed")}if("ArrowUp"===key){event.preventDefault();this._FBPTriggerWire("--arrowUpPressed")}}else{// list is closed
 if("ArrowDown"===key){this._showList()}if("Enter"===key){if(this.searchOnEnterOnly){event.preventDefault();this._fireSearchEvent()}}}});// lock blur for slow clickers
 this.addEventListener("mousedown",event=>{this._lockBlur=!0});// unlock after long click
-this.addEventListener("mouseup",event=>{this._lockBlur=!1});// close list on blur
+this.addEventListener("mouseup",event=>{this._lockBlur=!1});// reinit binded value on cleared
+this._FBPAddWireHook("--cleared",item=>{this._clear()});// close list on blur
 this._FBPAddWireHook("--blured",item=>{this._focused=!1;if(!this._lockBlur){this._closeList()}});// opens the list on focus
 this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection){this._showList()}});this.requestUpdate()}_fireSearchEvent(){if(this._searchTerm&&this._searchTerm.length>=this._minTermLength){/**
        * @event search
        * Fired when term is entered and bigger then min-term-length
        * detail payload: {String} term
        */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}}_showList(){this._listIsOpen=!0;this.setAttribute("show-list","");let arrCollection=this._collection,index=0;for(let i=0;i<arrCollection.length;i++){if(arrCollection[i].data&&arrCollection[i].data[this.valueField]==this.field.id._value){index=i;break}}// trigger wire to select item
-this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this.removeAttribute("show-list")}/**
+this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this.removeAttribute("show-list")}_clear(){this.field.reinit();this._updateField();this._closeList();/**
+                        * @event value-cleared
+                        * Fired when input value is cleared
+                        * detail payload: empty
+                        */let customEvent=new Event("value-cleared",{composed:!0,bubbles:!0});this.dispatchEvent(customEvent)}/**
      * Updater for the min => minlength attr
      * same problem like in pattern
      *
@@ -4376,39 +4614,41 @@ this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this
      * Bind a entity field to the search-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode);this._init()}_updateField(){//mark incomming error
-if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.description}if(this.field.display_name._value){this._FBPTriggerWire("--value",this.field.display_name._value)}this.requestUpdate()}collectionIn(collection){this._FBPTriggerWire("--listItemsIjnected",collection.entities);this._hasCollection=!0;this._collection=collection.entities;if(this._focused){this._showList()}}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode);this._init()}_updateField(){if(this.field.display_name._value!==void 0){this._FBPTriggerWire("--value",this.field.display_name._value)}this.requestUpdate()}collectionIn(collection){this._FBPTriggerWire("--listItemsIjnected",collection.entities);this._hasCollection=!0;this._collection=collection.entities;if(this._focused){this._showList()}}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-        :host {
-            display: inline-block;
-            position: relative;
-        }
+            :host {
+                display: inline-block;
+                position: relative;
+            }
 
-        .list {
-            position: absolute;
-            top: 70px;
-            left: 0;
-            right: 0;
-            overflow: auto;
-            max-height: 300px;
-            background-color: white;
-            z-index: 1;
-            opacity: 0.9;
-            display: none;
-        }
+            .list {
+                position: absolute;
+                top: 51px;
+                left: 0;
+                right: 0;
+                overflow: auto;
+                max-height: 300px;
+                background-color: var(--furo-data-reference-search-list-background, var(--surface, #ffffff));
+                border-radius: 4px;
+                z-index: 1;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                display: none;
+            }
 
-        :host([show-list]) .list {
-            display: block;
-        }
+            :host([show-list]) .list {
+                display: block;
+            }
 
-        furo-search-input {
-            width: 100%;
-        }
-    `}/**
+            furo-search-input {
+                width: 100%;
+            }
+        `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -4418,7 +4658,8 @@ return _furoShell.html`
       ?autofocus=${this.autofocus} 
       ?condensed=${this.condensed} 
       ƒ-set-value="--value"
-      @-value-changed="^^searchInput" 
+      @-value-changed="^^searchInput"
+      @-value-cleared="--cleared" 
       @-blur="--blured" 
       @-focus="--focused" 
       ƒ-focus="--focusReceived"></furo-search-input>
@@ -4546,7 +4787,18 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
+     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+     * becaue it set "undefined" (as a Sting!)
+     *
+     * @param value
+     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
+     * Updater for the min => minlength attr*
+     * @param value
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr*
+     * @param value
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4555,10 +4807,22 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */required:{type:Boolean},/**
+       * Overrides the pattern from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */pattern:{type:String},/**
        * Overrides the hint text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:Number},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:Number},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4636,6 +4900,21 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * Updater for the errortext attr
      * @param value
      */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
+     * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
+     * becaue it set "undefined" (as a Sting!)
+     *
+     * @param value
+     */set _pattern(value){Helper$2.UpdateInputAttribute(this,"pattern",value)}/**
+     * Updater for the min => minlength attr
+     * same problem like in pattern
+     *
+     * @param value
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr
+     * * same problem like in pattern
+     *
+     * @param value
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
      * Sets the field to readonly
      */disable(){this._readonly=!0}/**
      * Makes the field writable.
@@ -4644,6 +4923,10 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */label:{type:String},/**
+       * Overrides the pattern from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */pattern:{type:String},/**
        * Overrides the required value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4652,6 +4935,14 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:Number},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:Number},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4819,7 +5110,16 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      */set trailingIcon(value){Helper$2.UpdateInputAttribute(this,"trailing-icon",value)}/**
      * Updater for the errortext attr
      * @param value
-     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}static get properties(){return{/**
+     */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
+     * Updater for the min => minlength attr*
+     * @param value
+     */set _min(value){Helper$2.UpdateInputAttribute(this,"min",value)}/**
+     * Updater for the max attr*
+     * @param value
+     */set _max(value){Helper$2.UpdateInputAttribute(this,"max",value)}/**
+     * Updater for the step attr
+     * @param value
+     */set _step(value){Helper$2.UpdateInputAttribute(this,"step",value)}static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4832,6 +5132,19 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */hint:{type:String},/**
+       * Overrides the min value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */min:{type:String},/**
+       * Overrides the max value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */max:{type:String},/**
+       * Overrides the step value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */step:{type:String// string, because "any" is also a valid step
+},/**
        * Overrides the readonly value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -5242,32 +5555,7 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-display",DemoFuroDataDisplay);class ProduceQpData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",this.produce)}_FBPReady(){super._FBPReady();if(this.auto){this.produce()}}/**
-     * @private
-     * @return {Object}
-     */static get properties(){return{/**
-       * Description
-       */auto:{type:Boolean},qp:{type:Object,reflect:!0}}}produce(){let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=this.qp;this.dispatchEvent(customEvent)}/**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-        :host {
-            display: inline-block;
-            margin-top: 18px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-    `}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){// language=HTML
-return _furoShell.html`
-      <furo-button label="load test data" raised></furo-button>
-    `}}window.customElements.define("produce-qp-data",ProduceQpData);class DemoFuroDataBoolIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-data-display",DemoFuroDataDisplay);class DemoFuroDataBoolIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -6764,13 +7052,12 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             th {
                 color: var(--primary, #035CA1);
                 white-space: nowrap;
-                font-weight: 400;
+                font-weight: 500;
                 padding-left: 0;
                 -webkit-font-smoothing: antialiased;
                 text-align: left;
                 letter-spacing: 1.5px;
                 text-transform: uppercase;
-                font-size: 10px;
             }
 
             tr {
@@ -6800,7 +7087,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                font-size: 12px;
+                font-size: 14px;
                 padding-right: var(--spacing, 12px);
             }
 
@@ -7449,7 +7736,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html`
             <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id._value"><furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item></template>
 
-        `}}window.customElements.define("furo-panel-coordinator-tabs",FuroPanelCoordinatorTabs);class FuroTreeItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.hidden=!0;this.isGroupLabel=!1}search(event){if(!this.hidden){let term=event.term.toLowerCase();// do not search empty searchTerm
+        `}}window.customElements.define("furo-panel-coordinator-tabs",FuroPanelCoordinatorTabs);class FuroTreeItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.hidden=!0;this.isGroupLabel=!1;this.indentation=0}search(event){if(!this.hidden){let term=event.term.toLowerCase();// do not search empty searchTerm
 if(0===term.length){return}let searchTokens=term.split(" "),hasResults=!0;searchTokens.forEach(t=>{if(0<t.length){if(1===t.length){// single letter search first letter of word
 t=t+".*$"}hasResults=hasResults&&this._searchTokens.has(t)}});if(hasResults){// append fieldnode to result set (used in furo-tree.js)
 event.results.push(this.fieldNode)}}}/**
@@ -7462,19 +7749,18 @@ _updateItem(){this.requestUpdate();// build index later (50ms), a human user can
 setTimeout(()=>{let tmpArr=[];this.fieldNode.__childNodes.filter(field=>{// maybe change to fields-to-index list
 if("string"===typeof field._value){return!0}}).map(field=>{tmpArr=tmpArr.concat(field._value.toLowerCase().split(/\W+/))});let s=new Set(tmpArr);// tokenize
 tmpArr=[];s.forEach(word=>{//first letter
-tmpArr.push(word.substr(0,1)+".*$");let l;for(let tokenLength=2;tokenLength<word.length;tokenLength++){l=word.length-tokenLength+1;for(let i=0;i<l;i++){tmpArr.push(word.substr(i,tokenLength))}}});this._searchTokens=new Set(Array.from(s).concat(tmpArr))},50)}bindData(fieldNode){this.fieldNode=fieldNode;this.fieldNode._isHidden=!0;if(fieldNode.is_group_label){this.isGroupLabel=fieldNode.is_group_label._value}if(!fieldNode.icon._value){this.noicon=!0}// reflect visible close state to attr
+tmpArr.push(word.substr(0,1)+".*$");let l;for(let tokenLength=2;tokenLength<word.length;tokenLength++){l=word.length-tokenLength+1;for(let i=0;i<l;i++){tmpArr.push(word.substr(i,tokenLength))}}});this._searchTokens=new Set(Array.from(s).concat(tmpArr))},50)}bindData(fieldNode){this.fieldNode=fieldNode;this.indentation=this.fieldNode.depth;this.fieldNode._isHidden=!0;if(fieldNode.is_group_label){this.isGroupLabel=fieldNode.is_group_label._value}if(!fieldNode.icon._value){this.noicon=!0}// reflect visible close state to attr
 this.fieldNode.addEventListener("ancestor-invisible",e=>{this.hidden=!0;this.fieldNode._isHidden=!0});// reflect visible close state to attr
 this.fieldNode.addEventListener("ancestor-visible",e=>{if(this.fieldNode.__parentNode.__parentNode.open._value){this.hidden=!1;this.fieldNode._isHidden=!1}});// for elements that are already ready
 this._updateItem();this.fieldNode.addEventListener("branch-value-changed",e=>{// for elements that are updated later
 if(e.detail.__parentNode===this.fieldNode){this._updateItem()}});this.fieldNode.addEventListener("modified",n=>{this.inedit=!0});this.fieldNode.addEventListener("has-error",n=>{this.haserror=!0});// listen to open close state
-this.fieldNode.open.addEventListener("field-value-changed",e=>{e.cancelBubble=!0;if(!1===e.detail._value){e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-invisible",e.detail.__parentNode))}else{e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-visible",e.detail.__parentNode))}});// make first node visible
-if(0===this.fieldNode.depth){this.hidden=!1;this.fieldNode._isHidden=!1}this._FBPTriggerWire("--fieldOpen",this.fieldNode.open)}/**
+this.fieldNode.open.addEventListener("field-value-changed",e=>{e.cancelBubble=!0;if(!1===e.detail._value){e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-invisible",e.detail.__parentNode))}else{e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-visible",e.detail.__parentNode))}});// make level 0  node visible
+if(!0===this.fieldNode._isRoot){this.hidden=!1;this.fieldNode._isHidden=!1}this._FBPTriggerWire("--fieldOpen",this.fieldNode.open)}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
 this._FBPAddWireHook("--labelClicked",e=>{if(this.isGroupLabel){// just toggle if this is a label
 this.fieldNode.open._value=!this.fieldNode.open._value}else{this.fieldNode.selectItem()}});this.fieldNode.addEventListener("tree-node-unselection-requested",e=>{this.selected=!1;this.fieldNode._isSelected=!1});this.fieldNode.addEventListener("tree-node-blur-requested",e=>{this.hovered=!1});this.fieldNode.addEventListener("this-node-hovered",e=>{this.hovered=!0;//this.scrollIntoViewIfNeeded();
-});this.fieldNode.addEventListener("this-node-selected",e=>{this.selected=!0;this.fieldNode._isSelected=!0;//this.scrollIntoViewIfNeeded();
-});// This item is not or no more in the search results
+if(this.scrollIntoViewIfNeeded){this.scrollIntoViewIfNeeded()}});this.fieldNode.addEventListener("this-node-selected",e=>{this.selected=!0;this.fieldNode._isSelected=!0;if(this.scrollIntoViewIfNeeded){this.scrollIntoViewIfNeeded()}});// This item is not or no more in the search results
 this.fieldNode.addEventListener("search-didnt-match",e=>{this.searchmatch=!1});// This item is  in the search results
 this.fieldNode.addEventListener("search-matched",e=>{this.searchmatch=!0});// This item is  in the search results
 this.fieldNode.addEventListener("field-value-changed",e=>{this.requestUpdate()})}/**
@@ -7483,120 +7769,175 @@ this.fieldNode.addEventListener("field-value-changed",e=>{this.requestUpdate()})
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-        :host {
-            display: block;
-            line-height: 40px;
-            cursor: pointer;
-            font-weight: 400;
-            user-select: none;
-            padding-left: var(--spacing-xs, 16px);
-            border-radius: 2px;
-            position: relative;
+      :host {
+        display: block;
+        line-height: 40px;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-weight: 400;
+        user-select: none;
+        padding-left: var(--spacing-xs, 16px);
+        border-radius: 4px;
+        position: relative;
+        margin-bottom: var(--spacing-xxs, 4px);
+        transition: color 0.2s;
+        transition: background-color 0.2s;
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+
+      :host([inedit]) {
+        font-style: italic;
+      }
+
+      :host([haserror]),
+      :host([selected][haserror]) {
+        color: var(--error, red);
+      }
+
+      :host([haserror]) furo-icon {
+        animation: error-pulse 3s infinite;
+      }
+
+      .label {
+        white-space: nowrap;
+        font-size: 0.875rem;
+        letter-spacing: 0.2px;
+        margin-left: 8px;
+        font-weight: 500;
+      }
+
+      .desc {
+        font-size: smaller;
+        line-height: 39px;
+        white-space: nowrap;
+      }
+
+      .oc {
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        width: 12px;
+        box-sizing: border-box;
+        padding-left: 4px;
+        font-size: 8px;
+      }
+
+      :host([selected]) .oc {
+        color: rgba(var(--primary-rgb), var(--medium-emphasis-primary));
+      }
+
+      :host([searchmatch]) {
+        color: rgba(var(--primary-rgb), var(--medium-emphasis-primary));
+      }
+      
+      furo-icon[error] {
+        animation: error-pulse 2s infinite;
+      }
+
+
+      furo-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 4px;
+
+      }
+
+      @keyframes error-pulse {
+        0% {
+          fill: var(--on-primary, #46150f);
+        }
+        12% {
+          fill: var(--error, #fc4d34);
+        }
+        24% {
+          fill: var(--on-primary, #46150f);
+        }
+        36% {
+          fill: var(--error, #fc4d34);
+        }
+        48% {
+          fill: var(--on-primary, #46150f);
         }
 
-        :host([hidden]) {
-            display: none;
-        }
-
-        :host([inedit]) {
-            font-style: italic;
-        }
-
-        :host([haserror]),
-        :host([selected][haserror]) {
-            color: var(--error, red);
-        }
-
-        :host([haserror]) furo-icon {
-            animation: error-pulse 3s infinite;
-        }
-
-        .label {
-            white-space: nowrap;
-            font-size: 0.875rem;
-            letter-spacing: 0.2px;
-            margin-left: 8px;
-        }
-
-        .desc {
-            font-size: smaller;
-            white-space: nowrap;
-        }
-
-        .oc {
-            color: var(--separator, #b5b5b5);
-            width: 12px;
-            box-sizing: border-box;
-            padding-left: 4px;
-            font-size: 8px;
-        }
-
-        :host([selected]) .oc {
-            color: var(--on-primary, white);
-        }
-
-        :host([searchmatch]){
-            color: var(--primary);
-        }
-        
-
-        furo-icon[error] {
-            animation: error-pulse 2s infinite;
-        }
-
-        :host([selected]) furo-icon {
-            fill: var(--on-primary, white);;
-        }
+      }
 
 
-        furo-icon {
+      :host([is-group-label]) {
+        border-top: 1px solid var(--separator, #cdcdcd);
+        margin-top: var(--spacing-xs);
+        padding-top: var(--spacing-xxs);
+        border-radius: 0;
+      }
 
-            transition: all 0.4s;
-            width: 20px;
-            height: 20px;
-            margin-right: 4px;
 
-        }
+      :host([is-group-label]) .label {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: normal;
+        letter-spacing: 0.1px;
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+      }
 
-        @keyframes error-pulse {
-            0% {
-                fill: var(--on-primary, #46150f);
-            }
-            12% {
-                fill: var(--error, #fc4d34);
-            }
-            24% {
-                fill: var(--on-primary, #46150f);
-            }
-            36% {
-                fill: var(--error, #fc4d34);
-            }
-            48% {
-                fill: var(--on-primary, #46150f);
-            }
+      .indentation-0 .indentation {
+        width: var(--tree-indentation-0, 0);
+      }
 
-        }
+      .indentation-1 .indentation {
+        width: var(--tree-indentation-1, 16px);
+      }
 
-        :host([is-group-label]) {
-            border-top: 1px solid var(--separator,#cdcdcd);
-        }
+      .indentation-2 .indentation {
+        width: var(--tree-indentation-2, 32px);
+      }
 
-        :host([is-group-label]) .label {
-            font-weight: 500;
-            font-size: 11px;
-            color:var(--separator,#cdcdcd);
-            text-transform: uppercase;
-        }
+      .indentation-3 .indentation {
+        width: var(--tree-indentation-3, 48px);
+      }
 
+      .indentation-4 .indentation {
+        width: var(--tree-indentation-4, 56px);
+      }
+
+      .indentation-5 .indentation {
+        width: var(--tree-indentation-5, 64px);
+      }
+
+      .indentation-6 .indentation {
+        width: var(--tree-indentation-6, 72px);
+      }
+
+      .indentation-7 .indentation {
+        width: var(--tree-indentation-7, 80px);
+      }
+
+      .indentation-8 .indentation {
+        width: var(--tree-indentation-8, 88px);
+      }
+
+      .indentation-9 .indentation {
+        width: var(--tree-indentation-9, 92px);
+      }
+
+      .indentation-10 .indentation {
+        width: var(--tree-indentation-10, 96px);
+      }
+
+      .indentation-11 .indentation {
+        width: var(--tree-indentation-11, 100px);
+      }
+
+      .indentation-12 .indentation {
+        width: var(--tree-indentation-12, 104px);
+      }
     `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-<furo-horizontal-flex @-dblclick="--dblclicked" @mouseenter="${e=>this.fieldNode.triggerHover()}">
-      <div style="width: ${8*this.fieldNode.depth}px"></div>
-      <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>      
-            
+<furo-horizontal-flex class="indentation-${this.indentation}" @-dblclick="--dblclicked" @mouseenter="${e=>this.fieldNode.triggerHover()}">
+      <div class="indentation" @-click="--labelClicked"></div>
+      <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>                 
       <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error._value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
 </furo-horizontal-flex>
 
@@ -7654,6 +7995,14 @@ if(!next){next=this._foundSearchItems[0]}}else{next=this._hoveredField.getNextVi
        */qp:{type:String},/**
        * Sets the tabindex
        */tabindex:{type:Number,reflect:!0},/**
+       * Set this flag if you do not want a header-text section.
+       */noheader:{type:Boolean},/**
+       * Set this flag if you do not want to see the root node
+       */hideRootNode:{type:Boolean,attribute:"hide-root-node"},/**
+       * Override display name from root object
+       */headerText:{type:String,attribute:"header-text"},/**
+       * Override description from root object.
+       */secondaryText:{type:String,attribute:"secondary-text"},/**
        * indicator for searching. Maybe you want style your item depending on this attribute
        */_searchIsActive:{type:Boolean,attribute:"searching",reflect:!0}}}/**
      * focuses the element
@@ -7666,94 +8015,134 @@ if(!next){next=this._foundSearchItems[0]}}else{next=this._hoveredField.getNextVi
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-        :host {
-            display: block;
-            box-sizing: border-box;
-            height: 100%;
-            outline: none;
-            position: relative;
-            background: var(--surface,white);
-            color: var(--on-surface,#333333);
+      :host {
+        display: block;
+        box-sizing: border-box;
+        height: 100%;
+        outline: none;
+        position: relative;
+        background: var(--surface, white);
+        color: var(--on-surface, #333333);
+      }
+
+      .tablewrapper {
+        overflow: auto;
+
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+
+      td {
+        padding: 0;
+      }
+
+      table {
+        border-spacing: 0;
+        min-width: 100%;
+        padding: var(--spacing-xs) 8px;
+        box-sizing: border-box;
+      }
+      
+      /* remove border on first group label if it is the first element */
+      tr:first-child *[is-group-label]{
+      border-top: none;
+      }
+
+      /* hover, :host(:hover) td > *[hovered]  is for mouse navigation */
+      :host(:focus-within) td > *[hovered], :host(:hover) td > *[hovered] {
+        background-color: rgba(var(--primary-rgb), var(--state-hover));
+        color: var(--primary);
+      }
+
+
+      /* selected */
+      td > *[selected], :host(:not(:focus-within)) td > *[selected] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected));
+        color: var(--primary);
+      }
+
+      /* selected focus  */
+      :host(:focus-within) td > *[selected] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
+        color: var(--primary);
+      }
+
+
+      /* selected hover */
+      :host(:focus-within) td > *[selected][hovered] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected-hover));
+        color: var(--primary);
+      }
+
+
+      .srch {
+        display: none;
+        position: absolute;
+        left: var(--spacing-xs, 8px);
+        bottom: var(--spacing-xs, 8px);
+        width: inherit;
+        border: 1px solid var(--primary, #57a9ff);
+        padding: 2px;
+        font-size: 11px;
+        z-index: 2;
+        animation: border-pulsate 2s;
+      }
+
+      @keyframes border-pulsate {
+        0% {
+          border-color: var(--primary, #57a9ff);
         }
-
-        .tablewrapper {
-            overflow: auto;
-            height: 100%;
+        50% {
+          border-color: var(--surface, #999999);
         }
-
-        :host([hidden]) {
-            display: none;
+        100% {
+          border-color: var(--primary, #57a9ff);
         }
+      }
 
-        td {
-            padding: 0;
-        }
+      :host([searching]:focus-within) .srch {
+        display: block;
+      }
 
-        table {
-            border-spacing: 0;
-            min-width: 100%;
-        }
+      .title {
+        font-size: 20px;
+        height: 40px;
+        line-height: 56px;
+        padding-left: var(--spacing-s, 16px);
+      }
 
+      .secondary {
+        font-size: 14px;
+        height: 24px;
+        letter-spacing: 0.1px;
+        padding-left: var(--spacing-s, 16px);
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        line-height: 20px;
+      }
 
-        :host(:not(:focus-within)) td > *[hovered] {
-            background: unset;
-        }
+      .head {
+        height: 64px;
+      }
 
-        :host(:focus-within) td > *[selected] {
-            background: var(--primary, #429cff);
-            color: var(--on-primary, white);
-        }
-
-        td > *[hovered] {
-            background-color: var(--hover-color, var(--surface-dark, #F1F1F1));
-        }
-
-        td > *[selected], :host(:not(:focus-within)) td > *[selected] {
-            background-color: var(--primary-dark, #429cff);
-            color: var(--on-primary, #FFFFFF);
-        }
-
-
-        :host(:focus-within) td > *[selected]:hover {
-            background: var(--primary, #57a9ff);
-        }
-
-
-        .srch {
-            display: none;
-            position: absolute;
-            left: var(--spacing-xs, 8px);
-            bottom: var(--spacing-xs, 8px);
-            width: inherit;
-            border: 1px solid var(--primary, #57a9ff);
-            padding: 2px;
-            font-size: 11px;
-            z-index: 2;
-            animation: border-pulsate 2s;
-        }
-
-        @keyframes border-pulsate {
-            0% {
-                border-color: var(--primary, #57a9ff);
-            }
-            50% {
-                border-color: var(--surface, #999999);
-            }
-            100% {
-                border-color: var(--primary, #57a9ff);
-            }
-        }
-
-        :host([searching]:focus-within) .srch {
-            display: block;
-        }
+      :host([noheader]) .head {
+        display: none;
+      }
+      
+    
     `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
     <div class="srch">⌖ ${this._searchTerm}</div>
-      <div class="tablewrapper">
+     <furo-vertical-flex>
+     <div class="head">
+        <div class="title">${this._headerText}</div>
+        <div class="secondary">${this._secondaryText}</div>
+      </div>
+      <div class="tablewrapper" flex>
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
           <tr>
@@ -7763,10 +8152,11 @@ return _furoShell.html`
           </tr>
         </template>
       </table>
+      </furo-vertical-flex>
       </div>
-    `}bindData(treeNode){if(treeNode.root===void 0){return}this._rootNode=treeNode.root;this._rootNode.addEventListener("this-repeated-field-changed",e=>{this._init()});this._init()}_init(){this._buildFlatTree(this._rootNode);// set visible on root node
+    `}bindData(treeNode){if(treeNode.root===void 0){this._rootNode=treeNode}else{this._rootNode=treeNode.root}this._rootNode.children.addEventListener("this-repeated-field-changed",e=>{this._setTitle(this._rootNode);this._init()});this._setTitle(this._rootNode);this._init()}_setTitle(treeNode){this._headerText=this.headerText||treeNode.display_name._value;this._secondaryText=this.secondaryText||treeNode.secondary_text._value;this.requestUpdate()}_init(){this._buildFlatTree(this._rootNode);// set visible on root node
 this._rootNode.children.broadcastEvent(new NodeEvent("ancestor-visible",this._rootNode));if(!this.__listenersInitialized){this._initHoverAndSelectEvents()}this.__listenersInitialized=!0;// initial hover on first element
-this._hoveredField=this._flatTree[0];setTimeout(()=>{this._hoveredField.triggerHover()},0);// select item if qp was set before
+if(this._hoveredField===void 0&&0<this._flatTree.length){this._hoveredField=this._flatTree[0];this._hoveredField.triggerHover()}// select item if qp was set before
 if(this.__tmpQP!==void 0){// because the tree is built async
 setTimeout(()=>{this.selectById(this.__tmpQP);this.__tmpQP=void 0},0)}}_initHoverAndSelectEvents(){// Internal Event, when a node gets hovered
 this._rootNode.addEventListener("tree-node-hovered",e=>{// broadcast blur
@@ -7803,7 +8193,7 @@ this._rootNode.broadcastEvent(new NodeEvent("tree-node-unselection-requested"));
          * @event leaf-selected
          * Fired when
          * detail payload:
-         */let customEvent=new Event("leaf-selected",{composed:!0,bubbles:!0});customEvent.detail=this._selectedField;this.dispatchEvent(customEvent)}})}_buildFlatTree(tree){this._flatTree=[tree];tree.__flatTreeIndex=0;this._parseTreeRecursive(tree,0,this.depth);for(let len=this._flatTree.length;0<len;len--){let index=len-1,node=this._flatTree[index];// open field if entity contains a field open with true
+         */let customEvent=new Event("leaf-selected",{composed:!0,bubbles:!0});customEvent.detail=this._selectedField;this.dispatchEvent(customEvent)}})}_buildFlatTree(tree){this._flatTree=[tree];tree.__flatTreeIndex=0;let startlevel=0;if(!0===this.hideRootNode){startlevel=-1;this._flatTree.pop()}else{tree._isRoot=!0;tree.open._value=!0}this._parseTreeRecursive(tree,startlevel,this.depth);for(let len=this._flatTree.length;0<len;len--){let index=len-1,node=this._flatTree[index];// open field if entity contains a field open with true
 if(!node.open){node.addChildProperty("open",new FieldNode(node,{type:"bool"},"open"));node.open._value=!1}// Traverse the flat tree, it is simpler then the nested tree
 // next active element
 node.getNextVisibleElement=()=>{for(let i=index+1;i<this._flatTree.length;i++){if(!this._flatTree[i]._isHidden){return this._flatTree[i]}}return!1};// prev active element
@@ -7830,7 +8220,8 @@ node.collapseRecursive=()=>{node.broadcastEvent(new NodeEvent("recursive-collaps
                                                                                    * @event nodes-collapsed
                                                                                    * Fired when nodes are collapsed recursive
                                                                                    */let customEvent=new Event("nodes-collapsed",{composed:!0,bubbles:!1});setTimeout(()=>{this.dispatchEvent(customEvent)},0)};node.addEventListener("recursive-collapse-requested",e=>{node.open._value=!1})}// open the root ode
-tree.open._value=!0;this._FBPTriggerWire("--treeChanged",this._flatTree)}_parseTreeRecursive(tree,level,maxdepth){if(0<maxdepth&&!(level<maxdepth)){return}tree.depth=level;level++;tree.children.repeats.forEach(node=>{node.depth=level;let i=this._flatTree.push(node);node.__flatTreeIndex=i-1;if(0<node.children.repeats.length){this._parseTreeRecursive(node,level,maxdepth)}})}}window.customElements.define("furo-tree",FuroTree);class FuroMiniTabs extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}injectItems(nodeArray){this._FBPTriggerWire("--itemsInjected")}/**
+tree.open._value=!0;this._FBPTriggerWire("--treeChanged",this._flatTree)}_parseTreeRecursive(tree,level,maxdepth){if(0<maxdepth&&!(level<maxdepth)){return}tree.depth=level;// do not indent on group labels
+if(!(tree.is_group_label&&!0===tree.is_group_label._value)){level++}tree.children.repeats.forEach(node=>{node.depth=level;let i=this._flatTree.push(node);node.__flatTreeIndex=i-1;if(0<node.children.repeats.length){this._parseTreeRecursive(node,level,maxdepth)}})}}window.customElements.define("furo-tree",FuroTree);class FuroMiniTabs extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}injectItems(nodeArray){this._FBPTriggerWire("--itemsInjected")}/**
     * flow is ready lifecycle method
     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 }/**
@@ -8189,11 +8580,12 @@ return _furoShell.html`
      */setActionButtonText(t){this.actionButtonText=t}/**
      * parse grpc status object and set the label according to the message in status
      * @param s
-     */parseGrpcStatus(s){if(s.message){this.setLabelText(s.message);this.show(s)}}/**
-     * @private
-     * @returns {TemplateResult}
-     */render(){return _furoShell.html`
-        `}}customElements.define("furo-snackbar",FuroSnackbar);class ProduceSnackbarData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--click",()=>{/**
+     */parseGrpcStatus(s){if(s.message){this.setLabelText(s.message);this.show(s)}}// set display none
+static get styles(){// language=CSS
+return _furoShell.css`
+        :host {
+          display: none;
+        }`}}customElements.define("furo-snackbar",FuroSnackbar);class ProduceSnackbarData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--click",()=>{/**
        * @event snackbar-label
        * Fired when
        * detail payload:
@@ -8384,8 +8776,12 @@ this._FBPTriggerWire("--focus")},500)}}}focus(){this._FBPTriggerWire("--focus")}
             }
             
             p {
-            margin-bottom: 4px;
-            margin-top: 12px;
+            margin-bottom: var(--spacing-xs, 8px) ;
+            margin-top: var(--spacing-xs, 8px) ;
+            }
+
+            .md *:first-child {
+            margin-top: var(--spacing-xs, 8px) ;
             }
 
             
@@ -8398,7 +8794,7 @@ this._FBPTriggerWire("--focus")},500)}}}focus(){this._FBPTriggerWire("--focus")}
             <div>
                <furo-icon icon="${this._banner.icon}"></furo-icon>
             </div>
-            <div flex>${this._bannerText}</div>            
+            <div flex class="md">${this._bannerText}</div>            
           </furo-horizontal-flex>
           <furo-horizontal-flex>
            <furo-empty-spacer></furo-empty-spacer>           
