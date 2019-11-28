@@ -310,8 +310,7 @@ export class FuroTreeItem extends FBP(LitElement) {
       :host([searchmatch]) {
         color: rgba(var(--primary-rgb), var(--medium-emphasis-primary));
       }
-
-
+      
       furo-icon[error] {
         animation: error-pulse 2s infinite;
       }
@@ -347,7 +346,8 @@ export class FuroTreeItem extends FBP(LitElement) {
       :host([is-group-label]) {
         border-top: 1px solid var(--separator, #cdcdcd);
         margin-top: var(--spacing-xs);
-        padding-top: var(--spacing-xxs);;
+        padding-top: var(--spacing-xxs);
+        border-radius: 0;
       }
 
 

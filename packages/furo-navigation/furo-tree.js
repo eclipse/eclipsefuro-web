@@ -434,8 +434,11 @@ class FuroTree extends FBP(LitElement) {
         padding: var(--spacing-xs) 8px;
         box-sizing: border-box;
       }
-
-
+      
+      /* remove border on first group label if it is the first element */
+      tr:first-child *[is-group-label]{
+      border-top: none;
+      }
 
       /* hover, :host(:hover) td > *[hovered]  is for mouse navigation */
       :host(:focus-within) td > *[hovered], :host(:hover) td > *[hovered] {
@@ -516,6 +519,8 @@ class FuroTree extends FBP(LitElement) {
       :host([noheader]) .head {
         display: none;
       }
+      
+    
     `
   }
 
