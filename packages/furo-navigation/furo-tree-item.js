@@ -5,6 +5,7 @@ import "@furo/layout/furo-horizontal-flex";
 import "@furo/data-input/furo-data-bool-icon";
 import {NodeEvent} from "@furo/data/lib/EventTreeNode";
 
+
 /**
  * `furo-tree-item`
  * todo Describe your element
@@ -118,7 +119,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode = fieldNode;
     this.indentation = this.fieldNode.depth;
     this.fieldNode._isHidden = true;
-    if(fieldNode.is_group_label){
+    if (fieldNode.is_group_label) {
       this.isGroupLabel = fieldNode.is_group_label._value;
     }
 
@@ -170,8 +171,8 @@ export class FuroTreeItem extends FBP(LitElement) {
     });
 
 
-    // make first node visible
-    if (this.fieldNode.depth === 0) {
+    // make level 0  node visible
+    if (this.fieldNode._isRoot === true) {
       this.hidden = false;
       this.fieldNode._isHidden = false;
     }
@@ -187,11 +188,11 @@ export class FuroTreeItem extends FBP(LitElement) {
     //this._FBPTraceWires()
 
     this._FBPAddWireHook("--labelClicked", (e) => {
-      if(this.isGroupLabel){
+      if (this.isGroupLabel) {
         // just toggle if this is a label
         this.fieldNode.open._value = !this.fieldNode.open._value;
-      }else{
-      this.fieldNode.selectItem();
+      } else {
+        this.fieldNode.selectItem();
       }
 
     });
@@ -208,12 +209,18 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode.addEventListener("this-node-hovered", (e) => {
       this.hovered = true;
       //this.scrollIntoViewIfNeeded();
+      if(this.scrollIntoViewIfNeeded){
+        this.scrollIntoViewIfNeeded();
+      }
     });
 
     this.fieldNode.addEventListener("this-node-selected", (e) => {
       this.selected = true;
       this.fieldNode._isSelected = true;
-      //this.scrollIntoViewIfNeeded();
+      if(this.scrollIntoViewIfNeeded){
+        this.scrollIntoViewIfNeeded();
+      }
+
     });
 
     // This item is not or no more in the search results
@@ -242,150 +249,167 @@ export class FuroTreeItem extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: block;
-            line-height: 40px;
-            cursor: pointer;
-            font-weight: 400;
-            user-select: none;
-            padding-left: var(--spacing-xs, 16px);
-            border-radius: 2px;
-            position: relative;
-        }
+      :host {
+        display: block;
+        line-height: 40px;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-weight: 400;
+        user-select: none;
+        padding-left: var(--spacing-xs, 16px);
+        border-radius: 4px;
+        position: relative;
+        margin-bottom: var(--spacing-xxs, 4px);
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-        :host([inedit]) {
-            font-style: italic;
-        }
+      :host([inedit]) {
+        font-style: italic;
+      }
 
-        :host([haserror]),
-        :host([selected][haserror]) {
-            color: var(--error, red);
-        }
+      :host([haserror]),
+      :host([selected][haserror]) {
+        color: var(--error, red);
+      }
 
-        :host([haserror]) furo-icon {
-            animation: error-pulse 3s infinite;
-        }
+      :host([haserror]) furo-icon {
+        animation: error-pulse 3s infinite;
+      }
 
-        .label {
-            white-space: nowrap;
-            font-size: 0.875rem;
-            letter-spacing: 0.2px;
-            margin-left: 8px;
-        }
+      .label {
+        white-space: nowrap;
+        font-size: 0.875rem;
+        letter-spacing: 0.2px;
+        margin-left: 8px;
+        font-weight: 500;
+        transition: color 0.4s;
+      }
 
-        .desc {
-            font-size: smaller;
-            white-space: nowrap;
-        }
+      .desc {
+        font-size: smaller;
+        line-height: 39px;
+        white-space: nowrap;
+      }
 
-        .oc {
-            color: var(--separator, #b5b5b5);
-            width: 12px;
-            box-sizing: border-box;
-            padding-left: 4px;
-            font-size: 8px;
-        }
+      .oc {
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        width: 12px;
+        box-sizing: border-box;
+        padding-left: 4px;
+        font-size: 8px;
+      }
 
-        :host([selected]) .oc {
-            color: var(--on-primary, white);
-        }
+      :host([selected]) .oc {
+        color: rgba(var(--primary-rgb), var(--medium-emphasis-primary));
+      }
 
-        :host([searchmatch]){
-            color: var(--primary);
-        }
-        
-
-        furo-icon[error] {
-            animation: error-pulse 2s infinite;
-        }
-
-        :host([selected]) furo-icon {
-            fill: var(--on-primary, white);;
-        }
+      :host([searchmatch]) {
+        color: rgba(var(--primary-rgb), var(--medium-emphasis-primary));
+      }
 
 
-        furo-icon {
+      furo-icon[error] {
+        animation: error-pulse 2s infinite;
+      }
 
-            transition: all 0.4s;
-            width: 20px;
-            height: 20px;
-            margin-right: 4px;
 
+      furo-icon {
+        transition: color 0.4s;
+        width: 20px;
+        height: 20px;
+        margin-right: 4px;
+
+      }
+
+      @keyframes error-pulse {
+        0% {
+          fill: var(--on-primary, #46150f);
         }
-
-        @keyframes error-pulse {
-            0% {
-                fill: var(--on-primary, #46150f);
-            }
-            12% {
-                fill: var(--error, #fc4d34);
-            }
-            24% {
-                fill: var(--on-primary, #46150f);
-            }
-            36% {
-                fill: var(--error, #fc4d34);
-            }
-            48% {
-                fill: var(--on-primary, #46150f);
-            }
-
+        12% {
+          fill: var(--error, #fc4d34);
         }
-
-        :host([is-group-label]) {
-            border-top: 1px solid var(--separator,#cdcdcd);
+        24% {
+          fill: var(--on-primary, #46150f);
+        }
+        36% {
+          fill: var(--error, #fc4d34);
+        }
+        48% {
+          fill: var(--on-primary, #46150f);
         }
 
-        :host([is-group-label]) .label {
-            font-weight: 500;
-            font-size: 11px;
-            color:var(--separator,#cdcdcd);
-            text-transform: uppercase;
-        }
+      }
 
-        .indentation-0 .indentation{
-          width: var(--tree-indentation-0, 0);
-        }
-        .indentation-1 .indentation{
-          width: var(--tree-indentation-1, 16px);
-        }
-        .indentation-2 .indentation{
-          width: var(--tree-indentation-2, 32px);
-        }
-        .indentation-3 .indentation{
-          width: var(--tree-indentation-3, 48px);
-        }
-        .indentation-4 .indentation{
-          width: var(--tree-indentation-4, 56px);
-        }
-        .indentation-5 .indentation{
-          width: var(--tree-indentation-5, 64px);
-        }
-        .indentation-6 .indentation{
-          width: var(--tree-indentation-6, 72px);
-        }        
-        .indentation-7 .indentation{
-          width: var(--tree-indentation-7, 80px);
-        }        
-        .indentation-8 .indentation{
-          width: var(--tree-indentation-8, 88px);
-        }       
-        .indentation-9 .indentation{
-          width: var(--tree-indentation-9, 92px);
-        }       
-        .indentation-10 .indentation{
-          width: var(--tree-indentation-10, 96px);
-        }      
-        .indentation-11 .indentation{
-          width: var(--tree-indentation-11, 100px);
-        }      
-        .indentation-12 .indentation{
-          width: var(--tree-indentation-12, 104px);
-        }
+
+      :host([is-group-label]) {
+        border-top: 1px solid var(--separator, #cdcdcd);
+        margin-top: var(--spacing-xs);
+        padding-top: var(--spacing-xxs);;
+      }
+
+
+      :host([is-group-label]) .label {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: normal;
+        letter-spacing: 0.1px;
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+      }
+
+      .indentation-0 .indentation {
+        width: var(--tree-indentation-0, 0);
+      }
+
+      .indentation-1 .indentation {
+        width: var(--tree-indentation-1, 16px);
+      }
+
+      .indentation-2 .indentation {
+        width: var(--tree-indentation-2, 32px);
+      }
+
+      .indentation-3 .indentation {
+        width: var(--tree-indentation-3, 48px);
+      }
+
+      .indentation-4 .indentation {
+        width: var(--tree-indentation-4, 56px);
+      }
+
+      .indentation-5 .indentation {
+        width: var(--tree-indentation-5, 64px);
+      }
+
+      .indentation-6 .indentation {
+        width: var(--tree-indentation-6, 72px);
+      }
+
+      .indentation-7 .indentation {
+        width: var(--tree-indentation-7, 80px);
+      }
+
+      .indentation-8 .indentation {
+        width: var(--tree-indentation-8, 88px);
+      }
+
+      .indentation-9 .indentation {
+        width: var(--tree-indentation-9, 92px);
+      }
+
+      .indentation-10 .indentation {
+        width: var(--tree-indentation-10, 96px);
+      }
+
+      .indentation-11 .indentation {
+        width: var(--tree-indentation-11, 100px);
+      }
+
+      .indentation-12 .indentation {
+        width: var(--tree-indentation-12, 104px);
+      }
     `
   }
 
