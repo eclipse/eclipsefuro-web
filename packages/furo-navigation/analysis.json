@@ -271,7 +271,7 @@
               "column": 8
             },
             "end": {
-              "line": 524,
+              "line": 529,
               "column": 9
             }
           },
@@ -314,11 +314,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 536,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 538,
+              "line": 543,
               "column": 9
             }
           },
@@ -343,11 +343,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 540,
+              "line": 545,
               "column": 8
             },
             "end": {
-              "line": 548,
+              "line": 553,
               "column": 9
             }
           },
@@ -366,11 +366,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 550,
+              "line": 555,
               "column": 8
             },
             "end": {
-              "line": 564,
+              "line": 569,
               "column": 9
             }
           },
@@ -388,11 +388,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 575,
+              "line": 580,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 593,
               "column": 9
             }
           },
@@ -422,11 +422,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 599,
+              "line": 604,
               "column": 8
             },
             "end": {
-              "line": 621,
+              "line": 626,
               "column": 9
             }
           },
@@ -461,11 +461,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 639,
+              "line": 644,
               "column": 8
             },
             "end": {
-              "line": 641,
+              "line": 646,
               "column": 9
             }
           },
@@ -883,7 +883,7 @@
               "column": 8
             },
             "end": {
-              "line": 524,
+              "line": 529,
               "column": 9
             }
           },
@@ -926,11 +926,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 536,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 538,
+              "line": 543,
               "column": 9
             }
           },
@@ -955,11 +955,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 540,
+              "line": 545,
               "column": 8
             },
             "end": {
-              "line": 548,
+              "line": 553,
               "column": 9
             }
           },
@@ -978,11 +978,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 550,
+              "line": 555,
               "column": 8
             },
             "end": {
-              "line": 564,
+              "line": 569,
               "column": 9
             }
           },
@@ -1000,11 +1000,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 575,
+              "line": 580,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 593,
               "column": 9
             }
           },
@@ -1034,11 +1034,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 599,
+              "line": 604,
               "column": 8
             },
             "end": {
-              "line": 621,
+              "line": 626,
               "column": 9
             }
           },
@@ -1073,11 +1073,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 639,
+              "line": 644,
               "column": 8
             },
             "end": {
-              "line": 641,
+              "line": 646,
               "column": 9
             }
           },
@@ -1253,11 +1253,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 69,
               "column": 6
             },
             "end": {
-              "line": 67,
+              "line": 69,
               "column": 44
             }
           },
@@ -1274,11 +1274,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 70,
               "column": 6
             },
             "end": {
-              "line": 68,
+              "line": 70,
               "column": 45
             }
           },
@@ -1295,11 +1295,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 69,
+              "line": 71,
               "column": 6
             },
             "end": {
-              "line": 69,
+              "line": 71,
               "column": 49
             }
           },
@@ -1316,11 +1316,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 72,
               "column": 6
             },
             "end": {
-              "line": 70,
+              "line": 72,
               "column": 44
             }
           },
@@ -1337,11 +1337,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 73,
               "column": 6
             },
             "end": {
-              "line": 71,
+              "line": 73,
               "column": 46
             }
           },
@@ -1358,11 +1358,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 72,
+              "line": 74,
               "column": 6
             },
             "end": {
-              "line": 72,
+              "line": 74,
               "column": 46
             }
           },
@@ -1379,11 +1379,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 75,
               "column": 6
             },
             "end": {
-              "line": 73,
+              "line": 75,
               "column": 29
             }
           },
@@ -1400,11 +1400,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 74,
+              "line": 76,
               "column": 6
             },
             "end": {
-              "line": 74,
+              "line": 76,
               "column": 79
             }
           },
@@ -1616,7 +1616,7 @@
               "column": 8
             },
             "end": {
-              "line": 524,
+              "line": 529,
               "column": 9
             }
           },
@@ -1638,11 +1638,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 182,
+              "line": 185,
               "column": 2
             },
             "end": {
-              "line": 231,
+              "line": 240,
               "column": 3
             }
           },
@@ -1659,11 +1659,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 536,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 538,
+              "line": 543,
               "column": 9
             }
           },
@@ -1688,11 +1688,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 540,
+              "line": 545,
               "column": 8
             },
             "end": {
-              "line": 548,
+              "line": 553,
               "column": 9
             }
           },
@@ -1711,11 +1711,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 550,
+              "line": 555,
               "column": 8
             },
             "end": {
-              "line": 564,
+              "line": 569,
               "column": 9
             }
           },
@@ -1733,11 +1733,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 575,
+              "line": 580,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 593,
               "column": 9
             }
           },
@@ -1767,11 +1767,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 599,
+              "line": 604,
               "column": 8
             },
             "end": {
-              "line": 621,
+              "line": 626,
               "column": 9
             }
           },
@@ -1806,11 +1806,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 639,
+              "line": 644,
               "column": 8
             },
             "end": {
-              "line": 641,
+              "line": 646,
               "column": 9
             }
           },
@@ -1834,11 +1834,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 25,
+              "line": 27,
               "column": 2
             },
             "end": {
-              "line": 56,
+              "line": 58,
               "column": 3
             }
           },
@@ -1858,11 +1858,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 112,
+              "line": 114,
               "column": 3
             }
           },
@@ -1878,11 +1878,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 115,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 177,
+              "line": 180,
               "column": 3
             }
           },
@@ -1902,11 +1902,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 355,
+              "line": 419,
               "column": 2
             },
             "end": {
-              "line": 366,
+              "line": 429,
               "column": 3
             }
           },
@@ -1927,11 +1927,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 16,
+          "line": 17,
           "column": 7
         },
         "end": {
-          "line": 367,
+          "line": 430,
           "column": 1
         }
       },
@@ -1944,11 +1944,11 @@
           "description": "Description",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 69,
               "column": 6
             },
             "end": {
-              "line": 67,
+              "line": 69,
               "column": 44
             }
           },
@@ -1960,11 +1960,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 68,
+              "line": 70,
               "column": 6
             },
             "end": {
-              "line": 68,
+              "line": 70,
               "column": 45
             }
           },
@@ -1976,11 +1976,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 69,
+              "line": 71,
               "column": 6
             },
             "end": {
-              "line": 69,
+              "line": 71,
               "column": 49
             }
           },
@@ -1992,11 +1992,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 72,
               "column": 6
             },
             "end": {
-              "line": 70,
+              "line": 72,
               "column": 44
             }
           },
@@ -2008,11 +2008,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 73,
               "column": 6
             },
             "end": {
-              "line": 71,
+              "line": 73,
               "column": 46
             }
           },
@@ -2024,11 +2024,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 72,
+              "line": 74,
               "column": 6
             },
             "end": {
-              "line": 72,
+              "line": 74,
               "column": 46
             }
           },
@@ -2040,11 +2040,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 75,
               "column": 6
             },
             "end": {
-              "line": 73,
+              "line": 75,
               "column": 29
             }
           },
@@ -2056,11 +2056,11 @@
           "description": "",
           "sourceRange": {
             "start": {
-              "line": 74,
+              "line": 76,
               "column": 6
             },
             "end": {
-              "line": 74,
+              "line": 76,
               "column": 79
             }
           },
@@ -2192,10 +2192,10 @@
           }
         },
         {
-          "name": "_searchIsActive",
+          "name": "noheader",
           "type": "boolean | null | undefined",
-          "description": "indicator for searching. Maybe you want style your item depending on this attribute",
-          "privacy": "protected",
+          "description": "Set this flag if you do not want a header-text section.",
+          "privacy": "public",
           "sourceRange": {
             "start": {
               "line": 364,
@@ -2203,6 +2203,90 @@
             },
             "end": {
               "line": 364,
+              "column": 31
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "hideRootNode",
+          "type": "boolean | null | undefined",
+          "description": "Set this flag if you do not want to see the root node",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 368,
+              "column": 6
+            },
+            "end": {
+              "line": 368,
+              "column": 64
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "headerText",
+          "type": "string | null | undefined",
+          "description": "Override display name from root object",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 372,
+              "column": 6
+            },
+            "end": {
+              "line": 372,
+              "column": 58
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "secondaryText",
+          "type": "string | null | undefined",
+          "description": "Override description from root object.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 376,
+              "column": 6
+            },
+            "end": {
+              "line": 376,
+              "column": 64
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "_searchIsActive",
+          "type": "boolean | null | undefined",
+          "description": "indicator for searching. Maybe you want style your item depending on this attribute",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 380,
+              "column": 6
+            },
+            "end": {
+              "line": 380,
               "column": 77
             }
           },
@@ -2414,7 +2498,7 @@
               "column": 8
             },
             "end": {
-              "line": 524,
+              "line": 529,
               "column": 9
             }
           },
@@ -2436,11 +2520,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 378,
+              "line": 394,
               "column": 2
             },
             "end": {
-              "line": 381,
+              "line": 397,
               "column": 3
             }
           },
@@ -2457,11 +2541,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 536,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 538,
+              "line": 543,
               "column": 9
             }
           },
@@ -2486,11 +2570,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 540,
+              "line": 545,
               "column": 8
             },
             "end": {
-              "line": 548,
+              "line": 553,
               "column": 9
             }
           },
@@ -2509,11 +2593,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 550,
+              "line": 555,
               "column": 8
             },
             "end": {
-              "line": 564,
+              "line": 569,
               "column": 9
             }
           },
@@ -2531,11 +2615,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 575,
+              "line": 580,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 593,
               "column": 9
             }
           },
@@ -2565,11 +2649,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 599,
+              "line": 604,
               "column": 8
             },
             "end": {
-              "line": 621,
+              "line": 626,
               "column": 9
             }
           },
@@ -2604,11 +2688,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 639,
+              "line": 644,
               "column": 8
             },
             "end": {
-              "line": 641,
+              "line": 646,
               "column": 9
             }
           },
@@ -3049,11 +3133,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 371,
+              "line": 387,
               "column": 2
             },
             "end": {
-              "line": 373,
+              "line": 389,
               "column": 3
             }
           },
@@ -3069,11 +3153,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 480,
+              "line": 526,
               "column": 2
             },
             "end": {
-              "line": 496,
+              "line": 548,
               "column": 3
             }
           },
@@ -3089,11 +3173,35 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 499,
+              "line": 551,
               "column": 2
             },
             "end": {
-              "line": 513,
+              "line": 570,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "treeNode"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_setTitle",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 572,
+              "column": 2
+            },
+            "end": {
+              "line": 576,
               "column": 3
             }
           },
@@ -3113,11 +3221,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 515,
+              "line": 578,
               "column": 2
             },
             "end": {
-              "line": 545,
+              "line": 607,
               "column": 3
             }
           },
@@ -3133,11 +3241,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 547,
+              "line": 609,
               "column": 2
             },
             "end": {
-              "line": 644,
+              "line": 706,
               "column": 3
             }
           },
@@ -3153,11 +3261,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 646,
+              "line": 708,
               "column": 2
             },
             "end": {
-              "line": 780,
+              "line": 853,
               "column": 3
             }
           },
@@ -3177,11 +3285,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 783,
+              "line": 856,
               "column": 2
             },
             "end": {
-              "line": 798,
+              "line": 875,
               "column": 3
             }
           },
@@ -3220,7 +3328,7 @@
           "column": 0
         },
         "end": {
-          "line": 799,
+          "line": 876,
           "column": 1
         }
       },
@@ -3275,6 +3383,70 @@
           },
           "metadata": {},
           "type": "number | null | undefined"
+        },
+        {
+          "name": "noheader",
+          "description": "Set this flag if you do not want a header-text section.",
+          "sourceRange": {
+            "start": {
+              "line": 364,
+              "column": 6
+            },
+            "end": {
+              "line": 364,
+              "column": 31
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "hide-root-node",
+          "description": "Set this flag if you do not want to see the root node",
+          "sourceRange": {
+            "start": {
+              "line": 368,
+              "column": 6
+            },
+            "end": {
+              "line": 368,
+              "column": 64
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "header-text",
+          "description": "Override display name from root object",
+          "sourceRange": {
+            "start": {
+              "line": 372,
+              "column": 6
+            },
+            "end": {
+              "line": 372,
+              "column": 58
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "secondary-text",
+          "description": "Override description from root object.",
+          "sourceRange": {
+            "start": {
+              "line": 376,
+              "column": 6
+            },
+            "end": {
+              "line": 376,
+              "column": 64
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
         }
       ],
       "events": [
@@ -3561,7 +3733,7 @@
               "column": 8
             },
             "end": {
-              "line": 524,
+              "line": 529,
               "column": 9
             }
           },
@@ -3604,11 +3776,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 536,
+              "line": 541,
               "column": 8
             },
             "end": {
-              "line": 538,
+              "line": 543,
               "column": 9
             }
           },
@@ -3633,11 +3805,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 540,
+              "line": 545,
               "column": 8
             },
             "end": {
-              "line": 548,
+              "line": 553,
               "column": 9
             }
           },
@@ -3656,11 +3828,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 550,
+              "line": 555,
               "column": 8
             },
             "end": {
-              "line": 564,
+              "line": 569,
               "column": 9
             }
           },
@@ -3678,11 +3850,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 575,
+              "line": 580,
               "column": 8
             },
             "end": {
-              "line": 588,
+              "line": 593,
               "column": 9
             }
           },
@@ -3712,11 +3884,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 599,
+              "line": 604,
               "column": 8
             },
             "end": {
-              "line": 621,
+              "line": 626,
               "column": 9
             }
           },
@@ -3751,11 +3923,11 @@
           "sourceRange": {
             "file": "../../../@furo/fbp/fbp.js",
             "start": {
-              "line": 639,
+              "line": 644,
               "column": 8
             },
             "end": {
-              "line": 641,
+              "line": 646,
               "column": 9
             }
           },

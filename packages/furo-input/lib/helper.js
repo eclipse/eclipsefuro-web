@@ -44,6 +44,16 @@ export class Helper {
     caller._float = !!input.value;
 
     caller.value = input.value;
+
+    /**
+     * @event value-cleared
+     * Fired when value has changed to EMPTY_STRING from inside the component
+     * detail paylod: empty
+     */
+    if (caller.value.length === 0){
+      let customEvent = new Event('value-cleared', {composed: true, bubbles: true});
+      caller.dispatchEvent(customEvent);
+    }
     /**
      * @event value-changed
      * Fired when value has changed from inside the component

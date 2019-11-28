@@ -32,6 +32,13 @@ import {Helper} from "./lib/helper";
  *
  * ```
  *
+ * ### Styling
+ * The following custom properties and mixins are available for styling:
+ *
+ * Custom property                                | Description | Default  | Fallback
+ * -----------------------------------------------|-------------|----------|----------
+ * `--furo-data-reference-search-list-background` | Background color of result list | --surface | #ffffff;
+ *
  * @summary shortdescription
  * @customElement
  * @demo demo-furo-data-reference-search
@@ -139,6 +146,11 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
             this._lockBlur = false;
         });
 
+        // reinit binded value on cleared
+        this._FBPAddWireHook("--cleared", (item) => {
+            this._clear();
+        });
+
         // close list on blur
         this._FBPAddWireHook("--blured", (item) => {
             this._focused = false;
@@ -194,6 +206,20 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     _closeList() {
         this._listIsOpen = false;
         this.removeAttribute("show-list");
+    }
+
+    _clear(){
+        this.field.reinit();
+        this._updateField();
+        this._closeList();
+
+        /**
+         * @event value-cleared
+         * Fired when input value is cleared
+         * detail payload: empty
+         */
+        let customEvent = new Event('value-cleared', {composed: true, bubbles: true});
+        this.dispatchEvent(customEvent);
     }
 
     /**
@@ -379,7 +405,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     _updateField() {
 
-        if (this.field.display_name._value) {
+        if (this.field.display_name._value !== undefined) {
             this._FBPTriggerWire('--value', this.field.display_name._value);
         }
 
@@ -417,7 +443,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
                 right: 0;
                 overflow: auto;
                 max-height: 300px;
-                background-color: var(--surface, #ffffff);
+                background-color: var(--furo-data-reference-search-list-background, var(--surface, #ffffff));
                 border-radius: 4px;
                 z-index: 1;
                 box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -449,7 +475,8 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
       ?autofocus=${this.autofocus} 
       ?condensed=${this.condensed} 
       ƒ-set-value="--value"
-      @-value-changed="^^searchInput" 
+      @-value-changed="^^searchInput"
+      @-value-cleared="--cleared" 
       @-blur="--blured" 
       @-focus="--focused" 
       ƒ-focus="--focusReceived"></furo-search-input>
