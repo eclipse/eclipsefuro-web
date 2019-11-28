@@ -80,6 +80,7 @@ class FuroForm extends FBP(LitElement) {
             position: relative;
             font-size: 14px;
             letter-spacing: 0.1px;
+            max-width: var(--furo-form-max-width,90em);
         }
 
         furo-loading-indicator-bar{
