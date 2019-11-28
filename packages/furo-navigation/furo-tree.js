@@ -442,7 +442,7 @@ class FuroTree extends FBP(LitElement) {
         background-color: rgba(var(--primary-rgb), var(--state-hover));
         color: var(--primary);
       }
-      
+
 
       /* selected */
       td > *[selected], :host(:not(:focus-within)) td > *[selected] {
@@ -557,22 +557,19 @@ class FuroTree extends FBP(LitElement) {
       this._rootNode = treeNode.root;
     }
 
-
-
-
-    this._rootNode.addEventListener("this-repeated-field-changed", (e) => {
-      this._setTitle(treeNode);
+    this._rootNode.children.addEventListener("this-repeated-field-changed", (e) => {
+      this._setTitle(this._rootNode);
       this._init();
-
     });
-    this._setTitle(treeNode);
+
+    this._setTitle(this._rootNode);
     this._init();
 
   }
 
   _setTitle(treeNode) {
     this._headerText = this.headerText || treeNode.display_name._value;
-    this._secondaryText = this.secondaryText || treeNode.description._value;
+    this._secondaryText = this.secondaryText || treeNode.secondary_text._value;
     this.requestUpdate();
   }
 
@@ -590,10 +587,10 @@ class FuroTree extends FBP(LitElement) {
 
 
     // initial hover on first element
-    this._hoveredField = this._flatTree[0];
-    setTimeout(() => {
+    if(this._hoveredField === undefined && this._flatTree.length>0){
+      this._hoveredField = this._flatTree[0];
       this._hoveredField.triggerHover();
-    }, 0);
+    }
 
 
     // select item if qp was set before
@@ -707,6 +704,7 @@ class FuroTree extends FBP(LitElement) {
   }
 
   _buildFlatTree(tree) {
+
     this._flatTree = [tree];
     tree.__flatTreeIndex = 0;
     let startlevel = 0;

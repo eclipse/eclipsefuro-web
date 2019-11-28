@@ -26,6 +26,16 @@
         "number": 2
       }
     },
+    "secondary_text": {
+      "description": "Secondary text of the node",
+      "type": "string",
+      "meta": {
+        "tree-search-index": true
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
     "description": {
       "description": "description of the tree",
       "meta": {
@@ -33,7 +43,7 @@
       },
       "type": "string",
       "__proto": {
-        "number": 3
+        "number": 4
       }
     },
     "root": {
