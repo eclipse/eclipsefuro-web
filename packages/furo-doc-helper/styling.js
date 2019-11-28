@@ -34,8 +34,10 @@ export class Styling {
 
         --surface-light: #f3f3f3;
         --surface: #FEFEFE;
+        --surface-rgb: 254, 254, 254;
         --surface-dark: #f0f0f0;
         --on-surface: #212121;
+        --on-surface-rgb: 33, 33, 33;
         --separator: #E4E4E4;
 
         /* States */
