@@ -324,6 +324,12 @@ class FuroRangeInput extends FBP(LitElement) {
             outline: none;
             font-family: "Roboto", "Noto", sans-serif;
         }
+        input:required {
+          box-shadow:none;
+        }
+        input:invalid {
+          box-shadow:none;
+        }
 
         :host([filled]) .wrapper {
             background-color: var(--surface-light, #FEFEFE);

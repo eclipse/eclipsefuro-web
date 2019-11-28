@@ -336,7 +336,12 @@ class FuroSearchInput extends FBP(LitElement) {
             font-stretch: 100%;
             font-style: normal;
         }
-
+        input:required {
+          box-shadow:none;
+        }
+        input:invalid {
+          box-shadow:none;
+        }
         :host([filled]) .wrapper {
             background-color: var(--surface-light, #FEFEFE);
         }

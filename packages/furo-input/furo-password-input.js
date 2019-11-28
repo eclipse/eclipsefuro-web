@@ -353,6 +353,13 @@ class FuroPasswordInput extends FBP(LitElement) {
             font-size: 16px;
             font-stretch: 100%;
             font-style: normal;
+            outline: none;
+        }
+        input:required {
+          box-shadow:none;
+        }
+        input:invalid {
+          box-shadow:none;
         }
 
         :host([filled]) .wrapper {
