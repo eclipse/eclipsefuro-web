@@ -195,13 +195,12 @@ class FuroDataTable extends FBP(LitElement) {
             th {
                 color: var(--primary, #035CA1);
                 white-space: nowrap;
-                font-weight: 400;
+                font-weight: 500;
                 padding-left: 0;
                 -webkit-font-smoothing: antialiased;
                 text-align: left;
                 letter-spacing: 1.5px;
                 text-transform: uppercase;
-                font-size: 10px;
             }
 
             tr {
@@ -231,7 +230,7 @@ class FuroDataTable extends FBP(LitElement) {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                font-size: 12px;
+                font-size: 14px;
                 padding-right: var(--spacing, 12px);
             }
 
