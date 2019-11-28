@@ -26,11 +26,11 @@ rebuilds the documentation (analysis files)
 ### `npm run serve`
 Starts the documentation server on port 7777
 
-### `npm run build`
-Builds the documentation
-
 ### `npm run lint:imports`
 Check the imports
 
 ### `npm run test`
 Runs the tests. There is an issue with the coverage at the moment. If you want to have the coverage, just run `polymer test` directly
+
+### `npm run genpage`
+Publishes the documentation. Be sure, the documentation is up to date or run `npm run doc`

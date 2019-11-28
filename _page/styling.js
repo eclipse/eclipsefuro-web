@@ -17,20 +17,17 @@ export class Styling {
         --primary-light: #f6f6f6;
         --primary-dark: #f1f1f1;
 
-
         --secondary: #fecf2f;
         --secondary-rgb: 254, 207, 47;
         --secondary-dark: #ffc911;
         --secondary-variant: #9e7f2b;
         --on-secondary: #212121;
 
-
         --accent: #3f83e3;
         --accent-rgb: 63, 131, 227;
         --on-accent: #e5e5e5;
         --accent-light: #3f8ded;
         --accent-dark: #3f73d3;
-
 
         --background: #eeeeee;
         --on-background: #212121;
@@ -44,16 +41,16 @@ export class Styling {
         /* States */
         --state-hover: 0.04;
         --state-selected: 0.08;
-        --state-selected-hover: 0.12;
         --state-active: 0.1;
+        --state-selected-hover: 0.12;
         --state-focus: 0.12;
         --state-selected-focus: 0.2;
+        --state-selected-focus-hover: 0.24;
         --state-disabled: 0.38;
 
         /* Emphasis, used for secondary text,... */
         --medium-emphasis-surface: 0.6;
         --medium-emphasis-primary: 0.74;
-
 
         /* Input, Forms, Toast*/
         --error: #ea1c24;
@@ -79,7 +76,9 @@ export class Styling {
         --spacing-l: 32px;
         --spacing-xl: 48px;
         --spacing-xxl: 96px;
-
+        
+        /* Transition */
+        --transition-duration: 200ms;
 
         /* project specific */
         --blockquote: #ffc247;

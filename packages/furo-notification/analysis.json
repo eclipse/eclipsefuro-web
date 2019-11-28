@@ -436,26 +436,6 @@
           "return": {
             "type": "void"
           }
-        },
-        {
-          "name": "render",
-          "description": "",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 232,
-              "column": 2
-            },
-            "end": {
-              "line": 235,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "TemplateResult"
-          }
         }
       ],
       "staticMethods": [],
@@ -476,7 +456,7 @@
           "column": 0
         },
         "end": {
-          "line": 237,
+          "line": 236,
           "column": 1
         }
       },
