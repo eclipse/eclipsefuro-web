@@ -260,6 +260,8 @@ export class FuroTreeItem extends FBP(LitElement) {
         border-radius: 4px;
         position: relative;
         margin-bottom: var(--spacing-xxs, 4px);
+        transition: color 0.2s;
+        transition: background-color 0.2s;
       }
 
       :host([hidden]) {
@@ -285,7 +287,6 @@ export class FuroTreeItem extends FBP(LitElement) {
         letter-spacing: 0.2px;
         margin-left: 8px;
         font-weight: 500;
-        transition: color 0.4s;
       }
 
       .desc {
