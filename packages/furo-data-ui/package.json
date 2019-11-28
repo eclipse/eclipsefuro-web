@@ -1,12 +1,12 @@
 {
   "name": "@furo/data-ui",
-  "version": "0.9.2",
+  "version": "0.10.0",
   "description": "Visual furo-data compatible components",
   "main": "furo-catalog.js",
   "dependencies": {
-    "@furo/data": "^0.64.0",
-    "@furo/fbp": "^4.27.4",
-    "@furo/framework": "^0.13.1",
+    "@furo/data": "^0.64.1",
+    "@furo/fbp": "^4.28.0",
+    "@furo/framework": "^0.13.2",
     "lit-element": "^2.2.1"
   },
   "publishConfig": {

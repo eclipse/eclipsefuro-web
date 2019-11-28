@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.9.2...@furo/data-ui@0.10.0) (2019-11-28)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+
+
+### Features
+
+* styled states on tree ([e21525b](https://github.com/theNorstroem/FuroBaseComponents/commit/e21525b))
+
+
+
+
+
 ## [0.9.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.9.1...@furo/data-ui@0.9.2) (2019-11-15)
 
 **Note:** Version bump only for package @furo/data-ui
