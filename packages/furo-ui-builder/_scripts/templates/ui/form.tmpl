@@ -31,7 +31,7 @@ export class {{.class_name}} extends FBP(LitElement) {
                 letter-spacing: 0;
                 margin: 0;
                 font-weight: normal;
-                margin-bottom: 4px;
+                margin-bottom: var(--spacing, 16px);
             }
            .caption{
                 font-size: 10px;
@@ -41,7 +41,7 @@ export class {{.class_name}} extends FBP(LitElement) {
                 font-weight: 500;
             }
             .secondary{
-                color: var(--secondary-color, var(--on-primary-light,#777777));
+                color: var(--secondary, var(--on-primary, #777777));
                 line-height: 22px;
                 font-size: 14px;
                 letter-spacing: 0.1px;
