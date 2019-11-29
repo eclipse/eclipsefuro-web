@@ -25,26 +25,12 @@ export class {{.class_name}} extends FBP(LitElement) {
             :host([hidden]) {
                 display: none;
             }
-            h1 {
-                font-size: 24px;
-                line-height: 24px;
-                letter-spacing: 0;
-                margin: 0;
-                font-weight: normal;
-                margin-bottom: var(--spacing, 16px);
-            }
            .caption{
                 font-size: 10px;
                 text-transform: uppercase;
                 line-height: 32px;
                 letter-spacing: 1.5px;
                 font-weight: 500;
-            }
-            .secondary{
-                color: var(--secondary, var(--on-primary, #777777));
-                line-height: 22px;
-                font-size: 14px;
-                letter-spacing: 0.1px;
             }
         `
     }
@@ -96,9 +82,8 @@ export class {{.class_name}} extends FBP(LitElement) {
         return html`
         {{if .autolabel}} ${this.display_name} ${this.secondary_text} ${this.display_caption}  {{end}}
             {{range $fieldgroup := .fieldgroups}}{{"<" | noescape}}!-- {{$fieldgroup.description}}  -->
-            {{if $fieldgroup.title}}{{"<" | noescape}}h1>${i18n.t("{{$fieldgroup.title}}")}</h1>{{end}}
+            {{"<" | noescape}}furo-form{{if $fieldgroup.title}} header-text="${i18n.t("{{$fieldgroup.title}}")}"{{if $fieldgroup.secondary_text}} secondary-text="${i18n.t("{{$fieldgroup.secondary_text}}")}"{{end}}{{end}}>
             {{if $fieldgroup.caption}}{{"<" | noescape}}div class="caption">${i18n.t("{{$fieldgroup.caption}}")}</div>{{end}}
-            {{if $fieldgroup.secondary_text}}{{"<" | noescape}}span class="secondary">${i18n.t("{{$fieldgroup.secondary_text}}")}</span>{{end}}
             {{"<" | noescape}}{{$fieldgroup.component}}{{range $flag := $fieldgroup.flags}} {{$flag}}{{end}}{{range $attr := $fieldgroup.attrs}} {{$attr.name}}="{{$attr.val}}"{{end}}>
                 {{- range $field := $fieldgroup.fields}}
                 {{"<" | noescape}}!-- {{$field.spec.description}}  -->
@@ -106,6 +91,7 @@ export class {{.class_name}} extends FBP(LitElement) {
                 {{- if $field.field}}ƒ-bind-data="--data(*.{{$field.field}})"{{end}}>{{"<" | noescape}}/{{$field.component}}>{{end}}
             {{"<" | noescape}}/{{$fieldgroup.component}}>
             {{end}}
+            </furo-form>
         `;
     }
 }
