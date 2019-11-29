@@ -345,6 +345,10 @@ export class FuroTreeItem extends FBP(LitElement) {
         height: 64px;
       }
 
+      :host([isheader]) furo-icon{
+        margin-bottom: 4px;
+      }
+
       :host([isheader]) .oc {
         display: none;
       }
