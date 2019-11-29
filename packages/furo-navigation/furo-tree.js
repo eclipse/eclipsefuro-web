@@ -362,7 +362,7 @@ class FuroTree extends FBP(LitElement) {
       /**
        * Set this flag if you do not want a header-text section.
        */
-      noheader: {type: Boolean},
+      rootAsHeader: {type: Boolean, attribute: "root-as-header"},
       /**
        * Set this flag if you do not want to see the root node
        */
@@ -395,6 +395,14 @@ class FuroTree extends FBP(LitElement) {
   _FBPReady() {
     super._FBPReady();
     //this._FBPTraceWires();
+
+    /**
+     * Register hook on wire --headClicked to
+     * select the root node
+     */
+    this._FBPAddWireHook("--headClicked",(e)=>{
+          this._flatTree[0].selectItem();
+    });
   }
 
   /**
@@ -514,6 +522,7 @@ class FuroTree extends FBP(LitElement) {
 
       .head {
         height: 64px;
+        cursor:pointer;
       }
 
       :host([noheader]) .head {
@@ -534,10 +543,6 @@ class FuroTree extends FBP(LitElement) {
     return html`
     <div class="srch">⌖ ${this._searchTerm}</div>
      <furo-vertical-flex>
-     <div class="head">
-        <div class="title">${this._headerText}</div>
-        <div class="secondary">${this._secondaryText}</div>
-      </div>
       <div class="tablewrapper" flex>
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
@@ -573,9 +578,14 @@ class FuroTree extends FBP(LitElement) {
   }
 
   _setTitle(treeNode) {
-    this._headerText = this.headerText || treeNode.display_name._value;
-    this._secondaryText = this.secondaryText || treeNode.secondary_text._value;
-    this.requestUpdate();
+    if(this.headerText  && treeNode.display_name){
+      treeNode.display_name._value = this.headerText;
+    }
+    if(this.secondaryText && treeNode.secondary_text){
+      treeNode.secondary_text._value = this.secondaryText;
+    }
+
+
   }
 
   _init() {
@@ -715,12 +725,16 @@ class FuroTree extends FBP(LitElement) {
     let startlevel = 0;
     if(this.hideRootNode === true){
       startlevel = -1;
-      this._flatTree.pop();
+      //this._flatTree.pop();
+      this._flatTree[0]._isHidden = true;
     }else {
       tree._isRoot = true;
       tree.open._value = true;
     }
 
+    if(this.rootAsHeader === true){
+      this._flatTree[0]._rootAsHeader = true;
+    }
 
 
     this._parseTreeRecursive(tree, startlevel, this.depth);
