@@ -34,7 +34,7 @@ class FuroLoadingIndicatorBar extends FBP(LitElement) {
             height: 4px;
             pointer-events: none;
             opacity: 0.8;
-            background-color: var(--secondary-color);
+            background-color: var(--secondary);
             animation: colorchange 5s infinite;
             @apply --loading-indicator-mixin;
         }
@@ -44,21 +44,21 @@ class FuroLoadingIndicatorBar extends FBP(LitElement) {
         }
 
         @keyframes colorchange {
-            0% {
-                background: red;
-            }
-            25% {
-                background: yellow;
-            }
-            50% {
-                background: blue;
-            }
-            75% {
-                background: green;
-            }
-            100% {
-                background: red;
-            }
+          0% {
+            background: var(--secondary, red);
+          }
+          25% {
+            background: var(--primary-light, yellow);
+          }
+          50% {
+            background: var(--primary-variant, blue);
+          }
+          75% {
+            background: var(--accent, green);
+          }
+          100% {
+            background: var(--secondary, red);
+          }
         }
     `
   }
