@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.35.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.34.3...@furo/navigation@0.35.0) (2019-11-29)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+* furo-tree group labels ([2b70c49](https://github.com/theNorstroem/FuroBaseComponents/commit/2b70c49))
+* furo-tree header icon margins aligned ([3b33472](https://github.com/theNorstroem/FuroBaseComponents/commit/3b33472))
+* no border on first group-label ([dc2e8f2](https://github.com/theNorstroem/FuroBaseComponents/commit/dc2e8f2))
+* styling transition ([a7f9607](https://github.com/theNorstroem/FuroBaseComponents/commit/a7f9607))
+* styling transition speed ([6d8d847](https://github.com/theNorstroem/FuroBaseComponents/commit/6d8d847))
+
+
+### Features
+
+* furo-tree as header ([d37425d](https://github.com/theNorstroem/FuroBaseComponents/commit/d37425d))
+* furo-tree navigation with mouse and keyboard mixed ([2a32461](https://github.com/theNorstroem/FuroBaseComponents/commit/2a32461))
+* furo-tree navigation with mouse and keyboard mixed ([5454256](https://github.com/theNorstroem/FuroBaseComponents/commit/5454256))
+* root node can be hidden ([1eefa5f](https://github.com/theNorstroem/FuroBaseComponents/commit/1eefa5f))
+* scrollIntoViewIfNeeded if supported by browser. ([e204ba9](https://github.com/theNorstroem/FuroBaseComponents/commit/e204ba9))
+* styled states on tree ([920d07d](https://github.com/theNorstroem/FuroBaseComponents/commit/920d07d))
+* styled states on tree searchmatch color ([4baeaf0](https://github.com/theNorstroem/FuroBaseComponents/commit/4baeaf0))
+
+
+
+
+
 ## [0.34.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.35.0...@furo/navigation@0.34.3) (2019-11-28)
 
 **Note:** Version bump only for package @furo/navigation

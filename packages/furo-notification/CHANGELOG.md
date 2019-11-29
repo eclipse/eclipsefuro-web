@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.5.2...@furo/notification@0.6.0) (2019-11-29)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+* furo-snackbar should not have a display. Renderer removed, css display none added ([7f8d369](https://github.com/theNorstroem/FuroBaseComponents/commit/7f8d369))
+
+
+### Features
+
+* First element in banner receives an automatic margin to align to the icon ([fcaa94f](https://github.com/theNorstroem/FuroBaseComponents/commit/fcaa94f))
+
+
+
+
+
 ## [0.5.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.6.0...@furo/notification@0.5.2) (2019-11-28)
 
 **Note:** Version bump only for package @furo/notification
