@@ -37,6 +37,7 @@ class FuroForm extends FBP(LitElement) {
   stopActivity() {
     this._FBPTriggerWire('--activityStopped');
   }
+
   /**
    * @private
    * @return {Object}
@@ -70,106 +71,111 @@ class FuroForm extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: block;
-            --furo-button-padding: var(--spacing-xs, 8px);
-            background: var(--furo-form-background, var(--surface, white));
-            padding-bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
-            margin: var(--furo-form-margin, 0);
-            box-sizing: border-box;
-            position: relative;
-            font-size: 14px;
-            letter-spacing: 0.1px;
-            max-width: var(--furo-form-max-width,90em);
-        }
+      :host {
+        display: block;
+        --furo-button-padding: var(--spacing-xs, 8px);
+        background: var(--furo-form-background, var(--surface, white));
+        padding-bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
+        margin: var(--furo-form-margin, 0);
+        box-sizing: border-box;
+        position: relative;
+        font-size: 14px;
+        letter-spacing: 0.1px;
+        max-width: var(--furo-form-max-width, 90em);
+      }
 
-        furo-loading-indicator-bar{
-            position: absolute;
-            top:0;
-            width: 100%;
-        }
-        :host([hidden]) {
-            display: none;
-        }
+      furo-loading-indicator-bar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
 
-        :host([hasaction]) .content {
-            padding-bottom: 54px;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-
-        /** no padding-top on .content if header-text is set **/
-        :host([header-text]) .content {
-            padding-top: 0;
-        }
-
-        /** set padding-top on .content if media is present **/
-        :host([header-text][hasmedia]) .content {
-            padding-top: var(--furo-form-padding, var(--spacing-s, 16px));
-        }
+      :host([hasaction]) .content {
+        padding-bottom: 54px;
+      }
 
 
-        .content ::slotted(h1) {
-            font-size: 24px;
-            line-height: 24px;
-            letter-spacing: 0;
-            margin: 0;
-            font-weight: normal;
-            margin-bottom: var(--spacing-xxs, 4px);
-            margin-top: var(--spacing-s, 16px);
-        }
+      /** no padding-top on .content if header-text is set **/
+      :host([header-text]) .content {
+        padding-top: 0;
+      }
 
-        .content ::slotted(secondary) {
-            color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
-            line-height: 22px;
-            font-size: unset;
-            display: block;
-            margin-bottom: var(--spacing-xs, 4px);
-        }
-        .content ::slotted(h2) {
-            line-height: 24px;
-            letter-spacing: 0;
-            margin: 0;
-            font-weight: normal;
-            margin-bottom: var(--spacing-xxs, 4px);
-            margin-top: var(--spacing-s, 16px);
-        }
-
-        .action {
-            position: absolute;
-            bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
-            left: var(--furo-form-padding, 0);
-            right: var(--furo-form-padding, 0);
-
-        }
+      /** set padding-top on .content if media is present **/
+      :host([header-text][hasmedia]) .content {
+        padding-top: var(--furo-form-padding, var(--spacing-s, 16px));
+      }
 
 
-        :host([header-text]) .head {
-            display: block;
-        }
+      .content ::slotted(h1) {
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: 0;
+        margin: 0;
+        font-weight: normal;
+        margin-bottom: var(--spacing-xxs, 4px);
+        margin-top: var(--spacing-s, 16px);
+      }
 
-        .head {
-            display: none;
-            padding: var(--spacing-s, 16px) 0;
-        }
+      .content ::slotted(secondary) {
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        line-height: 22px;
+        font-size: unset;
+        display: block;
+        margin-bottom: var(--spacing-xs, 4px);
+      }
 
-        .head span {
-            color: rgba(var(--on-surface-rgb, 33, 33, 33), var(--medium-emphasis-surface, 0.6));
-            line-height: 22px;
-        }
+      .content ::slotted(h2) {
+        line-height: 24px;
+        letter-spacing: 0;
+        margin: 0;
+        font-weight: normal;
+        margin-bottom: var(--spacing-xxs, 4px);
+        margin-top: var(--spacing-s, 16px);
+      }
 
-        h1 {
-            font-size: 24px;
-            line-height: 24px;
-            letter-spacing: 0;
-            margin: 0;
-            font-weight: normal;
-            margin-bottom: var(--spacing-xxs, 4px);
-        }
+      .action {
+        position: absolute;
+        bottom: var(--furo-form-padding, var(--spacing-xs, 8px));
+        left: var(--furo-form-padding, 0);
+        right: var(--furo-form-padding, 0);
+
+      }
 
 
-        .media ::slotted(*) {
-            width: 100%;
-        }
+      :host([header-text]) .head {
+        display: block;
+      }
+
+      .head {
+        display: none;
+        padding-bottom: var(--spacing-s, 16px);
+      }
+
+      .head span {
+        font-size: 14px;
+        height: 24px;
+        letter-spacing: 0.1px;
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        line-height: 20px;
+      }
+
+      h1 {
+        font-size: 20px;
+        height: 40px;
+        line-height: 56px;         
+        margin: 0;
+        font-weight: normal;
+
+      }
+
+
+      .media ::slotted(*) {
+        width: 100%;
+      }
     `
   }
 

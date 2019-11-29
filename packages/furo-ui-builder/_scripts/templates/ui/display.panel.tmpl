@@ -55,9 +55,10 @@ export class {{.class_name}} extends (BasePanel) {
                     display: none;
                 }
 
-                furo-form {
-                    margin-bottom: var(--spacing, 16px);
+                .display {
+                   padding: var(--spacing-xs) var(--spacing-s) var(--spacing-s) var(--spacing-s);
                 }
+
             `
     }
 
@@ -68,11 +69,9 @@ export class {{.class_name}} extends (BasePanel) {
     render() {
         // language=HTML
         return html`
-          {{"<" | noescape}}furo-vertical-flex>
-            {{"<" | noescape}}furo-form flex scroll{{if .title}} header-text="${i18n.t("{{.title}}")}"{{end}}{{if .secondary_text}} secondary-text="${i18n.t("{{.secondary_text}}")}"{{end}}>
-              {{"<" | noescape}}{{.display.name}}{{range $flag := .display.flags}} {{$flag}}{{end}} {{range $attr := .display.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.display.name}}>
-            </furo-form>
-          </furo-vertical-flex>
+
+              {{"<" | noescape}}{{.display.name}} class="display"{{range $flag := .display.flags}} {{$flag}}{{end}} {{range $attr := .display.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.display.name}}>
+
 
 
           {{"<" | noescape}}furo-entity-agent service="{{.service_name}}"
