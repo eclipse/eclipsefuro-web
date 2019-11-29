@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.26.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.26.0...@furo/form@0.26.1) (2019-11-29)
+
+
+### Bug Fixes
+
+* ui builder templates ([1a10372](https://github.com/theNorstroem/FuroBaseComponents/commit/1a10372))
+
+
+
+
+
 # [0.26.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.25.6...@furo/form@0.26.0) (2019-11-29)
 
 

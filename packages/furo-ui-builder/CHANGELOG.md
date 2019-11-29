@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.0.9...@furo/ui-builder@0.0.10) (2019-11-29)
+
+
+### Bug Fixes
+
+* ui builder templates ([1a10372](https://github.com/theNorstroem/FuroBaseComponents/commit/1a10372))
+
+
+
+
+
 ## [0.0.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.0.8...@furo/ui-builder@0.0.9) (2019-11-29)
 
 
