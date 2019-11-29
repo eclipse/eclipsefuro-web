@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.25.6...@furo/form@0.26.0) (2019-11-29)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+
+
+### Features
+
+* --furo-form-max-width with 90em ([ee26253](https://github.com/theNorstroem/FuroBaseComponents/commit/ee26253))
+* secondary-text with styled states ([714b0b6](https://github.com/theNorstroem/FuroBaseComponents/commit/714b0b6))
+
+
+
+
+
 ## [0.25.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/form@0.26.0...@furo/form@0.25.6) (2019-11-28)
 
 **Note:** Version bump only for package @furo/form

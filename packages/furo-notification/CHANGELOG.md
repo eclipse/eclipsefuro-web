@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.6.0...@furo/notification@0.6.1) (2019-11-29)
+
+
+### Bug Fixes
+
+* remove focus via tab when banner is hidden ([3d813b6](https://github.com/theNorstroem/FuroBaseComponents/commit/3d813b6))
+
+
+
+
+
 # [0.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.5.2...@furo/notification@0.6.0) (2019-11-29)
 
 
