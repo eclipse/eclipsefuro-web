@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.0.6...@furo/ui-builder@0.0.8) (2019-11-29)
+
+
+### Bug Fixes
+
+* init-ui should also generate directory by service name ([f25ab15](https://github.com/theNorstroem/FuroBaseComponents/commit/f25ab15))
+* style update to correct stylevars with fallback ([354cec4](https://github.com/theNorstroem/FuroBaseComponents/commit/354cec4))
+
+
+
+
+
 ## [0.0.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.0.6...@furo/ui-builder@0.0.7) (2019-11-28)
 
 

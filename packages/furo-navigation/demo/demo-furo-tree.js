@@ -64,6 +64,7 @@ class DemoFuroTree extends FBP(LitElement) {
             <furo-split-view style="height: 500px;">
               <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.data)"
                          @-node-selected="--nodeSelected"
+                         root-as-header
                          ƒ-select-next="--next"
                          ƒ-select-prev="--prev"
                          ƒ-add-sub-node="--addSub"

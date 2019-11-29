@@ -214,8 +214,9 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             tbody tr:hover {
-                box-shadow: inset 1px 0 0 var(--furo-data-table-select-background, var(--accent-light, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-background, var(--accent-light, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+                box-shadow: inset 1px 0 0 var(--furo-data-table-select-background, var(--primary, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-background, var(--primary, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
                 z-index: 1;
+                background-color: rgba(var(--primary-rgb), var(--state-selected-hover));
             }
 
             td {
@@ -243,8 +244,8 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             tbody tr[selected=true] {
-                background-color: var(--furo-data-table-select-background, var(--accent-light, lightgrey));
-                color: var(--furo-data-table-select-on-background, var(--on-accent, black));
+                background-color: rgba(var(--furo-data-table-select-background, var(--primary-rgb)), var(--state-hover));
+                color: var(--furo-data-table-select-on-background, var(--primary));
             }
 
             input[type=checkbox] {

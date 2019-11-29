@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.59.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.59.1...@furo/input@0.59.2) (2019-11-29)
+
+
+### Bug Fixes
+
+* button danger focus color ([b90bfc6](https://github.com/theNorstroem/FuroBaseComponents/commit/b90bfc6))
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+* style update to fix firefox outlines for invalid or required ([b733775](https://github.com/theNorstroem/FuroBaseComponents/commit/b733775))
+
+
+
+
+
 ## [0.59.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.59.1...@furo/input@0.59.1) (2019-11-28)
 
 

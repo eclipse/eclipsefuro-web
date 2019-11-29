@@ -119,6 +119,8 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode = fieldNode;
     this.indentation = this.fieldNode.depth;
     this.fieldNode._isHidden = true;
+
+
     if (fieldNode.is_group_label) {
       this.isGroupLabel = fieldNode.is_group_label._value;
     }
@@ -175,6 +177,9 @@ export class FuroTreeItem extends FBP(LitElement) {
     if (this.fieldNode._isRoot === true) {
       this.hidden = false;
       this.fieldNode._isHidden = false;
+      if(this.fieldNode._rootAsHeader){
+        this.setAttribute("isheader", "")
+      }
     }
 
     this._FBPTriggerWire("--fieldOpen", this.fieldNode.open);
@@ -188,13 +193,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     //this._FBPTraceWires()
 
     this._FBPAddWireHook("--labelClicked", (e) => {
-      if (this.isGroupLabel) {
-        // just toggle if this is a label
-        this.fieldNode.open._value = !this.fieldNode.open._value;
-      } else {
-        this.fieldNode.selectItem();
-      }
-
+      this.fieldNode.selectItem();
     });
 
     this.fieldNode.addEventListener("tree-node-unselection-requested", (e) => {
@@ -209,7 +208,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode.addEventListener("this-node-hovered", (e) => {
       this.hovered = true;
       //this.scrollIntoViewIfNeeded();
-      if(this.scrollIntoViewIfNeeded){
+      if (this.scrollIntoViewIfNeeded) {
         this.scrollIntoViewIfNeeded();
       }
     });
@@ -217,7 +216,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode.addEventListener("this-node-selected", (e) => {
       this.selected = true;
       this.fieldNode._isSelected = true;
-      if(this.scrollIntoViewIfNeeded){
+      if (this.scrollIntoViewIfNeeded) {
         this.scrollIntoViewIfNeeded();
       }
 
@@ -310,7 +309,7 @@ export class FuroTreeItem extends FBP(LitElement) {
       :host([searchmatch]) {
         color: rgba(var(--primary-rgb), var(--medium-emphasis-primary));
       }
-      
+
       furo-icon[error] {
         animation: error-pulse 2s infinite;
       }
@@ -342,6 +341,38 @@ export class FuroTreeItem extends FBP(LitElement) {
 
       }
 
+      :host([isheader]) {
+        height: 64px;
+      }
+
+      :host([isheader]) furo-icon{
+        margin-bottom: 4px;
+      }
+
+      :host([isheader]) .oc {
+        display: none;
+      }
+
+      :host([isheader]) .desc {
+        font-size: 14px;
+        height: 24px;
+        letter-spacing: 0.1px;
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        line-height: 20px;
+        display: block;
+        position: absolute;
+        top: 40px
+      }
+
+      :host([isheader]) .label {
+        font-weight: unset;
+        position: relative;
+        font-size: 20px;
+        height: 40px;
+        line-height: 56px;
+        margin: 0;
+        display: block;
+      }
 
       :host([is-group-label]) {
         border-top: 1px solid var(--separator, #cdcdcd);
@@ -356,7 +387,7 @@ export class FuroTreeItem extends FBP(LitElement) {
         line-height: 20px;
         font-weight: normal;
         letter-spacing: 0.1px;
-        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        color: var(--group-label-color, rgba(var(--on-surface-rgb), var(--medium-emphasis-surface)));
       }
 
       .indentation-0 .indentation {
