@@ -2,8 +2,8 @@
 // source: {{.source}}
 import {html, css, LitElement} from 'lit-element';
 import {FBP} from "@furo/fbp";
-import {Theme} from "@furo/framework/theme"
-import {i18n} from "@furo/framework/i18n"
+import {Theme} from "@furo/framework/theme.js"
+import {i18n} from "@furo/framework/i18n.js"
 
 {{range $import := .imports}}
 import "{{$import}}";{{end}}
@@ -21,7 +21,6 @@ export class {{.class_name}} extends FBP(LitElement) {
        return Theme.getThemeForComponent('{{.theme}}') || css`
             :host {
                 display: block;
-                padding: var(--spacing-xs, 8px);
                 overflow: hidden;
             }
             :host([hidden]) {
@@ -33,16 +32,17 @@ export class {{.class_name}} extends FBP(LitElement) {
                 letter-spacing: 0;
                 margin: 0;
                 font-weight: normal;
-                margin-bottom: 4px;
+                margin-bottom: var(--spacing, 16px);
             }
             .secondary{
-                color: var(--secondary-color, var(--on-primary-light,#777777));
+                color: var(--secondary, var(--on-primary, #777777));
                 line-height: 22px;
                 font-size: 14px;
                 letter-spacing: 0.1px;
             }
         `
     }
+
     /**
      * Bind here your furo-data-object event @-object-ready
      * @public

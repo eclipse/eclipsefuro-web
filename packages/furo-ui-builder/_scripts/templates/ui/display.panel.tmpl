@@ -2,9 +2,9 @@
 // source: {{.source}}
 import {html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
-import {Theme} from "@furo/framework/theme"
-import {i18n} from "@furo/framework/i18n"
-import {BasePanel} from "@furo/route/lib/BasePanel";
+import {Theme} from "@furo/framework/theme.js"
+import {i18n} from "@furo/framework/i18n.js"
+import {BasePanel} from "@furo/route/lib/BasePanel.js";
 
 import '@furo/data';
 import '@furo/layout';
@@ -26,7 +26,7 @@ export class {{.class_name}} extends (BasePanel) {
      */
     _FBPReady() {
         super._FBPReady();
-        //this._FBPTraceWires();
+        // this._FBPTraceWires();
     }
 
     /**
@@ -44,9 +44,9 @@ export class {{.class_name}} extends (BasePanel) {
                 :host {
                     display: block;
                     height: 100%;
-                    background-color: var(--surface-light);
+                    background-color: var(--surface, #ffffff);
                     color: var(--on-surface);
-                    padding-top: var(--spacing);
+                    padding-top: var(--spacing, 16px);
                     box-sizing: border-box;
                     overflow: hidden;
                 }
@@ -56,7 +56,7 @@ export class {{.class_name}} extends (BasePanel) {
                 }
 
                 furo-form {
-                    margin-bottom: var(--spacing);
+                    margin-bottom: var(--spacing, 16px);
                 }
             `
     }

@@ -154,7 +154,7 @@ let registry = {"imports": new Set, panels: {}};
 panellist.forEach((datafile) => {
   let panelspec = JSON.parse(fs.readFileSync(datafile));
   // register imports for registry
-  registry.imports.add("./" + panelspec.component_name.split("-")[0] + "/" +panelspec.component_name);
+  registry.imports.add("./" + panelspec.component_name.split("-")[0] + "/" +panelspec.component_name + ".js");
   if (!registry.panels[panelspec.response_type]) {
     registry.panels[panelspec.response_type] = {};
   }
@@ -177,7 +177,7 @@ let displaypanellist = walkSync(UiSpecDir).filter((filepath) => {
 displaypanellist.forEach((datafile) => {
   let displaypanelspec = JSON.parse(fs.readFileSync(datafile));
   // register imports for registry
-  registry.imports.add("./" + displaypanelspec.component_name.split("-")[0] + "/" +displaypanelspec.component_name);
+  registry.imports.add("./" + displaypanelspec.component_name.split("-")[0] + "/" +displaypanelspec.component_name + ".js");
   if (!registry.panels[displaypanelspec.response_type]) {
     registry.panels[displaypanelspec.response_type] = {};
   }
