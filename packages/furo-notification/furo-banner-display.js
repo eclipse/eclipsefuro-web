@@ -45,6 +45,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
     this._banner = {"text": "", "dismissButtonText": "dismiss", "confirmButtonText": "", "icon": "", "banner": {}};
     this._stack = [];
     this.setAttribute("hidden", "");
+    this.setAttribute("tabindex", "-1");
   }
 
   /**
@@ -173,6 +174,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
       setTimeout(() => {
         this.style.height = "0px";
         this.removeAttribute("hidden");
+        this.removeAttribute("tabindex");
         let height = this.shadowRoot.querySelector(".wrapper").getBoundingClientRect().height;
         this.style.height = height + "px";
         this._isOpen = true;
@@ -200,6 +202,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
     this.style.height = "0px";
     setTimeout(() => {
       this.setAttribute("hidden", "");
+      this.setAttribute("tabindex", "-1");
     }, 500);
 
     if (this._stack.length > 1) {
