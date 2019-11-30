@@ -7,8 +7,8 @@ import "@furo/doc-helper/side-navigation"
 import "./panel-doc"
 import "./panel-demo"
 import "./demoimports"
-import '@furo/layout/furo-app-drawer';
-import '@furo/layout/furo-app-bar-top';
+import '@furo/app/furo-app-drawer';
+import '@furo/app/furo-app-bar-top';
 
 /**
  * `view-api`

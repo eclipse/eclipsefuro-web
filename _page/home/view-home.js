@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "../components/footer-bar"
-import '@furo/layout/furo-app-bar-top';
+import '@furo/app/furo-app-bar-top';
 import '@furo/layout/furo-vertical-flex';
 
 /**

@@ -1,6 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {FuroTreeItem} from "../furo-tree-item";
-import "@furo/layout/furo-icon";
+import "@furo/icon/furo-icon";
 
 
 /**

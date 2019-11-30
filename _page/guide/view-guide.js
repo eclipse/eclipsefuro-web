@@ -5,8 +5,8 @@ import {nav} from "./nav_config";
 
 import "@furo/doc-helper/side-navigation"
 import "@furo/doc-helper/furo-demo-snippet"
-import '@furo/layout/furo-app-drawer';
-import '@furo/layout/furo-app-bar-top';
+import '@furo/app/furo-app-drawer';
+import '@furo/app/furo-app-bar-top';
 //pages
 import "./panel-md-loader";
 import "./demoimports";

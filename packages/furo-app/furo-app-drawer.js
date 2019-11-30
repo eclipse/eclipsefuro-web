@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "./furo-horizontal-flex"
+import "@furo/layout/furo-horizontal-flex"
 
 /**
  * # Experimental
@@ -64,7 +64,12 @@ class FuroAppDrawer extends FBP(LitElement) {
     };
   }
 
-  set isFloating(val) {
+  /**
+   * helper variable to set the floating
+   * @param val
+   * @private
+   */
+  set __isFloating(val) {
     this._isFloating = val;
     if (val) {
       /**
@@ -83,7 +88,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     }
   }
 
-  get isFloating() {
+  get __isFloating() {
     return this._isFloating;
   }
 
@@ -93,7 +98,7 @@ class FuroAppDrawer extends FBP(LitElement) {
   open() {
 
     this.isOpen = true;
-    if (this.isFloating) {
+    if (this.__isFloating) {
       let drawer = this.shadowRoot.getElementById("drawer");
       //drawer.style.transform = "translate3d(0, 0, 0)";
       if (this.isReverse) {
@@ -123,7 +128,7 @@ class FuroAppDrawer extends FBP(LitElement) {
    */
   close() {
     this.isOpen = false;
-    if (this.isFloating) {
+    if (this.__isFloating) {
       let drawer = this.shadowRoot.getElementById("drawer");
       let width = drawer.getBoundingClientRect().width;
       if (this.isReverse) {
@@ -153,7 +158,7 @@ class FuroAppDrawer extends FBP(LitElement) {
    * let the drawer float
    */
   floatDrawer() {
-    this.isFloating = true;
+    this.__isFloating = true;
 
   }
 
@@ -161,7 +166,7 @@ class FuroAppDrawer extends FBP(LitElement) {
    * disable the floating
    */
   pinDrawer() {
-    this.isFloating = false;
+    this.__isFloating = false;
   }
 
   /**
@@ -202,9 +207,9 @@ class FuroAppDrawer extends FBP(LitElement) {
 
           for (let entry of entries) {
             const cr = entry.contentRect;
-            this.isFloating = cr.width <= this.floatBreakpoint;
+            this.__isFloating = cr.width <= this.floatBreakpoint;
           }
-          if(this.isFloating){
+          if(this.__isFloating){
             this.close();
           }
         });
@@ -212,12 +217,12 @@ class FuroAppDrawer extends FBP(LitElement) {
       } else {
         // fallback, just listen to the resize event
         let cr = this.getBoundingClientRect();
-        this.isFloating = cr.width <= this.floatBreakpoint;
+        this.__isFloating = cr.width <= this.floatBreakpoint;
 
         window.addEventListener("resize", (e) => {
           let cr = this.getBoundingClientRect();
-          this.isFloating = cr.width <= this.floatBreakpoint;
-          if(this.isFloating){
+          this.__isFloating = cr.width <= this.floatBreakpoint;
+          if(this.__isFloating){
             this.close();
           }
         })
@@ -236,7 +241,7 @@ class FuroAppDrawer extends FBP(LitElement) {
       if (e instanceof MouseEvent) {
         this.pauseEvent(e);
       }
-      if (this.isFloating) {
+      if (this.__isFloating) {
         let start_x = this._getScreenX(e);
         let start_y = this._getScreenY(e);
         let start_time = performance.now();

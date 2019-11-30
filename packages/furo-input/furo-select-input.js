@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/layout/furo-icon";
+import "@furo/icon/furo-icon";
 import "@furo/fbp/flow-repeat"
 import {Helper} from "./lib/helper";
 

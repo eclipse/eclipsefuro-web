@@ -16,18 +16,18 @@ import {i18n} from "./i18n";
  * Init.registerApiServices(Services);
  * Init.registerApiTypes(Types);
  * //Attention: Styling is defined in main-stage
- * import {FuroBaseIcons} from "@furo/layout/iconsets/baseIcons";
- * import {MapsIcons} from "@furo/layout/iconsets/mapsIcons";
- * import {PlacesIcons} from "@furo/layout/iconsets/placesIcons";
- * import {CommunicationIcons} from "@furo/layout/iconsets/communicationIcons";
- * import {NotificationIcons} from "@furo/layout/iconsets/notificationIcons";
+ * import {FuroBaseIcons} from "@furo/icon/iconsets/baseIcons";
+ * import {MapsIcons} from "@furo/icon/iconsets/mapsIcons";
+ * import {PlacesIcons} from "@furo/icon/iconsets/placesIcons";
+ * import {CommunicationIcons} from "@furo/icon/iconsets/communicationIcons";
+ * import {NotificationIcons} from "@furo/icon/iconsets/notificationIcons";
  * import {FuroDocIcons} from "./assets/iconset";
- * import {AvIcons} from "@furo/layout/iconsets/avIcons";
- * import {DeviceIcons} from "@furo/layout/iconsets/deviceIcons";
- * import {EditorIcons} from "@furo/layout/iconsets/editorIcons";
- * import {SocialIcons} from "@furo/layout/iconsets/socialIcons";
- * import {HardwareIcons} from "@furo/layout/iconsets/hardwareIcons";
- * import {ImageIcons} from "@furo/layout/iconsets/imageIcons";
+ * import {AvIcons} from "@furo/icon/iconsets/avIcons";
+ * import {DeviceIcons} from "@furo/icon/iconsets/deviceIcons";
+ * import {EditorIcons} from "@furo/icon/iconsets/editorIcons";
+ * import {SocialIcons} from "@furo/icon/iconsets/socialIcons";
+ * import {HardwareIcons} from "@furo/icon/iconsets/hardwareIcons";
+ * import {ImageIcons} from "@furo/icon/iconsets/imageIcons";
  *
  *
  * Iconset.registerIconset("furo", FuroDocIcons);

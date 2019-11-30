@@ -49,7 +49,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset baseIcons</h2>
       <p>
       <pre>
-        import {FuroBaseIcons} from "@furo/layout/iconsets/baseIcons";
+        import {FuroBaseIcons} from "@furo/icon/iconsets/baseIcons";
         Iconset.registerIconset("default", FuroBaseIcons);
       </pre></p>
       <div>
@@ -368,7 +368,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset avIcons</h2>
       <p>
       <pre>
-        import {AvIcons} from "@furo/layout/iconsets/avIcons";
+        import {AvIcons} from "@furo/icon/iconsets/avIcons";
         Iconset.registerIconset("av", AvIcons);
       </pre></p>
 
@@ -460,7 +460,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset communicationIcons</h2>
       <p>
       <pre>
-        import {CommunicationIcons} from "@furo/layout/iconsets/communicationIcons";
+        import {CommunicationIcons} from "@furo/icon/iconsets/communicationIcons";
         Iconset.registerIconset("communication", CommunicationIcons);
       </pre></p>
 
@@ -520,7 +520,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset deviceIcons</h2>
       <p>
       <pre>
-        import {DeviceIcons} from "@furo/layout/iconsets/deviceIcons";
+        import {DeviceIcons} from "@furo/icon/iconsets/deviceIcons";
         Iconset.registerIconset("device", DeviceIcons);
       </pre></p>
 
@@ -609,7 +609,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset editorIcons</h2>
       <p>
       <pre>
-        import {EditorIcons} from "@furo/layout/iconsets/editorIcons";
+        import {EditorIcons} from "@furo/icon/iconsets/editorIcons";
         Iconset.registerIconset("editor", EditorIcons);
       </pre></p>
 
@@ -687,7 +687,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset hardwareIcons</h2>
       <p>
       <pre>
-        import {HardwareIcons} from "@furo/layout/iconsets/hardwareIcons";
+        import {HardwareIcons} from "@furo/icon/iconsets/hardwareIcons";
         Iconset.registerIconset("hardware", HardwareIcons);
       </pre></p>
 
@@ -745,7 +745,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset imageIcons</h2>
       <p>
       <pre>
-        import {ImageIcons} from "@furo/layout/iconsets/imageIcons";
+        import {ImageIcons} from "@furo/icon/iconsets/imageIcons";
         Iconset.registerIconset("image", ImageIcons);
       </pre></p>
 
@@ -910,7 +910,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset mapsIcons</h2>
       <p>
       <pre>
-        import {MapsIcons} from "@furo/layout/iconsets/mapsIcons";
+        import {MapsIcons} from "@furo/icon/iconsets/mapsIcons";
         Iconset.registerIconset("maps", MapsIcons);
       </pre></p>
 
@@ -988,7 +988,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset notificationIcons</h2>
       <p>
       <pre>
-        import {NotificationIcons} from "@furo/layout/iconsets/notificationIcons";
+        import {NotificationIcons} from "@furo/icon/iconsets/notificationIcons";
         Iconset.registerIconset("notification", NotificationIcons);
       </pre></p>
 
@@ -1053,7 +1053,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset placesIcons</h2>
       <p>
       <pre>
-        import {PlacesIcons} from "@furo/layout/iconsets/placesIcons";
+        import {PlacesIcons} from "@furo/icon/iconsets/placesIcons";
         Iconset.registerIconset("places", PlacesIcons);
       </pre></p>
 
@@ -1083,7 +1083,7 @@ class DemoFuroIconList extends FBP(LitElement) {
       <h2>Iconset socialIcons</h2>
       <p>
       <pre>
-        import {SocialIcons} from "@furo/layout/iconsets/socialIcons";
+        import {SocialIcons} from "@furo/icon/iconsets/socialIcons";
         Iconset.registerIconset("social", SocialIcons);
       </pre></p>
 

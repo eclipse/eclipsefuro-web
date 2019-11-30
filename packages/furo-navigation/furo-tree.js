@@ -734,6 +734,7 @@ class FuroTree extends FBP(LitElement) {
 
     if(this.rootAsHeader === true){
       this._flatTree[0]._rootAsHeader = true;
+      startlevel = -1;
     }
 
 

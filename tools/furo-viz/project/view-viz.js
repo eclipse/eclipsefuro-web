@@ -3,7 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/fbp/flow-repeat"
 import "@furo/input/furo-button"
-import "@furo/layout/furo-icon"
+import "@furo/icon/furo-icon"
 import "@furo/doc-helper/graph/furo-show-flow"
 import "@furo/util/furo-get-clipboard"
 import "@furo/util/furo-key-filter"

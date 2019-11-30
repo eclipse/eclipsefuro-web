@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
 import '@furo/layout';
-import '@furo/layout/demo/furo-icon-with-label';
+import '@furo/icon/demo/furo-icon-with-label';
 
 /**
  * `i18n-basics`

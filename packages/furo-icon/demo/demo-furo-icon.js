@@ -66,7 +66,7 @@ class DemoFuroIcon extends FBP(LitElement) {
 import {Init} from "@furo/framework/furo.js";
 import {Iconset} from "@furo/framework/furo.js";
         
-import {FuroBaseIcons} from "@furo/layout/iconsets/baseIcons";
+import {FuroBaseIcons} from "@furo/icon/iconsets/baseIcons";
 Iconset.registerIconset("default", FuroBaseIcons);</pre>
     `;
   }
