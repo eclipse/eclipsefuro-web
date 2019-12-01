@@ -474,6 +474,12 @@ class FuroTree extends FBP(LitElement) {
         color: var(--primary);
       }
 
+      /* remove the background color on header node
+      :host td  furo-tree-item[selected][isheader], :host td  furo-tree-item[selected][hovered][isheader], :host td  furo-tree-item[hovered][isheader]{
+        background-color: unset;
+      }
+      */
+
 
       .srch {
         display: none;

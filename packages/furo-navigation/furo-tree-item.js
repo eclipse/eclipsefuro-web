@@ -341,10 +341,12 @@ export class FuroTreeItem extends FBP(LitElement) {
 
       }
 
+     
       :host([isheader]) {
         height: 64px;
+        margin: 0;
       }
-
+      
       :host([isheader]) furo-icon{
         margin-bottom: 4px;
       }
@@ -361,15 +363,20 @@ export class FuroTreeItem extends FBP(LitElement) {
         line-height: 20px;
         display: block;
         position: absolute;
-        top: 40px
+        text-overflow: ellipsis;
+        /* Required for text-overflow to do anything */
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        top: 32px
       }
 
       :host([isheader]) .label {
         font-weight: unset;
         position: relative;
         font-size: 20px;
-        height: 40px;
-        line-height: 56px;
+        height: 32px;
+        line-height: 40px;
         margin: 0;
         display: block;
       }
