@@ -121,6 +121,12 @@ class FuroAppDrawer extends FBP(LitElement) {
       this.removeEventListener("mouseup", this.trackEnd, {once: true});
       this.removeEventListener("touchend", this.trackEnd, {once: true});
     }
+    /**
+     * @event drawer-opened
+     * Fired when drawer was opened.
+     */
+    let customEvent = new Event('drawer-opened', {composed: true, bubbles: true});
+    this.dispatchEvent(customEvent)
   }
 
   /**
