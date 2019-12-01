@@ -75,7 +75,7 @@ export class FuroAppBarTop extends FBP(LitElement) {
           this.hideNavigationIcon();
         });
 
-        if (this._drawer.isFloating) {
+        if (this._drawer.__isFloating) {
           this.showNavigationIcon();
         } else {
           this.hideNavigationIcon();

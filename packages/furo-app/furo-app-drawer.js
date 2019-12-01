@@ -74,7 +74,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     if (val) {
       /**
        * @event is-floating
-       * Fired when drawer is in floating mode. This event is fired when drawer is closed and open
+       * Fired when drawer is in floating mode. This event is fired when drawer is closed and opened
        */
       let customEvent = new Event('is-floating', {composed: true, bubbles: true});
       this.dispatchEvent(customEvent)
