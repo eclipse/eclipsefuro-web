@@ -379,6 +379,7 @@ export class FuroTreeItem extends FBP(LitElement) {
         line-height: 40px;
         margin: 0;
         display: block;
+        letter-spacing: 0.15px;
       }
 
       :host([is-group-label]) {
