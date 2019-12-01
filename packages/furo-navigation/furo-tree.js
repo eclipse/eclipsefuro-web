@@ -378,7 +378,15 @@ class FuroTree extends FBP(LitElement) {
       /**
        * indicator for searching. Maybe you want style your item depending on this attribute
        */
-      _searchIsActive: {type: Boolean, attribute: "searching", reflect: true}
+      _searchIsActive: {type: Boolean, attribute: "searching", reflect: true},
+      /**
+       * disables the background color on hover, selected, ... on header node
+       *
+       * Works only with `root-as-header` enabled
+       */
+      nobgonhead: {type: Boolean, attribute: "([no-bg-on-header])"},
+
+
     };
   }
 
@@ -474,11 +482,11 @@ class FuroTree extends FBP(LitElement) {
         color: var(--primary);
       }
 
-      /* remove the background color on header node
-      :host td  furo-tree-item[selected][isheader], :host td  furo-tree-item[selected][hovered][isheader], :host td  furo-tree-item[hovered][isheader]{
+      /* remove the background color on header node */
+      :host([no-bg-on-header]) td  furo-tree-item[selected][isheader], :host([no-bg-on-header]) td  furo-tree-item[selected][hovered][isheader], :host([no-bg-on-header]) td  furo-tree-item[hovered][isheader]{
         background-color: unset;
       }
-      */
+      
 
 
       .srch {
