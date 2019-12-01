@@ -26,7 +26,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     this.floatBreakpoint = 1159;
     this._movementDetectionRange = 10;
 
-    // return this to node which want to connect
+    // return **this** to component which want to connect
     window.addEventListener("connect-to-drawer-requested", (e) => {
       if (e.detail.name === this.name) {
         e.detail.drawer = this;
@@ -155,9 +155,13 @@ class FuroAppDrawer extends FBP(LitElement) {
       //unregister trackend
       this.removeEventListener("mouseup", this.trackEnd, {once: true});
       this.removeEventListener("touchend", this.trackEnd, {once: true});
-
-
     }
+    /**
+     * @event drawer-closed
+     * Fired when drawer was closed.
+     */
+    let customEvent = new Event('drawer-closed', {composed: true, bubbles: true});
+    this.dispatchEvent(customEvent)
   }
 
   /**
