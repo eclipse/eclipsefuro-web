@@ -23,7 +23,7 @@ class FuroAppDrawer extends FBP(LitElement) {
      * Width for the autofloat
      * @type {number}
      */
-    this.floatBreakpoint = 960;
+    this.floatBreakpoint = 1159;
     this._movementDetectionRange = 10;
 
     // return this to node which want to connect
