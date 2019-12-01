@@ -165,7 +165,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
       } else {
         // default banner text
         if (this._banner.text) {
-          this._bannerText =  this._parseMarkdown(this._banner.text);
+          this._bannerText = this._parseMarkdown(this._banner.text);
         }
       }
 
@@ -188,7 +188,6 @@ class FuroBannerDisplay extends FBP(LitElement) {
       }
     }
   }
-
 
 
   focus() {
@@ -235,6 +234,7 @@ class FuroBannerDisplay extends FBP(LitElement) {
             :host {
               width: 100%;
               display:block;
+              font-family: 'Roboto', 'Noto', sans-serif;        
               background-color: var(--banner-background, var(--surface,#FAFAFA));
               color: var(--banner-on-background, var(--on-surface,#333333));             
               transition: all .5s ease-in-out;
@@ -278,9 +278,25 @@ class FuroBannerDisplay extends FBP(LitElement) {
               line-height: 20px;              
             }
             
+            h1 {            
+              letter-spacing: -1.5px;
+              font-weight: 200;
+            }
+            h2 {            
+              letter-spacing: -0.5px;
+              font-weight: 400;
+            }
+                      
+            h3 {        
+              letter-spacing: 0;         
+            }
+            h4 {        
+              letter-spacing: 0.25px;         
+            }
+                
             p {
-            margin-bottom: var(--spacing-xs, 8px) ;
-            margin-top: var(--spacing-xs, 8px) ;
+              margin-bottom: var(--spacing-xs, 8px) ;
+              margin-top: var(--spacing-xs, 8px) ;
             }
 
             .md *:first-child {

@@ -81,7 +81,11 @@ class FuroBanner extends LitElement {
        */
       payload: {
         type: Object
-      }
+      },
+      /**
+       * set this flag to display the icon in --danger color
+       */
+      danger:{type:Boolean}
     };
   }
 
