@@ -334,10 +334,12 @@ typelist.forEach((pathToTypeSpec) => {
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
 
       component_name = field.type.toLowerCase().replace(".", "-") + "-display";
-      displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
+
+      if(displaySpec.component_name !== component_name ) {
+
+        displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
+      }
     }
-
-
 
     // check which componet matches best with the simple types
     switch(field.type) {
@@ -490,7 +492,6 @@ servicelist.forEach((pathToService) => {
     displayspec.response_type = serviceSpec.services.Get.data.response;
     displayspec.display.name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().replace(".", "-") + "-display";
     displayspec.imports.push("./" + displayspec.display.name + ".js");
-
 
     let target = PKGDIR + "/" + serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase() + ".display.panel.spec";
     if (!fs.existsSync(target)) {
