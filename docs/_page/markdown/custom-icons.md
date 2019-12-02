@@ -27,7 +27,7 @@ icon name should be in this format: "iconsetName:iconName"
 ```html
     <!-- import iconset and furo-icon from @furo into you element -->
     
-    import '@furo/layout/furo-icon';
+    import '@furo/icon/furo-icon';
     
     <!--  use the imported custom name 'wb-sunny' from custom iconset 'demo' -->
     

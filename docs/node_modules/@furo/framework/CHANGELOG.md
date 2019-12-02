@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@0.13.1...@furo/framework@0.13.3) (2019-12-02)
+
+
+### Bug Fixes
+
+* cyclic imports ([7ee3b1c](https://github.com/theNorstroem/FuroBaseComponents/commit/7ee3b1c))
+* ui builder templates ([62748f7](https://github.com/theNorstroem/FuroBaseComponents/commit/62748f7))
+
+
+
+
+
 ## [0.13.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@0.13.1...@furo/framework@0.13.2) (2019-11-28)
 
 
