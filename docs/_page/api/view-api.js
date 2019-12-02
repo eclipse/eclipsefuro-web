@@ -212,54 +212,144 @@ return _furoShell.html`
       </furo-demo-snippet>
 
 
-    `}}window.customElements.define("demo-furo-split-view",DemoFuroSplitView);class DemoFuroIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
-   * Themable Styles
+    `}}window.customElements.define("demo-furo-split-view",DemoFuroSplitView);/**
+                                                                          * `furo-card`
+                                                                          * todo Describe your element
+                                                                          *
+                                                                          * @summary todo shortdescription
+                                                                          * @customElement
+                                                                          * @demo demo-furo-card
+                                                                          * @appliesMixin FBP
+                                                                          */class FuroCard extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @private
-   * @return {CSSResult}
-   */static get styles(){// language=CSS
+   * @return {Object}
+   */static get properties(){return{/**
+       * Main title
+       */headerText:{type:String,attribute:"header-text"},secondaryText:{type:String,attribute:"secondary-text"},hasaction:{type:Boolean,reflect:!0},hasmedia:{type:Boolean,reflect:!0}}}constructor(){super();this.hasaction=0<this.querySelectorAll("*[slot=\"action\"]").length;this.hasmedia=0<this.querySelectorAll("*[slot=\"media\"]").length}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-        :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
-        }
+            :host {
+                display: block;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                --furo-button-padding: var(--spacing-xs, 8px);
+                background: var(--furo-card-background, var(--surface, white));
+                padding-bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
+                margin: var(--furo-card-margin, 0);
+                box-sizing: border-box;
+                position: relative;
+                border-radius: 4px;
+                font-size: 14px;
+                letter-spacing: 0.1px;
+            }
 
-        :host([hidden]) {
-            display: none;
-        }
 
-    `}/**
+            :host([hidden]) {
+                display: none;
+            }
+
+            :host([hasaction]) .content {
+                padding-bottom: 44px;
+            }
+
+
+            /** no padding-top on .content if header-text is set **/
+            :host([header-text]) .content {
+                padding-top: 0;
+            }
+
+            /** set padding-top on .content if media is present **/
+            :host([header-text][hasmedia]) .content {
+                padding-top: var(--furo-card-padding, var(--spacing-s, 16px));
+            }
+
+            .content {
+                padding: var(--furo-card-padding, var(--spacing-s, 16px));
+            }
+
+            .content ::slotted(h1) {
+
+                font-size: 24px;
+                line-height: 24px;
+                letter-spacing: 0;
+                margin: 0;
+                font-weight: normal;
+                margin-bottom: 4px;
+
+            }
+
+            .action {
+                position: absolute;
+                bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
+                left: var(--furo-card-padding, var(--spacing-xs, 8px));
+                right: var(--furo-card-padding, var(--spacing-xs, 8px));
+
+            }
+
+
+            :host([header-text]) .head {
+                display: block;
+            }
+
+            .head {
+                display: none;
+                padding: var(--spacing-s, 16px);
+            }
+
+            .head span {
+                color: var(--secondary-color, var(--on-primary-light, #777777));
+                line-height: 22px;
+            }
+
+            h1 {
+                font-size: 24px;
+                line-height: 24px;
+                letter-spacing: 0;
+                margin: 0;
+                font-weight: normal;
+                margin-bottom: 4px;
+            }
+
+            :host([header-text]) .media ::slotted(*) {
+                border-radius: 0;
+            }
+
+            .media ::slotted(*) {
+                border-top-right-radius: 4px;
+                border-top-left-radius: 4px;
+                width: 100%;
+            }
+
+        `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
-      <h2>Demo demo-furo-icon</h2>
-      <p>Do not forgett to import the iconset</p>
-      <furo-demo-snippet>
-        <template>
-          <furo-icon icon="mail"></furo-icon>
-          <furo-icon icon="touch-app"></furo-icon>
-          <furo-icon icon="av:airplay"></furo-icon>
-          <furo-icon icon="com:contacts"></furo-icon>
-          <furo-icon icon="device:bluetooth"></furo-icon>
-          <furo-icon icon="editor:merge-type"></furo-icon>
-          <furo-icon icon="hardware:phonelink"></furo-icon>
-          <furo-icon icon="image:camera"></furo-icon>
-          <furo-icon icon="maps:subway"></furo-icon>
-          <furo-icon icon="notify:event-available"></furo-icon>
-          <furo-icon icon="places:spa"></furo-icon>
-          <furo-icon icon="social:public"></furo-icon>
-        </template>
-      </furo-demo-snippet>
-      <h3>Import the needed icon sets somewhere in your init phase</h3>
-      <pre>// -- initialize application env, theme, api
-
-import {Init} from "@furo/framework/furo.js";
-import {Iconset} from "@furo/framework/furo.js";
-        
-import {FuroBaseIcons} from "@furo/layout/iconsets/baseIcons";
-Iconset.registerIconset("default", FuroBaseIcons);</pre>
-    `}}window.customElements.define("demo-furo-icon",DemoFuroIcon);class DemoFuroCard extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+      <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
+      <div class="head">
+        <h1>${this.headerText}</h1>
+      <span>${this.secondaryText}</span>  
+      </div>
+      <div class="media">
+      <slot name="media"></slot>
+      </div>
+      <div class="content">
+      <slot></slot>
+      </div>
+      <div class="action">
+        <slot name="action"></slot>
+      </div>
+    `}/**
+     * You can show a progress indicator while you have pending requests or work
+     * Shows furo-loading-indicator-bar
+     */startActivity(){this._FBPTriggerWire("--activityStarted")}/**
+     * Stop loading indicator
+     * Hides furo-loading-indicator-bar
+     */stopActivity(){this._FBPTriggerWire("--activityStopped")}}window.customElements.define("furo-card",FuroCard);class DemoFuroCard extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -351,7 +441,54 @@ return _furoShell.html`
       </furo-demo-snippet>
 
         </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-card",DemoFuroCard);class DemoFuroCollapsibleBox extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-card",DemoFuroCard);class DemoFuroIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <h2>Demo demo-furo-icon</h2>
+      <p>Do not forgett to import the iconset</p>
+      <furo-demo-snippet>
+        <template>
+          <furo-icon icon="mail"></furo-icon>
+          <furo-icon icon="touch-app"></furo-icon>
+          <furo-icon icon="av:airplay"></furo-icon>
+          <furo-icon icon="com:contacts"></furo-icon>
+          <furo-icon icon="device:bluetooth"></furo-icon>
+          <furo-icon icon="editor:merge-type"></furo-icon>
+          <furo-icon icon="hardware:phonelink"></furo-icon>
+          <furo-icon icon="image:camera"></furo-icon>
+          <furo-icon icon="maps:subway"></furo-icon>
+          <furo-icon icon="notify:event-available"></furo-icon>
+          <furo-icon icon="places:spa"></furo-icon>
+          <furo-icon icon="social:public"></furo-icon>
+        </template>
+      </furo-demo-snippet>
+      <h3>Import the needed icon sets somewhere in your init phase</h3>
+      <pre>// -- initialize application env, theme, api
+
+import {Init} from "@furo/framework/furo.js";
+import {Iconset} from "@furo/framework/furo.js";
+        
+import {FuroBaseIcons} from "@furo/icon/iconsets/baseIcons";
+Iconset.registerIconset("default", FuroBaseIcons);</pre>
+    `}}window.customElements.define("demo-furo-icon",DemoFuroIcon);class DemoFuroCollapsibleBox extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -7071,8 +7208,9 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             }
 
             tbody tr:hover {
-                box-shadow: inset 1px 0 0 var(--furo-data-table-select-background, var(--accent-light, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-background, var(--accent-light, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
+                box-shadow: inset 1px 0 0 var(--furo-data-table-select-background, var(--primary, lightgrey)), inset -1px 0 0 var(--furo-data-table-select-background, var(--primary, lightgrey)), 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15);
                 z-index: 1;
+                background-color: rgba(var(--primary-rgb), var(--state-selected-hover));
             }
 
             td {
@@ -7100,8 +7238,8 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             }
 
             tbody tr[selected=true] {
-                background-color: var(--furo-data-table-select-background, var(--accent-light, lightgrey));
-                color: var(--furo-data-table-select-on-background, var(--on-accent, black));
+                background-color: rgba(var(--furo-data-table-select-background, var(--primary-rgb)), var(--state-hover));
+                color: var(--furo-data-table-select-on-background, var(--primary));
             }
 
             input[type=checkbox] {
@@ -7755,11 +7893,10 @@ this.fieldNode.addEventListener("ancestor-visible",e=>{if(this.fieldNode.__paren
 this._updateItem();this.fieldNode.addEventListener("branch-value-changed",e=>{// for elements that are updated later
 if(e.detail.__parentNode===this.fieldNode){this._updateItem()}});this.fieldNode.addEventListener("modified",n=>{this.inedit=!0});this.fieldNode.addEventListener("has-error",n=>{this.haserror=!0});// listen to open close state
 this.fieldNode.open.addEventListener("field-value-changed",e=>{e.cancelBubble=!0;if(!1===e.detail._value){e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-invisible",e.detail.__parentNode))}else{e.detail.__parentNode.children.broadcastEvent(new NodeEvent("ancestor-visible",e.detail.__parentNode))}});// make level 0  node visible
-if(!0===this.fieldNode._isRoot){this.hidden=!1;this.fieldNode._isHidden=!1}this._FBPTriggerWire("--fieldOpen",this.fieldNode.open)}/**
+if(!0===this.fieldNode._isRoot){this.hidden=!1;this.fieldNode._isHidden=!1;if(this.fieldNode._rootAsHeader){this.setAttribute("isheader","")}}this._FBPTriggerWire("--fieldOpen",this.fieldNode.open)}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires()
-this._FBPAddWireHook("--labelClicked",e=>{if(this.isGroupLabel){// just toggle if this is a label
-this.fieldNode.open._value=!this.fieldNode.open._value}else{this.fieldNode.selectItem()}});this.fieldNode.addEventListener("tree-node-unselection-requested",e=>{this.selected=!1;this.fieldNode._isSelected=!1});this.fieldNode.addEventListener("tree-node-blur-requested",e=>{this.hovered=!1});this.fieldNode.addEventListener("this-node-hovered",e=>{this.hovered=!0;//this.scrollIntoViewIfNeeded();
+this._FBPAddWireHook("--labelClicked",e=>{this.fieldNode.selectItem()});this.fieldNode.addEventListener("tree-node-unselection-requested",e=>{this.selected=!1;this.fieldNode._isSelected=!1});this.fieldNode.addEventListener("tree-node-blur-requested",e=>{this.hovered=!1});this.fieldNode.addEventListener("this-node-hovered",e=>{this.hovered=!0;//this.scrollIntoViewIfNeeded();
 if(this.scrollIntoViewIfNeeded){this.scrollIntoViewIfNeeded()}});this.fieldNode.addEventListener("this-node-selected",e=>{this.selected=!0;this.fieldNode._isSelected=!0;if(this.scrollIntoViewIfNeeded){this.scrollIntoViewIfNeeded()}});// This item is not or no more in the search results
 this.fieldNode.addEventListener("search-didnt-match",e=>{this.searchmatch=!1});// This item is  in the search results
 this.fieldNode.addEventListener("search-matched",e=>{this.searchmatch=!0});// This item is  in the search results
@@ -7830,7 +7967,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
       :host([searchmatch]) {
         color: rgba(var(--primary-rgb), var(--medium-emphasis-primary));
       }
-      
+
       furo-icon[error] {
         animation: error-pulse 2s infinite;
       }
@@ -7862,6 +7999,46 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 
       }
 
+     
+      :host([isheader]) {
+        height: 64px;
+        margin: 0;
+      }
+      
+      :host([isheader]) furo-icon{
+        margin-bottom: 4px;
+      }
+
+      :host([isheader]) .oc {
+        display: none;
+      }
+
+      :host([isheader]) .desc {
+        font-size: 14px;
+        height: 24px;
+        letter-spacing: 0.1px;
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        line-height: 20px;
+        display: block;
+        position: absolute;
+        text-overflow: ellipsis;
+        /* Required for text-overflow to do anything */
+        white-space: nowrap;
+        overflow: hidden;
+        width: 100%;
+        top: 32px
+      }
+
+      :host([isheader]) .label {
+        font-weight: unset;
+        position: relative;
+        font-size: 20px;
+        height: 32px;
+        line-height: 40px;
+        margin: 0;
+        display: block;
+        letter-spacing: 0.15px;
+      }
 
       :host([is-group-label]) {
         border-top: 1px solid var(--separator, #cdcdcd);
@@ -7876,7 +8053,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         line-height: 20px;
         font-weight: normal;
         letter-spacing: 0.1px;
-        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
+        color: var(--group-label-color, rgba(var(--on-surface-rgb), var(--medium-emphasis-surface)));
       }
 
       .indentation-0 .indentation {
@@ -7996,7 +8173,7 @@ if(!next){next=this._foundSearchItems[0]}}else{next=this._hoveredField.getNextVi
        * Sets the tabindex
        */tabindex:{type:Number,reflect:!0},/**
        * Set this flag if you do not want a header-text section.
-       */noheader:{type:Boolean},/**
+       */rootAsHeader:{type:Boolean,attribute:"root-as-header"},/**
        * Set this flag if you do not want to see the root node
        */hideRootNode:{type:Boolean,attribute:"hide-root-node"},/**
        * Override display name from root object
@@ -8004,12 +8181,19 @@ if(!next){next=this._foundSearchItems[0]}}else{next=this._hoveredField.getNextVi
        * Override description from root object.
        */secondaryText:{type:String,attribute:"secondary-text"},/**
        * indicator for searching. Maybe you want style your item depending on this attribute
-       */_searchIsActive:{type:Boolean,attribute:"searching",reflect:!0}}}/**
+       */_searchIsActive:{type:Boolean,attribute:"searching",reflect:!0},/**
+       * disables the background color on hover, selected, ... on header node
+       *
+       * Works only with `root-as-header` enabled
+       */nobgonhead:{type:Boolean,attribute:"([no-bg-on-header])"}}}/**
      * focuses the element
      */focus(){super.focus()}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
-}/**
+/**
+     * Register hook on wire --headClicked to
+     * select the root node
+     */this._FBPAddWireHook("--headClicked",e=>{this._flatTree[0].selectItem()})}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
@@ -8076,6 +8260,12 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
         color: var(--primary);
       }
 
+      /* remove the background color on header node */
+      :host([no-bg-on-header]) td  furo-tree-item[selected][isheader], :host([no-bg-on-header]) td  furo-tree-item[selected][hovered][isheader], :host([no-bg-on-header]) td  furo-tree-item[hovered][isheader]{
+        background-color: unset;
+      }
+      
+
 
       .srch {
         display: none;
@@ -8124,6 +8314,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 
       .head {
         height: 64px;
+        cursor:pointer;
       }
 
       :host([noheader]) .head {
@@ -8138,10 +8329,6 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html`
     <div class="srch">⌖ ${this._searchTerm}</div>
      <furo-vertical-flex>
-     <div class="head">
-        <div class="title">${this._headerText}</div>
-        <div class="secondary">${this._secondaryText}</div>
-      </div>
       <div class="tablewrapper" flex>
       <table>
         <template is="flow-repeat" ƒ-inject-items="--treeChanged" ƒ-trigger-all="--searchRequested" identity-path="id._value">
@@ -8154,7 +8341,7 @@ return _furoShell.html`
       </table>
       </furo-vertical-flex>
       </div>
-    `}bindData(treeNode){if(treeNode.root===void 0){this._rootNode=treeNode}else{this._rootNode=treeNode.root}this._rootNode.children.addEventListener("this-repeated-field-changed",e=>{this._setTitle(this._rootNode);this._init()});this._setTitle(this._rootNode);this._init()}_setTitle(treeNode){this._headerText=this.headerText||treeNode.display_name._value;this._secondaryText=this.secondaryText||treeNode.secondary_text._value;this.requestUpdate()}_init(){this._buildFlatTree(this._rootNode);// set visible on root node
+    `}bindData(treeNode){if(treeNode.root===void 0){this._rootNode=treeNode}else{this._rootNode=treeNode.root}this._rootNode.children.addEventListener("this-repeated-field-changed",e=>{this._setTitle(this._rootNode);this._init()});this._setTitle(this._rootNode);this._init()}_setTitle(treeNode){if(this.headerText&&treeNode.display_name){treeNode.display_name._value=this.headerText}if(this.secondaryText&&treeNode.secondary_text){treeNode.secondary_text._value=this.secondaryText}}_init(){this._buildFlatTree(this._rootNode);// set visible on root node
 this._rootNode.children.broadcastEvent(new NodeEvent("ancestor-visible",this._rootNode));if(!this.__listenersInitialized){this._initHoverAndSelectEvents()}this.__listenersInitialized=!0;// initial hover on first element
 if(this._hoveredField===void 0&&0<this._flatTree.length){this._hoveredField=this._flatTree[0];this._hoveredField.triggerHover()}// select item if qp was set before
 if(this.__tmpQP!==void 0){// because the tree is built async
@@ -8193,7 +8380,8 @@ this._rootNode.broadcastEvent(new NodeEvent("tree-node-unselection-requested"));
          * @event leaf-selected
          * Fired when
          * detail payload:
-         */let customEvent=new Event("leaf-selected",{composed:!0,bubbles:!0});customEvent.detail=this._selectedField;this.dispatchEvent(customEvent)}})}_buildFlatTree(tree){this._flatTree=[tree];tree.__flatTreeIndex=0;let startlevel=0;if(!0===this.hideRootNode){startlevel=-1;this._flatTree.pop()}else{tree._isRoot=!0;tree.open._value=!0}this._parseTreeRecursive(tree,startlevel,this.depth);for(let len=this._flatTree.length;0<len;len--){let index=len-1,node=this._flatTree[index];// open field if entity contains a field open with true
+         */let customEvent=new Event("leaf-selected",{composed:!0,bubbles:!0});customEvent.detail=this._selectedField;this.dispatchEvent(customEvent)}})}_buildFlatTree(tree){this._flatTree=[tree];tree.__flatTreeIndex=0;let startlevel=0;if(!0===this.hideRootNode){startlevel=-1;//this._flatTree.pop();
+this._flatTree[0]._isHidden=!0}else{tree._isRoot=!0;tree.open._value=!0}if(!0===this.rootAsHeader){this._flatTree[0]._rootAsHeader=!0;startlevel=-1}this._parseTreeRecursive(tree,startlevel,this.depth);for(let len=this._flatTree.length;0<len;len--){let index=len-1,node=this._flatTree[index];// open field if entity contains a field open with true
 if(!node.open){node.addChildProperty("open",new FieldNode(node,{type:"bool"},"open"));node.open._value=!1}// Traverse the flat tree, it is simpler then the nested tree
 // next active element
 node.getNextVisibleElement=()=>{for(let i=index+1;i<this._flatTree.length;i++){if(!this._flatTree[i]._isHidden){return this._flatTree[i]}}return!1};// prev active element
@@ -8435,6 +8623,7 @@ return _furoShell.html`
             <furo-split-view style="height: 500px;">
               <furo-tree slot="master" ƒ-focus="--focusClicked" ƒ-bind-data="--entityObj(*.data)"
                          @-node-selected="--nodeSelected"
+                         root-as-header
                          ƒ-select-next="--next"
                          ƒ-select-prev="--prev"
                          ƒ-add-sub-node="--addSub"
@@ -8699,7 +8888,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
           -->
                 </template>
       </furo-demo-snippet>
-        `}}customElements.define("demo-furo-snackbar-display-error",DemoFuroSnackbarDisplayError);class FuroBannerDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._banner={text:"",dismissButtonText:"dismiss",confirmButtonText:"",icon:"",banner:{}};this._stack=[];this.setAttribute("hidden","")}/**
+        `}}customElements.define("demo-furo-snackbar-display-error",DemoFuroSnackbarDisplayError);class FuroBannerDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._banner={text:"",dismissButtonText:"dismiss",confirmButtonText:"",icon:"",banner:{}};this._stack=[];this.setAttribute("hidden","");this.setAttribute("tabindex","-1")}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();window.addEventListener("open-furo-banner-requested",e=>{this._show(e.detail)});this._FBPAddWireHook("--confirmClicked",e=>{if(this._banner.banner){this._banner.banner.confirm()}this._close()});this._FBPAddWireHook("--dismissClicked",e=>{if(this._banner.banner){this._banner.banner.dismiss()}this._close()})}/**
      * parse markdown string to html content
@@ -8722,16 +8911,17 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * @private
      */__show(){if(0<this._stack.length){this._banner=this._stack[0];// defensive copy, do not overwrite the reference (this._stack[0]);
 if(this._banner.multilineText&&0<this._banner.multilineText.length){this._bannerText=this._parseMarkdown(this._banner.multilineText.join("\n\n"))}else{// default banner text
-if(this._banner.text){this._bannerText=this._parseMarkdown(this._banner.text)}}this.requestUpdate();setTimeout(()=>{this.style.height="0px";this.removeAttribute("hidden");let height=this.shadowRoot.querySelector(".wrapper").getBoundingClientRect().height;this.style.height=height+"px";this._isOpen=!0},0);if(this.autofocus){setTimeout(()=>{// focus the dismiss after animation
+if(this._banner.text){this._bannerText=this._parseMarkdown(this._banner.text)}}this.requestUpdate();setTimeout(()=>{this.style.height="0px";this.removeAttribute("hidden");this.removeAttribute("tabindex");let height=this.shadowRoot.querySelector(".wrapper").getBoundingClientRect().height;this.style.height=height+"px";this._isOpen=!0},0);if(this.autofocus){setTimeout(()=>{// focus the dismiss after animation
 this._FBPTriggerWire("--focus")},500)}}}focus(){this._FBPTriggerWire("--focus")}/**
      * close the CURRENT banner
-     */_close(){this.style.height="0px";setTimeout(()=>{this.setAttribute("hidden","")},500);if(1<this._stack.length){this._stack.shift();if(0<this._stack.length){let self=this;this._timer=setInterval(function(){clearInterval(self._timer);self.__show()},500)}else{this._isOpen=!1}}else{this._stack.shift();this._isOpen=!1}}/**
+     */_close(){this.style.height="0px";setTimeout(()=>{this.setAttribute("hidden","");this.setAttribute("tabindex","-1")},500);if(1<this._stack.length){this._stack.shift();if(0<this._stack.length){let self=this;this._timer=setInterval(function(){clearInterval(self._timer);self.__show()},500)}else{this._isOpen=!1}}else{this._stack.shift();this._isOpen=!1}}/**
      * @private
      * @returns {CSSResult}
      */static get styles(){return _furoShell.css`
             :host {
               width: 100%;
               display:block;
+              font-family: 'Roboto', 'Noto', sans-serif;        
               background-color: var(--banner-background, var(--surface,#FAFAFA));
               color: var(--banner-on-background, var(--on-surface,#333333));             
               transition: all .5s ease-in-out;
@@ -8775,9 +8965,25 @@ this._FBPTriggerWire("--focus")},500)}}}focus(){this._FBPTriggerWire("--focus")}
               line-height: 20px;              
             }
             
+            h1 {            
+              letter-spacing: -1.5px;
+              font-weight: 200;
+            }
+            h2 {            
+              letter-spacing: -0.5px;
+              font-weight: 400;
+            }
+                      
+            h3 {        
+              letter-spacing: 0;         
+            }
+            h4 {        
+              letter-spacing: 0.25px;         
+            }
+                
             p {
-            margin-bottom: var(--spacing-xs, 8px) ;
-            margin-top: var(--spacing-xs, 8px) ;
+              margin-bottom: var(--spacing-xs, 8px) ;
+              margin-top: var(--spacing-xs, 8px) ;
             }
 
             .md *:first-child {
@@ -8822,7 +9028,9 @@ this._FBPTriggerWire("--focus")},500)}}}focus(){this._FBPTriggerWire("--focus")}
        * icon of the banner
        */icon:{type:String},/**
        * payload
-       */payload:{type:Object}}}/**
+       */payload:{type:Object},/**
+       * set this flag to display the icon in --danger color
+       */danger:{type:Boolean}}}/**
      * set icon of the snackbar
      * @param i
      */setIcon(i){this.icon=i}/**
@@ -9074,7 +9282,7 @@ return _furoShell.html`
       </furo-vertical-flex>
       </template>
       </furo-demo-snippet>
-    `}}window.customElements.define("demo-capture-video",DemoCaptureVideo);const nav=[{group:"Packages",items:[{label:"Getting input",icon:"input",href:"input/doc/"},{label:"Dealing with data",icon:"cloud",href:"data/doc/"},{label:"Data UI",icon:"view-column",href:"data-ui/doc/"},{label:"Data Input",icon:"input",href:"data-input/doc/"},{label:"Layouts helper",icon:"dashboard",href:"layout/doc/"},{label:"Forms helper",icon:"dashboard",href:"form/doc/"},{label:"App Config",icon:"settings",href:"config/doc/"},{label:"Navigation",icon:"tab",href:"navigation/doc/"},{label:"Notification",icon:"info",href:"notification/doc/"},{label:"Routing",icon:"arrow-forward",href:"route/doc/"},{label:"Timing",icon:"alarm",href:"timing/doc/"},{label:"Logic",icon:"av:web",href:"logic/doc/"},{label:"Util",icon:"star-border",href:"util/doc/"},{label:"\uD83D\uDC80 Experiments",icon:"image:colorize",href:"experiments/doc/"}]},{group:"The Framework",items:[{label:"Init",icon:"settings",href:"framework/doc/Init"},{label:"Theming",icon:"image:brush",href:"framework/doc/Theme"},{label:"I18n",icon:"translate",href:"framework/doc/i18n"},{label:"Register Icons",icon:"image:color-lens",href:"framework/doc/Iconset"}]}];/**
+    `}}window.customElements.define("demo-capture-video",DemoCaptureVideo);const nav=[{group:"Packages",items:[{label:"Getting input",icon:"input",href:"input/doc/"},{label:"Dealing with data",icon:"cloud",href:"data/doc/"},{label:"Data UI",icon:"view-column",href:"data-ui/doc/"},{label:"Data Input",icon:"input",href:"data-input/doc/"},{label:"Layouts helper",icon:"dashboard",href:"layout/doc/"},{label:"Icons",icon:"social:mood",href:"icon/doc/"},{label:"Forms helper",icon:"editor:border-all",href:"form/doc/"},{label:"App helper",icon:"apps",href:"app/doc/"},{label:"App Config",icon:"settings",href:"config/doc/"},{label:"Navigation",icon:"tab",href:"navigation/doc/"},{label:"Notification",icon:"info",href:"notification/doc/"},{label:"Routing",icon:"arrow-forward",href:"route/doc/"},{label:"Timing",icon:"alarm",href:"timing/doc/"},{label:"Logic",icon:"av:web",href:"logic/doc/"},{label:"Util",icon:"star-border",href:"util/doc/"},{label:"\uD83D\uDC80 Experiments",icon:"image:colorize",href:"experiments/doc/"}]},{group:"The Framework",items:[{label:"Init",icon:"settings",href:"framework/doc/Init"},{label:"Theming",icon:"image:brush",href:"framework/doc/Theme"},{label:"I18n",icon:"translate",href:"framework/doc/i18n"},{label:"Register Icons",icon:"image:color-lens",href:"framework/doc/Iconset"}]}];/**
      * todo: put this back in to the menu when the math components are complete
      * {"label": "Math", "icon": "timeline", "href": "math/doc/"},
      */_exports.nav=nav;var nav_config={nav:nav};_exports.$navConfig=nav_config;class FuroDemoLoader extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}load(location){if(location.pathSegments[0]){let lastDemo=this.shadowRoot.querySelector("#demo");lastDemo.remove();this.demoComponent=location.pathSegments[0];// if the element is registered append the new

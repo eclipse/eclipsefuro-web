@@ -53,19 +53,6 @@ export class {{.class_name}} extends BasePanel {
                 :host([hidden]) {
                     display: none;
                 }
-
-                .content {
-                    padding: 0;
-                    box-sizing: border-box;
-                }
-
-                .form {
-                    padding: var(--spacing-xs) var(--spacing-s) var(--spacing-s) var(--spacing-s);
-                }
-
-                .action {
-                    padding: var(--spacing-s) var(--spacing-s) var(--spacing-xs) var(--spacing-s);
-                }
             `
     }
 
@@ -76,9 +63,9 @@ export class {{.class_name}} extends BasePanel {
     render() {
         // language=HTML
         return html`
-          {{"<" | noescape}}furo-vertical-flex class="content">
-              {{"<" | noescape}}{{.form.name}} flex scroll class="form"{{range $flag := .form.flags}} {{$flag}}{{end}} {{range $attr := .form.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
-              {{"<" | noescape}}{{.action.name}} class="action"{{range $flag := .action.flags}} {{$flag}}{{end}} {{range $attr := .action.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}@-update="--updateReq" ƒ-bind-entity="--entity" ƒ-disable-all="--requestStarted" ƒ-enable-all="--response, --responseError" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
+          {{"<" | noescape}}furo-vertical-flex>
+              {{"<" | noescape}}{{.form.name}} flex scroll{{range $flag := .form.flags}} {{$flag}}{{end}} {{range $attr := .form.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}ƒ-bind-data="--entity(*.data)">{{"<" | noescape}}/{{.form.name}}>
+              {{"<" | noescape}}{{.action.name}}{{range $flag := .action.flags}} {{$flag}}{{end}} {{range $attr := .action.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}@-update="--updateReq" ƒ-bind-entity="--entity" ƒ-disable-all="--requestStarted" ƒ-enable-all="--response, --responseError" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
           </furo-vertical-flex>
 
           <furo-banner ƒ-set-text="--error(*.message)" ƒ-show="--error"
