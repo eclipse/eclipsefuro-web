@@ -68,7 +68,7 @@ class FuroCard extends FBP(LitElement) {
             }
 
             :host([hasaction]) .content {
-                padding-bottom: 44px;
+                padding-bottom: 56px;
             }
 
 
@@ -99,9 +99,9 @@ class FuroCard extends FBP(LitElement) {
 
             .action {
                 position: absolute;
-                bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
-                left: var(--furo-card-padding, var(--spacing-xs, 8px));
-                right: var(--furo-card-padding, var(--spacing-xs, 8px));
+                bottom: var(--furo-card-padding, var(--spacing-s, 16px));
+                left: var(--furo-card-padding, var(--spacing-s, 16px));
+                right: var(--furo-card-padding, var(--spacing-s, 16px));
 
             }
 
