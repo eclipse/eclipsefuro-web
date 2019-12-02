@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.59.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.59.3...@furo/input@0.59.4) (2019-12-02)
+
+
+### Bug Fixes
+
+* ui builder templates ([62748f7](https://github.com/theNorstroem/FuroBaseComponents/commit/62748f7))
+
+
+
+
+
 ## [0.59.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.59.2...@furo/input@0.59.3) (2019-11-29)
 
 **Note:** Version bump only for package @furo/input

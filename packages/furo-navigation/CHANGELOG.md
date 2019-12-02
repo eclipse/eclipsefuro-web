@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.36.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.35.2...@furo/navigation@0.36.0) (2019-12-02)
+
+
+### Bug Fixes
+
+* ui builder templates ([62748f7](https://github.com/theNorstroem/FuroBaseComponents/commit/62748f7))
+
+
+### Features
+
+* furo-tree bg on header item can be disabled ([54196ea](https://github.com/theNorstroem/FuroBaseComponents/commit/54196ea))
+* furo-tree header with better spacings ([c58eff1](https://github.com/theNorstroem/FuroBaseComponents/commit/c58eff1))
+
+
+
+
+
 ## [0.35.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.35.1...@furo/navigation@0.35.2) (2019-11-29)
 
 **Note:** Version bump only for package @furo/navigation

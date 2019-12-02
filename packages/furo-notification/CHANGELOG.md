@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.6.1...@furo/notification@0.7.0) (2019-12-02)
+
+
+### Bug Fixes
+
+* ui builder templates ([62748f7](https://github.com/theNorstroem/FuroBaseComponents/commit/62748f7))
+
+
+### Features
+
+* banner md styling according to https://material.io/design/typography/the-type-system.html# (but without the sizes) ([34e4fc4](https://github.com/theNorstroem/FuroBaseComponents/commit/34e4fc4))
+
+
+
+
+
 ## [0.6.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.6.0...@furo/notification@0.6.1) (2019-11-29)
 
 

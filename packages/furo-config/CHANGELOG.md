@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.13](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@0.17.11...@furo/config@0.17.13) (2019-12-02)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/theNorstroem/FuroBaseComponents/commit/ffc43b7))
+
+
+
+
+
 ## [0.17.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@0.17.11...@furo/config@0.17.12) (2019-11-28)
 
 
