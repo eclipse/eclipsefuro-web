@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.0.10...@furo/ui-builder@0.0.11) (2019-12-02)
+
+
+### Bug Fixes
+
+* include new imports ([6e8bdcd](https://github.com/theNorstroem/FuroBaseComponents/commit/6e8bdcd))
+* remove self import by display ([90614bc](https://github.com/theNorstroem/FuroBaseComponents/commit/90614bc))
+* template without paddings ([659d835](https://github.com/theNorstroem/FuroBaseComponents/commit/659d835))
+* template without paddings ([10c9959](https://github.com/theNorstroem/FuroBaseComponents/commit/10c9959))
+* typo fix ([6db2fdf](https://github.com/theNorstroem/FuroBaseComponents/commit/6db2fdf))
+
+
+
+
+
 ## [0.0.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.0.9...@furo/ui-builder@0.0.10) (2019-11-29)
 
 
