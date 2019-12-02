@@ -11,7 +11,7 @@
   ],
   "display": {
     "name": "task-task-display",
-    "flags": ["flex"],
+    "flags": [],
     "attrs": []
   }
 }
