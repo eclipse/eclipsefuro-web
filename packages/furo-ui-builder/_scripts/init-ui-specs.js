@@ -121,7 +121,19 @@ typelist.forEach((pathToTypeSpec) => {
     //  complex type has a cutom form component
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
       component_name = field.type.toLowerCase().replace(".", "-") + "-form";
-      formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
+
+      if(formSpec.component_name !== component_name ) {
+
+        if (t[0] !== arrTmpName[0] ) {
+
+          formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
+        }
+        else {
+
+          formSpec.imports.push("./" + component_name + ".js");
+        }
+      }
+
     }
 
     fld.component = component_name;
@@ -337,7 +349,14 @@ typelist.forEach((pathToTypeSpec) => {
 
       if(displaySpec.component_name !== component_name ) {
 
-        displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
+        if (t[0] !== arrTmpName[0] ) {
+
+          displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
+        }
+        else {
+
+          displaySpec.imports.push("./" + component_name + ".js");
+        }
       }
     }
 
