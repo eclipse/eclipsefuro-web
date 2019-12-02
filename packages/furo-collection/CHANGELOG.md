@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.31...@furo/collection@0.23.0) (2019-12-02)
+
+
+### Features
+
+* add app and icon package ([e7e7627](https://github.com/theNorstroem/FuroBaseComponents/commit/e7e7627))
+
+
+
+
+
 ## [0.22.31](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/collection@0.22.30...@furo/collection@0.22.31) (2019-12-02)
 
 **Note:** Version bump only for package @furo/collection
