@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.12](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.0.11...@furo/ui-builder@0.0.12) (2019-12-03)
+
+
+### Bug Fixes
+
+* remove useless path segments in init-ui ([adbbbb3](https://github.com/theNorstroem/FuroBaseComponents/commit/adbbbb3))
+
+
+
+
+
 ## [0.0.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.0.10...@furo/ui-builder@0.0.11) (2019-12-02)
 
 

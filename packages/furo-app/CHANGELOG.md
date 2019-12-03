@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@0.2.1...@furo/app@0.3.0) (2019-12-03)
+
+
+### Bug Fixes
+
+* action area paddings ([26c944a](https://github.com/theNorstroem/FuroBaseComponents/commit/26c944a))
+
+
+### Features
+
+* experimental tooltip ([3b63679](https://github.com/theNorstroem/FuroBaseComponents/commit/3b63679))
+* experimental tooltip auto position ([cc33ee8](https://github.com/theNorstroem/FuroBaseComponents/commit/cc33ee8))
+
+
+
+
+
 ## [0.2.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@0.2.0...@furo/app@0.2.1) (2019-12-02)
 
 **Note:** Version bump only for package @furo/app
