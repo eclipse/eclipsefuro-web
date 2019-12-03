@@ -121,9 +121,10 @@ typelist.forEach((pathToTypeSpec) => {
     //  complex type has a cutom form component
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
       component_name = field.type.toLowerCase().replace(".", "-") + "-form";
-
+      // exclude self import
       if(formSpec.component_name !== component_name ) {
 
+        // check whether the imported file is under the same folder
         if (t[0] !== arrTmpName[0] ) {
 
           formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
@@ -151,9 +152,20 @@ typelist.forEach((pathToTypeSpec) => {
     // special type furo.Reference
     if (field.type === "furo.Reference") {
       if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
-        let t = field.meta.default.link.type;
-        fld.component = t.toLowerCase().replace(".", "-") + "-reference-search";
-        formSpec.imports.push("../" + t.split(".")[0] + "/" + fld.component);
+        let f = field.meta.default.link.type;
+        fld.component = f.toLowerCase().replace(".", "-") + "-reference-search";
+
+        let folder = f.split(".")[0];
+        // exclude self import
+        if(formSpec.component_name !== fld.component ) {
+          // check whether the imported file is under the same folder
+          if (t[0] !== folder) {
+            formSpec.imports.push("../" + folder + "/" + fld.component + ".js");
+          }
+          else {
+            formSpec.imports.push("./" + fld.component + ".js");
+          }
+        }
 
       }
     }
@@ -233,7 +245,17 @@ typelist.forEach((pathToTypeSpec) => {
       //  complex type has a cutom form component
       if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
         component_name = field.type.toLowerCase().replace(".", "-") + "-form";
-        formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
+
+        // exclude self import
+        if(formSpec.component_name !== component_name ) {
+          // check whether the imported file is under the same folder
+          if (t[0] !== arrTmpName[0]) {
+            formSpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
+          }
+          else {
+            formSpec.imports.push("./" + component_name + ".js");
+          }
+        }
       }
 
       fld.component = component_name;
@@ -251,30 +273,29 @@ typelist.forEach((pathToTypeSpec) => {
       // special type furo.Reference
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
-          let t = field.meta.default.link.type;
-          fld.component = t.toLowerCase().replace(".", "-") + "-reference-search";
-          formSpec.imports.push("../" + t.split(".")[0] + "/" + fld.component + ".js");
+          let f = field.meta.default.link.type;
+          fld.component = f.toLowerCase().replace(".", "-") + "-reference-search";
+
+          let folder = f.split(".")[0];
+          // exclude self import
+          if(formSpec.component_name !== fld.component ) {
+            // check whether the imported file is under the same folder
+            if (t[0] !== folder) {
+              formSpec.imports.push("../" + folder + "/" + fld.component + ".js");
+            }
+            else {
+              formSpec.imports.push("./" + fld.component + ".js");
+            }
+          }
 
         }
       }
 
       createFields.push(fld);
 
-
-
-
-
-
-
-
-
-
-
-
     } else {
       delete field;
     }
-
 
   }
   formSpec.fieldgroups[0].fields = createFields;
@@ -350,11 +371,9 @@ typelist.forEach((pathToTypeSpec) => {
       if(displaySpec.component_name !== component_name ) {
 
         if (t[0] !== arrTmpName[0] ) {
-
           displaySpec.imports.push("../" + arrTmpName[0] + "/" + component_name + ".js");
         }
         else {
-
           displaySpec.imports.push("./" + component_name + ".js");
         }
       }
@@ -404,7 +423,6 @@ typelist.forEach((pathToTypeSpec) => {
 
       fld.component = "furo-data-repeat";
     }
-
 
     fields.push(fld);
   }
