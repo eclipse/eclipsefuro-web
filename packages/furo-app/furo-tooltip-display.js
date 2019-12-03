@@ -30,7 +30,10 @@ class FuroTooltipDisplay extends FBP(LitElement) {
       let x = cr.left + cr.width / 2;
       let y = cr.bottom + 16;
 
-
+      let max_y = window.innerHeight - 48;
+      if(y > max_y){
+        y = cr.top - 32;
+      }
       this.style.top = y + "px";
       this.start = true;
       this.label = e.detail.label;

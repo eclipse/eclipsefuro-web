@@ -82,27 +82,13 @@ constructor(){
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
         :host {
-            display: block;
-        }
-
-        :host([hidden]) {
             display: none;
         }
     `
   }
 
 
-  /**
-   * @private
-   * @returns {TemplateResult}
-   * @private
-   */
-  render() {
-    // language=HTML
-    return html`
-      <p>Hej, welcome</p>
-    `;
-  }
+
 }
 
 window.customElements.define('furo-tooltip', FuroTooltip);
