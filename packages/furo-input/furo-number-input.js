@@ -76,8 +76,12 @@ class FuroNumberInput extends FBP(LitElement) {
   }
 
   set _value(v) {
-    this._float = !!v;
 
+    if(v === 0) {
+      this._float = true;
+    }else {
+      this._float = !!v;
+    }
     this._FBPTriggerWire("--value", v)
   }
 

@@ -138,7 +138,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    * Updater for the label attr for amount
    * @param value
    */
-  set _labelAmount(value) {
+  set _label(value) {
     Helper.UpdateInputAttribute(this, "label", value);
   }
 
@@ -206,15 +206,18 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       currencies: {
         type: String
       },
-
+      /**
+       * currency field label
+       */
       labelCurrency: {
         type: String,
         attribute: "label-currency"
       },
-
-      labelAmount: {
-        type: String,
-        attribute: "label-amount"
+      /**
+       * amount field label
+       */
+      label: {
+        type: String
       },
       /**
        * Set this attribute to autofocus the input field.

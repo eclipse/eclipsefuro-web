@@ -24,9 +24,6 @@ export class CheckMetaAndOverrides {
         if (element.field._meta.min_term_length) {
           element._minTermLength = element.field._meta.min_term_length;
         }
-        if (element.field._meta.label_amount) {
-          element._labelAmount = element.field._meta.label_amount;
-        }
         if (element.field._meta.label_currency) {
           element._labelCurrency = element.field._meta.label_currency;
         }
@@ -109,10 +106,6 @@ export class CheckMetaAndOverrides {
 
     if (element.minTermLength) {
       element._minTermLength = element.minTermLength;
-    }
-
-    if (element.labelAmount) {
-      element._labelAmount = element.labelAmount;
     }
 
     if (element.labelCurrency) {

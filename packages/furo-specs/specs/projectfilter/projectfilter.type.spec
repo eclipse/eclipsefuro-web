@@ -77,7 +77,7 @@
       "type": "google.type.Money",
       "meta": {
         "label_currency": "Currency",
-        "label_amount": "Cost limit amount",
+        "label": "Cost limit amount",
         "hint":"google.type.Money",
         "options": {
           "list": [
