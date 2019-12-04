@@ -23,7 +23,7 @@ public final class TreeOuterClass {
      * description of the tree
      * </pre>
      *
-     * <code>string description = 3;</code>
+     * <code>string description = 4;</code>
      */
     java.lang.String getDescription();
     /**
@@ -31,7 +31,7 @@ public final class TreeOuterClass {
      * description of the tree
      * </pre>
      *
-     * <code>string description = 3;</code>
+     * <code>string description = 4;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
@@ -96,6 +96,24 @@ public final class TreeOuterClass {
      * <code>.tree.Navigationnode root = 10;</code>
      */
     tree.TreeOuterClass.NavigationnodeOrBuilder getRootOrBuilder();
+
+    /**
+     * <pre>
+     * Secondary text of the node
+     * </pre>
+     *
+     * <code>string secondary_text = 3;</code>
+     */
+    java.lang.String getSecondaryText();
+    /**
+     * <pre>
+     * Secondary text of the node
+     * </pre>
+     *
+     * <code>string secondary_text = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getSecondaryTextBytes();
   }
   /**
    * <pre>
@@ -117,6 +135,7 @@ public final class TreeOuterClass {
       description_ = "";
       displayName_ = "";
       id_ = "";
+      secondaryText_ = "";
     }
 
     @java.lang.Override
@@ -156,6 +175,12 @@ public final class TreeOuterClass {
               break;
             }
             case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              secondaryText_ = s;
+              break;
+            }
+            case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
               description_ = s;
@@ -206,14 +231,14 @@ public final class TreeOuterClass {
               tree.TreeOuterClass.Tree.class, tree.TreeOuterClass.Tree.Builder.class);
     }
 
-    public static final int DESCRIPTION_FIELD_NUMBER = 3;
+    public static final int DESCRIPTION_FIELD_NUMBER = 4;
     private volatile java.lang.Object description_;
     /**
      * <pre>
      * description of the tree
      * </pre>
      *
-     * <code>string description = 3;</code>
+     * <code>string description = 4;</code>
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -232,7 +257,7 @@ public final class TreeOuterClass {
      * description of the tree
      * </pre>
      *
-     * <code>string description = 3;</code>
+     * <code>string description = 4;</code>
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -365,6 +390,48 @@ public final class TreeOuterClass {
       return getRoot();
     }
 
+    public static final int SECONDARY_TEXT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object secondaryText_;
+    /**
+     * <pre>
+     * Secondary text of the node
+     * </pre>
+     *
+     * <code>string secondary_text = 3;</code>
+     */
+    public java.lang.String getSecondaryText() {
+      java.lang.Object ref = secondaryText_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        secondaryText_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Secondary text of the node
+     * </pre>
+     *
+     * <code>string secondary_text = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSecondaryTextBytes() {
+      java.lang.Object ref = secondaryText_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        secondaryText_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -385,8 +452,11 @@ public final class TreeOuterClass {
       if (!getDisplayNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, displayName_);
       }
+      if (!getSecondaryTextBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, secondaryText_);
+      }
       if (!getDescriptionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
       }
       if (root_ != null) {
         output.writeMessage(10, getRoot());
@@ -406,8 +476,11 @@ public final class TreeOuterClass {
       if (!getDisplayNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, displayName_);
       }
+      if (!getSecondaryTextBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, secondaryText_);
+      }
       if (!getDescriptionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
       }
       if (root_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -439,6 +512,8 @@ public final class TreeOuterClass {
         if (!getRoot()
             .equals(other.getRoot())) return false;
       }
+      if (!getSecondaryText()
+          .equals(other.getSecondaryText())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -460,6 +535,8 @@ public final class TreeOuterClass {
         hash = (37 * hash) + ROOT_FIELD_NUMBER;
         hash = (53 * hash) + getRoot().hashCode();
       }
+      hash = (37 * hash) + SECONDARY_TEXT_FIELD_NUMBER;
+      hash = (53 * hash) + getSecondaryText().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -609,6 +686,8 @@ public final class TreeOuterClass {
           root_ = null;
           rootBuilder_ = null;
         }
+        secondaryText_ = "";
+
         return this;
       }
 
@@ -643,6 +722,7 @@ public final class TreeOuterClass {
         } else {
           result.root_ = rootBuilder_.build();
         }
+        result.secondaryText_ = secondaryText_;
         onBuilt();
         return result;
       }
@@ -706,6 +786,10 @@ public final class TreeOuterClass {
         if (other.hasRoot()) {
           mergeRoot(other.getRoot());
         }
+        if (!other.getSecondaryText().isEmpty()) {
+          secondaryText_ = other.secondaryText_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -741,7 +825,7 @@ public final class TreeOuterClass {
        * description of the tree
        * </pre>
        *
-       * <code>string description = 3;</code>
+       * <code>string description = 4;</code>
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -760,7 +844,7 @@ public final class TreeOuterClass {
        * description of the tree
        * </pre>
        *
-       * <code>string description = 3;</code>
+       * <code>string description = 4;</code>
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -780,7 +864,7 @@ public final class TreeOuterClass {
        * description of the tree
        * </pre>
        *
-       * <code>string description = 3;</code>
+       * <code>string description = 4;</code>
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -797,7 +881,7 @@ public final class TreeOuterClass {
        * description of the tree
        * </pre>
        *
-       * <code>string description = 3;</code>
+       * <code>string description = 4;</code>
        */
       public Builder clearDescription() {
         
@@ -810,7 +894,7 @@ public final class TreeOuterClass {
        * description of the tree
        * </pre>
        *
-       * <code>string description = 3;</code>
+       * <code>string description = 4;</code>
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -1153,6 +1237,95 @@ public final class TreeOuterClass {
           root_ = null;
         }
         return rootBuilder_;
+      }
+
+      private java.lang.Object secondaryText_ = "";
+      /**
+       * <pre>
+       * Secondary text of the node
+       * </pre>
+       *
+       * <code>string secondary_text = 3;</code>
+       */
+      public java.lang.String getSecondaryText() {
+        java.lang.Object ref = secondaryText_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          secondaryText_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Secondary text of the node
+       * </pre>
+       *
+       * <code>string secondary_text = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSecondaryTextBytes() {
+        java.lang.Object ref = secondaryText_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          secondaryText_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Secondary text of the node
+       * </pre>
+       *
+       * <code>string secondary_text = 3;</code>
+       */
+      public Builder setSecondaryText(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        secondaryText_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Secondary text of the node
+       * </pre>
+       *
+       * <code>string secondary_text = 3;</code>
+       */
+      public Builder clearSecondaryText() {
+        
+        secondaryText_ = getDefaultInstance().getSecondaryText();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Secondary text of the node
+       * </pre>
+       *
+       * <code>string secondary_text = 3;</code>
+       */
+      public Builder setSecondaryTextBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        secondaryText_ = value;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -6904,21 +7077,22 @@ public final class TreeOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\017tree/tree.proto\022\004tree\032\017furo/meta.proto" +
-      "\032\017furo/link.proto\"a\n\004Tree\022\023\n\013description" +
-      "\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t" +
-      "\022\"\n\004root\030\n \001(\0132\024.tree.Navigationnode\"[\n\n" +
-      "TreeEntity\022\030\n\004data\030\001 \001(\0132\n.tree.Tree\022\031\n\005" +
-      "links\030\002 \003(\0132\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n." +
-      "furo.Meta\"\212\002\n\016Navigationnode\022&\n\010children" +
-      "\030\014 \003(\0132\024.tree.Navigationnode\022\023\n\013descript" +
-      "ion\030\004 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\021\n\thas_e" +
-      "rror\030\010 \001(\010\022\014\n\004icon\030\005 \001(\t\022\n\n\002id\030\001 \001(\t\022\026\n\016" +
-      "is_group_label\030\013 \001(\010\022\021\n\tkey_words\030\007 \001(\t\022" +
-      "\030\n\004link\030\n \001(\0132\n.furo.Link\022\014\n\004open\030\t \001(\010\022" +
-      "\r\n\005panel\030\006 \001(\t\022\026\n\016secondary_text\030\003 \001(\t\"i" +
-      "\n\016TreeCollection\022\"\n\010entities\030\004 \003(\0132\020.tre" +
-      "e.TreeEntity\022\031\n\005links\030\003 \003(\0132\n.furo.Link\022" +
-      "\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
+      "\032\017furo/link.proto\"y\n\004Tree\022\023\n\013description" +
+      "\030\004 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t" +
+      "\022\"\n\004root\030\n \001(\0132\024.tree.Navigationnode\022\026\n\016" +
+      "secondary_text\030\003 \001(\t\"[\n\nTreeEntity\022\030\n\004da" +
+      "ta\030\001 \001(\0132\n.tree.Tree\022\031\n\005links\030\002 \003(\0132\n.fu" +
+      "ro.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\212\002\n\016Na" +
+      "vigationnode\022&\n\010children\030\014 \003(\0132\024.tree.Na" +
+      "vigationnode\022\023\n\013description\030\004 \001(\t\022\024\n\014dis" +
+      "play_name\030\002 \001(\t\022\021\n\thas_error\030\010 \001(\010\022\014\n\004ic" +
+      "on\030\005 \001(\t\022\n\n\002id\030\001 \001(\t\022\026\n\016is_group_label\030\013" +
+      " \001(\010\022\021\n\tkey_words\030\007 \001(\t\022\030\n\004link\030\n \001(\0132\n." +
+      "furo.Link\022\014\n\004open\030\t \001(\010\022\r\n\005panel\030\006 \001(\t\022\026" +
+      "\n\016secondary_text\030\003 \001(\t\"i\n\016TreeCollection" +
+      "\022\"\n\010entities\030\004 \003(\0132\020.tree.TreeEntity\022\031\n\005" +
+      "links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n." +
+      "furo.Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6939,7 +7113,7 @@ public final class TreeOuterClass {
     internal_static_tree_Tree_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tree_Tree_descriptor,
-        new java.lang.String[] { "Description", "DisplayName", "Id", "Root", });
+        new java.lang.String[] { "Description", "DisplayName", "Id", "Root", "SecondaryText", });
     internal_static_tree_TreeEntity_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_tree_TreeEntity_fieldAccessorTable = new

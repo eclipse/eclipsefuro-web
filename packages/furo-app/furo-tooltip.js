@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 
@@ -13,61 +13,66 @@ import {FBP} from "@furo/fbp";
  */
 class FuroTooltip extends FBP(LitElement) {
 
-constructor(){
-  super();
+  constructor() {
+    super();
+    /**
+     * display duration in ms
+     * @type {number}
+     */
+    this.duration = 1500;
+    this.parentNode.addEventListener("mouseover", (e) => {
+      this.show();
+    });
+
+
+    this.parentNode.addEventListener("mouseout", (e) => {
+      /**
+       * @event show-tooltip-requested
+       * Fired when mouseover on component
+       * detail payload:
+       */
+      let customEvent = new Event('hide-tooltip-requested', {composed: true, bubbles: true});
+      customEvent.detail = this;
+      this.dispatchEvent(customEvent)
+    });
+
+  }
+
   /**
-   * display duration in ms
-   * @type {number}
+   * show the tooltip (usefull with a click event)
    */
-  this.duration = 1500;
-  this.parentNode.addEventListener("mouseover",(e)=>{
+  show() {
     // client rectangle
     this.cr = this.parentNode.getBoundingClientRect();
 
     /**
-    * @event show-tooltip-requested
-    * Fired when mouseover on component
-    * detail payload:
-    */
-    let customEvent = new Event('show-tooltip-requested', {composed:true, bubbles: true});
-    customEvent.detail = this;
-    this.dispatchEvent(customEvent)
-  });
-
-
-   this.parentNode.addEventListener("mouseout",(e)=>{
-    /**
-    * @event show-tooltip-requested
-    * Fired when mouseover on component
-    * detail payload:
-    */
-    let customEvent = new Event('hide-tooltip-requested', {composed:true, bubbles: true});
-    customEvent.detail = this;
-    this.dispatchEvent(customEvent)
-  });
-
-
-
-
-}
-    /**
-     * @private
-     * @return {Object}
+     * @event show-tooltip-requested
+     * Fired when mouseover on component
+     * detail payload:
      */
-    static get properties() {
-        return {
-            /**
-             * Display duration in ms
-             */
-            duration: {type: Number},
-            label: {type: String}
-        };
-    }
+    let customEvent = new Event('show-tooltip-requested', {composed: true, bubbles: true});
+    customEvent.detail = this;
+    this.dispatchEvent(customEvent);
+  }
 
   /**
-  * flow is ready lifecycle method
-  */
-  _FBPReady(){
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Display duration in ms
+       */
+      duration: {type: Number},
+      label: {type: String}
+    };
+  }
+
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
     super._FBPReady();
     //this._FBPTraceWires()
 
@@ -81,12 +86,11 @@ constructor(){
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: none;
-        }
+      :host {
+        display: none;
+      }
     `
   }
-
 
 
 }

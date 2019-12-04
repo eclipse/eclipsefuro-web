@@ -27,7 +27,7 @@ message ExperimentEntity {
 }
 
 // Test the Constraints
-message Constraints {                    
+message Constraints {                        
     // Localized String representation of a experiment
     string display_name = 2;
     
@@ -36,6 +36,9 @@ message Constraints {
     
     // Short experiment description
     int32 number = 3;
+    
+    // Localized String representation of a experiment
+    string text = 4;
 
 }
 

@@ -2166,6 +2166,10 @@
         "root": {
           "$ref": "#/definitions/treeNavigationnode",
           "title": "Rootnode of the tree"
+        },
+        "secondary_text": {
+          "type": "string",
+          "title": "Secondary text of the node"
         }
       },
       "title": "Navigation tree type with recursive navigation nodes"

@@ -9,9 +9,9 @@ import "furo/link.proto";
 
 
 // Navigation tree type with recursive navigation nodes
-message Tree {                        
+message Tree {                            
     // description of the tree
-    string description = 3;
+    string description = 4;
     
     // String representation of the tree
     string display_name = 2;
@@ -21,6 +21,9 @@ message Tree {
     
     // Rootnode of the tree
     Navigationnode root = 10;
+    
+    // Secondary text of the node
+    string secondary_text = 3;
 
 }
 

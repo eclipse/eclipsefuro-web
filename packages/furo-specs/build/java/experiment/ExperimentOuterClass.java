@@ -1474,6 +1474,24 @@ public final class ExperimentOuterClass {
      * <code>int32 number = 3;</code>
      */
     int getNumber();
+
+    /**
+     * <pre>
+     * Localized String representation of a experiment
+     * </pre>
+     *
+     * <code>string text = 4;</code>
+     */
+    java.lang.String getText();
+    /**
+     * <pre>
+     * Localized String representation of a experiment
+     * </pre>
+     *
+     * <code>string text = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getTextBytes();
   }
   /**
    * <pre>
@@ -1494,6 +1512,7 @@ public final class ExperimentOuterClass {
     private Constraints() {
       displayName_ = "";
       id_ = "";
+      text_ = "";
     }
 
     @java.lang.Override
@@ -1535,6 +1554,12 @@ public final class ExperimentOuterClass {
             case 24: {
 
               number_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              text_ = s;
               break;
             }
             default: {
@@ -1666,6 +1691,48 @@ public final class ExperimentOuterClass {
       return number_;
     }
 
+    public static final int TEXT_FIELD_NUMBER = 4;
+    private volatile java.lang.Object text_;
+    /**
+     * <pre>
+     * Localized String representation of a experiment
+     * </pre>
+     *
+     * <code>string text = 4;</code>
+     */
+    public java.lang.String getText() {
+      java.lang.Object ref = text_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        text_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Localized String representation of a experiment
+     * </pre>
+     *
+     * <code>string text = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTextBytes() {
+      java.lang.Object ref = text_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        text_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1689,6 +1756,9 @@ public final class ExperimentOuterClass {
       if (number_ != 0) {
         output.writeInt32(3, number_);
       }
+      if (!getTextBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, text_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1707,6 +1777,9 @@ public final class ExperimentOuterClass {
       if (number_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, number_);
+      }
+      if (!getTextBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, text_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1729,6 +1802,8 @@ public final class ExperimentOuterClass {
           .equals(other.getId())) return false;
       if (getNumber()
           != other.getNumber()) return false;
+      if (!getText()
+          .equals(other.getText())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1746,6 +1821,8 @@ public final class ExperimentOuterClass {
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getNumber();
+      hash = (37 * hash) + TEXT_FIELD_NUMBER;
+      hash = (53 * hash) + getText().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1889,6 +1966,8 @@ public final class ExperimentOuterClass {
 
         number_ = 0;
 
+        text_ = "";
+
         return this;
       }
 
@@ -1918,6 +1997,7 @@ public final class ExperimentOuterClass {
         result.displayName_ = displayName_;
         result.id_ = id_;
         result.number_ = number_;
+        result.text_ = text_;
         onBuilt();
         return result;
       }
@@ -1976,6 +2056,10 @@ public final class ExperimentOuterClass {
         }
         if (other.getNumber() != 0) {
           setNumber(other.getNumber());
+        }
+        if (!other.getText().isEmpty()) {
+          text_ = other.text_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2218,6 +2302,95 @@ public final class ExperimentOuterClass {
       public Builder clearNumber() {
         
         number_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object text_ = "";
+      /**
+       * <pre>
+       * Localized String representation of a experiment
+       * </pre>
+       *
+       * <code>string text = 4;</code>
+       */
+      public java.lang.String getText() {
+        java.lang.Object ref = text_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          text_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Localized String representation of a experiment
+       * </pre>
+       *
+       * <code>string text = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTextBytes() {
+        java.lang.Object ref = text_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          text_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Localized String representation of a experiment
+       * </pre>
+       *
+       * <code>string text = 4;</code>
+       */
+      public Builder setText(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        text_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Localized String representation of a experiment
+       * </pre>
+       *
+       * <code>string text = 4;</code>
+       */
+      public Builder clearText() {
+        
+        text_ = getDefaultInstance().getText();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Localized String representation of a experiment
+       * </pre>
+       *
+       * <code>string text = 4;</code>
+       */
+      public Builder setTextBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        text_ = value;
         onChanged();
         return this;
       }
@@ -10935,35 +11108,36 @@ public final class ExperimentOuterClass {
       "protobuf/field_mask.proto\032\023furo/property" +
       ".proto\"m\n\020ExperimentEntity\022$\n\004data\030\001 \001(\013" +
       "2\026.experiment.Experiment\022\031\n\005links\030\002 \003(\0132" +
-      "\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"?\n" +
+      "\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"M\n" +
       "\013Constraints\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id" +
-      "\030\001 \001(\t\022\016\n\006number\030\003 \001(\005\"\351\005\n\nExperiment\022\023\n" +
-      "\013description\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t" +
-      "\022\033\n\023furo_data_bool_icon\030\016 \001(\010\022 \n\030furo_da" +
-      "ta_checkbox_input\030\004 \001(\010\022\035\n\025furo_data_col" +
-      "or_input\030\n \001(\t\022\034\n\024furo_data_date_input\030\r" +
-      " \001(\t\0226\n\033furo_data_date_input_google\030\022 \001(" +
-      "\0132\021.google.type.Date\0221\n\025furo_data_money_" +
-      "input\030\025 \001(\0132\022.google.type.Money\022\036\n\026furo_" +
-      "data_number_input\030\t \001(\002\022 \n\030furo_data_pas" +
-      "sword_input\030\013 \001(\t\022\035\n\025furo_data_range_inp" +
-      "ut\030\010 \001(\t\022\036\n\026furo_data_search_input\030\014 \001(\t" +
-      "\022\034\n\024furo_data_text_input\030\005 \001(\t\022 \n\030furo_d" +
-      "ata_textarea_input\030\006 \001(\t\022\034\n\024furo_data_ti" +
-      "me_input\030\007 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030" +
-      "\024 \003(\t\022,\n\024single_type_property\030\023 \001(\0132\016.fu" +
-      "ro.Property\022*\n\014the_any_type\030\017 \001(\0132\024.goog" +
-      "le.protobuf.Any\022%\n\rtype_property\030\021 \003(\0132\016" +
-      ".furo.Property\022\031\n\021type_with_options\030\020 \001(" +
-      "\t\022/\n\013update_mask\030\026 \001(\0132\032.google.protobuf" +
-      ".FieldMask\"S\n\007Default\022\023\n\013description\030\003 \001" +
-      "(\t\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\t" +
-      "repstring\030\004 \003(\t\"W\n\tRecursive\022\024\n\014display_" +
-      "name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\trecursion\030\003 \001(" +
-      "\0132\025.experiment.Recursive\"{\n\024ExperimentCo" +
-      "llection\022.\n\010entities\030\004 \003(\0132\034.experiment." +
-      "ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n.furo.L" +
-      "ink\022\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
+      "\030\001 \001(\t\022\016\n\006number\030\003 \001(\005\022\014\n\004text\030\004 \001(\t\"\351\005\n" +
+      "\nExperiment\022\023\n\013description\030\003 \001(\t\022\024\n\014disp" +
+      "lay_name\030\002 \001(\t\022\033\n\023furo_data_bool_icon\030\016 " +
+      "\001(\010\022 \n\030furo_data_checkbox_input\030\004 \001(\010\022\035\n" +
+      "\025furo_data_color_input\030\n \001(\t\022\034\n\024furo_dat" +
+      "a_date_input\030\r \001(\t\0226\n\033furo_data_date_inp" +
+      "ut_google\030\022 \001(\0132\021.google.type.Date\0221\n\025fu" +
+      "ro_data_money_input\030\025 \001(\0132\022.google.type." +
+      "Money\022\036\n\026furo_data_number_input\030\t \001(\002\022 \n" +
+      "\030furo_data_password_input\030\013 \001(\t\022\035\n\025furo_" +
+      "data_range_input\030\010 \001(\t\022\036\n\026furo_data_sear" +
+      "ch_input\030\014 \001(\t\022\034\n\024furo_data_text_input\030\005" +
+      " \001(\t\022 \n\030furo_data_textarea_input\030\006 \001(\t\022\034" +
+      "\n\024furo_data_time_input\030\007 \001(\t\022\n\n\002id\030\001 \001(\t" +
+      "\022\021\n\trepstring\030\024 \003(\t\022,\n\024single_type_prope" +
+      "rty\030\023 \001(\0132\016.furo.Property\022*\n\014the_any_typ" +
+      "e\030\017 \001(\0132\024.google.protobuf.Any\022%\n\rtype_pr" +
+      "operty\030\021 \003(\0132\016.furo.Property\022\031\n\021type_wit" +
+      "h_options\030\020 \001(\t\022/\n\013update_mask\030\026 \001(\0132\032.g" +
+      "oogle.protobuf.FieldMask\"S\n\007Default\022\023\n\013d" +
+      "escription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\n" +
+      "\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003(\t\"W\n\tRecursi" +
+      "ve\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\t" +
+      "recursion\030\003 \001(\0132\025.experiment.Recursive\"{" +
+      "\n\024ExperimentCollection\022.\n\010entities\030\004 \003(\013" +
+      "2\034.experiment.ExperimentEntity\022\031\n\005links\030" +
+      "\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.M" +
+      "etab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10995,7 +11169,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Constraints_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Constraints_descriptor,
-        new java.lang.String[] { "DisplayName", "Id", "Number", });
+        new java.lang.String[] { "DisplayName", "Id", "Number", "Text", });
     internal_static_experiment_Experiment_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_experiment_Experiment_fieldAccessorTable = new
