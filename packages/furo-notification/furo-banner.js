@@ -1,4 +1,4 @@
-import {LitElement,html,css} from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 
 /**
  * `furo-banner`
@@ -25,7 +25,7 @@ import {LitElement,html,css} from 'lit-element';
 class FuroBanner extends LitElement {
 
 
-  constructor(){
+  constructor() {
     super();
     this.dismissButtonText = "dismiss";
   }
@@ -45,7 +45,7 @@ class FuroBanner extends LitElement {
   /**
    *@private
    */
-  static get properties(){
+  static get properties() {
 
     return {
       /**
@@ -85,7 +85,7 @@ class FuroBanner extends LitElement {
       /**
        * set this flag to display the icon in --danger color
        */
-      danger:{type:Boolean}
+      danger: {type: Boolean}
     };
   }
 
@@ -133,7 +133,7 @@ class FuroBanner extends LitElement {
      * Fired when value open banner is requested
      * detail payload: {Object}  this
      */
-    let customEvent = new Event("open-furo-banner-requested",{composed: true, bubbles: true});
+    let customEvent = new Event("open-furo-banner-requested", {composed: true, bubbles: true});
     customEvent.detail = this;
     this.dispatchEvent(customEvent);
   }
@@ -149,7 +149,7 @@ class FuroBanner extends LitElement {
      * Fired when dismiss button of banner is clicked
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("dismissed",{composed: true, bubbles: true});
+    let customEvent = new Event("dismissed", {composed: true, bubbles: true});
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
 
@@ -166,7 +166,7 @@ class FuroBanner extends LitElement {
      * Fired when confirm button of banner is clicked
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("confirmed",{composed: true, bubbles: true});
+    let customEvent = new Event("confirmed", {composed: true, bubbles: true});
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
 
@@ -182,7 +182,7 @@ class FuroBanner extends LitElement {
      * Fired when banner is closed
      * detail payload: {Object}  payload
      */
-    let customEvent = new Event("banner-closed",{composed: true, bubbles: true});
+    let customEvent = new Event("banner-closed", {composed: true, bubbles: true});
     customEvent.detail = this.payload;
     this.dispatchEvent(customEvent);
   }
@@ -194,18 +194,22 @@ class FuroBanner extends LitElement {
    */
   parseGrpcStatus(status) {
     // log developper message
-    if (status.details && status.details.length >0) {
+    if (status.details && status.details.length > 0) {
       // fallback, if no localized message was given
       this.setText(status.message);
       this.multilineText = status.details
-          .filter((det)=>{
+          .filter((det) => {
             return det["@type"].includes("LocalizedMessage");
           })
-          .map((det)=>{
+          .map((det) => {
             return det.message;
           });
       this.show(status);
     }
+  }
+
+  static get styles() {
+    return css`:host {display:none}`
   }
 
 

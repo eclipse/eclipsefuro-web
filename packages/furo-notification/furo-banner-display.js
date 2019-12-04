@@ -53,8 +53,8 @@ class FuroBannerDisplay extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-
-    window.addEventListener("open-furo-banner-requested", (e) => {
+    this.parentNode.addEventListener("open-furo-banner-requested", (e) => {
+      e.stopPropagation();
       this._show(e.detail);
     });
 
