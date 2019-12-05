@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@0.3.0...@furo/app@0.4.0) (2019-12-05)
+
+
+### Bug Fixes
+
+* eventlistener on banner-display ([a569170](https://github.com/theNorstroem/FuroBaseComponents/commit/a569170))
+
+
+### Features
+
+* experimental tooltip auto position ([cd69e57](https://github.com/theNorstroem/FuroBaseComponents/commit/cd69e57))
+* use state variables and rgba color in checkbox ([328f7ca](https://github.com/theNorstroem/FuroBaseComponents/commit/328f7ca))
+
+
+
+
+
 # [0.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@0.2.1...@furo/app@0.3.0) (2019-12-03)
 
 

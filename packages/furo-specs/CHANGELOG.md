@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.44.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.43.2...@furo/specs@0.44.0) (2019-12-05)
+
+
+### Features
+
+* experimental tooltip auto position ([cd69e57](https://github.com/theNorstroem/FuroBaseComponents/commit/cd69e57))
+
+
+
+
+
 ## [0.43.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.43.0...@furo/specs@0.43.2) (2019-12-02)
 
 

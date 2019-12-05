@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.60.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.59.4...@furo/input@0.60.0) (2019-12-05)
+
+
+### Features
+
+* experimental tooltip auto position ([cd69e57](https://github.com/theNorstroem/FuroBaseComponents/commit/cd69e57))
+* use state variables and rgba color in checkbox ([328f7ca](https://github.com/theNorstroem/FuroBaseComponents/commit/328f7ca))
+
+
+
+
+
 ## [0.59.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.59.3...@furo/input@0.59.4) (2019-12-02)
 
 

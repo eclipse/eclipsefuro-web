@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.7.1...@furo/notification@0.8.0) (2019-12-05)
+
+
+### Bug Fixes
+
+* eventlistener on banner-display ([a569170](https://github.com/theNorstroem/FuroBaseComponents/commit/a569170))
+
+
+### Features
+
+* use state variables and rgba color in checkbox ([328f7ca](https://github.com/theNorstroem/FuroBaseComponents/commit/328f7ca))
+
+
+
+
+
 ## [0.7.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.7.0...@furo/notification@0.7.1) (2019-12-02)
 
 **Note:** Version bump only for package @furo/notification

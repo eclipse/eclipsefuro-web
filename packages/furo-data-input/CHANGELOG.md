@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.62.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.61.11...@furo/data-input@0.62.0) (2019-12-05)
+
+
+### Features
+
+* use state variables and rgba color in checkbox ([328f7ca](https://github.com/theNorstroem/FuroBaseComponents/commit/328f7ca))
+
+
+
+
+
 ## [0.61.11](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.61.10...@furo/data-input@0.61.11) (2019-12-02)
 
 
