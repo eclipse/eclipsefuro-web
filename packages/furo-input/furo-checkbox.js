@@ -21,19 +21,20 @@ import "@furo/layout/furo-ripple";
  *
  * Custom property | Description | Default  | Fallback
  * ----------------|-------------|----------|----------
- * `--input-checkbox-unselected-bg-color` | background color of the unchecked checkbox | `--surface` | #ffffff
- * `--input-checkbox-unselected-border-color` | border color of the unchecked checkbox | `--separator` | #7E7E7E
- * `--input-checkbox-unselected-hover-bg-color` | background color of the unchecked checkbox by hovering | `--surface-light` | #F5F5F5
- * `--input-checkbox-unselected-focus-bg-color` | background color of the unchecked checkbox by focusing | `--surface-dark` | #DDDDDD
- * `--input-checkbox-unselected-active-bg-color` | background color of the unchecked checkbox by pressing | `--surface-dark` | #C0C0C0
- * `--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--primary-light` | #6200FD
- * `--input-checkbox-selected-hover-bg-color` | background color of the checked checkbox by hovering | `--primary-variant` | #D5C6E9
- * `--input-checkbox-selected-focus-bg-color` | background color of the checked checkbox by focusing | `--primary-light` | #6200FD
- * `--input-checkbox-disabled-selected-bg-color` | background color of the checked disabled checkbox | `--disable` | #B9B9B9
- * `--input-checkbox-disabled-selected-border-color` | border color of the checked disabled checkbox | `--disable` | #B9B9B9
- * `--input-checkbox-disabled-unselected-bg-color` | background color of the unchecked disabled checkbox | `--surface` | #ffffff
- * `--input-checkbox-disabled-unselected-border-color` | border color of the unchecked disabled checkbox | `--surface` | #aaaaaa
- * `--input-checkbox-disabled-hover-bg-color` | background color of the unchecked disabled checkbox by hovering| `--surface` | #ffffff
+ * `--input-checkbox-unselected-bg-color` | background color of the unchecked checkbox | `--background` | hex: #ffffff
+ * `--input-checkbox-unselected-border-color` | border color of the unchecked checkbox | `--on-background` | hex: #7E7E7E
+ * `--input-checkbox-unselected-hover-bg-color-rgb` | background color of the unchecked checkbox by hovering | `--on-background-rgb` with `--state-hover` opacity | rgba: 33, 33, 33, 0.04
+ * `--input-checkbox-unselected-focus-bg-color-rgb` | background color of the unchecked checkbox by focusing | `--on-background-rgb` with `--state-focus` opacity | rgba: 33, 33, 33, 0.12
+ * `--input-checkbox-unselected-active-bg-color-rgb` | background color of the unchecked checkbox by pressing | `--on-background-rgb` with `--state-active` opacity | rgba: 33, 33, 33, 0.10
+ * `--input-checkbox-selected-bg-color` | background color of the checked checkbox | `--primary` | hex: #6200FD
+ * `--input-checkbox-selected-hover-bg-color-rgb` | background color of the checked checkbox by hovering | `--primary-rgb`  with `--state-hover` opacity  | rgba: 76, 175, 80, 0.04
+ * `--input-checkbox-selected-focus-bg-color-rgb` | background color of the checked checkbox by focusing | `--primary-rgb`  with `--state-focus` opacity  | rgba: 76, 175, 80, 0.12
+ * `--input-checkbox-selected-active-bg-color-rgb` | background color of the checked checkbox by pressing | `--primary-rgb`  with `--state-active` opacity  | rgba: 76, 175, 80, 0.10
+ * `--input-checkbox-disabled-selected-bg-color` | background color of the checked disabled checkbox | `--on-background` | hex: #B9B9B9
+ * `--input-checkbox-disabled-selected-border-color-rgb` | border color of the checked disabled checkbox | `----on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38
+ * `--input-checkbox-disabled-selected-bg-color-rgb` | background color of the checked disabled checkbox | `----on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38
+ * `--input-checkbox-disabled-unselected-bg-color-rgb` | background color of the unchecked disabled checkbox | `--background-rgb`  with `--state-disabled` opacity| rgba: 238, 238, 238, 0.38
+ * `--input-checkbox-disabled-unselected-border-color` | border color of the unchecked disabled checkbox | `--on-background-rgb`  with `--state-disabled` opacity| rgba: 33, 33, 33, 0.38
  *
  *
  * @summary checkbox input
@@ -250,65 +251,74 @@ class FuroCheckbox extends FBP(LitElement) {
                 left: 11px;
                 height: 18px;
                 width: 18px;
-                background-color: var(--input-checkbox-unselected-bg-color, var(--surface, #ffffff));
+                background-color: var(--input-checkbox-unselected-bg-color, var(--background, #eeeeee));
                 border: solid 2px;
-                border-color: var(--input-checkbox-unselected-border-color, var(--separator, #7E7E7E));
+                border-color: var(--input-checkbox-unselected-border-color, var(--on-background, #212121));
                 box-sizing: border-box;
             }
-
-            /* unselected checkbox when hovering */
-            .wrapper:hover {
-                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light, #F5F5F5));
-            }
-
+            
             .wrapper:hover input ~ .checkbox-background {
-                background-color: var(--input-checkbox-unselected-hover-bg-color, var(--surface-light, #F5F5F5));
-            }
-
-            /* unselected checkbox when focusing */
-            .wrapper[focused] {
-                background-color: var(--input-checkbox-unselected-focus-bg-color, var(--surface-dark, #DDDDDD));
+                background-color: rgba( var(--input-checkbox-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
             }
 
             /* unselected checkbox when pressing */
             .wrapper:active {
-                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark, #C0C0C0));
+                background-color: rgba( var(--input-checkbox-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
+
+            }
+            
+            .wrapper:active input ~ .checkbox-background {
+                background-color: rgba( var(--input-checkbox-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
             }
 
-            .wrapper:active input ~ .checkbox-background {
-                background-color: var(--input-checkbox-unselected-active-bg-color, var(--surface-dark, #C0C0C0));
+            /* unselected checkbox when focusing */
+            .wrapper[focused] {
+                background-color: rgba( var(--input-checkbox-unselected-focus-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-focus, 0.12) ) ;
+
             }
+
+            /* unselected checkbox when hovering */
+            .wrapper:hover {
+                background-color: rgba( var(--input-checkbox-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
+            }
+
 
             /* selected checkbox  */
             .wrapper[checked] input ~ .checkbox-background {
-                background-color: var(--input-checkbox-selected-bg-color, var(--primary-light, #6200FD));
-                border-color: var(--input-checkbox-selected-bg-color, var(--primary-light, #6200FD));
+                background-color: var(--input-checkbox-selected-bg-color, var(--primary, #6200FD));
+                border-color: var(--input-checkbox-selected-bg-color, var(--primary, #6200FD));
+            }
+            
+            /* selected checkbox when pressing */
+            .wrapper[checked]:active {
+                background-color: rgba( var(--input-checkbox-selected-active-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-active, 0.10) ) ;
             }
 
             /* selected checkbox when focusing */
             .wrapper[checked][focused] {
-                background-color: var(--input-checkbox-selected-hover-bg-color, var(--primary-variant, #D5C6E9));
+                background-color: rgba( var(--input-checkbox-selected-focus-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-focus, 0.12) ) ;
             }
 
             .wrapper[checked][focused] input ~ .checkbox-background {
-                background-color: var(--input-checkbox-selected-focus-bg-color, var(--primary-light, #6200FD));
             }
-
             /* selected checkbox when hovering */
             .wrapper[checked]:hover {
-                background-color: var(--input-checkbox-selected-hover-bg-color, var(--primary-variant, #E4DBE6));
+                background-color: rgba( var(--input-checkbox-selected-hover-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-hover, 0.04) ) ;
             }
 
+            
             /* disabled checkbox selected */
             .wrapper[checked][disabled] input:disabled:checked ~ .checkbox-background {
-                background-color: var(--input-checkbox-disabled-selected-bg-color, var(--disable, #B9B9B9));
-                border-color: var(--input-checkbox-disabled-selected-border-color, var(--disable, #B9B9B9));
+
+                background-color: rgba( var(--input-checkbox-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+                border-color: rgba( var(--input-checkbox-disabled-selected-border-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+
             }
 
             /* disabled checkbox unselected */
             .wrapper input:disabled ~ .checkbox-background {
-                background-color: var(--input-checkbox-disabled-unselected-bg-color, var(--surface, #ffffff));
-                border-color: var(--input-checkbox-disabled-unselected-border-color, var(--surface, #aaaaaa));
+                background-color: rgba( var(--input-checkbox-disabled-unselected-bg-color-rgb, var(--background-rgb, 238, 238, 238)), var(--state-disabled, 0.38) ) ;
+                border-color: rgba( var(--input-checkbox-disabled-unselected-border-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
             }
 
             .checkbox-background:after {
@@ -323,7 +333,6 @@ class FuroCheckbox extends FBP(LitElement) {
 
             /* disabled checkbox when hovering */
             .wrapper[disabled]:hover {
-                background-color: var(--input-checkbox-disabled-hover-bg-color, var(--surface, #ffffff));
                 background: transparent;
             }
 
