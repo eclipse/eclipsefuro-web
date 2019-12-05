@@ -30,9 +30,12 @@ export class Styling {
         --on-accent: #212121;
 
         --background: #eeeeee;
+        --background-rgb: 238, 238, 238;
         --on-background: #212121;
+        --on-background-rgb: 33,33,33;
 
         --surface-light: #f3f3f3;
+        --surface-light-rgb: 243, 243, 243;
         --surface: #FEFEFE;
         --surface-rgb: 254, 254, 254;
         --surface-dark: #f0f0f0;
