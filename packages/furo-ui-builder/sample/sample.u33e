@@ -1,0 +1,117 @@
+{
+  "description": "Einfaches Anmeldeformular.",
+  "summary": "Ein Anmeldeformular",
+  "imports": [
+    "@furo/form/furo-form.js",
+    "@furo/input/furo-button.js",
+    "@furo/input/furo-password-input.js",
+    "@furo/input/furo-text-input.js",
+    "@furo/layout/furo-horizontal-flex.js"
+  ],
+  "name": "login-form",
+  "path": "src/project-components/demo",
+  "style": {
+    "children": {
+      ":host([hidden])": {
+        "children": {},
+        "attributes": {
+          "display": "none"
+        }
+      },
+      ":host": {
+        "children": {},
+        "attributes": {
+          "display": "block",
+          "--primary": "red"
+        }
+      },
+      "@media only screen and (min-width: 600px)": {
+        "children": {
+          ".topmenu li": {
+            "children": {},
+            "attributes": {
+              "width": "32%"
+            }
+          }
+        },
+        "attributes": {}
+      }
+    },
+    "attributes": {}
+  },
+  "properties": {
+    "password": {
+      "description": "Das Kennwort. Kann auch ein TOTP sein...",
+      "notify": true,
+      "reflect": true,
+      "attribute":"isPasswd",
+      "type": "String"
+    },
+    "username": {
+      "description": "Der Benutzername",
+      "type": "String"
+    }
+  },
+  "template": [
+    {
+      "name": "furo-form",
+      "description": "Anmeldemaske mit auto-zentrierung",
+      "attributes": {
+        "label": "Anmeldumg",
+        "style": "width:300px;margin:100px auto; border-top:5px solid #FEA248;"
+      },
+      "children": [
+        {
+          "name": "furo-text-input",
+          "attributes": {
+            "label": "Username",
+            "value": "{{username}}"
+          },
+          "methods": {
+            "focus": "--ButtonClicked"
+          }
+        },
+        {
+          "name": "furo-password-input",
+          "description": "Könnten wir noch einen zeige kennwort implementieren? Falls es nicht zu schwierig ist...",
+          "attributes": {
+            "label": "Passowort",
+            "value": "{{password}}"
+          }
+        },
+        {
+          "name": "furo-horizontal-flex",
+          "description": "Bin mir nicht sicher ob es den überhaupt braucht",
+          "children": [
+            {
+              "name": "furo-button",
+              "attributes": {
+                "label": "Login"
+              },
+              "events": {
+                "click": "--ButtonClicked"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exposedWires": [
+    {
+      "name": "focus",
+      "wire": "--focused",
+      "description": "Setze den Fokus"
+    }
+  ],
+  "keyboardShortcuts": [
+    {
+      "key": "x",
+      "ctrl": true,
+      "global": false,
+      "alt": false,
+      "meta": false,
+      "wire": "--shortcutLPressed"
+    }
+  ]
+}
