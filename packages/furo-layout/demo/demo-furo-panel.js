@@ -49,8 +49,8 @@ class DemoFuroPanel extends FBP(LitElement) {
         <template>
             <furo-panel bordered>
                 <h1>Panel outside bordered</h1>
-                <furo-panel bordered padding-m>
-                    <p>Panel inside, bordered, padding-m</p>
+                <furo-panel bordered margin-m>
+                    <p>Panel inside, bordered, margin-m</p>
                 </furo-panel>
             </furo-panel>
             <furo-panel>

@@ -69,10 +69,12 @@ class FuroPanel extends FBP(LitElement) {
                 :host([margin-l]) {
                     margin: var(--furo-panel-margin-l, 0 var(--spacing-l) 0 var(--spacing-l));
                 }
+                
                 :host([bordered]) {
                     border-radius: 4px;
                     border: 1px solid var(--primary, black);
                 }
+                
                 ::slotted(*){
                     margin: var(--spacing, 16px);
                 }
