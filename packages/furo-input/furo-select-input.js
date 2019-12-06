@@ -645,7 +645,7 @@ class FuroSelectInput extends FBP(LitElement) {
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
-      <label float for="input"><span>${this.label}</span></label>
+      ${this.label ? html `<label float for="input"><span>${this.label}</span></label>` : html``} 
       <div class="right-border"></div>
       </div>
       

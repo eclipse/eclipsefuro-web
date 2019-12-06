@@ -76,8 +76,7 @@
       "description": "Project cost limit",
       "type": "google.type.Money",
       "meta": {
-        "label_currency": "Currency",
-        "label": "Cost limit amount",
+        "label": "Cost limit",
         "hint":"google.type.Money",
         "options": {
           "list": [
