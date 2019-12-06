@@ -1,11 +1,11 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from '@furo/fbp';
-import "../furo-snackbar-display";
-import "../furo-snackbar";
+import "../furo-snackbar-display.js";
+import "../furo-snackbar.js";
 import "@furo/input";
 import "@furo/doc-helper"
-import "./produce-snackbar-data";
+import "./produce-snackbar-data.js";
 
 /**
  * `demo-furo-snackbar-display`

@@ -68,9 +68,9 @@ export class {{.class_name}} extends BasePanel {
               {{"<" | noescape}}{{.action.name}}{{range $flag := .action.flags}} {{$flag}}{{end}} {{range $attr := .action.attrs}} {{$attr.name}}="{{$attr.val}}" {{end}}@-update="--updateReq" ƒ-bind-entity="--entity" ƒ-disable-all="--requestStarted" ƒ-enable-all="--response, --responseError" @-update-req="--updateReq"  @-reset-req="--resetReq"  @-self-req="--selfReq"  @-delete-req="--deleteReq">{{"<" | noescape}}/{{.action.name}}>
           </furo-vertical-flex>
 
-          <furo-banner ƒ-set-text="--error(*.message)" ƒ-show="--error"
-                                 icon="error-outline"
-                                 dismiss-button-text="${i18n.t('furo.banner.close')}"></furo-banner>
+          <furo-banner ƒ-parse-grpc-status="--error"
+                       icon="error-outline"
+                       dismiss-button-text="${i18n.t('furo.banner.close')}"></furo-banner>
 
           {{"<" | noescape}}furo-entity-agent service="{{.service_name}}"
                              @-request-started="--requestStarted, ^^activity-started"

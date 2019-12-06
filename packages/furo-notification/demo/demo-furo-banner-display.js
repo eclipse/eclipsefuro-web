@@ -1,11 +1,11 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from '@furo/fbp';
-import "../furo-banner-display";
-import "../furo-banner";
+import "../furo-banner-display.js";
+import "../furo-banner.js";
 import "@furo/input";
 import "@furo/doc-helper"
-import "./produce-banner-data"
+import "./produce-banner-data.js"
 
 /**
  * `demo-furo-banner-display`
