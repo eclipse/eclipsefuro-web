@@ -7,8 +7,11 @@ import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
  * `furo-banner-display`
  * Lit element
  *
- *  furo-banner-display should be used together witch furo-banner. you can place those two components into different places.
+ *  furo-banner-display should be used together witch furo-banner. furo-banner-display listens the `open-furo-banner-requested`
+ *  event on it's parent node. Which is sent via furo-banner. you can place those two components into different places.
  *  best place the furo-banner-display on the main site. then you only need one furo-banner-display. it can work with n furo-banner.
+ *  you can also use more furo-banner-display for special needs. but You have to be sure the furo-banner-display can receive the event of the furo-banner.
+ *
  *
  * ### When to use
  *

@@ -151,23 +151,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
   }
 
 
-  /**
-   * Updater for the label attr for currency
-   * @param value
-   */
-  set _labelCurrency(value) {
-
-    let select = this.shadowRoot.getElementById("select");
-
-    if (value !== null) {
-      select.setAttribute("label", value);
-
-    } else {
-      // remove the attribute on null value
-      select.removeAttribute("label");
-    }
-  }
-
 
   static get properties() {
     return {
@@ -205,13 +188,6 @@ class FuroDataMoneyInput extends FBP(LitElement) {
        */
       currencies: {
         type: String
-      },
-      /**
-       * currency field label
-       */
-      labelCurrency: {
-        type: String,
-        attribute: "label-currency"
       },
       /**
        * amount field label

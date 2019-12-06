@@ -99,6 +99,28 @@
       }, 500)
     });
 
+    it('should handle grpc error objects with fallback message', (done) => {
+      banner.parseGrpcStatus({
+          "code": 400,
+          "message": "Request had invalid credentials.",
+          "status": "SOMETHING",
+          "details": [{
+            "@type": "type.googleapis.com/google.rpc.BadRequest",
+            "message": "This should not be visible",
+            "locale": "de-ch"
+          }]
+        }
+      );
+      setTimeout(() => {
+        let items = bannerDisplay.shadowRoot.querySelectorAll("p");
+
+        assert.equal(items[0].innerHTML, 'Request had invalid credentials.');
+        assert.equal(items.length, 1);
+
+        done();
+      }, 500)
+    });
+
 
     it('display should trigger a "banner-closed" event on furo-banner when dismiss was clicked', (done) => {
       banner.show();
