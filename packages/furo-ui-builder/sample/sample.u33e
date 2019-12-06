@@ -65,7 +65,7 @@
           "name": "furo-text-input",
           "attributes": {
             "label": "Username",
-            "value": "{{username}}"
+            "value": "${this.username}"
           },
           "methods": {
             "focus": "--ButtonClicked"
@@ -76,7 +76,7 @@
           "description": "Könnten wir noch einen zeige kennwort implementieren? Falls es nicht zu schwierig ist...",
           "attributes": {
             "label": "Passowort",
-            "value": "{{password}}"
+            "value": "${this.password}"
           }
         },
         {
