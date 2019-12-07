@@ -147,7 +147,6 @@ typelist.forEach((pathToTypeSpec) => {
           formSpec.imports.push("./" + component + ".js");
         }
       }
-
     }
 
     fld.component = component;
@@ -177,10 +176,8 @@ typelist.forEach((pathToTypeSpec) => {
             formSpec.imports.push("./" + fld.component + ".js");
           }
         }
-
       }
     }
-
     fields.push(fld);
   }
 
