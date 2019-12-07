@@ -1,6 +1,11 @@
 {
   "description": "Einfaches Anmeldeformular.",
   "summary": "Ein Anmeldeformular",
+  "import_members": [
+    [" LitElement, html, css " , "lit-element"],
+    ["Theme" , "@furo/framework/theme"],
+    ["FBP" , "@furo/fbp"]
+  ],
   "imports": [
     "@furo/form/furo-form.js",
     "@furo/input/furo-button.js",
@@ -8,7 +13,7 @@
     "@furo/input/furo-text-input.js",
     "@furo/layout/furo-horizontal-flex.js"
   ],
-  "name": "login-form",
+  "component_name": "login-form",
   "path": "src/project-components/demo",
   "style": {
     "children": {
@@ -104,5 +109,12 @@
       "meta": false,
       "wire": "--shortcutLPressed"
     }
-  ]
+  ],
+  "methods": {
+    "bindData": {
+      "description": "Use ƒ-bind-data to bind your data object\n und so",
+      "args": "field",
+      "code": "ICAgIHRoaXMuZmllbGQgPSBmaWVsZDsKICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCctLWZpZWxkLWluamVjdGVkJywgZmllbGQpOwoKICAgIHRoaXMuZmllbGQuYWRkRXZlbnRMaXN0ZW5lcignZmllbGQtdmFsdWUtY2hhbmdlZCcsIGUgPT4gewogICAgICBpZiAoZS5kZXRhaWwuX25hbWUgPT09ICd0eXBlJykgewogICAgICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCctLWh0c1VwZGF0ZWQnLCB0aGlzLmZpZWxkLmxpbmsuX3ZhbHVlKTsKICAgICAgfQogICAgICBjb25zb2xlLmluZm8oInN0cmluZyIpOwogICAgfSk7"
+    }
+  }
 }
