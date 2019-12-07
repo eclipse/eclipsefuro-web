@@ -21,7 +21,7 @@ function sh(command, arguments) {
   return execSync(command + " " + arguments.join(" "), {stdio: 'inherit'});
 }
 
-const Template = config.template;
+const GeneratorTemplate = config.generator_template;
 const UiSpecDir = config.ui_spec_out;
 const SpecDir = config.spec_dir;
 const BuildDir = path.normalize(process.cwd() + "/" + config.build_output_dir);
@@ -37,12 +37,9 @@ if (BuildDir.search(cwd) === -1) {
   process.exit(1);
 }
 
-sh("mkdir -p", [BuildDir]);
+
 // clean the build folder of the forms
 sh("rm -rf", [BuildDir + "/*"]);
-
-
-// get all *.form.spec and build temporal data file
 
 const walkSync = (dir, filelist = []) => {
   fs.readdirSync(dir).forEach(file => {
@@ -59,15 +56,14 @@ let list = walkSync(UiSpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf(".u33e") > 0)
 });
 
+let specdirsegment = UiSpecDir.replace("./","") + "/";
 /**
  * build each file in spec dir to target dir
  */
 list.forEach((filepath) => {
   let datafile = [cwd, filepath].join("/");
-  let targetfile = [BuildDir, filepath.replace(".u33e",".js")].join("/");
+  let targetfile = [BuildDir, filepath.replace(specdirsegment, "").replace(".u33e",".js")].join("/");
   sh("mkdir -p", [path.dirname(targetfile)]);
   // run generator
-  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", Template, ">", targetfile]);
-
+  sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", GeneratorTemplate, ">", targetfile]);
 });
-

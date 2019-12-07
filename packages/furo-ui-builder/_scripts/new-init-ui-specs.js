@@ -26,7 +26,6 @@ sh("mkdir -p", [UiSpecDir]);
 
 const walkSync = (dir, filelist = []) => {
   fs.readdirSync(dir).forEach(file => {
-
     filelist = fs.statSync(path.join(dir, file)).isDirectory()
         ? walkSync(path.join(dir, file), filelist)
         : filelist.concat(path.join(dir, file));
@@ -36,7 +35,7 @@ const walkSync = (dir, filelist = []) => {
 };
 
 //load template structure
-let U33TWMPLATE = fs.readFileSync(TplDir + "/template.u33e");
+let U33TEMPLATE = fs.readFileSync(TplDir + "/template.u33e");
 
 
 let typelist = walkSync(SpecDir).filter((filepath) => {
@@ -46,6 +45,50 @@ let typelist = walkSync(SpecDir).filter((filepath) => {
   }
   return (path.basename(filepath).indexOf("type.spec") > 0)
 });
+
+let getBestMatchingComponent = function (field) {
+  let component = "furo-data-text-input";
+
+  // check which componet matches best with the simple types
+  switch (field.type) {
+    case "int":
+    case "int32":
+    case "int64":
+      component = "furo-data-number-input";
+      break;
+    case "google.type.Date":
+      component = "furo-data-date-input";
+      break;
+    case "google.type.Money":
+      component = "furo-data-money-input";
+      break;
+    case "furo.Property":
+      component = "furo-data-property";
+      break;
+    default:
+      component = "furo-data-text-input";
+  }
+
+  // use spec ui hint as component
+  if (field.__ui && field.__ui.component) {
+    component = field.__ui.component;
+  }
+
+  return component;
+};
+let writeFile = function (target, Spec) {
+  if (!fs.existsSync(target)) {
+    fs.writeFileSync(target, JSON.stringify(Spec, null, 2));
+  } else {
+    // open file and check for "_writeprotection": false,
+    let f = JSON.parse(fs.readFileSync(target));
+    if (f._writeprotection === false) {
+      fs.writeFileSync(target, JSON.stringify(Spec, null, 2));
+    } else {
+      console.log("skip " + target);
+    }
+  }
+};
 
 // loop all types in config
 typelist.forEach((pathToTypeSpec) => {
@@ -63,7 +106,7 @@ typelist.forEach((pathToTypeSpec) => {
   /**
    * Form
    */
-  let formSpec = JSON.parse(U33TWMPLATE);
+  let formSpec = JSON.parse(U33TEMPLATE);
   let spec = JSON.parse(fs.readFileSync(pathToTypeSpec));
   formSpec.class_name = spec.__proto.package + spec.type + "Form";
   formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
@@ -83,53 +126,24 @@ typelist.forEach((pathToTypeSpec) => {
       "description": "field: " + fieldname,
       "component": "furo-data-text-input",
       "flags": [
-        "condensed",
-        "double"
+        "condensed"
       ],
       "attributes": {
         "ƒ-bind-data": "--data(*." + fieldname + ")"
-      } //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
+      }
     };
 
-    let component = "furo-data-text-input";
-
-    // check which componet matches best with the simple types
-    switch (field.type) {
-
-      case "int":
-      case "int32":
-      case "int64":
-        component = "furo-data-number-input";
-        break;
-      case "google.type.Date":
-        component = "furo-data-date-input";
-        break;
-      case "google.type.Money":
-        component = "furo-data-money-input";
-        break;
-      case "furo.Property":
-        component = "furo-data-property";
-        break;
-    }
-
-    // use spec ui hint as component
-    if (field.__ui && field.__ui.component) {
-      component = field.__ui.component;
-    }
-
+    let component = getBestMatchingComponent(field);
     let arrTmpName = field.type.split(".");
     //  complex type has a cutom form component
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
       component = field.type.toLowerCase().replace(".", "-") + "-form";
       // exclude self import
       if (formSpec.component !== component) {
-
         // check whether the imported file is under the same folder
         if (t[0] !== arrTmpName[0]) {
-
           formSpec.imports.push("../" + arrTmpName[0] + "/" + component + ".js");
         } else {
-
           formSpec.imports.push("./" + component + ".js");
         }
       }
@@ -172,30 +186,18 @@ typelist.forEach((pathToTypeSpec) => {
 
   // focus the first field
   fields[0].methods =  {"focus": "--focused"}
-  let template = {
+
+  formSpec.template = [{
     "description": "form",
     "component": "furo-form-layouter",
     "flags": [
       "four"
     ],
     "children": fields
-  };
-
-  formSpec.template = [template];
+  }];
 
   let target = PKGDIR + "/" + formSpec.component_name + ".u33e";
-  if (!fs.existsSync(target)) {
-    fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
-  } else {
-    // open file and check for "_writeprotection": false,
-    let f = JSON.parse(fs.readFileSync(target));
-    if (f._writeprotection === false) {
-      fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
-    } else {
-      console.log("skip " + target);
-    }
-  }
-
+  writeFile(target, formSpec);
 
   // reset imports for create spec
   formSpec.imports = [
@@ -215,37 +217,14 @@ typelist.forEach((pathToTypeSpec) => {
         "description": "field: " + fieldname,
         "component": "furo-data-text-input",
         "flags": [
-          "condensed",
-          "double"
+          "condensed"
         ],
         "attributes": {
           "ƒ-bind-data": "--data(*." + fieldname + ")"
         }
       };
 
-      let component = "furo-data-text-input";
-
-      // check which componet matches best with the simple types
-      switch (field.type) {
-        case "int":
-        case "int32":
-        case "int64":
-          component = "furo-data-number-input";
-          break;
-        case "google.type.Date":
-          component = "furo-data-date-input";
-          break;
-        case "google.type.Money":
-          component = "furo-data-money-input";
-          break;
-        case "furo.Property":
-          component = "furo-data-property";
-          break;
-      }
-      // use spec ui hint as component
-      if (field.__ui && field.__ui.component) {
-        component = field.__ui.component;
-      }
+      let component = getBestMatchingComponent(field);
 
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
@@ -301,36 +280,23 @@ typelist.forEach((pathToTypeSpec) => {
   }
   // focus the first field
   fields[0].methods =  {"focus": "--focused"}
-
-  let createTemplate = {
+  formSpec.template = [{
     "description": "form layouter",
     "component": "furo-form-layouter",
     "flags": [
       "four"
     ],
     "children": fields
-  };
-
-  formSpec.template = [createTemplate];
+  }];
 
   target = PKGDIR + "/" + formSpec.component_name + ".u33e";
-  if (!fs.existsSync(target)) {
-    fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
-  } else {
-    // open file and check for "_writeprotection": false,
-    let f = JSON.parse(fs.readFileSync(target));
-    if (f._writeprotection === false) {
-      fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
-    } else {
-      console.log("skip " + target);
-    }
-  }
+  writeFile(target,formSpec);
 
   /**
    * CREATE WIDGETS
    * analog create.form.spec a create.widget.spec is created
    */
-  let widgetSpec = JSON.parse(U33TWMPLATE);
+  let widgetSpec = JSON.parse(U33TEMPLATE);
 
   widgetSpec.theme = "WidgetBaseTheme";
   widgetSpec.class_name = spec.__proto.package + spec.type + "CreateWidget";
@@ -341,23 +307,13 @@ typelist.forEach((pathToTypeSpec) => {
   widgetSpec.template[0].fields = createFields;
 
   target = PKGDIR + "/" + t.join(".") + ".create.widget.spec";
-  if (!fs.existsSync(target)) {
-    fs.writeFileSync(target, JSON.stringify(widgetSpec, null, 2));
-  } else {
-    // open file and check for "_writeprotection": false,
-    let f = JSON.parse(fs.readFileSync(target));
-    if (f._writeprotection === false) {
-      fs.writeFileSync(target, JSON.stringify(widgetSpec, null, 2));
-    } else {
-      console.log("skip " + target);
-    }
-  }
+  writeFile(target, widgetSpec);
 
 
   /**
    * Display
    */
-  let displaySpec = JSON.parse(U33TWMPLATE);
+  let displaySpec = JSON.parse(U33TEMPLATE);
   displaySpec.class_name = spec.__proto.package + spec.type + "Display";
   displaySpec.class_name = displaySpec.class_name[0].toUpperCase() + displaySpec.class_name.substr(1);
   displaySpec.component_name = (spec.__proto.package + "-" + spec.type + "-display").toLowerCase();
@@ -404,8 +360,6 @@ typelist.forEach((pathToTypeSpec) => {
       "component": component,
       "flags": [
         "condensed",
-        "double",
-        "noborder"
       ],
       "attributes": {
         "ƒ-bind-data": "--data(*." + fieldname + ")"
@@ -438,30 +392,18 @@ typelist.forEach((pathToTypeSpec) => {
   }
   // focus the first field
   fields[0].methods =  {"focus": "--focused"}
-  let displayTemplate = {
+
+  displaySpec.template = [{
     "description": "form layouter",
     "component": "furo-form-layouter",
     "flags": [
       "four"
     ],
     "children": fields
-  };
-
-  displaySpec.template = [displayTemplate];
+  }];
 
   target = PKGDIR + "/" + displaySpec.component_name + ".u33e";
-
-  if (!fs.existsSync(target)) {
-    fs.writeFileSync(target, JSON.stringify(displaySpec, null, 2));
-  } else {
-    // open file and check for "_writeprotection": false,
-    let f = JSON.parse(fs.readFileSync(target));
-    if (f._writeprotection === false) {
-      fs.writeFileSync(target, JSON.stringify(displaySpec, null, 2));
-    } else {
-      console.log("skip " + target);
-    }
-  }
+  writeFile(target, displaySpec);
 
 
 });
