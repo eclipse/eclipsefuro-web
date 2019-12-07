@@ -84,8 +84,8 @@ window.customElements.define('{{.name}}', {{.name | replace "-" "_" | camelcase}
 {{- define "domNode" }}{{$indent := add .indent 2 | int}}{{range $k, $node := .data}}
 {{if $node.description}}
 {{indent $indent ""}}{{noescape "<!-- "}}{{$node.description}}{{noescape " -->"}}
-{{end}}{{indent $indent ""}}{{noescape "<"}}{{$node.name}}{{template "attributes" .attributes}}{{template "ats" .events}}{{template "ƒs" .methods}}>{{if $node.children}}{{$tpl := dict "indent" $indent "data" $node.children}}{{template "domNode" $tpl }}
-{{indent $indent ""}}{{end}}{{noescape "</"}}{{$node.name}}> {{end}}{{end}}
+{{end}}{{indent $indent ""}}{{noescape "<"}}{{$node.component}}{{template "flags" .flags}}{{template "attributes" .attributes}}{{template "ats" .events}}{{template "ƒs" .methods}}>{{if $node.children}}{{$tpl := dict "indent" $indent "data" $node.children}}{{template "domNode" $tpl }}
+{{indent $indent ""}}{{end}}{{noescape "</"}}{{$node.component}}> {{end}}{{end}}
 
 {{- define "style" }}{{$indent := add .indent 2 | int}}{{range $k, $node := .data}}
 {{indent $indent ""}}{{$k}}{{" {"}}{{$tpl := dict "indent" $indent "data" .attributes}}{{template "cssattributes" $tpl}}
@@ -95,6 +95,7 @@ window.customElements.define('{{.name}}', {{.name | replace "-" "_" | camelcase}
 {{- define "cssattributes"}}{{$indent := add .indent 2 | int}}{{with .data}}{{range $k,$v := .}}
 {{indent $indent ""}}{{$k}}: {{$v}};{{end}}{{end}}{{end}}
 {{- define "attributes"}}{{with .}}{{range $k,$v := .}} {{$k}}="{{$v}}"{{end}}{{end}}{{end}}
+{{- define "flags"}}{{with .}}{{range $k,$v := .}} {{$v}}{{end}}{{end}}{{end}}
 {{- define "ats"}}{{with .}}{{range $k,$v := .}} @-{{$k}}="{{$v}}"{{end}}{{end}}{{end}}
 {{- define "ƒs"}}{{with .}}{{range $k,$v := .}} ƒ-{{$k}}="{{$v}}"{{end}}{{end}}{{end}}
 
