@@ -58,7 +58,7 @@
   "methods": {
     "bindData": {
       "description": "Use ƒ-bind-data to bind your data object\n und so",
-      "args": "field",
+      "args": "data",
       "code": "dGhpcy5fRkJQVHJpZ2dlcldpcmUoJy0tZGF0YScsIGRhdGEpOwogICAgdGhpcy5maWVsZCA9IGRhdGE7"
     }
   }

@@ -28,8 +28,8 @@ const walkSync = (dir, filelist = []) => {
   fs.readdirSync(dir).forEach(file => {
 
     filelist = fs.statSync(path.join(dir, file)).isDirectory()
-      ? walkSync(path.join(dir, file), filelist)
-      : filelist.concat(path.join(dir, file));
+        ? walkSync(path.join(dir, file), filelist)
+        : filelist.concat(path.join(dir, file));
 
   });
   return filelist;
@@ -81,20 +81,20 @@ typelist.forEach((pathToTypeSpec) => {
     }
     let fld = {
       "description": "field: " + fieldname,
-      "component":"furo-data-text-input",
+      "component": "furo-data-text-input",
       "flags": [
         "condensed",
         "double"
       ],
       "attributes": {
-        "ƒ-bind-data":"--data(*."+ fieldname+")"
+        "ƒ-bind-data": "--data(*." + fieldname + ")"
       } //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
     };
 
     let component = "furo-data-text-input";
 
     // check which componet matches best with the simple types
-    switch(field.type) {
+    switch (field.type) {
 
       case "int":
       case "int32":
@@ -113,7 +113,7 @@ typelist.forEach((pathToTypeSpec) => {
     }
 
     // use spec ui hint as component
-    if(field.__ui && field.__ui.component){
+    if (field.__ui && field.__ui.component) {
       component = field.__ui.component;
     }
 
@@ -122,14 +122,13 @@ typelist.forEach((pathToTypeSpec) => {
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
       component = field.type.toLowerCase().replace(".", "-") + "-form";
       // exclude self import
-      if(formSpec.component !== component ) {
+      if (formSpec.component !== component) {
 
         // check whether the imported file is under the same folder
-        if (t[0] !== arrTmpName[0] ) {
+        if (t[0] !== arrTmpName[0]) {
 
           formSpec.imports.push("../" + arrTmpName[0] + "/" + component + ".js");
-        }
-        else {
+        } else {
 
           formSpec.imports.push("./" + component + ".js");
         }
@@ -144,9 +143,8 @@ typelist.forEach((pathToTypeSpec) => {
       let value_name = fld.component;
       fld.component = "furo-data-repeat";
 
-      fld.attributes = [
-        {"component": "repeated-component", "val": value_name }
-      ]
+      fld.attributes["repeated-component"] = value_name;
+
     }
 
     // special type furo.Reference
@@ -157,12 +155,11 @@ typelist.forEach((pathToTypeSpec) => {
 
         let folder = f.split(".")[0];
         // exclude self import
-        if(formSpec.component !== fld.component ) {
+        if (formSpec.component !== fld.component) {
           // check whether the imported file is under the same folder
           if (t[0] !== folder) {
             formSpec.imports.push("../" + folder + "/" + fld.component + ".js");
-          }
-          else {
+          } else {
             formSpec.imports.push("./" + fld.component + ".js");
           }
         }
@@ -173,16 +170,18 @@ typelist.forEach((pathToTypeSpec) => {
     fields.push(fld);
   }
 
-  let formHull = {
+  // focus the first field
+  fields[0].methods =  {"focus": "--focused"}
+  let template = {
     "description": "form",
-    "component":"furo-form-layouter",
+    "component": "furo-form-layouter",
     "flags": [
       "four"
     ],
-    "children" : fields
+    "children": fields
   };
 
-  formSpec.template[0].children = [formHull];
+  formSpec.template = [template];
 
   let target = PKGDIR + "/" + formSpec.component_name + ".u33e";
   if (!fs.existsSync(target)) {
@@ -212,23 +211,22 @@ typelist.forEach((pathToTypeSpec) => {
   for (fieldname in spec.fields) {
     let field = spec.fields[fieldname];
     if (field.constraints && field.constraints.required) {
-
-
       let fld = {
-        "field": fieldname,
-        "component":"furo-data-text-input",
+        "description": "field: " + fieldname,
+        "component": "furo-data-text-input",
         "flags": [
           "condensed",
           "double"
         ],
-        "attributes": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
+        "attributes": {
+          "ƒ-bind-data": "--data(*." + fieldname + ")"
+        }
       };
 
       let component = "furo-data-text-input";
 
       // check which componet matches best with the simple types
-      switch(field.type) {
-
+      switch (field.type) {
         case "int":
         case "int32":
         case "int64":
@@ -245,7 +243,7 @@ typelist.forEach((pathToTypeSpec) => {
           break;
       }
       // use spec ui hint as component
-      if(field.__ui && field.__ui.component){
+      if (field.__ui && field.__ui.component) {
         component = field.__ui.component;
       }
 
@@ -255,12 +253,11 @@ typelist.forEach((pathToTypeSpec) => {
         component = field.type.toLowerCase().replace(".", "-") + "-form";
 
         // exclude self import
-        if(formSpec.component !== component ) {
+        if (formSpec.component !== component) {
           // check whether the imported file is under the same folder
           if (t[0] !== arrTmpName[0]) {
             formSpec.imports.push("../" + arrTmpName[0] + "/" + component + ".js");
-          }
-          else {
+          } else {
             formSpec.imports.push("./" + component + ".js");
           }
         }
@@ -272,10 +269,7 @@ typelist.forEach((pathToTypeSpec) => {
       if (field.meta && field.meta.repeated && field.type != "furo.Property") {
         let value_name = fld.component;
         fld.component = "furo-data-repeat";
-
-        fld.attributes = [
-          {"name": "repeated-component", "val": value_name }
-        ]
+        fld.attributes["repeated-component"] = value_name;
       }
 
       // special type furo.Reference
@@ -286,12 +280,11 @@ typelist.forEach((pathToTypeSpec) => {
 
           let folder = f.split(".")[0];
           // exclude self import
-          if(formSpec.component !== fld.component ) {
+          if (formSpec.component !== fld.component) {
             // check whether the imported file is under the same folder
             if (t[0] !== folder) {
               formSpec.imports.push("../" + folder + "/" + fld.component + ".js");
-            }
-            else {
+            } else {
               formSpec.imports.push("./" + fld.component + ".js");
             }
           }
@@ -306,9 +299,21 @@ typelist.forEach((pathToTypeSpec) => {
     }
 
   }
-  formSpec.template[0].fields = createFields;
+  // focus the first field
+  fields[0].methods =  {"focus": "--focused"}
 
-  target = PKGDIR + "/" + t.join(".") + ".create.form.spec";
+  let createTemplate = {
+    "description": "form layouter",
+    "component": "furo-form-layouter",
+    "flags": [
+      "four"
+    ],
+    "children": fields
+  };
+
+  formSpec.template = [createTemplate];
+
+  target = PKGDIR + "/" + formSpec.component_name + ".u33e";
   if (!fs.existsSync(target)) {
     fs.writeFileSync(target, JSON.stringify(formSpec, null, 2));
   } else {
@@ -355,7 +360,7 @@ typelist.forEach((pathToTypeSpec) => {
   let displaySpec = JSON.parse(U33TWMPLATE);
   displaySpec.class_name = spec.__proto.package + spec.type + "Display";
   displaySpec.class_name = displaySpec.class_name[0].toUpperCase() + displaySpec.class_name.substr(1);
-  displaySpec.component = (spec.__proto.package + "-" + spec.type + "-display").toLowerCase();
+  displaySpec.component_name = (spec.__proto.package + "-" + spec.type + "-display").toLowerCase();
   displaySpec.description = spec.description;
   displaySpec.source = pathToTypeSpec;
 
@@ -376,19 +381,18 @@ typelist.forEach((pathToTypeSpec) => {
 
       component = field.type.toLowerCase().replace(".", "-") + "-display";
 
-      if(displaySpec.component !== component ) {
+      if (displaySpec.component !== component) {
 
-        if (t[0] !== arrTmpName[0] ) {
+        if (t[0] !== arrTmpName[0]) {
           displaySpec.imports.push("../" + arrTmpName[0] + "/" + component + ".js");
-        }
-        else {
+        } else {
           displaySpec.imports.push("./" + component + ".js");
         }
       }
     }
 
     // check which componet matches best with the simple types
-    switch(field.type) {
+    switch (field.type) {
 
       case "furo.Property":
         component = "furo-data-property-display";
@@ -396,14 +400,16 @@ typelist.forEach((pathToTypeSpec) => {
     }
 
     let fld = {
-      "field": fieldname,
+      "description": "field: " + fieldname,
       "component": component,
       "flags": [
         "condensed",
         "double",
         "noborder"
       ],
-      "attributes": [] //https://html.spec.whatwg.org/multipage/syntax.html#attributes-2, Attributes have a name and a value
+      "attributes": {
+        "ƒ-bind-data": "--data(*." + fieldname + ")"
+      }
     };
 
 
@@ -414,9 +420,8 @@ typelist.forEach((pathToTypeSpec) => {
       let value_name = fld.component;
       fld.component = "furo-data-repeat";
 
-      fld.attributes = [
-        {"name": "repeated-component", "val": value_name }
-      ]
+      fld.attributes["repeated-component"] = value_name;
+
     }
 
     fld.component = component;
@@ -424,20 +429,28 @@ typelist.forEach((pathToTypeSpec) => {
 
     // repeated fields can use furo-data-repeat component
     if (field.meta && field.meta.repeated && field.type != "furo.Property") {
-
-      fld.attributes = [
-        {"name": "repeated-component", "val": component }
-      ];
+      fld.attributes["repeated-component"] = component;
 
       fld.component = "furo-data-repeat";
     }
 
     fields.push(fld);
   }
+  // focus the first field
+  fields[0].methods =  {"focus": "--focused"}
+  let displayTemplate = {
+    "description": "form layouter",
+    "component": "furo-form-layouter",
+    "flags": [
+      "four"
+    ],
+    "children": fields
+  };
 
+  displaySpec.template = [displayTemplate];
 
-  displaySpec.template[0].fields = fields;
-  target = PKGDIR + "/" + t.join(".") + ".display.spec";
+  target = PKGDIR + "/" + displaySpec.component_name + ".u33e";
+
   if (!fs.existsSync(target)) {
     fs.writeFileSync(target, JSON.stringify(displaySpec, null, 2));
   } else {
