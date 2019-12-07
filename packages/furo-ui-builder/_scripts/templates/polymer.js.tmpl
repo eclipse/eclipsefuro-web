@@ -54,9 +54,10 @@ window.customElements.define('{{.name}}', {{.name | replace "-" "_" | camelcase}
 {{define "domNode" }}{{$indent := add .indent 4 | int}}{{range $k, $node := .data}}
 {{if $node.description}}
 {{indent $indent ""}}{{noescape "<!-- "}}{{$node.description}}{{noescape " -->"}}
-{{end}}{{indent $indent ""}}{{noescape "<"}}{{$node.component}}{{template "attributes" .attributes}}{{template "ats" .events}}{{template "ƒs" .methods}}>{{if $node.children}}{{$tpl := dict "indent" $indent "data" $node.children}}{{template "domNode" $tpl }}
+{{end}}{{indent $indent ""}}{{noescape "<"}}{{$node.component}}{{template "flags" .flags}}{{template "attributes" .attributes}}{{template "ats" .events}}{{template "ƒs" .methods}}>{{if $node.children}}{{$tpl := dict "indent" $indent "data" $node.children}}{{template "domNode" $tpl }}
 {{indent $indent ""}}{{end}}{{noescape "</"}}{{$node.component}}> {{end}}{{end}}
 
 {{define "attributes"}}{{with .}}{{range $k,$v := .}} {{$k}}="{{$v}}"{{end}}{{end}}{{end}}
+{{- define "flags"}}{{with .}}{{range $k,$v := .}} {{$v}}{{end}}{{end}}{{end}}
 {{define "ats"}}{{with .}}{{range $k,$v := .}} @-{{$k}}="{{$v}}"{{end}}{{end}}{{end}}
 {{define "ƒs"}}{{with .}}{{range $k,$v := .}} ƒ-{{$k}}="{{$v}}"{{end}}{{end}}{{end}}
