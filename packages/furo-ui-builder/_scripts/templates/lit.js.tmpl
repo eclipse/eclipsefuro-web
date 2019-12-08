@@ -35,7 +35,7 @@ export class {{.component_name | replace "-" "_" | camelcase}} extends FBP(LitEl
     }
   }{{end}}{{range $k,$wire := .exposedWires}}
 
-  //{{$wire.description}}
+  // {{$wire.description}}
   {{$wire.name}}(d) {
     this._FBPTriggerWire('{{$wire.wire}}', d)
   }
@@ -46,7 +46,7 @@ export class {{.component_name | replace "-" "_" | camelcase}} extends FBP(LitEl
    */
   _FBPReady() {
     super._FBPReady();
-    //this._FBPTraceWires()
+    // this._FBPTraceWires()
   }
 
 {{range $name, $method := .methods}}

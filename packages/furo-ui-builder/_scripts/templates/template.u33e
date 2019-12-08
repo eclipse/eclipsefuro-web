@@ -7,7 +7,7 @@
   "summary": "summary",
   "import_members": [
     [" LitElement, html, css " , "lit-element"],
-    ["Theme" , "@furo/framework/theme"],
+    ["Theme" , "@furo/framework/theme.js"],
     ["FBP" , "@furo/fbp"]
   ],
   "imports": [
