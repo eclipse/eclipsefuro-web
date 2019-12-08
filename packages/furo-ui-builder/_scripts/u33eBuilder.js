@@ -2,7 +2,6 @@ export class U33eBuilder {
 
   constructor(componentName) {
     this.u33e = {};
-
     this.u33e.description = "Einfaches Anmeldeformular.";
     this.u33e.summary = "Ein Anmeldeformular";
     this.u33e.import_members = [];
@@ -49,7 +48,6 @@ export class U33eBuilder {
     } else {
       this.u33e.import_members.push([members, module]);
     }
-
     return this;
   }
 
@@ -117,36 +115,63 @@ export class U33eBuilder {
     return this;
   }
 
-  addKeyboarShortcut() {
-    /**
-     * {
-        "key": "x",
-        "ctrl": true,
-        "global": false,
-        "alt": false,
-        "meta": false,
-        "wire": "--shortcutLPressed"
-      }
-     */
+  /**
+   * Add keyboard shortcut
+   * @param key {String} name of the key like "a" or "enter"
+   * @param wire {String} name of the wire like "--selectionKeyPressed"
+   * @param ctrl {Boolean}
+   * @param alt {Boolean}
+   * @param meta {Boolean}
+   * @param global {Boolean} register to window (use with caution)
+   * @return {U33eBuilder}
+   */
+  addKeyboarShortcut(key, wire, ctrl = false, alt = false, meta = false, global = false) {
+    this.u33e.keyboardShortcuts.push({
+      key,
+      ctrl,
+      global,
+      alt,
+      meta,
+      wire
+    });
+    return this;
   }
 
 
-  addDomNode(component, parent) {
-    /**
-     * if parent not set, add to template itself
-     *
-     * {
-    "component": component,
-    "description": "It is a good practice to set a description",
-    "flags": [],
-    "attributes": {},
-    "methods": {},
-    "events": {},
-    "children": []
-  }
-     */
+  /**
+   * Add a dom node to dom node or template
+   *
+   * Do not forget to add a import for the used componentName
+   *
+   * @param componentName {String}
+   * @param parentNode {Object}
+   * @return {{component: *, children: [], methods: {}, flags: [], description: string, attributes: {}, events: {}}}
+   */
+  addDomNode(componentName, parentNode) {
+    let target;
+    if(parentNode === undefined){
+      target = this.u33e.template
+    } else {
+      target = parentNode.children;
+    }
 
-    return //the new node
+    let node = {
+      "component": componentName,
+      "description": "It is a good practice to set a description",
+      "flags": [],
+      "attributes": {},
+      "methods": {},
+      "events": {},
+      "children": []
+    };
+
+    target.push(node);
+    return node;
+  }
+
+  addFlagToNode(node, flag){
+    node.flags.push(flag);
+    return node;
   }
 
   addStyle(parent) {
