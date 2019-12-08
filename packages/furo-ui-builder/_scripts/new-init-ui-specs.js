@@ -128,8 +128,8 @@ typelist.forEach((pathToTypeSpec) => {
       "flags": [
         "condensed"
       ],
-      "attributes": {
-        "ƒ-bind-data": "--data(*." + fieldname + ")"
+      "methods": {
+        "bind-data": "--data(*." + fieldname + ")"
       }
     };
 
@@ -139,7 +139,7 @@ typelist.forEach((pathToTypeSpec) => {
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
       component = field.type.toLowerCase().replace(".", "-") + "-form";
       // exclude self import
-      if (formSpec.component !== component) {
+      if (formSpec.component_name !== component) {
         // check whether the imported file is under the same folder
         if (t[0] !== arrTmpName[0]) {
           formSpec.imports.push("../" + arrTmpName[0] + "/" + component + ".js");
@@ -168,7 +168,7 @@ typelist.forEach((pathToTypeSpec) => {
 
         let folder = f.split(".")[0];
         // exclude self import
-        if (formSpec.component !== fld.component) {
+        if (formSpec.component_name !== fld.component) {
           // check whether the imported file is under the same folder
           if (t[0] !== folder) {
             formSpec.imports.push("../" + folder + "/" + fld.component + ".js");
@@ -229,7 +229,7 @@ typelist.forEach((pathToTypeSpec) => {
         component = field.type.toLowerCase().replace(".", "-") + "-form";
 
         // exclude self import
-        if (formSpec.component !== component) {
+        if (formSpec.component_name !== component) {
           // check whether the imported file is under the same folder
           if (t[0] !== arrTmpName[0]) {
             formSpec.imports.push("../" + arrTmpName[0] + "/" + component + ".js");
@@ -256,7 +256,7 @@ typelist.forEach((pathToTypeSpec) => {
 
           let folder = f.split(".")[0];
           // exclude self import
-          if (formSpec.component !== fld.component) {
+          if (formSpec.component_name !== fld.component) {
             // check whether the imported file is under the same folder
             if (t[0] !== folder) {
               formSpec.imports.push("../" + folder + "/" + fld.component + ".js");
@@ -334,7 +334,8 @@ typelist.forEach((pathToTypeSpec) => {
 
       component = field.type.toLowerCase().replace(".", "-") + "-display";
 
-      if (displaySpec.component !== component) {
+      // exclude self import
+      if (displaySpec.component_name !== component) {
 
         if (t[0] !== arrTmpName[0]) {
           displaySpec.imports.push("../" + arrTmpName[0] + "/" + component + ".js");
