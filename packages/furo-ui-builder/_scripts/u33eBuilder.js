@@ -169,10 +169,58 @@ export class U33eBuilder {
     return node;
   }
 
+  /**
+   * Adds an attribute to a node
+   * @param node {Object}
+   * @param key {String} the attribute name
+   * @param value {String} the attribute value
+   * @return {U33eBuilder}
+   */
+  addAttributeToNode(node, key, value){
+    node.attributes[key] = value;
+    return this;
+  }
+
+  /**
+   * Adds a flag to a domNode
+   * @param node {Object}
+   * @param flag {String} like "hidden"
+   * @return {*}
+   */
   addFlagToNode(node, flag){
+    // todo: ensure that flag is set only once
     node.flags.push(flag);
     return node;
   }
+
+  /**
+   * adds a ƒ trigger to a domNode
+   *
+   * like ƒ-f="wire"
+   *
+   * @param node {Object}
+   * @param f {String} the method name to trigger (ƒ-)
+   * @param wire {String} the wire
+   * @return {*}
+   */
+  addMethodTriggerToNode(node, f, wire){
+    node.methods[f] = wire;
+    return node;
+  }
+
+  /**
+   * adds a @ trigger to a domNode
+   * like @-at="wire"
+   * @param node {Object}
+   * @param at {String} the event to listen on (@)
+   * @param wire {String} the wire
+   * @return {*}
+   */
+  addEventListenerToNode(node, at, wire){
+    node.events[at] = wire;
+    return node;
+  }
+
 
   addStyle(parent) {
     /**
