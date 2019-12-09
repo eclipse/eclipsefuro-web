@@ -18,11 +18,18 @@ class HookInitForm {
     u33e.addImport("@furo/data-input");
     u33e.addImport("@furo/form");
 
-    u33e.addMethod("bindData","data",
+    u33e.addMethod("bindData", "data",
         " Bind your furo-data-object event @-object-ready\n @public\n @param data",
         "CiAgICB0aGlzLl9GQlBUcmlnZ2VyV2lyZSgnLS1kYXRhJywgZGF0YSk7CiAgICB0aGlzLmZpZWxkID0gZGF0YTs=");
 
     u33e.addExposedWire("focus", "--focused", "Fokus");
+
+    // styling
+    u33e.addStyle(":host")
+        .addCSSAttribute("display", "block");
+
+    u33e.addStyle(":host[hidden]")
+        .addCSSAttribute("display", "none");
 
     // all field will be added to this node
     let form = u33e.addDomNode("furo-form-layouter");
@@ -51,7 +58,7 @@ class HookInitForm {
         if (u33e.model.component_name !== component) {
           // check whether the imported file is under the same folder
           if (ctx.package !== arrTmpName[0]) {
-           u33e.addImport("../" + arrTmpName[0] + "/" + component + ".js");
+            u33e.addImport("../" + arrTmpName[0] + "/" + component + ".js");
           } else {
             u33e.addImport("./" + component + ".js");
           }
@@ -63,8 +70,7 @@ class HookInitForm {
 
       fld.description = "field: " + fieldname;
       fld.addFlag("condensed");
-      fld.addMethod("bind-data","--data(*." + fieldname + ")");
-
+      fld.addMethod("bind-data", "--data(*." + fieldname + ")");
 
 
       // repeated fields can use furo-data-repeat component
@@ -96,8 +102,8 @@ class HookInitForm {
     }
 
     // focus the first field
-    if(form.children.length > 0){
-      form.children[0].addMethod("focus","--focused");
+    if (form.children.length > 0) {
+      form.children[0].addMethod("focus", "--focused");
     }
 
 

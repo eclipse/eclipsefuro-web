@@ -21,7 +21,16 @@ class HookInitForm {
     u33e.addMethod("bindData","data",
         " Bind your furo-data-object event @-object-ready\n @public\n @param data",
         "CiAgICB0aGlzLl9GQlBUcmlnZ2VyV2lyZSgnLS1kYXRhJywgZGF0YSk7CiAgICB0aGlzLmZpZWxkID0gZGF0YTs=");
+
     u33e.addExposedWire("focus", "--focused", "Fokus");
+
+    // styling
+    u33e.addStyle(":host")
+        .addCSSAttribute("display", "block");
+
+    u33e.addStyle(":host[hidden]")
+        .addCSSAttribute("display", "none");
+
 
     // all field will be added to this node
     let form = u33e.addDomNode("furo-form-layouter");

@@ -24,6 +24,13 @@ class HookInitForm {
 
     u33e.addExposedWire("focus", "--focused", "Fokus");
 
+    u33e.addStyle(":host")
+        .addCSSAttribute("display", "block");
+
+    u33e.addStyle(":host[hidden]")
+        .addCSSAttribute("display", "none");
+
+
     // all field will be added to this node
     let form = u33e.addDomNode("furo-form-layouter");
     form.addFlag("four");
