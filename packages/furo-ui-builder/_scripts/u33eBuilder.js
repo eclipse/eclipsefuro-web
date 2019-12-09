@@ -73,6 +73,7 @@ class U33eBuilder {
    */
   addProperty(name, type, description = "", reflect = false, notify = false, attribute) {
     this.model.properties[name] = {
+      "type":type,
       description,
       reflect,
       notify,
@@ -243,7 +244,6 @@ class DomNode {
 
   /**
    * Adds an attribute to a node
-   * @param node {Object}
    * @param key {String} the attribute name
    * @param value {String} the attribute value
    * @return {DomNode}

@@ -20,8 +20,7 @@ class HookInitForm {
 
     u33e.addMethod("bindData","data",
         " Bind your furo-data-object event @-object-ready\n @public\n @param data",
-        "ICAgIHRoaXMuZmllbGQgPSBmaWVsZDsKICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCctLWZpZWxkLWluamVjdGVkJywgZmllbGQpOwoKICAgIHRoaXMuZmllbGQuYWRkRXZlbnRMaXN0ZW5lcignZmllbGQtdmFsdWUtY2hhbmdlZCcsIGUgPT4gewogICAgICBpZiAoZS5kZXRhaWwuX25hbWUgPT09ICd0eXBlJykgewogICAgICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCctLWh0c1VwZGF0ZWQnLCB0aGlzLmZpZWxkLmxpbmsuX3ZhbHVlKTsKICAgICAgfQogICAgICBjb25zb2xlLmluZm8oInN0cmluZyIpOwogICAgfSk7");
-
+        "CiAgICB0aGlzLl9GQlBUcmlnZ2VyV2lyZSgnLS1kYXRhJywgZGF0YSk7CiAgICB0aGlzLmZpZWxkID0gZGF0YTs=");
     u33e.addExposedWire("focus", "--focused", "Fokus");
 
     // all field will be added to this node
