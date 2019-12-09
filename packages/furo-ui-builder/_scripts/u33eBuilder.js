@@ -1,22 +1,23 @@
-export class U33eBuilder {
+class U33eBuilder {
 
   constructor(componentName) {
-    this.u33e = {};
-    this.u33e.description = "Einfaches Anmeldeformular.";
-    this.u33e.summary = "Ein Anmeldeformular";
-    this.u33e.import_members = [];
-    this.u33e.imports = [];
-    this.u33e.component_name = componentName;
-    this.u33e.path = "src/project-components/demo";
-    this.u33e.style = {
+    this.model = {};
+    this.model.description = "todo: write description";
+    this.model.summary = "todo: write summary";
+    this.model.import_members = [];
+    this.model.imports = [];
+    this.model.component_name = componentName;
+    this.model.path = "";
+    this.model.style = {
       "children": {},
       "attributes": {}
     };
-    this.u33e.template = [];
-    this.u33e.properties = {};
-    this.u33e.exposedWires = {};
-    this.u33e.methods = {};
-    this.u33e.keyboardShortcuts = [];
+    this.model.template = [];
+    this.model.properties = {};
+    this.model.exposedWires = {};
+    this.model.methods = {};
+    this.model.keyboardShortcuts = [];
+
 
   }
 
@@ -26,12 +27,12 @@ export class U33eBuilder {
    * @return {U33eBuilder}
    */
   buildFromU33e(u33e) {
-    this.u33e = JSON.parse(u33e);
+    this.model = JSON.parse(u33e);
     return this;
   }
 
   getU33e() {
-    return JSON.stringify(this.u33e);
+    return JSON.stringify(this.model,null, 2);
   }
 
   /**
@@ -44,9 +45,9 @@ export class U33eBuilder {
    */
   addImportWithMember(members, module, comment) {
     if (comment) {
-      this.u33e.import_members.push([members, module, comment]);
+      this.model.import_members.push([members, module, comment]);
     } else {
-      this.u33e.import_members.push([members, module]);
+      this.model.import_members.push([members, module]);
     }
     return this;
   }
@@ -57,7 +58,7 @@ export class U33eBuilder {
    * @return {U33eBuilder}
    */
   addImport(module) {
-    this.u33e.imports.push(module);
+    this.model.imports.push(module);
     return this;
   }
 
@@ -72,7 +73,7 @@ export class U33eBuilder {
    * @return {U33eBuilder}
    */
   addProperty(name, type, description = "", reflect = false, notify = false, attribute) {
-    this.u33e.properties[name] = {
+    this.model.properties[name] = {
       description,
       reflect,
       notify,
@@ -90,7 +91,7 @@ export class U33eBuilder {
    * @return {U33eBuilder}
    */
   addExposedWire(name, wire, description) {
-    this.u33e.exposedWires[name] = {
+    this.model.exposedWires[name] = {
       name,
       wire,
       description
@@ -107,7 +108,7 @@ export class U33eBuilder {
    * @return {U33eBuilder}
    */
   addMethod(name, args, description, code) {
-    this.u33e.methods[name] = {
+    this.model.methods[name] = {
       description,
       args,
       code
@@ -126,7 +127,7 @@ export class U33eBuilder {
    * @return {U33eBuilder}
    */
   addKeyboarShortcut(key, wire, ctrl = false, alt = false, meta = false, global = false) {
-    this.u33e.keyboardShortcuts.push({
+    this.model.keyboardShortcuts.push({
       key,
       ctrl,
       global,
@@ -150,7 +151,7 @@ export class U33eBuilder {
   addDomNode(componentName, parentNode) {
     let target;
     if(parentNode === undefined){
-      target = this.u33e.template
+      target = this.model.template
     } else {
       target = parentNode.children;
     }
@@ -233,4 +234,38 @@ export class U33eBuilder {
           }
      */
   }
+
+
+  static getBestMatchingComponent (field) {
+    let component = "furo-data-text-input";
+
+    // check which componet matches best with the simple types
+    switch (field.type) {
+      case "int":
+      case "int32":
+      case "int64":
+        component = "furo-data-number-input";
+        break;
+      case "google.type.Date":
+        component = "furo-data-date-input";
+        break;
+      case "google.type.Money":
+        component = "furo-data-money-input";
+        break;
+      case "furo.Property":
+        component = "furo-data-property";
+        break;
+      default:
+        component = "furo-data-text-input";
+    }
+
+    // use spec ui hint as component
+    if (field.__ui && field.__ui.component) {
+      component = field.__ui.component;
+    }
+
+    return component;
+  };
 }
+
+module.exports = U33eBuilder;

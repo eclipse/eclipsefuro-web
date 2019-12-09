@@ -4,6 +4,11 @@ const fs = require('fs');
 const execSync = require('child_process').execSync;
 const path = require('path');
 
+const U33eBuilder = require("./u33eBuilder")
+
+
+let f = new U33eBuilder("test-cc");
+
 let config;
 // config öffnen
 if (fs.existsSync('./furo.ui.spec.conf.json')) {
@@ -46,36 +51,7 @@ let typelist = walkSync(SpecDir).filter((filepath) => {
   return (path.basename(filepath).indexOf("type.spec") > 0)
 });
 
-let getBestMatchingComponent = function (field) {
-  let component = "furo-data-text-input";
 
-  // check which componet matches best with the simple types
-  switch (field.type) {
-    case "int":
-    case "int32":
-    case "int64":
-      component = "furo-data-number-input";
-      break;
-    case "google.type.Date":
-      component = "furo-data-date-input";
-      break;
-    case "google.type.Money":
-      component = "furo-data-money-input";
-      break;
-    case "furo.Property":
-      component = "furo-data-property";
-      break;
-    default:
-      component = "furo-data-text-input";
-  }
-
-  // use spec ui hint as component
-  if (field.__ui && field.__ui.component) {
-    component = field.__ui.component;
-  }
-
-  return component;
-};
 let writeFile = function (target, Spec) {
   if (!fs.existsSync(target)) {
     fs.writeFileSync(target, JSON.stringify(Spec, null, 2));
@@ -130,10 +106,11 @@ typelist.forEach((pathToTypeSpec) => {
       ],
       "methods": {
         "bind-data": "--data(*." + fieldname + ")"
-      }
+      },
+      "attributes":{}
     };
 
-    let component = getBestMatchingComponent(field);
+    let component = U33eBuilder.getBestMatchingComponent(field);
     let arrTmpName = field.type.split(".");
     //  complex type has a cutom form component
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
@@ -155,7 +132,6 @@ typelist.forEach((pathToTypeSpec) => {
     if (field.meta && field.meta.repeated && field.type != "furo.Property") {
       let value_name = fld.component;
       fld.component = "furo-data-repeat";
-
       fld.attributes["repeated-component"] = value_name;
 
     }
@@ -221,7 +197,7 @@ typelist.forEach((pathToTypeSpec) => {
         }
       };
 
-      let component = getBestMatchingComponent(field);
+      let component = U33eBuilder.getBestMatchingComponent(field);
 
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
