@@ -5,7 +5,7 @@ class HookInitForm {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-display").toLowerCase();
     u33e.model.path = PKGDIR + "/" + u33e.model.component_name + ".u33e";
     u33e.model.description = SPEC.description;
 
@@ -31,19 +31,20 @@ class HookInitForm {
     //fields
     for (let fieldname in SPEC.fields) {
       let field = SPEC.fields[fieldname];
-      /**
-       * skip field if it is readonly
-       */
-      if (field.meta && field.meta.readonly) {
-        continue
+
+      let component = "furo-data-display";
+      // check which componet matches best with the simple types
+      switch(field.type) {
+        case "furo.Property":
+          component = "furo-data-property-display";
+          break;
       }
 
 
-      let component = U33eBuilder.getBestMatchingComponent(field);
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
       if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-        component = field.type.toLowerCase().replace(".", "-") + "-form";
+        component = field.type.toLowerCase().replace(".", "-") + "-display";
         // exclude self import
         if (u33e.model.component_name !== component) {
           // check whether the imported file is under the same folder

@@ -18,7 +18,6 @@ class U33eBuilder {
     this.model.methods = {};
     this.model.keyboardShortcuts = [];
 
-
   }
 
   /**
@@ -32,7 +31,7 @@ class U33eBuilder {
   }
 
   getU33e() {
-    return JSON.stringify(this.model,null, 2);
+    return JSON.stringify(this.model, null, 2);
   }
 
   /**
@@ -146,79 +145,19 @@ class U33eBuilder {
    *
    * @param componentName {String}
    * @param parentNode {Object}
-   * @return {{component: *, children: [], methods: {}, flags: [], description: string, attributes: {}, events: {}}}
+   * @return {DomNode}
    */
   addDomNode(componentName, parentNode) {
     let target;
-    if(parentNode === undefined){
+    if (parentNode === undefined) {
       target = this.model.template
     } else {
       target = parentNode.children;
     }
 
-    let node = {
-      "component": componentName,
-      "description": "It is a good practice to set a description",
-      "flags": [],
-      "attributes": {},
-      "methods": {},
-      "events": {},
-      "children": []
-    };
+    let node = new DomNode(componentName);
 
     target.push(node);
-    return node;
-  }
-
-  /**
-   * Adds an attribute to a node
-   * @param node {Object}
-   * @param key {String} the attribute name
-   * @param value {String} the attribute value
-   * @return {U33eBuilder}
-   */
-  addAttributeToNode(node, key, value){
-    node.attributes[key] = value;
-    return this;
-  }
-
-  /**
-   * Adds a flag to a domNode
-   * @param node {Object}
-   * @param flag {String} like "hidden"
-   * @return {*}
-   */
-  addFlagToNode(node, flag){
-    // todo: ensure that flag is set only once
-    node.flags.push(flag);
-    return node;
-  }
-
-  /**
-   * adds a ƒ trigger to a domNode
-   *
-   * like ƒ-f="wire"
-   *
-   * @param node {Object}
-   * @param f {String} the method name to trigger (ƒ-)
-   * @param wire {String} the wire
-   * @return {*}
-   */
-  addMethodTriggerToNode(node, f, wire){
-    node.methods[f] = wire;
-    return node;
-  }
-
-  /**
-   * adds a @ trigger to a domNode
-   * like @-at="wire"
-   * @param node {Object}
-   * @param at {String} the event to listen on (@)
-   * @param wire {String} the wire
-   * @return {*}
-   */
-  addEventListenerToNode(node, at, wire){
-    node.events[at] = wire;
     return node;
   }
 
@@ -236,7 +175,7 @@ class U33eBuilder {
   }
 
 
-  static getBestMatchingComponent (field) {
+  static getBestMatchingComponent(field) {
     let component = "furo-data-text-input";
 
     // check which componet matches best with the simple types
@@ -266,6 +205,82 @@ class U33eBuilder {
 
     return component;
   };
+}
+
+class DomNode {
+  constructor(component) {
+    this.component = component;
+    this.description = "It is a good practice to set a description";
+    this.flags = [];
+    this.attributes = {};
+    this.methods = {};
+    this.events = {};
+    this.children = [];
+  }
+
+  /**
+   * Append a child node
+   * @param componentName
+   * @return {DomNode}
+   */
+  appendChild(componentName) {
+    let node = new DomNode(componentName);
+    this.children.push(node);
+    return node;
+  }
+
+  /**
+   * Adds a flag to a domNode
+   * @param flag {String} like "hidden"
+   * @return {DomNode}
+   */
+  addFlag(flag) {
+    // todo: ensure that flag is set only once
+    this.flags.push(flag);
+    return this;
+  }
+
+
+  /**
+   * Adds an attribute to a node
+   * @param node {Object}
+   * @param key {String} the attribute name
+   * @param value {String} the attribute value
+   * @return {DomNode}
+   */
+  addAttribute(key, value) {
+    this.attributes[key] = value;
+    return this;
+  }
+
+
+  /**
+   * adds a ƒ trigger to a domNode
+   *
+   * like ƒ-f="wire"
+   *
+   * @param f {String} the method name to trigger (ƒ-)
+   * @param wire {String} the wire
+   * @return {DomNode}
+   */
+  addMethod(f, wire) {
+    this.methods[f] = wire;
+    return this;
+  }
+
+  /**
+   * adds a @ trigger to a domNode
+   * like @-at="wire"
+
+   * @param at {String} the event to listen on (@)
+   * @param wire {String} the wire
+   * @return {DomNode}
+   */
+  addEvent(at, wire) {
+    this.events[at] = wire;
+    return this;
+  }
+
 }
 
 module.exports = U33eBuilder;

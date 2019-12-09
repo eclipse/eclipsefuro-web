@@ -26,7 +26,7 @@ class HookInitForm {
 
     // all field will be added to this node
     let form = u33e.addDomNode("furo-form-layouter");
-    u33e.addFlagToNode(form, "four");
+    form.addFlag("four");
 
     //fields
     for (let fieldname in SPEC.fields) {
@@ -38,10 +38,8 @@ class HookInitForm {
         continue
       }
       // use only required fields
-      if (field.constraints && field.constraints.required){
-
-      }else{
-          continue
+      if (!(field.constraints && field.constraints.required)) {
+        continue
       }
 
       let component = U33eBuilder.getBestMatchingComponent(field);
@@ -61,18 +59,19 @@ class HookInitForm {
       }
 
 
-      let fld = u33e.addDomNode(component,form);
+      let fld = form.appendChild(component);
 
       fld.description = "field: " + fieldname;
-      u33e.addFlagToNode(fld,"condensed");
-      u33e.addMethodTriggerToNode(fld,"bind-data","--data(*." + fieldname + ")");
+      fld.addFlag("condensed");
+      fld.addMethod("bind-data","--data(*." + fieldname + ")");
+
 
 
       // repeated fields can use furo-data-repeat component
       if (field.meta && field.meta.repeated && field.type != "furo.Property") {
         let value_name = component;
         fld.component = "furo-data-repeat";
-        u33e.addAttributeToNode(fld, "repeated-component", value_name);
+        fld.addAttribute("repeated-component", value_name);
       }
 
 
@@ -98,7 +97,7 @@ class HookInitForm {
 
     // focus the first field
     if(form.children.length > 0){
-      u33e.addMethodTriggerToNode(form.children[0],"focus","--focused");
+      form.children[0].addMethod("focus","--focused");
     }
 
 
