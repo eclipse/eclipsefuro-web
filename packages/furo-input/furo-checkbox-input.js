@@ -423,7 +423,8 @@ class FuroCheckboxInput extends FBP(LitElement) {
         return html` 
       <div class="wrapper">
       
-        <furo-checkbox type="checkbox" id="input"  ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}  ?condensed=${this.condensed}
+        <furo-checkbox type="checkbox" id="input"  ?autofocus=${this.autofocus} 
+          ?disabled=${this.disabled || this.readonly}  ?condensed=${this.condensed}
           ƒ-set-value="--value" ƒ-focus="--focus"></furo-checkbox>
         <label for="input"  @-click="--toggle,--focus">${this.label}</label>
         

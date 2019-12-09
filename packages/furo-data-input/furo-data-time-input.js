@@ -270,7 +270,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
     return html` 
        <furo-time-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly || this.disabled} 
+          ?disabled=${this._readonly || this.disabled} 
           ?error="${this.error}" 
           ?required=${this._required}
           ?condensed="${this.condensed}"                         

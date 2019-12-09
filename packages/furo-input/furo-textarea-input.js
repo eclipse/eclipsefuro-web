@@ -241,13 +241,13 @@ class FuroTextareaInput extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable(){
-    this.readonly = true;
+    this.disabled = true;
   }
   /**
    * Makes the field writable.
    */
   enable(){
-    this.readonly = false;
+    this.disabled = false;
   }
   /**
    *
@@ -509,7 +509,7 @@ class FuroTextareaInput extends FBP(LitElement) {
     // language=HTML
     return html` 
        <div class="wrapper">           
-         <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly} 
+         <textarea id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}
         ƒ-.value="--value"  @-input="--inputInput(*)"   ƒ-focus="--focus"></textarea>          
       </div>
       <div class="borderlabel">
