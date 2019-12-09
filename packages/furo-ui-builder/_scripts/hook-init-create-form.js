@@ -5,7 +5,7 @@ class HookInitForm {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-create-form").toLowerCase();
     u33e.model.path = PKGDIR + "/" + u33e.model.component_name + ".u33e";
     u33e.model.description = SPEC.description;
 
@@ -37,7 +37,12 @@ class HookInitForm {
       if (field.meta && field.meta.readonly) {
         continue
       }
+      // use only required fields
+      if (field.constraints && field.constraints.required){
 
+      }else{
+          continue
+      }
 
       let component = U33eBuilder.getBestMatchingComponent(field);
       let arrTmpName = field.type.split(".");
@@ -95,6 +100,7 @@ class HookInitForm {
     if(form.children.length > 0){
       u33e.addMethodTriggerToNode(form.children[0],"focus","--focused");
     }
+
 
     return u33e;
   }
