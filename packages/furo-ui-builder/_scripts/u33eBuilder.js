@@ -78,7 +78,7 @@ class U33eBuilder {
       reflect,
       notify,
       attribute,
-      defaultValue
+      defaultValue // TOTO: create constructor in lit to set the default value
     };
     return this;
   }

@@ -24,6 +24,7 @@ class HookInitForm {
 
     u33e.addExposedWire("focus", "--focused", "Fokus");
 
+    // styling
     u33e.addStyle(":host")
         .addCSSAttribute("display", "block");
 
