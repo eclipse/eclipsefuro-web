@@ -31,9 +31,15 @@ class HookInitReferenceSearch {
       );
       u33e.addExposedWire("focus", "--focused", "Fokus");
 
-      let s = u33e.addStyle(":host");
-      u33e.addStyleAttribute(s, "display", "block");
-      u33e.addStyleAttribute(u33e.addStyle("furo-data-reference-search"), "width", "100%");
+      u33e.addStyle(":host")
+          .addCSSAttribute("display", "block");
+
+      u33e.addStyle(":host[hidden]")
+          .addCSSAttribute("display", "none");
+
+      u33e.addStyle("furo-data-reference-search")
+          .addCSSAttribute("width", "100%");
+
 
 
       let refSearch = u33e.addDomNode("furo-data-reference-search");

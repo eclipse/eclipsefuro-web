@@ -164,15 +164,9 @@ class U33eBuilder {
   }
 
 
-  addSubStyle(parentAttribute) {
-
-  }
 
   addStyle(selector) {
-    this.model.style.children[selector] = {
-      "children": {},
-      "attributes": {}
-    };
+    this.model.style.children[selector] = new CssProperty();
     return this.model.style.children[selector];
 
     /**
@@ -186,10 +180,8 @@ class U33eBuilder {
      */
   }
 
-  addStyleAttribute(parent, key, value) {
-    parent.attributes[key] = value;
-    return parent;
-  }
+
+
 
   static getBestMatchingComponent(field) {
     let component = "furo-data-text-input";
@@ -221,6 +213,30 @@ class U33eBuilder {
 
     return component;
   };
+}
+
+class CssProperty{
+  constructor(){
+    this.children = {};
+    this.attributes = {};
+
+    return this;
+  }
+
+  /**
+   * use this for media queries,...
+   * @param selector
+   * @return {*}
+   */
+  addSubStyle(selector) {
+    this.children[selector] = new CssProperty();
+    return this.children[selector];
+  }
+
+  addCSSAttribute(key, value) {
+    this.attributes[key] = value;
+    return this;
+  }
 }
 
 class DomNode {
