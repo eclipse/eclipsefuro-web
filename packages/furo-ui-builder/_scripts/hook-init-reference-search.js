@@ -15,6 +15,7 @@ class HookInitReferenceSearch {
       u33e.addImportWithMember("FBP", "@furo/fbp");
       u33e.addImportWithMember("i18n", "@furo/framework/i18n.js", "eslint-disable-next-line no-unused-vars");
 
+      // https://www.base64encode.org/
       u33e.addMethod("bindData", "field",
           " Bind your furo-data-object event @-object-ready\n @public\n @param data",
           "ICAgIHRoaXMuZmllbGQgPSBmaWVsZDsKICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCItLWZpZWxk\n" +
@@ -24,7 +25,10 @@ class HookInitReferenceSearch {
           "LmZpZWxkLmxpbmsuX3ZhbHVlKTsKICAgICAgfQogICAgfSk7");
 
 
-      u33e.addProperty("condensed", "Boolean", "The default style (md like) supports a condensed form. It is a little bit smaller then the default");
+      u33e.addProperty("condensed", "Boolean",
+          "The default style (md like) supports a condensed form. " +
+          "It is a little bit smaller then the default",
+      );
       u33e.addExposedWire("focus", "--focused", "Fokus");
 
       let s = u33e.addStyle(":host");

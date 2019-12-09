@@ -71,13 +71,14 @@ class U33eBuilder {
    * @param attribute {String}
    * @return {U33eBuilder}
    */
-  addProperty(name, type, description = "", reflect = false, notify = false, attribute) {
+  addProperty(name, type, description = "", defaultValue = undefined, reflect = false, notify = false, attribute) {
     this.model.properties[name] = {
       "type": type,
       description,
       reflect,
       notify,
-      attribute
+      attribute,
+      defaultValue
     };
     return this;
   }
