@@ -40,7 +40,7 @@ class HookInitReferenceSearch {
           .addEvent("search", "--term")
           .addMethod("collection-in", "--collection")
           .addMethod("focus", "--focused")
-          .addMethod("bind-data", "----field-injected");
+          .addMethod("bind-data", "--field-injected");
 
       let agent = u33e.addDomNode("furo-collection-agent");
       agent.addAttribute("service", SPEC.name)
