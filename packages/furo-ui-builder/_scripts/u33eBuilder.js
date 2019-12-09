@@ -73,7 +73,7 @@ class U33eBuilder {
    */
   addProperty(name, type, description = "", reflect = false, notify = false, attribute) {
     this.model.properties[name] = {
-      "type":type,
+      "type": type,
       description,
       reflect,
       notify,
@@ -163,7 +163,17 @@ class U33eBuilder {
   }
 
 
-  addStyle(parent) {
+  addSubStyle(parentAttribute) {
+
+  }
+
+  addStyle(selector) {
+    this.model.style.children[selector] = {
+      "children": {},
+      "attributes": {}
+    };
+    return this.model.style.children[selector];
+
     /**
      * if parent not set, add to styles.children (root)
      * ":host": {
@@ -175,6 +185,10 @@ class U33eBuilder {
      */
   }
 
+  addStyleAttribute(parent, key, value) {
+    parent.attributes[key] = value;
+    return parent;
+  }
 
   static getBestMatchingComponent(field) {
     let component = "furo-data-text-input";

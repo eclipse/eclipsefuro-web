@@ -27,6 +27,11 @@ class HookInitReferenceSearch {
       u33e.addProperty("condensed", "Boolean", "The default style (md like) supports a condensed form. It is a little bit smaller then the default");
       u33e.addExposedWire("focus", "--focused", "Fokus");
 
+      let s = u33e.addStyle(":host");
+      u33e.addStyleAttribute(s, "display", "block");
+      u33e.addStyleAttribute(u33e.addStyle("furo-data-reference-search"), "width", "100%");
+
+
       let refSearch = u33e.addDomNode("furo-data-reference-search");
       refSearch.addAttribute("value-field", "id")
           .addAttribute("display-field", "display_name")
@@ -34,10 +39,11 @@ class HookInitReferenceSearch {
           .addAttribute("min-term-length", "1")
           .addEvent("search", "--term")
           .addMethod("collection-in", "--collection")
+          .addMethod("focus", "--focused")
           .addMethod("bind-data", "----field-injected");
 
       let agent = u33e.addDomNode("furo-collection-agent");
-      agent.addAttribute("service", "dfsdfsfdsdf")
+      agent.addAttribute("service", SPEC.name)
           .addMethod("hts-in", "--field-injected(*.link._value), --htsUpdated")
           .addMethod("search", "--term")
           .addEvent("response", "--collection");
