@@ -100,14 +100,14 @@ class FuroDataColorInput extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable() {
-    this._readonly = true;
+    this.disabled = true;
   }
 
   /**
    * Makes the field writable.
    */
   enable() {
-    this._readonly = false;
+    this.disabled = false;
   }
 
 
@@ -304,7 +304,7 @@ class FuroDataColorInput extends FBP(LitElement) {
     return html`
        <furo-color-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly || this.disabled}                 
+          ?disabled=${this._readonly || this.disabled}                 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"                         

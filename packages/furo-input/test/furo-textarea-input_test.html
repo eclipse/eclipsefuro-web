@@ -72,18 +72,18 @@
     it('should be disablealble with method disable', (done) => {
       textareaInput.disable();
       setTimeout(()=>{
-        assert.equal(inputField.getAttribute("readonly"),"");
-        assert.equal(textareaInput.readonly,true);
+        assert.equal(inputField.getAttribute("disabled"),"");
+        assert.equal(textareaInput.disabled,true);
         done();
       },5)
     });
 
     it('should be enablealble with method enable', (done) => {
-      textareaInput.readonly = true;
+      textareaInput.disabled = true;
       textareaInput.enable();
       setTimeout(()=>{
-        assert.equal(inputField.getAttribute("readonly"),null);
-        assert.equal(textareaInput.readonly,false);
+        assert.equal(inputField.getAttribute("disabled"),null);
+        assert.equal(textareaInput.disabled,false);
         done();
       },5)
     });
