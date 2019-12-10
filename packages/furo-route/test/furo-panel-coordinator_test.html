@@ -145,21 +145,6 @@
 
     });
 
-    it('should active panel via _activatePanelForNode', (done) => {
-
-      furoPannelCoordinator.addEventListener("panels-changed", (e)=>{
-
-        furoPannelCoordinator._activatePanelForNode(2);
-        assert.equal(furoPannelCoordinator._openPanels.length, 0);
-        done();
-      },{once:true});
-
-      dataObject.addEventListener("data-injected",(e)=>{
-        furoTree.selectById(2);
-      });
-
-    });
-
   });
 </script>
 </body>
