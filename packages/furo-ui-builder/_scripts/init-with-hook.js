@@ -56,11 +56,13 @@ Helper.walkSync(SpecDir).filter((filepath) => {
   // load spec file
   ctx.spec = JSON.parse(fs.readFileSync(pathToSpec));
 
+
   // loop hooks for service or type
   hooks[ctx.is].forEach((hook) => {
     let u33e = new hook(ctx, new U33eBuilder());
 
     if (u33e instanceof U33eBuilder) {
+      sh("mkdir -p", [path.dirname(u33e.model.path)]);
       // write u33e file if model is returned
       fs.writeFileSync(u33e.model.path, u33e.getU33e());
 
