@@ -1,5 +1,6 @@
 import {LitElement, html, css} from 'lit-element';
 import {FBP} from "@furo/fbp";
+import {Theme} from "@furo/framework/theme"
 
 /**
  * `furo-panel`
@@ -51,7 +52,7 @@ class FuroPanel extends FBP(LitElement) {
 
     static get styles() {
         // language=CSS
-        return [
+        return Theme.getThemeForComponent(this.name) ||
             css`
                 :host {
                     display: block;
@@ -70,16 +71,19 @@ class FuroPanel extends FBP(LitElement) {
                     margin: var(--furo-panel-margin-l, 0 var(--spacing-l) 0 var(--spacing-l));
                 }
                 
+                :host([no-margin]) {
+                    margin: 0;
+                }
+                
                 :host([bordered]) {
                     border-radius: 4px;
                     border: 1px solid var(--primary, black);
                 }
                 
                 ::slotted(*){
-                    margin: var(--spacing, 16px);
+                    margin: var(--spacing-s, 16px);
                 }
       `
-        ];
     }
 
     /**
