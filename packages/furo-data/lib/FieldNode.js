@@ -240,11 +240,17 @@ export class FieldNode extends EventTreeNode {
     //  clear field if it is not in the incomming data
     // set default values according to https://developers.google.com/protocol-buffers/docs/proto3#default
     this.__childNodes.forEach((n) => {
-
       if (val && !val.hasOwnProperty(n._name)) {
+        // object or repeater
         if (n.__childNodes.length > 0) {
-          n._value = {};
+          if(n.repeats){
+            n._value = [];
+          }else{
+            n._value = {};
+          }
+
         } else {
+          // skalar value
           n._value = Helper.defaultForType(n._spec.type);
         }
       }

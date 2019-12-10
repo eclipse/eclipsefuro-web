@@ -386,7 +386,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
       <furo-horizontal-flex id="wrapper">
           <furo-number-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly || this.disabled} 
+          ?disabled=${this._readonly || this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
@@ -395,7 +395,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
           ƒ-set-value="--valueAmount"></furo-number-input>      
           
        <furo-select-input id="select"
-          ?readonly=${this._readonly || this.disabled} 
+          ?disabled=${this._readonly || this.disabled} 
           ?float="${this.float}" 
           list="CHF"
           ?condensed="${this.condensed}"          

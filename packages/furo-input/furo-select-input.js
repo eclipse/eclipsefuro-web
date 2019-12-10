@@ -120,13 +120,6 @@ class FuroSelectInput extends FBP(LitElement) {
         type: Boolean, reflect: true
       },
       /**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */
-      readonly: {
-        type: Boolean, reflect: true
-      },
-
-      /**
        * The hint text for the field.
        */
       hint: {
@@ -256,14 +249,14 @@ class FuroSelectInput extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable() {
-    this.readonly = true;
+    this.disabled = true;
   }
 
   /**
    * Makes the field writable.
    */
   enable() {
-    this.readonly = false;
+    this.disabled = false;
   }
 
 
@@ -634,7 +627,7 @@ class FuroSelectInput extends FBP(LitElement) {
       
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
        <div class="iwrap">    
-           <select ?autofocus=${this.autofocus} ?disabled=${this.disabled || this.readonly}  @-change="--inputInput(*)" ƒ-.value="--value" ƒ-focus="--focus">        
+           <select ?autofocus=${this.autofocus} ?disabled=${this.disabled}  @-change="--inputInput(*)" ƒ-.value="--value" ƒ-focus="--focus">        
             <template is="flow-repeat" ƒ-inject-items="--selection">
                 <option ƒ-.value="--item(*.id)" ƒ-.selected="--item(*.selected)" ƒ-.inner-text="--item(*.label)"></option>
             </template>

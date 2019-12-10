@@ -272,14 +272,14 @@ class FuroSearchInput extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable() {
-    this.readonly = true;
+    this.disabled = true;
   }
 
   /**
    * Makes the field writable.
    */
   enable() {
-    this.readonly = false;
+    this.disabled = false;
   }
 
   /**
@@ -619,7 +619,7 @@ class FuroSearchInput extends FBP(LitElement) {
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.disabled || this.readonly}       
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}   
        type="search" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        </div>
        <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>

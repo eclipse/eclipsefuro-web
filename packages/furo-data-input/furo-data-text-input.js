@@ -288,7 +288,7 @@ class FuroDataTextInput extends FBP(LitElement) {
     return html`
        <furo-text-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly || this.disabled}                 
+          ?disabled=${this._readonly || this.disabled}                 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"                         

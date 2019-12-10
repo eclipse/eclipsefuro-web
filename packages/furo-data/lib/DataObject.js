@@ -225,11 +225,14 @@ export class DataObject extends EventTreeNode {
     node.__childNodes.forEach((n) => {
       if(data && !data.hasOwnProperty(n._name)){
         if(n.__childNodes.length > 0){
-          n._value = {};
+          if(n.repeats){
+            n._value = [];
+          }else{
+            n._value = {};
+          }
         }else{
           n._value = Helper.defaultForType(n._spec.type);
         }
-
       }
     });
 

@@ -82,6 +82,19 @@ class FuroRangeInput extends FBP(LitElement) {
     this._FBPTriggerWire("--value", v)
   }
 
+  /**
+   * Sets the field to readonly
+   */
+  disable(){
+    this.readonly = true;
+  }
+  /**
+   * Makes the field writable.
+   */
+  enable(){
+    this.readonly = false;
+  }
+
   static get properties() {
     return {
       /**
@@ -137,7 +150,12 @@ class FuroRangeInput extends FBP(LitElement) {
       disabled: {
         type: Boolean, reflect: true
       },
-
+      /**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */
+      readonly: {
+        type: Boolean, reflect: true
+      },
       /**
        * helper for the label
        */
@@ -591,7 +609,7 @@ class FuroRangeInput extends FBP(LitElement) {
       <div class="wrapper">
        <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
        <div class="iwrap">
-      <input id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
+      <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}
        type="range"      
        ƒ-.value="--value" 
        @-input="--inputInput(*)"   

@@ -149,14 +149,6 @@ class FuroDataPasswordInput extends FBP(LitElement) {
         type: String
       },
       /**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */
-      required: {
-        type: Boolean
-      },
-      /**
        * Overrides the hint text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -293,7 +285,7 @@ class FuroDataPasswordInput extends FBP(LitElement) {
     return html` 
        <furo-password-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?disabled=${this._readonly||this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}" 
