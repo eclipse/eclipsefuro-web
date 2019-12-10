@@ -18,19 +18,18 @@
   <template>
     <test-bind>
     <template>
-        <furo-panel-coordinator
-                ƒ-show-page="--nodeSelected"
-                @-panels-changed="--panelChanges"></furo-panel-coordinator>
 
+        <furo-pages>
+            <furo-panel-coordinator  ƒ-show-page="--nodeSelected"
+                    @-panels-changed="--panelChanges"></furo-panel-coordinator>
+        </furo-pages>
 
-                <panel-produce-data auto @-data="--data"></panel-produce-data>
+        <panel-produce-data auto @-data="--data"></panel-produce-data>
 
+        <furo-tree slot="master" ƒ-focus="--escapeOnTabs" ƒ-bind-data="--entityObj(*.data)"
+                   @-node-selected="--nodeSelected"> </furo-tree>
 
-                <furo-tree slot="master" ƒ-focus="--escapeOnTabs" ƒ-bind-data="--entityObj(*.data)"
-                           @-node-selected="--nodeSelected"></furo-tree>
-
-                <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data"
-                                  @-object-ready="--entityObj"></furo-data-object>
+        <furo-data-object type="tree.TreeEntity" ƒ-inject-raw="--data"  @-object-ready="--entityObj"></furo-data-object>
 
      </template>
     </test-bind>
@@ -55,13 +54,16 @@
   describe('furo-panel-coordinator tests ', function () {
 
 
-    let element = {};
-    let furoTree, dataObject;
+    let furoPannelCoordinator = {};
+    let page, furoTree, dataObject;
 
     beforeEach(async () => {
       let fix = fixture('basic');
-      element = fix[1];
-      await element.updateComplete;
+      page = fix[1];
+      await page.updateComplete;
+
+      furoPannelCoordinator = page.querySelector("furo-panel-coordinator");
+      await furoPannelCoordinator.updateComplete;
 
       furoTree = fix[3];
       await furoTree.updateComplete;
@@ -78,24 +80,24 @@
     });
 
     it('should be a furo-panel-coordinator', (done) => {
-      assert.equal(element.nodeName.toLowerCase(), "furo-panel-coordinator");
+      assert.equal(furoPannelCoordinator.nodeName.toLowerCase(), "furo-panel-coordinator");
       done()
     });
 
 
     it('should notify which panels are open', (done) => {
 
-      element.addEventListener("panels-changed", (e)=>{
+      furoPannelCoordinator.addEventListener("panels-changed", (e)=>{
 
         done()
       });
 
-      element._notifiyOpenPanels();
+      furoPannelCoordinator._notifiyOpenPanels();
     });
 
     it('should show Page when a tree node is selected', (done) => {
 
-      element.addEventListener("panels-changed", (e)=>{
+      furoPannelCoordinator.addEventListener("panels-changed", (e)=>{
         done()
       });
 
@@ -106,18 +108,18 @@
 
     });
 
-/*    it('should close all Pages', (done) => {
+    it('should close all Pages via closeAll', (done) => {
 
-      element.addEventListener("panels-changed", (e)=>{
+      furoPannelCoordinator.addEventListener("panels-changed", (e)=>{
 
-        element._openPanels.forEach((panel) => {
+        furoPannelCoordinator._openPanels.forEach((panel) => {
           panel.addEventListener('close-requested', (e)=>{
 
             done();
           });
         });
 
-        element.closeAll();
+        furoPannelCoordinator.closeAll();
       },{once:true});
 
 
@@ -126,7 +128,37 @@
         furoTree.selectById(2);
       });
 
-    });*/
+    });
+
+    it('should remove node by id via _removeNodeById', (done) => {
+
+      furoPannelCoordinator.addEventListener("panels-changed", (e)=>{
+        assert.equal(furoPannelCoordinator._openPanels.length, 1);
+        furoPannelCoordinator._removeNodeById(2);
+        assert.equal(furoPannelCoordinator._openPanels.length, 0);
+        done();
+      },{once:true});
+
+      dataObject.addEventListener("data-injected",(e)=>{
+        furoTree.selectById(2);
+      });
+
+    });
+
+    it('should active panel via _activatePanelForNode', (done) => {
+
+      furoPannelCoordinator.addEventListener("panels-changed", (e)=>{
+
+        furoPannelCoordinator._activatePanelForNode(2);
+        assert.equal(furoPannelCoordinator._openPanels.length, 0);
+        done();
+      },{once:true});
+
+      dataObject.addEventListener("data-injected",(e)=>{
+        furoTree.selectById(2);
+      });
+
+    });
 
   });
 </script>
