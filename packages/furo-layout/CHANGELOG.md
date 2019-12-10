@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.39.1...@furo/layout@0.40.0) (2019-12-10)
+
+
+### Bug Fixes
+
+* set themable ([1ae20f7](https://github.com/theNorstroem/FuroBaseComponents/commit/1ae20f7))
+* wrong demo attributes ([59e5384](https://github.com/theNorstroem/FuroBaseComponents/commit/59e5384))
+
+
+### Features
+
+* new panel component to simply wrap elements with a predefined container ([67e8e2c](https://github.com/theNorstroem/FuroBaseComponents/commit/67e8e2c))
+
+
+
+
+
 ## [0.39.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.39.0...@furo/layout@0.39.1) (2019-12-02)
 
 

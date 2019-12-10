@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.44.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.44.0...@furo/specs@0.44.1) (2019-12-10)
+
+
+### Bug Fixes
+
+* remove deprecated ([3312001](https://github.com/theNorstroem/FuroBaseComponents/commit/3312001))
+
+
+
+
+
 # [0.44.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.43.2...@furo/specs@0.44.0) (2019-12-05)
 
 
