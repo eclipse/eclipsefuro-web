@@ -15,7 +15,7 @@ import "@furo/util/furo-keydown.js";{{end}}
  * @polymer
  * @appliesMixin FBP
  */
-export class {{.component_name | replace "-" "_" | camelcase}} extends FBP(LitElement) {
+export class {{.component_name | replace "-" "_" | camelcase}} extends {{.extends}} {
 
   {{if .properties}}
   /**

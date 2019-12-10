@@ -17,7 +17,7 @@ class U33eBuilder {
     this.model.exposedWires = {};
     this.model.methods = {};
     this.model.keyboardShortcuts = [];
-
+    this.model.extends = "FBP(LitElement)";
   }
 
   /**
