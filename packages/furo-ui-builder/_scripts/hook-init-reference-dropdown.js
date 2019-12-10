@@ -6,7 +6,7 @@ class HookInitReferenceSearch {
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q) {
       let type = SPEC.services.List.data.response.replace("Collection", "");
 
-      u33e.model.component_name = type.toLowerCase().replace(".", "-") + "-reference-search".toLowerCase();
+      u33e.model.component_name = type.toLowerCase().replace(".", "-") + "-reference-dropdown".toLowerCase();
       u33e.model.path = PKGDIR + "/" + u33e.model.component_name + ".u33e";
       u33e.model.description = SPEC.description;
 
@@ -40,25 +40,26 @@ class HookInitReferenceSearch {
       u33e.addStyle(":host[hidden]")
           .addCSSAttribute("display", "none");
 
-      u33e.addStyle("furo-data-reference-search")
+      u33e.addStyle("furo-data-collection-dropdown")
           .addCSSAttribute("width", "100%");
 
 
 
-      let refSearch = u33e.addDomNode("furo-data-reference-search");
+      let refSearch = u33e.addDomNode("furo-data-collection-dropdown");
       refSearch.addAttribute("value-field", "id")
           .addAttribute("display-field", "display_name")
+          .addAttribute("subfield", "id")
+          .addAttribute("subfield-display", "display-name")
           .addAttribute("?condensed", "$(this.condensed)")
-          .addAttribute("min-term-length", "1")
-          .addEventListener("search", "--term")
-          .addMethod("collection-in", "--collection")
+
+          .addMethod("inject-entities", "--collection(*.entities)")
           .addMethod("focus", "--focused")
           .addMethod("bind-data", "--field-injected");
 
       let agent = u33e.addDomNode("furo-collection-agent");
       agent.addAttribute("service", SPEC.name)
+          .addFlag("list-on-hts-in")
           .addMethod("hts-in", "--field-injected(*.link._value), --htsUpdated")
-          .addMethod("search", "--term")
           .addEventListener("response", "--collection");
 
       return u33e;
