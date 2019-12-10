@@ -47,7 +47,7 @@ class HookInitReferenceSearch {
           .addAttribute("display-field", "display_name")
           .addAttribute("?condensed", "$(this.condensed)")
           .addAttribute("min-term-length", "1")
-          .addEvent("search", "--term")
+          .addEventListener("search", "--term")
           .addMethod("collection-in", "--collection")
           .addMethod("focus", "--focused")
           .addMethod("bind-data", "--field-injected");
@@ -56,7 +56,7 @@ class HookInitReferenceSearch {
       agent.addAttribute("service", SPEC.name)
           .addMethod("hts-in", "--field-injected(*.link._value), --htsUpdated")
           .addMethod("search", "--term")
-          .addEvent("response", "--collection");
+          .addEventListener("response", "--collection");
 
       return u33e;
 

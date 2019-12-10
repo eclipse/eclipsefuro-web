@@ -28,11 +28,11 @@ const hooks = {type: [], service: []};
 // type hooks
 config.hooks.type.forEach((hook) => {
   hooks.type.push(require(process.cwd() + "/" + hook));
-})
+});
 // service hooks
 config.hooks.service.forEach((hook) => {
   hooks.service.push(require(process.cwd() + "/" + hook));
-})
+});
 
 
 Helper.walkSync(SpecDir).filter((filepath) => {
@@ -50,7 +50,6 @@ Helper.walkSync(SpecDir).filter((filepath) => {
   // return all specs
   return (filename.indexOf(".spec") > 0);
 
-
 }).forEach((pathToSpec) => {
   let ctx = Helper.specInfo(pathToSpec);
   ctx.config = config;
@@ -63,7 +62,6 @@ Helper.walkSync(SpecDir).filter((filepath) => {
 
     if (u33e instanceof U33eBuilder) {
       // write u33e file if model is returned
-
       fs.writeFileSync(u33e.model.path, u33e.getU33e());
 
     }

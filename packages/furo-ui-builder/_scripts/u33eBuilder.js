@@ -307,7 +307,7 @@ class DomNode {
    * @param wire {String} the wire
    * @return {DomNode}
    */
-  addEvent(at, wire) {
+  addEventListener(at, wire) {
     this.events[at] = wire;
     return this;
   }
