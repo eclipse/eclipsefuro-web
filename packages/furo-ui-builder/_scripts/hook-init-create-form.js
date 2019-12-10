@@ -5,6 +5,7 @@ class HookInitForm {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
+    u33e.setTheme("CreateFormBaseTheme");
     u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-create-form").toLowerCase();
     u33e.model.path = PKGDIR + "/" + u33e.model.component_name + ".u33e";
     u33e.model.description = SPEC.description;

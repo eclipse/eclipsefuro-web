@@ -5,7 +5,7 @@ class HookInitReferenceSearch {
     const PKGDIR = UISPECDIR + "/" + ctx.parts[0];
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q) {
       let type = SPEC.services.List.data.response.replace("Collection", "");
-
+      u33e.setTheme("ReferenceSearchBaseTheme");
       u33e.model.component_name = type.toLowerCase().replace(".", "-") + "-reference-search".toLowerCase();
       u33e.model.path = PKGDIR + "/" + u33e.model.component_name + ".u33e";
       u33e.model.description = SPEC.description;

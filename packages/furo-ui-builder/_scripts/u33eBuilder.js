@@ -18,6 +18,7 @@ class U33eBuilder {
     this.model.methods = {};
     this.model.keyboardShortcuts = [];
     this.model.extends = "FBP(LitElement)";
+    this.model.theme;
   }
 
   /**
@@ -32,6 +33,10 @@ class U33eBuilder {
 
   getU33e() {
     return JSON.stringify(this.model, null, 2);
+  }
+
+  setTheme(theme) {
+    this.model.theme = theme;
   }
 
   /**
@@ -164,7 +169,6 @@ class U33eBuilder {
   }
 
 
-
   addStyle(selector) {
     this.model.style.children[selector] = new CssProperty();
     return this.model.style.children[selector];
@@ -179,8 +183,6 @@ class U33eBuilder {
           }
      */
   }
-
-
 
 
   static getBestMatchingComponent(field) {
@@ -215,8 +217,8 @@ class U33eBuilder {
   };
 }
 
-class CssProperty{
-  constructor(){
+class CssProperty {
+  constructor() {
     this.children = {};
     this.attributes = {};
 
