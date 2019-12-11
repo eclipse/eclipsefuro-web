@@ -60,6 +60,7 @@ class HookInitReferenceSearch {
           .addAttribute("display-field", "display_name")
           .addAttribute("?condensed", "$(this.condensed)")
           .addAttribute("min-term-length", "1")
+          .addAttribute("no-result-hint", "${i18n.t('search.noresult.hint')}")
           .addEventListener("search", "--term")
           .addMethod("collection-in", "--collection")
           .addMethod("focus", "--focused")
