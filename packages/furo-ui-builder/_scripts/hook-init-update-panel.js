@@ -5,20 +5,19 @@ class HookInitUpdatePanel {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
+    if (!SPEC.services.Update) {
+      // abort if no update service is available
+      return undefined
+    }
+
+    let basename = (SPEC.services.Update.data.request.replace(".", "-"));
+    return PKGDIR + "/" + (basename + "-update-panel").toLowerCase() + ".u33e";
   }
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
-
-    if (!SPEC.services.Update) {
-      // abort if no update service is available
-      return
-    }
-    const UISPECDIR = ctx.config.ui_spec_out;
-    const PKGDIR = UISPECDIR + "/" + ctx.package;
     ctx.basename = (SPEC.services.Update.data.request.replace(".", "-"));
     u33e.model.component_name = (ctx.basename + "-update-panel").toLowerCase();
-    u33e.model.path = PKGDIR + "/" + u33e.model.component_name + ".u33e";
+    u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
     u33e.addImportWithMember(" html, css ", "lit-element");
@@ -34,8 +33,17 @@ class HookInitUpdatePanel {
     u33e.addImport("@furo/data/furo-entity-agent.js");
     u33e.addImport("@furo/data/furo-data-object.js");
 
-    u33e.addImport("./" + (ctx.basename + "-form").toLowerCase() + ".js");
-    u33e.addImport("./" + (ctx.basename + "-update-action").toLowerCase() + ".js");
+
+    let formImport = ctx.getImportPathForComponent((ctx.basename + "-form").toLowerCase());
+    if (formImport) {
+      u33e.addImport(formImport);
+    }
+
+    let updateActionImport = ctx.getImportPathForComponent((ctx.basename + "-update-action").toLowerCase());
+    if (updateActionImport) {
+      u33e.addImport(updateActionImport);
+    }
+
 
     u33e.model.extends = "BasePanel";
 

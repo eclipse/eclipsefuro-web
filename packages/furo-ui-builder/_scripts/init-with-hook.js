@@ -70,21 +70,26 @@ speclist.forEach((pathToSpec) => {
     ctx.spec = JSON.parse(fs.readFileSync(pathToSpec));
     ctx.package = ctx.spec.__proto.package;
     ctx.path = hook.getPath(ctx);
-    Helper.addCTX(ctx);
+    ctx.hook = hook;
+
+      if(ctx.path !== undefined){
+        Helper.addCTX(ctx);
+      }
+
+
   });
 });
 
 
 Helper.allCTX.forEach((ctx) => {
 
-  // loop hooks for service or type
-  hooks[ctx.kindOf].forEach((hook) => {
-    let u33e = new hook(ctx, new U33eBuilder(), Helper);
+
+    let u33e = new ctx.hook(ctx, new U33eBuilder(), Helper);
     if (u33e instanceof U33eBuilder) {
       sh("mkdir -p", [path.dirname(u33e.model.path)]);
       // write u33e file if model is returned
       fs.writeFileSync(u33e.model.path, u33e.getU33e());
 
     }
-  });
+
 });

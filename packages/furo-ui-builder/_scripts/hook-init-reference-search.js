@@ -6,8 +6,10 @@ class HookInitReferenceSearch {
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q){
       let type = SPEC.services.List.data.response.replace("Collection", "");
       return PKGDIR + "/" + type.toLowerCase().replace(".", "-") + "-reference-search".toLowerCase() + ".u33e";
+    }else {
+      return undefined;
     }
-  return ""
+
   }
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;

@@ -5,17 +5,19 @@ class HookInitUpdateAction {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
-  }
+    if (!SPEC.services.Update) {
+      // abort if no update service is available
+      return undefined
+    }
 
+    let basename = (SPEC.services.Update.data.request.replace(".", "-"));
+    return PKGDIR + "/" + (basename + "-update-action").toLowerCase() + ".u33e";
+  }
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
-
-    const UISPECDIR = ctx.config.ui_spec_out;
-    const PKGDIR = UISPECDIR + "/" + ctx.package;
     ctx.basename = (SPEC.services.Update.data.request.replace(".", "-"));
     u33e.model.component_name = (ctx.basename + "-update-action").toLowerCase();
-    u33e.model.path = PKGDIR + "/" + u33e.model.component_name + ".u33e";
+    u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
     u33e.addImportWithMember(" LitElement, html, css ", "lit-element");
@@ -34,9 +36,9 @@ class HookInitUpdateAction {
         .addCSSAttribute("display", "none");
 
     // exposed wires / public methods with _FBPTriggerWire
-    u33e.addExposedWire("bind-entity", "--entityObjectInjected", "Bind an entity data object. This will be forwarded to the furo-button-bar element inside this element.");
-    u33e.addExposedWire("disable-all", "--disableAllReq", "Disables all elements inside furo-button-bar");
-    u33e.addExposedWire("enable-all", "--enableAllReq", "Enables all elements inside furo-button-bar");
+    u33e.addExposedWire("bindEntity", "--entityObjectInjected", "Bind an entity data object. This will be forwarded to the furo-button-bar element inside this element.");
+    u33e.addExposedWire("disableAll", "--disableAllReq", "Disables all elements inside furo-button-bar");
+    u33e.addExposedWire("enableAll", "--enableAllReq", "Enables all elements inside furo-button-bar");
 
     // all components will be added to this node
     let bar = u33e.addDomNode("furo-button-bar");
