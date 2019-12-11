@@ -33,6 +33,7 @@ class HookInitUpdateAction {
     u33e.addStyle(":host[hidden]")
         .addCSSAttribute("display", "none");
 
+    // exposed wires / public methods with _FBPTriggerWire
     u33e.addExposedWire("bind-entity", "--entityObjectInjected", "Bind an entity data object. This will be forwarded to the furo-button-bar element inside this element.");
     u33e.addExposedWire("disable-all", "--disableAllReq", "Disables all elements inside furo-button-bar");
     u33e.addExposedWire("enable-all", "--enableAllReq", "Enables all elements inside furo-button-bar");
@@ -49,22 +50,23 @@ class HookInitUpdateAction {
 
       switch (service) {
         case "update": {
-
           btn.addFlag("primary")
               .addFlag("unelevated")
               .addFlag("hide-no-rel")
               .addFlag("disable-not-valid")
               .addFlag("disable-pristine")
-              .addAttribute("label", "${i18n.t('{{action.update}}')}");
-
+              .addAttribute("rel", service.deeplink.rel)
+              .addAttribute("label", "${i18n.t('{{action.update}}')}")
+              .addEventListener("click", "-^update-req");
           break;
         }
         case "delete": {
-          btn.addFlag("primary")
+          btn.addFlag("danger")
               .addFlag("unelevated")
               .addFlag("hide-no-rel")
-              .addFlag("disable-not-valid")
-              .addFlag("disable-pristine");
+              .addAttribute("rel", service.deeplink.rel)
+              .addAttribute("label", "${i18n.t('{{action.delete}}')}")
+              .addEventListener("click", "-^delete-req");
           break;
         }
 
