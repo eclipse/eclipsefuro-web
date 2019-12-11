@@ -67,3 +67,10 @@ list.forEach((filepath) => {
   // run generator
   sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", datafile, "-t", GeneratorTemplate, ">", targetfile]);
 });
+
+
+// build the registry
+let registryjson = UiSpecDir + "/registry.spec";
+let template = path.dirname(GeneratorTemplate) + "/registry.tmpl"
+let target = BuildDir + "/registry.js";
+sh(pathToSimpleGeneratorBinary + "simple-generator", ["-d", registryjson, "-t", template, ">", target]);

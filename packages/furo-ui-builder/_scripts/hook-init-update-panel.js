@@ -17,6 +17,10 @@ class HookInitUpdatePanel {
     const SPEC = ctx.spec;
     ctx.basename = (SPEC.services.Update.data.request.replace(".", "-"));
     u33e.model.component_name = (ctx.basename + "-update-panel").toLowerCase();
+
+    // add to registry
+    ctx.addToRegistry("edit" , u33e.model.component_name , SPEC.services.Update.data.response)
+
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 

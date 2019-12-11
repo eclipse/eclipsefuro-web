@@ -60,7 +60,20 @@ class CTX {
       return "./" + path.basename(target);
     }
     return relative + "/" + path.basename(target);
+  }
 
+  /**
+   *
+   * panelRegistry.registerType("experiment.ExperimentEntity", {
+   *    "display" : "experiment-experiment-display-panel" ,"edit" : "experiment-experiment-update-panel"
+   * });
+   *
+   * @param panel {String} like "display"
+   * @param component {String} like "experiment-experiment-display-panel"
+   * @param type {String} like "experiment.ExperimentEntity"
+   */
+  addToRegistry(panel, component, type) {
+    this.registry = {panel, component, type};
   }
 }
 

@@ -72,24 +72,38 @@ speclist.forEach((pathToSpec) => {
     ctx.path = hook.getPath(ctx);
     ctx.hook = hook;
 
-      if(ctx.path !== undefined){
-        Helper.addCTX(ctx);
-      }
+    if (ctx.path !== undefined) {
+      Helper.addCTX(ctx);
+    }
 
 
   });
 });
 
+// write all u33e files
+Helper.allCTX.forEach((ctx) => {
+  let u33e = new ctx.hook(ctx, new U33eBuilder(), Helper);
+  if (u33e instanceof U33eBuilder) {
+    sh("mkdir -p", [path.dirname(u33e.model.path)]);
+    // write u33e file if model is returned
+    fs.writeFileSync(u33e.model.path, u33e.getU33e());
+  }
+});
+
+// write registry
+// collect data for the panel registry
+let registry = {"imports": new Set, panels: {}};
 
 Helper.allCTX.forEach((ctx) => {
+if(ctx.registry){
 
+  // remove UiSpecDir from path
+  registry.imports.add(ctx.path.replace(UiSpecDir,".").replace(".u33e",".js"));
+  registry.panels[ctx.registry.type] = registry.panels[ctx.registry.type] || {};
+  registry.panels[ctx.registry.type][ctx.registry.panel] = ctx.registry.component;
 
-    let u33e = new ctx.hook(ctx, new U33eBuilder(), Helper);
-    if (u33e instanceof U33eBuilder) {
-      sh("mkdir -p", [path.dirname(u33e.model.path)]);
-      // write u33e file if model is returned
-      fs.writeFileSync(u33e.model.path, u33e.getU33e());
-
-    }
-
+}
 });
+registry.imports = Array.from(registry.imports);
+fs.writeFileSync(UiSpecDir + "/registry.spec", JSON.stringify(registry,"",2));
+
