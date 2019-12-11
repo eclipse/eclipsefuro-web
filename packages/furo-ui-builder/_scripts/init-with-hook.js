@@ -35,30 +35,55 @@ config.hooks.service.forEach((hook) => {
 });
 
 
-Helper.walkSync(SpecDir).filter((filepath) => {
+let speclist = Helper.walkSync(SpecDir).filter((filepath) => {
   let filename = path.basename(filepath);
   if (filename.indexOf("_") >= 0) {
     // ignore type_collection or type_entity
     return false;
   }
 
-  // TODO: skip ignored files
-  if (config.skip_init.indexOf(filename) != -1) {
+  // skip spec files
+  if (config.skip_spec.indexOf(filename) != -1) {
     console.log("skip:", filename);
     return false;
   }
   // return all specs
   return (filename.indexOf(".spec") > 0);
 
-}).forEach((pathToSpec) => {
+});
+
+
+// resolve all possible created names and paths for the import helper
+speclist.forEach((pathToSpec) => {
   let ctx = Helper.specInfo(pathToSpec);
   ctx.config = config;
   // load spec file
   ctx.spec = JSON.parse(fs.readFileSync(pathToSpec));
-
+  ctx.package = ctx.spec.__proto.package;
 
   // loop hooks for service or type
-  hooks[ctx.is].forEach((hook) => {
+  hooks[ctx.kindOf].forEach((hook) => {
+    let ctx = Helper.specInfo(pathToSpec);
+    ctx.config = config;
+    // load spec file
+    ctx.spec = JSON.parse(fs.readFileSync(pathToSpec));
+    ctx.package = ctx.spec.__proto.package;
+
+    hook.getPath(ctx);
+
+  });
+});
+
+
+speclist.forEach((pathToSpec) => {
+  let ctx = Helper.specInfo(pathToSpec);
+  ctx.config = config;
+  // load spec file
+  ctx.spec = JSON.parse(fs.readFileSync(pathToSpec));
+  ctx.package = ctx.spec.__proto.package;
+
+  // loop hooks for service or type
+  hooks[ctx.kindOf].forEach((hook) => {
     let u33e = new hook(ctx, new U33eBuilder());
 
     if (u33e instanceof U33eBuilder) {

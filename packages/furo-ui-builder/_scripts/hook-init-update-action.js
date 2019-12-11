@@ -1,6 +1,13 @@
 const U33eBuilder = require("./u33eBuilder");
 
 class HookInitUpdateAction {
+  static getPath(ctx){
+    const SPEC = ctx.spec;
+    const UISPECDIR = ctx.config.ui_spec_out;
+    const PKGDIR = UISPECDIR + "/" + ctx.package;
+    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
+  }
+
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
 
@@ -40,7 +47,7 @@ class HookInitUpdateAction {
 
       let btn = bar.appendChild("furo-button");
 
-      switch (service.deeplink.rel) {
+      switch (service) {
         case "update": {
 
           btn.addFlag("primary")

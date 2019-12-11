@@ -17,8 +17,9 @@ class InitHelper {
 
     return {
       "parts": t,
-      "package": t[0],
-      "is": t[t.length - 1]
+      "package": undefined,
+      "spec": undefined,
+      "kindOf": t[t.length - 1]
     };
   };
 

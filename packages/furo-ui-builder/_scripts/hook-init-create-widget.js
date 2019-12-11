@@ -1,6 +1,12 @@
 const U33eBuilder = require("./u33eBuilder");
 
 class HookInitForm {
+  static getPath(ctx){
+    const SPEC = ctx.spec;
+    const UISPECDIR = ctx.config.ui_spec_out;
+    const PKGDIR = UISPECDIR + "/" + ctx.package;
+    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
+  }
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
