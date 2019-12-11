@@ -52,6 +52,7 @@ let speclist = Helper.walkSync(SpecDir).filter((filepath) => {
 
 });
 
+let allCTXs = [];
 
 // resolve all possible created names and paths for the import helper
 speclist.forEach((pathToSpec) => {
@@ -68,24 +69,17 @@ speclist.forEach((pathToSpec) => {
     // load spec file
     ctx.spec = JSON.parse(fs.readFileSync(pathToSpec));
     ctx.package = ctx.spec.__proto.package;
-
-    hook.getPath(ctx);
-
+    ctx.path = hook.getPath(ctx);
+    Helper.addCTX(ctx);
   });
 });
 
 
-speclist.forEach((pathToSpec) => {
-  let ctx = Helper.specInfo(pathToSpec);
-  ctx.config = config;
-  // load spec file
-  ctx.spec = JSON.parse(fs.readFileSync(pathToSpec));
-  ctx.package = ctx.spec.__proto.package;
+Helper.allCTX.forEach((ctx) => {
 
   // loop hooks for service or type
   hooks[ctx.kindOf].forEach((hook) => {
-    let u33e = new hook(ctx, new U33eBuilder());
-
+    let u33e = new hook(ctx, new U33eBuilder(), Helper);
     if (u33e instanceof U33eBuilder) {
       sh("mkdir -p", [path.dirname(u33e.model.path)]);
       // write u33e file if model is returned

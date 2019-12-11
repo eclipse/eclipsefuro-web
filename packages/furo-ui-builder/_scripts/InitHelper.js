@@ -1,6 +1,12 @@
 const fs = require('fs');
 const path = require('path');
+
+
 class InitHelper {
+  static addCTX(ctx) {
+    this.allCTX.push(ctx);
+    this.componentIndex[path.basename(ctx.path.replace(".u33e", ""))] = ctx.path.replace(".u33e", "");
+  }
 
   /**
    *
@@ -15,16 +21,11 @@ class InitHelper {
     });
     t.pop();
 
-    return {
-      "parts": t,
-      "package": undefined,
-      "spec": undefined,
-      "kindOf": t[t.length - 1]
-    };
+    return new CTX(t);
   };
 
 
-  static walkSync(dir, filelist = []){
+  static walkSync(dir, filelist = []) {
     fs.readdirSync(dir).forEach(file => {
       filelist = fs.statSync(path.join(dir, file)).isDirectory()
           ? this.walkSync(path.join(dir, file), filelist)
@@ -33,6 +34,34 @@ class InitHelper {
     });
     return filelist;
   };
+}
+
+InitHelper.allCTX = [];
+InitHelper.componentIndex = {};
+
+class CTX {
+  constructor(t) {
+    this.parts = t;
+    this.package;
+    this.spec;
+    this.kindOf = t[t.length - 1];
+    this.path;
+  }
+
+  getImportPathForComponent(component) {
+    // return relative path for a component
+    let target = InitHelper.componentIndex[component] + ".js";
+    let from = this.path.replace(".u33e", ".js");
+    if (from === target) {
+      return false;
+    }
+    let relative = path.relative(path.dirname(from), path.dirname(target));
+    if (relative === "") {
+      return "./" + path.basename(target);
+    }
+    return relative + "/" + path.basename(target);
+
+  }
 }
 
 module.exports = InitHelper;

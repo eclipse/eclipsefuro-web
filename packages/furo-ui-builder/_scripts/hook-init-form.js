@@ -1,7 +1,7 @@
 const U33eBuilder = require("./u33eBuilder");
 
 class HookInitForm {
-  static getPath(ctx){
+  static getPath(ctx) {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
@@ -10,12 +10,10 @@ class HookInitForm {
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
-    const UISPECDIR = ctx.config.ui_spec_out;
-    const PKGDIR = UISPECDIR + "/" + ctx.package;
 
     u33e.setTheme("FormBaseTheme");
     u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase();
-    u33e.model.path = PKGDIR + "/" + u33e.model.component_name + ".u33e";
+    u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
     u33e.addImportWithMember(" LitElement, html, css ", "lit-element");
@@ -27,7 +25,7 @@ class HookInitForm {
     u33e.addImport("@furo/data-input");
     u33e.addImport("@furo/form");
 
-    u33e.addMethod("bindData","data",
+    u33e.addMethod("bindData", "data",
         " Bind your furo-data-object event @-object-ready\n @public\n @param data",
         "CiAgICB0aGlzLl9GQlBUcmlnZ2VyV2lyZSgnLS1kYXRhJywgZGF0YSk7CiAgICB0aGlzLmZpZWxkID0gZGF0YTs=");
 
@@ -61,14 +59,11 @@ class HookInitForm {
       //  complex type has a cutom form component
       if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
         component = field.type.toLowerCase().replace(".", "-") + "-form";
+
         // exclude self import
-        if (u33e.model.component_name !== component) {
-          // check whether the imported file is under the same folder
-          if (ctx.package !== arrTmpName[0]) {
-           u33e.addImport("../" + arrTmpName[0] + "/" + component + ".js");
-          } else {
-            u33e.addImport("./" + component + ".js");
-          }
+        let importComponent = ctx.getImportPathForComponent(component);
+        if (importComponent) {
+          u33e.addImport(importComponent);
         }
       }
 
@@ -77,8 +72,7 @@ class HookInitForm {
 
       fld.description = "field: " + fieldname;
       fld.addFlag("condensed");
-      fld.addMethod("bind-data","--data(*." + fieldname + ")");
-
+      fld.addMethod("bind-data", "--data(*." + fieldname + ")");
 
 
       // repeated fields can use furo-data-repeat component
@@ -94,24 +88,18 @@ class HookInitForm {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
           fld.component = f.toLowerCase().replace(".", "-") + "-reference-search";
-
-          let folder = f.split(".")[0];
           // exclude self import
-          if (u33e.model.component_name !== fld.component) {
-            // check whether the imported file is under the same folder
-            if (ctx.package !== folder) {
-              u33e.addImport("../" + folder + "/" + fld.component + ".js");
-            } else {
-              u33e.addImport("./" + fld.component + ".js");
-            }
+          let importComponent = ctx.getImportPathForComponent(fld.component);
+          if (importComponent) {
+            u33e.addImport(importComponent);
           }
         }
       }
     }
 
     // focus the first field
-    if(form.children.length > 0){
-      form.children[0].addMethod("focus","--focused");
+    if (form.children.length > 0) {
+      form.children[0].addMethod("focus", "--focused");
     }
 
     return u33e;
