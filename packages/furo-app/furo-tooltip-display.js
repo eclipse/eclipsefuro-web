@@ -91,7 +91,9 @@ class FuroTooltipDisplay extends FBP(LitElement) {
     return Theme.getThemeForComponent(this.name) || css`
       :host {
         position: absolute;
-        display: block;
+        display: none;
+        top:0;
+        left: 0;
         transition: opacity 300ms;
         opacity: 0;
         background-color: #6d6d6d;
