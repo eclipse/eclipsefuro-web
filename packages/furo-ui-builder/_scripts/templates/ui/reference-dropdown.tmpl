@@ -25,7 +25,7 @@ class {{.class_name}} extends FBP(LitElement) {
     this.field = field;
     this._FBPTriggerWire("--field-injected", field);
 
-    this.field.addEventListener("branch-value-changed", (e)=>{
+    this.field.addEventListener("branch-value-changed", ()=>{
         if( this.field.link._value &&
           this.field.link._value.href && this.field.link._value.service) {
           this._FBPTriggerWire('--htsUpdated', this.field.link._value);

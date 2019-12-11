@@ -7296,38 +7296,17 @@
           }
         },
         {
-          "name": "_labelCurrency",
-          "type": "?",
-          "description": "Updater for the label attr for currency",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 157,
-              "column": 2
-            },
-            "end": {
-              "line": 168,
-              "column": 3
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          }
-        },
-        {
           "name": "_options",
           "type": "?",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 319,
+              "line": 295,
               "column": 2
             },
             "end": {
-              "line": 337,
+              "line": 313,
               "column": 3
             }
           },
@@ -7344,11 +7323,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 339,
+              "line": 315,
               "column": 2
             },
             "end": {
-              "line": 345,
+              "line": 321,
               "column": 3
             }
           },
@@ -7363,11 +7342,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 159,
               "column": 6
             },
             "end": {
-              "line": 176,
+              "line": 159,
               "column": 43
             }
           },
@@ -7384,11 +7363,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 180,
+              "line": 163,
               "column": 6
             },
             "end": {
-              "line": 182,
+              "line": 165,
               "column": 7
             }
           },
@@ -7405,11 +7384,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 178,
               "column": 6
             },
             "end": {
-              "line": 197,
+              "line": 180,
               "column": 7
             }
           },
@@ -7420,38 +7399,17 @@
           }
         },
         {
-          "name": "labelCurrency",
-          "type": "string | null | undefined",
-          "description": "currency field label",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 211,
-              "column": 6
-            },
-            "end": {
-              "line": 214,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
           "name": "label",
           "type": "string | null | undefined",
           "description": "amount field label",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 194,
               "column": 6
             },
             "end": {
-              "line": 220,
+              "line": 196,
               "column": 7
             }
           },
@@ -7468,11 +7426,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 200,
               "column": 6
             },
             "end": {
-              "line": 226,
+              "line": 202,
               "column": 7
             }
           },
@@ -7489,11 +7447,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 230,
+              "line": 206,
               "column": 6
             },
             "end": {
-              "line": 232,
+              "line": 208,
               "column": 7
             }
           },
@@ -7510,11 +7468,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 214,
               "column": 7
             }
           },
@@ -7531,11 +7489,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 221,
               "column": 6
             },
             "end": {
-              "line": 247,
+              "line": 223,
               "column": 7
             }
           },
@@ -7552,11 +7510,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 253,
+              "line": 229,
               "column": 6
             },
             "end": {
-              "line": 255,
+              "line": 231,
               "column": 7
             }
           },
@@ -7573,11 +7531,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 265,
+              "line": 241,
               "column": 6
             },
             "end": {
-              "line": 268,
+              "line": 244,
               "column": 7
             }
           },
@@ -7594,11 +7552,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 272,
+              "line": 248,
               "column": 6
             },
             "end": {
-              "line": 274,
+              "line": 250,
               "column": 7
             }
           },
@@ -7615,11 +7573,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 278,
+              "line": 254,
               "column": 6
             },
             "end": {
-              "line": 280,
+              "line": 256,
               "column": 7
             }
           },
@@ -8122,11 +8080,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 290,
+              "line": 266,
               "column": 2
             },
             "end": {
-              "line": 292,
+              "line": 268,
               "column": 3
             }
           },
@@ -8146,11 +8104,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 298,
+              "line": 274,
               "column": 2
             },
             "end": {
-              "line": 300,
+              "line": 276,
               "column": 3
             }
           },
@@ -8170,11 +8128,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 305,
+              "line": 281,
               "column": 2
             },
             "end": {
-              "line": 308,
+              "line": 284,
               "column": 3
             }
           },
@@ -8190,11 +8148,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 313,
+              "line": 289,
               "column": 2
             },
             "end": {
-              "line": 316,
+              "line": 292,
               "column": 3
             }
           },
@@ -8210,11 +8168,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 347,
+              "line": 323,
               "column": 2
             },
             "end": {
-              "line": 375,
+              "line": 351,
               "column": 3
             }
           },
@@ -8234,11 +8192,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 406,
+              "line": 382,
               "column": 2
             },
             "end": {
-              "line": 430,
+              "line": 406,
               "column": 3
             }
           },
@@ -8263,7 +8221,7 @@
           "column": 0
         },
         "end": {
-          "line": 432,
+          "line": 408,
           "column": 1
         }
       },
@@ -8292,11 +8250,11 @@
           "description": "Set a string list as options:\n\n\"A, B, C\"\n\nThis will convert to options [\"A\",\"B\",\"C\"]",
           "sourceRange": {
             "start": {
-              "line": 339,
+              "line": 315,
               "column": 2
             },
             "end": {
-              "line": 345,
+              "line": 321,
               "column": 3
             }
           },
@@ -8308,11 +8266,11 @@
           "description": "set this to true to indicate errors",
           "sourceRange": {
             "start": {
-              "line": 176,
+              "line": 159,
               "column": 6
             },
             "end": {
-              "line": 176,
+              "line": 159,
               "column": 43
             }
           },
@@ -8324,11 +8282,11 @@
           "description": "The start value. Changes will be notified with the `@-value-changed` event",
           "sourceRange": {
             "start": {
-              "line": 180,
+              "line": 163,
               "column": 6
             },
             "end": {
-              "line": 182,
+              "line": 165,
               "column": 7
             }
           },
@@ -8340,11 +8298,11 @@
           "description": "The list of currencies. Can be a simple list like [\"A\",\"B\",\"C\"]. In this case the value is equals the label\n\nWith ids (key value):\n\n[{\"id\":1,\"label\":\"AAA\"},{\"id\":2,\"label\":\"BBB\"}]\n\n\nWith preselect state in data:\n\n[{\"id\":23,\"label\":\"AAA\",\"selected\":false},{\"id\":44,\"label\":\"BBB\",\"selected\":true}]",
           "sourceRange": {
             "start": {
-              "line": 195,
+              "line": 178,
               "column": 6
             },
             "end": {
-              "line": 197,
+              "line": 180,
               "column": 7
             }
           },
@@ -8352,31 +8310,15 @@
           "type": "Array | null | undefined"
         },
         {
-          "name": "label-currency",
-          "description": "currency field label",
-          "sourceRange": {
-            "start": {
-              "line": 211,
-              "column": 6
-            },
-            "end": {
-              "line": 214,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
           "name": "label",
           "description": "amount field label",
           "sourceRange": {
             "start": {
-              "line": 218,
+              "line": 194,
               "column": 6
             },
             "end": {
-              "line": 220,
+              "line": 196,
               "column": 7
             }
           },
@@ -8388,11 +8330,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 224,
+              "line": 200,
               "column": 6
             },
             "end": {
-              "line": 226,
+              "line": 202,
               "column": 7
             }
           },
@@ -8404,11 +8346,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 230,
+              "line": 206,
               "column": 6
             },
             "end": {
-              "line": 232,
+              "line": 208,
               "column": 7
             }
           },
@@ -8420,11 +8362,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 236,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 238,
+              "line": 214,
               "column": 7
             }
           },
@@ -8436,11 +8378,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 245,
+              "line": 221,
               "column": 6
             },
             "end": {
-              "line": 247,
+              "line": 223,
               "column": 7
             }
           },
@@ -8452,11 +8394,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 253,
+              "line": 229,
               "column": 6
             },
             "end": {
-              "line": 255,
+              "line": 231,
               "column": 7
             }
           },
@@ -8468,11 +8410,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 265,
+              "line": 241,
               "column": 6
             },
             "end": {
-              "line": 268,
+              "line": 244,
               "column": 7
             }
           },
@@ -8484,11 +8426,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 272,
+              "line": 248,
               "column": 6
             },
             "end": {
-              "line": 274,
+              "line": 250,
               "column": 7
             }
           },
@@ -8500,11 +8442,11 @@
           "description": "Set this attribute to switch to filled layout. Filled is without the borders around the field.",
           "sourceRange": {
             "start": {
-              "line": 278,
+              "line": 254,
               "column": 6
             },
             "end": {
-              "line": 280,
+              "line": 256,
               "column": 7
             }
           },
@@ -8736,7 +8678,9 @@
             }
           },
           "metadata": {
-            "polymer": {}
+            "polymer": {
+              "attributeType": "Boolean"
+            }
           }
         },
         {
@@ -8767,11 +8711,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 163,
+              "line": 155,
               "column": 6
             },
             "end": {
-              "line": 165,
+              "line": 157,
               "column": 7
             }
           },
@@ -8785,6 +8729,27 @@
           "name": "min",
           "type": "number | null | undefined",
           "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 163,
+              "column": 6
+            },
+            "end": {
+              "line": 165,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Number"
+            }
+          }
+        },
+        {
+          "name": "max",
+          "type": "number | null | undefined",
+          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -8803,9 +8768,9 @@
           }
         },
         {
-          "name": "max",
-          "type": "number | null | undefined",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "name": "readonly",
+          "type": "boolean | null | undefined",
+          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -8814,27 +8779,6 @@
             },
             "end": {
               "line": 181,
-              "column": 7
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Number"
-            }
-          }
-        },
-        {
-          "name": "readonly",
-          "type": "boolean | null | undefined",
-          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 187,
-              "column": 6
-            },
-            "end": {
-              "line": 189,
               "column": 7
             }
           },
@@ -8851,11 +8795,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 193,
+              "line": 185,
               "column": 6
             },
             "end": {
-              "line": 195,
+              "line": 187,
               "column": 7
             }
           },
@@ -8872,11 +8816,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 192,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 194,
               "column": 7
             }
           },
@@ -8893,11 +8837,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 220,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 223,
+              "line": 215,
               "column": 7
             }
           },
@@ -8914,11 +8858,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 227,
+              "line": 219,
               "column": 6
             },
             "end": {
-              "line": 229,
+              "line": 221,
               "column": 7
             }
           },
@@ -8935,11 +8879,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 225,
               "column": 6
             },
             "end": {
-              "line": 235,
+              "line": 227,
               "column": 7
             }
           },
@@ -9369,11 +9313,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 242,
+              "line": 234,
               "column": 2
             },
             "end": {
-              "line": 244,
+              "line": 236,
               "column": 3
             }
           },
@@ -9389,11 +9333,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 248,
+              "line": 240,
               "column": 2
             },
             "end": {
-              "line": 250,
+              "line": 242,
               "column": 3
             }
           },
@@ -9409,11 +9353,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 257,
+              "line": 249,
               "column": 2
             },
             "end": {
-              "line": 259,
+              "line": 251,
               "column": 3
             }
           },
@@ -9435,11 +9379,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 262,
+              "line": 254,
               "column": 2
             },
             "end": {
-              "line": 265,
+              "line": 257,
               "column": 3
             }
           },
@@ -9455,11 +9399,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 290,
+              "line": 282,
               "column": 2
             },
             "end": {
-              "line": 303,
+              "line": 295,
               "column": 3
             }
           },
@@ -9485,7 +9429,7 @@
           "column": 0
         },
         "end": {
-          "line": 305,
+          "line": 297,
           "column": 1
         }
       },
@@ -9578,11 +9522,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 163,
+              "line": 155,
               "column": 6
             },
             "end": {
-              "line": 165,
+              "line": 157,
               "column": 7
             }
           },
@@ -9592,6 +9536,22 @@
         {
           "name": "min",
           "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "sourceRange": {
+            "start": {
+              "line": 163,
+              "column": 6
+            },
+            "end": {
+              "line": 165,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "number | null | undefined"
+        },
+        {
+          "name": "max",
+          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
               "line": 171,
@@ -9606,8 +9566,8 @@
           "type": "number | null | undefined"
         },
         {
-          "name": "max",
-          "description": "Overrides the max value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
+          "name": "readonly",
+          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
               "line": 179,
@@ -9619,22 +9579,6 @@
             }
           },
           "metadata": {},
-          "type": "number | null | undefined"
-        },
-        {
-          "name": "readonly",
-          "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 187,
-              "column": 6
-            },
-            "end": {
-              "line": 189,
-              "column": 7
-            }
-          },
-          "metadata": {},
           "type": "boolean | null | undefined"
         },
         {
@@ -9642,11 +9586,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 193,
+              "line": 185,
               "column": 6
             },
             "end": {
-              "line": 195,
+              "line": 187,
               "column": 7
             }
           },
@@ -9658,11 +9602,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 200,
+              "line": 192,
               "column": 6
             },
             "end": {
-              "line": 202,
+              "line": 194,
               "column": 7
             }
           },
@@ -9674,11 +9618,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 220,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 223,
+              "line": 215,
               "column": 7
             }
           },
@@ -9690,11 +9634,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 227,
+              "line": 219,
               "column": 6
             },
             "end": {
-              "line": 229,
+              "line": 221,
               "column": 7
             }
           },
@@ -9706,11 +9650,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 233,
+              "line": 225,
               "column": 6
             },
             "end": {
-              "line": 235,
+              "line": 227,
               "column": 7
             }
           },
@@ -13395,7 +13339,7 @@
       ]
     },
     {
-      "description": "`furo-data-reference-search`\n Sucht eine Referenz\n bounded data should be furo-reference\n\n```\n<!--  furo-data-object will eine Referenz auflösen -->\n<furo-data-object type=\"task.Task\" @-object-ready=\"--entityReady\"></furo-data-object>\n\n<furo-horizontal-flex>\n   <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.\n   Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den furo-collection-agent.\n   Wenn furo-collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->\n   <furo-data-reference-search autofocus  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-data-reference-search>\n\n   <furo-data-reference-search  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" min-term-length=\"2\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-data-reference-search>\n\n</furo-horizontal-flex>\n\n<!-- Der furo-collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.\nDie Resultate werden an furo-data-reference-search zurück gegeben. -->\n<furo-collection-agent service=\"tasks\" ƒ-search=\"--term\" ƒ-hts-in=\"--entityReady(*.fields.ref._value)\" @-response=\"--refCol\"></furo-collection-agent>\n\n```\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property                                | Description | Default  | Fallback\n-----------------------------------------------|-------------|----------|----------\n`--furo-data-reference-search-list-background` | Background color of result list | --surface | #ffffff;",
+      "description": "`furo-data-reference-search`\n Sucht eine Referenz\n bounded data should be furo-reference\n\n```\n<!--  furo-data-object will eine Referenz auflösen -->\n<furo-data-object type=\"task.Task\" @-object-ready=\"--entityReady\"></furo-data-object>\n\n<furo-horizontal-flex>\n   <!--  furo-data-reference-search kann eine Referenz die entity-objekt besitzt darstellen.\n   Bei einer Texteingabe wird ^^search mit dem eingegebenen Text gesucht. Diesr geht via wire --term an den furo-collection-agent.\n   Wenn furo-collection-agent eine Kollektion zurückliefert, klappt die Auswahl auf. -->\n   <furo-data-reference-search autofocus  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-data-reference-search>\n\n   <furo-data-reference-search  flex ƒ-bind-data=\"--entityReady(*.fields.ref)\" min-term-length=\"2\" @-search=\"--term\" ƒ-collection-in=\"--refCol\"></furo-data-reference-search>\n\n</furo-horizontal-flex>\n\n<!-- Der furo-collection-agent erhält die hts von ref.value, wenn ein term eingegeben wurde beginnt dieser zu suchen.\nDie Resultate werden an furo-data-reference-search zurück gegeben. -->\n<furo-collection-agent service=\"tasks\" ƒ-search=\"--term\" ƒ-hts-in=\"--entityReady(*.fields.ref._value)\" @-response=\"--refCol\"></furo-collection-agent>\n\n```\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property                                | Description | Default  | Fallback\n-----------------------------------------------|-------------|----------|----------\n`--furo-data-reference-search-list-background` | Background color of result list | --surface | #ffffff;\n`--reference-search-no-result-hint` | color of hint when no result found | --accent | #ddb13d;",
       "summary": "shortdescription",
       "path": "packages/furo-data-input/furo-data-reference-search.js",
       "properties": [
@@ -13406,11 +13350,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 235,
+              "line": 245,
               "column": 4
             },
             "end": {
-              "line": 237,
+              "line": 247,
               "column": 5
             }
           },
@@ -13427,11 +13371,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 243,
+              "line": 253,
               "column": 4
             },
             "end": {
-              "line": 245,
+              "line": 255,
               "column": 5
             }
           },
@@ -13448,11 +13392,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 261,
               "column": 4
             },
             "end": {
-              "line": 253,
+              "line": 263,
               "column": 5
             }
           },
@@ -13469,11 +13413,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 259,
+              "line": 269,
               "column": 4
             },
             "end": {
-              "line": 261,
+              "line": 271,
               "column": 5
             }
           },
@@ -13490,11 +13434,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 273,
+              "line": 283,
               "column": 12
             },
             "end": {
-              "line": 273,
+              "line": 283,
               "column": 64
             }
           },
@@ -13511,11 +13455,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 277,
+              "line": 287,
               "column": 12
             },
             "end": {
-              "line": 280,
+              "line": 290,
               "column": 13
             }
           },
@@ -13532,11 +13476,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 286,
+              "line": 296,
               "column": 12
             },
             "end": {
-              "line": 288,
+              "line": 298,
               "column": 13
             }
           },
@@ -13553,11 +13497,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 292,
+              "line": 302,
               "column": 12
             },
             "end": {
-              "line": 294,
+              "line": 304,
               "column": 13
             }
           },
@@ -13574,11 +13518,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 298,
+              "line": 308,
               "column": 12
             },
             "end": {
-              "line": 300,
+              "line": 310,
               "column": 13
             }
           },
@@ -13595,11 +13539,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 304,
+              "line": 314,
               "column": 12
             },
             "end": {
-              "line": 306,
+              "line": 316,
               "column": 13
             }
           },
@@ -13616,11 +13560,32 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 312,
+              "line": 322,
               "column": 12
             },
             "end": {
-              "line": 314,
+              "line": 324,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "noResultHint",
+          "type": "string | null | undefined",
+          "description": "hint text when result not found by search",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 328,
+              "column": 12
+            },
+            "end": {
+              "line": 331,
               "column": 13
             }
           },
@@ -13637,11 +13602,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 320,
+              "line": 337,
               "column": 12
             },
             "end": {
-              "line": 322,
+              "line": 339,
               "column": 13
             }
           },
@@ -13658,11 +13623,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 328,
+              "line": 345,
               "column": 12
             },
             "end": {
-              "line": 330,
+              "line": 347,
               "column": 13
             }
           },
@@ -13679,11 +13644,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 336,
+              "line": 353,
               "column": 12
             },
             "end": {
-              "line": 339,
+              "line": 356,
               "column": 13
             }
           },
@@ -13700,11 +13665,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 345,
+              "line": 362,
               "column": 12
             },
             "end": {
-              "line": 348,
+              "line": 365,
               "column": 13
             }
           },
@@ -13721,11 +13686,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 354,
+              "line": 371,
               "column": 12
             },
             "end": {
-              "line": 356,
+              "line": 373,
               "column": 13
             }
           },
@@ -13742,11 +13707,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 360,
+              "line": 377,
               "column": 12
             },
             "end": {
-              "line": 362,
+              "line": 379,
               "column": 13
             }
           },
@@ -13763,11 +13728,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 367,
+              "line": 384,
               "column": 12
             },
             "end": {
-              "line": 369,
+              "line": 386,
               "column": 13
             }
           },
@@ -13784,11 +13749,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 373,
+              "line": 390,
               "column": 12
             },
             "end": {
-              "line": 376,
+              "line": 393,
               "column": 13
             }
           },
@@ -13805,11 +13770,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 380,
+              "line": 397,
               "column": 12
             },
             "end": {
-              "line": 382,
+              "line": 399,
               "column": 13
             }
           },
@@ -13826,11 +13791,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 386,
+              "line": 403,
               "column": 12
             },
             "end": {
-              "line": 388,
+              "line": 405,
               "column": 13
             }
           },
@@ -14064,11 +14029,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 62,
               "column": 4
             },
             "end": {
-              "line": 64,
+              "line": 67,
               "column": 5
             }
           },
@@ -14260,11 +14225,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 67,
+              "line": 70,
               "column": 4
             },
             "end": {
-              "line": 171,
+              "line": 176,
               "column": 5
             }
           },
@@ -14280,11 +14245,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 174,
+              "line": 179,
               "column": 4
             },
             "end": {
-              "line": 186,
+              "line": 191,
               "column": 5
             }
           },
@@ -14300,11 +14265,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 188,
+              "line": 193,
               "column": 4
             },
             "end": {
-              "line": 203,
+              "line": 211,
               "column": 5
             }
           },
@@ -14320,11 +14285,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 205,
+              "line": 213,
               "column": 4
             },
             "end": {
-              "line": 208,
+              "line": 216,
               "column": 5
             }
           },
@@ -14340,11 +14305,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 210,
+              "line": 218,
               "column": 4
             },
             "end": {
-              "line": 222,
+              "line": 232,
               "column": 5
             }
           },
@@ -14360,11 +14325,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 398,
+              "line": 415,
               "column": 4
             },
             "end": {
-              "line": 403,
+              "line": 420,
               "column": 5
             }
           },
@@ -14386,11 +14351,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 405,
+              "line": 422,
               "column": 4
             },
             "end": {
-              "line": 412,
+              "line": 429,
               "column": 5
             }
           },
@@ -14406,11 +14371,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 414,
+              "line": 431,
               "column": 4
             },
             "end": {
-              "line": 423,
+              "line": 453,
               "column": 5
             }
           },
@@ -14430,11 +14395,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 469,
+              "line": 505,
               "column": 4
             },
             "end": {
-              "line": 490,
+              "line": 526,
               "column": 5
             }
           },
@@ -14450,16 +14415,20 @@
         {
           "url": "demo-furo-data-reference-search",
           "description": ""
+        },
+        {
+          "url": "demo-furo-data-reference-search-no-result",
+          "description": ""
         }
       ],
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 46,
+          "line": 48,
           "column": 0
         },
         "end": {
-          "line": 492,
+          "line": 528,
           "column": 1
         }
       },
@@ -14472,11 +14441,11 @@
           "description": "the field name of reference-item which should be used to asign to value (likes id) field of the the data entity object",
           "sourceRange": {
             "start": {
-              "line": 273,
+              "line": 283,
               "column": 12
             },
             "end": {
-              "line": 273,
+              "line": 283,
               "column": 64
             }
           },
@@ -14488,11 +14457,11 @@
           "description": "the field name of reference-item which should be used as display which will be showed in the dropdown.",
           "sourceRange": {
             "start": {
-              "line": 277,
+              "line": 287,
               "column": 12
             },
             "end": {
-              "line": 280,
+              "line": 290,
               "column": 13
             }
           },
@@ -14504,11 +14473,11 @@
           "description": "if you bind a complex type, declare here the field which gets updated of value by selecting an item.\n\nIf you bind a scalar, you dont need this attribute.",
           "sourceRange": {
             "start": {
-              "line": 286,
+              "line": 296,
               "column": 12
             },
             "end": {
-              "line": 288,
+              "line": 298,
               "column": 13
             }
           },
@@ -14520,11 +14489,27 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 312,
+              "line": 322,
               "column": 12
             },
             "end": {
-              "line": 314,
+              "line": 324,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "no-result-hint",
+          "description": "hint text when result not found by search",
+          "sourceRange": {
+            "start": {
+              "line": 328,
+              "column": 12
+            },
+            "end": {
+              "line": 331,
               "column": 13
             }
           },
@@ -14536,11 +14521,11 @@
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 320,
+              "line": 337,
               "column": 12
             },
             "end": {
-              "line": 322,
+              "line": 339,
               "column": 13
             }
           },
@@ -14552,11 +14537,11 @@
           "description": "Overrides the hint text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 328,
+              "line": 345,
               "column": 12
             },
             "end": {
-              "line": 330,
+              "line": 347,
               "column": 13
             }
           },
@@ -14568,11 +14553,11 @@
           "description": "Overrides the min value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 336,
+              "line": 353,
               "column": 12
             },
             "end": {
-              "line": 339,
+              "line": 356,
               "column": 13
             }
           },
@@ -14584,11 +14569,11 @@
           "description": "Enable this, to avoid the automatic triggering of \"search\".\n\nThe user have to press enter to trigger the search. Min-term-length is respected.",
           "sourceRange": {
             "start": {
-              "line": 345,
+              "line": 362,
               "column": 12
             },
             "end": {
-              "line": 348,
+              "line": 365,
               "column": 13
             }
           },
@@ -14600,11 +14585,11 @@
           "description": "Overrides the readonly value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 354,
+              "line": 371,
               "column": 12
             },
             "end": {
-              "line": 356,
+              "line": 373,
               "column": 13
             }
           },
@@ -14616,11 +14601,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 360,
+              "line": 377,
               "column": 12
             },
             "end": {
-              "line": 362,
+              "line": 379,
               "column": 13
             }
           },
@@ -14632,11 +14617,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 367,
+              "line": 384,
               "column": 12
             },
             "end": {
-              "line": 369,
+              "line": 386,
               "column": 13
             }
           },
@@ -14648,11 +14633,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 373,
+              "line": 390,
               "column": 12
             },
             "end": {
-              "line": 376,
+              "line": 393,
               "column": 13
             }
           },
@@ -14664,11 +14649,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 380,
+              "line": 397,
               "column": 12
             },
             "end": {
-              "line": 382,
+              "line": 399,
               "column": 13
             }
           },
@@ -14680,11 +14665,11 @@
           "description": "passes always float the label",
           "sourceRange": {
             "start": {
-              "line": 386,
+              "line": 403,
               "column": 12
             },
             "end": {
-              "line": 388,
+              "line": 405,
               "column": 13
             }
           },
@@ -20403,7 +20388,7 @@
               "column": 2
             },
             "end": {
-              "line": 58,
+              "line": 55,
               "column": 3
             }
           },
@@ -20423,11 +20408,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 57,
               "column": 2
             },
             "end": {
-              "line": 117,
+              "line": 110,
               "column": 3
             }
           },
@@ -20450,7 +20435,7 @@
           "column": 7
         },
         "end": {
-          "line": 118,
+          "line": 111,
           "column": 1
         }
       },

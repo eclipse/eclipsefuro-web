@@ -220,6 +220,21 @@
             })
         });
 
+      it('should show no result hint by empty response', (done) => {
+
+        entityObject.addEventListener("object-ready", () => {
+
+          referenceSearch.collectionIn({});
+
+          setTimeout(() => {
+            assert.equal(referenceSearch.shadowRoot.getElementById("input").hint , "no result found");
+            done();
+
+          }, 10)
+        });
+
+      });
+
         // a11y tests
         it('a11y', () => {
             return axeReport(fixture('basic'));

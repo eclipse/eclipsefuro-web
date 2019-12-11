@@ -88,6 +88,7 @@
           }
         },
         "hint": "",
+        "no_result_hint": "",
         "options": {
           "list": [
             {

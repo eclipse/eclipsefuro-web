@@ -38,10 +38,12 @@ import {Helper} from "./lib/helper";
  * Custom property                                | Description | Default  | Fallback
  * -----------------------------------------------|-------------|----------|----------
  * `--furo-data-reference-search-list-background` | Background color of result list | --surface | #ffffff;
+ * `--reference-search-no-result-hint` | color of hint when no result found | --accent | #ddb13d;
  *
  * @summary shortdescription
  * @customElement
  * @demo demo-furo-data-reference-search
+ * @demo demo-furo-data-reference-search-no-result
  * @appliesMixin FBP
  */
 class FuroDataReferenceSearch extends FBP(LitElement) {
@@ -51,6 +53,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         this._minTermLength = 0;
         this.valueField = "id";
         this.displayField = "display_name";
+        this._noResultHint = "no result found";
     }
 
 
@@ -125,7 +128,9 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
             } else {
                 // list is closed
                 if (key === "ArrowDown") {
+                  if (this._hasCollection) {
                     this._showList();
+                  }
                 }
                 if (key === "Enter") {
                     if (this.searchOnEnterOnly) {
@@ -187,20 +192,23 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     }
 
     _showList() {
+      let arrCollection = this._collection;
+      if(arrCollection && arrCollection.length > 0) {
         this._listIsOpen = true;
         this.setAttribute("show-list", "");
-        let arrCollection = this._collection;
         let index = 0;
 
         for (let i = 0; i < arrCollection.length; i++) {
 
-            if (arrCollection[i].data && arrCollection[i].data[this.valueField] == this.field.id._value) {
-                index = i;
-                break;
-            }
+          if (arrCollection[i].data && arrCollection[i].data[this.valueField] == this.field.id._value) {
+            index = i;
+            break;
+          }
         }
-        // trigger wire to select item
         this._FBPTriggerWire("--listOpened", index);
+
+      }
+      // trigger wire to select item
     }
 
     _closeList() {
@@ -209,7 +217,9 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     }
 
     _clear(){
-        this.field.reinit();
+      this._clearNoResultHint();
+
+      this.field.reinit();
         this._updateField();
         this._closeList();
 
@@ -314,6 +324,13 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
                 type: String,
             },
             /**
+             * hint text when result not found by search
+             */
+            noResultHint: {
+              type: String,
+              attribute: 'no-result-hint'
+            },
+            /**
              * Overrides the required value from the **specs**.
              *
              * Use with caution, normally the specs defines this value.
@@ -414,13 +431,45 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     collectionIn(collection) {
 
+      if(collection && collection.entities) {
+
+        this.shadowRoot.getElementById("input").removeAttribute("no-result");
+
         this._FBPTriggerWire("--listItemsIjnected", collection.entities);
         this._hasCollection = true;
         this._collection = collection.entities;
 
         if (this._focused) {
-            this._showList();
+          this._showList();
         }
+      }
+      else {
+        this.setAttribute("show-list", "");
+
+        this._hasCollection = false;
+        this._collection = [];
+        this._closeList();
+        this.shadowRoot.getElementById("input").setAttribute("no-result","");
+        this._hint = this._noResultHint;
+      }
+    }
+
+  /**
+   * clear no result hint. reset hint to original value
+   * @private
+   */
+  _clearNoResultHint() {
+      this.shadowRoot.getElementById("input").removeAttribute("no-result");
+      // reset hint to original value
+      if(this.hint) {
+        this._hint = this.hint;
+      }
+      else if(this.field._meta && this.field._meta.hint) {
+        this._hint = this.field._meta.hint;
+      }
+      else {
+        this._hint = "";
+      }
     }
 
     /**
@@ -458,6 +507,10 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
             furo-search-input {
                 width: 100%;
+            }
+
+            furo-search-input[no-result] {
+                --input-hint-color: var(--reference-search-no-result-hint,var(--accent,  #ddb13d));
             }
         `
     }

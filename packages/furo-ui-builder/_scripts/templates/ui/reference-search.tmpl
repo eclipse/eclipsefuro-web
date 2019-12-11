@@ -5,6 +5,7 @@ import {Theme} from "@furo/framework/theme.js"
 import {FBP} from "@furo/fbp";
 import "@furo/data"
 import "@furo/data-input"
+import {i18n} from "@furo/framework/i18n.js"
 
 {{range $import := .imports}}
 import "{{$import}}";{{end}}
@@ -25,7 +26,7 @@ class {{.class_name}} extends FBP(LitElement) {
     this.field = field;
     this._FBPTriggerWire("--field-injected", field);
 
-    this.field.addEventListener("branch-value-changed", (e)=>{
+    this.field.addEventListener("branch-value-changed", ()=>{
         if( this.field.link._value &&
           this.field.link._value.href && this.field.link._value.service) {
           this._FBPTriggerWire('--htsUpdated', this.field.link._value);
@@ -80,6 +81,7 @@ class {{.class_name}} extends FBP(LitElement) {
                                   ?condensed="${this.condensed}" {{if .search_on_enter_only}}
                                   search-on-enter-only {{end}}
                                   min-term-length="{{.min_term_length}}"
+                                  no-result-hint="${i18n.t('furo.referencesearch.noresult.hint')}"
                                   ƒ-collection-in="--collection">
       </furo-data-reference-search>
       <furo-collection-agent

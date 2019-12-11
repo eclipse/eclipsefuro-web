@@ -15,6 +15,9 @@ export class CheckMetaAndOverrides {
         if (element.field._meta.hint) {
           element._hint = element.field._meta.hint;
         }
+        if(element.field._meta.no_result_hint) {
+          element._noResultHint = element.field._meta.no_result_hint;
+        }
         if (element.field._meta.cols) {
           element._cols = element.field._meta.cols;
         }
@@ -103,6 +106,10 @@ export class CheckMetaAndOverrides {
 
     if (element.minTermLength) {
       element._minTermLength = element.minTermLength;
+    }
+
+    if (element.noResultHint) {
+      element._noResultHint = element.noResultHint;
     }
 
     if (element.options) {
