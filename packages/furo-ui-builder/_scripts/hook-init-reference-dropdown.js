@@ -29,11 +29,7 @@ class HookInitReferenceSearch {
       // https://www.base64encode.org/
       u33e.addMethod("bindData", "field",
           " Bind your furo-data-object event @-object-ready\n @public\n @param data",
-          "ICAgIHRoaXMuZmllbGQgPSBmaWVsZDsKICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCItLWZpZWxk\n" +
-          "LWluamVjdGVkIiwgZmllbGQpOwoKICAgIHRoaXMuZmllbGQuYWRkRXZlbnRMaXN0ZW5lcigiZmll\n" +
-          "bGQtdmFsdWUtY2hhbmdlZCIsIChlKT0+ewoKICAgICAgaWYoZS5kZXRhaWwuX25hbWUgPT09ICJ0\n" +
-          "eXBlIikgewogICAgICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCItLWh0c1VwZGF0ZWQiLCB0aGlz\n" +
-          "LmZpZWxkLmxpbmsuX3ZhbHVlKTsKICAgICAgfQogICAgfSk7");
+          "dGhpcy5maWVsZCA9IGZpZWxkOw0KICB0aGlzLl9GQlBUcmlnZ2VyV2lyZSgiLS1maWVsZC1pbmplY3RlZCIsIGZpZWxkKTsNCiAgdGhpcy5maWVsZC5hZGRFdmVudExpc3RlbmVyKCJicmFuY2gtdmFsdWUtY2hhbmdlZCIsICgpPT57DQogICAgICBpZiggdGhpcy5maWVsZC5saW5rLl92YWx1ZSAmJg0KICAgICAgICB0aGlzLmZpZWxkLmxpbmsuX3ZhbHVlLmhyZWYgJiYgdGhpcy5maWVsZC5saW5rLl92YWx1ZS5zZXJ2aWNlKSB7DQogICAgICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCctLWh0c1VwZGF0ZWQnLCB0aGlzLmZpZWxkLmxpbmsuX3ZhbHVlKTsNCiAgICAgIH0NCiAgfSk7");
 
 
       u33e.addProperty("condensed", "Boolean",
