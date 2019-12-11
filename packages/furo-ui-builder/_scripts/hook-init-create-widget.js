@@ -6,16 +6,14 @@ class HookInitCreateWidget {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-create-widget").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
-    const UISPECDIR = ctx.config.ui_spec_out;
-    const PKGDIR = UISPECDIR + "/" + ctx.package;
     u33e.setTheme("CreateWidgetBaseTheme");
     u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-create-widget").toLowerCase();
-    u33e.model.path = PKGDIR + "/" + u33e.model.component_name + ".u33e";
+    u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
     u33e.addImportWithMember(" LitElement, html, css ", "lit-element");
@@ -82,13 +80,9 @@ class HookInitCreateWidget {
       if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
         component = field.type.toLowerCase().replace(".", "-") + "-form";
         // exclude self import
-        if (u33e.model.component_name !== component) {
-          // check whether the imported file is under the same folder
-          if (ctx.package !== arrTmpName[0]) {
-            u33e.addImport("../" + arrTmpName[0] + "/" + component + ".js");
-          } else {
-            u33e.addImport("./" + component + ".js");
-          }
+        let importComponent = ctx.getImportPathForComponent(component);
+        if (importComponent) {
+          u33e.addImport(importComponent);
         }
       }
 
@@ -116,13 +110,9 @@ class HookInitCreateWidget {
 
           let folder = f.split(".")[0];
           // exclude self import
-          if (u33e.model.component_name !== fld.component) {
-            // check whether the imported file is under the same folder
-            if (ctx.package !== folder) {
-              u33e.addImport("../" + folder + "/" + fld.component + ".js");
-            } else {
-              u33e.addImport("./" + fld.component + ".js");
-            }
+          let importComponent = ctx.getImportPathForComponent(fld.component);
+          if (importComponent) {
+            u33e.addImport(importComponent);
           }
         }
       }

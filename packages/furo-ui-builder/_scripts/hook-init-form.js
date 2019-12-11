@@ -10,7 +10,6 @@ class HookInitForm {
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
-
     u33e.setTheme("FormBaseTheme");
     u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase();
     u33e.model.path = ctx.path;
