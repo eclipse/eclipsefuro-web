@@ -1,12 +1,14 @@
 const U33eBuilder = require("./u33eBuilder");
 
-class HookInitForm {
+class HookInitCreateWidget {
+
   static getPath(ctx){
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
     return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
   }
+
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
@@ -17,13 +19,14 @@ class HookInitForm {
     u33e.model.description = SPEC.description;
 
     u33e.addImportWithMember(" LitElement, html, css ", "lit-element");
-    u33e.addImportWithMember("Theme", "@furo/framework/theme.js");
-    u33e.addImportWithMember("FBP", "@furo/fbp");
-    u33e.addImportWithMember("i18n", "@furo/framework/i18n.js", "eslint-disable-next-line no-unused-vars");
+    u33e.addImportWithMember(" Theme ", "@furo/framework/theme.js");
+    u33e.addImportWithMember(" FBP ", "@furo/fbp");
+    u33e.addImportWithMember(" i18n ", "@furo/framework/i18n.js", "eslint-disable-next-line no-unused-vars");
 
 
     u33e.addImport("@furo/data-input");
-    u33e.addImport("@furo/form");
+    u33e.addImport("@furo/form/furo-form-layouter.js");
+    u33e.addImport("@furo/input/furo-button.js");
     u33e.addImport("@furo/app/furo-card.js");
     u33e.addImport("@furo/layout/furo-horizontal-flex.js");
 
@@ -56,7 +59,7 @@ class HookInitForm {
     button.addFlag("primary")
         .addAttribute("rel","create")
         .addAttribute("label","${i18n.t('create')}")
-        .addEventListener("click","-^create-requested", "fired when the create button was pressed")
+        .addEventListener("click","-^create-requested", "fired when the create button was pressed");
 
 
     //fields
@@ -135,4 +138,4 @@ class HookInitForm {
   }
 }
 
-module.exports = HookInitForm;
+module.exports = HookInitCreateWidget;
