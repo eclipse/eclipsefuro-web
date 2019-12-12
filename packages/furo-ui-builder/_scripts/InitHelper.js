@@ -6,10 +6,10 @@ class InitHelper {
   static addCTX(ctx) {
     this.allCTX.push(ctx);
     this.componentIndex[path.basename(ctx.path.replace(".u33e", ""))] = ctx.path.replace(".u33e", "");
-    if(ctx.kindOf === "type"){
+    if (ctx.kindOf === "type") {
       this.specIndex[ctx.spec.__proto.package + "." + ctx.spec.type] = ctx.spec;
     }
-    if(ctx.kindOf === "servive"){
+    if (ctx.kindOf === "servive") {
       this.specIndex[ctx.spec.name] = ctx.spec;
     }
 
@@ -23,16 +23,17 @@ class InitHelper {
    * @param name
    * @return {*}
    */
-  static getSpec(name){
+  static getSpec(name) {
     return this.specIndex[name];
   }
+
   /**
    *
    * @param pathToSpec
    * @return {string[]}  [ 'package', 'typename', 'type' ]
    */
   static specInfo(pathToSpec) {
-// types are defined as package.Typename ==> ~/package/typename.type.spec
+  // types are defined as package.Typename ==> ~/package/typename.type.spec
     let t = path.basename(pathToSpec).split(".");
     t = t.map((s) => {
       return s.toLowerCase()
