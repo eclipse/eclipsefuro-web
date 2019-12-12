@@ -6,9 +6,26 @@ class InitHelper {
   static addCTX(ctx) {
     this.allCTX.push(ctx);
     this.componentIndex[path.basename(ctx.path.replace(".u33e", ""))] = ctx.path.replace(".u33e", "");
-    this.specIndex[ctx.spec.type] = ctx.spec;
+    if(ctx.kindOf === "type"){
+      this.specIndex[ctx.spec.__proto.package + "." + ctx.spec.type] = ctx.spec;
+    }
+    if(ctx.kindOf === "servive"){
+      this.specIndex[ctx.spec.name] = ctx.spec;
+    }
+
   }
 
+  /**
+   * Get a spec
+   *
+   * `getSpec("person.Person")` or `getSpec("PersonService")`
+   *
+   * @param name
+   * @return {*}
+   */
+  static getSpec(name){
+    return this.specIndex[name];
+  }
   /**
    *
    * @param pathToSpec
