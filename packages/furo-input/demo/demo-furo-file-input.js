@@ -70,8 +70,8 @@ class DemoFuroFileInput extends FBP(LitElement) {
 
                         <furo-card header-text="Look at the result"
                                    secondary-text="furo-file-input attribute accept is set to '.pdf'">
-                            <p style="width: 300px; height:250px; overflow: hidden; word-break: break-all;"
-                               ƒ-.inner-text="--selectedPdf"></p>
+                            <object style="width: 300px; height:250px; overflow: hidden; word-break: break-all;"
+                               ƒ-.data="--selectedPdf"></object>
                             <furo-file-input slot="action" label="Upload PDF" unelevated accent accept=".pdf"
                                              @-value-changed="--selectedPdf"></furo-file-input>
 
