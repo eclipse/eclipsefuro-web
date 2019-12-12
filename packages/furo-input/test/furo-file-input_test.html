@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>furo-file-input</title>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+
+</head>
+<body>
+
+
+<test-fixture id="Basic">
+    <template>
+        <furo-file-input label="Upload..." primary accept=".pdf"></furo-file-input>
+    </template>
+</test-fixture>
+
+<script type="module">
+    import "../furo-catalog"
+    import '/node_modules/axe-core/axe.min.js';
+    import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
+
+
+
+    describe('furo-file-input', () => {
+        let fileInput, inputField;
+        beforeEach(async () => {
+            fileInput = fixture('Basic');
+            await fileInput.updateComplete;
+            inputField = fileInput.shadowRoot.querySelector("input");
+
+        });
+
+        it('a11y', () => {
+            return axeReport(fixture('Basic'));
+        });
+
+        it('should be disablealble with method disable', (done) => {
+            fileInput.disable();
+            setTimeout(()=>{
+                assert.equal(inputField.getAttribute("disabled"),"");
+                assert.equal(fileInput.disabled,true);
+                done();
+            },5)
+        });
+
+        it('should be enablable with method enable', (done) => {
+            fileInput.disabled = true;
+            fileInput.enable();
+            setTimeout(()=>{
+                assert.equal(inputField.getAttribute("disabled"),null);
+                assert.equal(fileInput.disabled,false);
+                done();
+            },5)
+        });
+
+        it('should be able to upload multiple files', (done) => {
+            fileInput.multiple = true;
+            setTimeout(()=>{
+                assert.equal(inputField.getAttribute("multiple"), "true");
+                done();
+            },5)
+        });
+
+        it('should be focusable', (done) => {
+            fileInput.focus();
+            assert.equal(fileInput,document.activeElement);
+            done();
+        });
+
+        it('instantiating furo-file-input with default properties works', () => {
+
+            assert.equal(fileInput.tagName.toLowerCase(), 'furo-file-input');
+
+        });
+
+
+    });
+
+
+</script>
+
+</body>
+</html>

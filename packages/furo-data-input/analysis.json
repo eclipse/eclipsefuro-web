@@ -14375,7 +14375,7 @@
               "column": 4
             },
             "end": {
-              "line": 453,
+              "line": 454,
               "column": 5
             }
           },
@@ -14390,16 +14390,36 @@
           }
         },
         {
+          "name": "_clearNoResultHint",
+          "description": "clear no result hint. reset hint to original value",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 460,
+              "column": 2
+            },
+            "end": {
+              "line": 472,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "render",
           "description": "",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 505,
+              "line": 522,
               "column": 4
             },
             "end": {
-              "line": 526,
+              "line": 543,
               "column": 5
             }
           },
@@ -14428,7 +14448,7 @@
           "column": 0
         },
         "end": {
-          "line": 528,
+          "line": 545,
           "column": 1
         }
       },
@@ -20388,7 +20408,7 @@
               "column": 2
             },
             "end": {
-              "line": 55,
+              "line": 58,
               "column": 3
             }
           },
@@ -20408,11 +20428,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 57,
+              "line": 60,
               "column": 2
             },
             "end": {
-              "line": 110,
+              "line": 117,
               "column": 3
             }
           },
@@ -20435,7 +20455,7 @@
           "column": 7
         },
         "end": {
-          "line": 111,
+          "line": 118,
           "column": 1
         }
       },
