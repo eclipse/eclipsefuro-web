@@ -2,7 +2,7 @@
   "name": "@furo/layout",
   "description": "Layout components for furo",
   "main": "furo-catalog.js",
-  "version": "0.40.0",
+  "version": "0.41.0",
   "dependencies": {
     "@furo/fbp": "^4.27.4",
     "@furo/framework": "^0.13.3",

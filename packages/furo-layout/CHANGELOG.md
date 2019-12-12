@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.41.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.40.0...@furo/layout@0.41.0) (2019-12-12)
+
+
+### Features
+
+* add no-result-hint for reference-search ([e07acc4](https://github.com/theNorstroem/FuroBaseComponents/commit/e07acc4))
+
+
+
+
+
 # [0.40.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.39.1...@furo/layout@0.40.0) (2019-12-10)
 
 

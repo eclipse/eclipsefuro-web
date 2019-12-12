@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.61.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.60.1...@furo/input@0.61.0) (2019-12-12)
+
+
+### Features
+
+* add no-result-hint for reference-search ([e07acc4](https://github.com/theNorstroem/FuroBaseComponents/commit/e07acc4))
+
+
+
+
+
 ## [0.60.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.60.0...@furo/input@0.60.1) (2019-12-10)
 
 **Note:** Version bump only for package @furo/input
