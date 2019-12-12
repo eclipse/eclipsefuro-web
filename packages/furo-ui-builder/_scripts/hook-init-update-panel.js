@@ -1,7 +1,7 @@
 const U33eBuilder = require("./u33eBuilder");
 
 class HookInitUpdatePanel {
-  static getPath(ctx){
+  static getPath(ctx) {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
@@ -13,13 +13,14 @@ class HookInitUpdatePanel {
     let basename = (SPEC.services.Update.data.request.replace(".", "-"));
     return PKGDIR + "/" + (basename + "-update-panel").toLowerCase() + ".u33e";
   }
+
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
     ctx.basename = (SPEC.services.Update.data.request.replace(".", "-"));
     u33e.model.component_name = (ctx.basename + "-update-panel").toLowerCase();
 
     // add to registry
-    ctx.addToRegistry("edit" , u33e.model.component_name , SPEC.services.Update.data.response)
+    ctx.addToRegistry("edit", u33e.model.component_name, SPEC.services.Update.data.response);
 
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;

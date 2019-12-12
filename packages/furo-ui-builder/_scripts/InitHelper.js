@@ -6,6 +6,7 @@ class InitHelper {
   static addCTX(ctx) {
     this.allCTX.push(ctx);
     this.componentIndex[path.basename(ctx.path.replace(".u33e", ""))] = ctx.path.replace(".u33e", "");
+    this.specIndex[ctx.spec.type] = ctx.spec;
   }
 
   /**
@@ -37,6 +38,7 @@ class InitHelper {
 }
 
 InitHelper.allCTX = [];
+InitHelper.specIndex = [];
 InitHelper.componentIndex = {};
 
 class CTX {
