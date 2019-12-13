@@ -54,17 +54,19 @@ class DemoFuroFileInput extends FBP(LitElement) {
                             <li>Accept: .jpg</li>
                             <li>Multiple: false</li>
                             <li>Required: false</li>
-                            <furo-file-input slot="action" label="Upload image" unelevated primary accept=".jpg"
+                            <furo-file-input slot="action" label="Upload image" outline primary accept=".jpg"
                                              @-value-changed="--selected"></furo-file-input>
 
                         </furo-card>
 
                         <furo-card header-text="Look at the result"
                                    secondary-text="furo-file-input attribute accept is set to '.md'">
+                            <div @-click="--btnFocusClicked">&dbkarow; Focus file input</div>
                             <p style="width: 300px; height:250px; overflow: hidden; word-break: break-all;"
                                ƒ-.inner-text="--selectedFile"></p>
-                            <furo-file-input slot="action" label="Upload markdown" secondary accept=".md"
-                                             @-value-changed="--selectedFile"></furo-file-input>
+                            
+                            <furo-file-input slot="action" label="Upload markdown" accept=".md"
+                                             @-value-changed="--selectedFile" ƒ-focus="--btnFocusClicked"></furo-file-input>
 
                         </furo-card>
 
