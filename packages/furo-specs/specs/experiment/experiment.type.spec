@@ -441,13 +441,31 @@
         "number": 21
       }
     },
+    "furo_data_file_input": {
+      "description": "field for testing money type",
+      "type": "string",
+      "meta": {
+        "readonly": false,
+        "repeated": true,
+        "label": "Choose a file"
+      },
+      "constraints": {
+        "required": {
+          "is": "true",
+          "message":"is required"
+        }
+      },
+      "__proto": {
+        "number": 22
+      }
+    },
     "update_mask": {
       "description": "Contains a field_mask which fields of the targeted resource are going to be updated",
       "type": "google.protobuf.FieldMask",
       "meta": {},
       "constraints": {},
       "__proto": {
-        "number": 22
+        "number": 23
       }
     }
 

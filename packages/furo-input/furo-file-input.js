@@ -409,8 +409,12 @@ class FuroFileInput extends FBP(LitElement) {
         // language=HTML
         return html`
       <input type="file" class="inputfile"
-             ?readonly=${this.readonly} ?disabled=${this.disabled} ?required=${this.required} ?accept=${this.accept}
-             ?multiple=${this.multiple} ?capture="${this.capture}"
+             ?readonly=${this.readonly} 
+             ?disabled=${this.disabled} 
+             ?required=${this.required} 
+             ?accept=${this.accept}
+             ?multiple=${this.multiple} 
+             ?capture="${this.capture}"
              id="input" name="input"
              @-input="--inputInput(*)">
       <label for="input" ƒ-focus="--focus" ?autofocus=${this.autofocus}><span>${this.label} ${this.required ? html`*` : html``}</span></label>

@@ -43,7 +43,7 @@ message Constraints {
 }
 
 // experiment spec for testing
-message Experiment {                                                                                                
+message Experiment {                                                                                                    
     // Short experiment description
     string description = 3;
     
@@ -64,6 +64,9 @@ message Experiment {
     
     // field for furo-data-date-input for testing
     google.type.Date furo_data_date_input_google = 18;
+    
+    // field for testing money type
+    repeated string furo_data_file_input = 22;
     
     // field for testing money type
     google.type.Money furo_data_money_input = 21;
@@ -108,7 +111,7 @@ message Experiment {
     string type_with_options = 16;
     
     // Contains a field_mask which fields of the targeted resource are going to be updated
-    google.protobuf.FieldMask update_mask = 22;
+    google.protobuf.FieldMask update_mask = 23;
 
 }
 
