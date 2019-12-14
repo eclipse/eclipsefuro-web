@@ -17352,7 +17352,7 @@
       ]
     },
     {
-      "description": "`furo-file-input`\nHandy component to manage input type=\"file\"\nLet the user choose one or more files from their device storage\n\n### Styling\nThe following custom properties and mixins are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`` |  |  | --",
+      "description": "`furo-file-input`\nHandy component to manage input type=\"file\"\nLet the user choose one or more files from their device storage\n\n### Styling\nThe following custom properties are available for styling:\n\nCustom property | Description | Default  | Fallback\n----------------|-------------|----------|----------\n`` |  |  | --",
       "summary": "File input field",
       "path": "packages/furo-input/furo-file-input.js",
       "properties": [
@@ -17363,11 +17363,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 370,
               "column": 4
             },
             "end": {
-              "line": 253,
+              "line": 372,
               "column": 5
             }
           },
@@ -17382,11 +17382,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 255,
+              "line": 374,
               "column": 4
             },
             "end": {
-              "line": 257,
+              "line": 376,
               "column": 5
             }
           },
@@ -17401,11 +17401,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 259,
+              "line": 378,
               "column": 4
             },
             "end": {
-              "line": 261,
+              "line": 380,
               "column": 5
             }
           },
@@ -17959,11 +17959,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 266,
+              "line": 385,
               "column": 4
             },
             "end": {
-              "line": 268,
+              "line": 387,
               "column": 5
             }
           },
@@ -17979,11 +17979,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 273,
+              "line": 392,
               "column": 4
             },
             "end": {
-              "line": 275,
+              "line": 394,
               "column": 5
             }
           },
@@ -17999,11 +17999,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 280,
+              "line": 399,
               "column": 4
             },
             "end": {
-              "line": 282,
+              "line": 401,
               "column": 5
             }
           },
@@ -18019,11 +18019,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 288,
+              "line": 407,
               "column": 4
             },
             "end": {
-              "line": 299,
+              "line": 421,
               "column": 5
             }
           },
@@ -18048,7 +18048,7 @@
           "column": 0
         },
         "end": {
-          "line": 301,
+          "line": 423,
           "column": 1
         }
       },
@@ -18061,11 +18061,11 @@
           "description": "Hint for expected file type in file upload controls\nhttps://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers\ne.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           "sourceRange": {
             "start": {
-              "line": 251,
+              "line": 370,
               "column": 4
             },
             "end": {
-              "line": 253,
+              "line": 372,
               "column": 5
             }
           },
@@ -18077,11 +18077,11 @@
           "description": "Whether to allow multiple values",
           "sourceRange": {
             "start": {
-              "line": 255,
+              "line": 374,
               "column": 4
             },
             "end": {
-              "line": 257,
+              "line": 376,
               "column": 5
             }
           },
@@ -18093,11 +18093,11 @@
           "description": "What source to use for capturing image or video data\nThe capture attribute value is a string that specifies which camera to use for capture of\nimage or video data, if the accept attribute indicates that the input should be of one of those types.\nA value of user indicates that the user-facing camera and/or microphone should be used. A value of environment\nspecifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,\nthe user agent is free to decide on its own what to do. If the requested facing mode isn't available,\nthe user agent may fall back to its preferred default mode.",
           "sourceRange": {
             "start": {
-              "line": 259,
+              "line": 378,
               "column": 4
             },
             "end": {
-              "line": 261,
+              "line": 380,
               "column": 5
             }
           },

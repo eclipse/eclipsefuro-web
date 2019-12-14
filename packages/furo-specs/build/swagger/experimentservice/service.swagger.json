@@ -253,6 +253,13 @@
           "$ref": "#/definitions/typeDate",
           "title": "field for furo-data-date-input for testing"
         },
+        "furo_data_file_input": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "field for testing money type"
+        },
         "furo_data_money_input": {
           "$ref": "#/definitions/typeMoney",
           "title": "field for testing money type"

@@ -194,32 +194,146 @@ class FuroFileInput extends FBP(LitElement) {
         background-color: transparent;
         box-sizing: border-box;
       }
-
+            
       :host([unelevated]) .inputfile + label {
         background-color: var(--surface, #f7f7f7);
         color: var(--on-surface, #333333);
+      }
+      
+      label:hover{
+          background-color: rgba(0,0,0, var(--state-hover));
+      }
+
+      label:focus{
+          background-color: rgba(0,0,0, var(--state-focus));
       }
 
       :host([primary]) .inputfile + label {
         color: var(--primary);
       }
 
+      :host([primary]) label:focus {
+          background-color: rgba(var(--primary-rgb), var(--state-focus));
+      }
+
+      :host([primary]) .inputfile + label:hover {
+          background-color: rgba(var(--primary-rgb), var(--state-hover));
+      }
+      
       :host([secondary]) .inputfile + label {
-        color: var(--secondary);
+          color: var(--secondary);
+      }
+      
+      :host([secondary]) label:focus {
+          background-color: rgba(0,0,0, var(--state-focus));
+      }
+
+      :host([secondary]) .inputfile + label:hover{
+          background-color: rgba(var(--secondary-rgb), var(--state-hover));
       }
 
       :host([accent]) .inputfile + label {
-        color: var(--accent);
+          color: var(--accent);
       }
 
+      :host([accent]) label:focus {
+          background-color: rgba(var(--accent-rgb), var(--state-focus));
+      }
+      
+      :host([accent]) .inputfile + label:hover{
+          background-color: rgba(var(--accent-rgb), var(--state-hover));
+      }
+
+      :host([outline]) .inputfile + label {
+          background-color: transparent;
+          color: var(--on-surface);
+          border: 1px solid var(--on-surface);
+      }
+
+      :host([outline]) .inputfile + label:hover {
+          background-color: rgba(0,0,0, var(--state-hover));
+          color: var(--on-surface);
+          border: 1px solid var(--on-surface);
+      }
+
+      :host([outline]) .inputfile + label:focus {
+          background-color: rgba(0,0,0, var(--state-focus));
+          color: var(--on-surface);
+          border: 1px solid var(--on-surface);
+      }
+      
+      :host([outline][primary]) .inputfile + label {
+          background-color: transparent;
+          color: var(--primary);
+          border: 1px solid var(--primary);
+      }
+
+      :host([outline][primary]) .inputfile + label:hover {
+          background-color: rgba(var(--primary-rgb), var(--state-hover));
+          color: var(--primary);
+          border: 1px solid var(--primary);
+      }
+
+      :host([outline][primary]) .inputfile + label:focus {
+          background-color: rgba(var(--primary-rgb), var(--state-focus));
+          color: var(--primary);
+          border: 1px solid var(--primary);
+      }
+
+      :host([outline][secondary]) .inputfile + label {
+          background-color: transparent;
+          color: var(--secondary);
+          border: 1px solid var(--secondary);
+      }
+
+      :host([outline][secondary]) .inputfile + label:hover {
+          background-color: rgba(var(--secondary-rgb), var(--state-hover));
+          color: var(--secondary);
+          border: 1px solid var(--secondary);
+      }
+
+      :host([outline][secondary]) .inputfile + label:focus {
+          background-color: rgba(var(--secondary-rgb), var(--state-focus));
+          color: var(--secondary);
+          border: 1px solid var(--secondary);
+      }
+      
+      :host([outline][accent]) .inputfile + label {
+          background-color: transparent;
+          color: var(--accent);
+          border: 1px solid var(--accent);
+      }
+
+      :host([outline][accent]) .inputfile + label:hover {
+          background-color: rgba(var(--accent-rgb), var(--state-hover));
+          color: var(--accent);
+          border: 1px solid var(--accent);
+      }
+
+      :host([outline][accent]) .inputfile + label:focus {
+          background-color: rgba(var(--accent-rgb), var(--state-focus));
+          color: var(--accent);
+          border: 1px solid var(--accent);
+      }
+      
       :host([raised][primary]) .inputfile + label, :host([unelevated][primary]) .inputfile + label {
         background-color: var(--primary);
         color: var(--on-primary);
       }
 
+      :host([raised][primary]) .inputfile + label:hover, :host([unelevated][primary]) .inputfile + label:hover {
+          background-color: var(--primary-dark);
+          color: var(--on-primary);
+      }
+      
       :host([raised][secondary]) .inputfile + label, :host([unelevated][secondary]) .inputfile + label {
         background-color: var(--secondary);
         color: var(--on-secondary);
+      }
+
+      :host([raised][secondary]) .inputfile + label:hover, :host([unelevated][secondary]) .inputfile + label:hover {
+          background-color: var(--secondary-dark);
+          color: var(--on-secondary);
       }
 
       :host([raised][accent]) .inputfile + label, :host([unelevated][accent]) .inputfile + label {
@@ -227,6 +341,11 @@ class FuroFileInput extends FBP(LitElement) {
         color: var(--on-accent);
       }
 
+      :host([raised][accent]) .inputfile + label:hover, :host([unelevated][accent]) .inputfile + label:hover {
+          background-color: var(--accent-dark);
+          color: var(--on-accent);
+      }
+      
       :host([disabled]) .inputfile + label, :host([disabled]) .inputfile + label:hover {
         color: var(--disabled, #eeeeee);
         cursor: not-allowed;
@@ -290,12 +409,15 @@ class FuroFileInput extends FBP(LitElement) {
         // language=HTML
         return html`
       <input type="file" class="inputfile"
-             ?readonly=${this.readonly} ?disabled=${this.disabled} ?required=${this.required} ?accept=${this.accept}
-             ?multiple=${this.multiple} ?capture="${this.capture}"
+             ?readonly=${this.readonly} 
+             ?disabled=${this.disabled} 
+             ?required=${this.required} 
+             ?accept=${this.accept}
+             ?multiple=${this.multiple} 
+             ?capture="${this.capture}"
              id="input" name="input"
-             @-input="--inputInput(*)"
-             ƒ-focus="--focus">
-      <label for="input" ?autofocus=${this.autofocus}><span>${this.label} ${this.required ? html`*` : html``}</span></label>
+             @-input="--inputInput(*)">
+      <label for="input" ƒ-focus="--focus" ?autofocus=${this.autofocus}><span>${this.label} ${this.required ? html`*` : html``}</span></label>
     `;
     }
 
