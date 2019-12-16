@@ -23,9 +23,19 @@ if not: https://golang.org/doc/install
  ```json
 { 
   "scripts": {
-    "init-ui": "./node_modules/@furo/ui-builder/_scripts/init-ui-specs.js",
-    "build-ui": "./node_modules/@furo/ui-builder/_scripts/build-ui-components.js"
-  }
+    "uib:init": "./node_modules/@furo/ui-builder/_scripts/init-ui-specs.js",
+    "uib:generate": "./node_modules/@furo/ui-builder/_scripts/generate-components.js",
+    "uib:watch": "npm-watch uib:generate"
+  },
+  "watch": {
+    "uib:generate": {
+     "patterns": [
+       "ui_specs"
+     ],
+     "extensions": "u33e",
+     "runOnChangeOnly": false
+    }
+   }
 }
 ```
 ## Config

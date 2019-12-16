@@ -13,6 +13,8 @@ if (fs.existsSync('./furo.ui.spec.conf.json')) {
   process.exit(1);
 }
 
+console.log(process.argv);
+process.exit(0);
 function sh(command, arguments) {
   return execSync(command + " " + arguments.join(" "), {stdio: 'inherit'});
 }

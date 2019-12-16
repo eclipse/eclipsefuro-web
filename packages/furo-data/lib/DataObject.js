@@ -212,14 +212,6 @@ export class DataObject extends EventTreeNode {
       }
     }
 
-    /* todo: discuss if resetting is needed on this level
-    // check for fields to reset
-    node.__childNodes.forEach((n)=>{
-      if(!data[n._name]){
-        //the field node[n._name] should be reseted
-      }
-    });
-    */
 
     //  clear fields if it is not in the incomming data
     node.__childNodes.forEach((n) => {

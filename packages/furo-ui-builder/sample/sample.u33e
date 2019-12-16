@@ -1,6 +1,11 @@
 {
   "description": "Einfaches Anmeldeformular.",
   "summary": "Ein Anmeldeformular",
+  "import_members": [
+    [" LitElement, html, css " , "lit-element"],
+    ["Theme" , "@furo/framework/theme"],
+    ["FBP" , "@furo/fbp"]
+  ],
   "imports": [
     "@furo/form/furo-form.js",
     "@furo/input/furo-button.js",
@@ -8,7 +13,7 @@
     "@furo/input/furo-text-input.js",
     "@furo/layout/furo-horizontal-flex.js"
   ],
-  "name": "login-form",
+  "component_name": "login-form",
   "path": "src/project-components/demo",
   "style": {
     "children": {
@@ -21,20 +26,8 @@
       ":host": {
         "children": {},
         "attributes": {
-          "display": "block",
-          "--primary": "red"
+          "display": "block"
         }
-      },
-      "@media only screen and (min-width: 600px)": {
-        "children": {
-          ".topmenu li": {
-            "children": {},
-            "attributes": {
-              "width": "32%"
-            }
-          }
-        },
-        "attributes": {}
       }
     },
     "attributes": {}
@@ -44,7 +37,7 @@
       "description": "Das Kennwort. Kann auch ein TOTP sein...",
       "notify": true,
       "reflect": true,
-      "attribute":"isPasswd",
+      "attribute":"passwd",
       "type": "String"
     },
     "username": {
@@ -54,15 +47,18 @@
   },
   "template": [
     {
-      "name": "furo-form",
+      "component": "furo-form",
       "description": "Anmeldemaske mit auto-zentrierung",
+      "flags": [
+        "four"
+      ],
       "attributes": {
         "label": "Anmeldumg",
         "style": "width:300px;margin:100px auto; border-top:5px solid #FEA248;"
       },
       "children": [
         {
-          "name": "furo-text-input",
+          "component": "furo-text-input",
           "attributes": {
             "label": "Username",
             "value": "${this.username}"
@@ -72,7 +68,7 @@
           }
         },
         {
-          "name": "furo-password-input",
+          "component": "furo-password-input",
           "description": "Könnten wir noch einen zeige kennwort implementieren? Falls es nicht zu schwierig ist...",
           "attributes": {
             "label": "Passowort",
@@ -80,11 +76,11 @@
           }
         },
         {
-          "name": "furo-horizontal-flex",
+          "component": "furo-horizontal-flex",
           "description": "Bin mir nicht sicher ob es den überhaupt braucht",
           "children": [
             {
-              "name": "furo-button",
+              "component": "furo-button",
               "attributes": {
                 "label": "Login"
               },
@@ -113,5 +109,12 @@
       "meta": false,
       "wire": "--shortcutLPressed"
     }
-  ]
+  ],
+  "methods": {
+    "bindData": {
+      "description": "Use ƒ-bind-data to bind your data object\n und so",
+      "args": "field",
+      "code": "ICAgIHRoaXMuZmllbGQgPSBmaWVsZDsKICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCctLWZpZWxkLWluamVjdGVkJywgZmllbGQpOwoKICAgIHRoaXMuZmllbGQuYWRkRXZlbnRMaXN0ZW5lcignZmllbGQtdmFsdWUtY2hhbmdlZCcsIGUgPT4gewogICAgICBpZiAoZS5kZXRhaWwuX25hbWUgPT09ICd0eXBlJykgewogICAgICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCctLWh0c1VwZGF0ZWQnLCB0aGlzLmZpZWxkLmxpbmsuX3ZhbHVlKTsKICAgICAgfQogICAgICBjb25zb2xlLmluZm8oInN0cmluZyIpOwogICAgfSk7"
+    }
+  }
 }
