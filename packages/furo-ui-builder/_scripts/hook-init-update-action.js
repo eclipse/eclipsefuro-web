@@ -48,29 +48,32 @@ class HookInitUpdateAction {
 
     for (let service in SPEC.services) {
 
-      let btn = bar.appendChild("furo-button");
+
 
       switch (service) {
-        case "update": {
-          btn.addFlag("primary")
+
+        case "Update":
+          let updatebtn = bar.appendChild("furo-button");
+          updatebtn.addFlag("primary")
               .addFlag("unelevated")
               .addFlag("hide-no-rel")
               .addFlag("disable-not-valid")
               .addFlag("disable-pristine")
-              .addAttribute("rel", service.deeplink.rel)
-              .addAttribute("label", "${i18n.t('{{action.update}}')}")
+              .addAttribute("rel", SPEC.services[service].deeplink.rel)
+              .addAttribute("label", "${i18n.t('action.update')}")
               .addEventListener("click", "-^update-req");
           break;
-        }
-        case "delete": {
-          btn.addFlag("danger")
+
+        case "Delete":
+          let deletebtn = bar.appendChild("furo-button");
+          deletebtn.addFlag("danger")
               .addFlag("unelevated")
               .addFlag("hide-no-rel")
-              .addAttribute("rel", service.deeplink.rel)
-              .addAttribute("label", "${i18n.t('{{action.delete}}')}")
+              .addAttribute("rel", SPEC.services[service].deeplink.rel)
+              .addAttribute("label", "${i18n.t('action.delete')}")
               .addEventListener("click", "-^delete-req");
           break;
-        }
+
 
       }
 

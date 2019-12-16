@@ -44,8 +44,8 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
   async showPage(NavigationNode) {
     let panelName = "P" + NavigationNode.id._value;
-    if (this._openPanels.indexOf(NavigationNode) === -1) {
 
+    if (this._openPanels.indexOf(NavigationNode) === -1) {
       let panelComponent = panelRegistry.getPanelName(NavigationNode.link.type._value, NavigationNode.panel._value);
       if (panelComponent) {
         //create element and set name,...

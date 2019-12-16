@@ -60,7 +60,7 @@ class HookInitUpdatePanel {
         .addCSSAttribute("background-color", "var(--update-panel-background, var(--surface, white))")
         .addCSSAttribute("color", "var(--on-update-panel-background, var(--on-surface, black))");
 
-    u33e.addStyle(":host[hidden]")
+    u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
 
     u33e.addExposedWire("htsIn", "--htsIn", "Inject HATEOAS Link Object for the specific service.");
@@ -68,7 +68,10 @@ class HookInitUpdatePanel {
     // all components will be added to this node
     let vflex = u33e.addDomNode("furo-vertical-flex");
 
-    let panelHead = vflex.appendChild("furo-panel-head");
+    let headpanel = vflex.appendChild("furo-panel");
+    headpanel.addFlag("no-margin");
+
+    let panelHead = headpanel.appendChild("furo-panel-head");
     panelHead.addMethod("bind-data", "--navNode");
 
     let panel = vflex.appendChild("furo-panel");

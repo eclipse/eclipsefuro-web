@@ -44,7 +44,7 @@ class HookInitForm {
 
     // all field will be added to this node
     let form = root.appendChild("furo-form-layouter");
-    form.addFlag("two");
+    form.addFlag("four");
 
 
     //fields
@@ -76,6 +76,7 @@ class HookInitForm {
 
       fld.description = "field: " + fieldname;
       fld.addFlag("condensed");
+      fld.addFlag("double");
       fld.addMethod("bind-data", "--data(*." + fieldname + ")");
 
 
