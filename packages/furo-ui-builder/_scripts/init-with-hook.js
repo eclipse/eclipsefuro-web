@@ -37,17 +37,17 @@ config.hooks.service.forEach((hook) => {
 
 let speclist = Helper.walkSync(SpecDir).filter((filepath) => {
   let filename = path.basename(filepath);
-  if (filename.indexOf("_") >= 0) {
-    // ignore type_collection or type_entity
-    return false;
-  }
+  for(var i = 0; i < config.skip_spec.length; i++) {
+    let pattern = config.skip_spec[i];
 
-  // skip spec files
-  if (config.skip_spec.indexOf(filename) != -1) {
-    console.log("skip:", filename);
-    return false;
-  }
-  // return all specs
+    let match = filepath.match(new RegExp(pattern));
+    if(match !== null){
+      console.log("skip:", filename, "with pattern",pattern);
+      return false;
+    }
+  };
+
+  // filter non spec files
   return (filename.indexOf(".spec") > 0);
 
 });

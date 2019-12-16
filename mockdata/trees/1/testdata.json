@@ -29,7 +29,7 @@
         "panel": "view",
         "key_words": "documentation",
         "has_error": false,
-        "open": false,
+        "open": true,
         "link": {
           "rel": "self",
           "method": "GET",
@@ -46,7 +46,7 @@
             "panel": "view",
             "key_words": "documentation",
             "has_error": false,
-            "open": false,
+            "open": true,
             "link": {
               "rel": "self",
               "method": "GET",
@@ -64,7 +64,7 @@
             "panel": null,
             "key_words": null,
             "has_error": null,
-            "open": false,
+            "open": true,
             "link": {
               "rel": null,
               "method": null,
@@ -84,7 +84,7 @@
         "panel": "view",
         "key_words": "documentation",
         "has_error": false,
-        "open": false,
+        "open": true,
         "link": {
           "rel": "self",
           "method": "GET",
@@ -101,7 +101,7 @@
             "panel": "view",
             "key_words": "documentation",
             "has_error": false,
-            "open": false,
+            "open": true,
             "link": {
               "rel": "self",
               "method": "GET",
@@ -118,7 +118,7 @@
                 "panel": "view",
                 "key_words": "documentation",
                 "has_error": false,
-                "open": false,
+                "open": true,
                 "link": {
                   "rel": "self",
                   "method": "GET",
@@ -135,7 +135,7 @@
                     "panel": "view",
                     "key_words": "documentation",
                     "has_error": false,
-                    "open": false,
+                    "open": true,
                     "link": {
                       "rel": "self",
                       "method": "GET",
@@ -152,7 +152,7 @@
                         "panel": "view",
                         "key_words": "documentation",
                         "has_error": false,
-                        "open": false,
+                        "open": true,
                         "link": {
                           "rel": "self",
                           "method": "GET",
@@ -169,7 +169,7 @@
                             "panel": null,
                             "key_words": null,
                             "has_error": null,
-                            "open": false,
+                            "open": true,
                             "link": {
                               "rel": null,
                               "method": null,
