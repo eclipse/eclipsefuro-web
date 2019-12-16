@@ -39,8 +39,13 @@ class HookInitForm {
 
 
     // all field will be added to this node
-    let form = u33e.addDomNode("furo-form-layouter");
-    form.addFlag("four");
+    let root = u33e.addDomNode("furo-form");
+
+
+    // all field will be added to this node
+    let form = root.appendChild("furo-form-layouter");
+    form.addFlag("two");
+
 
     //fields
     for (let fieldname in SPEC.fields) {

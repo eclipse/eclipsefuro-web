@@ -54,7 +54,7 @@ class HookInitReferenceSearch {
       let refSearch = u33e.addDomNode("furo-data-reference-search");
       refSearch.addAttribute("value-field", "id")
           .addAttribute("display-field", "display_name")
-          .addAttribute("?condensed", "$(this.condensed)")
+          .addAttribute("?condensed", "${this.condensed}")
           .addAttribute("min-term-length", "1")
           .addAttribute("no-result-hint", "${i18n.t('search.noresult.hint')}")
           .addEventListener("search", "--term")

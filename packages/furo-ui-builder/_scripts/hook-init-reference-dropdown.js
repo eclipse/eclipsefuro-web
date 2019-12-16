@@ -54,7 +54,7 @@ class HookInitReferenceSearch {
           .addAttribute("display-field", "display_name")
           .addAttribute("subfield", "id")
           .addAttribute("subfield-display", "display-name")
-          .addAttribute("?condensed", "$(this.condensed)")
+          .addAttribute("?condensed", "${this.condensed}")
 
           .addMethod("inject-entities", "--collection(*.entities)")
           .addMethod("focus", "--focused")

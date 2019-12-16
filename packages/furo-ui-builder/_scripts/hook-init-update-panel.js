@@ -108,7 +108,7 @@ class HookInitUpdatePanel {
         .addEventListener("fatal-error", "--error, ^^activity-stopped");
 
     let dao = panel.appendChild("furo-data-object");
-    dao.addAttribute("type", SPEC.services.Update.data.request)
+    dao.addAttribute("type", SPEC.services.Update.data.response)
         .addMethod("reset", "--resetReq")
         .addMethod("inject-raw", "--response")
         .addEventListener("object-ready", "--entity");
