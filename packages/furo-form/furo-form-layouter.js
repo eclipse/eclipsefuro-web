@@ -126,6 +126,7 @@ class FuroFormLayouter extends FBP(LitElement) {
             grid-row-gap: 0px;
             grid-column-gap: 0px;
             grid-template-columns: repeat(1, 1fr);
+            
         }
 
         :host([hidden]) {
@@ -135,9 +136,21 @@ class FuroFormLayouter extends FBP(LitElement) {
         ::slotted(*) {
             width: 100%;
         }
-
-        ::slotted(*[double]) {
+        
+        :host([two]) ::slotted(*[double]) {
             grid-column: span 2 / auto;
+        }
+
+        :host([two]) ::slotted(*[full]) {
+            grid-column: span 2 / auto;
+        }
+
+        :host([four]) ::slotted(*[double]) {
+            grid-column: span 2  / auto;
+        }
+
+        :host([four]) ::slotted(*[full]) {
+            grid-column: span 4 / auto;
         }
 
         :host([two]) {

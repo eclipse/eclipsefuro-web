@@ -88,11 +88,13 @@ class DemoFuroFormLayouter extends FBP(LitElement) {
                                                list="RedBull, Coca-Cola, Pepsi, Sprite"></furo-select-input>
                         </furo-form-layouter>
                         <furo-form-layouter four>
-                            <furo-text-input condensed label="Owner"></furo-text-input>
-                            <furo-text-input condensed label="Special hint"></furo-text-input>
-                            <furo-text-input condensed label="Owner"></furo-text-input>
-                            <furo-text-input condensed label="Special hint"></furo-text-input>
-                            <furo-text-input condensed label="Special hint"></furo-text-input>
+                            <p full>overrides with attribute double or full</p>
+                            <furo-text-input condensed double label="Owner, double"></furo-text-input>
+                            <furo-text-input condensed double label="Special hint, double"></furo-text-input>
+                            <furo-text-input condensed double label="Special hint, double"></furo-text-input>
+                            <furo-text-input condensed full label="Interested Person, full"></furo-text-input>
+                            <furo-text-input condensed full label="Special hint, full"></furo-text-input>
+                            
                         </furo-form-layouter>
 
                         <furo-button-bar slot="action">

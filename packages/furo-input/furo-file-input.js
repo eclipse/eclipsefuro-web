@@ -68,19 +68,14 @@ class FuroFileInput extends FBP(LitElement) {
      */
     _fetchLocalFile(file) {
         return new Promise((resolve, reject) => {
-            const PATH = (window.URL || window.webkitURL).createObjectURL(file);
-            fetch(PATH)
-                .then(response => response.blob())
-                .then(blob => {
-                    // Create a new FileReader innstance
-                    const reader = new FileReader;
+            // Create a new FileReader innstance
+            const reader = new FileReader;
 
-                    reader.addEventListener('load', () => {
-                        resolve(reader.result);
-                    });
-                    reader.readAsDataURL(blob);
-                })
-                .catch(error => reject(error));
+            reader.addEventListener('load', () => {
+                resolve(reader.result);
+            });
+            reader.readAsDataURL(file);
+
         });
 
     }
@@ -151,215 +146,215 @@ class FuroFileInput extends FBP(LitElement) {
     static get styles() {
         // language=CSS
         return Theme.getThemeForComponent(this.name) || css`
-      :host {
-        display: inline-block;
-        position: relative;
-        font-size: 16px;
-        box-sizing: border-box;
-        min-width: 64px;
-        white-space: nowrap;
-      }
+            :host {
+                display: inline-block;
+                position: relative;
+                font-size: 16px;
+                box-sizing: border-box;
+                min-width: 64px;
+                white-space: nowrap;
+            }
 
-      :host([hidden]) {
-        display: none;
-      }
+            :host([hidden]) {
+                display: none;
+            }
 
-      * {
-        transition: all 100ms ease-in;
-      }
+            * {
+                transition: all 100ms ease-in;
+            }
 
-      .inputfile {
-        width: 0.1px;
-        height: 0.1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-      }
+            .inputfile {
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
+            }
 
-      .inputfile + label {
-        display: inline-block;
-        font-family: "Roboto", "Noto", sans-serif;
-        border-radius: 4px;
-        border: 1px solid transparent;
-        width: 100%;
-        cursor: pointer;
-        color: var(--on-surface);
-        padding: 0  var(--furo-button-padding, var(--spacing-s, 16px));;
-        text-transform: uppercase;
-        font-size: 14px;
-        font-weight: 500;
-        outline: none;
-        line-height: 34px;
-        background-color: transparent;
-        box-sizing: border-box;
-      }
-            
-      :host([unelevated]) .inputfile + label {
-        background-color: var(--surface, #f7f7f7);
-        color: var(--on-surface, #333333);
-      }
-      
-      label:hover{
-          background-color: rgba(0,0,0, var(--state-hover));
-      }
+            .inputfile + label {
+                display: inline-block;
+                font-family: "Roboto", "Noto", sans-serif;
+                border-radius: 4px;
+                border: 1px solid transparent;
+                width: 100%;
+                cursor: pointer;
+                color: var(--on-surface);
+                padding: 0 var(--furo-button-padding, var(--spacing-s, 16px));;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-weight: 500;
+                outline: none;
+                line-height: 34px;
+                background-color: transparent;
+                box-sizing: border-box;
+            }
 
-      label:focus{
-          background-color: rgba(0,0,0, var(--state-focus));
-      }
+            :host([unelevated]) .inputfile + label {
+                background-color: var(--surface, #f7f7f7);
+                color: var(--on-surface, #333333);
+            }
 
-      :host([primary]) .inputfile + label {
-        color: var(--primary);
-      }
+            label:hover {
+                background-color: rgba(0, 0, 0, var(--state-hover));
+            }
 
-      :host([primary]) label:focus {
-          background-color: rgba(var(--primary-rgb), var(--state-focus));
-      }
+            label:focus {
+                background-color: rgba(0, 0, 0, var(--state-focus));
+            }
 
-      :host([primary]) .inputfile + label:hover {
-          background-color: rgba(var(--primary-rgb), var(--state-hover));
-      }
-      
-      :host([secondary]) .inputfile + label {
-          color: var(--secondary);
-      }
-      
-      :host([secondary]) label:focus {
-          background-color: rgba(0,0,0, var(--state-focus));
-      }
+            :host([primary]) .inputfile + label {
+                color: var(--primary);
+            }
 
-      :host([secondary]) .inputfile + label:hover{
-          background-color: rgba(var(--secondary-rgb), var(--state-hover));
-      }
+            :host([primary]) label:focus {
+                background-color: rgba(var(--primary-rgb), var(--state-focus));
+            }
 
-      :host([accent]) .inputfile + label {
-          color: var(--accent);
-      }
+            :host([primary]) .inputfile + label:hover {
+                background-color: rgba(var(--primary-rgb), var(--state-hover));
+            }
 
-      :host([accent]) label:focus {
-          background-color: rgba(var(--accent-rgb), var(--state-focus));
-      }
-      
-      :host([accent]) .inputfile + label:hover{
-          background-color: rgba(var(--accent-rgb), var(--state-hover));
-      }
+            :host([secondary]) .inputfile + label {
+                color: var(--secondary);
+            }
 
-      :host([outline]) .inputfile + label {
-          background-color: transparent;
-          color: var(--on-surface);
-          border: 1px solid var(--on-surface);
-      }
+            :host([secondary]) label:focus {
+                background-color: rgba(0, 0, 0, var(--state-focus));
+            }
 
-      :host([outline]) .inputfile + label:hover {
-          background-color: rgba(0,0,0, var(--state-hover));
-          color: var(--on-surface);
-          border: 1px solid var(--on-surface);
-      }
+            :host([secondary]) .inputfile + label:hover {
+                background-color: rgba(var(--secondary-rgb), var(--state-hover));
+            }
 
-      :host([outline]) .inputfile + label:focus {
-          background-color: rgba(0,0,0, var(--state-focus));
-          color: var(--on-surface);
-          border: 1px solid var(--on-surface);
-      }
-      
-      :host([outline][primary]) .inputfile + label {
-          background-color: transparent;
-          color: var(--primary);
-          border: 1px solid var(--primary);
-      }
+            :host([accent]) .inputfile + label {
+                color: var(--accent);
+            }
 
-      :host([outline][primary]) .inputfile + label:hover {
-          background-color: rgba(var(--primary-rgb), var(--state-hover));
-          color: var(--primary);
-          border: 1px solid var(--primary);
-      }
+            :host([accent]) label:focus {
+                background-color: rgba(var(--accent-rgb), var(--state-focus));
+            }
 
-      :host([outline][primary]) .inputfile + label:focus {
-          background-color: rgba(var(--primary-rgb), var(--state-focus));
-          color: var(--primary);
-          border: 1px solid var(--primary);
-      }
+            :host([accent]) .inputfile + label:hover {
+                background-color: rgba(var(--accent-rgb), var(--state-hover));
+            }
 
-      :host([outline][secondary]) .inputfile + label {
-          background-color: transparent;
-          color: var(--secondary);
-          border: 1px solid var(--secondary);
-      }
+            :host([outline]) .inputfile + label {
+                background-color: transparent;
+                color: var(--on-surface);
+                border: 1px solid var(--on-surface);
+            }
 
-      :host([outline][secondary]) .inputfile + label:hover {
-          background-color: rgba(var(--secondary-rgb), var(--state-hover));
-          color: var(--secondary);
-          border: 1px solid var(--secondary);
-      }
+            :host([outline]) .inputfile + label:hover {
+                background-color: rgba(0, 0, 0, var(--state-hover));
+                color: var(--on-surface);
+                border: 1px solid var(--on-surface);
+            }
 
-      :host([outline][secondary]) .inputfile + label:focus {
-          background-color: rgba(var(--secondary-rgb), var(--state-focus));
-          color: var(--secondary);
-          border: 1px solid var(--secondary);
-      }
-      
-      :host([outline][accent]) .inputfile + label {
-          background-color: transparent;
-          color: var(--accent);
-          border: 1px solid var(--accent);
-      }
+            :host([outline]) .inputfile + label:focus {
+                background-color: rgba(0, 0, 0, var(--state-focus));
+                color: var(--on-surface);
+                border: 1px solid var(--on-surface);
+            }
 
-      :host([outline][accent]) .inputfile + label:hover {
-          background-color: rgba(var(--accent-rgb), var(--state-hover));
-          color: var(--accent);
-          border: 1px solid var(--accent);
-      }
+            :host([outline][primary]) .inputfile + label {
+                background-color: transparent;
+                color: var(--primary);
+                border: 1px solid var(--primary);
+            }
 
-      :host([outline][accent]) .inputfile + label:focus {
-          background-color: rgba(var(--accent-rgb), var(--state-focus));
-          color: var(--accent);
-          border: 1px solid var(--accent);
-      }
-      
-      :host([raised][primary]) .inputfile + label, :host([unelevated][primary]) .inputfile + label {
-        background-color: var(--primary);
-        color: var(--on-primary);
-      }
+            :host([outline][primary]) .inputfile + label:hover {
+                background-color: rgba(var(--primary-rgb), var(--state-hover));
+                color: var(--primary);
+                border: 1px solid var(--primary);
+            }
 
-      :host([raised][primary]) .inputfile + label:hover, :host([unelevated][primary]) .inputfile + label:hover {
-          background-color: var(--primary-dark);
-          color: var(--on-primary);
-      }
-      
-      :host([raised][secondary]) .inputfile + label, :host([unelevated][secondary]) .inputfile + label {
-        background-color: var(--secondary);
-        color: var(--on-secondary);
-      }
+            :host([outline][primary]) .inputfile + label:focus {
+                background-color: rgba(var(--primary-rgb), var(--state-focus));
+                color: var(--primary);
+                border: 1px solid var(--primary);
+            }
 
-      :host([raised][secondary]) .inputfile + label:hover, :host([unelevated][secondary]) .inputfile + label:hover {
-          background-color: var(--secondary-dark);
-          color: var(--on-secondary);
-      }
+            :host([outline][secondary]) .inputfile + label {
+                background-color: transparent;
+                color: var(--secondary);
+                border: 1px solid var(--secondary);
+            }
 
-      :host([raised][accent]) .inputfile + label, :host([unelevated][accent]) .inputfile + label {
-        background-color: var(--accent);
-        color: var(--on-accent);
-      }
+            :host([outline][secondary]) .inputfile + label:hover {
+                background-color: rgba(var(--secondary-rgb), var(--state-hover));
+                color: var(--secondary);
+                border: 1px solid var(--secondary);
+            }
 
-      :host([raised][accent]) .inputfile + label:hover, :host([unelevated][accent]) .inputfile + label:hover {
-          background-color: var(--accent-dark);
-          color: var(--on-accent);
-      }
-      
-      :host([disabled]) .inputfile + label, :host([disabled]) .inputfile + label:hover {
-        color: var(--disabled, #eeeeee);
-        cursor: not-allowed;
-      }
+            :host([outline][secondary]) .inputfile + label:focus {
+                background-color: rgba(var(--secondary-rgb), var(--state-focus));
+                color: var(--secondary);
+                border: 1px solid var(--secondary);
+            }
 
-      :host([raised][disabled]) .inputfile + label, :host([raised][disabled]) .inputfile + label:hover, :host([unelevated][disabled]) .inputfile + label, :host([unelevated][disabled]) .inputfile + label:hover{
-        background-color: var(--disabled, #eeeeee);
-        color: var(--on-disabled, #333333);
-        border-color:var(--disabled, #eeeeee);
-        cursor: not-allowed;
-      }
+            :host([outline][accent]) .inputfile + label {
+                background-color: transparent;
+                color: var(--accent);
+                border: 1px solid var(--accent);
+            }
+
+            :host([outline][accent]) .inputfile + label:hover {
+                background-color: rgba(var(--accent-rgb), var(--state-hover));
+                color: var(--accent);
+                border: 1px solid var(--accent);
+            }
+
+            :host([outline][accent]) .inputfile + label:focus {
+                background-color: rgba(var(--accent-rgb), var(--state-focus));
+                color: var(--accent);
+                border: 1px solid var(--accent);
+            }
+
+            :host([raised][primary]) .inputfile + label, :host([unelevated][primary]) .inputfile + label {
+                background-color: var(--primary);
+                color: var(--on-primary);
+            }
+
+            :host([raised][primary]) .inputfile + label:hover, :host([unelevated][primary]) .inputfile + label:hover {
+                background-color: var(--primary-dark);
+                color: var(--on-primary);
+            }
+
+            :host([raised][secondary]) .inputfile + label, :host([unelevated][secondary]) .inputfile + label {
+                background-color: var(--secondary);
+                color: var(--on-secondary);
+            }
+
+            :host([raised][secondary]) .inputfile + label:hover, :host([unelevated][secondary]) .inputfile + label:hover {
+                background-color: var(--secondary-dark);
+                color: var(--on-secondary);
+            }
+
+            :host([raised][accent]) .inputfile + label, :host([unelevated][accent]) .inputfile + label {
+                background-color: var(--accent);
+                color: var(--on-accent);
+            }
+
+            :host([raised][accent]) .inputfile + label:hover, :host([unelevated][accent]) .inputfile + label:hover {
+                background-color: var(--accent-dark);
+                color: var(--on-accent);
+            }
+
+            :host([disabled]) .inputfile + label, :host([disabled]) .inputfile + label:hover {
+                color: var(--disabled, #eeeeee);
+                cursor: not-allowed;
+            }
+
+            :host([raised][disabled]) .inputfile + label, :host([raised][disabled]) .inputfile + label:hover, :host([unelevated][disabled]) .inputfile + label, :host([unelevated][disabled]) .inputfile + label:hover {
+                background-color: var(--disabled, #eeeeee);
+                color: var(--on-disabled, #333333);
+                border-color: var(--disabled, #eeeeee);
+                cursor: not-allowed;
+            }
 
 
-    `
+        `
     }
 
     /**
@@ -369,7 +364,7 @@ class FuroFileInput extends FBP(LitElement) {
      * @param value
      */
     set accept(value) {
-        Helper.UpdateInputAttribute(this,"accept", value);
+        Helper.UpdateInputAttribute(this, "accept", value);
     }
 
     set multiple(value) {
