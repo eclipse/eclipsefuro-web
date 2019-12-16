@@ -85,8 +85,10 @@ Helper.allCTX.forEach((ctx) => {
   let u33e = new ctx.hook(ctx, new U33eBuilder(), Helper);
   if (u33e instanceof U33eBuilder) {
     sh("mkdir -p", [path.dirname(u33e.model.path)]);
-    // write u33e file if model is returned
-    fs.writeFileSync(u33e.model.path, u33e.getU33e());
+    // write u33e file if model is returned and not in writeprotection
+    if(config.writeprotection.indexOf(path.basename(u33e.model.path)) == -1){
+      fs.writeFileSync(u33e.model.path, u33e.getU33e());
+    }
   }
 });
 
