@@ -3,7 +3,6 @@ import {FBP} from "@furo/fbp";
 import {Theme} from "@furo/framework/theme";
 import {Helper} from "./lib/helper.js";
 
-import '@furo/data/furo-api-fetch.js'
 
 /**
  * `furo-file-input`
