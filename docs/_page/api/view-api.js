@@ -212,15 +212,52 @@ return _furoShell.html`
       </furo-demo-snippet>
 
 
-    `}}window.customElements.define("demo-furo-split-view",DemoFuroSplitView);/**
-                                                                          * `furo-card`
-                                                                          * todo Describe your element
-                                                                          *
-                                                                          * @summary todo shortdescription
-                                                                          * @customElement
-                                                                          * @demo demo-furo-card
-                                                                          * @appliesMixin FBP
-                                                                          */class FuroCard extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-split-view",DemoFuroSplitView);class DemoFuroPanel extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing, 16px);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <h2>Demo furo-panel</h2>
+      <p>Simple panel with content slot</p>
+      <furo-demo-snippet>
+        <template>
+            <furo-panel bordered>
+                <h1>Panel outside bordered</h1>
+                <furo-panel bordered margin-m>
+                    <p>Panel inside, bordered, margin-m</p>
+                </furo-panel>
+            </furo-panel>
+            <furo-panel>
+                <h1>Another panel</h1>
+            </furo-panel>
+        </template>
+      </furo-demo-snippet>
+
+      
+    `}}window.customElements.define("demo-furo-panel",DemoFuroPanel);/**
+                                                                 * `furo-card`
+                                                                 * todo Describe your element
+                                                                 *
+                                                                 * @summary todo shortdescription
+                                                                 * @customElement
+                                                                 * @demo demo-furo-card
+                                                                 * @appliesMixin FBP
+                                                                 */class FuroCard extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @private
    * @return {Object}
    */static get properties(){return{/**
@@ -253,7 +290,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             }
 
             :host([hasaction]) .content {
-                padding-bottom: 44px;
+                padding-bottom: 56px;
             }
 
 
@@ -284,9 +321,9 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 
             .action {
                 position: absolute;
-                bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
-                left: var(--furo-card-padding, var(--spacing-xs, 8px));
-                right: var(--furo-card-padding, var(--spacing-xs, 8px));
+                bottom: var(--furo-card-padding, var(--spacing-s, 16px));
+                left: var(--furo-card-padding, var(--spacing-s, 16px));
+                right: var(--furo-card-padding, var(--spacing-s, 16px));
 
             }
 
@@ -586,11 +623,13 @@ return _furoShell.html`
                                                list="RedBull, Coca-Cola, Pepsi, Sprite"></furo-select-input>
                         </furo-form-layouter>
                         <furo-form-layouter four>
-                            <furo-text-input condensed label="Owner"></furo-text-input>
-                            <furo-text-input condensed label="Special hint"></furo-text-input>
-                            <furo-text-input condensed label="Owner"></furo-text-input>
-                            <furo-text-input condensed label="Special hint"></furo-text-input>
-                            <furo-text-input condensed label="Special hint"></furo-text-input>
+                            <p full>overrides with attribute double or full</p>
+                            <furo-text-input condensed double label="Owner, double"></furo-text-input>
+                            <furo-text-input condensed double label="Special hint, double"></furo-text-input>
+                            <furo-text-input condensed double label="Special hint, double"></furo-text-input>
+                            <furo-text-input condensed full label="Interested Person, full"></furo-text-input>
+                            <furo-text-input condensed full label="Special hint, full"></furo-text-input>
+                            
                         </furo-form-layouter>
 
                         <furo-button-bar slot="action">
@@ -2022,18 +2061,87 @@ return _furoShell.html`
 
         </template>
       </furo-demo-snippet>
-    `}}window.customElements.define("demo-furo-radio-button",DemoFuroRadioButton);/**
-                                                                              * `furo-api-fetch`
-                                                                              *
-                                                                              * furo-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
-                                                                              *
-                                                                              * ```html
-                                                                              * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
-                                                                              * ```
-                                                                              *
-                                                                              * @customElement
-                                                                              * @demo demo/furo-api-fetch_demo.html
-                                                                              */class FuroApiFetch extends HTMLElement{/**
+    `}}window.customElements.define("demo-furo-radio-button",DemoFuroRadioButton);class DemoFuroFileInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+            :host {
+                display: block;
+                height: 100%;
+                padding-right: var(--spacing);
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+
+        `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+            <h2>Demo furo-file-input</h2>
+            <p>let the user choose one or more files from their device storage. </p>
+            <furo-demo-snippet style="height: 600px">
+                <template>
+                    <furo-vertical-scroller>
+                    <div style="display: grid; padding: var(--spacing); background-color: var(--surface-dark); grid-row-gap: var(--spacing); grid-column-gap: var(--spacing); grid-template-columns: repeat(3, 1fr);">
+                        <furo-card header-text="Choose your media">
+                            <img slot="media" ƒ-.src="--selected">
+                            <li>Accept: .jpg</li>
+                            <li>Multiple: false</li>
+                            <li>Required: false</li>
+                            <furo-file-input slot="action" label="Upload image" outline primary accept=".jpg"
+                                             @-value-changed="--selected"></furo-file-input>
+
+                        </furo-card>
+
+                        <furo-card header-text="Look at the result"
+                                   secondary-text="furo-file-input attribute accept is set to '.md'">
+                            <div @-click="--btnFocusClicked">&dbkarow; Focus file input</div>
+                            <p style="width: 300px; height:250px; overflow: hidden; word-break: break-all;"
+                               ƒ-.inner-text="--selectedFile"></p>
+                            
+                            <furo-file-input slot="action" label="Upload markdown" accept=".md"
+                                             @-value-changed="--selectedFile" ƒ-focus="--btnFocusClicked"></furo-file-input>
+
+                        </furo-card>
+
+                        <furo-card header-text="Look at the result"
+                                   secondary-text="furo-file-input attribute accept is set to '.pdf'">
+                            <object style="width: 300px; height:250px; overflow: hidden; word-break: break-all;"
+                               ƒ-.data="--selectedPdf"></object>
+                            <furo-file-input slot="action" label="Upload PDF" unelevated accent accept=".pdf"
+                                             @-value-changed="--selectedPdf"></furo-file-input>
+
+                        </furo-card>
+                        <furo-card header-text="Disabled upload"
+                                   secondary-text="furo-file-input attribute accept is set to '.pdf'">
+                            <p style="width: 300px; height:250px; overflow: hidden; word-break: break-all;"
+                               ƒ-.inner-text="--selectedPdf"></p>
+                            <furo-file-input slot="action" label="Upload forbidden" unelevated accent disabled accept=".pdf"
+                                             @-value-changed="--selectedPdf"></furo-file-input>
+
+                        </furo-card>
+                    </div>
+                    </furo-vertical-scroller>
+                </template>
+            </furo-demo-snippet>
+        `}}window.customElements.define("demo-furo-file-input",DemoFuroFileInput);/**
+                                                                          * `furo-api-fetch`
+                                                                          *
+                                                                          * furo-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
+                                                                          *
+                                                                          * ```html
+                                                                          * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
+                                                                          * ```
+                                                                          *
+                                                                          * @customElement
+                                                                          * @demo demo/furo-api-fetch_demo.html
+                                                                          */class FuroApiFetch extends HTMLElement{/**
    * Fired when a request is sent.
    * Payload: request
    * @event request-started
@@ -2459,7 +2567,9 @@ this._checkConstraints()}if(JSON.stringify(this._oldvalue)!==JSON.stringify(this
                                                                                         * detail payload: **{NodeEvent}** with reference to the FieldNode
                                                                                         */this.dispatchNodeEvent(new NodeEvent("this-field-value-changed",this,!1))}}}//  clear field if it is not in the incomming data
 // set default values according to https://developers.google.com/protocol-buffers/docs/proto3#default
-this.__childNodes.forEach(n=>{if(val&&!val.hasOwnProperty(n._name)){if(0<n.__childNodes.length){n._value={}}else{n._value=Helper.defaultForType(n._spec.type)}}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}// check the validity against spec and meta
+this.__childNodes.forEach(n=>{if(val&&!val.hasOwnProperty(n._name)){// object or repeater
+if(0<n.__childNodes.length){if(n.repeats){n._value=[]}else{n._value={}}}else{// skalar value
+n._value=Helper.defaultForType(n._spec.type)}}});this.dispatchNodeEvent(new NodeEvent("branch-value-changed",this,!1))}// check the validity against spec and meta
 _checkConstraints(){let validity=!0;// todo: decide if we should check for type conformity like uint32 is positive and not bigger then 32bit
 // validate only if they are constraints
 for(let constraintName in this._constraints){let constraint=this._constraints[constraintName],numericType=Helper.isNumericType(this._spec.type);switch(constraintName.toLowerCase()){/**
@@ -2587,15 +2697,8 @@ data[fieldName].forEach((repdata,i)=>{// create if record index do not exist
 if(!fieldNode.repeats[i]){fieldNode._addSilent()}// Werte aktualisieren
 fieldNode.repeats[i]._value=repdata;fieldNode.repeats[i]._pristine=!0;fieldNode.repeats[i].__index=i});// entferne überzählige nodes
 let newSize=data[fieldName].length;if(newSize<fieldNode.repeats.length){fieldNode.repeats.splice(newSize);fieldNode.__childNodes.splice(newSize)}fieldNode._pristine=!0;fieldNode.dispatchNodeEvent(new NodeEvent("repeated-fields-changed",fieldNode,!0));fieldNode.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed",fieldNode,!1))}else{if(fieldNode){fieldNode._clearInvalidity();// Werte aktualisieren
-fieldNode._value=data[fieldName];fieldNode._pristine=!0}}}}/* todo: discuss if resetting is needed on this level
-      // check for fields to reset
-      node.__childNodes.forEach((n)=>{
-        if(!data[n._name]){
-          //the field node[n._name] should be reseted
-        }
-      });
-      */ //  clear fields if it is not in the incomming data
-node.__childNodes.forEach(n=>{if(data&&!data.hasOwnProperty(n._name)){if(0<n.__childNodes.length){n._value={}}else{n._value=Helper.defaultForType(n._spec.type)}}});if(furoMetaDetected){this.__updateMetaAndConstraints(furoMetaDetected)}}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
+fieldNode._value=data[fieldName];fieldNode._pristine=!0}}}}//  clear fields if it is not in the incomming data
+node.__childNodes.forEach(n=>{if(data&&!data.hasOwnProperty(n._name)){if(0<n.__childNodes.length){if(n.repeats){n._value=[]}else{n._value={}}}else{n._value=Helper.defaultForType(n._spec.type)}}});if(furoMetaDetected){this.__updateMetaAndConstraints(furoMetaDetected)}}__updateMetaAndConstraints(metaAndConstraints){// on this layer you can only pass the constraint to the children
 // get the first part of the targeted field (data.members.0.id will give us data as targeted field) if we have
 // a field which is targeted we delegate the sub request to  this field
 for(let fieldname in metaAndConstraints.fields){let mc=metaAndConstraints.fields[fieldname],f=fieldname.split("."),target=f[0],subMetaAndConstraints={fields:{}};subMetaAndConstraints.fields[f.slice(1).join(".")]=mc;this[target].__updateMetaAndConstraints(subMetaAndConstraints)}}_setInvalid(error){// set field empty, if not defined
@@ -3260,11 +3363,11 @@ return _furoShell.html`
        * Stringify JSON content
        */json:{type:Boolean}}}}window.customElements.define("furo-put-clipboard",FuroPutClipboard);class CheckMetaAndOverrides{static UpdateMetaAndConstraints(element){if(element.field){// options are available for text inputs at the moment
 // check if metas ara available
-if(element.field._meta){if(element.field._meta.readonly){element._readonly=element.field._meta.readonly}if(element.field._meta.label){element._label=element.field._meta.label}if(element.field._meta.hint){element._hint=element.field._meta.hint}if(element.field._meta.cols){element._cols=element.field._meta.cols}if(element.field._meta.rows){element._rows=element.field._meta.rows}if(element.field._meta.min_term_length){element._minTermLength=element.field._meta.min_term_length}if(element.field._meta.label_amount){element._labelAmount=element.field._meta.label_amount}if(element.field._meta.label_currency){element._labelCurrency=element.field._meta.label_currency}if(element.field._meta.options){element._options=element.field._meta.options}}// check if constraints ara available
+if(element.field._meta){if(element.field._meta.readonly){element._readonly=element.field._meta.readonly}if(element.field._meta.label){element._label=element.field._meta.label}if(element.field._meta.hint){element._hint=element.field._meta.hint}if(element.field._meta.no_result_hint){element._noResultHint=element.field._meta.no_result_hint}if(element.field._meta.cols){element._cols=element.field._meta.cols}if(element.field._meta.rows){element._rows=element.field._meta.rows}if(element.field._meta.min_term_length){element._minTermLength=element.field._meta.min_term_length}if(element.field._meta.options){element._options=element.field._meta.options}}// check if constraints ara available
 if(element.field._constraints){if(element.field._constraints.max){element._max=element.field._constraints.max.is;element._maxErrorMessage=element.field._constraints.max.message}if(element.field._constraints.min){element._min=element.field._constraints.min.is;element._minErrorMessage=element.field._constraints.min.message}if(element.field._constraints.step){element._step=element.field._constraints.step.is;element._stepErrorMessage=element.field._constraints.step.message}if(element.field._constraints.pattern){element._pattern=element.field._constraints.pattern.is;element._patternErrorMessage=element.field._constraints.pattern.message}if(element.field._constraints.required){element._required="true"==element.field._constraints.required.is||!0===element.field._constraints.required.is;element._requiredErrorMessage=element.field._constraints.required.message}}}this.CheckAttributeOverrides(element)}static CheckAttributeOverrides(element){/**
      * Attribute overrides
      * hint, min, max, readonly or disabled on the element are higher ranked then field metas from spec or server
-     */if(element.min){element._min=element.min}if(element.max){element._max=element.max}if(element.readonly){element._readonly=element.readonly}if(element.label){element._label=element.label}if(element.hint){element._hint=element.hint}if(element.step){element._step=element.step}if(element.pattern){element._pattern=element.pattern}if(element.required){element._required=element.required}if(element.cols){element._cols=element.cols}if(element.rows){element._rows=element.rows}if(element.minTermLength){element._minTermLength=element.minTermLength}if(element.labelAmount){element._labelAmount=element.labelAmount}if(element.labelCurrency){element._labelCurrency=element.labelCurrency}if(element.options){element._options=element.options}}}_exports.CheckMetaAndOverrides=CheckMetaAndOverrides;var CheckMetaAndOverrides$1={CheckMetaAndOverrides:CheckMetaAndOverrides};_exports.$CheckMetaAndOverrides=CheckMetaAndOverrides$1;class FuroDataBoolIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",()=>{this.toggle()});this.symboltrue="\u25BC";this.symbolfalse="\u25B6";this.field={};this._updateSymbol()}/**
+     */if(element.min){element._min=element.min}if(element.max){element._max=element.max}if(element.readonly){element._readonly=element.readonly}if(element.label){element._label=element.label}if(element.hint){element._hint=element.hint}if(element.step){element._step=element.step}if(element.pattern){element._pattern=element.pattern}if(element.required){element._required=element.required}if(element.cols){element._cols=element.cols}if(element.rows){element._rows=element.rows}if(element.minTermLength){element._minTermLength=element.minTermLength}if(element.noResultHint){element._noResultHint=element.noResultHint}if(element.options){element._options=element.options}}}_exports.CheckMetaAndOverrides=CheckMetaAndOverrides;var CheckMetaAndOverrides$1={CheckMetaAndOverrides:CheckMetaAndOverrides};_exports.$CheckMetaAndOverrides=CheckMetaAndOverrides$1;class FuroDataBoolIcon extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.addEventListener("click",()=>{this.toggle()});this.symboltrue="\u25BC";this.symbolfalse="\u25B6";this.field={};this._updateSymbol()}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -3464,7 +3567,7 @@ if(Array.isArray(entities)){let arrA=[],arrB=[],isSelected=!1,hasSelectedMark=!1
 return _furoShell.html`
        <furo-select-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?disabled=${this._readonly||this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
@@ -3572,9 +3675,9 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * @param value
      */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * Sets the field to readonly
-     */disable(){this._readonly=!0}/**
+     */disable(){this.disabled=!0}/**
      * Makes the field writable.
-     */enable(){this._readonly=!1}/**
+     */enable(){this.disabled=!1}/**
      */static get properties(){return{/**
        * Overrides the label text from the **specs**.
        *
@@ -3695,7 +3798,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html`
        <furo-color-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled}                 
+          ?disabled=${this._readonly||this.disabled}                 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"                         
@@ -3818,7 +3921,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html` 
        <furo-date-input id="input"  
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?disabled=${this._readonly||this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"     
@@ -4157,7 +4260,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html` 
        <furo-number-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?disabled=${this._readonly||this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
@@ -4184,14 +4287,10 @@ _convertDataToMoneyObj(currency,amount,obj){if(null==obj){obj={}}if(currency){ob
      */set errortext(value){Helper$2.UpdateInputAttribute(this,"errortext",value)}/**
      * Updater for the label attr for amount
      * @param value
-     */set _labelAmount(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the readonly attr
      * @param value
-     */set _readonly(value){Helper$2.UpdateInputAttribute(this,"readonly",value)}/**
-     * Updater for the label attr for currency
-     * @param value
-     */set _labelCurrency(value){let select=this.shadowRoot.getElementById("select");if(null!==value){select.setAttribute("label",value)}else{// remove the attribute on null value
-select.removeAttribute("label")}}static get properties(){return{/**
+     */set _readonly(value){Helper$2.UpdateInputAttribute(this,"readonly",value)}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The start value. Changes will be notified with the `@-value-changed` event
@@ -4212,7 +4311,9 @@ select.removeAttribute("label")}}static get properties(){return{/**
        * "A, B, C"
        *
        * This will convert to options ["A","B","C"]
-       */currencies:{type:String},labelCurrency:{type:String,attribute:"label-currency"},labelAmount:{type:String,attribute:"label-amount"},/**
+       */currencies:{type:String},/**
+       * amount field label
+       */label:{type:String},/**
        * Set this attribute to autofocus the input field.
        */autofocus:{type:Boolean},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
@@ -4274,7 +4375,7 @@ return _furoShell.html`
       <furo-horizontal-flex id="wrapper">
           <furo-number-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?disabled=${this._readonly||this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
@@ -4283,7 +4384,7 @@ return _furoShell.html`
           ƒ-set-value="--valueAmount"></furo-number-input>      
           
        <furo-select-input id="select"
-          ?readonly=${this._readonly||this.disabled} 
+          ?disabled=${this._readonly||this.disabled} 
           ?float="${this.float}" 
           list="CHF"
           ?condensed="${this.condensed}"          
@@ -4341,10 +4442,6 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */pattern:{type:String},/**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */required:{type:Boolean},/**
        * Overrides the hint text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4404,7 +4501,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html` 
        <furo-password-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?disabled=${this._readonly||this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}" 
@@ -4609,7 +4706,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html` 
        <furo-range-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?disabled=${this._readonly||this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"          
@@ -4657,7 +4754,7 @@ return _furoShell.html`
         <div @-click="^^item-selected(_item)">
             ${this._item.data.display_name}
         </div>           
-        `}}_exports.ReferenceSearchItem=ReferenceSearchItem;window.customElements.define("reference-search-item",ReferenceSearchItem);var referenceSearchItem={ReferenceSearchItem:ReferenceSearchItem};_exports.$referenceSearchItem=referenceSearchItem;class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.valueField="id";this.displayField="display_name"}/**
+        `}}_exports.ReferenceSearchItem=ReferenceSearchItem;window.customElements.define("reference-search-item",ReferenceSearchItem);var referenceSearchItem={ReferenceSearchItem:ReferenceSearchItem};_exports.$referenceSearchItem=referenceSearchItem;class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.valueField="id";this.displayField="display_name";this._noResultHint="no result found"}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -4668,7 +4765,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this._searchTerm=e.detail;i
 event.preventDefault()}this._closeList();if(""===this._searchTerm){event.preventDefault();// re set display_name
 }}// keyboard navigation
 if(this._listIsOpen){if("Enter"===key){event.preventDefault();this._FBPTriggerWire("--enterPressedForSelect")}if("ArrowDown"===key){event.preventDefault();this._FBPTriggerWire("--arrowDownPressed")}if("ArrowUp"===key){event.preventDefault();this._FBPTriggerWire("--arrowUpPressed")}}else{// list is closed
-if("ArrowDown"===key){this._showList()}if("Enter"===key){if(this.searchOnEnterOnly){event.preventDefault();this._fireSearchEvent()}}}});// lock blur for slow clickers
+if("ArrowDown"===key){if(this._hasCollection){this._showList()}}if("Enter"===key){if(this.searchOnEnterOnly){event.preventDefault();this._fireSearchEvent()}}}});// lock blur for slow clickers
 this.addEventListener("mousedown",event=>{this._lockBlur=!0});// unlock after long click
 this.addEventListener("mouseup",event=>{this._lockBlur=!1});// reinit binded value on cleared
 this._FBPAddWireHook("--cleared",item=>{this._clear()});// close list on blur
@@ -4677,8 +4774,8 @@ this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection)
        * @event search
        * Fired when term is entered and bigger then min-term-length
        * detail payload: {String} term
-       */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}}_showList(){this._listIsOpen=!0;this.setAttribute("show-list","");let arrCollection=this._collection,index=0;for(let i=0;i<arrCollection.length;i++){if(arrCollection[i].data&&arrCollection[i].data[this.valueField]==this.field.id._value){index=i;break}}// trigger wire to select item
-this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this.removeAttribute("show-list")}_clear(){this.field.reinit();this._updateField();this._closeList();/**
+       */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}}_showList(){let arrCollection=this._collection;if(arrCollection&&0<arrCollection.length){this._listIsOpen=!0;this.setAttribute("show-list","");let index=0;for(let i=0;i<arrCollection.length;i++){if(arrCollection[i].data&&arrCollection[i].data[this.valueField]==this.field.id._value){index=i;break}}this._FBPTriggerWire("--listOpened",index)}// trigger wire to select item
+}_closeList(){this._listIsOpen=!1;this.removeAttribute("show-list")}_clear(){this._clearNoResultHint();this.field.reinit();this._updateField();this._closeList();/**
                         * @event value-cleared
                         * Fired when input value is cleared
                         * detail payload: empty
@@ -4718,6 +4815,8 @@ this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this
        *
        * Use with caution, normally the specs defines this value.
        */label:{type:String},/**
+       * hint text when result not found by search
+       */noResultHint:{type:String,attribute:"no-result-hint"},/**
        * Overrides the required value from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4751,7 +4850,11 @@ this._FBPTriggerWire("--listOpened",index)}_closeList(){this._listIsOpen=!1;this
      * Bind a entity field to the search-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode);this._init()}_updateField(){if(this.field.display_name._value!==void 0){this._FBPTriggerWire("--value",this.field.display_name._value)}this.requestUpdate()}collectionIn(collection){this._FBPTriggerWire("--listItemsIjnected",collection.entities);this._hasCollection=!0;this._collection=collection.entities;if(this._focused){this._showList()}}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode);this._init()}_updateField(){if(this.field.display_name._value!==void 0){this._FBPTriggerWire("--value",this.field.display_name._value)}this.requestUpdate()}collectionIn(collection){if(collection&&collection.entities){this.shadowRoot.getElementById("input").removeAttribute("no-result");this._FBPTriggerWire("--listItemsIjnected",collection.entities);this._hasCollection=!0;this._collection=collection.entities;if(this._focused){this._showList()}}else{this.setAttribute("show-list","");this._hasCollection=!1;this._collection=[];this._closeList();this.shadowRoot.getElementById("input").setAttribute("no-result","");this._hint=this._noResultHint}}/**
+     * clear no result hint. reset hint to original value
+     * @private
+     */_clearNoResultHint(){this.shadowRoot.getElementById("input").removeAttribute("no-result");// reset hint to original value
+if(this.hint){this._hint=this.hint}else if(this.field._meta&&this.field._meta.hint){this._hint=this.field._meta.hint}else{this._hint=""}}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
@@ -4784,6 +4887,10 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 
             furo-search-input {
                 width: 100%;
+            }
+
+            furo-search-input[no-result] {
+                --input-hint-color: var(--reference-search-no-result-hint,var(--accent,  #ddb13d));
             }
         `}/**
      * @private
@@ -5003,7 +5110,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html` 
        <furo-search-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?disabled=${this._readonly||this.disabled} 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}" 
@@ -5123,7 +5230,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html`
        <furo-text-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled}                 
+          ?disabled=${this._readonly||this.disabled}                 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"                         
@@ -5214,7 +5321,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html` 
        <furo-textarea-input  id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled}                 
+          ?disabled=${this._readonly||this.disabled}                 
           ?error="${this.error}" 
           ?float="${this.float}" 
           ?condensed="${this.condensed}"                         
@@ -5325,13 +5432,101 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
 return _furoShell.html` 
        <furo-time-input id="input"
           ?autofocus=${this.autofocus} 
-          ?readonly=${this._readonly||this.disabled} 
+          ?disabled=${this._readonly||this.disabled} 
           ?error="${this.error}" 
           ?required=${this._required}
           ?condensed="${this.condensed}"                         
           @-value-changed="--valueChanged"
           ƒ-set-value="--value"></furo-time-input>      
-    `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class DemoProjectFilterForm extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
+    `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class FuroDataFileInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * @event value-changed
+   * Fired when value has changed from inside the input field.
+   *
+   * detail payload: {Array} Base64 String
+   *
+   * Comes from underlying component furo-file-input. **bubbles**
+   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
+// check initial overrides
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
+     * Updater for the label attr
+     * @param value
+     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
+     * Updater for the accept attr, the prop alone with accept="${this.accept}" wont work,
+     * becaue it set "undefined" (as a Sting!)
+     *
+     * @param value
+     */set accept(value){Helper$2.UpdateInputAttribute(this,"accept",value)}set multiple(value){Helper$2.UpdateInputAttribute(this,"multiple",value)}set capture(value){Helper$2.UpdateInputAttribute(this,"capture",value)}/**
+     * Sets the field to readonly
+     */disable(){this._readonly=!0}/**
+     * Makes the field writable.
+     */enable(){this._readonly=!1}static get properties(){return{/**
+       * Overrides the label text from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */label:{type:String},/**
+       * Hint for expected file type in file upload controls
+       * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers
+       * e.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
+       */accept:{type:String,attribute:!0},/**
+       * Whether to allow multiple values
+       */multiple:{type:Boolean,attribute:!0,reflect:!0},/**
+       * What source to use for capturing image or video data
+       * The capture attribute value is a string that specifies which camera to use for capture of
+       * image or video data, if the accept attribute indicates that the input should be of one of those types.
+       * A value of user indicates that the user-facing camera and/or microphone should be used. A value of environment
+       * specifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,
+       * the user agent is free to decide on its own what to do. If the requested facing mode isn't available,
+       * the user agent may fall back to its preferred default mode.
+       */capture:{type:String,attribute:!0,reflect:!0},/**
+       * Overrides the required value from the **specs**.
+       *
+       * Use with caution, normally the specs defines this value.
+       */required:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean,reflect:!0},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},outline:{type:Boolean,attribute:!0},unelevated:{type:Boolean,attribute:!0},primary:{type:Boolean,attribute:!0},secondary:{type:Boolean,attribute:!0},accent:{type:Boolean,attribute:!0}}}/**
+     * Bind a entity field to the text-input. You can use the entity even when no data was received.
+     * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
+     * @param {Object|FieldNode} fieldNode a Field object
+     */bindData(fieldNode){if(fieldNode===void 0){console.warn("Invalid binding ");console.log(this);return}this.field=fieldNode;CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this.field.addEventListener("field-value-changed",e=>{//nop
+});// update meta and constraints when they change
+this.field.addEventListener("this-metas-changed",()=>{CheckMetaAndOverrides.UpdateMetaAndConstraints(this)})}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: inline-block;
+            width: 190px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+        furo-file-input {
+            width: 100%;
+        }
+    `}render(){// language=HTML
+return _furoShell.html`
+       <furo-file-input id="input"
+          ?autofocus=${this.autofocus} 
+          ?disabled=${this._readonly||this.disabled}                 
+          ?required=${this.required} 
+          ?accept=${this.accept}
+          ?multiple=${this.multiple} 
+          ?capture=${this.capture}
+          ?outline=${this.outline}
+          ?unelevated=${this.unelevated} 
+          ?primary=${this.primary} 
+          ?secondary=${this.secondary} 
+          ?accent=${this.accent}                  
+          @-value-changed="--valueChanged"></furo-file-input>      
+    `}}customElements.define("furo-data-file-input",FuroDataFileInput);class DemoProjectFilterForm extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();this._FBPTraceWires()}bindData(data){this._FBPTriggerWire("--entity",data);data.data.description.addEventListener("field-value-changed",v=>{this._FBPTriggerWire("--defaultChanged",v.detail._value)})}static get styles(){// language=CSS
 return[_furoShell.css`
@@ -5886,7 +6081,6 @@ return _furoShell.html`
             <furo-data-text-input readonly ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
             <furo-data-text-input autofocus ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-text-input>
             <furo-data-text-input></furo-data-text-input>
-            <produce-qp-data @-data="--qp" qp={"exp":1}></produce-qp-data>
 
             <furo-data-object type="experiment.Experiment" @-object-ready="--entity"
                               ƒ-inject-raw="--response(*.data)"></furo-data-object>
@@ -6163,7 +6357,74 @@ return _furoShell.html`
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-reference-search",DemoFuroDataReferenceSearch);class SampleFuroDataNumberInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-data-reference-search",DemoFuroDataReferenceSearch);class ProduceEmptyData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.data={}}_FBPReady(){super._FBPReady();if(this.auto){this.produce()}}/**
+     * @private
+     * @return {Object}
+     */static get properties(){return{/**
+       * Description
+       */auto:{type:Boolean},data:{type:Object,reflect:!0}}}produce(){let customEvent=new Event("data",{composed:!0,bubbles:!0});customEvent.detail=this.data;this.dispatchEvent(customEvent)}/**
+     * Themable Styles
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: inline-block;
+            margin-top: 18px;
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+    `}}window.customElements.define("produce-empty-data",ProduceEmptyData);class DemoFuroDataReferenceSearchNoResult extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-vertical-flex>
+        <h2>Demo furo-data-reference-search-no-result</h2>
+        <p>default hint "no result found" for reference search</p>
+        <furo-demo-snippet flex>
+          <template>
+            <furo-form-layouter two>
+              <furo-data-reference-search condensed
+                      ƒ-bind-data="--entityReady(*.owner)"
+                      @-search="--term" 
+                      ƒ-collection-in="--refCol">
+              </furo-data-reference-search>
+                <produce-empty-data ƒ-produce="--term" @-data="--refCol"></produce-empty-data>
+            </furo-form-layouter>
+            <furo-data-object
+                    type="task.Task"
+                    @-object-ready="--entityReady">
+            </furo-data-object>
+
+
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-data-reference-search-no-result",DemoFuroDataReferenceSearchNoResult);class SampleFuroDataNumberInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -6994,7 +7255,47 @@ return _furoShell.html`
                 </template>
             </furo-demo-snippet>
         </furo-vertical-flex>
-    `}}window.customElements.define("demo-furo-data-collection-dropdown-bind-entity",DemoFuroDataCollectionDropdownBindEntity);class DemoFuroDataHideContent extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-data-collection-dropdown-bind-entity",DemoFuroDataCollectionDropdownBindEntity);class DemoFuroDataFileInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+            :host {
+                display: block;
+                height: 100%;
+                padding-right: var(--spacing);
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+        `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+            <furo-vertical-flex>
+                <h2>Demo furo-data-file-input</h2>
+                <p>Bind the field from furo-data-object with
+                    <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
+                    The labels, hints, defaults are comming from the furo-data-object specs.</p>
+                <furo-demo-snippet flex>
+                    <template>
+                        <furo-card header-text="Choose a markdown file">
+                            <furo-form-layouter>
+                                <furo-data-textarea-input ƒ-bind-data="--entity(*.furo_data_file_input)"
+                                                          label="Output"></furo-data-textarea-input>
+                            </furo-form-layouter>
+                            <furo-data-file-input slot="action" required unelevated primary accept=".md" label="Open .md file"
+                                                  ƒ-bind-data="--entity(*.furo_data_file_input)"></furo-data-file-input>
+                        </furo-card>
+                        <furo-data-object type="experiment.Experiment" @-object-ready="--entity"></furo-data-object>
+                    </template>
+                </furo-demo-snippet>
+            </furo-vertical-flex>
+        `}}window.customElements.define("demo-furo-data-file-input",DemoFuroDataFileInput);class DemoFuroDataHideContent extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -8890,7 +9191,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
       </furo-demo-snippet>
         `}}customElements.define("demo-furo-snackbar-display-error",DemoFuroSnackbarDisplayError);class FuroBannerDisplay extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._banner={text:"",dismissButtonText:"dismiss",confirmButtonText:"",icon:"",banner:{}};this._stack=[];this.setAttribute("hidden","");this.setAttribute("tabindex","-1")}/**
      * flow is ready lifecycle method
-     */_FBPReady(){super._FBPReady();window.addEventListener("open-furo-banner-requested",e=>{this._show(e.detail)});this._FBPAddWireHook("--confirmClicked",e=>{if(this._banner.banner){this._banner.banner.confirm()}this._close()});this._FBPAddWireHook("--dismissClicked",e=>{if(this._banner.banner){this._banner.banner.dismiss()}this._close()})}/**
+     */_FBPReady(){super._FBPReady();this.parentNode.addEventListener("open-furo-banner-requested",e=>{e.stopPropagation();this._show(e.detail)});this._FBPAddWireHook("--confirmClicked",e=>{if(this._banner.banner){this._banner.banner.confirm()}this._close()});this._FBPAddWireHook("--dismissClicked",e=>{if(this._banner.banner){this._banner.banner.dismiss()}this._close()})}/**
      * parse markdown string to html content
      * @param markdown
      * @return {TemplateResult | TemplateResult}
@@ -9073,7 +9374,7 @@ this._FBPTriggerWire("--focus")},500)}}}focus(){this._FBPTriggerWire("--focus")}
      * @param s
      */parseGrpcStatus(status){// log developper message
 if(status.details&&0<status.details.length){// fallback, if no localized message was given
-this.setText(status.message);this.multilineText=status.details.filter(det=>{return det["@type"].includes("LocalizedMessage")}).map(det=>{return det.message});this.show(status)}}}customElements.define("furo-banner",FuroBanner);class ProduceBannerData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--click",()=>{/**
+this.setText(status.message);this.multilineText=status.details.filter(det=>{return det["@type"].includes("LocalizedMessage")}).map(det=>{return det.message});this.show(status)}}static get styles(){return _furoShell.css`:host {display:none}`}}customElements.define("furo-banner",FuroBanner);class ProduceBannerData extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._FBPAddWireHook("--click",()=>{/**
        * @event banner-label
        * Fired when
        * detail payload:

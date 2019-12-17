@@ -1,12 +1,11 @@
 {
-  "data":{
   "id": "2121",
   "display_name": "Project tree",
   "description": "Navigation tree",
   "root": {
     "id": "1",
-    "display_name": "Home",
-    "secondary_text": "Secondary node description",
+    "display_name": "Main document",
+    "secondary_text": "view task.Task",
     "description": "Description for home",
     "icon": "account-balance",
     "panel": "view",
@@ -23,10 +22,10 @@
       {
         "id": "2",
         "display_name": "A",
-        "secondary_text": "Secondary node description",
+        "secondary_text": "edit task.Task",
         "description": "first with veery big title sub",
         "icon": "apps",
-        "panel": "view",
+        "panel": "edit",
         "key_words": "documentation",
         "has_error": false,
         "open": true,
@@ -39,8 +38,8 @@
         "children": [
           {
             "id": "3",
-            "display_name": "C",
-            "secondary_text": "Secondary node description",
+            "display_name": "Produktansicht",
+            "secondary_text": "view taskb",
             "description": "Fingerprint Studio",
             "icon": "fingerprint",
             "panel": "view",
@@ -51,14 +50,14 @@
               "rel": "self",
               "method": "GET",
               "href": "./api/v1/tasks/c4.json",
-              "type": "task.Task"
+              "type": "task.Task-b"
             },
             "children": []
           },
           {
             "id": "4",
-            "display_name": null,
-            "secondary_text": null,
+            "display_name": "Defect",
+            "secondary_text": "no panel and type defined",
             "description": "Android Studo",
             "icon": "android",
             "panel": null,
@@ -77,11 +76,11 @@
       },
       {
         "id": "4w",
-        "display_name": "B",
-        "secondary_text": "Secondary node description",
+        "display_name": "Leistungserbringer",
+        "secondary_text": "edit task-b",
         "description": "Sent data",
         "icon": "send",
-        "panel": "view",
+        "panel": "edit",
         "key_words": "documentation",
         "has_error": false,
         "open": true,
@@ -94,11 +93,11 @@
         "children": [
           {
             "id": "5",
-            "display_name": "D",
-            "secondary_text": "Secondary node description",
+            "display_name": "Firebase Keys",
+            "secondary_text": "Summary task.Task",
             "description": "sub suirst with veery big titleb",
             "icon": "alarm-on",
-            "panel": "view",
+            "panel": "summary",
             "key_words": "documentation",
             "has_error": false,
             "open": true,
@@ -185,47 +184,10 @@
                 ]
               }
             ]
-          },
-          {
-            "id": "234",
-            "display_name": "E",
-            "secondary_text": "Secondary node description",
-            "description": "sub unknown type",
-            "icon": "mail",
-            "panel": "view",
-            "key_words": "documentation",
-            "has_error": false,
-            "open": true,
-            "link": {
-              "rel": "self",
-              "method": "GET",
-              "href": "./api/v1/tasks/12.json",
-              "type": "task.Task"
-            },
-            "children": []
           }
+
         ]
       }
     ]
   }
-},
-  "meta": {
-    "fields": {
-      "data.root.display_name": {
-        "meta": {
-          "readonly": false
-        }
-
-      }
-    }
-  },
-  "links": [
-    {
-      "href": "/mockdata/trees/1/get.json",
-      "method": "GET",
-      "rel": "self",
-      "type": "tree.TreeEntity",
-      "service": "TreeService"
-    }
-  ]
 }
