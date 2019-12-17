@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.37.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.36.4...@furo/navigation@0.37.0) (2019-12-17)
+
+
+### Features
+
+* panel-head ([620e98e](https://github.com/theNorstroem/FuroBaseComponents/commit/620e98e))
+
+
+
+
+
 ## [0.36.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.36.3...@furo/navigation@0.36.4) (2019-12-12)
 
 **Note:** Version bump only for package @furo/navigation

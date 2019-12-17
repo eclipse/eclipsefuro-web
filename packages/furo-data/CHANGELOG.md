@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.66.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.65.0...@furo/data@0.66.0) (2019-12-17)
+
+
+### Features
+
+* class extending ([3fc32d7](https://github.com/theNorstroem/FuroBaseComponents/commit/3fc32d7))
+
+
+
+
+
 # [0.65.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.64.3...@furo/data@0.65.0) (2019-12-12)
 
 

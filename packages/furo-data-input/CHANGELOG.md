@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.64.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.63.0...@furo/data-input@0.64.0) (2019-12-17)
+
+
+### Features
+
+* furo-sign-pad, furo-data-sign-pad initial version ([9aae054](https://github.com/theNorstroem/FuroBaseComponents/commit/9aae054))
+
+
+
+
+
 # [0.63.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.62.1...@furo/data-input@0.63.0) (2019-12-12)
 
 

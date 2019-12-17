@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@0.5.0...@furo/app@0.5.1) (2019-12-17)
+
+
+### Bug Fixes
+
+* tooltip initial position ([eac0703](https://github.com/theNorstroem/FuroBaseComponents/commit/eac0703))
+
+
+
+
+
 # [0.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@0.4.1...@furo/app@0.5.0) (2019-12-12)
 
 

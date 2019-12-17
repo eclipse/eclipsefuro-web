@@ -4,11 +4,11 @@
   "keywords": [
     "routing"
   ],
-  "version": "0.20.18",
+  "version": "0.20.19",
   "main": "furo-catalog.js",
   "license": "MIT",
   "dependencies": {
-    "@furo/data": "^0.65.0",
+    "@furo/data": "^0.66.0",
     "@furo/fbp": "^4.28.0",
     "@furo/framework": "^0.13.3",
     "@furo/util": "^0.18.3",
