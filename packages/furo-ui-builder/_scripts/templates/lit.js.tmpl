@@ -104,7 +104,7 @@ window.customElements.define('{{.component_name}}', {{.component_name | replace 
 {{- define "cssattributes"}}{{$indent := add .indent 2 | int}}{{with .data}}{{range $k,$v := .}}
 {{indent $indent ""}}{{$k}}: {{$v}};{{end}}{{end}}{{end}}
 {{- define "attributes"}}{{with .}}{{range $k,$v := .}} {{$k}}="{{toString $v | noescape}}"{{end}}{{end}}{{end}}
-{{- define "flags"}}{{with .}}{{range $k,$v := .}} {{$v}}{{end}}{{end}}{{end}}
+{{- define "flags"}}{{with .}}{{range $k,$v := .}} {{noescape $v}}{{end}}{{end}}{{end}}
 {{- define "ats"}}{{with .}}{{range $k,$v := .}} @-{{$k}}="{{$v}}"{{end}}{{end}}{{end}}
 {{- define "ƒs"}}{{with .}}{{range $k,$v := .}} ƒ-{{$k}}="{{$v}}"{{end}}{{end}}{{end}}
 

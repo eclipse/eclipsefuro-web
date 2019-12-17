@@ -72,7 +72,7 @@ class HookInitUpdatePanel {
     headpanel.addFlag("no-margin");
 
     let panelHead = headpanel.appendChild("furo-panel-head");
-    panelHead.addMethod("bind-data", "--navNode");
+    panelHead.addMethod("bind-data", "--entity(*.data)");
 
     let panel = vflex.appendChild("furo-panel");
     panel.addFlag("no-margin")

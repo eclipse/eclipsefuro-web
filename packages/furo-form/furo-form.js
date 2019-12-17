@@ -146,12 +146,7 @@ class FuroForm extends FBP(LitElement) {
       }
 
 
-      :host([header-text]) .head {
-        display: block;
-      }
-
       .head {
-        display: none;
         padding-bottom: var(--spacing-s, 16px);
       }
 
@@ -166,7 +161,7 @@ class FuroForm extends FBP(LitElement) {
       h1 {
         font-size: 20px;
         height: 40px;
-        line-height: 56px;         
+        line-height: 56px;
         margin: 0;
         font-weight: normal;
 
@@ -189,10 +184,11 @@ class FuroForm extends FBP(LitElement) {
     // language=HTML
     return html`
       <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
+      ${this.headerText ? html`
       <div class="head">
-      <h1>${this.headerText}</h1>
-      <span>${this.secondaryText}</span>  
-      </div>
+         <h1>${this.headerText}</h1>
+         ${this.secondaryText ? html`<span>${this.secondaryText}</span>` : html``}     
+      </div>` : html``} 
       <div class="media">
       <slot name="media"></slot>
       </div>

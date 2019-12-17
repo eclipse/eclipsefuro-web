@@ -30,6 +30,10 @@ class HookInitForm {
 
     u33e.addExposedWire("focus", "--focused", "Fokus");
 
+    // header-text and secondary-text property
+    u33e.addProperty("headerText", "String", "Header text to label the form", null, false, false, "header-text");
+    u33e.addProperty("secondaryText", "String", "Secondary text for a detailed description", null, false, false, "secondary-text");
+
     // styling
     u33e.addStyle(":host")
         .addCSSAttribute("display", "block");
@@ -40,6 +44,9 @@ class HookInitForm {
 
     // all field will be added to this node
     let root = u33e.addDomNode("furo-form");
+    root.addFlag('');
+    root.addAttribute("header-text", '${this.headerText?this.headerText:""}');
+    root.addAttribute("secondary-text", '${this.secondaryText?this.secondaryText:""}');
 
 
     // all field will be added to this node
@@ -50,34 +57,60 @@ class HookInitForm {
     //fields
     for (let fieldname in SPEC.fields) {
       let field = SPEC.fields[fieldname];
+
       /**
-       * skip field if it is readonly
+       * skip field if it is display_name
        */
-      if (field.meta && field.meta.readonly) {
+      if (fieldname == "display_name" || fieldname == "id") {
         continue
       }
 
-
       let component = U33eBuilder.getBestMatchingComponent(field);
-      let arrTmpName = field.type.split(".");
-      //  complex type has a cutom form component
-      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-        component = field.type.toLowerCase().replace(".", "-") + "-form";
-
-        // exclude self import
-        let importComponent = ctx.getImportPathForComponent(component);
-        if (importComponent) {
-          u33e.addImport(importComponent);
-        }
-      }
-
-
       let fld = form.appendChild(component);
 
       fld.description = "field: " + fieldname;
       fld.addFlag("condensed");
       fld.addFlag("double");
       fld.addMethod("bind-data", "--data(*." + fieldname + ")");
+
+
+      let arrTmpName = field.type.split(".");
+      //  complex type has a cutom form component
+      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
+        component = field.type.toLowerCase().replace(".", "-") + "-form";
+        fld.component = component;
+        // change flag double to full
+        fld.flags[1] = "full";
+        fld.addAttribute("header-text", "${i18n.t('" + field.type.toLowerCase() + ".form.header.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('" + field.type.toLowerCase() + ".form.secondary.text')}");
+        /**
+         * check if component have a replacement in the config
+         *
+         * "hook": {
+         *   "hook_init_form": {
+         *     "replace": {
+         *       "premium-premiumgui-form": {
+         *         "with": "premium-field",
+         *         "import": "../../src/components/form-fields/premium-field.js"
+         *       }
+         *     }
+         *   }
+         * }
+         */
+        if (ctx.config.hook && ctx.config.hook.hook_init_form && ctx.config.hook.hook_init_form.replace && ctx.config.hook.hook_init_form.replace[component]) {
+          let replace = ctx.config.hook.hook_init_form.replace[component];
+          fld.component = replace.with;
+          u33e.addImport(replace.import);
+        } else {
+          // exclude self import
+          let importComponent = ctx.getImportPathForComponent(component);
+          if (importComponent) {
+            u33e.addImport(importComponent);
+          }
+
+        }
+
+      }
 
 
       // repeated fields can use furo-data-repeat component

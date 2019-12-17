@@ -1,6 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 import { Theme } from '@furo/framework/theme.js';
 import { FBP } from '@furo/fbp';
+import {CheckMetaAndOverrides} from "@furo/data-input/lib/CheckMetaAndOverrides";
 
 /**
  * `furo-panel-head`
@@ -33,9 +34,24 @@ class FuroPanelHead extends FBP(LitElement) {
     // this._FBPTraceWires()
   }
 
-  bindData(node) {
-    this._node = node;
-    this.requestUpdate();
+  bindData(fieldNode) {
+    this._field = fieldNode;
+
+
+    if (fieldNode === undefined) {
+      console.warn("Invalid binding ");
+      console.log(caller);
+      return
+    }
+
+    this._field = fieldNode;
+
+
+    this._field.addEventListener('field-value-changed', (e) => {
+      this.requestUpdate();
+    });
+
+
   }
 
   /**
@@ -73,12 +89,7 @@ class FuroPanelHead extends FBP(LitElement) {
           color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
           line-height: 20px;
         }
-
-        furo-icon {
-          position: absolute;
-          right: var(--spacing);
-          top: var(--spacing);
-        }
+          
       `
     );
   }
@@ -90,10 +101,9 @@ class FuroPanelHead extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html`
-      <furo-icon icon="${this._node.icon}"></furo-icon>
-      <h1>${this._node.display_name}</h1>
-      <p class="secondary">${this._node.description}</p>
+    return html`     
+      <h1>${this._field.display_name}</h1>
+      <p class="secondary">${this._field.description}</p>
     `;
   }
 }
