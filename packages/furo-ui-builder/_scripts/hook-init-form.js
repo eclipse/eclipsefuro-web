@@ -10,6 +10,15 @@ class HookInitForm {
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
+
+    const OPTIONS = (() => {
+      if (ctx.config.hook && ctx.config.hook.hook_init_form) {
+        return ctx.config.hook.hook_init_form
+      } else {
+        return {}
+      }
+    })();
+
     u33e.setTheme("FormBaseTheme");
     u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase();
     u33e.model.path = ctx.path;
@@ -44,14 +53,14 @@ class HookInitForm {
 
     // all field will be added to this node
     let root = u33e.addDomNode("furo-form");
-    root.addFlag('');
+
     root.addAttribute("header-text", '${this.headerText?this.headerText:""}');
     root.addAttribute("secondary-text", '${this.secondaryText?this.secondaryText:""}');
 
 
     // all field will be added to this node
     let form = root.appendChild("furo-form-layouter");
-    form.addFlag("four");
+    form.addFlag(OPTIONS.default_form_size || "four");
 
 
     //fields
@@ -61,16 +70,35 @@ class HookInitForm {
       /**
        * skip field if it is display_name
        */
-      if (fieldname == "display_name" || fieldname == "id") {
+      if (fieldname == "display_name" || fieldname == "id" || (field.__ui && field.__ui.no_init)) {
         continue
       }
 
       let component = U33eBuilder.getBestMatchingComponent(field);
       let fld = form.appendChild(component);
 
+
+      // add a furo-form > furo-form-layouter  for type furo.Property
+      if (field.type === "furo.Property") {
+        fld.component = "furo-form";
+        fld.addFlag("full");
+
+        fld.addAttribute("header-text", "${i18n.t('" + (SPEC.__proto.package + "." + SPEC.type + ".properties").toLowerCase() + ".header.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('" + (SPEC.__proto.package + "-" + SPEC.type + ".properties").toLowerCase() + ".secondary.text')}");
+
+        let f = fld.appendChild("furo-form-layouter");
+        f.addFlag(OPTIONS.default_form_size || "four");
+        fld = f.appendChild(component);
+      }
+
       fld.description = "field: " + fieldname;
-      fld.addFlag("condensed");
-      fld.addFlag("double");
+      if(OPTIONS.default_field_flags){
+        OPTIONS.default_field_flags.forEach((flag)=>{
+          fld.addFlag(flag);
+        });
+      }
+
+
       fld.addMethod("bind-data", "--data(*." + fieldname + ")");
 
 
@@ -80,7 +108,14 @@ class HookInitForm {
         component = field.type.toLowerCase().replace(".", "-") + "-form";
         fld.component = component;
         // change flag double to full
-        fld.flags[1] = "full";
+        let flagIndex = fld.flags.indexOf("double");
+        if(flagIndex === -1){
+          fld.addFlag("full");
+        }else{
+          fld.flags[flagIndex] = "full";
+        }
+
+
         fld.addAttribute("header-text", "${i18n.t('" + field.type.toLowerCase() + ".form.header.text')}");
         fld.addAttribute("secondary-text", "${i18n.t('" + field.type.toLowerCase() + ".form.secondary.text')}");
         /**
@@ -97,10 +132,13 @@ class HookInitForm {
          *   }
          * }
          */
-        if (ctx.config.hook && ctx.config.hook.hook_init_form && ctx.config.hook.hook_init_form.replace && ctx.config.hook.hook_init_form.replace[component]) {
-          let replace = ctx.config.hook.hook_init_form.replace[component];
+        if (OPTIONS.replace && OPTIONS.replace[component]) {
+          let replace = OPTIONS.replace[component];
           fld.component = replace.with;
-          u33e.addImport(replace.import);
+          fld.flags = replace.field_flags;
+          u33e.addImport(replace.import_path);
+          // set flags from config
+
         } else {
           // exclude self import
           let importComponent = ctx.getImportPathForComponent(component);
@@ -120,8 +158,13 @@ class HookInitForm {
         fld.addAttribute("repeated-component", value_name);
       }
 
+      // add a form for type furo.Property
+      if (field.type === "furo.Property") {
+
+      }
 
       // special type furo.Reference
+
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
