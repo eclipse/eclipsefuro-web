@@ -68,9 +68,9 @@ class HookInitForm {
       let field = SPEC.fields[fieldname];
 
       /**
-       * skip field if it is display_name
+       * skip field if it is skip list or skipped in spec
        */
-      if (fieldname == "display_name" || fieldname == "id" || (field.__ui && field.__ui.no_init)) {
+      if (OPTIONS.skip_fields_on_init.indexOf(fieldname) !== -1 || (field.__ui && field.__ui.no_init)) {
         continue
       }
 

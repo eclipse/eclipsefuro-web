@@ -67,28 +67,34 @@ class HookInitUpdatePanel {
 
     // all components will be added to this node
     let vflex = u33e.addDomNode("furo-vertical-flex");
+    vflex.description = "controlls the flexing and scrolling";
 
     let headpanel = vflex.appendChild("furo-panel");
+    headpanel.description = " ";
     headpanel.addFlag("no-margin");
 
     let panelHead = headpanel.appendChild("furo-panel-head");
+    panelHead.description = "This will show the display_name and a description";
     panelHead.addMethod("bind-data", "--entity(*.data)");
 
     let panel = vflex.appendChild("furo-panel");
+    panel.description = "The main panel, this panel scrolls";
     panel.addFlag("no-margin")
         .addFlag("flex")
         .addFlag("scroll");
 
-    let banner = panel.appendChild("furo-banner");
-    banner.addAttribute("icon", "error-outline")
-        .addAttribute("dismiss-button-text", "${i18n.t('banner.action.close')}")
-        .addMethod("set-text", "--error(*.message)")
-        .addMethod("show", "--error");
 
     let form = panel.appendChild((ctx.basename + "-form").toLowerCase());
+    form.description = "The form for the type " + SPEC.services.Update.data.request;
     form.addMethod("bind-data", "--entity(*.data)");
 
-    let action = panel.appendChild((ctx.basename + "-update-action").toLowerCase());
+    let actionpanel = vflex.appendChild("furo-panel");
+    actionpanel.description = "This panel stays on the bottom of the page";
+    actionpanel.addFlag("no-margin");
+
+
+    let action = actionpanel.appendChild((ctx.basename + "-update-action").toLowerCase());
+    action.description = "The events of the updateaction are mostly wired to the entity-agent below";
     action.addMethod("bind-entity", "--entity")
         .addMethod("disable-all", "--requestStarted")
         .addMethod("enable-all", "--response, --responseError")
@@ -97,7 +103,15 @@ class HookInitUpdatePanel {
         .addEventListener("self-req", "--selfReq")
         .addEventListener("delete-req", "--deleteReq");
 
-    let agent = panel.appendChild("furo-entity-agent");
+    let banner = u33e.addDomNode("furo-banner");
+    banner.description = "Trigger the banner on errors";
+    banner.addAttribute("icon", "error-outline")
+        .addAttribute("dismiss-button-text", "${i18n.t('banner.action.close')}")
+        .addMethod("parse-grpc-status", "--error")
+        .addMethod("show", "--error");
+
+    let agent = u33e.addDomNode("furo-entity-agent");
+    agent.description = "Agent for the service " + SPEC.name;
     agent.addAttribute("service", SPEC.name)
         .addMethod("hts-in", "--navNode(*._value.link), --htsIn")
         .addMethod("bind-request-data", "--entity(*.data)")
@@ -110,7 +124,8 @@ class HookInitUpdatePanel {
         .addEventListener("response-error", "--error, ^^activity-stopped")
         .addEventListener("fatal-error", "--error, ^^activity-stopped");
 
-    let dao = panel.appendChild("furo-data-object");
+    let dao = u33e.addDomNode("furo-data-object");
+    dao.description = "DAO for type " + SPEC.services.Update.data.response;
     dao.addAttribute("type", SPEC.services.Update.data.response)
         .addMethod("reset", "--resetReq")
         .addMethod("inject-raw", "--response")
