@@ -23,5 +23,19 @@
       "node_modules/@furo/ui-builder/_scripts/hook-init-create-widget.js",
       "node_modules/@furo/ui-builder/_scripts/hook-init-display.js"
     ]
+  },
+  "hook": {
+    "hook_init_form": {
+      "replace": {
+        "premium-premiumgui-form": {
+          "with": "premium-field",
+          "import_path": "../../src/components/form-fields/premium-field.js",
+          "field_flags": ["condensed","double"]
+        }
+      },
+      "default_form_size": "four",
+      "default_field_flags": ["condensed","double"],
+      "skip_fields_on_init" : ["id", "display_name"]
+    }
   }
 }
