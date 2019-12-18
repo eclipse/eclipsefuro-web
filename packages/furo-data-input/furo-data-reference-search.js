@@ -87,6 +87,11 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
             this.field.display_name._value = item.data[this.displayField];
             this._updateField();
             this._closeList();
+            /**
+             * @event item-selected
+             * Fired from inner element when item is selected
+             * detail payload: {Object} item
+             */
         });
 
         /**
