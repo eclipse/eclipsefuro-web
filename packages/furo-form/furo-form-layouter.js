@@ -121,104 +121,111 @@ class FuroFormLayouter extends FBP(LitElement) {
     static get styles() {
         // language=CSS
         return Theme.getThemeForComponent(this.name) || css`
-        :host {
-            display: grid;
-            grid-row-gap: 0px;
-            grid-column-gap: 0px;
-            grid-template-columns: repeat(1, 1fr);
-        }
+            :host {
+                display: grid;
+                grid-row-gap: 0px;
+                grid-column-gap: 0px;
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-        :host([hidden]) {
-            display: none;
-        }
+            :host([hidden]) {
+                display: none;
+            }
 
-        ::slotted(*) {
-            width: 100%;
-        }
-        
-        :host([two]) ::slotted(*[double]) {
-            grid-column: span 2 / auto;
-        }
+            ::slotted(*) {
+                width: 100%;
+            }
 
-        :host([two]) ::slotted(*[full]) {
-            grid-column: span 2 / auto;
-        }
+            :host([two]) ::slotted(*[double]) {
+                grid-column: span 2 / auto;
+            }
 
-        :host([four]) ::slotted(*[double]) {
-            grid-column: span 2  / auto;
-        }
+            :host([two]) ::slotted(*[full]) {
+                grid-column: span 2 / auto;
+            }
 
-        :host([four]) ::slotted(*[full]) {
-            grid-column: span 4 / auto;
-        }
+            :host([four]) ::slotted(*[double]) {
+                grid-column: span 2  / auto;
+            }
 
-        :host([two]) {
-            grid-template-columns: repeat(2, 1fr);
-            grid-column-gap: var(--spacing);
-        }
+            :host([four]) ::slotted(*[full]) {
+                grid-column: span 4 / auto;
+            }
 
-        :host([four]) {
-            grid-template-columns: repeat(4, 1fr);
-            grid-column-gap: var(--spacing);
-        }
+            :host([two]) {
+                grid-template-columns: repeat(2, 1fr);
+                grid-column-gap: var(--spacing);
+            }
 
-        :host([narrow]) {
-            grid-template-columns: repeat(1, 1fr);
-        }
+            :host([four]) {
+                grid-template-columns: repeat(4, 1fr);
+                grid-column-gap: var(--spacing);
+            }
 
-        :host([narrow]) > ::slotted(*[full]){
-            grid-column: auto;
-        }
+            :host([narrow]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-        :host([four][narrow]) {
-            grid-template-columns: repeat(2, 1fr);
-        }
+            :host([narrow]) > ::slotted(*[full]) {
+                grid-column: auto;
+            }
 
-        :host([narrower]) {
-            grid-template-columns: repeat(1, 1fr);
-        }
-        
-        :host([narrower]) > ::slotted(*){
-            grid-column: auto;
-        }
+            :host([four][narrow]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-        :host([narrow-fix]) {
-            grid-template-columns: repeat(1, 1fr);
-        }
+            :host([four][narrow]) > ::slotted(*[double]) {
+                grid-column: auto;
+            }
 
-        :host([four][narrow-fix]) {
-            grid-template-columns: repeat(2, 1fr);
-        }
+            :host([narrower]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-        :host([four][narrower-fix]) {
-            grid-template-columns: repeat(1, 1fr);
-        }
+            :host([narrower]) > ::slotted(*) {
+                grid-column: auto;
+            }
 
-        :host([narrower-fix]) {
-            grid-template-columns: repeat(1, 1fr);
-        }
+            :host([narrow-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-        :host([narrower-fix]) > ::slotted(*){
-            grid-column: auto;
-        }
+            :host([four][narrower]) > ::slotted(*) {
+                grid-column: auto;
+            }
 
-        :host([card]) {
+            :host([four][narrow-fix]) {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-            0 1px 5px 0 rgba(0, 0, 0, 0.12),
-            0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            :host([four][narrower-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-            background: var(--furo-card-background, var(--surface, white));
-            padding: var(--furo-card-padding, var(--spacing-xs, 8px));
-            margin: var(--furo-card-margin, 0);
+            :host([narrower-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            :host([narrower-fix]) > ::slotted(*) {
+                grid-column: auto;
+            }
+
+            :host([card]) {
+
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+                background: var(--furo-card-background, var(--surface, white));
+                padding: var(--furo-card-padding, var(--spacing-xs, 8px));
+                margin: var(--furo-card-margin, 0);
 
 
-            border-radius: 4px;
-            font-size: 14px;
-            letter-spacing: 0.1px;
-        }
-
-    `
+                border-radius: 4px;
+                font-size: 14px;
+                letter-spacing: 0.1px;
+            }
+        `
     }
 
     /**
