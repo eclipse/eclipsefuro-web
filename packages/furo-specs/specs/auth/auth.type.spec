@@ -22,18 +22,42 @@
           "number": 1
         }
     },
-    "display_name": {
-      "description": "Localized String representation of a Auth",
+    "username": {
       "type": "string",
+      "description": "The unique username, ussualy an email address",
       "meta": {
-        "label": "Auth",
-        "default": "",
-        "hint": "",
-        "readonly": true
+        "label": "Username",
+        "hint": ""
       },
       "constraints": {},
       "__proto": {
         "number": 2
+      }
+    },
+    "password": {
+      "type": "string",
+      "description": "Das _neue_ Kennwort des Benutzers",
+      "meta": {
+        "label": "Password",
+        "hint": "Look under your keyboard"
+      },
+      "constraints": {
+      },
+      "__proto": {
+        "number": 3
+      }
+    },
+    "role": {
+      "type": "string",
+      "description": "",
+      "meta": {
+        "label": "Role",
+        "hint": ""
+      },
+      "constraints": {
+      },
+      "__proto": {
+        "number": 4
       }
     }
 

@@ -87,8 +87,8 @@
       }
     },
     "Delete": {
-      "description": "Delete a Auth",
-      "rpc_name": "DeleteAuth",
+      "description": "Logout ala delete a auth session",
+      "rpc_name": "Logout",
       "data": {
         "request": "google.protobuf.Empty",
         "response": "google.protobuf.Empty"
@@ -96,7 +96,7 @@
       "query": {},
       "deeplink": {
         "rel": "delete",
-        "href": "/api/auths/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/auth",
         "method": "DELETE"
       }
     }
