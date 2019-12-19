@@ -42,16 +42,51 @@ if not: https://golang.org/doc/install
 
 - `path_to_simplegenerator` Set the path to your simple-generator binary if you don't have a local environment e.g. ./bin/
 - `spec_dir` Path to your spec directory.
-- `custom_template_dir` If you want to use your own templates, set the path to your template directory relative from your project root. You have to supply all templates if you use this feature flag.
 - `forms_spec_out` Output path for your form specs
 - `build_output_dir` Build output path
 
 ### Example furo.ui.spec.conf.json
 ``` json
 {
-  "spec_dir": "./specs-from-your-spec-module",
+  "spec_dir": "./specs",
   "ui_spec_out": "./ui_specs",
-  "_custom_tepmplate_dir": "./_scripts/templates",
-  "build_output_dir": "./build/ui"
+  "build_output_dir": "./generated_components",
+  "generator_template": "./node_modules/@furo/ui-builder/_scripts/templates/lit.js.tmpl",
+  "skip_spec": [
+    ".*collection.type.spec",
+    ".*entity.type.spec"
+  ],
+  "writeprotection": [
+    "some-form.u33e"
+  ],
+  "hooks": {
+    "service": [
+      "node_modules/@furo/ui-builder/_scripts/hook-init-reference-search.js",
+      "node_modules/@furo/ui-builder/_scripts/hook-init-reference-dropdown.js",
+      "node_modules/@furo/ui-builder/_scripts/hook-init-update-action.js",
+      "node_modules/@furo/ui-builder/_scripts/hook-init-update-panel.js"
+    ],
+    "type": [
+      "node_modules/@furo/ui-builder/_scripts/hook-init-form.js",
+      "node_modules/@furo/ui-builder/_scripts/hook-init-create-form.js",
+      "node_modules/@furo/ui-builder/_scripts/hook-init-create-widget.js",
+      "node_modules/@furo/ui-builder/_scripts/hook-init-display.js"
+    ]
+  },
+  "hook": {
+    "hook_init_form": {
+      "replace": {
+        "premium-premiumgui-form": {
+          "with": "premium-field",
+          "import_path": "../../src/components/form-fields/premium-field.js",
+          "field_flags": ["condensed","double"]
+        }
+      },
+      "default_form_size": "four",
+      "default_field_flags": ["condensed","double"],
+      "skip_fields_on_init" : ["id", "display_name"]
+    }
+  }
 }
+
 ```
