@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.63.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.62.0...@furo/input@0.63.0) (2019-12-19)
+
+
+### Bug Fixes
+
+* fix float problem in number input ([3c291e8](https://github.com/theNorstroem/FuroBaseComponents/commit/3c291e8))
+
+
+### Features
+
+* aria-label ([7804cbe](https://github.com/theNorstroem/FuroBaseComponents/commit/7804cbe))
+
+
+
+
+
 # [0.62.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.61.0...@furo/input@0.62.0) (2019-12-17)
 
 

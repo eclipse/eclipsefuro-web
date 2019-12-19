@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.3.0...@furo/ui-builder@0.4.0) (2019-12-19)
+
+
+### Features
+
+* classname as default theme name when not defined ([30433f6](https://github.com/theNorstroem/FuroBaseComponents/commit/30433f6))
+* configurable skip for form hook ([5448f26](https://github.com/theNorstroem/FuroBaseComponents/commit/5448f26))
+* no_init from spec ([a7cc3bb](https://github.com/theNorstroem/FuroBaseComponents/commit/a7cc3bb))
+* sample conf ([b3eb57c](https://github.com/theNorstroem/FuroBaseComponents/commit/b3eb57c))
+
+
+
+
+
 # [0.3.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.2.0...@furo/ui-builder@0.3.0) (2019-12-17)
 
 
