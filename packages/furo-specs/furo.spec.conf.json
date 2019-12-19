@@ -6,7 +6,8 @@
       "projectfilter",
       "task",
       "tree",
-      "experiment"
+      "experiment",
+      "auth"
     ],
     "excludes": [],
     "default_type_for_identities": "string"
