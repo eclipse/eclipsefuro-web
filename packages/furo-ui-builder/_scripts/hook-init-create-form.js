@@ -10,6 +10,19 @@ class HookInitForm {
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
+
+    const OPTIONS = (() => {
+      if (ctx.config.hook && ctx.config.hook.hook_init_create_form) {
+        return ctx.config.hook.hook_init_create_form
+      } else {
+        return {
+          "default_form_size": "four",
+          "default_field_flags": ["condensed","double"],
+          "skip_fields_on_init" : ["id", "display_name"]
+        }
+      }
+    })();
+
     u33e.setTheme("CreateFormBaseTheme");
     u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-create-form").toLowerCase();
     u33e.model.path = ctx.path;
@@ -30,6 +43,10 @@ class HookInitForm {
 
     u33e.addExposedWire("focus", "--focused", "Fokus");
 
+    // header-text and secondary-text property
+    u33e.addProperty("headerText", "String", "Header text to label the form", null, false, false, "header-text");
+    u33e.addProperty("secondaryText", "String", "Secondary text for a detailed description", null, false, false, "secondary-text");
+
     // styling
     u33e.addStyle(":host")
         .addCSSAttribute("display", "block");
@@ -37,29 +54,100 @@ class HookInitForm {
     u33e.addStyle(":host[hidden]")
         .addCSSAttribute("display", "none");
 
+
     // all field will be added to this node
-    let form = u33e.addDomNode("furo-form-layouter");
-    form.addFlag("four");
+    let root = u33e.addDomNode("furo-form");
+
+    root.addAttribute("header-text", '${this.headerText?this.headerText:""}');
+    root.addAttribute("secondary-text", '${this.secondaryText?this.secondaryText:""}');
+
+
+    // all field will be added to this node
+    let form = root.appendChild("furo-form-layouter");
+    form.addFlag(OPTIONS.default_form_size || "four");
+
 
     //fields
     for (let fieldname in SPEC.fields) {
       let field = SPEC.fields[fieldname];
       /**
-       * skip field if it is readonly
+       * skip field if it is skip list or skipped in spec
        */
-      if (field.meta && field.meta.readonly) {
+      if (OPTIONS.skip_fields_on_init.indexOf(fieldname) !== -1 || (field.__ui && field.__ui.no_init)) {
         continue
       }
+
       // use only required fields
       if (!(field.constraints && field.constraints.required)) {
         continue
       }
 
       let component = U33eBuilder.getBestMatchingComponent(field);
+      let fld = form.appendChild(component);
+
+
+      // add a furo-form > furo-form-layouter  for type furo.Property
+      if (field.type === "furo.Property") {
+        fld.component = "furo-form";
+        fld.addFlag("full");
+
+        fld.addAttribute("header-text", "${i18n.t('" + (SPEC.__proto.package + "." + SPEC.type + ".properties").toLowerCase() + ".header.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('" + (SPEC.__proto.package + "-" + SPEC.type + ".properties").toLowerCase() + ".secondary.text')}");
+
+        let f = fld.appendChild("furo-form-layouter");
+        f.addFlag(OPTIONS.default_form_size || "four");
+        fld = f.appendChild(component);
+      }
+
+      fld.description = "field: " + fieldname;
+      if(OPTIONS.default_field_flags){
+        OPTIONS.default_field_flags.forEach((flag)=>{
+          fld.addFlag(flag);
+        });
+      }
+
+
+      fld.addMethod("bind-data", "--data(*." + fieldname + ")");
+
+
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
       if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
         component = field.type.toLowerCase().replace(".", "-") + "-form";
+        fld.component = component;
+        // change flag double to full
+        let flagIndex = fld.flags.indexOf("double");
+        if(flagIndex === -1){
+          fld.addFlag("full");
+        }else{
+          fld.flags[flagIndex] = "full";
+        }
+
+
+        fld.addAttribute("header-text", "${i18n.t('" + field.type.toLowerCase() + ".form.header.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('" + field.type.toLowerCase() + ".form.secondary.text')}");
+        /**
+         * check if component have a replacement in the config
+         *
+         * "hook": {
+         *   "hook_init_form": {
+         *     "replace": {
+         *       "premium-premiumgui-form": {
+         *         "with": "premium-field",
+         *         "import": "../../src/components/form-fields/premium-field.js"
+         *       }
+         *     }
+         *   }
+         * }
+         */
+        if (OPTIONS.replace && OPTIONS.replace[component]) {
+          let replace = OPTIONS.replace[component];
+          fld.component = replace.with;
+          fld.flags = replace.field_flags;
+          u33e.addImport(replace.import_path);
+          // set flags from config
+
+        } else {
         // exclude self import
         let importComponent = ctx.getImportPathForComponent(component);
         if (importComponent) {
@@ -67,12 +155,7 @@ class HookInitForm {
         }
       }
 
-
-      let fld = form.appendChild(component);
-
-      fld.description = "field: " + fieldname;
-      fld.addFlag("condensed");
-      fld.addMethod("bind-data", "--data(*." + fieldname + ")");
+      }
 
 
       // repeated fields can use furo-data-repeat component
@@ -82,6 +165,10 @@ class HookInitForm {
         fld.addAttribute("repeated-component", value_name);
       }
 
+      // add a form for type furo.Property
+      if (field.type === "furo.Property") {
+
+      }
 
       // special type furo.Reference
       if (field.type === "furo.Reference") {
