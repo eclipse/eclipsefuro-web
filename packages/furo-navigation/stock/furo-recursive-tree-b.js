@@ -49,7 +49,7 @@ class FuroRecursiveTreeB extends FuroRecursiveTree {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroRecursiveTreeB') || css`
         :host {
             display: block;
             padding-left: 8px;

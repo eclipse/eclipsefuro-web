@@ -46,7 +46,7 @@ class FuroDocClassMethodsItem extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroDocClassMethodsItem') || css`
         :host {
             display: block;
             font-size: 13px;

@@ -20,7 +20,7 @@ class SampleFuroDataTextInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('SampleFuroDataTextInput') || css`
         :host {
             display: block;
         }

@@ -247,7 +247,7 @@ export class FuroTreeItem extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroTreeItem') || css`
       :host {
         display: block;
         line-height: 40px;

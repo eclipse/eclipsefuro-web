@@ -31,7 +31,7 @@ class FuroHorizontalFlex extends (LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroHorizontalFlex') || css`
         
         :host {
             width: 100%;

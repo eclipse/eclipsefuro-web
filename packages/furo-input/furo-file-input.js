@@ -144,7 +144,7 @@ class FuroFileInput extends FBP(LitElement) {
 
     static get styles() {
         // language=CSS
-        return Theme.getThemeForComponent(this.name) || css`
+        return Theme.getThemeForComponent('FuroFileInput') || css`
             :host {
                 display: inline-block;
                 position: relative;

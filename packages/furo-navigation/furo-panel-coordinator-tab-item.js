@@ -84,7 +84,7 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
   static
   get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroPanelCoordinatorTabItem') || css`
         :host {
             display: inline-block;
             font-size: 16px;

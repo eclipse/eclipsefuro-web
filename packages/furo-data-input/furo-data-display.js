@@ -134,7 +134,7 @@ class FuroDataDisplay extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroDataDisplay') || css`
         :host {
             display: inline-block;
             position: relative;

@@ -231,7 +231,7 @@ class FuroCollapsibleBox extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroCollapsibleBox') || css`
 
         :host {
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),

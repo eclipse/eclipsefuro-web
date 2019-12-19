@@ -223,7 +223,7 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
      */
     static get styles() {
         // language=CSS
-        return Theme.getThemeForComponent(this.name) || css`
+        return Theme.getThemeForComponent('FuroPanelCoordinatorTabs') || css`
             :host {
                 display: block;
                 outline: none;

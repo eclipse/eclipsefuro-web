@@ -23,7 +23,7 @@ class DemoFuroDataTextareaInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('DemoFuroDataTextareaInput') || css`
         :host {
             display: block;
             height: 100%;

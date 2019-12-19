@@ -18,7 +18,7 @@ class FuroShell extends FBP(LitElement) {
      * @return {CSSResult}
      */
     static get styles() {
-        let theme = Theme.getThemeForComponent(this.name);
+        let theme = Theme.getThemeForComponent('FuroShell');
         if (theme) {
             return [theme]
         } else {

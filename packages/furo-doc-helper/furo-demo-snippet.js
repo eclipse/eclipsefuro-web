@@ -128,7 +128,7 @@ class FuroDemoSnippet extends FBP(LitElement) {
    * @return {CSSResult}
    */
   static get styles() {
-    let theme = Theme.getThemeForComponent(this.name);
+    let theme = Theme.getThemeForComponent('FuroDemoSnippet');
     if (theme) {
       return [theme, Styling.theme]
     } else {

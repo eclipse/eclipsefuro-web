@@ -24,7 +24,7 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('DemoFuroDataReferenceSearch') || css`
         :host {
             display: block;
             height: 100%;

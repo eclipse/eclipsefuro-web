@@ -55,7 +55,7 @@ class SideNavigationItem extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('SideNavigationItem') || css`
         :host {
             display: list-item;
             min-height: 40px;

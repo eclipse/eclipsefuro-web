@@ -19,7 +19,7 @@ class Demo<%= className %> extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('Demo<%= className %>') || css`
         :host {
             display: block;
             height: 100%;
@@ -29,7 +29,7 @@ class Demo<%= className %> extends FBP(LitElement) {
         :host([hidden]) {
             display: none;
         }
-       
+
     `
   }
 

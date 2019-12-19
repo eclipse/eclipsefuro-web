@@ -249,7 +249,7 @@ class FuroDataTimeInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroDataTimeInput') || css`
         :host {
             display: inline-block;
             width: 104px;

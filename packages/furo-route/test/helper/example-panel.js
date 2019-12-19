@@ -56,7 +56,7 @@ class ExamplePanel extends BasePanel {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('ExamplePanel') || css`
         :host {
             display: block;
         }

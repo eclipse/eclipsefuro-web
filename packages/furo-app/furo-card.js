@@ -46,7 +46,7 @@ class FuroCard extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroCard') || css`
       :host {
         display: block;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),

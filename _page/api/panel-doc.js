@@ -23,7 +23,7 @@ class PanelDoc extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('PanelDoc') || css`
         :host {
             display: block;
             height: 100%;

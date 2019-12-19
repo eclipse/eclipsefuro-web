@@ -359,7 +359,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroDataMoneyInput') || css`
         /* https://material.io/design/components/text-fields.html#theming */
 
         furo-select-input {

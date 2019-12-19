@@ -44,7 +44,7 @@ class FuroSplitView extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroSplitView') || css`
         :host {
             display: block;
             height: inherit;

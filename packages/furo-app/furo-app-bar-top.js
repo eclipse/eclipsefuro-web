@@ -131,7 +131,7 @@ export class FuroAppBarTop extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroAppBarTop') || css`
         :host {
             display: block;
             position: relative;

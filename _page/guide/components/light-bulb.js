@@ -57,7 +57,7 @@ class LightBulb extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('LightBulb') || css`
         :host {
             display: inline-block;
         }

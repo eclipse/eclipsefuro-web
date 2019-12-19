@@ -25,7 +25,7 @@ class DemoFuroDataInputTogether extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('DemoFuroDataInputTogether') || css`
         :host {
             display: block;
             height: 100%;

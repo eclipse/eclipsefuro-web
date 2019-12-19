@@ -52,7 +52,7 @@ class FuroPanel extends FBP(LitElement) {
 
     static get styles() {
         // language=CSS
-        return Theme.getThemeForComponent(this.name) ||
+        return Theme.getThemeForComponent('FuroPanel') ||
             css`
                 :host {
                     display: block;

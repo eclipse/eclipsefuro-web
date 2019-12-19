@@ -252,7 +252,7 @@ class FuroDataSearchInput extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroDataSearchInput') || css`
         :host {
             display: inline-block;
             width:190px;

@@ -56,7 +56,7 @@ class MainStage extends FBP(LitElement) {
    */
   static get styles() {
 
-    let theme = Theme.getThemeForComponent(this.name);
+    let theme = Theme.getThemeForComponent('MainStage');
     if (theme) {
       return [theme, Styling.theme]
     } else {

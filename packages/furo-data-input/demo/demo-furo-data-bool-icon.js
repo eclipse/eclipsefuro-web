@@ -24,7 +24,7 @@ class DemoFuroDataBoolIcon extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('DemoFuroDataBoolIcon') || css`
         :host {
             display: block;
             height: 100%;

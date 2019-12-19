@@ -120,7 +120,7 @@ class FuroFormLayouter extends FBP(LitElement) {
 
     static get styles() {
         // language=CSS
-        return Theme.getThemeForComponent(this.name) || css`
+        return Theme.getThemeForComponent('FuroFormLayouter') || css`
             :host {
                 display: grid;
                 grid-row-gap: 0px;

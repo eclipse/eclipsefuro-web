@@ -62,7 +62,7 @@ class FuroRipple extends LitElement {
      */
     static get styles() {
         // language=CSS
-        return Theme.getThemeForComponent(this.name) || css`
+        return Theme.getThemeForComponent('FuroRipple') || css`
             :host {
                 pointer-events: none;
                 position: absolute;

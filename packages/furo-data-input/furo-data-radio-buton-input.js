@@ -181,7 +181,7 @@ class FuroDataRadioButtonInput extends FBP(LitElement) {
      */
     static get styles() {
         // language=CSS
-        return Theme.getThemeForComponent(this.name) || css`
+        return Theme.getThemeForComponent('FuroDataRadioButtonInput') || css`
         :host {
             display: inline-block;
             width: 300px;

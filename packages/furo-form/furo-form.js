@@ -70,7 +70,7 @@ class FuroForm extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroForm') || css`
       :host {
         display: block;
         --furo-button-padding: var(--spacing-xs, 8px);

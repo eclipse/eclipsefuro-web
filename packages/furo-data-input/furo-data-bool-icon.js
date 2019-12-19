@@ -63,7 +63,7 @@ class FuroDataBoolIcon extends FBP(LitElement) {
    */
   static get styles() {
     // language=CSS
-    return Theme.getThemeForComponent(this.name) || css`
+    return Theme.getThemeForComponent('FuroDataBoolIcon') || css`
         :host {
             display: inline-block;
             width: 16px;
@@ -90,7 +90,7 @@ class FuroDataBoolIcon extends FBP(LitElement) {
 
 
     // render on changed data
-    this.field.addEventListener("field-value-changed", (e) => {
+    this.field.addEventListener("field-value-changed", () => {
       this._updateSymbol();
     });
 
