@@ -131,7 +131,7 @@ class FuroIconButton extends FBP(LitElement) {
     // language=HTML
     return html`
      <div class="bg"></div>
-      <button ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>
+      <button ƒ-focus="--focus" aria-label="${this.icon}" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>
         <furo-icon icon="${this.icon}"></furo-icon>
          <furo-ripple></furo-ripple>      
       </button>
