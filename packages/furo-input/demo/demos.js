@@ -21,4 +21,5 @@ import "./demo-furo-color-input";
 import "./demo-condensed";
 import "./demo-furo-radio-button-input";
 import "./demo-furo-radio-button";
-import "./demo-furo-file-input.js"
+import "./demo-furo-file-input.js";
+import "./demo-furo-chip.js";
