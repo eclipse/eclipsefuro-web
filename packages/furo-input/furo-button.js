@@ -296,12 +296,12 @@ class FuroButton extends FBP(LitElement) {
         }
 
         :host([raised][danger]) button:focus, :host([unelevated][danger]) button:focus{
-            background-color: var(--on-danger, #FFFFFF);
-            color: var(--danger-light, #FF0000);
+            background-color: var(--danger-light, #FFFFFF);
+          
         }
         :host([raised][danger]) button:hover, :host([unelevated][danger]) button:hover{
             background-color: var(--danger-dark);
-            color: var(--on-danger, #FFFFFF);
+            
         }
         :host([danger]) button:focus{
             background-color: var(--focus-color, var(--surface-light, #F3F3F3));
