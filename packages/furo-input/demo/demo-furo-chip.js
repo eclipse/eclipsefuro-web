@@ -39,29 +39,29 @@ class DemoFuroChip extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
-      <h2>Demo furo-choice-chip</h2>
+      <h2>Demo furo-chip</h2>
       
       <furo-demo-snippet style="height: 500px">
         <template >
             <table>
                 <tr>
                     <th></th>
-                    <th>checked</th>
-                    <th>unchecked</th>
+                    <th>selected</th>
+                    <th>unselected</th>
                 </tr>
                 <tr>
                   <td>enabled</td>
-                  <td> <furo-choice-chip  checked condensed text="Checked"  ></furo-choice-chip></td>
-                  <td> <furo-choice-chip  text="unchecked" ></furo-choice-chip></td>
+                  <td> <furo-chip  selected condensed text="selected"  ></furo-chip></td>
+                  <td> <furo-chip  text="unselected" ></furo-chip></td>
                 </tr>
                 <tr>
                     <td>disabled</td>
-                    <td> <furo-choice-chip checked disabled  text="Checked disabled" ></furo-choice-chip></td>
-                    <td> <furo-choice-chip disabled text="Unchecked disabled"></furo-choice-chip></td>
+                    <td> <furo-chip selected disabled  text="selected disabled" ></furo-chip></td>
+                    <td> <furo-chip disabled text="Unselected disabled"></furo-chip></td>
                 </tr>
                 <tr>
                     <td>focus</td>
-                    <td> <furo-choice-chip  autofocus checked condensed text="auto focus"></furo-choice-chip></td>
+                    <td> <furo-chip  autofocus selected condensed text="auto focus"></furo-chip></td>
                     <td> </td>
                 </tr>
             </table>
@@ -70,18 +70,18 @@ class DemoFuroChip extends FBP(LitElement) {
             <table>
                 <tr>
                     <th></th>
-                    <th>checked</th>
-                    <th>unchecked</th>
+                    <th>selected</th>
+                    <th>unselected</th>
                 </tr>
                 <tr>
                     <td>enabled</td>
-                    <td> <furo-choice-chip checked outlined condensed leading-icon="schedule" trailing-icon="close" text="hallo world" ></furo-choice-chip></td>
-                    <td> <furo-choice-chip  outlined leading-icon="schedule" trailing-icon="close" text="hallo world" ></furo-choice-chip></td>
+                    <td> <furo-chip selected outlined condensed leading-icon="schedule" trailing-icon="close" text="hallo world" ></furo-chip></td>
+                    <td> <furo-chip  outlined leading-icon="schedule" trailing-icon="close" text="hallo world" ></furo-chip></td>
                 </tr>
                 <tr>
                     <td>disabled</td>
-                    <td> <furo-choice-chip outlined checked disabled  text="Checked disabled" ></furo-choice-chip></td>
-                    <td> <furo-choice-chip outlined disabled text="Unchecked disabled"></furo-choice-chip></td>
+                    <td> <furo-chip outlined selected disabled leading-icon="schedule" trailing-icon="close" text="selected disabled" ></furo-chip></td>
+                    <td> <furo-chip outlined disabled leading-icon="schedule" trailing-icon="close" text="Unselected disabled"></furo-chip></td>
                 </tr>
                 <tr>
   
