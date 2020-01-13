@@ -20,6 +20,15 @@ class FuroDataFileInput extends FBP(LitElement) {
 
     /**
      * @event value-changed
+     * This event is representative for the attribute files on the native element input type=file
+     * Fired when value has changed from inside the component
+     * detail payload: {Array} A FileList listing the chosen files
+     *
+     * Comes from underlying component furo-file-input. **bubbles**
+     */
+
+    /**
+     * @event files-selected
      * Fired when value has changed from inside the input field.
      *
      * detail payload: {Array} Base64 String
@@ -27,14 +36,26 @@ class FuroDataFileInput extends FBP(LitElement) {
      * Comes from underlying component furo-file-input. **bubbles**
      */
 
+    /**
+     * @event input
+     * The input event fires when the value of an <input>, <select>, or <textarea> element has been changed.
+     * The input event is fired every time the value of the element changes.
+     *
+     * Comes from underlying component input. **bubbles**
+     */
+
     constructor() {
         super();
         this.disabled = false;
+        this.files = [];
 
         this._FBPAddWireHook("--valueChanged", (val) => {
             if (this.field) {
                 this.field._value = val;
             }
+        });
+        this._FBPAddWireHook("--filesSelected", (val) => {
+            this.files = val;
         });
     }
 
@@ -99,6 +120,13 @@ class FuroDataFileInput extends FBP(LitElement) {
              */
             label: {
                 type: String,
+            },
+            /**
+             * A FileList listing the chosen files
+             * readonly
+             */
+            files: {
+                type: Array
             },
             /**
              * Hint for expected file type in file upload controls
@@ -227,8 +255,8 @@ class FuroDataFileInput extends FBP(LitElement) {
           ?unelevated=${this.unelevated} 
           ?primary=${this.primary} 
           ?secondary=${this.secondary} 
-          ?accent=${this.accent}                  
-          @-value-changed="--valueChanged"></furo-file-input>      
+          ?accent=${this.accent}                 
+          @-value-changed="--valueChanged" @-files-selected="--filesSelected"></furo-file-input>      
     `;
     }
 
