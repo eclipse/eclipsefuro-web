@@ -331,6 +331,12 @@ class FuroDataDateInput extends FBP(LitElement) {
       obj.month = Number(arr[1]);
       obj.year = Number(arr[0]);
     }
+    else {
+      obj.day = null;
+      obj.month = null;
+      obj.year = null;
+    }
+
     return obj;
   }
 
