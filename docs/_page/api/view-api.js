@@ -2126,18 +2126,53 @@ return _furoShell.html`
                     </furo-vertical-scroller>
                 </template>
             </furo-demo-snippet>
-        `}}window.customElements.define("demo-furo-file-input",DemoFuroFileInput);/**
-                                                                          * `furo-api-fetch`
-                                                                          *
-                                                                          * furo-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
-                                                                          *
-                                                                          * ```html
-                                                                          * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
-                                                                          * ```
-                                                                          *
-                                                                          * @customElement
-                                                                          * @demo demo/furo-api-fetch_demo.html
-                                                                          */class FuroApiFetch extends HTMLElement{/**
+        `}}window.customElements.define("demo-furo-file-input",DemoFuroFileInput);class DemoFuroSignPad extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */static get styles(){// language=CSS
+return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+        :host {
+            display: block;
+            height: 100%;
+            padding-right: var(--spacing);
+        }
+
+        :host([hidden]) {
+            display: none;
+        }
+       
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return _furoShell.html`
+      <furo-vertical-flex>
+        <div>
+          <h2>Demo ...</h2>
+          <p>Describe your demo</p>
+        </div>
+        <furo-demo-snippet flex>
+          <template>
+            <furo-vertical-scroller>
+              <furo-sign-pad @-sign-updated="--signed"></furo-sign-pad>
+              <img ƒ-.src="--signed" alt="" width="150px">
+            </furo-vertical-scroller>
+          </template>
+        </furo-demo-snippet>
+      </furo-vertical-flex>
+    `}}window.customElements.define("demo-furo-sign-pad",DemoFuroSignPad);/**
+                                                                      * `furo-api-fetch`
+                                                                      *
+                                                                      * furo-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
+                                                                      *
+                                                                      * ```html
+                                                                      * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
+                                                                      * ```
+                                                                      *
+                                                                      * @customElement
+                                                                      * @demo demo/furo-api-fetch_demo.html
+                                                                      */class FuroApiFetch extends HTMLElement{/**
    * Fired when a request is sent.
    * Payload: request
    * @event request-started
@@ -3895,7 +3930,7 @@ if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.descr
 if("google.type.Date"===this.field._spec.type||this.field["@type"]&&"google.type.Date"===this.field["@type"]._value.replace(/.*\//,"")){dateValue=this._convertDateObjToString(dateValue)}this._FBPTriggerWire("--value",dateValue);this.requestUpdate()}}// convert google date object to ISO 8601
 _convertDateObjToString(obj){let date="";if(obj&&obj.day&&obj.month&&obj.year){let month=obj.month+"",day=obj.day+"",year=obj.year+"";if(2>month.length){month="0"+month}if(2>day.length){day="0"+day}if(4>year.length){for(var l=4-year.length,i=0;i<l;i++){year="0"+year}}date=year+"-"+month+"-"+day}return date}// convert date string ISO 8601 to object for google.type.Dates
 _convertStringToDateObj(str,obj){let arr=str.split("-",3);// only override properties: day, month, year
-if(3===arr.length){obj.day=+arr[2];obj.month=+arr[1];obj.year=+arr[0]}return obj}/**
+if(3===arr.length){obj.day=+arr[2];obj.month=+arr[1];obj.year=+arr[0]}else{obj.day=null;obj.month=null;obj.year=null}return obj}/**
      *
      * @private
      * @return {CSSResult}
@@ -4155,7 +4190,8 @@ return _furoShell.html`
    * detail payload: {Number} the number value
    *
    * Comes from underlying component furo-number-input. **bubbles**
-   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
+   */constructor(){super();this.error=!1;this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){// convert input to number or 0 on empty string
+this.field._value=+val}})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides

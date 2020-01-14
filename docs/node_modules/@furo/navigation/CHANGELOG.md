@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.2...@furo/navigation@0.37.3) (2020-01-14)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.37.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.1...@furo/navigation@0.37.2) (2020-01-14)
+
+
+### Bug Fixes
+
+* clasname for css theme injecter ([28d0415](https://github.com/theNorstroem/FuroBaseComponents/commit/28d0415))
+* empty data object in panel head causes an error ([08c6bb6](https://github.com/theNorstroem/FuroBaseComponents/commit/08c6bb6))
+
+
+
+
+
 ## [0.37.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.0...@furo/navigation@0.37.1) (2019-12-19)
 
 **Note:** Version bump only for package @furo/navigation
