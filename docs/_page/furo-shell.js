@@ -1043,7 +1043,7 @@ prop[path]=value}return parts.join(".")}/**
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FooterBar")||css`
         :host {
             display: block;
             background-color: var(--surface, white);
@@ -1069,7 +1069,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroEmptySpacer")||css`
         :host {
             display: block;
         }
@@ -1086,7 +1086,7 @@ return html``}}window.customElements.define("furo-empty-spacer",FuroEmptySpacer)
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroHorizontalFlex")||css`
         
         :host {
             width: 100%;
@@ -1144,7 +1144,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroRipple")||css`
             :host {
                 pointer-events: none;
                 position: absolute;
@@ -1191,7 +1191,7 @@ return Theme.getThemeForComponent(this.name)||css`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroVerticalScroller")||css`
           :host {
               display: block;
               height: 100%;
@@ -1245,7 +1245,7 @@ return html`<slot></slot>`}}window.customElements.define("furo-vertical-scroller
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroSplitView")||css`
         :host {
             display: block;
             height: inherit;
@@ -1291,7 +1291,7 @@ return html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`        
+return Theme.getThemeForComponent("FuroVerticalFlex")||css`        
         :host {
             display: block;
             height: 100%;
@@ -1339,7 +1339,7 @@ this.bordered=!1;this.marginM=!1;this.marginL=!1}/**
        */bordered:{type:Boolean,reflect:!0},/**
        * Changes margin to spacing-m
        */marginM:{type:Boolean,reflect:!0,attribute:"margin-m"},marginL:{type:Boolean,reflect:!0,attribute:"margin-l"}}}static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroPanel")||css`
                 :host {
                     display: block;
                     margin: var(--furo-panel-margin, 0 var(--spacing-s) 0 var(--spacing-s));
@@ -1389,7 +1389,7 @@ this._FBPAddWireHook("--pathChanged",e=>{if(e.pathSegments[0]){this.selected=e.p
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("HeaderToolbar")||css`
         :host {
             display: block;
             color: var(--on-primary);
@@ -2387,7 +2387,7 @@ if(w[1]===void 0){w[1]=w[0];w[0]="default"}this.shadowRoot.getElementById("furo-
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroIconButton")||css`
         :host {
             display: inline-block;
             position: relative;
@@ -2446,7 +2446,7 @@ return Theme.getThemeForComponent(this.name)||css`
      */render(){// language=HTML
 return html`
      <div class="bg"></div>
-      <button ƒ-focus="--focus" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>
+      <button ƒ-focus="--focus" aria-label="${this.icon}" ?autofocus=${this.autofocus} ?disabled=${this.disabled} ?danger=${this.danger}>
         <furo-icon icon="${this.icon}"></furo-icon>
          <furo-ripple></furo-ripple>      
       </button>
@@ -2455,7 +2455,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroLoadingIndicatorBar")||css`
         :host {
             display: block;
             width: 100%;
@@ -2529,7 +2529,7 @@ this._drawer.addEventListener("is-floating",()=>{this.showNavigationIcon()});thi
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroAppBarTop")||css`
         :host {
             display: block;
             position: relative;
@@ -2622,7 +2622,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("ViewHome")||css`
             :host {
                 display: block;
                 height: 100%;
@@ -2901,7 +2901,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroButton")||css`
         :host {
             display: inline-block;
             position: relative;
@@ -3053,12 +3053,12 @@ return Theme.getThemeForComponent(this.name)||css`
         }
 
         :host([raised][danger]) button:focus, :host([unelevated][danger]) button:focus{
-            background-color: var(--on-danger, #FFFFFF);
-            color: var(--danger-light, #FF0000);
+            background-color: var(--danger-light, #FFFFFF);
+          
         }
         :host([raised][danger]) button:hover, :host([unelevated][danger]) button:hover{
             background-color: var(--danger-dark);
-            color: var(--on-danger, #FFFFFF);
+            
         }
         :host([danger]) button:focus{
             background-color: var(--focus-color, var(--surface-light, #F3F3F3));
@@ -3204,7 +3204,7 @@ caller._theInputElement.removeAttribute(attribute)}})}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroColorInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
@@ -3559,7 +3559,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroCheckbox")||css`
             /* https://material.io/design/components/text-fields.html#theming */
             :host {
                 display: inline-block;
@@ -3799,7 +3799,7 @@ this._value=!!this.value;this._FBPAddWireHook("--toggle",_=>{if(!this.disabled){
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroCheckboxInput")||css`
             /* https://material.io/design/components/text-fields.html#theming */
             :host {
                 display: inline-block;
@@ -4049,7 +4049,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDateInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
@@ -4371,7 +4371,7 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-date-input",FuroDateInput);class FuroNumberInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-date-input",FuroDateInput);class FuroNumberInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the min attr
      *
      * @param value
@@ -4457,7 +4457,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroNumberInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
@@ -4895,7 +4895,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroPasswordInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
@@ -5281,7 +5281,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroRadioButton")||css`
             /* https://material.io/design/components/text-fields.html#theming */
             :host {
                 display: inline-block;
@@ -5512,7 +5512,7 @@ if(!this.disabled&&!this.value){this.toggle()}})}set value(v){this._value=v;this
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroRadioButtonInput")||css`
             /* https://material.io/design/components/text-fields.html#theming */
             :host {
                 display: inline-block;
@@ -5763,7 +5763,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroRangeInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
@@ -6170,7 +6170,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroSearchInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
@@ -6620,7 +6620,7 @@ if("string"===typeof collection[0]){collection=collection.map(item=>{return{id:i
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroSelectInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
@@ -7049,7 +7049,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroTextInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
@@ -7475,7 +7475,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroTextareaInput")||css`
         :host {
             display: inline-block;
             position: relative;
@@ -7819,7 +7819,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroTimeInput")||css`
         /* https://material.io/design/components/text-fields.html#theming */
         :host {
             display: inline-block;
@@ -8144,11 +8144,24 @@ return html`
       <div class="errortext">${this.errortext}</div>
  
     `}}window.customElements.define("furo-time-input",FuroTimeInput);class FuroFileInput extends FBP(LitElement){/**
-   * flow is ready lifecycle method
-   */_FBPReady(){super._FBPReady();// this._FBPTraceWires();
+   * @event input
+   * The input event fires when the value of an <input>, <select>, or <textarea> element has been changed.
+   * The input event is fired every time the value of the element changes.
+   *
+   * Comes from underlying component input. **bubbles**
+   */ /**
+       * flow is ready lifecycle method
+       */_FBPReady(){super._FBPReady();// this._FBPTraceWires();
 this._FBPAddWireHook("--inputInput",e=>{/**
        * get local files and encode to Base64
-       */const promises=[],FILES=e.target.files;for(let i=0;i<FILES.length;i++){promises.push(this._fetchLocalFile(FILES[i]))}/**
+       */const promises=[],FILES=e.target.files;this.files=FILES;/**
+                           * @event files-selected
+                           * This event is representative for the attribute files on the native element input type=file
+                           * Fired when value has changed from inside the component
+                           * detail payload: {Array} A FileList listing the chosen files
+                           */const customEvent=new Event("files-selected",{composed:!0,bubbles:!0});customEvent.detail=FILES;this.dispatchEvent(customEvent);/**
+                                        * File encoding for the convenience event `value-changed
+                                        */for(let i=0;i<FILES.length;i++){promises.push(this._fetchLocalFile(FILES[i]))}/**
          * All files are encoded
          */Promise.all(promises).then(values=>{/**
          * @event value-changed
@@ -8157,7 +8170,7 @@ this._FBPAddWireHook("--inputInput",e=>{/**
          */const customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=values;this.dispatchEvent(customEvent)})})}/**
      * Fetch local file
      * @private
-     */_fetchLocalFile(file){return new Promise((resolve,reject)=>{// Create a new FileReader innstance
+     */_fetchLocalFile(file){return new Promise((resolve,reject)=>{// Create a new FileReader instance
 const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.result)});reader.readAsDataURL(file)})}static get properties(){return{/**
        * The required attribute, the value true means this field must be filled in
        *
@@ -8170,6 +8183,9 @@ const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.r
        */disabled:{type:Boolean,reflect:!0},/**
        * A Boolean attribute which, if present, means this field cannot be edited by the user.
        */readonly:{type:Boolean,reflect:!0},/**
+       * A FileList listing the chosen files
+       * readonly
+       */files:{type:Array},/**
        * Hint for expected file type in file upload controls
        * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers
        * e.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
@@ -8184,7 +8200,7 @@ const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.r
        * the user agent is free to decide on its own what to do. If the requested facing mode isn't available,
        * the user agent may fall back to its preferred default mode.
        */capture:{type:String,attribute:!0,reflect:!0}}}static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroFileInput")||css`
             :host {
                 display: inline-block;
                 position: relative;
@@ -8677,7 +8693,7 @@ return html`
      *
      * @private
      * @return {CSSResult}
-     */static get styles(){let theme=Theme.getThemeForComponent(this.name);if(theme){return[theme,Styling.theme]}else{// language=CSS
+     */static get styles(){let theme=Theme.getThemeForComponent("MainStage");if(theme){return[theme,Styling.theme]}else{// language=CSS
 return[css`
           :host {
               height: 100%;
@@ -8717,7 +8733,7 @@ return html`
    *
    * @private
    * @return {CSSResult}
-   */static get styles(){let theme=Theme.getThemeForComponent(this.name);if(theme){return[theme]}else{// language=CSS
+   */static get styles(){let theme=Theme.getThemeForComponent("FuroShell");if(theme){return[theme]}else{// language=CSS
 return[css`
                 :host {
                     display: block;
@@ -8822,7 +8838,7 @@ this.addEventListener("mouseup",this.trackEnd,{once:!0});this.addEventListener("
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroAppDrawer")||css`
         :host {
             display: block;
             height: 100%;
@@ -10951,7 +10967,7 @@ Prism.highlightAllUnder(this.shadowRoot)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroMarkdown")||css`
         :host {
             display: block;
             background-color: var(--surface, white);
@@ -11141,7 +11157,7 @@ return Theme.getThemeForComponent(this.name)||css`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocPropertiesItem")||css`
         :host {
             display: block;
             font-size: 13px;
@@ -11181,7 +11197,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocProperties")||css`
         :host {
             display: block;
         }
@@ -11215,7 +11231,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocMethodsItem")||css`
         :host {
             display: block;
             font-size: 13px;
@@ -11286,7 +11302,7 @@ return"public"===m.privacy&&!m.inheritedFrom});data=data.sort((a,b)=>{var textA=
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocMethods")||css`
         :host {
             display: block;
         }
@@ -11320,7 +11336,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocEventsItem")||css`
         :host {
             display: block;
             font-size: 13px;
@@ -11358,7 +11374,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocEvents")||css`
         :host {
             display: block;
         }
@@ -11394,7 +11410,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDemoLink")||css`
         :host {
             display: block;
         }
@@ -11416,7 +11432,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocElement")||css`
         :host {
             display: block;
             font-weight: 400;
@@ -11475,7 +11491,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocClassMethodsItem")||css`
         :host {
             display: block;
             font-size: 13px;
@@ -11545,7 +11561,7 @@ data=data.filter(m=>{return"public"===m.privacy});this._FBPTriggerWire("--data",
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocClassMethods")||css`
         :host {
             display: block;
         }
@@ -11578,7 +11594,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocClass")||css`
         :host {
             display: block;
             font-weight: 400;
@@ -11636,7 +11652,7 @@ this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}setItem(it
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocMenuElementItem")||css`
         :host {
             display: list-item;
             padding-left: var(--spacing-s);
@@ -11681,7 +11697,7 @@ if(!this.item.name){this.remove()}}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocMenuClassItem")||css`
         :host {
             display: list-item;
             padding-left: var(--spacing-s);
@@ -11734,7 +11750,7 @@ if(analysis.__selectedMixin){/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocMenu")||css`
         :host {
             display: block;
             height: 100%;
@@ -15818,7 +15834,7 @@ let indicator=canvas.rect(10,node.height).move(node.x-node.width/2,node.y-node.h
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroGraphRenderer")||css`
         :host {
             display: block;
             height: 100%;
@@ -15963,7 +15979,7 @@ if(attr.name.startsWith("\u0192-")){this._collectedWires.methods.push(attr);attr
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroShowFlow")||css`
         :host {
             display: block;
             height: 100%;
@@ -15993,7 +16009,7 @@ let demo=this.shadowRoot.querySelector("#demo");if(!this.noDemo){let elem=docume
      * Themable Styles
      * @private
      * @return {CSSResult}
-     */static get styles(){let theme=Theme.getThemeForComponent(this.name);if(theme){return[theme,Styling$1.theme]}else{// language=CSS
+     */static get styles(){let theme=Theme.getThemeForComponent("FuroDemoSnippet");if(theme){return[theme,Styling$1.theme]}else{// language=CSS
 return[css`
           :host {
               display: block;
@@ -16130,7 +16146,7 @@ if(this._analysis.classes){this._analysis.__selectedClass=this._analysis.classes
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroDocFetchAnalysis")||css`
         :host {
             display: block;
         }
@@ -16152,7 +16168,7 @@ this.addEventListener("click",e=>{this._FBPTriggerWire("--click",e)})}injectItem
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("SideNavigationItem")||css`
         :host {
             display: list-item;
             min-height: 40px;
@@ -16225,7 +16241,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("SideNavigationGroup")||css`
         :host {
             display: block;
             padding-bottom: var(--spacing);
@@ -16272,7 +16288,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("SideNavigation")||css`
           :host {
               display: block;
               background-color: var(--surface, white);
@@ -16327,7 +16343,7 @@ if(null!==item.getAttribute("rel")&&0<item.getAttribute("rel").length&&-1===rels
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroButtonBar")||css`
             :host {
                 display: block;
             }
@@ -16417,7 +16433,7 @@ this._FBPAddWireHook("--toggleClicked",()=>{this.toggle()});/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroCollapsibleBox")||css`
 
         :host {
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -16502,98 +16518,112 @@ setTimeout(()=>{let cr=this.getBoundingClientRect();this._checkSize(cr.width)},1
        * Set narrower-fix attribute to force
        * 1 column view (analog breakpoint small)
        */narrowerFix:{type:Boolean,attribute:"narrower-fix",reflect:!0}}}static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
-        :host {
-            display: grid;
-            grid-row-gap: 0px;
-            grid-column-gap: 0px;
-            grid-template-columns: repeat(1, 1fr);
-            
-        }
+return Theme.getThemeForComponent("FuroFormLayouter")||css`
+            :host {
+                display: grid;
+                grid-row-gap: 0px;
+                grid-column-gap: 0px;
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-        :host([hidden]) {
-            display: none;
-        }
+            :host([hidden]) {
+                display: none;
+            }
 
-        ::slotted(*) {
-            width: 100%;
-        }
-        
-        :host([two]) ::slotted(*[double]) {
-            grid-column: span 2 / auto;
-        }
+            ::slotted(*) {
+                width: 100%;
+            }
 
-        :host([two]) ::slotted(*[full]) {
-            grid-column: span 2 / auto;
-        }
+            :host([two]) ::slotted(*[double]) {
+                grid-column: span 2 / auto;
+            }
 
-        :host([four]) ::slotted(*[double]) {
-            grid-column: span 2  / auto;
-        }
+            :host([two]) ::slotted(*[full]) {
+                grid-column: span 2 / auto;
+            }
 
-        :host([four]) ::slotted(*[full]) {
-            grid-column: span 4 / auto;
-        }
+            :host([four]) ::slotted(*[double]) {
+                grid-column: span 2  / auto;
+            }
 
-        :host([two]) {
-            grid-template-columns: repeat(2, 1fr);
-            grid-column-gap: var(--spacing);
-        }
+            :host([four]) ::slotted(*[full]) {
+                grid-column: span 4 / auto;
+            }
 
-        :host([four]) {
-            grid-template-columns: repeat(4, 1fr);
-            grid-column-gap: var(--spacing);
-        }
+            :host([two]) {
+                grid-template-columns: repeat(2, 1fr);
+                grid-column-gap: var(--spacing);
+            }
 
-        :host([narrow]) {
-            grid-template-columns: repeat(1, 1fr);
-        }
+            :host([four]) {
+                grid-template-columns: repeat(4, 1fr);
+                grid-column-gap: var(--spacing);
+            }
 
-        :host([four][narrow]) {
-            grid-template-columns: repeat(2, 1fr);
-        }
+            :host([narrow]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-        :host([narrower]) {
-            grid-template-columns: repeat(1, 1fr);
-        }
-        
-        :host([narrower]) > ::slotted(*[double]){
-            grid-column: auto;
-        }
+            :host([narrow]) > ::slotted(*[full]) {
+                grid-column: auto;
+            }
 
-        :host([narrow-fix]) {
-            grid-template-columns: repeat(1, 1fr);
-        }
+            :host([four][narrow]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-        :host([four][narrow-fix]) {
-            grid-template-columns: repeat(2, 1fr);
-        }
+            :host([four][narrow]) > ::slotted(*[double]) {
+                grid-column: auto;
+            }
 
-        :host([four][narrower-fix]) {
-            grid-template-columns: repeat(1, 1fr);
-        }
+            :host([narrower]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-        :host([narrower-fix]) {
-            grid-template-columns: repeat(1, 1fr);
-        }
+            :host([narrower]) > ::slotted(*) {
+                grid-column: auto;
+            }
 
-        :host([card]) {
+            :host([narrow-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
 
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-            0 1px 5px 0 rgba(0, 0, 0, 0.12),
-            0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            :host([four][narrower]) > ::slotted(*) {
+                grid-column: auto;
+            }
 
-            background: var(--furo-card-background, var(--surface, white));
-            padding: var(--furo-card-padding, var(--spacing-xs, 8px));
-            margin: var(--furo-card-margin, 0);
+            :host([four][narrow-fix]) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            :host([four][narrower-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            :host([narrower-fix]) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            :host([narrower-fix]) > ::slotted(*) {
+                grid-column: auto;
+            }
+
+            :host([card]) {
+
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+                background: var(--furo-card-background, var(--surface, white));
+                padding: var(--furo-card-padding, var(--spacing-xs, 8px));
+                margin: var(--furo-card-margin, 0);
 
 
-            border-radius: 4px;
-            font-size: 14px;
-            letter-spacing: 0.1px;
-        }
-
-    `}/**
+                border-radius: 4px;
+                font-size: 14px;
+                letter-spacing: 0.1px;
+            }
+        `}/**
      * @private
      * @returns {TemplateResult | TemplateResult}
      */render(){// language=HTML
@@ -16618,7 +16648,7 @@ return html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroForm")||css`
       :host {
         display: block;
         --furo-button-padding: var(--spacing-xs, 8px);
@@ -16694,12 +16724,7 @@ return Theme.getThemeForComponent(this.name)||css`
       }
 
 
-      :host([header-text]) .head {
-        display: block;
-      }
-
       .head {
-        display: none;
         padding-bottom: var(--spacing-s, 16px);
       }
 
@@ -16714,7 +16739,7 @@ return Theme.getThemeForComponent(this.name)||css`
       h1 {
         font-size: 20px;
         height: 40px;
-        line-height: 56px;         
+        line-height: 56px;
         margin: 0;
         font-weight: normal;
 
@@ -16731,10 +16756,11 @@ return Theme.getThemeForComponent(this.name)||css`
      */render(){// language=HTML
 return html`
       <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
+      ${this.headerText?html`
       <div class="head">
-      <h1>${this.headerText}</h1>
-      <span>${this.secondaryText}</span>  
-      </div>
+         <h1>${this.headerText}</h1>
+         ${this.secondaryText?html`<span>${this.secondaryText}</span>`:html``}     
+      </div>`:html``} 
       <div class="media">
       <slot name="media"></slot>
       </div>
@@ -16748,7 +16774,7 @@ return html`
               *
               * @type {string}
               */this.label="set the label!"}static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("FuroInputRow")||css`
         :host {
             display: block;
         }
@@ -16799,7 +16825,7 @@ return html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return Theme.getThemeForComponent(this.name)||css`
+return Theme.getThemeForComponent("DemoFuroIconList")||css`
         :host {
             display: block;
             

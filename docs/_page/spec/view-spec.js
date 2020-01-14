@@ -7,7 +7,7 @@ this._FBPTriggerWire("--fetchMD","/_page/markdown/"+md+".md");this.scrollTop=0})
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SpecMdLoader")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -40,7 +40,7 @@ this._FBPTriggerWire("--nav",nav)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("ViewSpec")||_furoShell.css`
         :host {
             display: block;
             height: 100%;

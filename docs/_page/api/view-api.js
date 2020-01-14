@@ -15,7 +15,7 @@ define(["exports","../furo-shell.js"],function(_exports,_furoShell){"use strict"
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDemoSnippet")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -68,7 +68,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroHorizontalFlex")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -102,7 +102,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroVerticalFlex")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -134,7 +134,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroVerticalScroller")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -165,7 +165,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroSplitView")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -217,7 +217,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroPanel")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -267,110 +267,106 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
-            :host {
-                display: block;
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12),
-                0 3px 1px -2px rgba(0, 0, 0, 0.2);
-                --furo-button-padding: var(--spacing-xs, 8px);
-                background: var(--furo-card-background, var(--surface, white));
-                padding-bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
-                margin: var(--furo-card-margin, 0);
-                box-sizing: border-box;
-                position: relative;
-                border-radius: 4px;
-                font-size: 14px;
-                letter-spacing: 0.1px;
-            }
+return _furoShell.Theme.getThemeForComponent("FuroCard")||_furoShell.css`
+      :host {
+        display: block;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 1px 5px 0 rgba(0, 0, 0, 0.12),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        --furo-button-padding: var(--spacing-xs, 8px);
+        background: var(--furo-card-background, var(--surface, white));
+        padding-bottom: var(--furo-card-padding, var(--spacing-xs, 8px));
+        margin: var(--furo-card-margin, 0);
+        box-sizing: border-box;
+        position: relative;
+        border-radius: 4px;
+        font-size: 14px;
+        letter-spacing: 0.1px;
+      }
 
 
-            :host([hidden]) {
-                display: none;
-            }
+      :host([hidden]) {
+        display: none;
+      }
 
-            :host([hasaction]) .content {
-                padding-bottom: 56px;
-            }
-
-
-            /** no padding-top on .content if header-text is set **/
-            :host([header-text]) .content {
-                padding-top: 0;
-            }
-
-            /** set padding-top on .content if media is present **/
-            :host([header-text][hasmedia]) .content {
-                padding-top: var(--furo-card-padding, var(--spacing-s, 16px));
-            }
-
-            .content {
-                padding: var(--furo-card-padding, var(--spacing-s, 16px));
-            }
-
-            .content ::slotted(h1) {
-
-                font-size: 24px;
-                line-height: 24px;
-                letter-spacing: 0;
-                margin: 0;
-                font-weight: normal;
-                margin-bottom: 4px;
-
-            }
-
-            .action {
-                position: absolute;
-                bottom: var(--furo-card-padding, var(--spacing-s, 16px));
-                left: var(--furo-card-padding, var(--spacing-s, 16px));
-                right: var(--furo-card-padding, var(--spacing-s, 16px));
-
-            }
+      :host([hasaction]) .content {
+        padding-bottom: 56px;
+      }
 
 
-            :host([header-text]) .head {
-                display: block;
-            }
+      /** no padding-top on .content if header-text is set **/
+      :host([header-text]) .content {
+        padding-top: 0;
+      }
 
-            .head {
-                display: none;
-                padding: var(--spacing-s, 16px);
-            }
+      /** set padding-top on .content if media is present **/
+      :host([header-text][hasmedia]) .content {
+        padding-top: var(--furo-card-padding, var(--spacing-s, 16px));
+      }
 
-            .head span {
-                color: var(--secondary-color, var(--on-primary-light, #777777));
-                line-height: 22px;
-            }
+      .content {
+        padding: var(--furo-card-padding, var(--spacing-s, 16px));
+      }
 
-            h1 {
-                font-size: 24px;
-                line-height: 24px;
-                letter-spacing: 0;
-                margin: 0;
-                font-weight: normal;
-                margin-bottom: 4px;
-            }
+      .content ::slotted(h1) {
 
-            :host([header-text]) .media ::slotted(*) {
-                border-radius: 0;
-            }
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: 0;
+        margin: 0;
+        font-weight: normal;
+        margin-bottom: 4px;
 
-            .media ::slotted(*) {
-                border-top-right-radius: 4px;
-                border-top-left-radius: 4px;
-                width: 100%;
-            }
+      }
 
-        `}/**
+      .action {
+        position: absolute;
+        bottom: var(--furo-card-padding, var(--spacing-s, 16px));
+        left: var(--furo-card-padding, var(--spacing-s, 16px));
+        right: var(--furo-card-padding, var(--spacing-s, 16px));
+
+      }
+
+ 
+      .head {
+        padding: var(--spacing-s, 16px);
+      }
+
+      .head span {
+        color: var(--secondary-color, var(--on-primary-light, #777777));
+        line-height: 22px;
+      }
+
+      h1 {
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: 0;
+        margin: 0;
+        font-weight: normal;
+        margin-bottom: 4px;
+      }
+
+      :host([header-text]) .media ::slotted(*) {
+        border-radius: 0;
+      }
+
+      .media ::slotted(*) {
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+        width: 100%;
+      }
+
+    `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
       <furo-loading-indicator-bar ƒ-start="--activityStarted" ƒ-stop="--activityStopped"></furo-loading-indicator-bar>
+            ${this.headerText?_furoShell.html`
       <div class="head">
-        <h1>${this.headerText}</h1>
-      <span>${this.secondaryText}</span>  
-      </div>
+         <h1>${this.headerText}</h1>
+         ${this.secondaryText?_furoShell.html`<span>${this.secondaryText}</span>`:_furoShell.html``}     
+      </div>`:_furoShell.html``} 
       <div class="media">
       <slot name="media"></slot>
       </div>
@@ -391,7 +387,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroCard")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -483,7 +479,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroIcon")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -530,7 +526,7 @@ Iconset.registerIconset("default", FuroBaseIcons);</pre>
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroCollapsibleBox")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -561,7 +557,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroFormLayouter")||_furoShell.css`
             :host {
                 display: block;
             }
@@ -649,7 +645,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("ProduceQpData")||_furoShell.css`
         :host {
             display: inline-block;
             margin-top: 18px;
@@ -669,7 +665,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroButtonBar")||_furoShell.css`
             :host {
                 display: block;
             }
@@ -743,7 +739,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroButtonPlayground")||[_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -872,7 +868,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroButton")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -996,7 +992,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroNumberInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1041,7 +1037,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroRangeInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1084,7 +1080,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroTextInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1140,7 +1136,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SampleFuroButton")||_furoShell.css`
         :host {
             display: block;
         }
@@ -1216,7 +1212,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SampleFuroRangeInput")||_furoShell.css`
         :host {
             display: block;
         }
@@ -1249,7 +1245,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SampleFuroNumberInput")||_furoShell.css`
         :host {
             display: block;
         }
@@ -1282,7 +1278,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SampleFuroTextInput")||_furoShell.css`
         :host {
             display: block;
         }
@@ -1315,7 +1311,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroPasswordInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1377,7 +1373,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroSearchInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1407,7 +1403,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroTextareaInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1445,7 +1441,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroTimeInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1512,7 +1508,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDateInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1569,7 +1565,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroInputTogether")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1722,7 +1718,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroCheckboxInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1754,7 +1750,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SampleFuroSelectInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1789,7 +1785,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroSelectInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1843,7 +1839,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroCheckbox")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1892,7 +1888,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroColorInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1948,7 +1944,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoCondensed")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -1982,7 +1978,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroRadioButtonInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -2017,7 +2013,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroRadioButton")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -2066,7 +2062,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroFileInput")||_furoShell.css`
             :host {
                 display: block;
                 height: 100%;
@@ -3103,7 +3099,7 @@ if(Array.isArray(data)){linkObject=data.filter(e=>{return e.rel===this.rel})[0]}
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataObjectForm")||_furoShell.css`
         :host {
             display: block;
         }
@@ -3129,7 +3125,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataObject")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -3174,7 +3170,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataObjectValidator")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -3312,7 +3308,7 @@ if(this.shift&&!keyboardEvent.shiftKey){return}if(this.alt&&!keyboardEvent.altKe
         * Fired when key was catched on target
         * detail payload: keyevent
         */let customEvent=new Event("key",{composed:!0,bubbles:!0});customEvent.detail=keyevent;this.dispatchEvent(customEvent)}})}}window.customElements.define("furo-keydown",FuroKeydown);class FuroPrettyJson extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}static get properties(){return{}}static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroPrettyJson")||_furoShell.css`
             :host {
                 display: block;
                 font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
@@ -3381,7 +3377,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}toggle(){this.field._value=
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataBoolIcon")||_furoShell.css`
         :host {
             display: inline-block;
             width: 16px;
@@ -3391,7 +3387,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
             display: none;
         }
     `}bindData(d){if(d===void 0){return}if("bool"!==d._spec.type){console.warn("wrong type binded",this);return}this.field=d;// render on changed data
-this.field.addEventListener("field-value-changed",e=>{this._updateSymbol()});this._updateSymbol()}_updateSymbol(){this._ocSymbol=this.field._value?this.symboltrue:this.symbolfalse;this.requestUpdate()}/**
+this.field.addEventListener("field-value-changed",()=>{this._updateSymbol()});this._updateSymbol()}_updateSymbol(){this._ocSymbol=this.field._value?this.symboltrue:this.symbolfalse;this.requestUpdate()}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
@@ -3514,7 +3510,7 @@ this.field.addEventListener("this-metas-changed",e=>{this._buildListWithMetaOpti
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataCollectionDropdown")||_furoShell.css`
         :host {
             display: inline-block;
             width: 190px;
@@ -3625,7 +3621,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataCheckboxInput")||_furoShell.css`
         :host {
             display: inline-block;
             width: 300px;
@@ -3717,7 +3713,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataColorInput")||_furoShell.css`
         :host {
             display: inline-block;
             position: relative;
@@ -3904,7 +3900,7 @@ if(3===arr.length){obj.day=+arr[2];obj.month=+arr[1];obj.year=+arr[0]}return obj
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataDateInput")||_furoShell.css`
         :host {
             display: inline-block;
             width: 190px;
@@ -3963,7 +3959,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}_updateField(){this.text=th
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataDisplay")||_furoShell.css`
         :host {
             display: inline-block;
             position: relative;
@@ -4243,7 +4239,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataNumberInput")||_furoShell.css`
         :host {
             display: inline-block;
             width: 190px;
@@ -4353,7 +4349,7 @@ this.field.currency_code._value=this.value.currency_code;selected=!0}}return{id:
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataMoneyInput")||_furoShell.css`
         /* https://material.io/design/components/text-fields.html#theming */
 
         furo-select-input {
@@ -4484,7 +4480,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataPasswordInput")||_furoShell.css`
         :host {
             display: inline-block;
             width: 190px;
@@ -4514,7 +4510,7 @@ let r=document.createElement("flow-repeat");r.setAttribute("identity-path","id._
 if(0<this.field.repeats.length){repeater.injectItems(this.field.repeats)}}else{this.field.data.addEventListener("branch-value-changed",d=>{this._createPropComponent(propertyField)},{once:!0});// data already in data-object
 if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let type=propertyField.data["@type"]._value.replace(/.*\//,""),e=document.createElement(this.typemap[type]),l=this.attributes.length;for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(type){// the input elements for string and number are just working with scalar values
 case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;case"google.protobuf.FloatValue":case"google.protobuf.Int32Value":case"google.protobuf.UInt32Value":case"google.protobuf.StringValue":e.bindData(propertyField.data.value);break;default:e.bindData(propertyField.data);}this._createdProp=this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"]._value,"not in map",this)}}}disconnectedCallback(){if(this._createdProp){this._createdProp.remove()}if(this._createdRepeater){this._createdRepeater.remove()}}static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataProperty")||_furoShell.css`
         :host {
             display: none;
         }
@@ -4525,7 +4521,7 @@ if(0<this.field.repeats.length){repeater.injectItems(this.field.repeats)}}else{t
 if(this.field.data["@type"]){this._createPropComponent(propertyField)}}}_createPropComponent(propertyField){if(!this._property_created){let e=document.createElement(this.typemap[propertyField.data["@type"]._value.replace(/.*\//,"")]),l=this.attributes.length;// Grab all of the original's attributes, and pass them to the replacement
 for(let i=0;i<l;++i){var nodeName=this.attributes.item(i).nodeName,nodeValue=this.attributes.item(i).nodeValue;if(!nodeName.startsWith("@")&&!nodeName.startsWith("\u0192")){e.setAttribute(nodeName,nodeValue)}}if(e.bindData){switch(propertyField.data["@type"]._value.replace(/.*\//,"")){// the input elements for string and number are just working with scalar values
 case"furo.StringProperty":case"furo.NumberProperty":case"furo.IntegerProperty":e.bindData(propertyField.data.data);break;default:e.bindData(propertyField.data);}this._created=this.parentNode.insertBefore(e,this);propertyField.data.dispatchNodeEvent(new NodeEvent("this-metas-changed",propertyField.data,!1));this._property_created=!0}else{console.warn(propertyField.data["@type"]._value,"not in map",this)}}}disconnectedCallback(){if(this._createdProp){this._createdProp.remove()}if(this._createdRepeater){this._createdRepeater.remove()}}static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataPropertyDisplay")||_furoShell.css`
         :host {
             display: none;
         }
@@ -4581,7 +4577,7 @@ if(!this.field._isValid){this.error=!0;this.errortext=this.field._validity.descr
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataRadioButtonInput")||_furoShell.css`
         :host {
             display: inline-block;
             width: 300px;
@@ -4690,7 +4686,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataRangeInput")||_furoShell.css`
         :host {
             display: inline-block;
             width: 190px;
@@ -4759,7 +4755,11 @@ return _furoShell.html`
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}_init(){this.addEventListener("searchInput",e=>{// by valid input reset meta and constraints
-CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this._searchTerm=e.detail;if(!this.searchOnEnterOnly){this._fireSearchEvent()}});this._FBPAddWireHook("--itemSelected",item=>{this.field.id._value=item.data[this.valueField];this.field.display_name._value=item.data[this.displayField];this._updateField();this._closeList()});/**
+CheckMetaAndOverrides.UpdateMetaAndConstraints(this);this._searchTerm=e.detail;if(!this.searchOnEnterOnly){this._fireSearchEvent()}});this._FBPAddWireHook("--itemSelected",item=>{this.field.id._value=item.data[this.valueField];this.field.display_name._value=item.data[this.displayField];this._updateField();this._closeList();/**
+                          * @event item-selected
+                          * Fired from inner element when item is selected
+                          * detail payload: {Object} item
+                          */});/**
          * listen to keyboard events
          */this.addEventListener("keydown",event=>{let key=event.key||event.keyCode;if("Escape"===key||"Esc"===key||27===key){this._updateField();if(this._listIsOpen){// close list if open and  then clear search
 event.preventDefault()}this._closeList();if(""===this._searchTerm){event.preventDefault();// re set display_name
@@ -4859,7 +4859,7 @@ if(this.hint){this._hint=this.hint}else if(this.field._meta&&this.field._meta.hi
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataReferenceSearch")||_furoShell.css`
             :host {
                 display: inline-block;
                 position: relative;
@@ -4929,7 +4929,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DataRepeatDelete")||_furoShell.css`
         :host {
             display: block;
             box-sizing: border-box;
@@ -4997,7 +4997,7 @@ this._FBPTriggerWire("--repeatsChanged",this.field.__childNodes)}}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataRepeat")||_furoShell.css`
         :host {
             display: block;
         }
@@ -5093,7 +5093,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataSearchInput")||_furoShell.css`
         :host {
             display: inline-block;
             width:190px;
@@ -5213,7 +5213,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataTextInput")||_furoShell.css`
         :host {
             display: inline-block;
             width: 190px;
@@ -5305,7 +5305,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataTextareaInput")||_furoShell.css`
         :host {
             display: inline-block;
         }
@@ -5415,7 +5415,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataTimeInput")||_furoShell.css`
         :host {
             display: inline-block;
             width: 104px;
@@ -5440,12 +5440,25 @@ return _furoShell.html`
           ƒ-set-value="--value"></furo-time-input>      
     `}}customElements.define("furo-data-time-input",FuroDataTimeInput);class FuroDataFileInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event value-changed
-   * Fired when value has changed from inside the input field.
-   *
-   * detail payload: {Array} Base64 String
+   * This event is representative for the attribute files on the native element input type=file
+   * Fired when value has changed from inside the component
+   * detail payload: {Array} A FileList listing the chosen files
    *
    * Comes from underlying component furo-file-input. **bubbles**
-   */constructor(){super();this.disabled=!1;this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}})}/**
+   */ /**
+       * @event files-selected
+       * Fired when value has changed from inside the input field.
+       *
+       * detail payload: {Array} Base64 String
+       *
+       * Comes from underlying component furo-file-input. **bubbles**
+       */ /**
+           * @event input
+           * The input event fires when the value of an <input>, <select>, or <textarea> element has been changed.
+           * The input event is fired every time the value of the element changes.
+           *
+           * Comes from underlying component input. **bubbles**
+           */constructor(){super();this.disabled=!1;this.files=[];this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--filesSelected",val=>{this.files=val})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -5466,6 +5479,9 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        *
        * Use with caution, normally the specs defines this value.
        */label:{type:String},/**
+       * A FileList listing the chosen files
+       * readonly
+       */files:{type:Array},/**
        * Hint for expected file type in file upload controls
        * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers
        * e.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
@@ -5498,7 +5514,7 @@ this.field.addEventListener("this-metas-changed",()=>{CheckMetaAndOverrides.Upda
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataFileInput")||_furoShell.css`
         :host {
             display: inline-block;
             width: 190px;
@@ -5524,8 +5540,8 @@ return _furoShell.html`
           ?unelevated=${this.unelevated} 
           ?primary=${this.primary} 
           ?secondary=${this.secondary} 
-          ?accent=${this.accent}                  
-          @-value-changed="--valueChanged"></furo-file-input>      
+          ?accent=${this.accent}                 
+          @-value-changed="--valueChanged" @-files-selected="--filesSelected"></furo-file-input>      
     `}}customElements.define("furo-data-file-input",FuroDataFileInput);class DemoProjectFilterForm extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super()}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();this._FBPTraceWires()}bindData(data){this._FBPTriggerWire("--entity",data);data.data.description.addEventListener("field-value-changed",v=>{this._FBPTriggerWire("--defaultChanged",v.detail._value)})}static get styles(){// language=CSS
@@ -5592,7 +5608,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroFilter")||_furoShell.css`
             :host {
                 display: block;
                 height: 100%;
@@ -5654,7 +5670,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataRepeat")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -5719,7 +5735,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataPropertyDisplay")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -5774,7 +5790,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataProperty")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -5830,7 +5846,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataDisplay")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -5892,7 +5908,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataBoolIcon")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -5932,7 +5948,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SampleFuroDataTextInput")||_furoShell.css`
         :host {
             display: block;
         }
@@ -5962,7 +5978,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SampleFuroDataPasswordInput")||_furoShell.css`
         :host {
             display: block;
         }
@@ -5991,7 +6007,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SampleFuroDataMoneyInput")||_furoShell.css`
         :host {
             display: block;
         }
@@ -6031,7 +6047,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SimulateError")||_furoShell.css`
         :host {
             display: inline-block;
         }
@@ -6051,7 +6067,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataTextInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6100,7 +6116,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataPasswordInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6150,7 +6166,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataDateInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6212,7 +6228,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroSearchTextInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6262,7 +6278,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataTextareaInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6303,7 +6319,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataReferenceSearch")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6367,7 +6383,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("ProduceEmptyData")||_furoShell.css`
         :host {
             display: inline-block;
             margin-top: 18px;
@@ -6386,7 +6402,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataReferenceSearchNoResult")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6429,7 +6445,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SampleFuroDataNumberInput")||_furoShell.css`
         :host {
             display: block;
         }
@@ -6460,7 +6476,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataNumberInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6521,7 +6537,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataTimeInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6577,7 +6593,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataCheckboxInput")||_furoShell.css`
             :host {
                 display: block;
                 height: 100%;
@@ -6630,7 +6646,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataRadioButtonInput")||_furoShell.css`
             :host {
                 display: block;
                 height: 100%;
@@ -6683,7 +6699,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataRangeInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6743,7 +6759,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataColorInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6788,7 +6804,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("SampleFuroDataCollectionDropdown")||_furoShell.css`
         :host {
             display: block;
         }
@@ -6839,7 +6855,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataDisplayCondensed")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -6902,7 +6918,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataInputTogether")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -7043,7 +7059,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataMoneyInput")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -7094,7 +7110,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataCollectionDropdown")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -7156,7 +7172,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataCollectionReferenceDropdown")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -7209,7 +7225,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataCollectionDropdownBindEntity")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -7260,7 +7276,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataFileInput")||_furoShell.css`
             :host {
                 display: block;
                 height: 100%;
@@ -7300,7 +7316,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataHideContent")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -7461,7 +7477,7 @@ return _furoShell.html`
      * Theme data or default style
      * @returns {*|CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataTable")||_furoShell.css`
 
             :host {
                 display: block;
@@ -7673,7 +7689,7 @@ _checkInversedState(bool){return this.hideOnFalse?!bool:bool}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDataHideContent")||_furoShell.css`
         :host {
             display: block;
         }
@@ -7692,7 +7708,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||[_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroDataTable")||[_furoShell.css`
             :host {
                 display: block;
                 height: 100%;
@@ -7745,7 +7761,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroMarkdown")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -7791,7 +7807,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("ProduceData")||_furoShell.css`
         :host {
             display: block;
         }
@@ -7810,7 +7826,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroPrettyJson")||_furoShell.css`
         :host {
             display: block;
             
@@ -7955,7 +7971,7 @@ this._FBPAddWireHook("--navNode",treeNode=>{this.treeNode=treeNode;treeNode.addE
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("ExamplePanel")||_furoShell.css`
         :host {
             display: block;
         }
@@ -7985,7 +8001,7 @@ this._FBPAddWireHook("--navNode",treeNode=>{this.treeNode=treeNode;treeNode.addE
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("ExamplePanelB")||_furoShell.css`
         :host {
             display: block;
             background-color: #ebe34b;
@@ -8016,7 +8032,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("EditExample")||_furoShell.css`
         :host {
             display: block;
         }
@@ -8047,7 +8063,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroPanelCoordinatorTabItem")||_furoShell.css`
         :host {
             display: inline-block;
             font-size: 16px;
@@ -8144,7 +8160,7 @@ this._hoverIndex=0;this._tabs.forEach((e,i)=>{if(e._isSelected){this._hoverIndex
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroPanelCoordinatorTabs")||_furoShell.css`
             :host {
                 display: block;
                 outline: none;
@@ -8206,7 +8222,7 @@ this.fieldNode.addEventListener("field-value-changed",e=>{this.requestUpdate()})
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroTreeItem")||_furoShell.css`
       :host {
         display: block;
         line-height: 40px;
@@ -8499,7 +8515,7 @@ if(!next){next=this._foundSearchItems[0]}}else{next=this._hoveredField.getNextVi
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroTree")||_furoShell.css`
       :host {
         display: block;
         box-sizing: border-box;
@@ -8718,7 +8734,7 @@ if(!(tree.is_group_label&&!0===tree.is_group_label._value)){level++}tree.childre
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroMiniTabs")||_furoShell.css`
         :host {
             display: block;
         }
@@ -8750,7 +8766,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("ProduceData")||_furoShell.css`
         :host {
             display: block;
         }
@@ -8769,7 +8785,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroPanelCoordinator")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -8848,7 +8864,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("TreeDemoForm")||_furoShell.css`
         :host {
             display: block;
         }
@@ -8892,7 +8908,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroTree")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -8953,7 +8969,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroTreeQp")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -9104,7 +9120,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroSnackbarDisplay")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -9156,7 +9172,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroSnackbarDisplayError")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -9399,7 +9415,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroBannerDisplay")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -9464,7 +9480,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoFuroBannerDisplayError")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -9547,7 +9563,7 @@ return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("DemoCaptureVideo")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -9596,7 +9612,7 @@ let demo=document.createElement(this.demoComponent);demo.id="demo";this.shadowRo
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("FuroDemoLoader")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -9636,7 +9652,7 @@ return _furoShell.html`
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("PanelDemo")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -9664,7 +9680,7 @@ return _furoShell.html`
    * @private
    * @return {CSSResult}
    */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("PanelDoc")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
@@ -9752,7 +9768,7 @@ this._FBPTriggerWire("--nav",nav)}/**
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
-return _furoShell.Theme.getThemeForComponent(this.name)||_furoShell.css`
+return _furoShell.Theme.getThemeForComponent("ViewApi")||_furoShell.css`
         :host {
             display: block;
             height: 100%;
