@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.64.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.64.1...@furo/data-input@0.64.2) (2020-01-14)
+
+
+### Bug Fixes
+
+* clasname for css theme injecter ([28d0415](https://github.com/theNorstroem/FuroBaseComponents/commit/28d0415))
+
+
+
+
+
 ## [0.64.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.64.0...@furo/data-input@0.64.1) (2019-12-19)
 
 **Note:** Version bump only for package @furo/data-input

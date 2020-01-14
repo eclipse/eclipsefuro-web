@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.63.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.63.0...@furo/input@0.63.1) (2020-01-14)
+
+
+### Bug Fixes
+
+* adjust danger styles ([c09d01e](https://github.com/theNorstroem/FuroBaseComponents/commit/c09d01e))
+* clasname for css theme injecter ([28d0415](https://github.com/theNorstroem/FuroBaseComponents/commit/28d0415))
+
+
+
+
+
 # [0.63.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.62.0...@furo/input@0.63.0) (2019-12-19)
 
 
