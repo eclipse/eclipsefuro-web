@@ -37,7 +37,8 @@ class FuroDataNumberInput extends FBP(LitElement) {
     this._FBPAddWireHook("--valueChanged", (val) => {
 
       if (this.field) {
-        this.field._value= val;
+        // convert input to number or 0 on empty string
+        this.field._value= Number(val);
       }
     });
   }
