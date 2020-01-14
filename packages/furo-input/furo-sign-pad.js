@@ -5,11 +5,19 @@ import SignaturePad from "signature_pad/dist/signature_pad.m"
 
 /**
  * `furo-sign-pad`
- * Describe your element
+ *  Simple pad to sign or draw something
+ *
+ * ### Sample
+ *  <furo-demo-snippet>
+ *   <template>
+ *    <furo-sign-pad @-sign-updated="--signed"></furo-sign-pad>
+ *     <img ƒ-.src="--signed" alt="" width="150px">
+ *   </template>
+ *  </furo-demo-snippet>
  *
  * @summary shortdescription
  * @customElement
- * @demo demo/furo-sign-pad
+ * @demo demo-furo-sign-pad
  * @appliesMixin FBP
  */
 export class FuroSignPad extends FBP(LitElement) {
@@ -19,7 +27,6 @@ export class FuroSignPad extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
-
 
     this.canvas = this.shadowRoot.querySelector("canvas");
 
@@ -32,7 +39,10 @@ export class FuroSignPad extends FBP(LitElement) {
     if (this.image) {
       this.signaturePad.fromDataURL(this.image);
     }
-    this.resize();
+    setTimeout(()=>{
+      this.resize();
+    },1);
+
     this.signaturePad.clear();
   }
 
@@ -50,6 +60,7 @@ export class FuroSignPad extends FBP(LitElement) {
       this.canvas.width = this.canvas.offsetWidth * ratio;
       this.canvas.height = this.canvas.offsetHeight * ratio;
       this.canvas.getContext("2d").scale(ratio, ratio);
+
     }
   }
 
@@ -149,6 +160,7 @@ export class FuroSignPad extends FBP(LitElement) {
     /**
      * @event sign-updated
      * Fired when sign gets new painting
+     *
      * detail payload: base encoded image
      */
     let customEvent = new Event('sign-updated', {composed: true, bubbles: true});
