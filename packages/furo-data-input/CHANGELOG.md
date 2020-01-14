@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.64.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.64.2...@furo/data-input@0.64.3) (2020-01-14)
+
+
+### Bug Fixes
+
+* convert number to 0 on empty string ([6368157](https://github.com/theNorstroem/FuroBaseComponents/commit/6368157))
+* input should be cleared when click clear button in furo-date-input by bounded date ([8c86395](https://github.com/theNorstroem/FuroBaseComponents/commit/8c86395))
+
+
+
+
+
 ## [0.64.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.64.1...@furo/data-input@0.64.2) (2020-01-14)
 
 
