@@ -13,6 +13,11 @@ import {CheckMetaAndOverrides} from "@furo/data-input/lib/CheckMetaAndOverrides"
  * @appliesMixin FBP
  */
 class FuroPanelHead extends FBP(LitElement) {
+  constructor(){
+    super();
+    this._field = {};
+  }
+
   /**
    * @private
    * @return {Object}
