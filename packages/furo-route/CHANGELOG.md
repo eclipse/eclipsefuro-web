@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.20...@furo/route@0.21.0) (2020-01-15)
+
+
+### Features
+
+* panel-coordinator with force close ([b62f604](https://github.com/theNorstroem/FuroBaseComponents/commit/b62f604))
+
+
+
+
+
 ## [0.20.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.19...@furo/route@0.20.20) (2020-01-14)
 
 

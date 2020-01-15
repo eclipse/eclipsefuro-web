@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.9.4...@furo/notification@0.9.5) (2020-01-15)
+
+**Note:** Version bump only for package @furo/notification
+
+
+
+
+
 ## [0.9.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/notification@0.9.3...@furo/notification@0.9.4) (2020-01-14)
 
 **Note:** Version bump only for package @furo/notification
