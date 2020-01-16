@@ -367,12 +367,20 @@ class FuroChip extends FBP(LitElement) {
             }
       
             span {
-                margin: 0 5px;
+                margin: 0 8px;
                 line-height: 24px;
             }
       
             furo-icon {
                 margin-top:  -4px ;
+            }
+      
+            .lead {
+                margin-right: -4px;
+            }
+
+            .trail {
+                margin-left: -4px;
             }
         `
   }
