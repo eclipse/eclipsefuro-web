@@ -4924,7 +4924,7 @@
               "column": 2
             },
             "end": {
-              "line": 334,
+              "line": 340,
               "column": 3
             }
           },
@@ -4944,11 +4944,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 359,
+              "line": 365,
               "column": 2
             },
             "end": {
-              "line": 372,
+              "line": 378,
               "column": 3
             }
           },
@@ -4970,7 +4970,7 @@
           "column": 0
         },
         "end": {
-          "line": 374,
+          "line": 380,
           "column": 1
         }
       },
