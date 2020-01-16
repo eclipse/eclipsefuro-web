@@ -15,7 +15,11 @@ class HookInitForm {
       if (ctx.config.hook && ctx.config.hook.hook_init_form) {
         return ctx.config.hook.hook_init_form
       } else {
-        return {}
+        return {
+          "default_form_size": "four",
+          "default_field_flags": ["condensed","double"],
+          "skip_fields_on_init" : ["id", "display_name"]
+        }
       }
     })();
 

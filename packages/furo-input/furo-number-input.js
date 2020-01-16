@@ -40,7 +40,6 @@ class FuroNumberInput extends FBP(LitElement) {
     super._FBPReady();
 
     this._FBPAddWireHook("--inputInput", (e) => {
-
       Helper.triggerValueChanged(this, e );
     });
   }

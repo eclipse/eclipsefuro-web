@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@0.5.3...@furo/app@0.5.4) (2020-01-14)
+
+**Note:** Version bump only for package @furo/app
+
+
+
+
+
+## [0.5.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@0.5.2...@furo/app@0.5.3) (2020-01-14)
+
+
+### Bug Fixes
+
+* clasname for css theme injecter ([28d0415](https://github.com/theNorstroem/FuroBaseComponents/commit/28d0415))
+
+
+
+
+
 ## [0.5.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/app@0.5.1...@furo/app@0.5.2) (2019-12-19)
 
 **Note:** Version bump only for package @furo/app

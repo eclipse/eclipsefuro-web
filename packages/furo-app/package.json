@@ -2,13 +2,13 @@
   "name": "@furo/app",
   "description": "Layout components for furo",
   "main": "furo-catalog.js",
-  "version": "0.5.2",
+  "version": "0.5.4",
   "dependencies": {
     "@furo/fbp": "^4.27.4",
     "@furo/framework": "^0.13.3",
-    "@furo/icon": "^0.1.1",
-    "@furo/input": "^0.63.0",
-    "@furo/layout": "^0.41.0",
+    "@furo/icon": "^0.1.2",
+    "@furo/input": "^0.63.2",
+    "@furo/layout": "^0.41.1",
     "lit-element": "^2.2.1"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",

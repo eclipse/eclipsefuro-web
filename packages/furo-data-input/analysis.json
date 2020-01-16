@@ -20407,11 +20407,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 76,
               "column": 4
             },
             "end": {
-              "line": 57,
+              "line": 78,
               "column": 5
             }
           },
@@ -20428,11 +20428,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 65,
+              "line": 86,
               "column": 4
             },
             "end": {
-              "line": 67,
+              "line": 88,
               "column": 5
             }
           },
@@ -20447,11 +20447,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 69,
+              "line": 90,
               "column": 4
             },
             "end": {
-              "line": 71,
+              "line": 92,
               "column": 5
             }
           },
@@ -20466,11 +20466,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 94,
               "column": 4
             },
             "end": {
-              "line": 75,
+              "line": 96,
               "column": 5
             }
           },
@@ -20485,11 +20485,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 120,
               "column": 12
             },
             "end": {
-              "line": 101,
+              "line": 122,
               "column": 13
             }
           },
@@ -20500,17 +20500,38 @@
           }
         },
         {
+          "name": "files",
+          "type": "Array | null | undefined",
+          "description": "A FileList listing the chosen files\nreadonly",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 127,
+              "column": 12
+            },
+            "end": {
+              "line": 129,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Array"
+            }
+          }
+        },
+        {
           "name": "required",
           "type": "boolean | null | undefined",
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 133,
+              "line": 161,
               "column": 12
             },
             "end": {
-              "line": 135,
+              "line": 163,
               "column": 13
             }
           },
@@ -20527,11 +20548,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 139,
+              "line": 167,
               "column": 12
             },
             "end": {
-              "line": 141,
+              "line": 169,
               "column": 13
             }
           },
@@ -20548,11 +20569,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 146,
+              "line": 174,
               "column": 12
             },
             "end": {
-              "line": 148,
+              "line": 176,
               "column": 13
             }
           },
@@ -20569,11 +20590,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 149,
+              "line": 177,
               "column": 12
             },
             "end": {
-              "line": 151,
+              "line": 179,
               "column": 13
             }
           },
@@ -20590,11 +20611,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 180,
               "column": 12
             },
             "end": {
-              "line": 154,
+              "line": 182,
               "column": 13
             }
           },
@@ -20611,11 +20632,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 155,
+              "line": 183,
               "column": 12
             },
             "end": {
-              "line": 157,
+              "line": 185,
               "column": 13
             }
           },
@@ -20632,11 +20653,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 158,
+              "line": 186,
               "column": 12
             },
             "end": {
-              "line": 160,
+              "line": 188,
               "column": 13
             }
           },
@@ -20653,11 +20674,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 161,
+              "line": 189,
               "column": 12
             },
             "end": {
-              "line": 163,
+              "line": 191,
               "column": 13
             }
           },
@@ -20891,11 +20912,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 44,
+              "line": 65,
               "column": 4
             },
             "end": {
-              "line": 49,
+              "line": 70,
               "column": 5
             }
           },
@@ -21087,11 +21108,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 101,
               "column": 4
             },
             "end": {
-              "line": 82,
+              "line": 103,
               "column": 5
             }
           },
@@ -21107,11 +21128,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 108,
               "column": 4
             },
             "end": {
-              "line": 89,
+              "line": 110,
               "column": 5
             }
           },
@@ -21127,11 +21148,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 200,
               "column": 4
             },
             "end": {
-              "line": 190,
+              "line": 218,
               "column": 5
             }
           },
@@ -21153,11 +21174,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 215,
+              "line": 243,
               "column": 4
             },
             "end": {
-              "line": 232,
+              "line": 260,
               "column": 5
             }
           },
@@ -21179,7 +21200,7 @@
           "column": 0
         },
         "end": {
-          "line": 234,
+          "line": 262,
           "column": 1
         }
       },
@@ -21192,11 +21213,11 @@
           "description": "Hint for expected file type in file upload controls\nhttps://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers\ne.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           "sourceRange": {
             "start": {
-              "line": 65,
+              "line": 86,
               "column": 4
             },
             "end": {
-              "line": 67,
+              "line": 88,
               "column": 5
             }
           },
@@ -21208,11 +21229,11 @@
           "description": "Whether to allow multiple values",
           "sourceRange": {
             "start": {
-              "line": 69,
+              "line": 90,
               "column": 4
             },
             "end": {
-              "line": 71,
+              "line": 92,
               "column": 5
             }
           },
@@ -21224,11 +21245,11 @@
           "description": "What source to use for capturing image or video data\nThe capture attribute value is a string that specifies which camera to use for capture of\nimage or video data, if the accept attribute indicates that the input should be of one of those types.\nA value of user indicates that the user-facing camera and/or microphone should be used. A value of environment\nspecifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,\nthe user agent is free to decide on its own what to do. If the requested facing mode isn't available,\nthe user agent may fall back to its preferred default mode.",
           "sourceRange": {
             "start": {
-              "line": 73,
+              "line": 94,
               "column": 4
             },
             "end": {
-              "line": 75,
+              "line": 96,
               "column": 5
             }
           },
@@ -21240,11 +21261,11 @@
           "description": "Overrides the label text from the **specs**.\n\nUse with caution, normally the specs defines this value.",
           "sourceRange": {
             "start": {
-              "line": 99,
+              "line": 120,
               "column": 12
             },
             "end": {
-              "line": 101,
+              "line": 122,
               "column": 13
             }
           },
@@ -21252,120 +21273,24 @@
           "type": "string | null | undefined"
         },
         {
+          "name": "files",
+          "description": "A FileList listing the chosen files\nreadonly",
+          "sourceRange": {
+            "start": {
+              "line": 127,
+              "column": 12
+            },
+            "end": {
+              "line": 129,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "Array | null | undefined"
+        },
+        {
           "name": "required",
           "description": "Overrides the required value from the **specs**.\n\nUse with caution, normally the specs defines this value.",
-          "sourceRange": {
-            "start": {
-              "line": 133,
-              "column": 12
-            },
-            "end": {
-              "line": 135,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "disabled",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
-          "sourceRange": {
-            "start": {
-              "line": 139,
-              "column": 12
-            },
-            "end": {
-              "line": 141,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "autofocus",
-          "description": "Set this attribute to autofocus the input field.",
-          "sourceRange": {
-            "start": {
-              "line": 146,
-              "column": 12
-            },
-            "end": {
-              "line": 148,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "outline",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 149,
-              "column": 12
-            },
-            "end": {
-              "line": 151,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "unelevated",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 152,
-              "column": 12
-            },
-            "end": {
-              "line": 154,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "primary",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 155,
-              "column": 12
-            },
-            "end": {
-              "line": 157,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "secondary",
-          "description": "",
-          "sourceRange": {
-            "start": {
-              "line": 158,
-              "column": 12
-            },
-            "end": {
-              "line": 160,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "accent",
-          "description": "",
           "sourceRange": {
             "start": {
               "line": 161,
@@ -21378,13 +21303,137 @@
           },
           "metadata": {},
           "type": "boolean | null | undefined"
+        },
+        {
+          "name": "disabled",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "sourceRange": {
+            "start": {
+              "line": 167,
+              "column": 12
+            },
+            "end": {
+              "line": 169,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "autofocus",
+          "description": "Set this attribute to autofocus the input field.",
+          "sourceRange": {
+            "start": {
+              "line": 174,
+              "column": 12
+            },
+            "end": {
+              "line": 176,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "outline",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 177,
+              "column": 12
+            },
+            "end": {
+              "line": 179,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "unelevated",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 180,
+              "column": 12
+            },
+            "end": {
+              "line": 182,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "primary",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 183,
+              "column": 12
+            },
+            "end": {
+              "line": 185,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "secondary",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 186,
+              "column": 12
+            },
+            "end": {
+              "line": 188,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "accent",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 189,
+              "column": 12
+            },
+            "end": {
+              "line": 191,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
         }
       ],
       "events": [
         {
           "type": "CustomEvent",
+          "name": "files-selected",
+          "description": "files-selected\nFired when value has changed from inside the input field.\n\ndetail payload: {Array} Base64 String\n\nComes from underlying component furo-file-input. **bubbles**",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "input",
+          "description": "input\nThe input event fires when the value of an <input>, <select>, or <textarea> element has been changed.\nThe input event is fired every time the value of the element changes.\n\nComes from underlying component input. **bubbles**",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
           "name": "value-changed",
-          "description": "value-changed\nFired when value has changed from inside the input field.\n\ndetail payload: {Array} Base64 String\n\nComes from underlying component furo-file-input. **bubbles**",
+          "description": "value-changed\nThis event is representative for the attribute files on the native element input type=file\nFired when value has changed from inside the component\ndetail payload: {Array} A FileList listing the chosen files\n\nComes from underlying component furo-file-input. **bubbles**",
           "metadata": {}
         }
       ],

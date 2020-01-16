@@ -11,6 +11,8 @@
     "default_type_for_identities": "string"
   },
   "spec_dir": "./specs",
+  "service_url_prefix": "/api/",
+  "spec_folders": ["./specs"],
   "__custom_tepmplate_dir": "./path/to/your/tpldir",
   "swagger": true,
   "grpc_gateway": true,

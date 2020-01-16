@@ -25,6 +25,14 @@ import {Helper} from "./lib/helper.js";
 class FuroFileInput extends FBP(LitElement) {
 
     /**
+     * @event input
+     * The input event fires when the value of an <input>, <select>, or <textarea> element has been changed.
+     * The input event is fired every time the value of the element changes.
+     *
+     * Comes from underlying component input. **bubbles**
+     */
+
+    /**
      * flow is ready lifecycle method
      */
     _FBPReady() {
@@ -39,6 +47,20 @@ class FuroFileInput extends FBP(LitElement) {
             const promises = [];
             const FILES = e.target.files;
 
+            this.files = FILES;
+            /**
+             * @event files-selected
+             * This event is representative for the attribute files on the native element input type=file
+             * Fired when value has changed from inside the component
+             * detail payload: {Array} A FileList listing the chosen files
+             */
+            const customEvent = new Event('files-selected', {composed: true, bubbles: true});
+            customEvent.detail = FILES;
+            this.dispatchEvent(customEvent);
+
+            /**
+             * File encoding for the convenience event `value-changed
+             */
             for (let i = 0; i < FILES.length; i++) {
                 promises.push(this._fetchLocalFile(FILES[i]));
             }
@@ -67,7 +89,7 @@ class FuroFileInput extends FBP(LitElement) {
      */
     _fetchLocalFile(file) {
         return new Promise((resolve, reject) => {
-            // Create a new FileReader innstance
+            // Create a new FileReader instance
             const reader = new FileReader;
 
             reader.addEventListener('load', () => {
@@ -112,6 +134,13 @@ class FuroFileInput extends FBP(LitElement) {
              */
             readonly: {
                 type: Boolean, reflect: true
+            },
+            /**
+             * A FileList listing the chosen files
+             * readonly
+             */
+            files: {
+                type: Array
             },
             /**
              * Hint for expected file type in file upload controls
