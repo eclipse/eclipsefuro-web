@@ -17,8 +17,8 @@ class HookInitForm {
       } else {
         return {
           "default_form_size": "four",
-          "default_field_flags": ["condensed","double"],
-          "skip_fields_on_init" : ["id", "display_name"]
+          "default_field_flags": ["condensed", "double"],
+          "skip_fields_on_init": ["id", "display_name"]
         }
       }
     })();
@@ -71,6 +71,7 @@ class HookInitForm {
     for (let fieldname in SPEC.fields) {
       let field = SPEC.fields[fieldname];
 
+
       /**
        * skip field if it is skip list or skipped in spec
        */
@@ -78,8 +79,31 @@ class HookInitForm {
         continue
       }
 
-      let component = U33eBuilder.getBestMatchingComponent(field);
+      let isFuroDataRepeat = false;
+      // check for map types like map<string,string>
+      if (field.type.startsWith("map")) {
+        isFuroDataRepeat = true;
+        field.subtype = field.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
+
+        field.type = "furo-data-repeat";
+
+      }
+
+      let component;
+      if (isFuroDataRepeat) {
+        component = "furo-data-repeat";
+      } else {
+        component = U33eBuilder.getBestMatchingComponent(field);
+      }
       let fld = form.appendChild(component);
+
+
+      // set delete-icon="delete"
+      if (isFuroDataRepeat) {
+        fld.addAttribute("delete-icon", "delete");
+        fld.addFlag("full")
+        fld.addAttribute("repeated-component", field.subtype);
+      }
 
 
       // add a furo-form > furo-form-layouter  for type furo.Property
@@ -96,8 +120,8 @@ class HookInitForm {
       }
 
       fld.description = "field: " + fieldname;
-      if(OPTIONS.default_field_flags){
-        OPTIONS.default_field_flags.forEach((flag)=>{
+      if (OPTIONS.default_field_flags) {
+        OPTIONS.default_field_flags.forEach((flag) => {
           fld.addFlag(flag);
         });
       }
@@ -113,9 +137,9 @@ class HookInitForm {
         fld.component = component;
         // change flag double to full
         let flagIndex = fld.flags.indexOf("double");
-        if(flagIndex === -1){
+        if (flagIndex === -1) {
           fld.addFlag("full");
-        }else{
+        } else {
           fld.flags[flagIndex] = "full";
         }
 
