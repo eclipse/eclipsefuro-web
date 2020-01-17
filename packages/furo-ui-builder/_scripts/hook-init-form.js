@@ -80,23 +80,13 @@ class HookInitForm {
       }
 
       let isFuroDataRepeat = false;
-
-      // Todo: repeated type auch noch machen
       // check for map types like map<string,string>
       if (field.type.startsWith("map")) {
         isFuroDataRepeat = true;
         field.subtype = field.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
-        // assign subtype as type to get the correct component
-        let arrTmpName = field.subtype.split(".");
-        //  complex type has a cutom form component
-        if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-          field.subcomponent = field.subtype.toLowerCase().replace(".", "-") + "-form";
-          u33e.addImport(ctx.getImportPathForComponent(field.subcomponent));
-        }else{
-          field.subcomponent = "furo-data-text-input"
-        }
 
         field.type = "furo-data-repeat";
+
       }
 
       let component;
@@ -112,9 +102,7 @@ class HookInitForm {
       if (isFuroDataRepeat) {
         fld.addAttribute("delete-icon", "delete");
         fld.addFlag("full")
-        fld.addAttribute("repeated-component", field.subcomponent);
-        fld.addAttribute("header-text", "${i18n.t('" + SPEC.type.toLowerCase() + "." + fieldname.toLowerCase() + ".form.header.text')}");
-        fld.addAttribute("secondary-text", "${i18n.t('" + SPEC.type.toLowerCase() + "." + fieldname.toLowerCase() + ".form.secondary.text')}");
+        fld.addAttribute("repeated-component", field.subtype);
       }
 
 
@@ -132,28 +120,12 @@ class HookInitForm {
       }
 
       fld.description = "field: " + fieldname;
-
-      // add default flags if no __ui.flags are set
-      if(field.__ui && field.__ui.flags){
-        field.__ui.flags.forEach((flag) => {
+      if (OPTIONS.default_field_flags) {
+        OPTIONS.default_field_flags.forEach((flag) => {
           fld.addFlag(flag);
         });
-      }else{
-        if (OPTIONS.default_field_flags) {
-          OPTIONS.default_field_flags.forEach((flag) => {
-            fld.addFlag(flag);
-          });
-        }
-
       }
 
-      //remove double if it is a dataRepeat
-      if (isFuroDataRepeat) {
-        let i = fld.flags.indexOf("double");
-        if(i > -1){
-          fld.flags.splice(i,1);
-        }
-      }
 
       fld.addMethod("bind-data", "--data(*." + fieldname + ")");
 
@@ -172,8 +144,8 @@ class HookInitForm {
         }
 
 
-        fld.addAttribute("header-text", "${i18n.t('" + SPEC.type.toLowerCase() + "." + fieldname.toLowerCase() + ".form.header.text')}");
-        fld.addAttribute("secondary-text", "${i18n.t('" + SPEC.type.toLowerCase() + "." + fieldname.toLowerCase() + ".form.secondary.text')}");
+        fld.addAttribute("header-text", "${i18n.t('" + field.type.toLowerCase() + ".form.header.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('" + field.type.toLowerCase() + ".form.secondary.text')}");
         /**
          * check if component have a replacement in the config
          *
