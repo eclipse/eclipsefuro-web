@@ -80,13 +80,23 @@ class HookInitForm {
       }
 
       let isFuroDataRepeat = false;
+
+      // Todo: repeated type auch noch machen
       // check for map types like map<string,string>
       if (field.type.startsWith("map")) {
         isFuroDataRepeat = true;
         field.subtype = field.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
+        // assign subtype as type to get the correct component
+        let arrTmpName = field.subtype.split(".");
+        //  complex type has a cutom form component
+        if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
+          field.subcomponent = field.subtype.toLowerCase().replace(".", "-") + "-form";
+          u33e.addImport(ctx.getImportPathForComponent(field.subcomponent));
+        }else{
+          field.subcomponent = "furo-data-text-input"
+        }
 
         field.type = "furo-data-repeat";
-
       }
 
       let component;
@@ -102,7 +112,7 @@ class HookInitForm {
       if (isFuroDataRepeat) {
         fld.addAttribute("delete-icon", "delete");
         fld.addFlag("full")
-        fld.addAttribute("repeated-component", field.subtype);
+        fld.addAttribute("repeated-component", field.subcomponent);
       }
 
 
