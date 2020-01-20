@@ -1,30 +1,30 @@
 const U33eBuilder = require("./u33eBuilder");
 
 class HookInitForm {
-  static getPath(ctx){
+  static getPath(ctx) {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-create-form").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-map-adder").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
 
     const OPTIONS = (() => {
-      if (ctx.config.hook && ctx.config.hook.hook_init_create_form) {
-        return ctx.config.hook.hook_init_create_form
+      if (ctx.config.hook && ctx.config.hook.hook_init_form) {
+        return ctx.config.hook.hook_init_form
       } else {
         return {
           "default_form_size": "four",
-          "default_field_flags": ["condensed","double"],
-          "skip_fields_on_init" : ["id", "display_name"]
+          "default_field_flags": ["condensed", "double"],
+          "skip_fields_on_init": ["id", "display_name"]
         }
       }
     })();
 
-    u33e.setTheme("CreateFormBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-create-form").toLowerCase();
+    u33e.setTheme("FormBaseTheme");
+    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -70,6 +70,8 @@ class HookInitForm {
     //fields
     for (let fieldname in SPEC.fields) {
       let field = SPEC.fields[fieldname];
+
+
       /**
        * skip field if it is skip list or skipped in spec
        */
@@ -77,13 +79,11 @@ class HookInitForm {
         continue
       }
 
-      // use only required fields
-      if (!(field.constraints && field.constraints.required)) {
-        continue
-      }
 
       let component = U33eBuilder.getBestMatchingComponent(field);
+
       let fld = form.appendChild(component);
+
 
 
       // add a furo-form > furo-form-layouter  for type furo.Property
@@ -121,14 +121,14 @@ class HookInitForm {
 
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
-      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google" && !component.endsWith("-map") && !component.endsWith("-repeat")) {
+      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google" && !component.startsWith("map-") && !component.startsWith("repeat-")) {
         component = field.type.toLowerCase().replace(".", "-") + "-form";
         fld.component = component;
         // change flag double to full
         let flagIndex = fld.flags.indexOf("double");
-        if(flagIndex === -1){
+        if (flagIndex === -1) {
           fld.addFlag("full");
-        }else{
+        } else {
           fld.flags[flagIndex] = "full";
         }
 
@@ -157,12 +157,13 @@ class HookInitForm {
           // set flags from config
 
         } else {
-        // exclude self import
-        let importComponent = ctx.getImportPathForComponent(component);
-        if (importComponent) {
-          u33e.addImport(importComponent);
+          // exclude self import
+          let importComponent = ctx.getImportPathForComponent(component);
+          if (importComponent) {
+            u33e.addImport(importComponent);
+          }
+
         }
-      }
 
       }
 
@@ -180,12 +181,11 @@ class HookInitForm {
       }
 
       // special type furo.Reference
+
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
           fld.component = f.toLowerCase().replace(".", "-") + "-reference-search";
-
-
           // exclude self import
           let importComponent = ctx.getImportPathForComponent(fld.component);
           if (importComponent) {
@@ -199,7 +199,6 @@ class HookInitForm {
     if (form.children.length > 0) {
       form.children[0].addMethod("focus", "--focused");
     }
-
 
     return u33e;
   }

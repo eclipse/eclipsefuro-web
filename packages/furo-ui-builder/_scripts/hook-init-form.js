@@ -79,31 +79,15 @@ class HookInitForm {
         continue
       }
 
-      let isFuroDataRepeat = false;
-      // check for map types like map<string,string>
-      if (field.type.startsWith("map")) {
-        isFuroDataRepeat = true;
-        field.subtype = field.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
 
-        field.type = "furo-data-repeat";
+      let component = U33eBuilder.getBestMatchingComponent(field);
 
+      let importComponent = ctx.getImportPathForComponent(component);
+      if (importComponent) {
+        u33e.addImport(importComponent);
       }
 
-      let component;
-      if (isFuroDataRepeat) {
-        component = "furo-data-repeat";
-      } else {
-        component = U33eBuilder.getBestMatchingComponent(field);
-      }
       let fld = form.appendChild(component);
-
-
-      // set delete-icon="delete"
-      if (isFuroDataRepeat) {
-        fld.addAttribute("delete-icon", "delete");
-        fld.addFlag("full")
-        fld.addAttribute("repeated-component", field.subtype);
-      }
 
 
       // add a furo-form > furo-form-layouter  for type furo.Property
@@ -120,10 +104,19 @@ class HookInitForm {
       }
 
       fld.description = "field: " + fieldname;
-      if (OPTIONS.default_field_flags) {
-        OPTIONS.default_field_flags.forEach((flag) => {
+
+      // add default flags if no __ui.flags are set
+      if(field.__ui && field.__ui.flags){
+        field.__ui.flags.forEach((flag) => {
           fld.addFlag(flag);
         });
+      }else{
+        // add default options
+        if (OPTIONS.default_field_flags) {
+          OPTIONS.default_field_flags.forEach((flag) => {
+            fld.addFlag(flag);
+          });
+        }
       }
 
 
@@ -132,7 +125,8 @@ class HookInitForm {
 
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
-      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
+      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google" && !component.endsWith("-map") && !component.endsWith("-repeat")) {
+
         component = field.type.toLowerCase().replace(".", "-") + "-form";
         fld.component = component;
         // change flag double to full

@@ -208,6 +208,17 @@ class U33eBuilder {
         component = "furo-data-text-input";
     }
 
+
+    if (field.type.startsWith("map")) {
+      let type = field.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
+      component = type.toLowerCase().replace(".", "-") + "-map";
+    }
+
+    if (field.meta && field.meta.repeated) {
+      component = field.type.toLowerCase().replace(".", "-") + "-repeat";
+
+    }
+
     // use spec ui hint as component
     if (field.__ui && field.__ui.component) {
       component = field.__ui.component;
