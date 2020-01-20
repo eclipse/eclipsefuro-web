@@ -204,6 +204,9 @@ class U33eBuilder {
       case "furo.Property":
         component = "furo-data-property";
         break;
+        case "bool":
+        component = "furo-data-checkbox-input";
+        break;
       default:
         component = "furo-data-text-input";
     }

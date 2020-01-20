@@ -125,7 +125,7 @@ class HookInitForm {
 
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
-      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google" && !component.endsWith("-map") && !component.endsWith("-repeat")) {
+      if (arrTmpName.length > 1 && !component.endsWith("-map") && !component.endsWith("-repeat")) {
 
         component = field.type.toLowerCase().replace(".", "-") + "-form";
         fld.component = component;
