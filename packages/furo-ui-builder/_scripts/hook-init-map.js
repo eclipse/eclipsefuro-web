@@ -50,6 +50,13 @@ class HookInitForm {
     u33e.addStyle(":host[hidden]")
         .addCSSAttribute("display", "none");
 
+    u33e.addStyle("furo-horizontal-flex")
+        .addCSSAttribute("margin-bottom", "6px");
+
+
+    u33e.addStyle("furo-button")
+        .addCSSAttribute("margin", "12px 0 0 6px");
+
 
     // all field will be added to this node
     let repeater = u33e.addDomNode("furo-data-repeat");
@@ -58,12 +65,24 @@ class HookInitForm {
     u33e.addImport(ctx.getImportPathForComponent(repeatedComponent));
 
     repeater.addAttribute("delete-icon", "delete");
-    repeater.addMethod("create-attribute","--adderTriggered");
+    repeater.addMethod("create-attribute-by-string","--adderTriggered");
     repeater.addAttribute("repeated-component", repeatedComponent);
     repeater.description = "the core of the map item is the form";
     repeater.addMethod("bind-data", "--data");
 
 
+    let flexer = u33e.addDomNode("furo-horizontal-flex");
+    let input = flexer.appendChild("furo-text-input");
+    let btn =  flexer.appendChild("furo-button");
+
+    input.addFlag("condensed");
+    input.addFlag("flex");
+    input.addAttribute("label","name for " + SPEC.__proto.package + "." + SPEC.type)
+    input.addEventListener("value-changed","((park))");
+
+    btn.addAttribute("label","add");
+    btn.addFlag("outline");
+    btn.addEventListener("click","--adderTriggered(park)");
     return u33e;
   }
 }

@@ -177,6 +177,8 @@ class FuroButton extends FBP(LitElement) {
             line-height: 34px;
             background-color: transparent;
             box-sizing: border-box;
+            
+          
         }
 
         :host([unelevated]) button {

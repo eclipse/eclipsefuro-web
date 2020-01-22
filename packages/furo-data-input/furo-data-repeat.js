@@ -68,7 +68,20 @@ class FuroDataRepeat extends FBP(LitElement) {
    * @param options {"fieldName":"name","type":"string", "spec":{..}}  spec is optional
    */
   createAttribute(options) {
+    // extract type from this.field if not given in options
+    if (!options.type) {
+      if (this.field._spec.type.startsWith("map<")) {
+        options.type = this.field._spec.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
+      } else {
+        options.type = this.field._spec.type;
+      }
+    }
     this.field.createField(options);
+  }
+
+
+  createAttributeByString(fieldname){
+    this.createAttribute({"fieldName":fieldname});
   }
 
   set repeatedComponent(component) {
@@ -193,13 +206,13 @@ class FuroDataRepeat extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent('FuroDataRepeat') || css`
-        :host {
-            display: block;
-        }
+      :host {
+        display: block;
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
     `
   }
 
