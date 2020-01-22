@@ -119,7 +119,7 @@ export class i18n {
         }
 
         const res = key.split('.').reduce((acc, part) => acc && acc[part], b);
-        return (res ? res : key + '**');
+        return (res !== undefined ? res : key + '**');
     }
 
 
