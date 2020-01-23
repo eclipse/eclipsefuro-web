@@ -184,9 +184,9 @@ class U33eBuilder {
      */
   }
 
+  static checkMatching(field) {
+    let component = false;
 
-  static getBestMatchingComponent(field) {
-    let component = "furo-data-text-input";
 
     // check which componet matches best with the simple types
     switch (field.type) {
@@ -201,33 +201,38 @@ class U33eBuilder {
       case "google.type.Money":
         component = "furo-data-money-input";
         break;
+
+
       case "furo.Property":
         component = "furo-data-property";
         break;
-        case "bool":
+      case "bool":
         component = "furo-data-checkbox-input";
         break;
-      default:
-        component = "furo-data-text-input";
     }
 
 
     if (field.type.startsWith("map")) {
       let type = field.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
-      component = type.toLowerCase().replace(".", "-") + "-map";
+      // split join is for replace all . with -
+      component = type.toLowerCase().split(".").join("-") + "-map";
     }
 
     if (field.meta && field.meta.repeated) {
-      component = field.type.toLowerCase().replace(".", "-") + "-repeat";
-
+      // split join is for replace all . with -
+      component = field.type.toLowerCase().split(".").join("-") + "-repeat";
     }
-
     // use spec ui hint as component
     if (field.__ui && field.__ui.component) {
       component = field.__ui.component;
     }
 
+
     return component;
+  }
+
+  static getBestMatchingComponent(field) {
+    return this.checkMatching(field) || "furo-data-text-input";
   };
 }
 

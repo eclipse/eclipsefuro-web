@@ -12,7 +12,6 @@ class InitHelper {
     if (ctx.kindOf === "servive") {
       this.specIndex[ctx.spec.name] = ctx.spec;
     }
-
   }
 
   /**

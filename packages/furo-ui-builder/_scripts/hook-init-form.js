@@ -125,8 +125,8 @@ class HookInitForm {
 
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
-      if (arrTmpName.length > 1 && !component.endsWith("-map") && !component.endsWith("-repeat")) {
 
+      if (arrTmpName.length > 1 && arrTmpName[0] != "google" && !U33eBuilder.checkMatching(field) && !field.type.startsWith("google.protobuf")) {
         component = field.type.toLowerCase().replace(".", "-") + "-form";
         fld.component = component;
         // change flag double to full
@@ -173,12 +173,6 @@ class HookInitForm {
       }
 
 
-      // repeated fields can use furo-data-repeat component
-      if (field.meta && field.meta.repeated && field.type != "furo.Property") {
-        let value_name = component;
-        fld.component = "furo-data-repeat";
-        fld.addAttribute("repeated-component", value_name);
-      }
 
       // add a form for type furo.Property
       if (field.type === "furo.Property") {

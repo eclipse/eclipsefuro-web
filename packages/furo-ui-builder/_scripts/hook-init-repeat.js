@@ -5,7 +5,7 @@ class HookInitForm {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-map").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-repeat").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -23,8 +23,8 @@ class HookInitForm {
       }
     })();
 
-    u33e.setTheme("MapBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-map").toLowerCase();
+    u33e.setTheme("RepeatBaseTheme");
+    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-repeat").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -57,36 +57,32 @@ class HookInitForm {
     u33e.addStyle("furo-button")
         .addCSSAttribute("margin", "12px 0 0 6px");
 
-    let head = u33e.addDomNode("furo-form")
-
-    head.addAttribute("header-text", "${i18n.t('" + (SPEC.__proto.package + "." + SPEC.type + ".map").toLowerCase() + ".headertext')}");
-    
+    u33e.addDomNode("hr")
 
     // all field will be added to this node
     let repeater = u33e.addDomNode("furo-data-repeat");
 
-    let repeatedComponent = (SPEC.__proto.package + "-" + SPEC.type).toLowerCase() + "-map-item";
-    u33e.addImport(ctx.getImportPathForComponent(repeatedComponent));
+
+    let component = (SPEC.__proto.package + "-" + SPEC.type ).toLowerCase() + "-form";
+    u33e.addImport(ctx.getImportPathForComponent(component));
 
     repeater.addAttribute("delete-icon", "delete");
-    repeater.addMethod("create-attribute-by-string","--adderTriggered");
-    repeater.addAttribute("repeated-component", repeatedComponent);
-    repeater.description = "the core of the map item is the form";
+    repeater.addMethod("add","--adderTriggered");
+    repeater.addAttribute("repeated-component", component);
+    repeater.description = "the core of the repeat item is the form";
     repeater.addMethod("bind-data", "--data");
 
 
     let flexer = u33e.addDomNode("furo-horizontal-flex");
-    let input = flexer.appendChild("furo-text-input");
+    let span = flexer.appendChild("span");
     let btn =  flexer.appendChild("furo-button");
 
-    input.addFlag("condensed");
-    input.addFlag("flex");
-    input.addAttribute("label","name for " + SPEC.__proto.package + "." + SPEC.type)
-    input.addEventListener("value-changed","((park))");
 
-    btn.addAttribute("label","add");
+    span.addFlag("flex");
+
+    btn.addAttribute("label","Add " + SPEC.type);
     btn.addFlag("outline");
-    btn.addEventListener("click","--adderTriggered(park)");
+    btn.addEventListener("click","--adderTriggered");
     return u33e;
   }
 }

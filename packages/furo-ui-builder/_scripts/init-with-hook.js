@@ -93,6 +93,8 @@ Helper.allCTX.forEach((ctx) => {
   }
 });
 
+
+
 // write registry
 // collect data for the panel registry
 let registry = {"imports": new Set, panels: {}};
@@ -109,4 +111,5 @@ if(ctx.registry){
 });
 registry.imports = Array.from(registry.imports);
 fs.writeFileSync(UiSpecDir + "/registry.spec", JSON.stringify(registry,"",2));
+
 
