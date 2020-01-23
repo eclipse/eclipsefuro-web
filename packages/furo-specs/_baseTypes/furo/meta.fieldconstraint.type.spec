@@ -13,7 +13,8 @@
       "description": "the constraint value as string, even it is a number",
       "type": "string",
       "meta": {
-        "label": "is"
+        "label": "is",
+        "hint": "the constraint value as string, even it is a number"
       },
       "__proto": {
         "number": 1

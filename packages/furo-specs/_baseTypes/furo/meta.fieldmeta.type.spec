@@ -75,10 +75,13 @@
       "description": "Put in type specific metas for your fields here",
       "type": "google.protobuf.Any",
       "meta": {
-        "label": "types pecific meta"
+        "label": "typespecific meta"
       },
       "__proto": {
         "number": 7
+      },
+      "__ui":{
+        "no_init": true
       }
     }
   }

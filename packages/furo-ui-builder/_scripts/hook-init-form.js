@@ -76,7 +76,12 @@ class HookInitForm {
        * skip field if it is skip list or skipped in spec
        */
       if (OPTIONS.skip_fields_on_init.indexOf(fieldname) !== -1 || (field.__ui && field.__ui.no_init)) {
-        continue
+        if(field.__ui && field.__ui.no_skip){
+
+        }else{
+          continue
+        }
+
       }
 
 
@@ -173,6 +178,16 @@ class HookInitForm {
       }
 
 
+      // repeated fields can use furo-data-repeat component
+      if (field.__ui && field.__ui.component === "furo-data-repeat") {
+        fld.component = "furo-data-repeat";
+        fld.addAttribute("repeated-component", field.__ui.repeated_component);
+        fld
+        let importComponent = ctx.getImportPathForComponent(field.__ui.repeated_component);
+        if (importComponent) {
+          u33e.addImport(importComponent);
+        }
+      }
 
       // add a form for type furo.Property
       if (field.type === "furo.Property") {

@@ -201,8 +201,6 @@ class U33eBuilder {
       case "google.type.Money":
         component = "furo-data-money-input";
         break;
-
-
       case "furo.Property":
         component = "furo-data-property";
         break;
@@ -218,7 +216,7 @@ class U33eBuilder {
       component = type.toLowerCase().split(".").join("-") + "-map";
     }
 
-    if (field.meta && field.meta.repeated) {
+    if (field.meta && field.meta.repeated && field.type != "furo.Property" && (!field.__ui || field.__ui.autorepeater !== false))  {
       // split join is for replace all . with -
       component = field.type.toLowerCase().split(".").join("-") + "-repeat";
     }
