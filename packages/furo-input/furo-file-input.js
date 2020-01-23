@@ -95,6 +95,19 @@ class FuroFileInput extends FBP(LitElement) {
             reader.addEventListener('load', () => {
                 resolve(reader.result);
             });
+            reader.addEventListener('progress', (e) => {
+                if(e.lengthComputable) {
+                    /**
+                     * @event progress
+                     * is triggered while reading a Blob content.
+                     * detail payload: {Array} all selected files base64 encoded
+                     */
+                    const customEvent = new Event('progress', {composed: true, bubbles: true});
+                    customEvent.detail = e;
+                    this.dispatchEvent(customEvent);
+                    // e.g. progress percentage: Math.round((e.loaded / e.total) * 100);
+                }
+            });
             reader.readAsDataURL(file);
 
         });

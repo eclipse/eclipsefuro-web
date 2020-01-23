@@ -18251,11 +18251,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 393,
+              "line": 406,
               "column": 4
             },
             "end": {
-              "line": 395,
+              "line": 408,
               "column": 5
             }
           },
@@ -18270,11 +18270,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 397,
+              "line": 410,
               "column": 4
             },
             "end": {
-              "line": 399,
+              "line": 412,
               "column": 5
             }
           },
@@ -18289,11 +18289,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 401,
+              "line": 414,
               "column": 4
             },
             "end": {
-              "line": 403,
+              "line": 416,
               "column": 5
             }
           },
@@ -18305,48 +18305,6 @@
           "name": "required",
           "type": "boolean | null | undefined",
           "description": "The required attribute, the value true means this field must be filled in",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 109,
-              "column": 12
-            },
-            "end": {
-              "line": 111,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "Boolean"
-            }
-          }
-        },
-        {
-          "name": "label",
-          "type": "string | null | undefined",
-          "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 115,
-              "column": 12
-            },
-            "end": {
-              "line": 118,
-              "column": 13
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "autofocus",
-          "type": "boolean | null | undefined",
-          "description": "Set this attribute to autofocus the input field.",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -18365,9 +18323,9 @@
           }
         },
         {
-          "name": "disabled",
-          "type": "boolean | null | undefined",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "name": "label",
+          "type": "string | null | undefined",
+          "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -18375,7 +18333,49 @@
               "column": 12
             },
             "end": {
-              "line": 130,
+              "line": 131,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean | null | undefined",
+          "description": "Set this attribute to autofocus the input field.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 135,
+              "column": 12
+            },
+            "end": {
+              "line": 137,
+              "column": 13
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | null | undefined",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 141,
+              "column": 12
+            },
+            "end": {
+              "line": 143,
               "column": 13
             }
           },
@@ -18392,11 +18392,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 134,
+              "line": 147,
               "column": 12
             },
             "end": {
-              "line": 136,
+              "line": 149,
               "column": 13
             }
           },
@@ -18413,11 +18413,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 154,
               "column": 12
             },
             "end": {
-              "line": 143,
+              "line": 156,
               "column": 13
             }
           },
@@ -18851,7 +18851,7 @@
               "column": 4
             },
             "end": {
-              "line": 101,
+              "line": 114,
               "column": 5
             }
           },
@@ -18868,11 +18868,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 408,
+              "line": 421,
               "column": 4
             },
             "end": {
-              "line": 410,
+              "line": 423,
               "column": 5
             }
           },
@@ -18888,11 +18888,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 415,
+              "line": 428,
               "column": 4
             },
             "end": {
-              "line": 417,
+              "line": 430,
               "column": 5
             }
           },
@@ -18908,11 +18908,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 422,
+              "line": 435,
               "column": 4
             },
             "end": {
-              "line": 424,
+              "line": 437,
               "column": 5
             }
           },
@@ -18928,11 +18928,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 430,
+              "line": 443,
               "column": 4
             },
             "end": {
-              "line": 444,
+              "line": 457,
               "column": 5
             }
           },
@@ -18957,7 +18957,7 @@
           "column": 0
         },
         "end": {
-          "line": 446,
+          "line": 459,
           "column": 1
         }
       },
@@ -18970,11 +18970,11 @@
           "description": "Hint for expected file type in file upload controls\nhttps://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers\ne.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           "sourceRange": {
             "start": {
-              "line": 393,
+              "line": 406,
               "column": 4
             },
             "end": {
-              "line": 395,
+              "line": 408,
               "column": 5
             }
           },
@@ -18986,11 +18986,11 @@
           "description": "Whether to allow multiple values",
           "sourceRange": {
             "start": {
-              "line": 397,
+              "line": 410,
               "column": 4
             },
             "end": {
-              "line": 399,
+              "line": 412,
               "column": 5
             }
           },
@@ -19002,11 +19002,11 @@
           "description": "What source to use for capturing image or video data\nThe capture attribute value is a string that specifies which camera to use for capture of\nimage or video data, if the accept attribute indicates that the input should be of one of those types.\nA value of user indicates that the user-facing camera and/or microphone should be used. A value of environment\nspecifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,\nthe user agent is free to decide on its own what to do. If the requested facing mode isn't available,\nthe user agent may fall back to its preferred default mode.",
           "sourceRange": {
             "start": {
-              "line": 401,
+              "line": 414,
               "column": 4
             },
             "end": {
-              "line": 403,
+              "line": 416,
               "column": 5
             }
           },
@@ -19016,38 +19016,6 @@
         {
           "name": "required",
           "description": "The required attribute, the value true means this field must be filled in",
-          "sourceRange": {
-            "start": {
-              "line": 109,
-              "column": 12
-            },
-            "end": {
-              "line": 111,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "boolean | null | undefined"
-        },
-        {
-          "name": "label",
-          "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
-          "sourceRange": {
-            "start": {
-              "line": 115,
-              "column": 12
-            },
-            "end": {
-              "line": 118,
-              "column": 13
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "autofocus",
-          "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
               "line": 122,
@@ -19062,15 +19030,47 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "disabled",
-          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "name": "label",
+          "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
           "sourceRange": {
             "start": {
               "line": 128,
               "column": 12
             },
             "end": {
-              "line": 130,
+              "line": 131,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "autofocus",
+          "description": "Set this attribute to autofocus the input field.",
+          "sourceRange": {
+            "start": {
+              "line": 135,
+              "column": 12
+            },
+            "end": {
+              "line": 137,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "disabled",
+          "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
+          "sourceRange": {
+            "start": {
+              "line": 141,
+              "column": 12
+            },
+            "end": {
+              "line": 143,
               "column": 13
             }
           },
@@ -19082,11 +19082,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 134,
+              "line": 147,
               "column": 12
             },
             "end": {
-              "line": 136,
+              "line": 149,
               "column": 13
             }
           },
@@ -19098,11 +19098,11 @@
           "description": "A FileList listing the chosen files\nreadonly",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 154,
               "column": 12
             },
             "end": {
-              "line": 143,
+              "line": 156,
               "column": 13
             }
           },
@@ -19121,6 +19121,12 @@
           "type": "CustomEvent",
           "name": "input",
           "description": "input\nThe input event fires when the value of an <input>, <select>, or <textarea> element has been changed.\nThe input event is fired every time the value of the element changes.\n\nComes from underlying component input. **bubbles**",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "progress",
+          "description": "progress\nis triggered while reading a Blob content.\ndetail payload: {Array} all selected files base64 encoded",
           "metadata": {}
         },
         {
