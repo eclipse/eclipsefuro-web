@@ -9,7 +9,7 @@ import {Env} from "@furo/framework"
  * If you want to send all data on PUT (without filtering readonly fields) set `Env.api.sendAllDataOnMethodPut = true;`
  *
  * @customElement
- * @demo demo/index.html
+ * @demo demo-furo-entity-agent Basic usage
  * @appliesMixin FBP
  */
 class FuroEntityAgent extends FBP(LitElement) {
@@ -19,7 +19,21 @@ class FuroEntityAgent extends FBP(LitElement) {
     super();
     this._servicedefinitions = Env.api.services;
     this._ApiEnvironment = Env.api;
+    this._pendingRequests = [];
 
+    /**
+     * Request race condition handling
+     *
+     */
+    this._FBPAddWireHook('--beforeRequestStart', () => {
+      if (this._pendingRequests.length){
+        this._FBPTriggerWire('--abortDemanded', this._abortController);
+      }
+      this._pendingRequests.push('pending');
+    });
+    this._FBPAddWireHook('--requestFinished', (req) => {
+      this._pendingRequests.pop();
+    });
 
     // HTS aus response anwenden
     this._FBPAddWireHook("--responseParsed", (r) => {
@@ -86,7 +100,9 @@ class FuroEntityAgent extends FBP(LitElement) {
    * @returns {Request}
    * @private
    */
-  _makeRequest(link, dataObject) {
+  _makeRequest(link, dataObject, abortController) {
+    this._FBPTriggerWire('--beforeRequestStart');
+    
     let data;
     let body = {};
 
@@ -128,6 +144,15 @@ class FuroEntityAgent extends FBP(LitElement) {
 
 
     }
+    /**
+     * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
+     * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+     * @type {AbortController}
+     * @private
+     */
+    this._abortController = new AbortController();
+    let signal = this._abortController.signal;
+
     // create Request object with headers and body
     let headers = new Headers(this._ApiEnvironment.headers);
     headers.append('Content-Type', 'application/' + link.type + '+json');
@@ -136,6 +161,7 @@ class FuroEntityAgent extends FBP(LitElement) {
       headers.append('Content-Type', 'application/json');
     }
     return new Request(link.href, {
+      signal,
       method: link.method,
       headers: headers,
       body: data
@@ -477,10 +503,11 @@ class FuroEntityAgent extends FBP(LitElement) {
     return html`
       <furo-api-fetch
               ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abort-demanded"
-              @-response="--responseParsed,^^req-success"
+              ƒ-abort-request="--abortDemanded"
+              @-response="--responseParsed, --requestFinished, ^^req-success"
               @-response-error="^^req-failed"
-              @-parse-error="^^req-failed">
+              @-parse-error="^^req-failed" 
+              @-fatal-error="--requestFinished">
       </furo-api-fetch>
     `;
   }

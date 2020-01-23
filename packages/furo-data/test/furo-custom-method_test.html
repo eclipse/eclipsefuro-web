@@ -131,6 +131,43 @@
 
     });
 
+    it('should cancel a pending request if a new request is started', (done) => {
+      customMethod.setAttribute("service","ExperimentService");
+      customMethod.setAttribute("method","release");
+      dataObject.setAttribute("type", "experiment.ExperimentEntity");
+
+      customMethod.addEventListener("response",(e)=>{
+        done();
+      });
+      customMethod.htsIn([
+        {
+          "href": "http://httpbin.org/anything",
+          "method": "Post",
+          "rel": "release",
+          "type": "experiment.ExperimentEntity",
+          "service": "ExperimentService"
+        },
+        {
+          "href": "http://httpbin.org/anything",
+          "method": "Post",
+          "rel": "cancel",
+          "type": "experiment.ExperimentEntity",
+          "service": "ExperimentService"
+        }
+      ]);
+      dataObject.addEventListener("object-ready", () => {
+        dataObject.data.data.description._value = "updated desc";
+
+        customMethod.triggerWithBody(dataObject.data.value.data);
+        customMethod.triggerWithBody(dataObject.data.value.data);
+        customMethod.triggerWithBody(dataObject.data.value.data);
+        customMethod.triggerWithBody(dataObject.data.value.data);
+        customMethod.triggerWithBody(dataObject.data.value.data);
+        customMethod.triggerWithBody(dataObject.data.value.data);
+      });
+
+    });
+
     it('should fire event if hts is not available', (done) => {
       customMethod.setAttribute("service","ExperimentService");
       customMethod.setAttribute("method","release");

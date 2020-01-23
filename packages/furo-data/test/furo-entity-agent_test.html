@@ -505,6 +505,31 @@
 
     });
 
+    it('should cancel a pending request if a new request is started', (done) => {
+      entityAgent.setAttribute("service", "TaskService");
+      entityAgent.addEventListener("response", () => {
+        done();
+      });
+      entityAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "task.TaskEntity",
+          "service": "TaskService"
+        }
+      ]);
+
+      entityAgent.load();
+      entityAgent.load();
+      entityAgent.load();
+      entityAgent.load();
+      entityAgent.load();
+      entityAgent.load();
+      entityAgent.load();
+
+    });
+
     it('should do nothing when hts is not set', (done) => {
       entityAgent.setAttribute("service", "TaskService");
       assert.equal(entityAgent.load(), false);

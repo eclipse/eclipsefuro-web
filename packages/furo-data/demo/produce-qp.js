@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element';
 import {FBP} from "@furo/fbp";
-
+import "@furo/input/furo-button.js";
 /**
  * `produce-qp`
  *
@@ -29,7 +29,7 @@ class ProduceQp extends FBP(LitElement) {
           display: inline;
         }
       </style>
-      <button ƒ-click="--autoclick" @-click="^^qp(qp)">make qp</button>
+      <furo-button primary ƒ-click="--autoclick" @-click="^^qp(qp)" label="make qp"></furo-button>
     `;
   }
 

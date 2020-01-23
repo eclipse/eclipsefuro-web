@@ -27,10 +27,10 @@ import {Env} from "@furo/framework"
  * ```
  *
  * @customElement
+ * @demo demo-furo-collection-agent Basic usage
  * @appliesMixin FBP
- * @demo demo/collection.html
  */
-class furoCollectionAgent extends FBP(LitElement) {
+class FuroCollectionAgent extends FBP(LitElement) {
 
   /**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-api-fetch
@@ -44,6 +44,22 @@ class furoCollectionAgent extends FBP(LitElement) {
     super();
     this._servicedefinitions = Env.api.services;
     this._ApiEnvironment = Env.api;
+
+    this._pendingRequests = [];
+
+    /**
+     * Request race condition handling
+     *
+     */
+    this._FBPAddWireHook('--beforeRequestStart', () => {
+      if (this._pendingRequests.length){
+        this._FBPTriggerWire('--abortDemanded', this._abortController);
+      }
+      this._pendingRequests.push('pending');
+    });
+    this._FBPAddWireHook('--requestFinished', (req) => {
+      this._pendingRequests.pop();
+    });
 
     // HTS aus response anwenden
     this._FBPAddWireHook("--responseParsed", (r) => {
@@ -101,6 +117,7 @@ class furoCollectionAgent extends FBP(LitElement) {
      */
     this.addEventListener("req-success", success, true);
     this.addEventListener("req-failed", failed, true);
+    this.addEventListener("req-aborted", failed, true);
   }
 
   static get properties() {
@@ -246,6 +263,8 @@ class furoCollectionAgent extends FBP(LitElement) {
   }
 
   _makeRequest(link, body) {
+    this._FBPTriggerWire('--beforeRequestStart');
+
     let data;
     if (body) {
       data = JSON.stringify(body)
@@ -303,11 +322,21 @@ class furoCollectionAgent extends FBP(LitElement) {
       req = req + "?" + qp.join("&");
     }
 
+    /**
+     * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
+     * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+     * @type {AbortController}
+     * @private
+     */
+    this._abortController = new AbortController();
+    let signal = this._abortController.signal;
+
     return new Request(req, {
+      signal,
       method: link.method,
       headers: headers,
       body: data
-    })
+    });
   }
 
   /**
@@ -474,14 +503,16 @@ class furoCollectionAgent extends FBP(LitElement) {
       </style>
       <furo-api-fetch
               ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abort-demanded"
-              @-response="--responseParsed,^^req-success"
+              ƒ-abort-request="--abortDemanded"
+              @-response="--responseParsed, --requestFinished, ^^req-success"
               @-response-error="^^req-failed"
-              @-parse-error="^^req-failed">
+              @-request-aborted="^^req-aborted"
+              @-parse-error="^^req-failed" 
+              @-fatal-error="--requestFinished">
       </furo-api-fetch>
     `;
   }
 
 }
 
-customElements.define('furo-collection-agent', furoCollectionAgent);
+customElements.define('furo-collection-agent', FuroCollectionAgent);
