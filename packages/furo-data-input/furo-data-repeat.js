@@ -184,9 +184,23 @@ class FuroDataRepeat extends FBP(LitElement) {
     }
   }
 
+  /**
+   * Adds a repeated item
+   * @param data
+   */
   add(data) {
     if (this.field) {
       this.field.add(data)
+    }
+  }
+
+  /**
+   * Adds a repeated item with type
+   * @param type
+   */
+  addType(type){
+    if (this.field) {
+      this.field.add({"@type":type})
     }
   }
 
