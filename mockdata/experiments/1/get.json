@@ -92,8 +92,8 @@
       },
       {
         "data": {
-          "@type": "xx/furo.IntegerProperty",
-          "data": 342,
+          "@type": "xx/google.protobuf.StringValue",
+          "value": "text google.protobuf.StringValue",
           "display_name": "342"
         },
         "display_name": "Display",
@@ -101,9 +101,9 @@
         "code": "option",
         "meta": {
           "fields": {
-            "data.data": {
+            "data.value": {
               "meta": {
-                "label": "Integer",
+                "label": "Google string",
                 "hint": "Type in int"
               }
             }
