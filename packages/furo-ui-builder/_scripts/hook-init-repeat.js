@@ -5,24 +5,32 @@ class HookInitForm {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
+
+
+    /**
+     * Skip generating of types if they are registrered in furo.ui.spec.conf.json
+     *
+     * "hook": {  
+     *   "hook-init-repeat": {
+     *    "skip_types": [
+     *      "google.protobuf.Any"
+     *    ]
+     *   }
+     */
+    if (ctx.config.hook && ctx.config.hook["hook-init-repeat"] && ctx.config.hook["hook-init-repeat"].skip_types) {
+      let type = SPEC.__proto.package + "." + SPEC.type
+      if (ctx.config.hook["hook-init-repeat"].skip_types.indexOf(type) > -1) {
+        console.log("hook-init-repeat skipped for type ", type)
+        return
+      }
+    }
+    
     return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
-
-    const OPTIONS = (() => {
-      if (ctx.config.hook && ctx.config.hook.hook_init_form) {
-        return ctx.config.hook.hook_init_form
-      } else {
-        return {
-          "default_form_size": "four",
-          "default_field_flags": ["condensed", "double"],
-          "skip_fields_on_init": ["id", "display_name"]
-        }
-      }
-    })();
-
+    
     u33e.setTheme("RepeatBaseTheme");
     u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase();
     u33e.model.path = ctx.path;
@@ -63,11 +71,11 @@ class HookInitForm {
     let repeater = u33e.addDomNode("furo-data-repeat");
 
 
-    let component = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type ).toLowerCase() + "-form";
+    let component = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type).toLowerCase() + "-form";
     u33e.addImport(ctx.getImportPathForComponent(component));
 
     repeater.addAttribute("delete-icon", "delete");
-    repeater.addMethod("add","--adderTriggered");
+    repeater.addMethod("add", "--adderTriggered");
     repeater.addAttribute("repeated-component", component);
     repeater.description = "the core of the repeat item is the form";
     repeater.addMethod("bind-data", "--data");
@@ -75,14 +83,14 @@ class HookInitForm {
 
     let flexer = u33e.addDomNode("furo-horizontal-flex");
     let span = flexer.appendChild("span");
-    let btn =  flexer.appendChild("furo-button");
+    let btn = flexer.appendChild("furo-button");
 
 
     span.addFlag("flex");
 
-    btn.addAttribute("label","Add " + SPEC.type);
+    btn.addAttribute("label", "Add " + SPEC.type);
     btn.addFlag("outline");
-    btn.addEventListener("click","--adderTriggered");
+    btn.addEventListener("click", "--adderTriggered");
     return u33e;
   }
 }
