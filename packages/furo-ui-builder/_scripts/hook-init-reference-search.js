@@ -5,7 +5,7 @@ class HookInitReferenceSearch {
     const PKGDIR = UISPECDIR + "/" + ctx.package;
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q){
       let type = SPEC.services.List.data.response.replace("Collection", "");
-      return PKGDIR + "/" + type.toLowerCase().replace(".", "-") + "-reference-search".toLowerCase() + ".u33e";
+      return PKGDIR + "/" + type.toLowerCase().split(".").join("-") + "-reference-search".toLowerCase() + ".u33e";
     }else {
       return undefined;
     }
@@ -16,7 +16,7 @@ class HookInitReferenceSearch {
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q) {
       let type = SPEC.services.List.data.response.replace("Collection", "");
       u33e.setTheme("ReferenceSearchBaseTheme");
-      u33e.model.component_name = type.toLowerCase().replace(".", "-") + "-reference-search".toLowerCase();
+      u33e.model.component_name = type.toLowerCase().split(".").join("-") + "-reference-search".toLowerCase();
       u33e.model.path = ctx.path;
       u33e.model.description = SPEC.description;
 

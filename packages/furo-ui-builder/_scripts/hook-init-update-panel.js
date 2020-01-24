@@ -10,13 +10,13 @@ class HookInitUpdatePanel {
       return undefined
     }
 
-    let basename = (SPEC.services.Update.data.request.replace(".", "-"));
+    let basename = (SPEC.services.Update.data.request.split(".").join("-"));
     return PKGDIR + "/" + (basename + "-update-panel").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
-    ctx.basename = (SPEC.services.Update.data.request.replace(".", "-"));
+    ctx.basename = (SPEC.services.Update.data.request.split(".").join("-"));
     u33e.model.component_name = (ctx.basename + "-update-panel").toLowerCase();
 
     // add to registry

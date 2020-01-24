@@ -69,7 +69,7 @@ typelist.forEach((pathToTypeSpec) => {
   let spec = JSON.parse(fs.readFileSync(pathToTypeSpec));
   formSpec.class_name = spec.__proto.package + spec.type + "Form";
   formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
-  formSpec.component_name = (spec.__proto.package + "-" + spec.type + "-form").toLowerCase();
+  formSpec.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + spec.type + "-form").toLowerCase();
   formSpec.description = spec.description;
   formSpec.source = pathToTypeSpec;
 
@@ -120,7 +120,7 @@ typelist.forEach((pathToTypeSpec) => {
     let arrTmpName = field.type.split(".");
     //  complex type has a cutom form component
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-      component_name = field.type.toLowerCase().replace(".", "-") + "-form";
+      component_name = field.type.toLowerCase().split(".").join("-") + "-form";
       // exclude self import
       if(formSpec.component_name !== component_name ) {
 
@@ -153,7 +153,7 @@ typelist.forEach((pathToTypeSpec) => {
     if (field.type === "furo.Reference") {
       if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
         let f = field.meta.default.link.type;
-        fld.component = f.toLowerCase().replace(".", "-") + "-reference-search";
+        fld.component = f.toLowerCase().split(".").join("-") + "-reference-search";
 
         let folder = f.split(".")[0];
         // exclude self import
@@ -198,7 +198,7 @@ typelist.forEach((pathToTypeSpec) => {
 
   formSpec.class_name = spec.__proto.package + spec.type + "CreateForm";
   formSpec.class_name = formSpec.class_name[0].toUpperCase() + formSpec.class_name.substr(1);
-  formSpec.component_name = (spec.__proto.package + "-" + spec.type + "-create-form").toLowerCase();
+  formSpec.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + spec.type + "-create-form").toLowerCase();
   // fields for the create form (only req fields)
   let createFields = [];
   for (fieldname in spec.fields) {
@@ -244,7 +244,7 @@ typelist.forEach((pathToTypeSpec) => {
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
       if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-        component_name = field.type.toLowerCase().replace(".", "-") + "-form";
+        component_name = field.type.toLowerCase().split(".").join("-") + "-form";
 
         // exclude self import
         if(formSpec.component_name !== component_name ) {
@@ -274,7 +274,7 @@ typelist.forEach((pathToTypeSpec) => {
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
-          fld.component = f.toLowerCase().replace(".", "-") + "-reference-search";
+          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search";
 
           let folder = f.split(".")[0];
           // exclude self import
@@ -322,7 +322,7 @@ typelist.forEach((pathToTypeSpec) => {
   widgetSpec.theme = "WidgetBaseTheme";
   widgetSpec.class_name = spec.__proto.package + spec.type + "CreateWidget";
   widgetSpec.class_name = widgetSpec.class_name[0].toUpperCase() + widgetSpec.class_name.substr(1);
-  widgetSpec.component_name = (spec.__proto.package + "-" + spec.type + "-create-widget").toLowerCase();
+  widgetSpec.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + spec.type + "-create-widget").toLowerCase();
   widgetSpec.source = pathToTypeSpec;
   widgetSpec.description = spec.description;
   widgetSpec.fieldgroups[0].fields = createFields;
@@ -347,7 +347,7 @@ typelist.forEach((pathToTypeSpec) => {
   let displaySpec = JSON.parse(DISPLAYTPL);
   displaySpec.class_name = spec.__proto.package + spec.type + "Display";
   displaySpec.class_name = displaySpec.class_name[0].toUpperCase() + displaySpec.class_name.substr(1);
-  displaySpec.component_name = (spec.__proto.package + "-" + spec.type + "-display").toLowerCase();
+  displaySpec.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + spec.type + "-display").toLowerCase();
   displaySpec.description = spec.description;
   displaySpec.source = pathToTypeSpec;
 
@@ -366,7 +366,7 @@ typelist.forEach((pathToTypeSpec) => {
     //  complex type has a cutom form component
     if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
 
-      component_name = field.type.toLowerCase().replace(".", "-") + "-display";
+      component_name = field.type.toLowerCase().split(".").join("-") + "-display";
 
       if(displaySpec.component_name !== component_name ) {
 
@@ -473,15 +473,15 @@ servicelist.forEach((pathToService) => {
   if (serviceSpec.services.Update) {
     updatespec.class_name = serviceSpec.services.Update.data.request.replace(".", "") + "UpdatePanel";
     updatespec.class_name = updatespec.class_name[0].toUpperCase() + updatespec.class_name.substr(1);
-    updatespec.component_name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-panel";
+    updatespec.component_name = serviceSpec.services.Update.data.request.toLowerCase().split(".").join("-") + "-update-panel";
     updatespec.description = serviceSpec.services.Update.description;
     updatespec.source = "./" + pathToService;
     updatespec.service_name = serviceSpec.name;
     updatespec.request_type = serviceSpec.services.Update.data.request;
     updatespec.response_type = serviceSpec.services.Update.data.response;
-    updatespec.form.name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-form";
+    updatespec.form.name = serviceSpec.services.Update.data.request.toLowerCase().split(".").join("-") + "-form";
     updatespec.imports.push("./" + updatespec.form.name + ".js");
-    let updateAction = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-action";
+    let updateAction = serviceSpec.services.Update.data.request.toLowerCase().split(".").join("-") + "-update-action";
     updatespec.imports.push("./" + updateAction + ".js");
     updatespec.action.name = updateAction;
 
@@ -521,13 +521,13 @@ servicelist.forEach((pathToService) => {
   if (serviceSpec.services.Get) {
     displayspec.class_name = serviceSpec.services.Get.data.response.replace("Entity", "").replace(".", "") + "DisplayPanel";
     displayspec.class_name = displayspec.class_name[0].toUpperCase() + displayspec.class_name.substr(1);
-    displayspec.component_name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().replace(".", "-") + "-display-panel";
+    displayspec.component_name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().split(".").join("-") + "-display-panel";
     displayspec.description = serviceSpec.services.Get.description;
     displayspec.source = "./" + pathToService;
     displayspec.service_name = serviceSpec.name;
     displayspec.request_type = serviceSpec.services.Get.data.request;
     displayspec.response_type = serviceSpec.services.Get.data.response;
-    displayspec.display.name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().replace(".", "-") + "-display";
+    displayspec.display.name = serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase().split(".").join("-") + "-display";
     displayspec.imports.push("./" + displayspec.display.name + ".js");
 
     let target = PKGDIR + "/" + serviceSpec.services.Get.data.response.replace("Entity", "").toLowerCase() + ".display.panel.spec";
@@ -567,7 +567,7 @@ refservicelist.forEach((pathToService) => {
     let type = serviceSpec.services.List.data.response.replace("Collection", "");
     referencesearchspec.class_name = type.replace(".", "") + "ReferenceSearch";
     referencesearchspec.class_name = referencesearchspec.class_name[0].toUpperCase() + referencesearchspec.class_name.substr(1);
-    referencesearchspec.component_name = type.toLowerCase().replace(".", "-") + "-reference-search";
+    referencesearchspec.component_name = type.toLowerCase().split(".").join("-") + "-reference-search";
     referencesearchspec.source = type.toLowerCase() + ".referencesearch.spec";
     referencesearchspec.service_name = serviceSpec.name;
     referencesearchspec.type = type;
@@ -609,7 +609,7 @@ coldropservicelist.forEach((pathToService) => {
     let type = serviceSpec.services.List.data.response.replace("Collection", "");
     Referencedropdownspec.class_name = type.replace(".", "") + "Referencedropdown";
     Referencedropdownspec.class_name = Referencedropdownspec.class_name[0].toUpperCase() + Referencedropdownspec.class_name.substr(1);
-    Referencedropdownspec.component_name = type.toLowerCase().replace(".", "-") + "-reference-dropdown";
+    Referencedropdownspec.component_name = type.toLowerCase().split(".").join("-") + "-reference-dropdown";
     Referencedropdownspec.source = type.toLowerCase() + ".referencedropdown.spec";
     Referencedropdownspec.service_name = serviceSpec.name;
     Referencedropdownspec.type = type;
@@ -649,7 +649,7 @@ servicelist.forEach((pathToService) => {
 
     updatespec.class_name = serviceSpec.services.Update.data.request.replace(".", "") + "UpdateAction";
     updatespec.class_name = updatespec.class_name[0].toUpperCase() + updatespec.class_name.substr(1);
-    updatespec.component_name = serviceSpec.services.Update.data.request.toLowerCase().replace(".", "-") + "-update-action";
+    updatespec.component_name = serviceSpec.services.Update.data.request.toLowerCase().split(".").join("-") + "-update-action";
     updatespec.description = serviceSpec.description;
     updatespec.source = target;
     updatespec.service_name = serviceSpec.name;

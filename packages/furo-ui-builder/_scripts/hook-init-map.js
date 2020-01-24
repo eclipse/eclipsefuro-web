@@ -5,7 +5,7 @@ class HookInitForm {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-map").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-map").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -24,7 +24,7 @@ class HookInitForm {
     })();
 
     u33e.setTheme("MapBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-map").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-map").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -60,12 +60,12 @@ class HookInitForm {
     let head = u33e.addDomNode("furo-form")
 
     head.addAttribute("header-text", "${i18n.t('" + (SPEC.__proto.package + "." + SPEC.type + ".map").toLowerCase() + ".headertext')}");
-    
+
 
     // all field will be added to this node
     let repeater = u33e.addDomNode("furo-data-repeat");
 
-    let repeatedComponent = (SPEC.__proto.package + "-" + SPEC.type).toLowerCase() + "-map-item";
+    let repeatedComponent = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type).toLowerCase() + "-map-item";
     u33e.addImport(ctx.getImportPathForComponent(repeatedComponent));
 
     repeater.addAttribute("delete-icon", "delete");

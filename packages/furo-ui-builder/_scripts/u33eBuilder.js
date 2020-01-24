@@ -211,7 +211,7 @@ class U33eBuilder {
 
 
     if (field.type.startsWith("map")) {
-      let type = field.type.match(/map<string,(.*)>/)[1]; // get the type of map<string,xxxx
+      let type = field.type.match(/map<string,(.*)>/)[1].trim(); // get the type of map<string,xxxx
       // split join is for replace all . with -
       component = type.toLowerCase().split(".").join("-") + "-map";
     }

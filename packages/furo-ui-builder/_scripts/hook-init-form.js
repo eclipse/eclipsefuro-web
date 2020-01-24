@@ -5,7 +5,7 @@ class HookInitForm {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -24,7 +24,7 @@ class HookInitForm {
     })();
 
     u33e.setTheme("FormBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-form").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -101,7 +101,7 @@ class HookInitForm {
         fld.addFlag("full");
 
         fld.addAttribute("header-text", "${i18n.t('" + (SPEC.__proto.package + "." + SPEC.type + ".properties").toLowerCase() + ".header.text')}");
-        fld.addAttribute("secondary-text", "${i18n.t('" + (SPEC.__proto.package + "-" + SPEC.type + ".properties").toLowerCase() + ".secondary.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + ".properties").toLowerCase() + ".secondary.text')}");
 
         let f = fld.appendChild("furo-form-layouter");
         f.addFlag(OPTIONS.default_form_size || "four");
@@ -132,7 +132,7 @@ class HookInitForm {
       //  complex type has a cutom form component
 
       if (arrTmpName.length > 1 && arrTmpName[0] != "google" && !U33eBuilder.checkMatching(field) && !field.type.startsWith("google.protobuf")) {
-        component = field.type.toLowerCase().replace(".", "-") + "-form";
+        component = field.type.toLowerCase().split(".").join("-") + "-form";
         fld.component = component;
         // change flag double to full
         let flagIndex = fld.flags.indexOf("double");
@@ -199,7 +199,7 @@ class HookInitForm {
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
-          fld.component = f.toLowerCase().replace(".", "-") + "-reference-search";
+          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search";
           // exclude self import
           let importComponent = ctx.getImportPathForComponent(fld.component);
           if (importComponent) {

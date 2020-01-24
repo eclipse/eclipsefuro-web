@@ -5,7 +5,7 @@ class HookInitForm {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-repeat").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -24,7 +24,7 @@ class HookInitForm {
     })();
 
     u33e.setTheme("RepeatBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-repeat").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -63,7 +63,7 @@ class HookInitForm {
     let repeater = u33e.addDomNode("furo-data-repeat");
 
 
-    let component = (SPEC.__proto.package + "-" + SPEC.type ).toLowerCase() + "-form";
+    let component = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type ).toLowerCase() + "-form";
     u33e.addImport(ctx.getImportPathForComponent(component));
 
     repeater.addAttribute("delete-icon", "delete");
