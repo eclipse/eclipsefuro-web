@@ -73,6 +73,10 @@ typelist.forEach((pathToTypeSpec) => {
   formSpec.description = spec.description;
   formSpec.source = pathToTypeSpec;
 
+  if(!formSpec.imports) {
+    formSpec.imports = [];
+  }
+
   // filter out readonly fields like id, display_name,...
   let fields = [];
   for (fieldname in spec.fields) {
