@@ -41,7 +41,7 @@ export class NodeEvent {
     this.cancelBubble = true;
   }
 
-  stopBroadcast(){
+  stopBroadcast() {
     //todo: implement
     this.cancelBroadcast = true;
   }
@@ -92,11 +92,16 @@ export class EventTreeNode {
    * @param handler
    */
   removeEventListener(type, handler) {
-    this.__eventListener[type] = this.__eventListener[type].filter((e, i) => {
-      if (e.cb === handler) {
-        return false
-      }
-    });
+    if (this.__eventListener[type]) {
+      this.__eventListener[type] = this.__eventListener[type].filter((e, i) => {
+        if (e.cb === handler) {
+          return false;
+        }else{
+          return true;
+        }
+      });
+    }
+
   }
 
   /**
