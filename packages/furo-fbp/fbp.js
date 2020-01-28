@@ -391,10 +391,10 @@ export const FBP = (superClass) => {
                 let handler = {
                     // prevent default and stop propagation
                     "stop": function (e) {
-                        e.detail.stopPropagation();
+                        e.stopPropagation();
                     },
                     "preventdefault": function (e) {
-                        e.detail.preventDefault();
+                        e.preventDefault();
                     },
 
                     "call": function (e) {
