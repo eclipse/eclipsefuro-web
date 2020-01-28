@@ -49,7 +49,7 @@ class HookInitForm {
     u33e.addStyle(":host")
         .addCSSAttribute("display", "block");
 
-    u33e.addStyle(":host[hidden]")
+    u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
 
 

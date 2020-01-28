@@ -10,7 +10,7 @@ class HookInitForm {
     /**
      * Skip generating of types if they are registrered in furo.ui.spec.conf.json
      *
-     * "hook": {  
+     * "hook": {
      *   "hook-init-repeat": {
      *    "skip_types": [
      *      "google.protobuf.Any"
@@ -24,13 +24,13 @@ class HookInitForm {
         return
       }
     }
-    
+
     return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
-    
+
     u33e.setTheme("RepeatBaseTheme");
     u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-repeat").toLowerCase();
     u33e.model.path = ctx.path;
@@ -55,7 +55,7 @@ class HookInitForm {
     u33e.addStyle(":host")
         .addCSSAttribute("display", "block");
 
-    u33e.addStyle(":host[hidden]")
+    u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
 
     u33e.addStyle("furo-horizontal-flex")

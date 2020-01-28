@@ -41,7 +41,7 @@ class HookInitReferenceSearch {
       u33e.addStyle(":host")
           .addCSSAttribute("display", "block");
 
-      u33e.addStyle(":host[hidden]")
+      u33e.addStyle(":host([hidden])")
           .addCSSAttribute("display", "none");
 
       u33e.addStyle("furo-data-collection-dropdown")

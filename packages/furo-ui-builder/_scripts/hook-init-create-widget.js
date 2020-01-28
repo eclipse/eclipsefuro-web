@@ -38,7 +38,7 @@ class HookInitCreateWidget {
     u33e.addStyle(":host")
         .addCSSAttribute("display", "block");
 
-    u33e.addStyle(":host[hidden]")
+    u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
 
     let card = u33e.addDomNode("furo-card");
