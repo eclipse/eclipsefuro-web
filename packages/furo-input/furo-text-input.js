@@ -35,11 +35,25 @@ import {Helper} from "./lib/helper";
 class FuroTextInput extends FBP(LitElement) {
 
 
-  constructor() {
-    super();
-    this.valid = true;
+  /**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */
 
-  }
+
+
+  /**
+   * @event leading-icon-clicked
+   * Fired when the leading icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */
 
 
   _FBPReady() {
@@ -48,7 +62,7 @@ class FuroTextInput extends FBP(LitElement) {
     this._value = this.value || "";
     this._FBPAddWireHook("--inputInput", (e) => {
 
-      Helper.triggerValueChanged(this, e );
+      Helper.triggerValueChanged(this, e);
     });
   }
 
@@ -59,7 +73,7 @@ class FuroTextInput extends FBP(LitElement) {
    * @param value
    */
   set pattern(value) {
-    Helper.UpdateInputAttribute(this,"pattern", value);
+    Helper.UpdateInputAttribute(this, "pattern", value);
   }
 
   /**
@@ -69,7 +83,7 @@ class FuroTextInput extends FBP(LitElement) {
    * @param value
    */
   set min(value) {
-    Helper.UpdateInputAttribute(this,"minlength", value);
+    Helper.UpdateInputAttribute(this, "minlength", value);
   }
 
   /**
@@ -79,14 +93,14 @@ class FuroTextInput extends FBP(LitElement) {
    * @param value
    */
   set max(value) {
-    Helper.UpdateInputAttribute(this,"maxlength", value);
+    Helper.UpdateInputAttribute(this, "maxlength", value);
   }
 
   set _value(v) {
     this._float = !!v;
-    if(v!==undefined){
+    if (v !== undefined) {
       this._FBPTriggerWire("--value", v);
-    }else{
+    } else {
       this._FBPTriggerWire("--value", "");
     }
   }
@@ -298,329 +312,330 @@ class FuroTextInput extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent('FuroTextInput') || css`
-        /* https://material.io/design/components/text-fields.html#theming */
-        :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 190px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
-
-        .iwrap {
-            position: relative;
-        }
-
-
-        input {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-        }
-        
-        input:required {
-          box-shadow:none;
-        }
-        input:invalid {
-          box-shadow:none;
-        }
-
-        :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
-        }
-
-        :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
-        }
-
-        :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
-        }
-
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
-        }
-
-
-        .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-        }
-
-        .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
-
-        :host(:not([filled])) label span {
-            top: 0;
-            position: relative;
-        }
-
-        :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            line-height: 56px;
-        }
-
-        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-            border-top: none;
-        }
-
-        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
-            font-size: 12px;
-            top: -28px;
-            left: 0;
-            position: relative;
-        }
-
-
-        .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-        }
-
-
-        .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        }
-
-        :host([filled]) .ripple-line {
-            display: block;
-        }
-
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
-        }
-
-        :host([filled]) label {
-            border: none;
-        }
-
-
-        :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-        }
-
-        :host([filled]) label span {
-            position: relative;
-            top: 0;
-        }
-
-        :host([filled]) label[float] span, :host(:focus-within) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
-        }
-
-
-        * {
-            transition: all 200ms ease-out;
-        }
-
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
-        }
-
-
-        :host([error]) .errortext {
-            display: block;
-        }
-
-        .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
-        }
-
-
-        label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
-        }
-
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-        }
-
-
-        :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
-
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-        :host([error]:focus-within) .hint {
-            display: none;
-        }
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
-        }
-
-        furo-icon {
-            display: none;
-            top: 16px;
-        }
-
-        furo-icon.lead {
-            position: absolute;
-
-            left: 8px;
-        }
-
-        furo-icon.trail {
-            position: absolute;
-            right: 8px;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
-            left: 24px;
-        }
-
-        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
-            left: 0;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
-        }
-
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
-        }
-
-        :host(:focus-within:not([valid])) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-
-        :host([condensed]) input {
-            top: 12px;
-            font-size: 14px;
-        }
-
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-            line-height: 40px;
-            font-size: 14px;
-        }
-
-        :host([condensed][filled]) input {
-            top: 12px;
-        }
-        
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-            height: 40px;
-        }
-
-        :host([condensed]) furo-icon {
-            top: 10px;
-        }
-
-        :host([condensed]) .ripple-line {
-            top: 38px;
-        }
-
-        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top: -12px;
-
-        }
-
-        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top: -20px;
-        }
-
-        :host([condensed]) {
-            height: 40px;
-        }
+      /* https://material.io/design/components/text-fields.html#theming */
+      :host {
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+        margin: 10px 0 15px 0;
+        height: 56px;
+        width: 190px;
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+
+      .wrapper {
+        position: relative;
+        padding: 0 12px;
+        box-sizing: border-box;
+        height: 56px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+
+      .iwrap {
+        position: relative;
+      }
+
+
+      input {
+        position: absolute;
+        top: 16px;
+        border: none;
+        background: none;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        line-height: 24px;
+        color: inherit;
+        outline: none;
+        font-family: "Roboto", "Noto", sans-serif;
+        font-kerning: auto;
+        font-size: 16px;
+        font-stretch: 100%;
+        font-style: normal;
+      }
+
+      input:required {
+        box-shadow: none;
+      }
+
+      input:invalid {
+        box-shadow: none;
+      }
+
+      :host([filled]) .wrapper {
+        background-color: var(--surface-light, #FEFEFE);
+      }
+
+      :host([filled]) .wrapper:hover {
+        background-color: var(--surface, #FCFCFC);
+      }
+
+      :host([filled]:focus-within) .wrapper {
+        background-color: var(--surface-dark, #FEA222);
+      }
+
+      :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+        border-color: var(--input-hover-color, #333333);
+      }
+
+
+      .borderlabel {
+        pointer-events: none;
+        position: absolute;
+        box-sizing: border-box;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 56px;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+      }
+
+      .left-border {
+        width: 8px;
+        box-sizing: border-box;
+        pointer-events: none;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-right: none;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+
+      :host(:not([filled])) label span {
+        top: 0;
+        position: relative;
+      }
+
+      :host(:not([filled])) label {
+        padding: 0 4px;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-left: none;
+        border-right: none;
+        line-height: 56px;
+      }
+
+      :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
+        border-top: none;
+      }
+
+      :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+        font-size: 12px;
+        top: -28px;
+        left: 0;
+        position: relative;
+      }
+
+
+      .right-border {
+        pointer-events: none;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-left: none;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        -ms-flex: 1 1 0.000000001px;
+        -webkit-flex: 1;
+        flex: 1;
+        -webkit-flex-basis: 0.000000001px;
+        flex-basis: 0.000000001px;
+      }
+
+
+      .ripple-line {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        top: 54px;
+        border: none;
+        border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+      }
+
+      :host([filled]) .ripple-line {
+        display: block;
+      }
+
+      :host([filled]) .right-border, :host([filled]) .left-border {
+        display: none;
+      }
+
+      :host([filled]) label {
+        border: none;
+      }
+
+
+      :host([filled]) label {
+        padding: 0 12px;
+        line-height: 56px;
+      }
+
+      :host([filled]) label span {
+        position: relative;
+        top: 0;
+      }
+
+      :host([filled]) label[float] span, :host(:focus-within) label span {
+        font-size: 12px;
+        font-weight: 400;
+        top: -20px;
+        position: relative;
+      }
+
+
+      * {
+        transition: all 200ms ease-out;
+      }
+
+      .hint, .errortext {
+        position: absolute;
+        bottom: -19px;
+        font-size: 12px;
+        color: transparent;
+        padding-left: 12px;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      :host(:focus-within) .hint {
+        color: var(--input-hint-color, #999999);
+        transition: all 550ms ease-in;
+      }
+
+
+      :host([error]) .errortext {
+        display: block;
+      }
+
+      .errortext {
+        color: var(--input-error-text-color, var(--error, red));
+        display: none;
+      }
+
+
+      label {
+        color: var(--input-hint-color, var(--disabled, #DEDEDE));
+      }
+
+      :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+        color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+      }
+
+
+      :host(:focus-within) .ripple-line {
+        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+        border-width: 2px;
+      }
+
+      :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+        border-width: 2px;
+      }
+
+      :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+        border-color: var(--input-error-text-color, var(--error, red));
+        border-width: 2px;
+      }
+
+      :host([error]:focus-within) label {
+        color: var(--input-error-text-color, var(--error, red));
+      }
+
+      :host([error]:focus-within) .hint {
+        display: none;
+      }
+
+      :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+        border-color: var(--input-error-activation-indicator-color, var(--error, red));
+      }
+
+      furo-icon {
+        display: none;
+        top: 16px;
+      }
+
+      furo-icon.lead {
+        position: absolute;
+
+        left: 8px;
+      }
+
+      furo-icon.trail {
+        position: absolute;
+        right: 8px;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+        display: block;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
+        left: 24px;
+      }
+
+      :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
+        left: 0;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+        padding-left: 36px;
+      }
+
+      :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+        padding-right: 36px;
+      }
+
+      :host(:focus-within:not([valid])) label {
+        color: var(--input-error-text-color, var(--error, red));
+      }
+
+
+      :host([condensed]) input {
+        top: 12px;
+        font-size: 14px;
+      }
+
+      :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+        line-height: 40px;
+        font-size: 14px;
+      }
+
+      :host([condensed][filled]) input {
+        top: 12px;
+      }
+
+      :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+        height: 40px;
+      }
+
+      :host([condensed]) furo-icon {
+        top: 10px;
+      }
+
+      :host([condensed]) .ripple-line {
+        top: 38px;
+      }
+
+      :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+        top: -12px;
+
+      }
+
+      :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
+        top: -20px;
+      }
+
+      :host([condensed]) {
+        height: 40px;
+      }
 
     `
   }
@@ -634,12 +649,12 @@ class FuroTextInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled} ?required=${this.required} 
         type="text" ƒ-.value="--value" @-input="--inputInput(*)" ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
