@@ -80,9 +80,9 @@ export class EventTreeNode {
       }
     }
     this.__childNodes.splice(new_index, 0, this.__childNodes.splice(old_index, 1)[0]);
-
     this.dispatchNodeEvent(new NodeEvent("order-changed", this, true));
     this.dispatchNodeEvent(new NodeEvent("this-order-changed", this, false));
+
 
   };
 
