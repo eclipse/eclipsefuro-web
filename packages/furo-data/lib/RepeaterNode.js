@@ -91,6 +91,11 @@ export class RepeaterNode extends EventTreeNode {
     this.__initialValue = JSON.stringify(this._value);
   }
 
+  moveNode(old_index, new_index) {
+    super.moveNode(old_index, new_index);
+    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
+    this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
+  }
 
   /**
    * resets the field to the initial _values from the spec

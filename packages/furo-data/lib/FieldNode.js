@@ -137,6 +137,11 @@ export class FieldNode extends EventTreeNode {
     }
   }
 
+  moveNode(old_index, new_index) {
+    super.moveNode(old_index, new_index);
+    this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
+    this.dispatchNodeEvent(new NodeEvent('this-field-value-changed', this, false));
+  }
 
   /**
    * resets the field to the initial values from the spec

@@ -163,6 +163,10 @@ class FuroDataRepeat extends FBP(LitElement) {
       this.field.addEventListener("node-field-added", (node) => {
         this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
       });
+
+      this.field.addEventListener("this-order-changed", (node) => {
+        this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
+      });
       // initial trigger for fields
       this._FBPTriggerWire("--repeatsChanged", this.field.__childNodes);
     }
