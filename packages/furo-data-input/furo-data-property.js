@@ -107,6 +107,7 @@ class FuroDataProperty extends FBP(LitElement) {
       "google.protobuf.FloatValue": "furo-data-number-input",
       "google.protobuf.Int32Value": "furo-data-number-input",
       "google.protobuf.UInt32Value": "furo-data-number-input",
+      "google.protobuf.BoolValue": "furo-data-checkbox-input",
       "furo.StringProperty": "furo-data-text-input",
       "furo.IntegerProperty": "furo-data-number-input",
       "furo.NumberProperty": "furo-data-number-input",
@@ -190,6 +191,7 @@ class FuroDataProperty extends FBP(LitElement) {
           case "google.protobuf.Int32Value":
           case "google.protobuf.UInt32Value":
           case "google.protobuf.StringValue":
+          case "google.protobuf.BoolValue":
             e.bindData(propertyField.data.value);
             break;
           default:
