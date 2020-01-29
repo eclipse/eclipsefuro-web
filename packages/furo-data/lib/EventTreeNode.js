@@ -62,6 +62,29 @@ export class EventTreeNode {
     }
   }
 
+  /**
+   * move the position of an item from an index to an index.
+   *
+   * Keep in mind that this is not swaping!
+   *
+   * https://stackoverflow.com/questions/5306680/move-an-array-element-from-one-array-position-to-another
+   *
+   * @param old_index
+   * @param new_index
+   */
+  moveNode(old_index, new_index) {
+    if (new_index >= this.__childNodes.length) {
+      var k = new_index - this.__childNodes.length + 1;
+      while (k--) {
+        this.__childNodes.push(undefined);
+      }
+    }
+    this.__childNodes.splice(new_index, 0, this.__childNodes.splice(old_index, 1)[0]);
+
+    this.dispatchNodeEvent(new NodeEvent("order-changed", this, true));
+    this.dispatchNodeEvent(new NodeEvent("this-order-changed", this, false));
+
+  };
 
   /**
    * shorthand function to add a property as child node
@@ -101,7 +124,6 @@ export class EventTreeNode {
         }
       });
     }
-
   }
 
   /**
