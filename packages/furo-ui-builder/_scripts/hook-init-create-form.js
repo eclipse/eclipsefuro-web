@@ -102,7 +102,7 @@ class HookInitForm {
       fld.description = "field: " + fieldname;
 
       // add default flags if no __ui.flags are set
-      if(field.__ui && field.__ui.flags){
+      if(field.__ui && field.__ui.flags &&  field.__ui.flags.length > 0){
         field.__ui.flags.forEach((flag) => {
           fld.addFlag(flag);
         });
