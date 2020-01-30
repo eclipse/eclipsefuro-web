@@ -34,9 +34,9 @@
         "repeated": true,
         "options": {
           "list": []
-      }
+        }
+      },
+      "constraints": null
     }
   }
 }
-
-
