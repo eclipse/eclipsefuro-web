@@ -280,7 +280,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable() {
-    this._readonly = true;
+    this.disabled = true;
     this.requestUpdate();
   }
 
@@ -288,7 +288,7 @@ class FuroDataMoneyInput extends FBP(LitElement) {
    * Makes the field writable.
    */
   enable() {
-    this._readonly = false;
+    this.disabled = false;
     this.requestUpdate();
   }
 

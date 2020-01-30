@@ -116,15 +116,15 @@
       });
     });
 
-    it('should set readonly via disable method', (done) => {
+    it('should set disabled via disable method', (done) => {
       secondNumberInput.disable();
-      assert.equal(secondNumberInput._readonly, true);
+      assert.equal(secondNumberInput.disabled, true);
       done();
     });
 
-    it('should remove readonly via enable method', (done) => {
+    it('should remove disabled via enable method', (done) => {
       secondNumberInput.enable();
-      assert.equal(secondNumberInput._readonly, false);
+      assert.equal(secondNumberInput.disabled, false);
       done();
     });
 
