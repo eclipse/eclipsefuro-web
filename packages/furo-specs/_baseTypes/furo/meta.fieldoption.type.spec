@@ -4,19 +4,36 @@
   "description": "Metas for a field",
   "__proto": {
     "package": "furo",
-    "options": {},
-    "imports": ["google/protobuf/any.proto"],
-    "targetfile": "meta.proto"
+    "targetfile": "meta.proto",
+    "imports": [
+      "google/protobuf/any.proto"
+    ],
+    "options": null
   },
   "fields": {
     "list": {
-      "description": "a list with options, use furo.optionitem or your own",
       "type": "google.protobuf.Any",
-      "meta": {
-        "repeated": true
-      },
+      "description": "a list with options, use furo.optionitem or your own",
       "__proto": {
         "number": 1
+      },
+      "__ui": {
+        "component": "",
+        "flags": [
+          "full",
+          "condensed"
+        ],
+        "no_init": false,
+        "no_skip": false
+      },
+      "meta": {
+        "label": "",
+        "hint": "",
+        "default": "",
+        "readonly": false,
+        "repeated": true,
+        "options": {
+          "list": []
       }
     }
   }
