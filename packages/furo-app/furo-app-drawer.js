@@ -244,6 +244,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     let backdrop = this.shadowRoot.getElementById("backdrop");
 
 
+
     this._FBPAddWireHook("--trackstart", (e) => {
       // unregister
       this.removeEventListener("mousemove", this.moveHandler, true);
@@ -353,6 +354,9 @@ class FuroAppDrawer extends FBP(LitElement) {
 
         // register move
         this.addEventListener("mousemove", this.moveHandler, true);
+
+        //todo: check this: this.addEventListener("touchmove", this.moveHandler, {passive: true});
+        // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
         this.addEventListener("touchmove", this.moveHandler, true);
 
         this.trackEnd = (e) => {
