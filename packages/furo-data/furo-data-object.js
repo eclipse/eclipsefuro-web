@@ -32,7 +32,7 @@ import {Env} from "@furo/framework"
  * @demo demo-furo-data-object-validator object validator demo
  * @appliesMixin FBP
  */
-class FuroDataObject extends (LitElement) {
+export class FuroDataObject extends (LitElement) {
 
   constructor() {
     super();
