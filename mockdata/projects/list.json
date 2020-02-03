@@ -205,7 +205,7 @@
     {
       "href": "/mockdata/projects/list.json",
       "method": "GET",
-      "rel": "LIST",
+      "rel": "list",
       "type": "project.ProjectCollection",
       "service": "ProjectService"
     }
