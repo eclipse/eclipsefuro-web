@@ -111,6 +111,21 @@
             deeplink.qpIn({"prj": 1});
         });
 
+        it('should update meta without options', (done) => {
+
+            host._FBPAddWireHook("--hts", () => {
+                entityObject.data.data.description.addEventListener("this-metas-changed", () => {
+                    assert.equal(collectionDropdown1.field._value, 'Build Documentation');
+                    assert.equal(collectionDropdown1.field._meta.label, 'ID label from response');
+
+                    done();
+
+                }, {once: true});
+
+            });
+            deeplink.qpIn({"prj": 2});
+        });
+
         it('should selected the items when the field value not exists and the item in option list is marked as `selected:true`', (done) => {
 
           collectionDropdown2.addEventListener("item-selected",(e)=>{

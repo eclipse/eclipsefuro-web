@@ -374,7 +374,9 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
     // update meta and constraints when they change
     this.field.addEventListener('this-metas-changed', (e) => {
-      this._buildListWithMetaOptions(this.field._meta.options);
+      if(this.field._meta && this.field._meta.options ) {
+        this._buildListWithMetaOptions(this.field._meta.options);
+      }
     });
   }
 
