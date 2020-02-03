@@ -18,8 +18,9 @@
   <template>
     <test-bind>
     <template>
-     <furo-data-sign-pad ƒ-bind-data="--entity"></furo-data-sign-pad>
       <furo-data-object type="experiment.Experiment" @-object-ready="--entity"></furo-data-object>
+
+      <furo-data-sign-pad ƒ-bind-data="--entity(*.furo_data_text_input)"></furo-data-sign-pad>
      </template>
     </test-bind>
   </template>
@@ -30,6 +31,8 @@
 
   import "@furo/fbp/testhelper/test-bind"; // for testing
   import 'axe-core/axe.min.js';
+  import "@furo/testhelper/initEnv.js"
+  import "@furo/data/furo-data-object.js";
   import {axeReport} from 'pwa-helpers/axe-report.js';
 
 
@@ -40,7 +43,7 @@
 
     beforeEach(async () => {
       let fix = fixture('basic');
-      element = fix[1];
+      element = fix[2];
       await element.updateComplete;
 
     });
