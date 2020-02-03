@@ -22081,22 +22081,20 @@
         },
         {
           "name": "encodeImage",
-          "description": "Encodes the image using the type and encodingOptions (quality) defined.\nThe encoded image is available in the `image` property.",
+          "description": "update field._value  on new drawing",
           "privacy": "public",
           "sourceRange": {
-            "file": "../../../@furo/input/furo-sign-pad.js",
             "start": {
-              "line": 156,
+              "line": 29,
               "column": 2
             },
             "end": {
-              "line": 169,
+              "line": 32,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [],
-          "inheritedFrom": "FuroSignPad"
+          "params": []
         },
         {
           "name": "_onBegin",
@@ -22359,7 +22357,7 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 15,
+              "line": 14,
               "column": 2
             },
             "end": {
@@ -22392,7 +22390,7 @@
           "column": 7
         },
         "end": {
-          "line": 28,
+          "line": 35,
           "column": 1
         }
       },
