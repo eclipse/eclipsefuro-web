@@ -22,6 +22,7 @@ import SignaturePad from "signature_pad/dist/signature_pad.m"
  */
 export class FuroSignPad extends FBP(LitElement) {
 
+
   /**
    * flow is ready lifecycle method
    */
@@ -35,24 +36,21 @@ export class FuroSignPad extends FBP(LitElement) {
       onEnd: this._onEnd.bind(this)
     });
 
-
-    if (this.image) {
-      this.signaturePad.fromDataURL(this.image);
-    }
     setTimeout(()=>{
       this.resize();
+
+      if (this.getAttribute("image")) {
+        this.setImage(this.getAttribute("image"));
+      }
     },1);
 
     this.signaturePad.clear();
-  }
 
 
-  /**
-   * clears the pad
-   */
-  clear() {
-    this.signaturePad.clear();
+
+
   }
+
 
   resize() {
     if (this.canvas) {
@@ -114,13 +112,15 @@ export class FuroSignPad extends FBP(LitElement) {
   }
 
 
-  attached() {
+  /**
+  unlock() {
     this.signaturePad.on();
   }
 
-  detached() {
+  lock() {
     this.signaturePad.off();
   }
+  */
 
   _setEmpty(b) {
     this.empty = b;
@@ -166,6 +166,7 @@ export class FuroSignPad extends FBP(LitElement) {
     let customEvent = new Event('sign-updated', {composed: true, bubbles: true});
     customEvent.detail = this.image;
     this.dispatchEvent(customEvent)
+    return this.image;
   }
 
   _onBegin(event) {

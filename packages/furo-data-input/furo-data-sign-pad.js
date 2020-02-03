@@ -21,26 +21,6 @@ export class FuroDataSignPad extends FuroSignPad {
   }
 
 
-  /**
-   * Encodes the image using the type and encodingOptions (quality) defined.
-   * The encoded image is available in the `image` property.
-   */
-  encodeImage() {
-    this.image = this.canvas.toDataURL(this.type, this.encodingOptions);
-    if (this.field) {
-
-      this.field.value = this.image.split(",")[1];
-    }
-    this._setEmpty(this.signaturePad.isEmpty());
-    /**
-     * @event sign-updated
-     * Fired when sign gets new painting
-     * detail payload: base encoded image
-     */
-    let customEvent = new Event('sign-updated', {composed: true, bubbles: true});
-    customEvent.detail = this.image;
-    this.dispatchEvent(customEvent)
-  }
 
 }
 
