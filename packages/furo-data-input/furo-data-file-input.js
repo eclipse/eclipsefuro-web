@@ -80,7 +80,7 @@ class FuroDataFileInput extends FBP(LitElement) {
 
     /**
      * Updater for the accept attr, the prop alone with accept="${this.accept}" wont work,
-     * becaue it set "undefined" (as a Sting!)
+     * because it set "undefined" (as a Sting!)
      *
      * @param value
      */
