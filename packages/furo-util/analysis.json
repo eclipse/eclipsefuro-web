@@ -3697,7 +3697,7 @@
         {
           "name": "json",
           "type": "boolean | null | undefined",
-          "description": "Stringify JSON content",
+          "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -4502,7 +4502,7 @@
       "attributes": [
         {
           "name": "json",
-          "description": "Stringify JSON content",
+          "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
           "sourceRange": {
             "start": {
               "line": 62,

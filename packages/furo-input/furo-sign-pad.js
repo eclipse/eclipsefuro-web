@@ -165,7 +165,7 @@ export class FuroSignPad extends FBP(LitElement) {
      */
     let customEvent = new Event('sign-updated', {composed: true, bubbles: true});
     customEvent.detail = this.image;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
     return this.image;
   }
 

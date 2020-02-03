@@ -13759,11 +13759,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 27,
+              "line": 28,
               "column": 2
             },
             "end": {
-              "line": 46,
+              "line": 51,
               "column": 3
             }
           },
@@ -13950,36 +13950,16 @@
           "inheritedFrom": "FBP"
         },
         {
-          "name": "clear",
-          "description": "Clears the image",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 135,
-              "column": 2
-            },
-            "end": {
-              "line": 138,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
           "name": "resize",
           "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 56,
+              "line": 54,
               "column": 2
             },
             "end": {
-              "line": 64,
+              "line": 62,
               "column": 3
             }
           },
@@ -13995,11 +13975,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 106,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 113,
+              "line": 111,
               "column": 3
             }
           },
@@ -14007,46 +13987,6 @@
           "params": [],
           "return": {
             "type": "TemplateResult"
-          }
-        },
-        {
-          "name": "attached",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 116,
-              "column": 2
-            },
-            "end": {
-              "line": 118,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "detached",
-          "description": "",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 120,
-              "column": 2
-            },
-            "end": {
-              "line": 122,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
           }
         },
         {
@@ -14098,6 +14038,26 @@
           }
         },
         {
+          "name": "clear",
+          "description": "Clears the image",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 135,
+              "column": 2
+            },
+            "end": {
+              "line": 138,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "setImage",
           "description": "",
           "privacy": "public",
@@ -14131,15 +14091,12 @@
               "column": 2
             },
             "end": {
-              "line": 168,
+              "line": 169,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
+          "params": []
         },
         {
           "name": "_onBegin",
@@ -14147,11 +14104,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 170,
+              "line": 171,
               "column": 2
             },
             "end": {
-              "line": 172,
+              "line": 173,
               "column": 3
             }
           },
@@ -14171,11 +14128,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 174,
+              "line": 175,
               "column": 2
             },
             "end": {
-              "line": 177,
+              "line": 178,
               "column": 3
             }
           },
@@ -14195,11 +14152,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 179,
+              "line": 180,
               "column": 2
             },
             "end": {
-              "line": 182,
+              "line": 183,
               "column": 3
             }
           },
@@ -14222,11 +14179,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 184,
+              "line": 185,
               "column": 2
             },
             "end": {
-              "line": 187,
+              "line": 188,
               "column": 3
             }
           },
@@ -14249,11 +14206,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 189,
+              "line": 190,
               "column": 2
             },
             "end": {
-              "line": 192,
+              "line": 193,
               "column": 3
             }
           },
@@ -14276,11 +14233,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 194,
+              "line": 195,
               "column": 2
             },
             "end": {
-              "line": 197,
+              "line": 198,
               "column": 3
             }
           },
@@ -14303,11 +14260,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 199,
+              "line": 200,
               "column": 2
             },
             "end": {
-              "line": 202,
+              "line": 203,
               "column": 3
             }
           },
@@ -14330,11 +14287,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 204,
+              "line": 205,
               "column": 2
             },
             "end": {
-              "line": 207,
+              "line": 208,
               "column": 3
             }
           },
@@ -14357,11 +14314,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 209,
+              "line": 210,
               "column": 2
             },
             "end": {
-              "line": 213,
+              "line": 214,
               "column": 3
             }
           },
@@ -14393,7 +14350,7 @@
           "column": 7
         },
         "end": {
-          "line": 214,
+          "line": 215,
           "column": 1
         }
       },
@@ -14431,11 +14388,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 62,
+              "line": 76,
               "column": 3
             }
           },
@@ -14450,11 +14407,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 84,
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 86,
               "column": 3
             }
           },
@@ -14469,11 +14426,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 82,
+              "line": 96,
               "column": 3
             }
           },
@@ -14488,11 +14445,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 84,
+              "line": 98,
               "column": 2
             },
             "end": {
-              "line": 91,
+              "line": 105,
               "column": 3
             }
           },
@@ -14509,11 +14466,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 247,
+              "line": 261,
               "column": 2
             },
             "end": {
-              "line": 249,
+              "line": 263,
               "column": 3
             }
           },
@@ -14528,11 +14485,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 98,
+              "line": 112,
               "column": 6
             },
             "end": {
-              "line": 98,
+              "line": 112,
               "column": 43
             }
           },
@@ -14549,11 +14506,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 116,
               "column": 6
             },
             "end": {
-              "line": 104,
+              "line": 118,
               "column": 7
             }
           },
@@ -14570,11 +14527,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 117,
+              "line": 131,
               "column": 6
             },
             "end": {
-              "line": 119,
+              "line": 133,
               "column": 7
             }
           },
@@ -14591,11 +14548,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 137,
               "column": 6
             },
             "end": {
-              "line": 126,
+              "line": 140,
               "column": 7
             }
           },
@@ -14612,11 +14569,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 156,
               "column": 6
             },
             "end": {
-              "line": 144,
+              "line": 158,
               "column": 7
             }
           },
@@ -14633,11 +14590,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 148,
+              "line": 162,
               "column": 6
             },
             "end": {
-              "line": 150,
+              "line": 164,
               "column": 7
             }
           },
@@ -14654,11 +14611,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 154,
+              "line": 168,
               "column": 6
             },
             "end": {
-              "line": 156,
+              "line": 170,
               "column": 7
             }
           },
@@ -14675,11 +14632,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 160,
+              "line": 174,
               "column": 6
             },
             "end": {
-              "line": 162,
+              "line": 176,
               "column": 7
             }
           },
@@ -14696,11 +14653,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 180,
               "column": 6
             },
             "end": {
-              "line": 168,
+              "line": 182,
               "column": 7
             }
           },
@@ -14717,11 +14674,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 186,
               "column": 6
             },
             "end": {
-              "line": 174,
+              "line": 188,
               "column": 7
             }
           },
@@ -14738,11 +14695,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 184,
+              "line": 198,
               "column": 6
             },
             "end": {
-              "line": 187,
+              "line": 201,
               "column": 7
             }
           },
@@ -14759,11 +14716,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 191,
+              "line": 205,
               "column": 6
             },
             "end": {
-              "line": 194,
+              "line": 208,
               "column": 7
             }
           },
@@ -14780,11 +14737,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 201,
+              "line": 215,
               "column": 7
             }
           },
@@ -14801,11 +14758,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 205,
+              "line": 219,
               "column": 6
             },
             "end": {
-              "line": 207,
+              "line": 221,
               "column": 7
             }
           },
@@ -14822,11 +14779,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 225,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 227,
               "column": 7
             }
           },
@@ -14843,11 +14800,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 217,
+              "line": 231,
               "column": 6
             },
             "end": {
-              "line": 219,
+              "line": 233,
               "column": 7
             }
           },
@@ -15081,11 +15038,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 44,
+              "line": 58,
               "column": 2
             },
             "end": {
-              "line": 52,
+              "line": 66,
               "column": 3
             }
           },
@@ -15277,11 +15234,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 227,
+              "line": 241,
               "column": 2
             },
             "end": {
-              "line": 230,
+              "line": 244,
               "column": 3
             }
           },
@@ -15302,11 +15259,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 256,
+              "line": 270,
               "column": 2
             },
             "end": {
-              "line": 261,
+              "line": 275,
               "column": 3
             }
           },
@@ -15326,47 +15283,7 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 266,
-              "column": 2
-            },
-            "end": {
-              "line": 269,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "focus",
-          "description": "Sets the focus on the field.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 274,
-              "column": 2
-            },
-            "end": {
-              "line": 276,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "disable",
-          "description": "Sets the field to readonly",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 281,
+              "line": 280,
               "column": 2
             },
             "end": {
@@ -15381,8 +15298,8 @@
           }
         },
         {
-          "name": "enable",
-          "description": "Makes the field writable.",
+          "name": "focus",
+          "description": "Sets the focus on the field.",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -15401,16 +15318,56 @@
           }
         },
         {
+          "name": "disable",
+          "description": "Sets the field to readonly",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 295,
+              "column": 2
+            },
+            "end": {
+              "line": 297,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "enable",
+          "description": "Makes the field writable.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 302,
+              "column": 2
+            },
+            "end": {
+              "line": 304,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
           "name": "render",
           "description": "toto add option to hide `*` when the field is required",
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 632,
+              "line": 647,
               "column": 2
             },
             "end": {
-              "line": 654,
+              "line": 669,
               "column": 3
             }
           },
@@ -15443,7 +15400,7 @@
           "column": 0
         },
         "end": {
-          "line": 656,
+          "line": 671,
           "column": 1
         }
       },
@@ -15456,11 +15413,11 @@
           "description": "The pattern attribute, when specified, is a regular expression that the input's value must match in order for the value to pass constraint validation. It must be a valid JavaScript regular expression, as used by the RegExp type, and as documented in our guide on regular expressions; the 'u' flag is specified when compiling the regular expression, so that the pattern is treated as a sequence of Unicode code points, instead of as ASCII. No forward slashes should be specified around the pattern text.\n\nIf the specified pattern is not specified or is invalid, no regular expression is applied and this attribute is ignored completely.",
           "sourceRange": {
             "start": {
-              "line": 60,
+              "line": 74,
               "column": 2
             },
             "end": {
-              "line": 62,
+              "line": 76,
               "column": 3
             }
           },
@@ -15472,11 +15429,11 @@
           "description": "The minimum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by maxlength. If no minlength is specified, or an invalid value is specified, the text input has no minimum length.",
           "sourceRange": {
             "start": {
-              "line": 70,
+              "line": 84,
               "column": 2
             },
             "end": {
-              "line": 72,
+              "line": 86,
               "column": 3
             }
           },
@@ -15488,11 +15445,11 @@
           "description": "The maximum number of characters (as UTF-16 code units) the user can enter into the text input. This must be an integer value 0 or higher. If no maxlength is specified, or an invalid value is specified, the text input has no maximum length. This value must also be greater than or equal to the value of minlength.",
           "sourceRange": {
             "start": {
-              "line": 80,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 82,
+              "line": 96,
               "column": 3
             }
           },
@@ -15504,11 +15461,11 @@
           "description": "set this to true to indicate errors",
           "sourceRange": {
             "start": {
-              "line": 98,
+              "line": 112,
               "column": 6
             },
             "end": {
-              "line": 98,
+              "line": 112,
               "column": 43
             }
           },
@@ -15520,11 +15477,11 @@
           "description": "The start value. Changes will be notified with the `@-value-changed` event",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 116,
               "column": 6
             },
             "end": {
-              "line": 104,
+              "line": 118,
               "column": 7
             }
           },
@@ -15536,11 +15493,11 @@
           "description": "The required attribute, the value true means this field must be filled in",
           "sourceRange": {
             "start": {
-              "line": 117,
+              "line": 131,
               "column": 6
             },
             "end": {
-              "line": 119,
+              "line": 133,
               "column": 7
             }
           },
@@ -15552,11 +15509,11 @@
           "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
           "sourceRange": {
             "start": {
-              "line": 123,
+              "line": 137,
               "column": 6
             },
             "end": {
-              "line": 126,
+              "line": 140,
               "column": 7
             }
           },
@@ -15568,11 +15525,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 142,
+              "line": 156,
               "column": 6
             },
             "end": {
-              "line": 144,
+              "line": 158,
               "column": 7
             }
           },
@@ -15584,11 +15541,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 148,
+              "line": 162,
               "column": 6
             },
             "end": {
-              "line": 150,
+              "line": 164,
               "column": 7
             }
           },
@@ -15600,11 +15557,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 154,
+              "line": 168,
               "column": 6
             },
             "end": {
-              "line": 156,
+              "line": 170,
               "column": 7
             }
           },
@@ -15616,11 +15573,11 @@
           "description": "Lets the placeholder always floating",
           "sourceRange": {
             "start": {
-              "line": 166,
+              "line": 180,
               "column": 6
             },
             "end": {
-              "line": 168,
+              "line": 182,
               "column": 7
             }
           },
@@ -15632,11 +15589,11 @@
           "description": "The hint text for the field.",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 186,
               "column": 6
             },
             "end": {
-              "line": 174,
+              "line": 188,
               "column": 7
             }
           },
@@ -15648,11 +15605,11 @@
           "description": "Icon on the left side",
           "sourceRange": {
             "start": {
-              "line": 184,
+              "line": 198,
               "column": 6
             },
             "end": {
-              "line": 187,
+              "line": 201,
               "column": 7
             }
           },
@@ -15664,11 +15621,11 @@
           "description": "Icon on the right side",
           "sourceRange": {
             "start": {
-              "line": 191,
+              "line": 205,
               "column": 6
             },
             "end": {
-              "line": 194,
+              "line": 208,
               "column": 7
             }
           },
@@ -15680,11 +15637,11 @@
           "description": "html input validity",
           "sourceRange": {
             "start": {
-              "line": 198,
+              "line": 212,
               "column": 6
             },
             "end": {
-              "line": 201,
+              "line": 215,
               "column": 7
             }
           },
@@ -15696,11 +15653,11 @@
           "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
           "sourceRange": {
             "start": {
-              "line": 205,
+              "line": 219,
               "column": 6
             },
             "end": {
-              "line": 207,
+              "line": 221,
               "column": 7
             }
           },
@@ -15712,11 +15669,11 @@
           "description": "Set this attribute to switch to filled layout. Filled is without the borders around the field.",
           "sourceRange": {
             "start": {
-              "line": 211,
+              "line": 225,
               "column": 6
             },
             "end": {
-              "line": 213,
+              "line": 227,
               "column": 7
             }
           },
@@ -15724,7 +15681,20 @@
           "type": "boolean | null | undefined"
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "leading-icon-clicked",
+          "description": "leading-icon-clicked\nFired when the leading icon was clicked\n\ndetail payload: the value of the text input\n\nThis event bubbles",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "trailing-icon-clicked",
+          "description": "trailing-icon-clicked\nFired when the trailing icon was clicked\n\ndetail payload: the value of the text input\n\nThis event bubbles",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
