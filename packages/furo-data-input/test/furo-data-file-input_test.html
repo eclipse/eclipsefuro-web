@@ -71,20 +71,77 @@
             await entityAgent.updateComplete;
         });
 
+        it('should be able to upload multiple files', (done) => {
+            dataInput.multiple = true;
+            setTimeout(() => {
+                assert.equal(dataInput._theInputElement.getAttribute("multiple"), "true");
+                done();
+            }, 5)
+        });
 
-        it('should receive value with bind', (done) => {
+        it('should set attribute accept', (done) => {
+            dataInput.accept = '.md';
+            setTimeout(() => {
+                assert.equal(dataInput._theInputElement.getAttribute("accept"), ".md");
+                done();
+            }, 5)
+        });
+
+        it('should set attribute capture', (done) => {
+            dataInput.capture = 'user';
+            setTimeout(() => {
+                assert.equal(dataInput._theInputElement.getAttribute("capture"), "user");
+                done();
+            }, 5)
+        });
+
+        it('should be possible to set disabled', (done) => {
+            dataInput.disable();
+            setTimeout(() => {
+                assert.equal(dataInput._theInputElement.getAttribute("disabled"), "");
+                done();
+            }, 5)
+        });
+
+        it('should bind field', (done) => {
 
             host._FBPAddWireHook("--hts", () => {
-                entityObject.addEventListener("data-changed", (e) => {
-                    //dataInput._FBPAddWireHook("--valueChanged", (val) => {
-                        //console.log(val);
+                entityObject.addEventListener("data-changed", () => {
+                        assert.equal(dataInput.field._name, 'furo_data_file_input');
+                        assert.equal(dataInput._theInputElement.label, 'Choose a file');
                         done();
-                    //});
 
                 }, {once: true});
             });
             deeplink.qpIn({"exp": 1});
         });
+
+        it('should update dataobject with new values', (done) => {
+
+            let fileList = {
+                target: {
+                    files: [
+                        new File(["foo"], "foo.txt", {
+                            type: "text/plain",
+                        })
+                    ]
+                }
+            };
+
+            deeplink.qpIn({"exp": 1});
+
+            dataInput.addEventListener('value-changed', (f) => {
+                assert.equal(f.detail[0], "data:text/plain;base64,Zm9v");
+                assert.equal(entityObject.data._value.data.furo_data_file_input[0], "data:text/plain;base64,Zm9v");
+                done();
+            });
+
+            dataInput.shadowRoot.querySelector('furo-file-input')._FBPTriggerWire('--inputInput', fileList);
+
+
+        });
+
+
     });
 </script>
 </body>
