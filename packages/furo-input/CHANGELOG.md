@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.65.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.64.0...@furo/input@0.65.0) (2020-02-04)
+
+
+### Features
+
+* trailing and leading icons emit click events ([bbfdfea](https://github.com/theNorstroem/FuroBaseComponents/commit/bbfdfea))
+
+
+
+
+
 # [0.64.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.63.3...@furo/input@0.64.0) (2020-02-04)
 
 
