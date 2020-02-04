@@ -983,7 +983,7 @@ if(element.attributes[i].name.startsWith("@-")){let eventname=element.attributes
          */function registerEvent(eventname,type,wire,element){// find properties in wire
 element.__atf={};let match=wire.match(/([a-z0-9\-_*\.]+)/gi);// store @-ƒ-attributes existence
 for(let i=0;i<element.attributes.length;i++){element.__atf[element.attributes[i].name]=!0}let handler={// prevent default and stop propagation
-stop:function(e){e.detail.stopPropagation()},preventdefault:function(e){e.detail.preventDefault()},call:function(e){/**
+stop:function(e){e.stopPropagation()},preventdefault:function(e){e.preventDefault()},call:function(e){/**
              * Prüfe ob die Funktion mit einem Wert aus dem Host oder mit den Details des Events ausgeführt werden soll.
              * --wire(hostName) ==> wirft this.hostName in die Funktion sonst wird e.detail verwendet
              *
@@ -1446,7 +1446,7 @@ return html`
                                                                 * - the acceptLanguage, which is used by the data components
                                                                 *
                                                                 */class Env{}// default Env
-_exports.Env$1=_exports.Env=Env;Env._acceptLanguage=window.navigator.languages.map((e,i)=>{if(0===i){e=e.substr(0,2)};return e+";q="+Math.max(.1,1-(i+1)/10)});Env._acceptLanguage.unshift(window.navigator.language);Env.api={headers:[["Accept-Language",Env._acceptLanguage.join(",")]],services:{},specs:{}};Env.locale=window.navigator.language;var environment={Env:Env};_exports.$environment=environment;class i18n{static registerResBundle(bundle){this.resbundle=bundle}static t(key){if(i18n.resbundle===void 0){console.warn("There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).");return key}let b=i18n.resbundle[Env.locale];if(b===void 0){console.warn("No resource bundle with locale "+Env.locale+" exists.");return key+"**"}const res=key.split(".").reduce((acc,part)=>acc&&acc[part],b);return res?res:key+"**"}static n(key,num){return key+"*"+num}}_exports.i18n$1=_exports.i18n=i18n;var i18n$1={i18n:i18n};_exports.$i18n=i18n$1;class Init{static registerEnv(section,data){Env[section]=data}static registerApiServices(services){Env.api.services=services}static registerApiTypes(types){Env.api.specs=types}/**
+_exports.Env$1=_exports.Env=Env;Env._acceptLanguage=window.navigator.languages.map((e,i)=>{if(0===i){e=e.substr(0,2)};return e+";q="+Math.max(.1,1-(i+1)/10)});Env._acceptLanguage.unshift(window.navigator.language);Env.api={headers:[["Accept-Language",Env._acceptLanguage.join(",")]],services:{},specs:{}};Env.locale=window.navigator.language;var environment={Env:Env};_exports.$environment=environment;class i18n{static registerResBundle(bundle){this.resbundle=bundle}static t(key){if(i18n.resbundle===void 0){console.warn("There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).");return key}let b=i18n.resbundle[Env.locale];if(b===void 0){console.warn("No resource bundle with locale "+Env.locale+" exists.");return key+"**"}const res=key.split(".").reduce((acc,part)=>acc&&acc[part],b);return res!==void 0?res:key+"**"}static n(key,num){return key+"*"+num}}_exports.i18n$1=_exports.i18n=i18n;var i18n$1={i18n:i18n};_exports.$i18n=i18n$1;class Init{static registerEnv(section,data){Env[section]=data}static registerApiServices(services){Env.api.services=services}static registerApiTypes(types){Env.api.specs=types}/**
      *
      * @param locale
      */static translateStaticTypeMessages(locale){// read from original spec to apply locale
@@ -2934,6 +2934,8 @@ return Theme.getThemeForComponent("FuroButton")||css`
             line-height: 34px;
             background-color: transparent;
             box-sizing: border-box;
+            
+          
         }
 
         :host([unelevated]) button {
@@ -6969,9 +6971,7 @@ return html`
                                                                      * (c) 2018 Szymon Nowak | Released under the MIT license
                                                                      */class Point{constructor(x,y,time){this.x=x;this.y=y;this.time=time||Date.now()}distanceTo(start){return Math.sqrt(Math.pow(this.x-start.x,2)+Math.pow(this.y-start.y,2))}equals(other){return this.x===other.x&&this.y===other.y&&this.time===other.time}velocityFrom(start){return this.time!==start.time?this.distanceTo(start)/(this.time-start.time):0}}class Bezier{constructor(startPoint,control2,control1,endPoint,startWidth,endWidth){this.startPoint=startPoint;this.control2=control2;this.control1=control1;this.endPoint=endPoint;this.startWidth=startWidth;this.endWidth=endWidth}static fromPoints(points,widths){const c2=this.calculateControlPoints(points[0],points[1],points[2]).c2,c3=this.calculateControlPoints(points[1],points[2],points[3]).c1;return new Bezier(points[1],c2,c3,points[2],widths.start,widths.end)}static calculateControlPoints(s1,s2,s3){const dx1=s1.x-s2.x,dy1=s1.y-s2.y,dx2=s2.x-s3.x,dy2=s2.y-s3.y,m1={x:(s1.x+s2.x)/2,y:(s1.y+s2.y)/2},m2={x:(s2.x+s3.x)/2,y:(s2.y+s3.y)/2},l1=Math.sqrt(dx1*dx1+dy1*dy1),l2=Math.sqrt(dx2*dx2+dy2*dy2),dxm=m1.x-m2.x,dym=m1.y-m2.y,k=l2/(l1+l2),cm={x:m2.x+dxm*k,y:m2.y+dym*k},tx=s2.x-cm.x,ty=s2.y-cm.y;return{c1:new Point(m1.x+tx,m1.y+ty),c2:new Point(m2.x+tx,m2.y+ty)}}length(){const steps=10;let length=0,px,py;for(let i=0;i<=steps;i+=1){const t=i/steps,cx=this.point(t,this.startPoint.x,this.control1.x,this.control2.x,this.endPoint.x),cy=this.point(t,this.startPoint.y,this.control1.y,this.control2.y,this.endPoint.y);if(0<i){const xdiff=cx-px,ydiff=cy-py;length+=Math.sqrt(xdiff*xdiff+ydiff*ydiff)}px=cx;py=cy}return length}point(t,start,c1,c2,end){return start*(1-t)*(1-t)*(1-t)+3*c1*(1-t)*(1-t)*t+3*c2*(1-t)*t*t+end*t*t*t}}function throttle(fn,wait=250){let previous=0,timeout=null,result,storedContext,storedArgs;const later=()=>{previous=Date.now();timeout=null;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}};return function(...args){const now=Date.now(),remaining=wait-(now-previous);storedContext=this;storedArgs=args;if(0>=remaining||remaining>wait){if(timeout){clearTimeout(timeout);timeout=null}previous=now;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}}else if(!timeout){timeout=window.setTimeout(later,remaining)}return result}}class SignaturePad{constructor(canvas,options={}){this.canvas=canvas;this.options=options;this._handleMouseDown=event=>{if(1===event.which){this._mouseButtonDown=!0;this._strokeBegin(event)}};this._handleMouseMove=event=>{if(this._mouseButtonDown){this._strokeMoveUpdate(event)}};this._handleMouseUp=event=>{if(1===event.which&&this._mouseButtonDown){this._mouseButtonDown=!1;this._strokeEnd(event)}};this._handleTouchStart=event=>{event.preventDefault();if(1===event.targetTouches.length){const touch=event.changedTouches[0];this._strokeBegin(touch)}};this._handleTouchMove=event=>{event.preventDefault();const touch=event.targetTouches[0];this._strokeMoveUpdate(touch)};this._handleTouchEnd=event=>{const wasCanvasTouched=event.target===this.canvas;if(wasCanvasTouched){event.preventDefault();const touch=event.changedTouches[0];this._strokeEnd(touch)}};this.velocityFilterWeight=options.velocityFilterWeight||.7;this.minWidth=options.minWidth||.5;this.maxWidth=options.maxWidth||2.5;this.throttle="throttle"in options?options.throttle:16;this.minDistance="minDistance"in options?options.minDistance:5;if(this.throttle){this._strokeMoveUpdate=throttle(SignaturePad.prototype._strokeUpdate,this.throttle)}else{this._strokeMoveUpdate=SignaturePad.prototype._strokeUpdate}this.dotSize=options.dotSize||function(){return(this.minWidth+this.maxWidth)/2};this.penColor=options.penColor||"black";this.backgroundColor=options.backgroundColor||"rgba(0,0,0,0)";this.onBegin=options.onBegin;this.onEnd=options.onEnd;this._ctx=canvas.getContext("2d");this.clear();this.on()}clear(){const ctx=this._ctx,canvas=this.canvas;ctx.fillStyle=this.backgroundColor;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillRect(0,0,canvas.width,canvas.height);this._data=[];this._reset();this._isEmpty=!0}fromDataURL(dataUrl,options={},callback){const image=new Image,ratio=options.ratio||window.devicePixelRatio||1,width=options.width||this.canvas.width/ratio,height=options.height||this.canvas.height/ratio;this._reset();image.onload=()=>{this._ctx.drawImage(image,0,0,width,height);if(callback){callback()}};image.onerror=error=>{if(callback){callback(error)}};image.src=dataUrl;this._isEmpty=!1}toDataURL(type="image/png",encoderOptions){switch(type){case"image/svg+xml":return this._toSVG();default:return this.canvas.toDataURL(type,encoderOptions);}}on(){this.canvas.style.touchAction="none";this.canvas.style.msTouchAction="none";if(window.PointerEvent){this._handlePointerEvents()}else{this._handleMouseEvents();if("ontouchstart"in window){this._handleTouchEvents()}}}off(){this.canvas.style.touchAction="auto";this.canvas.style.msTouchAction="auto";this.canvas.removeEventListener("pointerdown",this._handleMouseDown);this.canvas.removeEventListener("pointermove",this._handleMouseMove);document.removeEventListener("pointerup",this._handleMouseUp);this.canvas.removeEventListener("mousedown",this._handleMouseDown);this.canvas.removeEventListener("mousemove",this._handleMouseMove);document.removeEventListener("mouseup",this._handleMouseUp);this.canvas.removeEventListener("touchstart",this._handleTouchStart);this.canvas.removeEventListener("touchmove",this._handleTouchMove);this.canvas.removeEventListener("touchend",this._handleTouchEnd)}isEmpty(){return this._isEmpty}fromData(pointGroups){this.clear();this._fromData(pointGroups,({color,curve})=>this._drawCurve({color,curve}),({color,point})=>this._drawDot({color,point}));this._data=pointGroups}toData(){return this._data}_strokeBegin(event){const newPointGroup={color:this.penColor,points:[]};this._data.push(newPointGroup);this._reset();this._strokeUpdate(event);if("function"===typeof this.onBegin){this.onBegin(event)}}_strokeUpdate(event){const x=event.clientX,y=event.clientY,point=this._createPoint(x,y),lastPointGroup=this._data[this._data.length-1],lastPoints=lastPointGroup.points,lastPoint=0<lastPoints.length&&lastPoints[lastPoints.length-1],isLastPointTooClose=lastPoint?point.distanceTo(lastPoint)<=this.minDistance:!1,color=lastPointGroup.color;if(!lastPoint||!(lastPoint&&isLastPointTooClose)){const curve=this._addPoint(point);if(!lastPoint){this._drawDot({color,point})}else if(curve){this._drawCurve({color,curve})}lastPoints.push({time:point.time,x:point.x,y:point.y})}}_strokeEnd(event){this._strokeUpdate(event);if("function"===typeof this.onEnd){this.onEnd(event)}}_handlePointerEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("pointerdown",this._handleMouseDown);this.canvas.addEventListener("pointermove",this._handleMouseMove);document.addEventListener("pointerup",this._handleMouseUp)}_handleMouseEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("mousedown",this._handleMouseDown);this.canvas.addEventListener("mousemove",this._handleMouseMove);document.addEventListener("mouseup",this._handleMouseUp)}_handleTouchEvents(){this.canvas.addEventListener("touchstart",this._handleTouchStart);this.canvas.addEventListener("touchmove",this._handleTouchMove);this.canvas.addEventListener("touchend",this._handleTouchEnd)}_reset(){this._lastPoints=[];this._lastVelocity=0;this._lastWidth=(this.minWidth+this.maxWidth)/2;this._ctx.fillStyle=this.penColor}_createPoint(x,y){const rect=this.canvas.getBoundingClientRect();return new Point(x-rect.left,y-rect.top,new Date().getTime())}_addPoint(point){const{_lastPoints}=this;_lastPoints.push(point);if(2<_lastPoints.length){if(3===_lastPoints.length){_lastPoints.unshift(_lastPoints[0])}const widths=this._calculateCurveWidths(_lastPoints[1],_lastPoints[2]),curve=Bezier.fromPoints(_lastPoints,widths);_lastPoints.shift();return curve}return null}_calculateCurveWidths(startPoint,endPoint){const velocity=this.velocityFilterWeight*endPoint.velocityFrom(startPoint)+(1-this.velocityFilterWeight)*this._lastVelocity,newWidth=this._strokeWidth(velocity),widths={end:newWidth,start:this._lastWidth};this._lastVelocity=velocity;this._lastWidth=newWidth;return widths}_strokeWidth(velocity){return Math.max(this.maxWidth/(velocity+1),this.minWidth)}_drawCurveSegment(x,y,width){const ctx=this._ctx;ctx.moveTo(x,y);ctx.arc(x,y,width,0,2*Math.PI,!1);this._isEmpty=!1}_drawCurve({color,curve}){const ctx=this._ctx,widthDelta=curve.endWidth-curve.startWidth,drawSteps=2*Math.floor(curve.length());ctx.beginPath();ctx.fillStyle=color;for(let i=0;i<drawSteps;i+=1){const t=i/drawSteps,tt=t*t,ttt=tt*t,u=1-t,uu=u*u,uuu=uu*u;let x=uuu*curve.startPoint.x;x+=3*uu*t*curve.control1.x;x+=3*u*tt*curve.control2.x;x+=ttt*curve.endPoint.x;let y=uuu*curve.startPoint.y;y+=3*uu*t*curve.control1.y;y+=3*u*tt*curve.control2.y;y+=ttt*curve.endPoint.y;const width=curve.startWidth+ttt*widthDelta;this._drawCurveSegment(x,y,width)}ctx.closePath();ctx.fill()}_drawDot({color,point}){const ctx=this._ctx,width="function"===typeof this.dotSize?this.dotSize():this.dotSize;ctx.beginPath();this._drawCurveSegment(point.x,point.y,width);ctx.closePath();ctx.fillStyle=color;ctx.fill()}_fromData(pointGroups,drawCurve,drawDot){for(const group of pointGroups){const{color,points}=group;if(1<points.length){for(let j=0;j<points.length;j+=1){const basicPoint=points[j],point=new Point(basicPoint.x,basicPoint.y,basicPoint.time);this.penColor=color;if(0===j){this._reset()}const curve=this._addPoint(point);if(curve){drawCurve({color,curve})}}}else{this._reset();drawDot({color,point:points[0]})}}}_toSVG(){const pointGroups=this._data,ratio=Math.max(window.devicePixelRatio||1,1),minX=0,minY=0,maxX=this.canvas.width/ratio,maxY=this.canvas.height/ratio,svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("width",this.canvas.width.toString());svg.setAttribute("height",this.canvas.height.toString());this._fromData(pointGroups,({color,curve})=>{const path=document.createElement("path");if(!isNaN(curve.control1.x)&&!isNaN(curve.control1.y)&&!isNaN(curve.control2.x)&&!isNaN(curve.control2.y)){const attr=`M ${curve.startPoint.x.toFixed(3)},${curve.startPoint.y.toFixed(3)} `+`C ${curve.control1.x.toFixed(3)},${curve.control1.y.toFixed(3)} `+`${curve.control2.x.toFixed(3)},${curve.control2.y.toFixed(3)} `+`${curve.endPoint.x.toFixed(3)},${curve.endPoint.y.toFixed(3)}`;path.setAttribute("d",attr);path.setAttribute("stroke-width",(2.25*curve.endWidth).toFixed(3));path.setAttribute("stroke",color);path.setAttribute("fill","none");path.setAttribute("stroke-linecap","round");svg.appendChild(path)}},({color,point})=>{const circle=document.createElement("circle"),dotSize="function"===typeof this.dotSize?this.dotSize():this.dotSize;circle.setAttribute("r",dotSize.toString());circle.setAttribute("cx",point.x.toString());circle.setAttribute("cy",point.y.toString());circle.setAttribute("fill",color);svg.appendChild(circle)});const prefix="data:image/svg+xml;base64,",header="<svg"+" xmlns=\"http://www.w3.org/2000/svg\""+" xmlns:xlink=\"http://www.w3.org/1999/xlink\""+` viewBox="${minX} ${minY} ${maxX} ${maxY}"`+` width="${maxX}"`+` height="${maxY}"`+">";let body=svg.innerHTML;if(body===void 0){const dummy=document.createElement("dummy"),nodes=svg.childNodes;dummy.innerHTML="";for(let i=0;i<nodes.length;i+=1){dummy.appendChild(nodes[i].cloneNode(!0))}body=dummy.innerHTML}const footer="</svg>",data=header+body+footer;return prefix+btoa(data)}}_exports.$signaturePadMDefault=SignaturePad;var signature_pad_m={default:SignaturePad};_exports.$signaturePadM=signature_pad_m;class FuroSignPad extends FBP(LitElement){/**
    * flow is ready lifecycle method
-   */_FBPReady(){super._FBPReady();this.canvas=this.shadowRoot.querySelector("canvas");this.signaturePad=new SignaturePad(this.canvas,{onBegin:this._onBegin.bind(this),onEnd:this._onEnd.bind(this)});if(this.image){this.signaturePad.fromDataURL(this.image)}setTimeout(()=>{this.resize()},1);this.signaturePad.clear()}/**
-     * clears the pad
-     */clear(){this.signaturePad.clear()}resize(){if(this.canvas){var ratio=1;this.canvas.width=this.canvas.offsetWidth*ratio;this.canvas.height=this.canvas.offsetHeight*ratio;this.canvas.getContext("2d").scale(ratio,ratio)}}/**
+   */_FBPReady(){super._FBPReady();this.canvas=this.shadowRoot.querySelector("canvas");this.signaturePad=new SignaturePad(this.canvas,{onBegin:this._onBegin.bind(this),onEnd:this._onEnd.bind(this)});setTimeout(()=>{this.resize();if(this.getAttribute("image")){this.setImage(this.getAttribute("image"))}},1);this.signaturePad.clear()}resize(){if(this.canvas){var ratio=1;this.canvas.width=this.canvas.offsetWidth*ratio;this.canvas.height=this.canvas.offsetHeight*ratio;this.canvas.getContext("2d").scale(ratio,ratio)}}/**
      *
      * @private
      * @return {CSSResult}
@@ -7009,7 +7009,14 @@ return html`
       <canvas></canvas>
       <div class="dots"></div>
 
-    `}attached(){this.signaturePad.on()}detached(){this.signaturePad.off()}_setEmpty(b){this.empty=b}_setActive(b){this.active=b}/**
+    `}/**
+    unlock() {
+      this.signaturePad.on();
+    }
+     lock() {
+      this.signaturePad.off();
+    }
+    */_setEmpty(b){this.empty=b}_setActive(b){this.active=b}/**
      * Clears the image
      */clear(){this.signaturePad.clear();this.encodeImage()}setImage(encodedImage){var img=new Image;img.src=encodedImage;let ctx=this.canvas.getContext("2d");img.onload=function(){ctx.drawImage(img,0,0);// Or at whatever offset you like
 };img.src=encodedImage}/**
@@ -7020,7 +7027,21 @@ return html`
                                                   * Fired when sign gets new painting
                                                   *
                                                   * detail payload: base encoded image
-                                                  */let customEvent=new Event("sign-updated",{composed:!0,bubbles:!0});customEvent.detail=this.image;this.dispatchEvent(customEvent)}_onBegin(event){this._setActive(!0)}_onEnd(event){this._setActive(!1);this.encodeImage()}_dotSizeChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.dotSize=newValue}_minWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.minWidth=newValue}_maxWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.maxWidth=newValue}_backgroundColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.backgroundColor=newValue}_penColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.penColor=newValue}_velocityFilterWeightChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.velocityFilterWeight=newValue}_onEncodingChanged(type,encoderOptions){if(this.signaturePad){this.encodeImage()}}}_exports.FuroSignPad=FuroSignPad;window.customElements.define("furo-sign-pad",FuroSignPad);var furoSignPad={FuroSignPad:FuroSignPad};_exports.$furoSignPad=furoSignPad;class FuroTextInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+                                                  */let customEvent=new Event("sign-updated",{composed:!0,bubbles:!0});customEvent.detail=this.image;this.dispatchEvent(customEvent);return this.image}_onBegin(event){this._setActive(!0)}_onEnd(event){this._setActive(!1);this.encodeImage()}_dotSizeChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.dotSize=newValue}_minWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.minWidth=newValue}_maxWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.maxWidth=newValue}_backgroundColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.backgroundColor=newValue}_penColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.penColor=newValue}_velocityFilterWeightChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.velocityFilterWeight=newValue}_onEncodingChanged(type,encoderOptions){if(this.signaturePad){this.encodeImage()}}}_exports.FuroSignPad=FuroSignPad;window.customElements.define("furo-sign-pad",FuroSignPad);var furoSignPad={FuroSignPad:FuroSignPad};_exports.$furoSignPad=furoSignPad;class FuroTextInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -7106,329 +7127,330 @@ return html`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroTextInput")||css`
-        /* https://material.io/design/components/text-fields.html#theming */
-        :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 190px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
-
-        .iwrap {
-            position: relative;
-        }
-
-
-        input {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-        }
-        
-        input:required {
-          box-shadow:none;
-        }
-        input:invalid {
-          box-shadow:none;
-        }
-
-        :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
-        }
-
-        :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
-        }
-
-        :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
-        }
-
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
-        }
-
-
-        .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-        }
-
-        .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
-
-        :host(:not([filled])) label span {
-            top: 0;
-            position: relative;
-        }
-
-        :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            line-height: 56px;
-        }
-
-        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-            border-top: none;
-        }
-
-        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
-            font-size: 12px;
-            top: -28px;
-            left: 0;
-            position: relative;
-        }
-
-
-        .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-        }
-
-
-        .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        }
-
-        :host([filled]) .ripple-line {
-            display: block;
-        }
-
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
-        }
-
-        :host([filled]) label {
-            border: none;
-        }
-
-
-        :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-        }
-
-        :host([filled]) label span {
-            position: relative;
-            top: 0;
-        }
-
-        :host([filled]) label[float] span, :host(:focus-within) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
-        }
-
-
-        * {
-            transition: all 200ms ease-out;
-        }
-
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
-        }
-
-
-        :host([error]) .errortext {
-            display: block;
-        }
-
-        .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
-        }
-
-
-        label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
-        }
-
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-        }
-
-
-        :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
-
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-        :host([error]:focus-within) .hint {
-            display: none;
-        }
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
-        }
-
-        furo-icon {
-            display: none;
-            top: 16px;
-        }
-
-        furo-icon.lead {
-            position: absolute;
-
-            left: 8px;
-        }
-
-        furo-icon.trail {
-            position: absolute;
-            right: 8px;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
-            left: 24px;
-        }
-
-        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
-            left: 0;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
-        }
-
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
-        }
-
-        :host(:focus-within:not([valid])) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-
-        :host([condensed]) input {
-            top: 12px;
-            font-size: 14px;
-        }
-
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-            line-height: 40px;
-            font-size: 14px;
-        }
-
-        :host([condensed][filled]) input {
-            top: 12px;
-        }
-        
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-            height: 40px;
-        }
-
-        :host([condensed]) furo-icon {
-            top: 10px;
-        }
-
-        :host([condensed]) .ripple-line {
-            top: 38px;
-        }
-
-        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top: -12px;
-
-        }
-
-        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top: -20px;
-        }
-
-        :host([condensed]) {
-            height: 40px;
-        }
+      /* https://material.io/design/components/text-fields.html#theming */
+      :host {
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+        margin: 10px 0 15px 0;
+        height: 56px;
+        width: 190px;
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+
+      .wrapper {
+        position: relative;
+        padding: 0 12px;
+        box-sizing: border-box;
+        height: 56px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+
+      .iwrap {
+        position: relative;
+      }
+
+
+      input {
+        position: absolute;
+        top: 16px;
+        border: none;
+        background: none;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        line-height: 24px;
+        color: inherit;
+        outline: none;
+        font-family: "Roboto", "Noto", sans-serif;
+        font-kerning: auto;
+        font-size: 16px;
+        font-stretch: 100%;
+        font-style: normal;
+      }
+
+      input:required {
+        box-shadow: none;
+      }
+
+      input:invalid {
+        box-shadow: none;
+      }
+
+      :host([filled]) .wrapper {
+        background-color: var(--surface-light, #FEFEFE);
+      }
+
+      :host([filled]) .wrapper:hover {
+        background-color: var(--surface, #FCFCFC);
+      }
+
+      :host([filled]:focus-within) .wrapper {
+        background-color: var(--surface-dark, #FEA222);
+      }
+
+      :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+        border-color: var(--input-hover-color, #333333);
+      }
+
+
+      .borderlabel {
+        pointer-events: none;
+        position: absolute;
+        box-sizing: border-box;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 56px;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+      }
+
+      .left-border {
+        width: 8px;
+        box-sizing: border-box;
+        pointer-events: none;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-right: none;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+
+      :host(:not([filled])) label span {
+        top: 0;
+        position: relative;
+      }
+
+      :host(:not([filled])) label {
+        padding: 0 4px;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-left: none;
+        border-right: none;
+        line-height: 56px;
+      }
+
+      :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
+        border-top: none;
+      }
+
+      :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+        font-size: 12px;
+        top: -28px;
+        left: 0;
+        position: relative;
+      }
+
+
+      .right-border {
+        pointer-events: none;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-left: none;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        -ms-flex: 1 1 0.000000001px;
+        -webkit-flex: 1;
+        flex: 1;
+        -webkit-flex-basis: 0.000000001px;
+        flex-basis: 0.000000001px;
+      }
+
+
+      .ripple-line {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        top: 54px;
+        border: none;
+        border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+      }
+
+      :host([filled]) .ripple-line {
+        display: block;
+      }
+
+      :host([filled]) .right-border, :host([filled]) .left-border {
+        display: none;
+      }
+
+      :host([filled]) label {
+        border: none;
+      }
+
+
+      :host([filled]) label {
+        padding: 0 12px;
+        line-height: 56px;
+      }
+
+      :host([filled]) label span {
+        position: relative;
+        top: 0;
+      }
+
+      :host([filled]) label[float] span, :host(:focus-within) label span {
+        font-size: 12px;
+        font-weight: 400;
+        top: -20px;
+        position: relative;
+      }
+
+
+      * {
+        transition: all 200ms ease-out;
+      }
+
+      .hint, .errortext {
+        position: absolute;
+        bottom: -19px;
+        font-size: 12px;
+        color: transparent;
+        padding-left: 12px;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      :host(:focus-within) .hint {
+        color: var(--input-hint-color, #999999);
+        transition: all 550ms ease-in;
+      }
+
+
+      :host([error]) .errortext {
+        display: block;
+      }
+
+      .errortext {
+        color: var(--input-error-text-color, var(--error, red));
+        display: none;
+      }
+
+
+      label {
+        color: var(--input-hint-color, var(--disabled, #DEDEDE));
+      }
+
+      :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+        color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+      }
+
+
+      :host(:focus-within) .ripple-line {
+        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+        border-width: 2px;
+      }
+
+      :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+        border-width: 2px;
+      }
+
+      :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+        border-color: var(--input-error-text-color, var(--error, red));
+        border-width: 2px;
+      }
+
+      :host([error]:focus-within) label {
+        color: var(--input-error-text-color, var(--error, red));
+      }
+
+      :host([error]:focus-within) .hint {
+        display: none;
+      }
+
+      :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+        border-color: var(--input-error-activation-indicator-color, var(--error, red));
+      }
+
+      furo-icon {
+        display: none;
+        top: 16px;
+      }
+
+      furo-icon.lead {
+        position: absolute;
+
+        left: 8px;
+      }
+
+      furo-icon.trail {
+        position: absolute;
+        right: 8px;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+        display: block;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
+        left: 24px;
+      }
+
+      :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
+        left: 0;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+        padding-left: 36px;
+      }
+
+      :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+        padding-right: 36px;
+      }
+
+      :host(:focus-within:not([valid])) label {
+        color: var(--input-error-text-color, var(--error, red));
+      }
+
+
+      :host([condensed]) input {
+        top: 12px;
+        font-size: 14px;
+      }
+
+      :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+        line-height: 40px;
+        font-size: 14px;
+      }
+
+      :host([condensed][filled]) input {
+        top: 12px;
+      }
+
+      :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+        height: 40px;
+      }
+
+      :host([condensed]) furo-icon {
+        top: 10px;
+      }
+
+      :host([condensed]) .ripple-line {
+        top: 38px;
+      }
+
+      :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+        top: -12px;
+
+      }
+
+      :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
+        top: -20px;
+      }
+
+      :host([condensed]) {
+        height: 40px;
+      }
 
     `}/**
      * toto add option to hide `*` when the field is required
@@ -7437,12 +7459,12 @@ return Theme.getThemeForComponent("FuroTextInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled} ?required=${this.required} 
         type="text" ƒ-.value="--value" @-input="--inputInput(*)" ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -8227,7 +8249,12 @@ this._FBPAddWireHook("--inputInput",e=>{/**
      * Fetch local file
      * @private
      */_fetchLocalFile(file){return new Promise((resolve,reject)=>{// Create a new FileReader instance
-const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.result)});reader.readAsDataURL(file)})}static get properties(){return{/**
+const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.result)});reader.addEventListener("progress",e=>{if(e.lengthComputable){/**
+           * @event progress
+           * is triggered while reading a Blob content.
+           * detail payload: {Array} all selected files base64 encoded
+           */const customEvent=new Event("progress",{composed:!0,bubbles:!0});customEvent.detail=e;this.dispatchEvent(customEvent);// e.g. progress percentage: Math.round((e.loaded / e.total) * 100);
+}});reader.readAsDataURL(file)})}static get properties(){return{/**
        * The required attribute, the value true means this field must be filled in
        *
        */required:{type:Boolean},/**
@@ -8883,7 +8910,9 @@ if(100<delta){delta=100;distance=width}if(-100>delta){delta=-100;distance=-width
 drawer.style.right=-(width+distance)+"px"}else{//drawer.style.transform = "translate3d(" + (delta - 100) + "%, 0, 0)";
 drawer.style.left=distance-width+"px"}// backdrop darkness
 backdrop.style.opacity=Math.abs(delta/100)}})};// register move
-this.addEventListener("mousemove",this.moveHandler,!0);this.addEventListener("touchmove",this.moveHandler,!0);this.trackEnd=e=>{drawer.style.transitionDuration="";// If there's a animation timer, cancel it
+this.addEventListener("mousemove",this.moveHandler,!0);//todo: check this: this.addEventListener("touchmove", this.moveHandler, {passive: true});
+// https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
+this.addEventListener("touchmove",this.moveHandler,!0);this.trackEnd=e=>{drawer.style.transitionDuration="";// If there's a animation timer, cancel it
 if(requestAnimationFrame){window.cancelAnimationFrame(animationframetimeout)}let end_time=performance.now(),distance=this._getScreenX(e)-start_x,duration=end_time-start_time;// quick movement
 if(30<Math.abs(distance)&&200>duration){if(this.isOpen){if(!this.isReverse&&0>distance||this.isReverse&&0<distance){this.close()}}else{this.open()}}else{if(!trackingEnabled){return}// complete the movement, slow
 let delta=100*distance/width;if(-40<delta&&40>delta){// restore initial pos
@@ -18003,4 +18032,14 @@ return html`
         <furo-icon-with-label icon="social:whatshot"></furo-icon-with-label>
       </div>
      
-    `}}window.customElements.define("demo-furo-icon-list",DemoFuroIconList)});
+    `}}window.customElements.define("demo-furo-icon-list",DemoFuroIconList);class FuroIntervalPulse extends LitElement{constructor(){super();this.interval=200;this.takt=4;if(this.auto){this.start()}}static get properties(){return{interval:{type:Number},takt:{type:Number},/**
+       * Starts interval automatically
+       */auto:Boolean}}start(){let cnt=0;clearInterval(this._intervalObject);this._intervalObject=setInterval(()=>{let pos=cnt++%this.takt,customEvent=new Event("tick",{bubbles:!0});/**
+                                    * Fired when interval is
+                                    * detail payload: position
+                                    * @event tick
+                                    */customEvent.detail=pos;this.dispatchEvent(customEvent);if(0==pos){/**
+         * Fired when tock
+         * detail payload: position
+         * @event tick
+         */let customEvent=new Event("tock",{bubbles:!0});customEvent.detail=pos;this.dispatchEvent(customEvent)}},this.interval)}stop(){clearInterval(this._intervalObject)}}window.customElements.define("furo-interval-pulse",FuroIntervalPulse)});

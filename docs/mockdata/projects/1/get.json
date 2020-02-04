@@ -73,6 +73,13 @@
       "rel": "self",
       "type": "project.ProjectEntity",
       "service": "ProjectService"
+    },
+    {
+      "href": "/mockdata/projects/1/update.json",
+      "method": "UPDATE",
+      "rel": "update",
+      "type": "project.ProjectEntity",
+      "service": "ProjectService"
     }
   ]
 }

@@ -37,6 +37,25 @@
           "service": "PersonService"
         }
       ]
+    },
+    {
+      "data": {
+        "display_name": "Yoko Tasimoto, +41781442244",
+        "first_name": "Yoko",
+        "id": "3",
+        "name": "Tasimoto",
+        "phone_nr": "+41781442244",
+        "skills": []
+      },
+      "links": [
+        {
+          "href": "/mockdata/persons/3/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "person.Person",
+          "service": "PersonService"
+        }
+      ]
     }
   ],
   "links": [

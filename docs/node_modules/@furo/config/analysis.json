@@ -1498,17 +1498,46 @@
       ],
       "methods": [
         {
+          "name": "moveNode",
+          "description": "move the position of an item from an index to an index.\n\nKeep in mind that this is not swaping!\n\nhttps://stackoverflow.com/questions/5306680/move-an-array-element-from-one-array-position-to-another",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "../../../../@furo/data/lib/EventTreeNode.js",
+            "start": {
+              "line": 74,
+              "column": 2
+            },
+            "end": {
+              "line": 86,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "old_index"
+            },
+            {
+              "name": "new_index"
+            }
+          ],
+          "return": {
+            "type": "void"
+          },
+          "inheritedFrom": "EventTreeNode"
+        },
+        {
           "name": "addChildProperty",
           "description": "shorthand function to add a property as child node",
           "privacy": "public",
           "sourceRange": {
             "file": "../../../../@furo/data/lib/EventTreeNode.js",
             "start": {
-              "line": 70,
+              "line": 93,
               "column": 2
             },
             "end": {
-              "line": 73,
+              "line": 96,
               "column": 3
             }
           },
@@ -1533,11 +1562,11 @@
           "sourceRange": {
             "file": "../../../../@furo/data/lib/EventTreeNode.js",
             "start": {
-              "line": 81,
+              "line": 104,
               "column": 2
             },
             "end": {
-              "line": 86,
+              "line": 109,
               "column": 3
             }
           },
@@ -1567,11 +1596,11 @@
           "sourceRange": {
             "file": "../../../../@furo/data/lib/EventTreeNode.js",
             "start": {
-              "line": 93,
+              "line": 116,
               "column": 2
             },
             "end": {
-              "line": 99,
+              "line": 126,
               "column": 3
             }
           },
@@ -1596,11 +1625,11 @@
           "sourceRange": {
             "file": "../../../../@furo/data/lib/EventTreeNode.js",
             "start": {
-              "line": 106,
+              "line": 133,
               "column": 2
             },
             "end": {
-              "line": 121,
+              "line": 148,
               "column": 3
             }
           },
@@ -1623,11 +1652,11 @@
           "sourceRange": {
             "file": "../../../../@furo/data/lib/EventTreeNode.js",
             "start": {
-              "line": 129,
+              "line": 156,
               "column": 2
             },
             "end": {
-              "line": 139,
+              "line": 166,
               "column": 3
             }
           },
@@ -1649,11 +1678,11 @@
           "sourceRange": {
             "file": "../../../../@furo/data/lib/EventTreeNode.js",
             "start": {
-              "line": 141,
+              "line": 168,
               "column": 2
             },
             "end": {
-              "line": 150,
+              "line": 177,
               "column": 3
             }
           },
