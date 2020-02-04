@@ -112,7 +112,7 @@ class FuroCard extends FBP(LitElement) {
       }
 
       .head span {
-        color: var(--secondary-color, var(--on-primary-light, #777777));
+        color: rgba(var(--on-surface-rgb), var(--medium-emphasis-surface));
         line-height: 22px;
       }
 
