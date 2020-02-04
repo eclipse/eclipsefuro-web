@@ -31,6 +31,27 @@ import {Helper} from "./lib/helper";
  */
 class FuroColorInput extends FBP(LitElement) {
 
+
+  /**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */
+
+
+
+  /**
+   * @event leading-icon-clicked
+   * Fired when the leading icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */
+
   constructor() {
     super();
     this.valid = true;
@@ -537,12 +558,12 @@ class FuroColorInput extends FBP(LitElement) {
     // language=HTML
     return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly}
        ?disabled=${this.disabled}              
        type="color" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
