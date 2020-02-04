@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.64.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.63.3...@furo/input@0.64.0) (2020-02-04)
+
+
+### Bug Fixes
+
+* ui-generator labels, removed unneeded adder type hook ([de20466](https://github.com/theNorstroem/FuroBaseComponents/commit/de20466))
+
+
+### Features
+
+* furo-text-input bubbles leading-icon-clicked and trailing-icon-clicked ([841077c](https://github.com/theNorstroem/FuroBaseComponents/commit/841077c))
+* ProgressEvent from FileReader is available ([70f0b00](https://github.com/theNorstroem/FuroBaseComponents/commit/70f0b00))
+
+
+
+
+
 ## [0.63.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.63.2...@furo/input@0.63.3) (2020-01-15)
 
 **Note:** Version bump only for package @furo/input

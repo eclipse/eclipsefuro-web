@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.5.0...@furo/ui-builder@0.6.0) (2020-02-04)
+
+
+### Bug Fixes
+
+* component matching ([470b790](https://github.com/theNorstroem/FuroBaseComponents/commit/470b790))
+* correct spelling mistakes.  display-name > display_name ([8db33a3](https://github.com/theNorstroem/FuroBaseComponents/commit/8db33a3))
+* fix for old version of ui-build ([376066c](https://github.com/theNorstroem/FuroBaseComponents/commit/376066c))
+* treat empty flags array as no flags ([dd8a908](https://github.com/theNorstroem/FuroBaseComponents/commit/dd8a908))
+* trim types from spec ([b445a1f](https://github.com/theNorstroem/FuroBaseComponents/commit/b445a1f))
+* ui builder inits ([09d1957](https://github.com/theNorstroem/FuroBaseComponents/commit/09d1957))
+* ui init form map types ([2a4d40d](https://github.com/theNorstroem/FuroBaseComponents/commit/2a4d40d))
+* ui init form map types ([d366434](https://github.com/theNorstroem/FuroBaseComponents/commit/d366434))
+* ui init form map types ([e8a7404](https://github.com/theNorstroem/FuroBaseComponents/commit/e8a7404))
+* ui-builder :host[hidden] => :host([hidden]) ([3099324](https://github.com/theNorstroem/FuroBaseComponents/commit/3099324))
+* ui-generator labels, removed unneeded adder type hook ([de20466](https://github.com/theNorstroem/FuroBaseComponents/commit/de20466))
+
+
+### Features
+
+* skip files for repeater ([d26dee4](https://github.com/theNorstroem/FuroBaseComponents/commit/d26dee4))
+* spec.field.__ui.flags to override default flags. ([f5f571b](https://github.com/theNorstroem/FuroBaseComponents/commit/f5f571b))
+* ui-builder furo specs dir with multiple folders ([9ce1de1](https://github.com/theNorstroem/FuroBaseComponents/commit/9ce1de1))
+* ui-builder init map<string,type> ([be106a8](https://github.com/theNorstroem/FuroBaseComponents/commit/be106a8))
+
+
+
+
+
 # [0.5.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.4.0...@furo/ui-builder@0.5.0) (2020-01-14)
 
 
