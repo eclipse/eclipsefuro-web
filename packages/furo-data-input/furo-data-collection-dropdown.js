@@ -110,7 +110,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     let selectedItem;
 
     for (let i = this._dropdownList.length - 1; i >= 0; i--) {
-      if (this._dropdownList[i][this.valueField] == val) {
+      if (this._dropdownList[i].id == val) {
         selectedItem = this._dropdownList[i]._original;
         break
       }
