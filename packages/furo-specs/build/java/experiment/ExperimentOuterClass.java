@@ -2568,7 +2568,7 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -2577,7 +2577,7 @@ public final class ExperimentOuterClass {
         getFuroDataFileInputList();
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -2585,7 +2585,7 @@ public final class ExperimentOuterClass {
     int getFuroDataFileInputCount();
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -2593,7 +2593,7 @@ public final class ExperimentOuterClass {
     java.lang.String getFuroDataFileInput(int index);
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -3443,7 +3443,7 @@ public final class ExperimentOuterClass {
     private com.google.protobuf.LazyStringList furoDataFileInput_;
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -3454,7 +3454,7 @@ public final class ExperimentOuterClass {
     }
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -3464,7 +3464,7 @@ public final class ExperimentOuterClass {
     }
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -3474,7 +3474,7 @@ public final class ExperimentOuterClass {
     }
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -5484,7 +5484,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5495,7 +5495,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5505,7 +5505,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5515,7 +5515,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5526,7 +5526,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5543,7 +5543,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5560,7 +5560,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5575,7 +5575,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5588,7 +5588,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>

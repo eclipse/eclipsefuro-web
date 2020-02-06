@@ -15,502 +15,555 @@ import {Env} from "@furo/framework"
 class FuroEntityAgent extends FBP(LitElement) {
 
 
-  constructor() {
-    super();
-    this._servicedefinitions = Env.api.services;
-    this._ApiEnvironment = Env.api;
-    this._pendingRequests = [];
+    constructor() {
+        super();
+        this._servicedefinitions = Env.api.services;
+        this._ApiEnvironment = Env.api;
+        this._pendingRequests = [];
 
-    /**
-     * Request race condition handling
-     *
-     */
-    this._FBPAddWireHook('--beforeRequestStart', () => {
-      if (this._pendingRequests.length){
-        this._FBPTriggerWire('--abortDemanded', this._abortController);
-      }
-      this._pendingRequests.push('pending');
-    });
-    this._FBPAddWireHook('--requestFinished', (req) => {
-      this._pendingRequests.pop();
-    });
-
-    // HTS aus response anwenden
-    this._FBPAddWireHook("--responseParsed", (r) => {
-      if (this._updateInternalHTS(r.links)) {
         /**
-         * @event response-hts-updated
-         * Fired when
-         * detail payload: hts
+         * Request race condition handling
+         *
          */
-        let customEvent = new Event('response-hts-updated', {composed: true, bubbles: true});
-        customEvent.detail = r.links;
-        this.dispatchEvent(customEvent);
-      }
-    });
-
-    this._singleElementQueue = []; //queue for calls, before hts is set
-
-  }
-
-  static get properties() {
-    return {
-      /**
-       * Name des Services
-       */
-      service: {type: String, attribute: true},
-      /**
-       * triggers a load when link rel="self" is in the injected hts (after hts-injected is fired)
-       */
-      loadOnHtsIn: {type: Boolean, attribute: "load-on-hts-in"},
-    };
-  }
-
-  /**
-   * Setze den Service
-   * @param service
-   */
-  set service(service) {
-
-    if (!this._servicedefinitions[service]) {
-      console.error("service " + service + " does not exist", this, "Available Services:", this._servicedefinitions);
-      return;
-    }
-    this._service = this._servicedefinitions[service];
-    if (this._service.lifecycle && this._service.lifecycle.deprecated) {
-      console.warn("You are using a deprecated service (" + service + ") " + this._service.lifecycle.info);
-    }
-  }
-
-  /**
-   * Binds a furo-data-object type. Use this if you want save data.
-   *
-   * @param dataObject
-   */
-  bindRequestData(dataObject) {
-    this._requestDataObject = dataObject;
-  }
-
-  /**
-   * Creates a Request object with header and body data
-   * - special treatment for method PATCH
-   * - body object only includes writeable fields
-   * @param link
-   * @param dataObject
-   * @returns {Request}
-   * @private
-   */
-  _makeRequest(link, dataObject, abortController) {
-    this._FBPTriggerWire('--beforeRequestStart');
-    
-    let data;
-    let body = {};
-
-    // check if dataObject is set and create body object
-    if (dataObject) {
-
-
-      // Method PATCH sends only modified data (.pristine)
-      if (link.method.toLowerCase() === 'patch') {
-        for (let index in dataObject.__childNodes) {
-          let field = dataObject.__childNodes[index];
-          let val = field._delta_value;
-          if (val !== undefined) {
-            body[field._name] = val;
-          }
-        }
-        // the request object MUST contain a field named 'update_mask'
-        if (!this._ApiEnvironment.specs[this._service.services.Update.data.request].fields.hasOwnProperty('update_mask')) {
-          console.warn("The request type " + this._ApiEnvironment.specs[this._service.services.Update.data.request].name + " has no specified field (update_mask) to transmit the changed fields. The operation applies to all fields!", this._ApiEnvironment.specs[this._service.services.Update.data.request], this);
-        }
-        // add the field_mask
-        body['update_mask'] = this._getFieldMask(body);
-      } else {
-        // send all data
-        if (Env.api.sendAllDataOnMethodPut && link.method.toLowerCase() === 'put') {
-          body = dataObject._value;
-        } else {
-          for (let index in dataObject.__childNodes) {
-            let field = dataObject.__childNodes[index];
-            let val = field._transmit_value;
-            if (val !== undefined) {
-              body[field._name] = val;
+        this._FBPAddWireHook('--beforeRequestStart', () => {
+            if (this._pendingRequests.length) {
+                this._FBPTriggerWire('--abortDemanded', this._abortController);
             }
-          }
-        }
-      }
+            this._pendingRequests.push('pending');
+        });
+        this._FBPAddWireHook('--requestFinished', (req) => {
+            this._pendingRequests.pop();
+        });
 
-      data = JSON.stringify(body);
+        // HTS aus response anwenden
+        this._FBPAddWireHook("--responseParsed", (r) => {
+            if (this._updateInternalHTS(r.links)) {
+                /**
+                 * @event response-hts-updated
+                 * Fired when
+                 * detail payload: hts
+                 */
+                let customEvent = new Event('response-hts-updated', {composed: true, bubbles: true});
+                customEvent.detail = r.links;
+                this.dispatchEvent(customEvent);
+            }
+        });
 
+        this._singleElementQueue = []; //queue for calls, before hts is set
 
     }
+
+    static get properties() {
+        return {
+            /**
+             * Name des Services
+             */
+            service: {type: String, attribute: true},
+            /**
+             * triggers a load when link rel="self" is in the injected hts (after hts-injected is fired)
+             */
+            loadOnHtsIn: {type: Boolean, attribute: "load-on-hts-in"},
+        };
+    }
+
     /**
-     * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
-     * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
-     * @type {AbortController}
+     * Setze den Service
+     * @param service
+     */
+    set service(service) {
+
+        if (!this._servicedefinitions[service]) {
+            console.error("service " + service + " does not exist", this, "Available Services:", this._servicedefinitions);
+            return;
+        }
+        this._service = this._servicedefinitions[service];
+        if (this._service.lifecycle && this._service.lifecycle.deprecated) {
+            console.warn("You are using a deprecated service (" + service + ") " + this._service.lifecycle.info);
+        }
+    }
+
+    /**
+     * Binds a furo-data-object type. Use this if you want save data.
+     *
+     * @param dataObject
+     */
+    bindRequestData(dataObject) {
+        this._requestDataObject = dataObject;
+    }
+
+    /**
+     * Prepare request body depending from method
+     * @param link
+     * @param dataObject
      * @private
      */
-    this._abortController = new AbortController();
-    let signal = this._abortController.signal;
+    _prepareRequestPaylod(link, dataObject) {
+        let body = {};
 
-    // create Request object with headers and body
-    let headers = new Headers(this._ApiEnvironment.headers);
-    headers.append('Content-Type', 'application/' + link.type + '+json');
+        /**
+         * Check if dataObject is set
+         * if TRUE => body object create
+         * - Method PATCH: _delta_value
+         * - Method PUT: _transmit_value or sendAllDataOnMethodPut
+         *
+         * ELSE => @return undefined
+         */
+        if (dataObject) {
+            // Method PATCH sends only modified data (.pristine)
+            if (link.method.toLowerCase() === 'patch') {
+                for (let index in dataObject.__childNodes) {
+                    let field = dataObject.__childNodes[index];
+                    let val = field._delta_value;
+                    if (val !== undefined) {
 
-    if (link.method.toLowerCase() !== 'put') {
-      headers.append('Content-Type', 'application/json');
-    }
-    return new Request(link.href, {
-      signal,
-      method: link.method,
-      headers: headers,
-      body: data
-    })
-  }
-
-  /**
-   * Creates an array with the path information of the object attributes (deep dive)
-   * [{"paths:" "attr1"}, {"paths:" "attr2.sub_attr"}]
-   * @param obj
-   * @returns {Array}
-   * @private
-   */
-  _getFieldMask(obj) {
-    let keys = Object.keys(obj);
-    return keys.reduce(function (result, key) {
-      if (Object.prototype.toString.call(key) === '[object Object]') {
-        result = {"paths": result.concat(getkeys(obj[key], key))};
-      } else {
-        result.push({"paths": key});
-      }
-      return result;
-    }, []);
-  }
-
-  /**
-   *
-   * @param rel
-   * @param serviceName
-   * @returns {undefined|object}
-   * @private
-   */
-  _checkServiceAndHateoasLinkError(rel, serviceName) {
-    // check Service Get
-    if (!this._service.services[serviceName]) {
-      console.warn("Service " + serviceName + " is not specified", this._service, this);
-      return undefined;
-    }
-
-    //queue if no hts is set, queue it
-    if (!this._hts) {
-      this._singleElementQueue = [[rel, serviceName]];
-      return undefined;
-    }
-    // check rel and type
-    let htsFound = this._hts.find((link) => {
-      if (link.rel === rel && link.service === this._service.name) {
-        return link;
-      }
-    });
-    if (!htsFound) {
-      console.warn("No HATEOAS for rel " + rel + " in service " + this._service.name + " found.", this._hts, this);
-      return undefined;
-    }
-    return htsFound;
-  }
-
-  /**
-   * @event load-success
-   * Fired when load was successful
-   * detail payload: response
-   */
-
-  /**
-   * @event load-failed
-   * Fired when load was not successful
-   * detail payload: response
-   */
-
-  /**
-   * loads the entity if hts is available
-   */
-  load() {
-    let hts = this._checkServiceAndHateoasLinkError('self', 'Get');
-    if (!hts) {
-      let customEvent = new Event('missing-hts-self', {composed: true, bubbles: false});
-      this.dispatchEvent(customEvent);
-      return false;
-    }
-    this._attachListeners('load');
-    this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts));
-
-  }
-
-  /**
-   * @event delete-success
-   * Fired when load was successful
-   * detail payload: response
-   */
-
-  /**
-   * @event delete-failed
-   * Fired when load was not successful
-   * detail payload: response
-   */
-
-  /**
-   * delete the entity if hts is available
-   */
-  delete() {
-    let hts = this._checkServiceAndHateoasLinkError('delete', 'Delete');
-    if (!hts) {
-      let customEvent = new Event('missing-hts-delete', {composed: true, bubbles: false});
-      this.dispatchEvent(customEvent);
-      return;
-    }
-    this._attachListeners('delete');
-    this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts));
-
-  }
-
-  /**
-   * @event save-success
-   * Fired when load was successful
-   * detail payload: response
-   */
-
-  /**
-   * @event save-failed
-   * Fired when load was not successful
-   * detail payload: response
-   */
-
-  /**
-   * loads the entity if hts is available
-   */
-  save() {
-
-    // if no rel self is present but a rel create exists, take create
-    // rel self is consciously chosen
-    let hts_self = this._hts.find((link) => {
-      if (link.rel === 'self') return link;
-    });
-    let hts_create = this._hts.find((link) => {
-      if (link.rel === 'create') return link;
-    });
-
-    if (!hts_self && hts_create) {
-      this.create();
-      return;
-    }
-
-    let hts = this._checkServiceAndHateoasLinkError('update', 'Update');
-    if (!hts) {
-      let customEvent = new Event('missing-hts-update', {composed: true, bubbles: false});
-      this.dispatchEvent(customEvent);
-      return;
-    }
-
-    this._attachListeners("save");
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(hts, this._requestDataObject));
-
-  }
-
-  /**
-   * @event put-success
-   * Fired when update was successful
-   * detail payload: response
-   */
-
-  /**
-   * @event put-failed
-   * Fired when update was not successful
-   * detail payload: response
-   */
-
-  /**
-   * saves the entity with method put if hts is available
-   */
-  put() {
-    let hts = this._checkServiceAndHateoasLinkError('update', 'Update');
-    if (!hts) {
-      let customEvent = new Event('missing-hts-update', {composed: true, bubbles: false});
-      this.dispatchEvent(customEvent);
-      return;
-    }
-    this._attachListeners("put");
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(hts, this._requestDataObject));
-  }
-
-  /**
-   * @event create-success
-   * Fired when creating was successful
-   * detail payload: response
-   */
-
-  /**
-   * @event create-failed
-   * Fired when creating was not successful
-   * detail payload: response
-   */
-
-  /**
-   * creating the entity if hts rel="create" is available
-   */
-  create() {
-    let hts = this._checkServiceAndHateoasLinkError('create', 'Create');
-    if (!hts) {
-      let customEvent = new Event('missing-hts-create', {composed: true, bubbles: false});
-      this.dispatchEvent(customEvent);
-      return;
-    }
-    this._attachListeners("create");
-    this._FBPTriggerWire("--triggerLoad", this._makeRequest(hts, this._requestDataObject));
-  }
-
-  /**
-   * Attaches temporary listeners to fire load-success, load-fail, delete-success,...
-   * @param eventPrefix
-   * @private
-   */
-  _attachListeners(eventPrefix) {
-    let success = (e) => {
-      // we do not want req-success and req-failed outside of this component
-      e.stopPropagation();
-      let customEvent = new Event(eventPrefix + '-success', {composed: true, bubbles: true});
-      customEvent.detail = e.detail;
-      this.dispatchEvent(customEvent);
-
-      // remove listeners
-      this.removeEventListener("req-success", success, true);
-      this.removeEventListener("req-failed", failed, true);
-
-    };
-
-    let failed = (e) => {
-
-      // append error to the _requestDataObject (set the fields invalid)
-      let err = e.detail;
-      if (err.error && err.details) {
-        err.details.forEach((errorSet) => {
-          if (errorSet["field_violations"]) {
-
-            errorSet["field_violations"].map((error) => {
-              let path = error.field.split(".");
-              if (path.length > 0) {
-                // rest wieder in error reinwerfen
-                error.field = path.slice(1).join(".");
-                if (this._requestDataObject[path[0]]) {
-                  this._requestDataObject[path[0]]._setInvalid(error);
-                } else {
-                  console.warn("Unknown field", path)
+                        if (typeof val === 'object' && !Array.isArray(val)) {
+                          body[field._name] = {};
+                          for (var key in val) {
+                                if (val[key] !== null) {
+                                    body[field._name][key] = val[key];
+                                }
+                            }
+                        } else {
+                            body[field._name] = val;
+                        }
+                    }
                 }
-              }
-            });
-          }
-        });
-      }
+                // the request object MUST contain a field named 'update_mask'
+                if (!this._ApiEnvironment.specs[this._service.services.Update.data.request].fields.hasOwnProperty('update_mask')) {
+                    console.warn("The request type " + this._ApiEnvironment.specs[this._service.services.Update.data.request].name + " has no specified field (update_mask) to transmit the changed fields. The operation applies to all fields!", this._ApiEnvironment.specs[this._service.services.Update.data.request], this);
+                }
+                // add the field_mask
+                body['update_mask'] = this._getFieldMask(body);
+            } else {
+                // send all data
+                if (Env.api.sendAllDataOnMethodPut && link.method.toLowerCase() === 'put') {
+                    body = dataObject._value;
+                } else {
+                    for (let index in dataObject.__childNodes) {
+                        let field = dataObject.__childNodes[index];
+                        let val = field._transmit_value;
+                        if (val !== undefined) {
+                            body[field._name] = val;
+                        }
+                    }
+                }
+            }
 
-
-      // we do not want req-success and req-failed outside of this component
-      e.stopPropagation();
-      let customEvent = new Event(eventPrefix + '-failed', {composed: true, bubbles: true});
-      customEvent.detail = e.detail;
-      this.dispatchEvent(customEvent);
-
-
-      // remove listeners
-      this.removeEventListener("req-success", success, true);
-      this.removeEventListener("req-failed", failed, true);
-    };
-    /**
-     * do not add the listener directly to response, otherwise it kicks in before hts is updated
-     * This extra "loop" is to guarante the order of handling the events
-     */
-    this.addEventListener("req-success", success, true);
-    this.addEventListener("req-failed", failed, true);
-  }
-
-  _updateInternalHTS(hts) {
-    // convert link object to hts array
-    if (hts && hts.rel && hts.method && hts.type && hts.href) {
-      hts = [hts];
-    }
-
-    if (hts && Array.isArray(hts)) {
-      this._hts = [];
-      hts.forEach((link) => {
-        this._hts.push(link);
-      });
-      /**
-       * @event hts-updated
-       * Fired when hateoas is updated from response
-       * detail payload: {Array|HATEOAS}
-       */
-      let customEvent = new Event('hts-updated', {composed: true, bubbles: false});
-      customEvent.detail = hts;
-      this.dispatchEvent(customEvent);
-      return true;
-    }
-    return false;
-  }
-
-  htsIn(hts) {
-    if (this._updateInternalHTS(hts)) {
-      /**
-       * @event hts-injected
-       * Fired when hateoas is updated
-       * detail payload: Hateoas links
-       */
-      let customEvent = new Event('hts-injected', {composed: true, bubbles: false});
-      customEvent.detail = hts;
-      this.dispatchEvent(customEvent);
-
-      if (this.loadOnHtsIn) {
-        this.load();
-      }
-
-      // there was a list,last,next call before the hts was set
-      if (this._singleElementQueue.length > 0) {
-        this._singleElementQueue.pop();
-        this.load();
-      }
-
-    }
-  }
-
-
-  /**
-   *
-   * @private
-   * @return {CSSResult}
-   */
-  static get styles() {
-    // language=CSS
-    return css`
-        :host {
-            display: none;
+            return JSON.stringify(body);
         }
-    `
-  }
+        return undefined;
+    }
 
-  /**
-   * @private
-   * @return {TemplateResult}
-   */
-  render() {
-    // language=HTML
-    return html`
-      <furo-api-fetch
-              ƒ-invoke-request="--triggerLoad"
-              ƒ-abort-request="--abortDemanded"
-              @-response="--responseParsed, --requestFinished, ^^req-success"
-              @-response-error="^^req-failed"
-              @-parse-error="^^req-failed" 
-              @-fatal-error="--requestFinished">
-      </furo-api-fetch>
-    `;
-  }
+    /**
+     * Creates a Request object with header and body data
+     * - special treatment for method PATCH
+     * - body object only includes writeable fields
+     * @param link
+     * @param dataObject
+     * @returns {Request}
+     * @private
+     */
+    _makeRequest(link, dataObject, abortController) {
+        this._FBPTriggerWire('--beforeRequestStart');
+
+        /**
+         * Preparation of the request payload
+         * @type {string}
+         */
+        let data = this._prepareRequestPaylod(link, dataObject);
+
+        /**
+         * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
+         * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+         * @type {AbortController}
+         * @private
+         */
+        this._abortController = new AbortController();
+        let signal = this._abortController.signal;
+
+        // create Request object with headers and body
+        let headers = new Headers(this._ApiEnvironment.headers);
+        headers.append('Content-Type', 'application/' + link.type + '+json');
+
+        if (link.method.toLowerCase() !== 'put') {
+            headers.append('Content-Type', 'application/json');
+        }
+        return new Request(link.href, {
+            signal,
+            method: link.method,
+            headers: headers,
+            body: data
+        })
+    }
+
+    /**
+     * Creates an array with the path information of the object attributes (deep dive)
+     * [{"paths:" "attr1"}, {"paths:" "attr2.sub_attr"}]
+     * @param obj
+     * @returns {Array}
+     * @private
+     */
+    _getFieldMask(obj) {
+        let result = [];
+
+        let flat = this._flattenObject(obj);
+
+        let keys = Object.keys(flat);
+        keys.forEach((k) => {
+            result.push("paths: " + k);
+        });
+        return result;
+    }
+
+    /**
+     * Object flattening method
+     * @param obj
+     * @returns {{}}
+     * @private
+     */
+    _flattenObject(obj) {
+        let result = {};
+
+        for (let i in obj) {
+            if (!obj.hasOwnProperty(i)) continue;
+
+            if ((typeof obj[i]) === 'object' && !Array.isArray(obj[i])) {
+                let flatObject = this._flattenObject(obj[i]);
+                for (let x in flatObject) {
+                    if (!flatObject.hasOwnProperty(x)) continue;
+                    result[i + '.' + x] = flatObject[x];
+                }
+            } else {
+                result[i] = obj[i];
+            }
+        }
+        return result;
+    };
+
+    /**
+     *
+     * @param rel
+     * @param serviceName
+     * @returns {undefined|object}
+     * @private
+     */
+    _checkServiceAndHateoasLinkError(rel, serviceName) {
+        // check Service Get
+        if (!this._service.services[serviceName]) {
+            console.warn("Service " + serviceName + " is not specified", this._service, this);
+            return undefined;
+        }
+
+        //queue if no hts is set, queue it
+        if (!this._hts) {
+            this._singleElementQueue = [[rel, serviceName]];
+            return undefined;
+        }
+        // check rel and type
+        let htsFound = this._hts.find((link) => {
+            if (link.rel === rel && link.service === this._service.name) {
+                return link;
+            }
+        });
+        if (!htsFound) {
+            console.warn("No HATEOAS for rel " + rel + " in service " + this._service.name + " found.", this._hts, this);
+            return undefined;
+        }
+        return htsFound;
+    }
+
+    /**
+     * @event load-success
+     * Fired when load was successful
+     * detail payload: response
+     */
+
+    /**
+     * @event load-failed
+     * Fired when load was not successful
+     * detail payload: response
+     */
+
+    /**
+     * loads the entity if hts is available
+     */
+    load() {
+        let hts = this._checkServiceAndHateoasLinkError('self', 'Get');
+        if (!hts) {
+            let customEvent = new Event('missing-hts-self', {composed: true, bubbles: false});
+            this.dispatchEvent(customEvent);
+            return false;
+        }
+        this._attachListeners('load');
+        this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts));
+
+    }
+
+    /**
+     * @event delete-success
+     * Fired when load was successful
+     * detail payload: response
+     */
+
+    /**
+     * @event delete-failed
+     * Fired when load was not successful
+     * detail payload: response
+     */
+
+    /**
+     * delete the entity if hts is available
+     */
+    delete() {
+        let hts = this._checkServiceAndHateoasLinkError('delete', 'Delete');
+        if (!hts) {
+            let customEvent = new Event('missing-hts-delete', {composed: true, bubbles: false});
+            this.dispatchEvent(customEvent);
+            return;
+        }
+        this._attachListeners('delete');
+        this._FBPTriggerWire('--triggerLoad', this._makeRequest(hts));
+
+    }
+
+    /**
+     * @event save-success
+     * Fired when load was successful
+     * detail payload: response
+     */
+
+    /**
+     * @event save-failed
+     * Fired when load was not successful
+     * detail payload: response
+     */
+
+    /**
+     * loads the entity if hts is available
+     */
+    save() {
+
+        // if no rel self is present but a rel create exists, take create
+        // rel self is consciously chosen
+        let hts_self = this._hts.find((link) => {
+            if (link.rel === 'self') return link;
+        });
+        let hts_create = this._hts.find((link) => {
+            if (link.rel === 'create') return link;
+        });
+
+        if (!hts_self && hts_create) {
+            this.create();
+            return;
+        }
+
+        let hts = this._checkServiceAndHateoasLinkError('update', 'Update');
+        if (!hts) {
+            let customEvent = new Event('missing-hts-update', {composed: true, bubbles: false});
+            this.dispatchEvent(customEvent);
+            return;
+        }
+
+        this._attachListeners("save");
+        this._FBPTriggerWire("--triggerLoad", this._makeRequest(hts, this._requestDataObject));
+
+    }
+
+    /**
+     * @event put-success
+     * Fired when update was successful
+     * detail payload: response
+     */
+
+    /**
+     * @event put-failed
+     * Fired when update was not successful
+     * detail payload: response
+     */
+
+    /**
+     * saves the entity with method put if hts is available
+     */
+    put() {
+        let hts = this._checkServiceAndHateoasLinkError('update', 'Update');
+        if (!hts) {
+            let customEvent = new Event('missing-hts-update', {composed: true, bubbles: false});
+            this.dispatchEvent(customEvent);
+            return;
+        }
+        this._attachListeners("put");
+        this._FBPTriggerWire("--triggerLoad", this._makeRequest(hts, this._requestDataObject));
+    }
+
+    /**
+     * @event create-success
+     * Fired when creating was successful
+     * detail payload: response
+     */
+
+    /**
+     * @event create-failed
+     * Fired when creating was not successful
+     * detail payload: response
+     */
+
+    /**
+     * creating the entity if hts rel="create" is available
+     */
+    create() {
+        let hts = this._checkServiceAndHateoasLinkError('create', 'Create');
+        if (!hts) {
+            let customEvent = new Event('missing-hts-create', {composed: true, bubbles: false});
+            this.dispatchEvent(customEvent);
+            return;
+        }
+        this._attachListeners("create");
+        this._FBPTriggerWire("--triggerLoad", this._makeRequest(hts, this._requestDataObject));
+    }
+
+    /**
+     * Attaches temporary listeners to fire load-success, load-fail, delete-success,...
+     * @param eventPrefix
+     * @private
+     */
+    _attachListeners(eventPrefix) {
+        let success = (e) => {
+            // we do not want req-success and req-failed outside of this component
+            e.stopPropagation();
+            let customEvent = new Event(eventPrefix + '-success', {composed: true, bubbles: true});
+            customEvent.detail = e.detail;
+            this.dispatchEvent(customEvent);
+
+            // remove listeners
+            this.removeEventListener("req-success", success, true);
+            this.removeEventListener("req-failed", failed, true);
+
+        };
+
+        let failed = (e) => {
+
+            // append error to the _requestDataObject (set the fields invalid)
+            let err = e.detail;
+            if (err.error && err.details) {
+                err.details.forEach((errorSet) => {
+                    if (errorSet["field_violations"]) {
+
+                        errorSet["field_violations"].map((error) => {
+                            let path = error.field.split(".");
+                            if (path.length > 0) {
+                                // rest wieder in error reinwerfen
+                                error.field = path.slice(1).join(".");
+                                if (this._requestDataObject[path[0]]) {
+                                    this._requestDataObject[path[0]]._setInvalid(error);
+                                } else {
+                                    console.warn("Unknown field", path)
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+
+
+            // we do not want req-success and req-failed outside of this component
+            e.stopPropagation();
+            let customEvent = new Event(eventPrefix + '-failed', {composed: true, bubbles: true});
+            customEvent.detail = e.detail;
+            this.dispatchEvent(customEvent);
+
+
+            // remove listeners
+            this.removeEventListener("req-success", success, true);
+            this.removeEventListener("req-failed", failed, true);
+        };
+        /**
+         * do not add the listener directly to response, otherwise it kicks in before hts is updated
+         * This extra "loop" is to guarante the order of handling the events
+         */
+        this.addEventListener("req-success", success, true);
+        this.addEventListener("req-failed", failed, true);
+    }
+
+    _updateInternalHTS(hts) {
+        // convert link object to hts array
+        if (hts && hts.rel && hts.method && hts.type && hts.href) {
+            hts = [hts];
+        }
+
+        if (hts && Array.isArray(hts)) {
+            this._hts = [];
+            hts.forEach((link) => {
+                this._hts.push(link);
+            });
+            /**
+             * @event hts-updated
+             * Fired when hateoas is updated from response
+             * detail payload: {Array|HATEOAS}
+             */
+            let customEvent = new Event('hts-updated', {composed: true, bubbles: false});
+            customEvent.detail = hts;
+            this.dispatchEvent(customEvent);
+            return true;
+        }
+        return false;
+    }
+
+    htsIn(hts) {
+        if (this._updateInternalHTS(hts)) {
+            /**
+             * @event hts-injected
+             * Fired when hateoas is updated
+             * detail payload: Hateoas links
+             */
+            let customEvent = new Event('hts-injected', {composed: true, bubbles: false});
+            customEvent.detail = hts;
+            this.dispatchEvent(customEvent);
+
+            if (this.loadOnHtsIn) {
+                this.load();
+            }
+
+            // there was a list,last,next call before the hts was set
+            if (this._singleElementQueue.length > 0) {
+                this._singleElementQueue.pop();
+                this.load();
+            }
+
+        }
+    }
+
+
+    /**
+     *
+     * @private
+     * @return {CSSResult}
+     */
+    static get styles() {
+        // language=CSS
+        return css`
+            :host {
+                display: none;
+            }
+        `
+    }
+
+    /**
+     * @private
+     * @return {TemplateResult}
+     */
+    render() {
+        // language=HTML
+        return html`
+            <furo-api-fetch
+                    ƒ-invoke-request="--triggerLoad"
+                    ƒ-abort-request="--abortDemanded"
+                    @-response="--responseParsed, --requestFinished, ^^req-success"
+                    @-response-error="^^req-failed"
+                    @-parse-error="^^req-failed"
+                    @-fatal-error="--requestFinished">
+            </furo-api-fetch>
+        `;
+    }
 
 
 }

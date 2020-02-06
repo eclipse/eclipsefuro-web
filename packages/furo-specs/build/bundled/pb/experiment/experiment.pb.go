@@ -167,7 +167,7 @@ type Experiment struct {
 	FuroDataDateInput string `protobuf:"bytes,13,opt,name=furo_data_date_input,json=furoDataDateInput,proto3" json:"furo_data_date_input,omitempty"`
 	// field for furo-data-date-input for testing
 	FuroDataDateInputGoogle *_type.Date `protobuf:"bytes,18,opt,name=furo_data_date_input_google,json=furoDataDateInputGoogle,proto3" json:"furo_data_date_input_google,omitempty"`
-	// field for testing money type
+	// field for testing file type
 	FuroDataFileInput []string `protobuf:"bytes,22,rep,name=furo_data_file_input,json=furoDataFileInput,proto3" json:"furo_data_file_input,omitempty"`
 	// field for testing money type
 	FuroDataMoneyInput *_type.Money `protobuf:"bytes,21,opt,name=furo_data_money_input,json=furoDataMoneyInput,proto3" json:"furo_data_money_input,omitempty"`

@@ -42,3 +42,16 @@ message Projectfilter {
     google.type.Date start = 2;
 
 }
+
+// ProjectfilterCollection with repeated ProjectfilterEntity
+message ProjectfilterCollection {                    
+    // Contains a projectfilter.ProjectfilterEntity repeated
+    repeated ProjectfilterEntity entities = 4;
+    
+    // Hateoas links
+    repeated furo.Link links = 3;
+    
+    // Meta for the response
+    furo.Meta meta = 2;
+
+}

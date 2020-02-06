@@ -65,7 +65,7 @@ message Experiment {
     // field for furo-data-date-input for testing
     google.type.Date furo_data_date_input_google = 18;
     
-    // field for testing money type
+    // field for testing file type
     repeated string furo_data_file_input = 22;
     
     // field for testing money type

@@ -6,6 +6,7 @@ package project;
 
 import "furo/meta.proto";
 import "furo/link.proto";
+import "google/protobuf/field_mask.proto";
 import "google/type/money.proto";
 import "google/type/date.proto";
 import "person/person.proto";
@@ -38,7 +39,7 @@ message ProjectEntity {
 }
 
 // Project description
-message Project {                                    
+message Project {                                        
     // Project cost limit
     google.type.Money cost_limit = 7;
     
@@ -59,5 +60,8 @@ message Project {
     
     // Start date of the project
     google.type.Date start = 3;
+    
+    // Contains a field_mask which fields of the targeted resource are going to be updated
+    google.protobuf.FieldMask update_mask = 8;
 
 }

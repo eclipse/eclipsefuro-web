@@ -3,6 +3,7 @@ package main
 import (
 	 "./treeservice"
 	 "./projectfilterservice"
+	 "./authservice"
 	 "./personservice"
 	 "./projectservice"
 	 "./projectmemberservice"
@@ -53,6 +54,12 @@ func run() error {
 	
 	// ProjectfilterService service specs for the projectfilter api
 	err = projectfilterservice.RegisterProjectfilterServiceHandlerFromEndpoint(ctx, mux, *grpcserver, opts)
+	if err != nil {
+		return err
+	}
+	
+	// AuthService service specs for the auth api
+	err = authservice.RegisterAuthServiceHandlerFromEndpoint(ctx, mux, *grpcserver, opts)
 	if err != nil {
 		return err
 	}
