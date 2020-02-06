@@ -210,7 +210,7 @@ class FlowRepeat extends FBP(HTMLElement) {
 
         this._insertedItems[i] = handle;
 
-        this.parentNode.insertBefore(elem.shadowRoot, this);
+        this.parentNode.insertBefore(elem.shadowRoot.firstElementChild, this);
         return elem;
     }
 
