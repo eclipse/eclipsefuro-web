@@ -68,7 +68,7 @@
       },
       "deeplink": {
         "rel": "self",
-        "href": "/api/auths/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/auths/{uid}",
         "method": "GET"
       }
     },
@@ -82,7 +82,7 @@
       "query": {},
       "deeplink": {
         "rel": "update",
-        "href": "/api/auths/{REPLACE_THIS_WITH_YOUR_QUERY_PARAM}",
+        "href": "/api/auths/{uid}",
         "method": "PATCH"
       }
     },

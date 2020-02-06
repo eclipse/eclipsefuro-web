@@ -258,7 +258,7 @@
           "items": {
             "type": "string"
           },
-          "title": "field for testing money type"
+          "title": "field for testing file type"
         },
         "furo_data_money_input": {
           "$ref": "#/definitions/typeMoney",

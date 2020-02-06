@@ -1,0 +1,98 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>test for furo-data-object readonly field inheritance</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+  <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+  <script src="/node_modules/sinon/pkg/sinon.js"></script>
+</head>
+<body>
+
+<test-fixture id="basic">
+  <template>
+    <test-bind>
+      <template>
+        <furo-data-object></furo-data-object>
+      </template>
+    </test-bind>
+  </template>
+</test-fixture>
+
+<script type="module">
+  import "../furo-catalog.js"
+  import "@furo/fbp/testhelper/test-bind"; // for testing
+  import "@furo/testhelper/initEnv.js"
+  import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
+
+  describe('furo-data-object_test tests ', function () {
+
+
+    let element = {};
+
+
+    beforeEach(async () => {
+      let fix = fixture('basic');
+      element = fix[1];
+      await element.updateComplete;
+    });
+
+
+    it('should inherit readonly on meta', (done) => {
+      element.setAttribute("type", "experiment.Readonly");
+      element.injectRaw({
+        "project": {
+          "id": null,
+          "display_name": null,
+          "start": {
+            "display_name": null,
+            "year": 4,
+            "month": 4,
+            "day": 4
+          },
+          "end": {
+            "display_name": null,
+            "year": 4,
+            "month": 4,
+            "day": 4
+          },
+          "description": null,
+          "members": [{
+            "display_name": "John Doe, +41783332244",
+            "first_name": "John",
+            "id": "1",
+            "name": "Doe",
+            "phone_nr": "+41783332244",
+            "skills": []
+          }],
+          "cost_limit": {
+            "display_name": null,
+            "currency_code": null,
+            "units": null,
+            "nanos": null
+          }
+        }
+      });
+      let EntityRoot = element.data;
+
+      assert.equal(EntityRoot._isValid, true);
+      console.log(EntityRoot.project)
+      console.log(EntityRoot.project.members.repeats[0].phone_nr._meta.readonly)
+      assert.equal(EntityRoot.project.members.repeats[0].phone_nr._meta.readonly, true);
+
+
+
+      done();
+    });
+
+
+
+  });
+</script>
+</body>
+</html>
