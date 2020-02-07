@@ -51,6 +51,11 @@ class HookInitForm {
 
     u33e.addExposedWire("focus", "--focused", "Fokus");
 
+    // properties
+    u33e.addProperty("headerText","String","Header text of the form",null,false,false,"header-text");
+    u33e.addProperty("secondaryText","String","Secondary text of the form",null,false,false,"secondary-text");
+
+
     // styling
     u33e.addStyle(":host")
         .addCSSAttribute("display", "block");
@@ -66,6 +71,13 @@ class HookInitForm {
         .addCSSAttribute("margin", "12px 0 0 6px");
 
     u33e.addDomNode("hr")
+
+
+
+    // add a form to place header text
+    let head = u33e.addDomNode("furo-form");
+    head.addAttribute("header-text", "${this.headerText}");
+    head.addAttribute("secondary-text", "${this.secondaryText}");
 
     // all field will be added to this node
     let repeater = u33e.addDomNode("furo-data-repeat");

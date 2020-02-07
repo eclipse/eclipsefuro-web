@@ -142,9 +142,12 @@ class HookInitForm {
           fld.flags[flagIndex] = "full";
         }
 
+          fld.addAttribute("header-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".header.text')}");
+          fld.addAttribute("secondary-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".secondary.text')}");
 
-        fld.addAttribute("header-text", "${i18n.t('" + field.type.toLowerCase() + ".form.header.text')}");
-        fld.addAttribute("secondary-text", "${i18n.t('" + field.type.toLowerCase() + ".form.secondary.text')}");
+
+
+
         /**
          * check if component have a replacement in the config
          *
@@ -176,6 +179,14 @@ class HookInitForm {
         }
 
       }
+
+
+      // add header text on maps and repeats
+      if(component.endsWith("-map") || component.endsWith("-repeat")){
+        fld.addAttribute("header-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".header.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".secondary.text')}");
+      }
+
 
 
       // repeated fields can use furo-data-repeat component
