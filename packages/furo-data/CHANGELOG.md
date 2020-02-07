@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.68.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.67.0...@furo/data@0.68.0) (2020-02-07)
+
+
+### Bug Fixes
+
+* flow repeat in shady dom, yes shady ([9c839be](https://github.com/theNorstroem/FuroBaseComponents/commit/9c839be))
+* update_mask with deep object paths. ([58fa857](https://github.com/theNorstroem/FuroBaseComponents/commit/58fa857))
+
+
+### Features
+
+* inherited readonly ([5f47864](https://github.com/theNorstroem/FuroBaseComponents/commit/5f47864))
+
+
+
+
+
 # [0.67.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.66.1...@furo/data@0.67.0) (2020-02-04)
 
 

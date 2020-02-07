@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.41.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.41.2...@furo/layout@0.41.3) (2020-02-07)
+
+**Note:** Version bump only for package @furo/layout
+
+
+
+
+
 ## [0.41.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/layout@0.41.1...@furo/layout@0.41.2) (2020-02-04)
 
 **Note:** Version bump only for package @furo/layout

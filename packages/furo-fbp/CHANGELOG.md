@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.29.1](https://github.com/veith/FuroBaseComponents/compare/@furo/fbp@4.29.0...@furo/fbp@4.29.1) (2020-02-07)
+
+
+### Bug Fixes
+
+* flow repeat in shady dom, yes shady ([e7b0aa2](https://github.com/veith/FuroBaseComponents/commit/e7b0aa2))
+
+
+
+
+
 # [4.29.0](https://github.com/veith/FuroBaseComponents/compare/@furo/fbp@4.27.4...@furo/fbp@4.29.0) (2020-02-04)
 
 

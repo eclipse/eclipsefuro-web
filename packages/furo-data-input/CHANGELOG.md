@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.66.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.65.1...@furo/data-input@0.66.0) (2020-02-07)
+
+
+### Bug Fixes
+
+* item-selected event is fired with payload even if the attribute value-field is set. ([af31b33](https://github.com/theNorstroem/FuroBaseComponents/commit/af31b33))
+
+
+### Features
+
+* furo-fetch-json emits parse-error ([ee9e9d0](https://github.com/theNorstroem/FuroBaseComponents/commit/ee9e9d0))
+
+
+
+
+
 ## [0.65.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.65.0...@furo/data-input@0.65.1) (2020-02-04)
 
 **Note:** Version bump only for package @furo/data-input
