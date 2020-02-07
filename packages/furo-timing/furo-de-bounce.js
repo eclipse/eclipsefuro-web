@@ -59,6 +59,7 @@ class FuroDeBounce extends FBP(LitElement) {
         };
         this._immediate = false;
         this._wait = 250;
+        this._createHandler(this._wait, this._immediate);
     }
 
     set immediate(i){
