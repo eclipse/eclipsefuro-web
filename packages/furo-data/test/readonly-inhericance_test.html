@@ -43,7 +43,64 @@
     });
 
 
-    it('should inherit readonly on meta', (done) => {
+    it('should update meta from response', (done) => {
+      element.setAttribute("type", "experiment.Readonly");
+      element.injectRaw({
+        "project": {
+          "id": null,
+          "display_name": null,
+          "start": {
+            "display_name": null,
+            "year": 4,
+            "month": 4,
+            "day": 4
+          },
+          "end": {
+            "display_name": null,
+            "year": 4,
+            "month": 4,
+            "day": 4
+          },
+          "description": null,
+          "members": [{
+            "display_name": "John Doe, +41783332244",
+            "first_name": "John",
+            "id": "1",
+            "name": "Doe",
+            "phone_nr": "+41783332244",
+            "skills": []
+          }],
+          "cost_limit": {
+            "display_name": null,
+            "currency_code": null,
+            "units": null,
+            "nanos": null
+          }
+        },
+        "meta": {
+          "fields": {
+            "project.members": {
+              "meta": {
+                "readonly": false
+              }
+            }
+          }
+        }
+      });
+      let EntityRoot = element.data;
+
+      assert.equal(EntityRoot._isValid, true);
+
+      assert.equal(EntityRoot.project.members.repeats[0].phone_nr._meta.readonly, false);
+      assert.equal(EntityRoot.project.display_name._meta.readonly, true);
+
+
+
+      done();
+    });
+
+
+    it('should inherit readonly from spec', (done) => {
       element.setAttribute("type", "experiment.Readonly");
       element.injectRaw({
         "project": {
@@ -81,8 +138,6 @@
       let EntityRoot = element.data;
 
       assert.equal(EntityRoot._isValid, true);
-      console.log(EntityRoot.project)
-      console.log(EntityRoot.project.members.repeats[0].phone_nr._meta.readonly)
       assert.equal(EntityRoot.project.members.repeats[0].phone_nr._meta.readonly, true);
 
 

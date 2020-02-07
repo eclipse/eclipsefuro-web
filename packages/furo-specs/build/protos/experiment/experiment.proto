@@ -133,7 +133,10 @@ message Default {
 }
 
 // Readonly spec for testing
-message Readonly {            
+message Readonly {                
+    // Meta for the response
+    furo.Meta meta = 3;
+    
     // Identity of a experiment
     project.Project project = 1;
 

@@ -197,6 +197,10 @@ export class RepeaterNode extends EventTreeNode {
           for (let m in mc.meta) {
             // update the metas
             field._meta[m] = mc.meta[m];
+            // broadcast readonly changes for all ancestors
+            if(m === "readonly"){
+              this.broadcastEvent(new NodeEvent("parent-readonly-meta-setted",this, true));
+            }
           }
           for (let c in mc.constraints) {
             // update the constraints

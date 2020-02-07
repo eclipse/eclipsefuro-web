@@ -35,6 +35,13 @@
         }
       },
       "constraints": null
+    },
+    "meta": {
+      "description": "Meta for the response",
+      "type": "furo.Meta",
+      "__proto": {
+        "number": 3
+      }
     }
   }
 }

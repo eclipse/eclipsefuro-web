@@ -8668,6 +8668,31 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    boolean hasMeta();
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    furo.MetaOuterClass.Meta getMeta();
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder();
+
+    /**
+     * <pre>
      * Identity of a experiment
      * </pre>
      *
@@ -8747,6 +8772,19 @@ public final class ExperimentOuterClass {
 
               break;
             }
+            case 26: {
+              furo.MetaOuterClass.Meta.Builder subBuilder = null;
+              if (meta_ != null) {
+                subBuilder = meta_.toBuilder();
+              }
+              meta_ = input.readMessage(furo.MetaOuterClass.Meta.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(meta_);
+                meta_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -8777,6 +8815,39 @@ public final class ExperimentOuterClass {
       return experiment.ExperimentOuterClass.internal_static_experiment_Readonly_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               experiment.ExperimentOuterClass.Readonly.class, experiment.ExperimentOuterClass.Readonly.Builder.class);
+    }
+
+    public static final int META_FIELD_NUMBER = 3;
+    private furo.MetaOuterClass.Meta meta_;
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    public boolean hasMeta() {
+      return meta_ != null;
+    }
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    public furo.MetaOuterClass.Meta getMeta() {
+      return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+    }
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+      return getMeta();
     }
 
     public static final int PROJECT_FIELD_NUMBER = 1;
@@ -8829,6 +8900,9 @@ public final class ExperimentOuterClass {
       if (project_ != null) {
         output.writeMessage(1, getProject());
       }
+      if (meta_ != null) {
+        output.writeMessage(3, getMeta());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -8841,6 +8915,10 @@ public final class ExperimentOuterClass {
       if (project_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getProject());
+      }
+      if (meta_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getMeta());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8857,6 +8935,11 @@ public final class ExperimentOuterClass {
       }
       experiment.ExperimentOuterClass.Readonly other = (experiment.ExperimentOuterClass.Readonly) obj;
 
+      if (hasMeta() != other.hasMeta()) return false;
+      if (hasMeta()) {
+        if (!getMeta()
+            .equals(other.getMeta())) return false;
+      }
       if (hasProject() != other.hasProject()) return false;
       if (hasProject()) {
         if (!getProject()
@@ -8873,6 +8956,10 @@ public final class ExperimentOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMeta()) {
+        hash = (37 * hash) + META_FIELD_NUMBER;
+        hash = (53 * hash) + getMeta().hashCode();
+      }
       if (hasProject()) {
         hash = (37 * hash) + PROJECT_FIELD_NUMBER;
         hash = (53 * hash) + getProject().hashCode();
@@ -9014,6 +9101,12 @@ public final class ExperimentOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (metaBuilder_ == null) {
+          meta_ = null;
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
         if (projectBuilder_ == null) {
           project_ = null;
         } else {
@@ -9046,6 +9139,11 @@ public final class ExperimentOuterClass {
       @java.lang.Override
       public experiment.ExperimentOuterClass.Readonly buildPartial() {
         experiment.ExperimentOuterClass.Readonly result = new experiment.ExperimentOuterClass.Readonly(this);
+        if (metaBuilder_ == null) {
+          result.meta_ = meta_;
+        } else {
+          result.meta_ = metaBuilder_.build();
+        }
         if (projectBuilder_ == null) {
           result.project_ = project_;
         } else {
@@ -9099,6 +9197,9 @@ public final class ExperimentOuterClass {
 
       public Builder mergeFrom(experiment.ExperimentOuterClass.Readonly other) {
         if (other == experiment.ExperimentOuterClass.Readonly.getDefaultInstance()) return this;
+        if (other.hasMeta()) {
+          mergeMeta(other.getMeta());
+        }
         if (other.hasProject()) {
           mergeProject(other.getProject());
         }
@@ -9129,6 +9230,159 @@ public final class ExperimentOuterClass {
           }
         }
         return this;
+      }
+
+      private furo.MetaOuterClass.Meta meta_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> metaBuilder_;
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public boolean hasMeta() {
+        return metaBuilder_ != null || meta_ != null;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public furo.MetaOuterClass.Meta getMeta() {
+        if (metaBuilder_ == null) {
+          return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        } else {
+          return metaBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder setMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          meta_ = value;
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder setMeta(
+          furo.MetaOuterClass.Meta.Builder builderForValue) {
+        if (metaBuilder_ == null) {
+          meta_ = builderForValue.build();
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder mergeMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (meta_ != null) {
+            meta_ =
+              furo.MetaOuterClass.Meta.newBuilder(meta_).mergeFrom(value).buildPartial();
+          } else {
+            meta_ = value;
+          }
+          onChanged();
+        } else {
+          metaBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder clearMeta() {
+        if (metaBuilder_ == null) {
+          meta_ = null;
+          onChanged();
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public furo.MetaOuterClass.Meta.Builder getMetaBuilder() {
+        
+        onChanged();
+        return getMetaFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+        if (metaBuilder_ != null) {
+          return metaBuilder_.getMessageOrBuilder();
+        } else {
+          return meta_ == null ?
+              furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> 
+          getMetaFieldBuilder() {
+        if (metaBuilder_ == null) {
+          metaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder>(
+                  getMeta(),
+                  getParentForChildren(),
+                  isClean());
+          meta_ = null;
+        }
+        return metaBuilder_;
       }
 
       private project.ProjectOuterClass.Project project_;
@@ -12069,13 +12323,14 @@ public final class ExperimentOuterClass {
       "ask\030\027 \001(\0132\032.google.protobuf.FieldMask\"S\n" +
       "\007Default\022\023\n\013description\030\003 \001(\t\022\024\n\014display" +
       "_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003" +
-      "(\t\"-\n\010Readonly\022!\n\007project\030\001 \001(\0132\020.projec" +
-      "t.Project\"W\n\tRecursive\022\024\n\014display_name\030\002" +
-      " \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\trecursion\030\003 \001(\0132\025.ex" +
-      "periment.Recursive\"{\n\024ExperimentCollecti" +
-      "on\022.\n\010entities\030\004 \003(\0132\034.experiment.Experi" +
-      "mentEntity\022\031\n\005links\030\003 \003(\0132\n.furo.Link\022\030\n" +
-      "\004meta\030\002 \001(\0132\n.furo.Metab\006proto3"
+      "(\t\"G\n\010Readonly\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta" +
+      "\022!\n\007project\030\001 \001(\0132\020.project.Project\"W\n\tR" +
+      "ecursive\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001" +
+      "(\t\022(\n\trecursion\030\003 \001(\0132\025.experiment.Recur" +
+      "sive\"{\n\024ExperimentCollection\022.\n\010entities" +
+      "\030\004 \003(\0132\034.experiment.ExperimentEntity\022\031\n\005" +
+      "links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n." +
+      "furo.Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -12126,7 +12381,7 @@ public final class ExperimentOuterClass {
     internal_static_experiment_Readonly_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Readonly_descriptor,
-        new java.lang.String[] { "Project", });
+        new java.lang.String[] { "Meta", "Project", });
     internal_static_experiment_Recursive_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_experiment_Recursive_fieldAccessorTable = new

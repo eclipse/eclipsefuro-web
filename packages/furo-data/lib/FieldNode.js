@@ -102,6 +102,15 @@ export class FieldNode extends EventTreeNode {
       this._checkConstraints();
     });
 
+    this.addEventListener('parent-readonly-meta-setted', (e) => {
+      // check parent readonly meta and inherit if true
+      if((parentNode && parentNode._meta && parentNode._meta.readonly) || (this._spec.meta && this._spec.meta.readonly)){
+        this._meta.readonly = true;
+      }else{
+        this._meta.readonly = false;
+      }
+    });
+
 
     //store __initialValue value for resetting the field
     this.__initialValue = JSON.stringify(this._value);
@@ -391,6 +400,10 @@ export class FieldNode extends EventTreeNode {
           // update the metas
           if (this[field]) {
             this[field]._meta[m] = mc.meta[m];
+            // broadcast readonly changes for all ancestors
+            if(m === "readonly"){
+              this.broadcastEvent(new NodeEvent("parent-readonly-meta-setted",this, true));
+            }
           } else {
             console.warn("invalid meta", mc, metaAndConstraints);
             return;
