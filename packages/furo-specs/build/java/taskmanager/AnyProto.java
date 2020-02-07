@@ -213,11 +213,11 @@ public final class AnyProto {
       "ServiceRequest\022\030\n\004data\030\001 \001(\0132\n.auth.Auth" +
       "\"@\n\030DeleteAuthServiceRequest\022$\n\004data\030\001 \001" +
       "(\0132\026.google.protobuf.Empty\"$\n\025GetAuthSer" +
-      "viceRequest\022\013\n\003ath\030\001 \001(\t\"\200\001\n\026ListAuthSer" +
+      "viceRequest\022\013\n\003uid\030\001 \001(\t\"\200\001\n\026ListAuthSer" +
       "viceRequest\022\016\n\006fields\030\001 \001(\t\022\020\n\010order_by\030" +
       "\002 \001(\t\022\016\n\006filter\030\003 \001(\t\022\014\n\004page\030\004 \001(\005\022\r\n\005l" +
       "imit\030\005 \001(\005\022\014\n\004view\030\010 \001(\t\022\t\n\001q\030\013 \001(\t\"A\n\030U" +
-      "pdateAuthServiceRequest\022\013\n\003ath\030\001 \001(\t\022\030\n\004" +
+      "pdateAuthServiceRequest\022\013\n\003uid\030\001 \001(\t\022\030\n\004" +
       "data\030\002 \001(\0132\n.auth.Auth\":\n\032CreatePersonSe" +
       "rviceRequest\022\034\n\004data\030\001 \001(\0132\016.person.Pers" +
       "on\"O\n\032DeletePersonServiceRequest\022\013\n\003prs\030" +
@@ -290,11 +290,11 @@ public final class AnyProto {
       "le.protobuf.Empty\"\021\202\323\344\223\002\013*\t/api/auth\022Y\n\007" +
       "GetAuth\022\".taskmanager.GetAuthServiceRequ" +
       "est\032\020.auth.AuthEntity\"\030\202\323\344\223\002\022\022\020/api/auth" +
-      "s/{ath}\022Z\n\tListAuths\022#.taskmanager.ListA" +
+      "s/{uid}\022Z\n\tListAuths\022#.taskmanager.ListA" +
       "uthServiceRequest\032\024.auth.AuthCollection\"" +
       "\022\202\323\344\223\002\014\022\n/api/auths\022e\n\nUpdateAuth\022%.task" +
       "manager.UpdateAuthServiceRequest\032\020.auth." +
-      "AuthEntity\"\036\202\323\344\223\002\0302\020/api/auths/{ath}:\004da" +
+      "AuthEntity\"\036\202\323\344\223\002\0302\020/api/auths/{uid}:\004da" +
       "ta\022t\n\014CreatePerson\022\'.taskmanager.CreateP" +
       "ersonServiceRequest\032\024.person.PersonEntit" +
       "y\"%\202\323\344\223\002\037\022\035/mockdata/persons/create.json" +
@@ -445,7 +445,7 @@ public final class AnyProto {
     internal_static_taskmanager_GetAuthServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_taskmanager_GetAuthServiceRequest_descriptor,
-        new java.lang.String[] { "Ath", });
+        new java.lang.String[] { "Uid", });
     internal_static_taskmanager_ListAuthServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_taskmanager_ListAuthServiceRequest_fieldAccessorTable = new
@@ -457,7 +457,7 @@ public final class AnyProto {
     internal_static_taskmanager_UpdateAuthServiceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_taskmanager_UpdateAuthServiceRequest_descriptor,
-        new java.lang.String[] { "Ath", "Data", });
+        new java.lang.String[] { "Uid", "Data", });
     internal_static_taskmanager_CreatePersonServiceRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_taskmanager_CreatePersonServiceRequest_fieldAccessorTable = new

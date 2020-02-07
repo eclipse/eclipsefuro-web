@@ -103,7 +103,7 @@ service BundledService {
     rpc GetAuth (GetAuthServiceRequest) returns (auth.AuthEntity){
         //
         option (google.api.http) = {
-            get: "/api/auths/{ath}"
+            get: "/api/auths/{uid}"
         };
     }   
     // The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.
@@ -117,7 +117,7 @@ service BundledService {
     rpc UpdateAuth (UpdateAuthServiceRequest) returns (auth.AuthEntity){
         //
         option (google.api.http) = {
-            patch: "/api/auths/{ath}"
+            patch: "/api/auths/{uid}"
             body: "data"
         };
     }
@@ -411,7 +411,7 @@ message DeleteAuthServiceRequest {
    
 message GetAuthServiceRequest { 
     
-    string ath = 1; 
+    string uid = 1; 
 }
 
    
@@ -441,7 +441,7 @@ message ListAuthServiceRequest {
    
 message UpdateAuthServiceRequest { 
     
-    string ath = 1;
+    string uid = 1;
     auth.Auth data =  2;  
 }
 
