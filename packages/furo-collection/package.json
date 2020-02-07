@@ -20,6 +20,7 @@
     "@furo/navigation": "^0.37.6",
     "@furo/notification": "^0.10.1",
     "@furo/route": "^0.21.1",
+    "@furo/timing": "^0.1.0",
     "@furo/util": "^0.18.5"
   },
   "author": "veith",
