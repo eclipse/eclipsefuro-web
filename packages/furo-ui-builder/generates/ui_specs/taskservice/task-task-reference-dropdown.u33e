@@ -1,0 +1,115 @@
+{
+  "description": "service specs for the task api",
+  "summary": "todo: write summary",
+  "import_members": [
+    [
+      " LitElement, html, css ",
+      "lit-element"
+    ],
+    [
+      "Theme",
+      "@furo/framework/theme.js"
+    ],
+    [
+      "FBP",
+      "@furo/fbp"
+    ],
+    [
+      "i18n",
+      "@furo/framework/i18n.js",
+      "eslint-disable-next-line no-unused-vars"
+    ]
+  ],
+  "imports": [
+    "@furo/data",
+    "@furo/data-input"
+  ],
+  "component_name": "task-task-reference-dropdown",
+  "path": "./generates/ui_specs/taskservice/task-task-reference-dropdown.u33e",
+  "style": {
+    "children": {
+      ":host": {
+        "children": {},
+        "attributes": {
+          "display": "block"
+        }
+      },
+      ":host([hidden])": {
+        "children": {},
+        "attributes": {
+          "display": "none"
+        }
+      },
+      "furo-data-collection-dropdown": {
+        "children": {},
+        "attributes": {
+          "width": "100%"
+        }
+      }
+    },
+    "attributes": {}
+  },
+  "template": [
+    {
+      "component": "furo-data-collection-dropdown",
+      "description": "It is a good practice to set a description",
+      "flags": [],
+      "attributes": {
+        "value-field": "id",
+        "display-field": "display_name",
+        "subfield": "id",
+        "subfield-display": "display_name",
+        "?condensed": "${this.condensed}"
+      },
+      "methods": {
+        "inject-entities": "--collection(*.entities)",
+        "focus": "--focused",
+        "bind-data": "--field-injected"
+      },
+      "events": {},
+      "children": []
+    },
+    {
+      "component": "furo-collection-agent",
+      "description": "It is a good practice to set a description",
+      "flags": [
+        "list-on-hts-in"
+      ],
+      "attributes": {
+        "service": "TaskService"
+      },
+      "methods": {
+        "hts-in": "--field-injected(*.link._value), --htsUpdated"
+      },
+      "events": {
+        "response": "--collection"
+      },
+      "children": []
+    }
+  ],
+  "properties": {
+    "condensed": {
+      "type": "Boolean",
+      "description": "The default style (md like) supports a condensed form. It is a little bit smaller then the default",
+      "reflect": false,
+      "notify": false
+    }
+  },
+  "exposedWires": {
+    "focus": {
+      "name": "focus",
+      "wire": "--focused",
+      "description": "Fokus"
+    }
+  },
+  "methods": {
+    "bindData": {
+      "description": " Bind your furo-data-object event @-object-ready\n @public\n @param data",
+      "args": "field",
+      "code": "dGhpcy5maWVsZCA9IGZpZWxkOw0KICB0aGlzLl9GQlBUcmlnZ2VyV2lyZSgiLS1maWVsZC1pbmplY3RlZCIsIGZpZWxkKTsNCiAgdGhpcy5maWVsZC5hZGRFdmVudExpc3RlbmVyKCJicmFuY2gtdmFsdWUtY2hhbmdlZCIsICgpPT57DQogICAgICBpZiggdGhpcy5maWVsZC5saW5rLl92YWx1ZSAmJg0KICAgICAgICB0aGlzLmZpZWxkLmxpbmsuX3ZhbHVlLmhyZWYgJiYgdGhpcy5maWVsZC5saW5rLl92YWx1ZS5zZXJ2aWNlKSB7DQogICAgICAgIHRoaXMuX0ZCUFRyaWdnZXJXaXJlKCctLWh0c1VwZGF0ZWQnLCB0aGlzLmZpZWxkLmxpbmsuX3ZhbHVlKTsNCiAgICAgIH0NCiAgfSk7"
+    }
+  },
+  "keyboardShortcuts": [],
+  "extends": "FBP(LitElement)",
+  "theme": "ReferenceDropdownBaseTheme"
+}

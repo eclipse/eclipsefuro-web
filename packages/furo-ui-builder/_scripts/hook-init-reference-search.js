@@ -27,6 +27,7 @@ class HookInitReferenceSearch {
 
       u33e.addImport("@furo/data");
       u33e.addImport("@furo/data-input");
+      u33e.addImport("@furo/timing/furo-de-bounce.js");
 
       // https://www.base64encode.org/
       u33e.addMethod("bindData", "field",
@@ -62,10 +63,14 @@ class HookInitReferenceSearch {
           .addMethod("focus", "--focused")
           .addMethod("bind-data", "--field-injected");
 
+      let deBounce = u33e.addDomNode("furo-de-bounce");
+      deBounce.addMethod("input-wire", "--term")
+          .addEventListener("out", "--debouncedTerm");
+
       let agent = u33e.addDomNode("furo-collection-agent");
       agent.addAttribute("service", SPEC.name)
           .addMethod("hts-in", "--field-injected(*.link._value), --htsUpdated")
-          .addMethod("search", "--term")
+          .addMethod("search", "--debouncedTerm")
           .addEventListener("response", "--collection");
 
       return u33e;
