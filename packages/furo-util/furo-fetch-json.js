@@ -47,6 +47,15 @@ class FuroFetchJson extends FBP(LitElement) {
         let customEvent = new Event('data', {composed: true, bubbles: true});
         customEvent.detail = data;
         this.dispatchEvent(customEvent);
+      },(err)=>{
+        /**
+        * @event parse-error
+        * Fired when json is not parseable
+        * detail payload: error
+        */
+        let customEvent = new Event('parse-error', {composed:true, bubbles: true});
+        customEvent.detail = err;
+        this.dispatchEvent(customEvent)
       });
     }
   }

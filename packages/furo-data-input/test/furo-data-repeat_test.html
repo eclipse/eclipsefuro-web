@@ -19,7 +19,7 @@
     <template>
         <test-bind>
             <template>
-                <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input"></furo-data-repeat>
+                <furo-data-repeat ƒ-bind-data="--entity(*.repstring)" delete-icon="delete" ƒ-add="--addFieldClicked(null)" repeated-component="furo-data-text-input"></furo-data-repeat>
                 <furo-data-object type="experiment.Experiment" @-object-ready="--entity" ƒ-init="--emptyClicked" ƒ-inject-raw="--response(*.data)"></furo-data-object>
                 <furo-deep-link service="ExperimentService" @-hts-out="--hts" ></furo-deep-link>
                 <furo-entity-agent service="ExperimentService" ƒ-hts-in="--hts" load-on-hts-in ƒ-bind-request-data="--entity" @-response="--response"></furo-entity-agent>
