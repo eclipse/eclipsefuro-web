@@ -783,11 +783,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 90,
+              "line": 95,
               "column": 2
             },
             "end": {
-              "line": 92,
+              "line": 97,
               "column": 3
             }
           },
@@ -801,14 +801,14 @@
           "name": "_isFloating",
           "type": "boolean | null | undefined",
           "description": "Use method floatDrawer or set this attribute to enable float mode",
-          "privacy": "protected",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 46,
               "column": 6
             },
             "end": {
-              "line": 45,
+              "line": 46,
               "column": 69
             }
           },
@@ -825,11 +825,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 51,
               "column": 6
             },
             "end": {
-              "line": 50,
+              "line": 51,
               "column": 69
             }
           },
@@ -846,12 +846,33 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 54,
+              "line": 55,
               "column": 29
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "float",
+          "type": "boolean | null | undefined",
+          "description": "let the menu float (hidden).",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 28
             }
           },
           "metadata": {
@@ -867,11 +888,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 67,
               "column": 6
             },
             "end": {
-              "line": 62,
+              "line": 67,
               "column": 26
             }
           },
@@ -1105,11 +1126,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 201,
+              "line": 206,
               "column": 2
             },
             "end": {
-              "line": 419,
+              "line": 431,
               "column": 3
             }
           },
@@ -1301,11 +1322,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 102,
               "column": 2
             },
             "end": {
-              "line": 129,
+              "line": 134,
               "column": 3
             }
           },
@@ -1321,11 +1342,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 134,
+              "line": 139,
               "column": 2
             },
             "end": {
-              "line": 164,
+              "line": 169,
               "column": 3
             }
           },
@@ -1341,11 +1362,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 169,
+              "line": 174,
               "column": 2
             },
             "end": {
-              "line": 172,
+              "line": 177,
               "column": 3
             }
           },
@@ -1361,11 +1382,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
+              "line": 182,
               "column": 2
             },
             "end": {
-              "line": 179,
+              "line": 184,
               "column": 3
             }
           },
@@ -1381,11 +1402,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 187,
+              "line": 192,
               "column": 2
             },
             "end": {
-              "line": 189,
+              "line": 194,
               "column": 3
             }
           },
@@ -1401,11 +1422,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 194,
+              "line": 199,
               "column": 2
             },
             "end": {
-              "line": 196,
+              "line": 201,
               "column": 3
             }
           },
@@ -1421,11 +1442,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 421,
+              "line": 433,
               "column": 2
             },
             "end": {
-              "line": 427,
+              "line": 439,
               "column": 3
             }
           },
@@ -1442,11 +1463,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 430,
+              "line": 442,
               "column": 2
             },
             "end": {
-              "line": 438,
+              "line": 450,
               "column": 3
             }
           },
@@ -1463,11 +1484,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 440,
+              "line": 452,
               "column": 2
             },
             "end": {
-              "line": 448,
+              "line": 460,
               "column": 3
             }
           },
@@ -1484,11 +1505,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 542,
+              "line": 554,
               "column": 2
             },
             "end": {
-              "line": 557,
+              "line": 569,
               "column": 3
             }
           },
@@ -1513,7 +1534,7 @@
           "column": 0
         },
         "end": {
-          "line": 558,
+          "line": 570,
           "column": 1
         }
       },
@@ -1542,11 +1563,11 @@
           "description": "Enable this to put the drawer on the right side",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 51,
               "column": 6
             },
             "end": {
-              "line": 50,
+              "line": 51,
               "column": 69
             }
           },
@@ -1558,12 +1579,28 @@
           "description": "disables automatic floating mode",
           "sourceRange": {
             "start": {
-              "line": 54,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 54,
+              "line": 55,
               "column": 29
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "float",
+          "description": "let the menu float (hidden).",
+          "sourceRange": {
+            "start": {
+              "line": 59,
+              "column": 6
+            },
+            "end": {
+              "line": 59,
+              "column": 28
             }
           },
           "metadata": {},
@@ -1574,11 +1611,11 @@
           "description": "name of this drawer, needed if you want to connect to this drawer",
           "sourceRange": {
             "start": {
-              "line": 62,
+              "line": 67,
               "column": 6
             },
             "end": {
-              "line": 62,
+              "line": 67,
               "column": 26
             }
           },

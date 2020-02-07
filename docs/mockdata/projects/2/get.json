@@ -32,6 +32,15 @@
       "year": 2019
     }
   },
+  "meta": {
+    "fields": {
+      "data.description": {
+        "meta": {
+          "label": "ID label from response"
+        }
+      }
+    }
+  },
   "links": [
     {
       "href": "/mockdata/projects/2/get.json",

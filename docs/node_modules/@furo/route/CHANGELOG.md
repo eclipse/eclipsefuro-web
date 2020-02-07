@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.0...@furo/route@0.21.1) (2020-02-04)
+
+
+### Bug Fixes
+
+* Register EventListeners only once ([a8cb4d1](https://github.com/theNorstroem/FuroBaseComponents/commit/a8cb4d1))
+
+
+
+
+
 # [0.21.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.20...@furo/route@0.21.0) (2020-01-15)
 
 

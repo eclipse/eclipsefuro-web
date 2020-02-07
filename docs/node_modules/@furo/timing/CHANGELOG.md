@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@0.0.39...@furo/timing@0.1.0) (2020-02-04)
+
+
+### Features
+
+* debounce component ([54a1655](https://github.com/theNorstroem/FuroBaseComponents/commit/54a1655))
+
+
+
+
+
 ## [0.0.40](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@0.0.39...@furo/timing@0.0.40) (2019-11-28)
 
 **Note:** Version bump only for package @furo/timing

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@0.13.3...@furo/framework@0.13.4) (2020-02-04)
+
+
+### Bug Fixes
+
+* empty translations are valid translations ([86a1c6a](https://github.com/theNorstroem/FuroBaseComponents/commit/86a1c6a))
+
+
+
+
+
 ## [0.13.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/framework@0.13.1...@furo/framework@0.13.3) (2019-12-02)
 
 

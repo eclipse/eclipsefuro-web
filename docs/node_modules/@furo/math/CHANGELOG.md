@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.22](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/math@0.2.21...@furo/math@0.2.22) (2020-02-04)
+
+**Note:** Version bump only for package @furo/math
+
+
+
+
+
 ## [0.2.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/math@0.2.19...@furo/math@0.2.21) (2019-12-02)
 
 **Note:** Version bump only for package @furo/math
