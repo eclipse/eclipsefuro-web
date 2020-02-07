@@ -11,6 +11,7 @@ import "google/type/date.proto";
 import "google/type/money.proto";
 import "google/protobuf/field_mask.proto";
 import "furo/property.proto";
+import "project/project.proto";
 
 
 // ExperimentEntity with Experiment
@@ -128,6 +129,16 @@ message Default {
     
     // repeated string
     repeated string repstring = 4;
+
+}
+
+// Readonly spec for testing
+message Readonly {                
+    // Meta for the response
+    furo.Meta meta = 3;
+    
+    // Identity of a experiment
+    project.Project project = 1;
 
 }
 
