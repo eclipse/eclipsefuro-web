@@ -1,4 +1,8 @@
 {
+  "spec_dirs": [
+    "../furo-specs/specs",
+    "../../node_modules/@furo/specs/_baseTypes"
+  ],
   "spec_dir": "../furo-specs/specs",
   "ui_spec_out": "./ui_specs",
   "build_output_dir": "./build/ui",
