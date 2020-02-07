@@ -127,7 +127,7 @@
         ]
       }
     },
-    "/api/auths/{ath}": {
+    "/api/auths/{uid}": {
       "get": {
         "summary": "The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",
         "operationId": "GetAuth",
@@ -141,7 +141,7 @@
         },
         "parameters": [
           {
-            "name": "ath",
+            "name": "uid",
             "in": "path",
             "required": true,
             "type": "string"
@@ -164,7 +164,7 @@
         },
         "parameters": [
           {
-            "name": "ath",
+            "name": "uid",
             "in": "path",
             "required": true,
             "type": "string"

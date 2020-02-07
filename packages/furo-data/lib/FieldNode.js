@@ -10,6 +10,7 @@ export class FieldNode extends EventTreeNode {
     this.__specdefinitions = parentNode.__specdefinitions;
 
     this._spec = fieldSpec;
+
     if (this._spec.meta) {
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
     } else {
@@ -17,6 +18,13 @@ export class FieldNode extends EventTreeNode {
         return {}
       }();
     }
+
+
+    // check parent readonly meta and inherit if true
+    if(parentNode && parentNode._meta && parentNode._meta.readonly === true){
+      this._meta.readonly = true;
+    }
+
     if (this._spec.constraints) {
       this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
     } else {
@@ -92,6 +100,15 @@ export class FieldNode extends EventTreeNode {
 
     this.addEventListener('validation-requested', (e) => {
       this._checkConstraints();
+    });
+
+    this.addEventListener('parent-readonly-meta-setted', (e) => {
+      // check parent readonly meta and inherit if true
+      if((parentNode && parentNode._meta && parentNode._meta.readonly) || (this._spec.meta && this._spec.meta.readonly)){
+        this._meta.readonly = true;
+      }else{
+        this._meta.readonly = false;
+      }
     });
 
 
@@ -383,6 +400,10 @@ export class FieldNode extends EventTreeNode {
           // update the metas
           if (this[field]) {
             this[field]._meta[m] = mc.meta[m];
+            // broadcast readonly changes for all ancestors
+            if(m === "readonly"){
+              this.broadcastEvent(new NodeEvent("parent-readonly-meta-setted",this, true));
+            }
           } else {
             console.warn("invalid meta", mc, metaAndConstraints);
             return;
