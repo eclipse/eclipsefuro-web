@@ -2492,7 +2492,7 @@
               "column": 2
             },
             "end": {
-              "line": 269,
+              "line": 288,
               "column": 3
             }
           },
@@ -2724,7 +2724,7 @@
           "column": 7
         },
         "end": {
-          "line": 274,
+          "line": 293,
           "column": 1
         }
       },
@@ -2754,6 +2754,12 @@
           "type": "CustomEvent",
           "name": "data-changed",
           "description": "data-changed\nFired when data in furo-data-object has changed\n\nThis event fires a lot, consider using a de-bounce with the event.\n\n*detail payload:** {Object|CollectionNode}\n\n*bubbles**",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "data-changed-after-inject",
+          "description": "data-changed-after-inject\nFired when data in furo-data-object has changed after injectRaw is complete\n\nThis event fires a lot, consider using a de-bounce with the event.\n\n*detail payload:** {Object|CollectionNode}\n\n*bubbles**",
           "metadata": {}
         },
         {
@@ -11215,7 +11221,7 @@
               "column": 2
             },
             "end": {
-              "line": 236,
+              "line": 240,
               "column": 3
             }
           },
@@ -11238,11 +11244,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 239,
+              "line": 243,
               "column": 2
             },
             "end": {
-              "line": 252,
+              "line": 256,
               "column": 3
             }
           },
@@ -11262,11 +11268,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 255,
+              "line": 259,
               "column": 2
             },
             "end": {
-              "line": 272,
+              "line": 276,
               "column": 3
             }
           },
@@ -11286,11 +11292,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 280,
+              "line": 284,
               "column": 2
             },
             "end": {
-              "line": 289,
+              "line": 293,
               "column": 3
             }
           },
@@ -11313,11 +11319,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 292,
+              "line": 296,
               "column": 2
             },
             "end": {
-              "line": 294,
+              "line": 298,
               "column": 3
             }
           },
@@ -11334,7 +11340,7 @@
           "column": 7
         },
         "end": {
-          "line": 295,
+          "line": 299,
           "column": 1
         }
       },
