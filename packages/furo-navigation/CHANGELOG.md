@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.7...@furo/navigation@0.37.9) (2020-02-09)
+
+
+### Bug Fixes
+
+* select the first selected item on init ([cda8626](https://github.com/theNorstroem/FuroBaseComponents/commit/cda8626))
+
+
+
+
+
 ## [0.37.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.7...@furo/navigation@0.37.8) (2020-02-09)
 
 

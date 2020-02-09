@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.70.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.68.0...@furo/data@0.70.0) (2020-02-09)
+
+
+### Features
+
+* data-object emits data-changed-after-inject ([605c4f5](https://github.com/theNorstroem/FuroBaseComponents/commit/605c4f5))
+
+
+
+
+
 # [0.69.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.68.0...@furo/data@0.69.0) (2020-02-09)
 
 
