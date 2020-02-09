@@ -255,6 +255,25 @@ export class FuroDataObject extends (LitElement) {
       dataEvent.detail = this.data ;
       this.dispatchEvent(dataEvent);
 
+
+      /**
+       * @event data-changed-after-inject
+       * Fired when data in furo-data-object has changed after injectRaw is complete
+       *
+       * This event fires a lot, consider using a de-bounce with the event.
+       *
+       *   **detail payload:** {Object|CollectionNode}
+       *
+       *   **bubbles**
+       */
+      if (this._injectPromise) {
+        this._injectPromise.then((e) => {
+          let dataEvent = new Event('data-changed-after-inject', {composed: true, bubbles: true});
+          dataEvent.detail = this.data;
+          this.dispatchEvent(dataEvent);
+        })
+      }
+
       /**
       * @event field-value-changed
       * Fired when a field has changed

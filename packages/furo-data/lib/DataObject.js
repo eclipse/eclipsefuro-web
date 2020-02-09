@@ -162,6 +162,10 @@ export class DataObject extends EventTreeNode {
     for (let fieldName in data) {
       let fieldNode = node[fieldName];
 
+      if (fieldNode === undefined){
+        console.warn("field not specified", fieldName)
+        continue
+      }
       if (fieldNode._spec.type === "furo.Meta") {
         furoMetaDetected = data[fieldName];
       }
