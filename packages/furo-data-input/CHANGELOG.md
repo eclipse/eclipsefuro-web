@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.67.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.66.2...@furo/data-input@0.67.0) (2020-02-10)
+
+
+### Features
+
+* furo-reference-search with max-items-to-display and max-results-hint text. ([6c996e6](https://github.com/theNorstroem/FuroBaseComponents/commit/6c996e6))
+
+
+
+
+
 ## [0.66.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.66.0...@furo/data-input@0.66.2) (2020-02-09)
 
 **Note:** Version bump only for package @furo/data-input
