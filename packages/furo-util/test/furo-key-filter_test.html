@@ -18,7 +18,7 @@
 
 <test-fixture id="basic">
   <template>
-    <furo-key-filter></furo-key-filter>
+    <furo-key-filter keys="ArrowUp"></furo-key-filter>
   </template>
 </test-fixture>
 
@@ -48,6 +48,18 @@
     it('should be a furo-key-filter', (done) => {
       assert.equal(element.nodeName, "FURO-KEY-FILTER");
       done()
+    });
+    it('should filter', (done) => {
+      element.addEventListener("matched", (d) => {
+
+        assert.equal(d.detail.key,  'ArrowUp' );
+        done()
+      });
+
+      element.filter({key: "Enter"});
+      element.filter({key: "Enter"});
+      element.filter({key: "ArrowUp"});
+
     });
 
 

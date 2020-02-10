@@ -32,6 +32,27 @@ import {Helper} from "./lib/helper";
  */
 class FuroSelectInput extends FBP(LitElement) {
 
+
+  /**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */
+
+
+
+  /**
+   * @event leading-icon-clicked
+   * Fired when the leading icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */
+
   constructor() {
     super();
     this.step = "any";
@@ -625,16 +646,16 @@ class FuroSelectInput extends FBP(LitElement) {
     return html` 
       <div class="wrapper">
       
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>
        <div class="iwrap">    
-           <select ?autofocus=${this.autofocus} ?disabled=${this.disabled}  @-change="--inputInput(*)" ƒ-.value="--value" ƒ-focus="--focus">        
+           <select id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  @-change="--inputInput(*)" ƒ-.value="--value" ƒ-focus="--focus">        
             <template is="flow-repeat" ƒ-inject-items="--selection">
                 <option ƒ-.value="--item(*.id)" ƒ-.selected="--item(*.selected)" ƒ-.inner-text="--item(*.label)"></option>
             </template>
            </select>
         <furo-icon class="expand" icon="expand-more"></furo-icon>
        </div>     
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>

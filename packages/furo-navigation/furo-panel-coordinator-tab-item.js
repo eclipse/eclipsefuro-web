@@ -30,6 +30,8 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
 
   bindData(fieldNode) {
     this.field = fieldNode;
+    this.selected = fieldNode._isSelected;
+
     this.field.addEventListener("this-node-selected", (n) => {
       this.selected = true;
     });

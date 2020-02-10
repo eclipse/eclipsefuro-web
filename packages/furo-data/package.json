@@ -1,11 +1,11 @@
 {
   "name": "@furo/data",
-  "version": "0.66.1",
+  "version": "0.70.0",
   "description": "Furo data components",
   "main": "furo-catalog.js",
   "dependencies": {
-    "@furo/fbp": "^4.28.0",
-    "@furo/framework": "^0.13.3",
+    "@furo/fbp": "^4.29.1",
+    "@furo/framework": "^0.13.4",
     "lit-element": "^2.2.1"
   },
   "gitHead": "7e93e5972894c16208e6c6d02f5840a85ab24177",

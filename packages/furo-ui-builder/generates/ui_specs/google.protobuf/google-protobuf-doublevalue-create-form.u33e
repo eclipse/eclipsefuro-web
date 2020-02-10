@@ -1,0 +1,107 @@
+{
+  "description": "Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",
+  "summary": "todo: write summary",
+  "import_members": [
+    [
+      " LitElement, html, css ",
+      "lit-element"
+    ],
+    [
+      "Theme",
+      "@furo/framework/theme.js"
+    ],
+    [
+      "FBP",
+      "@furo/fbp"
+    ],
+    [
+      "i18n",
+      "@furo/framework/i18n.js",
+      "eslint-disable-next-line no-unused-vars"
+    ]
+  ],
+  "imports": [
+    "@furo/data-input",
+    "@furo/form"
+  ],
+  "component_name": "google-protobuf-doublevalue-create-form",
+  "path": "./generates/ui_specs/google.protobuf/google-protobuf-doublevalue-create-form.u33e",
+  "style": {
+    "children": {
+      ":host": {
+        "children": {},
+        "attributes": {
+          "display": "block"
+        }
+      },
+      ":host([hidden])": {
+        "children": {},
+        "attributes": {
+          "display": "none"
+        }
+      }
+    },
+    "attributes": {}
+  },
+  "template": [
+    {
+      "component": "furo-form",
+      "description": "It is a good practice to set a description",
+      "flags": [],
+      "attributes": {
+        "header-text": "${this.headerText?this.headerText:\"\"}",
+        "secondary-text": "${this.secondaryText?this.secondaryText:\"\"}"
+      },
+      "methods": {},
+      "events": {},
+      "children": [
+        {
+          "component": "furo-form-layouter",
+          "description": "It is a good practice to set a description",
+          "flags": [
+            "four"
+          ],
+          "attributes": {},
+          "methods": {},
+          "events": {},
+          "children": []
+        }
+      ]
+    }
+  ],
+  "properties": {
+    "headerText": {
+      "type": "String",
+      "description": "Header text to label the form",
+      "reflect": false,
+      "notify": false,
+      "attribute": "header-text",
+      "defaultValue": null
+    },
+    "secondaryText": {
+      "type": "String",
+      "description": "Secondary text for a detailed description",
+      "reflect": false,
+      "notify": false,
+      "attribute": "secondary-text",
+      "defaultValue": null
+    }
+  },
+  "exposedWires": {
+    "focus": {
+      "name": "focus",
+      "wire": "--focused",
+      "description": "Fokus"
+    }
+  },
+  "methods": {
+    "bindData": {
+      "description": " Bind your furo-data-object event @-object-ready\n @public\n @param data",
+      "args": "data",
+      "code": "CiAgICB0aGlzLl9GQlBUcmlnZ2VyV2lyZSgnLS1kYXRhJywgZGF0YSk7CiAgICB0aGlzLmZpZWxkID0gZGF0YTs="
+    }
+  },
+  "keyboardShortcuts": [],
+  "extends": "FBP(LitElement)",
+  "theme": "CreateFormBaseTheme"
+}

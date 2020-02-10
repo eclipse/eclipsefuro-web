@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.70.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.68.0...@furo/data@0.70.0) (2020-02-09)
+
+
+### Features
+
+* data-object emits data-changed-after-inject ([605c4f5](https://github.com/theNorstroem/FuroBaseComponents/commit/605c4f5))
+
+
+
+
+
+# [0.69.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.68.0...@furo/data@0.69.0) (2020-02-09)
+
+
+### Features
+
+* data-object emits data-changed-after-inject ([605c4f5](https://github.com/theNorstroem/FuroBaseComponents/commit/605c4f5))
+
+
+
+
+
+# [0.68.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.67.0...@furo/data@0.68.0) (2020-02-07)
+
+
+### Bug Fixes
+
+* flow repeat in shady dom, yes shady ([9c839be](https://github.com/theNorstroem/FuroBaseComponents/commit/9c839be))
+* update_mask with deep object paths. ([58fa857](https://github.com/theNorstroem/FuroBaseComponents/commit/58fa857))
+
+
+### Features
+
+* inherited readonly ([5f47864](https://github.com/theNorstroem/FuroBaseComponents/commit/5f47864))
+
+
+
+
+
+# [0.67.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.66.1...@furo/data@0.67.0) (2020-02-04)
+
+
+### Bug Fixes
+
+* catch invalid meta ([de87ff9](https://github.com/theNorstroem/FuroBaseComponents/commit/de87ff9))
+* removing a eventlistener killed all other listeners ([7f14423](https://github.com/theNorstroem/FuroBaseComponents/commit/7f14423))
+
+
+### Features
+
+* furo-data-object export added ([a8ce90f](https://github.com/theNorstroem/FuroBaseComponents/commit/a8ce90f))
+* move positions of items ([e955076](https://github.com/theNorstroem/FuroBaseComponents/commit/e955076))
+* notify move of items ([c9ee384](https://github.com/theNorstroem/FuroBaseComponents/commit/c9ee384))
+* Race condition by multiple requests by the same agent. Pending requests are aborted. ([2b7803c](https://github.com/theNorstroem/FuroBaseComponents/commit/2b7803c))
+
+
+
+
+
 ## [0.66.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.66.0...@furo/data@0.66.1) (2020-01-14)
 
 

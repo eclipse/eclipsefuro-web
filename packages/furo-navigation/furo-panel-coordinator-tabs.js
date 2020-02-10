@@ -228,7 +228,6 @@ class FuroPanelCoordinatorTabs extends FBP(LitElement) {
                 display: block;
                 outline: none;
                 position: relative;
-                
                 padding-left: var(--spacing-s, 24px);
             }
 

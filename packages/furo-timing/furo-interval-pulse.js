@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement } from 'lit-element';
 
 /**
  * `furo-interval-pulse`
@@ -14,6 +14,7 @@ class FuroIntervalPulse extends (LitElement) {
     constructor() {
         super();
         this.interval = 200;
+        this.takt = 4;
         if(this.auto){
           this.start();
         }
@@ -22,8 +23,8 @@ class FuroIntervalPulse extends (LitElement) {
 
   static get properties() {
     return {
-      interval: {type: Number, value: 200, observer: '_interval'},
-      takt: {type: Number, value: 4},
+      interval: {type: Number},
+      takt: {type: Number},
       /**
        * Starts interval automatically
        */
@@ -32,10 +33,7 @@ class FuroIntervalPulse extends (LitElement) {
   }
 
   start() {
-
-
     let cnt = 0;
-    let tick = 'tick';
     clearInterval(this._intervalObject);
     this._intervalObject = setInterval(() => {
       let pos = cnt++ % this.takt;

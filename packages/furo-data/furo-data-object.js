@@ -32,7 +32,7 @@ import {Env} from "@furo/framework"
  * @demo demo-furo-data-object-validator object validator demo
  * @appliesMixin FBP
  */
-class FuroDataObject extends (LitElement) {
+export class FuroDataObject extends (LitElement) {
 
   constructor() {
     super();
@@ -244,6 +244,8 @@ class FuroDataObject extends (LitElement) {
        * @event data-changed
        * Fired when data in furo-data-object has changed
        *
+       * This event fires a lot, consider using a de-bounce with the event.
+       *
        *   **detail payload:** {Object|CollectionNode}
        *
        *   **bubbles**
@@ -252,6 +254,25 @@ class FuroDataObject extends (LitElement) {
       let dataEvent = new Event('data-changed', {composed: true, bubbles: true});
       dataEvent.detail = this.data ;
       this.dispatchEvent(dataEvent);
+
+
+      /**
+       * @event data-changed-after-inject
+       * Fired when data in furo-data-object has changed after injectRaw is complete
+       *
+       * This event fires a lot, consider using a de-bounce with the event.
+       *
+       *   **detail payload:** {Object|CollectionNode}
+       *
+       *   **bubbles**
+       */
+      if (this._injectPromise) {
+        this._injectPromise.then((e) => {
+          let dataEvent = new Event('data-changed-after-inject', {composed: true, bubbles: true});
+          dataEvent.detail = this.data;
+          this.dispatchEvent(dataEvent);
+        })
+      }
 
       /**
       * @event field-value-changed

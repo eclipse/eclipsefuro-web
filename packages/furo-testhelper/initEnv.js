@@ -9,4 +9,4 @@ Init.registerApiTypes(Types);
 i18n.registerResBundle(Translations);
 
 // enable this option to send readonly fields too.
-//Env.api.sendAllDataOnMethodPut = true;
+// Env.api.sendAllDataOnMethodPut = true;

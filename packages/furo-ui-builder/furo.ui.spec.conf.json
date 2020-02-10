@@ -1,8 +1,12 @@
 {
+  "spec_dirs": [
+    "../furo-specs/specs",
+    "../furo-specs/_baseTypes"
+  ],
   "spec_dir": "../furo-specs/specs",
-  "ui_spec_out": "./ui_specs",
-  "build_output_dir": "./build/ui",
-  "generator_template": "./node_modules/@furo/ui-builder/_scripts/templates/lit.js.tmpl",
+  "ui_spec_out": "./generates/ui_specs",
+  "build_output_dir": "./generates/ui_components",
+  "generator_template": "./_scripts/templates/lit.js.tmpl",
   "skip_spec": [
     ".*collection.type.spec",
     ".*entity.type.spec"
@@ -12,24 +16,24 @@
   ],
   "hooks": {
     "service": [
-      "node_modules/@furo/ui-builder/_scripts/hook-init-reference-search.js",
-      "node_modules/@furo/ui-builder/_scripts/hook-init-reference-dropdown.js",
-      "node_modules/@furo/ui-builder/_scripts/hook-init-update-action.js",
-      "node_modules/@furo/ui-builder/_scripts/hook-init-update-panel.js"
+      "./_scripts/hook-init-reference-search.js",
+      "./_scripts/hook-init-reference-dropdown.js",
+      "./_scripts/hook-init-update-action.js",
+      "./_scripts/hook-init-update-panel.js"
     ],
     "type": [
-      "node_modules/@furo/ui-builder/_scripts/hook-init-form.js",
-      "node_modules/@furo/ui-builder/_scripts/hook-init-create-form.js",
-      "node_modules/@furo/ui-builder/_scripts/hook-init-create-widget.js",
-      "node_modules/@furo/ui-builder/_scripts/hook-init-display.js"
+      "./_scripts/hook-init-form.js",
+      "./_scripts/hook-init-create-form.js",
+      "./_scripts/hook-init-create-widget.js",
+      "./_scripts/hook-init-display.js"
     ]
   },
   "hook": {
     "hook_init_form": {
       "replace": {
-        "premium-premiumgui-form": {
-          "with": "premium-field",
-          "import_path": "../../src/components/form-fields/premium-field.js",
+        "sample-component-form": {
+          "with": "sample-component",
+          "import_path": "../../src/components/form-fields/sample-component.js",
           "field_flags": ["condensed","double"]
         }
       },

@@ -1,5 +1,5 @@
 docs
-build
+generates
 index.html
 node_modules
 coverage

@@ -423,7 +423,6 @@
 
     });
 
-
     it('should update with method patch when hts is set', (done) => {
       entityAgent.setAttribute("service", "TaskService");
       dataObject.setAttribute("type", "task.TaskEntity");
@@ -456,36 +455,6 @@
 
     });
 
-    it('update method with patch should provide a field_mask', (done) => {
-      entityAgent.setAttribute("service", "PersonService");
-      dataObject.setAttribute("type", "person.PersonEntity");
-
-      entityAgent.addEventListener("save-success", (r) => {
-        expect(r.detail.json.update_mask).to.not.be.undefined;
-        expect(r.detail.json.hasOwnProperty('skills')).to.be.false;
-        assert(r.detail.json.update_mask, [{paths: "name"}, {paths: "first_name"}]);
-        expect(r.detail.json.update_mask.hasOwnProperty(('skills'))).to.be.false;
-        done();
-      });
-      entityAgent.htsIn([
-        {
-          "href": "http://httpbin.org/anything",
-          "method": "PATCH",
-          "rel": "update",
-          "type": "person.PersonEntity",
-          "service": "PersonService"
-        }
-      ]);
-
-      dataObject.addEventListener("object-ready", () => {
-        dataObject.data.data.name._value = 'updated name';
-        dataObject.data.data.first_name._value = 'updated first_name';
-
-        entityAgent.save();
-      });
-
-    });
-
     it('should get an entity for the defined service', (done) => {
       entityAgent.setAttribute("service", "TaskService");
       entityAgent.addEventListener("load-success", () => {
@@ -501,6 +470,31 @@
         }
       ]);
 
+      entityAgent.load();
+
+    });
+
+    it('should cancel a pending request if a new request is started', (done) => {
+      entityAgent.setAttribute("service", "TaskService");
+      entityAgent.addEventListener("response", () => {
+        done();
+      });
+      entityAgent.htsIn([
+        {
+          "href": "/mockdata/tasks/1/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "task.TaskEntity",
+          "service": "TaskService"
+        }
+      ]);
+
+      entityAgent.load();
+      entityAgent.load();
+      entityAgent.load();
+      entityAgent.load();
+      entityAgent.load();
+      entityAgent.load();
       entityAgent.load();
 
     });

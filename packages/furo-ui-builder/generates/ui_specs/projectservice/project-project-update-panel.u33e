@@ -1,0 +1,211 @@
+{
+  "description": "service specs for the project api",
+  "summary": "todo: write summary",
+  "import_members": [
+    [
+      " html, css ",
+      "lit-element"
+    ],
+    [
+      " Theme ",
+      "@furo/framework/theme.js"
+    ],
+    [
+      " i18n ",
+      "@furo/framework/i18n.js",
+      "eslint-disable-next-line no-unused-vars"
+    ],
+    [
+      " BasePanel ",
+      "@furo/route/lib/BasePanel.js"
+    ]
+  ],
+  "imports": [
+    "@furo/layout/furo-vertical-flex.js",
+    "@furo/layout/furo-panel.js",
+    "@furo/navigation/furo-panel-head.js",
+    "@furo/data/furo-entity-agent.js",
+    "@furo/data/furo-data-object.js",
+    "../project/project-project-form.js",
+    "./project-project-update-action.js"
+  ],
+  "component_name": "project-project-update-panel",
+  "path": "./generates/ui_specs/projectservice/project-project-update-panel.u33e",
+  "style": {
+    "children": {
+      ":host": {
+        "children": {},
+        "attributes": {
+          "display": "block",
+          "height": "100%",
+          "overflow": "hidden",
+          "background-color": "var(--update-panel-background, var(--surface, white))",
+          "color": "var(--on-update-panel-background, var(--on-surface, black))"
+        }
+      },
+      ":host([hidden])": {
+        "children": {},
+        "attributes": {
+          "display": "none"
+        }
+      }
+    },
+    "attributes": {}
+  },
+  "template": [
+    {
+      "component": "furo-vertical-flex",
+      "description": "controlls the flexing and scrolling",
+      "flags": [],
+      "attributes": {},
+      "methods": {},
+      "events": {},
+      "children": [
+        {
+          "component": "furo-panel",
+          "description": " ",
+          "flags": [
+            "no-margin"
+          ],
+          "attributes": {},
+          "methods": {},
+          "events": {},
+          "children": [
+            {
+              "component": "furo-panel-head",
+              "description": "This will show the display_name and a description",
+              "flags": [],
+              "attributes": {},
+              "methods": {
+                "bind-data": "--entity(*.data)"
+              },
+              "events": {},
+              "children": []
+            }
+          ]
+        },
+        {
+          "component": "furo-panel",
+          "description": "The main panel, this panel scrolls",
+          "flags": [
+            "no-margin",
+            "flex",
+            "scroll"
+          ],
+          "attributes": {},
+          "methods": {},
+          "events": {},
+          "children": [
+            {
+              "component": "project-project-form",
+              "description": "The form for the type project.Project",
+              "flags": [],
+              "attributes": {},
+              "methods": {
+                "bind-data": "--entity(*.data)"
+              },
+              "events": {},
+              "children": []
+            }
+          ]
+        },
+        {
+          "component": "furo-panel",
+          "description": "This panel stays on the bottom of the page",
+          "flags": [
+            "no-margin"
+          ],
+          "attributes": {},
+          "methods": {},
+          "events": {},
+          "children": [
+            {
+              "component": "project-project-update-action",
+              "description": "The events of the updateaction are mostly wired to the entity-agent below",
+              "flags": [],
+              "attributes": {},
+              "methods": {
+                "bind-entity": "--entity",
+                "disable-all": "--requestStarted",
+                "enable-all": "--response, --responseError"
+              },
+              "events": {
+                "update-req": "--updateReq",
+                "reset-req": "--resetReq",
+                "self-req": "--selfReq",
+                "delete-req": "--deleteReq"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "component": "furo-banner",
+      "description": "Trigger the banner on errors",
+      "flags": [],
+      "attributes": {
+        "icon": "error-outline",
+        "dismiss-button-text": "${i18n.t('banner.action.close')}"
+      },
+      "methods": {
+        "parse-grpc-status": "--error",
+        "show": "--error"
+      },
+      "events": {},
+      "children": []
+    },
+    {
+      "component": "furo-entity-agent",
+      "description": "Agent for the service ProjectService",
+      "flags": [
+        "load-on-hts-in"
+      ],
+      "attributes": {
+        "service": "ProjectService"
+      },
+      "methods": {
+        "hts-in": "--navNode(*._value.link), --htsIn",
+        "bind-request-data": "--entity(*.data)",
+        "load": "--selfReq",
+        "put": "--updateReq",
+        "delete": "--deleteReq"
+      },
+      "events": {
+        "request-started": "--requestStarted, ^^activity-started",
+        "response": "--response, ^^activity-stopped",
+        "response-error": "--error, ^^activity-stopped",
+        "fatal-error": "--error, ^^activity-stopped"
+      },
+      "children": []
+    },
+    {
+      "component": "furo-data-object",
+      "description": "DAO for type project.ProjectEntity",
+      "flags": [],
+      "attributes": {
+        "type": "project.ProjectEntity"
+      },
+      "methods": {
+        "reset": "--resetReq",
+        "inject-raw": "--response"
+      },
+      "events": {
+        "object-ready": "--entity"
+      },
+      "children": []
+    }
+  ],
+  "properties": {},
+  "exposedWires": {
+    "htsIn": {
+      "name": "htsIn",
+      "wire": "--htsIn",
+      "description": "Inject HATEOAS Link Object for the specific service."
+    }
+  },
+  "methods": {},
+  "keyboardShortcuts": [],
+  "extends": "BasePanel"
+}

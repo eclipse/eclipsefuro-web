@@ -5,7 +5,7 @@ class HookInitForm {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-create-form").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -24,7 +24,7 @@ class HookInitForm {
     })();
 
     u33e.setTheme("CreateFormBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-create-form").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-create-form").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -51,7 +51,7 @@ class HookInitForm {
     u33e.addStyle(":host")
         .addCSSAttribute("display", "block");
 
-    u33e.addStyle(":host[hidden]")
+    u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
 
 
@@ -92,7 +92,7 @@ class HookInitForm {
         fld.addFlag("full");
 
         fld.addAttribute("header-text", "${i18n.t('" + (SPEC.__proto.package + "." + SPEC.type + ".properties").toLowerCase() + ".header.text')}");
-        fld.addAttribute("secondary-text", "${i18n.t('" + (SPEC.__proto.package + "-" + SPEC.type + ".properties").toLowerCase() + ".secondary.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + ".properties").toLowerCase() + ".secondary.text')}");
 
         let f = fld.appendChild("furo-form-layouter");
         f.addFlag(OPTIONS.default_form_size || "four");
@@ -100,10 +100,19 @@ class HookInitForm {
       }
 
       fld.description = "field: " + fieldname;
-      if(OPTIONS.default_field_flags){
-        OPTIONS.default_field_flags.forEach((flag)=>{
+
+      // add default flags if no __ui.flags are set
+      if(field.__ui && field.__ui.flags &&  field.__ui.flags.length > 0){
+        field.__ui.flags.forEach((flag) => {
           fld.addFlag(flag);
         });
+      }else{
+        // add default options
+        if (OPTIONS.default_field_flags) {
+          OPTIONS.default_field_flags.forEach((flag) => {
+            fld.addFlag(flag);
+          });
+        }
       }
 
 
@@ -112,8 +121,8 @@ class HookInitForm {
 
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
-      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-        component = field.type.toLowerCase().replace(".", "-") + "-form";
+      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google" && !component.endsWith("-map") && !component.endsWith("-repeat")) {
+        component = field.type.toLowerCase().split(".").join("-") + "-form";
         fld.component = component;
         // change flag double to full
         let flagIndex = fld.flags.indexOf("double");
@@ -123,9 +132,9 @@ class HookInitForm {
           fld.flags[flagIndex] = "full";
         }
 
+        fld.addAttribute("header-text", "${i18n.t('createform."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".header.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('createform."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".secondary.text')}");
 
-        fld.addAttribute("header-text", "${i18n.t('" + field.type.toLowerCase() + ".form.header.text')}");
-        fld.addAttribute("secondary-text", "${i18n.t('" + field.type.toLowerCase() + ".form.secondary.text')}");
         /**
          * check if component have a replacement in the config
          *
@@ -158,6 +167,13 @@ class HookInitForm {
       }
 
 
+      // add header text on maps and repeats
+      if(component.endsWith("-map") || component.endsWith("-repeat")){
+        fld.addAttribute("header-text", "${i18n.t('createform."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".header.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('createform."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".secondary.text')}");
+      }
+
+
       // repeated fields can use furo-data-repeat component
       if (field.meta && field.meta.repeated && field.type != "furo.Property") {
         let value_name = component;
@@ -174,7 +190,7 @@ class HookInitForm {
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
-          fld.component = f.toLowerCase().replace(".", "-") + "-reference-search";
+          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search";
 
 
           // exclude self import

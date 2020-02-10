@@ -110,7 +110,7 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
     let selectedItem;
 
     for (let i = this._dropdownList.length - 1; i >= 0; i--) {
-      if (this._dropdownList[i][this.valueField] == val) {
+      if (this._dropdownList[i].id == val) {
         selectedItem = this._dropdownList[i]._original;
         break
       }
@@ -330,14 +330,14 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
    * Sets the field to readonly
    */
   disable() {
-    this._readonly = true;
+    this.disabled = true;
   }
 
   /**
    * Makes the field writable.
    */
   enable() {
-    this._readonly = false;
+    this.disabled = false;
   }
 
   /**
@@ -374,7 +374,9 @@ class FuroDataCollectionDropdown extends FBP(LitElement) {
 
     // update meta and constraints when they change
     this.field.addEventListener('this-metas-changed', (e) => {
-      this._buildListWithMetaOptions(this.field._meta.options);
+      if(this.field._meta && this.field._meta.options ) {
+        this._buildListWithMetaOptions(this.field._meta.options);
+      }
     });
   }
 

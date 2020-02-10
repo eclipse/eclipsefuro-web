@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.29.0](https://github.com/veith/FuroBaseComponents/compare/@furo/fbp@4.27.4...@furo/fbp@4.29.0) (2020-02-04)
+
+
+### Bug Fixes
+
+* clear on reference-search will clear the binded data ([ffc43b7](https://github.com/veith/FuroBaseComponents/commit/ffc43b7))
+* stopPropagation on event, not on details ([2d476a7](https://github.com/veith/FuroBaseComponents/commit/2d476a7))
+
+
+### Features
+
+* :PREVENTDEFAULT by wire, :STOP to stopPropagation by wire ([dfe1f6f](https://github.com/veith/FuroBaseComponents/commit/dfe1f6f))
+
+
+
+
+
 # [4.28.0](https://github.com/veith/FuroBaseComponents/compare/@furo/fbp@4.27.4...@furo/fbp@4.28.0) (2019-11-28)
 
 

@@ -1,0 +1,126 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>test for furo-de-bounce</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/chai/chai.js"></script>
+    <script src="/node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="/node_modules/wct-mocha/wct-mocha.js"></script>
+    <script src="/node_modules/sinon/pkg/sinon.js"></script>
+
+
+</head>
+<body>
+
+<test-fixture id="basic">
+    <template>
+        <furo-de-bounce></furo-de-bounce>
+    </template>
+</test-fixture>
+
+<script type="module">
+    import "../furo-catalog"
+    describe('furo-de-bounce tests ', function () {
+
+
+        let debounce = {};
+
+        beforeEach(async () => {
+            debounce = fixture('basic');
+            await debounce.updateComplete;
+
+        });
+
+        it('should be a furo-de-bounce', (done) => {
+            assert.equal(debounce.nodeName, "FURO-DE-BOUNCE");
+            done()
+        });
+
+        it('should set attributes', (done) => {
+            debounce.wait = 3000;
+            debounce.immediate = true;
+            assert.equal(debounce._wait, 3000);
+            assert.equal(debounce._immediate, true);
+            done()
+        });
+
+        it('should take default values if not set', (done) => {
+            assert.equal(debounce._wait, 250);
+            assert.equal(debounce._immediate, false);
+            done()
+        });
+
+        it('should take default value for immediate if not set', (done) => {
+            debounce.wait = 3000;
+            assert.equal(debounce._wait, 3000);
+            assert.equal(debounce._immediate, false);
+            done()
+        });
+
+        it('should take default value for wait if not set', (done) => {
+            debounce.immediate = true;
+            assert.equal(debounce._wait, 250);
+            assert.equal(debounce._immediate, true);
+            done()
+        });
+
+        it('should fire once every quarter of a second instead of as quickly as it\'s triggered', (done) => {
+
+            debounce.wait = 250;
+
+            debounce.addEventListener('out', (e)=>{
+                assert.equal(e.detail.result, 15);
+                done();
+            });
+            debounce.inputWire({result: 1});
+            debounce.inputWire({result: 2});
+            debounce.inputWire({result: 3});
+            debounce.inputWire({result: 4});
+            debounce.inputWire({result: 5});
+            debounce.inputWire({result: 6});
+            debounce.inputWire({result: 7});
+            debounce.inputWire({result: 8});
+            debounce.inputWire({result: 9});
+            debounce.inputWire({result: 10});
+            debounce.inputWire({result: 11});
+            debounce.inputWire({result: 12});
+            debounce.inputWire({result: 13});
+            debounce.inputWire({result: 14});
+            debounce.inputWire({result: 15});
+        });
+
+        it('should fire on leading edge', (done) => {
+
+            debounce.immediate = true;
+
+            debounce.addEventListener('out', (e)=>{
+                assert.equal(e.detail.result, 1);
+                done();
+            });
+            debounce.inputWire({result: 1});
+            debounce.inputWire({result: 2});
+            debounce.inputWire({result: 3});
+            debounce.inputWire({result: 4});
+            debounce.inputWire({result: 5});
+            debounce.inputWire({result: 6});
+            debounce.inputWire({result: 7});
+            debounce.inputWire({result: 8});
+            debounce.inputWire({result: 9});
+            debounce.inputWire({result: 10});
+            debounce.inputWire({result: 11});
+            debounce.inputWire({result: 12});
+            debounce.inputWire({result: 13});
+            debounce.inputWire({result: 14});
+            debounce.inputWire({result: 15});
+        });
+
+
+
+    });
+</script>
+</body>
+</html>

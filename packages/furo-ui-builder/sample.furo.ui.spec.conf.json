@@ -1,5 +1,8 @@
 {
-  "spec_dir": "./specs",
+  "spec_dirs": [
+    "./specs",
+    "../../node_modules/@furo/specs/_baseTypes"
+  ],
   "ui_spec_out": "./ui_specs",
   "build_output_dir": "./generated_components",
   "generator_template": "./node_modules/@furo/ui-builder/_scripts/templates/lit.js.tmpl",

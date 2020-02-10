@@ -193,10 +193,12 @@ class FuroBanner extends LitElement {
    * @param s
    */
   parseGrpcStatus(status) {
+
+    // fallback, if no localized message was given
+    this.setText(status.message);
     // log developper message
     if (status.details && status.details.length > 0) {
-      // fallback, if no localized message was given
-      this.setText(status.message);
+
       this.multilineText = status.details
           .filter((det) => {
             return det["@type"].includes("LocalizedMessage");
@@ -204,8 +206,10 @@ class FuroBanner extends LitElement {
           .map((det) => {
             return det.message;
           });
-      this.show(status);
+
     }
+
+    this.show(status);
   }
 
   static get styles() {

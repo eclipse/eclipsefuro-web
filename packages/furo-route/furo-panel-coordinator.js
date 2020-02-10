@@ -39,9 +39,15 @@ class FuroPanelCoordinator extends FBP(LitElement) {
      */
     let customEvent = new Event('panels-changed', {composed: true, bubbles: true});
     customEvent.detail = this._openPanels;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
   }
 
+  /**
+   * Loads and shows the page based on the NavigationNode
+   *
+   * @param NavigationNode
+   * @return {Promise<void>}
+   */
   async showPage(NavigationNode) {
     let panelName = "P" + NavigationNode.id._value;
 
@@ -93,6 +99,16 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   }
 
   /**
+   * closes all open panels without asking
+   */
+  forceCloseAll(event) {
+    this._openPanels.forEach((panel) => {
+      this._removeNodeById(panel.id._value);
+
+    });
+  }
+
+  /**
    * removes a panel from the view
    * @param nodeName
    * @private
@@ -117,49 +133,6 @@ class FuroPanelCoordinator extends FBP(LitElement) {
       this._furoPage.activatePage("overview");
     }
     this._notifiyOpenPanels();
-  }
-
-  _activatePanelForNode(node) {
-    let name = node.id._value;
-    // register node
-    if (this._openPanels.indexOf(node) === -1) {
-
-      let panelComponent = panelRegistry.getPanelName(node.link.type._value, this._panel);
-      if (panelComponent) {
-        //create element and set name,...
-        let panel = document.createElement(panelComponent);
-        let panelName = "P" + name;
-        panel.setAttribute("name", panelName);
-        panel._TreeNode = node;
-        panel.removePanel = () => {
-          this._removeNodeByName(panelName);
-        };
-        this._openPanels.push(node);
-        this._furoPage.appendChild(panel);
-
-
-      } else {
-        console.warn(node.link.type._value, "is not in the registry", this);
-      }
-    }
-
-
-    // microtask
-    setTimeout(() => {
-      let currentPanel = this._furoPage.activatePage("P" + name);
-      if (currentPanel && currentPanel._FBPTriggerWire !== undefined) {
-
-
-        if (!currentPanel.__panelInitSent) {
-          currentPanel._FBPTriggerWire('--panelInit', node.link._value);
-          currentPanel._FBPTriggerWire('--treeNode', node);
-          currentPanel.__panelInitSent = true;
-        }
-        currentPanel._FBPTriggerWire('--panelActivated', node.link._value);
-      }
-    }, 0);
-
-
   }
 
 }

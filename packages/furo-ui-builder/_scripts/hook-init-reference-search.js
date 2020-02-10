@@ -5,7 +5,7 @@ class HookInitReferenceSearch {
     const PKGDIR = UISPECDIR + "/" + ctx.package;
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q){
       let type = SPEC.services.List.data.response.replace("Collection", "");
-      return PKGDIR + "/" + type.toLowerCase().replace(".", "-") + "-reference-search".toLowerCase() + ".u33e";
+      return PKGDIR + "/" + type.toLowerCase().split(".").join("-") + "-reference-search".toLowerCase() + ".u33e";
     }else {
       return undefined;
     }
@@ -16,7 +16,7 @@ class HookInitReferenceSearch {
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q) {
       let type = SPEC.services.List.data.response.replace("Collection", "");
       u33e.setTheme("ReferenceSearchBaseTheme");
-      u33e.model.component_name = type.toLowerCase().replace(".", "-") + "-reference-search".toLowerCase();
+      u33e.model.component_name = type.toLowerCase().split(".").join("-") + "-reference-search".toLowerCase();
       u33e.model.path = ctx.path;
       u33e.model.description = SPEC.description;
 
@@ -27,6 +27,7 @@ class HookInitReferenceSearch {
 
       u33e.addImport("@furo/data");
       u33e.addImport("@furo/data-input");
+      u33e.addImport("@furo/timing/furo-de-bounce.js");
 
       // https://www.base64encode.org/
       u33e.addMethod("bindData", "field",
@@ -43,7 +44,7 @@ class HookInitReferenceSearch {
       u33e.addStyle(":host")
           .addCSSAttribute("display", "block");
 
-      u33e.addStyle(":host[hidden]")
+      u33e.addStyle(":host([hidden])")
           .addCSSAttribute("display", "none");
 
       u33e.addStyle("furo-data-reference-search")
@@ -62,10 +63,14 @@ class HookInitReferenceSearch {
           .addMethod("focus", "--focused")
           .addMethod("bind-data", "--field-injected");
 
+      let deBounce = u33e.addDomNode("furo-de-bounce");
+      deBounce.addMethod("input-wire", "--term")
+          .addEventListener("out", "--debouncedTerm");
+
       let agent = u33e.addDomNode("furo-collection-agent");
       agent.addAttribute("service", SPEC.name)
           .addMethod("hts-in", "--field-injected(*.link._value), --htsUpdated")
-          .addMethod("search", "--term")
+          .addMethod("search", "--debouncedTerm")
           .addEventListener("response", "--collection");
 
       return u33e;

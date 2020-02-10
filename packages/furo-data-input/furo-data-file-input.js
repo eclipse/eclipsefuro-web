@@ -80,7 +80,7 @@ class FuroDataFileInput extends FBP(LitElement) {
 
     /**
      * Updater for the accept attr, the prop alone with accept="${this.accept}" wont work,
-     * becaue it set "undefined" (as a Sting!)
+     * because it set "undefined" (as a Sting!)
      *
      * @param value
      */
@@ -100,14 +100,14 @@ class FuroDataFileInput extends FBP(LitElement) {
      * Sets the field to readonly
      */
     disable() {
-        this._readonly = true;
+        this.disabled = true;
     }
 
     /**
      * Makes the field writable.
      */
     enable() {
-        this._readonly = false;
+        this.disabled = false;
     }
 
 

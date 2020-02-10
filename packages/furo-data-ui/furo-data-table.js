@@ -244,10 +244,10 @@ class FuroDataTable extends FBP(LitElement) {
             }
 
             tbody tr[selected=true] {
-                background-color: rgba(var(--furo-data-table-select-background, var(--primary-rgb)), var(--state-hover));
-                color: var(--furo-data-table-select-on-background, var(--primary));
+                background-color: rgba(var(--primary-rgb), var(--state-selected));
+                color: var(--primary);
             }
-
+            
             input[type=checkbox] {
                 opacity: .48;
             }
@@ -478,8 +478,7 @@ class FuroDataTable extends FBP(LitElement) {
                             <td class="fx">
                                 <div><input type="checkbox"></div>
                             </td>
-                            ${tdWRepeat(this.cols)}
-                             <span hidden></span>                     
+                            ${tdWRepeat(this.cols)}                     
                         </tr>
                     </template>
                 </tbody>

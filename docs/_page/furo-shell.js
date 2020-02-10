@@ -1,4 +1,4 @@
-define(["exports","require"],function(_exports,_require){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$attrDefault=attr;_exports.$documentWaitDefault=documentWait;_exports.parser=_exports.$parserDefault=parser;_exports.find=_exports.$selectorDefault=baseFind;_exports.addClass=addClass;_exports.addMethodNames=addMethodNames;_exports.adopt$1=_exports.adopt=adopt;_exports.after=after;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.array=array;_exports.assignNewId$1=_exports.assignNewId=assignNewId;_exports.back=back;_exports.backward=backward;_exports.bbox=bbox;_exports.before=before;_exports.camelCase=camelCase;_exports.capitalize=capitalize;_exports.classes=classes;_exports.clear=clear;_exports.create$1=_exports.create=create;_exports.createScopeStyle=createScopeStyle;_exports.css$1=css$1;_exports.ctm=ctm;_exports.cx=cx;_exports.cy=cy;_exports.data=data;_exports.degrees=degrees;_exports.detectMixin=detectMixin;_exports.dispatch$1=_exports.dispatch=dispatch;_exports.eid$1=_exports.eid=eid;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.extend$1=_exports.extend=extend;_exports.filter=filter;_exports.find$1=find;_exports.findMatchingParen=findMatchingParen;_exports.findOne=findOne;_exports.forEachRule=forEachRule;_exports.forget=forget;_exports.forward=forward;_exports.from=from;_exports.front=front;_exports.gatherStyleText=gatherStyleText;_exports.getBuildComment=getBuildComment;_exports.getClass$1=_exports.getClass=getClass;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.getMethodNames=getMethodNames;_exports.getMethodsFor=getMethodsFor;_exports.getOrigin=getOrigin;_exports.getWindow=getWindow;_exports.hasClass=hasClass;_exports.height=height;_exports.height$1=height$1;_exports.hide=hide;_exports.insertAfter=insertAfter;_exports.insertBefore=insertBefore;_exports.insertNodeIntoTemplate=insertNodeIntoTemplate;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.invent$1=_exports.invent=invent;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.length=length;_exports.makeInstance$1=_exports.makeInstance=makeInstance;_exports.makeMorphable$1=_exports.makeMorphable=makeMorphable;_exports.map=map;_exports.matrixify=matrixify;_exports.memory=memory;_exports.mockAdopt$1=_exports.mockAdopt=mockAdopt;_exports.move=move;_exports.next=next;_exports.nodeOrNew$1=_exports.nodeOrNew=nodeOrNew;_exports.noop=noop;_exports.off$1=_exports.off=off;_exports.on$1=_exports.on=on;_exports.parse=parse;_exports.pathRegReplace=pathRegReplace;_exports.plain=plain;_exports.plot=plot;_exports.point=point;_exports.position=position;_exports.prev=prev;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.property$1=_exports.property=property;_exports.proportionalSize=proportionalSize;_exports.query$1=_exports.query=query;_exports.queryAll$1=_exports.queryAll=queryAll;_exports.radians=radians;_exports.rbox=rbox;_exports.register$1=_exports.register=register;_exports.registerAttrHook=registerAttrHook;_exports.registerMethods=registerMethods;_exports.registerMorphableType$1=_exports.registerMorphableType=registerMorphableType;_exports.registerWindow$1=_exports.registerWindow=registerWindow;_exports.remember=remember;_exports.removeClass=removeClass;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeNodesFromTemplate=removeNodesFromTemplate;_exports.restoreWindow=restoreWindow;_exports.rulesForStyle=rulesForStyle;_exports.rx=rx;_exports.ry=ry;_exports.saveWindow=saveWindow;_exports.screenCTM=screenCTM;_exports.setElementClassRaw=setElementClassRaw;_exports.show=show;_exports.siblings=siblings;_exports.size=size;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.templateFactory$1=_exports.templateFactory=templateFactory;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.to=to;_exports.toCssText=toCssText;_exports.toParent=toParent;_exports.toRoot=toRoot;_exports.toggleClass=toggleClass;_exports.transform=transform;_exports.unCamelCase=unCamelCase;_exports.untransform=untransform;_exports.updateNativeProperties=updateNativeProperties;_exports.visible=visible;_exports.width=width;_exports.width$1=width$1;_exports.withWindow=withWindow;_exports.wrapWithAttrCheck$1=_exports.wrapWithAttrCheck=wrapWithAttrCheck;_exports.x=x;_exports.x$1=x$1;_exports.y=y;_exports.y$1=y$1;_exports.Runner=_exports.$RunnerDefault=_exports.$Runner=_exports.Rect=_exports.$RectDefault=_exports.$Rect=_exports.Queue=_exports.$QueueDefault=_exports.$Queue=_exports.Polyline=_exports.$PolylineDefault=_exports.$Polyline=_exports.Polygon=_exports.$PolygonDefault=_exports.$Polygon=_exports.Point=_exports.$PointDefault=_exports.PointArray=_exports.$PointArrayDefault=_exports.$PointArray=_exports.$Point=_exports.Pattern=_exports.$PatternDefault=_exports.$Pattern=_exports.Path=_exports.$PathDefault=_exports.PathArray=_exports.$PathArrayDefault=_exports.$PathArray=_exports.$Path=_exports.Morphable=_exports.$MorphableDefault=_exports.$Morphable=_exports.Matrix=_exports.$MatrixDefault=_exports.$Matrix=_exports.Mask=_exports.$MaskDefault=_exports.$Mask=_exports.Marker=_exports.$MarkerDefault=_exports.$Marker=_exports.List=_exports.$ListDefault=_exports.$List=_exports.Line=_exports.$LineDefault=_exports.$Line=_exports.Image=_exports.$ImageDefault=_exports.$Image=_exports.Gradient=_exports.$GradientDefault=_exports.$Gradient=_exports.G=_exports.$GDefault=_exports.$G=_exports.ForeignObject=_exports.$ForeignObjectDefault=_exports.$ForeignObject=_exports.EventTarget=_exports.$EventTargetDefault=_exports.$EventTarget=_exports.Ellipse=_exports.$EllipseDefault=_exports.$Ellipse=_exports.Element=_exports.$ElementDefault=_exports.$Element=_exports.Dom=_exports.$DomDefault=_exports.$Dom=_exports.Defs=_exports.$DefsDefault=_exports.$Defs=_exports.$Controller=_exports.Container=_exports.$ContainerDefault=_exports.$Container=_exports.Color=_exports.$ColorDefault=_exports.$Color=_exports.ClipPath=_exports.$ClipPathDefault=_exports.$ClipPath=_exports.Circle=_exports.$CircleDefault=_exports.$Circle=_exports.Box=_exports.$BoxDefault=_exports.$Box=_exports.$BaseDefault=_exports.$Base=_exports.$ArrayPolyfill=_exports.Animator=_exports.$AnimatorDefault=_exports.$Animator=_exports.A=_exports.$ADefault=_exports.$A=void 0;_exports.$styleSettings=_exports.$socialIcons=_exports.$shadyRender=_exports.$selector=_exports.$render=_exports.regex=_exports.$regex=_exports.$poly=_exports.$pointed=_exports.$placesIcons=_exports.$parts=_exports.$part=_exports.$parser=_exports.$notificationIcons=_exports.namespaces=_exports.$namespaces=_exports.$modifyTemplate=_exports.$methods=_exports.$memory=_exports.$mapsIcons=_exports.$main=_exports.$litHtml=_exports.$litElement=_exports.$imageIcons=_exports.$iconset$1=_exports.$iconset=_exports.$i18n=_exports.$helper=_exports.$hardwareIcons=_exports.$gradiented=_exports.$furoAppBarTop=_exports.$furo=_exports.$fbp=_exports.$event=_exports.$environment=_exports.$editorIcons=_exports.$dom=_exports.$documentWait=_exports.$directive=_exports.$deviceIcons=_exports.defaults=_exports.$defaults=_exports.$defaultTemplateProcessor=_exports.$decorators=_exports.$dataEnvironment=_exports.$data=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface=_exports.$cssTag=_exports.$cssParse=_exports.$css=_exports.$communicationIcons=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$circled=_exports.$baseIcons=_exports.$avIcons=_exports.$attr=_exports.$arrange=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$adopter=_exports.Use=_exports.$UseDefault=_exports.$Use=_exports.Tspan=_exports.$TspanDefault=_exports.$Tspan=_exports.Timeline=_exports.$TimelineDefault=_exports.$Timeline=_exports.TextPath=_exports.$TextPathDefault=_exports.$TextPath=_exports.Text=_exports.$TextDefault=_exports.$Text=_exports.Symbol=_exports.$SymbolDefault=_exports.$Symbol=_exports.Svg=_exports.$SvgDefault=_exports.$Svg=_exports.Style=_exports.$StyleDefault=_exports.$Style=_exports.Stop=_exports.$StopDefault=_exports.$Stop=_exports.Shape=_exports.$ShapeDefault=_exports.$Shape=_exports.Number=_exports.$SVGNumberDefault=_exports.$SVGNumber=_exports.Array=_exports.$SVGArrayDefault=_exports.$SVGArray=void 0;_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=_exports.TemplateInstance$1=_exports.TemplateInstance=_exports.Template$1=_exports.Template=_exports.Sys$1=_exports.Sys=_exports.Styling$1=_exports.Styling=_exports.StyleNode=_exports.Stepper=_exports.Spring$1=_exports.Spring=_exports.SocialIcons=_exports.Services=_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=_exports.SVG=_exports.PropertyPart$1=_exports.PropertyPart=_exports.PropertyCommitter$1=_exports.PropertyCommitter=_exports.PlacesIcons=_exports.PID$1=_exports.PID=_exports.ObjectBag$1=_exports.ObjectBag=_exports.NotificationIcons=_exports.NonMorphable$1=_exports.NonMorphable=_exports.NodePart$1=_exports.NodePart=_exports.MorphArray=_exports.MapsIcons=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.LitElement=_exports.Init$1=_exports.Init=_exports.ImageIcons=_exports.Iconset$1=_exports.Iconset=_exports.IS_VAR=_exports.Helper=_exports.HardwareIcons=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.FuroDocIcons=_exports.FuroBaseIcons=_exports.FuroAppBarTop=_exports.FBP=_exports.EventPart$1=_exports.EventPart=_exports.Env$1=_exports.Env=_exports.EditorIcons=_exports.Ease$1=_exports.Ease=_exports.DeviceIcons=_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.Controller$1=_exports.Controller=_exports.CommunicationIcons=_exports.CSSResult$1=_exports.CSSResult=_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=_exports.BRACKETED=_exports.AvIcons=_exports.AttributePart$1=_exports.AttributePart=_exports.AttributeCommitter$1=_exports.AttributeCommitter=_exports.ANIMATION_MATCH=_exports.$window=_exports.utils=_exports.$utils=_exports.$updatingElement=_exports.$unscopedStyleHandler=_exports.$unsafeHtml=_exports.$transform=_exports.$theme=_exports.$textable=_exports.$templateResult=_exports.$templateMapDefault=_exports.$templateMap=_exports.$templateInstance=_exports.$templateFactory=_exports.$template=_exports.$system=_exports.$styling$1=_exports.$styling=_exports.$styleUtil=void 0;_exports.unsafeCSS$1=_exports.unsafeCSS=_exports.types=_exports.transforms=_exports.timeline=_exports.templateCaches$1=_exports.templateCaches=_exports.svgjs=_exports.svg$2=_exports.svg$1=_exports.svg=_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=_exports.subClassArray=_exports.scopingAttribute=_exports.root$1=_exports.root=_exports.rgb=_exports.reparentNodes$1=_exports.reparentNodes=_exports.render$1=_exports.render$2=_exports.render=_exports.removeNodes$1=_exports.removeNodes=_exports.reference=_exports.pathLetters=_exports.parts$1=_exports.parts=_exports.numbersWithDots=_exports.numberAndUnit=_exports.ns=_exports.nothing$1=_exports.nothing=_exports.notEqual$1=_exports.notEqual=_exports.nodeMarker=_exports.noChange$1=_exports.noChange=_exports.nativeShadow=_exports.nativeCssVariables=_exports.markerRegex=_exports.marker=_exports.lastAttributeNameRegex=_exports.isTemplatePartActive$1=_exports.isTemplatePartActive=_exports.isRgb=_exports.isPrimitive$1=_exports.isPrimitive=_exports.isPercent=_exports.isPathLetter=_exports.isNumber=_exports.isIterable$1=_exports.isIterable=_exports.isImage=_exports.isHex=_exports.isDirective$1=_exports.isDirective=_exports.isCss=_exports.isCEPolyfill=_exports.isBlank=_exports.i18n$1=_exports.i18n=_exports.hyphen=_exports.html$2=_exports.html$1=_exports.html=_exports.hex=_exports.globals=_exports.eventOptions$1=_exports.eventOptions=_exports.easing$1=_exports.easing=_exports.dots=_exports.disableRuntime=_exports.directive$1=_exports.directive=_exports.delimiter=_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=_exports.defaultConverter$1=_exports.defaultConverter=_exports.customElement$1=_exports.customElement=_exports.cssBuild=_exports.css$2=_exports.css=_exports.createMarker$1=_exports.createMarker=_exports.boundAttributeSuffix=_exports.attrs=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.UpdatingElement$1=_exports.UpdatingElement=_exports.Types=_exports.TransformBag$1=_exports.TransformBag=_exports.Theme$1=_exports.Theme=void 0;_exports.xmlns=_exports.xlink=_exports.wrap=_exports.whitespace=_exports.unsafeHTML=void 0;_require=babelHelpers.interopRequireWildcard(_require);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){keys.push.apply(keys,Object.getOwnPropertySymbols(object))}if(enumerableOnly)keys=keys.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});return keys}function _objectSpread(target){for(var i=1,source;i<arguments.length;i++){source=null!=arguments[i]?arguments[i]:{};if(i%2){ownKeys(source,!0).forEach(function(key){babelHelpers.defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}const FuroDocIcons={github:"<g><path d=\"M12,2C6.48,2,2,6.59,2,12.25c0,4.53,2.87,8.37,6.84,9.73c0.5,0.09,0.68-0.22,0.68-0.49c0-0.24-0.01-0.89-0.01-1.74c-2.78,0.62-3.37-1.37-3.37-1.37c-0.45-1.18-1.11-1.5-1.11-1.5c-0.91-0.64,0.07-0.62,0.07-0.62c1,0.07,1.53,1.06,1.53,1.06c0.89,1.57,2.34,1.11,2.91,0.85c0.09-0.66,0.35-1.11,0.63-1.37c-2.22-0.26-4.56-1.14-4.56-5.07c0-1.12,0.39-2.03,1.03-2.75c-0.1-0.26-0.45-1.3,0.1-2.71c0,0,0.84-0.28,2.75,1.05c0.8-0.23,1.65-0.34,2.5-0.34c0.85,0,1.7,0.12,2.5,0.34c1.91-1.33,2.75-1.05,2.75-1.05c0.55,1.41,0.2,2.45,0.1,2.71c0.64,0.72,1.03,1.63,1.03,2.75c0,3.94-2.34,4.81-4.57,5.06c0.36,0.32,0.68,0.94,0.68,1.9c0,1.37-0.01,2.48-0.01,2.81c0,0.27,0.18,0.59,0.69,0.49c3.97-1.36,6.83-5.2,6.83-9.73C22,6.59,17.52,2,12,2\"></path></g>"};_exports.FuroDocIcons=FuroDocIcons;var iconset={FuroDocIcons:FuroDocIcons};/**
+define(["exports","require"],function(_exports,_require){"use strict";Object.defineProperty(_exports,"__esModule",{value:!0});_exports.$attrDefault=attr;_exports.$documentWaitDefault=documentWait;_exports.parser=_exports.$parserDefault=parser;_exports.find=_exports.$selectorDefault=baseFind;_exports.addClass=addClass;_exports.addMethodNames=addMethodNames;_exports.adopt$1=_exports.adopt=adopt;_exports.after=after;_exports.applyCss=applyCss;_exports.applyStyle=applyStyle;_exports.applyStylePlaceHolder=applyStylePlaceHolder;_exports.array=array;_exports.assignNewId$1=_exports.assignNewId=assignNewId;_exports.back=back;_exports.backward=backward;_exports.bbox=bbox;_exports.before=before;_exports.camelCase=camelCase;_exports.capitalize=capitalize;_exports.classes=classes;_exports.clear=clear;_exports.create$1=_exports.create=create;_exports.createScopeStyle=createScopeStyle;_exports.css$1=css$1;_exports.ctm=ctm;_exports.cx=cx;_exports.cy=cy;_exports.data=data;_exports.degrees=degrees;_exports.detectMixin=detectMixin;_exports.dispatch$1=_exports.dispatch=dispatch;_exports.eid$1=_exports.eid=eid;_exports.elementHasBuiltCss=elementHasBuiltCss;_exports.elementsAreInvalid=elementsAreInvalid;_exports.extend$1=_exports.extend=extend;_exports.filter=filter;_exports.find$1=find;_exports.findMatchingParen=findMatchingParen;_exports.findOne=findOne;_exports.forEachRule=forEachRule;_exports.forget=forget;_exports.forward=forward;_exports.from=from;_exports.front=front;_exports.gatherStyleText=gatherStyleText;_exports.getBuildComment=getBuildComment;_exports.getClass$1=_exports.getClass=getClass;_exports.getComputedStyleValue=getComputedStyleValue;_exports.getCssBuild=getCssBuild;_exports.getIsExtends=getIsExtends;_exports.getMethodNames=getMethodNames;_exports.getMethodsFor=getMethodsFor;_exports.getOrigin=getOrigin;_exports.getWindow=getWindow;_exports.hasClass=hasClass;_exports.height=height;_exports.height$1=height$1;_exports.hide=hide;_exports.insertAfter=insertAfter;_exports.insertBefore=insertBefore;_exports.insertNodeIntoTemplate=insertNodeIntoTemplate;_exports.invalidate=invalidate;_exports.invalidateTemplate=invalidateTemplate;_exports.invent$1=_exports.invent=invent;_exports.isKeyframesSelector=isKeyframesSelector;_exports.isOptimalCssBuild=isOptimalCssBuild;_exports.isTargetedBuild=isTargetedBuild;_exports.isUnscopedStyle=isUnscopedStyle;_exports.isValid=isValid;_exports.isValidating=isValidating;_exports.length=length;_exports.makeInstance$1=_exports.makeInstance=makeInstance;_exports.makeMorphable$1=_exports.makeMorphable=makeMorphable;_exports.map=map;_exports.matrixify=matrixify;_exports.memory=memory;_exports.mockAdopt$1=_exports.mockAdopt=mockAdopt;_exports.move=move;_exports.next=next;_exports.nodeOrNew$1=_exports.nodeOrNew=nodeOrNew;_exports.noop=noop;_exports.off$1=_exports.off=off;_exports.on$1=_exports.on=on;_exports.parse=parse;_exports.pathRegReplace=pathRegReplace;_exports.plain=plain;_exports.plot=plot;_exports.point=point;_exports.position=position;_exports.prev=prev;_exports.processUnscopedStyle=processUnscopedStyle;_exports.processVariableAndFallback=processVariableAndFallback;_exports.property$1=_exports.property=property;_exports.proportionalSize=proportionalSize;_exports.query$1=_exports.query=query;_exports.queryAll$1=_exports.queryAll=queryAll;_exports.radians=radians;_exports.rbox=rbox;_exports.register$1=_exports.register=register;_exports.registerAttrHook=registerAttrHook;_exports.registerMethods=registerMethods;_exports.registerMorphableType$1=_exports.registerMorphableType=registerMorphableType;_exports.registerWindow$1=_exports.registerWindow=registerWindow;_exports.remember=remember;_exports.removeClass=removeClass;_exports.removeCustomPropAssignment=removeCustomPropAssignment;_exports.removeNodesFromTemplate=removeNodesFromTemplate;_exports.restoreWindow=restoreWindow;_exports.rulesForStyle=rulesForStyle;_exports.rx=rx;_exports.ry=ry;_exports.saveWindow=saveWindow;_exports.screenCTM=screenCTM;_exports.setElementClassRaw=setElementClassRaw;_exports.show=show;_exports.siblings=siblings;_exports.size=size;_exports.splitSelectorList=splitSelectorList;_exports.startValidating=startValidating;_exports.startValidatingTemplate=startValidatingTemplate;_exports.stringify=stringify;_exports.templateFactory$1=_exports.templateFactory=templateFactory;_exports.templateIsValid=templateIsValid;_exports.templateIsValidating=templateIsValidating;_exports.to=to;_exports.toCssText=toCssText;_exports.toParent=toParent;_exports.toRoot=toRoot;_exports.toggleClass=toggleClass;_exports.transform=transform;_exports.unCamelCase=unCamelCase;_exports.untransform=untransform;_exports.updateNativeProperties=updateNativeProperties;_exports.visible=visible;_exports.width=width;_exports.width$1=width$1;_exports.withWindow=withWindow;_exports.wrapWithAttrCheck$1=_exports.wrapWithAttrCheck=wrapWithAttrCheck;_exports.x=x;_exports.x$1=x$1;_exports.y=y;_exports.y$1=y$1;_exports.Runner=_exports.$RunnerDefault=_exports.$Runner=_exports.Rect=_exports.$RectDefault=_exports.$Rect=_exports.Queue=_exports.$QueueDefault=_exports.$Queue=_exports.Polyline=_exports.$PolylineDefault=_exports.$Polyline=_exports.Polygon=_exports.$PolygonDefault=_exports.$Polygon=_exports.Point=_exports.$PointDefault=_exports.PointArray=_exports.$PointArrayDefault=_exports.$PointArray=_exports.$Point=_exports.Pattern=_exports.$PatternDefault=_exports.$Pattern=_exports.Path=_exports.$PathDefault=_exports.PathArray=_exports.$PathArrayDefault=_exports.$PathArray=_exports.$Path=_exports.Morphable=_exports.$MorphableDefault=_exports.$Morphable=_exports.Matrix=_exports.$MatrixDefault=_exports.$Matrix=_exports.Mask=_exports.$MaskDefault=_exports.$Mask=_exports.Marker=_exports.$MarkerDefault=_exports.$Marker=_exports.List=_exports.$ListDefault=_exports.$List=_exports.Line=_exports.$LineDefault=_exports.$Line=_exports.Image=_exports.$ImageDefault=_exports.$Image=_exports.Gradient=_exports.$GradientDefault=_exports.$Gradient=_exports.G=_exports.$GDefault=_exports.$G=_exports.ForeignObject=_exports.$ForeignObjectDefault=_exports.$ForeignObject=_exports.EventTarget=_exports.$EventTargetDefault=_exports.$EventTarget=_exports.Ellipse=_exports.$EllipseDefault=_exports.$Ellipse=_exports.Element=_exports.$ElementDefault=_exports.$Element=_exports.Dom=_exports.$DomDefault=_exports.$Dom=_exports.Defs=_exports.$DefsDefault=_exports.$Defs=_exports.$Controller=_exports.Container=_exports.$ContainerDefault=_exports.$Container=_exports.Color=_exports.$ColorDefault=_exports.$Color=_exports.ClipPath=_exports.$ClipPathDefault=_exports.$ClipPath=_exports.Circle=_exports.$CircleDefault=_exports.$Circle=_exports.Box=_exports.$BoxDefault=_exports.$Box=_exports.$BaseDefault=_exports.$Base=_exports.$ArrayPolyfill=_exports.Animator=_exports.$AnimatorDefault=_exports.$Animator=_exports.A=_exports.$ADefault=_exports.$A=void 0;_exports.$signaturePadM=_exports.$shadyRender=_exports.$selector=_exports.$render=_exports.regex=_exports.$regex=_exports.$poly=_exports.$pointed=_exports.$placesIcons=_exports.$parts=_exports.$part=_exports.$parser=_exports.$notificationIcons=_exports.namespaces=_exports.$namespaces=_exports.$modifyTemplate=_exports.$methods=_exports.$memory=_exports.$mapsIcons=_exports.$main=_exports.$litHtml=_exports.$litElement=_exports.$imageIcons=_exports.$iconset$1=_exports.$iconset=_exports.$i18n=_exports.$helper=_exports.$hardwareIcons=_exports.$gradiented=_exports.$furoSignPad=_exports.$furoAppBarTop=_exports.$furo=_exports.$fbp=_exports.$event=_exports.$environment=_exports.$editorIcons=_exports.$dom=_exports.$documentWait=_exports.$directive=_exports.$deviceIcons=_exports.defaults=_exports.$defaults=_exports.$defaultTemplateProcessor=_exports.$decorators=_exports.$dataEnvironment=_exports.$data=_exports.$customStyleInterfaceDefault=_exports.$customStyleInterface=_exports.$cssTag=_exports.$cssParse=_exports.$css=_exports.$communicationIcons=_exports.$commonUtils=_exports.$commonRegex=_exports.$class=_exports.$circled=_exports.$baseIcons=_exports.$avIcons=_exports.$attr=_exports.$arrange=_exports.$applyShimUtils=_exports.$applyShimDefault=_exports.$applyShim$1=_exports.$adopter=_exports.Use=_exports.$UseDefault=_exports.$Use=_exports.Tspan=_exports.$TspanDefault=_exports.$Tspan=_exports.Timeline=_exports.$TimelineDefault=_exports.$Timeline=_exports.TextPath=_exports.$TextPathDefault=_exports.$TextPath=_exports.Text=_exports.$TextDefault=_exports.$Text=_exports.Symbol=_exports.$SymbolDefault=_exports.$Symbol=_exports.Svg=_exports.$SvgDefault=_exports.$Svg=_exports.Style=_exports.$StyleDefault=_exports.$Style=_exports.Stop=_exports.$StopDefault=_exports.$Stop=_exports.Shape=_exports.$ShapeDefault=_exports.$Shape=_exports.Number=_exports.$SVGNumberDefault=_exports.$SVGNumber=_exports.Array=_exports.$SVGArrayDefault=_exports.$SVGArray=void 0;_exports.TemplateInstance$1=_exports.TemplateInstance=_exports.Template$1=_exports.Template=_exports.Sys$1=_exports.Sys=_exports.Styling$1=_exports.Styling=_exports.StyleNode=_exports.Stepper=_exports.Spring$1=_exports.Spring=_exports.SocialIcons=_exports.Services=_exports.SVGTemplateResult$2=_exports.SVGTemplateResult$1=_exports.SVGTemplateResult=_exports.SVG=_exports.PropertyPart$1=_exports.PropertyPart=_exports.PropertyCommitter$1=_exports.PropertyCommitter=_exports.PlacesIcons=_exports.PID$1=_exports.PID=_exports.ObjectBag$1=_exports.ObjectBag=_exports.NotificationIcons=_exports.NonMorphable$1=_exports.NonMorphable=_exports.NodePart$1=_exports.NodePart=_exports.MorphArray=_exports.MapsIcons=_exports.MIXIN_MATCH=_exports.MEDIA_MATCH=_exports.LitElement=_exports.Init$1=_exports.Init=_exports.ImageIcons=_exports.Iconset$1=_exports.Iconset=_exports.IS_VAR=_exports.Helper=_exports.HardwareIcons=_exports.HOST_SUFFIX=_exports.HOST_PREFIX=_exports.FuroSignPad=_exports.FuroDocIcons=_exports.FuroBaseIcons=_exports.FuroAppBarTop=_exports.FBP=_exports.EventPart$1=_exports.EventPart=_exports.Env$1=_exports.Env=_exports.EditorIcons=_exports.Ease$1=_exports.Ease=_exports.DeviceIcons=_exports.DefaultTemplateProcessor$1=_exports.DefaultTemplateProcessor=_exports.CustomStyleProvider=_exports.CustomStyleInterfaceInterface=_exports.Controller$1=_exports.Controller=_exports.CommunicationIcons=_exports.CSSResult$1=_exports.CSSResult=_exports.BooleanAttributePart$1=_exports.BooleanAttributePart=_exports.BRACKETED=_exports.AvIcons=_exports.AttributePart$1=_exports.AttributePart=_exports.AttributeCommitter$1=_exports.AttributeCommitter=_exports.ANIMATION_MATCH=_exports.$window=_exports.utils=_exports.$utils=_exports.$updatingElement=_exports.$unscopedStyleHandler=_exports.$unsafeHtml=_exports.$transform=_exports.$theme=_exports.$textable=_exports.$templateResult=_exports.$templateMapDefault=_exports.$templateMap=_exports.$templateInstance=_exports.$templateFactory=_exports.$template=_exports.$system=_exports.$styling$1=_exports.$styling=_exports.$styleUtil=_exports.$styleSettings=_exports.$socialIcons=_exports.$signaturePadMDefault=void 0;_exports.timeline=_exports.templateCaches$1=_exports.templateCaches=_exports.svgjs=_exports.svg$2=_exports.svg$1=_exports.svg=_exports.supportsAdoptingStyleSheets$1=_exports.supportsAdoptingStyleSheets=_exports.subClassArray=_exports.scopingAttribute=_exports.root$1=_exports.root=_exports.rgb=_exports.reparentNodes$1=_exports.reparentNodes=_exports.render$1=_exports.render$2=_exports.render=_exports.removeNodes$1=_exports.removeNodes=_exports.reference=_exports.pathLetters=_exports.parts$1=_exports.parts=_exports.numbersWithDots=_exports.numberAndUnit=_exports.ns=_exports.nothing$1=_exports.nothing=_exports.notEqual$1=_exports.notEqual=_exports.nodeMarker=_exports.noChange$1=_exports.noChange=_exports.nativeShadow=_exports.nativeCssVariables=_exports.markerRegex=_exports.marker=_exports.lastAttributeNameRegex=_exports.isTemplatePartActive$1=_exports.isTemplatePartActive=_exports.isRgb=_exports.isPrimitive$1=_exports.isPrimitive=_exports.isPercent=_exports.isPathLetter=_exports.isNumber=_exports.isIterable$1=_exports.isIterable=_exports.isImage=_exports.isHex=_exports.isDirective$1=_exports.isDirective=_exports.isCss=_exports.isCEPolyfill=_exports.isBlank=_exports.i18n$1=_exports.i18n=_exports.hyphen=_exports.html$2=_exports.html$1=_exports.html=_exports.hex=_exports.globals=_exports.eventOptions$1=_exports.eventOptions=_exports.easing$1=_exports.easing=_exports.dots=_exports.disableRuntime=_exports.directive$1=_exports.directive=_exports.delimiter=_exports.defaultTemplateProcessor$1=_exports.defaultTemplateProcessor=_exports.defaultConverter$1=_exports.defaultConverter=_exports.customElement$1=_exports.customElement=_exports.cssBuild=_exports.css$2=_exports.css=_exports.createMarker$1=_exports.createMarker=_exports.boundAttributeSuffix=_exports.attrs=_exports.VAR_CONSUMED=_exports.VAR_ASSIGN=_exports.UpdatingElement$1=_exports.UpdatingElement=_exports.Types=_exports.TransformBag$1=_exports.TransformBag=_exports.Theme$1=_exports.Theme=_exports.TemplateResult$3=_exports.TemplateResult$2=_exports.TemplateResult$1=_exports.TemplateResult=void 0;_exports.xmlns=_exports.xlink=_exports.wrap=_exports.whitespace=_exports.unsafeHTML=_exports.unsafeCSS$1=_exports.unsafeCSS=_exports.types=_exports.transforms=void 0;_require=babelHelpers.interopRequireWildcard(_require);function ownKeys(object,enumerableOnly){var keys=Object.keys(object);if(Object.getOwnPropertySymbols){keys.push.apply(keys,Object.getOwnPropertySymbols(object))}if(enumerableOnly)keys=keys.filter(function(sym){return Object.getOwnPropertyDescriptor(object,sym).enumerable});return keys}function _objectSpread(target){for(var i=1,source;i<arguments.length;i++){source=null!=arguments[i]?arguments[i]:{};if(i%2){ownKeys(source,!0).forEach(function(key){babelHelpers.defineProperty(target,key,source[key])})}else if(Object.getOwnPropertyDescriptors){Object.defineProperties(target,Object.getOwnPropertyDescriptors(source))}else{ownKeys(source).forEach(function(key){Object.defineProperty(target,key,Object.getOwnPropertyDescriptor(source,key))})}}return target}const FuroDocIcons={github:"<g><path d=\"M12,2C6.48,2,2,6.59,2,12.25c0,4.53,2.87,8.37,6.84,9.73c0.5,0.09,0.68-0.22,0.68-0.49c0-0.24-0.01-0.89-0.01-1.74c-2.78,0.62-3.37-1.37-3.37-1.37c-0.45-1.18-1.11-1.5-1.11-1.5c-0.91-0.64,0.07-0.62,0.07-0.62c1,0.07,1.53,1.06,1.53,1.06c0.89,1.57,2.34,1.11,2.91,0.85c0.09-0.66,0.35-1.11,0.63-1.37c-2.22-0.26-4.56-1.14-4.56-5.07c0-1.12,0.39-2.03,1.03-2.75c-0.1-0.26-0.45-1.3,0.1-2.71c0,0,0.84-0.28,2.75,1.05c0.8-0.23,1.65-0.34,2.5-0.34c0.85,0,1.7,0.12,2.5,0.34c1.91-1.33,2.75-1.05,2.75-1.05c0.55,1.41,0.2,2.45,0.1,2.71c0.64,0.72,1.03,1.63,1.03,2.75c0,3.94-2.34,4.81-4.57,5.06c0.36,0.32,0.68,0.94,0.68,1.9c0,1.37-0.01,2.48-0.01,2.81c0,0.27,0.18,0.59,0.69,0.49c3.97-1.36,6.83-5.2,6.83-9.73C22,6.59,17.52,2,12,2\"></path></g>"};_exports.FuroDocIcons=FuroDocIcons;var iconset={FuroDocIcons:FuroDocIcons};/**
     * @license
     * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
     * This code may only be used under the BSD style license found at
@@ -983,7 +983,7 @@ if(element.attributes[i].name.startsWith("@-")){let eventname=element.attributes
          */function registerEvent(eventname,type,wire,element){// find properties in wire
 element.__atf={};let match=wire.match(/([a-z0-9\-_*\.]+)/gi);// store @-ƒ-attributes existence
 for(let i=0;i<element.attributes.length;i++){element.__atf[element.attributes[i].name]=!0}let handler={// prevent default and stop propagation
-stop:function(e){e.detail.stopPropagation()},preventdefault:function(e){e.detail.preventDefault()},call:function(e){/**
+stop:function(e){e.stopPropagation()},preventdefault:function(e){e.preventDefault()},call:function(e){/**
              * Prüfe ob die Funktion mit einem Wert aus dem Host oder mit den Details des Events ausgeführt werden soll.
              * --wire(hostName) ==> wirft this.hostName in die Funktion sonst wird e.detail verwendet
              *
@@ -1446,7 +1446,7 @@ return html`
                                                                 * - the acceptLanguage, which is used by the data components
                                                                 *
                                                                 */class Env{}// default Env
-_exports.Env$1=_exports.Env=Env;Env._acceptLanguage=window.navigator.languages.map((e,i)=>{if(0===i){e=e.substr(0,2)};return e+";q="+Math.max(.1,1-(i+1)/10)});Env._acceptLanguage.unshift(window.navigator.language);Env.api={headers:[["Accept-Language",Env._acceptLanguage.join(",")]],services:{},specs:{}};Env.locale=window.navigator.language;var environment={Env:Env};_exports.$environment=environment;class i18n{static registerResBundle(bundle){this.resbundle=bundle}static t(key){if(i18n.resbundle===void 0){console.warn("There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).");return key}let b=i18n.resbundle[Env.locale];if(b===void 0){console.warn("No resource bundle with locale "+Env.locale+" exists.");return key+"**"}const res=key.split(".").reduce((acc,part)=>acc&&acc[part],b);return res?res:key+"**"}static n(key,num){return key+"*"+num}}_exports.i18n$1=_exports.i18n=i18n;var i18n$1={i18n:i18n};_exports.$i18n=i18n$1;class Init{static registerEnv(section,data){Env[section]=data}static registerApiServices(services){Env.api.services=services}static registerApiTypes(types){Env.api.specs=types}/**
+_exports.Env$1=_exports.Env=Env;Env._acceptLanguage=window.navigator.languages.map((e,i)=>{if(0===i){e=e.substr(0,2)};return e+";q="+Math.max(.1,1-(i+1)/10)});Env._acceptLanguage.unshift(window.navigator.language);Env.api={headers:[["Accept-Language",Env._acceptLanguage.join(",")]],services:{},specs:{}};Env.locale=window.navigator.language;var environment={Env:Env};_exports.$environment=environment;class i18n{static registerResBundle(bundle){this.resbundle=bundle}static t(key){if(i18n.resbundle===void 0){console.warn("There is no resouce bundle registered. Please register with i18.registerResBundle(RESBUNDLE).");return key}let b=i18n.resbundle[Env.locale];if(b===void 0){console.warn("No resource bundle with locale "+Env.locale+" exists.");return key+"**"}const res=key.split(".").reduce((acc,part)=>acc&&acc[part],b);return res!==void 0?res:key+"**"}static n(key,num){return key+"*"+num}}_exports.i18n$1=_exports.i18n=i18n;var i18n$1={i18n:i18n};_exports.$i18n=i18n$1;class Init{static registerEnv(section,data){Env[section]=data}static registerApiServices(services){Env.api.services=services}static registerApiTypes(types){Env.api.specs=types}/**
      *
      * @param locale
      */static translateStaticTypeMessages(locale){// read from original spec to apply locale
@@ -1499,7 +1499,7 @@ console.log("Set locale from",Env.locale);Env.locale=locale;Init.translateStatic
     */_exports.$system=system;class Iconset{// register an icon set
 static registerIconset(setName,icons){this[setName]=icons}// get icon svg via icon set name and icon name
 static get(setName,iconName){// default fallback icon `report problem`
-let icon="<g></g>";if(this[setName]&&this[setName][iconName]){icon=this[setName][iconName]}return icon}}_exports.Iconset$1=_exports.Iconset=Iconset;var iconset$1={Iconset:Iconset};_exports.$iconset$1=iconset$1;var furo={Env:Env,i18n:i18n,Init:Init,Sys:Sys,Theme:Theme,Iconset:Iconset};_exports.$furo=furo;const Services={TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"treeservice",imports:["tree/tree.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/trees/{tre}/get.json",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/trees/{tre}",method:"DELETE"}}}},ProjectfilterService:{name:"ProjectfilterService",description:"service specs for the projectfilter api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectfilterservice",imports:["projectfilter/projectfilter.proto","google/protobuf/empty.proto"],targetfile:"projectfilterservice.proto"},services:{Get:{description:"The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",rpc_name:"GetProjectfilter",data:{request:null,response:"projectfilter.ProjectfilterEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/filter/get.json",method:"GET"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"personservice",imports:["person/person.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/persons/list.json",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/persons/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/persons/{prs}/get.json",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/persons/{prs}/update.json",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/persons/{prs}/delete.json",method:"GET"}}}},ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectservice",imports:["project/project.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},filter:{},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/projects/list.json",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/projects/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/{prj}/get.json",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/projects/{prj}/update.json",method:"GET"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/projects/{prj}/delete.json",method:"GET"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmemberservice",imports:["person/person.proto"],targetfile:"service.proto"},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",rdpc_name:"UnsubscribeMember",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"unsubscibe",href:"/api/projects/{prj}/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",rpc_name:"ListMembers",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"taskservice",imports:["task/task.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a task",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/tasks/list.json",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/tasks/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/tasks/{tsk}/get.json",method:"GET"}},Update:{description:"Updates a Task, partial updates are not supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/tasks/{tsk}/update.json",method:"GET"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/tasks/{tsk}/delete.json",method:"GET"}}}},ExperimentService:{name:"ExperimentService",description:"service specs for the experiment api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"experimentservice",imports:["experiment/experiment.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",rpc_name:"ListExperiments",data:{request:null,response:"experiment.ExperimentCollection"},query:{q:{description:"Query term to search a experiment",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/experiments",method:"GET"}},Create:{description:"Creates a new Experiment",rpc_name:"CreateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/experiments",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",rpc_name:"GetExperiment",data:{request:null,response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/experiments/{exp}/get.json",method:"GET"}},Update:{description:"Updates a Experiment, partial updates are supported",rpc_name:"UpdateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/experiments/{exp}",method:"PATCH"}},Delete:{description:"Delete a Experiment",rpc_name:"DeleteExperiment",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/experiments/{exp}",method:"DELETE"}},Release:{description:"Releases experiment",rpc_name:"ReleaseExperiment",data:{request:"experiment.ExperimentEntity",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"release",href:"/mockdata/experiments/1:release",method:"POST"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:[],targetfile:"tree.proto"},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"],targetfile:"tree.proto"},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},is_group_label:{description:"This node is a group label",type:"bool",meta:{default:!1},__proto:{number:11}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:12}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"projectfilter.ProjectfilterEntity":{name:"projectfilter_entity",type:"ProjectfilterEntity",description:"ProjectfilterEntity with Projectfilter",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{data:{description:"contains a projectfilter.Projectfilter",type:"projectfilter.Projectfilter",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"projectfilter.Projectfilter":{name:"projectfilter",type:"Projectfilter",description:"Options for possible filter values",__proto:{package:"projectfilter",options:{},imports:["google/type/date.proto","google/type/money.proto","furo/reference.proto"],targetfile:"projectfilter.proto"},fields:{description:{description:"Filter preset for field description from resource projects",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:1}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:2}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:3}},members:{description:"List of possible project members",type:"furo.Reference",meta:{label:"Choose person",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}}},constraints:{},__proto:{number:4}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{},__proto:{number:5}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:["google/protobuf/field_mask.proto"],targetfile:"person.proto"},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{required:{is:"true",message:"you must enter a name"}},__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},__proto:{number:4},__ui:{component:"furo-data-text-input"}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:7}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/type/money.proto","google/type/date.proto","person/person.proto"],targetfile:"project.proto"},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:25e3,message:"max 25000"}},__proto:{number:7}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["furo/reference.proto"],targetfile:"task.proto"},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"string",meta:{label:"task.display_name.label",default:"",hint:"task.display_name.hint",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"task.desc.label",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:180,message:"task.desc.maxlength"}},__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int32",meta:{label:"Est. days",default:"",hint:""},constraints:{},__proto:{number:4}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"person.type.sex.label",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}},hint:"",no_result_hint:"",options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}}}},"experiment.ExperimentEntity":{name:"experiment_entity",type:"ExperimentEntity",description:"ExperimentEntity with Experiment",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{data:{description:"contains a experiment.Experiment",type:"experiment.Experiment",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Constraints":{name:"experiment",type:"Constraints",description:"Test the Constraints",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},max:{is:"12",message:"maximal 12"}},__proto:{number:2}},number:{description:"Short experiment description",type:"int32",meta:{label:"Valid values are 6,9,12",default:"1",hint:""},constraints:{min:{is:"6",message:"Minimal number 6"},max:{is:"12",message:"maximal 12"},step:{is:"3",message:"step 3"}},__proto:{number:3}},text:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},min:{is:"6",message:"minimal 6"},max:{is:"12",message:"maximal 12"}},__proto:{number:4}}}},"experiment.Experiment":{name:"experiment",type:"Experiment",description:"experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/field_mask.proto","furo/property.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:3}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5}},furo_data_textarea_input:{description:"field for furo_data_textarea_input for testing",type:"string",meta:{label:"textarea_input",hint:"hint",readonly:!1,rows:3,cols:100},constraints:{},__proto:{number:6}},furo_data_time_input:{description:"field for furo-data-time-input for testing",type:"string",meta:{label:"time-input",hint:"hint",readonly:!1},constraints:{min:{is:"05:00",message:"From 05:00"},max:{is:"19:00",message:"to 19:00"},step:{is:"5",message:"step 5"}},__proto:{number:7}},furo_data_range_input:{description:"field for furo-data-range-input for testing",type:"string",meta:{label:"range-input",hint:"hint",readonly:!1},constraints:{min:{is:20,message:"From 20"},max:{is:50,message:"to 50"},step:{is:"2.5",message:"step 2.5"}},__proto:{number:8}},furo_data_number_input:{description:"field for furo-data-number-input for testing",type:"float",meta:{label:"number-input",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"from 1"},max:{is:555,message:"to 555"},step:{is:"3",message:"step 3"}},__proto:{number:9}},furo_data_color_input:{description:"field for furo-data-color-input for testing",type:"string",meta:{label:"color-input",hint:"hint",readonly:!1},constraints:{},__proto:{number:10}},furo_data_password_input:{description:"field for furo-data-password-input for testing",type:"string",meta:{label:"password-input",hint:"hint",readonly:!1},constraints:{min:{is:6,message:"min 6"},max:{is:15,message:"max 15"}},__proto:{number:11}},furo_data_search_input:{description:"field for furo-search-input for testing",type:"string",meta:{label:" search",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"min 1"},max:{is:15,message:"max 15"},pattern:{is:"a.*",message:"must start with a"}},__proto:{number:12}},furo_data_date_input:{description:"field for furo-data-date-input for testing",type:"string",meta:{label:"date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"5",message:"step 5"}},__proto:{number:13}},furo_data_bool_icon:{description:"field for furo-data-bool-icon for testing",type:"bool",meta:{label:"bool-icon input",hint:"hint",readonly:!1},constraints:{},__proto:{number:14}},the_any_type:{description:"field for testing any",type:"google.protobuf.Any",meta:{label:"can be anything",hint:"hint",readonly:!1},constraints:{},__proto:{number:15}},type_with_options:{description:"field for testing static options",type:"string",meta:{label:"String options",hint:"Choose one",options:{list:[{id:"option_1",display_name:"option_1",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_2",display_name:"option_2",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_3",display_name:"option_3",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:16}},type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields",repeated:!0},constraints:{},__proto:{number:17}},furo_data_date_input_google:{description:"field for furo-data-date-input for testing",type:"google.type.Date",meta:{label:"gogole-date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"2",message:"step 2"}},__proto:{number:18}},single_type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields"},constraints:{},__proto:{number:19}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:20}},furo_data_money_input:{description:"field for testing money type",type:"google.type.Money",meta:{readonly:!1,label:"Amount",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{required:{is:"true",message:"is required"},min:{is:0,message:"amount can not be negative"},max:{is:999999,message:"amount maximal 999999"},step:{is:.01,message:"step 0.01"}},__proto:{number:21}},furo_data_file_input:{description:"field for testing money type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:23}}}},"experiment.Default":{name:"experiment",type:"Default",description:"Test the default value",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:3}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:4}}}},"experiment.Recursive":{name:"recursive",type:"Recursive",description:"recursive type for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2}},recursion:{description:"The recursion",type:"experiment.Recursive",meta:{label:"Recursio"},constraints:{},__proto:{number:3}}}},"experiment.ExperimentCollection":{name:"experiment_collection",type:"ExperimentCollection",description:"ExperimentCollection with repeated ExperimentEntity",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a experiment.ExperimentEntity repeated",type:"experiment.ExperimentEntity",meta:{repeated:!0},__proto:{number:4}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:["furo/link.proto"],targetfile:"reference.proto"},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},link:{description:"Hateoas link",type:"furo.Link",__proto:{number:3}}}},"furo.MetaField":{name:"metafield",type:"MetaField",description:"fields of meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{meta:{description:"meta information of a field",type:"furo.FieldMeta",__proto:{number:1}},constraints:{description:"constraints for a field",type:"map<string,furo.FieldConstraint>",__proto:{number:2}}}},"furo.StringOptionProperty":{name:"string_option_property",type:"StringOptionProperty",description:"String type to use in property",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{display_name:{description:"String representation of val",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"The value, Id is used to make working with data-inputs easier",type:"string",__proto:{number:2}}}},"furo.Optionitem":{name:"optionitem",type:"Optionitem",description:"Items for fieldoption.list",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{id:{description:"Id",type:"string",meta:{label:"Id"},__proto:{number:1}},display_name:{description:"String representation",type:"string",meta:{label:"Display name"},__proto:{number:2}},selected:{description:"is the item selected",meta:{label:"Selected"},type:"bool",__proto:{number:3}}}},"furo.NumberProperty":{name:"number_property",type:"NumberProperty",description:"Number type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"data part",type:"float",__proto:{number:1}}}},"furo.Fieldoption":{name:"fieldoption",type:"Fieldoption",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{list:{description:"a list with options, use furo.optionitem or your own",type:"google.protobuf.Any",meta:{repeated:!0},__proto:{number:1}}}},"furo.StringProperty":{name:"string_property",type:"StringProperty",description:"String type to use in property",__proto:{package:"furo",imports:["furo/meta.proto"],targetfile:"property.proto"},fields:{data:{description:"data part",type:"string",__proto:{number:1}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{fields:{description:"fields of meta info",type:"map<string, furo.MetaField>",__proto:{number:1}}}},"furo.IntegerProperty":{name:"integer_property",type:"IntegerProperty",description:"Integer type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"Integer data part",type:"int32",constraints:{step:{is:1}},__proto:{number:1}}}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[],targetfile:"link.proto"},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}},service:{description:"name of the service which can handle this link",type:"string",__proto:{number:5}}}},"furo.FieldMeta":{name:"fieldmeta",type:"FieldMeta",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{label:{description:"The label",type:"string",meta:{label:"Label",hint:"Also used for input-fields"},__proto:{number:1}},hint:{description:"A hint",type:"string",meta:{label:"Hint",hint:"Also used for input-fields"},__proto:{number:2}},default:{description:"The default value as JSON string",type:"string",meta:{label:"Default value"},__proto:{number:3}},readonly:{description:"readonly",type:"bool",meta:{label:"readonly"},__proto:{number:4}},repeated:{description:"repeated",type:"bool",meta:{label:"repeated"},__proto:{number:5}},options:{description:"Fieldoptions",type:"furo.Fieldoption",meta:{label:"options"},__proto:{number:6}},typespecific:{description:"Put in type specific metas for your fields here",type:"google.protobuf.Any",meta:{label:"types pecific meta"},__proto:{number:7}}}},"furo.FieldConstraint":{name:"fieldconstraint",type:"FieldConstraint",description:"a single fieldconstraint",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{is:{description:"the constraint value as string, even it is a number",type:"string",meta:{label:"is"},__proto:{number:1}},message:{description:"The message to display on constraint violation",type:"string",meta:{label:"message"},__proto:{number:2}}}},"furo.Property":{name:"property",type:"Property",description:"Type to define property values with type information",__proto:{package:"furo",imports:["google/protobuf/any.proto"],targetfile:"property.proto"},fields:{id:{description:"Id of the property",type:"string",meta:{label:"Id"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"String representation of the property",type:"string",meta:{label:"Property",readonly:!0},constraints:{},__proto:{number:2}},data:{description:"data part of the property",type:"google.protobuf.Any",constraints:{},__proto:{number:3}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:4}},code:{description:"property code for additional settings",type:"string",__proto:{number:5}}}},"google.type.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google.type",imports:[],targetfile:"money.proto"},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int64",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int64",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4}}}},"google.type.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google.type",imports:[],targetfile:"date.proto"},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3}}}},"google.protobuf.StringValue":{name:"stringvalue",type:"StringValue",description:"Wrapper message for `string`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `StringValue` is JSON string",type:"string",__proto:{number:1}}}},"google.protobuf.FieldMask":{name:"field_mask",type:"FieldMask",description:"A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"field_mask.proto"},fields:{paths:{description:"The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",type:"string",meta:{repeated:!0},__proto:{number:1}}}},"google.protobuf.Int64Value":{name:"int64value",type:"Int64Value",description:"Wrapper message for `int64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int64Value` is JSON string",type:"int64",__proto:{number:1}}}},"google.protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"google.protobuf",imports:[],targetfile:"empty.proto",options:{}},fields:{}},"google.protobuf.Int32Value":{name:"int32value",type:"Int32Value",description:"Wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int32Value` is JSON number",type:"int32",__proto:{number:1},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}}}},"google.protobuf.BoolValue":{name:"boolvalue",type:"BoolValue",description:"Wrapper message for `bool`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BoolValue` is JSON `true` and `false`",type:"bool",__proto:{number:1}}}},"google.protobuf.FloatValue":{name:"floatvalue",type:"FloatValue",description:"Wrapper message for `float`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `FloatValue` is JSON number",type:"float",__proto:{number:1}}}},"google.protobuf.BytesValue":{name:"bytesvalue",type:"BytesValue",description:"Wrapper message for `bytes`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BytesValue` is JSON string",type:"bytes",__proto:{number:1}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"any.proto"},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"bytes",__proto:{number:2}}}},"google.protobuf.UInt32Value":{name:"uint32value",type:"UInt32Value",description:"Wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt32Value` is JSON number",type:"uint32",__proto:{number:1}}}},"google.protobuf.UInt64Value":{name:"uint64value",type:"UInt64Value",description:"Wrapper message for `uint64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt64Value` is JSON string",type:"uint64",__proto:{number:1}}}},"google.protobuf.DoubleValue":{name:"doublevalue",type:"DoubleValue",description:"Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `DoubleValue` is JSON number",type:"double",__proto:{number:1}}}}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
+let icon="<g></g>";if(this[setName]&&this[setName][iconName]){icon=this[setName][iconName]}return icon}}_exports.Iconset$1=_exports.Iconset=Iconset;var iconset$1={Iconset:Iconset};_exports.$iconset$1=iconset$1;var furo={Env:Env,i18n:i18n,Init:Init,Sys:Sys,Theme:Theme,Iconset:Iconset};_exports.$furo=furo;const Services={TreeService:{name:"TreeService",description:"service specs for the tree api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"treeservice",imports:["tree/tree.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TreeCollection of TreeEntity that match the input parameters.",rpc_name:"ListTrees",data:{request:null,response:"tree.TreeCollection"},query:{q:{description:"Query term to search a tree",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/trees",method:"GET"}},Create:{description:"Creates a new Tree",rpc_name:"CreateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/trees",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a TreeEntity which contains a Tree",rpc_name:"GetTree",data:{request:null,response:"tree.TreeEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/trees/{tre}/get.json",method:"GET"}},Update:{description:"Updates a Tree, partial updates are supported",rpc_name:"UpdateTree",data:{request:"tree.Tree",response:"tree.TreeEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/trees/{tre}",method:"PATCH"}},Delete:{description:"Delete a Tree",rpc_name:"DeleteTree",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/trees/{tre}",method:"DELETE"}}}},ProjectfilterService:{name:"ProjectfilterService",description:"service specs for the projectfilter api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectfilterservice",imports:["projectfilter/projectfilter.proto","google/protobuf/empty.proto"],targetfile:"projectfilterservice.proto"},services:{Get:{description:"The Get method takes zero or more parameters, and returns a ProjectfilterEntity which contains a Projectfilter",rpc_name:"GetProjectfilter",data:{request:null,response:"projectfilter.ProjectfilterEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/filter/get.json",method:"GET"}}}},AuthService:{name:"AuthService",description:"service specs for the auth api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"authservice",imports:["auth/auth.proto","google/protobuf/empty.proto"],targetfile:"authservice.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a AuthCollection of AuthEntity that match the input parameters.",rpc_name:"ListAuths",data:{request:null,response:"auth.AuthCollection"},query:{q:{description:"Query term to search a auth",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/api/auths",method:"GET"}},Create:{description:"Creates a new Auth",rpc_name:"CreateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"create",href:"/api/auths",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a AuthEntity which contains a Auth",rpc_name:"GetAuth",data:{request:null,response:"auth.AuthEntity"},query:{},deeplink:{rel:"self",href:"/api/auths/{uid}",method:"GET"}},Update:{description:"Updates a Auth, partial updates are supported",rpc_name:"UpdateAuth",data:{request:"auth.Auth",response:"auth.AuthEntity"},query:{},deeplink:{rel:"update",href:"/api/auths/{uid}",method:"PATCH"}},Delete:{description:"Logout ala delete a auth session",rpc_name:"Logout",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/api/auth",method:"DELETE"}}}},PersonService:{name:"PersonService",description:"service specs for the person api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"personservice",imports:["person/person.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a PersonCollection of PersonEntity that match the input parameters.",rpc_name:"ListPersons",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a person",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/persons/list.json",method:"GET"}},Create:{description:"Creates a new Person",rpc_name:"CreatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/persons/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a PersonEntity which contains a Person",rpc_name:"GetPerson",data:{request:null,response:"person.PersonEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/persons/{prs}/get.json",method:"GET"}},Update:{description:"Updates a Person, partial updates are supported",rpc_name:"UpdatePerson",data:{request:"person.Person",response:"person.PersonEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/persons/{prs}/update.json",method:"PATCH"}},Delete:{description:"Delete a Person",rpc_name:"DeletePerson",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/persons/{prs}/delete.json",method:"GET"}}}},ProjectService:{name:"ProjectService",description:"service specs for the project api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectservice",imports:["project/project.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ProjectCollection of ProjectEntity that match the input parameters.",rpc_name:"ListProjects",data:{request:null,response:"project.ProjectCollection"},filter:{},query:{q:{description:"Query term to search a project",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/projects/list.json",method:"GET"}},Create:{description:"Creates a new Project",rpc_name:"CreateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/projects/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a ProjectEntity which contains a Project",rpc_name:"GetProject",data:{request:null,response:"project.ProjectEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/projects/{prj}/get.json",method:"GET"}},Update:{description:"Updates a Project, partial updates are supported",rpc_name:"UpdateProject",data:{request:"project.Project",response:"project.ProjectEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/projects/{prj}/update.json",method:"GET"}},Delete:{description:"Delete a Project",rpc_name:"DeleteProject",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/projects/{prj}/delete.json",method:"GET"}}}},ProjectMembersService:{name:"ProjectMembersService",description:"The members of a project",version:"1.0.0",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"projectmemberservice",imports:["person/person.proto"],targetfile:"service.proto"},services:{Unsubscribe:{description:"Custom method to unsubscribe a member, complete PersonEntity is expected",rdpc_name:"UnsubscribeMember",data:{request:"person.PersonEntity",response:"person.PersonCollection"},query:{},deeplink:{description:"{prs} stands for person",rel:"unsubscibe",href:"/api/projects/{prj}/members/{prs}:unsubscribe",method:"POST"}},List:{description:"Get a collection with PersonEntities",rpc_name:"ListMembers",data:{request:null,response:"person.PersonCollection"},query:{q:{description:"Query term to search a member",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{rel:"list",href:"/api/members",method:"GET"}}}},TaskService:{name:"TaskService",description:"service specs for the task api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"taskservice",imports:["task/task.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a TaskCollection of TaskEntity that match the input parameters.",rpc_name:"ListTasks",data:{request:null,response:"task.TaskCollection"},query:{q:{description:"Query term to search a task",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/tasks/list.json",method:"GET"}},Create:{description:"Creates a new Task",rpc_name:"CreateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/tasks/create.json",method:"GET"}},Get:{description:"The Get method takes zero or more parameters, and returns a TaskEntity which contains a Task",rpc_name:"GetTask",data:{request:null,response:"task.TaskEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/tasks/{tsk}/get.json",method:"GET"}},Update:{description:"Updates a Task, partial updates are not supported",rpc_name:"UpdateTask",data:{request:"task.Task",response:"task.TaskEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/tasks/{tsk}/update.json",method:"GET"}},Delete:{description:"Delete a Task",rpc_name:"DeleteTask",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/tasks/{tsk}/delete.json",method:"GET"}}}},ExperimentService:{name:"ExperimentService",description:"service specs for the experiment api",version:"0.0.1",lifecycle:{deprecated:!1,info:"This version is still valid"},__proto:{package:"experimentservice",imports:["experiment/experiment.proto","google/protobuf/empty.proto"],targetfile:"service.proto"},services:{List:{description:"The List method takes zero or more parameters as input, and returns a ExperimentCollection of ExperimentEntity that match the input parameters.",rpc_name:"ListExperiments",data:{request:null,response:"experiment.ExperimentCollection"},query:{q:{description:"Query term to search a experiment",type:"string",meta:{label:"Search",hint:""},__proto:{type:"string"}}},deeplink:{description:"Describe_the_query_params_if_you_have",rel:"list",href:"/mockdata/experiments",method:"GET"}},Create:{description:"Creates a new Experiment",rpc_name:"CreateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"create",href:"/mockdata/experiments",method:"POST"}},Get:{description:"The Get method takes zero or more parameters, and returns a ExperimentEntity which contains a Experiment",rpc_name:"GetExperiment",data:{request:null,response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"self",href:"/mockdata/experiments/{exp}/get.json",method:"GET"}},Update:{description:"Updates a Experiment, partial updates are supported",rpc_name:"UpdateExperiment",data:{request:"experiment.Experiment",response:"experiment.ExperimentEntity"},query:{},deeplink:{rel:"update",href:"/mockdata/experiments/{exp}",method:"PATCH"}},Delete:{description:"Delete a Experiment",rpc_name:"DeleteExperiment",data:{request:"google.protobuf.Empty",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"delete",href:"/mockdata/experiments/{exp}",method:"DELETE"}},Release:{description:"Releases experiment",rpc_name:"ReleaseExperiment",data:{request:"experiment.ExperimentEntity",response:"google.protobuf.Empty"},query:{},deeplink:{rel:"release",href:"/mockdata/experiments/1:release",method:"POST"}}}}};_exports.Services=Services;const Types={"tree.Tree":{name:"tree",type:"Tree",description:"Navigation tree type with recursive navigation nodes",__proto:{package:"tree",imports:[],targetfile:"tree.proto"},fields:{id:{description:"Id of the tree",type:"string",__proto:{number:1}},display_name:{description:"String representation of the tree",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the tree",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},root:{description:"Rootnode of the tree",type:"tree.Navigationnode",meta:{},__proto:{number:10}}}},"tree.TreeEntity":{name:"tree_entity",type:"TreeEntity",description:"TreeEntity with Tree",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{data:{description:"contains a tree.Tree",type:"tree.Tree",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"tree.Navigationnode":{name:"navigationnode",type:"Navigationnode",description:"Item of the navigationtree",__proto:{package:"tree",imports:["furo/link.proto"],targetfile:"tree.proto"},fields:{id:{description:"Id of the node",type:"string",__proto:{number:1}},display_name:{description:"String representation of the node",type:"string",meta:{readonly:!0,"tree-search-index":!0},__proto:{number:2}},secondary_text:{description:"Secondary text of the node",type:"string",meta:{"tree-search-index":!0},__proto:{number:3}},description:{description:"description of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:4}},icon:{description:"icon of the node",type:"string",__proto:{number:5}},panel:{description:"Which panel (i.e. view, edit, display) opens the node type (which is defined in property link)",type:"string",meta:{readonly:!0,"tree-search-index":!1},__proto:{number:6}},key_words:{description:"key words of the node",meta:{"tree-search-index":!0},type:"string",__proto:{number:7}},has_error:{description:"if node has error",type:"bool",__proto:{number:8}},open:{description:"node is open or not",type:"bool",__proto:{number:9}},link:{description:"Deeplink information of this node",type:"furo.Link",__proto:{number:10}},is_group_label:{description:"This node is a group label",type:"bool",meta:{default:!1},__proto:{number:11}},children:{description:"Children of this node",type:"tree.Navigationnode",meta:{repeated:!0},__proto:{number:12}}}},"tree.TreeCollection":{name:"tree_collection",type:"TreeCollection",description:"TreeCollection with repeated TreeEntity",__proto:{package:"tree",imports:["furo/meta.proto","furo/link.proto"],targetfile:"tree.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a tree.TreeEntity repeated",type:"tree.TreeEntity",meta:{repeated:!0},__proto:{number:4}}}},"projectfilter.ProjectfilterEntity":{name:"projectfilter_entity",type:"ProjectfilterEntity",description:"ProjectfilterEntity with Projectfilter",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{data:{description:"contains a projectfilter.Projectfilter",type:"projectfilter.Projectfilter",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"projectfilter.Projectfilter":{name:"projectfilter",type:"Projectfilter",description:"Options for possible filter values",__proto:{package:"projectfilter",options:{},imports:["google/type/date.proto","google/type/money.proto","furo/reference.proto"],targetfile:"projectfilter.proto"},fields:{description:{description:"Filter preset for field description from resource projects",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:1}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:2}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:3}},members:{description:"List of possible project members",type:"furo.Reference",meta:{label:"Choose person",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}}},constraints:{},__proto:{number:4}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{},__proto:{number:5}}}},"projectfilter.ProjectfilterCollection":{name:"projectfilter_collection",type:"ProjectfilterCollection",description:"ProjectfilterCollection with repeated ProjectfilterEntity",__proto:{package:"projectfilter",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"projectfilter.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a projectfilter.ProjectfilterEntity repeated",type:"projectfilter.ProjectfilterEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthCollection":{name:"auth_collection",type:"AuthCollection",description:"AuthCollection with repeated AuthEntity",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a auth.AuthEntity repeated",type:"auth.AuthEntity",meta:{repeated:!0},__proto:{number:4}}}},"auth.AuthEntity":{name:"auth_entity",type:"AuthEntity",description:"AuthEntity with Auth",__proto:{package:"auth",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"auth.proto"},fields:{data:{description:"contains a auth.Auth",type:"auth.Auth",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"auth.Auth":{name:"auth",type:"Auth",description:"autogenerated",__proto:{package:"auth",options:{},imports:[],targetfile:"auth.proto"},fields:{id:{description:"Identity of Auth",type:"string",meta:{label:"Id",default:"",hint:""},constraints:{},__proto:{number:1}},username:{type:"string",description:"The unique username, ussualy an email address",meta:{label:"Username",hint:""},constraints:{},__proto:{number:2}},password:{type:"string",description:"Das _neue_ Kennwort des Benutzers",meta:{label:"Password",hint:"Look under your keyboard"},constraints:{},__proto:{number:3}},role:{type:"string",description:"",meta:{label:"Role",hint:""},constraints:{},__proto:{number:4}}}},"person.Person":{name:"person",type:"Person",description:"Person message type",__proto:{package:"person",imports:["google/protobuf/field_mask.proto"],targetfile:"person.proto"},fields:{id:{description:"Identity of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a person",type:"string",meta:{label:"Person",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},name:{description:"Name of a person",type:"string",meta:{label:"Name",default:"",hint:""},constraints:{required:{is:"true",message:"you must enter a name"}},__proto:{number:3}},first_name:{description:"First name of a person",type:"string",meta:{label:"First name",default:"",hint:""},constraints:{},__proto:{number:4},__ui:{component:"furo-data-text-input"}},phone_nr:{description:"Internal phone number",type:"string",meta:{label:"Phone No",default:"",hint:""},constraints:{},__proto:{number:5}},skills:{description:"List of main skills of a person",type:"string",meta:{label:"Skills",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:7}}}},"person.PersonCollection":{name:"person_collection",type:"PersonCollection",description:"PersonCollection with repeated PersonEntity",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a person.PersonEntity repeated",type:"person.PersonEntity",meta:{repeated:!0},__proto:{number:4}}}},"person.PersonEntity":{name:"person_entity",type:"PersonEntity",description:"PersonEntity with Person",__proto:{package:"person",imports:["furo/meta.proto","furo/link.proto"],targetfile:"person.proto"},fields:{data:{description:"contains a person.Person",type:"person.Person",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.ProjectCollection":{name:"project_collection",type:"ProjectCollection",description:"ProjectCollection with repeated ProjectEntity",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a project.ProjectEntity repeated",type:"project.ProjectEntity",meta:{repeated:!0},__proto:{number:4}}}},"project.ProjectEntity":{name:"project_entity",type:"ProjectEntity",description:"ProjectEntity with Project",__proto:{package:"project",imports:["furo/meta.proto","furo/link.proto"],targetfile:"project.proto"},fields:{data:{description:"contains a project.Project",type:"project.Project",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"project.Project":{name:"project",type:"Project",description:"Project description",__proto:{package:"project",imports:["google/protobuf/field_mask.proto","google/type/money.proto","google/type/date.proto","person/person.proto"],targetfile:"project.proto"},fields:{id:{description:"Identity of a project",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a project",type:"string",meta:{label:"Project",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},start:{description:"Start date of the project",type:"google.type.Date",meta:{label:"Project start",default:"",hint:""},constraints:{},__proto:{number:3}},end:{description:"Prospective end date of the project",type:"google.type.Date",meta:{label:"Project end",default:"",hint:""},constraints:{},__proto:{number:4}},description:{description:"Short project description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:5}},members:{description:"List of project members",type:"person.Person",meta:{label:"Project members",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}},cost_limit:{description:"Project cost limit",type:"google.type.Money",meta:{label:"Cost limit",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:25e3,message:"max 25000"}},__proto:{number:7}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:8}}}},"task.TaskEntity":{name:"task_entity",type:"TaskEntity",description:"TaskEntity with Task",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{data:{description:"contains a task.Task",type:"task.Task",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"task.TaskCollection":{name:"task_collection",type:"TaskCollection",description:"TaskCollection with repeated TaskEntity",__proto:{package:"task",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"task.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a task.TaskEntity repeated",type:"task.TaskEntity",meta:{repeated:!0},__proto:{number:4}}}},"task.Task":{name:"task",type:"Task",description:"Task data description",__proto:{package:"task",imports:["furo/reference.proto"],targetfile:"task.proto"},fields:{id:{description:"Identity of a task",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a task",type:"string",meta:{label:"task.display_name.label",default:"",hint:"task.display_name.hint",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short task description",type:"string",meta:{label:"task.desc.label",default:"",hint:""},constraints:{required:{is:"true",message:"is required"},max:{is:180,message:"task.desc.maxlength"}},__proto:{number:3}},estimated_time:{description:"Estimated time in days",type:"int32",meta:{label:"Est. days",default:"",hint:""},constraints:{},__proto:{number:4}},owner:{description:"Owner of a task",type:"furo.Reference",meta:{label:"person.type.sex.label",default:{link:{rel:"list",href:"/mockdata/persons/list.json",method:"Get",type:"person.Person",service:"PersonService"}},hint:"",no_result_hint:"",options:{list:[{id:"unknown",display_name:"person.type.sex.unknown.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"},{id:"female",display_name:"person.type.sex.female.label",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"male",display_name:"person.type.sex.male.label",selected:!1,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:5}},subtasks:{description:"List of subtasks",type:"task.Task",meta:{label:"Subtask",default:"",hint:"",repeated:!0},constraints:{},__proto:{number:6}}}},"experiment.ExperimentEntity":{name:"experiment_entity",type:"ExperimentEntity",description:"ExperimentEntity with Experiment",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{data:{description:"contains a experiment.Experiment",type:"experiment.Experiment",__proto:{number:1}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:2}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Constraints":{name:"experiment",type:"Constraints",description:"Test the Constraints",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},max:{is:"12",message:"maximal 12"}},__proto:{number:2}},number:{description:"Short experiment description",type:"int32",meta:{label:"Valid values are 6,9,12",default:"1",hint:""},constraints:{min:{is:"6",message:"Minimal number 6"},max:{is:"12",message:"maximal 12"},step:{is:"3",message:"step 3"}},__proto:{number:3}},text:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{required:{is:"true",message:"is required"},pattern:{is:"^a.*",message:"must start with a"},min:{is:"6",message:"minimal 6"},max:{is:"12",message:"maximal 12"}},__proto:{number:4}}}},"experiment.Experiment":{name:"experiment",type:"Experiment",description:"experiment spec for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto","google/type/money.proto","google/protobuf/field_mask.proto","furo/property.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"",hint:""},constraints:{},__proto:{number:3}},furo_data_checkbox_input:{description:"field for furo_data_checkbox_input for testing",type:"bool",meta:{label:"checkbox_input",default:"",hint:"Hint",readonly:!1},constraints:{},__proto:{number:4}},furo_data_text_input:{description:"field for furo_data_text_input for testing",type:"string",meta:{label:"text_input",hint:"hint",readonly:!1},constraints:{required:{is:"true",message:"is required"},min:{is:3,message:"at least 3 characters"},max:{is:15,message:"15 characters maximum"},pattern:{is:"^a.*",message:"must start with a"}},__proto:{number:5}},furo_data_textarea_input:{description:"field for furo_data_textarea_input for testing",type:"string",meta:{label:"textarea_input",hint:"hint",readonly:!1,rows:3,cols:100},constraints:{},__proto:{number:6}},furo_data_time_input:{description:"field for furo-data-time-input for testing",type:"string",meta:{label:"time-input",hint:"hint",readonly:!1},constraints:{min:{is:"05:00",message:"From 05:00"},max:{is:"19:00",message:"to 19:00"},step:{is:"5",message:"step 5"}},__proto:{number:7}},furo_data_range_input:{description:"field for furo-data-range-input for testing",type:"string",meta:{label:"range-input",hint:"hint",readonly:!1},constraints:{min:{is:20,message:"From 20"},max:{is:50,message:"to 50"},step:{is:"2.5",message:"step 2.5"}},__proto:{number:8}},furo_data_number_input:{description:"field for furo-data-number-input for testing",type:"float",meta:{label:"number-input",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"from 1"},max:{is:555,message:"to 555"},step:{is:"3",message:"step 3"}},__proto:{number:9}},furo_data_color_input:{description:"field for furo-data-color-input for testing",type:"string",meta:{label:"color-input",hint:"hint",readonly:!1},constraints:{},__proto:{number:10}},furo_data_password_input:{description:"field for furo-data-password-input for testing",type:"string",meta:{label:"password-input",hint:"hint",readonly:!1},constraints:{min:{is:6,message:"min 6"},max:{is:15,message:"max 15"}},__proto:{number:11}},furo_data_search_input:{description:"field for furo-search-input for testing",type:"string",meta:{label:" search",hint:"hint",readonly:!1},constraints:{min:{is:1,message:"min 1"},max:{is:15,message:"max 15"},pattern:{is:"a.*",message:"must start with a"}},__proto:{number:12}},furo_data_date_input:{description:"field for furo-data-date-input for testing",type:"string",meta:{label:"date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"5",message:"step 5"}},__proto:{number:13}},furo_data_bool_icon:{description:"field for furo-data-bool-icon for testing",type:"bool",meta:{label:"bool-icon input",hint:"hint",readonly:!1},constraints:{},__proto:{number:14}},the_any_type:{description:"field for testing any",type:"google.protobuf.Any",meta:{label:"can be anything",hint:"hint",readonly:!1},constraints:{},__proto:{number:15}},type_with_options:{description:"field for testing static options",type:"string",meta:{label:"String options",hint:"Choose one",options:{list:[{id:"option_1",display_name:"option_1",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_2",display_name:"option_2",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"},{id:"option_3",display_name:"option_3",selected:!0,"@type":"type.googleapis.com/furo.Optionitem"}]}},constraints:{},__proto:{number:16}},type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields",repeated:!0},constraints:{},__proto:{number:17}},furo_data_date_input_google:{description:"field for furo-data-date-input for testing",type:"google.type.Date",meta:{label:"gogole-date-input",hint:"hint",readonly:!1},constraints:{min:{is:"1800-01-01",message:"The earliest date to accept is 1800-01-01"},max:{is:"2099-12-31",message:"The latest date to accept is 2099-12-31"},step:{is:"2",message:"step 2"}},__proto:{number:18}},single_type_property:{description:"field for testing property",type:"furo.Property",meta:{label:"Additional fields"},constraints:{},__proto:{number:19}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:20}},furo_data_money_input:{description:"field for testing money type",type:"google.type.Money",meta:{readonly:!1,label:"Amount",hint:"google.type.Money",options:{list:["CAD","CNY","CHF","EUR"]}},constraints:{required:{is:"true",message:"is required"},min:{is:0,message:"amount can not be negative"},max:{is:999999,message:"amount maximal 999999"},step:{is:.01,message:"step 0.01"}},__proto:{number:21}},furo_data_file_input:{description:"field for testing file type",type:"string",meta:{readonly:!1,repeated:!0,label:"Choose a file"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:22}},update_mask:{description:"Contains a field_mask which fields of the targeted resource are going to be updated",type:"google.protobuf.FieldMask",meta:{},constraints:{},__proto:{number:23}}}},"experiment.Default":{name:"experiment",type:"Default",description:"Test the default value",__proto:{package:"experiment",imports:["google/protobuf/any.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity of a experiment",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation of a experiment",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!0},constraints:{},__proto:{number:2}},description:{description:"Short experiment description",type:"string",meta:{label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:3}},repstring:{description:"repeated string",type:"string",meta:{repeated:!0,label:"Description",default:"Ein text per default",hint:""},constraints:{},__proto:{number:4}}}},"experiment.Readonly":{name:"readonly",type:"Readonly",description:"Readonly spec for testing",__proto:{package:"experiment",targetfile:"experiment.proto",imports:["furo/property.proto","project/project.proto"],options:null},fields:{project:{type:"project.Project",description:"Identity of a experiment",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Id",hint:"",default:"",readonly:!0,repeated:!1,options:{list:[]}},constraints:null},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:3}}}},"experiment.Recursive":{name:"recursive",type:"Recursive",description:"recursive type for testing",__proto:{package:"experiment",imports:["google/protobuf/any.proto","google/type/date.proto"],targetfile:"experiment.proto"},fields:{id:{description:"Identity",type:"string",meta:{label:"Id",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:1}},display_name:{description:"Localized String representation",type:"string",meta:{label:"experiment",default:"",hint:"",readonly:!1},constraints:{},__proto:{number:2}},recursion:{description:"The recursion",type:"experiment.Recursive",meta:{label:"Recursio"},constraints:{},__proto:{number:3}}}},"experiment.ExperimentCollection":{name:"experiment_collection",type:"ExperimentCollection",description:"ExperimentCollection with repeated ExperimentEntity",__proto:{package:"experiment",options:{},imports:["furo/meta.proto","furo/link.proto"],targetfile:"experiment.proto"},fields:{meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:2}},links:{description:"Hateoas links",type:"furo.Link",meta:{repeated:!0},__proto:{number:3}},entities:{description:"Contains a experiment.ExperimentEntity repeated",type:"experiment.ExperimentEntity",meta:{repeated:!0},__proto:{number:4}}}},"furo.Reference":{name:"reference",type:"Reference",description:"reference",__proto:{package:"furo",imports:["furo/link.proto"],targetfile:"reference.proto"},fields:{display_name:{description:"String representation of the reference",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"Id of the reference",type:"string",__proto:{number:2}},link:{description:"Hateoas link",type:"furo.Link",__proto:{number:3}}}},"furo.MetaField":{name:"metafield",type:"MetaField",description:"fields of meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{meta:{description:"meta information of a field",type:"furo.FieldMeta",__proto:{number:1}},constraints:{description:"constraints for a field",type:"map<string,furo.FieldConstraint>",__proto:{number:2}}}},"furo.StringOptionProperty":{name:"string_option_property",type:"StringOptionProperty",description:"String type to use in property",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{display_name:{description:"String representation of val",type:"string",meta:{readonly:!0},constraints:{},__proto:{number:1}},id:{description:"The value, Id is used to make working with data-inputs easier",type:"string",__proto:{number:2}}}},"furo.Optionitem":{name:"optionitem",type:"Optionitem",description:"Items for fieldoption.list",__proto:{package:"furo",targetfile:"meta.proto",imports:[],options:null},fields:{id:{type:"string",description:"Id",__proto:{number:1},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Id",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},display_name:{type:"string",description:"String representation",__proto:{number:2},__ui:{component:"",flags:[],no_init:!1,no_skip:!0},meta:{label:"Display name",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null},selected:{type:"bool",description:"is the item selected",__proto:{number:3},__ui:{component:"",flags:[],no_init:!1,no_skip:!1},meta:{label:"Selected",hint:"",default:"",readonly:!1,repeated:!1,options:{list:[]}},constraints:null}}},"furo.NumberProperty":{name:"number_property",type:"NumberProperty",description:"Number type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"data part",type:"float",__proto:{number:1}}}},"furo.Fieldoption":{name:"fieldoption",type:"Fieldoption",description:"Metas for a field",__proto:{package:"furo",targetfile:"meta.proto",imports:["google/protobuf/any.proto"],options:null},fields:{list:{type:"google.protobuf.Any",description:"a list with options, use furo.optionitem or your own",__proto:{number:1},__ui:{component:"",flags:["full","condensed"],no_init:!1,no_skip:!1},meta:{label:"",hint:"",default:"",readonly:!1,repeated:!0,options:{list:[]}},constraints:null}}},"furo.StringProperty":{name:"string_property",type:"StringProperty",description:"String type to use in property",__proto:{package:"furo",imports:["furo/meta.proto"],targetfile:"property.proto"},fields:{data:{description:"data part",type:"string",__proto:{number:1}}}},"furo.Meta":{name:"meta",type:"Meta",description:"meta info",__proto:{package:"furo",imports:[],targetfile:"meta.proto"},fields:{fields:{description:"fields of meta info",type:"map<string, furo.MetaField>",__proto:{number:1}}}},"furo.IntegerProperty":{name:"integer_property",type:"IntegerProperty",description:"Integer type with embedded meta",__proto:{package:"furo",imports:[],targetfile:"property.proto"},fields:{data:{description:"Integer data part",type:"int32",constraints:{step:{is:1}},__proto:{number:1}}}},"furo.Link":{name:"link",type:"Link",description:"link",__proto:{package:"furo",imports:[],targetfile:"link.proto"},fields:{rel:{description:"the relationship",type:"string",__proto:{number:1}},method:{description:"method of curl",type:"string",__proto:{number:2}},href:{description:"link",type:"string",__proto:{number:3}},type:{description:"mime type",type:"string",__proto:{number:4}},service:{description:"name of the service which can handle this link",type:"string",__proto:{number:5}}}},"furo.FieldMeta":{name:"fieldmeta",type:"FieldMeta",description:"Metas for a field",__proto:{package:"furo",options:{},imports:["google/protobuf/any.proto"],targetfile:"meta.proto"},fields:{label:{description:"The label",type:"string",meta:{label:"Label",hint:"Also used for input-fields"},__proto:{number:1}},hint:{description:"A hint",type:"string",meta:{label:"Hint",hint:"Also used for input-fields"},__proto:{number:2}},default:{description:"The default value as JSON string",type:"string",meta:{label:"Default value"},__proto:{number:3}},readonly:{description:"readonly",type:"bool",meta:{label:"readonly"},__proto:{number:4}},repeated:{description:"repeated",type:"bool",meta:{label:"repeated"},__proto:{number:5}},options:{description:"Fieldoptions",type:"furo.Fieldoption",meta:{label:"options"},__proto:{number:6}},typespecific:{description:"Put in type specific metas for your fields here",type:"google.protobuf.Any",meta:{label:"typespecific meta"},__proto:{number:7},__ui:{no_init:!0}}}},"furo.FieldConstraint":{name:"fieldconstraint",type:"FieldConstraint",description:"a single fieldconstraint",__proto:{package:"furo",options:{},imports:[],targetfile:"meta.proto"},fields:{is:{description:"the constraint value as string, even it is a number",type:"string",meta:{label:"is",hint:"the constraint value as string, even it is a number"},__proto:{number:1}},message:{description:"The message to display on constraint violation",type:"string",meta:{label:"message"},__proto:{number:2}}}},"furo.BigDecimal":{name:"big_decimal",type:"BigDecimal",description:"A BigDecimal is defined by two values: an arbitrary precision integer and a 32-bit integer scale. The value of the BigDecimal is defined to be unscaledValue*10^{-scale}.",__proto:{package:"furo",imports:[],targetfile:"bigdecimal.proto"},fields:{display_name:{description:"String representation of BigDecimal entity",type:"string",meta:{readonly:!0},constraints:{},options:[],__proto:{number:1}},scale:{description:"If zero or positive, the scale is the number of digits to the right of the decimal point. If negative, the unscaled value of the number is multiplied by ten to the power of the negation of the scale. For example, a scale of -3 means the unscaled value is multiplied by 1000.",type:"int32",meta:{},constraints:{},options:[],__proto:{number:2}},int_val:{description:"The integer value of the BigDecimal",type:"int64",meta:{},constraints:{},options:[],__proto:{number:3}}}},"furo.Property":{name:"property",type:"Property",description:"Type to define property values with type information",__proto:{package:"furo",imports:["google/protobuf/any.proto"],targetfile:"property.proto"},fields:{id:{description:"Id of the property",type:"string",meta:{label:"Id"},constraints:{required:{is:"true",message:"is required"}},__proto:{number:1}},display_name:{description:"String representation of the property",type:"string",meta:{label:"Property",readonly:!0},constraints:{},__proto:{number:2}},data:{description:"data part of the property",type:"google.protobuf.Any",constraints:{},__proto:{number:3}},meta:{description:"Meta for the response",type:"furo.Meta",__proto:{number:4}},code:{description:"property code for additional settings",type:"string",__proto:{number:5}}}},"google.type.Money":{name:"money",type:"Money",description:"Represents an amount of money with its currency type. https://github.com/googleapis/googleapis/blob/master/google/money.proto",__proto:{package:"google.type",imports:[],targetfile:"money.proto"},fields:{display_name:{description:"String representation of money entity",type:"string",meta:{default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:1}},currency_code:{description:"The 3-letter currency code defined in ISO 4217.",type:"string",meta:{label:"W\xE4hrungscode",default:"",hint:""},constraints:{},options:[],__proto:{number:2}},units:{description:"The whole units of the amount.",type:"int64",meta:{label:"Ganzahliger W\xE4hrungsbetrag",default:"",hint:""},constraints:{},options:[],__proto:{number:3}},nanos:{description:"Number of nano (10^-9) units of the amount. For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.",type:"int64",meta:{label:"Nanos",default:"",hint:""},constraints:{},options:[],__proto:{number:4}}}},"google.type.Date":{name:"date",type:"Date",description:"Date, https://github.com/googleapis/googleapis/blob/master/google/date.proto ",__proto:{package:"google.type",imports:[],targetfile:"date.proto"},fields:{display_name:{description:"Localized String representation of date",type:"string",meta:{label:"Datum",default:"",hint:"",readonly:!0},constraints:{},options:[],__proto:{number:4}},year:{description:"Year of date. Must be from 1 to 9999, or 0 if specifying a date without a year.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:1}},month:{description:"Month of year. Must be from 1 to 12, or 0 if specifying a year without a month and day.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:2}},day:{description:"Day of month. Must be from 1 to 31 and valid for the year and month, or 0. if specifying a year by itself or a year and month where the day is not significant.",type:"int32",meta:{default:"",hint:""},constraints:{},options:[],__proto:{number:3}}}},"google.protobuf.StringValue":{name:"stringvalue",type:"StringValue",description:"Wrapper message for `string`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `StringValue` is JSON string",type:"string",__proto:{number:1}}}},"google.protobuf.FieldMask":{name:"field_mask",type:"FieldMask",description:"A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"field_mask.proto"},fields:{paths:{description:"The implementation of any API method which has a FieldMask type field in the request should verify the included field paths, and return an `INVALID_ARGUMENT` error if any path is duplicated or unmappable.",type:"string",meta:{repeated:!0},__proto:{number:1}}}},"google.protobuf.Int64Value":{name:"int64value",type:"Int64Value",description:"Wrapper message for `int64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int64Value` is JSON string",type:"int64",__proto:{number:1}}}},"google.protobuf.Empty":{name:"empty",type:"Empty",description:"https://github.com/protocolbuffers/protobuf/blob/master/src/protobuf/empty.proto",__proto:{package:"google.protobuf",imports:[],targetfile:"empty.proto",options:{}},fields:{}},"google.protobuf.Int32Value":{name:"int32value",type:"Int32Value",description:"Wrapper message for `int32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `Int32Value` is JSON number",type:"int32",__proto:{number:1},constraints:{min:{is:"\u22122147483648",message:"out of range"},max:{is:"2147483647",message:"out of range"}}}}},"google.protobuf.BoolValue":{name:"boolvalue",type:"BoolValue",description:"Wrapper message for `bool`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BoolValue` is JSON `true` and `false`",type:"bool",__proto:{number:1}}}},"google.protobuf.FloatValue":{name:"floatvalue",type:"FloatValue",description:"Wrapper message for `float`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `FloatValue` is JSON number",type:"float",__proto:{number:1}}}},"google.protobuf.BytesValue":{name:"bytesvalue",type:"BytesValue",description:"Wrapper message for `bytes`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `BytesValue` is JSON string",type:"bytes",__proto:{number:1}}}},"google.protobuf.Any":{name:"any",type:"Any",description:"Any contains an arbitrary serialized protocol buffer message along with a\n// URL that describes the type of the serialized message. client uses type `ArrayBuffer` for the value field .  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"any.proto"},fields:{type_url:{type:"string",__proto:{number:1}},value:{type:"bytes",__proto:{number:2}}}},"google.protobuf.UInt32Value":{name:"uint32value",type:"UInt32Value",description:"Wrapper message for `uint32`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt32Value` is JSON number",type:"uint32",__proto:{number:1}}}},"google.protobuf.UInt64Value":{name:"uint64value",type:"UInt64Value",description:"Wrapper message for `uint64`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `UInt64Value` is JSON string",type:"uint64",__proto:{number:1}}}},"google.protobuf.DoubleValue":{name:"doublevalue",type:"DoubleValue",description:"Wrapper message for `double`.  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/wrappers.proto",__proto:{package:"google.protobuf",options:{},imports:[],targetfile:"wrappers.proto"},fields:{value:{description:"The JSON representation for `DoubleValue` is JSON number",type:"double",__proto:{number:1}}}}};_exports.Types=Types;var data_environment={Services:Services,Types:Types};/**
     * Furo Base Icons
     * This is a set of the 24x24 icons from https://github.com/google/material-design-icons.
     *
@@ -2934,6 +2934,8 @@ return Theme.getThemeForComponent("FuroButton")||css`
             line-height: 34px;
             background-color: transparent;
             box-sizing: border-box;
+            
+          
         }
 
         :host([unelevated]) button {
@@ -3145,7 +3147,21 @@ caller._theInputElement.removeAttribute(attribute)}})}/**
        * @event input-invalid
        * Fired when input value is invalid
        * detail payload: {Object} the validity object of input
-       */let customEvent=new Event("input-invalid",{composed:!0,bubbles:!1});customEvent.detail=input.validity;caller.dispatchEvent(customEvent)}}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroColorInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
+       */let customEvent=new Event("input-invalid",{composed:!0,bubbles:!1});customEvent.detail=input.validity;caller.dispatchEvent(customEvent)}}}_exports.Helper=Helper;var helper={Helper:Helper};_exports.$helper=helper;class FuroColorInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._float=!!v;this._FBPTriggerWire("--value",v)}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The start value. Changes will be notified with the `@-value-changed` event
@@ -3501,12 +3517,12 @@ return Theme.getThemeForComponent("FuroColorInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly}
        ?disabled=${this.disabled}              
        type="color" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -3963,7 +3979,21 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroDateInput extends FBP(LitElement){constructor(){super();this.valid=!0}/**
+    `}}window.customElements.define("furo-checkbox-input",FuroCheckboxInput);class FuroDateInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}/**
      * Updater for the min attr
      *
      * @param value
@@ -4350,7 +4380,7 @@ return Theme.getThemeForComponent("FuroDateInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} 
        ?disabled=${this.disabled} 
@@ -4359,7 +4389,7 @@ return html`
        @-input="--inputInput(*)"   
        ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -4371,7 +4401,21 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-date-input",FuroDateInput);class FuroNumberInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-date-input",FuroDateInput);class FuroNumberInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the min attr
      *
      * @param value
@@ -4784,7 +4828,7 @@ return Theme.getThemeForComponent("FuroNumberInput")||css`
 return html` 
       <div class="wrapper">
       
-           <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+           <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>
            <div class="iwrap">    
                <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} 
                    ?disabled=${this.disabled} 
@@ -4795,7 +4839,7 @@ return html`
                    @-input="--inputInput(*)"   
                    ƒ-focus="--focus">
            </div>
-           <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+           <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -4807,7 +4851,21 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
 
-    `}}window.customElements.define("furo-number-input",FuroNumberInput);class FuroPasswordInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-number-input",FuroNumberInput);class FuroPasswordInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -4883,6 +4941,8 @@ return html`
      */clearError(){this.error=!1;this._errortext=this.__initalErrorText}/**
      * Sets the focus on the field.
      */focus(){this._FBPTriggerWire("--focus")}/**
+     * toggles the visibility of the password
+     */toggleVisibility(){let f=this.shadowRoot.querySelector("input"),t=f.getAttribute("type");if("text"===t){this.makeInvisible()}else{this.makeVisible()}}/**
      * Makes the password visible.
      */makeVisible(){let f=this.shadowRoot.querySelector("input");f.setAttribute("type","text")}/**
      * Makes the password invisible again (this is the default).
@@ -5222,13 +5282,13 @@ return Theme.getThemeForComponent("FuroPasswordInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
        <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} 
        ?disabled=${this.disabled} 
        type="password" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -5676,7 +5736,21 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-radio-button-input",FuroRadioButtonInput);class FuroRangeInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-radio-button-input",FuroRadioButtonInput);class FuroRangeInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the min attr
      *
      * @param value
@@ -6065,7 +6139,7 @@ return Theme.getThemeForComponent("FuroRangeInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}
        type="range"      
@@ -6073,7 +6147,7 @@ return html`
        @-input="--inputInput(*)"   
        ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -6085,7 +6159,21 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-range-input",FuroRangeInput);class FuroSearchInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-range-input",FuroRangeInput);class FuroSearchInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -6493,12 +6581,12 @@ return Theme.getThemeForComponent("FuroSearchInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}   
        type="search" ƒ-.value="--value" @-input="--inputInput(*)"   ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -6540,12 +6628,26 @@ this._insertedItems.splice(items.length);if(0<items.length){/**
        * detail payload: {Number} Number of items
        */setTimeout(()=>{let customEvent=new Event("items-in-dom",{composed:!0,bubbles:!1});customEvent.detail=items.length;this.dispatchEvent(customEvent)},0)}}_buildDomNode(identity,i){// build hidden elem
 let elem;elem=document.createElement("empty-fbp-node");elem.attachShadow({mode:"open"});elem.shadowRoot.appendChild(this.template.cloneNode(!0));elem._appendFBP(elem.shadowRoot);let handle={virtualElement:elem,children:[].slice.call(elem.shadowRoot.children),identity:identity};// remove old entries
-if(this._insertedItems[i]){this._insertedItems[i].children.map(attachedElem=>{attachedElem.remove()})}this._insertedItems[i]=handle;this.parentNode.insertBefore(elem.shadowRoot,this);return elem}connectedCallback(){this.style.display="none";// Create a shadow root to the element.
+if(this._insertedItems[i]){this._insertedItems[i].children.map(attachedElem=>{attachedElem.remove()})}this._insertedItems[i]=handle;this.parentNode.insertBefore(elem.shadowRoot.firstElementChild,this);return elem}connectedCallback(){this.style.display="none";// Create a shadow root to the element.
 let t=this.querySelector("template");if(t&&t.content){this.template=t.content}/**
        * Identity path of a single item.
        * Use this if you have a field which identifies the item.
        * @type {*string}
-       */this.identityPath=this.getAttribute("identity-path")||!1;this._internalWire=this.getAttribute("internal-wire")||"--itemInjected"}triggerFirst(e){if(this._insertedItems[0]){this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst",e)}}triggerLast(e){if(this._insertedItems[this._insertedItems.length-1]){this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--triggerLast",e)}}triggerIndex(i,data){if(this._insertedItems[i]){this._insertedItems[i].virtualElement._FBPTriggerWire("--trigger",data);this._insertedItems[i].virtualElement._FBPTriggerWire("--triggerIndex",data)}else{console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",FlowRepeat);class FuroSelectInput extends FBP(LitElement){constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._FBPTriggerWire("--value",v)}set value(v){this._v=v;this._value=v}get value(){return this._v}static get properties(){return{/**
+       */this.identityPath=this.getAttribute("identity-path")||!1;this._internalWire=this.getAttribute("internal-wire")||"--itemInjected"}triggerFirst(e){if(this._insertedItems[0]){this._insertedItems[0].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[0].virtualElement._FBPTriggerWire("--triggerFirst",e)}}triggerLast(e){if(this._insertedItems[this._insertedItems.length-1]){this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--trigger",e);this._insertedItems[this._insertedItems.length-1].virtualElement._FBPTriggerWire("--triggerLast",e)}}triggerIndex(i,data){if(this._insertedItems[i]){this._insertedItems[i].virtualElement._FBPTriggerWire("--trigger",data);this._insertedItems[i].virtualElement._FBPTriggerWire("--triggerIndex",data)}else{console.warn("Out of index",this)}}}window.customElements.define("flow-repeat",FlowRepeat);class FuroSelectInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.step="any";this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}set _value(v){this._FBPTriggerWire("--value",v)}set value(v){this._v=v;this._value=v}get value(){return this._v}static get properties(){return{/**
        * set this to true to indicate errors
        */error:{type:Boolean,reflect:!0},/**
        * The start value. Changes will be notified with the `@-value-changed` event
@@ -6944,16 +7046,16 @@ return Theme.getThemeForComponent("FuroSelectInput")||css`
 return html` 
       <div class="wrapper">
       
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>
        <div class="iwrap">    
-           <select ?autofocus=${this.autofocus} ?disabled=${this.disabled}  @-change="--inputInput(*)" ƒ-.value="--value" ƒ-focus="--focus">        
+           <select id="input" ?autofocus=${this.autofocus} ?disabled=${this.disabled}  @-change="--inputInput(*)" ƒ-.value="--value" ƒ-focus="--focus">        
             <template is="flow-repeat" ƒ-inject-items="--selection">
                 <option ƒ-.value="--item(*.id)" ƒ-.selected="--item(*.selected)" ƒ-.inner-text="--item(*.label)"></option>
             </template>
            </select>
         <furo-icon class="expand" icon="expand-more"></furo-icon>
        </div>     
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -6964,7 +7066,82 @@ return html`
       <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-select-input",FuroSelectInput);class FuroTextInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-select-input",FuroSelectInput);/*!
+                                                                     * Signature Pad v3.0.0-beta.3 | https://github.com/szimek/signature_pad
+                                                                     * (c) 2018 Szymon Nowak | Released under the MIT license
+                                                                     */class Point{constructor(x,y,time){this.x=x;this.y=y;this.time=time||Date.now()}distanceTo(start){return Math.sqrt(Math.pow(this.x-start.x,2)+Math.pow(this.y-start.y,2))}equals(other){return this.x===other.x&&this.y===other.y&&this.time===other.time}velocityFrom(start){return this.time!==start.time?this.distanceTo(start)/(this.time-start.time):0}}class Bezier{constructor(startPoint,control2,control1,endPoint,startWidth,endWidth){this.startPoint=startPoint;this.control2=control2;this.control1=control1;this.endPoint=endPoint;this.startWidth=startWidth;this.endWidth=endWidth}static fromPoints(points,widths){const c2=this.calculateControlPoints(points[0],points[1],points[2]).c2,c3=this.calculateControlPoints(points[1],points[2],points[3]).c1;return new Bezier(points[1],c2,c3,points[2],widths.start,widths.end)}static calculateControlPoints(s1,s2,s3){const dx1=s1.x-s2.x,dy1=s1.y-s2.y,dx2=s2.x-s3.x,dy2=s2.y-s3.y,m1={x:(s1.x+s2.x)/2,y:(s1.y+s2.y)/2},m2={x:(s2.x+s3.x)/2,y:(s2.y+s3.y)/2},l1=Math.sqrt(dx1*dx1+dy1*dy1),l2=Math.sqrt(dx2*dx2+dy2*dy2),dxm=m1.x-m2.x,dym=m1.y-m2.y,k=l2/(l1+l2),cm={x:m2.x+dxm*k,y:m2.y+dym*k},tx=s2.x-cm.x,ty=s2.y-cm.y;return{c1:new Point(m1.x+tx,m1.y+ty),c2:new Point(m2.x+tx,m2.y+ty)}}length(){const steps=10;let length=0,px,py;for(let i=0;i<=steps;i+=1){const t=i/steps,cx=this.point(t,this.startPoint.x,this.control1.x,this.control2.x,this.endPoint.x),cy=this.point(t,this.startPoint.y,this.control1.y,this.control2.y,this.endPoint.y);if(0<i){const xdiff=cx-px,ydiff=cy-py;length+=Math.sqrt(xdiff*xdiff+ydiff*ydiff)}px=cx;py=cy}return length}point(t,start,c1,c2,end){return start*(1-t)*(1-t)*(1-t)+3*c1*(1-t)*(1-t)*t+3*c2*(1-t)*t*t+end*t*t*t}}function throttle(fn,wait=250){let previous=0,timeout=null,result,storedContext,storedArgs;const later=()=>{previous=Date.now();timeout=null;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}};return function(...args){const now=Date.now(),remaining=wait-(now-previous);storedContext=this;storedArgs=args;if(0>=remaining||remaining>wait){if(timeout){clearTimeout(timeout);timeout=null}previous=now;result=fn.apply(storedContext,storedArgs);if(!timeout){storedContext=null;storedArgs=[]}}else if(!timeout){timeout=window.setTimeout(later,remaining)}return result}}class SignaturePad{constructor(canvas,options={}){this.canvas=canvas;this.options=options;this._handleMouseDown=event=>{if(1===event.which){this._mouseButtonDown=!0;this._strokeBegin(event)}};this._handleMouseMove=event=>{if(this._mouseButtonDown){this._strokeMoveUpdate(event)}};this._handleMouseUp=event=>{if(1===event.which&&this._mouseButtonDown){this._mouseButtonDown=!1;this._strokeEnd(event)}};this._handleTouchStart=event=>{event.preventDefault();if(1===event.targetTouches.length){const touch=event.changedTouches[0];this._strokeBegin(touch)}};this._handleTouchMove=event=>{event.preventDefault();const touch=event.targetTouches[0];this._strokeMoveUpdate(touch)};this._handleTouchEnd=event=>{const wasCanvasTouched=event.target===this.canvas;if(wasCanvasTouched){event.preventDefault();const touch=event.changedTouches[0];this._strokeEnd(touch)}};this.velocityFilterWeight=options.velocityFilterWeight||.7;this.minWidth=options.minWidth||.5;this.maxWidth=options.maxWidth||2.5;this.throttle="throttle"in options?options.throttle:16;this.minDistance="minDistance"in options?options.minDistance:5;if(this.throttle){this._strokeMoveUpdate=throttle(SignaturePad.prototype._strokeUpdate,this.throttle)}else{this._strokeMoveUpdate=SignaturePad.prototype._strokeUpdate}this.dotSize=options.dotSize||function(){return(this.minWidth+this.maxWidth)/2};this.penColor=options.penColor||"black";this.backgroundColor=options.backgroundColor||"rgba(0,0,0,0)";this.onBegin=options.onBegin;this.onEnd=options.onEnd;this._ctx=canvas.getContext("2d");this.clear();this.on()}clear(){const ctx=this._ctx,canvas=this.canvas;ctx.fillStyle=this.backgroundColor;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillRect(0,0,canvas.width,canvas.height);this._data=[];this._reset();this._isEmpty=!0}fromDataURL(dataUrl,options={},callback){const image=new Image,ratio=options.ratio||window.devicePixelRatio||1,width=options.width||this.canvas.width/ratio,height=options.height||this.canvas.height/ratio;this._reset();image.onload=()=>{this._ctx.drawImage(image,0,0,width,height);if(callback){callback()}};image.onerror=error=>{if(callback){callback(error)}};image.src=dataUrl;this._isEmpty=!1}toDataURL(type="image/png",encoderOptions){switch(type){case"image/svg+xml":return this._toSVG();default:return this.canvas.toDataURL(type,encoderOptions);}}on(){this.canvas.style.touchAction="none";this.canvas.style.msTouchAction="none";if(window.PointerEvent){this._handlePointerEvents()}else{this._handleMouseEvents();if("ontouchstart"in window){this._handleTouchEvents()}}}off(){this.canvas.style.touchAction="auto";this.canvas.style.msTouchAction="auto";this.canvas.removeEventListener("pointerdown",this._handleMouseDown);this.canvas.removeEventListener("pointermove",this._handleMouseMove);document.removeEventListener("pointerup",this._handleMouseUp);this.canvas.removeEventListener("mousedown",this._handleMouseDown);this.canvas.removeEventListener("mousemove",this._handleMouseMove);document.removeEventListener("mouseup",this._handleMouseUp);this.canvas.removeEventListener("touchstart",this._handleTouchStart);this.canvas.removeEventListener("touchmove",this._handleTouchMove);this.canvas.removeEventListener("touchend",this._handleTouchEnd)}isEmpty(){return this._isEmpty}fromData(pointGroups){this.clear();this._fromData(pointGroups,({color,curve})=>this._drawCurve({color,curve}),({color,point})=>this._drawDot({color,point}));this._data=pointGroups}toData(){return this._data}_strokeBegin(event){const newPointGroup={color:this.penColor,points:[]};this._data.push(newPointGroup);this._reset();this._strokeUpdate(event);if("function"===typeof this.onBegin){this.onBegin(event)}}_strokeUpdate(event){const x=event.clientX,y=event.clientY,point=this._createPoint(x,y),lastPointGroup=this._data[this._data.length-1],lastPoints=lastPointGroup.points,lastPoint=0<lastPoints.length&&lastPoints[lastPoints.length-1],isLastPointTooClose=lastPoint?point.distanceTo(lastPoint)<=this.minDistance:!1,color=lastPointGroup.color;if(!lastPoint||!(lastPoint&&isLastPointTooClose)){const curve=this._addPoint(point);if(!lastPoint){this._drawDot({color,point})}else if(curve){this._drawCurve({color,curve})}lastPoints.push({time:point.time,x:point.x,y:point.y})}}_strokeEnd(event){this._strokeUpdate(event);if("function"===typeof this.onEnd){this.onEnd(event)}}_handlePointerEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("pointerdown",this._handleMouseDown);this.canvas.addEventListener("pointermove",this._handleMouseMove);document.addEventListener("pointerup",this._handleMouseUp)}_handleMouseEvents(){this._mouseButtonDown=!1;this.canvas.addEventListener("mousedown",this._handleMouseDown);this.canvas.addEventListener("mousemove",this._handleMouseMove);document.addEventListener("mouseup",this._handleMouseUp)}_handleTouchEvents(){this.canvas.addEventListener("touchstart",this._handleTouchStart);this.canvas.addEventListener("touchmove",this._handleTouchMove);this.canvas.addEventListener("touchend",this._handleTouchEnd)}_reset(){this._lastPoints=[];this._lastVelocity=0;this._lastWidth=(this.minWidth+this.maxWidth)/2;this._ctx.fillStyle=this.penColor}_createPoint(x,y){const rect=this.canvas.getBoundingClientRect();return new Point(x-rect.left,y-rect.top,new Date().getTime())}_addPoint(point){const{_lastPoints}=this;_lastPoints.push(point);if(2<_lastPoints.length){if(3===_lastPoints.length){_lastPoints.unshift(_lastPoints[0])}const widths=this._calculateCurveWidths(_lastPoints[1],_lastPoints[2]),curve=Bezier.fromPoints(_lastPoints,widths);_lastPoints.shift();return curve}return null}_calculateCurveWidths(startPoint,endPoint){const velocity=this.velocityFilterWeight*endPoint.velocityFrom(startPoint)+(1-this.velocityFilterWeight)*this._lastVelocity,newWidth=this._strokeWidth(velocity),widths={end:newWidth,start:this._lastWidth};this._lastVelocity=velocity;this._lastWidth=newWidth;return widths}_strokeWidth(velocity){return Math.max(this.maxWidth/(velocity+1),this.minWidth)}_drawCurveSegment(x,y,width){const ctx=this._ctx;ctx.moveTo(x,y);ctx.arc(x,y,width,0,2*Math.PI,!1);this._isEmpty=!1}_drawCurve({color,curve}){const ctx=this._ctx,widthDelta=curve.endWidth-curve.startWidth,drawSteps=2*Math.floor(curve.length());ctx.beginPath();ctx.fillStyle=color;for(let i=0;i<drawSteps;i+=1){const t=i/drawSteps,tt=t*t,ttt=tt*t,u=1-t,uu=u*u,uuu=uu*u;let x=uuu*curve.startPoint.x;x+=3*uu*t*curve.control1.x;x+=3*u*tt*curve.control2.x;x+=ttt*curve.endPoint.x;let y=uuu*curve.startPoint.y;y+=3*uu*t*curve.control1.y;y+=3*u*tt*curve.control2.y;y+=ttt*curve.endPoint.y;const width=curve.startWidth+ttt*widthDelta;this._drawCurveSegment(x,y,width)}ctx.closePath();ctx.fill()}_drawDot({color,point}){const ctx=this._ctx,width="function"===typeof this.dotSize?this.dotSize():this.dotSize;ctx.beginPath();this._drawCurveSegment(point.x,point.y,width);ctx.closePath();ctx.fillStyle=color;ctx.fill()}_fromData(pointGroups,drawCurve,drawDot){for(const group of pointGroups){const{color,points}=group;if(1<points.length){for(let j=0;j<points.length;j+=1){const basicPoint=points[j],point=new Point(basicPoint.x,basicPoint.y,basicPoint.time);this.penColor=color;if(0===j){this._reset()}const curve=this._addPoint(point);if(curve){drawCurve({color,curve})}}}else{this._reset();drawDot({color,point:points[0]})}}}_toSVG(){const pointGroups=this._data,ratio=Math.max(window.devicePixelRatio||1,1),minX=0,minY=0,maxX=this.canvas.width/ratio,maxY=this.canvas.height/ratio,svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("width",this.canvas.width.toString());svg.setAttribute("height",this.canvas.height.toString());this._fromData(pointGroups,({color,curve})=>{const path=document.createElement("path");if(!isNaN(curve.control1.x)&&!isNaN(curve.control1.y)&&!isNaN(curve.control2.x)&&!isNaN(curve.control2.y)){const attr=`M ${curve.startPoint.x.toFixed(3)},${curve.startPoint.y.toFixed(3)} `+`C ${curve.control1.x.toFixed(3)},${curve.control1.y.toFixed(3)} `+`${curve.control2.x.toFixed(3)},${curve.control2.y.toFixed(3)} `+`${curve.endPoint.x.toFixed(3)},${curve.endPoint.y.toFixed(3)}`;path.setAttribute("d",attr);path.setAttribute("stroke-width",(2.25*curve.endWidth).toFixed(3));path.setAttribute("stroke",color);path.setAttribute("fill","none");path.setAttribute("stroke-linecap","round");svg.appendChild(path)}},({color,point})=>{const circle=document.createElement("circle"),dotSize="function"===typeof this.dotSize?this.dotSize():this.dotSize;circle.setAttribute("r",dotSize.toString());circle.setAttribute("cx",point.x.toString());circle.setAttribute("cy",point.y.toString());circle.setAttribute("fill",color);svg.appendChild(circle)});const prefix="data:image/svg+xml;base64,",header="<svg"+" xmlns=\"http://www.w3.org/2000/svg\""+" xmlns:xlink=\"http://www.w3.org/1999/xlink\""+` viewBox="${minX} ${minY} ${maxX} ${maxY}"`+` width="${maxX}"`+` height="${maxY}"`+">";let body=svg.innerHTML;if(body===void 0){const dummy=document.createElement("dummy"),nodes=svg.childNodes;dummy.innerHTML="";for(let i=0;i<nodes.length;i+=1){dummy.appendChild(nodes[i].cloneNode(!0))}body=dummy.innerHTML}const footer="</svg>",data=header+body+footer;return prefix+btoa(data)}}_exports.$signaturePadMDefault=SignaturePad;var signature_pad_m={default:SignaturePad};_exports.$signaturePadM=signature_pad_m;class FuroSignPad extends FBP(LitElement){/**
+   * flow is ready lifecycle method
+   */_FBPReady(){super._FBPReady();this.canvas=this.shadowRoot.querySelector("canvas");this.signaturePad=new SignaturePad(this.canvas,{onBegin:this._onBegin.bind(this),onEnd:this._onEnd.bind(this)});setTimeout(()=>{this.resize();if(this.getAttribute("image")){this.setImage(this.getAttribute("image"))}},1);this.signaturePad.clear()}resize(){if(this.canvas){var ratio=1;this.canvas.width=this.canvas.offsetWidth*ratio;this.canvas.height=this.canvas.offsetHeight*ratio;this.canvas.getContext("2d").scale(ratio,ratio)}}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return css`
+      :host {
+        display: block;
+        box-sizing: border-box;
+        height: 184px;
+        width: 300px;
+        cursor: pointer;
+        position: relative;
+        
+      }
+
+      canvas {
+        width: 100%;
+        height: 100%;
+      }
+
+      div.dots {
+        position: absolute;
+        top: 24px;
+        bottom: 24px;
+        left: 24px;
+        right: 24px;
+        pointer-events: none;
+        border: 1px dashed black;
+      }
+    `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){// language=HTML
+return html`
+      <canvas></canvas>
+      <div class="dots"></div>
+
+    `}/**
+    unlock() {
+      this.signaturePad.on();
+    }
+     lock() {
+      this.signaturePad.off();
+    }
+    */_setEmpty(b){this.empty=b}_setActive(b){this.active=b}/**
+     * Clears the image
+     */clear(){this.signaturePad.clear();this.encodeImage()}setImage(encodedImage){var img=new Image;img.src=encodedImage;let ctx=this.canvas.getContext("2d");img.onload=function(){ctx.drawImage(img,0,0);// Or at whatever offset you like
+};img.src=encodedImage}/**
+     * Encodes the image using the type and encodingOptions (quality) defined.
+     * The encoded image is available in the `image` property.
+     */encodeImage(){this.image=this.canvas.toDataURL(this.type,this.encodingOptions);this._setEmpty(this.signaturePad.isEmpty());/**
+                                                  * @event sign-updated
+                                                  * Fired when sign gets new painting
+                                                  *
+                                                  * detail payload: base encoded image
+                                                  */let customEvent=new Event("sign-updated",{composed:!0,bubbles:!0});customEvent.detail=this.image;this.dispatchEvent(customEvent);return this.image}_onBegin(event){this._setActive(!0)}_onEnd(event){this._setActive(!1);this.encodeImage()}_dotSizeChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.dotSize=newValue}_minWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.minWidth=newValue}_maxWidthChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.maxWidth=newValue}_backgroundColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.backgroundColor=newValue}_penColorChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.penColor=newValue}_velocityFilterWeightChanged(newValue,oldValue){if(!this.signaturePad)return;this.signaturePad.velocityFilterWeight=newValue}_onEncodingChanged(type,encoderOptions){if(this.signaturePad){this.encodeImage()}}}_exports.FuroSignPad=FuroSignPad;window.customElements.define("furo-sign-pad",FuroSignPad);var furoSignPad={FuroSignPad:FuroSignPad};_exports.$furoSignPad=furoSignPad;class FuroTextInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the pattern attr, the prop alone with pattern="${this.pattern}" wont work,
      * becaue it set "undefined" (as a Sting!)
      *
@@ -7050,329 +7227,330 @@ return html`
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroTextInput")||css`
-        /* https://material.io/design/components/text-fields.html#theming */
-        :host {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            margin: 10px 0 15px 0;
-            height: 56px;
-            width: 190px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        .wrapper {
-            position: relative;
-            padding: 0 12px;
-            box-sizing: border-box;
-            height: 56px;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
-
-        .iwrap {
-            position: relative;
-        }
-
-
-        input {
-            position: absolute;
-            top: 16px;
-            border: none;
-            background: none;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            line-height: 24px;
-            color: inherit;
-            outline: none;
-            font-family: "Roboto", "Noto", sans-serif;
-            font-kerning: auto;
-            font-size: 16px;
-            font-stretch: 100%;
-            font-style: normal;
-        }
-        
-        input:required {
-          box-shadow:none;
-        }
-        input:invalid {
-          box-shadow:none;
-        }
-
-        :host([filled]) .wrapper {
-            background-color: var(--surface-light, #FEFEFE);
-        }
-
-        :host([filled]) .wrapper:hover {
-            background-color: var(--surface, #FCFCFC);
-        }
-
-        :host([filled]:focus-within) .wrapper {
-            background-color: var(--surface-dark, #FEA222);
-        }
-
-        :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
-            border-color: var(--input-hover-color, #333333);
-        }
-
-
-        .borderlabel {
-            pointer-events: none;
-            position: absolute;
-            box-sizing: border-box;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 56px;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -ms-flex-direction: row;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-        }
-
-        .left-border {
-            width: 8px;
-            box-sizing: border-box;
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-right: none;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
-
-        :host(:not([filled])) label span {
-            top: 0;
-            position: relative;
-        }
-
-        :host(:not([filled])) label {
-            padding: 0 4px;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-right: none;
-            line-height: 56px;
-        }
-
-        :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
-            border-top: none;
-        }
-
-        :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
-            font-size: 12px;
-            top: -28px;
-            left: 0;
-            position: relative;
-        }
-
-
-        .right-border {
-            pointer-events: none;
-            border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-            border-left: none;
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            -ms-flex: 1 1 0.000000001px;
-            -webkit-flex: 1;
-            flex: 1;
-            -webkit-flex-basis: 0.000000001px;
-            flex-basis: 0.000000001px;
-        }
-
-
-        .ripple-line {
-            display: none;
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            top: 54px;
-            border: none;
-            border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
-        }
-
-        :host([filled]) .ripple-line {
-            display: block;
-        }
-
-        :host([filled]) .right-border, :host([filled]) .left-border {
-            display: none;
-        }
-
-        :host([filled]) label {
-            border: none;
-        }
-
-
-        :host([filled]) label {
-            padding: 0 12px;
-            line-height: 56px;
-        }
-
-        :host([filled]) label span {
-            position: relative;
-            top: 0;
-        }
-
-        :host([filled]) label[float] span, :host(:focus-within) label span {
-            font-size: 12px;
-            font-weight: 400;
-            top: -20px;
-            position: relative;
-        }
-
-
-        * {
-            transition: all 200ms ease-out;
-        }
-
-        .hint, .errortext {
-            position: absolute;
-            bottom: -19px;
-            font-size: 12px;
-            color: transparent;
-            padding-left: 12px;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-
-        :host(:focus-within) .hint {
-            color: var(--input-hint-color, #999999);
-            transition: all 550ms ease-in;
-        }
-
-
-        :host([error]) .errortext {
-            display: block;
-        }
-
-        .errortext {
-            color: var(--input-error-text-color, var(--error, red));
-            display: none;
-        }
-
-
-        label {
-            color: var(--input-hint-color, var(--disabled, #DEDEDE));
-        }
-
-        :host(:focus-within) label, :host(:focus-within:not([filled])) label {
-            color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-            border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
-        }
-
-
-        :host(:focus-within) .ripple-line {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
-
-        :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
-            border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
-            border-color: var(--input-error-text-color, var(--error, red));
-            border-width: 2px;
-        }
-
-        :host([error]:focus-within) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-        :host([error]:focus-within) .hint {
-            display: none;
-        }
-
-        :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
-            border-color: var(--input-error-activation-indicator-color, var(--error, red));
-        }
-
-        furo-icon {
-            display: none;
-            top: 16px;
-        }
-
-        furo-icon.lead {
-            position: absolute;
-
-            left: 8px;
-        }
-
-        furo-icon.trail {
-            position: absolute;
-            right: 8px;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
-            display: block;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
-            left: 24px;
-        }
-
-        :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
-            left: 0;
-        }
-
-        :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
-            padding-left: 36px;
-        }
-
-        :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
-            padding-right: 36px;
-        }
-
-        :host(:focus-within:not([valid])) label {
-            color: var(--input-error-text-color, var(--error, red));
-        }
-
-
-        :host([condensed]) input {
-            top: 12px;
-            font-size: 14px;
-        }
-
-        :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
-            line-height: 40px;
-            font-size: 14px;
-        }
-
-        :host([condensed][filled]) input {
-            top: 12px;
-        }
-        
-        :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
-            height: 40px;
-        }
-
-        :host([condensed]) furo-icon {
-            top: 10px;
-        }
-
-        :host([condensed]) .ripple-line {
-            top: 38px;
-        }
-
-        :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
-            top: -12px;
-
-        }
-
-        :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
-            top: -20px;
-        }
-
-        :host([condensed]) {
-            height: 40px;
-        }
+      /* https://material.io/design/components/text-fields.html#theming */
+      :host {
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+        margin: 10px 0 15px 0;
+        height: 56px;
+        width: 190px;
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+
+      .wrapper {
+        position: relative;
+        padding: 0 12px;
+        box-sizing: border-box;
+        height: 56px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+
+      .iwrap {
+        position: relative;
+      }
+
+
+      input {
+        position: absolute;
+        top: 16px;
+        border: none;
+        background: none;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        line-height: 24px;
+        color: inherit;
+        outline: none;
+        font-family: "Roboto", "Noto", sans-serif;
+        font-kerning: auto;
+        font-size: 16px;
+        font-stretch: 100%;
+        font-style: normal;
+      }
+
+      input:required {
+        box-shadow: none;
+      }
+
+      input:invalid {
+        box-shadow: none;
+      }
+
+      :host([filled]) .wrapper {
+        background-color: var(--surface-light, #FEFEFE);
+      }
+
+      :host([filled]) .wrapper:hover {
+        background-color: var(--surface, #FCFCFC);
+      }
+
+      :host([filled]:focus-within) .wrapper {
+        background-color: var(--surface-dark, #FEA222);
+      }
+
+      :host(:not([filled]):hover) .left-border, :host(:not([filled]):hover) .right-border, :host(:not([filled]):hover) label {
+        border-color: var(--input-hover-color, #333333);
+      }
+
+
+      .borderlabel {
+        pointer-events: none;
+        position: absolute;
+        box-sizing: border-box;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 56px;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+      }
+
+      .left-border {
+        width: 8px;
+        box-sizing: border-box;
+        pointer-events: none;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-right: none;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+
+      :host(:not([filled])) label span {
+        top: 0;
+        position: relative;
+      }
+
+      :host(:not([filled])) label {
+        padding: 0 4px;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-left: none;
+        border-right: none;
+        line-height: 56px;
+      }
+
+      :host(:not([filled])) label[float], :host(:not([filled]):focus-within) label {
+        border-top: none;
+      }
+
+      :host(:not([filled])) label[float] span, :host(:not([filled]):focus-within) label span {
+        font-size: 12px;
+        top: -28px;
+        left: 0;
+        position: relative;
+      }
+
+
+      .right-border {
+        pointer-events: none;
+        border: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+        border-left: none;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        -ms-flex: 1 1 0.000000001px;
+        -webkit-flex: 1;
+        flex: 1;
+        -webkit-flex-basis: 0.000000001px;
+        flex-basis: 0.000000001px;
+      }
+
+
+      .ripple-line {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        top: 54px;
+        border: none;
+        border-bottom: 1px solid var(--input-activation-indicator-color, var(--disabled, #333333));
+      }
+
+      :host([filled]) .ripple-line {
+        display: block;
+      }
+
+      :host([filled]) .right-border, :host([filled]) .left-border {
+        display: none;
+      }
+
+      :host([filled]) label {
+        border: none;
+      }
+
+
+      :host([filled]) label {
+        padding: 0 12px;
+        line-height: 56px;
+      }
+
+      :host([filled]) label span {
+        position: relative;
+        top: 0;
+      }
+
+      :host([filled]) label[float] span, :host(:focus-within) label span {
+        font-size: 12px;
+        font-weight: 400;
+        top: -20px;
+        position: relative;
+      }
+
+
+      * {
+        transition: all 200ms ease-out;
+      }
+
+      .hint, .errortext {
+        position: absolute;
+        bottom: -19px;
+        font-size: 12px;
+        color: transparent;
+        padding-left: 12px;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      :host(:focus-within) .hint {
+        color: var(--input-hint-color, #999999);
+        transition: all 550ms ease-in;
+      }
+
+
+      :host([error]) .errortext {
+        display: block;
+      }
+
+      .errortext {
+        color: var(--input-error-text-color, var(--error, red));
+        display: none;
+      }
+
+
+      label {
+        color: var(--input-hint-color, var(--disabled, #DEDEDE));
+      }
+
+      :host(:focus-within) label, :host(:focus-within:not([filled])) label {
+        color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+        border-color: var(--input-active-float-label-color, var(--primary, #3f51b5));
+      }
+
+
+      :host(:focus-within) .ripple-line {
+        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+        border-width: 2px;
+      }
+
+      :host(:not([filled]):focus-within) .left-border, :host(:not([filled]):focus-within) .right-border, :host(:not([filled]):focus-within) label {
+        border-color: var(--input-active-activation-indicator-color, var(--primary, #3f51b5));
+        border-width: 2px;
+      }
+
+      :host([error]:focus-within) .left-border, :host([error]:focus-within) .right-border, :host([error]:focus-within) label, :host([error]:focus-within) .ripple-line {
+        border-color: var(--input-error-text-color, var(--error, red));
+        border-width: 2px;
+      }
+
+      :host([error]:focus-within) label {
+        color: var(--input-error-text-color, var(--error, red));
+      }
+
+      :host([error]:focus-within) .hint {
+        display: none;
+      }
+
+      :host([error]) .ripple-line, :host([error]) .left-border, :host([error]) .right-border, :host([error]) label {
+        border-color: var(--input-error-activation-indicator-color, var(--error, red));
+      }
+
+      furo-icon {
+        display: none;
+        top: 16px;
+      }
+
+      furo-icon.lead {
+        position: absolute;
+
+        left: 8px;
+      }
+
+      furo-icon.trail {
+        position: absolute;
+        right: 8px;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) furo-icon.lead, :host([trailing-icon]:not([trailing-icon="undefined"])) furo-icon.trail {
+        display: block;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) label:not([float]) span {
+        left: 24px;
+      }
+
+      :host(:focus-within[leading-icon]:not([leading-icon="undefined"])) label span {
+        left: 0;
+      }
+
+      :host([leading-icon]:not([leading-icon="undefined"])) .wrapper {
+        padding-left: 36px;
+      }
+
+      :host([trailing-icon]:not([trailing-icon="undefined"])) .wrapper {
+        padding-right: 36px;
+      }
+
+      :host(:focus-within:not([valid])) label {
+        color: var(--input-error-text-color, var(--error, red));
+      }
+
+
+      :host([condensed]) input {
+        top: 12px;
+        font-size: 14px;
+      }
+
+      :host([condensed]:not([filled])) label, :host([filled][condensed]) label {
+        line-height: 40px;
+        font-size: 14px;
+      }
+
+      :host([condensed][filled]) input {
+        top: 12px;
+      }
+
+      :host([condensed]) .borderlabel, :host([condensed]) .wrapper {
+        height: 40px;
+      }
+
+      :host([condensed]) furo-icon {
+        top: 10px;
+      }
+
+      :host([condensed]) .ripple-line {
+        top: 38px;
+      }
+
+      :host([condensed][filled]) label[float] span, :host([filled][condensed]:focus-within) label span {
+        top: -12px;
+
+      }
+
+      :host([condensed]) label[float] span, :host([condensed]:focus-within) label span {
+        top: -20px;
+      }
+
+      :host([condensed]) {
+        height: 40px;
+      }
 
     `}/**
      * toto add option to hide `*` when the field is required
@@ -7381,12 +7559,12 @@ return Theme.getThemeForComponent("FuroTextInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>    
        <div class="iwrap">
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled} ?required=${this.required} 
         type="text" ƒ-.value="--value" @-input="--inputInput(*)" ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -7734,7 +7912,21 @@ return html`
       <div class="ripple-line"></div>           
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
-    `}}window.customElements.define("furo-textarea-input",FuroTextareaInput);class FuroTimeInput extends FBP(LitElement){constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
+    `}}window.customElements.define("furo-textarea-input",FuroTextareaInput);class FuroTimeInput extends FBP(LitElement){/**
+   * @event trailing-icon-clicked
+   * Fired when the trailing icon was clicked
+   *
+   * detail payload: the value of the text input
+   *
+   * This event bubbles
+   */ /**
+       * @event leading-icon-clicked
+       * Fired when the leading icon was clicked
+       *
+       * detail payload: the value of the text input
+       *
+       * This event bubbles
+       */constructor(){super();this.valid=!0}_FBPReady(){super._FBPReady();this._value=this.value||"";this._FBPAddWireHook("--inputInput",e=>{Helper.triggerValueChanged(this,e)})}/**
      * Updater for the min attr
      *
      * @param value
@@ -8123,7 +8315,7 @@ return Theme.getThemeForComponent("FuroTimeInput")||css`
      */render(){// language=HTML
 return html` 
       <div class="wrapper">
-       <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>   
+       <furo-icon class="lead" icon="${this.leadingIcon}" @-click="^^leading-icon-clicked(value)"></furo-icon>   
        <div class="iwrap"> 
       <input id="input" ?autofocus=${this.autofocus} ?readonly=${this.readonly} ?disabled=${this.disabled}
            type="time"       
@@ -8131,7 +8323,7 @@ return html`
            @-input="--inputInput(*)"   
            ƒ-focus="--focus">
        </div>
-       <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+       <furo-icon class="trail" icon="${this.trailingIcon}" @-click="^^trailing-icon-clicked(value)"></furo-icon>
       </div>
       <div class="borderlabel">
       <div class="left-border"></div>
@@ -8171,7 +8363,12 @@ this._FBPAddWireHook("--inputInput",e=>{/**
      * Fetch local file
      * @private
      */_fetchLocalFile(file){return new Promise((resolve,reject)=>{// Create a new FileReader instance
-const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.result)});reader.readAsDataURL(file)})}static get properties(){return{/**
+const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.result)});reader.addEventListener("progress",e=>{if(e.lengthComputable){/**
+           * @event progress
+           * is triggered while reading a Blob content.
+           * detail payload: {Array} all selected files base64 encoded
+           */const customEvent=new Event("progress",{composed:!0,bubbles:!0});customEvent.detail=e;this.dispatchEvent(customEvent);// e.g. progress percentage: Math.round((e.loaded / e.total) * 100);
+}});reader.readAsDataURL(file)})}static get properties(){return{/**
        * The required attribute, the value true means this field must be filled in
        *
        */required:{type:Boolean},/**
@@ -8755,11 +8952,14 @@ window.addEventListener("connect-to-drawer-requested",e=>{if(e.detail.name===thi
      * @return {Object}
      */static get properties(){return{/**
        * Use method floatDrawer or set this attribute to enable float mode
+       * @private
        */_isFloating:{type:Boolean,reflect:!0,attribute:"float"},/**
        * Enable this to put the drawer on the right side
        */isReverse:{type:Boolean,reflect:!0,attribute:"reverse"},/**
        * disables automatic floating mode
        */noauto:{type:Boolean},/**
+       * let the menu float (hidden).
+       */float:{type:Boolean},/**
        * Min width of the app-drawer to switch to floating mode
        */floatBreakpoint:{type:Number,attribute:"float-breakpoint"},/**
        * name of this drawer, needed if you want to connect to this drawer
@@ -8811,7 +9011,7 @@ this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventList
      * close the menu
      */this._FBPAddWireHook("--backdropClicked",e=>{this.close()});// register resize listener
 if(!this.noauto){if(window.ResizeObserver){let ro=new ResizeObserver(entries=>{for(let entry of entries){const cr=entry.contentRect;this.__isFloating=cr.width<=this.floatBreakpoint}if(this.__isFloating){this.close()}});ro.observe(this)}else{// fallback, just listen to the resize event
-let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;window.addEventListener("resize",e=>{let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;if(this.__isFloating){this.close()}})}}let drawer=this.shadowRoot.getElementById("drawer"),backdrop=this.shadowRoot.getElementById("backdrop");this._FBPAddWireHook("--trackstart",e=>{// unregister
+let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;window.addEventListener("resize",e=>{let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;if(this.__isFloating){this.close()}})}}let drawer=this.shadowRoot.getElementById("drawer"),drag=this.shadowRoot.getElementById("drag"),backdrop=this.shadowRoot.getElementById("backdrop"),trackhandler=e=>{// unregister
 this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);if(e instanceof MouseEvent){this.pauseEvent(e)}if(this.__isFloating){let start_x=this._getScreenX(e),start_y=this._getScreenY(e),start_time=performance.now(),width=drawer.getBoundingClientRect().width,trackingEnabled=!1,trackingFixed=!1;drawer.style.transitionDuration="0ms";// Setup a timer
 let animationframetimeout;// register move
 this.moveHandler=e=>{// If there's a timer, cancel it
@@ -8827,90 +9027,92 @@ if(100<delta){delta=100;distance=width}if(-100>delta){delta=-100;distance=-width
 drawer.style.right=-(width+distance)+"px"}else{//drawer.style.transform = "translate3d(" + (delta - 100) + "%, 0, 0)";
 drawer.style.left=distance-width+"px"}// backdrop darkness
 backdrop.style.opacity=Math.abs(delta/100)}})};// register move
-this.addEventListener("mousemove",this.moveHandler,!0);this.addEventListener("touchmove",this.moveHandler,!0);this.trackEnd=e=>{drawer.style.transitionDuration="";// If there's a animation timer, cancel it
+this.addEventListener("mousemove",this.moveHandler,!0);//todo: check this: this.addEventListener("touchmove", this.moveHandler, {passive: true});
+// https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
+this.addEventListener("touchmove",this.moveHandler,!0);this.trackEnd=e=>{drawer.style.transitionDuration="";// If there's a animation timer, cancel it
 if(requestAnimationFrame){window.cancelAnimationFrame(animationframetimeout)}let end_time=performance.now(),distance=this._getScreenX(e)-start_x,duration=end_time-start_time;// quick movement
 if(30<Math.abs(distance)&&200>duration){if(this.isOpen){if(!this.isReverse&&0>distance||this.isReverse&&0<distance){this.close()}}else{this.open()}}else{if(!trackingEnabled){return}// complete the movement, slow
 let delta=100*distance/width;if(-40<delta&&40>delta){// restore initial pos
 if(this.isOpen){this.open()}else{this.close()}}else{if(this.isOpen){this.close()}else{this.open()}}}// unregister
 this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0)};// unregister movement tracker
-this.addEventListener("mouseup",this.trackEnd,{once:!0});this.addEventListener("touchend",this.trackEnd,{once:!0})}})}pauseEvent(e){if(e.stopPropagation)e.stopPropagation();if(e.preventDefault)e.preventDefault();e.cancelBubble=!0;e.returnValue=!1;return!1}_getScreenX(e){let x;if(e instanceof MouseEvent){x=e.screenX}else{x=e.changedTouches[0].screenX}return x}_getScreenY(e){let y;if(e instanceof MouseEvent){y=e.screenY}else{y=e.changedTouches[0].screenY}return y}/**
+this.addEventListener("mouseup",this.trackEnd,{once:!0});this.addEventListener("touchend",this.trackEnd,{once:!0})}};drawer.addEventListener("trackstart",trackhandler,{passive:!0});drawer.addEventListener("mousedown",trackhandler);drag.addEventListener("trackstart",trackhandler,{passive:!0});drag.addEventListener("mousedown",trackhandler)}pauseEvent(e){if(e.stopPropagation)e.stopPropagation();if(e.preventDefault)e.preventDefault();e.cancelBubble=!0;e.returnValue=!1;return!1}_getScreenX(e){let x;if(e instanceof MouseEvent){x=e.screenX}else{x=e.changedTouches[0].screenX}return x}_getScreenY(e){let y;if(e instanceof MouseEvent){y=e.screenY}else{y=e.changedTouches[0].screenY}return y}/**
      * Themable Styles
      * @private
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return Theme.getThemeForComponent("FuroAppDrawer")||css`
-        :host {
-            display: block;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
+      :host {
+        display: block;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-        furo-horizontal-flex {
-            height: 100%;
-        }
-
-
-        #drawer {
-            border-right: 1px solid var(--separator, rgb(228, 228, 228));
-            transition-duration: 200ms;
-            background: var(--surface-light);
-        }
-        
-        ::slotted([scroll]){
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        /* disable pointer events, z-index 15 just to be below the drawer */
-        #backdrop {
-            pointer-events: none;
-            transition-duration: 200ms;
-            transition-property: opacity;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            opacity: 0;
-            background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
-            z-index: 15;
-        }
+      furo-horizontal-flex {
+        height: 100%;
+      }
 
 
-        #drag {
-            position: absolute;
-            top: 0;
-            width: 18px;
-            bottom: 0;
-            left: 0;
-            z-index: 16;
-        }
+      #drawer {
+        border-right: 1px solid var(--separator, rgb(228, 228, 228));
+        transition-duration: 200ms;
+        background: var(--surface-light);
+      }
 
-        :host([reverse]) #drag {
-            left: unset;
-            right: 0;
-        }
+      ::slotted([scroll]) {
+        height: 100%;
+        overflow-y: auto;
+      }
 
-        /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
-        :host([float]) #drawer {
-            position: absolute;
-            z-index: 16;
-            top: 0;
-            left: 0;
-            bottom: 0;
-        }
+      /* disable pointer events, z-index 15 just to be below the drawer */
+      #backdrop {
+        pointer-events: none;
+        transition-duration: 200ms;
+        transition-property: opacity;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
+        z-index: 15;
+      }
 
-        /* put drawer to the right side on reverse mode */
-        :host([float][reverse]) #drawer {
-            left: unset;
-            right: 0;
 
-        }
+      #drag {
+        position: absolute;
+        top: 0;
+        width: 18px;
+        bottom: 0;
+        left: 0;
+        z-index: 16;
+      }
+
+      :host([reverse]) #drag {
+        left: unset;
+        right: 0;
+      }
+
+      /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
+      :host([float]) #drawer {
+        position: absolute;
+        z-index: 16;
+        top: 0;
+        left: 0;
+        bottom: 0;
+      }
+
+      /* put drawer to the right side on reverse mode */
+      :host([float][reverse]) #drawer {
+        left: unset;
+        right: 0;
+
+      }
 
 
 
@@ -8922,7 +9124,7 @@ return Theme.getThemeForComponent("FuroAppDrawer")||css`
 return html`
 
       <furo-horizontal-flex ?reverse="${this.isReverse}">
-        <div id="drawer" @-touchstart="--trackstart(*)" @-mousedown="--trackstart(*)">
+        <div id="drawer">
           <slot name="drawer"></slot>
         </div>
         <div flex>
@@ -8930,7 +9132,7 @@ return html`
         </div>
       </furo-horizontal-flex>
       <div id="backdrop" @-click="--backdropClicked"></div>
-      <div id="drag" @-touchstart="--trackstart(*)" @-mousedown="--trackstart(*)"></div>
+      <div id="drag"></div>
     `}}window.customElements.define("furo-app-drawer",FuroAppDrawer);/*! markdown-it 9.1.0 https://github.com//markdown-it/markdown-it @license MIT */(function(f){if("object"===typeof exports&&"undefined"!==typeof module){module.exports=f()}else if("function"===typeof define&&define.amd){define([],f)}else{var g;if("undefined"!==typeof window){g=window}else if("undefined"!==typeof global){g=global}else if("undefined"!==typeof self){g=self}else{g=this}g.markdownit=f()}})(function(){var define,module,exports;return function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r}()({1:[function(require,module,exports){// HTML5 entities map: { name -> utf16string }
 //
 'use strict';/*eslint quotes:0*/module.exports=require("entities/maps/entities.json")},{"entities/maps/entities.json":52}],2:[function(require,module,exports){// List of valid html blocks names, accorting to commonmark spec
@@ -10871,7 +11073,29 @@ root.punycode=punycode}})(this)}).call(this,"undefined"!==typeof global?global:"
 :{}// if in node js
 ,Prism$1=function(_self){// Private helper vars
 var lang=/\blang(?:uage)?-([\w-]+)\b/i,uniqueId=0,_={manual:_self.Prism&&_self.Prism.manual,disableWorkerMessageHandler:_self.Prism&&_self.Prism.disableWorkerMessageHandler,util:{encode:function(tokens){if(tokens instanceof Token){return new Token(tokens.type,_.util.encode(tokens.content),tokens.alias)}else if(Array.isArray(tokens)){return tokens.map(_.util.encode)}else{return tokens.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")}},type:function(o){return Object.prototype.toString.call(o).slice(8,-1)},objId:function(obj){if(!obj.__id){Object.defineProperty(obj,"__id",{value:++uniqueId})}return obj.__id},// Deep clone a language definition (e.g. to extend it)
-clone:function deepClone(o,visited){var clone,id,type=_.util.type(o);visited=visited||{};switch(type){case"Object":id=_.util.objId(o);if(visited[id]){return visited[id]}clone={};visited[id]=clone;for(var key in o){if(o.hasOwnProperty(key)){clone[key]=deepClone(o[key],visited)}}return clone;case"Array":id=_.util.objId(o);if(visited[id]){return visited[id]}clone=[];visited[id]=clone;o.forEach(function(v,i){clone[i]=deepClone(v,visited)});return clone;default:return o;}}},languages:{extend:function(id,redef){var lang=_.util.clone(_.languages[id]);for(var key in redef){lang[key]=redef[key]}return lang},/**
+clone:function deepClone(o,visited){var clone,id,type=_.util.type(o);visited=visited||{};switch(type){case"Object":id=_.util.objId(o);if(visited[id]){return visited[id]}clone={};visited[id]=clone;for(var key in o){if(o.hasOwnProperty(key)){clone[key]=deepClone(o[key],visited)}}return clone;case"Array":id=_.util.objId(o);if(visited[id]){return visited[id]}clone=[];visited[id]=clone;o.forEach(function(v,i){clone[i]=deepClone(v,visited)});return clone;default:return o;}},/**
+       * Returns the Prism language of the given element set by a `language-xxxx` or `lang-xxxx` class.
+       *
+       * If no language is set for the element or the element is `null` or `undefined`, `none` will be returned.
+       *
+       * @param {Element} element
+       * @returns {string}
+       */getLanguage:function(element){while(element&&!lang.test(element.className)){element=element.parentElement}if(element){return(element.className.match(lang)||[,"none"])[1].toLowerCase()}return"none"},/**
+       * Returns the script element that is currently executing.
+       *
+       * This does __not__ work for line script element.
+       *
+       * @returns {HTMLScriptElement | null}
+       */currentScript:function(){if("undefined"===typeof document){return null}if("currentScript"in document){return document.currentScript}// IE11 workaround
+// we'll get the src of the current script by parsing IE11's error stack trace
+// this will not work for inline scripts
+try{throw new Error}catch(err){// Get file src url from stack. Specifically works with the format of stack traces in IE.
+// A stack will look like this:
+//
+// Error
+//    at _.util.currentScript (http://localhost/components/prism-core.js:119:5)
+//    at Global code (http://localhost/components/prism-core.js:606:1)
+var src=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(err.stack)||[])[1];if(src){var scripts=document.getElementsByTagName("script");for(var i in scripts){if(scripts[i].src==src){return scripts[i]}}}return null}}},languages:{extend:function(id,redef){var lang=_.util.clone(_.languages[id]);for(var key in redef){lang[key]=redef[key]}return lang},/**
        * Insert a token before another token in a language literal
        * As this needs to recreate the object (we cannot actually insert before keys in object literals),
        * we cannot just provide an object, we need an object and a key.
@@ -10882,27 +11106,33 @@ clone:function deepClone(o,visited){var clone,id,type=_.util.type(o);visited=vis
        */insertBefore:function(inside,before,insert,root){root=root||_.languages;var grammar=root[inside],ret={};for(var token in grammar){if(grammar.hasOwnProperty(token)){if(token==before){for(var newToken in insert){if(insert.hasOwnProperty(newToken)){ret[newToken]=insert[newToken]}}}// Do not insert token which also occur in insert. See #1525
 if(!insert.hasOwnProperty(token)){ret[token]=grammar[token]}}}var old=root[inside];root[inside]=ret;// Update references in other language definitions
 _.languages.DFS(_.languages,function(key,value){if(value===old&&key!=inside){this[key]=ret}});return ret},// Traverse a language definition with Depth First Search
-DFS:function DFS(o,callback,type,visited){visited=visited||{};var objId=_.util.objId;for(var i in o){if(o.hasOwnProperty(i)){callback.call(o,i,o[i],type||i);var property=o[i],propertyType=_.util.type(property);if("Object"===propertyType&&!visited[objId(property)]){visited[objId(property)]=!0;DFS(property,callback,null,visited)}else if("Array"===propertyType&&!visited[objId(property)]){visited[objId(property)]=!0;DFS(property,callback,i,visited)}}}}},plugins:{},highlightAll:function(async,callback){_.highlightAllUnder(document,async,callback)},highlightAllUnder:function(container,async,callback){var env={callback:callback,selector:"code[class*=\"language-\"], [class*=\"language-\"] code, code[class*=\"lang-\"], [class*=\"lang-\"] code"};_.hooks.run("before-highlightall",env);for(var elements=container.querySelectorAll(env.selector),i=0,element;element=elements[i++];){_.highlightElement(element,!0===async,env.callback)}},highlightElement:function(element,async,callback){// Find language
-var language="none",grammar,parent=element;while(parent&&!lang.test(parent.className)){parent=parent.parentNode}if(parent){language=(parent.className.match(lang)||[,"none"])[1].toLowerCase();grammar=_.languages[language]}// Set language on the element, if not present
-element.className=element.className.replace(lang,"").replace(/\s+/g," ")+" language-"+language;if(element.parentNode){// Set language on the parent, for styling
-parent=element.parentNode;if(/pre/i.test(parent.nodeName)){parent.className=parent.className.replace(lang,"").replace(/\s+/g," ")+" language-"+language}}var code=element.textContent,env={element:element,language:language,grammar:grammar,code:code},insertHighlightedCode=function(highlightedCode){env.highlightedCode=highlightedCode;_.hooks.run("before-insert",env);env.element.innerHTML=env.highlightedCode;_.hooks.run("after-highlight",env);_.hooks.run("complete",env);callback&&callback.call(env.element)};_.hooks.run("before-sanity-check",env);if(!env.code){_.hooks.run("complete",env);return}_.hooks.run("before-highlight",env);if(!env.grammar){insertHighlightedCode(_.util.encode(env.code));return}if(async&&_self.Worker){var worker=new Worker(_.filename);worker.onmessage=function(evt){insertHighlightedCode(evt.data)};worker.postMessage(JSON.stringify({language:env.language,code:env.code,immediateClose:!0}))}else{insertHighlightedCode(_.highlight(env.code,env.grammar,env.language))}},highlight:function(text,grammar,language){var env={code:text,grammar:grammar,language:language};_.hooks.run("before-tokenize",env);env.tokens=_.tokenize(env.code,env.grammar);_.hooks.run("after-tokenize",env);return Token.stringify(_.util.encode(env.tokens),env.language)},matchGrammar:function(text,strarr,grammar,index,startPos,oneshot,target){for(var token in grammar){if(!grammar.hasOwnProperty(token)||!grammar[token]){continue}if(token==target){return}var patterns=grammar[token];patterns="Array"===_.util.type(patterns)?patterns:[patterns];for(var j=0;j<patterns.length;++j){var pattern=patterns[j],inside=pattern.inside,lookbehind=!!pattern.lookbehind,greedy=!!pattern.greedy,lookbehindLength=0,alias=pattern.alias;if(greedy&&!pattern.pattern.global){// Without the global flag, lastIndex won't work
-var flags=pattern.pattern.toString().match(/[imuy]*$/)[0];pattern.pattern=RegExp(pattern.pattern.source,flags+"g")}pattern=pattern.pattern||pattern;// Don’t cache length as it changes during the loop
+DFS:function DFS(o,callback,type,visited){visited=visited||{};var objId=_.util.objId;for(var i in o){if(o.hasOwnProperty(i)){callback.call(o,i,o[i],type||i);var property=o[i],propertyType=_.util.type(property);if("Object"===propertyType&&!visited[objId(property)]){visited[objId(property)]=!0;DFS(property,callback,null,visited)}else if("Array"===propertyType&&!visited[objId(property)]){visited[objId(property)]=!0;DFS(property,callback,i,visited)}}}}},plugins:{},highlightAll:function(async,callback){_.highlightAllUnder(document,async,callback)},highlightAllUnder:function(container,async,callback){var env={callback:callback,container:container,selector:"code[class*=\"language-\"], [class*=\"language-\"] code, code[class*=\"lang-\"], [class*=\"lang-\"] code"};_.hooks.run("before-highlightall",env);env.elements=Array.prototype.slice.apply(env.container.querySelectorAll(env.selector));_.hooks.run("before-all-elements-highlight",env);for(var i=0,element;element=env.elements[i++];){_.highlightElement(element,!0===async,env.callback)}},highlightElement:function(element,async,callback){// Find language
+var language=_.util.getLanguage(element),grammar=_.languages[language];// Set language on the element, if not present
+element.className=element.className.replace(lang,"").replace(/\s+/g," ")+" language-"+language;// Set language on the parent, for styling
+var parent=element.parentNode;if(parent&&"pre"===parent.nodeName.toLowerCase()){parent.className=parent.className.replace(lang,"").replace(/\s+/g," ")+" language-"+language}var code=element.textContent,env={element:element,language:language,grammar:grammar,code:code};function insertHighlightedCode(highlightedCode){env.highlightedCode=highlightedCode;_.hooks.run("before-insert",env);env.element.innerHTML=env.highlightedCode;_.hooks.run("after-highlight",env);_.hooks.run("complete",env);callback&&callback.call(env.element)}_.hooks.run("before-sanity-check",env);if(!env.code){_.hooks.run("complete",env);callback&&callback.call(env.element);return}_.hooks.run("before-highlight",env);if(!env.grammar){insertHighlightedCode(_.util.encode(env.code));return}if(async&&_self.Worker){var worker=new Worker(_.filename);worker.onmessage=function(evt){insertHighlightedCode(evt.data)};worker.postMessage(JSON.stringify({language:env.language,code:env.code,immediateClose:!0}))}else{insertHighlightedCode(_.highlight(env.code,env.grammar,env.language))}},highlight:function(text,grammar,language){var env={code:text,grammar:grammar,language:language};_.hooks.run("before-tokenize",env);env.tokens=_.tokenize(env.code,env.grammar);_.hooks.run("after-tokenize",env);return Token.stringify(_.util.encode(env.tokens),env.language)},matchGrammar:function(text,strarr,grammar,index,startPos,oneshot,target){for(var token in grammar){if(!grammar.hasOwnProperty(token)||!grammar[token]){continue}var patterns=grammar[token];patterns=Array.isArray(patterns)?patterns:[patterns];for(var j=0;j<patterns.length;++j){if(target&&target==token+","+j){return}var pattern=patterns[j],inside=pattern.inside,lookbehind=!!pattern.lookbehind,greedy=!!pattern.greedy,lookbehindLength=0,alias=pattern.alias;if(greedy&&!pattern.pattern.global){// Without the global flag, lastIndex won't work
+var flags=pattern.pattern.toString().match(/[imsuy]*$/)[0];pattern.pattern=RegExp(pattern.pattern.source,flags+"g")}pattern=pattern.pattern||pattern;// Don’t cache length as it changes during the loop
 for(var i=index,pos=startPos,str;i<strarr.length;pos+=strarr[i].length,++i){str=strarr[i];if(strarr.length>text.length){// Something went terribly wrong, ABORT, ABORT!
-return}if(str instanceof Token){continue}if(greedy&&i!=strarr.length-1){pattern.lastIndex=pos;var match=pattern.exec(text);if(!match){break}for(var from=match.index+(lookbehind?match[1].length:0),to=match.index+match[0].length,k=i,p=pos,len=strarr.length;k<len&&(p<to||!strarr[k].type&&!strarr[k-1].greedy);++k){p+=strarr[k].length;// Move the index i to the element in strarr that is closest to from
+return}if(str instanceof Token){continue}if(greedy&&i!=strarr.length-1){pattern.lastIndex=pos;var match=pattern.exec(text);if(!match){break}for(var from=match.index+(lookbehind&&match[1]?match[1].length:0),to=match.index+match[0].length,k=i,p=pos,len=strarr.length;k<len&&(p<to||!strarr[k].type&&!strarr[k-1].greedy);++k){p+=strarr[k].length;// Move the index i to the element in strarr that is closest to from
 if(from>=p){++i;pos=p}}// If strarr[i] is a Token, then the match starts inside another Token, which is invalid
 if(strarr[i]instanceof Token){continue}// Number of tokens to delete and replace with the new match
-delNum=k-i;str=text.slice(pos,p);match.index-=pos}else{pattern.lastIndex=0;var match=pattern.exec(str),delNum=1}if(!match){if(oneshot){break}continue}if(lookbehind){lookbehindLength=match[1]?match[1].length:0}var from=match.index+lookbehindLength,match=match[0].slice(lookbehindLength),to=from+match.length,before=str.slice(0,from),after=str.slice(to),args=[i,delNum];if(before){++i;pos+=before.length;args.push(before)}var wrapped=new Token(token,inside?_.tokenize(match,inside):match,alias,match,greedy);args.push(wrapped);if(after){args.push(after)}Array.prototype.splice.apply(strarr,args);if(1!=delNum)_.matchGrammar(text,strarr,grammar,i,pos,!0,token);if(oneshot)break}}}},tokenize:function(text,grammar){var strarr=[text],rest=grammar.rest;if(rest){for(var token in rest){grammar[token]=rest[token]}delete grammar.rest}_.matchGrammar(text,strarr,grammar,0,0,!1);return strarr},hooks:{all:{},add:function(name,callback){var hooks=_.hooks.all;hooks[name]=hooks[name]||[];hooks[name].push(callback)},run:function(name,env){var callbacks=_.hooks.all[name];if(!callbacks||!callbacks.length){return}for(var i=0,callback;callback=callbacks[i++];){callback(env)}}},Token:Token};_self.Prism=_;function Token(type,content,alias,matchedStr,greedy){this.type=type;this.content=content;this.alias=alias;// Copy of the full string this token was created from
+delNum=k-i;str=text.slice(pos,p);match.index-=pos}else{pattern.lastIndex=0;var match=pattern.exec(str),delNum=1}if(!match){if(oneshot){break}continue}if(lookbehind){lookbehindLength=match[1]?match[1].length:0}var from=match.index+lookbehindLength,match=match[0].slice(lookbehindLength),to=from+match.length,before=str.slice(0,from),after=str.slice(to),args=[i,delNum];if(before){++i;pos+=before.length;args.push(before)}var wrapped=new Token(token,inside?_.tokenize(match,inside):match,alias,match,greedy);args.push(wrapped);if(after){args.push(after)}Array.prototype.splice.apply(strarr,args);if(1!=delNum)_.matchGrammar(text,strarr,grammar,i,pos,!0,token+","+j);if(oneshot)break}}}},tokenize:function(text,grammar){var strarr=[text],rest=grammar.rest;if(rest){for(var token in rest){grammar[token]=rest[token]}delete grammar.rest}_.matchGrammar(text,strarr,grammar,0,0,!1);return strarr},hooks:{all:{},add:function(name,callback){var hooks=_.hooks.all;hooks[name]=hooks[name]||[];hooks[name].push(callback)},run:function(name,env){var callbacks=_.hooks.all[name];if(!callbacks||!callbacks.length){return}for(var i=0,callback;callback=callbacks[i++];){callback(env)}}},Token:Token};_self.Prism=_;function Token(type,content,alias,matchedStr,greedy){this.type=type;this.content=content;this.alias=alias;// Copy of the full string this token was created from
 this.length=0|(matchedStr||"").length;this.greedy=!!greedy}Token.stringify=function(o,language){if("string"==typeof o){return o}if(Array.isArray(o)){return o.map(function(element){return Token.stringify(element,language)}).join("")}var env={type:o.type,content:Token.stringify(o.content,language),tag:"span",classes:["token",o.type],attributes:{},language:language};if(o.alias){var aliases=Array.isArray(o.alias)?o.alias:[o.alias];Array.prototype.push.apply(env.classes,aliases)}_.hooks.run("wrap",env);var attributes=Object.keys(env.attributes).map(function(name){return name+"=\""+(env.attributes[name]||"").replace(/"/g,"&quot;")+"\""}).join(" ");return"<"+env.tag+" class=\""+env.classes.join(" ")+"\""+(attributes?" "+attributes:"")+">"+env.content+"</"+env.tag+">"};if(!_self.document){if(!_self.addEventListener){// in Node.js
 return _}if(!_.disableWorkerMessageHandler){// In worker
 _self.addEventListener("message",function(evt){var message=JSON.parse(evt.data),lang=message.language,code=message.code,immediateClose=message.immediateClose;_self.postMessage(_.highlight(code,_.languages[lang],lang));if(immediateClose){_self.close()}},!1)}return _}//Get current script and highlight
-var script=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();if(script){_.filename=script.src;if(!_.manual&&!script.hasAttribute("data-manual")){if("loading"!==document.readyState){if(window.requestAnimationFrame){window.requestAnimationFrame(_.highlightAll)}else{window.setTimeout(_.highlightAll,16)}}else{document.addEventListener("DOMContentLoaded",_.highlightAll)}}}return _}(_self);/**
+var script=_.util.currentScript();if(script){_.filename=script.src;if(script.hasAttribute("data-manual")){_.manual=!0}}if(!_.manual){function highlightAutomaticallyCallback(){if(!_.manual){_.highlightAll()}}// If the document state is "loading", then we'll use DOMContentLoaded.
+// If the document state is "interactive" and the prism.js script is deferred, then we'll also use the
+// DOMContentLoaded event because there might be some plugins or languages which have also been deferred and they
+// might take longer one animation frame to execute which can create a race condition where only some plugins have
+// been loaded when Prism.highlightAll() is executed, depending on how fast resources are loaded.
+// See https://github.com/PrismJS/prism/issues/2102
+var readyState=document.readyState;if("loading"===readyState||"interactive"===readyState&&script&&script.defer){document.addEventListener("DOMContentLoaded",highlightAutomaticallyCallback)}else{if(window.requestAnimationFrame){window.requestAnimationFrame(highlightAutomaticallyCallback)}else{window.setTimeout(highlightAutomaticallyCallback,16)}}}return _}(_self);/**
    * Prism: Lightweight, robust, elegant syntax highlighting
    * MIT license http://www.opensource.org/licenses/mit-license.php/
    * @author Lea Verou http://lea.verou.me
    */if("undefined"!==typeof module&&module.exports){module.exports=Prism$1}// hack for components to work correctly in node.js
 if("undefined"!==typeof global){global.Prism=Prism$1}/* **********************************************
        Begin prism-markup.js
-  ********************************************** */Prism$1.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:/<!DOCTYPE[\s\S]+?>/i,cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/i,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/i,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/i,inside:{punctuation:[/^=/,{pattern:/^(\s*)["']|["']$/,lookbehind:!0}]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:/&#?[\da-z]{1,8};/i};Prism$1.languages.markup.tag.inside["attr-value"].inside.entity=Prism$1.languages.markup.entity;// Plugin to make entity title show the real entity, idea by Roman Komarov
+  ********************************************** */Prism$1.languages.markup={comment:/<!--[\s\S]*?-->/,prolog:/<\?[\s\S]+?\?>/,doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:(?!<!--)[^"'\]]|"[^"]*"|'[^']*'|<!--[\s\S]*?-->)*\]\s*)?>/i,greedy:!0},cdata:/<!\[CDATA\[[\s\S]*?]]>/i,tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/i,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/i,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/i,inside:{punctuation:[/^=/,{pattern:/^(\s*)["']|["']$/,lookbehind:!0}]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:/&#?[\da-z]{1,8};/i};Prism$1.languages.markup.tag.inside["attr-value"].inside.entity=Prism$1.languages.markup.entity;// Plugin to make entity title show the real entity, idea by Roman Komarov
 Prism$1.hooks.add("wrap",function(env){if("entity"===env.type){env.attributes.title=env.content.replace(/&amp;/,"&")}});Object.defineProperty(Prism$1.languages.markup.tag,"addInlined",{/**
    * Adds an inlined language to markup.
    *
@@ -10918,10 +11148,10 @@ Prism$1.hooks.add("wrap",function(env){if("entity"===env.type){env.attributes.ti
                                                   ********************************************** */(function(Prism){var string=/("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;Prism.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:/@[\w-]+[\s\S]*?(?:;|(?=\s*\{))/,inside:{rule:/@[\w-]+/ // See rest below
 }},url:{pattern:RegExp("url\\((?:"+string.source+"|[^\n\r()]*)\\)","i"),inside:{function:/^url/i,punctuation:/^\(|\)$/}},selector:RegExp("[^{}\\s](?:[^{};\"']|"+string.source+")*?(?=\\s*\\{)"),string:{pattern:string,greedy:!0},property:/[-_a-z\xA0-\uFFFF][-\w\xA0-\uFFFF]*(?=\s*:)/i,important:/!important\b/i,function:/[-a-z0-9]+(?=\()/i,punctuation:/[(){};:,]/};Prism.languages.css.atrule.inside.rest=Prism.languages.css;var markup=Prism.languages.markup;if(markup){markup.tag.addInlined("style","css");Prism.languages.insertBefore("inside","attr-value",{"style-attr":{pattern:/\s*style=("|')(?:\\[\s\S]|(?!\1)[^\\])*\1/i,inside:{"attr-name":{pattern:/^\s*style/i,inside:markup.tag.inside},punctuation:/^\s*=\s*['"]|['"]\s*$/,"attr-value":{pattern:/.+/i,inside:Prism.languages.css}},alias:"language-css"}},markup.tag)}})(Prism$1);/* **********************************************
                 Begin prism-clike.js
-             ********************************************** */Prism$1.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};/* **********************************************
+             ********************************************** */Prism$1.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,boolean:/\b(?:true|false)\b/,function:/\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};/* **********************************************
         Begin prism-javascript.js
-   ********************************************** */Prism$1.languages.javascript=Prism$1.languages.extend("clike",{"class-name":[Prism$1.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])[_$A-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)(?:catch|finally)\b/,lookbehind:!0},{pattern:/(^|[^.])\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,// Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
-function:/#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,operator:/-[-=]?|\+[+=]?|!=?=?|<<?=?|>>?>?=?|=(?:==?|>)?|&[&=]?|\|[|=]?|\*\*?=?|\/=?|~|\^=?|%=?|\?|\.{3}/});Prism$1.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/;Prism$1.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s])\s*)\/(\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=\s*($|[\r\n,.;})\]]))/,lookbehind:!0,greedy:!0},// This must be declared before keyword because we use "function" inside the look-forward
+   ********************************************** */Prism$1.languages.javascript=Prism$1.languages.extend("clike",{"class-name":[Prism$1.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])[_$A-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\.(?:prototype|constructor))/,lookbehind:!0}],keyword:[{pattern:/((?:^|})\s*)(?:catch|finally)\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],number:/\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,// Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
+function:/#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,operator:/--|\+\+|\*\*=?|=>|&&|\|\||[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?[.?]?|[~:]/});Prism$1.languages.javascript["class-name"][0].pattern=/(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/;Prism$1.languages.insertBefore("javascript","keyword",{regex:{pattern:/((?:^|[^$\w\xA0-\uFFFF."'\])\s])\s*)\/(?:\[(?:[^\]\\\r\n]|\\.)*]|\\.|[^/\\\[\r\n])+\/[gimyus]{0,6}(?=(?:\s|\/\*[\s\S]*?\*\/)*(?:$|[\r\n,.;:})\]]|\/\/))/,lookbehind:!0,greedy:!0},// This must be declared before keyword because we use "function" inside the look-forward
 "function-variable":{pattern:/#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)?\s*\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\))/,lookbehind:!0,inside:Prism$1.languages.javascript},{pattern:/[_$a-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*=>)/i,inside:Prism$1.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism$1.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*\s*)\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism$1.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/});Prism$1.languages.insertBefore("javascript","string",{"template-string":{pattern:/`(?:\\[\s\S]|\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}|(?!\${)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\${(?:[^{}]|{(?:[^{}]|{[^}]*})*})+}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\${|}$/,alias:"punctuation"},rest:Prism$1.languages.javascript}},string:/[\s\S]+/}}});if(Prism$1.languages.markup){Prism$1.languages.markup.tag.addInlined("script","javascript")}Prism$1.languages.js=Prism$1.languages.javascript;/* **********************************************
                                                       Begin prism-file-highlight.js
                                                      ********************************************** */(function(){if("undefined"===typeof self||!self.Prism||!self.document||!document.querySelector){return}/**
@@ -10929,7 +11159,7 @@ function:/#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*(?:\.\s*(?:apply|bind|ca
      */self.Prism.fileHighlight=function(container){container=container||document;var Extensions={js:"javascript",py:"python",rb:"ruby",ps1:"powershell",psm1:"powershell",sh:"bash",bat:"batch",h:"c",tex:"latex"};Array.prototype.slice.call(container.querySelectorAll("pre[data-src]")).forEach(function(pre){// ignore if already loaded
 if(pre.hasAttribute("data-src-loaded")){return}// load current
 var src=pre.getAttribute("data-src"),language,parent=pre,lang=/\blang(?:uage)?-([\w-]+)\b/i;while(parent&&!lang.test(parent.className)){parent=parent.parentNode}if(parent){language=(pre.className.match(lang)||[,""])[1]}if(!language){var extension=(src.match(/\.(\w+)$/)||[,""])[1];language=Extensions[extension]||extension}var code=document.createElement("code");code.className="language-"+language;pre.textContent="";code.textContent="Loading\u2026";pre.appendChild(code);var xhr=new XMLHttpRequest;xhr.open("GET",src,!0);xhr.onreadystatechange=function(){if(4==xhr.readyState){if(400>xhr.status&&xhr.responseText){code.textContent=xhr.responseText;Prism$1.highlightElement(code);// mark as loaded
-pre.setAttribute("data-src-loaded","")}else if(400<=xhr.status){code.textContent="\u2716 Error "+xhr.status+" while fetching file: "+xhr.statusText}else{code.textContent="\u2716 Error: File does not exist or is empty"}}};xhr.send(null)});if(Prism$1.plugins.toolbar){Prism$1.plugins.toolbar.registerButton("download-file",function(env){var pre=env.element.parentNode;if(!pre||!/pre/i.test(pre.nodeName)||!pre.hasAttribute("data-src")||!pre.hasAttribute("data-download-link")){return}var src=pre.getAttribute("data-src"),a=document.createElement("a");a.textContent=pre.getAttribute("data-download-link-label")||"Download";a.setAttribute("download","");a.href=src;return a})}};document.addEventListener("DOMContentLoaded",function(){// execute inside handler, for dropping Event as argument
+pre.setAttribute("data-src-loaded","")}else if(400<=xhr.status){code.textContent="\u2716 Error "+xhr.status+" while fetching file: "+xhr.statusText}else{code.textContent="\u2716 Error: File does not exist or is empty"}}};xhr.send(null)})};document.addEventListener("DOMContentLoaded",function(){// execute inside handler, for dropping Event as argument
 self.Prism.fileHighlight()})})();// unsafeHTML directive, and the DocumentFragment that was last set as a value.
 // The DocumentFragment is used as a unique key to check if the last value
 // rendered to the part was with unsafeHTML. If not, we'll always re-render the
@@ -15110,22 +15340,22 @@ if("vibrant"===mode){const l=(81-57)*random()+57,c=(83-45)*random()+45,h=360*ran
     */ // Test if given value is a color string
 static test(color){return"string"===typeof color&&(isHex.test(color)||isRgb.test(color))}// Test if given value is an rgb object
 static isRgb(color){return color&&"number"===typeof color.r&&"number"===typeof color.g&&"number"===typeof color.b}// Test if given value is a color
-static isColor(color){return color&&(color instanceof Color||this.isRgb(color)||this.test(color))}}_exports.Color=_exports.$ColorDefault=Color;var Color$1={default:Color};_exports.$Color=Color$1;class Point{// Initialize
+static isColor(color){return color&&(color instanceof Color||this.isRgb(color)||this.test(color))}}_exports.Color=_exports.$ColorDefault=Color;var Color$1={default:Color};_exports.$Color=Color$1;class Point$1{// Initialize
 constructor(...args){this.init(...args)}init(x,y){const base={x:0,y:0// ensure source as object
 },source=Array.isArray(x)?{x:x[0],y:x[1]}:"object"===typeof x?{x:x.x,y:x.y}:{x:x,y:y// merge source
 };this.x=null==source.x?base.x:source.x;this.y=null==source.y?base.y:source.y;return this}// Clone point
-clone(){return new Point(this)}transform(m){return this.clone().transformO(m)}// Transform point with matrix
+clone(){return new Point$1(this)}transform(m){return this.clone().transformO(m)}// Transform point with matrix
 transformO(m){if(!Matrix.isMatrixLike(m)){m=new Matrix(m)}const{x,y}=this;// Perform the matrix multiplication
-this.x=m.a*x+m.c*y+m.e;this.y=m.b*x+m.d*y+m.f;return this}toArray(){return[this.x,this.y]}}_exports.Point=_exports.$PointDefault=Point;function point(x,y){return new Point(x,y).transform(this.screenCTM().inverse())}var Point$1={default:Point,point:point};_exports.$Point=Point$1;function closeEnough(a,b,threshold){return Math.abs(b-a)<(threshold||1e-6)}class Matrix{constructor(...args){this.init(...args)}// Initialize
+this.x=m.a*x+m.c*y+m.e;this.y=m.b*x+m.d*y+m.f;return this}toArray(){return[this.x,this.y]}}_exports.Point=_exports.$PointDefault=Point$1;function point(x,y){return new Point$1(x,y).transform(this.screenCTM().inverse())}var Point$2={default:Point$1,point:point};_exports.$Point=Point$2;function closeEnough(a,b,threshold){return Math.abs(b-a)<(threshold||1e-6)}class Matrix{constructor(...args){this.init(...args)}// Initialize
 init(source){var base=Matrix.fromArray([1,0,0,1,0,0]);// ensure source as object
 source=source instanceof Element?source.matrixify():"string"===typeof source?Matrix.fromArray(source.split(delimiter).map(parseFloat)):Array.isArray(source)?Matrix.fromArray(source):"object"===typeof source&&Matrix.isMatrixLike(source)?source:"object"===typeof source?new Matrix().transform(source):6===arguments.length?Matrix.fromArray([].slice.call(arguments)):base;// Merge the source matrix with the base matrix
 this.a=null!=source.a?source.a:base.a;this.b=null!=source.b?source.b:base.b;this.c=null!=source.c?source.c:base.c;this.d=null!=source.d?source.d:base.d;this.e=null!=source.e?source.e:base.e;this.f=null!=source.f?source.f:base.f;return this}// Clones this matrix
 clone(){return new Matrix(this)}// Transform a matrix into another matrix by manipulating the space
 transform(o){// Check if o is a matrix and then left multiply it directly
 if(Matrix.isMatrixLike(o)){var matrix=new Matrix(o);return matrix.multiplyO(this)}// Get the proposed transformations and the current transformations
-var t=Matrix.formatTransforms(o),current=this;const{x:ox,y:oy}=new Point(t.ox,t.oy).transform(current);// Construct the resulting matrix
+var t=Matrix.formatTransforms(o),current=this;const{x:ox,y:oy}=new Point$1(t.ox,t.oy).transform(current);// Construct the resulting matrix
 var transformer=new Matrix().translateO(t.rx,t.ry).lmultiplyO(current).translateO(-ox,-oy).scaleO(t.scaleX,t.scaleY).skewO(t.skewX,t.skewY).shearO(t.shear).rotateO(t.theta).translateO(ox,oy);// If we want the origin at a particular place, we force it there
-if(isFinite(t.px)||isFinite(t.py)){const origin=new Point(ox,oy).transform(transformer),dx=t.px?t.px-origin.x:0,dy=t.py?t.py-origin.y:0;// TODO: Replace t.px with isFinite(t.px)
+if(isFinite(t.px)||isFinite(t.py)){const origin=new Point$1(ox,oy).transform(transformer),dx=t.px?t.px-origin.x:0,dy=t.py?t.py-origin.y:0;// TODO: Replace t.px with isFinite(t.px)
 transformer.translateO(dx,dy)}// Translate now after positioning
 transformer.translateO(t.tx,t.ty);return transformer}// Applies a matrix defined by its affine parameters
 compose(o){if(o.origin){o.originX=o.origin[0];o.originY=o.origin[1]}// Get the parameters
@@ -15158,7 +15388,7 @@ skewY(y,cx,cy){return this.skew(0,y,cx,cy)}skewYO(y,cx,cy){return this.skewO(0,y
 aroundO(cx,cy,matrix){var dx=cx||0,dy=cy||0;return this.translateO(-dx,-dy).lmultiplyO(matrix).translateO(dx,dy)}around(cx,cy,matrix){return this.clone().aroundO(cx,cy,matrix)}// Check if two matrices are equal
 equals(other){var comp=new Matrix(other);return closeEnough(this.a,comp.a)&&closeEnough(this.b,comp.b)&&closeEnough(this.c,comp.c)&&closeEnough(this.d,comp.d)&&closeEnough(this.e,comp.e)&&closeEnough(this.f,comp.f)}// Convert matrix to string
 toString(){return"matrix("+this.a+","+this.b+","+this.c+","+this.d+","+this.e+","+this.f+")"}toArray(){return[this.a,this.b,this.c,this.d,this.e,this.f]}valueOf(){return{a:this.a,b:this.b,c:this.c,d:this.d,e:this.e,f:this.f}}static fromArray(a){return{a:a[0],b:a[1],c:a[2],d:a[3],e:a[4],f:a[5]}}static isMatrixLike(o){return null!=o.a||null!=o.b||null!=o.c||null!=o.d||null!=o.e||null!=o.f}static formatTransforms(o){// Get all of the parameters required to form the matrix
-var flipBoth="both"===o.flip||!0===o.flip,flipX=o.flip&&(flipBoth||"x"===o.flip)?-1:1,flipY=o.flip&&(flipBoth||"y"===o.flip)?-1:1,skewX=o.skew&&o.skew.length?o.skew[0]:isFinite(o.skew)?o.skew:isFinite(o.skewX)?o.skewX:0,skewY=o.skew&&o.skew.length?o.skew[1]:isFinite(o.skew)?o.skew:isFinite(o.skewY)?o.skewY:0,scaleX=o.scale&&o.scale.length?o.scale[0]*flipX:isFinite(o.scale)?o.scale*flipX:isFinite(o.scaleX)?o.scaleX*flipX:flipX,scaleY=o.scale&&o.scale.length?o.scale[1]*flipY:isFinite(o.scale)?o.scale*flipY:isFinite(o.scaleY)?o.scaleY*flipY:flipY,shear=o.shear||0,theta=o.rotate||o.theta||0,origin=new Point(o.origin||o.around||o.ox||o.originX,o.oy||o.originY),ox=origin.x,oy=origin.y,position=new Point(o.position||o.px||o.positionX,o.py||o.positionY),px=position.x,py=position.y,translate=new Point(o.translate||o.tx||o.translateX,o.ty||o.translateY),tx=translate.x,ty=translate.y,relative=new Point(o.relative||o.rx||o.relativeX,o.ry||o.relativeY),rx=relative.x,ry=relative.y;// Populate all of the values
+var flipBoth="both"===o.flip||!0===o.flip,flipX=o.flip&&(flipBoth||"x"===o.flip)?-1:1,flipY=o.flip&&(flipBoth||"y"===o.flip)?-1:1,skewX=o.skew&&o.skew.length?o.skew[0]:isFinite(o.skew)?o.skew:isFinite(o.skewX)?o.skewX:0,skewY=o.skew&&o.skew.length?o.skew[1]:isFinite(o.skew)?o.skew:isFinite(o.skewY)?o.skewY:0,scaleX=o.scale&&o.scale.length?o.scale[0]*flipX:isFinite(o.scale)?o.scale*flipX:isFinite(o.scaleX)?o.scaleX*flipX:flipX,scaleY=o.scale&&o.scale.length?o.scale[1]*flipY:isFinite(o.scale)?o.scale*flipY:isFinite(o.scaleY)?o.scaleY*flipY:flipY,shear=o.shear||0,theta=o.rotate||o.theta||0,origin=new Point$1(o.origin||o.around||o.ox||o.originX,o.oy||o.originY),ox=origin.x,oy=origin.y,position=new Point$1(o.position||o.px||o.positionX,o.py||o.positionY),px=position.x,py=position.y,translate=new Point$1(o.translate||o.tx||o.translateX,o.ty||o.translateY),tx=translate.x,ty=translate.y,relative=new Point$1(o.relative||o.rx||o.relativeX,o.ry||o.relativeY),rx=relative.x,ry=relative.y;// Populate all of the values
 return{scaleX,scaleY,skewX,skewY,shear,theta,rx,ry,tx,ty,ox,oy,px,py}}// left matrix, right matrix, target matrix which is overwritten
 static matrixMultiply(l,r,o){// Work out the product directly
 var a=l.a*r.a+l.c*r.b,b=l.b*r.a+l.d*r.b,c=l.a*r.c+l.c*r.d,d=l.b*r.c+l.d*r.d,e=l.e+l.a*r.e+l.c*r.f,f=l.f+l.b*r.e+l.d*r.f;// make sure to use local variables because l/r and o could be the same
@@ -15169,12 +15399,12 @@ o.a=a;o.b=b;o.c=c;o.d=d;o.e=e;o.f=f;return o}}_exports.Matrix=_exports.$MatrixDe
 if(!parser.nodes){const svg=makeInstance().size(2,0);svg.node.style.cssText=["opacity: 0","position: absolute","left: -100%","top: -100%","overflow: hidden"].join(";");svg.attr("focusable","false");svg.attr("aria-hidden","true");const path=svg.path().node;parser.nodes={svg,path}}if(!parser.nodes.svg.node.parentNode){const b=globals.document.body||globals.document.documentElement;parser.nodes.svg.addTo(b)}return parser.nodes}var parser$1={default:parser};_exports.$parser=parser$1;function isNulledBox(box){return!box.width&&!box.height&&!box.x&&!box.y}function domContains(node){return node===globals.document||(globals.document.documentElement.contains||function(node){// This is IE - it does not support contains() for top-level SVGs
 while(node.parentNode){node=node.parentNode}return node===globals.document}).call(globals.document.documentElement,node)}class Box{constructor(...args){this.init(...args)}init(source){var base=[0,0,0,0];source="string"===typeof source?source.split(delimiter).map(parseFloat):Array.isArray(source)?source:"object"===typeof source?[null!=source.left?source.left:source.x,null!=source.top?source.top:source.y,source.width,source.height]:4===arguments.length?[].slice.call(arguments):base;this.x=source[0]||0;this.y=source[1]||0;this.width=this.w=source[2]||0;this.height=this.h=source[3]||0;// Add more bounding box properties
 this.x2=this.x+this.w;this.y2=this.y+this.h;this.cx=this.x+this.w/2;this.cy=this.y+this.h/2;return this}// Merge rect box with another, return a new instance
-merge(box){const x=Math.min(this.x,box.x),y=Math.min(this.y,box.y),width=Math.max(this.x+this.width,box.x+box.width)-x,height=Math.max(this.y+this.height,box.y+box.height)-y;return new Box(x,y,width,height)}transform(m){if(!(m instanceof Matrix)){m=new Matrix(m)}let xMin=1/0,xMax=-Infinity,yMin=1/0,yMax=-Infinity;const pts=[new Point(this.x,this.y),new Point(this.x2,this.y),new Point(this.x,this.y2),new Point(this.x2,this.y2)];pts.forEach(function(p){p=p.transform(m);xMin=Math.min(xMin,p.x);xMax=Math.max(xMax,p.x);yMin=Math.min(yMin,p.y);yMax=Math.max(yMax,p.y)});return new Box(xMin,yMin,xMax-xMin,yMax-yMin)}addOffset(){// offset by window scroll position, because getBoundingClientRect changes when window is scrolled
+merge(box){const x=Math.min(this.x,box.x),y=Math.min(this.y,box.y),width=Math.max(this.x+this.width,box.x+box.width)-x,height=Math.max(this.y+this.height,box.y+box.height)-y;return new Box(x,y,width,height)}transform(m){if(!(m instanceof Matrix)){m=new Matrix(m)}let xMin=1/0,xMax=-Infinity,yMin=1/0,yMax=-Infinity;const pts=[new Point$1(this.x,this.y),new Point$1(this.x2,this.y),new Point$1(this.x,this.y2),new Point$1(this.x2,this.y2)];pts.forEach(function(p){p=p.transform(m);xMin=Math.min(xMin,p.x);xMax=Math.max(xMax,p.x);yMin=Math.min(yMin,p.y);yMax=Math.max(yMax,p.y)});return new Box(xMin,yMin,xMax-xMin,yMax-yMin)}addOffset(){// offset by window scroll position, because getBoundingClientRect changes when window is scrolled
 this.x+=globals.window.pageXOffset;this.y+=globals.window.pageYOffset;return this}toString(){return this.x+" "+this.y+" "+this.width+" "+this.height}toArray(){return[this.x,this.y,this.width,this.height]}isNulled(){return isNulledBox(this)}}_exports.Box=_exports.$BoxDefault=Box;function getBox(cb,retry){let box;try{box=cb(this.node);if(isNulledBox(box)&&!domContains(this.node)){throw new Error("Element not in the dom")}}catch(e){box=retry(this)}return box}function bbox(){return new Box(getBox.call(this,node=>node.getBBox(),el=>{try{const clone=el.clone().addTo(parser().svg).show(),box=clone.node.getBBox();clone.remove();return box}catch(e){throw new Error("Getting bbox of element \""+el.node.nodeName+"\" is not possible. "+e.toString())}}))}function rbox(el){const box=new Box(getBox.call(this,node=>node.getBoundingClientRect(),el=>{throw new Error("Getting rbox of element \""+el.node.nodeName+"\" is not possible")}));if(el)return box.transform(el.screenCTM().inverse());return box.addOffset()}registerMethods({viewbox:{viewbox(x,y,width,height){// act as getter
 if(null==x)return new Box(this.attr("viewBox"));// act as setter
 return this.attr("viewBox",new Box(x,y,width,height))},zoom(level,point){let width=this.node.clientWidth,height=this.node.clientHeight;const v=this.viewbox();// Firefox does not support clientHeight and returns 0
 // https://bugzilla.mozilla.org/show_bug.cgi?id=874811
-if(!width&&!height){var style=window.getComputedStyle(this.node);width=parseFloat(style.getPropertyValue("width"));height=parseFloat(style.getPropertyValue("height"))}const zoomX=width/v.width,zoomY=height/v.height,zoom=Math.min(zoomX,zoomY);if(null==level){return zoom}let zoomAmount=zoom/level;if(zoomAmount===1/0)zoomAmount=Number.MIN_VALUE;point=point||new Point(width/2/zoomX+v.x,height/2/zoomY+v.y);const box=new Box(v).transform(new Matrix({scale:zoomAmount,origin:point}));return this.viewbox(box)}}});register(Box,"Box");var Box$1={default:Box,bbox:bbox,rbox:rbox};/* eslint no-new-func: "off" */_exports.$Box=Box$1;const subClassArray=function(){try{// try es6 subclassing
+if(!width&&!height){var style=window.getComputedStyle(this.node);width=parseFloat(style.getPropertyValue("width"));height=parseFloat(style.getPropertyValue("height"))}const zoomX=width/v.width,zoomY=height/v.height,zoom=Math.min(zoomX,zoomY);if(null==level){return zoom}let zoomAmount=zoom/level;if(zoomAmount===1/0)zoomAmount=Number.MIN_VALUE;point=point||new Point$1(width/2/zoomX+v.x,height/2/zoomY+v.y);const box=new Box(v).transform(new Matrix({scale:zoomAmount,origin:point}));return this.viewbox(box)}}});register(Box,"Box");var Box$1={default:Box,bbox:bbox,rbox:rbox};/* eslint no-new-func: "off" */_exports.$Box=Box$1;const subClassArray=function(){try{// try es6 subclassing
 return Function("name","baseClass","_constructor",["baseClass = baseClass || Array","return {","  [name]: class extends baseClass {","    constructor (...args) {","      super(...args)","      _constructor && _constructor.apply(this, args)","    }","  }","}[name]"].join("\n"))}catch(e){// Use es5 approach
 return(name,baseClass=Array,_constructor)=>{const Arr=function(){baseClass.apply(this,arguments);_constructor&&_constructor.apply(this,arguments)};Arr.prototype=Object.create(baseClass.prototype);Arr.prototype.constructor=Arr;Arr.prototype.map=function(fn){const arr=new Arr;arr.push.apply(arr,Array.prototype.map.call(this,fn));return arr};return Arr}}}();_exports.subClassArray=subClassArray;var ArrayPolyfill={subClassArray:subClassArray};_exports.$ArrayPolyfill=ArrayPolyfill;const List=subClassArray("List",Array,function(arr=[]){// This catches the case, that native map tries to create an array with new Array(1)
 if("number"===typeof arr)return this;this.length=0;this.push(...arr)});_exports.List=_exports.$ListDefault=List;extend(List,{each(fnOrMethodName,...args){if("function"===typeof fnOrMethodName){return this.map(el=>{return fnOrMethodName.call(el,el)})}else{return this.map(el=>{return el[fnOrMethodName](...args)})}},toArray(){return Array.prototype.concat.apply([],this)}});const reserved=["toArray","constructor","each"];List.extend=function(methods){methods=methods.reduce((obj,name)=>{// Don't overwrite own methods
@@ -15312,7 +15542,7 @@ flip:function(direction,around){var directionString="string"===typeof direction?
 opacity:function(value){return this.attr("opacity",value)}});registerMethods("radius",{// Add x and y radius
 radius:function(x,y){var type=(this._element||this).type;return"radialGradient"===type||"radialGradient"===type?this.attr("r",new SVGNumber(x)):this.rx(x).ry(null==y?x:y)}});registerMethods("Path",{// Get path length
 length:function(){return this.node.getTotalLength()},// Get point at length
-pointAt:function(length){return new Point(this.node.getPointAtLength(length))}});registerMethods(["Element","Runner"],{// Set font
+pointAt:function(length){return new Point$1(this.node.getPointAtLength(length))}});registerMethods(["Element","Runner"],{// Set font
 font:function(a,v){if("object"===typeof a){for(v in a)this.font(v,a[v]);return this}return"leading"===a?this.leading(v):"anchor"===a?this.attr("text-anchor",v):"size"===a||"family"===a||"weight"===a||"stretch"===a||"variant"===a||"style"===a?this.attr("font-"+a,v):this.attr(a,v)}});registerMethods("Text",{ax(x){return this.attr("x",x)},ay(y){return this.attr("y",y)},amove(x,y){return this.ax(x).ay(y)}});// Add events to elements
 const methods$2=["click","dblclick","mousedown","mouseup","mouseover","mouseout","mousemove","mouseenter","mouseleave","touchstart","touchmove","touchleave","touchend","touchcancel"].reduce(function(last,event){// add event to Element
 const fn=function(f){if(null===f){off(this,event)}else{on(this,event,f)}return this};last[event]=fn;return last},{});registerMethods("Element",methods$2);function untransform(){return this.attr("transform",null)}// merge the whole transformation chain into one matrix and returns it
@@ -15356,13 +15586,13 @@ this.clear();// invoke passed block
 if("function"===typeof block){block.call(this,this)}return this}// Alias string convertion to fill
 toString(){return this.url()}// custom attr to handle transform
 attr(a,b,c){if("transform"===a)a="patternTransform";return super.attr(a,b,c)}targets(){return baseFind("svg [fill*=\""+this.id()+"\"]")}bbox(){return new Box}}_exports.Pattern=_exports.$PatternDefault=Pattern;registerMethods({Container:{// Create pattern element in defs
-pattern(...args){return this.defs().pattern(...args)}},Defs:{pattern:wrapWithAttrCheck(function(width,height,block){return this.put(new Pattern).update(block).attr({x:0,y:0,width:width,height:height,patternUnits:"userSpaceOnUse"})})}});register(Pattern,"Pattern");var Pattern$1={default:Pattern};_exports.$Pattern=Pattern$1;class Image extends Shape{constructor(node){super(nodeOrNew("image",node),node)}// (re)load image
+pattern(...args){return this.defs().pattern(...args)}},Defs:{pattern:wrapWithAttrCheck(function(width,height,block){return this.put(new Pattern).update(block).attr({x:0,y:0,width:width,height:height,patternUnits:"userSpaceOnUse"})})}});register(Pattern,"Pattern");var Pattern$1={default:Pattern};_exports.$Pattern=Pattern$1;class Image$1 extends Shape{constructor(node){super(nodeOrNew("image",node),node)}// (re)load image
 load(url,callback){if(!url)return this;var img=new globals.window.Image;on(img,"load",function(e){var p=this.parent(Pattern);// ensure image size
 if(0===this.width()&&0===this.height()){this.size(img.width,img.height)}if(p instanceof Pattern){// ensure pattern size if not set
 if(0===p.width()&&0===p.height()){p.size(this.width(),this.height())}}if("function"===typeof callback){callback.call(this,e)}},this);on(img,"load error",function(){// dont forget to unbind memory leaking events
-off(img)});return this.attr("href",img.src=url,xlink)}}_exports.Image=_exports.$ImageDefault=Image;registerAttrHook(function(attr,val,_this){// convert image fill and stroke to patterns
-if("fill"===attr||"stroke"===attr){if(isImage.test(val)){val=_this.root().defs().image(val)}}if(val instanceof Image){val=_this.root().defs().pattern(0,0,pattern=>{pattern.add(val)})}return val});registerMethods({Container:{// create image element, load image and set its size
-image:wrapWithAttrCheck(function(source,callback){return this.put(new Image).size(0,0).load(source,callback)})}});register(Image,"Image");var Image$1={default:Image};_exports.$Image=Image$1;const PointArray=subClassArray("PointArray",SVGArray);_exports.PointArray=_exports.$PointArrayDefault=PointArray;extend(PointArray,{// Convert array to string
+off(img)});return this.attr("href",img.src=url,xlink)}}_exports.Image=_exports.$ImageDefault=Image$1;registerAttrHook(function(attr,val,_this){// convert image fill and stroke to patterns
+if("fill"===attr||"stroke"===attr){if(isImage.test(val)){val=_this.root().defs().image(val)}}if(val instanceof Image$1){val=_this.root().defs().pattern(0,0,pattern=>{pattern.add(val)})}return val});registerMethods({Container:{// create image element, load image and set its size
+image:wrapWithAttrCheck(function(source,callback){return this.put(new Image$1).size(0,0).load(source,callback)})}});register(Image$1,"Image");var Image$2={default:Image$1};_exports.$Image=Image$2;const PointArray=subClassArray("PointArray",SVGArray);_exports.PointArray=_exports.$PointArrayDefault=PointArray;extend(PointArray,{// Convert array to string
 toString(){// convert to a poly point string
 for(var i=0,il=this.length,array=[];i<il;i++){array.push(this[i].join(","))}return array.join(" ")},// Convert array to line object
 toLine(){return{x1:this[0][0],y1:this[0][1],x2:this[1][0],y2:this[1][1]}},// Get morphed array at given position
@@ -15462,7 +15692,7 @@ var s,paramCnt={M:2,L:2,H:1,V:1,C:6,S:4,Q:4,T:2,A:7,Z:0};if("string"===typeof ar
 .trim()// trim
 .split(delimiter);// split into array
 }else{array=array.reduce(function(prev,curr){return[].concat.call(prev,curr)},[])}// array now is an array containing all parts of a path e.g. ['M', '0', '0', 'L', '30', '30' ...]
-var result=[],p=new Point,p0=new Point,index=0,len=array.length;do{// Test if we have a path letter
+var result=[],p=new Point$1,p0=new Point$1,index=0,len=array.length;do{// Test if we have a path letter
 if(isPathLetter.test(array[index])){s=array[index];++index;// If last letter was a move command and we got no new, it defaults to [L]ine
 }else if("M"===s){s="L"}else if("m"===s){s="l"}result.push(pathHandlers[s].call(null,array.slice(index,index=index+paramCnt[s.toUpperCase()]).map(parseFloat),p,p0))}while(len>index);return result},// Get bounding box of path
 bbox(){parser().path.setAttribute("d",this.toString());return parser.nodes.path.getBBox()}});var PathArray$1={default:PathArray,pathRegReplace:pathRegReplace};_exports.$PathArray=PathArray$1;class Morphable{constructor(stepper){this._stepper=stepper||new Ease("-");this._from=null;this._to=null;this._type=null;this._context=null;this._morphObj=null}from(val){if(null==val){return this._from}this._from=this._set(val);return this}to(val){if(null==val){return this._to}this._to=this._set(val);return this}type(type){// getter
@@ -15688,7 +15918,7 @@ element=element||this.element();origin=origin||getOrigin(transforms,element);sta
 element._addRunner(this);// Deactivate all transforms that have run so far if we are absolute
 if(!relative){element._clearTransformRunnersBefore(this)}}function run(pos){// clear all other transforms before this in case something is saved
 // on this runner. We are absolute. We dont need these!
-if(!relative)this.clearTransform();const{x,y}=new Point(origin).transform(element._currentTransform(this));let target=new Matrix(_objectSpread({},transforms,{origin:[x,y]})),start=this._isDeclarative&&current?current:startTransform;if(affine){target=target.decompose(x,y);start=start.decompose(x,y);// Get the current and target angle as it was set
+if(!relative)this.clearTransform();const{x,y}=new Point$1(origin).transform(element._currentTransform(this));let target=new Matrix(_objectSpread({},transforms,{origin:[x,y]})),start=this._isDeclarative&&current?current:startTransform;if(affine){target=target.decompose(x,y);start=start.decompose(x,y);// Get the current and target angle as it was set
 const rTarget=target.rotate,rCurrent=start.rotate,possibilities=[rTarget-360,rTarget,rTarget+360],distances=possibilities.map(a=>Math.abs(a-rCurrent)),shortest=Math.min(...distances),index=distances.indexOf(shortest);target.rotate=possibilities[index]}if(relative){// we have to be careful here not to overwrite the rotation
 // with the rotate method of Matrix
 if(!isMatrix){target.rotate=transforms.rotate||0}if(this._isDeclarative&&currentAngle){start.rotate=currentAngle}}morpher.from(start);morpher.to(target);const affineParameters=morpher.at(pos);currentAngle=affineParameters.rotate;current=new Matrix(affineParameters);this.addTransform(current);element._addRunner(this);return morpher.done()}function retarget(newTransforms){// only get a new origin if it changed since the last call
@@ -15774,9 +16004,9 @@ clipWith(element){// use given clip or create a new one
 const clipper=element instanceof ClipPath?element:this.parent().clip().add(element);// apply mask
 return this.attr("clip-path","url(\"#"+clipper.id()+"\")")},// Unclip element
 unclip(){return this.attr("clip-path",null)},clipper(){return this.reference("clip-path")}}});register(ClipPath,"ClipPath");var ClipPath$1={default:ClipPath};_exports.$ClipPath=ClipPath$1;class ForeignObject extends Element{constructor(node){super(nodeOrNew("foreignObject",node),node)}}_exports.ForeignObject=_exports.$ForeignObjectDefault=ForeignObject;registerMethods({Container:{foreignObject:wrapWithAttrCheck(function(width,height){return this.put(new ForeignObject).size(width,height)})}});register(ForeignObject,"ForeignObject");var ForeignObject$1={default:ForeignObject};_exports.$ForeignObject=ForeignObject$1;class G extends Container{constructor(node){super(nodeOrNew("g",node),node)}x(x,box=this.bbox()){if(null==x)return box.x;return this.move(x,box.y,box)}y(y,box=this.bbox()){if(null==y)return box.y;return this.move(box.x,y,box)}move(x=0,y=0,box=this.bbox()){const dx=x-box.x,dy=y-box.y;return this.dmove(dx,dy)}dx(dx){return this.dmove(dx,0)}dy(dy){return this.dmove(0,dy)}dmove(dx,dy){this.children().forEach((child,i)=>{// Get the childs bbox
-const bbox=child.bbox(),m=new Matrix(child),matrix=m.translate(dx,dy).transform(m.inverse()),p=new Point(bbox.x,bbox.y).transform(matrix);// Get childs matrix
+const bbox=child.bbox(),m=new Matrix(child),matrix=m.translate(dx,dy).transform(m.inverse()),p=new Point$1(bbox.x,bbox.y).transform(matrix);// Get childs matrix
 // Move element
-child.move(p.x,p.y)});return this}width(width,box=this.bbox()){if(null==width)return box.width;return this.size(width,box.height,box)}height(height,box=this.bbox()){if(null==height)return box.height;return this.size(box.width,height,box)}size(width,height,box=this.bbox()){const p=proportionalSize(this,width,height,box),scaleX=p.width/box.width,scaleY=p.height/box.height;this.children().forEach((child,i)=>{const o=new Point(box).transform(new Matrix(child).inverse());child.scale(scaleX,scaleY,o.x,o.y)});return this}}_exports.G=_exports.$GDefault=G;registerMethods({Container:{// Create a group element
+child.move(p.x,p.y)});return this}width(width,box=this.bbox()){if(null==width)return box.width;return this.size(width,box.height,box)}height(height,box=this.bbox()){if(null==height)return box.height;return this.size(box.width,height,box)}size(width,height,box=this.bbox()){const p=proportionalSize(this,width,height,box),scaleX=p.width/box.width,scaleY=p.height/box.height;this.children().forEach((child,i)=>{const o=new Point$1(box).transform(new Matrix(child).inverse());child.scale(scaleX,scaleY,o.x,o.y)});return this}}_exports.G=_exports.$GDefault=G;registerMethods({Container:{// Create a group element
 group:wrapWithAttrCheck(function(){return this.put(new G)})}});register(G,"G");var G$1={default:G};_exports.$G=G$1;class A extends Container{constructor(node){super(nodeOrNew("a",node),node)}// Link url
 to(url){return this.attr("href",url,xlink)}// Link target attribute
 target(target){return this.attr("target",target)}}_exports.A=_exports.$ADefault=A;registerMethods({Container:{// Create a hyperlink element
@@ -15807,8 +16037,8 @@ if(!(text instanceof Text)){text=new Text().addTo(this.parent()).text(text)}// C
 return text.path(this)}),targets(){return baseFind("svg [href*=\""+this.id()+"\"]")}}});TextPath.prototype.MorphArray=PathArray;register(TextPath,"TextPath");var TextPath$1={default:TextPath};_exports.$TextPath=TextPath$1;class Use extends Shape{constructor(node){super(nodeOrNew("use",node),node)}// Use element as a reference
 element(element,file){// Set lined element
 return this.attr("href",(file||"")+"#"+element,xlink)}}_exports.Use=_exports.$UseDefault=Use;registerMethods({Container:{// Create a use element
-use:wrapWithAttrCheck(function(element,file){return this.put(new Use).element(element,file)})}});register(Use,"Use");var Use$1={default:Use};_exports.$Use=Use$1;const SVG=makeInstance;_exports.SVG=SVG;extend([Svg,Symbol$1,Image,Pattern,Marker],getMethodsFor("viewbox"));extend([Line,Polyline,Polygon,Path],getMethodsFor("marker"));extend(Text,getMethodsFor("Text"));extend(Path,getMethodsFor("Path"));extend(Defs,getMethodsFor("Defs"));extend([Text,Tspan],getMethodsFor("Tspan"));extend([Rect,Ellipse,Circle,Gradient],getMethodsFor("radius"));extend(EventTarget,getMethodsFor("EventTarget"));extend(Dom,getMethodsFor("Dom"));extend(Element,getMethodsFor("Element"));extend(Shape,getMethodsFor("Shape"));// extend(Element, getConstructor('Memory'))
-extend(Container,getMethodsFor("Container"));extend(Runner,getMethodsFor("Runner"));List.extend(getMethodNames());registerMorphableType([SVGNumber,Color,Box,Matrix,SVGArray,PointArray,PathArray]);makeMorphable();var main={Morphable:Morphable,registerMorphableType:registerMorphableType,makeMorphable:makeMorphable,TransformBag:TransformBag,ObjectBag:ObjectBag,NonMorphable:NonMorphable,defaults:defaults,utils:utils,namespaces:namespaces,regex:regex,SVG:SVG,parser:parser,find:baseFind,on:on,off:off,dispatch:dispatch,root:root,create:create,makeInstance:makeInstance,nodeOrNew:nodeOrNew,adopt:adopt,mockAdopt:mockAdopt,register:register,getClass:getClass,eid:eid,assignNewId:assignNewId,extend:extend,wrapWithAttrCheck:wrapWithAttrCheck,invent:invent,registerWindow:registerWindow,Animator:Animator,Controller:Controller,Ease:Ease,PID:PID,Spring:Spring,easing:easing,Queue:Queue,Runner:Runner,Timeline:Timeline,Array:SVGArray,Box:Box,Color:Color,EventTarget:EventTarget,Matrix:Matrix,Number:SVGNumber,PathArray:PathArray,Point:Point,PointArray:PointArray,List:List,Circle:Circle,ClipPath:ClipPath,Container:Container,Defs:Defs,Dom:Dom,Element:Element,Ellipse:Ellipse,ForeignObject:ForeignObject,Gradient:Gradient,G:G,A:A,Image:Image,Line:Line,Marker:Marker,Mask:Mask,Path:Path,Pattern:Pattern,Polygon:Polygon,Polyline:Polyline,Rect:Rect,Shape:Shape,Stop:Stop,Style:Style,Svg:Svg,Symbol:Symbol$1,Text:Text,TextPath:TextPath,Tspan:Tspan,Use:Use};_exports.$main=main;const normalizeEvent=ev=>ev.touches||[{clientX:ev.clientX,clientY:ev.clientY}];extend(Svg,{panZoom(options){this.off(".panZoom");// when called with false, disable panZoom
+use:wrapWithAttrCheck(function(element,file){return this.put(new Use).element(element,file)})}});register(Use,"Use");var Use$1={default:Use};_exports.$Use=Use$1;const SVG=makeInstance;_exports.SVG=SVG;extend([Svg,Symbol$1,Image$1,Pattern,Marker],getMethodsFor("viewbox"));extend([Line,Polyline,Polygon,Path],getMethodsFor("marker"));extend(Text,getMethodsFor("Text"));extend(Path,getMethodsFor("Path"));extend(Defs,getMethodsFor("Defs"));extend([Text,Tspan],getMethodsFor("Tspan"));extend([Rect,Ellipse,Circle,Gradient],getMethodsFor("radius"));extend(EventTarget,getMethodsFor("EventTarget"));extend(Dom,getMethodsFor("Dom"));extend(Element,getMethodsFor("Element"));extend(Shape,getMethodsFor("Shape"));// extend(Element, getConstructor('Memory'))
+extend(Container,getMethodsFor("Container"));extend(Runner,getMethodsFor("Runner"));List.extend(getMethodNames());registerMorphableType([SVGNumber,Color,Box,Matrix,SVGArray,PointArray,PathArray]);makeMorphable();var main={Morphable:Morphable,registerMorphableType:registerMorphableType,makeMorphable:makeMorphable,TransformBag:TransformBag,ObjectBag:ObjectBag,NonMorphable:NonMorphable,defaults:defaults,utils:utils,namespaces:namespaces,regex:regex,SVG:SVG,parser:parser,find:baseFind,on:on,off:off,dispatch:dispatch,root:root,create:create,makeInstance:makeInstance,nodeOrNew:nodeOrNew,adopt:adopt,mockAdopt:mockAdopt,register:register,getClass:getClass,eid:eid,assignNewId:assignNewId,extend:extend,wrapWithAttrCheck:wrapWithAttrCheck,invent:invent,registerWindow:registerWindow,Animator:Animator,Controller:Controller,Ease:Ease,PID:PID,Spring:Spring,easing:easing,Queue:Queue,Runner:Runner,Timeline:Timeline,Array:SVGArray,Box:Box,Color:Color,EventTarget:EventTarget,Matrix:Matrix,Number:SVGNumber,PathArray:PathArray,Point:Point$1,PointArray:PointArray,List:List,Circle:Circle,ClipPath:ClipPath,Container:Container,Defs:Defs,Dom:Dom,Element:Element,Ellipse:Ellipse,ForeignObject:ForeignObject,Gradient:Gradient,G:G,A:A,Image:Image$1,Line:Line,Marker:Marker,Mask:Mask,Path:Path,Pattern:Pattern,Polygon:Polygon,Polyline:Polyline,Rect:Rect,Shape:Shape,Stop:Stop,Style:Style,Svg:Svg,Symbol:Symbol$1,Text:Text,TextPath:TextPath,Tspan:Tspan,Use:Use};_exports.$main=main;const normalizeEvent=ev=>ev.touches||[{clientX:ev.clientX,clientY:ev.clientY}];extend(Svg,{panZoom(options){this.off(".panZoom");// when called with false, disable panZoom
 if(!1===options)return this;options=options||{};const zoomFactor=options.zoomFactor||.03,zoomMin=options.zoomMin||Number.MIN_VALUE,zoomMax=options.zoomMax||Number.MAX_VALUE;let lastP,lastTouches,zoomInProgress=!1;var wheelZoom=function(ev){ev.preventDefault();// touchpads can give ev.deltaY == 0, which skrews the lvl calculation
 if(0===ev.deltaY)return;let lvl=this.zoom()-zoomFactor*ev.deltaY/Math.abs(ev.deltaY);const p=this.point(ev.clientX,ev.clientY);if(lvl>zoomMax){lvl=zoomMax}if(lvl<zoomMin){lvl=zoomMin}if(this.dispatch("zoom",{level:lvl,focus:p}).defaultPrevented){return this}this.zoom(lvl,p)};const pinchZoomStart=function(ev){lastTouches=normalizeEvent(ev);if(2>lastTouches.length)return;ev.preventDefault();if(this.dispatch("pinchZoomStart",{event:ev}).defaultPrevented){return}this.off("touchstart.panZoom",pinchZoomStart);zoomInProgress=!0;on(document,"touchmove.panZoom",pinchZoom,this,{passive:!1});on(document,"touchend.panZoom",pinchZoomStop,this,{passive:!1})},pinchZoomStop=function(ev){ev.preventDefault();zoomInProgress=!1;this.dispatch("pinchZoomEnd",{event:ev});off(document,"touchmove.panZoom",pinchZoom);off(document,"touchend.panZoom",pinchZoomStop);this.on("touchstart.panZoom",pinchZoomStart)},pinchZoom=function(ev){ev.preventDefault();const currentTouches=normalizeEvent(ev),zoom=this.zoom(),lastDelta=Math.sqrt(Math.pow(lastTouches[0].clientX-lastTouches[1].clientX,2)+Math.pow(lastTouches[0].clientY-lastTouches[1].clientY,2)),currentDelta=Math.sqrt(Math.pow(currentTouches[0].clientX-currentTouches[1].clientX,2)+Math.pow(currentTouches[0].clientY-currentTouches[1].clientY,2));let zoomAmount=lastDelta/currentDelta;if(zoom<zoomMin&&1<zoomAmount||zoom>zoomMax&&1>zoomAmount){zoomAmount=1}const currentFocus={x:currentTouches[0].clientX+.5*(currentTouches[1].clientX-currentTouches[0].clientX),y:currentTouches[0].clientY+.5*(currentTouches[1].clientY-currentTouches[0].clientY)},lastFocus={x:lastTouches[0].clientX+.5*(lastTouches[1].clientX-lastTouches[0].clientX),y:lastTouches[0].clientY+.5*(lastTouches[1].clientY-lastTouches[0].clientY)},p=this.point(currentFocus.x,currentFocus.y),focusP=this.point(2*currentFocus.x-lastFocus.x,2*currentFocus.y-lastFocus.y),box=new Box(this.viewbox()).transform(new Matrix().translate(p.x,p.y).scale(zoomAmount,0,0).translate(-focusP.x,-focusP.y));this.viewbox(box);lastTouches=currentTouches;this.dispatch("zoom",{box:box,focus:focusP})},panStart=function(ev){ev.preventDefault();this.off("mousedown.panZoom",panStart);lastTouches=normalizeEvent(ev);if(zoomInProgress)return;this.dispatch("panStart",{event:ev});lastP={x:lastTouches[0].clientX,y:lastTouches[0].clientY};on(document,"mousemove.panZoom",panning,this);on(document,"mouseup.panZoom",panStop,this)},panStop=function(ev){ev.preventDefault();off(document,"mousemove.panZoom",panning);off(document,"mouseup.panZoom",panStop);this.on("mousedown.panZoom",panStart);this.dispatch("panEnd",{event:ev})},panning=function(ev){ev.preventDefault();const currentTouches=normalizeEvent(ev),currentP={x:currentTouches[0].clientX,y:currentTouches[0].clientY},p1=this.point(currentP.x,currentP.y),p2=this.point(lastP.x,lastP.y),deltaP=[p2.x-p1.x,p2.y-p1.y],box=new Box(this.viewbox()).transform(new Matrix().translate(deltaP[0],deltaP[1]));this.viewbox(box);lastP=currentP};this.on("wheel.panZoom",wheelZoom);this.on("touchstart.panZoom",pinchZoomStart,this,{passive:!1});this.on("mousedown.panZoom",panStart,this);return this}});class FuroGraphRenderer extends FBP(LitElement){constructor(){super()}draw(graph){var sizes=graph.graph(),graphWidth=sizes.width,graphHeight=sizes.height;// remove old image on redraw
 let i=this.shadowRoot.querySelector("svg");if(i){i.remove()}var canvas=SVG().addTo(this.shadowRoot).panZoom({zoomMin:.1,zoomMax:10,zoomFactor:.015});canvas.viewbox(0,0,graphWidth,graphHeight);this.canvas=canvas;let nodes=graph.nodes();nodes.forEach(v=>{let node=graph.node(v);// boxes for the components
@@ -17919,4 +18149,14 @@ return html`
         <furo-icon-with-label icon="social:whatshot"></furo-icon-with-label>
       </div>
      
-    `}}window.customElements.define("demo-furo-icon-list",DemoFuroIconList)});
+    `}}window.customElements.define("demo-furo-icon-list",DemoFuroIconList);class FuroIntervalPulse extends LitElement{constructor(){super();this.interval=200;this.takt=4;if(this.auto){this.start()}}static get properties(){return{interval:{type:Number},takt:{type:Number},/**
+       * Starts interval automatically
+       */auto:Boolean}}start(){let cnt=0;clearInterval(this._intervalObject);this._intervalObject=setInterval(()=>{let pos=cnt++%this.takt,customEvent=new Event("tick",{bubbles:!0});/**
+                                    * Fired when interval is
+                                    * detail payload: position
+                                    * @event tick
+                                    */customEvent.detail=pos;this.dispatchEvent(customEvent);if(0==pos){/**
+         * Fired when tock
+         * detail payload: position
+         * @event tick
+         */let customEvent=new Event("tock",{bubbles:!0});customEvent.detail=pos;this.dispatchEvent(customEvent)}},this.interval)}stop(){clearInterval(this._intervalObject)}}window.customElements.define("furo-interval-pulse",FuroIntervalPulse)});

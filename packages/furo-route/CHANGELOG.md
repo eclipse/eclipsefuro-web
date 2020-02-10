@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.22.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.4...@furo/route@0.22.0) (2020-02-10)
+
+
+### Features
+
+* furo-app-flow-router can link external addresses ([649ffc6](https://github.com/theNorstroem/FuroBaseComponents/commit/649ffc6))
+
+
+
+
+
+## [0.21.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.2...@furo/route@0.21.4) (2020-02-09)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.21.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.2...@furo/route@0.21.3) (2020-02-09)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.21.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.1...@furo/route@0.21.2) (2020-02-07)
+
+**Note:** Version bump only for package @furo/route
+
+
+
+
+
+## [0.21.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.0...@furo/route@0.21.1) (2020-02-04)
+
+
+### Bug Fixes
+
+* Register EventListeners only once ([a8cb4d1](https://github.com/theNorstroem/FuroBaseComponents/commit/a8cb4d1))
+
+
+
+
+
+# [0.21.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.20...@furo/route@0.21.0) (2020-01-15)
+
+
+### Features
+
+* panel-coordinator with force close ([b62f604](https://github.com/theNorstroem/FuroBaseComponents/commit/b62f604))
+
+
+
+
+
 ## [0.20.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.20.19...@furo/route@0.20.20) (2020-01-14)
 
 

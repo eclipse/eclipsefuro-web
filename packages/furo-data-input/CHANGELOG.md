@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.66.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.66.0...@furo/data-input@0.66.2) (2020-02-09)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+## [0.66.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.66.0...@furo/data-input@0.66.1) (2020-02-09)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+# [0.66.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.65.1...@furo/data-input@0.66.0) (2020-02-07)
+
+
+### Bug Fixes
+
+* item-selected event is fired with payload even if the attribute value-field is set. ([af31b33](https://github.com/theNorstroem/FuroBaseComponents/commit/af31b33))
+
+
+### Features
+
+* furo-fetch-json emits parse-error ([ee9e9d0](https://github.com/theNorstroem/FuroBaseComponents/commit/ee9e9d0))
+
+
+
+
+
+## [0.65.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.65.0...@furo/data-input@0.65.1) (2020-02-04)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
+# [0.65.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.64.4...@furo/data-input@0.65.0) (2020-02-04)
+
+
+### Bug Fixes
+
+* better check if meta in response has no options ([dcfb93e](https://github.com/theNorstroem/FuroBaseComponents/commit/dcfb93e))
+* correct enable , disable methods for the furo-data-inputs to make they work ([9c6395d](https://github.com/theNorstroem/FuroBaseComponents/commit/9c6395d))
+* Register EventListeners only once ([a8cb4d1](https://github.com/theNorstroem/FuroBaseComponents/commit/a8cb4d1))
+* ui-generator labels, removed unneeded adder type hook ([de20466](https://github.com/theNorstroem/FuroBaseComponents/commit/de20466))
+
+
+### Features
+
+* add mapping from google.protobuf.BoolValue type to furo-data-checkbox-input component in furo-data-property ([c67139a](https://github.com/theNorstroem/FuroBaseComponents/commit/c67139a))
+* move positions of items ([e955076](https://github.com/theNorstroem/FuroBaseComponents/commit/e955076))
+* Race condition by multiple requests by the same agent. Pending requests are aborted. ([2b7803c](https://github.com/theNorstroem/FuroBaseComponents/commit/2b7803c))
+* Type adder ([0a3c264](https://github.com/theNorstroem/FuroBaseComponents/commit/0a3c264))
+
+
+
+
+
+## [0.64.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.64.3...@furo/data-input@0.64.4) (2020-01-15)
+
+**Note:** Version bump only for package @furo/data-input
+
+
+
+
+
 ## [0.64.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.64.2...@furo/data-input@0.64.3) (2020-01-14)
 
 

@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.49.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.48.0...@furo/specs@0.49.0) (2020-02-10)
+
+
+### Features
+
+* meta.fieldoptions with flags ([602e8f3](https://github.com/theNorstroem/FuroBaseComponents/commit/602e8f3))
+
+
+
+
+
+# [0.48.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.47.0...@furo/specs@0.48.0) (2020-02-07)
+
+
+### Bug Fixes
+
+* flow repeat in shady dom, yes shady ([9c839be](https://github.com/theNorstroem/FuroBaseComponents/commit/9c839be))
+* new types ([503b960](https://github.com/theNorstroem/FuroBaseComponents/commit/503b960))
+* update_mask with deep object paths. ([58fa857](https://github.com/theNorstroem/FuroBaseComponents/commit/58fa857))
+
+
+### Features
+
+* inherited readonly ([5f47864](https://github.com/theNorstroem/FuroBaseComponents/commit/5f47864))
+
+
+
+
+
+# [0.47.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.46.0...@furo/specs@0.47.0) (2020-02-04)
+
+
+### Bug Fixes
+
+* add no skip option to optionitem ([30e1c1e](https://github.com/theNorstroem/FuroBaseComponents/commit/30e1c1e))
+* add no skip option to optionitem ([1fd41f1](https://github.com/theNorstroem/FuroBaseComponents/commit/1fd41f1))
+* add no skip option to optionitem ([2985e91](https://github.com/theNorstroem/FuroBaseComponents/commit/2985e91))
+* ui builder inits ([09d1957](https://github.com/theNorstroem/FuroBaseComponents/commit/09d1957))
+* ui init form map types ([e8a7404](https://github.com/theNorstroem/FuroBaseComponents/commit/e8a7404))
+
+
+### Features
+
+* Race condition by multiple requests by the same agent. Pending requests are aborted. ([2b7803c](https://github.com/theNorstroem/FuroBaseComponents/commit/2b7803c))
+
+
+
+
+
 # [0.46.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/specs@0.45.1...@furo/specs@0.46.0) (2020-01-14)
 
 

@@ -7,6 +7,7 @@ import "@furo/data/furo-data-object";
 import "@furo/data/furo-deep-link";
 import "./helper/produce-qp-data";
 import "@furo/data/furo-entity-agent";
+
 /**
  * `demo-furo-data-collection-dropdown-bind-entity`
  *
@@ -52,7 +53,7 @@ class DemoFuroDataCollectionDropdownBindEntity extends FBP(LitElement) {
 
                     <furo-horizontal-flex>
 
-                        <furo-data-collection-dropdown leading-icon="mail" trailing-icon="fingerprint"
+                        <furo-data-collection-dropdown flex leading-icon="mail" trailing-icon="fingerprint"
                                                        ƒ-bind-data="--entity(*.data.description)"></furo-data-collection-dropdown>
 
                     </furo-horizontal-flex>

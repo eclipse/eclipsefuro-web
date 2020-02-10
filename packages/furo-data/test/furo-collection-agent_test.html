@@ -280,6 +280,7 @@
             ]);
             collectionAgent.next();
         });
+
         it('should do first if rel is set', (done) => {
             collectionAgent.setAttribute("service", "TaskService");
             collectionAgent.addEventListener("first-success", () => {
@@ -296,6 +297,7 @@
             ]);
             collectionAgent.first();
         });
+
         it('should do prev if rel is set', (done) => {
             collectionAgent.setAttribute("service", "TaskService");
             collectionAgent.addEventListener("prev-success", () => {
@@ -346,6 +348,7 @@
             ]);
             collectionAgent.first();
         });
+
         it('should do nothing on last if rel is not set', (done) => {
             collectionAgent.setAttribute("service", "TaskService");
             collectionAgent.addEventListener("missing-hts-last", () => {
@@ -362,6 +365,7 @@
             ]);
             collectionAgent.last();
         });
+
         it('should do nothing on prev if rel is not set', (done) => {
             collectionAgent.setAttribute("service", "TaskService");
             collectionAgent.addEventListener("missing-hts-prev", () => {
@@ -378,6 +382,7 @@
             ]);
             collectionAgent.prev();
         });
+
         it('should do nothing on next if rel is not set', (done) => {
             collectionAgent.setAttribute("service", "TaskService");
             collectionAgent.addEventListener("missing-hts-next", () => {
@@ -457,6 +462,26 @@
                     "service": "TaskService"
                 }
             ]);
+            collectionAgent.list();
+        });
+
+        it('should cancel a pending request if a new request is started', (done) => {
+            collectionAgent.setAttribute("service", "TaskService");
+            collectionAgent.addEventListener("response", (e) => {
+                console.log(e);
+                done();
+            });
+            collectionAgent.htsIn([
+                {
+                    "href": "/mockdata/tasks/list.json",
+                    "method": "GET",
+                    "rel": "list",
+                    "type": "task.TaskCollection",
+                    "service": "TaskService"
+                }
+            ]);
+            collectionAgent.list();
+            collectionAgent.list();
             collectionAgent.list();
         });
 

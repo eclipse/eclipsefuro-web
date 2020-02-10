@@ -42,6 +42,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     return {
       /**
        * Use method floatDrawer or set this attribute to enable float mode
+       * @private
        */
       _isFloating: {type: Boolean, reflect: true, attribute: "float"},
 
@@ -52,7 +53,11 @@ class FuroAppDrawer extends FBP(LitElement) {
       /**
        * disables automatic floating mode
        */
-      noauto: {type: Boolean},
+      permanent: {type: Boolean},
+      /**
+       * let the menu float (hidden).
+       */
+      float: {type: Boolean},
       /**
        * Min width of the app-drawer to switch to floating mode
        */
@@ -201,6 +206,8 @@ class FuroAppDrawer extends FBP(LitElement) {
    */
   _FBPReady() {
     super._FBPReady();
+
+
     //this._FBPTraceWires()
     /**
      * Register hook on wire --backdropClicked to
@@ -211,7 +218,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     });
 
     // register resize listener
-    if (!this.noauto) {
+    if (!this.permanent) {
       if (window.ResizeObserver) {
         let ro = new ResizeObserver(entries => {
 
@@ -219,7 +226,7 @@ class FuroAppDrawer extends FBP(LitElement) {
             const cr = entry.contentRect;
             this.__isFloating = cr.width <= this.floatBreakpoint;
           }
-          if(this.__isFloating){
+          if (this.__isFloating) {
             this.close();
           }
         });
@@ -232,7 +239,7 @@ class FuroAppDrawer extends FBP(LitElement) {
         window.addEventListener("resize", (e) => {
           let cr = this.getBoundingClientRect();
           this.__isFloating = cr.width <= this.floatBreakpoint;
-          if(this.__isFloating){
+          if (this.__isFloating) {
             this.close();
           }
         })
@@ -241,10 +248,11 @@ class FuroAppDrawer extends FBP(LitElement) {
 
 
     let drawer = this.shadowRoot.getElementById("drawer");
+    let drag = this.shadowRoot.getElementById("drag");
     let backdrop = this.shadowRoot.getElementById("backdrop");
 
 
-    this._FBPAddWireHook("--trackstart", (e) => {
+    let trackhandler = (e) => {
       // unregister
       this.removeEventListener("mousemove", this.moveHandler, true);
       this.removeEventListener("touchmove", this.moveHandler, true);
@@ -267,7 +275,6 @@ class FuroAppDrawer extends FBP(LitElement) {
         this.moveHandler = (e) => {
 
 
-
           // If there's a timer, cancel it
           if (requestAnimationFrame) {
             window.cancelAnimationFrame(animationframetimeout);
@@ -284,8 +291,8 @@ class FuroAppDrawer extends FBP(LitElement) {
 
           // start tracking if angle is in a 45 deg horizontal
           if (!trackingFixed && Math.abs(distance) < this._movementDetectionRange && Math.abs(y) < this._movementDetectionRange) {
-              trackingEnabled = (Math.abs(y) < Math.abs(distance));
-              return
+            trackingEnabled = (Math.abs(y) < Math.abs(distance));
+            return
           }
 
           // Setup the new requestAnimationFrame()
@@ -296,9 +303,9 @@ class FuroAppDrawer extends FBP(LitElement) {
             }
             trackingFixed = true;
             // correct the 10 pixels from tracking enable
-            if(!this.isReverse){
+            if (!this.isReverse) {
               distance += this._movementDetectionRange;
-            }else{
+            } else {
               distance -= this._movementDetectionRange;
             }
 
@@ -353,6 +360,9 @@ class FuroAppDrawer extends FBP(LitElement) {
 
         // register move
         this.addEventListener("mousemove", this.moveHandler, true);
+
+        //todo: check this: this.addEventListener("touchmove", this.moveHandler, {passive: true});
+        // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
         this.addEventListener("touchmove", this.moveHandler, true);
 
         this.trackEnd = (e) => {
@@ -412,14 +422,20 @@ class FuroAppDrawer extends FBP(LitElement) {
         this.addEventListener("touchend", this.trackEnd, {once: true});
 
       }
-    });
+    };
+    drawer.addEventListener("trackstart", trackhandler, {passive: true});
+    drawer.addEventListener("mousedown", trackhandler);
+
+    drag.addEventListener("trackstart", trackhandler, {passive: true});
+    drag.addEventListener("mousedown", trackhandler, );
+
   }
 
-  pauseEvent (e){
-    if(e.stopPropagation) e.stopPropagation();
-    if(e.preventDefault) e.preventDefault();
-    e.cancelBubble=true;
-    e.returnValue=false;
+  pauseEvent(e) {
+    if (e.stopPropagation) e.stopPropagation();
+    if (e.preventDefault) e.preventDefault();
+    e.cancelBubble = true;
+    e.returnValue = false;
     return false;
   }
 
@@ -452,78 +468,78 @@ class FuroAppDrawer extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent('FuroAppDrawer') || css`
-        :host {
-            display: block;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
+      :host {
+        display: block;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-        furo-horizontal-flex {
-            height: 100%;
-        }
-
-
-        #drawer {
-            border-right: 1px solid var(--separator, rgb(228, 228, 228));
-            transition-duration: 200ms;
-            background: var(--surface-light);
-        }
-        
-        ::slotted([scroll]){
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        /* disable pointer events, z-index 15 just to be below the drawer */
-        #backdrop {
-            pointer-events: none;
-            transition-duration: 200ms;
-            transition-property: opacity;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            opacity: 0;
-            background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
-            z-index: 15;
-        }
+      furo-horizontal-flex {
+        height: 100%;
+      }
 
 
-        #drag {
-            position: absolute;
-            top: 0;
-            width: 18px;
-            bottom: 0;
-            left: 0;
-            z-index: 16;
-        }
+      #drawer {
+        border-right: 1px solid var(--separator, rgb(228, 228, 228));
+        transition-duration: 200ms;
+        background: var(--surface-light);
+      }
 
-        :host([reverse]) #drag {
-            left: unset;
-            right: 0;
-        }
+      ::slotted([scroll]) {
+        height: 100%;
+        overflow-y: auto;
+      }
 
-        /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
-        :host([float]) #drawer {
-            position: absolute;
-            z-index: 16;
-            top: 0;
-            left: 0;
-            bottom: 0;
-        }
+      /* disable pointer events, z-index 15 just to be below the drawer */
+      #backdrop {
+        pointer-events: none;
+        transition-duration: 200ms;
+        transition-property: opacity;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        background: var(--furo-app-drawer-backdrop, rgba(0, 0, 0, 0.5));
+        z-index: 15;
+      }
 
-        /* put drawer to the right side on reverse mode */
-        :host([float][reverse]) #drawer {
-            left: unset;
-            right: 0;
 
-        }
+      #drag {
+        position: absolute;
+        top: 0;
+        width: 18px;
+        bottom: 0;
+        left: 0;
+        z-index: 16;
+      }
+
+      :host([reverse]) #drag {
+        left: unset;
+        right: 0;
+      }
+
+      /* put the floating drawer outside the visible area, z-index 16 should be enough layers above 0 */
+      :host([float]) #drawer {
+        position: absolute;
+        z-index: 16;
+        top: 0;
+        left: 0;
+        bottom: 0;
+      }
+
+      /* put drawer to the right side on reverse mode */
+      :host([float][reverse]) #drawer {
+        left: unset;
+        right: 0;
+
+      }
 
 
 
@@ -541,7 +557,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     return html`
 
       <furo-horizontal-flex ?reverse="${this.isReverse}">
-        <div id="drawer" @-touchstart="--trackstart(*)" @-mousedown="--trackstart(*)">
+        <div id="drawer">
           <slot name="drawer"></slot>
         </div>
         <div flex>
@@ -549,7 +565,7 @@ class FuroAppDrawer extends FBP(LitElement) {
         </div>
       </furo-horizontal-flex>
       <div id="backdrop" @-click="--backdropClicked"></div>
-      <div id="drag" @-touchstart="--trackstart(*)" @-mousedown="--trackstart(*)"></div>
+      <div id="drag"></div>
     `;
   }
 }

@@ -4,42 +4,82 @@
   "description": "Items for fieldoption.list",
   "__proto": {
     "package": "furo",
-    "options": {},
+    "targetfile": "meta.proto",
     "imports": [],
-    "targetfile": "meta.proto"
+    "options": null
   },
   "fields": {
     "id": {
-      "description": "Id",
       "type": "string",
-      "meta": {
-        "label": "Id"
-      },
+      "description": "Id",
       "__proto": {
         "number": 1
-      }
+      },
+      "__ui": {
+        "component": "",
+        "flags": [],
+        "no_init": false,
+        "no_skip": true
+      },
+      "meta": {
+        "label": "Id",
+        "hint": "",
+        "default": "",
+        "readonly": false,
+        "repeated": false,
+        "options": {
+          "list": []
+        }
+      },
+      "constraints": null
     },
     "display_name": {
-      "description": "String representation",
       "type": "string",
-      "meta": {
-        "label": "Display name"
-      },
+      "description": "String representation",
       "__proto": {
         "number": 2
-      }
-    } ,
-    "selected": {
-      "description": "is the item selected",
-      "meta": {
-        "label": "Selected"
       },
+      "__ui": {
+        "component": "",
+        "flags": [],
+        "no_init": false,
+        "no_skip": true
+      },
+      "meta": {
+        "label": "Display name",
+        "hint": "",
+        "default": "",
+        "readonly": false,
+        "repeated": false,
+        "options": {
+          "list": []
+        }
+      },
+      "constraints": null
+    },
+    "selected": {
       "type": "bool",
+      "description": "is the item selected",
       "__proto": {
         "number": 3
-      }
+      },
+      "__ui": {
+        "component": "",
+        "flags": [],
+        "no_init": false,
+        "no_skip": false
+      },
+      "meta": {
+        "label": "Selected",
+        "hint": "",
+        "default": "",
+        "readonly": false,
+        "repeated": false,
+        "options": {
+          "list": []
+        }
+      },
+      "constraints": null
     }
   }
 }
-
-

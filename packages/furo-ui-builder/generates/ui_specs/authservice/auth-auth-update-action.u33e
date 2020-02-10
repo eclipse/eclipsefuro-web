@@ -1,0 +1,121 @@
+{
+  "description": "service specs for the auth api",
+  "summary": "todo: write summary",
+  "import_members": [
+    [
+      " LitElement, html, css ",
+      "lit-element"
+    ],
+    [
+      " FBP ",
+      "@furo/fbp"
+    ],
+    [
+      " Theme ",
+      "@furo/framework/theme.js"
+    ],
+    [
+      " i18n ",
+      "@furo/framework/i18n.js",
+      "eslint-disable-next-line no-unused-vars"
+    ]
+  ],
+  "imports": [
+    "@furo/form/furo-button-bar.js",
+    "@furo/input/furo-button.js"
+  ],
+  "component_name": "auth-auth-update-action",
+  "path": "./generates/ui_specs/authservice/auth-auth-update-action.u33e",
+  "style": {
+    "children": {
+      ":host": {
+        "children": {},
+        "attributes": {
+          "display": "block"
+        }
+      },
+      ":host([hidden])": {
+        "children": {},
+        "attributes": {
+          "display": "none"
+        }
+      }
+    },
+    "attributes": {}
+  },
+  "template": [
+    {
+      "component": "furo-button-bar",
+      "description": "It is a good practice to set a description",
+      "flags": [],
+      "attributes": {},
+      "methods": {
+        "bind-entity": "--entityObjectInjected",
+        "disable-all": "--disableAllReq",
+        "enable-all": "--enableAllReq"
+      },
+      "events": {},
+      "children": [
+        {
+          "component": "furo-button",
+          "description": "It is a good practice to set a description",
+          "flags": [
+            "primary",
+            "unelevated",
+            "hide-no-rel",
+            "disable-not-valid",
+            "disable-pristine"
+          ],
+          "attributes": {
+            "rel": "update",
+            "label": "${i18n.t('action.update')}"
+          },
+          "methods": {},
+          "events": {
+            "click": "-^update-req"
+          },
+          "children": []
+        },
+        {
+          "component": "furo-button",
+          "description": "It is a good practice to set a description",
+          "flags": [
+            "danger",
+            "unelevated",
+            "hide-no-rel"
+          ],
+          "attributes": {
+            "rel": "delete",
+            "label": "${i18n.t('action.delete')}"
+          },
+          "methods": {},
+          "events": {
+            "click": "-^delete-req"
+          },
+          "children": []
+        }
+      ]
+    }
+  ],
+  "properties": {},
+  "exposedWires": {
+    "bindEntity": {
+      "name": "bindEntity",
+      "wire": "--entityObjectInjected",
+      "description": "Bind an entity data object. This will be forwarded to the furo-button-bar element inside this element."
+    },
+    "disableAll": {
+      "name": "disableAll",
+      "wire": "--disableAllReq",
+      "description": "Disables all elements inside furo-button-bar"
+    },
+    "enableAll": {
+      "name": "enableAll",
+      "wire": "--enableAllReq",
+      "description": "Enables all elements inside furo-button-bar"
+    }
+  },
+  "methods": {},
+  "keyboardShortcuts": [],
+  "extends": "FBP(LitElement)"
+}

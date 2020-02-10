@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.21](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@0.17.20...@furo/config@0.17.21) (2020-02-09)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [0.17.20](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@0.17.19...@furo/config@0.17.20) (2020-02-09)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [0.17.19](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@0.17.18...@furo/config@0.17.19) (2020-02-07)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
+## [0.17.18](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@0.17.17...@furo/config@0.17.18) (2020-02-04)
+
+**Note:** Version bump only for package @furo/config
+
+
+
+
+
 ## [0.17.17](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/config@0.17.16...@furo/config@0.17.17) (2020-01-14)
 
 **Note:** Version bump only for package @furo/config

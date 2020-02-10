@@ -453,7 +453,7 @@
               "column": 2
             },
             "end": {
-              "line": 51,
+              "line": 60,
               "column": 3
             }
           },
@@ -469,11 +469,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 68,
               "column": 2
             },
             "end": {
-              "line": 62,
+              "line": 71,
               "column": 3
             }
           },
@@ -497,7 +497,7 @@
           "column": 0
         },
         "end": {
-          "line": 64,
+          "line": 73,
           "column": 1
         }
       },
@@ -527,6 +527,12 @@
           "type": "CustomEvent",
           "name": "data",
           "description": "data\nFired when data received and json parsed\ndetail payload: {Object} json data",
+          "metadata": {}
+        },
+        {
+          "type": "CustomEvent",
+          "name": "parse-error",
+          "description": "parse-error\nFired when json is not parseable\ndetail payload: error",
           "metadata": {}
         }
       ],
@@ -3697,7 +3703,7 @@
         {
           "name": "json",
           "type": "boolean | null | undefined",
-          "description": "Stringify JSON content",
+          "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -4502,7 +4508,7 @@
       "attributes": [
         {
           "name": "json",
-          "description": "Stringify JSON content",
+          "description": "Stringify JSON content. Set this to true to auto stringify your JSON object with a 2 indention.",
           "sourceRange": {
             "start": {
               "line": 62,

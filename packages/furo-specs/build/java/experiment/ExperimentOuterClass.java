@@ -2568,7 +2568,7 @@ public final class ExperimentOuterClass {
 
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -2577,7 +2577,7 @@ public final class ExperimentOuterClass {
         getFuroDataFileInputList();
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -2585,7 +2585,7 @@ public final class ExperimentOuterClass {
     int getFuroDataFileInputCount();
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -2593,7 +2593,7 @@ public final class ExperimentOuterClass {
     java.lang.String getFuroDataFileInput(int index);
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -3443,7 +3443,7 @@ public final class ExperimentOuterClass {
     private com.google.protobuf.LazyStringList furoDataFileInput_;
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -3454,7 +3454,7 @@ public final class ExperimentOuterClass {
     }
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -3464,7 +3464,7 @@ public final class ExperimentOuterClass {
     }
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -3474,7 +3474,7 @@ public final class ExperimentOuterClass {
     }
     /**
      * <pre>
-     * field for testing money type
+     * field for testing file type
      * </pre>
      *
      * <code>repeated string furo_data_file_input = 22;</code>
@@ -5484,7 +5484,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5495,7 +5495,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5505,7 +5505,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5515,7 +5515,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5526,7 +5526,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5543,7 +5543,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5560,7 +5560,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5575,7 +5575,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -5588,7 +5588,7 @@ public final class ExperimentOuterClass {
       }
       /**
        * <pre>
-       * field for testing money type
+       * field for testing file type
        * </pre>
        *
        * <code>repeated string furo_data_file_input = 22;</code>
@@ -8662,6 +8662,934 @@ public final class ExperimentOuterClass {
 
   }
 
+  public interface ReadonlyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:experiment.Readonly)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    boolean hasMeta();
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    furo.MetaOuterClass.Meta getMeta();
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder();
+
+    /**
+     * <pre>
+     * Identity of a experiment
+     * </pre>
+     *
+     * <code>.project.Project project = 1;</code>
+     */
+    boolean hasProject();
+    /**
+     * <pre>
+     * Identity of a experiment
+     * </pre>
+     *
+     * <code>.project.Project project = 1;</code>
+     */
+    project.ProjectOuterClass.Project getProject();
+    /**
+     * <pre>
+     * Identity of a experiment
+     * </pre>
+     *
+     * <code>.project.Project project = 1;</code>
+     */
+    project.ProjectOuterClass.ProjectOrBuilder getProjectOrBuilder();
+  }
+  /**
+   * <pre>
+   * Readonly spec for testing
+   * </pre>
+   *
+   * Protobuf type {@code experiment.Readonly}
+   */
+  public  static final class Readonly extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:experiment.Readonly)
+      ReadonlyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Readonly.newBuilder() to construct.
+    private Readonly(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Readonly() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Readonly(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              project.ProjectOuterClass.Project.Builder subBuilder = null;
+              if (project_ != null) {
+                subBuilder = project_.toBuilder();
+              }
+              project_ = input.readMessage(project.ProjectOuterClass.Project.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(project_);
+                project_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              furo.MetaOuterClass.Meta.Builder subBuilder = null;
+              if (meta_ != null) {
+                subBuilder = meta_.toBuilder();
+              }
+              meta_ = input.readMessage(furo.MetaOuterClass.Meta.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(meta_);
+                meta_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return experiment.ExperimentOuterClass.internal_static_experiment_Readonly_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return experiment.ExperimentOuterClass.internal_static_experiment_Readonly_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              experiment.ExperimentOuterClass.Readonly.class, experiment.ExperimentOuterClass.Readonly.Builder.class);
+    }
+
+    public static final int META_FIELD_NUMBER = 3;
+    private furo.MetaOuterClass.Meta meta_;
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    public boolean hasMeta() {
+      return meta_ != null;
+    }
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    public furo.MetaOuterClass.Meta getMeta() {
+      return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+    }
+    /**
+     * <pre>
+     * Meta for the response
+     * </pre>
+     *
+     * <code>.furo.Meta meta = 3;</code>
+     */
+    public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+      return getMeta();
+    }
+
+    public static final int PROJECT_FIELD_NUMBER = 1;
+    private project.ProjectOuterClass.Project project_;
+    /**
+     * <pre>
+     * Identity of a experiment
+     * </pre>
+     *
+     * <code>.project.Project project = 1;</code>
+     */
+    public boolean hasProject() {
+      return project_ != null;
+    }
+    /**
+     * <pre>
+     * Identity of a experiment
+     * </pre>
+     *
+     * <code>.project.Project project = 1;</code>
+     */
+    public project.ProjectOuterClass.Project getProject() {
+      return project_ == null ? project.ProjectOuterClass.Project.getDefaultInstance() : project_;
+    }
+    /**
+     * <pre>
+     * Identity of a experiment
+     * </pre>
+     *
+     * <code>.project.Project project = 1;</code>
+     */
+    public project.ProjectOuterClass.ProjectOrBuilder getProjectOrBuilder() {
+      return getProject();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (project_ != null) {
+        output.writeMessage(1, getProject());
+      }
+      if (meta_ != null) {
+        output.writeMessage(3, getMeta());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (project_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getProject());
+      }
+      if (meta_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getMeta());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof experiment.ExperimentOuterClass.Readonly)) {
+        return super.equals(obj);
+      }
+      experiment.ExperimentOuterClass.Readonly other = (experiment.ExperimentOuterClass.Readonly) obj;
+
+      if (hasMeta() != other.hasMeta()) return false;
+      if (hasMeta()) {
+        if (!getMeta()
+            .equals(other.getMeta())) return false;
+      }
+      if (hasProject() != other.hasProject()) return false;
+      if (hasProject()) {
+        if (!getProject()
+            .equals(other.getProject())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasMeta()) {
+        hash = (37 * hash) + META_FIELD_NUMBER;
+        hash = (53 * hash) + getMeta().hashCode();
+      }
+      if (hasProject()) {
+        hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+        hash = (53 * hash) + getProject().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static experiment.ExperimentOuterClass.Readonly parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static experiment.ExperimentOuterClass.Readonly parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(experiment.ExperimentOuterClass.Readonly prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Readonly spec for testing
+     * </pre>
+     *
+     * Protobuf type {@code experiment.Readonly}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:experiment.Readonly)
+        experiment.ExperimentOuterClass.ReadonlyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return experiment.ExperimentOuterClass.internal_static_experiment_Readonly_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return experiment.ExperimentOuterClass.internal_static_experiment_Readonly_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                experiment.ExperimentOuterClass.Readonly.class, experiment.ExperimentOuterClass.Readonly.Builder.class);
+      }
+
+      // Construct using experiment.ExperimentOuterClass.Readonly.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (metaBuilder_ == null) {
+          meta_ = null;
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+        if (projectBuilder_ == null) {
+          project_ = null;
+        } else {
+          project_ = null;
+          projectBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return experiment.ExperimentOuterClass.internal_static_experiment_Readonly_descriptor;
+      }
+
+      @java.lang.Override
+      public experiment.ExperimentOuterClass.Readonly getDefaultInstanceForType() {
+        return experiment.ExperimentOuterClass.Readonly.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public experiment.ExperimentOuterClass.Readonly build() {
+        experiment.ExperimentOuterClass.Readonly result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public experiment.ExperimentOuterClass.Readonly buildPartial() {
+        experiment.ExperimentOuterClass.Readonly result = new experiment.ExperimentOuterClass.Readonly(this);
+        if (metaBuilder_ == null) {
+          result.meta_ = meta_;
+        } else {
+          result.meta_ = metaBuilder_.build();
+        }
+        if (projectBuilder_ == null) {
+          result.project_ = project_;
+        } else {
+          result.project_ = projectBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof experiment.ExperimentOuterClass.Readonly) {
+          return mergeFrom((experiment.ExperimentOuterClass.Readonly)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(experiment.ExperimentOuterClass.Readonly other) {
+        if (other == experiment.ExperimentOuterClass.Readonly.getDefaultInstance()) return this;
+        if (other.hasMeta()) {
+          mergeMeta(other.getMeta());
+        }
+        if (other.hasProject()) {
+          mergeProject(other.getProject());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        experiment.ExperimentOuterClass.Readonly parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (experiment.ExperimentOuterClass.Readonly) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private furo.MetaOuterClass.Meta meta_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> metaBuilder_;
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public boolean hasMeta() {
+        return metaBuilder_ != null || meta_ != null;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public furo.MetaOuterClass.Meta getMeta() {
+        if (metaBuilder_ == null) {
+          return meta_ == null ? furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        } else {
+          return metaBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder setMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          meta_ = value;
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder setMeta(
+          furo.MetaOuterClass.Meta.Builder builderForValue) {
+        if (metaBuilder_ == null) {
+          meta_ = builderForValue.build();
+          onChanged();
+        } else {
+          metaBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder mergeMeta(furo.MetaOuterClass.Meta value) {
+        if (metaBuilder_ == null) {
+          if (meta_ != null) {
+            meta_ =
+              furo.MetaOuterClass.Meta.newBuilder(meta_).mergeFrom(value).buildPartial();
+          } else {
+            meta_ = value;
+          }
+          onChanged();
+        } else {
+          metaBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public Builder clearMeta() {
+        if (metaBuilder_ == null) {
+          meta_ = null;
+          onChanged();
+        } else {
+          meta_ = null;
+          metaBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public furo.MetaOuterClass.Meta.Builder getMetaBuilder() {
+        
+        onChanged();
+        return getMetaFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      public furo.MetaOuterClass.MetaOrBuilder getMetaOrBuilder() {
+        if (metaBuilder_ != null) {
+          return metaBuilder_.getMessageOrBuilder();
+        } else {
+          return meta_ == null ?
+              furo.MetaOuterClass.Meta.getDefaultInstance() : meta_;
+        }
+      }
+      /**
+       * <pre>
+       * Meta for the response
+       * </pre>
+       *
+       * <code>.furo.Meta meta = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder> 
+          getMetaFieldBuilder() {
+        if (metaBuilder_ == null) {
+          metaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              furo.MetaOuterClass.Meta, furo.MetaOuterClass.Meta.Builder, furo.MetaOuterClass.MetaOrBuilder>(
+                  getMeta(),
+                  getParentForChildren(),
+                  isClean());
+          meta_ = null;
+        }
+        return metaBuilder_;
+      }
+
+      private project.ProjectOuterClass.Project project_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          project.ProjectOuterClass.Project, project.ProjectOuterClass.Project.Builder, project.ProjectOuterClass.ProjectOrBuilder> projectBuilder_;
+      /**
+       * <pre>
+       * Identity of a experiment
+       * </pre>
+       *
+       * <code>.project.Project project = 1;</code>
+       */
+      public boolean hasProject() {
+        return projectBuilder_ != null || project_ != null;
+      }
+      /**
+       * <pre>
+       * Identity of a experiment
+       * </pre>
+       *
+       * <code>.project.Project project = 1;</code>
+       */
+      public project.ProjectOuterClass.Project getProject() {
+        if (projectBuilder_ == null) {
+          return project_ == null ? project.ProjectOuterClass.Project.getDefaultInstance() : project_;
+        } else {
+          return projectBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Identity of a experiment
+       * </pre>
+       *
+       * <code>.project.Project project = 1;</code>
+       */
+      public Builder setProject(project.ProjectOuterClass.Project value) {
+        if (projectBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          project_ = value;
+          onChanged();
+        } else {
+          projectBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Identity of a experiment
+       * </pre>
+       *
+       * <code>.project.Project project = 1;</code>
+       */
+      public Builder setProject(
+          project.ProjectOuterClass.Project.Builder builderForValue) {
+        if (projectBuilder_ == null) {
+          project_ = builderForValue.build();
+          onChanged();
+        } else {
+          projectBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Identity of a experiment
+       * </pre>
+       *
+       * <code>.project.Project project = 1;</code>
+       */
+      public Builder mergeProject(project.ProjectOuterClass.Project value) {
+        if (projectBuilder_ == null) {
+          if (project_ != null) {
+            project_ =
+              project.ProjectOuterClass.Project.newBuilder(project_).mergeFrom(value).buildPartial();
+          } else {
+            project_ = value;
+          }
+          onChanged();
+        } else {
+          projectBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Identity of a experiment
+       * </pre>
+       *
+       * <code>.project.Project project = 1;</code>
+       */
+      public Builder clearProject() {
+        if (projectBuilder_ == null) {
+          project_ = null;
+          onChanged();
+        } else {
+          project_ = null;
+          projectBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Identity of a experiment
+       * </pre>
+       *
+       * <code>.project.Project project = 1;</code>
+       */
+      public project.ProjectOuterClass.Project.Builder getProjectBuilder() {
+        
+        onChanged();
+        return getProjectFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Identity of a experiment
+       * </pre>
+       *
+       * <code>.project.Project project = 1;</code>
+       */
+      public project.ProjectOuterClass.ProjectOrBuilder getProjectOrBuilder() {
+        if (projectBuilder_ != null) {
+          return projectBuilder_.getMessageOrBuilder();
+        } else {
+          return project_ == null ?
+              project.ProjectOuterClass.Project.getDefaultInstance() : project_;
+        }
+      }
+      /**
+       * <pre>
+       * Identity of a experiment
+       * </pre>
+       *
+       * <code>.project.Project project = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          project.ProjectOuterClass.Project, project.ProjectOuterClass.Project.Builder, project.ProjectOuterClass.ProjectOrBuilder> 
+          getProjectFieldBuilder() {
+        if (projectBuilder_ == null) {
+          projectBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              project.ProjectOuterClass.Project, project.ProjectOuterClass.Project.Builder, project.ProjectOuterClass.ProjectOrBuilder>(
+                  getProject(),
+                  getParentForChildren(),
+                  isClean());
+          project_ = null;
+        }
+        return projectBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:experiment.Readonly)
+    }
+
+    // @@protoc_insertion_point(class_scope:experiment.Readonly)
+    private static final experiment.ExperimentOuterClass.Readonly DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new experiment.ExperimentOuterClass.Readonly();
+    }
+
+    public static experiment.ExperimentOuterClass.Readonly getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Readonly>
+        PARSER = new com.google.protobuf.AbstractParser<Readonly>() {
+      @java.lang.Override
+      public Readonly parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Readonly(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Readonly> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Readonly> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public experiment.ExperimentOuterClass.Readonly getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface RecursiveOrBuilder extends
       // @@protoc_insertion_point(interface_extends:experiment.Recursive)
       com.google.protobuf.MessageOrBuilder {
@@ -11340,6 +12268,11 @@ public final class ExperimentOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_experiment_Default_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_experiment_Readonly_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_experiment_Readonly_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_experiment_Recursive_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -11363,39 +12296,41 @@ public final class ExperimentOuterClass {
       "gle/protobuf/any.proto\032\026google/type/date" +
       ".proto\032\027google/type/money.proto\032 google/" +
       "protobuf/field_mask.proto\032\023furo/property" +
-      ".proto\"m\n\020ExperimentEntity\022$\n\004data\030\001 \001(\013" +
-      "2\026.experiment.Experiment\022\031\n\005links\030\002 \003(\0132" +
-      "\n.furo.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"M\n" +
-      "\013Constraints\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id" +
-      "\030\001 \001(\t\022\016\n\006number\030\003 \001(\005\022\014\n\004text\030\004 \001(\t\"\207\006\n" +
-      "\nExperiment\022\023\n\013description\030\003 \001(\t\022\024\n\014disp" +
-      "lay_name\030\002 \001(\t\022\033\n\023furo_data_bool_icon\030\016 " +
-      "\001(\010\022 \n\030furo_data_checkbox_input\030\004 \001(\010\022\035\n" +
-      "\025furo_data_color_input\030\n \001(\t\022\034\n\024furo_dat" +
-      "a_date_input\030\r \001(\t\0226\n\033furo_data_date_inp" +
-      "ut_google\030\022 \001(\0132\021.google.type.Date\022\034\n\024fu" +
-      "ro_data_file_input\030\026 \003(\t\0221\n\025furo_data_mo" +
-      "ney_input\030\025 \001(\0132\022.google.type.Money\022\036\n\026f" +
-      "uro_data_number_input\030\t \001(\002\022 \n\030furo_data" +
-      "_password_input\030\013 \001(\t\022\035\n\025furo_data_range" +
-      "_input\030\010 \001(\t\022\036\n\026furo_data_search_input\030\014" +
-      " \001(\t\022\034\n\024furo_data_text_input\030\005 \001(\t\022 \n\030fu" +
-      "ro_data_textarea_input\030\006 \001(\t\022\034\n\024furo_dat" +
-      "a_time_input\030\007 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstr" +
-      "ing\030\024 \003(\t\022,\n\024single_type_property\030\023 \001(\0132" +
-      "\016.furo.Property\022*\n\014the_any_type\030\017 \001(\0132\024." +
-      "google.protobuf.Any\022%\n\rtype_property\030\021 \003" +
-      "(\0132\016.furo.Property\022\031\n\021type_with_options\030" +
-      "\020 \001(\t\022/\n\013update_mask\030\027 \001(\0132\032.google.prot" +
-      "obuf.FieldMask\"S\n\007Default\022\023\n\013description" +
-      "\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t" +
-      "\022\021\n\trepstring\030\004 \003(\t\"W\n\tRecursive\022\024\n\014disp" +
-      "lay_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022(\n\trecursion\030" +
-      "\003 \001(\0132\025.experiment.Recursive\"{\n\024Experime" +
-      "ntCollection\022.\n\010entities\030\004 \003(\0132\034.experim" +
-      "ent.ExperimentEntity\022\031\n\005links\030\003 \003(\0132\n.fu" +
-      "ro.Link\022\030\n\004meta\030\002 \001(\0132\n.furo.Metab\006proto" +
-      "3"
+      ".proto\032\025project/project.proto\"m\n\020Experim" +
+      "entEntity\022$\n\004data\030\001 \001(\0132\026.experiment.Exp" +
+      "eriment\022\031\n\005links\030\002 \003(\0132\n.furo.Link\022\030\n\004me" +
+      "ta\030\003 \001(\0132\n.furo.Meta\"M\n\013Constraints\022\024\n\014d" +
+      "isplay_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\016\n\006number\030" +
+      "\003 \001(\005\022\014\n\004text\030\004 \001(\t\"\207\006\n\nExperiment\022\023\n\013de" +
+      "scription\030\003 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\033\n" +
+      "\023furo_data_bool_icon\030\016 \001(\010\022 \n\030furo_data_" +
+      "checkbox_input\030\004 \001(\010\022\035\n\025furo_data_color_" +
+      "input\030\n \001(\t\022\034\n\024furo_data_date_input\030\r \001(" +
+      "\t\0226\n\033furo_data_date_input_google\030\022 \001(\0132\021" +
+      ".google.type.Date\022\034\n\024furo_data_file_inpu" +
+      "t\030\026 \003(\t\0221\n\025furo_data_money_input\030\025 \001(\0132\022" +
+      ".google.type.Money\022\036\n\026furo_data_number_i" +
+      "nput\030\t \001(\002\022 \n\030furo_data_password_input\030\013" +
+      " \001(\t\022\035\n\025furo_data_range_input\030\010 \001(\t\022\036\n\026f" +
+      "uro_data_search_input\030\014 \001(\t\022\034\n\024furo_data" +
+      "_text_input\030\005 \001(\t\022 \n\030furo_data_textarea_" +
+      "input\030\006 \001(\t\022\034\n\024furo_data_time_input\030\007 \001(" +
+      "\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\024 \003(\t\022,\n\024sing" +
+      "le_type_property\030\023 \001(\0132\016.furo.Property\022*" +
+      "\n\014the_any_type\030\017 \001(\0132\024.google.protobuf.A" +
+      "ny\022%\n\rtype_property\030\021 \003(\0132\016.furo.Propert" +
+      "y\022\031\n\021type_with_options\030\020 \001(\t\022/\n\013update_m" +
+      "ask\030\027 \001(\0132\032.google.protobuf.FieldMask\"S\n" +
+      "\007Default\022\023\n\013description\030\003 \001(\t\022\024\n\014display" +
+      "_name\030\002 \001(\t\022\n\n\002id\030\001 \001(\t\022\021\n\trepstring\030\004 \003" +
+      "(\t\"G\n\010Readonly\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta" +
+      "\022!\n\007project\030\001 \001(\0132\020.project.Project\"W\n\tR" +
+      "ecursive\022\024\n\014display_name\030\002 \001(\t\022\n\n\002id\030\001 \001" +
+      "(\t\022(\n\trecursion\030\003 \001(\0132\025.experiment.Recur" +
+      "sive\"{\n\024ExperimentCollection\022.\n\010entities" +
+      "\030\004 \003(\0132\034.experiment.ExperimentEntity\022\031\n\005" +
+      "links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n." +
+      "furo.Metab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11415,6 +12350,7 @@ public final class ExperimentOuterClass {
           google.type.MoneyOuterClass.getDescriptor(),
           google.protobuf.FieldMaskOuterClass.getDescriptor(),
           furo.PropertyOuterClass.getDescriptor(),
+          project.ProjectOuterClass.getDescriptor(),
         }, assigner);
     internal_static_experiment_ExperimentEntity_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -11440,14 +12376,20 @@ public final class ExperimentOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Default_descriptor,
         new java.lang.String[] { "Description", "DisplayName", "Id", "Repstring", });
-    internal_static_experiment_Recursive_descriptor =
+    internal_static_experiment_Readonly_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_experiment_Readonly_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_experiment_Readonly_descriptor,
+        new java.lang.String[] { "Meta", "Project", });
+    internal_static_experiment_Recursive_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_experiment_Recursive_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_Recursive_descriptor,
         new java.lang.String[] { "DisplayName", "Id", "Recursion", });
     internal_static_experiment_ExperimentCollection_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_experiment_ExperimentCollection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_experiment_ExperimentCollection_descriptor,
@@ -11459,6 +12401,7 @@ public final class ExperimentOuterClass {
     google.type.MoneyOuterClass.getDescriptor();
     google.protobuf.FieldMaskOuterClass.getDescriptor();
     furo.PropertyOuterClass.getDescriptor();
+    project.ProjectOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

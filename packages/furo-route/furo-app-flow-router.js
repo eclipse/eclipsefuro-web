@@ -65,8 +65,14 @@ class FuroAppFlowRouter extends FBP(LitElement) {
        * | *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |
        *
        *
+       * ```json
+       *  [
+       *    ['view-main', 'button-tap', 'detail-view',  'task => id],
+       *    ["*", "search", "EXTERNAL_LINK: https://google.com/"]
+       *  ]
+       *  ```
        *
-       *  [['view-main', 'button-tap', 'detail-view',  'task => id]]
+       *
        *  if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to "to".
        *
        *  Special configurations:
@@ -74,6 +80,7 @@ class FuroAppFlowRouter extends FBP(LitElement) {
        *  - Set a "*" to map all data 1:1 to the url.
        *
        *  - You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
+       *  - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link
        */
       config: {type: Array}
     };
@@ -133,7 +140,12 @@ class FuroAppFlowRouter extends FBP(LitElement) {
       if (selection.target === "HISTORY-BACK") {
         this.back();
       } else {
+        if(selection.target.startsWith("EXTERNAL_LINK:")){
+          window.location.href = selection.target.substr(14).trim();
+      } else {
         window.history.pushState({}, '', prefix + selection.target + search);
+        }
+
         /**
          * Internal notyfication
          * @private

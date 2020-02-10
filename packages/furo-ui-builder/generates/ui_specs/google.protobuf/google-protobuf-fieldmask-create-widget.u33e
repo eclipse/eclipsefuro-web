@@ -1,0 +1,118 @@
+{
+  "description": "A field mask in update operations specifies which fields of the targeted resource are going to be updated. https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto",
+  "summary": "todo: write summary",
+  "import_members": [
+    [
+      " LitElement, html, css ",
+      "lit-element"
+    ],
+    [
+      " Theme ",
+      "@furo/framework/theme.js"
+    ],
+    [
+      " FBP ",
+      "@furo/fbp"
+    ],
+    [
+      " i18n ",
+      "@furo/framework/i18n.js",
+      "eslint-disable-next-line no-unused-vars"
+    ]
+  ],
+  "imports": [
+    "@furo/data-input",
+    "@furo/form/furo-form-layouter.js",
+    "@furo/input/furo-button.js",
+    "@furo/app/furo-card.js",
+    "@furo/layout/furo-horizontal-flex.js"
+  ],
+  "component_name": "google-protobuf-fieldmask-create-widget",
+  "path": "./generates/ui_specs/google.protobuf/google-protobuf-fieldmask-create-widget.u33e",
+  "style": {
+    "children": {
+      ":host": {
+        "children": {},
+        "attributes": {
+          "display": "block"
+        }
+      },
+      ":host([hidden])": {
+        "children": {},
+        "attributes": {
+          "display": "none"
+        }
+      }
+    },
+    "attributes": {}
+  },
+  "template": [
+    {
+      "component": "furo-card",
+      "description": "The card is the main container",
+      "flags": [],
+      "attributes": {},
+      "methods": {},
+      "events": {},
+      "children": [
+        {
+          "component": "furo-form-layouter",
+          "description": "the form layouter will contain all required fields",
+          "flags": [],
+          "attributes": {},
+          "methods": {},
+          "events": {},
+          "children": []
+        },
+        {
+          "component": "furo-horizontal-flex",
+          "description": "It is a good practice to set a description",
+          "flags": [
+            "space"
+          ],
+          "attributes": {
+            "slot": "action"
+          },
+          "methods": {},
+          "events": {},
+          "children": [
+            {
+              "component": "furo-button",
+              "description": "It is a good practice to set a description",
+              "flags": [
+                "primary"
+              ],
+              "attributes": {
+                "rel": "create",
+                "label": "${i18n.t('create')}"
+              },
+              "methods": {},
+              "events": {
+                "click": "-^create-requested"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "properties": {},
+  "exposedWires": {
+    "focus": {
+      "name": "focus",
+      "wire": "--focused",
+      "description": "Fokus"
+    }
+  },
+  "methods": {
+    "bindData": {
+      "description": " Bind your furo-data-object event @-object-ready\n @public\n @param data",
+      "args": "data",
+      "code": "CiAgICB0aGlzLl9GQlBUcmlnZ2VyV2lyZSgnLS1kYXRhJywgZGF0YSk7CiAgICB0aGlzLmZpZWxkID0gZGF0YTs="
+    }
+  },
+  "keyboardShortcuts": [],
+  "extends": "FBP(LitElement)",
+  "theme": "CreateWidgetBaseTheme"
+}

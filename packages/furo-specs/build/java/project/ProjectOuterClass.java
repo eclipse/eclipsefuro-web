@@ -3239,6 +3239,31 @@ public final class ProjectOuterClass {
      * <code>.google.type.Date start = 3;</code>
      */
     google.type.DateOuterClass.DateOrBuilder getStartOrBuilder();
+
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     */
+    boolean hasUpdateMask();
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     */
+    google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask();
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     */
+    google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder();
   }
   /**
    * <pre>
@@ -3349,6 +3374,19 @@ public final class ProjectOuterClass {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(costLimit_);
                 costLimit_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 66: {
+              google.protobuf.FieldMaskOuterClass.FieldMask.Builder subBuilder = null;
+              if (updateMask_ != null) {
+                subBuilder = updateMask_.toBuilder();
+              }
+              updateMask_ = input.readMessage(google.protobuf.FieldMaskOuterClass.FieldMask.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(updateMask_);
+                updateMask_ = subBuilder.buildPartial();
               }
 
               break;
@@ -3669,6 +3707,39 @@ public final class ProjectOuterClass {
       return getStart();
     }
 
+    public static final int UPDATE_MASK_FIELD_NUMBER = 8;
+    private google.protobuf.FieldMaskOuterClass.FieldMask updateMask_;
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     */
+    public boolean hasUpdateMask() {
+      return updateMask_ != null;
+    }
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     */
+    public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
+      return updateMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
+    }
+    /**
+     * <pre>
+     * Contains a field_mask which fields of the targeted resource are going to be updated
+     * </pre>
+     *
+     * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+     */
+    public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+      return getUpdateMask();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3704,6 +3775,9 @@ public final class ProjectOuterClass {
       if (costLimit_ != null) {
         output.writeMessage(7, getCostLimit());
       }
+      if (updateMask_ != null) {
+        output.writeMessage(8, getUpdateMask());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3737,6 +3811,10 @@ public final class ProjectOuterClass {
       if (costLimit_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getCostLimit());
+      }
+      if (updateMask_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getUpdateMask());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3776,6 +3854,11 @@ public final class ProjectOuterClass {
         if (!getStart()
             .equals(other.getStart())) return false;
       }
+      if (hasUpdateMask() != other.hasUpdateMask()) return false;
+      if (hasUpdateMask()) {
+        if (!getUpdateMask()
+            .equals(other.getUpdateMask())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3808,6 +3891,10 @@ public final class ProjectOuterClass {
       if (hasStart()) {
         hash = (37 * hash) + START_FIELD_NUMBER;
         hash = (53 * hash) + getStart().hashCode();
+      }
+      if (hasUpdateMask()) {
+        hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
+        hash = (53 * hash) + getUpdateMask().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3977,6 +4064,12 @@ public final class ProjectOuterClass {
           start_ = null;
           startBuilder_ = null;
         }
+        if (updateMaskBuilder_ == null) {
+          updateMask_ = null;
+        } else {
+          updateMask_ = null;
+          updateMaskBuilder_ = null;
+        }
         return this;
       }
 
@@ -4031,6 +4124,11 @@ public final class ProjectOuterClass {
           result.start_ = start_;
         } else {
           result.start_ = startBuilder_.build();
+        }
+        if (updateMaskBuilder_ == null) {
+          result.updateMask_ = updateMask_;
+        } else {
+          result.updateMask_ = updateMaskBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -4127,6 +4225,9 @@ public final class ProjectOuterClass {
         }
         if (other.hasStart()) {
           mergeStart(other.getStart());
+        }
+        if (other.hasUpdateMask()) {
+          mergeUpdateMask(other.getUpdateMask());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5195,6 +5296,159 @@ public final class ProjectOuterClass {
         }
         return startBuilder_;
       }
+
+      private google.protobuf.FieldMaskOuterClass.FieldMask updateMask_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> updateMaskBuilder_;
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       */
+      public boolean hasUpdateMask() {
+        return updateMaskBuilder_ != null || updateMask_ != null;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       */
+      public google.protobuf.FieldMaskOuterClass.FieldMask getUpdateMask() {
+        if (updateMaskBuilder_ == null) {
+          return updateMask_ == null ? google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
+        } else {
+          return updateMaskBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       */
+      public Builder setUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+        if (updateMaskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          updateMask_ = value;
+          onChanged();
+        } else {
+          updateMaskBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       */
+      public Builder setUpdateMask(
+          google.protobuf.FieldMaskOuterClass.FieldMask.Builder builderForValue) {
+        if (updateMaskBuilder_ == null) {
+          updateMask_ = builderForValue.build();
+          onChanged();
+        } else {
+          updateMaskBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       */
+      public Builder mergeUpdateMask(google.protobuf.FieldMaskOuterClass.FieldMask value) {
+        if (updateMaskBuilder_ == null) {
+          if (updateMask_ != null) {
+            updateMask_ =
+              google.protobuf.FieldMaskOuterClass.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+          } else {
+            updateMask_ = value;
+          }
+          onChanged();
+        } else {
+          updateMaskBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       */
+      public Builder clearUpdateMask() {
+        if (updateMaskBuilder_ == null) {
+          updateMask_ = null;
+          onChanged();
+        } else {
+          updateMask_ = null;
+          updateMaskBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       */
+      public google.protobuf.FieldMaskOuterClass.FieldMask.Builder getUpdateMaskBuilder() {
+        
+        onChanged();
+        return getUpdateMaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       */
+      public google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
+        if (updateMaskBuilder_ != null) {
+          return updateMaskBuilder_.getMessageOrBuilder();
+        } else {
+          return updateMask_ == null ?
+              google.protobuf.FieldMaskOuterClass.FieldMask.getDefaultInstance() : updateMask_;
+        }
+      }
+      /**
+       * <pre>
+       * Contains a field_mask which fields of the targeted resource are going to be updated
+       * </pre>
+       *
+       * <code>.google.protobuf.FieldMask update_mask = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder> 
+          getUpdateMaskFieldBuilder() {
+        if (updateMaskBuilder_ == null) {
+          updateMaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              google.protobuf.FieldMaskOuterClass.FieldMask, google.protobuf.FieldMaskOuterClass.FieldMask.Builder, google.protobuf.FieldMaskOuterClass.FieldMaskOrBuilder>(
+                  getUpdateMask(),
+                  getParentForChildren(),
+                  isClean());
+          updateMask_ = null;
+        }
+        return updateMaskBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5273,20 +5527,22 @@ public final class ProjectOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\025project/project.proto\022\007project\032\017furo/m" +
-      "eta.proto\032\017furo/link.proto\032\027google/type/" +
-      "money.proto\032\026google/type/date.proto\032\023per" +
-      "son/person.proto\"r\n\021ProjectCollection\022(\n" +
-      "\010entities\030\004 \003(\0132\026.project.ProjectEntity\022" +
-      "\031\n\005links\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\013" +
-      "2\n.furo.Meta\"d\n\rProjectEntity\022\036\n\004data\030\001 " +
-      "\001(\0132\020.project.Project\022\031\n\005links\030\002 \003(\0132\n.f" +
-      "uro.Link\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\313\001\n\007P" +
-      "roject\022&\n\ncost_limit\030\007 \001(\0132\022.google.type" +
-      ".Money\022\023\n\013description\030\005 \001(\t\022\024\n\014display_n" +
-      "ame\030\002 \001(\t\022\036\n\003end\030\004 \001(\0132\021.google.type.Dat" +
-      "e\022\n\n\002id\030\001 \001(\t\022\037\n\007members\030\006 \003(\0132\016.person." +
-      "Person\022 \n\005start\030\003 \001(\0132\021.google.type.Date" +
-      "b\006proto3"
+      "eta.proto\032\017furo/link.proto\032 google/proto" +
+      "buf/field_mask.proto\032\027google/type/money." +
+      "proto\032\026google/type/date.proto\032\023person/pe" +
+      "rson.proto\"r\n\021ProjectCollection\022(\n\010entit" +
+      "ies\030\004 \003(\0132\026.project.ProjectEntity\022\031\n\005lin" +
+      "ks\030\003 \003(\0132\n.furo.Link\022\030\n\004meta\030\002 \001(\0132\n.fur" +
+      "o.Meta\"d\n\rProjectEntity\022\036\n\004data\030\001 \001(\0132\020." +
+      "project.Project\022\031\n\005links\030\002 \003(\0132\n.furo.Li" +
+      "nk\022\030\n\004meta\030\003 \001(\0132\n.furo.Meta\"\374\001\n\007Project" +
+      "\022&\n\ncost_limit\030\007 \001(\0132\022.google.type.Money" +
+      "\022\023\n\013description\030\005 \001(\t\022\024\n\014display_name\030\002 " +
+      "\001(\t\022\036\n\003end\030\004 \001(\0132\021.google.type.Date\022\n\n\002i" +
+      "d\030\001 \001(\t\022\037\n\007members\030\006 \003(\0132\016.person.Person" +
+      "\022 \n\005start\030\003 \001(\0132\021.google.type.Date\022/\n\013up" +
+      "date_mask\030\010 \001(\0132\032.google.protobuf.FieldM" +
+      "askb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5301,6 +5557,7 @@ public final class ProjectOuterClass {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           furo.MetaOuterClass.getDescriptor(),
           furo.LinkOuterClass.getDescriptor(),
+          google.protobuf.FieldMaskOuterClass.getDescriptor(),
           google.type.MoneyOuterClass.getDescriptor(),
           google.type.DateOuterClass.getDescriptor(),
           person.PersonOuterClass.getDescriptor(),
@@ -5322,9 +5579,10 @@ public final class ProjectOuterClass {
     internal_static_project_Project_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_project_Project_descriptor,
-        new java.lang.String[] { "CostLimit", "Description", "DisplayName", "End", "Id", "Members", "Start", });
+        new java.lang.String[] { "CostLimit", "Description", "DisplayName", "End", "Id", "Members", "Start", "UpdateMask", });
     furo.MetaOuterClass.getDescriptor();
     furo.LinkOuterClass.getDescriptor();
+    google.protobuf.FieldMaskOuterClass.getDescriptor();
     google.type.MoneyOuterClass.getDescriptor();
     google.type.DateOuterClass.getDescriptor();
     person.PersonOuterClass.getDescriptor();

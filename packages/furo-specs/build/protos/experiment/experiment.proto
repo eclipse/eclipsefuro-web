@@ -11,6 +11,7 @@ import "google/type/date.proto";
 import "google/type/money.proto";
 import "google/protobuf/field_mask.proto";
 import "furo/property.proto";
+import "project/project.proto";
 
 
 // ExperimentEntity with Experiment
@@ -65,7 +66,7 @@ message Experiment {
     // field for furo-data-date-input for testing
     google.type.Date furo_data_date_input_google = 18;
     
-    // field for testing money type
+    // field for testing file type
     repeated string furo_data_file_input = 22;
     
     // field for testing money type
@@ -128,6 +129,16 @@ message Default {
     
     // repeated string
     repeated string repstring = 4;
+
+}
+
+// Readonly spec for testing
+message Readonly {                
+    // Meta for the response
+    furo.Meta meta = 3;
+    
+    // Identity of a experiment
+    project.Project project = 1;
 
 }
 

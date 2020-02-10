@@ -83,7 +83,7 @@ class U33eBuilder {
       reflect,
       notify,
       attribute,
-      defaultValue // TOTO: create constructor in lit to set the default value
+      defaultValue // TODO: create constructor in lit to set the default value
     };
     return this;
   }
@@ -184,9 +184,9 @@ class U33eBuilder {
      */
   }
 
+  static checkMatching(field) {
+    let component = false;
 
-  static getBestMatchingComponent(field) {
-    let component = "furo-data-text-input";
 
     // check which componet matches best with the simple types
     switch (field.type) {
@@ -204,16 +204,33 @@ class U33eBuilder {
       case "furo.Property":
         component = "furo-data-property";
         break;
-      default:
-        component = "furo-data-text-input";
+      case "bool":
+        component = "furo-data-checkbox-input";
+        break;
     }
 
+
+    if (field.type.startsWith("map")) {
+      let type = field.type.match(/map<string,(.*)>/)[1].trim(); // get the type of map<string,xxxx
+      // split join is for replace all . with -
+      component = type.toLowerCase().split(".").join("-") + "-map";
+    }
+
+    if (field.meta && field.meta.repeated && field.type != "furo.Property" && (!field.__ui || field.__ui.autorepeater !== false))  {
+      // split join is for replace all . with -
+      component = field.type.toLowerCase().split(".").join("-") + "-repeat";
+    }
     // use spec ui hint as component
     if (field.__ui && field.__ui.component) {
       component = field.__ui.component;
     }
 
+
     return component;
+  }
+
+  static getBestMatchingComponent(field) {
+    return this.checkMatching(field) || "furo-data-text-input";
   };
 }
 

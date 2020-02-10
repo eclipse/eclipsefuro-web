@@ -5,7 +5,7 @@ class HookInitForm {
     const SPEC = ctx.spec;
     const UISPECDIR = ctx.config.ui_spec_out;
     const PKGDIR = UISPECDIR + "/" + ctx.package;
-    return PKGDIR + "/" + (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
+    return PKGDIR + "/" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-form").toLowerCase() + ".u33e";
   }
 
   constructor(ctx, u33e) {
@@ -17,14 +17,14 @@ class HookInitForm {
       } else {
         return {
           "default_form_size": "four",
-          "default_field_flags": ["condensed","double"],
-          "skip_fields_on_init" : ["id", "display_name"]
+          "default_field_flags": ["condensed", "double"],
+          "skip_fields_on_init": ["id", "display_name"]
         }
       }
     })();
 
     u33e.setTheme("FormBaseTheme");
-    u33e.model.component_name = (SPEC.__proto.package + "-" + SPEC.type + "-form").toLowerCase();
+    u33e.model.component_name = (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + "-form").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
 
@@ -51,7 +51,7 @@ class HookInitForm {
     u33e.addStyle(":host")
         .addCSSAttribute("display", "block");
 
-    u33e.addStyle(":host[hidden]")
+    u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
 
 
@@ -71,14 +71,27 @@ class HookInitForm {
     for (let fieldname in SPEC.fields) {
       let field = SPEC.fields[fieldname];
 
+
       /**
        * skip field if it is skip list or skipped in spec
        */
       if (OPTIONS.skip_fields_on_init.indexOf(fieldname) !== -1 || (field.__ui && field.__ui.no_init)) {
-        continue
+        if(field.__ui && field.__ui.no_skip){
+
+        }else{
+          continue
+        }
+
       }
 
+
       let component = U33eBuilder.getBestMatchingComponent(field);
+
+      let importComponent = ctx.getImportPathForComponent(component);
+      if (importComponent) {
+        u33e.addImport(importComponent);
+      }
+
       let fld = form.appendChild(component);
 
 
@@ -88,7 +101,7 @@ class HookInitForm {
         fld.addFlag("full");
 
         fld.addAttribute("header-text", "${i18n.t('" + (SPEC.__proto.package + "." + SPEC.type + ".properties").toLowerCase() + ".header.text')}");
-        fld.addAttribute("secondary-text", "${i18n.t('" + (SPEC.__proto.package + "-" + SPEC.type + ".properties").toLowerCase() + ".secondary.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('" + (SPEC.__proto.package.split(".").join("-") + "-" + SPEC.type + ".properties").toLowerCase() + ".secondary.text')}");
 
         let f = fld.appendChild("furo-form-layouter");
         f.addFlag(OPTIONS.default_form_size || "four");
@@ -96,10 +109,19 @@ class HookInitForm {
       }
 
       fld.description = "field: " + fieldname;
-      if(OPTIONS.default_field_flags){
-        OPTIONS.default_field_flags.forEach((flag)=>{
+
+      // add default flags if no __ui.flags are set
+      if(field.__ui && field.__ui.flags &&  field.__ui.flags.length > 0){
+        field.__ui.flags.forEach((flag) => {
           fld.addFlag(flag);
         });
+      }else{
+        // add default options
+        if (OPTIONS.default_field_flags) {
+          OPTIONS.default_field_flags.forEach((flag) => {
+            fld.addFlag(flag);
+          });
+        }
       }
 
 
@@ -108,20 +130,24 @@ class HookInitForm {
 
       let arrTmpName = field.type.split(".");
       //  complex type has a cutom form component
-      if (arrTmpName.length > 1 && arrTmpName[0] != "furo" && arrTmpName[0] != "google") {
-        component = field.type.toLowerCase().replace(".", "-") + "-form";
+
+      if (arrTmpName.length > 1 && arrTmpName[0] != "google" && !U33eBuilder.checkMatching(field) && !field.type.startsWith("google.protobuf")) {
+        component = field.type.toLowerCase().split(".").join("-") + "-form";
         fld.component = component;
         // change flag double to full
         let flagIndex = fld.flags.indexOf("double");
-        if(flagIndex === -1){
+        if (flagIndex === -1) {
           fld.addFlag("full");
-        }else{
+        } else {
           fld.flags[flagIndex] = "full";
         }
 
+          fld.addAttribute("header-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".header.text')}");
+          fld.addAttribute("secondary-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".secondary.text')}");
 
-        fld.addAttribute("header-text", "${i18n.t('" + field.type.toLowerCase() + ".form.header.text')}");
-        fld.addAttribute("secondary-text", "${i18n.t('" + field.type.toLowerCase() + ".form.secondary.text')}");
+
+
+
         /**
          * check if component have a replacement in the config
          *
@@ -155,11 +181,23 @@ class HookInitForm {
       }
 
 
+      // add header text on maps and repeats
+      if(component.endsWith("-map") || component.endsWith("-repeat")){
+        fld.addAttribute("header-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".header.text')}");
+        fld.addAttribute("secondary-text", "${i18n.t('form."  +  (SPEC.__proto.package + "." + SPEC.type).toLowerCase() + "." + fieldname.toLowerCase() + ".secondary.text')}");
+      }
+
+
+
       // repeated fields can use furo-data-repeat component
-      if (field.meta && field.meta.repeated && field.type != "furo.Property") {
-        let value_name = component;
+      if (field.__ui && field.__ui.component === "furo-data-repeat") {
         fld.component = "furo-data-repeat";
-        fld.addAttribute("repeated-component", value_name);
+        fld.addAttribute("repeated-component", field.__ui.repeated_component);
+        fld
+        let importComponent = ctx.getImportPathForComponent(field.__ui.repeated_component);
+        if (importComponent) {
+          u33e.addImport(importComponent);
+        }
       }
 
       // add a form for type furo.Property
@@ -172,7 +210,7 @@ class HookInitForm {
       if (field.type === "furo.Reference") {
         if (field.meta && field.meta.default && field.meta.default.link && field.meta.default.link.type) {
           let f = field.meta.default.link.type;
-          fld.component = f.toLowerCase().replace(".", "-") + "-reference-search";
+          fld.component = f.toLowerCase().split(".").join("-") + "-reference-search";
           // exclude self import
           let importComponent = ctx.getImportPathForComponent(fld.component);
           if (importComponent) {

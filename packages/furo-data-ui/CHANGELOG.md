@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.7...@furo/data-ui@0.11.9) (2020-02-09)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [0.11.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.7...@furo/data-ui@0.11.8) (2020-02-09)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
+## [0.11.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.6...@furo/data-ui@0.11.7) (2020-02-07)
+
+
+### Bug Fixes
+
+* invalid template markup ([81ee0bc](https://github.com/theNorstroem/FuroBaseComponents/commit/81ee0bc))
+
+
+
+
+
+## [0.11.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.5...@furo/data-ui@0.11.6) (2020-02-04)
+
+**Note:** Version bump only for package @furo/data-ui
+
+
+
+
+
 ## [0.11.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-ui@0.11.4...@furo/data-ui@0.11.5) (2020-01-14)
 
 

@@ -442,7 +442,7 @@
       }
     },
     "furo_data_file_input": {
-      "description": "field for testing money type",
+      "description": "field for testing file type",
       "type": "string",
       "meta": {
         "readonly": false,

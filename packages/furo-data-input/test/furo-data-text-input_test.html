@@ -159,15 +159,15 @@
     });
 
 
-    it('should set readonly via disable method', (done) => {
+    it('should set disabled via disable method', (done) => {
       dataTextInput.disable();
-      assert.equal(dataTextInput._readonly, true);
+      assert.equal(dataTextInput.disabled, true);
       done();
     });
 
-    it('should remove readonly via enable method', (done) => {
+    it('should remove disabled via enable method', (done) => {
       dataTextInput.enable();
-      assert.equal(dataTextInput._readonly, false);
+      assert.equal(dataTextInput.disabled, false);
       done();
     });
 

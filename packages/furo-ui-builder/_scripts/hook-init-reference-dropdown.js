@@ -5,7 +5,7 @@ class HookInitReferenceSearch {
     const PKGDIR = UISPECDIR + "/" + ctx.package;
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q) {
       let type = SPEC.services.List.data.response.replace("Collection", "");
-      return PKGDIR + "/" + type.toLowerCase().replace(".", "-") + "-reference-dropdown".toLowerCase() + ".u33e";
+      return PKGDIR + "/" + type.toLowerCase().split(".").join("-") + "-reference-dropdown".toLowerCase() + ".u33e";
     }
     else return "";
   }
@@ -14,7 +14,7 @@ class HookInitReferenceSearch {
     if (SPEC.services.List && SPEC.services.List.query && SPEC.services.List.query.q) {
       let type = SPEC.services.List.data.response.replace("Collection", "");
       u33e.setTheme("ReferenceDropdownBaseTheme");
-      u33e.model.component_name = type.toLowerCase().replace(".", "-") + "-reference-dropdown".toLowerCase();
+      u33e.model.component_name = type.toLowerCase().split(".").join("-") + "-reference-dropdown".toLowerCase();
       u33e.model.path = ctx.path;
       u33e.model.description = SPEC.description;
 
@@ -41,7 +41,7 @@ class HookInitReferenceSearch {
       u33e.addStyle(":host")
           .addCSSAttribute("display", "block");
 
-      u33e.addStyle(":host[hidden]")
+      u33e.addStyle(":host([hidden])")
           .addCSSAttribute("display", "none");
 
       u33e.addStyle("furo-data-collection-dropdown")
@@ -53,7 +53,7 @@ class HookInitReferenceSearch {
       refSearch.addAttribute("value-field", "id")
           .addAttribute("display-field", "display_name")
           .addAttribute("subfield", "id")
-          .addAttribute("subfield-display", "display-name")
+          .addAttribute("subfield-display", "display_name")
           .addAttribute("?condensed", "${this.condensed}")
 
           .addMethod("inject-entities", "--collection(*.entities)")

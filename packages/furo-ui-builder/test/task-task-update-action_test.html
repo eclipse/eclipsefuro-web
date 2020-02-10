@@ -35,7 +35,7 @@
     import "@furo/fbp/testhelper/test-bind"; // for testing
     import "@furo/testhelper/initEnv.js";
     import "/components/furo-base-components/node_modules/@furo/testhelper/initEnv.js"
-    import "../build/ui/task/task-task-update-panel.js"
+    import "../generates/ui_components/taskservice/task-task-update-panel.js"
 
     function keydown(TargetElement, key) {
         let customEvent = new Event('keydown', {composed: true, bubbles: true});
@@ -64,16 +64,15 @@
 
             elem._FBPAddWireHook('--response', (response) =>{
                 expect(action).to.not.be.undefined;
-                assert.equal(buttons.length, 4);
-                expect(buttons[1].getAttribute('hidden')).to.be.null;
+
+                assert.equal(buttons.length, 2);
+
+                expect(buttons[1].getAttribute('hidden')).to.not.be.null;
                 expect(buttons[1].getAttribute('disabled')).to.be.null;
 
                 expect(buttons[0].getAttribute('hidden')).to.not.be.null;
                 expect(buttons[0].getAttribute('disabled')).to.not.be.null;
-                expect(buttons[2].getAttribute('hidden')).to.be.null;
-                expect(buttons[2].getAttribute('disabled')).to.be.null;
-                expect(buttons[3].getAttribute('hidden')).to.not.be.null;
-                expect(buttons[3].getAttribute('disabled')).to.be.null;
+
                 done();
             });
             qp.qpIn({"tsk": 1});

@@ -12,7 +12,6 @@ class InitHelper {
     if (ctx.kindOf === "servive") {
       this.specIndex[ctx.spec.name] = ctx.spec;
     }
-
   }
 
   /**
@@ -70,6 +69,7 @@ class CTX {
 
   getImportPathForComponent(component) {
     // return relative path for a component
+    if(InitHelper.componentIndex[component]){
     let target = InitHelper.componentIndex[component] + ".js";
     let from = this.path.replace(".u33e", ".js");
     if (from === target) {
@@ -80,6 +80,10 @@ class CTX {
       return "./" + path.basename(target);
     }
     return relative + "/" + path.basename(target);
+    }else{
+      return false
+    }
+
   }
 
   /**

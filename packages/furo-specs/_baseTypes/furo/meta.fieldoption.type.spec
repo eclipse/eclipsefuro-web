@@ -4,22 +4,64 @@
   "description": "Metas for a field",
   "__proto": {
     "package": "furo",
-    "options": {},
-    "imports": ["google/protobuf/any.proto"],
-    "targetfile": "meta.proto"
+    "targetfile": "meta.proto",
+    "imports": [
+      "google/protobuf/any.proto"
+    ],
+    "options": null
   },
   "fields": {
     "list": {
-      "description": "a list with options, use furo.optionitem or your own",
       "type": "google.protobuf.Any",
-      "meta": {
-        "repeated": true
-      },
+      "description": "a list with options, use furo.optionitem or your own",
       "__proto": {
         "number": 1
-      }
+      },
+      "__ui": {
+        "component": "",
+        "flags": [
+          "full",
+          "condensed"
+        ],
+        "no_init": false,
+        "no_skip": false
+      },
+      "meta": {
+        "label": "",
+        "hint": "",
+        "default": "",
+        "readonly": false,
+        "repeated": true,
+        "options": {
+          "list": []
+        }
+      },
+      "constraints": null
+    },
+    "flags": {
+      "type": "map<string,bool>",
+      "description": "Add flags for your field. This can be something like \"searchable\"=true\n",
+      "__proto": {
+        "number": 2
+      },
+      "__ui": {
+        "component": null,
+        "flags": [],
+        "no_init": false,
+        "no_skip": false
+      },
+      "meta": {
+        "label": "flags",
+        "hint": "optional flags",
+        "default": null,
+        "readonly": false,
+        "repeated": false,
+        "options": {
+          "list": []
+        },
+        "typespecific": null
+      },
+      "constraints": null
     }
   }
 }
-
-

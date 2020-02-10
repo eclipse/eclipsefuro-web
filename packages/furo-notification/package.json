@@ -2,11 +2,11 @@
   "name": "@furo/notification",
   "description": "notification components for furo",
   "main": "furo-catalog.js",
-  "version": "0.9.4",
+  "version": "0.10.2",
   "dependencies": {
-    "@furo/fbp": "^4.27.4",
-    "@furo/framework": "^0.13.3",
-    "@furo/input": "^0.63.2",
+    "@furo/fbp": "^4.29.1",
+    "@furo/framework": "^0.13.4",
+    "@furo/input": "^0.65.1",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.1",
     "markdown-it": "^9.0.1"

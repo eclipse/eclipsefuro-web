@@ -35,7 +35,6 @@ class DemoFuroFileInput extends FBP(LitElement) {
         `
     }
 
-
     /**
      * @private
      * @returns {TemplateResult}

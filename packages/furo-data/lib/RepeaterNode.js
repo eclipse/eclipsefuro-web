@@ -18,6 +18,13 @@ export class RepeaterNode extends EventTreeNode {
         return {}
       }();
     }
+
+
+    // check parent readonly meta
+    if(parentNode && parentNode._meta && parentNode._meta.readonly === true){
+      this._meta.readonly = true;
+    }
+
     if (this._spec.constraints) {
       this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
     } else {
@@ -91,6 +98,11 @@ export class RepeaterNode extends EventTreeNode {
     this.__initialValue = JSON.stringify(this._value);
   }
 
+  moveNode(old_index, new_index) {
+    super.moveNode(old_index, new_index);
+    this.dispatchNodeEvent(new NodeEvent("repeated-fields-changed", this, true));
+    this.dispatchNodeEvent(new NodeEvent("this-repeated-field-changed", this, false));
+  }
 
   /**
    * resets the field to the initial _values from the spec
@@ -185,6 +197,10 @@ export class RepeaterNode extends EventTreeNode {
           for (let m in mc.meta) {
             // update the metas
             field._meta[m] = mc.meta[m];
+            // broadcast readonly changes for all ancestors
+            if(m === "readonly"){
+              this.broadcastEvent(new NodeEvent("parent-readonly-meta-setted",this, true));
+            }
           }
           for (let c in mc.constraints) {
             // update the constraints

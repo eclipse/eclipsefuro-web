@@ -18,7 +18,7 @@ function sh(command, arguments) {
   execSync(command + " " + arguments.join(" "), {stdio: 'inherit'});
 }
 
-const SpecDir = config.spec_dir;
+const SpecDirs = config.spec_dirs;
 const UiSpecDir = config.ui_spec_out;
 
 sh("mkdir -p", [UiSpecDir]);
@@ -33,9 +33,9 @@ config.hooks.type.forEach((hook) => {
 config.hooks.service.forEach((hook) => {
   hooks.service.push(require(process.cwd() + "/" + hook));
 });
-
-
-let speclist = Helper.walkSync(SpecDir).filter((filepath) => {
+let speclist = [];
+SpecDirs.forEach((SpecDir)=>{
+ let partialList = Helper.walkSync(SpecDir).filter((filepath) => {
   let filename = path.basename(filepath);
   for(var i = 0; i < config.skip_spec.length; i++) {
     let pattern = config.skip_spec[i];
@@ -51,7 +51,8 @@ let speclist = Helper.walkSync(SpecDir).filter((filepath) => {
   return (filename.indexOf(".spec") > 0);
 
 });
-
+ speclist = speclist.concat(partialList)
+});
 let allCTXs = [];
 
 // resolve all possible created names and paths for the import helper
@@ -92,6 +93,8 @@ Helper.allCTX.forEach((ctx) => {
   }
 });
 
+
+
 // write registry
 // collect data for the panel registry
 let registry = {"imports": new Set, panels: {}};
@@ -108,4 +111,5 @@ if(ctx.registry){
 });
 registry.imports = Array.from(registry.imports);
 fs.writeFileSync(UiSpecDir + "/registry.spec", JSON.stringify(registry,"",2));
+
 

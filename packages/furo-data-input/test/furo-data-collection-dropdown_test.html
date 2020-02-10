@@ -19,7 +19,8 @@
     <template>
         <test-bind>
             <template>
-                <furo-data-collection-dropdown ƒ-bind-data="--entity(*.data.description)"></furo-data-collection-dropdown>
+                <furo-data-collection-dropdown
+                        ƒ-bind-data="--entity(*.data.description)"></furo-data-collection-dropdown>
 
                 <furo-data-object type="project.ProjectEntity" @-object-ready="--entity"
                                   ƒ-inject-raw="--response"></furo-data-object>
@@ -34,7 +35,7 @@
 
                 <furo-data-collection-dropdown hint="hint override" leading-icon="mail" trailing-icon="fingerprint"
                                                label="default list from spec"
-                                               subfield-display="diaplay_name"
+                                               subfield-display="display_name"
                                                ƒ-inject-entities="--responsePerson(*.entities)"
                                                ƒ-bind-data="--entityTask(*.owner)"></furo-data-collection-dropdown>
 
@@ -42,7 +43,6 @@
 
                 <furo-collection-agent service="PersonService"
                                        ƒ-hts-in="--entityTask(*.owner.link._value)"
-                                       ƒ-list="--load"
                                        @-response="--responsePerson">
                 </furo-collection-agent>
 
@@ -67,7 +67,8 @@
 
     describe('furo-data-collection-dropdown_test tests ', function () {
 
-        let collectionDropdown1,collectionDropdown2, host, entityObject,entityObject2, deeplink, entityAgent, collectionAgent;
+        let collectionDropdown1, collectionDropdown2, host, entityObject, entityObject2, deeplink, entityAgent,
+            collectionAgent;
 
         beforeEach(async () => {
             let fix = fixture('basic');
@@ -103,7 +104,7 @@
                     assert.equal(collectionDropdown1.field._value, 'Furo Foundation');
                     assert.equal(collectionDropdown1.field._meta.label, 'ID label from response');
                     assert.equal(collectionDropdown1.field._meta.options.list.length, 2);
-                        done();
+                    done();
 
                 }, {once: true});
 
@@ -111,37 +112,73 @@
             deeplink.qpIn({"prj": 1});
         });
 
+        it('should update meta without options', (done) => {
+
+            host._FBPAddWireHook("--hts", () => {
+                entityObject.data.data.description.addEventListener("this-metas-changed", () => {
+                    assert.equal(collectionDropdown1.field._value, 'Build Documentation');
+                    assert.equal(collectionDropdown1.field._meta.label, 'ID label from response');
+
+                    done();
+
+                }, {once: true});
+
+            });
+            deeplink.qpIn({"prj": 2});
+        });
+
         it('should selected the items when the field value not exists and the item in option list is marked as `selected:true`', (done) => {
 
-          collectionDropdown2.addEventListener("item-selected",(e)=>{
-            assert.equal(e.detail.id, "female");
-            done();
-          });
+            collectionDropdown2.addEventListener("item-selected", (e) => {
+                assert.equal(e.detail.id, "female");
+                done();
+            });
 
-       });
+        });
 
-      it('should assign the field value (is not setted before) initially with the selected item value from spec', (done) => {
+        it('should fire item-selected event with attribute valueField set', (done) => {
 
-        setTimeout(()=>{
-          assert.equal(entityObject2.data.owner.id._value, "female");
-          done();
+            collectionDropdown2.valueField = 'display_name';
 
-        },0)
-      });
+            deeplink.qpIn({"prj": 1});
+            collectionDropdown2.addEventListener("item-selected", (e) => {
+                assert.equal(e.detail.id, "female");
+                done();
+            });
+        });
 
-      it('should assign the field value (is not setted before) initially with the initial selected item value from data', (done) => {
-        collectionAgent.list();
-        setTimeout(()=>{
-          assert.equal(entityObject2.data.owner.id._value, "female");
-          done();
+        it('should assign the field value (is not setted before) initially with the selected item value from spec', (done) => {
 
-        },100)
-      });
+            setTimeout(() => {
+                assert.equal(entityObject2.data.owner.id._value, "female");
+                done();
 
-      // a11y tests
-      it('a11y', () => {
-        return axeReport(fixture('basic'));
-      });
+            }, 0)
+        });
+
+        it('should set the select element to disabled', (done) => {
+            collectionDropdown2.disable();
+            setTimeout(() => {
+
+                assert.equal(collectionDropdown2._theInputElement.getAttribute('disabled'), "");
+                done();
+
+            }, 0)
+        });
+
+        it('should assign the field value (is not setted before) initially with the initial selected item value from data', (done) => {
+            collectionAgent.list();
+            setTimeout(() => {
+                assert.equal(entityObject2.data.owner.id._value, "female");
+                done();
+
+            }, 100)
+        });
+
+        // a11y tests
+        it('a11y', () => {
+            return axeReport(fixture('basic'));
+        });
 
     });
 </script>

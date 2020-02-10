@@ -7,16 +7,31 @@ import {Env} from "@furo/framework"
  * `furo-entity-agent`
  *
  * @customElement
- * @demo demo/index.html
+ * @demo demo-furo-custom-method Basic usage
  * @appliesMixin FBP
  */
 class FuroCustomMethod extends FBP(LitElement) {
-
 
     constructor() {
         super();
         this._servicedefinitions = Env.api.services;
         this._ApiEnvironment = Env.api;
+
+        this._pendingRequests = [];
+
+        /**
+         * Request race condition handling
+         *
+         */
+        this._FBPAddWireHook('--beforeRequestStart', () => {
+            if (this._pendingRequests.length){
+                this._FBPTriggerWire('--abortDemanded', this._abortController);
+            }
+            this._pendingRequests.push('pending');
+        });
+        this._FBPAddWireHook('--requestFinished', (req) => {
+            this._pendingRequests.pop();
+        });
 
     }
 
@@ -54,6 +69,7 @@ class FuroCustomMethod extends FBP(LitElement) {
     }
 
     _makeRequest(link, dataObject) {
+        this._FBPTriggerWire('--beforeRequestStart');
         let data;
         let body = {};
         // check if dataObject is set and create body object
@@ -67,12 +83,22 @@ class FuroCustomMethod extends FBP(LitElement) {
             }
             data = JSON.stringify(body);
         }
+        /**
+         * The AbortController interface represents a controller object that allows you to abort one or more DOM requests as and when desired.)
+         * https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+         * @type {AbortController}
+         * @private
+         */
+        this._abortController = new AbortController();
+        let signal = this._abortController.signal;
+
         // Daten
         let headers = new Headers(this._ApiEnvironment.headers);
         headers.append('Content-Type', 'application/' + link.type + '+json');
         headers.append('Content-Type', 'application/json');
 
         return new Request(link.href, {
+            signal,
             method: link.method,
             headers: headers,
             body: data
@@ -161,7 +187,9 @@ class FuroCustomMethod extends FBP(LitElement) {
             </style>
             <furo-api-fetch
                     ƒ-invoke-request="--triggerLoad"
-                    ƒ-abort-request="--abort-demanded">
+                    ƒ-abort-request="--abortDemanded" 
+                    @-response="--requestFinished"
+                    @-fatal-error="--requestFinished">
             </furo-api-fetch>
         `;
     }

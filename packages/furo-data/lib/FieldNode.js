@@ -10,6 +10,7 @@ export class FieldNode extends EventTreeNode {
     this.__specdefinitions = parentNode.__specdefinitions;
 
     this._spec = fieldSpec;
+
     if (this._spec.meta) {
       this._meta = JSON.parse(JSON.stringify(this._spec.meta));
     } else {
@@ -17,6 +18,13 @@ export class FieldNode extends EventTreeNode {
         return {}
       }();
     }
+
+
+    // check parent readonly meta and inherit if true
+    if(parentNode && parentNode._meta && parentNode._meta.readonly === true){
+      this._meta.readonly = true;
+    }
+
     if (this._spec.constraints) {
       this._constraints = JSON.parse(JSON.stringify(this._spec.constraints));
     } else {
@@ -94,6 +102,15 @@ export class FieldNode extends EventTreeNode {
       this._checkConstraints();
     });
 
+    this.addEventListener('parent-readonly-meta-setted', (e) => {
+      // check parent readonly meta and inherit if true
+      if((parentNode && parentNode._meta && parentNode._meta.readonly) || (this._spec.meta && this._spec.meta.readonly)){
+        this._meta.readonly = true;
+      }else{
+        this._meta.readonly = false;
+      }
+    });
+
 
     //store __initialValue value for resetting the field
     this.__initialValue = JSON.stringify(this._value);
@@ -137,6 +154,11 @@ export class FieldNode extends EventTreeNode {
     }
   }
 
+  moveNode(old_index, new_index) {
+    super.moveNode(old_index, new_index);
+    this.dispatchNodeEvent(new NodeEvent('field-value-changed', this, true));
+    this.dispatchNodeEvent(new NodeEvent('this-field-value-changed', this, false));
+  }
 
   /**
    * resets the field to the initial values from the spec
@@ -243,9 +265,9 @@ export class FieldNode extends EventTreeNode {
       if (val && !val.hasOwnProperty(n._name)) {
         // object or repeater
         if (n.__childNodes.length > 0) {
-          if(n.repeats){
+          if (n.repeats) {
             n._value = [];
-          }else{
+          } else {
             n._value = {};
           }
 
@@ -355,7 +377,6 @@ export class FieldNode extends EventTreeNode {
     }
 
 
-
     if (!validity) {
       this._isValid = false;
       this.dispatchNodeEvent(new NodeEvent("field-became-invalid", this));
@@ -377,11 +398,26 @@ export class FieldNode extends EventTreeNode {
         let field = f[0];
         for (let m in mc.meta) {
           // update the metas
-          this[field]._meta[m] = mc.meta[m];
+          if (this[field]) {
+            this[field]._meta[m] = mc.meta[m];
+            // broadcast readonly changes for all ancestors
+            if(m === "readonly"){
+              this.broadcastEvent(new NodeEvent("parent-readonly-meta-setted",this, true));
+            }
+          } else {
+            console.warn("invalid meta", mc, metaAndConstraints);
+            return;
+          }
         }
         for (let c in mc.constraints) {
           // update the constraints
-          this[field]._constraints[c] = mc.constraints[c];
+          if (this[field]) {
+            this[field]._constraints[c] = mc.constraints[c];
+          } else {
+            console.warn("invalid meta", mc, metaAndConstraints);
+            return;
+          }
+
         }
         /**
          * @event this-metas-changed INTERNAL Event

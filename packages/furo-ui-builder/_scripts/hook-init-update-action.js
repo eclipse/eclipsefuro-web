@@ -10,12 +10,12 @@ class HookInitUpdateAction {
       return undefined
     }
 
-    let basename = (SPEC.services.Update.data.request.replace(".", "-"));
+    let basename = (SPEC.services.Update.data.request.split(".").join("-"));
     return PKGDIR + "/" + (basename + "-update-action").toLowerCase() + ".u33e";
   }
   constructor(ctx, u33e) {
     const SPEC = ctx.spec;
-    ctx.basename = (SPEC.services.Update.data.request.replace(".", "-"));
+    ctx.basename = (SPEC.services.Update.data.request.split(".").join("-"));
     u33e.model.component_name = (ctx.basename + "-update-action").toLowerCase();
     u33e.model.path = ctx.path;
     u33e.model.description = SPEC.description;
@@ -32,7 +32,7 @@ class HookInitUpdateAction {
     u33e.addStyle(":host")
         .addCSSAttribute("display", "block");
 
-    u33e.addStyle(":host[hidden]")
+    u33e.addStyle(":host([hidden])")
         .addCSSAttribute("display", "none");
 
     // exposed wires / public methods with _FBPTriggerWire

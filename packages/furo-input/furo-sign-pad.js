@@ -5,21 +5,29 @@ import SignaturePad from "signature_pad/dist/signature_pad.m"
 
 /**
  * `furo-sign-pad`
- * Describe your element
+ *  Simple pad to sign or draw something
+ *
+ * ### Sample
+ *  <furo-demo-snippet>
+ *   <template>
+ *    <furo-sign-pad @-sign-updated="--signed"></furo-sign-pad>
+ *     <img ƒ-.src="--signed" alt="" width="150px">
+ *   </template>
+ *  </furo-demo-snippet>
  *
  * @summary shortdescription
  * @customElement
- * @demo demo/furo-sign-pad
+ * @demo demo-furo-sign-pad
  * @appliesMixin FBP
  */
 export class FuroSignPad extends FBP(LitElement) {
+
 
   /**
    * flow is ready lifecycle method
    */
   _FBPReady() {
     super._FBPReady();
-
 
     this.canvas = this.shadowRoot.querySelector("canvas");
 
@@ -28,21 +36,21 @@ export class FuroSignPad extends FBP(LitElement) {
       onEnd: this._onEnd.bind(this)
     });
 
+    setTimeout(()=>{
+      this.resize();
 
-    if (this.image) {
-      this.signaturePad.fromDataURL(this.image);
-    }
-    this.resize();
+      if (this.getAttribute("image")) {
+        this.setImage(this.getAttribute("image"));
+      }
+    },1);
+
     this.signaturePad.clear();
+
+
+
+
   }
 
-
-  /**
-   * clears the pad
-   */
-  clear() {
-    this.signaturePad.clear();
-  }
 
   resize() {
     if (this.canvas) {
@@ -50,6 +58,7 @@ export class FuroSignPad extends FBP(LitElement) {
       this.canvas.width = this.canvas.offsetWidth * ratio;
       this.canvas.height = this.canvas.offsetHeight * ratio;
       this.canvas.getContext("2d").scale(ratio, ratio);
+
     }
   }
 
@@ -103,13 +112,15 @@ export class FuroSignPad extends FBP(LitElement) {
   }
 
 
-  attached() {
+  /**
+  unlock() {
     this.signaturePad.on();
   }
 
-  detached() {
+  lock() {
     this.signaturePad.off();
   }
+  */
 
   _setEmpty(b) {
     this.empty = b;
@@ -149,11 +160,13 @@ export class FuroSignPad extends FBP(LitElement) {
     /**
      * @event sign-updated
      * Fired when sign gets new painting
+     *
      * detail payload: base encoded image
      */
     let customEvent = new Event('sign-updated', {composed: true, bubbles: true});
     customEvent.detail = this.image;
-    this.dispatchEvent(customEvent)
+    this.dispatchEvent(customEvent);
+    return this.image;
   }
 
   _onBegin(event) {

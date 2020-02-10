@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.9](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.7...@furo/navigation@0.37.9) (2020-02-09)
+
+
+### Bug Fixes
+
+* select the first selected item on init ([cda8626](https://github.com/theNorstroem/FuroBaseComponents/commit/cda8626))
+
+
+
+
+
+## [0.37.8](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.7...@furo/navigation@0.37.8) (2020-02-09)
+
+
+### Bug Fixes
+
+* select the first selected item on init ([cda8626](https://github.com/theNorstroem/FuroBaseComponents/commit/cda8626))
+
+
+
+
+
+## [0.37.7](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.6...@furo/navigation@0.37.7) (2020-02-07)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.37.6](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.5...@furo/navigation@0.37.6) (2020-02-04)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.37.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.4...@furo/navigation@0.37.5) (2020-02-04)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
+## [0.37.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.3...@furo/navigation@0.37.4) (2020-01-15)
+
+**Note:** Version bump only for package @furo/navigation
+
+
+
+
+
 ## [0.37.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.2...@furo/navigation@0.37.3) (2020-01-14)
 
 **Note:** Version bump only for package @furo/navigation
