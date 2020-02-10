@@ -53,7 +53,7 @@ class FuroAppDrawer extends FBP(LitElement) {
       /**
        * disables automatic floating mode
        */
-      noauto: {type: Boolean},
+      permanent: {type: Boolean},
       /**
        * let the menu float (hidden).
        */
@@ -218,7 +218,7 @@ class FuroAppDrawer extends FBP(LitElement) {
     });
 
     // register resize listener
-    if (!this.noauto) {
+    if (!this.permanent) {
       if (window.ResizeObserver) {
         let ro = new ResizeObserver(entries => {
 
