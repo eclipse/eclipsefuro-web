@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.6.0...@furo/ui-builder@0.7.0) (2020-02-07)
+
+
+### Features
+
+* init hooks with better titles ([790d358](https://github.com/theNorstroem/FuroBaseComponents/commit/790d358))
+
+
+
+
+
 # [0.6.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/ui-builder@0.5.0...@furo/ui-builder@0.6.0) (2020-02-04)
 
 

@@ -8957,7 +8957,7 @@ window.addEventListener("connect-to-drawer-requested",e=>{if(e.detail.name===thi
        * Enable this to put the drawer on the right side
        */isReverse:{type:Boolean,reflect:!0,attribute:"reverse"},/**
        * disables automatic floating mode
-       */noauto:{type:Boolean},/**
+       */permanent:{type:Boolean},/**
        * let the menu float (hidden).
        */float:{type:Boolean},/**
        * Min width of the app-drawer to switch to floating mode
@@ -9010,7 +9010,7 @@ this.removeEventListener("mouseup",this.trackEnd,{once:!0});this.removeEventList
      * Register hook on wire --backdropClicked to
      * close the menu
      */this._FBPAddWireHook("--backdropClicked",e=>{this.close()});// register resize listener
-if(!this.noauto){if(window.ResizeObserver){let ro=new ResizeObserver(entries=>{for(let entry of entries){const cr=entry.contentRect;this.__isFloating=cr.width<=this.floatBreakpoint}if(this.__isFloating){this.close()}});ro.observe(this)}else{// fallback, just listen to the resize event
+if(!this.permanent){if(window.ResizeObserver){let ro=new ResizeObserver(entries=>{for(let entry of entries){const cr=entry.contentRect;this.__isFloating=cr.width<=this.floatBreakpoint}if(this.__isFloating){this.close()}});ro.observe(this)}else{// fallback, just listen to the resize event
 let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;window.addEventListener("resize",e=>{let cr=this.getBoundingClientRect();this.__isFloating=cr.width<=this.floatBreakpoint;if(this.__isFloating){this.close()}})}}let drawer=this.shadowRoot.getElementById("drawer"),drag=this.shadowRoot.getElementById("drag"),backdrop=this.shadowRoot.getElementById("backdrop"),trackhandler=e=>{// unregister
 this.removeEventListener("mousemove",this.moveHandler,!0);this.removeEventListener("touchmove",this.moveHandler,!0);if(e instanceof MouseEvent){this.pauseEvent(e)}if(this.__isFloating){let start_x=this._getScreenX(e),start_y=this._getScreenY(e),start_time=performance.now(),width=drawer.getBoundingClientRect().width,trackingEnabled=!1,trackingFixed=!1;drawer.style.transitionDuration="0ms";// Setup a timer
 let animationframetimeout;// register move

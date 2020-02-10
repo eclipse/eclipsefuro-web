@@ -991,15 +991,15 @@
         {
           "name": "config",
           "type": "Array | null | undefined",
-          "description": "Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n\n [['view-main', 'button-tap', 'detail-view',  'task => id]]\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.",
+          "description": "Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n```json\n [\n   ['view-main', 'button-tap', 'detail-view',  'task => id],\n   [\"*\", \"search\", \"EXTERNAL_LINK: https://google.com/\"]\n ]\n ```\n\n\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.\n - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 184,
               "column": 2
             },
             "end": {
-              "line": 179,
+              "line": 191,
               "column": 3
             }
           },
@@ -1469,11 +1469,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 94,
               "column": 2
             },
             "end": {
-              "line": 167,
+              "line": 179,
               "column": 3
             }
           },
@@ -1497,7 +1497,7 @@
           "column": 0
         },
         "end": {
-          "line": 181,
+          "line": 193,
           "column": 1
         }
       },
@@ -1507,14 +1507,14 @@
       "attributes": [
         {
           "name": "config",
-          "description": "Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n\n [['view-main', 'button-tap', 'detail-view',  'task => id]]\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.",
+          "description": "Configuration Array\n\n| current   | flow-event-name      | target      | [mapping]          |\n|:----------|:---------------------|:------------|:-------------------|\n| view-main | form-complete        | detail-view | from => to         |\n| *         | menu-settings-click  | settings    |                    |\n| *         | all-fields-req       | all-qps     |        *           |\n| *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |\n\n\n```json\n [\n   ['view-main', 'button-tap', 'detail-view',  'task => id],\n   [\"*\", \"search\", \"EXTERNAL_LINK: https://google.com/\"]\n ]\n ```\n\n\n if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to \"to\".\n\n Special configurations:\n\n - Set a \"*\" to map all data 1:1 to the url.\n\n - You can set a wildcard for \"current\". If you check the example: menu-settings-click can be triggered from any current. If there is a \"current\" with menu-settings-click configured and you are there, the wildcard is not used.\n - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link",
           "sourceRange": {
             "start": {
-              "line": 172,
+              "line": 184,
               "column": 2
             },
             "end": {
-              "line": 179,
+              "line": 191,
               "column": 3
             }
           },

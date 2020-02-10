@@ -840,7 +840,7 @@
           }
         },
         {
-          "name": "noauto",
+          "name": "permanent",
           "type": "boolean | null | undefined",
           "description": "disables automatic floating mode",
           "privacy": "public",
@@ -851,7 +851,7 @@
             },
             "end": {
               "line": 55,
-              "column": 29
+              "column": 32
             }
           },
           "metadata": {
@@ -1575,7 +1575,7 @@
           "type": "boolean | null | undefined"
         },
         {
-          "name": "noauto",
+          "name": "permanent",
           "description": "disables automatic floating mode",
           "sourceRange": {
             "start": {
@@ -1584,7 +1584,7 @@
             },
             "end": {
               "line": 55,
-              "column": 29
+              "column": 32
             }
           },
           "metadata": {},

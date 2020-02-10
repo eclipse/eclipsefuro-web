@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@0.1.0...@furo/timing@0.1.1) (2020-02-07)
+
+
+### Bug Fixes
+
+* init section with defaults ([67b41d5](https://github.com/theNorstroem/FuroBaseComponents/commit/67b41d5))
+
+
+
+
+
 # [0.1.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/timing@0.0.39...@furo/timing@0.1.0) (2020-02-04)
 
 

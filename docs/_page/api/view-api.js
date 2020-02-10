@@ -2755,7 +2755,7 @@ this.broadcastEvent(new NodeEvent("disable-validation",this));this._rawEntity=ra
      * Returns a json representation of your Data Object
      * @return {*}
      */getJson(){let data={};// nur reine Daten zurück geben
-for(let index in this.__childNodes){let field=this.__childNodes[index];data[field._name]=field._value}return data}_updateFieldValuesAndMetaFromRawEntity(node,data){let furoMetaDetected=!1;for(let fieldName in data){let fieldNode=node[fieldName];if("furo.Meta"===fieldNode._spec.type){furoMetaDetected=data[fieldName]}if(!fieldNode){console.warn("unspecified field",fieldName)}else{if(fieldNode._isRepeater){let initialSize=fieldNode.repeats.length;//fieldNode.removeAllChildren();
+for(let index in this.__childNodes){let field=this.__childNodes[index];data[field._name]=field._value}return data}_updateFieldValuesAndMetaFromRawEntity(node,data){let furoMetaDetected=!1;for(let fieldName in data){let fieldNode=node[fieldName];if(fieldNode===void 0){console.warn("field not specified",fieldName);continue}if("furo.Meta"===fieldNode._spec.type){furoMetaDetected=data[fieldName]}if(!fieldNode){console.warn("unspecified field",fieldName)}else{if(fieldNode._isRepeater){let initialSize=fieldNode.repeats.length;//fieldNode.removeAllChildren();
 // update records
 data[fieldName].forEach((repdata,i)=>{// create if record index do not exist
 if(!fieldNode.repeats[i]){fieldNode._addSilent()}// Werte aktualisieren
@@ -2865,10 +2865,19 @@ if(this._queue!==void 0){this.data.injectRaw(this._queue);this._queue=void 0;thi
        *
        *   **bubbles**
        */let dataEvent=new Event("data-changed",{composed:!0,bubbles:!0});dataEvent.detail=this.data;this.dispatchEvent(dataEvent);/**
-                                     * @event field-value-changed
-                                     * Fired when a field has changed
-                                     * detail payload: {Object} the field node
-                                     */let customEvent=new Event("field-value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent)});return!0}}_exports.FuroDataObject=FuroDataObject;window.customElements.define("furo-data-object",FuroDataObject);var furoDataObject={FuroDataObject:FuroDataObject};_exports.$furoDataObject=furoDataObject;class FuroDeepLink extends _furoShell.LitElement{constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._qp={}}static get properties(){return{/**
+                                      * @event data-changed-after-inject
+                                      * Fired when data in furo-data-object has changed after injectRaw is complete
+                                      *
+                                      * This event fires a lot, consider using a de-bounce with the event.
+                                      *
+                                      *   **detail payload:** {Object|CollectionNode}
+                                      *
+                                      *   **bubbles**
+                                      */if(this._injectPromise){this._injectPromise.then(e=>{let dataEvent=new Event("data-changed-after-inject",{composed:!0,bubbles:!0});dataEvent.detail=this.data;this.dispatchEvent(dataEvent)})}/**
+        * @event field-value-changed
+        * Fired when a field has changed
+        * detail payload: {Object} the field node
+        */let customEvent=new Event("field-value-changed",{composed:!0,bubbles:!0});customEvent.detail=e.detail;this.dispatchEvent(customEvent)});return!0}}_exports.FuroDataObject=FuroDataObject;window.customElements.define("furo-data-object",FuroDataObject);var furoDataObject={FuroDataObject:FuroDataObject};_exports.$furoDataObject=furoDataObject;class FuroDeepLink extends _furoShell.LitElement{constructor(){super();this._servicedefinitions=_furoShell.Env.api.services;this._qp={}}static get properties(){return{/**
        * @type {object|QueryParams} Query Params
        */qp:{type:Object},/**
        * Name des Services
@@ -4852,7 +4861,9 @@ return _furoShell.html`
         <div @-click="^^item-selected(_item)">
             ${this._item.data.display_name}
         </div>           
-        `}}_exports.ReferenceSearchItem=ReferenceSearchItem;window.customElements.define("reference-search-item",ReferenceSearchItem);var referenceSearchItem={ReferenceSearchItem:ReferenceSearchItem};_exports.$referenceSearchItem=referenceSearchItem;class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.valueField="id";this.displayField="display_name";this._noResultHint="no result found"}/**
+        `}}_exports.ReferenceSearchItem=ReferenceSearchItem;window.customElements.define("reference-search-item",ReferenceSearchItem);var referenceSearchItem={ReferenceSearchItem:ReferenceSearchItem};_exports.$referenceSearchItem=referenceSearchItem;class FuroDataReferenceSearch extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this._minTermLength=0;this.valueField="id";this.displayField="display_name";this._noResultHint="no result found";/**
+                                             * the loaded collection
+                                             */this._collection=[]}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
 // check initial overrides
@@ -4876,7 +4887,8 @@ this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection)
        * @event search
        * Fired when term is entered and bigger then min-term-length
        * detail payload: {String} term
-       */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}}_showList(){let arrCollection=this._collection;if(arrCollection&&0<arrCollection.length){this._listIsOpen=!0;this.setAttribute("show-list","");let index=0;for(let i=0;i<arrCollection.length;i++){if(arrCollection[i].data&&arrCollection[i].data[this.valueField]==this.field.id._value){index=i;break}}this._FBPTriggerWire("--listOpened",index)}// trigger wire to select item
+       */let customEvent=new Event("search",{composed:!0,bubbles:!0});customEvent.detail=this._searchTerm;this.dispatchEvent(customEvent)}}_showList(){if(this._collection&&0<this._collection.length){this._listIsOpen=!0;this.setAttribute("show-list","");let index=0;// find index to preselect item in the opened list
+for(let i=0;i<this._collection.length;i++){if(this._collection[i].data&&this._collection[i].data[this.valueField]==this.field.id._value){index=i;break}}this._FBPTriggerWire("--listOpened",index)}// trigger wire to select item
 }_closeList(){this._listIsOpen=!1;this.removeAttribute("show-list")}_clear(){this._clearNoResultHint();this.field.reinit();this._updateField();this._closeList();/**
                         * @event value-cleared
                         * Fired when input value is cleared
@@ -4911,8 +4923,6 @@ this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection)
        */_displayName:{type:String},/**
        * mark if the collection is already loaded
        */_hasCollection:{type:Boolean},/**
-       * the loaded collection
-       */_collection:{type:Array},/**
        * Overrides the label text from the **specs**.
        *
        * Use with caution, normally the specs defines this value.
@@ -4931,6 +4941,11 @@ this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection)
        *
        * Use with caution, normally the specs defines this value.
        */minTermLength:{type:Number,attribute:"min-term-length"},/**
+       * The maximal no of items to display. If the collection contains more data then then this value,
+       * the **max-results-hint** will be displayed at the bottom of the list.
+       */maxItemsToDisplay:{type:Number,attribute:"max-items-to-display"},/**
+       * hint text to display when the result set is bigger then  **maxItemsToDisplay**.
+       */maxResultsHint:{type:String,attribute:"max-results-hint"},/**
        * Enable this, to avoid the automatic triggering of "search".
        *
        * The user have to press enter to trigger the search. Min-term-length is respected.
@@ -4952,7 +4967,8 @@ this._FBPAddWireHook("--focused",item=>{this._focused=!0;if(this._hasCollection)
      * Bind a entity field to the search-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
-     */bindData(fieldNode){Helper$2.BindData(this,fieldNode);this._init()}_updateField(){if(this.field.display_name._value!==void 0){this._FBPTriggerWire("--value",this.field.display_name._value)}this.requestUpdate()}collectionIn(collection){if(collection&&collection.entities){this.shadowRoot.getElementById("input").removeAttribute("no-result");this._FBPTriggerWire("--listItemsIjnected",collection.entities);this._hasCollection=!0;this._collection=collection.entities;if(this._focused){this._showList()}}else{this.setAttribute("show-list","");this._hasCollection=!1;this._collection=[];this._closeList();this.shadowRoot.getElementById("input").setAttribute("no-result","");this._hint=this._noResultHint}}/**
+     */bindData(fieldNode){Helper$2.BindData(this,fieldNode);this._init()}_updateField(){if(this.field.display_name._value!==void 0){this._FBPTriggerWire("--value",this.field.display_name._value)}this.requestUpdate()}collectionIn(collection){if(collection&&collection.entities&&0<collection.entities.length){this.shadowRoot.getElementById("input").removeAttribute("no-result");this._hasCollection=!0;if(this.maxItemsToDisplay&&collection.entities.length>this.maxItemsToDisplay){// cut down the result size
+this._collection=collection.entities.slice(0,this.maxItemsToDisplay);if(this.maxResultsHint){this.setAttribute("showmaxhint","")}}else{this._collection=collection.entities;this.removeAttribute("showmaxhint","")}this._FBPTriggerWire("--listItemsIjnected",this._collection);if(this._focused){this._showList()}}else{this.setAttribute("show-list","");this._hasCollection=!1;this._collection=[];this._closeList();this.shadowRoot.getElementById("input").setAttribute("no-result","");this._hint=this._noResultHint}}/**
      * clear no result hint. reset hint to original value
      * @private
      */_clearNoResultHint(){this.shadowRoot.getElementById("input").removeAttribute("no-result");// reset hint to original value
@@ -4994,6 +5010,15 @@ return _furoShell.Theme.getThemeForComponent("FuroDataReferenceSearch")||_furoSh
             furo-search-input[no-result] {
                 --input-hint-color: var(--reference-search-no-result-hint, var(--accent, #ddb13d));
             }
+
+            :host([showmaxhint]) .maxresulthint {
+                display: block;
+            }
+            .maxresulthint{
+                display: none;
+                border-top: 1px solid var(--separator);
+                padding: var(--spacing-xs, 8px);
+            }
         `}/**
      * @private
      * @returns {TemplateResult}
@@ -5014,7 +5039,7 @@ return _furoShell.html`
         <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressedForSelect">
           <reference-search-item ƒ-.index="--index" ƒ-deselect="--itemDeSelected" ƒ-select="--trigger" ƒ-preselect="--itemSelected" ƒ-inject-item="--item"></reference-search-item>
         </template>
-             
+          <div class="maxresulthint">${this.maxResultsHint}</div>   
     </div>                                
 `}}window.customElements.define("furo-data-reference-search",FuroDataReferenceSearch);class DataRepeatDelete extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @private
@@ -6583,15 +6608,15 @@ return _furoShell.html`
    * @return {CSSResult}
    */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("DemoFuroDataReferenceSearch")||_furoShell.css`
-        :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
-        }
+      :host {
+        display: block;
+        height: 100%;
+        padding-right: var(--spacing);
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
     `}/**
      * @private
@@ -6607,16 +6632,19 @@ return _furoShell.html`
           <template>
             <furo-form-layouter two>
               <furo-data-reference-search condensed
-                      ƒ-bind-data="--entityReady(*.owner)"
-                      @-search="--term"
-                      ƒ-collection-in="--refCol">
+                                          ƒ-bind-data="--entityReady(*.owner)"
+                                          max-items-to-display="2"
+                                          max-results-hint="only 2 items displayed..."
+                                          @-search="--term"
+                                          ƒ-collection-in="--refCol">
               </furo-data-reference-search>
-                
-              <furo-data-display label="selected id" leading-icon="apps" condensed  ƒ-bind-data="--entityReady(*.owner.id)"></furo-data-display>
+
+              <furo-data-display label="selected id" leading-icon="apps" condensed
+                                 ƒ-bind-data="--entityReady(*.owner.id)"></furo-data-display>
               <furo-data-reference-search condensed
                                           label="Search on enter only"
                                           search-on-enter-only
-                                          min-term-length="2"
+
                                           ƒ-bind-data="--entityReady(*.owner)"
                                           @-search="--term"
                                           ƒ-collection-in="--refCol">
@@ -8354,8 +8382,14 @@ return _furoShell.html`
        * | *         | some-fields-req      | some-qps    | a=>b,x=>id,c=>item |
        *
        *
+       * ```json
+       *  [
+       *    ['view-main', 'button-tap', 'detail-view',  'task => id],
+       *    ["*", "search", "EXTERNAL_LINK: https://google.com/"]
+       *  ]
+       *  ```
        *
-       *  [['view-main', 'button-tap', 'detail-view',  'task => id]]
+       *
        *  if the current view is view-main and the flow-event-name is 'form-complete', the view switches to detail-view and data.from is mapped to "to".
        *
        *  Special configurations:
@@ -8363,6 +8397,7 @@ return _furoShell.html`
        *  - Set a "*" to map all data 1:1 to the url.
        *
        *  - You can set a wildcard for "current". If you check the example: menu-settings-click can be triggered from any current. If there is a "current" with menu-settings-click configured and you are there, the wildcard is not used.
+       *  - if you want to link to a target outside your app add **EXTERNAL_LINK:** followed by the link
        */config:{type:Array}}}/**
      * Trigger the router
      * @param flowEvent
@@ -8370,10 +8405,10 @@ return _furoShell.html`
      */trigger(flowEvent){let currentPath=window.location.pathname.replace(new RegExp(this.urlSpaceRegex),""),match=window.location.pathname.match(new RegExp(this.urlSpaceRegex)),prefix=match[0]||"/",selection=this._configObject[currentPath+flowEvent.event]||this._configObject["*"+flowEvent.event];if(selection){let search="";if(selection.mapping){// map everything
 if("*"===selection.mapping){let sa=[];for(let k in flowEvent.data){sa.push(k+"="+flowEvent.data[k])}if(0<sa.length){search="?"+sa.join("&")}}else{// selective mapping
 let mappings=selection.mapping.split(",").map(function(cnf){return cnf.split("=>").map(function(c){return c.trim()})}),sa=[];mappings.forEach(qpMap=>{// map flowevent.data.xx to yy
-if(flowEvent.data[qpMap[0]]){sa.push(qpMap[1]+"="+flowEvent.data[qpMap[0]])}});if(0<sa.length){search="?"+sa.join("&")}}}if("HISTORY-BACK"===selection.target){this.back()}else{window.history.pushState({},"",prefix+selection.target+search);/**
-                                                                               * Internal notyfication
-                                                                               * @private
-                                                                               */let now=window.performance.now(),customEvent=new Event("__furoLocationChanged",{composed:!0,bubbles:!0});customEvent.detail=now;this.dispatchEvent(customEvent)}/**
+if(flowEvent.data[qpMap[0]]){sa.push(qpMap[1]+"="+flowEvent.data[qpMap[0]])}});if(0<sa.length){search="?"+sa.join("&")}}}if("HISTORY-BACK"===selection.target){this.back()}else{if(selection.target.startsWith("EXTERNAL_LINK:")){window.location.href=selection.target.substr(14).trim()}else{window.history.pushState({},"",prefix+selection.target+search)}/**
+           * Internal notyfication
+           * @private
+           */let now=window.performance.now(),customEvent=new Event("__furoLocationChanged",{composed:!0,bubbles:!0});customEvent.detail=now;this.dispatchEvent(customEvent)}/**
          * @event view-changed
          * Fired when page was changed
          * detail payload: flowEvent
@@ -8526,7 +8561,7 @@ return _furoShell.html`
       <furo-pretty-json ƒ-inject-data="--navNode(*._value)">
         
       </furo-pretty-json>
-    `}}window.customElements.define("edit-example",EditExample);class FuroPanelCoordinatorTabItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.selected=!1;this.hovered=!1;this.inedit=!1;this.haserror=!1;this.addEventListener("click",e=>{this.field.selectItem()})}bindData(fieldNode){this.field=fieldNode;this.field.addEventListener("this-node-selected",n=>{this.selected=!0});this.field.addEventListener("tree-node-unselection-requested",n=>{this.selected=!1});this.field.addEventListener("modified",n=>{this.inedit=!0});this.field.addEventListener("has-error",n=>{this.haserror=!0})}_closeTab(e){e.stopPropagation();this.field.dispatchNodeEvent(new NodeEvent("close-requested",this,!1))}/**
+    `}}window.customElements.define("edit-example",EditExample);class FuroPanelCoordinatorTabItem extends(0,_furoShell.FBP)(_furoShell.LitElement){constructor(){super();this.selected=!1;this.hovered=!1;this.inedit=!1;this.haserror=!1;this.addEventListener("click",e=>{this.field.selectItem()})}bindData(fieldNode){this.field=fieldNode;this.selected=fieldNode._isSelected;this.field.addEventListener("this-node-selected",n=>{this.selected=!0});this.field.addEventListener("tree-node-unselection-requested",n=>{this.selected=!1});this.field.addEventListener("modified",n=>{this.inedit=!0});this.field.addEventListener("has-error",n=>{this.haserror=!0})}_closeTab(e){e.stopPropagation();this.field.dispatchNodeEvent(new NodeEvent("close-requested",this,!1))}/**
      * @private
      * @return {Object}
      */static get properties(){return{/**
@@ -8641,7 +8676,6 @@ return _furoShell.Theme.getThemeForComponent("FuroPanelCoordinatorTabs")||_furoS
                 display: block;
                 outline: none;
                 position: relative;
-                
                 padding-left: var(--spacing-s, 24px);
             }
 
