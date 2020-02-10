@@ -37,6 +37,31 @@
         }
       },
       "constraints": null
+    },
+    "flags": {
+      "type": "map<string,bool>",
+      "description": "Add flags for your field. This can be something like \"searchable\"=true\n",
+      "__proto": {
+        "number": 2
+      },
+      "__ui": {
+        "component": null,
+        "flags": [],
+        "no_init": false,
+        "no_skip": false
+      },
+      "meta": {
+        "label": "flags",
+        "hint": "optional flags",
+        "default": null,
+        "readonly": false,
+        "repeated": false,
+        "options": {
+          "list": []
+        },
+        "typespecific": null
+      },
+      "constraints": null
     }
   }
 }
