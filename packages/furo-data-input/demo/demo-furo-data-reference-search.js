@@ -25,15 +25,15 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
   static get styles() {
     // language=CSS
     return Theme.getThemeForComponent('DemoFuroDataReferenceSearch') || css`
-        :host {
-            display: block;
-            height: 100%;
-            padding-right: var(--spacing);
-        }
+      :host {
+        display: block;
+        height: 100%;
+        padding-right: var(--spacing);
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
     `
   }
@@ -55,16 +55,19 @@ class DemoFuroDataReferenceSearch extends FBP(LitElement) {
           <template>
             <furo-form-layouter two>
               <furo-data-reference-search condensed
-                      ƒ-bind-data="--entityReady(*.owner)"
-                      @-search="--term"
-                      ƒ-collection-in="--refCol">
+                                          ƒ-bind-data="--entityReady(*.owner)"
+                                          max-items-to-display="2"
+                                          max-results-hint="only 2 items displayed..."
+                                          @-search="--term"
+                                          ƒ-collection-in="--refCol">
               </furo-data-reference-search>
-                
-              <furo-data-display label="selected id" leading-icon="apps" condensed  ƒ-bind-data="--entityReady(*.owner.id)"></furo-data-display>
+
+              <furo-data-display label="selected id" leading-icon="apps" condensed
+                                 ƒ-bind-data="--entityReady(*.owner.id)"></furo-data-display>
               <furo-data-reference-search condensed
                                           label="Search on enter only"
                                           search-on-enter-only
-                                          min-term-length="2"
+
                                           ƒ-bind-data="--entityReady(*.owner)"
                                           @-search="--term"
                                           ƒ-collection-in="--refCol">

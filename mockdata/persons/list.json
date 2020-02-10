@@ -56,6 +56,25 @@
           "service": "PersonService"
         }
       ]
+    },
+    {
+      "data": {
+        "display_name": "Lola Tasimoto, +41781442244",
+        "first_name": "Lola",
+        "id": "4",
+        "name": "Tasimoto",
+        "phone_nr": "+41781442244",
+        "skills": []
+      },
+      "links": [
+        {
+          "href": "/mockdata/persons/4/get.json",
+          "method": "GET",
+          "rel": "self",
+          "type": "person.Person",
+          "service": "PersonService"
+        }
+      ]
     }
   ],
   "links": [

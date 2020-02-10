@@ -54,6 +54,10 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         this.valueField = "id";
         this.displayField = "display_name";
         this._noResultHint = "no result found";
+        /**
+         * the loaded collection
+         */
+        this._collection = [];
     }
 
 
@@ -198,15 +202,13 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
     }
 
     _showList() {
-        let arrCollection = this._collection;
-        if (arrCollection && arrCollection.length > 0) {
+        if (this._collection && this._collection.length > 0) {
             this._listIsOpen = true;
             this.setAttribute("show-list", "");
             let index = 0;
-
-            for (let i = 0; i < arrCollection.length; i++) {
-
-                if (arrCollection[i].data && arrCollection[i].data[this.valueField] == this.field.id._value) {
+            // find index to preselect item in the opened list
+            for (let i = 0; i < this._collection.length; i++) {
+                if (this._collection[i].data && this._collection[i].data[this.valueField] == this.field.id._value) {
                     index = i;
                     break;
                 }
@@ -315,12 +317,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
             _hasCollection: {
                 type: Boolean
             },
-            /**
-             * the loaded collection
-             */
-            _collection: {
-                type: Array
-            },
+
             /**
              * Overrides the label text from the **specs**.
              *
@@ -360,6 +357,21 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
             minTermLength: {
                 type: Number,
                 attribute: 'min-term-length'
+            },
+            /**
+             * The maximal no of items to display. If the collection contains more data then then this value,
+             * the **max-results-hint** will be displayed at the bottom of the list.
+             */
+            maxItemsToDisplay: {
+                type: Number,
+                attribute: 'max-items-to-display'
+            },
+            /**
+             * hint text to display when the result set is bigger then  **maxItemsToDisplay**.
+             */
+            maxResultsHint: {
+                type: String,
+                attribute: 'max-results-hint'
             },
             /**
              * Enable this, to avoid the automatic triggering of "search".
@@ -437,13 +449,24 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     collectionIn(collection) {
 
-        if (collection && collection.entities) {
+        if (collection && collection.entities && collection.entities.length > 0) {
 
             this.shadowRoot.getElementById("input").removeAttribute("no-result");
-
-            this._FBPTriggerWire("--listItemsIjnected", collection.entities);
             this._hasCollection = true;
-            this._collection = collection.entities;
+
+            if(this.maxItemsToDisplay && collection.entities.length > this.maxItemsToDisplay){
+                // cut down the result size
+                this._collection = collection.entities.slice(0, this.maxItemsToDisplay);
+                if(this.maxResultsHint){
+                    this.setAttribute("showmaxhint","");
+                }
+
+            }else{
+                this._collection = collection.entities;
+                this.removeAttribute("showmaxhint","");
+            }
+
+            this._FBPTriggerWire("--listItemsIjnected", this._collection);
 
             if (this._focused) {
                 this._showList();
@@ -515,6 +538,15 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
             furo-search-input[no-result] {
                 --input-hint-color: var(--reference-search-no-result-hint, var(--accent, #ddb13d));
             }
+
+            :host([showmaxhint]) .maxresulthint {
+                display: block;
+            }
+            .maxresulthint{
+                display: none;
+                border-top: 1px solid var(--separator);
+                padding: var(--spacing-xs, 8px);
+            }
         `
     }
 
@@ -541,7 +573,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
         <template is="flow-repeat" ƒ-inject-items="--listItemsIjnected" ƒ-select="--listOpened" ƒ-select-next-index="--arrowDownPressed" ƒ-select-previous-index="--arrowUpPressed" ƒ-trigger-selected="--enterPressedForSelect">
           <reference-search-item ƒ-.index="--index" ƒ-deselect="--itemDeSelected" ƒ-select="--trigger" ƒ-preselect="--itemSelected" ƒ-inject-item="--item"></reference-search-item>
         </template>
-             
+          <div class="maxresulthint">${this.maxResultsHint}</div>   
     </div>                                
 `;
     }
