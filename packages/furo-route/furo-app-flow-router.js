@@ -68,7 +68,8 @@ class FuroAppFlowRouter extends FBP(LitElement) {
        * ```json
        *  [
        *    ['view-main', 'button-tap', 'detail-view',  'task => id],
-       *    ["*", "search", "EXTERNAL_LINK: https://google.com/"]
+       *    ["*", "search", "EXTERNAL_LINK: https://google.com/"],
+       *    ["*", "searchInNewWindow", "EXTERNAL_LINK_BLANK: https://google.com/"]
        *  ]
        *  ```
        *
@@ -140,10 +141,12 @@ class FuroAppFlowRouter extends FBP(LitElement) {
       if (selection.target === "HISTORY-BACK") {
         this.back();
       } else {
-        if(selection.target.startsWith("EXTERNAL_LINK:")){
+        if (selection.target.startsWith("EXTERNAL_LINK:")) {
           window.location.href = selection.target.substr(14).trim();
-      } else {
-        window.history.pushState({}, '', prefix + selection.target + search);
+        } else if (selection.target.startsWith("EXTERNAL_LINK_BLANK:")) {
+          window.open(selection.target.substr(20).trim());
+        } else {
+          window.history.pushState({}, '', prefix + selection.target + search);
         }
 
         /**
