@@ -42,6 +42,11 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
     this.field.addEventListener("modified", (n) => {
       this.inedit = true;
     });
+
+    this.field.addEventListener("cleared", (n) => {
+      this.inedit = false;
+      this.haserror = false;
+    });
     this.field.addEventListener("has-error", (n) => {
       this.haserror = true;
     });

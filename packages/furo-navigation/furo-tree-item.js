@@ -157,6 +157,12 @@ export class FuroTreeItem extends FBP(LitElement) {
     this.fieldNode.addEventListener("modified", (n) => {
       this.inedit = true;
     });
+
+    this.fieldNode.addEventListener("cleared", (n) => {
+      this.inedit = false;
+      this.haserror = false;
+    });
+
     this.fieldNode.addEventListener("has-error", (n) => {
       this.haserror = true;
     });
