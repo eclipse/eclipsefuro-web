@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.38.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.10...@furo/navigation@0.38.0) (2020-02-11)
+
+
+### Features
+
+* furo-tree-item clear error and modified state ([0d3cf38](https://github.com/theNorstroem/FuroBaseComponents/commit/0d3cf38))
+
+
+
+
+
 ## [0.37.10](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.37.9...@furo/navigation@0.37.10) (2020-02-10)
 
 **Note:** Version bump only for package @furo/navigation

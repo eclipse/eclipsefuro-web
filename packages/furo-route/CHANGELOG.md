@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.22.0...@furo/route@0.23.0) (2020-02-11)
+
+
+### Features
+
+* furo-app-flow-router open external links in new window ([bec5418](https://github.com/theNorstroem/FuroBaseComponents/commit/bec5418))
+
+
+
+
+
 # [0.22.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.21.4...@furo/route@0.22.0) (2020-02-10)
 
 

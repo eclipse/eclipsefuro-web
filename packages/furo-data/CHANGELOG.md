@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.70.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.0...@furo/data@0.70.1) (2020-02-11)
+
+
+### Bug Fixes
+
+* response-error events must be fired regardless of the content-type. ([994110b](https://github.com/theNorstroem/FuroBaseComponents/commit/994110b))
+
+
+
+
+
 # [0.70.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.68.0...@furo/data@0.70.0) (2020-02-09)
 
 
