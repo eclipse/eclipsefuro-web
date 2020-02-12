@@ -169,14 +169,13 @@ class FuroDataProperty extends FBP(LitElement) {
       let type = propertyField.data["@type"]._value.replace(/.*\//, '');
       let e ;
 
+      // TODO, should check for the better generic solution
       if(type === "furo.Reference"
-        && propertyField.data._meta
-        && propertyField.data._meta.default
-        && propertyField.data._meta.default.link
-        && propertyField.data._meta.default.link.type) {
-        let c = propertyField.data._meta.default.link.type.replace(".","-")+"-reference-search";
+        && propertyField.data
+        && propertyField.data.link
+        && propertyField.data.link.type) {
+        let c = propertyField.data.link.type._value.replace(".","-")+"-reference-search";
         e = document.createElement(c);
-        propertyField.data.link._value = propertyField.data._meta.default.link;
       }
       else {
         e = document.createElement(this.typemap[type]);
