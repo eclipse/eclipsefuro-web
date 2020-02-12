@@ -21,7 +21,7 @@ import './furo-loading-indicator-bar';
  * `--furo-app-bar-top-background-dark` |Dark background color | --primary-dark | #aFAFAF;
  *
  * @customElement
- * @demo demo/index.html
+ * @demo demo-furo-app-bar-top Usage
  */
 export class FuroAppBarTop extends FBP(LitElement) {
 
