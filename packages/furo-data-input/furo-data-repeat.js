@@ -58,6 +58,7 @@ class FuroDataRepeat extends FBP(LitElement) {
        * The component must support ƒ-bind-data
        */
       repeatedComponent: {type: String, attribute: "repeated-component"},
+      identityPath:{type: String, attribute: "identity-path"}
     };
   }
 
@@ -91,7 +92,8 @@ class FuroDataRepeat extends FBP(LitElement) {
     let container = document.createElement("furo-form-layouter");
     let r = document.createElement("flow-repeat");
 
-    r.setAttribute("identity-path", "__index");
+    let identityPath = this.identityPath? this.identityPath : "__index";
+    r.setAttribute("identity-path", identityPath);
     r.setAttribute("ƒ-inject-items", "--repeatsChanged");
 
     let isCondensed = "";
