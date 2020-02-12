@@ -15,4 +15,4 @@ import "./furo-text-input"
 import "./furo-textarea-input"
 import "./furo-time-input"
 import "./furo-file-input"
-
+import "./furo-chip"
