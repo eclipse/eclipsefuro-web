@@ -1,6 +1,6 @@
 {
   "name": "@furo/input",
-  "version": "0.65.1",
+  "version": "0.66.0",
   "description": "Base input components",
   "dependencies": {
     "@furo/fbp": "^4.29.1",

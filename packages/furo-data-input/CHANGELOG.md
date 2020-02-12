@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.68.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.67.1...@furo/data-input@0.68.0) (2020-02-12)
+
+
+### Features
+
+* add identity-path attribute to furo-data-repeat ([1f79ac2](https://github.com/theNorstroem/FuroBaseComponents/commit/1f79ac2))
+* add reference search mapping in furo-data-property ([4cfb00f](https://github.com/theNorstroem/FuroBaseComponents/commit/4cfb00f))
+* modify reference-search mapping ([b54e100](https://github.com/theNorstroem/FuroBaseComponents/commit/b54e100))
+
+
+
+
+
 ## [0.67.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.67.0...@furo/data-input@0.67.1) (2020-02-11)
 
 **Note:** Version bump only for package @furo/data-input
