@@ -113,7 +113,10 @@ class FuroTree extends FBP(LitElement) {
       }
       if (!event.ctrlKey) {
         event.preventDefault();
+        if(!this.searchDisabled){
         this._addSymbolToSearch(key);
+        }
+
       } else {
         switch (key) {
             // expand recursive with ctrl-e
@@ -232,6 +235,8 @@ class FuroTree extends FBP(LitElement) {
       if (node.id._value == nodeID) {
         node.selectItem();
 
+        // update hovered
+        this._hoveredField = this._selectedField || this._hoveredField;
         /**
          * Fire event, when qp is set, because the selectItem will not fire
          */
@@ -384,9 +389,9 @@ class FuroTree extends FBP(LitElement) {
        *
        * Works only with `root-as-header` enabled
        */
-      nobgonhead: {type: Boolean, attribute: "([no-bg-on-header])"},
+      nobgonhead: {type: Boolean, attribute: "no-bg-on-header"},
 
-
+      searchDisabled: {type: Boolean, attribute: "disable-inline-search"},
     };
   }
 
@@ -882,7 +887,10 @@ class FuroTree extends FBP(LitElement) {
 
     // open the root ode
     tree.open._value = true;
-    this._FBPTriggerWire("--treeChanged", this._flatTree);
+
+    this._FBPTriggerWire("--treeChanged", this._flatTree.filter((node)=>{
+      return !node.hidden;
+    }));
   }
 
 

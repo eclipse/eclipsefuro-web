@@ -374,7 +374,8 @@ export class FuroTreeItem extends FBP(LitElement) {
         white-space: nowrap;
         overflow: hidden;
         width: 100%;
-        top: 32px
+        top: 32px;
+        box-sizing: border-box;
       }
 
       :host([isheader]) .label {
