@@ -25,11 +25,8 @@ import {Helper} from "./lib/helper.js";
 class FuroFileInput extends FBP(LitElement) {
 
     /**
-     * @event input
-     * The input event fires when the value of an <input>, <select>, or <textarea> element has been changed.
-     * The input event is fired every time the value of the element changes.
-     *
-     * Comes from underlying component input. **bubbles**
+     * @event input-changed
+     * This event is fired in place of the native input event. The payload detail contains the original target.
      */
 
     /**
@@ -215,7 +212,6 @@ class FuroFileInput extends FBP(LitElement) {
 
             .inputfile + label {
                 display: inline-block;
-                font-family: "Roboto", "Noto", sans-serif;
                 border-radius: 4px;
                 border: 1px solid transparent;
                 width: 100%;
@@ -452,7 +448,7 @@ class FuroFileInput extends FBP(LitElement) {
              ?multiple=${this.multiple} 
              ?capture="${this.capture}"
              id="input" name="input"
-             @-input="--inputInput(*)">
+             @-input=":STOP,^^inputChanged(*.target),--inputInput(*)">
       <label for="input" ƒ-focus="--focus" ?autofocus=${this.autofocus}><span>${this.label} ${this.required ? html`*` : html``}</span></label>
     `;
     }

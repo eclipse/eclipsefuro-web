@@ -1948,6 +1948,48 @@
               "attributeType": "Boolean"
             }
           }
+        },
+        {
+          "name": "preventDefault",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 33,
+              "column": 10
+            },
+            "end": {
+              "line": 33,
+              "column": 71
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
+        },
+        {
+          "name": "stopPropagation",
+          "type": "boolean | null | undefined",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 10
+            },
+            "end": {
+              "line": 34,
+              "column": 73
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "Boolean"
+            }
+          }
         }
       ],
       "methods": [
@@ -2173,11 +2215,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 39,
+              "line": 42,
               "column": 2
             },
             "end": {
-              "line": 59,
+              "line": 68,
               "column": 3
             }
           },
@@ -2378,7 +2420,7 @@
           "column": 0
         },
         "end": {
-          "line": 60,
+          "line": 69,
           "column": 1
         }
       },
@@ -2461,6 +2503,38 @@
             "end": {
               "line": 32,
               "column": 33
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "prevent-default",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 33,
+              "column": 10
+            },
+            "end": {
+              "line": 33,
+              "column": 71
+            }
+          },
+          "metadata": {},
+          "type": "boolean | null | undefined"
+        },
+        {
+          "name": "stop-propagation",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 10
+            },
+            "end": {
+              "line": 34,
+              "column": 73
             }
           },
           "metadata": {},
