@@ -54,6 +54,9 @@ class DemoFuroApexChart extends FBP(LitElement) {
                 <furo-apex-chart flex></furo-apex-chart>
               </furo-horizontal-flex>
             </furo-vertical-scroller>
+            <script >
+              console.log(this)
+            </script>
           </template>
         </furo-demo-snippet>
       </furo-vertical-flex>
