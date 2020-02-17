@@ -864,6 +864,11 @@ class FuroTree extends FBP(LitElement) {
       };
 
       node.addEventListener("recursive-expand-requested", (e) => {
+        // stop exanding after  a depth of 2
+        if(e.detail.depth + 2  <= node.depth){
+          e.stopBroadcast();
+        }
+
         node.open._value = true;
       });
 
