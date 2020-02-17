@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.40.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.39.0...@furo/navigation@0.40.0) (2020-02-17)
+
+
+### Features
+
+* furo-tree do not expand infinitely ([a1c0c46](https://github.com/theNorstroem/FuroBaseComponents/commit/a1c0c46))
+
+
+
+
+
 # [0.39.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.38.1...@furo/navigation@0.39.0) (2020-02-17)
 
 
