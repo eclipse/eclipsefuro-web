@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/util@0.20.0...@furo/util@0.21.0) (2020-02-17)
+
+
+### Features
+
+* meta, option, ctrl and shift options ([f132bf4](https://github.com/theNorstroem/FuroBaseComponents/commit/f132bf4))
+
+
+
+
+
 # [0.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/util@0.19.0...@furo/util@0.20.0) (2020-02-17)
 
 
