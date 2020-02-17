@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.39.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.38.1...@furo/navigation@0.39.0) (2020-02-17)
+
+
+### Features
+
+* performance boost and disableable search ([35c31be](https://github.com/theNorstroem/FuroBaseComponents/commit/35c31be))
+
+
+
+
+
 ## [0.38.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/navigation@0.38.0...@furo/navigation@0.38.1) (2020-02-12)
 
 **Note:** Version bump only for package @furo/navigation

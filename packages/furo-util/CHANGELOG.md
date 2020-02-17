@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/util@0.19.0...@furo/util@0.20.0) (2020-02-17)
+
+
+### Features
+
+* furo-keydown with stopPropagation and preventDefault ([8d33461](https://github.com/theNorstroem/FuroBaseComponents/commit/8d33461))
+
+
+
+
+
 # [0.19.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/util@0.18.5...@furo/util@0.19.0) (2020-02-07)
 
 
