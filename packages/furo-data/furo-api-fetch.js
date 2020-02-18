@@ -422,7 +422,14 @@ class FuroApiFetch extends HTMLElement {
           }
         },
       };
-      let contentType = response.headers.get('content-type');
+      let contentType;
+      if (this.xhrFallback) {
+        contentType = this.lastRequest.headers.get("content-type")
+      } else {
+        // use response headers
+        contentType = response.headers.get('content-type');
+      }
+
       let typeHandler = responseHandler[contentType.split(";")[0].trim()] || responseHandler['default'];
       typeHandler(response);
     }
