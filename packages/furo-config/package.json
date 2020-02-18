@@ -2,9 +2,9 @@
   "name": "@furo/config",
   "description": "Furo config components",
   "main": "furo-catalog.js",
-  "version": "0.17.25",
+  "version": "0.17.26",
   "dependencies": {
-    "@furo/data": "^0.70.2",
+    "@furo/data": "^0.70.3",
     "@furo/fbp": "^4.29.1",
     "@furo/util": "^0.21.0",
     "lit-element": "^2.2.1"

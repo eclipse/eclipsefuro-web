@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.70.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.2...@furo/data@0.70.3) (2020-02-18)
+
+
+### Bug Fixes
+
+* parse based on response header content-type ([b4f3417](https://github.com/theNorstroem/FuroBaseComponents/commit/b4f3417))
+* parse based on response header content-type ([6d000a6](https://github.com/theNorstroem/FuroBaseComponents/commit/6d000a6))
+
+
+
+
+
 ## [0.70.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data@0.70.1...@furo/data@0.70.2) (2020-02-12)
 
 **Note:** Version bump only for package @furo/data
