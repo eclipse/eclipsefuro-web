@@ -17,9 +17,11 @@ class FuroPanelCoordinator extends FBP(LitElement) {
 
   constructor() {
     super();
+    // array of navigation nodes
     this._openPanels = [];
+    // array of panel names
+    this._loadedPanels = [];
     this._furoPage = this.parentNode;
-
   }
 
   /**
@@ -51,7 +53,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
   async showPage(NavigationNode) {
     let panelName = "P" + NavigationNode.id._value;
 
-    if (this._openPanels.indexOf(NavigationNode) === -1) {
+    if (this._loadedPanels.indexOf(panelName) === -1) {
       let panelComponent = panelRegistry.getPanelName(NavigationNode.link.type._value, NavigationNode.panel._value);
       if (panelComponent) {
         //create element and set name,...
@@ -64,6 +66,7 @@ class FuroPanelCoordinator extends FBP(LitElement) {
           panel.removePanel = () => {
             this._removeNodeById(NavigationNode.id._value);
           };
+          this._loadedPanels.push(panelName);
           this._openPanels.push(NavigationNode);
           this._furoPage.appendChild(panel);
 
@@ -123,6 +126,11 @@ class FuroPanelCoordinator extends FBP(LitElement) {
     // remove from flat tree
     this._openPanels = this._openPanels.filter((node, index) => {
       return "P" + node.id._value !== nodeName;
+    });
+
+    // remove from laoded panels array
+    this._loadedPanels = this._loadedPanels.filter(function(value, index, arr){
+      return value !== nodeName;
     });
 
     if (this._openPanels.length > 0) {

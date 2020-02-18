@@ -226,6 +226,7 @@ class FuroDataReferenceSearch extends FBP(LitElement) {
 
     _clear() {
         this._clearNoResultHint();
+        this.field.display_name._value = "";
 
         this.field.reinit();
         this._updateField();
