@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.5](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.4...@furo/route@0.23.5) (2020-02-18)
+
+
+### Bug Fixes
+
+* change the reference of loaded panels from navigation-nodes to panel-names in panel coordinator ([a0c7676](https://github.com/theNorstroem/FuroBaseComponents/commit/a0c7676))
+
+
+
+
+
 ## [0.23.4](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/route@0.23.3...@furo/route@0.23.4) (2020-02-18)
 
 **Note:** Version bump only for package @furo/route

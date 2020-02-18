@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.68.3](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.68.2...@furo/data-input@0.68.3) (2020-02-18)
+
+
+### Bug Fixes
+
+* set display_name to empty by clearing ([8049872](https://github.com/theNorstroem/FuroBaseComponents/commit/8049872))
+
+
+
+
+
 ## [0.68.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/data-input@0.68.1...@furo/data-input@0.68.2) (2020-02-18)
 
 **Note:** Version bump only for package @furo/data-input

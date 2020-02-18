@@ -2,7 +2,7 @@
   "name": "@furo/experiments",
   "description": "Experimental furo components",
   "main": "furo-catalog.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "@furo/fbp": "^4.29.1",
     "apexcharts": "^3.15.6",
