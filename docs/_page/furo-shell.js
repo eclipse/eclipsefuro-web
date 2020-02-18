@@ -8632,7 +8632,210 @@ return html`
              id="input" name="input"
              @-input="--inputInput(*)">
       <label for="input" ƒ-focus="--focus" ?autofocus=${this.autofocus}><span>${this.label} ${this.required?html`*`:html``}</span></label>
-    `}}window.customElements.define("furo-file-input",FuroFileInput);class FuroSnackbarDisplay extends FBP(LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
+    `}}window.customElements.define("furo-file-input",FuroFileInput);class FuroChip extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.selected=input.checked;this.value=input.checked});this.addEventListener("click",e=>{e.stopPropagation();this.toggle()});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
+     * Sets the focus on the chip.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * select the chip
+     */select(){this.selected=!0;this.value=!0}/**
+     * deselect the chip
+     */deselect(){this.selected=!1;this.value=!1}/**
+     * toggle the chip
+     */toggle(){this.shadowRoot.getElementById("input").click()}/**
+     * Sets the value for the chip
+     * The value of chip with true (selected) or false (unselected). Changes will be notified with the `@-value-changed` event
+     * This is different from the native attribute `value` of the input chip
+     * @param {boolean} v
+     */setValue(v){this.selected=!!v;this.value=!!v}set value(v){this._value=!!v;/**
+                        * @event value-changed
+                        * Fired when value has changed from inside the component
+                        * detail payload: {String} the text value
+                        */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.selected){/**
+       * @event selected
+       * Fired when the chip is selected
+       * detail payload: {String} the text value
+       */let customEvent=new Event("selected",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}else{/**
+       * @event unselected
+       * Fired when the chip is unselected
+       * detail payload: {String} the text value
+       */let customEvent=new Event("unselected",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}}get value(){return this._value}static get properties(){return{/**
+       * The value of chip with true (selected) or false (unselected). Changes will be notified with the `@-value-changed` event
+       * This is different from the native attribute `value` of the input chip
+       */value:{type:Boolean},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this chip is selected.
+       */selected:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this is focused.
+       */focused:{type:Boolean,reflect:!0},/**
+       * Text in chip.
+       */text:{type:String},/**
+       * A Boolean attribute which, if present, means the chip is outlined.
+       */outlined:{type:Boolean},/**
+       * the leading icon of the chip.
+       */leadingIcon:{type:String,attribute:"leading-icon"},/**
+       * the trailing icon of the chip.
+       */trailingIcon:{type:String,attribute:"trailing-icon"}}}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent("FuroChoiceChip")||css`
+            /* https://material.io/components/chips/#choice-chips*/
+            
+            :host([hidden]) {
+                display: none;
+            }
+
+            /* The wrapper */
+            :host {
+                width: auto;
+                position: relative;
+                box-sizing: border-box;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                height: 40px;
+                border-radius: 20px;
+                background-color: var(--input-chip-unselected--bg-color, var(--background, #eeeeee));
+                padding: 8px;
+                display: inline-block;
+
+            }
+            /* input chip*/
+            :host input {
+                z-index: -1;
+                position: absolute;
+                height: 0;
+                width: 0;
+            }
+
+            :host([outlined]){
+                background-color: var(--input-chip-outlined-unselected--bg-color, #ffffff);
+                border: solid 1px;
+            }
+
+            /* selected choice chip  */
+            :host([selected]){
+                background-color: var(--input-chip-selected-bg-color, var(--primary, #4caf4f));
+                color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
+            }
+
+            :host([outlined][selected]){
+                background-color: rgba( var(--input-chip-outlined-selected-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-active, 0.10) ) ;
+                color: var(--input-chip-outlined-selected-text-color, var(--primary, #4caf50));
+                border: solid 1px;
+                border-color: var(--input-chip-outlined-selected-border-color, var(--on-background, #000000))
+            }
+            
+            :host([outlined][selected]:hover) {
+                background-color: rgba( var(--input-chip-outlined-selected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
+            }
+            
+            /* outlined selected choice chip when hovering */
+            :host([selected]:hover) {
+                background-color: var(--input-chip-selected-hover-bg-color, var(--primary, #4caf4f));
+            }
+            
+            /* hover */
+            :host(:hover){
+                background-color: rgba( var(--input-chip-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
+            }
+
+            /* unselected chip when pressing */
+            :host:active {
+                background-color: rgba( var(--input-chip-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
+            }
+
+            /* unselected chip when focusing */
+            :host([focused]) {
+                background-color: rgba( var(--input-chip-unselected-focus-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-focus, 0.12) ) ;
+            }
+
+            /* unselected chip when pressing */
+            :host([selected]):active {
+                background-color: rgba( var(--input-chip-selected-active-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-active, 0.10) ) ;
+            }
+
+            /* selected chip when focusing */
+            :host([selected][focused]) {
+                background-color: rgba( var(--input-chip-selected-focus-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-focus, 0.12) ) ;
+            }
+            
+            /* disabled chip selected */
+            :host([selected][disabled]){
+                color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
+                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+
+            /* disabled chip selected */
+            :host([outlined][selected][disabled]){
+                color: var(--input-chip-selected-color, var(--on-primary, #ffffff));
+                background-color: rgba( var(--input-chip-outlined-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+
+
+            :host([disabled]) {
+                cursor: default;
+                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+            /* disabled chip should have no ripple effect */
+            :host([disabled]) furo-ripple{
+               display: none;
+            }
+
+            /* disabled chip should have no hover effect */
+            :host([selected][disabled]:hover){
+                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+            
+            
+            /* disabled chip should have no hover effect */
+            :host([disabled]:hover){
+                background-color: rgba( var(--input-chip-disabled-selected-bg-color-rgb, var(--background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+
+            
+            :host([condensed]) {
+                height: 32px;
+                padding: 4px;
+                border-radius: 16px;
+
+            }
+            furo-ripple{
+                border-radius: 20px;
+            }
+      
+            span {
+                margin: 0 8px;
+                line-height: 24px;
+            }
+      
+            furo-icon {
+                margin-top:  -4px ;
+            }
+      
+            .lead {
+                margin-right: -4px;
+            }
+
+            .trail {
+                margin-left: -4px;
+            }
+        `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return html`
+          ${this.leadingIcon?html` <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon> `:html``}
+          <input id="input" type="checkbox" ?checked=${this.selected}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
+                 ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
+          <span>${this.text}</span>
+          ${this.trailingIcon?html` <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>`:html``}
+          <furo-ripple></furo-ripple>
+        `}}customElements.define("furo-chip",FuroChip);class FuroSnackbarDisplay extends FBP(LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();this._snackbar=this.shadowRoot.getElementById("snackbar");this._FBPAddWireHook("--actionClicked",e=>{if(this.displayObj.snackbar){this.displayObj.snackbar._action()}this._close()});this._FBPAddWireHook("--closeClicked",e=>{if(this.displayObj.snackbar){this.displayObj.snackbar._dismiss()}this._close()});/**
          * listen to keyboard events

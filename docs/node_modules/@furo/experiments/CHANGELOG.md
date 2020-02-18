@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@0.0.33...@furo/experiments@0.1.0) (2020-02-17)
+
+
+### Features
+
+* performance boost and disableable search ([03e9daa](https://github.com/theNorstroem/FuroBaseComponents/commit/03e9daa))
+* performance boost and disableable search ([b26b0c8](https://github.com/theNorstroem/FuroBaseComponents/commit/b26b0c8))
+
+
+
+
+
 ## [0.0.33](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/experiments@0.0.32...@furo/experiments@0.0.33) (2020-02-07)
 
 **Note:** Version bump only for package @furo/experiments

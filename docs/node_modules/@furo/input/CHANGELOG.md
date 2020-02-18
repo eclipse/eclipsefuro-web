@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.66.0](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.65.1...@furo/input@0.66.0) (2020-02-12)
+
+
+### Features
+
+* furo chips ([606dd0b](https://github.com/theNorstroem/FuroBaseComponents/commit/606dd0b))
+* furo chips ([dc7b217](https://github.com/theNorstroem/FuroBaseComponents/commit/dc7b217))
+* furo-chip basis component ([eb4009d](https://github.com/theNorstroem/FuroBaseComponents/commit/eb4009d))
+
+
+
+
+
 ## [0.65.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.65.0...@furo/input@0.65.1) (2020-02-07)
 
 **Note:** Version bump only for package @furo/input
