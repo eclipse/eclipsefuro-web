@@ -688,8 +688,8 @@
       "staticMethods": [],
       "demos": [
         {
-          "url": "demo/index.html",
-          "description": ""
+          "url": "demo-furo-app-bar-top",
+          "description": "Usage"
         }
       ],
       "metadata": {},

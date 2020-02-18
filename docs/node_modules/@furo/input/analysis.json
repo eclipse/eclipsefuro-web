@@ -18345,6 +18345,25 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
+              "line": 402,
+              "column": 4
+            },
+            "end": {
+              "line": 404,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "multiple",
+          "type": "boolean | null | undefined",
+          "description": "Whether to allow multiple values",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
               "line": 406,
               "column": 4
             },
@@ -18358,9 +18377,9 @@
           }
         },
         {
-          "name": "multiple",
-          "type": "boolean | null | undefined",
-          "description": "Whether to allow multiple values",
+          "name": "capture",
+          "type": "string | null | undefined",
+          "description": "What source to use for capturing image or video data\nThe capture attribute value is a string that specifies which camera to use for capture of\nimage or video data, if the accept attribute indicates that the input should be of one of those types.\nA value of user indicates that the user-facing camera and/or microphone should be used. A value of environment\nspecifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,\nthe user agent is free to decide on its own what to do. If the requested facing mode isn't available,\nthe user agent may fall back to its preferred default mode.",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -18377,36 +18396,17 @@
           }
         },
         {
-          "name": "capture",
-          "type": "string | null | undefined",
-          "description": "What source to use for capturing image or video data\nThe capture attribute value is a string that specifies which camera to use for capture of\nimage or video data, if the accept attribute indicates that the input should be of one of those types.\nA value of user indicates that the user-facing camera and/or microphone should be used. A value of environment\nspecifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,\nthe user agent is free to decide on its own what to do. If the requested facing mode isn't available,\nthe user agent may fall back to its preferred default mode.",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 414,
-              "column": 4
-            },
-            "end": {
-              "line": 416,
-              "column": 5
-            }
-          },
-          "metadata": {
-            "polymer": {}
-          }
-        },
-        {
           "name": "required",
           "type": "boolean | null | undefined",
           "description": "The required attribute, the value true means this field must be filled in",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 119,
               "column": 12
             },
             "end": {
-              "line": 124,
+              "line": 121,
               "column": 13
             }
           },
@@ -18423,11 +18423,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 125,
               "column": 12
             },
             "end": {
-              "line": 131,
+              "line": 128,
               "column": 13
             }
           },
@@ -18444,11 +18444,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 135,
+              "line": 132,
               "column": 12
             },
             "end": {
-              "line": 137,
+              "line": 134,
               "column": 13
             }
           },
@@ -18465,11 +18465,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 138,
               "column": 12
             },
             "end": {
-              "line": 143,
+              "line": 140,
               "column": 13
             }
           },
@@ -18486,11 +18486,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 147,
+              "line": 144,
               "column": 12
             },
             "end": {
-              "line": 149,
+              "line": 146,
               "column": 13
             }
           },
@@ -18507,11 +18507,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 154,
+              "line": 151,
               "column": 12
             },
             "end": {
-              "line": 156,
+              "line": 153,
               "column": 13
             }
           },
@@ -18745,11 +18745,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 37,
+              "line": 34,
               "column": 4
             },
             "end": {
-              "line": 83,
+              "line": 80,
               "column": 5
             }
           },
@@ -18941,11 +18941,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 89,
+              "line": 86,
               "column": 4
             },
             "end": {
-              "line": 114,
+              "line": 111,
               "column": 5
             }
           },
@@ -18962,11 +18962,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 421,
+              "line": 417,
               "column": 4
             },
             "end": {
-              "line": 423,
+              "line": 419,
               "column": 5
             }
           },
@@ -18982,11 +18982,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 428,
+              "line": 424,
               "column": 4
             },
             "end": {
-              "line": 430,
+              "line": 426,
               "column": 5
             }
           },
@@ -19002,11 +19002,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 435,
+              "line": 431,
               "column": 4
             },
             "end": {
-              "line": 437,
+              "line": 433,
               "column": 5
             }
           },
@@ -19022,11 +19022,11 @@
           "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 443,
+              "line": 439,
               "column": 4
             },
             "end": {
-              "line": 457,
+              "line": 453,
               "column": 5
             }
           },
@@ -19051,7 +19051,7 @@
           "column": 0
         },
         "end": {
-          "line": 459,
+          "line": 455,
           "column": 1
         }
       },
@@ -19064,11 +19064,11 @@
           "description": "Hint for expected file type in file upload controls\nhttps://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers\ne.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           "sourceRange": {
             "start": {
-              "line": 406,
+              "line": 402,
               "column": 4
             },
             "end": {
-              "line": 408,
+              "line": 404,
               "column": 5
             }
           },
@@ -19080,11 +19080,11 @@
           "description": "Whether to allow multiple values",
           "sourceRange": {
             "start": {
-              "line": 410,
+              "line": 406,
               "column": 4
             },
             "end": {
-              "line": 412,
+              "line": 408,
               "column": 5
             }
           },
@@ -19096,11 +19096,11 @@
           "description": "What source to use for capturing image or video data\nThe capture attribute value is a string that specifies which camera to use for capture of\nimage or video data, if the accept attribute indicates that the input should be of one of those types.\nA value of user indicates that the user-facing camera and/or microphone should be used. A value of environment\nspecifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,\nthe user agent is free to decide on its own what to do. If the requested facing mode isn't available,\nthe user agent may fall back to its preferred default mode.",
           "sourceRange": {
             "start": {
-              "line": 414,
+              "line": 410,
               "column": 4
             },
             "end": {
-              "line": 416,
+              "line": 412,
               "column": 5
             }
           },
@@ -19112,11 +19112,11 @@
           "description": "The required attribute, the value true means this field must be filled in",
           "sourceRange": {
             "start": {
-              "line": 122,
+              "line": 119,
               "column": 12
             },
             "end": {
-              "line": 124,
+              "line": 121,
               "column": 13
             }
           },
@@ -19128,11 +19128,11 @@
           "description": "The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.",
           "sourceRange": {
             "start": {
-              "line": 128,
+              "line": 125,
               "column": 12
             },
             "end": {
-              "line": 131,
+              "line": 128,
               "column": 13
             }
           },
@@ -19144,11 +19144,11 @@
           "description": "Set this attribute to autofocus the input field.",
           "sourceRange": {
             "start": {
-              "line": 135,
+              "line": 132,
               "column": 12
             },
             "end": {
-              "line": 137,
+              "line": 134,
               "column": 13
             }
           },
@@ -19160,11 +19160,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 141,
+              "line": 138,
               "column": 12
             },
             "end": {
-              "line": 143,
+              "line": 140,
               "column": 13
             }
           },
@@ -19176,11 +19176,11 @@
           "description": "A Boolean attribute which, if present, means this field cannot be edited by the user.",
           "sourceRange": {
             "start": {
-              "line": 147,
+              "line": 144,
               "column": 12
             },
             "end": {
-              "line": 149,
+              "line": 146,
               "column": 13
             }
           },
@@ -19192,11 +19192,11 @@
           "description": "A FileList listing the chosen files\nreadonly",
           "sourceRange": {
             "start": {
-              "line": 154,
+              "line": 151,
               "column": 12
             },
             "end": {
-              "line": 156,
+              "line": 153,
               "column": 13
             }
           },
@@ -19213,8 +19213,8 @@
         },
         {
           "type": "CustomEvent",
-          "name": "input",
-          "description": "input\nThe input event fires when the value of an <input>, <select>, or <textarea> element has been changed.\nThe input event is fired every time the value of the element changes.\n\nComes from underlying component input. **bubbles**",
+          "name": "input-changed",
+          "description": "input-changed\nThis event is fired in place of the native input event. The payload detail contains the original target.",
           "metadata": {}
         },
         {

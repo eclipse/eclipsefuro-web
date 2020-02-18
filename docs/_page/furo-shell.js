@@ -8336,11 +8336,8 @@ return html`
       <div class="errortext">${this.errortext}</div>
  
     `}}window.customElements.define("furo-time-input",FuroTimeInput);class FuroFileInput extends FBP(LitElement){/**
-   * @event input
-   * The input event fires when the value of an <input>, <select>, or <textarea> element has been changed.
-   * The input event is fired every time the value of the element changes.
-   *
-   * Comes from underlying component input. **bubbles**
+   * @event input-changed
+   * This event is fired in place of the native input event. The payload detail contains the original target.
    */ /**
        * flow is ready lifecycle method
        */_FBPReady(){super._FBPReady();// this._FBPTraceWires();
@@ -8426,7 +8423,6 @@ return Theme.getThemeForComponent("FuroFileInput")||css`
 
             .inputfile + label {
                 display: inline-block;
-                font-family: "Roboto", "Noto", sans-serif;
                 border-radius: 4px;
                 border: 1px solid transparent;
                 width: 100%;
@@ -8630,7 +8626,7 @@ return html`
              ?multiple=${this.multiple} 
              ?capture="${this.capture}"
              id="input" name="input"
-             @-input="--inputInput(*)">
+             @-input=":STOP,^^inputChanged(*.target),--inputInput(*)">
       <label for="input" ƒ-focus="--focus" ?autofocus=${this.autofocus}><span>${this.label} ${this.required?html`*`:html``}</span></label>
     `}}window.customElements.define("furo-file-input",FuroFileInput);class FuroChip extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.selected=input.checked;this.value=input.checked});this.addEventListener("click",e=>{e.stopPropagation();this.toggle()});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
      * Sets the focus on the chip.
