@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "`furo-api-fetch`\n\nfuro-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest\n\n```html\n<furo-api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></furo-api-fetch>\n```",
+      "description": "`furo-api-fetch`\n\nfuro-api-fetch can be used for network requests via FETCH API\n\n```html\n<furo-api-fetch ƒ-invoke-request=\"\" ƒ-abort-request=\"\"></furo-api-fetch>\n```",
       "summary": "",
       "path": "packages/furo-data/furo-api-fetch.js",
       "properties": [
@@ -14,11 +14,11 @@
           "sourceRange": {
             "start": {
               "line": 69,
-              "column": 4
+              "column": 8
             },
             "end": {
               "line": 69,
-              "column": 20
+              "column": 24
             }
           },
           "metadata": {
@@ -27,28 +27,6 @@
             }
           },
           "defaultValue": "{}"
-        },
-        {
-          "name": "xhrFallback",
-          "type": "boolean",
-          "description": "True if fetch API is not available",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 79,
-              "column": 4
-            },
-            "end": {
-              "line": 79,
-              "column": 20
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "readOnly": false
-            }
-          },
-          "defaultValue": "!window.hasOwnProperty('fetch')"
         }
       ],
       "methods": [
@@ -58,12 +36,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
-              "column": 2
+              "line": 82,
+              "column": 4
             },
             "end": {
-              "line": 94,
-              "column": 3
+              "line": 89,
+              "column": 5
             }
           },
           "metadata": {},
@@ -84,12 +62,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
-              "column": 2
+              "line": 97,
+              "column": 4
             },
             "end": {
-              "line": 105,
-              "column": 3
+              "line": 100,
+              "column": 5
             }
           },
           "metadata": {},
@@ -110,12 +88,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 115,
-              "column": 2
+              "line": 110,
+              "column": 4
             },
             "end": {
-              "line": 164,
-              "column": 3
+              "line": 145,
+              "column": 5
             }
           },
           "metadata": {},
@@ -129,38 +107,17 @@
           }
         },
         {
-          "name": "_invokeXHR",
-          "description": "Requests are made via fallback XMLHttpRequest",
-          "privacy": "private",
-          "sourceRange": {
-            "start": {
-              "line": 171,
-              "column": 2
-            },
-            "end": {
-              "line": 236,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "request"
-            }
-          ]
-        },
-        {
           "name": "_reworkRequest",
           "description": "Errorhandling according to Google rest-api-v3 Status Codes\n(https://developers.google.com/maps-booking/reference/rest-api-v3/status_codes)\n\nDispatches event `response-error` and a specific error event with status code",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 255,
-              "column": 2
+              "line": 164,
+              "column": 4
             },
             "end": {
-              "line": 315,
-              "column": 3
+              "line": 225,
+              "column": 5
             }
           },
           "metadata": {},
@@ -179,12 +136,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 324,
-              "column": 2
+              "line": 234,
+              "column": 4
             },
             "end": {
-              "line": 435,
-              "column": 3
+              "line": 300,
+              "column": 5
             }
           },
           "metadata": {},
@@ -192,10 +149,7 @@
             {
               "name": "response"
             }
-          ],
-          "return": {
-            "type": "void"
-          }
+          ]
         }
       ],
       "staticMethods": [],
@@ -212,7 +166,7 @@
           "column": 0
         },
         "end": {
-          "line": 437,
+          "line": 302,
           "column": 1
         }
       },

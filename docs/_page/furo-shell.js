@@ -8335,300 +8335,7 @@ return html`
       <div class="hint">${this.hint}</div>
       <div class="errortext">${this.errortext}</div>
  
-    `}}window.customElements.define("furo-time-input",FuroTimeInput);class FuroFileInput extends FBP(LitElement){/**
-   * @event input-changed
-   * This event is fired in place of the native input event. The payload detail contains the original target.
-   */ /**
-       * flow is ready lifecycle method
-       */_FBPReady(){super._FBPReady();// this._FBPTraceWires();
-this._FBPAddWireHook("--inputInput",e=>{/**
-       * get local files and encode to Base64
-       */const promises=[],FILES=e.target.files;this.files=FILES;/**
-                           * @event files-selected
-                           * This event is representative for the attribute files on the native element input type=file
-                           * Fired when value has changed from inside the component
-                           * detail payload: {Array} A FileList listing the chosen files
-                           */const customEvent=new Event("files-selected",{composed:!0,bubbles:!0});customEvent.detail=FILES;this.dispatchEvent(customEvent);/**
-                                        * File encoding for the convenience event `value-changed
-                                        */for(let i=0;i<FILES.length;i++){promises.push(this._fetchLocalFile(FILES[i]))}/**
-         * All files are encoded
-         */Promise.all(promises).then(values=>{/**
-         * @event value-changed
-         * Fired when value has changed from inside the component
-         * detail payload: {Array} all selected files base64 encoded
-         */const customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=values;this.dispatchEvent(customEvent)})})}/**
-     * Fetch local file
-     * @private
-     */_fetchLocalFile(file){return new Promise((resolve,reject)=>{// Create a new FileReader instance
-const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.result)});reader.addEventListener("progress",e=>{if(e.lengthComputable){/**
-           * @event progress
-           * is triggered while reading a Blob content.
-           * detail payload: {Array} all selected files base64 encoded
-           */const customEvent=new Event("progress",{composed:!0,bubbles:!0});customEvent.detail=e;this.dispatchEvent(customEvent);// e.g. progress percentage: Math.round((e.loaded / e.total) * 100);
-}});reader.readAsDataURL(file)})}static get properties(){return{/**
-       * The required attribute, the value true means this field must be filled in
-       *
-       */required:{type:Boolean},/**
-       * The label attribute is a string that provides a brief hint to the user as to what kind of information is expected in the field. It should be a word or short phrase that demonstrates the expected type of data, rather than an explanatory message. The text must not include carriage returns or line feeds.
-       */label:{type:String,attribute:!0},/**
-       * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},/**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */disabled:{type:Boolean,reflect:!0},/**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */readonly:{type:Boolean,reflect:!0},/**
-       * A FileList listing the chosen files
-       * readonly
-       */files:{type:Array},/**
-       * Hint for expected file type in file upload controls
-       * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers
-       * e.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
-       */accept:{type:String,attribute:!0},/**
-       * Whether to allow multiple values
-       */multiple:{type:Boolean,attribute:!0,reflect:!0},/**
-       * What source to use for capturing image or video data
-       * The capture attribute value is a string that specifies which camera to use for capture of
-       * image or video data, if the accept attribute indicates that the input should be of one of those types.
-       * A value of user indicates that the user-facing camera and/or microphone should be used. A value of environment
-       * specifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,
-       * the user agent is free to decide on its own what to do. If the requested facing mode isn't available,
-       * the user agent may fall back to its preferred default mode.
-       */capture:{type:String,attribute:!0,reflect:!0}}}static get styles(){// language=CSS
-return Theme.getThemeForComponent("FuroFileInput")||css`
-            :host {
-                display: inline-block;
-                position: relative;
-                font-size: 16px;
-                box-sizing: border-box;
-                min-width: 64px;
-                white-space: nowrap;
-            }
-
-            :host([hidden]) {
-                display: none;
-            }
-
-            * {
-                transition: all 100ms ease-in;
-            }
-
-            .inputfile {
-                width: 0.1px;
-                height: 0.1px;
-                opacity: 0;
-                overflow: hidden;
-                position: absolute;
-                z-index: -1;
-            }
-
-            .inputfile + label {
-                display: inline-block;
-                border-radius: 4px;
-                border: 1px solid transparent;
-                width: 100%;
-                cursor: pointer;
-                color: var(--on-surface);
-                padding: 0 var(--furo-button-padding, var(--spacing-s, 16px));;
-                text-transform: uppercase;
-                font-size: 14px;
-                font-weight: 500;
-                outline: none;
-                line-height: 34px;
-                background-color: transparent;
-                box-sizing: border-box;
-            }
-
-            :host([unelevated]) .inputfile + label {
-                background-color: var(--surface, #f7f7f7);
-                color: var(--on-surface, #333333);
-            }
-
-            label:hover {
-                background-color: rgba(0, 0, 0, var(--state-hover));
-            }
-
-            label:focus {
-                background-color: rgba(0, 0, 0, var(--state-focus));
-            }
-
-            :host([primary]) .inputfile + label {
-                color: var(--primary);
-            }
-
-            :host([primary]) label:focus {
-                background-color: rgba(var(--primary-rgb), var(--state-focus));
-            }
-
-            :host([primary]) .inputfile + label:hover {
-                background-color: rgba(var(--primary-rgb), var(--state-hover));
-            }
-
-            :host([secondary]) .inputfile + label {
-                color: var(--secondary);
-            }
-
-            :host([secondary]) label:focus {
-                background-color: rgba(0, 0, 0, var(--state-focus));
-            }
-
-            :host([secondary]) .inputfile + label:hover {
-                background-color: rgba(var(--secondary-rgb), var(--state-hover));
-            }
-
-            :host([accent]) .inputfile + label {
-                color: var(--accent);
-            }
-
-            :host([accent]) label:focus {
-                background-color: rgba(var(--accent-rgb), var(--state-focus));
-            }
-
-            :host([accent]) .inputfile + label:hover {
-                background-color: rgba(var(--accent-rgb), var(--state-hover));
-            }
-
-            :host([outline]) .inputfile + label {
-                background-color: transparent;
-                color: var(--on-surface);
-                border: 1px solid var(--on-surface);
-            }
-
-            :host([outline]) .inputfile + label:hover {
-                background-color: rgba(0, 0, 0, var(--state-hover));
-                color: var(--on-surface);
-                border: 1px solid var(--on-surface);
-            }
-
-            :host([outline]) .inputfile + label:focus {
-                background-color: rgba(0, 0, 0, var(--state-focus));
-                color: var(--on-surface);
-                border: 1px solid var(--on-surface);
-            }
-
-            :host([outline][primary]) .inputfile + label {
-                background-color: transparent;
-                color: var(--primary);
-                border: 1px solid var(--primary);
-            }
-
-            :host([outline][primary]) .inputfile + label:hover {
-                background-color: rgba(var(--primary-rgb), var(--state-hover));
-                color: var(--primary);
-                border: 1px solid var(--primary);
-            }
-
-            :host([outline][primary]) .inputfile + label:focus {
-                background-color: rgba(var(--primary-rgb), var(--state-focus));
-                color: var(--primary);
-                border: 1px solid var(--primary);
-            }
-
-            :host([outline][secondary]) .inputfile + label {
-                background-color: transparent;
-                color: var(--secondary);
-                border: 1px solid var(--secondary);
-            }
-
-            :host([outline][secondary]) .inputfile + label:hover {
-                background-color: rgba(var(--secondary-rgb), var(--state-hover));
-                color: var(--secondary);
-                border: 1px solid var(--secondary);
-            }
-
-            :host([outline][secondary]) .inputfile + label:focus {
-                background-color: rgba(var(--secondary-rgb), var(--state-focus));
-                color: var(--secondary);
-                border: 1px solid var(--secondary);
-            }
-
-            :host([outline][accent]) .inputfile + label {
-                background-color: transparent;
-                color: var(--accent);
-                border: 1px solid var(--accent);
-            }
-
-            :host([outline][accent]) .inputfile + label:hover {
-                background-color: rgba(var(--accent-rgb), var(--state-hover));
-                color: var(--accent);
-                border: 1px solid var(--accent);
-            }
-
-            :host([outline][accent]) .inputfile + label:focus {
-                background-color: rgba(var(--accent-rgb), var(--state-focus));
-                color: var(--accent);
-                border: 1px solid var(--accent);
-            }
-
-            :host([raised][primary]) .inputfile + label, :host([unelevated][primary]) .inputfile + label {
-                background-color: var(--primary);
-                color: var(--on-primary);
-            }
-
-            :host([raised][primary]) .inputfile + label:hover, :host([unelevated][primary]) .inputfile + label:hover {
-                background-color: var(--primary-dark);
-                color: var(--on-primary);
-            }
-
-            :host([raised][secondary]) .inputfile + label, :host([unelevated][secondary]) .inputfile + label {
-                background-color: var(--secondary);
-                color: var(--on-secondary);
-            }
-
-            :host([raised][secondary]) .inputfile + label:hover, :host([unelevated][secondary]) .inputfile + label:hover {
-                background-color: var(--secondary-dark);
-                color: var(--on-secondary);
-            }
-
-            :host([raised][accent]) .inputfile + label, :host([unelevated][accent]) .inputfile + label {
-                background-color: var(--accent);
-                color: var(--on-accent);
-            }
-
-            :host([raised][accent]) .inputfile + label:hover, :host([unelevated][accent]) .inputfile + label:hover {
-                background-color: var(--accent-dark);
-                color: var(--on-accent);
-            }
-
-            :host([disabled]) .inputfile + label, :host([disabled]) .inputfile + label:hover {
-                color: var(--disabled, #eeeeee);
-                cursor: not-allowed;
-            }
-
-            :host([raised][disabled]) .inputfile + label, :host([raised][disabled]) .inputfile + label:hover, :host([unelevated][disabled]) .inputfile + label, :host([unelevated][disabled]) .inputfile + label:hover {
-                background-color: var(--disabled, #eeeeee);
-                color: var(--on-disabled, #333333);
-                border-color: var(--disabled, #eeeeee);
-                cursor: not-allowed;
-            }
-
-
-        `}/**
-     * Updater for the accept attr, the prop alone with accept="${this.accept}" wont work,
-     * becaue it set "undefined" (as a Sting!)
-     *
-     * @param value
-     */set accept(value){Helper.UpdateInputAttribute(this,"accept",value)}set multiple(value){Helper.UpdateInputAttribute(this,"multiple",value)}set capture(value){Helper.UpdateInputAttribute(this,"capture",value)}/**
-     * Sets the focus on the field.
-     */focus(){this._FBPTriggerWire("--focus")}/**
-     * Sets the field to readonly
-     */disable(){this.disabled=!0}/**
-     * Makes the field writable.
-     */enable(){this.disabled=!1}/**
-     * @private
-     * @returns {TemplateResult|TemplateResult}
-     */render(){// language=HTML
-return html`
-      <input type="file" class="inputfile"
-             ?readonly=${this.readonly} 
-             ?disabled=${this.disabled} 
-             ?required=${this.required} 
-             ?accept=${this.accept}
-             ?multiple=${this.multiple} 
-             ?capture="${this.capture}"
-             id="input" name="input"
-             @-input=":STOP,^^inputChanged(*.target),--inputInput(*)">
-      <label for="input" ƒ-focus="--focus" ?autofocus=${this.autofocus}><span>${this.label} ${this.required?html`*`:html``}</span></label>
-    `}}window.customElements.define("furo-file-input",FuroFileInput);class FuroChip extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.selected=input.checked;this.value=input.checked});this.addEventListener("click",e=>{e.stopPropagation();this.toggle()});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
+    `}}window.customElements.define("furo-time-input",FuroTimeInput);class FuroChip extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.selected=input.checked;this.value=input.checked});this.addEventListener("click",e=>{e.stopPropagation();this.toggle()});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
      * Sets the focus on the chip.
      */focus(){this._FBPTriggerWire("--focus")}/**
      * select the chip
@@ -8831,7 +8538,271 @@ return Theme.getThemeForComponent("FuroChoiceChip")||css`
           <span>${this.text}</span>
           ${this.trailingIcon?html` <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>`:html``}
           <furo-ripple></furo-ripple>
-        `}}customElements.define("furo-chip",FuroChip);class FuroSnackbarDisplay extends FBP(LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
+        `}}customElements.define("furo-chip",FuroChip);class FuroInputChip extends FBP(LitElement){constructor(){super()}_FBPReady(){super._FBPReady();this._FBPAddWireHook("--inputInput",e=>{let input=e.composedPath()[0];this.checked=input.checked;this.value=input.checked});this._FBPAddWireHook("--focusReceived",e=>{this.focused=!0});this._FBPAddWireHook("--focusOutReceived",e=>{this.focused=!1})}/**
+     * Sets the focus on the checkbox.
+     */focus(){this._FBPTriggerWire("--focus")}/**
+     * check the checkbox
+     */check(){this.checked=!0;this.value=!0}/**
+     * uncheck the checkbox
+     */uncheck(){this.checked=!1;this.value=!1}/**
+     * toggle the checkbox
+     */toggle(){this.shadowRoot.getElementById("input").click()}/**
+     * Sets the value for the checkbox
+     * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+     * This is different from the native attribute `value` of the input checkbox
+     * @param {boolean} v
+     */setValue(v){this.checked=!!v;this.value=!!v}set value(v){this._value=!!v;/**
+                        * @event value-changed
+                        * Fired when value has changed from inside the component
+                        * detail payload: {String} the text value
+                        */let customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent);if(this.checked){/**
+       * @event checked
+       * Fired when the checkbox is checked
+       * detail payload: {String} the text value
+       */let customEvent=new Event("checked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}else{/**
+       * @event unchecked
+       * Fired when the checkbox is unchecked
+       * detail payload: {String} the text value
+       */let customEvent=new Event("unchecked",{composed:!0,bubbles:!0});customEvent.detail=this.value;this.dispatchEvent(customEvent)}}get value(){return this._value}static get properties(){return{/**
+       * The value of checkbox with true (checked) or false (unchecked). Changes will be notified with the `@-value-changed` event
+       * This is different from the native attribute `value` of the input checkbox
+       */value:{type:Boolean},/**
+       * Set this attribute to autofocus the input field.
+       */autofocus:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this field cannot be edited by the user.
+       */disabled:{type:Boolean},/**
+       * A Boolean attribute which, if present, means this checkbox is checked.
+       */checked:{type:Boolean,reflect:!0},/**
+       * A Boolean attribute which, if present, means this is focused.
+       */focused:{type:Boolean},leadingIcon:{type:String,attribute:"leading-icon"},trailingIcon:{type:String,attribute:"trailing-icon"},text:{type:String}}}/**
+     *
+     * @private
+     * @return {CSSResult}
+     */static get styles(){// language=CSS
+return Theme.getThemeForComponent("FuroInputChip")||css`
+            /* https://material.io/design/components/text-fields.html#theming */
+            :host {
+                display: inline-block;
+                position: relative;
+                box-sizing: border-box;
+                display: flex;
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+            /* The wrapper */
+            .wrapper {
+                display: block;
+                position: relative;
+                cursor: pointer;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                height: 40px;
+                border-radius: 20px;
+                box-sizing: border-box;
+                display: flex;
+                background-color: var(--input-checkbox-unselected-bg-color, var(--background, #eeeeee));
+                padding: 8px;
+
+            }
+
+            input[type="checkbox" i] {
+                margin: 0;
+            }
+
+            /* input checkbox*/
+            .wrapper input {
+                display: none;
+            }
+
+            .chip-background {
+                position: absolute;
+                top: 11px;
+                left: 11px;
+                height: 18px;
+                width: 18px;
+                background-color: var(--input-checkbox-unselected-bg-color, var(--background, #eeeeee));
+                border: solid 2px;
+                border-color: var(--input-checkbox-unselected-border-color, var(--on-background, #212121));
+                box-sizing: border-box;
+                display: flex;
+            }
+            
+            .wrapper:hover input ~ .chip-background {
+                background-color: rgba( var(--input-checkbox-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
+            }
+
+            /* unselected checkbox when pressing */
+            .wrapper:active {
+                background-color: rgba( var(--input-checkbox-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
+
+            }
+            
+            .wrapper:active input ~ .chip-background {
+                background-color: rgba( var(--input-checkbox-unselected-active-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-active, 0.10) ) ;
+            }
+
+            /* unselected checkbox when focusing */
+            .wrapper[focused] {
+                background-color: rgba( var(--input-checkbox-unselected-focus-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-focus, 0.12) ) ;
+
+            }
+
+            /* unselected checkbox when hovering */
+            .wrapper:hover {
+                background-color: rgba( var(--input-checkbox-unselected-hover-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-hover, 0.04) ) ;
+            }
+
+
+            /* selected checkbox  */
+            .wrapper[checked]{
+                background-color: var(--input-checkbox-selected-bg-color, var(--primary, #6200FD));
+            }
+            
+            /* selected checkbox when pressing */
+            .wrapper[checked]:active {
+                background-color: rgba( var(--input-checkbox-selected-active-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-active, 0.10) ) ;
+            }
+
+            /* selected checkbox when focusing */
+            .wrapper[checked][focused] {
+                background-color: rgba( var(--input-checkbox-selected-focus-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-focus, 0.12) ) ;
+            }
+
+            .wrapper[checked][focused] input ~ .chip-background {
+            }
+            /* selected checkbox when hovering */
+            .wrapper[checked]:hover {
+                background-color: rgba( var(--input-checkbox-selected-hover-bg-color-rgb, var(--primary-rgb, 76, 175, 80)), var(--state-hover, 0.04) ) ;
+            }
+
+            
+            /* disabled checkbox selected */
+            .wrapper[checked][disabled] input:disabled:checked ~ .chip-background {
+
+                background-color: rgba( var(--input-checkbox-disabled-selected-bg-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+                border-color: rgba( var(--input-checkbox-disabled-selected-border-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+
+            }
+
+            /* disabled checkbox unselected */
+            .wrapper input:disabled ~ .chip-background {
+                background-color: rgba( var(--input-checkbox-disabled-unselected-bg-color-rgb, var(--background-rgb, 238, 238, 238)), var(--state-disabled, 0.38) ) ;
+                border-color: rgba( var(--input-checkbox-disabled-unselected-border-color-rgb, var(--on-background-rgb, 33, 33, 33)), var(--state-disabled, 0.38) ) ;
+            }
+
+            .chip-background:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+
+            input:disabled {
+                cursor: default;
+            }
+
+            /* disabled checkbox when hovering */
+            .wrapper[disabled]:hover {
+                background: transparent;
+            }
+
+            :host([condensed]) .wrapper , :host([condensed]) .wrapper  input{
+                height: 32px;
+                padding: 4px;
+                border-radius: 16px;
+
+            } 
+            
+            furo-ripple{
+                border-radius: 50%;
+            }
+      
+            span {
+                margin: 0 5px;
+            }
+        `}/**
+     * @private
+     * @returns {TemplateResult}
+     */render(){return html`
+          <div id="wrapper" class="wrapper" ?focused=${this.focused} ?checked=${this.checked} ?disabled=${this.disabled}>
+          
+              <furo-icon class="lead" icon="${this.leadingIcon}"></furo-icon>    
+
+              <input id="input" type="checkbox" ?checked=${this.checked}  ?autofocus=${this.autofocus} ?disabled=${this.disabled} 
+                     ƒ-focus="--focus" @-input="--inputInput(*)" @-focusout="--focusOutReceived" @-focus="--focusReceived" @-blur="-^blur"  >
+              <span>${this.text}</span>
+              <furo-icon class="trail" icon="${this.trailingIcon}"></furo-icon>
+
+              <furo-ripple></furo-ripple>
+          </div>
+        `}}customElements.define("furo-input-chip",FuroInputChip);class FuroFileDialog extends FBP(LitElement){constructor(){super();this.multiple=!1;this.capture=""}/**
+     * flow is ready lifecycle method
+     */_FBPReady(){super._FBPReady();// this._FBPTraceWires();
+}static get properties(){return{/**
+       * A FileList listing the chosen files
+       * readonly
+       */files:{type:Array},/**
+       * Hint for expected file type in file upload controls
+       * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers
+       * e.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
+       */accept:{type:String,attribute:!0},/**
+       * Whether to allow multiple values
+       */multiple:{type:Boolean,attribute:!0,reflect:!0},/**
+       * What source to use for capturing image or video data
+       * The capture attribute value is a string that specifies which camera to use for capture of
+       * image or video data, if the accept attribute indicates that the input should be of one of those types.
+       * A value of user indicates that the user-facing camera and/or microphone should be used. A value of environment
+       * specifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,
+       * the user agent is free to decide on its own what to do. If the requested facing mode isn't available,
+       * the user agent may fall back to its preferred default mode.
+       */capture:{type:String,attribute:!0,reflect:!0}}}static get styles(){// language=CSS
+return css`
+            :host {
+                display: block;
+                
+            }
+
+            :host([hidden]) {
+                display: none;
+            }
+
+            .inputfile {
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
+            }
+
+            label{
+                display: none;
+            }
+        `}/**
+     * Updater for the accept attr, the prop alone with accept="${this.accept}" wont work,
+     * becaue it set "undefined" (as a Sting!)
+     *
+     * @param value
+     */set accept(value){Helper.UpdateInputAttribute(this,"accept",value)}set multiple(value){Helper.UpdateInputAttribute(this,"multiple",value)}set capture(value){Helper.UpdateInputAttribute(this,"capture",value)}/**
+     * Opens the file dialog
+     */open(){this._FBPTriggerWire("--open",null)}/**
+     * @private
+     * @returns {TemplateResult|TemplateResult}
+     */render(){// language=HTML
+return html`
+      <input type="file" class="inputfile"
+             ?accept=${this.accept}
+             ?multiple=${this.multiple} 
+             ?capture="${this.capture}"
+             id="input" name="input"
+             @-change="^^input-changed(*.target)">
+             
+      <label for="input" ƒ-click="--open"></label>
+    `}}window.customElements.define("furo-file-dialog",FuroFileDialog);class FuroSnackbarDisplay extends FBP(LitElement){constructor(){super();this._stack=[];this.displayObj={labelText:"",actonButtonText:"",snackbar:{}}}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();this._snackbar=this.shadowRoot.getElementById("snackbar");this._FBPAddWireHook("--actionClicked",e=>{if(this.displayObj.snackbar){this.displayObj.snackbar._action()}this._close()});this._FBPAddWireHook("--closeClicked",e=>{if(this.displayObj.snackbar){this.displayObj.snackbar._dismiss()}this._close()});/**
          * listen to keyboard events

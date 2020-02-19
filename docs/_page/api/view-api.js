@@ -2113,7 +2113,7 @@ return _furoShell.html`
 
         </template>
       </furo-demo-snippet>
-    `}}window.customElements.define("demo-furo-radio-button",DemoFuroRadioButton);class DemoFuroFileInput extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+    `}}window.customElements.define("demo-furo-radio-button",DemoFuroRadioButton);class DemoFuroFileDialog extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -2142,47 +2142,30 @@ return _furoShell.html`
                     <furo-vertical-scroller>
                     <div style="display: grid; padding: var(--spacing); background-color: var(--surface-dark); grid-row-gap: var(--spacing); grid-column-gap: var(--spacing); grid-template-columns: repeat(3, 1fr);">
                         <furo-card header-text="Choose your media">
-                            <img slot="media" ƒ-.src="--selected">
+                           
                             <li>Accept: .jpg</li>
                             <li>Multiple: false</li>
                             <li>Required: false</li>
-                            <furo-file-input slot="action" label="Upload image" outline primary accept=".jpg"
-                                             @-value-changed="--selected"></furo-file-input>
+                            <div ƒ-.inner-text="--selected(*.detail.files.0.name)"></div>
+                            <furo-button slot="action" label="Upload image" outline primary @-click="--openDlg"></furo-button>
+                            <furo-file-dialog accept=".jpg" ƒ-open="--openDlg" @-input-changed="--selected(*)"></furo-file-dialog>
+
+                        </furo-card>
+                        <furo-card header-text="Choose your file">
+                            <li>Accept: .md</li>
+                            <li>Multiple: false</li>
+                            <li>Required: false</li>
+                            <li>Disabled</li>
+                            <furo-button slot="action" label="Upload image" outline primary disabled @-click="--openDlg2"></furo-button>
+                            <furo-file-dialog accept=".md" ƒ-open="--openDlg2"></furo-file-dialog>
 
                         </furo-card>
 
-                        <furo-card header-text="Look at the result"
-                                   secondary-text="furo-file-input attribute accept is set to '.md'">
-                            <div @-click="--btnFocusClicked">&dbkarow; Focus file input</div>
-                            <p style="width: 300px; height:250px; overflow: hidden; word-break: break-all;"
-                               ƒ-.inner-text="--selectedFile"></p>
-                            
-                            <furo-file-input slot="action" label="Upload markdown" accept=".md"
-                                             @-value-changed="--selectedFile" ƒ-focus="--btnFocusClicked"></furo-file-input>
-
-                        </furo-card>
-
-                        <furo-card header-text="Look at the result"
-                                   secondary-text="furo-file-input attribute accept is set to '.pdf'">
-                            <object style="width: 300px; height:250px; overflow: hidden; word-break: break-all;"
-                               ƒ-.data="--selectedPdf"></object>
-                            <furo-file-input slot="action" label="Upload PDF" unelevated accent accept=".pdf"
-                                             @-value-changed="--selectedPdf"></furo-file-input>
-
-                        </furo-card>
-                        <furo-card header-text="Disabled upload"
-                                   secondary-text="furo-file-input attribute accept is set to '.pdf'">
-                            <p style="width: 300px; height:250px; overflow: hidden; word-break: break-all;"
-                               ƒ-.inner-text="--selectedPdf"></p>
-                            <furo-file-input slot="action" label="Upload forbidden" unelevated accent disabled accept=".pdf"
-                                             @-value-changed="--selectedPdf"></furo-file-input>
-
-                        </furo-card>
                     </div>
                     </furo-vertical-scroller>
                 </template>
             </furo-demo-snippet>
-        `}}window.customElements.define("demo-furo-file-input",DemoFuroFileInput);class DemoFuroSignPad extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+        `}}window.customElements.define("demo-furo-file-dialog",DemoFuroFileDialog);class DemoFuroSignPad extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
    * @return {CSSResult}
@@ -2290,7 +2273,7 @@ return _furoShell.html`
     `}}window.customElements.define("demo-furo-chip",DemoFuroChip);/**
                                                                * `furo-api-fetch`
                                                                *
-                                                               * furo-api-fetch can be used for network requests via FETCH API with implemented fallback to XMLHttpRequest
+                                                               * furo-api-fetch can be used for network requests via FETCH API
                                                                *
                                                                * ```html
                                                                * <furo-api-fetch ƒ-invoke-request="" ƒ-abort-request=""></furo-api-fetch>
@@ -2341,10 +2324,7 @@ return _furoShell.html`
               */this.lastRequest={};/**
                             * True while request is in flight.
                             * @type boolean
-                            */this.isLoading=!1;/**
-                             * True if fetch API is not available
-                             * @type {boolean}
-                             */this.xhrFallback=!window.hasOwnProperty("fetch")}/**
+                            */this.isLoading=!1}/**
      * Sends a HTTP request to the server
      * @param {Request} request (The Request interface of the Fetch API represents a resource request.) https://developer.mozilla.org/en-US/docs/Web/API/Request
      * @public
@@ -2364,22 +2344,9 @@ return _furoShell.html`
      * dispatches fatal-error
      * @param detail
      */let fatal=detail=>{this.dispatchEvent(new CustomEvent("fatal-error",{detail:detail,bubbles:!0,composed:!0}))};/**
-        * Fallback, if Fetch API ist not available
-        */if(this.xhrFallback){this._invokeXHR(request).then(response=>{this._reworkRequest(response)},function(error){fatal(error)})}else{/**
-       * Default API fetch
-       * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-       */this.isLoading=!0;this.dispatchEvent(new CustomEvent("request-started",{detail:request,bubbles:!0,composed:!0}));fetch(request).then(response=>{this._reworkRequest(response)}).catch(err=>{if("AbortError"===err.name){this.dispatchEvent(new CustomEvent("request-aborted",{detail:request,bubbles:!0,composed:!0}));console.error("RequestService fetch aborted: ",err)}else{console.error("RequestService fatal error",err)}fatal(request)})}}/**
-     * Requests are made via fallback XMLHttpRequest
-     * @param request
-     * @private
-     */_invokeXHR(request){console.info("Fetch API not available, fallback to XMLHttpRequest");this.isLoading=!0;return new Promise(function(resolve,reject){/**
-       * map Request to XHR
-       */let req=new XMLHttpRequest;req.open(request.method,request.url,!0);if(request.headers.get("content-type").includes("json")){req.responseType="json"}else{switch(request.headers.get("content-type")){case"application/octet-stream":req.responseType="arraybuffer";break;case"application/pdf":req.responseType="arraybuffer";break;case"image/jpeg":req.responseType="arraybuffer";break;case"text/plain":req.responseType="text";break;default:req.responseType="arraybuffer";}}/**
-         * Append headers from request object to XHR
-         */for(var pair of request.headers.entries()){if(/[A-Z]/.test(pair[0])){console.error("Headers must be lower case, got",pair[0])}else{req.setRequestHeader(pair[0],pair[1])}}/**
-         * XHR event handlers
-         */req.onloadstart=()=>{this.dispatchEvent(new CustomEvent("request-started",{detail:req,bubbles:!0,composed:!0}))};req.onload=()=>{resolve(req)};req.onerror=err=>{console.error("XMLHttpRequest network error",err);reject(req)};req.ontimeout=err=>{console.warn("XMLHttpRequest timeout",err);reject(req)};// Do request
-req.send()}.bind(this))}/**
+        * Default API fetch
+        * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+        */this.isLoading=!0;this.dispatchEvent(new CustomEvent("request-started",{detail:request,bubbles:!0,composed:!0}));fetch(request).then(response=>{this._reworkRequest(response)}).catch(err=>{if("AbortError"===err.name){this.dispatchEvent(new CustomEvent("request-aborted",{detail:request,bubbles:!0,composed:!0}));console.error("RequestService fetch aborted: ",err)}fatal(request)})}/**
      * Rework of Request
      * @param response
      */ /**
@@ -2399,16 +2366,18 @@ req.send()}.bind(this))}/**
        */this.lastResponse=response;this.dispatchEvent(new CustomEvent("response-raw",{detail:response,bubbles:!0,composed:!0}));/**
             * parses response object according to response heaader informationen `content-type`
             * you will find the supported content-types in the declaration area
-            */this._parseResponse(response)}else{/**
+            */this._parseResponse(response).then(r=>{this.dispatchEvent(new CustomEvent("response",{detail:r,bubbles:!0,composed:!0}))}).catch(error=>{this.dispatchEvent(new CustomEvent("parse-error",{detail:error,bubbles:!0,composed:!0}))})}else{/**
        * Error detected
-       */this.lastResponse=void 0;this.dispatchEvent(new CustomEvent("response-error-raw",{detail:response,bubbles:!0,composed:!0}));this.dispatchEvent(new CustomEvent("response-error-"+response.status,{detail:response,bubbles:!0,composed:!0}));this.dispatchEvent(new CustomEvent("response-error",{detail:response,bubbles:!0,composed:!0}));response.json().then(error=>{if(error){this.dispatchEvent(new CustomEvent("parse-error",{detail:error,bubbles:!0,composed:!0}))}}).catch(()=>{this.dispatchEvent(new CustomEvent("parse-error",{detail:response,bubbles:!0,composed:!0}))})}}/**
+       */this.lastResponse=void 0;this.dispatchEvent(new CustomEvent("response-error-raw",{detail:response,bubbles:!0,composed:!0}));/**
+            * parses response object according to response heaader informationen `content-type`
+            * you will find the supported content-types in the declaration area
+            */this._parseResponse(response).then(r=>{this.dispatchEvent(new CustomEvent("response-error",{detail:r,bubbles:!0,composed:!0}));this.dispatchEvent(new CustomEvent("response-error-"+response.status,{detail:r,bubbles:!0,composed:!0}))}).catch(error=>{this.dispatchEvent(new CustomEvent("parse-error",{detail:error,bubbles:!0,composed:!0}))})}}/**
      * parses response object according to lastRequest heaader informationen `content-type`
      * you will find the supported content-types in the declaration area
      * response Fetch API response object [https://developer.mozilla.org/en-US/docs/Web/API/Response]
      * Default response handler is json!
      * @param response
-     */_parseResponse(response){let _self=this;if(response){let responseHandler={"text/plain":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.text().then(function(text){_self.dispatchEvent(new CustomEvent("response",{detail:text,bubbles:!0,composed:!0}))})}},"application/json":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.json().then(function(json){_self.dispatchEvent(new CustomEvent("response",{detail:json,bubbles:!0,composed:!0}))})}},"application/octet-stream":r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:r.response,bubbles:!0,composed:!0}))}else{r.arrayBuffer().then(function(buffer){_self.dispatchEvent(new CustomEvent("response",{detail:buffer,bubbles:!0,composed:!0}))})}},"application/pdf":r=>{if(this.xhrFallback){let blob=new Blob([r.response],{type:"image/jpeg"}),fileReader=new FileReader;fileReader.onload=function(evt){var result=evt.target.result;_self.dispatchEvent(new CustomEvent("response",{detail:result,bubbles:!0,composed:!0}))};fileReader.readAsDataURL(blob)}else{r.blob().then(function(blob){_self.dispatchEvent(new CustomEvent("response",{detail:URL.createObjectURL(blob),bubbles:!0,composed:!0}))})}},"image/jpeg":r=>{if(this.xhrFallback){let blob=new Blob([r.response],{type:"image/jpeg"}),fileReader=new FileReader;fileReader.onload=function(evt){var result=evt.target.result;_self.dispatchEvent(new CustomEvent("response",{detail:result,bubbles:!0,composed:!0}))};fileReader.readAsDataURL(blob)}else{r.blob().then(function(blob){_self.dispatchEvent(new CustomEvent("response",{detail:URL.createObjectURL(blob),bubbles:!0,composed:!0}))})}},default:r=>{if(this.xhrFallback){this.dispatchEvent(new CustomEvent("response",{detail:JSON.parse(r.response),bubbles:!0,composed:!0}))}else{r.json().then(function(json){_self.dispatchEvent(new CustomEvent("response",{detail:json,bubbles:!0,composed:!0}))})}}},contentType;if(this.xhrFallback){contentType=this.lastRequest.headers.get("content-type")}else{// use response headers
-contentType=response.headers.get("content-type")}let typeHandler=responseHandler[contentType.split(";")[0].trim()]||responseHandler["default"];typeHandler(response)}}}customElements.define("furo-api-fetch",FuroApiFetch);class FuroCollectionAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
+     */_parseResponse(response){return new Promise((resolve,reject)=>{if(response){let responseHandler={"text/plain":r=>{r.text().then(text=>{resolve(text)}).catch(err=>{reject(err)})},"text/html":r=>{r.text().then(text=>{resolve(text)}).catch(err=>{reject(err)})},"application/json":r=>{r.json().then(function(json){resolve(json)}).catch(err=>{reject(err)})},"application/octet-stream":r=>{r.arrayBuffer().then(function(buffer){resolve(buffer)}).catch(err=>{reject(err)})},"application/pdf":r=>{r.blob().then(function(blob){resolve(blob)}).catch(err=>{reject(err)})},"image/jpeg":r=>{r.blob().then(function(blob){resolve(blob)}).catch(err=>{reject(err)})},default:r=>{r.json().then(function(json){resolve(json)}).catch(err=>{reject(err)})}},contentType=response.headers.get("content-type"),typeHandler=responseHandler[contentType.split(";")[0].trim()]||responseHandler["default"];typeHandler(response)}else{reject(void 0)}})}}customElements.define("furo-api-fetch",FuroApiFetch);class FuroCollectionAgent extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * @event ALL_BUBBLING_EVENTS_FROM_furo-api-fetch
    *
    * All bubbling events from [furo-api-fetch](furo-api-fetch) will be fired, because furo-collection-agent uses furo-api-fetch internally.
@@ -5722,30 +5691,40 @@ return _furoShell.html`
            * The input event is fired every time the value of the element changes.
            *
            * Comes from underlying component input. **bubbles**
-           */constructor(){super();this.disabled=!1;this.files=[];this._FBPAddWireHook("--valueChanged",val=>{if(this.field){this.field._value=val}});this._FBPAddWireHook("--filesSelected",val=>{this.files=val})}/**
+           */ /**
+               * Fetch local file
+               * @private
+               */_fetchLocalFile(file){return new Promise((resolve,reject)=>{// Create a new FileReader instance
+const reader=new FileReader;reader.addEventListener("load",()=>{resolve(reader.result)});reader.addEventListener("progress",e=>{if(e.lengthComputable){/**
+           * @event progress
+           * is triggered while reading a Blob content.
+           * detail payload: {Array} all selected files base64 encoded
+           */const customEvent=new Event("progress",{composed:!0,bubbles:!0});customEvent.detail=e;this.dispatchEvent(customEvent);// e.g. progress percentage: Math.round((e.loaded / e.total) * 100);
+}});reader.readAsDataURL(file)})}/**
      * flow is ready lifecycle method
      */_FBPReady(){super._FBPReady();//this._FBPTraceWires();
-// check initial overrides
+this._FBPAddWireHook("--valueChanged",e=>{/**
+       * get local files and encode to Base64
+       */const promises=[],FILES=e.files;this.files=FILES;/**
+                           * @event files-selected
+                           * This event is representative for the attribute files on the native element input type=file
+                           * Fired when value has changed from inside the component
+                           * detail payload: {Array} A FileList listing the chosen files
+                           */const customEvent=new Event("files-selected",{composed:!0,bubbles:!0});customEvent.detail=FILES;this.dispatchEvent(customEvent);/**
+                                        * File encoding for the convenience event `value-changed
+                                        */for(let i=0;i<FILES.length;i++){promises.push(this._fetchLocalFile(FILES[i]))}/**
+         * All files are encoded
+         */Promise.all(promises).then(values=>{if(this.field){this.field._value=values}/**
+           * @event value-changed
+           * Fired when value has changed from inside the component
+           * detail payload: {Array} all selected files base64 encoded
+           */const customEvent=new Event("value-changed",{composed:!0,bubbles:!0});customEvent.detail=values;this.dispatchEvent(customEvent)})});// check initial overrides
 CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
-     * Updater for the label attr
-     * @param value
-     */set _label(value){Helper$2.UpdateInputAttribute(this,"label",value)}/**
      * Updater for the accept attr, the prop alone with accept="${this.accept}" wont work,
      * because it set "undefined" (as a Sting!)
      *
      * @param value
-     */set accept(value){Helper$2.UpdateInputAttribute(this,"accept",value)}set multiple(value){Helper$2.UpdateInputAttribute(this,"multiple",value)}set capture(value){Helper$2.UpdateInputAttribute(this,"capture",value)}/**
-     * Sets the field to readonly
-     */disable(){this.disabled=!0}/**
-     * Makes the field writable.
-     */enable(){this.disabled=!1}static get properties(){return{/**
-       * Overrides the label text from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */label:{type:String},/**
-       * A FileList listing the chosen files
-       * readonly
-       */files:{type:Array},/**
+     */set accept(value){Helper$2.UpdateInputAttribute(this,"accept",value)}set multiple(value){Helper$2.UpdateInputAttribute(this,"multiple",value)}set capture(value){Helper$2.UpdateInputAttribute(this,"capture",value)}static get properties(){return{/**
        * Hint for expected file type in file upload controls
        * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers
        * e.g. .doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
@@ -5759,15 +5738,7 @@ CheckMetaAndOverrides.UpdateMetaAndConstraints(this)}/**
        * specifies that the outward-facing camera and/or microphone should be used. If this attribute is missing,
        * the user agent is free to decide on its own what to do. If the requested facing mode isn't available,
        * the user agent may fall back to its preferred default mode.
-       */capture:{type:String,attribute:!0,reflect:!0},/**
-       * Overrides the required value from the **specs**.
-       *
-       * Use with caution, normally the specs defines this value.
-       */required:{type:Boolean},/**
-       * A Boolean attribute which, if present, means this field cannot be edited by the user.
-       */disabled:{type:Boolean,reflect:!0},/**
-       * Set this attribute to autofocus the input field.
-       */autofocus:{type:Boolean},outline:{type:Boolean,attribute:!0},unelevated:{type:Boolean,attribute:!0},primary:{type:Boolean,attribute:!0},secondary:{type:Boolean,attribute:!0},accent:{type:Boolean,attribute:!0}}}/**
+       */capture:{type:String,attribute:!0,reflect:!0}}}/**
      * Bind a entity field to the text-input. You can use the entity even when no data was received.
      * When you use `@-object-ready` from a `furo-data-object` which emits a EntityNode, just bind the field with `--entity(*.fields.fieldname)`
      * @param {Object|FieldNode} fieldNode a Field object
@@ -5779,33 +5750,19 @@ this.field.addEventListener("this-metas-changed",()=>{CheckMetaAndOverrides.Upda
      * @return {CSSResult}
      */static get styles(){// language=CSS
 return _furoShell.Theme.getThemeForComponent("FuroDataFileInput")||_furoShell.css`
-        :host {
-            display: inline-block;
-            width: 190px;
-        }
-
-        :host([hidden]) {
-            display: none;
-        }
-
-        furo-file-input {
-            width: 100%;
-        }
-    `}render(){// language=HTML
+            :host {
+                display: none;
+            }
+        `}/**
+     * Delegates open request
+     */open(){this._FBPTriggerWire("--open",null)}render(){// language=HTML
 return _furoShell.html`
-       <furo-file-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?disabled=${this._readonly||this.disabled}                 
-          ?required=${this.required} 
-          ?accept=${this.accept}
-          ?multiple=${this.multiple} 
-          ?capture=${this.capture}
-          ?outline=${this.outline}
-          ?unelevated=${this.unelevated} 
-          ?primary=${this.primary} 
-          ?secondary=${this.secondary} 
-          ?accent=${this.accent}                 
-          @-value-changed="--valueChanged" @-files-selected="--filesSelected"></furo-file-input>      
+           <furo-file-dialog id="input"  
+             ?accept=${this.accept}
+             ?multiple=${this.multiple} 
+             ?capture="${this.capture}"
+             ƒ-open="--open" @-input-changed="--valueChanged"></furo-file-dialog>
+            
     `}}customElements.define("furo-data-file-input",FuroDataFileInput);class FuroDataSignPad extends _furoShell.FuroSignPad{bindData(entityField){this.field=entityField;if(this.field._value){this.setImage(this.field._value)}// update drawing on changes from outside
 this.field.addEventListener("this-field-value-changed",e=>{this.signaturePad.clear();this.setImage(this.field._value)})}/**
      * update field._value  on new drawing
@@ -7717,30 +7674,59 @@ return _furoShell.Theme.getThemeForComponent("DemoFuroDataFileInput")||_furoShel
                 display: none;
             }
 
+            furo-demo-snippet {
+                height: 600px;
+            }
+
         `}/**
      * @private
      * @returns {TemplateResult}
      */render(){// language=HTML
 return _furoShell.html`
+
             <furo-vertical-flex>
+
                 <h2>Demo furo-data-file-input</h2>
                 <p>Bind the field from furo-data-object with
                     <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
                     The labels, hints, defaults are comming from the furo-data-object specs.</p>
-                <furo-demo-snippet flex>
+
+                <furo-demo-snippet>
                     <template>
-                        <furo-card header-text="Choose a markdown file">
-                            <furo-form-layouter>
-                                <furo-data-textarea-input ƒ-bind-data="--entity(*.furo_data_file_input)"
-                                                          label="Output"></furo-data-textarea-input>
+                        <furo-vertical-scroller>
+                            <furo-form-layouter two>
+                                <furo-card header-text="Choose a markdown file"
+                                           secondary-text="The textarea below is binded to a field in furo-data-object (ƒ-bind-data='--entity(*.furo_data_file_input)'). Check out the source tab.">
+                                    <furo-form-layouter>
+                                        <furo-data-textarea-input ƒ-bind-data="--entity(*.furo_data_file_input)"
+                                                                  label="Output"></furo-data-textarea-input>
+                                    </furo-form-layouter>
+                                    <furo-button slot="action" label="Open .md file" unelevated primary
+                                                 @-click="--openDlgReq"></furo-button>
+                                    <furo-data-file-input accept=".md"
+                                                          ƒ-open="--openDlgReq"
+                                                          ƒ-bind-data="--entity(*.furo_data_file_input)"></furo-data-file-input>
+                                </furo-card>
+
+
+                                <furo-card header-text="Choose a image/jpeg">
+                                    <img slot="media" ƒ-.src="--file">
+                                    <furo-button slot="action" label="Open .jpg file" unelevated primary
+                                                 @-click="--openImageDlgReq"></furo-button>
+                                    <furo-data-file-input accept=".jpg"
+                                                          ƒ-open="--openImageDlgReq"
+                                                          @-value-changed="--file"></furo-data-file-input>
+                                </furo-card>
                             </furo-form-layouter>
-                            <furo-data-file-input slot="action" required unelevated primary accept=".md" label="Open .md file"
-                                                  ƒ-bind-data="--entity(*.furo_data_file_input)"></furo-data-file-input>
-                        </furo-card>
+
+                        </furo-vertical-scroller>
+
                         <furo-data-object type="experiment.Experiment" @-object-ready="--entity"></furo-data-object>
                     </template>
                 </furo-demo-snippet>
+
             </furo-vertical-flex>
+
         `}}window.customElements.define("demo-furo-data-file-input",DemoFuroDataFileInput);class DemoFuroDataSignPad extends(0,_furoShell.FBP)(_furoShell.LitElement){/**
    * Themable Styles
    * @private
