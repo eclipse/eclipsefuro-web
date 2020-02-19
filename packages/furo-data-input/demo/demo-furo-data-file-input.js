@@ -3,6 +3,7 @@ import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
 import "@furo/doc-helper"
 import "../furo-catalog";
+import "@furo/input/furo-button.js";
 import "./helper/produce-qp-data";
 
 /**
@@ -31,6 +32,10 @@ class DemoFuroDataFileInput extends FBP(LitElement) {
                 display: none;
             }
 
+            furo-demo-snippet {
+                height: 600px;
+            }
+
         `
     }
 
@@ -42,25 +47,50 @@ class DemoFuroDataFileInput extends FBP(LitElement) {
     render() {
         // language=HTML
         return html`
+
             <furo-vertical-flex>
+
                 <h2>Demo furo-data-file-input</h2>
                 <p>Bind the field from furo-data-object with
                     <strong>ƒ-bind-data="--entityReady(*.fields.fieldname)"</strong>.
                     The labels, hints, defaults are comming from the furo-data-object specs.</p>
-                <furo-demo-snippet flex>
+
+                <furo-demo-snippet>
                     <template>
-                        <furo-card header-text="Choose a markdown file">
-                            <furo-form-layouter>
-                                <furo-data-textarea-input ƒ-bind-data="--entity(*.furo_data_file_input)"
-                                                          label="Output"></furo-data-textarea-input>
+                        <furo-vertical-scroller>
+                            <furo-form-layouter two>
+                                <furo-card header-text="Choose a markdown file"
+                                           secondary-text="The textarea below is binded to a field in furo-data-object (ƒ-bind-data='--entity(*.furo_data_file_input)'). Check out the source tab.">
+                                    <furo-form-layouter>
+                                        <furo-data-textarea-input ƒ-bind-data="--entity(*.furo_data_file_input)"
+                                                                  label="Output"></furo-data-textarea-input>
+                                    </furo-form-layouter>
+                                    <furo-button slot="action" label="Open .md file" unelevated primary
+                                                 @-click="--openDlgReq"></furo-button>
+                                    <furo-data-file-input accept=".md"
+                                                          ƒ-open="--openDlgReq"
+                                                          ƒ-bind-data="--entity(*.furo_data_file_input)"></furo-data-file-input>
+                                </furo-card>
+
+
+                                <furo-card header-text="Choose a image/jpeg">
+                                    <img slot="media" ƒ-.src="--file">
+                                    <furo-button slot="action" label="Open .jpg file" unelevated primary
+                                                 @-click="--openImageDlgReq"></furo-button>
+                                    <furo-data-file-input accept=".jpg"
+                                                          ƒ-open="--openImageDlgReq"
+                                                          @-value-changed="--file"></furo-data-file-input>
+                                </furo-card>
                             </furo-form-layouter>
-                            <furo-data-file-input slot="action" required unelevated primary accept=".md" label="Open .md file"
-                                                  ƒ-bind-data="--entity(*.furo_data_file_input)"></furo-data-file-input>
-                        </furo-card>
+
+                        </furo-vertical-scroller>
+
                         <furo-data-object type="experiment.Experiment" @-object-ready="--entity"></furo-data-object>
                     </template>
                 </furo-demo-snippet>
+
             </furo-vertical-flex>
+
         `;
     }
 }

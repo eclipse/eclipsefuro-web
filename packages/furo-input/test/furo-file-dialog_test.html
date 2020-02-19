@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>furo-file-input</title>
+    <title>furo-file-dialog</title>
 
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -21,7 +21,7 @@
 
 <test-fixture id="Basic">
     <template>
-        <furo-file-input label="Upload..." primary accept=".txt"></furo-file-input>
+        <furo-file-dialog accept=".txt"></furo-file-dialog>
     </template>
 </test-fixture>
 
@@ -30,7 +30,7 @@
     import '/node_modules/axe-core/axe.min.js';
     import {axeReport} from '/node_modules/pwa-helpers/axe-report.js';
 
-    describe('furo-file-input', () => {
+    describe('furo-file-dialog', () => {
         let fileInput, inputField;
         beforeEach(async () => {
             fileInput = fixture('Basic');
@@ -41,25 +41,6 @@
 
         it('a11y', () => {
             return axeReport(fixture('Basic'));
-        });
-
-        it('should be disableable with method disable', (done) => {
-            fileInput.disable();
-            setTimeout(() => {
-                assert.equal(inputField.getAttribute("disabled"), "");
-                assert.equal(fileInput.disabled, true);
-                done();
-            }, 5)
-        });
-
-        it('should be activatable with method enable', (done) => {
-            fileInput.disabled = true;
-            fileInput.enable();
-            setTimeout(() => {
-                assert.equal(inputField.getAttribute("disabled"), null);
-                assert.equal(fileInput.disabled, false);
-                done();
-            }, 5)
         });
 
         it('should be able to upload multiple files', (done) => {
@@ -78,37 +59,9 @@
             }, 5)
         });
 
-        it('should be focusable', (done) => {
-            fileInput.focus();
-            assert.equal(fileInput, document.activeElement);
-            done();
-        });
+        it('instantiating furo-file-dialog with default properties works', () => {
 
-        it('should fire native files-selected event', (done) => {
-
-            let fileList = {
-                target: {
-                    files: [
-                        new File(["foo"], "foo.txt", {
-                            type: "text/plain",
-                        })
-                    ]
-                }
-            };
-
-            fileInput.addEventListener('files-selected', (f) => {
-                assert.equal(f.detail[0].name, "foo.txt");
-                done();
-            });
-
-            fileInput._FBPTriggerWire('--inputInput', fileList);
-
-
-        });
-
-        it('instantiating furo-file-input with default properties works', () => {
-
-            assert.equal(fileInput.tagName.toLowerCase(), 'furo-file-input');
+            assert.equal(fileInput.tagName.toLowerCase(), 'furo-file-dialog');
 
         });
 

@@ -95,21 +95,12 @@
             }, 5)
         });
 
-        it('should be possible to set disabled', (done) => {
-            dataInput.disable();
-            setTimeout(() => {
-                assert.equal(dataInput._theInputElement.getAttribute("disabled"), "");
-                done();
-            }, 5)
-        });
-
         it('should bind field', (done) => {
 
             host._FBPAddWireHook("--hts", () => {
                 entityObject.addEventListener("data-changed", () => {
-                        assert.equal(dataInput.field._name, 'furo_data_file_input');
-                        assert.equal(dataInput._theInputElement.label, 'Choose a file');
-                        done();
+                    assert.equal(dataInput.field._name, 'furo_data_file_input');
+                    done();
 
                 }, {once: true});
             });
@@ -119,13 +110,11 @@
         it('should update dataobject with new values', (done) => {
 
             let fileList = {
-                target: {
                     files: [
                         new File(["foo"], "foo.txt", {
                             type: "text/plain",
                         })
                     ]
-                }
             };
 
             deeplink.qpIn({"exp": 1});
@@ -136,7 +125,7 @@
                 done();
             });
 
-            dataInput.shadowRoot.querySelector('furo-file-input')._FBPTriggerWire('--inputInput', fileList);
+            dataInput._FBPTriggerWire('--valueChanged', fileList);
 
 
         });

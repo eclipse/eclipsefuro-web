@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element';
 import {Theme} from "@furo/framework/theme"
 import {FBP} from "@furo/fbp";
-import "@furo/input/furo-file-input.js";
+import "@furo/input/furo-file-dialog.js";
 
 import {CheckMetaAndOverrides} from "./lib/CheckMetaAndOverrides";
 import {Helper} from "./lib/helper";
@@ -44,21 +44,36 @@ class FuroDataFileInput extends FBP(LitElement) {
      * Comes from underlying component input. **bubbles**
      */
 
-    constructor() {
-        super();
-        this.disabled = false;
-        this.files = [];
+    /**
+     * Fetch local file
+     * @private
+     */
+    _fetchLocalFile(file) {
+        return new Promise((resolve, reject) => {
+            // Create a new FileReader instance
+            const reader = new FileReader;
 
-        this._FBPAddWireHook("--valueChanged", (val) => {
-            if (this.field) {
-                this.field._value = val;
-            }
+            reader.addEventListener('load', () => {
+                resolve(reader.result);
+            });
+            reader.addEventListener('progress', (e) => {
+                if (e.lengthComputable) {
+                    /**
+                     * @event progress
+                     * is triggered while reading a Blob content.
+                     * detail payload: {Array} all selected files base64 encoded
+                     */
+                    const customEvent = new Event('progress', {composed: true, bubbles: true});
+                    customEvent.detail = e;
+                    this.dispatchEvent(customEvent);
+                    // e.g. progress percentage: Math.round((e.loaded / e.total) * 100);
+                }
+            });
+            reader.readAsDataURL(file);
+
         });
-        this._FBPAddWireHook("--filesSelected", (val) => {
-            this.files = val;
-        });
+
     }
-
 
     /**
      * flow is ready lifecycle method
@@ -66,16 +81,54 @@ class FuroDataFileInput extends FBP(LitElement) {
     _FBPReady() {
         super._FBPReady();
         //this._FBPTraceWires();
+        this._FBPAddWireHook("--valueChanged", (e) => {
+
+            /**
+             * get local files and encode to Base64
+             */
+            const promises = [];
+            const FILES = e.files;
+
+            this.files = FILES;
+
+            /**
+             * @event files-selected
+             * This event is representative for the attribute files on the native element input type=file
+             * Fired when value has changed from inside the component
+             * detail payload: {Array} A FileList listing the chosen files
+             */
+            const customEvent = new Event('files-selected', {composed: true, bubbles: true});
+            customEvent.detail = FILES;
+            this.dispatchEvent(customEvent);
+
+            /**
+             * File encoding for the convenience event `value-changed
+             */
+            for (let i = 0; i < FILES.length; i++) {
+                promises.push(this._fetchLocalFile(FILES[i]));
+            }
+
+            /**
+             * All files are encoded
+             */
+            Promise.all(promises)
+                .then(values => {
+                    if (this.field) {
+                        this.field._value = values;
+                    }
+                    /**
+                     * @event value-changed
+                     * Fired when value has changed from inside the component
+                     * detail payload: {Array} all selected files base64 encoded
+                     */
+                    const customEvent = new Event('value-changed', {composed: true, bubbles: true});
+                    customEvent.detail = values;
+                    this.dispatchEvent(customEvent);
+                });
+
+        });
         // check initial overrides
         CheckMetaAndOverrides.UpdateMetaAndConstraints(this);
-    }
-
-    /**
-     * Updater for the label attr
-     * @param value
-     */
-    set _label(value) {
-        Helper.UpdateInputAttribute(this, "label", value);
     }
 
     /**
@@ -85,7 +138,7 @@ class FuroDataFileInput extends FBP(LitElement) {
      * @param value
      */
     set accept(value) {
-        Helper.UpdateInputAttribute(this,"accept", value);
+        Helper.UpdateInputAttribute(this, "accept", value);
     }
 
     set multiple(value) {
@@ -96,38 +149,8 @@ class FuroDataFileInput extends FBP(LitElement) {
         Helper.UpdateInputAttribute(this, "capture", value);
     }
 
-    /**
-     * Sets the field to readonly
-     */
-    disable() {
-        this.disabled = true;
-    }
-
-    /**
-     * Makes the field writable.
-     */
-    enable() {
-        this.disabled = false;
-    }
-
-
     static get properties() {
         return {
-            /**
-             * Overrides the label text from the **specs**.
-             *
-             * Use with caution, normally the specs defines this value.
-             */
-            label: {
-                type: String,
-            },
-            /**
-             * A FileList listing the chosen files
-             * readonly
-             */
-            files: {
-                type: Array
-            },
             /**
              * Hint for expected file type in file upload controls
              * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Unique_file_type_specifiers
@@ -154,42 +177,6 @@ class FuroDataFileInput extends FBP(LitElement) {
             capture: {
                 type: String, attribute: true, reflect: true
             },
-            /**
-             * Overrides the required value from the **specs**.
-             *
-             * Use with caution, normally the specs defines this value.
-             */
-            required: {
-                type: Boolean
-            },
-            /**
-             * A Boolean attribute which, if present, means this field cannot be edited by the user.
-             */
-            disabled: {
-                type: Boolean, reflect: true
-            },
-
-            /**
-             * Set this attribute to autofocus the input field.
-             */
-            autofocus: {
-                type: Boolean
-            },
-            outline: {
-                type: Boolean, attribute: true
-            },
-            unelevated: {
-                type: Boolean, attribute: true
-            },
-            primary: {
-                type: Boolean, attribute: true
-            },
-            secondary: {
-                type: Boolean, attribute: true
-            },
-            accent: {
-                type: Boolean, attribute: true
-            }
         }
     }
 
@@ -226,37 +213,28 @@ class FuroDataFileInput extends FBP(LitElement) {
     static get styles() {
         // language=CSS
         return Theme.getThemeForComponent('FuroDataFileInput') || css`
-        :host {
-            display: inline-block;
-            width: 190px;
-        }
+            :host {
+                display: none;
+            }
+        `
+    }
 
-        :host([hidden]) {
-            display: none;
-        }
-
-        furo-file-input {
-            width: 100%;
-        }
-    `
+    /**
+     * Delegates open request
+     */
+    open() {
+        this._FBPTriggerWire('--open', null);
     }
 
     render() {
         // language=HTML
         return html`
-       <furo-file-input id="input"
-          ?autofocus=${this.autofocus} 
-          ?disabled=${this._readonly || this.disabled}                 
-          ?required=${this.required} 
-          ?accept=${this.accept}
-          ?multiple=${this.multiple} 
-          ?capture=${this.capture}
-          ?outline=${this.outline}
-          ?unelevated=${this.unelevated} 
-          ?primary=${this.primary} 
-          ?secondary=${this.secondary} 
-          ?accent=${this.accent}                 
-          @-value-changed="--valueChanged" @-files-selected="--filesSelected"></furo-file-input>      
+           <furo-file-dialog id="input"  
+             ?accept=${this.accept}
+             ?multiple=${this.multiple} 
+             ?capture="${this.capture}"
+             ƒ-open="--open" @-input-changed="--valueChanged"></furo-file-dialog>
+            
     `;
     }
 
