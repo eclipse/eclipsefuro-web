@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.66.2](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.66.1...@furo/input@0.66.2) (2020-02-19)
+
+
+### Bug Fixes
+
+* furo-file-dialog tabindex-1 ([12765a0](https://github.com/theNorstroem/FuroBaseComponents/commit/12765a0))
+
+
+
+
+
 ## [0.66.1](https://github.com/theNorstroem/FuroBaseComponents/compare/@furo/input@0.66.0...@furo/input@0.66.1) (2020-02-18)
 
 **Note:** Version bump only for package @furo/input
