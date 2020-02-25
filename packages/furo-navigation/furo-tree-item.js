@@ -68,7 +68,7 @@ export class FuroTreeItem extends FBP(LitElement) {
        * Description
        */
       hidden: {type: Boolean, reflect: true},
-      hovered: {type: Boolean, reflect: true},
+      focused: {type: Boolean, reflect: true},
       searchmatch: {type: Boolean, reflect: true},
       inedit: {type: Boolean, reflect: true},
       haserror: {type: Boolean, reflect: true},
@@ -183,7 +183,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     if (this.fieldNode._isRoot === true) {
       this.hidden = false;
       this.fieldNode._isHidden = false;
-      if(this.fieldNode._rootAsHeader){
+      if (this.fieldNode._rootAsHeader) {
         this.setAttribute("isheader", "")
       }
     }
@@ -208,11 +208,11 @@ export class FuroTreeItem extends FBP(LitElement) {
     });
 
     this.fieldNode.addEventListener("tree-node-blur-requested", (e) => {
-      this.hovered = false;
+      this.focused = false;
     });
 
-    this.fieldNode.addEventListener("this-node-hovered", (e) => {
-      this.hovered = true;
+    this.fieldNode.addEventListener("this-node-focused", (e) => {
+      this.focused = true;
       //this.scrollIntoViewIfNeeded();
       if (this.scrollIntoViewIfNeeded) {
         this.scrollIntoViewIfNeeded();
@@ -225,7 +225,6 @@ export class FuroTreeItem extends FBP(LitElement) {
       if (this.scrollIntoViewIfNeeded) {
         this.scrollIntoViewIfNeeded();
       }
-
     });
 
     // This item is not or no more in the search results
@@ -256,7 +255,7 @@ export class FuroTreeItem extends FBP(LitElement) {
     return Theme.getThemeForComponent('FuroTreeItem') || css`
       :host {
         display: block;
-        line-height: 40px;
+        line-height: 48px;
         box-sizing: border-box;
         cursor: pointer;
         font-weight: 400;
@@ -288,10 +287,10 @@ export class FuroTreeItem extends FBP(LitElement) {
 
       .label {
         white-space: nowrap;
-        font-size: 0.875rem;
-        letter-spacing: 0.2px;
+        font-size: 16px;
+        letter-spacing: 0.15px;
         margin-left: 8px;
-        font-weight: 500;
+        font-weight: 400;
       }
 
       .desc {
@@ -347,13 +346,13 @@ export class FuroTreeItem extends FBP(LitElement) {
 
       }
 
-     
+
       :host([isheader]) {
         height: 64px;
         margin: 0;
       }
-      
-      :host([isheader]) furo-icon{
+
+      :host([isheader]) furo-icon {
         margin-bottom: 4px;
       }
 
@@ -467,12 +466,12 @@ export class FuroTreeItem extends FBP(LitElement) {
   render() {
     // language=HTML
     return html`
-<furo-horizontal-flex class="indentation-${this.indentation}" @-dblclick="--dblclicked" @mouseenter="${(e) => this.fieldNode.triggerHover()}">
+<furo-horizontal-flex class="indentation-${this.indentation}" @-dblclick="--dblclicked">
       <div class="indentation" @-click="--labelClicked"></div>
       <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>                 
       <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error._value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
+      <furo-ripple></furo-ripple>
 </furo-horizontal-flex>
-
     `;
   }
 }
