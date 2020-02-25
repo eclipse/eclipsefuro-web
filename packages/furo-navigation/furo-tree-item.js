@@ -470,7 +470,7 @@ export class FuroTreeItem extends FBP(LitElement) {
       <div class="indentation" @-click="--labelClicked"></div>
       <div class="oc"><furo-data-bool-icon ?hidden="${!this.fieldNode.children.repeats.length}" ƒ-toggle="--dblclicked" ƒ-bind-data="--fieldOpen"></furo-data-bool-icon></div>                 
       <div flex class="label" @-click="--labelClicked" > <furo-icon ?hidden="${this.noicon}" icon="${this.fieldNode.icon}" ?error="${this.fieldNode.has_error._value}"></furo-icon> ${this.fieldNode.display_name} <span class="desc">${this.fieldNode.secondary_text}</span></div>
-      <furo-ripple></furo-ripple>
+      <furo-ripple noink ƒ-trigger="--labelClicked"></furo-ripple>
 </furo-horizontal-flex>
     `;
   }
