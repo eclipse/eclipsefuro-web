@@ -53,48 +53,7 @@ class FuroTree extends FBP(LitElement) {
       let key = event.key || event.keyCode;
 
       switch (key) {
-        case "Enter":
-          this._resetSearch();
-          event.preventDefault();
-          // not reseting the search at this position is by intention.
-          if (this._focusedField._isSelected) {
-            // openclose
-            this._focusedField.toggleOpenClose();
-          } else {
-            // open the focused field
-            this._focusedField.selectItem();
-          }
-          break;
-        case "ArrowDown":
-          event.preventDefault();
-          this.focusNext();
-          break;
-        case "ArrowUp":
-          event.preventDefault();
-          this.focusPrevious();
-          break;
 
-        case "ArrowLeft":
-          event.preventDefault();
-
-          this._resetSearch();
-          this.collapseFocused();
-          break;
-        case "ArrowRight":
-          event.preventDefault();
-
-          this._resetSearch();
-          this.expandFocused();
-          break;
-
-
-        case"Escape":
-          if (this._searchIsActive) {
-            event.stopPropagation();
-            this._resetSearch();
-          }
-
-          break;
         case"Backspace":
           this._removeLastSymbofFromSearch();
           break;
@@ -146,13 +105,28 @@ class FuroTree extends FBP(LitElement) {
    * expands the focused node, if it is opened the first child will be focused
    */
   expandFocused() {
-// open when closed, next when opened
+  // open when closed, next when opened
     if (!this._focusedField.isBranch() && !this._focusedField.open._value) {
       this._focusedField.toggleOpenClose();
     } else {
       this.focusNext();
     }
   }
+
+  /**
+   * expands the focused node recursive
+   */
+  expandFocusedRecursive() {
+    this._focusedField.expandRecursive();
+  }
+
+  /**
+   * collapses the focused node recursive
+   */
+  collapseFocusedRecursive() {
+    this._focusedField.collapseRecursive();
+  }
+
 
   _removeLastSymbofFromSearch() {
     this._searchTerm = this._searchTerm.substr(0, this._searchTerm.length - 1);
@@ -361,6 +335,78 @@ class FuroTree extends FBP(LitElement) {
     this._focusedField.selectItem();
   }
 
+  triggerNavigation(key) {
+    switch (key) {
+      case "Enter":
+
+        // not reseting the search at this position is by intention.
+        if (this._focusedField._isSelected) {
+          // openclose
+          this._focusedField.toggleOpenClose();
+        } else {
+          // open the focused field
+          this._focusedField.selectItem();
+        }
+        break;
+
+      case "ArrowDown":
+        this.focusNext();
+        break;
+      case "ArrowUp":
+        this.focusPrevious();
+        break;
+
+      case "PageDown":
+        for(let i = 0; i<10;i++){
+          this.focusNext();
+        }
+
+        break;
+      case "PageUp":
+        for(let i = 0; i<10;i++) {
+          this.focusPrevious();
+        }
+        break;
+
+      case "End":
+        this.focusLast();
+        break;
+      case "Home":
+        this.focusFirst();
+        break;
+
+      case "ArrowLeft":
+        this.collapseFocused();
+        break;
+
+      case "ArrowRight":
+        this.expandFocused();
+        break;
+
+      case"Escape":
+
+        break;
+    }
+  }
+
+  /**
+   * Focuses the first element
+   */
+  focusFirst() {
+    this._flatTree[0].triggerFocus();
+  }
+
+  /**
+   * Focuses the last element
+   */
+  focusLast() {
+    this.__visibleTree = this._flatTree.filter((node) => {
+      return !node._isHidden;
+    })
+    this.__visibleTree[this.__visibleTree.length - 1].triggerFocus();
+  }
+
+
   /**
    * focuss the next item
    */
@@ -368,7 +414,6 @@ class FuroTree extends FBP(LitElement) {
     let next;
 
     if (this._searchIsActive) {
-
       for (let i = this._foundSearchItems.length - 1; i >= 0; i--) {
 
         if (this._foundSearchItems[i].__flatTreeIndex <= this._focusedField.__flatTreeIndex) {
@@ -383,7 +428,6 @@ class FuroTree extends FBP(LitElement) {
     } else {
       next = this._focusedField.getNextVisibleElement();
     }
-
     if (next) {
       next.triggerFocus();
     }
@@ -957,7 +1001,7 @@ class FuroTree extends FBP(LitElement) {
     tree.open._value = true;
 
     this._FBPTriggerWire("--treeChanged", this._flatTree.filter((node) => {
-      return !node.hidden;
+      return !node._isHidden;
     }));
   }
 
