@@ -43,9 +43,9 @@ class FuroDocProperties extends FBP(LitElement) {
       });
 
       this._FBPTriggerWire("--data", data);
-      this.removeAttribute("hidden");
+      this.hidden = false;
     } else {
-      this.setAttribute("hidden", "");
+      this.hidden = true;
     }
   }
 

@@ -48,8 +48,8 @@ if (!Iconset.default) {
  * you can also define other properties lik viewport ,preserveAspectRatio...
  * @summary furo icon
  * @customElement
- * @demo demo-furo-icon
- * @demo demo-furo-icon-list
+ * @demo demo-furo-icon-list list of the icons
+ * @demo demo-furo-icon example usage
  */
 class FuroIcon extends LitElement {
 

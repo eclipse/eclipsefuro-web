@@ -111,8 +111,8 @@ class FuroDocElement extends FBP(LitElement) {
   render() {
     // language=HTML
 
-    return html`
-      <h1><${this.element.tagname}&gt;</h1>
+    return html`      
+      <h1>&lt; ${this.element.tagname} &gt;</h1>
       <h2 class="description">${this.element.summary}</h2>         
       <h2>Description</h2>
       <furo-markdown unsafe ƒ-parse-markdown="--data(*.description)"></furo-markdown>
