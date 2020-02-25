@@ -4,10 +4,7 @@ import {Env, i18n} from "@furo/framework"
 import {Theme} from "@furo/framework/theme"
 
 import '@furo/fbp/flow-repeat.js';
-import '@furo/data';
-import '@furo/data-input';
 import '@furo/data-ui/furo-data-table-toggle';
-
 
 const tableHeaders = (fields) => html`${fields.map(f => html`<th class="header-cell" numeric="${f.ui.flags.includes('align-right')}" role="columnheader" scope="col">${f.meta.label}<furo-data-table-toggle sortable="${f.sortable}" field="${f.id}"></furo-data-table-toggle></th>`)}`;
 const tdWRepeat = (fields) => html`
