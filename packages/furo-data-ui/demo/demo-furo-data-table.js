@@ -7,7 +7,7 @@ import "../furo-catalog"
 
 import "@furo/data";
 import "@furo/input";
-import "@furo/util";
+import "@furo/util/furo-navigation-pad.js";
 
 /**
  * `demo-furo-data-table`
@@ -44,7 +44,7 @@ class DemoFuroDataTable extends FBP(LitElement) {
 
     _FBPReady() {
         super._FBPReady();
-        //this._FBPTraceWires();
+        this._FBPTraceWires();
     }
 
     /**
@@ -59,14 +59,27 @@ class DemoFuroDataTable extends FBP(LitElement) {
                     <h2>furo-data-table playground</h2>
 
                 </div>
+                <furo-navigation-pad @-navigated="--navpad"></furo-navigation-pad>
+                
                 <furo-card header-text="Project Overview" secondary-text="All your project data" class="flex">
 
-                    <furo-data-table type="project.Project" fields="display_name, members, start,end,cost_limit" sortable-fields="cost_limit,start"
-                                     ƒ-bind-data="--data" @-tablerow-selected="--rowSelected"></furo-data-table>
+                    <furo-data-table type="project.Project" 
+                                     fields="display_name, members, start,end,cost_limit" 
+                                     sortable-fields="cost_limit,start" 
+                                     single-selection
+                                     ƒ-bind-data="--data"
+                                     ƒ-trigger-navigation="--navpad"
+                                     ƒ-first="--collectionResponse"
+                                     ƒ-prev="--arrowUp"
+                                     ƒ-next="--arrowDown"
+                                     ƒ-select="--enter"
+                                     @-tablerow-selected="--rowSelected"></furo-data-table>
                     
                     <furo-horizontal-flex space slot="action">
                         <furo-button label="List data" primary @-click="--btnListClicked"></furo-button>
                     </furo-horizontal-flex>
+                    
+                    
                 </furo-card>
 
                 <furo-pretty-json ƒ-inject-data="--rowSelected"></furo-pretty-json>
