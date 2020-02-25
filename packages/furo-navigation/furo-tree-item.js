@@ -264,8 +264,7 @@ export class FuroTreeItem extends FBP(LitElement) {
         border-radius: 4px;
         position: relative;
         margin-bottom: var(--spacing-xxs, 4px);
-        transition: color 0.2s;
-        transition: background-color 0.2s;
+        transition: color 0.2s, background-color 0.2s;
       }
 
       :host([hidden]) {
