@@ -104,22 +104,22 @@
 
       tree.addEventListener('node-selected', (f)=>{
 
-        assert.equal(f.detail.id._value, "1")
+        assert.equal(f.detail.id._value, "1");
         done();
       });
 
       tree.triggerNavigation('ArrowRight');
-      assert.equal(tree._focusedField.id._value, "2")
+      assert.equal(tree._focusedField.id._value, "2");
       tree.triggerNavigation('ArrowRight');
-      assert.equal(tree._focusedField.id._value, "3")
+      assert.equal(tree._focusedField.id._value, "3");
       tree.triggerNavigation('ArrowDown');
-      assert.equal(tree._focusedField.id._value, "4")
+      assert.equal(tree._focusedField.id._value, "4");
       tree.triggerNavigation('ArrowDown');
-      assert.equal(tree._focusedField.id._value, "4w")
+      assert.equal(tree._focusedField.id._value, "4w");
       tree.triggerNavigation('ArrowUp');
-      assert.equal(tree._focusedField.id._value, "4")
+      assert.equal(tree._focusedField.id._value, "4");
       tree.triggerNavigation('ArrowUp');
-      assert.equal(tree._focusedField.id._value, "3")
+      assert.equal(tree._focusedField.id._value, "3");
       tree.triggerNavigation('End');
       tree.triggerNavigation('Home');
       // no effect
