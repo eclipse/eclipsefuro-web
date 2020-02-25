@@ -47,46 +47,6 @@ class FuroTree extends FBP(LitElement) {
     this.treeItemComponent = this.getAttribute("tree-item-component") || "furo-tree-item";
     this._treeItemTepmplate = html([['<', this.treeItemComponent, ' ƒ-bind-data="--itemInjected(*.item)" ƒ-search="--trigger"></', this.treeItemComponent, '>'].join('')]);
 
-
-    // keyboard navigation on top node only
-    this.addEventListener("keydown", (event) => {
-      let key = event.key || event.keyCode;
-
-      switch (key) {
-
-        case"Backspace":
-          this._removeLastSymbofFromSearch();
-          break;
-      }
-
-    });
-
-
-    // keyboard navigation on top node only
-    this.addEventListener("keypress", (event) => {
-      let key = event.key || event.keyCode;
-
-      if (key === "Enter") {
-        return
-      }
-      if (!event.ctrlKey) {
-        event.preventDefault();
-        if (!this.searchDisabled) {
-          this._addSymbolToSearch(key);
-        }
-
-      } else {
-        switch (key) {
-            // expand recursive with ctrl-e
-          case "e":
-            event.preventDefault();
-            this._focusedField.expandRecursive();
-            break
-        }
-      }
-
-
-    })
   }
 
   /**
@@ -127,22 +87,9 @@ class FuroTree extends FBP(LitElement) {
     this._focusedField.collapseRecursive();
   }
 
-
-  _removeLastSymbofFromSearch() {
-    this._searchTerm = this._searchTerm.substr(0, this._searchTerm.length - 1);
-    if (this._searchTerm.length === 0) {
-      this._resetSearch();
-    } else {
-      this.searchOpenTree(this._searchTerm);
-    }
-
-  }
-
-  _addSymbolToSearch(key) {
-    this._searchTerm += key;
-    this.searchOpenTree(this._searchTerm);
-  }
-
+  /**
+   * selects the focused element.
+   */
   selectFocused() {
     this._focusedField.selectItem();
   }
@@ -600,18 +547,7 @@ class FuroTree extends FBP(LitElement) {
       }
 
 
-      .srch {
-        display: none;
-        position: absolute;
-        left: var(--spacing-xs, 8px);
-        bottom: var(--spacing-xs, 8px);
-        width: inherit;
-        border: 1px solid var(--primary, #57a9ff);
-        padding: 2px;
-        font-size: 11px;
-        z-index: 2;
-        animation: border-pulsate 2s;
-      }
+      
 
       @keyframes border-pulsate {
         0% {
@@ -624,11 +560,7 @@ class FuroTree extends FBP(LitElement) {
           border-color: var(--primary, #57a9ff);
         }
       }
-
-      :host([searching]:focus-within) .srch {
-        display: block;
-      }
-
+      
       .title {
         font-size: 20px;
         height: 40px;
@@ -665,8 +597,7 @@ class FuroTree extends FBP(LitElement) {
    */
   render() {
     // language=HTML
-    return html`
-    <div class="srch">⌖ ${this._searchTerm}</div>   
+    return html`      
      <furo-vertical-flex>
       <div class="tablewrapper" flex>
       <table>

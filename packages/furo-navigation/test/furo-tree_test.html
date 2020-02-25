@@ -102,15 +102,30 @@
 
     it('should be traversable with the keyboard', (done) => {
 
-      tree.addEventListener('node-closed', (f)=>{
+      tree.addEventListener('node-selected', (f)=>{
+
+        assert.equal(f.detail.id._value, "1")
         done();
       });
-      tree.selectById('1');
-      keydown(tree, 'ArrowDown');
-      keydown(tree, 'ArrowDown');
-      keydown(tree, 'ArrowUp');
-      keydown(tree, 'ArrowUp');
-      keydown(tree, 'Enter');
+
+      tree.triggerNavigation('ArrowRight');
+      assert.equal(tree._focusedField.id._value, "2")
+      tree.triggerNavigation('ArrowRight');
+      assert.equal(tree._focusedField.id._value, "3")
+      tree.triggerNavigation('ArrowDown');
+      assert.equal(tree._focusedField.id._value, "4")
+      tree.triggerNavigation('ArrowDown');
+      assert.equal(tree._focusedField.id._value, "4w")
+      tree.triggerNavigation('ArrowUp');
+      assert.equal(tree._focusedField.id._value, "4")
+      tree.triggerNavigation('ArrowUp');
+      assert.equal(tree._focusedField.id._value, "3")
+      tree.triggerNavigation('End');
+      tree.triggerNavigation('Home');
+      // no effect
+      tree.triggerNavigation('Space');
+      tree.triggerNavigation('Enter')
+
     });
 
   });
