@@ -16,251 +16,249 @@ import {NodeEvent} from "@furo/data/lib/EventTreeNode.js"
  */
 class FuroPanelCoordinatorTabs extends FBP(LitElement) {
 
-    constructor() {
-        super();
-        this.tabindex = 0;
 
-        this._hoverIndex = 0;
+  constructor() {
+    super();
+    this.tabindex = 0;
 
-        // keyboard navigation
-        this.addEventListener("keydown", (event) => {
-            let key = event.key || event.keyCode;
-
-            switch (key) {
-                case "Enter":
-                    event.preventDefault();
-
-                    // open the hovered field
-                    this._tabs[this._hoverIndex].selectItem();
-
-                    break;
+    this._focusIndex = 0;
 
 
-                case "ArrowLeft":
-                    event.preventDefault();
-                    if (this._hoverIndex === 0) {
-                        // hover last item
-                        this._hoverIndex = this._tabs.length - 1;
-                    } else {
-                        this._hoverIndex--;
-                    }
-                    this._tabs[this._hoverIndex].selectItem();
+    // hover selected
+    this.addEventListener("focus", (e) => {
+      // find selected tab and set hover index
+      this._focusIndex = 0;
+      this._tabs.forEach((e, i) => {
+        if (e._isSelected) {
+          this._focusIndex = i;
+        }
+      });
+      this._tabs[0].__parentNode.broadcastEvent(new NodeEvent('tab-unhover-requested', this));
+      this._tabs[this._focusIndex].dispatchNodeEvent(new NodeEvent('this-tab-hover-requested', this, false));
 
-                    break;
-                case "ArrowRight":
-                    event.preventDefault();
-                    if (this._hoverIndex === this._tabs.length - 1) {
-                        // hover first item
-                        this._hoverIndex = 0;
-                    } else {
-                        this._hoverIndex++;
-                    }
-
-                    this._tabs[this._hoverIndex].selectItem();
-
-                    break;
-                case"Escape":
-                    event.stopPropagation();
-                    event.preventDefault();
-                    this._escape(event);
-
-                    break;
-
-            }
-
-        });
-
-        // keyboard navigation
-        this.addEventListener("keyup", (event) => {
-            let key = event.key || event.keyCode;
-            switch (key) {
-                case"Escape":
-                    //safari :-((
-                    event.stopPropagation();
-                    event.preventDefault();
-                    break;
-            }});
-        // keyboard navigation
-        this.addEventListener("keypress", (event) => {
-            let key = event.key || event.keyCode;
-            switch (key) {
-                case"Escape":
-                    //safari :-((
-                    event.stopPropagation();
-                    event.preventDefault();
-                    break;
+    });
 
 
+  }
 
-                // close tab
-                case "c":
-                    this._hoverIndex = 0;
-                    this._tabs.forEach((e, i) => {
-                        if (e._isSelected) {
-                            this._hoverIndex = i;
-                        }
-                    });
-                    this._tabs[this._hoverIndex]._isSelected = false;
-                    this._tabs[this._hoverIndex].dispatchNodeEvent(new NodeEvent('close-requested', this, false));
+  /**
+   * connect your navigation pad
+   * @param key
+   */
+  triggerNavigation(key) {
+    switch (key) {
+      case "Enter":
+        // open the hovered field
+        this._tabs[this._focusIndex].selectItem();
 
-                    if (this._tabs.length === 0) {
-                        this._escape(event);
-                        this.setAttribute("hidden", "");
-                    }
+        break;
 
 
-                    break;
+      case "ArrowLeft":
 
-                case "m":
-                    this._hoverIndex = 0;
-                    this._tabs.forEach((e, i) => {
-                        if (e._isSelected) {
-                            this._hoverIndex = i;
-                        }
-                    });
-                    this._tabs[this._hoverIndex].dispatchNodeEvent(new NodeEvent('modified', this, false));
+        if (this._focusIndex === 0) {
+          // hover last item
+          this._focusIndex = this._tabs.length - 1;
+        } else {
+          this._focusIndex--;
+        }
+        this._tabs[this._focusIndex].triggerFocus();
 
-                    break;
+        break;
 
-                    case "e":
-                    this._hoverIndex = 0;
-                    this._tabs.forEach((e, i) => {
-                        if (e._isSelected) {
-                            this._hoverIndex = i;
-                        }
-                    });
-                    this._tabs[this._hoverIndex].dispatchNodeEvent(new NodeEvent('has-error', this, false));
+      case "End":
+        // hover last item
+        this._focusIndex = this._tabs.length - 1;
+        this._tabs[this._focusIndex].triggerFocus();
 
-                    break;
-
-                    case "r":
-                    this._hoverIndex = 0;
-                    this._tabs.forEach((e, i) => {
-                        if (e._isSelected) {
-                            this._hoverIndex = i;
-                        }
-                    });
-                    this._tabs[this._hoverIndex].dispatchNodeEvent(new NodeEvent('bereinigt', this, false));
-
-                    break;
-            }
-
-        });
+        break;
 
 
-        // hover selected
-        this.addEventListener("focus", (e) => {
-            // find selected tab and set hover index
-            this._hoverIndex = 0;
-            this._tabs.forEach((e, i) => {
-                if (e._isSelected) {
-                    this._hoverIndex = i;
-                }
-            });
-            this._tabs[0].__parentNode.broadcastEvent(new NodeEvent('tab-unhover-requested', this));
-            this._tabs[this._hoverIndex].dispatchNodeEvent(new NodeEvent('this-tab-hover-requested', this, false));
+      case "Home":
+        // hover last item
+        this._focusIndex = 0;
+        this._tabs[this._focusIndex].triggerFocus();
 
-        });
+        break;
 
 
+      case "ArrowRight":
+        if (this._focusIndex === this._tabs.length - 1) {
+          // hover first item
+          this._focusIndex = 0;
+        } else {
+          this._focusIndex++;
+        }
+
+        this._tabs[this._focusIndex].triggerFocus();
+
+        break;
+
+
+        // close the focused tab
+      case "Escape":
+        this._focusIndex = 0;
+
+        this._tabs[this._focusIndex]._isSelected = false;
+        this._tabs[this._focusIndex].dispatchNodeEvent(new NodeEvent('close-requested', this, false));
+
+        if (this._tabs.length === 0) {
+          this.setAttribute("hidden", "");
+        }
+
+        break;
     }
-
-    _escape(event) {
-        /**
-         * @event escape
-         * Fired when Escape was pressed
-         * detail payload: keyEvent
-         */
-        let customEvent = new Event('escape', {composed: true, bubbles: true});
-        customEvent.detail = event;
-        this.dispatchEvent(customEvent);
-    }
-
-    injectTabs(nodeArray) {
-        this._tabs = nodeArray;
-        this._FBPTriggerWire("--itemsInjected", nodeArray);
-        this.removeAttribute("hidden");
-    }
-
-    /**
-     * flow is ready lifecycle method
-     */
-    _FBPReady(){
-        super._FBPReady();
-        //this._FBPTraceWires();
-    }
-
-    /**
-     * focuses the element
-     */
-    focus() {
-        super.focus();
-
-    }
-
-    /**
-     * @private
-     * @return {Object}
-     */
-    static get properties() {
-        return {
-            /**
-             * Sets the tabindex
-             */
-            tabindex: {type: Number, reflect: true},
-            /**
-             * indicator for searching. Maybe you want style your item depending on this attribute
-             */
-            _searchIsActive: {type: Boolean, attribute: "searching", reflect: true}
-        };
-    }
+  }
 
 
-    /**
-     * Themable Styles
-     * @private
-     * @return {CSSResult}
-     */
-    static get styles() {
-        // language=CSS
-        return Theme.getThemeForComponent('FuroPanelCoordinatorTabs') || css`
-            :host {
-                display: block;
-                outline: none;
-                position: relative;
-                padding-left: var(--spacing-s, 24px);
-            }
+  injectTabs(nodeArray) {
+    this._tabs = nodeArray;
+    this._FBPTriggerWire("--itemsInjected", nodeArray);
+    this.removeAttribute("hidden");
+  }
 
-            :host(:focus-within) furo-panel-coordinator-tab-item[selected] {
-                border-bottom: 2px solid var(--primary, #686868);
-                color:  var(--primary, #686868);
-            }
-            
-            :host(:focus-within) furo-panel-coordinator-tab-item[selected][haserror] {
-                border-bottom: 2px solid var(--error, red);
-            }
-            furo-panel-coordinator-tab-item{
-                margin: 0;
-            }
-            :host([hidden]) {
-                display: none;
-            }
+  /**
+   * flow is ready lifecycle method
+   */
+  _FBPReady() {
+    super._FBPReady();
+    //this._FBPTraceWires();
+    // update the focused state
+    this.addEventListener("focusin", () => this.focused = true)
+    this.addEventListener("focusout", () => this.focused = false)
+  }
 
-        `
-    }
+  /**
+   * focuses the element
+   */
+  focus() {
+    super.focus();
+
+  }
+
+  /**
+   * @private
+   * @return {Object}
+   */
+  static get properties() {
+    return {
+      /**
+       * Sets the tabindex
+       */
+      tabindex: {type: Number, reflect: true},
+      /**
+       * indicates that the element is focused
+       */
+      focused: {type: Boolean, reflect: true},
+      /**
+       * indicator for searching. Maybe you want style your item depending on this attribute
+       */
+      _searchIsActive: {type: Boolean, attribute: "searching", reflect: true}
+    };
+  }
 
 
-    /**
-     * @private
-     * @returns {TemplateResult}
-     */
-    render() {
-        // language=HTML
-        return html`
-            <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id._value"><furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item></template>
+  /**
+   * Themable Styles
+   * @private
+   * @return {CSSResult}
+   */
+  static get styles() {
+    // language=CSS
+    return Theme.getThemeForComponent('FuroPanelCoordinatorTabs') || css`
+      :host {
+        display: block;
+        outline: none;
+        position: relative;
+        padding-left: var(--spacing-s, 24px);
+      }
 
-        `;
-    }
+      furo-panel-coordinator-tab-item[selected] {
+        border-bottom: 2px solid var(--primary, #686868);
+        color: var(--primary, #686868);
+      }
+
+      :host([focused]) furo-panel-coordinator-tab-item[selected][haserror] {
+        border-bottom: 2px solid var(--error, red);
+      }
+
+
+      /* mouse hover */
+      furo-panel-coordinator-tab-item:hover {
+        background-color: rgba(var(--primary-rgb), var(--state-hover));
+        border-bottom: 2px solid transparent;
+        color: var(--primary, #686868);
+      }
+      furo-panel-coordinator-tab-item[selected]:hover {
+        border-bottom: 2px solid var(--primary, #686868);
+        
+      }
+
+      /* focus, :host(:focus) furo-panel-coordinator-tab-item[focused]  is for mouse navigation */
+      :host([focused]) furo-panel-coordinator-tab-item[focused] {
+        background-color: rgba(var(--primary-rgb), var(--state-focus));
+        border-bottom: 2px solid transparent;
+        color: var(--primary, #686868);
+      }
+
+
+      /* selected */
+      :host([focused]) furo-panel-coordinator-tab-item[selected] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected));
+        border-bottom: 2px solid var(--primary, #686868);
+        color: var(--primary, #686868);
+
+      }
+
+      /* selected focus  */
+      :host([focused]) furo-panel-coordinator-tab-item[selected][focused] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
+        border-bottom: 2px solid var(--primary, #686868);
+
+      }
+
+
+      /* selected focus hovered  */
+      :host([focused]) furo-panel-coordinator-tab-item[selected][focused]:hover {
+        background-color: rgba(var(--primary-rgb), var(--state-selected-focused-hover));
+        border-bottom: 2px solid var(--primary, #686868);
+
+      }
+
+
+      /* selected focus */
+      :host([focused]) furo-panel-coordinator-tab-item[selected][focused] {
+        background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
+        border-bottom: 2px solid var(--primary, #686868);
+        color: var(--primary);
+      }
+
+
+      furo-panel-coordinator-tab-item {
+        margin: 0;
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+
+    `
+  }
+
+
+  /**
+   * @private
+   * @returns {TemplateResult}
+   */
+  render() {
+    // language=HTML
+    return html`
+      <template is="flow-repeat" ƒ-inject-items="--itemsInjected" identity-path="id._value">
+        <furo-panel-coordinator-tab-item ƒ-bind-data="--init"></furo-panel-coordinator-tab-item>
+      </template>
+
+    `;
+  }
 }
 
 window.customElements.define('furo-panel-coordinator-tabs', FuroPanelCoordinatorTabs);

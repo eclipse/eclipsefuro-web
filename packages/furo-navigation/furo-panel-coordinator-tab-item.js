@@ -71,16 +71,30 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
        */
       selected: {type: Boolean, reflect: true},
       haserror: {type: Boolean, reflect: true},
-      inedit: {type: Boolean, reflect: true}
+      inedit: {type: Boolean, reflect: true},
+      focused: {type: Boolean, reflect: true}
     };
   }
 
   /**
    * flow is ready lifecycle method
    */
-  _FBPReady(){
+  _FBPReady() {
     super._FBPReady();
     //this._FBPTraceWires();
+
+
+    this.field.addEventListener("tree-node-blur-requested", (e) => {
+      this.focused = false;
+    });
+
+    this.field.addEventListener("this-node-focused", (e) => {
+      this.focused = true;
+      //this.scrollIntoViewIfNeeded();
+      if (this.scrollIntoViewIfNeeded) {
+        this.scrollIntoViewIfNeeded();
+      }
+    });
   }
 
   /**
@@ -92,59 +106,54 @@ class FuroPanelCoordinatorTabItem extends FBP(LitElement) {
   get styles() {
     // language=CSS
     return Theme.getThemeForComponent('FuroPanelCoordinatorTabItem') || css`
-        :host {
-            display: inline-block;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 38px;
+      
 
-            border-bottom: 2px solid var(--surface, #FAFAFA);
-            transition: all 0.5s;
-            cursor: pointer;
-            position: relative;
-            min-width: 136px;
-
-            font-family: "Roboto", "Noto", sans-serif;
-
-            color: var(--on-surface);
-            
-            text-transform: uppercase;
-
-        }
+      :host {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 38px;
+        border-bottom: 2px solid var(--surface, #FAFAFA);
+        transition: all 0.5s;
+        cursor: pointer;
+        position: relative;
+        min-width: 136px;
+        font-family: "Roboto", "Noto", sans-serif;
+        color: var(--on-surface);
+        text-transform: uppercase;
+      }
 
 
-        :host([inedit]) {
-            font-style: italic;
-        }
+      :host([inedit]) {
+        font-style: italic;
+      }
 
-        :host([haserror]) {
-            color: var(--error, red);
-        }
+      :host([haserror]) {
+        color: var(--error, red);
+      }
 
-        :host([hidden]) {
-            display: none;
-        }
+      :host([hidden]) {
+        display: none;
+      }
 
-        :host([selected]) {
-            border-bottom: 2px solid var(--separator, #686868);
-        }
 
-       
-        .label{
-            padding: 0 var(--furo-button-padding, var(--spacing-s, 16px));;
-            text-align: center;
-        }
-        .close{
-            color:var(--separator)
-        }  
-        
-        .close:hover{
-            color:var(--primary)
-        }
-        furo-icon{
-            margin-bottom: 2px;
-            margin-right: var(--spacing-s);
-        }
+      .label {
+        padding: 0 var(--furo-button-padding, var(--spacing-s, 16px));;
+        text-align: center;
+      }
+
+      .close {
+        color: var(--separator)
+      }
+
+      .close:hover {
+        color: var(--primary)
+      }
+
+      furo-icon {
+        margin-bottom: 2px;
+        margin-right: var(--spacing-s);
+      }
     `
   }
 

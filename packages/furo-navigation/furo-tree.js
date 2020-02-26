@@ -431,8 +431,10 @@ class FuroTree extends FBP(LitElement) {
        * Works only with `root-as-header` enabled
        */
       nobgonhead: {type: Boolean, attribute: "no-bg-on-header"},
-
-      searchDisabled: {type: Boolean, attribute: "disable-inline-search"},
+      /**
+       * indicates that the element is focused
+       */
+      focused: {type: Boolean, reflect: true},
     };
   }
 
@@ -457,6 +459,10 @@ class FuroTree extends FBP(LitElement) {
     this._FBPAddWireHook("--headClicked", (e) => {
       this._flatTree[0].selectItem();
     });
+
+    // update the focused state
+    this.addEventListener("focusin", () => this.focused = true)
+    this.addEventListener("focusout", () => this.focused = false)
   }
 
   /**
@@ -503,26 +509,26 @@ class FuroTree extends FBP(LitElement) {
       }
 
       /* focus, :host(:focus) td > *[focused]  is for mouse navigation */
-      td > *:hover, :host(:not(:focus-within)) td > *[focused] {
+      td > *:hover, :host([focused]) td > *[focused] {
         background-color: rgba(var(--primary-rgb), var(--state-hover));
         color: var(--primary);
       }
 
       /* focus, :host(:focus) td > *[focused]  is for mouse navigation */
-      :host(:focus-within) td > *[focused] {
+      :host([focused]) td > *[focused] {
         background-color: rgba(var(--primary-rgb), var(--state-focus));
         color: var(--primary);
       }
 
 
       /* selected */
-      td > *[selected], :host(:not(:focus-within)) td > *[selected] {
+      td > *[selected], :host(:not([focused])) td > *[selected] {
         background-color: rgba(var(--primary-rgb), var(--state-selected));
         color: var(--primary);
       }
 
       /* selected focus  */
-      :host(:focus-within) td > *[selected] {
+      :host([focused]) td > *[selected] {
         background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
         color: var(--primary);
       }
@@ -536,7 +542,7 @@ class FuroTree extends FBP(LitElement) {
 
 
       /* selected focus */
-      :host(:focus-within) td > *[selected][focused] {
+      :host([focused]) td > *[selected][focused] {
         background-color: rgba(var(--primary-rgb), var(--state-selected-focus));
         color: var(--primary);
       }
