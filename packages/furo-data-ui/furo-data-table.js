@@ -5,6 +5,7 @@ import {Theme} from "@furo/framework/theme"
 
 import '@furo/fbp/flow-repeat.js';
 import '@furo/data-ui/furo-data-table-toggle';
+import '@furo/input/furo-checkbox.js';
 
 const tableHeaders = (fields) => html`${fields.map(f => html`<th class="header-cell" numeric="${f.ui.flags.includes('align-right')}" role="columnheader" scope="col">${f.meta.label}<furo-data-table-toggle sortable="${f.sortable}" field="${f.id}"></furo-data-table-toggle></th>`)}`;
 const tdWRepeat = (fields) => html`
@@ -86,32 +87,45 @@ class FuroDataTable extends FBP(LitElement) {
         this._checkedRows = [];
         this._collection = [];
 
+
+        this._FBPAddWireHook('--bulkChecked', (e) => {
+            // bulk update, check all rows
+            let rows = this.shadowRoot.querySelectorAll('tbody tr');
+            rows.forEach((elem) => {
+                elem.querySelector('furo-checkbox').check();
+                this._checkedRows = this._collection.rawEntity.entities;
+            });
+            this.dispatchEvent(new CustomEvent('checkstate-changed', {
+                detail: this._checkedRows, bubbles: true, composed: true
+            }));
+        });
+
+        this._FBPAddWireHook('--bulkUnchecked', (e) => {
+            // bulk update, uncheck all rows
+            let rows = this.shadowRoot.querySelectorAll('tbody tr');
+            rows.forEach((elem) => {
+                elem.querySelector('furo-checkbox').uncheck();
+                this._checkedRows = [];
+            });
+            this.dispatchEvent(new CustomEvent('checkstate-changed', {
+                detail: this._checkedRows, bubbles: true, composed: true
+            }));
+        });
+
         this._FBPAddWireHook("--rowCheckChanged", (r) => {
-            if (r.target.type === 'checkbox') {
+            if (r.type === 'input') {
                 if (r.target.checked) {
-                    if (r.target.parentElement.parentElement.nodeName === 'TH') {
-                        // bulk update, check all rows
-                        let rows = this.shadowRoot.querySelectorAll('tbody tr');
-                        rows.forEach((elem) => {
-                            elem.querySelector('input').checked = true;
-                            this._checkedRows = this._collection.rawEntity.entities;
-                        });
-                    } else {
-                        this._checkedRows.push(this._collection.rawEntity.entities[this._selectedIndex]);
-                    }
+                    this._checkedRows.push(this._collection.rawEntity.entities[this._selectedIndex]);
                 } else {
-                    if (r.target.parentElement.parentElement.nodeName === 'TH') {
-                        // bulk update, uncheck all rows
-                        let rows = this.shadowRoot.querySelectorAll('tbody tr');
-                        rows.forEach((elem) => {
-                            elem.querySelector('input').checked = false;
-                            this._checkedRows = [];
-                        });
-                    } else {
-                        this._checkedRows.pop(this._collection.rawEntity.entities[this._selectedIndex]);
-                    }
+                    //this._checkedRows = this._checkedRows.slice(this._selectedIndex, 1);
+                    this._checkedRows = this._checkedRows.filter((value, index, arr) => {
+
+                        return value.data.id !== this._collection.rawEntity.entities[this._selectedIndex].data.id;
+
+                    });
                 }
             }
+
             this.dispatchEvent(new CustomEvent('checkstate-changed', {
                 detail: this._checkedRows, bubbles: true, composed: true
             }));
@@ -255,7 +269,7 @@ class FuroDataTable extends FBP(LitElement) {
             .cell-checkbox {
                 padding-left: var(--spacing-x, 12px);
             }
-            
+
             .table-row {
                 border-top-width: 1px;
                 border-top-style: solid;
@@ -306,13 +320,7 @@ class FuroDataTable extends FBP(LitElement) {
                 background-color: rgba(var(--primary-rgb), var(--state-selected-hover));
             }
 
-            input[type=checkbox] {
-                top: 0px;
-                right: 0px;
-                left: 0px;
-                width: 40px;
-                height: 40px;
-            }
+
             :host([single-selection]) .col-checkbox {
                 display: none;
             }
@@ -481,24 +489,26 @@ class FuroDataTable extends FBP(LitElement) {
         //language=HTML
         return html`
         <div class="data-table">
-            <table @-input="--rowCheckChanged(*)">
+            <table>
                 <thead>
                 <tr class="header-row">
                     <th class="header-cell col-checkbox" role="columnheader" scope="col">
                         <div class="cell-checkbox">
-                            <input type="checkbox" tabindex="-1">
+<!--                            <input type="checkbox" tabindex="-1">-->
+                            <furo-checkbox tabindex="-1" @-checked="--bulkChecked" @-unchecked="--bulkUnchecked"></furo-checkbox>
                         </div>
                     </th>
                     ${tableHeaders(this.cols)}
                 </tr>
 
                 </thead>
-                <tbody class="">
+                <tbody @-input="--rowCheckChanged(*)">
                 <template is="flow-repeat" ƒ-inject-items="--collectionData" internal-wire="--internal">
                         <tr class="table-row" aria-selected="false">
                             <td class="table-cell cell--checkbox col-checkbox">
                                 <div class="cell-checkbox">
-                                    <input type="checkbox" tabindex="-1">
+<!--                                    <input type="checkbox" tabindex="-1">-->
+                                    <furo-checkbox tabindex="-1"></furo-checkbox>
                                 </div>
                             </td>
                             ${tdWRepeat(this.cols)}                     
@@ -620,10 +630,9 @@ class FuroDataTable extends FBP(LitElement) {
                     detail: this._collection.rawEntity.entities[this._selectedIndex], bubbles: true, composed: true
                 }));
             }
-        } else if (e.target.nodeName === 'INPUT' && e.target.parentNode.parentElement.parentElement.rowIndex >= 0) {
+        } else if (e.target.nodeName === 'FURO-CHECKBOX' && e.target.parentNode.parentElement.parentElement.rowIndex >= 0) {
             this._selectedIndex = e.target.parentNode.parentElement.parentElement.rowIndex - 1;
         }
-
     }
 
     /**
@@ -642,7 +651,7 @@ class FuroDataTable extends FBP(LitElement) {
                 allTr[len].setAttribute('focused', false);
             }
             allTr[idx].setAttribute('focused', true);
-            allTr[idx].querySelector('input').focus();
+            allTr[idx].querySelector('furo-checkbox').focus();
             this._selectedIndex = idx;
         }
     }

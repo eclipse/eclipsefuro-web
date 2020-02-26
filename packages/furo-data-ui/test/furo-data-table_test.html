@@ -226,8 +226,8 @@
             dataTable.addEventListener('data-loaded', () => {
                 dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
-                    let cb = dataTable.shadowRoot.querySelector('th').querySelector('input');
-                    cb.click();
+                    let cb = dataTable.shadowRoot.querySelector('th').querySelector('furo-checkbox');
+                    cb.check();
                 });
             });
             dataTable.addEventListener('checkstate-changed', (r) =>{
@@ -242,14 +242,14 @@
             dataTable.addEventListener('data-loaded', () => {
                 dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
-                    let cb = dataTable.shadowRoot.querySelector('th').querySelector('input');
-                    cb.click();
+                    let cb = dataTable.shadowRoot.querySelector('th').querySelector('furo-checkbox');
+                    cb.check();
 
                     dataTable.addEventListener('checkstate-changed', (r) =>{
                         assert.equal(r.detail.length, 0);
                         done();
                     });
-                    cb.click();
+                    cb.uncheck();
                 });
             });
 
@@ -291,8 +291,12 @@
             dataTable.addEventListener('data-loaded', () => {
                 dataTable._collection.addEventListener('data-injected', () => {
                     dataTable.focus();
-                    let cb1 = dataTable.shadowRoot.querySelector('tbody').querySelector('tr').querySelector('td').querySelector('input');
-                    cb1.click();
+
+                    setTimeout(()=>{
+                        let cb = dataTable.shadowRoot.querySelector('tbody').querySelector('tr').querySelector('td').querySelector('furo-checkbox');
+                        cb.shadowRoot.querySelector('input').click();
+                    },10)
+
                 });
 
             });
